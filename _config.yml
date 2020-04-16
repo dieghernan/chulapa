@@ -1,7 +1,2 @@
 # theme: jekyll-theme-cayman
 # remote_theme: benbalter/retlab
-
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
