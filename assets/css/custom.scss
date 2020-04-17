@@ -9,6 +9,9 @@ img {
 }
 table {
   @extend .table
+  @extend .table-sm
+  @extend .table-bordered
+  @extend .table-striped
 }
 blockquote {
   @extend .blockquote
