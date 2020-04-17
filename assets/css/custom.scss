@@ -3,7 +3,7 @@
 @import "rouge-highlight";
 @import "bootstrap/bootstrap";
 
-/* Override some defaults - Needed on Jekyll   */
+/* Use defaults from bootstrap   */
 img {
   @extend .img-fluid
 }
@@ -14,8 +14,8 @@ table {
   @extend .table-striped;
 }
 blockquote {
-  @extend .blockquote;
+  @extend .bg-light;
   @extend .border-left;
-  @extend .border-light;
-  @extend .small;
+  @extend .pl-2;
+  @extend .font-italic;
 }
