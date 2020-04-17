@@ -5,7 +5,7 @@
 
 /* Override some defaults - Needed on Jekyll   */
 img {
-@extend .img-fluid
+  @extend .img-fluid
 }
 table {
   @extend .table
