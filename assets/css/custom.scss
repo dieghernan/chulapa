@@ -14,5 +14,5 @@ table {
   @extend .table-striped;
 }
 blockquote {
-  @extend .blockquote
+  @extend .blockquote .border-left .border-light;
 }
