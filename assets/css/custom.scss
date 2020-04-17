@@ -15,7 +15,7 @@ table {
 }
 blockquote {
   @extend .bg-light;
-  @extend .border-left;
   @extend .pl-2;
   @extend .font-italic;
+  border-left: 2px solid #dee2e6 !important;
 }
