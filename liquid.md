@@ -9,6 +9,5 @@ other: other thing
 
 # A
 {% for item in site.github %}
--  {{ item }}
+-  {{ item }} - {{ item | inspect }}
 {% endfor %}
-
