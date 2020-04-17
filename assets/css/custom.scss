@@ -1,9 +1,13 @@
 ---
 ---
 @import "rouge-highlight";
+@import "bootstraptest"
 
 /* Override some defaults - Needed on Jekyll   */
 img {
   max-width: 100%;
   height: auto;
+}
+table{
+  @extend .table
 }
