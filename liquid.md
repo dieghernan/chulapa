@@ -8,7 +8,7 @@ other: other thing
 {{ page }}
 
 # A
-
-{{ site.github }}
-
+{% for item in site.github %}
+-  {{ item }}
+{% endfor %}
 
