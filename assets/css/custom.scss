@@ -1,13 +1,15 @@
 ---
 ---
 @import "rouge-highlight";
-@import "bootstraptest";
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
 
 /* Override some defaults - Needed on Jekyll   */
 img {
-  max-width: 100%;
-  height: auto;
+@extend .img-fluid
 }
-table{
+table {
   @extend .table
+}
+blockquote {
+  @extend .blockquote
 }
