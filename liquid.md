@@ -4,14 +4,11 @@ title: some title
 other: other thing 
 ---
 
-
+# One
 {{ page }}
 
 # A
 
-{{ site.github | inspect }}
+{{ site.github }}
 
 
-# B
-
-{{ site | inspect }}
