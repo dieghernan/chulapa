@@ -16,3 +16,6 @@ other: other thing
 {% for item in site %}
 -  {{ item }} - {{ item | inspect }}
 {% endfor %}
+
+
+{{ site }}
