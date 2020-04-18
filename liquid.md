@@ -11,3 +11,8 @@ other: other thing
 {% for item in site.github %}
 -  {{ item }} - {{ item | inspect }}
 {% endfor %}
+
+# C
+{% for item in site %}
+-  {{ item }} - {{ item | inspect }}
+{% endfor %}
