@@ -1,9 +1,9 @@
 ---
 ---
 @import "rouge-highlight";
-/*@import "bootstrap/bootstrap";*/
-@import url("https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css");
-/* Use defaults from bootstrap   
+@import "bootstrap/bootstrap";
+
+/* Use defaults from bootstrap */
 img {
   @extend .img-fluid
 }
@@ -18,4 +18,4 @@ blockquote {
   @extend .pl-2;
   @extend .font-italic;
   border-left: 10px solid #dee2e6;
-}*/
+}
