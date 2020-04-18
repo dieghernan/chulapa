@@ -14,7 +14,7 @@ other: other thing
 
 # C
 {% for item in site %}
--  {{ item }} - {{ item[1] }}
+-  {{ item }} - {{ item[0] }}
 {% endfor %}
 
 # D
