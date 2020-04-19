@@ -1,2 +1,6 @@
 # theme: jekyll-theme-cayman
 # remote_theme: benbalter/retlab
+
+
+plugins:
+  - jekyll-github-metadata
