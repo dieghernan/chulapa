@@ -1,6 +1,7 @@
 # theme: jekyll-theme-cayman
 # remote_theme: benbalter/retlab
 
+baseurl: /example
 
 plugins:
   - jekyll-github-metadata
@@ -16,3 +17,6 @@ exclude:
   - README.md
   - assets/fonts
   - Gemfile
+
+sass:
+    style: compressed
