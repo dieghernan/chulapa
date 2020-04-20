@@ -4,3 +4,5 @@
 
 plugins:
   - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-sitemap
