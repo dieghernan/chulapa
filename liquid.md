@@ -7,6 +7,11 @@ other: other thing
 # One
 {{ page }}
 
+{% assign image_files = site.static_files %}
+{% for myimage in image_files %}
+  {{ myimage.name }}
+{% endfor %}
+
 # A
 {% for item in site.github %}
 -  {{ item }} - {{ item | inspect }}
