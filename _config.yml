@@ -6,3 +6,11 @@ plugins:
   - jekyll-github-metadata
   - jekyll-paginate
   - jekyll-sitemap
+
+kramdown:
+  input: GFM
+
+# Exclude these files from production site
+exclude:
+  - LICENSE
+  - README.md
