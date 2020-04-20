@@ -1,7 +1,7 @@
 # theme: jekyll-theme-cayman
 # remote_theme: benbalter/retlab
 
-baseurl: /example
+baseurl: /jt
 
 plugins:
   - jekyll-github-metadata
