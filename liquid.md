@@ -4,6 +4,8 @@ title: some title
 other: other thing 
 ---
 
+{{ site.static_files }}
+
 # One
 {{ page }}
 
