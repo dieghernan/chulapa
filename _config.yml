@@ -15,7 +15,6 @@ kramdown:
 exclude:
   - LICENSE
   - README.md
-  - assets/fonts
   - Gemfile
 
 sass:
