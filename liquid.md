@@ -4,7 +4,10 @@ title: some title
 other: other thing 
 ---
 
-{{ site.static_files }}
+{% for item in site.static_files %}
+-  {{ item }} - {{ item.path }}
+{% endfor %}
+
 
 # One
 {{ page }}
