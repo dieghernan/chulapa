@@ -1,7 +1,7 @@
 $blue: #32CD32;
-$yiq-text-dark:  mix(black, $blue,80%);
-$yiq-text-light: mix(white, $blue,95%);
 
+$navbar-dark-color:mix(black, $blue,80%);
+$navbar-light-color: mix(white, $blue,95%);
 
 // Required
 @import "bootstrap-4.3.1/scss/functions";
