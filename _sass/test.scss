@@ -27,6 +27,8 @@ $theme-colors:(
 );
 
 $jumbotron-bg:$light;
+$table-accent-bg: $light;
+
 $body-bg: $lighter;
 
 @import "bootstrap-4.3.1/scss/bootstrap";
