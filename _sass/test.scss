@@ -1,10 +1,14 @@
 $blue: #008080;
 
+
 // Required
 @import "bootstrap-4.3.1/scss/functions";
 @import "bootstrap-4.3.1/scss/variables";
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
+$theme-colors:(
+danger: mix($danger, $blue,80%)
+);
 
 @import "bootstrap-4.3.1/scss/bootstrap";
