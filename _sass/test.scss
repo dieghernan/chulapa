@@ -1,7 +1,12 @@
 $blue: #32CD32;
 
-$navbar-light-color:mix(black, $blue,80%);
-$navbar-dark-color: mix(white, $blue,80%);
+$dark: mix(black, $blue,80%); 
+$light: mix(white, $blue,75%);
+$lighter: mix(white, $blue,95%);
+
+$navbar-light-color:$dark;
+$navbar-dark-color: $light;
+$yiq-contrasted-threshold:  110;
 
 // Required
 @import "bootstrap-4.3.1/scss/functions";
@@ -9,9 +14,7 @@ $navbar-dark-color: mix(white, $blue,80%);
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
-$dark: mix(black, $blue,80%); 
-$light: mix(white, $blue,75%);
-$lighter: mix(white, $blue,95%);
+
 $theme-colors:(
   secondary: mix($secondary,$primary,80%),
   info: mix($info,$primary,75%),
