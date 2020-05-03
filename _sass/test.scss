@@ -11,7 +11,8 @@ $dark: mix(black, $primary,80%);
 $light: mix(white, $primary,75%);
 $lighter: mix(white, $primary,95%);
 
-$navbar-dark-color:  color-yiq($primary, $dark, $lighter) 
+$yiq-text-dark: $dark;
+$yiq-text-light: $lighter;
 
 $theme-colors:(
   secondary: mix($secondary,$primary,80%),
