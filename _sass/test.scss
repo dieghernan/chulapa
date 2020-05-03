@@ -1,0 +1,10 @@
+// Required
+@import "bootstrap-4.3.1/scss/functions";
+@import "bootstrap-4.3.1/scss/variables";
+@import "bootstrap-4.3.1/scss/mixins";
+
+$theme-colors: (
+  primary: #008080,
+);
+
+@import "bootstrap-4.3.1/scss/bootstrap";
