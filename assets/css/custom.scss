@@ -25,7 +25,7 @@ blockquote {
 /* Custom styles */
     @font-face {
       font-family: chulapa;
-      src: url(./assets/fonts/Chulapa/Chulapa-Bold.otf);
+      src: url(../fonts/Chulapa/Chulapa-Bold.otf);
     }
 
     .chulapa {
@@ -37,4 +37,5 @@ blockquote {
       -ms-font-feature-settings: "liga", "dlig";
       -o-font-feature-settings: "liga", "dlig";
       font-feature-settings: "liga", "dlig";
+      text-rendering: optimizeLegibility;
     }
