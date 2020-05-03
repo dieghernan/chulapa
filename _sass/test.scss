@@ -7,8 +7,11 @@ $blue: #32CD32;
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
+$dark: mix(black, $primary,80%); 
 $light: mix(white, $primary,75%);
 $lighter: mix(white, $primary,95%);
+
+$navbar-dark-color:  color-yiq($primary, $dark, $lighter) 
 
 $theme-colors:(
   secondary: mix($secondary,$primary,80%),
@@ -16,7 +19,7 @@ $theme-colors:(
   success: mix($success,$primary,75%),
   warning: mix($warning,$primary,75%),
   danger: mix($danger, $primary,75%),
-  dark: mix(black, $primary,80%),
+  dark: $dark,
   light: $light,
   lighter: $lighter,
 );
@@ -25,3 +28,8 @@ $jumbotron-bg:$light;
 $body-bg: $lighter;
 
 @import "bootstrap-4.3.1/scss/bootstrap";
+
+// Custom
+.text-test{
+  
+}
