@@ -1,3 +1,13 @@
 ---
 ---
 @import "test";
+
+/* Custom styles */
+    @font-face {
+      font-family: chulapa;
+      src: url(../fonts/Chulapa/Chulapa-Bold.otf);
+    }
+
+    .chulapa {
+      font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
