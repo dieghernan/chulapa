@@ -5,7 +5,7 @@ $light: mix(white, $blue,75%);
 $lighter: mix(white, $blue,95%);
 
 $navbar-light-color:$dark;
-$navbar-dark-color: $light;
+$navbar-dark-color: $lighter;
 $yiq-contrasted-threshold:  160;
 
 // Required
