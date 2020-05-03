@@ -21,3 +21,21 @@ blockquote {
   @extend .font-italic;
   border-left: 5px solid #dee2e6;
 }
+
+/* Custom styles */
+    @font-face {
+      font-family: chulapa;
+      src: url(./assets/fonts/Chulapa/Chulapa-Bold.otf);
+    }
+
+    .chulapa {
+      font-family: chulapa;
+      /* Enable Ligatures */
+      -webkit-font-feature-settings: "liga", "dlig";
+      -moz-font-feature-settings: "liga=1, dlig=1";
+      -moz-font-feature-settings: "liga", "dlig";
+      -ms-font-feature-settings: "liga", "dlig";
+      -o-font-feature-settings: "liga", "dlig";
+      font-feature-settings: "liga", "dlig";
+      text-rendering: optimizeLegibility;
+    }

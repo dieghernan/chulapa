@@ -1,28 +1,133 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Custom css including Bootstrap and Highlighter-->
-    <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
-
-</head>
-
-<body>
-    <main class="container">
-        <div class="row">
-            <div class="col-xl-8 offset-xl-2">
-                {{- content -}}
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Custom css including Bootstrap and Highlighter-->
+      <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
+      <!-- Fontawesome-->
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   </head>
+   <body>
+      <nav class="container-expand navbar navbar-expand-md sticky-top navbar-dark bg-primary">
+         <div id="ja-navwrapper" class="container-fluid mx-md-2">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Dropdown
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                     </div>
+                  </li>
+               </ul>
             </div>
-        </div>
-    </main>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-
+         </div>
+      </nav>
+      <header class="jumbotron bg-light">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-10 offset-xl-1 text-md-center">
+                  <h1>Hello, world!</h1>
+                  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+               </div>
+            </div>
+         </div>
+      </header>
+      <main class="container">
+         <div class="row">
+            <div class="col-xl-8 offset-xl-2">
+               {{- content -}}
+            </div>
+         </div>
+      </main>
+      <!-- Footer -->
+      <footer class="bg-primary text-white text-center">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-10 offset-xl-1">
+                  <ul class="nav justify-content-center">
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                     <li class="nav-item"><a href="/rss.xml" title="RSS" class="nav-link lead">
+                        <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span><span class="sr-only">RSS</span>
+                        </a>
+                     </li>
+                  </ul>
+                  <p>© 2020 YOUR NAME HERE</p>
+                  <p>Theme <a href="#" class="text-white chulapa">Chulapa</a> • Powered by <a href="https://getbootstrap.com/" class="text-white font-weight-bold">Bootstrap</a> v4.3.1
+                  <p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- Footer -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   </body>
 </html>
