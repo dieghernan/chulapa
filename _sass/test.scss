@@ -7,7 +7,7 @@ $blue: #32CD32;
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
-$lighter: mix(white, $primary,90%)
+$lighter: mix(white, $primary,90%);
 
 $theme-colors:(
   secondary: mix($secondary,$primary,80%),
