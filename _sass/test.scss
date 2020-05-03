@@ -8,10 +8,13 @@ $blue: orange;
 
 //Theming
 $theme-colors:(
-warning: mix($warning,$blue,70%),
-danger: mix($danger, $blue,70%),
-dark: mix(black, $blue,60%),
-light: mix(white, $blue,60%),
+secondary: mix($secondary,$primary,80%),
+info: mix($info,$primary,80%),
+success: mix($success,$primary,80%),
+warning: mix($warning,$primary,80%),
+danger: mix($danger, $primary,80%),
+dark: mix(black, $primary,80%),
+light: mix(white, $primary,80%),
 
 );
 
