@@ -7,6 +7,7 @@ $blue: #32CD32;
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
+$lighter: mix(white, $primary,90%)
 
 $theme-colors:(
   secondary: mix($secondary,$primary,80%),
@@ -16,7 +17,7 @@ $theme-colors:(
   danger: mix($danger, $primary,75%),
   dark: mix(black, $primary,80%),
   light: mix(white, $primary,80%),
-  lighter: mix(white, $primary,90%),
+  lighter: $lighter,
 );
 
 $jumbotron-bg: $light;
