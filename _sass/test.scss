@@ -7,15 +7,19 @@ $blue: #32CD32;
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
-$theme-colors:(
-secondary: mix($secondary,$primary,80%),
-info: mix($info,$primary,75%),
-success: mix($success,$primary,75%),
-warning: mix($warning,$primary,75%),
-danger: mix($danger, $primary,75%),
-dark: mix(black, $primary,80%),
-light: mix(white, $primary,80%),
 
+$theme-colors:(
+  secondary: mix($secondary,$primary,80%),
+  info: mix($info,$primary,75%),
+  success: mix($success,$primary,75%),
+  warning: mix($warning,$primary,75%),
+  danger: mix($danger, $primary,75%),
+  dark: mix(black, $primary,80%),
+  light: mix(white, $primary,80%),
+  lighter: mix(white, $primary,90%),
 );
+
+$jumbotron-bg: $light;
+$body-bg: $lighter;
 
 @import "bootstrap-4.3.1/scss/bootstrap";
