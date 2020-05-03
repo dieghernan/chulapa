@@ -8,7 +8,11 @@ $blue: #008080;
 
 //Theming
 $theme-colors:(
-danger: mix($danger, $blue,80%)
+warning: mix($warning,$blue,50%),
+danger: mix($danger, $blue,50%),
+dark: mix(black, $blue,60%),
+light: mix(white, $blue,60%),
+
 );
 
 @import "bootstrap-4.3.1/scss/bootstrap";
