@@ -1,4 +1,6 @@
 $blue: #32CD32;
+$yiq-text-dark:  mix(black, $blue,80%);
+$yiq-text-light: mix(white, $blue,95%);
 
 
 // Required
@@ -7,13 +9,9 @@ $blue: #32CD32;
 @import "bootstrap-4.3.1/scss/mixins";
 
 //Theming
-$dark: mix(black, $primary,80%); 
-$light: mix(white, $primary,75%);
-$lighter: mix(white, $primary,95%);
-
-$yiq-text-dark: $dark;
-$yiq-text-light: $lighter;
-
+$dark: mix(black, $blue,80%); 
+$light: mix(white, $blue,75%);
+$lighter: mix(white, $blue,95%);
 $theme-colors:(
   secondary: mix($secondary,$primary,80%),
   info: mix($info,$primary,75%),
