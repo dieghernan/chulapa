@@ -1,4 +1,4 @@
-$blue: orange;
+$blue: red;
 
 
 // Required
@@ -9,10 +9,10 @@ $blue: orange;
 //Theming
 $theme-colors:(
 secondary: mix($secondary,$primary,80%),
-info: mix($info,$primary,80%),
-success: mix($success,$primary,80%),
-warning: mix($warning,$primary,80%),
-danger: mix($danger, $primary,80%),
+info: mix($info,$primary,75%),
+success: mix($success,$primary,75%),
+warning: mix($warning,$primary,75%),
+danger: mix($danger, $primary,75%),
 dark: mix(black, $primary,80%),
 light: mix(white, $primary,80%),
 
