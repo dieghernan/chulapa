@@ -1,34 +1,34 @@
 // Colors 
 
-$chulapa-col: pink;
+$chulapa-col: #603516;
 
 $white:    mix(#fff,$chulapa-col,95%);
-$gray-100: mix(#f8f9fa,$chulapa-col,80%);
-$gray-200: mix(#e9ecef,$chulapa-col,80%);
-$gray-300: mix(#dee2e6,$chulapa-col,80%);
-$gray-400: mix(#ced4da,$chulapa-col,80%);
-$gray-500: mix(#adb5bd,$chulapa-col,80%);
-$gray-600: mix(#6c757d,$chulapa-col,80%);
-$gray-700: mix(#495057,$chulapa-col,80%);
-$gray-800: mix(#343a40,$chulapa-col,80%);
-$gray-900: mix(#212529,$chulapa-col,80%);
-$black:    mix(#000,$chulapa-col,80%);
+$gray-100: mix(#f8f9fa,$chulapa-col,60%);
+$gray-200: mix(#e9ecef,$chulapa-col,60%);
+$gray-300: mix(#dee2e6,$chulapa-col,60%);
+$gray-400: mix(#ced4da,$chulapa-col,60%);
+$gray-500: mix(#adb5bd,$chulapa-col,60%);
+$gray-600: mix(#6c757d,$chulapa-col,60%);
+$gray-700: mix(#495057,$chulapa-col,60%);
+$gray-800: mix(#343a40,$chulapa-col,60%);
+$gray-900: mix(#212529,$chulapa-col,60%);
+$black:    mix(#000,$chulapa-col,60%);
 
 $blue:    $chulapa-col;
-$indigo:  mix(#6610f2,$chulapa-col,75%);
-$purple:  mix(#6f42c1,$chulapa-col,75%);
-$pink:    mix(#e83e8c,$chulapa-col,75%);
-$red:     mix(#dc3545,$chulapa-col,75%);
-$orange:  mix(#fd7e14,$chulapa-col,75%);
-$yellow:  mix(#ffc107,$chulapa-col,75%);
-$green:   mix(#28a745,$chulapa-col,75%);
-$teal:    mix(#20c997,$chulapa-col,75%);
-$cyan:    mix(#17a2b8,$chulapa-col,75%);
+$indigo:  mix(#6610f2,$chulapa-col,60%);
+$purple:  mix(#6f42c1,$chulapa-col,60%);
+$pink:    mix(#e83e8c,$chulapa-col,60%);
+$red:     mix(#dc3545,$chulapa-col,60%);
+$orange:  mix(#fd7e14,$chulapa-col,60%);
+$yellow:  mix(#ffc107,$chulapa-col,60%);
+$green:   mix(#28a745,$chulapa-col,60%);
+$teal:    mix(#20c997,$chulapa-col,60%);
+$cyan:    mix(#17a2b8,$chulapa-col,60%);
 
-$dark:    mix(black, $blue,80%); 
-$light:   mix(white, $blue,75%);
+$dark:    mix(black, $chulapa-col,80%); 
+$light:   mix(white, $chulapa-col,75%);
 //Custom color
-$lighter: mix(white, $blue,95%);
+$lighter: mix(white, $chulapa-col,95%);
 
 //Components
 $navbar-light-color:$dark;
@@ -55,4 +55,3 @@ $theme-colors:(
 
 
 @import "bootstrap-4.4.1/scss/bootstrap";
-
