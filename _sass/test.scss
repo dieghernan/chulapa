@@ -15,9 +15,9 @@ $yiq-contrasted-threshold:  160;
 
 
 // Required
-@import "bootstrap-4.3.1/scss/functions";
-@import "bootstrap-4.3.1/scss/variables";
-@import "bootstrap-4.3.1/scss/mixins";
+@import "bootstrap-4.4.1/scss/functions";
+@import "bootstrap-4.4.1/scss/variables";
+@import "bootstrap-4.4.1/scss/mixins";
 
 //Theming
 
@@ -33,9 +33,5 @@ $theme-colors:(
 );
 
 
-@import "bootstrap-4.3.1/scss/bootstrap";
+@import "bootstrap-4.4.1/scss/bootstrap";
 
-// Custom
-.text-test{
-  
-}
