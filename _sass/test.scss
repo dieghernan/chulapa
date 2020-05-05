@@ -2,17 +2,17 @@
 
 $chulapa-col: #e3f6fc;
 
-$white:    mix(#fff,$chulapa-col,95%);
-$gray-100: mix(#f8f9fa,$chulapa-col,60%);
-$gray-200: mix(#e9ecef,$chulapa-col,60%);
-$gray-300: mix(#dee2e6,$chulapa-col,60%);
-$gray-400: mix(#ced4da,$chulapa-col,60%);
-$gray-500: mix(#adb5bd,$chulapa-col,60%);
-$gray-600: mix(#6c757d,$chulapa-col,60%);
-$gray-700: mix(#495057,$chulapa-col,60%);
-$gray-800: mix(#343a40,$chulapa-col,60%);
-$gray-900: mix(#212529,$chulapa-col,60%);
-$black:    mix(#000,$chulapa-col,60%);
+$white:    mix(#fff,$chulapa-col,90%);
+$gray-100: mix(#f8f9fa,$chulapa-col,75%);
+$gray-200: mix(#e9ecef,$chulapa-col,75%);
+$gray-300: mix(#dee2e6,$chulapa-col,75%);
+$gray-400: mix(#ced4da,$chulapa-col,75%);
+$gray-500: mix(#adb5bd,$chulapa-col,75%);
+$gray-600: mix(#6c757d,$chulapa-col,75%);
+$gray-700: mix(#495057,$chulapa-col,75%);
+$gray-800: mix(#343a40,$chulapa-col,75%);
+$gray-900: mix(#212529,$chulapa-col,75%);
+$black:    mix(#000,$chulapa-col,90%);
 
 $blue:    $chulapa-col;
 $indigo:  mix(#6610f2,$chulapa-col,60%);
@@ -26,9 +26,9 @@ $teal:    mix(#20c997,$chulapa-col,60%);
 $cyan:    mix(#17a2b8,$chulapa-col,60%);
 
 $dark:    mix(black, $chulapa-col,80%); 
+$darker:  $black;
 $light:   mix(white, $chulapa-col,75%);
-//Custom color
-$lighter: mix(white, $chulapa-col,95%);
+$lighter: $white;
 
 //Components
 $navbar-light-color:$dark;
@@ -39,7 +39,7 @@ $yiq-contrasted-threshold:  160;
 $jumbotron-bg:    $light;
 $table-accent-bg: $light;
 $body-bg:         $lighter;
-$link-color:      darken($chulapa-col, 15%);
+$link-color:      darken($chulapa-col, 25%);
 
 
 
@@ -52,6 +52,7 @@ $link-color:      darken($chulapa-col, 15%);
 
 $theme-colors:(
   lighter: $lighter,
+  darker:  $darker,
   ch-nav: color-yiq($chulapa-col)
 );
 
