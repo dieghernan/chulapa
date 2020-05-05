@@ -259,9 +259,9 @@ The final element.
 <!-- Navbar     ================================================== -->
 <h2 id="navbars">Navbars</h2>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	<a class="navbar-brand" href="#">Navbar</a>
-	<button class="navbar-toggler border-lighter" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<a class="navbar-brand text-ch-nav" href="#">Navbar</a>
+	<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fa fa-bars fa-2x text-ch-nav"></i>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarColor01">
@@ -270,13 +270,13 @@ The final element.
 				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Features</a>
+				<a class="nav-link text-ch-nav" href="#">Features</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Pricing</a>
+				<a class="nav-link text-ch-nav" href="#">Pricing</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">About</a>
+				<a class="nav-link text-ch-nav" href="#">About</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
@@ -289,8 +289,8 @@ The final element.
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<a class="navbar-brand" href="#">Navbar</a>
-	<button class="navbar-toggler border-lighter" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fa fa-bars fa-2x"></i>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarColor02">
@@ -317,8 +317,8 @@ The final element.
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="#">Navbar</a>
-	<button class="navbar-toggler border-dark" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fa fa-bars fa-2x"></i>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarColor03">
