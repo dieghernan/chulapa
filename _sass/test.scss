@@ -50,7 +50,8 @@ $body-bg:         $lighter;
 //Theming
 
 $theme-colors:(
-  lighter: $lighter
+  lighter: $lighter,
+  chulapa-nav: color-yiq($chulapa-col)
 );
 
 
