@@ -1,15 +1,17 @@
-# theme: jekyll-theme-cayman
-# remote_theme: benbalter/retlab
+# Site Settings
+locale                   : 
+title                    : 
+subtitle                 : 
 
-baseurl: /jt
+url                      : https://dieghernan.github.io
+baseurl                  : /jt
+
 
 plugins:
   - jekyll-github-metadata
   - jekyll-paginate
   - jekyll-sitemap
 
-kramdown:
-  input: GFM
 
 # Exclude these files from production site
 exclude:
@@ -17,5 +19,25 @@ exclude:
   - README.md
   - Gemfile
 
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Sass/SCSS
 sass:
-    style: compressed
+  sass_dir: _sass
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
