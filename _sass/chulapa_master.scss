@@ -28,7 +28,7 @@ blockquote {
 /* Custom styles */
 @font-face {
   font-family: chulapa;
-  src: url({{- "assets/fonts/Chulapa/Chulapa-Bold.otf " | relative_url -}});
+  src: url("https://dieghernan.github.io/jt/assets/fonts/Chulapa/Chulapa-Bold.otf");
 }
 
 .chulapa {
