@@ -27,9 +27,6 @@ blockquote {
   background-color: $gray-100; 
 }
 
-/* Highlighter from pygments */
-@import "./pygments/{{- site.highlight-skin | default: 'default' -}}.css"; // skin
-
 /* Custom styles */
 @font-face {
   font-family: chulapa;
