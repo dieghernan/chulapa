@@ -6,6 +6,8 @@ subtitle                 :
 url                      : 
 baseurl                  : 
 
+# Theme Settings
+highlight-skin           : monokai #See http://jwarby.github.io/jekyll-pygments-themes
 
 plugins:
   - jekyll-github-metadata
