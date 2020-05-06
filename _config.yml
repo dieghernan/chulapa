@@ -9,6 +9,8 @@ baseurl                  :
 # Theme Settings
 highlight-skin           : default #See http://jwarby.github.io/jekyll-pygments-themes
 
+color: pink
+
 plugins:
   - jekyll-github-metadata
   - jekyll-paginate
