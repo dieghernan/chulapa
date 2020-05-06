@@ -1,6 +1,6 @@
 // Colors 
 
-$chulapa-col: teal;
+$chulapa-col: {{ site.color }};
 
 $white:    mix(#fff,$chulapa-col,95%);
 $gray-100: mix(#f8f9fa,$chulapa-col,85%);
