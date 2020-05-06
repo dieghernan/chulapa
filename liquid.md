@@ -29,4 +29,4 @@ other: other thing
 
 # D
 
-{{ site | inspect }}
+{{ site.github | inspect }}
