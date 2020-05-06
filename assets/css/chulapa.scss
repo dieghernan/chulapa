@@ -2,8 +2,10 @@
 ---
 @charset "utf-8";
 
-@font-face {
-  font-family: chulapa;
-  src: url(../fonts/Chulapa/Chulapa-Bold.
-}
+/* Custom font */
+    @font-face {
+      font-family: chulapa;
+      src: url(../fonts/Chulapa/Chulapa-Bold.otf);
+    }
+
 @import "chulapa_master";
