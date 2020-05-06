@@ -3,4 +3,4 @@
 @charset "utf-8";
 @import "chulapa_master";
 /* Highlighter from pygments */
-@import "./pygments/{{- site.highlight-skin | default: 'default' -}}"; // skin
+@import "assets/css/pygments/{{- site.highlight-skin | default: 'default' -}}"; // skin
