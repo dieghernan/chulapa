@@ -9,7 +9,7 @@ baseurl                  :
 # Theme Settings
 highlight-skin           : default #See http://jwarby.github.io/jekyll-pygments-themes
 
-color: pink
+color: red
 
 plugins:
   - jekyll-github-metadata
