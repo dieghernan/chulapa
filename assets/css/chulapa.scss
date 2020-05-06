@@ -9,3 +9,9 @@
     }
 
 @import "chulapa_master";
+
+$newvar: {{ site.color }};
+
+.aaaa { 
+  background-color: $newvar; 
+}
