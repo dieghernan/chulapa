@@ -131,7 +131,7 @@
                             </li>
                         </ul>
                     </div>
-                    <p>&copy; {{- site.time | date: '%Y' -}} {{- site.author | default: owner_name -}}</p>
+                    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
                     <p>Theme 
                         <a href="#" class="text-white chulapa">Chulapa</a> 
                         powered by 
