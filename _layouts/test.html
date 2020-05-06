@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="{{- site.locale | default: site.github.language -}}">
-
+<html lang="{{- site.locale | default: 'en-US' -}}">
 <head>
     <title>{{- page.title | site.title | default: site.github.repository_name -}} | {{- page.subtitle | site.subtitle | default: site.github.project_tagline -}}</title>
     <!-- Required meta tags -->
@@ -132,9 +131,14 @@
                             </li>
                         </ul>
                     </div>
-                    <p>© 2020 YOUR NAME HERE</p>
-                    <p>Theme <a href="#" class="text-white chulapa">Chulapa</a> powered by <a href="https://getbootstrap.com/docs/4.3/" class="text-white font-weight-bold">Bootstrap</a>
-                        <p>
+                    <p>&copy; {{- site.time | date: '%Y' -}} {{- site.author | default: owner_name -}}</p>
+                    <p>Theme 
+                        <a href="#" class="text-white chulapa">Chulapa</a> 
+                        powered by 
+                        <a href="https://getbootstrap.com/docs/4.4/" class="text-white font-weight-bold">
+                            Bootstrap
+                        </a>
+                    <p>
                 </div>
             </div>
         </div>
@@ -146,5 +150,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 </html>
