@@ -3,8 +3,8 @@ locale                   :
 title                    : 
 subtitle                 : 
 
-url                      : https://dieghernan.github.io
-baseurl                  : /jt
+url                      : 
+baseurl                  : 
 
 
 plugins:
