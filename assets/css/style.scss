@@ -23,6 +23,10 @@ blockquote {
   @extend .p-2;
 }
 
+.highlight pre { 
+  background-color: $gray-300; 
+}
+
 /* Custom styles */
 @font-face {
   font-family: chulapa;
