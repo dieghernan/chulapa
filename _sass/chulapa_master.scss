@@ -1,5 +1,3 @@
----
----
 @import "test";
 
 /* Assign defaults from bootstrap */
@@ -30,7 +28,7 @@ blockquote {
 /* Custom styles */
 @font-face {
   font-family: chulapa;
-  src: url(../fonts/Chulapa/Chulapa-Bold.otf);
+  src: url(.assets/css/fonts/Chulapa/Chulapa-Bold.otf);
 }
 
 .chulapa {

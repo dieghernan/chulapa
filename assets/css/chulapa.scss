@@ -1,6 +1,6 @@
 ---
 ---
 @charset "utf-8";
-@import "style";
+@import "chulapa_master";
 /* Highlighter from pygments */
 @import "./pygments/{{- site.highlight-skin | default: 'default' -}}.css"; // skin
