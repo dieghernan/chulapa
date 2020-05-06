@@ -10,9 +10,16 @@ table {
   @extend .table-bordered;
   @extend .table-striped;
 }
+
+thead {
+  @extend .thead-dark;
+}
+
 blockquote {
   @extend .bg-light;
   @extend .pl-2;
+  @extend .py-1;
+  @extend .rounded-right;
   @extend .font-italic;
   border-left: 0.3rem solid $gray-500;
 }
