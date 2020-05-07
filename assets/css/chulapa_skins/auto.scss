@@ -1,7 +1,9 @@
+---
+---
+$chulapa-col: {{ site.chulapa-theme.main_col | default: crimson }};
+
+
 // Colors 
-
-
-
 $white:    mix(#fff,$chulapa-col,95%);
 $gray-100: mix(#f8f9fa,$chulapa-col,85%);
 $gray-200: mix(#e9ecef,$chulapa-col,85%);
@@ -36,25 +38,26 @@ $navbar-dark-color: $lighter;
 $yiq-contrasted-threshold:  160;
 
 
-$jumbotron-bg:    $light;
 $table-accent-bg: $light;
 $body-bg:         $lighter;
 $link-color:      darken($chulapa-col, 25%);
 
 
+// New themes
+$chulapa-nav: $chulapa-col;
+$chulapa-hero: $light;
 
-// Required
 @import "bootstrap-4.4.1/scss/functions";
 @import "bootstrap-4.4.1/scss/variables";
 @import "bootstrap-4.4.1/scss/mixins";
 
-//Theming
-
 $theme-colors:(
   lighter: $lighter,
   darker:  $darker,
-  ch-nav: color-yiq($chulapa-col)
+  chulapa-nav-col: $chulapa-nav,
+  chulapa-nav-text: color-yiq($chulapa-nav),
+  chulapa-hero-col: $chulapa-hero,
+  chulapa-hero-text: color-yiq($chulapa-hero),
 );
 
 
-@import "bootstrap-4.4.1/scss/bootstrap";

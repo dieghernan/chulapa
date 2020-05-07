@@ -1,19 +1,67 @@
 ---
 ---
 @charset "utf-8";
-$chulapa-col: {{ site.color }};
+// Custom free font: see https://diario.madrid.es/chulapa/
+@font-face {
+  font-family: chulapa;
+  src: url(../fonts/Chulapa/Chulapa-Bold.otf);
+}
+
+//A.Theming bootstrap 
+@import "./chulapa_skins/{{- site.chulapa-theme.mode | default: auto -}}"
+
+// Import bootstrap
+@import "bootstrap-4.4.1/scss/bootstrap";
+
+// Bold text on Navbar
+.text-chulapa-nav-text{
+  @extend font-weight-bold;
+}
 
 
-/* Custom font */
-    @font-face {
-      font-family: chulapa;
-      src: url(../fonts/Chulapa/Chulapa-Bold.otf);
-    }
+//B. Assing default bootstrap styles to html tags
+img {
+  @extend .img-fluid
+}
 
-@import "chulapa_master";
+table {
+  @extend .table;
+  @extend .table-sm;
+  @extend .table-bordered;
+  @extend .table-striped;
+}
 
-$newvar: {{ site.color }};
+thead {
+  @extend .thead-dark;
+}
 
-.aaaa { 
-  background-color: $newvar; 
+blockquote {
+  @extend .bg-light;
+  @extend .pl-2;
+  @extend .py-1;
+  @extend .rounded-right;
+  @extend .font-italic;
+  border-left: 0.3rem solid $gray-500;
+}
+
+.highlight {
+  @extend .p-2;
+}
+
+// Default value, could be overriden based on site.highlight-skin option
+.highlight pre { 
+  background-color: $gray-100; 
+}
+
+// C. Custom styles
+.chulapa {
+  font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  // Enable Ligatures
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -moz-font-feature-settings: "liga", "dlig";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+  text-rendering: optimizeLegibility;
 }

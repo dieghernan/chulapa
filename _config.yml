@@ -1,16 +1,18 @@
 # Site Settings
-locale                   :      # Fallback "en-US"
-title                    :      # Fallback "repository_name" REV
-title_separator          :      # Fallback " | "
-subtitle                 : 
+locale          :      # Fallback "en-US"
+title           :      # Fallback "repository_name" REV
+title_separator :      # Fallback " | "
+subtitle        : 
 
-url                      : 
-baseurl                  : 
+url             : 
+baseurl         : 
 
 # Theme Settings
-highlight-skin           :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
+highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 
-color: red
+chulapa-theme:
+    mode        :     # Fallback "auto", values: auto, custom, ...
+    main_col    :     # Fallback "crimson"
 
 plugins:
   - jekyll-github-metadata

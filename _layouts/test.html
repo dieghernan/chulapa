@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
 <head>
-        <!-- Liquid -->
     {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
     {%- assign highligher = site.highlight-skin | default: "default" | downcase | prepend: "assets/css/pygments/" | append: ".css" | relative_url -%}
     {%- assign title = page.title | site.title | default: site.github.repository_name  -%}
@@ -12,43 +11,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS -->
     <!-- Fontawesome-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    <!-- Chulapa css inc. Bootstrap-->
-    <link rel="stylesheet" href="{{- "assets/css/chulapa.css " | relative_url -}}" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    <!-- Chulapa css -->
+    <link rel="stylesheet" href="{{- "assets/css/style.css " | relative_url -}}" />
     <!-- Highlighter from pygments - Should be after Chulapa -->
     <link rel="stylesheet" href="{{- highligher -}}" />
     <link rel="canonical" href="{{ canonical_url }}">
 </head>
 
 <body>
-    <nav class="container-expand navbar navbar-expand-md sticky-top navbar-dark bg-primary">
+    <nav class="container-expand navbar navbar-expand-md sticky-top bg-chulapa-nav-col">
         <div id="chulapa-navwrapper" class="container-fluid mx-md-2">
-            <a class="navbar-brand text-ch-nav" href="{{ '/' | relative_url }}">{{-site.title | default: site.github.repository_name -}}</a>
+            <a class="navbar-brand text-chulapa-nav-text" href="{{ '/' | relative_url }}">{{-site.title | default: site.github.repository_name -}}</a>
             <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars fa-2x text-ch-nav"></i>
+                <i class="fa fa-bars fa-2x text-chulapa-nav-text"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-ch-nav" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-chulapa-nav-text" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-ch-nav" href="#">Link</a>
+                        <a class="nav-link text-chulapa-nav-text" href="#">Link</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-ch-nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-chulapa-nav-text" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      Dropdown
                      </a>
-                        <div class="dropdown-menu bg-primary border-0" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-ch-nav" href="#">Action</a>
-                            <a class="dropdown-item text-ch-nav" href="#">Another action</a>
-                            <a class="dropdown-item text-ch-nav" href="#">Something else here</a>
+                        <div class="dropdown-menu bg-chulapa-nav-col border-0" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-chulapa-nav-text" href="#">Action</a>
+                            <a class="dropdown-item text-chulapa-nav-text" href="#">Another action</a>
+                            <a class="dropdown-item text-chulapa-nav-text" href="#">Something else here</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="jumbotron">
+    <header class="jumbotron bg-chulapa-hero-col text-chulapa-hero-text">
         <div class="container">
             <div class="row">
                 <div class="col-xl-10 offset-xl-1 text-md-center">
