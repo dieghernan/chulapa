@@ -10,6 +10,12 @@ baseurl         :
 # Theme Settings
 highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 
+chulapa-theme:
+  mode: auto
+  col:
+    main: "blog"
+  
+
 theme: 
   mode       :     # Fallback "auto", values: auto, custom, ...
   col        :    # Fallback "crimson"
