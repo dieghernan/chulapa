@@ -3,8 +3,8 @@
 <head>
         <!-- Liquid -->
     {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
-    {%- highligher = site.highlight-skin | default: "default" | downcase | prepend: "assets/css/pygments/" | append: ".css" | relative_url -%}
-    {%- title = page.title | site.title | default: site.github.repository_name  -%}
+    {%- assign highligher = site.highlight-skin | default: "default" | downcase | prepend: "assets/css/pygments/" | append: ".css" | relative_url -%}
+    {%- assign title = page.title | site.title | default: site.github.repository_name  -%}
     
     <title>{{- title -}}</title>
     <!-- Required meta tags -->
