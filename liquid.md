@@ -8,7 +8,7 @@ other: other thing
 -  {{ item }} - {{ item.path }}
 {% endfor %}
 
-{{ site.theme.col.main }}
+{{ site.theme }}
 # One
 {{ page }}
 
