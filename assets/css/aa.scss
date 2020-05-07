@@ -1,4 +1,4 @@
 ---
 ---
 
-@import "{{- "assets/css/main.css " | absolute_url -}}";
+@import url("{{- "assets/css/main.css " | absolute_url -}}");
