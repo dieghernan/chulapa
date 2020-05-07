@@ -4,15 +4,23 @@
 img {
   @extend .img-fluid
 }
+
 table {
   @extend .table;
   @extend .table-sm;
   @extend .table-bordered;
   @extend .table-striped;
 }
+
+thead {
+  @extend .thead-dark;
+}
+
 blockquote {
   @extend .bg-light;
   @extend .pl-2;
+  @extend .py-1;
+  @extend .rounded-right;
   @extend .font-italic;
   border-left: 0.3rem solid $gray-500;
 }
@@ -26,11 +34,6 @@ blockquote {
 }
 
 /* Custom styles */
-@font-face {
-  font-family: chulapa;
-  src: url("https://dieghernan.github.io/jt/assets/fonts/Chulapa/Chulapa-Bold.otf");
-}
-
 .chulapa {
   font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* Enable Ligatures */

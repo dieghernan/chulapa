@@ -10,6 +10,8 @@ baseurl                  :
 # Theme Settings
 highlight-skin           :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 
+color: red
+
 plugins:
   - jekyll-github-metadata
   - jekyll-paginate
