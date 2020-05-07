@@ -8,7 +8,9 @@ other: other thing
 -  {{ item }} - {{ item.path }}
 {% endfor %}
 
-{{ site.theme }}
+{{ site.chulapa-theme }}
+
+{{ site.chulapa-theme.col.main }}
 # One
 {{ page }}
 
