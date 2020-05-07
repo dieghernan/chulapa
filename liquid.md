@@ -10,6 +10,9 @@ other: other thing
 
 {{ site.chulapa-theme }}
 
+{% assign: cols = site.chulapa-theme.col %}
+{{ cols.main  }}
+
 {{ site.chulapa-theme.col.main }}
 # One
 {{ page }}
