@@ -8,7 +8,7 @@
 }
 
 //A.Theming bootstrap 
-@import "./chulapa_skins/{{- site.chulapa-theme.mode | default: 'auto' -}}";
+//@import "./chulapa_skins/{{- site.chulapa-theme.mode | default: 'auto' -}}";
 
 // Import bootstrap
 @import "bootstrap-4.4.1/scss/bootstrap";
