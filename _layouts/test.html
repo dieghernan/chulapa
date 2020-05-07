@@ -1,22 +1,28 @@
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
 <head>
-    <title>{{- page.title | site.title | default: site.github.repository_name -}} | {{- page.subtitle | site.subtitle | default: site.github.project_tagline -}}</title>
+        <!-- Liquid -->
+    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+    {%- highligher = site.highlight-skin | default: "default" | downcase | prepend: "assets/css/pygments/" | append: ".css" | relative_url -%}
+    {%- title = page.title | site.title | default: site.github.repository_name  -%}
+    
+    <title>{{- title -}}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
     <!-- Fontawesome-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom css-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    <!-- Chulapa css inc. Bootstrap-->
     <link rel="stylesheet" href="{{- "assets/css/chulapa.css " | relative_url -}}" />
-    <!-- Highlighter from pygments -->
-    <link rel="stylesheet" href="{{- site.highlight-skin | downcase | prepend: "assets/css/pygments/" | append: ".css" | relative_url -}}" />
+    <!-- Highlighter from pygments - Should be after Chulapa -->
+    <link rel="stylesheet" href="{{- highligher -}}" />
+    <link rel="canonical" href="{{ canonical_url }}">
 </head>
 
 <body>
     <nav class="container-expand navbar navbar-expand-md sticky-top navbar-dark bg-primary">
         <div id="chulapa-navwrapper" class="container-fluid mx-md-2">
-            <a class="navbar-brand text-ch-nav" href="#">Navbar</a>
+            <a class="navbar-brand text-ch-nav" href="{{ '/' | relative_url }}">{{-site.title | default: site.github.repository_name -}}</a>
             <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars fa-2x text-ch-nav"></i>
             </button>

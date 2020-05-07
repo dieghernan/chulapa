@@ -1,13 +1,14 @@
 # Site Settings
-locale                   : 
-title                    : 
+locale                   :      # Fallback "en-US"
+title                    :      # Fallback "repository_name" REV
+title_separator          :      # Fallback " | "
 subtitle                 : 
 
 url                      : 
 baseurl                  : 
 
 # Theme Settings
-highlight-skin           : default #See http://jwarby.github.io/jekyll-pygments-themes
+highlight-skin           :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 
 plugins:
   - jekyll-github-metadata
