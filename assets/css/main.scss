@@ -11,6 +11,8 @@
 
 $chulapa-col: {{ theme.main | default: crimson }};
 
+@import "skins/auto";
+
 // Import bootstrap
 @import "bootstrap-4.4.1/scss/bootstrap";
 
