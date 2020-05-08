@@ -18,7 +18,7 @@ googlefonts:
   
 
 # Theme and colors
-theme: 
+chulapa-skin: 
   - mode       :     # Fallback "auto", values: auto, custom, ...
   - col        :    # Fallback "crimson"
     - main     : aquamarine
