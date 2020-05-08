@@ -8,7 +8,7 @@ other: other thing
 
 
 {% for cols in site.chulapa-skin.cols %}
-{% if n[1] %}
+{% if cols[1] %}
 ${{ cols[0] }}: {{ cols[1] }};
 {% endif %}
 {% endfor%}
