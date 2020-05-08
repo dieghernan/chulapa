@@ -4,11 +4,11 @@ title: some title
 other: other thing 
 ---
 
-{{ site.chulapa-skin.cols.main }}
+{{ site.chulapa-skin.cols }}
 
 
-{% for n in site.kramdown %}
-${{ n[0] }}: {{ n[1] }}
+{% for cols in site.chulapa-skin.cols %}
+${{ cols[0] }}: {{ cols[1] }};
 {% endfor%}
 
 Test1
