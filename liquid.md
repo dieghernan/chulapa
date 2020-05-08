@@ -4,6 +4,18 @@ title: some title
 other: other thing 
 ---
 
+Test1
+    {%- for font in site.googlefonts -%}
+   Aa{{ font.url }}bb
+    {%- endfor -%}
+End test
+Test2
+{%- for font in site.googlefonts2 -%}
+    Bb{{ font.url }}bb
+    {%- endfor -%}
+End test
+
+
 {% for item in site.static_files %}
 -  {{ item }} - {{ item.path }}
 {% endfor %}
