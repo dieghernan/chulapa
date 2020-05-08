@@ -28,17 +28,15 @@ $theme-colors:(
 
 // Import bootstrap
 @import "bootstrap-4.4.1/scss/bootstrap";
-
-
-
 //B. Extend bootstrap styles to html tags
 
 /* Chulapa styles */
-
-
+.text-chulapa-nav-text{
+  @extend .font-weight-bold;
+}
 
 img {
-  @extend .img-fluid
+  @extend .img-fluid;
 }
 
 table {
