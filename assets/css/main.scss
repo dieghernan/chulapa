@@ -1,5 +1,6 @@
 ---
 ---
+
 @charset "utf-8";
 // Custom free font: see https://diario.madrid.es/chulapa/
 @font-face {
@@ -8,7 +9,9 @@
 }
  // A. Theming Bootstrap
 
-$chulapa-col: {{ site.chulapa-col.main | default: 'crimson' }};
+{%- assign colors = site.chulapa-skin.cols -%}
+
+$chulapa-col: {{ colors.main | default: 'crimson' }};
 
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
