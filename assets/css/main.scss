@@ -7,9 +7,8 @@
   src: url(../fonts/Chulapa/Chulapa-Bold.otf);
 }
  // A. Theming Bootstrap
-{%- assign theme = site.theme.col -%}
 
-$chulapa-col: {{ theme.main | default: 'crimson' }};
+$chulapa-col: {{ site.theme.col.main | default: 'crimson' }};
 
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
