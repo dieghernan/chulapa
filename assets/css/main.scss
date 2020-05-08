@@ -90,7 +90,7 @@ blockquote {
 }
 
 $navbar-chulapa-brand-color:
-color-yiq($chulapa-col,blue,pink);
+color-yiq($chulapa-col,red,pink);
 
 .navbar-chulapa {
   .navbar-brand {
@@ -103,7 +103,7 @@ color-yiq($chulapa-col,blue,pink);
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-dark-color;
+      color: $navbar-chulapa-brand-color;
 
       @include hover-focus() {
         color: $navbar-dark-hover-color;
@@ -123,7 +123,7 @@ color-yiq($chulapa-col,blue,pink);
   }
 
   .navbar-toggler {
-    color: $navbar-dark-color;
+    color: navbar-chulapa-brand-color;
     border-color: $navbar-dark-toggler-border-color;
   }
 
@@ -132,7 +132,7 @@ color-yiq($chulapa-col,blue,pink);
   }
 
   .navbar-text {
-    color: $navbar-dark-color;
+    color: $navbar-chulapa-brand-color;
     a {
       color: $navbar-dark-active-color;
 
