@@ -89,10 +89,12 @@ blockquote {
   text-rendering: optimizeLegibility;
 }
 
+$navbar-chulapa-brand-color:
+color-yiq($chulapa-col,$navbar-light-brand-color,$navbar-dark-brand-color);
 
 .navbar-chulapa {
   .navbar-brand {
-    color: $navbar-dark-brand-color;
+    color: $navbar-chulapa-brand-color;
 
     @include hover-focus() {
       color: $navbar-dark-brand-hover-color;
