@@ -8,6 +8,19 @@ other: other thing
 -  {{ item }} - {{ item.path }}
 {% endfor %}
 
+
+{{ site.ext-css }}
+
+{% for item in site.ext-css %}
+- {{ item.name }} {{ item.url }}
+{% endfor %}
+
+{{ site.ext-css2 | default: 'empty' }}
+
+{% for item in site.ext-css2 %}
+- {{ item.name | default: "empty name" }} {{ item.url | default: "empty url" }}
+{% endfor %}
+
 {{ site.chulapa-theme }}
 
 {% assign: cols = site.chulapa-theme.col %}

@@ -6,10 +6,13 @@
     {%- assign title = page.title | site.title | default: site.github.repository_name  -%}
     
     <title>{{- title -}}</title>
-    <!-- Required meta tags -->
+    <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS -->
+    {{ if site.ext-css2 }}
+    <!--Empty-->
+    {% endif %}
     <!-- Fontawesome-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    <!-- Chulapa css -->
     <link rel="stylesheet" href="{{- "assets/css/main.css " | relative_url -}}" />

@@ -1,4 +1,4 @@
-# Site Settings
+# A. Site Settings
 locale          :      # Fallback "en-US"
 title           :      # Fallback "repository_name" REV
 title_separator :      # Fallback " | "
@@ -7,26 +7,30 @@ subtitle        :
 url             : 
 baseurl         : 
 
-# Theme Settings
+# B. Theme Settings
+# Code highlighter 
 highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 
-chulapa-theme:
-  mode: auto
-  col:
-    main: "blog"
+# External css
+ext-css:
+  - name: 'Lato'
+    url:  'https://fonts.googleapis.com/css2?family=Lato&display=swap'
+  - name: 'Lora'
+    url:  'https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap'
   
 
+# Theme and colors
 theme: 
   mode       :     # Fallback "auto", values: auto, custom, ...
   col        :    # Fallback "crimson"
-    main     : crimson
+    main     : 
 
 plugins:
   - jekyll-github-metadata
   - jekyll-paginate
   - jekyll-sitemap
 
-
+# XX. Other settings - no need to modify
 # Exclude these files from production site
 exclude:
   - LICENSE
