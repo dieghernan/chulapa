@@ -19,9 +19,9 @@ googlefonts:
 
 # Theme and colors
 theme: 
-  mode       :     # Fallback "auto", values: auto, custom, ...
-  col        :    # Fallback "crimson"
-    main     : 
+  - mode       :     # Fallback "auto", values: auto, custom, ...
+  - col        :    # Fallback "crimson"
+    - main     : aquamarine
 
 plugins:
   - jekyll-github-metadata
