@@ -24,7 +24,7 @@ chulapa-col:
 chulapa-skin: 
   mode       :     # Fallback "auto", values: auto, custom, ...
   cols        :    # Fallback "crimson"
-    main     : #"orange"
+    main     : "azure"
     body-color: "green"
 
 plugins:
