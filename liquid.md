@@ -18,6 +18,8 @@ Test1
 End test
 Test2
 
+{{ site.chulapa-skin }}
+
     {%- for font in site.googlefonts2 -%}
    Aa{{ font.url }}bb
 
