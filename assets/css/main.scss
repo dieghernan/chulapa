@@ -9,7 +9,7 @@
 
 {{ assign theme = site.theme.col }}
 
-$chulapa-col: {{ theme.main | default: crimson }}
+$chulapa-col: {{ theme.main | default: crimson }};
 
 // Import bootstrap
 @import "bootstrap-4.4.1/scss/bootstrap";
