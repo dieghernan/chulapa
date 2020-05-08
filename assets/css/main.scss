@@ -8,7 +8,7 @@
 }
  // A. Theming Bootstrap
 
-$chulapa-col: {{ site.theme.col.main | default: 'crimson' }};
+$chulapa-col: {{ site.chulapa-skin.col.main | default: 'crimson' }};
 
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
