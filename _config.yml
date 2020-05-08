@@ -11,12 +11,12 @@ baseurl         :
 # Code highlighter 
 highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 
-# External css
-ext-css:
-  - name: 'Lato'
-    url:  'https://fonts.googleapis.com/css2?family=Lato&display=swap'
-  - name: 'Lora'
-    url:  'https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap'
+# Google Fonts https://fonts.google.com/
+googlefonts:
+  - font-family : 'Lato' #Name of the font without fallback
+    url         : 'https://fonts.googleapis.com/css2?family=Lato&display=swap'
+  - name        : 'Lora'
+    font-family : 'https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap'
   
 
 # Theme and colors

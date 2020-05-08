@@ -10,12 +10,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS -->
-    {% if site.ext-css2 %}
-    <!--Empty-->
-    {% endif %}
+    {%- for font in site.googlefonts -%}
+    <!-- Font {{- font.font-family -}} -->
+    <link href="{{ font.url }}" rel="stylesheet">
+    {%- endfor -%}
     <!-- Fontawesome-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    <!-- Chulapa css -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chulapa css -->
     <link rel="stylesheet" href="{{- "assets/css/main.css " | relative_url -}}" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
     <!-- Highlighter from pygments - Should be after main -->
     <link rel="stylesheet" href="{{- highligher -}}" />
     <link rel="canonical" href="{{ canonical_url }}">
