@@ -4,6 +4,10 @@ title: some title
 other: other thing 
 ---
 
+{% for n in site.kramdown %}
+${{ n[0] }}: {{ n[1] }}
+{% endfor%}
+
 Test1
 
     {%- for font in site.googlefonts -%}
