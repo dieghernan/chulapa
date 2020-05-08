@@ -4,6 +4,9 @@ title: some title
 other: other thing 
 ---
 
+{{ site.chulapa-skin.col.main | default: 'crimson' }}
+
+
 {% for n in site.kramdown %}
 ${{ n[0] }}: {{ n[1] }}
 {% endfor%}
