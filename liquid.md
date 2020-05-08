@@ -5,14 +5,30 @@ other: other thing
 ---
 
 Test1
+
     {%- for font in site.googlefonts -%}
    Aa{{ font.url }}bb
+
     {%- endfor -%}
+
 End test
 Test2
-{%- for font in site.googlefonts2 -%}
-    Bb{{ font.url }}bb
+
+    {%- for font in site.googlefonts2 -%}
+   Aa{{ font.url }}bb
+
     {%- endfor -%}
+
+End test
+
+
+Test2
+
+    {%- for font in site.googlefonts2 -%}
+    Bb{{ font.url }}bb
+
+    {%- endfor -%}
+
 End test
 
 
