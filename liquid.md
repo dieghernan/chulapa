@@ -4,7 +4,7 @@ title: some title
 other: other thing 
 ---
 
-{{ site.chulapa-skin.cols }}
+{{ site.chulapa-skin.cols.main }}
 
 
 {% for n in site.kramdown %}
