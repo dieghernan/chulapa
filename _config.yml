@@ -25,6 +25,7 @@ chulapa-skin:
   mode       :     # Fallback "auto", values: auto, custom, ...
   cols        :    # Fallback "crimson"
     main     : #"orange"
+    body-color: "green"
 
 plugins:
   - jekyll-github-metadata
