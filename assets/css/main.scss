@@ -11,7 +11,7 @@
 
 {%- assign colors = site.chulapa-skin.cols -%}
 
-$chulapa-col: {{ colors.main | default: 'crimson' }};
+$chulapa-col: {{  site.chulapa-skin.cols.main | default: 'crimson' }};
 
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
