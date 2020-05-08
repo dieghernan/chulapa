@@ -9,8 +9,13 @@
 }
  // A. Theming Bootstrap
 
-
 $chulapa-col: {{ site.chulapa-skin.cols.main | default: 'crimson' }};
+
+{% for cols in site.chulapa-skin.cols %}
+{% if cols[1] %}
+${{ cols[0] }}: {{ cols[1] }};
+{% endif %}
+{% endfor%}
 
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
