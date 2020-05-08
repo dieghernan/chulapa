@@ -6,23 +6,41 @@
   font-family: chulapa;
   src: url(../fonts/Chulapa/Chulapa-Bold.otf);
 }
-
+ // A. Theming Bootstrap
 {%- assign theme = site.theme.col -%}
 
 $chulapa-col: {{ theme.main | default: 'crimson' }};
 
+// Vars to overwrite Bootstrap 
 @import "skins/auto";
+
+@import "bootstrap-4.4.1/scss/functions";
+@import "bootstrap-4.4.1/scss/variables";
+@import "bootstrap-4.4.1/scss/mixins";
+
+$theme-colors:(
+  lighter: $lighter,
+  darker:  $darker,
+  chulapa-nav-col: $chulapa-nav,
+  chulapa-nav-text: color-yiq($chulapa-nav),
+  chulapa-hero-col: $chulapa-hero,
+  chulapa-hero-text: color-yiq($chulapa-hero),
+);
 
 // Import bootstrap
 @import "bootstrap-4.4.1/scss/bootstrap";
 
-// Bold text on Navbar
-//.text-chulapa-nav-text{
-//  @extend font-weight-bold;
-//}
 
 
-//B. Assing default bootstrap styles to html tags
+//B. Extend bootstrap styles to html tags
+
+/* Chulapa styles */
+
+.text-chulapa-nav-text{
+  @extend font-weight-bold;
+}
+
+
 img {
   @extend .img-fluid
 }
