@@ -21,7 +21,7 @@ googlefonts:
 chulapa-skin: 
   - mode       :     # Fallback "auto", values: auto, custom, ...
   - col        :    # Fallback "crimson"
-    - main     : aquamarine
+    - main     : "aquamarine"
 
 plugins:
   - jekyll-github-metadata
