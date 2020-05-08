@@ -27,6 +27,7 @@ ${{ cols[0] }}: {{ cols[1] }};
 $theme-colors:(
   lighter: $lighter,
   darker:  $darker,
+  chulapa: $chulapa-col,
   chulapa-nav-col: $chulapa-nav,
   chulapa-nav-text: color-yiq($chulapa-nav),
   chulapa-hero-col: $chulapa-hero,
