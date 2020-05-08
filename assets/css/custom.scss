@@ -1,8 +1,4 @@
 ---
 ---
 // Your custom css here
-{%- for font in site.googlefonts -%}
-@font-face {
-  font-family: {{- font.font-family -}};
-}
-{%- endfor -%}
+
