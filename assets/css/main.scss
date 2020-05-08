@@ -7,7 +7,7 @@
   src: url(../fonts/Chulapa/Chulapa-Bold.otf);
 }
 
-{{ assign theme = site.theme.col }}
+{%- assign theme = site.theme.col -%}
 
 $chulapa-col: {{ theme.main | default: crimson }};
 
