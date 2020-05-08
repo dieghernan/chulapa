@@ -4,7 +4,7 @@ title: some title
 other: other thing 
 ---
 
-{{ site.chulapa-skin.cols.main | default: 'crimson' }}
+{{ site.chulapa-skin.cols }}
 
 
 {% for n in site.kramdown %}
@@ -21,7 +21,7 @@ Test1
 End test
 Test2
 
-{{ site.chulapa-skin }}
+{{ site.chulapa-skin.cols }}
 
     {%- for font in site.googlefonts2 -%}
    Aa{{ font.url }}bb
@@ -60,7 +60,7 @@ End test
 
 {{ site.chulapa-theme }}
 
-{% assign: cols = site.chulapa-theme.col %}
+{% assign: cols = site.chulapa-theme.cols %}
 
 {{ cols.main  }}
 
