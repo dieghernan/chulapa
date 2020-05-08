@@ -9,7 +9,7 @@
 
 {%- assign theme = site.theme.col -%}
 
-$chulapa-col: {{ theme.main | default: crimson }};
+$chulapa-col: {{ theme.main | default: 'crimson' }};
 
 @import "skins/auto";
 
