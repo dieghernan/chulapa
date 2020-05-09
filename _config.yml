@@ -22,7 +22,7 @@ googlefonts:
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
   cols        :    
-    chulapa-col: black # Fallback "crimson"
+    chulapa-col:  bisque # Fallback "crimson"
     body-color: 
 
 plugins:
