@@ -18,13 +18,11 @@ googlefonts:
   
 
 # Theme and colors
-chulapa-col: 
-  main: 'aquamarine'
 
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
   cols        :    
-    chulapa-col: # Fallback "crimson"
+    chulapa-col: aquamarine # Fallback "crimson"
     body-color: 
 
 plugins:
