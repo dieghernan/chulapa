@@ -18,6 +18,10 @@ ${{ cols[0] }}: {{ cols[1] }};
 {% endfor%}
 
 
+// Default if not provided
+$chulapa-col: crimson !default;
+
+
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
 
@@ -80,28 +84,48 @@ blockquote {
   text-rendering: optimizeLegibility;
 }
 
-$navbar-chulapa-brand-color:
-color-yiq($chulapa-col,red,pink);
+// Custom Navbar
+$navbar-chulapa-color: 
+color-yiq($chulapa-col,$navbar-light-color,$navbar-dark-color) !default;
 
+$navbar-chulapa-hover-color: 
+color-yiq($chulapa-col,$navbar-light-hover-color,$navbar-dark-hover-color) !default;
+
+$navbar-chulapa-active-color:
+color-yiq($chulapa-col,$navbar-light-active-color,$navbar-dark-active-color) !default;
+
+$navbar-chulapa-disabled-color:
+color-yiq($chulapa-col,$navbar-light-disabled-color,$navbar-dark-disabled-color) !default;
+
+$navbar-chulapa-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-chulapa-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+
+$navbar-chulapa-toggler-border-color:
+color-yiq($chulapa-col,$navbar-light-toggler-border-color,$navbar-dark-toggler-border-color) !default;
+
+$navbar-chulapa-brand-color: $navbar-chulapa-active-color !default;
+$navbar-chulapa-brand-hover-color: $navbar-chulapa-active-color !default;
+
+
+// Custom Navbar
 .navbar-chulapa {
   .navbar-brand {
     color: $navbar-chulapa-brand-color;
 
     @include hover-focus() {
-      color: $navbar-dark-brand-hover-color;
+      color: $navbar-chulapa-brand-hover-color;
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-chulapa-brand-color;
+      color: $navbar-chulapa-color;
 
       @include hover-focus() {
-        color: $navbar-dark-hover-color;
+        color: $navbar-chulapa-hover-color;
       }
 
       &.disabled {
-        color: $navbar-dark-disabled-color;
+        color: $navbar-chulapa-disabled-color;
       }
     }
 
@@ -109,26 +133,26 @@ color-yiq($chulapa-col,red,pink);
     .active > .nav-link,
     .nav-link.show,
     .nav-link.active {
-      color: $navbar-dark-active-color;
+      color: $navbar-chulapa-active-color;
     }
   }
 
   .navbar-toggler {
-    color: navbar-chulapa-brand-color;
-    border-color: $navbar-dark-toggler-border-color;
+    color: $navbar-chulapa-color;
+    border-color: $navbar-chulapa-toggler-border-color;
   }
 
   .navbar-toggler-icon {
-    background-image: escape-svg($navbar-dark-toggler-icon-bg);
+    background-image: escape-svg($navbar-chulapa-toggler-icon-bg);
   }
 
   .navbar-text {
-    color: $navbar-chulapa-brand-color;
+    color: $navbar-chulapa-color;
     a {
-      color: $navbar-dark-active-color;
+      color: $navbar-chulapa-active-color;
 
       @include hover-focus() {
-        color: $navbar-dark-active-color;
+        color: $navbar-chulapa-active-color;
       }
     }
   }
