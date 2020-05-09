@@ -1,3 +1,6 @@
+$chulapa-col: crimson !default;
+
+
 // Colors 
 $white:    mix(#fff,$chulapa-col,95%);
 $gray-100: mix(#f8f9fa,$chulapa-col,85%);
@@ -23,21 +26,14 @@ $teal:    mix(#20c997,$chulapa-col,60%);
 $cyan:    mix(#17a2b8,$chulapa-col,60%);
 
 $dark:    mix(black, $chulapa-col,80%); 
-$darker:  $black;
 $light:   mix(white, $chulapa-col,75%);
-$lighter: $white;
 
 //Components
 $navbar-light-color:$dark;
-$navbar-dark-color: $lighter;
-$yiq-contrasted-threshold:  160;
+$navbar-dark-color: $light;
 
 
 $table-accent-bg: $light;
-$body-bg:         $lighter;
+$body-bg:         $white;
 $link-color:      darken($chulapa-col, 25%);
 
-
-// New themes
-$chulapa-nav: $chulapa-col;
-$chulapa-hero: $light;

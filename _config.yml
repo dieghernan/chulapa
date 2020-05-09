@@ -22,10 +22,10 @@ chulapa-col:
   main: 'aquamarine'
 
 chulapa-skin: 
-  mode       :     # Fallback "auto", values: auto, custom, ...
-  cols        :    # Fallback "crimson"
-    main     : "black"
-    body-color: "green"
+  mode        :     # Fallback "auto", values: auto, custom, ...
+  cols        :    
+    chulapa-col: # Fallback "crimson"
+    body-color: "
 
 plugins:
   - jekyll-github-metadata

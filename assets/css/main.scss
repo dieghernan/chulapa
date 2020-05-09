@@ -9,13 +9,14 @@
 }
  // A. Theming Bootstrap
 
-$chulapa-col: {{ site.chulapa-skin.cols.main | default: 'crimson' }};
-
 {% for cols in site.chulapa-skin.cols %}
 {% if cols[1] %}
+
 ${{ cols[0] }}: {{ cols[1] }};
+
 {% endif %}
 {% endfor%}
+
 
 // Vars to overwrite Bootstrap 
 @import "skins/auto";
@@ -25,13 +26,7 @@ ${{ cols[0] }}: {{ cols[1] }};
 @import "bootstrap-4.4.1/scss/mixins";
 
 $theme-colors:(
-  lighter: $lighter,
-  darker:  $darker,
   chulapa: $chulapa-col,
-  chulapa-nav-col: $chulapa-nav,
-  chulapa-nav-text: color-yiq($chulapa-nav),
-  chulapa-hero-col: $chulapa-hero,
-  chulapa-hero-text: color-yiq($chulapa-hero),
 );
 
 // Import bootstrap
@@ -39,10 +34,6 @@ $theme-colors:(
 //B. Extend bootstrap styles to html tags
 
 /* Chulapa styles */
-.text-chulapa-nav-text{
-  @extend .font-weight-bold;
-}
-
 img {
   @extend .img-fluid;
 }
