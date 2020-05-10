@@ -3,6 +3,10 @@ layout: base
 title: some title
 other: other thing 
 ---
+{% assign custom = site.fonttess | default: -apple-system %}
+{% assign sansboot =  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" | split: ", " %}
+
+{{ custom | append: sansboot }}
 
 {{ site.chulapa-skin.cols }}
 
