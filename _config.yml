@@ -19,7 +19,7 @@ googlefonts:
 
 # Theme and colors
 
-chufont: 'a b'
+chufont: 'a mbb'
 
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
