@@ -6,7 +6,7 @@ other: other thing
 
 {%- assign customfont = site.chufont | default: "default" -%}
 
-{% assign sansboot =  "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"  %}
+{% assign sansboot =  "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"  %}
 
 
 {{ sansboot }}
