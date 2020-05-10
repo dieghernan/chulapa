@@ -19,6 +19,8 @@ googlefonts:
 
 # Theme and colors
 
+site.chufont: "a b"
+
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
   cols        :    
