@@ -4,14 +4,17 @@ title: some title
 other: other thing 
 ---
 
-{%- assign customfont = site.chufont | default: "default" -%}
+{% if site.chufont %}
 
-{% assign sansboot =  "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" | split: ", " %}
+Aaa
+
+{% else %}
+
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+{% endif %} 
 
 
-{{ sansboot | uniq | join: ", " }}
-
-{{ customfont }}
 
 
 {{ site.chulapa-skin.cols }}
