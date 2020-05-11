@@ -4,7 +4,13 @@ title: some title
 other: other thing 
 ---
 
-{% assign nufonts = site.chufont | split: "," %}
+{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
+
+{% for member in beatles %}
+  {{ member }}
+{% endfor %}
+
+{% assign nufonts = "site.chufont" | split: "," %}
 aA
 {{ nufonts }}
 
