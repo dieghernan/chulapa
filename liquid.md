@@ -12,13 +12,13 @@ other: other thing
   {{ member }}
 {% endfor %}
 
-{% assign nufonts = "site.chufont" | split: "," %}
+{% assign nufonts = site.chufont | split: "," %}
 aA
 
 {{ nufonts }}
 
-{% for member in nufonts %}
-  "{{ member }}" ,
+{% for aa in nufonts %}
+  "{{ aa }}" ,
 {% endfor %}
 
 {{ site.chufont }}
