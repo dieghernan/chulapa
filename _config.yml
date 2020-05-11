@@ -19,7 +19,7 @@ googlefonts:
 
 # Theme and colors
 
-chufont: 'a mbb'
+chufont: -Apple-system, Verdana
 
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
