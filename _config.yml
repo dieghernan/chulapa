@@ -24,7 +24,7 @@ chufont: Calibri
 chulapa-skin: 
   autothemer  : true    # Leave empty for core bootstrap
   cols        :    
-    chulapa-col: lemmonchiffon   # Fallback "crimson"
+    chulapa-col: lemonchiffon   # Fallback "crimson"
     body-color: 
 
 plugins:
