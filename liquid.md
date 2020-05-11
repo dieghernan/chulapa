@@ -4,7 +4,7 @@ title: some title
 other: other thing 
 ---
 
-{% assign fonts = site.chutefons | split: ", " %}
+{% assign fonts = site.chufont | split: ", " %}
 
 {% for member in font %}
   "{{ member }}" ,
