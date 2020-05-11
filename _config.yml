@@ -22,7 +22,7 @@ googlefonts:
 chufont: Calibri
 
 chulapa-skin: 
-  autothemer  : true    # Leave empty for core bootstrap
+  autothemer  :     # Leave empty for core bootstrap
   cols        :    
     chulapa-col:   # Fallback "crimson"
     body-color: 
