@@ -19,7 +19,7 @@ googlefonts:
 
 # Theme and colors
 
-chufont: 
+chufont: Calibri
 
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
