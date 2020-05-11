@@ -78,88 +78,157 @@
     </main>
     <!-- Footer -->
     <footer class="bg-primary text-white text-center">
+<!doctype html>
+<html lang="{{- site.locale | default: 'en-US' -}}">
+<head>
+    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+    {%- assign highligher = site.highlight-skin | default: "default" | downcase | prepend: "assets/css/pygments/" | append: ".css" | relative_url -%}
+    {%- assign title = page.title | site.title | default: site.github.repository_name  -%}
+    
+    <title>{{- title -}}</title>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    {%- for font in site.googlefonts -%}
+    <link href="{{ font.url }}" rel="stylesheet">
+    {%- endfor -%}
+    <!-- Fontawesome-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chulapa css -->
+    <link rel="stylesheet" href="{{- "assets/css/main.css " | relative_url -}}" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
+    <!-- Highlighter from pygments - Should be after main -->
+    <link rel="stylesheet" href="{{- highligher -}}" />
+    <link rel="canonical" href="{{ canonical_url }}">
+</head>
+<body>
+  <nav class="container-expand navbar navbar-expand-md sticky-top navbar-chulapa">
+     <div class="container-fluid mx-md-2">
+         <a class="navbar-brand" href="/jt/">jt</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarToggler">
+             <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link disabled" href="#">Disabled <span class="sr-only">(current)</span></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link active" href="#">Active <span class="sr-only">(current)</span></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                 </li>
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="#">Action</a>
+                         <a class="dropdown-item" href="#">Action</a>
+                         <a class="dropdown-item" href="#">Action</a>
+                         <a class="dropdown-item" href="#">Action</a>
+                         <a class="dropdown-item active" href="#">Active</a>
+                         <a class="dropdown-item disabled" href="#">Disabled</a>
+                     </div>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </nav>
+    <header class="jumbotron bg-chulapa-hero-col text-chulapa-hero-text">
         <div class="container">
             <div class="row">
-                <div class="col-xl-10 offset-xl-1">
-                    <div role="navigation" id="chulapa-social-links">
-                        <ul class="nav justify-content-center">
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/rss.xml" title="RSS" class="nav-link lead">
-                                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span><span class="sr-only">RSS</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="col-xl-10 offset-xl-1 text-md-center">
+                    <h1>Hello, world!</h1>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container pb-5">
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2">
+                {{- content -}}
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+ <footer class="footer-chulapa text-center ">
+     <div class="container">
+         <div class="row">
+             <div class="col-xl-10 offset-xl-1">
+                 <div role="navigation">
+                     <ul class=" nav justify-content-center">
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
                     <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
+					<!-- Do not remove this in order to give  attributions --->
                     <p>Theme 
-                        <a href="#" class="text-white chulapa">Chulapa</a> 
+                        <a href="#" class="chulapa">Chulapa</a> 
                         powered by 
-                        <a href="https://getbootstrap.com/docs/4.4/" class="text-white font-weight-bold">
-                            Bootstrap
-                        </a>
-                    <p>
+                        <a href="https://getbootstrap.com/docs/4.4/">Bootstrap</a></p>
+						<p class="small pt-3"><span class="chulapa">"Chulapa" typography by Joancarles Casasín y Pablo Gámez is licensed under</span> <a href="https://creativecommons.org/licenses/by/4.0/deed">CC BY 4.0</a></p>
+                     <!-- End  attributions --->
                 </div>
             </div>
         </div>
     </footer>
+    <!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
     <!-- Footer -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
