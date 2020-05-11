@@ -24,7 +24,7 @@ chufont: Calibri
 chulapa-skin: 
   mode        :     # Fallback "auto", values: auto, custom, ...
   cols        :    
-    chulapa-col:   "#007bff" # Fallback "crimson"
+    chulapa-col:   teal # Fallback "crimson"
     body-color: 
 
 plugins:
