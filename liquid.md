@@ -6,15 +6,18 @@ other: other thing
 
 {% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
 
+{{ beatles }}
+
 {% for member in beatles %}
   {{ member }}
 {% endfor %}
 
 {% assign nufonts = "site.chufont" | split: "," %}
 aA
+
 {{ nufonts }}
 
-{% for member in nufont %}
+{% for member in nufonts %}
   "{{ member }}" ,
 {% endfor %}
 
