@@ -4,6 +4,11 @@ title: some title
 other: other thing 
 ---
 
+Themer
+
+{% if site.chulapa-skin.autothemer %}
+@import "skins/auto";
+{% endif %}
 
 {% assign nufonts = site.chufont | split: "," %}
 

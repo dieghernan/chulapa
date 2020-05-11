@@ -140,9 +140,7 @@ The final element.
 <button type="button" class="btn btn-warning">Warning</button>
 <button type="button" class="btn btn-danger">Danger</button>
 <button type="button" class="btn btn-link">Link</button>
-<button type="button" class="btn btn-lighter">Lighter</button>
-<button type="button" class="btn btn-darker">Darker</button>
-<button type="button" class="btn btn-ch-nav">ch-nav</button>
+<button type="button" class="btn btn-chulapa">Chulapa</button>
 
 
 <button type="button" class="btn btn-primary disabled">Primary</button>
@@ -152,9 +150,7 @@ The final element.
 <button type="button" class="btn btn-warning disabled">Warning</button>
 <button type="button" class="btn btn-danger disabled">Danger</button>
 <button type="button" class="btn btn-link disabled">Link</button>
-<button type="button" class="btn btn-lighter disabled">Lighter</button>
-<button type="button" class="btn btn-darker disabled">Darker</button>
-<button type="button" class="btn btn-ch-nav disabled">ch-nav</button>
+<button type="button" class="btn btn-chulapa disabled">Chulapa</button>
 
 
 <button type="button" class="btn btn-outline-primary">Primary</button>
@@ -163,12 +159,12 @@ The final element.
 <button type="button" class="btn btn-outline-info">Info</button>
 <button type="button" class="btn btn-outline-warning">Warning</button>
 <button type="button" class="btn btn-outline-danger">Danger</button>
-
+<button type="button" class="btn btn-outline-chulapa">Chulapa</button>
 
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
 	<button type="button" class="btn btn-primary">Primary</button>
 	<div class="btn-group" role="group">
-		<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+		<button  type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
 		<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 			<a class="dropdown-item" href="#">Dropdown link</a>
 			<a class="dropdown-item" href="#">Dropdown link</a>
@@ -179,7 +175,7 @@ The final element.
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
 	<button type="button" class="btn btn-success">Success</button>
 	<div class="btn-group" role="group">
-		<button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+		<button  type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
 		<div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
 			<a class="dropdown-item" href="#">Dropdown link</a>
 			<a class="dropdown-item" href="#">Dropdown link</a>
@@ -190,7 +186,7 @@ The final element.
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
 	<button type="button" class="btn btn-info">Info</button>
 	<div class="btn-group" role="group">
-		<button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+		<button  type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
 		<div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
 			<a class="dropdown-item" href="#">Dropdown link</a>
 			<a class="dropdown-item" href="#">Dropdown link</a>
@@ -201,7 +197,7 @@ The final element.
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
 	<button type="button" class="btn btn-danger">Danger</button>
 	<div class="btn-group" role="group">
-		<button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+		<button  type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
 		<div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
 			<a class="dropdown-item" href="#">Dropdown link</a>
 			<a class="dropdown-item" href="#">Dropdown link</a>
@@ -209,11 +205,24 @@ The final element.
 	</div>
 </div>
 
-<button type="button" class="btn btn-primary btn-lg">Large button</button>
-<button type="button" class="btn btn-primary">Default button</button>
-<button type="button" class="btn btn-primary btn-sm">Small button</button>
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+	<button type="button" class="btn btn-chulapa">Chulapa</button>
+	<div class="btn-group" role="group">
+		<button  type="button" class="btn btn-chulapa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+		<div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
+			<a class="dropdown-item" href="#">Dropdown link</a>
+			<a class="dropdown-item" href="#">Dropdown link</a>
+		</div>
+	</div>
+</div>
 
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
+<div class="my-1">
+  <button type="button" class="btn btn-primary btn-lg">Large button</button>
+  <button type="button" class="btn btn-primary">Default button</button>
+  <button type="button" class="btn btn-primary btn-sm">Small button</button>
+</div>
+
+<div class="btn-group btn-group-toggle my-1" data-toggle="buttons">
 	<label class="btn btn-primary active">
 		<input type="checkbox" checked="" autocomplete="off"> Active
 	</label>
@@ -225,21 +234,19 @@ The final element.
 	</label>
 </div>
 
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
+<div class="btn-group btn-group-toggle my-1" data-toggle="buttons">
 	<label class="btn btn-primary active">
-		<input type="radio" name="options" id="option1" autocomplete="off" checked=""> Active
+		<input type="radio" name="options"  autocomplete="off" checked=""> Active
 	</label>
 	<label class="btn btn-primary">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Radio
+		<input type="radio" name="options" autocomplete="off"> Radio
 	</label>
 	<label class="btn btn-primary">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Radio
+		<input type="radio" name="options" autocomplete="off"> Radio
 	</label>
 </div>
 
-
-
-<div class="btn-group" role="group" aria-label="Basic example">
+<div class="btn-group my-1" role="group" aria-label="Basic example">
 	<button type="button" class="btn btn-secondary">Left</button>
 	<button type="button" class="btn btn-secondary">Middle</button>
 	<button type="button" class="btn btn-secondary">Right</button>
@@ -247,7 +254,7 @@ The final element.
 
 
 
-<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-toolbar my-1" role="toolbar" aria-label="Toolbar with button groups">
 	<div class="btn-group mr-2" role="group" aria-label="First group">
 		<button type="button" class="btn btn-secondary">1</button>
 		<button type="button" class="btn btn-secondary">2</button>
