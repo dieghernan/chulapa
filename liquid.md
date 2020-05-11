@@ -4,6 +4,14 @@ title: some title
 other: other thing 
 ---
 
+{% assign fonts = site.chutefons | split: ", " %}
+
+{% for member in font %}
+  "{{ member }}" ,
+{% endfor %}
+
+
+
 {% if site.chufont %}
 
 $font-family-sans-serif: "{{ site.chufont }}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
