@@ -4,9 +4,11 @@ title: some title
 other: other thing 
 ---
 
-{% assign fonts = "{{ site.chufont }}" | split: "," %}
+{% assign nufonts = site.chufont | split: "," %}
+aA
+{{ nufonts }}
 
-{% for member in font %}
+{% for member in nufont %}
   "{{ member }}" ,
 {% endfor %}
 
