@@ -4,26 +4,14 @@ title: some title
 other: other thing 
 ---
 
-{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
-
-{{ beatles }}
-
-{% for member in beatles %}
-  {{ member }}
-{% endfor %}
 
 {% assign nufonts = site.chufont | split: "," %}
-aA
 
-{{ nufonts }}
 
-{% for aa in nufonts %}
-  "{{ aa }}" ,
-{% endfor %}
+$font-family-sans-serif:{%- for font in nufonts -%}  "{{ font }}" , {%- endfor -%} -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
-{{ site.chufont }}
 
-{{ site.chufont | split: "," }}
+
 
 
 {% if site.chufont %}
