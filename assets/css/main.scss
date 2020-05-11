@@ -22,8 +22,10 @@ ${{ cols[0] }}: {{ cols[1] }};
 $chulapa-col: crimson !default;
 
 
-// Vars to overwrite Bootstrap 
+// Autothemer
+{% if site.chulapa-skin.autothemer %}
 @import "skins/auto";
+{% endif %}
 
 @import "bootstrap-4.4.1/scss/functions";
 @import "bootstrap-4.4.1/scss/variables";
