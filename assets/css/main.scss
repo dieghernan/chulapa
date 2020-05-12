@@ -102,5 +102,5 @@ blockquote {
  
  $chulapa-highlight: monokai;
  
- @import "pygments/"+$chulapa-highlight;
+ @import "pygments/#{$chulapa-highlight}";
  
