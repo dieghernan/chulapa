@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xx_default
 title: some title
 other: other thing 
 ---
