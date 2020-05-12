@@ -1,7 +1,6 @@
 ---
-layout: xx_default
-title: some title
-other: other thing 
+layout: default
+subtitle: Liquid 
 ---
 
 Themer
