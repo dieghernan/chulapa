@@ -1,16 +1,6 @@
-
-// Import bootstrap
-@import "bootstrap-4.4.1/scss/bootstrap";
-
-// Bold text on Navbar
-//.text-chulapa-nav-text{
-//  @extend font-weight-bold;
-//}
-
-
-//B. Assing default bootstrap styles to html tags
+// Defaults needed as Bootstrap doesn't specifically format these tags
 img {
-  @extend .img-fluid
+  @extend .img-fluid;
 }
 
 table {
@@ -37,12 +27,12 @@ blockquote {
   @extend .p-2;
 }
 
-// Default value, could be overriden based on site.highlight-skin option
+// Could be overriden lately
 .highlight pre { 
-  background-color: $gray-100; 
+  background-color: $chulapa-pre-color-bg; 
 }
 
-// C. Custom styles
+// Custom styles
 .chulapa {
   font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   // Enable Ligatures

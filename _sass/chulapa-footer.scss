@@ -1,11 +1,6 @@
-/*! Chulapa footer */
-
-
-$footer-chulapa-bg-color:       $navbar-chulapa-bg-color !default;
-$footer-chulapa-text-color:     $navbar-chulapa-hover-color !default;
-$footer-chulapa-hover-color:    $navbar-chulapa-text-color !default;
-$footer-chulapa-icon-color:     $footer-chulapa-text-color !default;
-
+/*!
+ * Footer
+ */
 .footer-chulapa {
     background-color: $footer-chulapa-bg-color;
     color: $footer-chulapa-text-color;
@@ -16,11 +11,10 @@ $footer-chulapa-icon-color:     $footer-chulapa-text-color !default;
                 @include hover-focus() {
             color: $footer-chulapa-hover-color;
         }
-}
-
+        
+    }
     .nav-link {
         color: transparent;
-
         @include hover-focus() {
             color: $footer-chulapa-hover-color;
         }
