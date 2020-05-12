@@ -25,7 +25,7 @@ chulapa-skin:
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
   autothemer  : true        # Leave empty for core bootstrap
   cols        :    
-    chulapa-col: black       # Fallback "crimson"
+    chulapa-col: white      # Fallback "crimson"
     body-color: 
 
 plugins:
