@@ -6,6 +6,10 @@ other: other thing
 
 Themer
 
+
+ $chulapa-highlight: {{- site.chulapa-skin.highlight | default: "github" -}};
+
+
 {% if site.chulapa-skin.autothemer %}
 @import "skins/auto";
 {% endif %}

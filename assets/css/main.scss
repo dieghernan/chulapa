@@ -98,7 +98,9 @@ blockquote {
 #Highlighter
  /*! Highlighter {{- site.chulapa-skin.highlight | default: "github" -}} */
  
- $chulapa-highlight: {{- site.chulapa-skin.highlight | default: "github" -}};
+ //$chulapa-highlight: {{- site.chulapa-skin.highlight | default: "github" -}};
+ 
+ $chulapa-highlight: monokai;
  
  @import "pygments/"+$chulapa-highlight;
  
