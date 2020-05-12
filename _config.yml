@@ -22,7 +22,7 @@ googlefonts:
 chufont: Calibri
 
 chulapa-skin: 
-  highlight   : github # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
+  highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
   autothemer  : true        # Leave empty for core bootstrap
   cols        :    
     chulapa-col:        # Fallback "crimson"
