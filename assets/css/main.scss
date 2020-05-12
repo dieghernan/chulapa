@@ -94,3 +94,5 @@ blockquote {
 @import "chulapa-nav";
 //Footer
 @import "chulapa-footer";
+
+ @import "pygments/{{- site.chulapa-skin.highlight | default: "github" -}}";
