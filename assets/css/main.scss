@@ -17,20 +17,20 @@ $chulapa-col: crimson !default;
 @import "skins/auto";
 {% endif %}
 
-//Import bootstrap and create chulapa theme
-
-@import "bootstrap-4.4.1/scss/functions";
-@import "bootstrap-4.4.1/scss/variables";
-@import "bootstrap-4.4.1/scss/mixins";
+//Create chulapa theme
 
 $theme-colors:(
   chulapa: $chulapa-col,
 );
 
 // Import bootstrap
-@import "bootstrap-4.4.1/scss/bootstrap";
+@import "bootstrap/bootstrap";
 
-
+/*!
+ * Chulapa Jekyll Theme
+ * Developed by dieghernan (https://github.com/dieghernan)
+ * Licensed under MIT
+ */
 
 //B. Extend bootstrap styles to html tags
 
