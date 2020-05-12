@@ -61,7 +61,6 @@
 
         .dropdown-item {
             color: $navbar-chulapa-text-color;
-            border-radius: 0.25em;
 
             @include hover-focus() {
                 background-color: $navbar-chulapa-hover-color;

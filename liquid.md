@@ -119,6 +119,4 @@ End test
 -  {{ item }} - {{ item[0] }}
 {% endfor %}
 
-# D
 
-{{ site.github | inspect }}

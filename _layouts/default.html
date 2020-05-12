@@ -57,16 +57,19 @@
          </div>
      </div>
  </nav>
-    <header class="jumbotron bg-chulapa-hero-col text-chulapa-hero-text">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-10 offset-xl-1 text-md-center">
-                    <h1>Hello, world!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                </div>
-            </div>
-        </div>
-    </header>
+ <!-- image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url('')"; -->
+  <header class="pb-1 hero-chulapa">
+     <div class="container">
+         <div class="row">
+             <div class="col-xl-10 offset-xl-1 text-md-center">
+                 <h1 class="pb-5">{{- page.title | default: "Where's your title?" -}}</h1>
+                 {%- if page.subtitle -%}
+                 <p class="p-2">{{- page.subtitle -}}</p>
+                 {%- endif -%}
+             </div>
+         </div>
+     </div>
+ </header>
     <main class="container pb-5">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">

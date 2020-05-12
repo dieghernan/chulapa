@@ -29,3 +29,9 @@ $footer-chulapa-text-color:     $navbar-chulapa-hover-color !default;
 $footer-chulapa-hover-color:    $navbar-chulapa-text-color !default;
 $footer-chulapa-icon-color:     $footer-chulapa-text-color !default;
 
+
+//Hero
+$hero-chulapa-bg-color: mix(#fff, $chulapa-col, 75%) !default;
+$hero-chulapa-text-color: color-yiq($hero-chulapa-bg-color, $black, $white) !default;
+
+

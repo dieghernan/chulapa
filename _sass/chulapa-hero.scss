@@ -1,0 +1,36 @@
+/*!
+ * Hero unit
+ */
+ 
+.hero-chulapa {
+    @extend .jumbotron;
+    background-color: $hero-chulapa-bg-color;
+
+    p {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+}
+
+.hero-chulapa-image {
+    @extend .jumbotron;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: $white;
+    text-shadow: 0rem 0rem 1rem $black;
+    p {
+        font-size: 1.4rem;
+        font-weight: 500;
+        background-color: rgba($black, 0.3);
+        border-radius: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+// Default value, could be overriden based on site.highlight-skin option
+.highlight pre {
+    background-color: $gray-100;
+}
+

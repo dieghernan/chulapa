@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Index example
+subtitle: Some interesting thing
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
