@@ -7,7 +7,7 @@ other: other thing
 Themer
 
 
- $chulapa-highlight: {{- site.chulapa-skin.highlight | default: "github" -}};
+ @import "pygments/{{- site.chulapa-skin.highlight | default: "github" -}}";
 
 
 {% if site.chulapa-skin.autothemer %}
