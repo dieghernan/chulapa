@@ -23,9 +23,9 @@ chufont: Calibri
 
 chulapa-skin: 
   highlight   : monokai # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
-  autothemer  :         # Leave empty for core bootstrap
+  autothemer  : true        # Leave empty for core bootstrap
   cols        :    
-    chulapa-col:        # Fallback "crimson"
+    chulapa-col: lemonchiffon       # Fallback "crimson"
     body-color: 
 
 plugins:
