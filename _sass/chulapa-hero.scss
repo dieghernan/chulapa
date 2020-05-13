@@ -4,6 +4,7 @@
  
 .hero-chulapa {
     @extend .jumbotron;
+    border-radius: 0rem;
     background-color: $hero-chulapa-bg-color;
     color: $hero-chulapa-text-color;
 
@@ -15,6 +16,7 @@
 
 .hero-chulapa-image {
     @extend .jumbotron;
+    border-radius: 0rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,4 +36,3 @@
 .highlight pre {
     background-color: $gray-100;
 }
-
