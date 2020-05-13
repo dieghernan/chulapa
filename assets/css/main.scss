@@ -18,14 +18,13 @@ ${{ cols[0] }}: {{ cols[1] }};
 // Key theme var
 $chulapa-col: crimson !default;
 
-//Themer
+//Themer - override some vars
 {% if site.chulapa-skin.preset %}
 @import "skins/{{- site.chulapa-skin.preset -}}";
-
 {% endif %}
 
 
-// Autothemer: Smooths all buttons if option selected
+// Autothemer: No overrides
 {% if site.chulapa-skin.autothemer %}
 @import "skins/auto";
 {% endif %}
@@ -43,7 +42,6 @@ $theme-colors:(
 @import "chulapa-master";
 
 //C. Highlighter
-
 /*!
  * Pygments css
  * Developed by jwarby (https://github.com/jwarby)
