@@ -4,23 +4,22 @@ img {
 }
 
 table {
-  @extend .table;
-  @extend .table-sm;
-  @extend .table-bordered;
-  @extend .table-striped;
+    @extend .table;
+    @extend .table-sm;
 }
 
 thead {
-  @extend .thead-dark;
+    @extend .thead-dark;
 }
 
 blockquote {
-  @extend .bg-light;
-  @extend .pl-2;
-  @extend .py-1;
-  @extend .rounded-right;
-  @extend .font-italic;
-  border-left: 0.3rem solid $gray-500;
+    @extend .bg-light;
+    @extend .pl-2;
+    @extend .py-1;
+    @extend .rounded-right;
+    @extend .font-italic;
+    border-left: 0.3rem solid darken($light, 30%);
+    color: darken($light, 60%);
 }
 
 .highlight {
