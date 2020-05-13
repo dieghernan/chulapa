@@ -44,4 +44,7 @@ darken($blockquote-chulapa-bg-color, 30%) !default;
 $blockquote-chulapa-text-color: 
 darken($blockquote-chulapa-bg-color, 60%) !default;
 
-
+//Table
+$table-chulapa-bg-color: $chulapa-col !default;
+$table-chulapa-text-color: 
+color-yiq($table-chulapa-bg-color, $black, $white) !default;
