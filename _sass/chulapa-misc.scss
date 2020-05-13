@@ -9,8 +9,13 @@ table {
 }
 
 thead {
-    @extend .thead-dark;
+  th {
+    color: $table-chulapa-text-color;
+    background-color: $table-chulapa-bg-color;
+  }
 }
+
+
 
 blockquote {
     @extend .pl-2;
