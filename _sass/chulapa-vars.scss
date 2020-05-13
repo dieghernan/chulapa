@@ -34,4 +34,14 @@ $footer-chulapa-icon-color:     $footer-chulapa-text-color !default;
 $hero-chulapa-bg-color: mix(#fff, $chulapa-col, 75%) !default;
 $hero-chulapa-text-color: color-yiq($hero-chulapa-bg-color, $black, $white) !default;
 
+//Misc
+
+//Blockquote
+$blockquote-chulapa-bg-color: darken($body-bg,5%) !default;
+$blockquote-chulapa-border-color: 
+darken($blockquote-chulapa-bg-color, 30%) !default;
+
+$blockquote-chulapa-text-color: 
+darken($blockquote-chulapa-bg-color, 60%) !default;
+
 

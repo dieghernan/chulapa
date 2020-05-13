@@ -13,15 +13,14 @@ thead {
 }
 
 blockquote {
-    @extend .bg-light;
     @extend .pl-2;
     @extend .py-1;
     @extend .rounded-right;
     @extend .font-italic;
-    border-left: 0.3rem solid darken($light, 30%);
-    color: darken($light, 60%);
+    background-color: $blockquote-chulapa-bg-color;
+    border-left: 0.3rem solid $blockquote-chulapa-border-color;
+    color: $blockquote-chulapa-text-color;
 }
-
 .highlight {
   @extend .p-2;
 }

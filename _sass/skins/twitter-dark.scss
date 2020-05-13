@@ -1,0 +1,41 @@
+$chulapa-col: #16202a;
+
+// Some bootstrap variables
+$primary: #209fee;
+$success: #1abf63;
+$warning: #ffa722;
+$danger: #e12862;
+$info: #7c4ac5;
+$light: #fff;
+$body-bg: #16202a;
+$body-color: #dfdfdf;
+$link-color: $body-color;
+$link-hover-color: $primary;
+
+
+$chulapa-pre-color-bg: white;
+$navbar-chulapa-bg-color: #000;
+$navbar-chulapa-text-color: $body-color;
+$navbar-chulapa-hover-color: $primary;
+$navbar-chulapa-active-color: $primary;
+//$navbar-chulapa-disabled-color:           value; 
+//$navbar-chulapa-brand-color:              value; 
+//$navbar-chulapa-brand-hover-color:        value; 
+$navbar-chulapa-toggler-color: $primary;
+//$navbar-chulapa-toggler-color-bg:         value; 
+$navbar-chulapa-toggler-border-color: transparent;
+
+//$footer-chulapa-bg-color:                 value; 
+$footer-chulapa-text-color: white;
+$footer-chulapa-hover-color: $primary;
+//$footer-chulapa-icon-color:               value; 
+
+$hero-chulapa-bg-color: $primary;
+//$hero-chulapa-text-color:                 value; 
+
+
+$blockquote-chulapa-bg-color: mix(white,$primary,50%);
+//$blockquote-chulapa-border-color: value;
+//$blockquote-chulapa-text-color: value;
+
+@import "skins/auto";
