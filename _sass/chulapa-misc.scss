@@ -10,8 +10,8 @@ table {
 
 thead {
   th {
-    color: $table-chulapa-text-color;
-    background-color: $table-chulapa-bg-color;
+    color: $thead-chulapa-text-color;
+    background-color: $thead-chulapa-bg-color;
   }
 }
 
@@ -19,9 +19,9 @@ thead {
 
 blockquote {
     @extend .pl-2;
+    @extend .pr-1;
     @extend .py-1;
-    @extend .rounded-right;
-    @extend .font-italic;
+    font-style: italic;
     background-color: $blockquote-chulapa-bg-color;
     border-left: 0.3rem solid $blockquote-chulapa-border-color;
     color: $blockquote-chulapa-text-color;
