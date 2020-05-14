@@ -6,6 +6,7 @@ img {
 table {
     @extend .table;
     @extend .table-sm;
+    color: $body-color;
 }
 
 thead {
