@@ -15,7 +15,9 @@ thead {
   }
 }
 
-
+hr {
+  height:0.2rem;
+}
 
 blockquote {
     @extend .pl-2;
@@ -30,12 +32,12 @@ blockquote {
   @extend .p-2;
 }
 
-// Could be overriden lately
+// Could be overriden by highlight css
 .highlight pre { 
   background-color: $chulapa-pre-color-bg; 
 }
 
-// Custom styles
+// Custom font
 .chulapa {
   font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   // Enable Ligatures
