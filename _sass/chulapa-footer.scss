@@ -4,25 +4,36 @@
 .footer-chulapa {
     background-color: $footer-chulapa-bg-color;
     color: $footer-chulapa-text-color;
+
     a {
-        color:$footer-chulapa-text-color;
+        color: $footer-chulapa-text-color;
         text-decoration: none;
-        font-weight:bold;
-                @include hover-focus() {
-            color: $footer-chulapa-hover-color;
-        }
-        
-    }
-    .nav-link {
-        color: transparent;
+        font-weight: bold;
+
         @include hover-focus() {
             color: $footer-chulapa-hover-color;
+        }
+
+    }
+
+    .nav-link {
+        color: transparent;
+
+        @include hover-focus() {
+            color: $footer-chulapa-hover-color;
+        }
+    }
+
+    .fa-stack {
+        @include hover-focus() {
+            color: $footer-chulapa-icon-hover-color;
         }
     }
 
     .fa-inverse {
         color: $footer-chulapa-icon-color;
     }
+
     .small {
         font-size: 60%;
         text-align: left;

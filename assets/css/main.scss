@@ -8,10 +8,10 @@
   font-display: swap;
 }
 
- // A. Theming Bootstrap
-{% for cols in site.chulapa-skin.cols %}
-{% if cols[1] %}
-${{ cols[0] }}: {{ cols[1] }};
+ // A. Theming Bootstrap from config
+{% for var in site.chulapa-skin.vars %}
+{% if var[1] %}
+${{ var[0] }}: {{ var[1] }};
 {% endif %}
 {% endfor%}
 
@@ -21,11 +21,8 @@ $chulapa-col: crimson !default;
 //Themer - override some vars
 {% if site.chulapa-skin.theme %}
 @import "skins/{{- site.chulapa-skin.theme -}}";
-{% endif %}
-
-
+{% elsif if site.chulapa-skin.autothemer %}
 // Autothemer: No overrides
-{% if site.chulapa-skin.autothemer %}
 @import "skins/auto";
 {% endif %}
 

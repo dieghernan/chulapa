@@ -37,12 +37,12 @@ $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Rob
 
 
 
-{{ site.chulapa-skin.cols }}
+{{ site.chulapa-skin.vars }}
 
 
-{% for cols in site.chulapa-skin.cols %}
-{% if cols[1] %}
-${{ cols[0] }}: {{ cols[1] }};
+{% for var in site.chulapa-skin.vars %}
+{% if var[1] %}
+${{ var[0] }}: {{ var[1] }};
 {% endif %}
 {% endfor%}
 

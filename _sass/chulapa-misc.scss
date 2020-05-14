@@ -1,27 +1,27 @@
 // Defaults needed as Bootstrap doesn't specifically format these tags
 img {
-  @extend .img-fluid;
-  display: block; 
-  margin: auto;
+    @extend .img-fluid;
+    display: block;
+    margin: auto;
 }
 
 table {
     @extend .table;
     @extend .table-sm;
     color: $body-color;
-}
-
-thead {
-  th {
-    color: $thead-chulapa-text-color;
-    background-color: $thead-chulapa-bg-color;
-  }
+    thead {
+        th {
+            color: $thead-chulapa-text-color;
+            background-color: $thead-chulapa-bg-color;
+            border: 0;
+        }
+    }
 }
 
 hr {
-  height: 0.125rem;
-  border-width: 0;
-  background-color: $body-color;
+    height: 0.125rem;
+    border-width: 0;
+    background-color: $body-color;
 }
 
 blockquote {
@@ -33,24 +33,25 @@ blockquote {
     border-left: 0.3rem solid $blockquote-chulapa-border-color;
     color: $blockquote-chulapa-text-color;
 }
+
 .highlight {
-  @extend .p-2;
+    @extend .p-2;
 }
 
 // Could be overriden by highlight css
-.highlight pre { 
-  background-color: $pre-chulapa-bg-color; 
+.highlight pre {
+    background-color: $pre-chulapa-bg-color;
 }
 
 // Custom font
 .chulapa {
-  font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  // Enable Ligatures
-  -webkit-font-feature-settings: "liga", "dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -moz-font-feature-settings: "liga", "dlig";
-  -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
-  text-rendering: optimizeLegibility;
+    font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    // Enable Ligatures
+    -webkit-font-feature-settings: "liga", "dlig";
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -moz-font-feature-settings: "liga", "dlig";
+    -ms-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+    text-rendering: optimizeLegibility;
 }

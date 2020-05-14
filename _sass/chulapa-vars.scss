@@ -3,49 +3,38 @@
 
 $chulapa-col: crimson !default;
 
-
 //Navbar
 $navbar-chulapa-bg-color: $chulapa-col !default;
-$navbar-chulapa-text-color: 
-color-yiq($navbar-chulapa-bg-color, rgba($black, .6), rgba($white, .6)) !default;
-$navbar-chulapa-hover-color: 
-color-yiq($navbar-chulapa-bg-color, rgba($black, .9), rgba($white, .9)) !default;
-$navbar-chulapa-active-color: 
-color-yiq($navbar-chulapa-bg-color, rgba($black, .97), rgba($white, .97)) !default;
-$navbar-chulapa-disabled-color: 
-color-yiq($navbar-chulapa-bg-color, rgba($black, .3), rgba($white, .25)) !default;
+$navbar-chulapa-text-color: color-yiq($navbar-chulapa-bg-color, rgba($black, .6), rgba($white, .6)) !default;
+$navbar-chulapa-hover-color: color-yiq($navbar-chulapa-bg-color, rgba($black, .9), rgba($white, .9)) !default;
+$navbar-chulapa-active-color: color-yiq($navbar-chulapa-bg-color, rgba($black, .97), rgba($white, .97)) !default;
+$navbar-chulapa-disabled-color: color-yiq($navbar-chulapa-bg-color, rgba($black, .3), rgba($white, .25)) !default;
 $navbar-chulapa-brand-color: $navbar-chulapa-active-color !default;
 $navbar-chulapa-brand-hover-color: $navbar-chulapa-active-color !default;
-$navbar-chulapa-toggler-color: $navbar-chulapa-active-color !default;
-$navbar-chulapa-toggler-color-bg: $navbar-chulapa-bg-color !default;
-$navbar-chulapa-toggler-icon-bg: 
-url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-chulapa-toggler-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
-$navbar-chulapa-toggler-border-color: $navbar-chulapa-active-color !default;
+$navbar-chulapa-toggler-color: color-yiq($navbar-chulapa-bg-color, rgba(black, .5), rgba(white, .5)) !default;
+$navbar-chulapa-toggler-color-bg: transparent !default;
+$navbar-chulapa-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-chulapa-toggler-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-chulapa-toggler-border-color: $navbar-chulapa-toggler-color !default;
 
 //Footer
-$footer-chulapa-bg-color:       $navbar-chulapa-bg-color !default;
-$footer-chulapa-text-color:     $navbar-chulapa-hover-color !default;
-$footer-chulapa-hover-color:    $navbar-chulapa-text-color !default;
-$footer-chulapa-icon-color:     $footer-chulapa-text-color !default;
-
+$footer-chulapa-bg-color: $navbar-chulapa-bg-color !default;
+$footer-chulapa-text-color: $navbar-chulapa-hover-color !default;
+$footer-chulapa-hover-color: $navbar-chulapa-text-color !default;
+$footer-chulapa-icon-color: $footer-chulapa-text-color !default;
+$footer-chulapa-icon-hover-color: $footer-chulapa-hover-color !default;
 
 //Hero
-$hero-chulapa-bg-color: mix(#fff, $chulapa-col, 75%) !default;
+$hero-chulapa-bg-color: mix(#fff, $chulapa-col, 50%) !default;
 $hero-chulapa-text-color: color-yiq($hero-chulapa-bg-color, $black, $white) !default;
 
 //Misc
-
 //Blockquote
-$blockquote-chulapa-bg-color: darken($body-bg,5%) !default;
-$blockquote-chulapa-border-color: 
-darken($blockquote-chulapa-bg-color, 30%) !default;
-
-$blockquote-chulapa-text-color: 
-darken($blockquote-chulapa-bg-color, 60%) !default;
+$blockquote-chulapa-bg-color: darken($body-bg, 5%) !default;
+$blockquote-chulapa-border-color: darken($blockquote-chulapa-bg-color, 30%) !default;
+$blockquote-chulapa-text-color: mix($blockquote-chulapa-bg-color,$body-color, 20%) !default;
 
 $pre-chulapa-bg-color: lighten($blockquote-chulapa-bg-color, 2%) !default;
 
 //Table
 $thead-chulapa-bg-color: $chulapa-col !default;
-$thead-chulapa-text-color: 
-color-yiq($thead-chulapa-bg-color, $black, $white) !default;
+$thead-chulapa-text-color: color-yiq($thead-chulapa-bg-color, $black, $white) !default;

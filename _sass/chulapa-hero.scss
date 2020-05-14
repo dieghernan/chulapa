@@ -1,7 +1,3 @@
-/*!
- * Hero unit
- */
- 
 .hero-chulapa {
     @extend .jumbotron;
     border-radius: 0rem;
@@ -22,13 +18,12 @@
     background-size: cover;
     position: relative;
     color: $white;
-    text-shadow: 0rem 0rem 1rem $black;
+    text-shadow: 0.1rem 0.05rem 0.2re $black;
+
     p {
         font-size: 1.4rem;
         font-weight: 500;
-        background-color: rgba($black, 0.3);
-        border-radius: 1rem;
-        padding: 0 1rem;
     }
 }
 
+//   <header class="pb-1 hero-chulapa-image" style="  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), url('https://i.imgur.com/YK1Vrl1.jpg');">
