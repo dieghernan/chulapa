@@ -16,7 +16,9 @@ thead {
 }
 
 hr {
-  height:0.2rem;
+  height: 0.25rem;
+  border-width: 0;
+  background-color: $body-color;
 }
 
 blockquote {
