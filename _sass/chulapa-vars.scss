@@ -3,8 +3,6 @@
 
 $chulapa-col: crimson !default;
 
-$chulapa-pre-color-bg: darken($body-bg, 3%) !default; //Background highlighter
-
 
 //Navbar
 $navbar-chulapa-bg-color: $chulapa-col !default;
@@ -45,7 +43,7 @@ darken($blockquote-chulapa-bg-color, 30%) !default;
 $blockquote-chulapa-text-color: 
 darken($blockquote-chulapa-bg-color, 60%) !default;
 
-$pre-chulapa-color-bg: darken($body-bg, 3%) !default
+$pre-chulapa-bg-color: darken($body-bg, 3%) !default;
 
 //Table
 $thead-chulapa-bg-color: $chulapa-col !default;
