@@ -34,11 +34,13 @@ $footer-chulapa-hover-color: $primary;
 $hero-chulapa-bg-color: $navbar-chulapa-bg-color;
 //$hero-chulapa-text-color:                 value; 
 
-$pre-chulapa-bg-color:  mix(white,$body-bg,95%);
 
-$blockquote-chulapa-bg-color: mix(white,$primary,50%);
+
+: mix(white,$primary,50%);
 //$blockquote-chulapa-border-color: value;
 //$blockquote-chulapa-text-color: value;
+$pre-chulapa-bg-color: lighten($blockquote-chulapa-bg-color, 20%); ;
+
 
 $thead-chulapa-bg-color: $primary;
 
