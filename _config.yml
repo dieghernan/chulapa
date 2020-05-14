@@ -23,7 +23,7 @@ chufont: Calibri
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
-  theme       : wandoo # Optional predefined skin, values twitter-dark, twitter-light
+  theme       : deeply # Optional predefined skin, values twitter-dark, twitter-light
   autothemer  : true        # Leave empty for core bootstrap
   cols        :    
     chulapa-col: teal      # Fallback "crimson"
