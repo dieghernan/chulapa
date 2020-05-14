@@ -4,7 +4,8 @@
 .footer-chulapa {
     background-color: $footer-chulapa-bg-color;
     color: $footer-chulapa-text-color;
-
+    border-top: 0.05rem solid rgba($footer-chulapa-text-color, 0.25);
+    
     a {
         color: $footer-chulapa-text-color;
         text-decoration: none;
