@@ -19,8 +19,8 @@ ${{ cols[0] }}: {{ cols[1] }};
 $chulapa-col: crimson !default;
 
 //Themer - override some vars
-{% if site.chulapa-skin.preset %}
-@import "skins/{{- site.chulapa-skin.preset -}}";
+{% if site.chulapa-skin.theme %}
+@import "skins/{{- site.chulapa-skin.theme -}}";
 {% endif %}
 
 
