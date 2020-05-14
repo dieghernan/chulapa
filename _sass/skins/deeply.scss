@@ -80,5 +80,9 @@ $hero-chulapa-bg-color: $chulapa-col;
 $blockquote-chulapa-bg-color: mix($white,$primary,90%);
 $chulapa-pre-color-bg: mix($white,$primary,95%);
 
-$navbar-chulapa-toggler-color: rgba(255, 255, 255, 0.3);
-$navbar-chulapa-toggler-border-color: $navbar-chulapa-toggler-color;
+$navbar-chulapa-toggler-color: rgba(white, 0.4);
+$navbar-chulapa-toggler-border-color: rgba(white, 0.1);
+$navbar-chulapa-toggler-color-bg: transparent;
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
