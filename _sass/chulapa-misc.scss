@@ -1,6 +1,6 @@
 // Defaults needed as Bootstrap doesn't specifically format these tags
 img {
-  @extend: .img-fluid;
+  @extend .img-fluid;
   display: block; 
   margin: auto;
 }
