@@ -127,13 +127,15 @@
                      </ul>
                  </div>
                     <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
-					<!-- Do not remove this in order to give  attributions -->
-                    <p>Theme 
+          					<!-- Do not remove this in order to give  attributions -->
+          					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
+          					{%- if skin -%}
+          					<p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url | default: site.github.owner_url }}">{{ skin.author | default: site.author | default: site.github.owner_name }}</a></p>
+          					{%- endif -%}
+          					<p>Theme 
                         <a href="#" class="chulapa">Chulapa</a> 
                         powered by 
                         <a href="https://getbootstrap.com/docs/4.5/">Bootstrap</a></p>
-                        {%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
-                        <p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url | default: site.github.owner_url }}"></a>{{ skin.author | default: site.author | default: site.github.owner_name }}</p>
 						<p class="small pt-3 chulapa">"Chulapa" typography by Joancarles Casasín and Pablo Gámez is licensed under <a href="https://creativecommons.org/licenses/by/4.0/deed">CC BY 4.0</a></p>
                      <!-- End  attributions -->
                 </div>
