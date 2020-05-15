@@ -21,7 +21,7 @@ $chulapa-col: crimson !default;
 //Themer - override some vars
 {% if site.chulapa-skin.theme %}
 @import "skins/{{- site.chulapa-skin.theme -}}";
-{% elsif if site.chulapa-skin.autothemer %}
+{% elsif site.chulapa-skin.autothemer %}
 // Autothemer: No overrides
 @import "skins/auto";
 {% endif %}
