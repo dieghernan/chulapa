@@ -8,36 +8,38 @@
   font-display: swap;
 }
 
- // A. Theming Bootstrap from config
-{% for var in site.chulapa-skin.vars %}
-{% if var[1] %}
-${{ var[0] }}: {{ var[1] }};
-{% endif %}
-{% endfor%}
+ //Theming Bootstrap from config
 
-// Key theme var
-$chulapa-col: crimson !default;
-
-//Themer - override some vars
+//Theme
 {% if site.chulapa-skin.theme %}
-@import "skins/{{- site.chulapa-skin.theme -}}";
-{% elsif site.chulapa-skin.autothemer %}
-// Autothemer: No overrides
-@import "skins/auto";
+  @import "skins/{{- site.chulapa-skin.theme -}}";
+{% else %}
+
+   //Theming Bootstrap from config
+  {% for var in site.chulapa-skin.vars %}
+    {% if var[1] %}
+     ${{ var[0] }}: {{ var[1] }};
+    {% endif %}
+  {% endfor%}
+  
+  {% if site.chulapa-skin.autothemer %}
+    // Autothemer: No overrides
+    @import "skins/auto";
+  {% endif %}
+  
 {% endif %}
 
 //Create chulapa theme
+// Key theme var
+$chulapa-col: crimson !default;
 $theme-colors:(
   chulapa: $chulapa-col,
 );
 
 // Import bootstrap
 @import "bootstrap/bootstrap";
-
-
 //B. Chulapa specifics
 @import "chulapa-master";
-
 //C. Highlighter
 /*!
  * Pygments css

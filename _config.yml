@@ -28,6 +28,7 @@ chulapa-skin:
   vars        :    
     chulapa-col: teal      # Fallback "crimson"
     body-color: 
+    warning: pink
 
 plugins:
   - jekyll-github-metadata
