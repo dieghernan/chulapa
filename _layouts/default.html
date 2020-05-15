@@ -130,7 +130,7 @@
           					<!-- Do not remove this in order to give  attributions -->
           					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
           					{%- if skin -%}
-          					<p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url | default: site.github.owner_url }}">{{ skin.author | default: site.author | default: site.github.owner_name }}</a></p>
+          					<p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url }}">{{ skin.author }}</a></p>
           					{%- endif -%}
           					<p>Theme 
                         <a href="#" class="chulapa">Chulapa</a> 
