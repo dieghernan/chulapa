@@ -20,7 +20,7 @@
   {% endif %}
 {% endfor%}
 
-{% if site.chulapa-skin.autothemer %}
+{% if site.chulapa-skin.autothemer == true %}
   // Autothemer: No overrides
   @import "skins/auto";
 {% endif %}
