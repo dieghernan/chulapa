@@ -17,3 +17,6 @@ $dark:#353535;
 $chulapa-col: $primary;
 $hero-chulapa-bg-color:$chulapa-col;
 $blockquote-chulapa-bg-color: mix(white,$chulapa-col,80%);
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";

@@ -11,22 +11,18 @@
  //Theming Bootstrap from config
 
 //Theme
-{% if site.chulapa-skin.theme %}
-  @import "skins/{{- site.chulapa-skin.theme -}}";
-{% else %}
+@import "skins/{{- site.chulapa-skin.theme | default: "none" -}}";
 
-   //Theming Bootstrap from config
-  {% for var in site.chulapa-skin.vars %}
-    {% if var[1] %}
-     ${{ var[0] }}: {{ var[1] }};
-    {% endif %}
-  {% endfor%}
-  
-  {% if site.chulapa-skin.autothemer %}
-    // Autothemer: No overrides
-    @import "skins/auto";
+//Theming Bootstrap from config
+{% for var in site.chulapa-skin.vars %}
+  {% if var[1] %}
+   ${{ var[0] }}: {{ var[1] }};
   {% endif %}
-  
+{% endfor%}
+
+{% if site.chulapa-skin.autothemer %}
+  // Autothemer: No overrides
+  @import "skins/auto";
 {% endif %}
 
 //Create chulapa theme
