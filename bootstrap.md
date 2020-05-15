@@ -1314,31 +1314,7 @@ The final element.
       </div>
    </div>
    <div class="row">
-      <div class="col-lg-6">
-         <h2>Modals</h2>
-         <div class="bs-component">
-            <div class="modal">
-               <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                     </div>
-                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                     </div>
-                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-6">
+      <div class="col">
          <h2>Popovers</h2>
          <div class="bs-component" style="margin-bottom: 3em;">
             <button type="button" class="btn btn-secondary" title="Popover Title" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Left</button>
