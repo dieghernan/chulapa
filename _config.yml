@@ -23,7 +23,7 @@ chufont: Calibri
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
-  theme       : preptor # Optional predefined skins
+  theme       :  # Optional predefined skins
   autothemer  : true        # Leave empty for core bootstrap
   vars        :    
     chulapa-col: teal      # Fallback "crimson"
