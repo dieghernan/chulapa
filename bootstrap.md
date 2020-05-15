@@ -3,19 +3,22 @@ layout: default
 title: Bootstrap showcase
 ---
 
+<header class="pb-1 hero-chulapa-image" style="  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), url('https://i.imgur.com/YK1Vrl1.jpg');">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-10 offset-xl-1 text-md-center">
+                  <h1 class="pb-5">Hero with image</h1>
+                  <p class="p-2">Create your theme on 5 min (seriously)</p>
+              </div>
+          </div>
+      </div>
+  </header>
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./another-page.html).
+Text can be **bold**, _italic_, or ~~strikethrough~~. [Link to another page](./another-page.html).
 
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
 ## Header 2
 
 > This is a blockquote following a header.
@@ -26,36 +29,47 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 ```js
 // Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
+
+// Upon loading, the Google APIs JS client automatically invokes this callback.
+googleApiClientReady = function() {
+  gapi.auth.init(function() {
+    window.setTimeout(checkAuth, 1);
+  });
 }
-```
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+function checkAuth() {
+  gapi.auth.authorize({
+    client_id: OAUTH2_CLIENT_ID,
+    scope: OAUTH2_SCOPES,
+    immediate: true
+  }, handleAuthResult);
+}
 
-```r
-# R code syntax highlighter
-library("example")
-foo <- bar(x = 1, c= "ss", add=TRUE)
+// Handle the result of a gapi.auth.authorize() call.
+function handleAuthResult(authResult) {
+  if (authResult && !authResult.error) {
+    // Authorization was successful. Hide authorization prompts and show
+    // content that should be visible after authorization succeeds.
+    $('.pre-auth').hide();
+    $('.post-auth').show();
+    loadAPIClientInterfaces();
+  } else {
+    // Make the #login-link clickable. Attempt a non-immediate OAuth 2.0
+    // client flow. The current function is called when that flow completes.
+    $('#login-link').click(function() {
+      gapi.auth.authorize({
+        client_id: OAUTH2_CLIENT_ID,
+        scope: OAUTH2_SCOPES,
+        immediate: false
+        }, handleAuthResult);
+    });
+  }
+}
 ```
 
 #### Header 4
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
 ##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
 
 ###### Header 6
 
@@ -70,57 +84,10 @@ foo <- bar(x = 1, c= "ss", add=TRUE)
 
 * * *
 
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+![](https://via.placeholder.com/300.png)
+![](https://via.placeholder.com/800x200.png)
+![](https://via.placeholder.com/1200x200.png)
+![](https://via.placeholder.com/2000x200.png)
 
 ```
 Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
