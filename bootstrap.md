@@ -188,9 +188,9 @@ The final element.
             <button type="button" class="btn btn-warning">Warning</button>
             <button type="button" class="btn btn-danger">Danger</button>
             <button type="button" class="btn btn-link">Link</button>
-            <button type="button" class="btn btn-chulapa">Chulapa</button>
+			<button type="button" class="btn btn-chulapa">Chulapa</button>
             <button type="button" class="btn btn-dark">Dark</button>
-            <button type="button" class="btn btn-light">Light</button></p>
+            <button type="button" class="btn btn-light">Light</button>
          </p>
          <p class="bs-component">
             <button type="button" class="btn btn-primary disabled">Primary</button>
@@ -200,6 +200,7 @@ The final element.
             <button type="button" class="btn btn-warning disabled">Warning</button>
             <button type="button" class="btn btn-danger disabled">Danger</button>
             <button type="button" class="btn btn-link disabled">Link</button>
+			<button type="button" class="btn btn-chulapa disabled">Chulapa</button>
          </p>
          <p class="bs-component">
             <button type="button" class="btn btn-outline-primary">Primary</button>
@@ -404,7 +405,91 @@ The final element.
             </blockquote>
          </div>
       </div>
-  </div>
+   </div>
+</div>
+<div class="bs-docs-section">
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="page-header">
+            <h1 id="tables">Tables</h1>
+         </div>
+         <div class="bs-component">
+            <table class="table table-hover">
+               <thead>
+                  <tr>
+                     <th scope="col">Type</th>
+                     <th scope="col">Column heading</th>
+                     <th scope="col">Column heading</th>
+                     <th scope="col">Column heading</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr class="table-active">
+                     <th scope="row">Active</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr>
+                     <th scope="row">Default</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-primary">
+                     <th scope="row">Primary</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-secondary">
+                     <th scope="row">Secondary</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-success">
+                     <th scope="row">Success</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-danger">
+                     <th scope="row">Danger</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-warning">
+                     <th scope="row">Warning</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-info">
+                     <th scope="row">Info</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-light">
+                     <th scope="row">Light</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+                  <tr class="table-dark">
+                     <th scope="row">Dark</th>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                     <td>Column content</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <!-- /example -->
+      </div>
+   </div>
 </div>
 <div class="bs-docs-section">
    <div class="row">
@@ -780,6 +865,9 @@ The final element.
                      <a class="page-link" href="#">2</a>
                   </li>
                   <li class="page-item">
+                     <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
                      <a class="page-link" href="#">&raquo;</a>
                   </li>
                </ul>
@@ -813,5 +901,162 @@ The final element.
       </div>
    </div>
 </div>
-
-
+<div class="bs-docs-section">
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="page-header">
+            <h1 id="indicators">Indicators</h1>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-lg-12">
+         <h2>Alerts</h2>
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-warning">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <h4 class="alert-heading">Warning!</h4>
+               <p class="mb-0">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-lg-4">
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-danger">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-success">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-info">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-lg-4">
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-primary">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-secondary">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+         <div class="bs-component">
+            <div class="alert alert-dismissible alert-light">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+            </div>
+         </div>
+      </div>
+   </div>
+   <div>
+      <h2>Badges</h2>
+      <div class="bs-component" style="margin-bottom: 40px;">
+         <span class="badge badge-primary">Primary</span>
+         <span class="badge badge-secondary">Secondary</span>
+         <span class="badge badge-success">Success</span>
+         <span class="badge badge-danger">Danger</span>
+         <span class="badge badge-warning">Warning</span>
+         <span class="badge badge-info">Info</span>
+         <span class="badge badge-light">Light</span>
+         <span class="badge badge-dark">Dark</span>
+      </div>
+      <div class="bs-component">
+         <span class="badge badge-pill badge-primary">Primary</span>
+         <span class="badge badge-pill badge-secondary">Secondary</span>
+         <span class="badge badge-pill badge-success">Success</span>
+         <span class="badge badge-pill badge-danger">Danger</span>
+         <span class="badge badge-pill badge-warning">Warning</span>
+         <span class="badge badge-pill badge-info">Info</span>
+         <span class="badge badge-pill badge-light">Light</span>
+         <span class="badge badge-pill badge-dark">Dark</span>
+      </div>
+   </div>
+</div>
+<div class="bs-docs-section">
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="page-header">
+            <h1 id="progress">Progress</h1>
+         </div>
+         <h3 id="progress-basic">Basic</h3>
+         <div class="bs-component">
+            <div class="progress">
+               <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+         </div>
+         <h3 id="progress-alternatives">Contextual alternatives</h3>
+         <div class="bs-component">
+            <div class="progress">
+               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+         </div>
+         <h3 id="progress-multiple">Multiple bars</h3>
+         <div class="bs-component">
+            <div class="progress">
+               <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+               <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+               <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+         </div>
+         <h3 id="progress-striped">Striped</h3>
+         <div class="bs-component">
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+         </div>
+         <h3 id="progress-animated">Animated</h3>
+         <div class="bs-component">
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--Here-->
