@@ -6,6 +6,13 @@ subtitle: Liquid
 Themer
 
 
+{% assign skin = site.data.skinners[site.chulapa-skin.theme] %}
+
+{{ skin.name }}
+{{ skin.author }}
+{{ skin.url }}
+
+
  @import "pygments/{{- site.chulapa-skin.highlight | default: "github" -}}";
 
 
