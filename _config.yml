@@ -23,7 +23,11 @@ chufont: Calibri
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
+<<<<<<< HEAD
   theme       : journal  # Optional predefined skins
+=======
+  theme       : graymor  # Optional predefined skins
+>>>>>>> 06c2d1f9db6c1883f5f83e579936972d25924fe1
   autothemer  : true  # Bool: Use autotheming
   vars        :    
     chulapa-col:       # Fallback "crimson"

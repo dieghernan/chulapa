@@ -13,7 +13,7 @@
 //Theme
 @import "skins/{{- site.chulapa-skin.theme | default: "none" -}}";
 
-//Theming Bootstrap from config
+//Theming Bootstrap from config // overrides
 {% for var in site.chulapa-skin.vars %}
   {% if var[1] %}
    ${{ var[0] }}: {{ var[1] }};
