@@ -196,7 +196,6 @@ $border-radius-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
 $border-radius-lg-sketchy: 555px 25px 15px 25px/25px 5px 35px 555px;
 $border-radius-sm-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
 
-$navbar-toggler-border-radius: $border-radius-sm;
 
 @import "bootstrap/functions";
 
@@ -725,6 +724,9 @@ body p a {
     text-decoration: underline !important;
 }
 
+.navbar-toggler {
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+}
 
 
 @import "bootstrap/variables";
