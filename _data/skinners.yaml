@@ -2,3 +2,8 @@ preptor:
     name: Preptor
     author: Tophat
     url: https://themesguide.github.io/top-hat/dist/
+    
+sketchy:
+    name: Sketchy
+    author: Bootswatch
+    url: https://bootswatch.com/sketchy/
