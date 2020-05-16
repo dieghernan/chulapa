@@ -3,7 +3,26 @@ preptor:
     author: Tophat
     url: https://themesguide.github.io/top-hat/dist/
     
+deeply:
+    name: Deeply
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+    
+graymor:
+    name: Graymor
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+    
+wandoo:
+    name: Wandoo
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+    
 sketchy:
     name: Sketchy
     author: Bootswatch
-    url: https://bootswatch.com/sketchy/
+    url: https://bootswatch.com/
+lux:
+    name: Lux
+    author: Bootswatch
+    url: https://bootswatch.com/
