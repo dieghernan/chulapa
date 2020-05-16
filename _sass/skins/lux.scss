@@ -320,9 +320,26 @@ $enable-rounded: false;
 $chulapa-col: black;
 $white: white;
 
+.navbar-chulapa {
+    .dropdown-item {
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+}
+
 
 .hero-chulapa-image {
     h1 {
         color: white !important;
     }
 }
+
+.hero-chulapa {
+    h1 {
+        color: white !important;
+    }
+}
+
+$hero-chulapa-bg-color: $chulapa-col;
