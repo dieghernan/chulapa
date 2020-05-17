@@ -27,6 +27,10 @@ lux:
     author: Bootswatch
     url: https://bootswatch.com/
 journal:
-    name: journal
+    name: Journal
+    author: Bootswatch
+    url: https://bootswatch.com/
+minty:
+    name: Minty
     author: Bootswatch
     url: https://bootswatch.com/
