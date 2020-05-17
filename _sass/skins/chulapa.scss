@@ -66,11 +66,9 @@ $warning: #efe2ba;
 $danger: #f13c20;
 $dark: darken($secondary,10%);
 
-$chulapa-col: #faebd7;
+$chulapa-col: cornsilk;
 
 $navbar-chulapa-toggler-border-color: transparent;
 $yiq-contrasted-threshold:  180 ;
-$navbar-chulapa-bg-color: white;
-
 
 @import "skins/auto";
