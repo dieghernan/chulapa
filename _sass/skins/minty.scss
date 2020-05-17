@@ -280,7 +280,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($primary, 5%) !important;
+                background-color: mix($primary,$black, 5%) !important;
             }
         }
 
@@ -289,7 +289,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($secondary, 5%) !important;
+                background-color: mix($secondary,$black, 5%) !important;
             }
         }
 
@@ -298,7 +298,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($light, 5%) !important;
+                background-color: mix($light,$black, 5%) !important;
             }
         }
 
@@ -307,7 +307,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($dark, 5%) !important;
+                background-color: mix($dark,$black, 5%) !important;
             }
         }
 
@@ -316,7 +316,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($success, 5%) !important;
+                background-color: mix($success,$black, 5%) !important;
             }
         }
 
@@ -325,7 +325,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($info, 5%) !important;
+                background-color: mix($info,$black, 5%) !important;
             }
         }
 
@@ -334,7 +334,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($danger, 5%) !important;
+                background-color: mix($danger,$black, 5%) !important;
             }
         }
 
@@ -343,7 +343,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
             &,
             >th,
             >td {
-                background-color: darken($warning, 5%) !important;
+                background-color: mix($warning,$black, 5%) !important;
             }
         }
     }
