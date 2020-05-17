@@ -39,7 +39,7 @@ $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
 
-$yiq-contrasted-threshold: 250 !default;
+$yiq-contrasted-threshold: 220 !default;
 
 // Body
 
@@ -129,72 +129,6 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat&display=swap
     border-color: $secondary !important;
 }
 
-// Buttons =====================================================================
-
-.btn {
-    font-family: $headings-font-family;
-
-    &,
-    &:hover {
-        color: $white;
-    }
-
-    &-light,
-    &-light:hover {
-        color: $gray-700;
-    }
-
-    &-link,
-    &-link:hover {
-        color: $primary;
-    }
-
-    &-link.disabled:hover {
-        color: $gray-600;
-    }
-
-    &-outline-primary {
-        color: $primary;
-    }
-
-    &-outline-secondary {
-        color: $secondary;
-    }
-
-    &-outline-success {
-        color: $success;
-    }
-
-    &-outline-info {
-        color: $info;
-    }
-
-    &-outline-warning {
-        color: $warning;
-    }
-
-    &-outline-danger {
-        color: $danger;
-    }
-
-    &-outline-dark {
-        color: $dark;
-    }
-
-    &-outline-light {
-        color: $light;
-    }
-}
-
-// Typography ==================================================================
-
-
-// Forms =======================================================================
-
-legend {
-  font-family: $headings-font-family;
-}
-
 // Navs ========================================================================
 
 .breadcrumb {
@@ -225,15 +159,15 @@ $navbar-chulapa-bg-color: $primary;
     
     h1 {
     color: $white;
-}
+      
+    }
 }
 
 .hero-chulapa-image {
     
     h1 {
     color: $white;
-}
+      
+    }
 }
 
-
-@import "bootstrap/variables";
