@@ -70,14 +70,7 @@ $chulapa-col: #faebd7;
 
 $navbar-chulapa-toggler-border-color: transparent;
 $yiq-contrasted-threshold:  180 ;
-$navbar-chulapa-text-color: white;
-.navbar-chulapa{
-background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
- url("https://upload.wikimedia.org/wikipedia/commons/8/82/Calle_de_la_salud_%28Madrid%29_azulejo_indicativo_%28RPS_29-11-2012%29.png");
-}
+$navbar-chulapa-bg-color: white;
+
 
 @import "skins/auto";
