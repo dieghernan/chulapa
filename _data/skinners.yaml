@@ -8,6 +8,11 @@ lymcha:
     author: Tophat
     url: https://themesguide.github.io/top-hat/dist/
     
+hootstrap:
+    name: Hootstrap
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+    
 deeply:
     name: Deeply
     author: Tophat
@@ -39,3 +44,18 @@ minty:
     name: Minty
     author: Bootswatch
     url: https://bootswatch.com/
+    
+twitter:
+    name: Twitter
+    author: dieghernan
+    url: https::/github.com/dieghernan
+    
+twitter-dim:
+    name: Twitter Dim
+    author: dieghernan
+    url: https::/github.com/dieghernan
+    
+twitter-lights-out:
+    name: Twitter Lights Out
+    author: dieghernan
+    url: https::/github.com/dieghernan
