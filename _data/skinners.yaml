@@ -2,6 +2,11 @@ preptor:
     name: Preptor
     author: Tophat
     url: https://themesguide.github.io/top-hat/dist/
+
+lymcha:
+    name: Lymcha
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
     
 deeply:
     name: Deeply
