@@ -18,7 +18,8 @@ h1,
 h2,
 h3,
 h4,
-blockquote
+blockquote,
+footer
  {
     -webkit-font-feature-settings: "liga", "dlig";
     -moz-font-feature-settings: "liga=1, dlig=1";
@@ -55,7 +56,7 @@ blockquote {
     font-family: $alt-font;
 }
 
-$primary: #8fc1e3;
+$primary: #c38d9e;
 $secondary: #687864;
 $success: #88bdbc;
 $info: #31708e;
