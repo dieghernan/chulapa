@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$alt-font: chulapa-regular;
+
+$headings-font-family: chulapa,
+sans-serif;
+$font-family-sans-serif: 'Open Sans', sans-serif;
+
+$font-size-base:              1rem !default;
+$h1-font-size:                $font-size-base * 2 !default;
+$h2-font-size:                $font-size-base * 1.8 !default;
+$h3-font-size:                $font-size-base * 1.6 !default;
+$h4-font-size:                $font-size-base * 1.4 !default;
+$h5-font-size:                $font-size-base * 1.2 !default;
+$h5-font-size:                $font-size-base * 1 !default;
+$blockquote-font-size:        $font-size-base;
+h1,
+h2,
+h3,
+h4,
+blockquote
+ {
+    -webkit-font-feature-settings: "liga", "dlig";
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -moz-font-feature-settings: "liga", "dlig";
+    -ms-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+    text-rendering: optimizeLegibility;
+}
+
+$input-btn-font-family: $headings-font-family;
+$btn-font-family: $headings-font-family;
+
+table,
+footer,
+legend,
+label,
+blockquote {
+    font-family: $alt-font !important;
+
+}
+
+.navbar,
+.form-control-file,
+.nav-tabs,
+.nav-pills,
+.badge,
+.card-header,
+.card-text,
+.breadcrumb,
+.pagination,
+.alert,
+.jumbotron {
+    font-family: $alt-font;
+}
+
+$primary: #8fc1e3;
+$secondary: #687864;
+$success: #88bdbc;
+$info: #31708e;
+$warning: #efe2ba;
+$danger: #f13c20;
+$dark: darken($secondary,10%);
+
+$chulapa-col: $primary;
+
+
+$yiq-contrasted-threshold:  180 ;
+
+@import "skins/auto";
