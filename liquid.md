@@ -10,7 +10,7 @@ subtitle: Liquid
 - {{ item.title }}
     {% assign grouptag =  item | map: 'url' %}
 
-{{ group tag }}
+{{ grouptag }}
 
   {% else %}
     {% if item.url contains "http" %}
