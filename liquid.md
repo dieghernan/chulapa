@@ -8,10 +8,8 @@ subtitle: Liquid
 {% for item in site.navbar %}
   {% if item.child[0] %}
 - {{ item.title }}
-    {% assign grouptag =  item | map: 'url' %}
-
-{{ grouptag }}
-
+{% assign childurl  =  item | map: 'url' | join: ',' %}
+   - {{ childurl  }}
   {% else %}
     {% if item.url contains "http" %}
 - <a href="{{ item.url }}">{{ item.title }}</a>
@@ -143,4 +141,3 @@ End test
 {% for item in site %}
 -  {{ item }} - {{ item[0] }}
 {% endfor %}
-
