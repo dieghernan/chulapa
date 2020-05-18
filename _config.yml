@@ -15,7 +15,7 @@ navbar:
    url: /bootstrap
  - title: Second Level
    child:
-    - title: Liquid examples:
+    - title: Liquid examples
       url:  /liquid
     - title: External url
       url: https://www.google.com/
