@@ -11,11 +11,16 @@ baseurl         :
 # B. Navigations
 
 navbar:
-  Showcase: /bootstrap
-  Second Level:
+ - Showcase: /bootstrap
+ - Second Level:
+   child:
     - Liquid examples: /liquid
     - External url: https://www.google.com/
-  Github: https://github.com/dieghernan
+ - Another:
+   child:
+    - Liquid examples: /liquid
+    - External url: https://www.google.com/
+ - Github: https://github.com/dieghernan
 
 
 # C. Theme Settings
