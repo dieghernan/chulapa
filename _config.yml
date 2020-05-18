@@ -7,7 +7,18 @@ subtitle        :
 url             : 
 baseurl         : 
 
-# B. Theme Settings
+
+# B. Navigations
+
+navbar:
+  Showcase: /bootstrap
+  Second Level:
+    - Liquid examples: /liquid
+    - External url: https://www.google.com/
+  Github: https://github.com/dieghernan
+
+
+# C. Theme Settings
 # Code highlighter 
 highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
 

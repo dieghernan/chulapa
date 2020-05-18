@@ -3,6 +3,12 @@ layout: default
 subtitle: Liquid 
 ---
 
+
+{% for item in site.navbar %}
+- {{ item.size }}<a href="{{ item[1] }}">{{ item[0] }}</a>
+{% endfor%}
+
+
 Themer
 
 
