@@ -14,7 +14,7 @@
 }
 
 .hero-chulapa-image {
-    @extend .hero-chulapa:
+    @extend .hero-chulapa;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
