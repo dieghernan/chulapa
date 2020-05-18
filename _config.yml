@@ -66,6 +66,7 @@ chulapa-skin:
   vars        :    
     chulapa-col: teal      # Fallback "crimson"
     navbar-chulapa-bg-color: white
+    font-family-sans-serif: "Roboto", sans-serif
     
 
 plugins:
