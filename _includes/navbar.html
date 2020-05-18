@@ -1,4 +1,4 @@
-{%- assign brand = page.title | site.title | default: site.github.repository_name  -%}
+{%- assign brand = site.title | default: site.github.repository_name  -%}
  <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
      <div class="container-fluid mx-md-2">
          <a class="navbar-brand" href="{{ site.url | append: site.baseurl }}">{{ brand }}</a>
@@ -13,13 +13,13 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="Dropdown{{ item.title }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ item.title }} </a>
                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown{{ item.title }}">
-                       {% for entry in item.child %}
-                       {% if entry.url contains "http" %}
+                       {%- for entry in item.child -%}
+                       {%- if entry.url contains "http" -%}
                        <a class="dropdown-item" href="{{ entry.url }}">{{ entry.title }}</a>
-                       {% else %}
-                       <a class="dropdown-item" href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
-                       {% endif %}
-                       {% endfor %}
+                       {%- else -%}
+                       <a class="dropdown-item {%- if item.url==page.url -%} active {%- endif -%}" href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+                       {%- endif -%}
+                       {%- endfor -%}
                      </div>
                  </li>
                   {%- else -%}
@@ -27,7 +27,7 @@
                     {%- if item.url contains "http" -%}
                <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
                     {%- else -%}
-               <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+               <a class="nav-link {%- if item.url==page.url -%} active {%- endif -%}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
                     {%- endif -%}
                </li>
                {%- endif -%}
