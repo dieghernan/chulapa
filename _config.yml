@@ -65,9 +65,9 @@ chulapa-skin:
   autothemer  : true  # Bool: Use autotheming
   vars        :    
     chulapa-col: teal      # Fallback "crimson"
-    body-color: 
-    enable-rounded: false
-    font-family-sans-serif: "Roboto","Helvetica Neue",Arial,sans-serif
+  #  body-color: 
+  #  enable-rounded: false
+  #  font-family-sans-serif: "Roboto","Helvetica Neue",Arial,sans-serif
     
 
 plugins:
