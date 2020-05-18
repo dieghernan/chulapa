@@ -1,0 +1,67 @@
+    <!-- Footer -->
+ <footer class="footer-chulapa text-center ">
+     <div class="container">
+         <div class="row">
+             <div class="col-xl-10 offset-xl-1">
+                 <div role="navigation">
+                     <ul class=" nav justify-content-center">
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                                 <span class="fa-stack fa-lg" aria-hidden="true">
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">RSS</span>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+                    <p class="pb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
+          					<!-- Do not remove this in order to give  attributions -->
+          					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
+          					{%- if skin -%}
+          					<p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url }}">{{ skin.author }}</a></p>
+          					{%- endif -%}
+          					<p>Theme 
+                        <a href="#" class="chulapa">Chulapa</a> 
+                        powered by 
+                        <a href="https://getbootstrap.com/docs/4.5/">Bootstrap</a></p>
+                     <!-- End  attributions -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->

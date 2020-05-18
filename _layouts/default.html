@@ -1,73 +1,9 @@
-<!doctype html>
-<html lang="{{- site.locale | default: 'en-US' -}}">
-<head>
-    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
-    {%- assign title = page.title | site.title | default: site.github.repository_name  -%}
-    <title>{{- title -}}</title>
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- CSS -->
-    {%- for font in site.googlefonts -%}
-    <link href="{{ font.url }}" rel="stylesheet">
-    {%- endfor -%}
-    <!-- Fontawesome-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Chulapa css -->
-    <link rel="stylesheet" href="{{- "assets/css/main.css " | relative_url -}}" />
-    <!-- Custom css -->
-    <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
-    <link rel="canonical" href="{{ canonical_url }}">
-</head>
+---
+---
+{%- include head.html -%}
 <body>
-  <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
-     <div class="container-fluid mx-md-2">
-         <a class="navbar-brand" href="/jt/">jt</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarToggler">
-             <ul class="navbar-nav ml-auto">
-                 <li class="nav-item">
-                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link disabled" href="#">Disabled <span class="sr-only">(current)</span></a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link active" href="#">Active <span class="sr-only">(current)</span></a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#">Link</a>
-                 </li>
-                 <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
-                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item" href="#">Action</a>
-                         <a class="dropdown-item" href="#">Action</a>
-                         <a class="dropdown-item" href="#">Action</a>
-                         <a class="dropdown-item" href="#">Action</a>
-                         <a class="dropdown-item active" href="#">Active</a>
-                         <a class="dropdown-item disabled" href="#">Disabled</a>
-                     </div>
-                 </li>
-             </ul>
-         </div>
-     </div>
- </nav>
- <!-- image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url('')"; -->
-  <header class="pb-1 hero-chulapa">
-     <div class="container">
-         <div class="row">
-             <div class="col-xl-10 offset-xl-1 text-md-center">
-                 <h1 class="pb-5">{{- page.title | default: "Where's your title?" -}}</h1>
-                 {%- if page.subtitle -%}
-                 <p class="p-2">{{- page.subtitle -}}</p>
-                 {%- endif -%}
-             </div>
-         </div>
-     </div>
- </header>
+  {%- include navbar.html -%}
+  {%- include components/hero.html -%}
     <main class="container pb-5">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">
@@ -75,73 +11,7 @@
             </div>
         </div>
     </main>
-     <!-- Footer -->
- <footer class="footer-chulapa text-center ">
-     <div class="container">
-         <div class="row">
-             <div class="col-xl-10 offset-xl-1">
-                 <div role="navigation">
-                     <ul class=" nav justify-content-center">
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                     </ul>
-                 </div>
-                    <p class="pb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
-          					<!-- Do not remove this in order to give  attributions -->
-          					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
-          					{%- if skin -%}
-          					<p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url }}">{{ skin.author }}</a></p>
-          					{%- endif -%}
-          					<p>Theme 
-                        <a href="#" class="chulapa">Chulapa</a> 
-                        powered by 
-                        <a href="https://getbootstrap.com/docs/4.5/">Bootstrap</a></p>
-                     <!-- End  attributions -->
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer -->
+   {%- include footer.html -%}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
