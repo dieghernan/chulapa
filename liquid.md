@@ -3,14 +3,20 @@ layout: default
 subtitle: Liquid 
 ---
 
-{{ page.url }}
+{%- assign thispageurl = page.url | replace: ".html", ""  -%}
 
 {% for item in site.navbar %}
   {% if item.child[0] %}
 - {{ item.title }}
    - {{ item }}
-{% assign childurl  =  item.child | map: 'url' | join: ',' %}
-   - {{ childurl  }}
+{% assign childurljoin  =  item.child | map: 'url' | join: ',' %}
+{% assign childurlnojoin  =  item.child | map: 'url'  %}
+  {% if childurljoin contains thispageurl  }
+   - a
+   {% endif %}
+     {% if childurlnojoin contains thispageurl  }
+   - b
+   {% endif %}
   {% else %}
     {% if item.url contains "http" %}
 - <a href="{{ item.url }}">{{ item.title }}</a>

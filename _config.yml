@@ -21,8 +21,8 @@ navbar:
       url: https://www.google.com/
  - title: Another
    child:
-    - title: Liquid examples
-      url: /liquid
+    - title: New
+      url: /new
     - title: External url
       url: https://www.google.com/
  - title: Github
