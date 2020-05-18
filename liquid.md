@@ -9,7 +9,7 @@ subtitle: Liquid
   {% if item.child[0] %}
 - {{ item.title }}
    - {{ item }}
-{% assign childurl  =  item | map: 'url' | join: ',' %}
+{% assign childurl  =  item.child | map: 'url' | join: ',' %}
    - {{ childurl  }}
   {% else %}
     {% if item.url contains "http" %}
