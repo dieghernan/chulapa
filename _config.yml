@@ -10,7 +10,7 @@ baseurl         :
 
 # B. Navigations
 
-navbar:
+navbar22:
  - title: Showcase
    url: /bootstrap
  - title: Second Level
