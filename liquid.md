@@ -8,10 +8,18 @@ subtitle: Liquid
   {% if item.child[0] %}
 - {{ item.title }}
     {% for entry in item.child %}
+      {% if entry.url contains "http" %}
     - <a href="{{ entry.url }}">{{ entry.title }}</a>
+      {% else %}
+    - <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+      {% endif %}
     {% endfor %}
   {% else %}
+    {% if item.url contains "http" %}
 - <a href="{{ item.url }}">{{ item.title }}</a>
+    {% else %}
+- <a href="{{ item.url | relative_url }}">{{ entry.title }}</a>
+    {% endif %}
   {% endif %}
 {% endfor%}
 
