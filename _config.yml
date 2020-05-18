@@ -28,6 +28,22 @@ navbar:
  - title: Github
    url: https://github.com/dieghernan
 
+footer:
+  links:
+    - label: "RSS"
+      icon: "fa-rss"
+      url:  https://www.example.com
+    - label: "Twitter"
+      icon: "fa-twitter"
+      # url:
+    - label: "Facebook"
+      icon: "fa-facebook"
+    - label: "GitHub"
+      icon: "fa-github"
+      # url:
+    - label: "Instagram"
+      icon: "fa-instagram"
+  
 
 # C. Theme Settings
 # Code highlighter 
@@ -35,8 +51,8 @@ highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-
 
 # Google Fonts https://fonts.google.com/
 googlefonts:
-#  - url : 'https://fonts.googleapis.com/css2?family=Lato&display=swap'
-#  - url : 'https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap'
+  - url : 'https://fonts.googleapis.com/css2?family=Roboto&display=swap'
+
   
 
 # Theme and colors
@@ -45,12 +61,14 @@ chufont: Calibri
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
-  theme       : chulapa  # Optional predefined skins
+  theme       : # Optional predefined skins
   autothemer  : true  # Bool: Use autotheming
   vars        :    
-    chulapa-col:       # Fallback "crimson"
+    chulapa-col: teal      # Fallback "crimson"
     body-color: 
-    warning: 
+    enable-rounded: false
+    font-family-sans-serif: "Roboto","Helvetica Neue",Arial,sans-serif
+    
 
 plugins:
   - jekyll-github-metadata
