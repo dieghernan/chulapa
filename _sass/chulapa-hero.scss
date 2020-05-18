@@ -1,5 +1,7 @@
 .hero-chulapa {
     @extend .jumbotron;
+    @extend .my-auto:
+    @extend .text-center;
     font-family: $headings-font-family;
     border-radius: 0rem;
     background-color: $hero-chulapa-bg-color;
@@ -12,9 +14,7 @@
 }
 
 .hero-chulapa-image {
-    @extend .jumbotron;
-    font-family: $headings-font-family;
-    border-radius: 0rem;
+    @extend .hero-chulapa:
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,11 +22,6 @@
     color: $white;
     height: 50vh;
     text-shadow: 0.1rem 0.05rem 0.2rem $black;
-
-    p {
-        font-size: 1.4rem;
-        font-weight: 500;
-    }
 }
 
 //   <header class="pb-1 hero-chulapa-image" style="  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), url('https://i.imgur.com/YK1Vrl1.jpg');">
