@@ -3,6 +3,7 @@ layout: default
 subtitle: Liquid 
 ---
 
+{{ page.url }}
 
 {% for item in site.navbar %}
   {% if item.child[0] %}
@@ -12,13 +13,18 @@ subtitle: Liquid
     - <a href="{{ entry.url }}">{{ entry.title }}</a>
       {% else %}
     - <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+        {%- if page.url == entry.url -%}
+        falso
+        {%- else -%}
+        activo
+        {%- endif -%}
       {% endif %}
     {% endfor %}
   {% else %}
     {% if item.url contains "http" %}
 - <a href="{{ item.url }}">{{ item.title }}</a>
     {% else %}
-- <a href="{{ item.url | relative_url }}">{{ entry.title }}</a>
+- <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
     {% endif %}
   {% endif %}
 {% endfor%}
