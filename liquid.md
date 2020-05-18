@@ -8,18 +8,10 @@ subtitle: Liquid
 {% for item in site.navbar %}
   {% if item.child[0] %}
 - {{ item.title }}
-    {% for entry in item.child %}
-      {% if entry.url contains "http" %}
-    - <a href="{{ entry.url }}">{{ entry.title }}</a>
-      {% else %}
-    - <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
-        {%- if page.url == entry.url -%}
-        falso
-        {%- else -%}
-        activo
-        {%- endif -%}
-      {% endif %}
-    {% endfor %}
+    {% assign grouptag =  alldocs | map: 'url' %}
+
+{{ group tag }}
+
   {% else %}
     {% if item.url contains "http" %}
 - <a href="{{ item.url }}">{{ item.title }}</a>
@@ -151,5 +143,4 @@ End test
 {% for item in site %}
 -  {{ item }} - {{ item[0] }}
 {% endfor %}
-
 
