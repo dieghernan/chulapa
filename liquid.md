@@ -10,13 +10,9 @@ subtitle: Liquid
 - {{ item.title }}
    - {{ item }}
 {% assign childurljoin  =  item.child | map: 'url' | join: ',' %}
-{% assign childurlnojoin  =  item.child | map: 'url'  %}
-  {% if childurljoin contains thispageurl  }
-   - a
-   {% endif %}
-     {% if childurlnojoin contains thispageurl  }
-   - b
-   {% endif %}
+    {% if childurljoin contains thispageurl %}
+    - a
+    {% endif %}
   {% else %}
     {% if item.url contains "http" %}
 - <a href="{{ item.url }}">{{ item.title }}</a>
