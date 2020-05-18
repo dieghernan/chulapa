@@ -25,6 +25,12 @@ subtitle: Liquid
 
 Themer
 
+{% for var in site.chufont %}
+  {% if var[1] %}
+   ${{ var[0] }}: {{ var[1] }};
+  {% endif %}
+{% endfor%}
+
 
 {% assign skin = site.data.skinners[site.chulapa-skin.theme] %}
 

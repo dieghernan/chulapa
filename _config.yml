@@ -56,8 +56,8 @@ googlefonts:
   
 
 # Theme and colors
-
-chufont: Calibri, "sans-serif"
+chufont:
+  font-family-sans-serif: Calibri, sans-serif
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
