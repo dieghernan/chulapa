@@ -8,7 +8,7 @@ subtitle: Liquid
 {% for item in site.navbar %}
   {% if item.child[0] %}
 - {{ item.title }}
-    {% assign grouptag =  alldocs | map: 'url' %}
+    {% assign grouptag =  item | map: 'url' %}
 
 {{ group tag }}
 
