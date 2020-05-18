@@ -1,7 +1,7 @@
 /*! Autothemer Chulapa by dieghernan */
 
 $chulapa-col: crimson !default;
-$white: mix(#fff, $chulapa-col, 95%) !default;
+$white:    mix(#fff, $chulapa-col, 95%) !default;
 $gray-100: mix(#f8f9fa, $chulapa-col, 85%) !default;
 $gray-200: mix(#e9ecef, $chulapa-col, 85%) !default;
 $gray-300: mix(#dee2e6, $chulapa-col, 85%) !default;
@@ -11,15 +11,14 @@ $gray-600: mix(#6c757d, $chulapa-col, 85%) !default;
 $gray-700: mix(#495057, $chulapa-col, 85%) !default;
 $gray-800: mix(#343a40, $chulapa-col, 85%) !default;
 $gray-900: mix(#212529, $chulapa-col, 85%) !default;
-$black: mix(#000, $chulapa-col, 95%) !default;
+$black:    mix(#000, $chulapa-col, 95%) !default;
 
 $primary:       $chulapa-col !default;
 $secondary:     $gray-600 !default;
-$success:       mix(#28a745, $chulapa-col, 80%) !default;
-$info:          mix(#17a2b8, $chulapa-col, 80%) !default;
-$warning:       mix(#ffc107, $chulapa-col, 80%) !default;
-$danger:        mix(#dc3545, $chulapa-col, 80%) !default;
-$light: mix(white, $chulapa-col, 75%) !default;
-$dark: mix(black, $chulapa-col, 75%) !default;
+$success:       mix(#28a745, $chulapa-col, 75%) !default;
+$info:          mix(#17a2b8, $chulapa-col, 75%) !default;
+$warning:       mix(#ffc107, $chulapa-col, 75%) !default;
+$danger:        mix(#dc3545, $chulapa-col, 75%) !default;
+$light:         mix(white, $chulapa-col, 75%) !default;
+$dark:          mix(black, $chulapa-col, 75%) !default;
 
-$enable-gradients:  true !default;
