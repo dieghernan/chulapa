@@ -8,6 +8,7 @@ subtitle: Liquid
 {% for item in site.navbar %}
   {% if item.child[0] %}
 - {{ item.title }}
+   - {{ item }}
 {% assign childurl  =  item | map: 'url' | join: ',' %}
    - {{ childurl  }}
   {% else %}
