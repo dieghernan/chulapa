@@ -5,13 +5,13 @@ subtitle: Liquid
 
 
 {% for item in site.navbar %}
-  {% if item.child %}
-  - item[0]
-    {% for child in item %}
-    - {{ child[0] }} - {{ child[1] }} 
+  {% if item.child[0] %}
+- {{ item.title }}
+    {% for entry in item.child %}
+    - <a href="{{ entry.url }}">{{ entry.title }}</a>
     {% endfor %}
   {% else %}
-  - {{ item[0] }} - {{ item[1] }} 
+- <a href="{{ item.url }}">{{ item.title }}</a>
   {% endif %}
 {% endfor%}
 
