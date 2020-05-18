@@ -13,21 +13,11 @@ $gray-800: mix(#343a40, $chulapa-col, 85%) !default;
 $gray-900: mix(#212529, $chulapa-col, 85%) !default;
 $black: mix(#000, $chulapa-col, 95%) !default;
 
-$blue: mix(#007bff, $chulapa-col, 60%) !default;
-$indigo: mix(#6610f2, $chulapa-col, 60%) !default;
-$purple: mix(#6f42c1, $chulapa-col, 60%) !default;
-$pink: mix(#e83e8c, $chulapa-col, 60%) !default;
-$red: mix(#dc3545, $chulapa-col, 60%) !default;
-$orange: mix(#fd7e14, $chulapa-col, 60%) !default;
-$yellow: mix(#ffc107, $chulapa-col, 60%) !default;
-$green: mix(#28a745, $chulapa-col, 60%) !default;
-$teal: mix(#20c997, $chulapa-col, 60%) !default;
-$cyan: mix(#17a2b8, $chulapa-col, 60%) !default;
-
-$primary: $chulapa-col !default; 
-$dark: mix(black, $chulapa-col, 80%) !default;
+$primary:       $chulapa-col !default;
+$secondary:     $gray-600 !default;
+$success:       mix(#28a745, $chulapa-col, 80%) !default;
+$info:          mix(#17a2b8, $chulapa-col, 80%) !default;
+$warning:       mix(#ffc107, $chulapa-col, 80%) !default;
+$danger:        mix(#dc3545, $chulapa-col, 80%) !default;
 $light: mix(white, $chulapa-col, 75%) !default;
-
-//Components
-$navbar-light-color:$dark !default;
-$navbar-dark-color: $light !default;
+$dark: mix(black, $chulapa-col, 75%) !default;
