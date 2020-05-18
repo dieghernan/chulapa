@@ -1,4 +1,6 @@
 {%- assign brand = site.title | default: site.github.repository_name  -%}
+{%- assign thispageurl = page.url | replace: ".html", ""  -%}
+
  <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
      <div class="container-fluid mx-md-2">
          <a class="navbar-brand" href="{{ site.url | append: site.baseurl }}">{{ brand }}</a>
@@ -17,7 +19,7 @@
                        {%- if entry.url contains "http" -%}
                        <a class="dropdown-item" href="{{ entry.url }}">{{ entry.title }}</a>
                        {%- else -%}
-                       <a class="dropdown-item {%- if entry.url == page.url -%} active {%- endif -%}" href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+                       <a class="dropdown-item {%- if entry.url == thispageurl -%} active {%- endif -%}" href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
                        {%- endif -%}
                        {%- endfor -%}
                      </div>
@@ -27,7 +29,7 @@
                     {%- if item.url contains "http" -%}
                <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
                     {%- else -%}
-               <a class="nav-link {%- if item.url==page.url -%} active {%- endif -%}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+               <a class="nav-link {%- if item.url == thispageurl -%} active {%- endif -%}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
                     {%- endif -%}
                </li>
                {%- endif -%}
