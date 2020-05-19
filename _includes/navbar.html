@@ -11,7 +11,7 @@
      <div class="container-fluid mx-md-2">
          <a class="navbar-brand" href="{{ brandurl }}">
            {%- if site.navbar.brand.img -%}
-            <img src="{{ site.navbar.brand.img }}" width="30" class="d-inline-block align-top" alt="NavbarLogo">
+            <img src="{{ site.navbar.brand.img }}" width="30" class="d-inline-block align-top mr-1" alt="NavbarLogo">
            {%- endif -%}
            {{ brand }}</a>
          {%- if site.navbar.nav -%}
@@ -24,7 +24,7 @@
                {% assign childurljoin  =  item.child | map: 'url' | join: ',' %}
                   {%- if item.child[0] -%}
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle  {% if childurljoin contains thispageurl %} active {% endif %}" href="#" id="Dropdown{{ item.title | strip }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ item.title }} </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="Dropdown{{ item.title | strip }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ item.title }} </a>
                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown{{ item.title }}">
                        {%- for entry in item.child -%}
                        {%- if entry.url contains "http" -%}

@@ -3,52 +3,21 @@
      <div class="container">
          <div class="row">
              <div class="col-xl-10 offset-xl-1">
+                 {%- if site.footer.links -%}
                  <div role="navigation">
                      <ul class=" nav justify-content-center">
+                         {%- for social in site.footer.links  -%}
                          <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
+                             <a href="{{ social.url }}" title="{{ social.label }}" class="nav-link lead px-0">
                                  <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
+                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa {{ social.icon }} fa-stack-1x fa-inverse"></i>
+                                 </span><span class="sr-only">{{ social.label }}</span>
                              </a>
                          </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/rss.xml" title="RSS" class="nav-link lead px-0">
-                                 <span class="fa-stack fa-lg" aria-hidden="true">
-                                     <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                 </span><span class="sr-only">RSS</span>
-                             </a>
-                         </li>
+                         {%- endfor -%}
                      </ul>
                  </div>
+                 {%- endif -%}
                     <p class="pb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
           					<!-- Do not remove this in order to give  attributions -->
           					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
