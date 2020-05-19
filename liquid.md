@@ -3,6 +3,10 @@ layout: default
 subtitle: Liquid 
 ---
 
+
+{{ site.navbar.brand }}
+
+
 {%- assign thispageurl = page.url | replace: ".html", ""  -%}
 
 {% for item in site.navbar %}
