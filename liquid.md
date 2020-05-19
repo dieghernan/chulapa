@@ -6,6 +6,20 @@ subtitle: Liquid
 
 {{ site.navbar.brand }}
 
+{{ site.navbar.brand.title }}
+{{ site.navbar.brand.url }}
+
+{%- assign brand = site.navbar.brand.title | default: site.title | default: site.github.repository_name  -%}
+{%- if site.navbar.brand.url  -%}
+  {%- assign brandurl = site.navbar.brand.url  -%}
+  url
+{%- else -%}
+  {%- assign brandurl = site.url | append: site.baseurl -%}
+  default
+{%- endif -%}
+
+{{ brand }}
+{{ brandurl }}
 
 {%- assign thispageurl = page.url | replace: ".html", ""  -%}
 
