@@ -18,9 +18,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    color: $white;
-    height: 50vmax;
-    text-shadow: 0.1rem 0.05rem 0.2rem $black;
+    h1, p {
+        color: $white;
+        text-shadow: 0.1rem 0.05rem 0.2rem $black;
+    }
 }
 
 //   <header class="pb-1 hero-chulapa-image" style="  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), url('https://i.imgur.com/YK1Vrl1.jpg');">
