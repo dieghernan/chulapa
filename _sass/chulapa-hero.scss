@@ -1,6 +1,5 @@
 .hero-chulapa {
-    @extend .jumbotron;
-    
+    @extend .jumbotron;  
     @extend .text-center;
     font-family: $headings-font-family;
     border-radius: 0rem;
@@ -20,7 +19,7 @@
     background-size: cover;
     position: relative;
     color: $white;
-    height: 50vh;
+    height: 50vmax;
     text-shadow: 0.1rem 0.05rem 0.2rem $black;
 }
 
