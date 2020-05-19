@@ -6,6 +6,8 @@ subtitle: Liquid
 
 {{ site.navbar.brand }}
 
+
+
 {{ site.navbar.brand.title }}
 {{ site.navbar.brand.url }}
 

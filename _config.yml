@@ -12,7 +12,7 @@ baseurl         :
 
 navbar:
   brand:
-  - title: AAA
+    title: AAA
     url: aa
   nav:
   - title: Showcase
