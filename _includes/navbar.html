@@ -9,7 +9,11 @@
 
  <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
      <div class="container-fluid mx-md-2">
-         <a class="navbar-brand" href="{{ brandurl }}">{{ brand }}</a>
+         <a class="navbar-brand" href="{{ brandurl }}">
+           {%- if site.navbar.brand.img -%}
+            <img src="{{ site.navbar.brand.img }}" width="30" class="d-inline-block align-top" alt="NavbarLogo">
+           {%- endif -%}
+           {{ brand }}</a>
          {%- if site.navbar.nav -%}
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
