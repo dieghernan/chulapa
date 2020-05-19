@@ -8,7 +8,7 @@
                      <ul class=" nav justify-content-center">
                          {%- for social in site.footer.links  -%}
                          <li class="nav-item">
-                             <a href="{{ social.url }}" title="{{ social.label }}" class="nav-link lead px-0">
+                             <a href="{{ social.url }}" title="footer{{ social.label }}" class="nav-link lead px-0">
                                  <span class="fa-stack fa-lg" aria-hidden="true">
                                      <i class="fa fa-circle fa-stack-2x"></i><i class="fa {{ social.icon }} fa-stack-1x fa-inverse"></i>
                                  </span><span class="sr-only">{{ social.label }}</span>

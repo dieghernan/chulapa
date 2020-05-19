@@ -33,7 +33,7 @@ navbar:
   - title: Github
     url: https://github.com/dieghernan
 
-footer:
+footera:
   links:
     - label: "RSS"
       icon: "fa-rss"
