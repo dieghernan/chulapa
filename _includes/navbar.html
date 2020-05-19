@@ -1,16 +1,22 @@
-{%- assign brand = site.title | default: site.github.repository_name  -%}
+{%- assign brand = site.navbar.brand.title | default: site.title | default: site.github.repository_name  -%}
+{%- if site.navbar.brand.url  -%}
+  {%- assign brandurl = site.navbar.brand.url  -%}
+{%- else -%}
+  {%- assign brandurl = site.url | append: site.baseurl -%}
+{%- endif -%}
+
 {%- assign thispageurl = page.url | replace: ".html", ""  -%}
 
  <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
      <div class="container-fluid mx-md-2">
-         <a class="navbar-brand" href="{{ site.url | append: site.baseurl }}">{{ brand }}</a>
-         {%- if site.navbar -%}
+         <a class="navbar-brand" href="{{ brandurl }}">{{ brand }}</a>
+         {%- if site.navbar.nav -%}
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarToggler">
              <ul class="navbar-nav ml-auto">
-               {%- for item in site.navbar -%}
+               {%- for item in site.navbar.nav -%}
                {% assign childurljoin  =  item.child | map: 'url' | join: ',' %}
                   {%- if item.child[0] -%}
                   <li class="nav-item dropdown">
@@ -20,7 +26,7 @@
                        {%- if entry.url contains "http" -%}
                        <a class="dropdown-item" href="{{ entry.url }}">{{ entry.title }}</a>
                        {%- else -%}
-                       <a class="dropdown-item {% if entry.url == thispageurl %} active {% endif %}" href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+                       <a class="dropdown-item {% if entry.url == thispageurl %} active {% endif %}" href="{{ entry.url | relative_url }}">{{ entry.title }} {% if entry.url == thispageurl %}<span class="sr-only">(current)</span>{% endif %}</a>
                        {%- endif -%}
                        {%- endfor -%}
                      </div>
@@ -30,7 +36,7 @@
                     {%- if item.url contains "http" -%}
                <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
                     {%- else -%}
-               <a class="nav-link {% if item.url == thispageurl %} active {% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+               <a class="nav-link {% if item.url == thispageurl %} active {% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}  {% if item.url == thispageurl %}<span class="sr-only">(current)</span>{% endif %}</a>
                     {%- endif -%}
                </li>
                {%- endif -%}

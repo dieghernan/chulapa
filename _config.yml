@@ -11,22 +11,26 @@ baseurl         :
 # B. Navigations
 
 navbar:
- - title: Showcase
-   url: /bootstrap
- - title: Second Level
-   child:
+  brand:
+  - title: AAA
+    url: aa
+  nav:
+  - title: Showcase
+    url: /bootstrap
+  - title: Second Level
+    child:
     - title: Liquid examples
       url:  /liquid
     - title: External url
       url: https://www.google.com/
- - title: Another
-   child:
+  - title: Another
+    child:
     - title: New
       url: /new
     - title: External url
       url: https://www.google.com/
- - title: Github
-   url: https://github.com/dieghernan
+  - title: Github
+    url: https://github.com/dieghernan
 
 footer:
   links:
