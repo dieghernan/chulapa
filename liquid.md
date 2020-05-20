@@ -8,10 +8,8 @@ subtitle: Liquid
 {%- for item in site.navbar.nav -%}
   {%- if item.child[0] -%}
     - {{ item.title }}
-    {% assign childurlmap  =  item.child | map: 'url' %}
-    {{ childurlmap }}
     {% assign containteractive  =  false %}
-    {% for all in childurlmap %}
+    {% for all in item.child %}
       {% if thispageurl == all.url %}
         {% assign containteractive  =  true %}
       {% endif %}
