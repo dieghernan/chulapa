@@ -1,13 +1,12 @@
   <!-- image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url('')"; -->
-  <header class="pb-1 hero-chulapa">
-     <div class="container">
-         <div class="row">
-             <div class="col-xl-10 offset-xl-1 my-auto">
-                 <h1 class="pb-5">{{- page.title | default: "Where's your title?" -}}</h1>
-
-                 <p class="p-2">{{- page.subtitle | default: ' ' -}}</p>
-            
-             </div>
-         </div>
-     </div>
- </header>
+ <header class="hero-chulapa">
+    <div class="row h-100 align-items-center">
+        <div class="col-xl-10 offset-xl-1">
+            <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+            {%- if page.subtitle -%}
+            <hr class="my-3">
+            <p>{{- page.subtitle -}}</p>
+            {%- endif -%}
+        </div>
+    </div>
+</header>
