@@ -3,6 +3,26 @@ layout: default
 subtitle: Liquid 
 ---
 
+{%- assign thispageurl = page.url | replace: ".html", ""  -%}
+
+{%- for item in site.navbar.nav -%}
+  {%- if item.child[0] -%}
+    - {{ item.title }}
+    {% assign childurlmap  =  item.child | map: 'url' %}
+    {{ childurlmap }}
+    {% assign containteractive  =  false %}
+    {% for all in childurlmap %}
+      {% if thispageurl == all.url %}
+        {% assign containteractive  =  true %}
+      {% endif %}
+      {% if containteractive  ==  true %}
+       active
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+
 
 {{ site.navbar.brand }}
 

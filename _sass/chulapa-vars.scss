@@ -2,7 +2,6 @@
 @import "bootstrap/mixins";
 
 $chulapa-col: crimson !default;
-
 //Navbar
 $navbar-chulapa-bg-color: $chulapa-col !default;
 $navbar-chulapa-text-color: color-yiq($navbar-chulapa-bg-color, rgba($black, .6), rgba($white, .6)) !default;

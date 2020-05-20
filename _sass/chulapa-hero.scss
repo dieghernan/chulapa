@@ -1,10 +1,19 @@
 .hero-chulapa {
-    @extend .jumbotron;  
-    @extend .text-center;
     font-family: $headings-font-family;
-    border-radius: 0rem;
     background-color: $hero-chulapa-bg-color;
-    color: $hero-chulapa-text-color;
+    text-align: center;
+    height: 40vh;
+
+    hr {
+        background-color: $hero-chulapa-text-color;
+        width: 15%;
+    }
+
+
+    h1,
+    p {
+        color: $hero-chulapa-text-color;
+    }
 
     p {
         font-size: 1.4rem;
@@ -18,10 +27,48 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    h1, p {
+
+    h1,
+    p {
         color: $white;
         text-shadow: 0.1rem 0.1rem 0.2rem $black;
     }
+
+    hr {
+        background-color: $white;
+        box-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
 }
 
-//   <header class="pb-1 hero-chulapa-image" style="  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), url('https://i.imgur.com/YK1Vrl1.jpg');">
+.splash-chulapa {
+    @extend .hero-chulapa;
+    height: 100vh;
+
+    h1 {
+        padding-top: 20vh;
+    }
+
+    p {
+        font-size: 1.6rem;
+        font-weight: 300;
+    }
+}
+
+.splash-chulapa-image {
+    @extend .splash-chulapa;
+   background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    h1,
+    p {
+        color: $white;
+        text-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+
+    hr {
+        background-color: $white;
+        box-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+}
