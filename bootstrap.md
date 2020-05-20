@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Bootstrap showcase
+subtitle: Super long description of this page to check it. Enough
 ---
 {%- include components/hero-image.html imghero="https://i.imgur.com/guI3AD6.jpg" -%}
 <hr class="my-2">
