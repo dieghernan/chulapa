@@ -3,6 +3,8 @@ layout: default
 subtitle: Liquid 
 ---
 
+{{ '#7ab55c' | color_to_rgb |  | replace: ")", ", 0.5)" }}
+
 {%- assign thispageurl = page.url | replace: ".html", ""  -%}
 
 {%- for item in site.navbar.nav -%}
