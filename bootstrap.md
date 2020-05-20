@@ -3,16 +3,7 @@ layout: default
 title: Bootstrap showcase
 ---
 
-<header class="pb-1 hero-chulapa-image" style="  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), url('https://i.imgur.com/YK1Vrl1.jpg');">
-      <div class="container">
-          <div class="row">
-              <div class="col-xl-10 offset-xl-1 text-md-center">
-                  <h1 class="pb-5">Hero with image</h1>
-                  <p class="p-2">Create your theme on 5 min (seriously)</p>
-              </div>
-          </div>
-      </div>
-  </header>
+{%- include components/hero-image.html imghero="https://i.imgur.com/guI3AD6.jpg" -%}
 
 ## Pure Markdown
 Text can be **bold**, _italic_, or ~~strikethrough~~. [Link to another page](./another-page.html).
