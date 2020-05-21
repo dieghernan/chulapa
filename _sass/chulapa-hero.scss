@@ -2,7 +2,7 @@
     font-family: $headings-font-family;
     background-color: $hero-chulapa-bg-color;
     text-align: center;
-    @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 35vh, 25vh);
+    @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 40vh, 35vh);
 
     hr {
         background-color: $hero-chulapa-text-color;
@@ -17,7 +17,7 @@
     }
 
     p {
-        font-size: 1.2rem;
+            @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
         font-weight: 500;
     }
 }
