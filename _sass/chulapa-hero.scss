@@ -42,6 +42,7 @@
 }
 .splash-chulapa {
     @extend .hero-chulapa;
+    padding-bottom: 15vh;
     @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 85vh, 95vh);
 
 
