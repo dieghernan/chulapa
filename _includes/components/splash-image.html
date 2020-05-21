@@ -1,9 +1,9 @@
  <header class="splash-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.25)), url('{{ include.imghero }}')">
-    <div class="row h-100">
-        <div class="col-10 offset-1">
+    <div class="row h-100 align-items-center">
+        <div class="col-md-10 offset-md-1">
             <h1>{{- page.title | default: "Where's your title?" -}}</h1>
             {%- if page.subtitle -%}
-            <hr class="my-5">
+            <hr class="my-3">
             <p>{{- page.subtitle -}}</p>
             {%- endif -%}
         </div>

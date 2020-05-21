@@ -1,78 +1,20 @@
 ---
-layout: default
 title: Bootstrap showcase
 subtitle: Super long description of this page to check it. Enough
 ---
+{%- include head.html -%}
+<body>
+  {%- include navbar.html -%}
+ {%- include components/hero.html -%}
+<hr class="my-2"> 
 {%- include components/hero-image.html imghero="https://i.imgur.com/guI3AD6.jpg" -%}
 <hr class="my-2">
-{%- include components/splash.html imghero="https://i.imgur.com/guI3AD6.jpg" -%}
+{%- include components/splash.html -%}
 <hr class="my-2">
 {%- include components/splash-image.html imghero="https://i.imgur.com/OyVhwwS.jpg" -%}
-<hr class="my-2">
-## Pure Markdown
-Text can be **bold**, _italic_, or ~~strikethrough~~. [Link to another page](./another-page.html).
-
-
-# Header 1
-## Header 2
-### Header 3
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-
-
-```js
-// Javascript code with syntax highlighting.
-
-// Upon loading, the Google APIs JS client automatically invokes this callback.
-googleApiClientReady = function() {
-  gapi.auth.init(function() {
-    window.setTimeout(checkAuth, 1);
-  });
-}
-
-function checkAuth() {
-  gapi.auth.authorize({
-    client_id: OAUTH2_CLIENT_ID,
-    scope: OAUTH2_SCOPES,
-    immediate: true
-  }, handleAuthResult);
-}
-
-```
-
-#### Header 4
-##### Header 5
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-![](https://via.placeholder.com/300.png)
-
-![](https://via.placeholder.com/800x200.png)
-
-![](https://via.placeholder.com/1200x200.png)
-
-![](https://via.placeholder.com/2000x200.png)
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+    <main class="container pt-2 pb-5">
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2">
 
 ## Pure HTML
 <div class="bs-docs-section clearfix">
@@ -1345,3 +1287,12 @@ The final element.
 </div>
 
 <!--Here-->
+            </div>
+        </div>
+    </main>
+   {%- include footer.html -%}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

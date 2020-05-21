@@ -16,7 +16,7 @@
     }
 
     p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: 500;
     }
 }
@@ -44,14 +44,15 @@
     height: 100vh;
 
     h1 {
-        font-size: 9vmax;
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
         font-weight: 300;
         word-wrap: break-word;
     }
 
     p {
-        font-size: 5vmax;
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.3rem, 2.2rem);
         font-weight: 300;
+        word-wrap: break-word;
     }
 }
 
