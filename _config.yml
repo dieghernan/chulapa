@@ -71,6 +71,7 @@ chulapa-skin:
   vars        :    
     chulapa-col: teal      # Fallback "crimson"
     font-family-sans-serif: Roboto, sans-serif
+    hero-chulapa-bg-color: red
     
 
 plugins:
