@@ -9,7 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+         <!-- CSS -->
+    {%- for font in site.googlefonts -%}
+    <link href="{{ font.url }}" rel="stylesheet">
+    {%- endfor -%}
+    <!-- Fontawesome-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chulapa css -->
+    <link rel="stylesheet" href="{{- "assets/css/main.css " | relative_url -}}" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
+    <link rel="canonical" 
 
     <title>Hello, world!</title>
   </head>
