@@ -43,6 +43,7 @@
 .splash-chulapa {
     @extend .hero-chulapa;
     height: 100vh;
+    height: calc(100vh - 60px);
 
     h1 {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
