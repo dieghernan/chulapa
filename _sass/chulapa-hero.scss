@@ -17,7 +17,7 @@
     }
 
     p {
-            @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
+            @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
         font-weight: 500;
     }
 }
@@ -42,8 +42,8 @@
 }
 .splash-chulapa {
     @extend .hero-chulapa;
-    height: 100vh;
-    height: calc(100vh - 60px);
+    @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 85vh, 95vh);
+
 
     h1 {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
