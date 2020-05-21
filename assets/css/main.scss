@@ -24,7 +24,7 @@
   {% endif %}
 {% endfor%}
 
-$enable-responsive-font-sizes: true !default;
+//$enable-responsive-font-sizes: true !default;
 
 {% if site.chulapa-skin.autothemer == true %}
   // Autothemer: No overrides
