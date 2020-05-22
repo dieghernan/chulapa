@@ -70,11 +70,11 @@ chufont:
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
-  theme       : # Optional predefined skins
-  autothemer  : true  # Bool: Use autotheming
+  theme       : deeply # Optional predefined skins
+  autothemer  :   # Bool: Use autotheming
   vars        :    
-    chulapa-col: teal      # Fallback "crimson"
-    font-family-sans-serif: Roboto, sans-serif
+    chulapa-col:       # Fallback "crimson"
+    font-family-sans-serif: #Roboto, sans-serif
     hero-chulapa-bg-color: 
     
 

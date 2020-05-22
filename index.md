@@ -4,25 +4,6 @@ title: Index example
 subtitle: Some interesting thing
 ---
 
-This is the canonical url:
-{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
-
-{{ canonical_url }}
-
-
-{%- assign sitefullurl = site.baseurl | prepend: site.url -%}
-
-
-{{ sitefullurl }}
-
-
-{% if canonical_url == sitefullurl  %}
-
-TRUE
-
-{% endif %}
-
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
