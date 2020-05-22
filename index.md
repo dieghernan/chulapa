@@ -8,10 +8,12 @@ This is the page url:
 
     {%- assign can = page.url | replace: "index.html", "" | absolute_url -%}
 
-
-This is the canonical url
-
 {{ can }}
+
+
+This is the site url
+
+{{ site.url }}
 
 And this is the base url
 
