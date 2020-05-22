@@ -3,21 +3,17 @@
     background-color: $hero-chulapa-bg-color;
     text-align: center;
     @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 40vh, 35vh);
-
     hr {
         background-color: $hero-chulapa-text-color;
         width: 15%;
     }
-
-
     h1,
     p {
         color: $hero-chulapa-text-color;
         word-wrap: break-word;
     }
-
     p {
-            @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
         font-weight: 500;
     }
 }
@@ -42,23 +38,19 @@
 }
 .splash-chulapa {
     @extend .hero-chulapa;
-    height: calc(100vh - 60px);
-    
-
+    height: calc(100vh - 56px);
 
     h1 {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
         font-weight: 300;
         word-wrap: break-word;
     }
-
     p {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.5rem, 2.2rem);
         font-weight: 300;
         word-wrap: break-word;
     }
 }
-
 .splash-chulapa-image {
     @extend .splash-chulapa;
     background-position: center;
@@ -75,5 +67,25 @@
     hr {
         background-color: $white;
         box-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+}
+
+.header-chulapa {
+	background-color: transparent;
+	color: $body-color;
+	h1, p {
+        color: $body-color;
+    }
+    .header-chulapa-text {
+        border-bottom-style: solid;
+        border-bottom-width:2px;
+        border-bottom-color: color-yiq($body-bg, $hero-chulapa-bg-color, $body-color);
+        }
+    .header-chulapa-img{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        height: 20vh;
     }
 }

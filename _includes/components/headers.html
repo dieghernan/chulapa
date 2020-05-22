@@ -6,8 +6,10 @@
   {%- endif -%}
   <div class="container">
     <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+    {%- if page.subtitle -%}
     <hr class="my-3">
     <p>{{- page.subtitle -}}</p>
+    {%- endif -%}
   </div>
 </header>
 {%- endif -%}
@@ -20,8 +22,31 @@
   {%- endif -%}
   <div class="container">
     <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+    {%- if page.subtitle -%}
     <hr class="my-3">
     <p>{{- page.subtitle -}}</p>
+    {%- endif -%}
   </div>
 </header>
+{%- endif -%}
+
+{%- if include.headertype == "base" -%}
+<header class="jumbotron jumbotron-fluid py-0 text-md-center header-chulapa">
+      {%- if include.imghero -%}
+      <div class="container-fluid header-chulapa-img" style="background-image: url('{{ include.imghero }}')">
+</div>
+      
+      {%- endif -%}
+      <div class="container header-chulapa-text pt-4">
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2">
+            <h1 class="display-4">{{- page.title | default: "Where's your title?" -}}</h1>
+            {%- if page.subtitle -%}
+            <p class="lead">{{- page.subtitle -}}</p>
+            {%- endif -%}
+			</div>
+		<div>
+	</div>
+</header>
+
 {%- endif -%}
