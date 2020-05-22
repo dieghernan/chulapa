@@ -1,8 +1,8 @@
 {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
 {%- assign metatitle1 = page.title | site.title | default: site.github.repository_name  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name -%}
-{%- assign sitefullurl = site.baseurl | prepend: site.url -%}
-{%- if canonical_url == sitefullurl -%}
+{%- assign strippedurl = page.url | replace: "index.html", "" -%}
+{%- if strippedurl == "/" -%}
     {%- assign metatitle1 = site.title | default: site.github.repository_name  -%}
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
 {%- endif -%}
