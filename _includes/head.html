@@ -1,12 +1,20 @@
+{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+{%- assign metatitle1 = page.title | site.title | default: site.github.repository_name  -%}
+{%- assign metatitle2 = site.title | default: site.github.repository_name -%}
+{%- assign sitefullurl = site.baseurl | append: site.url -%}
+{%- if canonical_url == sitefullurl -%}
+    {%- assign metatitle1 = site.title | default: site.github.repository_name  -%}
+    {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
+{%- endif -%}
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
 <head>
-    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
-    {%- assign title = page.title | site.title | default: site.github.repository_name  -%}
-    <title>{{- title -}}</title>
+    <title>{{ metatitle1 }} {{ site.title_separator | default: "|" }} {{ metatitle2 }}</title>
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}" />
+    <meta name="robots" content="index, follow">
     <!-- CSS -->
     {%- for font in site.googlefonts -%}
     <link href="{{ font.url }}" rel="stylesheet">

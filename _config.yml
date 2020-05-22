@@ -1,8 +1,8 @@
 # A. Site Settings
 locale          :      # Fallback "en-US"
-title           :      # Fallback "repository_name" REV
+title           :  Chulapa # Fallback "repository_name" REV
 title_separator :      # Fallback " | "
-subtitle        : 
+subtitle        :  A Jekyll theme powered by Bootstrap 
 
 url             : 
 baseurl         : 
