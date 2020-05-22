@@ -4,6 +4,18 @@ title: Index example
 subtitle: Some interesting thing
 ---
 
+This is the page url:
+
+{{ page.url }}
+
+This is the site url
+
+{{ site.url }}
+
+And this is the base url
+
+{{ site.baseurl }}
+
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
