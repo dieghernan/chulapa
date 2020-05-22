@@ -1,4 +1,4 @@
-{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
 {%- assign metatitle1 = page.title | site.title | default: site.github.repository_name  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name -%}
 {%- assign strippedurl = page.url | replace: "index.html", "" -%}
@@ -14,6 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}">
+    <meta name="description" content="{{ page.content | strip_html | truncatewords: 150 }}"/>
     <meta name="robots" content="index, follow">
     <!-- CSS -->
     {%- for font in site.googlefonts -%}
