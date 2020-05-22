@@ -7,6 +7,10 @@ subtitle        :  A Jekyll theme powered by Bootstrap
 url             : 
 baseurl         : 
 
+# Site Author
+author:
+  name: DHH
+
 
 # B. Navigations
 

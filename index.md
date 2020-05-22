@@ -6,9 +6,7 @@ subtitle: Some interesting thing
 
 This is the page url:
 
-    {%- assign can = page.url | replace: "index.html", "" | absolute_url -%}
-
-{{ can }}
+{{ page.url  }}
 
 
 This is the site url

@@ -1,7 +1,7 @@
 {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
 {%- assign metatitle1 = page.title | site.title | default: site.github.repository_name  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name -%}
-{%- assign sitefullurl = site.baseurl | append: site.url -%}
+{%- assign sitefullurl = site.baseurl | prepend: site.url -%}
 {%- if canonical_url == sitefullurl -%}
     {%- assign metatitle1 = site.title | default: site.github.repository_name  -%}
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
@@ -13,7 +13,7 @@
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}" />
+    <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}">
     <meta name="robots" content="index, follow">
     <!-- CSS -->
     {%- for font in site.googlefonts -%}

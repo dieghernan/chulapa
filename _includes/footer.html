@@ -18,7 +18,7 @@
                      </ul>
                  </div>
                  {%- endif -%}
-                    <p class="pb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.github.owner_name }}</p>
+                    <p class="pb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}</p>
           					<!-- Do not remove this in order to give  attributions -->
           					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
           					{%- if skin -%}
