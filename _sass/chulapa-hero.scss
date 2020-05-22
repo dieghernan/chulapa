@@ -53,7 +53,7 @@
     }
 
     p {
-        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.3rem, 2.2rem);
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.5rem, 2.2rem);
         font-weight: 300;
         word-wrap: break-word;
     }
