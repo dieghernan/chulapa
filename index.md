@@ -6,11 +6,12 @@ subtitle: Some interesting thing
 
 This is the page url:
 
-{{ page.url }}
+    {%- assign can = page.url | replace: "index.html", "" | absolute_url -%}
 
-This is the site url
 
-{{ site.url }}
+This is the canonical url
+
+{{ can }}
 
 And this is the base url
 
