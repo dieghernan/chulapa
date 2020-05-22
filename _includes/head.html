@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}">
-    <meta name="description" content="{{ page.content | strip_html | truncatewords: 150 }}"/>
+    <meta name="description" content="{{ page.content | markdownify | strip_html | xml_escape | truncatewords: 150 }}"/>
     <meta name="robots" content="index, follow">
     <!-- CSS -->
     {%- for font in site.googlefonts -%}
