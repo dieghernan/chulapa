@@ -8,6 +8,7 @@ img {
 table {
     @extend .table;
     @extend .table-sm;
+    @include fluid-type(font-size,breakpoint-min("sm"),  breakpoint-min("md"), 0.75rem, 1rem);
     color: $body-color;
     thead {
         th {
