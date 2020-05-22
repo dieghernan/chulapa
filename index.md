@@ -6,20 +6,22 @@ subtitle: Some interesting thing
 
 This is the canonical url:
 {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+
 {{ canonical_url }}
 
+
 {%- assign sitefullurl = site.baseurl | prepend: site.url -%}
+
 
 {{ sitefullurl }}
 
 
-This is the site url
+{% if canonical_url == sitefullurl  %}
 
-{{ site.url }}
+TRUE
 
-And this is the base url
+{% endif %}
 
-{{ site.baseurl }}
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
