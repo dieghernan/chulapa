@@ -4,9 +4,13 @@ title: Index example
 subtitle: Some interesting thing
 ---
 
-This is the page url:
+This is the canonical url:
+{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+{{ canonical_url }}
 
-{{ page.url  }}
+{%- assign sitefullurl = site.baseurl | prepend: site.url -%}
+
+{{ sitefullurl }}
 
 
 This is the site url
