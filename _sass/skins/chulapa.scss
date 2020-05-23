@@ -28,6 +28,11 @@ button,
 .alert-heading,
 .btn,
 .card-header,
+.nav-tabs,
+.nav-pills,
+.badge,
+.breadcrumb,
+.pagination,
 .navbar {
     font-family: $headings-font-family !important;
     -webkit-font-feature-settings: "liga", "dlig";
@@ -39,12 +44,6 @@ button,
     text-rendering: optimizeLegibility;
 }
 
-
-.nav-tabs,
-.nav-pills,
-.badge,
-.breadcrumb,
-.pagination,
 .alert,
 .jumbotron {
     font-family: $headings-font-family !important;
