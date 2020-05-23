@@ -73,7 +73,7 @@ chulapa-skin:
   theme       : # Optional predefined skins
   autothemer  :  true # Bool: Use autotheming
   vars        :    
-    chulapa-col:  darkslatetrue     # Fallback "crimson"
+    chulapa-col:  darkslateblue     # Fallback "crimson"
     font-family-sans-serif: Roboto, sans-serif
     hero-chulapa-bg-color: 
     
