@@ -1,12 +1,15 @@
 /*! Chulapa by dieghernan */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@font-face {
+    font-family: ferpal;
+    src: url(./assets/fonts/Ferpal/Ferpal-Regular.otf);
+}
 
 $alt-font: chulapa-regular;
 
 $headings-font-family: chulapa,
 sans-serif;
-$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-sans-serif: ferpal, sans-serif;
 $enable-rounded:              false !default;
 $font-size-base:              1rem !default;
 $h1-font-size:                $font-size-base * 2 !default;
