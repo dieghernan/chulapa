@@ -86,6 +86,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        @include fluid-type(height,breakpoint-min("sm"),  breakpoint-min("lg"), 20vh, 30vh);
+        @include fluid-type(height,breakpoint-min("sm"), breakpoint-min("lg"), 20vh, 30vh);
     }
 }
