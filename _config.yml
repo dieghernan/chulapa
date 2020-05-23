@@ -70,7 +70,7 @@ chufont:
 
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
-  theme       : deeply # Optional predefined skins
+  theme       : lux # Optional predefined skins
   autothemer  :   # Bool: Use autotheming
   vars        :    
     chulapa-col:       # Fallback "crimson"
