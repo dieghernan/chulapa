@@ -76,10 +76,8 @@
 	h1, p {
         color: $body-color;
     }
-    .header-chulapa-text {
-        border-bottom-style: solid;
-        border-bottom-width:2px;
-        border-bottom-color: color-yiq($body-bg, $hero-chulapa-bg-color, $body-color);
+    hr {
+        background-color: color-yiq($body-bg, $hero-chulapa-bg-color, $body-color);
         }
     .header-chulapa-img{
         background-position: center;
