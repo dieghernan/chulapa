@@ -1,10 +1,6 @@
 /*! Chulapa by dieghernan */
 
-
-$alt-font: chulapa-regular;
-
-$headings-font-family: chulapa,
-sans-serif;
+$headings-font-family: chulapa,sans-serif;
 $font-family-sans-serif: ferpal, sans-serif;
 $enable-rounded:              false !default;
 $font-size-base:              1rem !default;
@@ -15,13 +11,17 @@ $h4-font-size:                $font-size-base * 1.4 !default;
 $h5-font-size:                $font-size-base * 1.2 !default;
 $h5-font-size:                $font-size-base * 1 !default;
 $blockquote-font-size:        $font-size-base;
+
 h1,
 h2,
 h3,
 h4,
+footer,
 blockquote,
-footer
- {
+.alert-heading,
+.card-header,
+.navbar {
+    font-family: $headings-font-family !important;
     -webkit-font-feature-settings: "liga", "dlig";
     -moz-font-feature-settings: "liga=1, dlig=1";
     -moz-font-feature-settings: "liga", "dlig";
@@ -31,34 +31,15 @@ footer
     text-rendering: optimizeLegibility;
 }
 
-$input-btn-font-family: $headings-font-family;
-$btn-font-family: $headings-font-family;
 
-table,
-footer,
-legend,
-label,
-blockquote {
-    font-family: $alt-font !important;
-
-}
-
-table {
-  font-size: $font-size-base*0.7;
-}
-
-.navbar,
-.form-control-file,
 .nav-tabs,
 .nav-pills,
 .badge,
-.card-header,
-.card-text,
 .breadcrumb,
 .pagination,
 .alert,
 .jumbotron {
-    font-family: $alt-font;
+    font-family: $headings-font-family !important;
 }
 
 $primary: #edc7b7;
