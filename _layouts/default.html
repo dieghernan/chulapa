@@ -6,11 +6,11 @@
   {%- include components/headers.html headertype= page.headertype imghero=page.imghero -%}
     <main class="container-lg pt-2 pb-5">
       <div class="row" id="chulapaDateSocial">
-          <div class=" col-xl-4 offset-xl-2 col-sm order-last order-sm-first font-italic">
+          <div class=" col-xl-4 offset-xl-2 col font-italic">
             <time>Example date<time>
           </div>
-          <div class=" col-xl-4 col-sm order-first text-sm-right lead">
-            <i class="fa fa-twitter-square fa-lg mr-1"></i>
+          <div class="col-xl-4 col text-right lead">
+            <a href="https://twitter.com/intent/tweet?text={{ page.title | append: site.title | url_encode }}+{{ site.url }}{{ page.url }}" title="ShareOnTwitter"><i class="fa fa-twitter-square fa-lg mr-1"></i></a>
             <i class="fa fa-facebook-square fa-lg"></i>
             <i class="fa fa-linkedin-square fa-lg ml-1"></i>
           </div>
