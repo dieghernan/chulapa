@@ -9,7 +9,7 @@ An index of the demo collections:
 {% for demo in  site.demo %}
 {% unless demo.url == "/demo" %}
 
-{{ demo | inspect }}
+{{ demo | inspect | strip_html }}
 <article>
 	<h3><a href="{{ demo.url }}">{{ demo.title }}</a></h3 >
 	{%- if demo.subtitle -%}
