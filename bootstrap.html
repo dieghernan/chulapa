@@ -1,26 +1,32 @@
 ---
+layout: minimal
 title: Bootstrap showcase
-subtitleaa: Super long description of this page to check it. Enough
+subtitle: Super long description of this page to check it. Enough
 ---
-{%- include head.html -%}
-<body>
-  {%- include navbar.html -%}
-  {%- include components/headers.html headertype="hero" -%}
-  {%- include components/headers.html headertype="hero" imghero="https://i.imgur.com/oqQqo6S.jpg" -%}
-  {%- include components/headers.html headertype="splash" -%}
-  {%- include components/headers.html headertype="splash" imghero="https://i.imgur.com/QzKOsan.jpg" -%}
-  {%- include components/headers.html headertype="base" -%}
-  {%- include components/headers.html headertype="base" imghero="https://i.imgur.com/tIErwRJ.jpg" -%}
+<div class="container-lg pt-2 pb-5">
+  <div class="row" id="chulapaDateSocial">
+      <div class=" col-xl-4 offset-xl-2 col-sm order-last order-sm-first font-italic">
+        <time>Example date<time>
+      </div>
+      <div class=" col-xl-4 col-sm order-first text-sm-right lead">
+        <i class="fa fa-twitter-square fa-lg mr-1"></i>
+        <i class="fa fa-facebook-square fa-lg"></i>
+        <i class="fa fa-linkedin-square fa-lg ml-1"></i>
+      </div>
+  </div>
+</div>
+
+{%- include components/headers.html headertype="hero" -%}
+{%- include components/headers.html headertype="hero" imghero="https://i.imgur.com/oqQqo6S.jpg" -%}
+{%- include components/headers.html headertype="splash" -%}
+{%- include components/headers.html headertype="splash" imghero="https://i.imgur.com/QzKOsan.jpg" -%}
+{%- include components/headers.html headertype="base" -%}
+{%- include components/headers.html headertype="base" imghero="https://i.imgur.com/tIErwRJ.jpg" -%}
 <main class="container-lg pt-2 pb-5">
-        <div class="row">
-            <div class="col-xl-8 offset-xl-2">
-               {%- include snippets/bootstrapdemo.html -%}
-            </div>
+  <div class="row">
+        <div class="col-xl-8 offset-xl-2 mt-4">
+           {%- include snippets/bootstrapdemo.html -%}
         </div>
-    </main>
-   {%- include footer.html -%}
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
-</html>
+  </div>
+</main>
+

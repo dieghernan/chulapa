@@ -102,6 +102,12 @@ defaults:
       layout: "default"
       headertype: "base"
 
+#Collections
+collections:
+  pages:
+    output: true
+    permalink: /demo/:name/
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
