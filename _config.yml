@@ -110,6 +110,9 @@ defaults:
     values:
       layout: "default"
       beforeafter: "true"
+      headertype: "base"
+      sociallinks: "true"
+      showdate: "false"
 
 #Collections
 collections:
