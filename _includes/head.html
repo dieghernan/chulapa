@@ -6,10 +6,11 @@
     {%- assign metatitle1 = site.title | default: site.github.repository_name  -%}
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
 {%- endif -%}
+{%- capture metatitle -%}{{ metatitle1 }} {{ site.title_separator | default: "|" }} {{ metatitle2 }}{%- endcapture -%}
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
 <head>
-    <title>{{ metatitle1 }} {{ site.title_separator | default: "|" }} {{ metatitle2 }}</title>
+    <title>{{ metatitle }}</title>
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
