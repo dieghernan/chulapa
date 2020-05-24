@@ -1,9 +1,10 @@
       <div class="row" id="chulapaDateSocial">
-        {%- if page.date and page.showdate == "true" -%}
           <div class=" col-xl-4 offset-xl-2 col font-italic">
+            {%- if page.date and page.showdate == "true" -%}
             <time datetime="{{ page.date | date: "%a, %d %b %Y %H:%M:%S %z" }}">{{ page.date | date_to_string }}<time>
+            {%- endif -%}
           </div>
-        {%- endif -%}
+
           {%- if page.sociallinks == "true" -%}
           <div class="col-xl-4 col text-right lead">
             <a href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ metatitle | url_encode }}" title="Share on Twitter"><i class="fa fa-twitter-square fa-lg mr-1"></i></a>
