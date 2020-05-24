@@ -8,8 +8,8 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque 
 
 ## Next
 
-{{ page.next.url }}
+[Next]({{ page.next.url }})
 
 ## Previous
 
-{{ page.previous.url }}
+[Previous]({{ page.previous.url }})
