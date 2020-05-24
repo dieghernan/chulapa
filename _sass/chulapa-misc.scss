@@ -58,6 +58,7 @@ blockquote {
 }
 
 #chulapaDateSocial {
+  color: $link-hover-color;
 a {
   color: $link-hover-color;
   @include hover-focus() {
