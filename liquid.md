@@ -3,24 +3,7 @@ layout: default
 subtitle: Liquid 
 ---
 
-{{ '#7ab55c' | color_to_rgb |  | replace: ")", ", 0.5)" }}
-
-{%- assign thispageurl = page.url | replace: ".html", ""  -%}
-
-{%- for item in site.navbar.nav -%}
-  {%- if item.child[0] -%}
-    - {{ item.title }}
-    {% assign containteractive  =  false %}
-    {% for all in item.child %}
-      {% if thispageurl == all.url %}
-        {% assign containteractive  =  true %}
-      {% endif %}
-      {% if containteractive  ==  true %}
-       active
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
+{{ site.collections }}
 
 
 
