@@ -56,3 +56,13 @@ blockquote {
     font-feature-settings: "liga", "dlig";
     text-rendering: optimizeLegibility;
 }
+
+#chulapaDateSocial {
+a {
+  color: $link-hover-color;
+  @include hover-focus() {
+    color: $link-hover-color;
+  }
+}
+
+}
