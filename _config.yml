@@ -90,6 +90,9 @@ exclude:
   - README.md
   - Gemfile
 
+include:
+ - _pages
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
