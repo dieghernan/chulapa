@@ -21,7 +21,8 @@ An index of the demo collections:
 {% endunless %}
 {% endfor %}
 
-{% for item in page %}
-- {{ item }}
-{% endfor %}
+{{ page.url }}
 
+{{ page.id }}
+
+{{ page.path }}
