@@ -5,16 +5,7 @@
   {%- include navbar.html -%}
   {%- include components/headers.html headertype= page.headertype imghero=page.imghero -%}
     <main class="container-lg pt-2 pb-5">
-      <div class="row" id="chulapaDateSocial">
-          <div class=" col-xl-4 offset-xl-2 col font-italic">
-            <time>Example date<time>
-          </div>
-          <div class="col-xl-4 col text-right lead">
-            <a href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ metatitle | url_encode }}" title="ShareOnTwitter"><i class="fa fa-twitter-square fa-lg mr-1"></i></a>
-             <a href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="ShareOnFacebook"><i class="fa fa-facebook-square fa-lg"></i></a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ canonical_url }}" title="ShareOnLinkedIn"><i class="fa fa-linkedin-square fa-lg ml-1"></i></a>
-          </div>
-      </div>
+  {%- include components/datesocial.html -%}
       <div class="row">
             <div class="col-xl-8 offset-xl-2 mt-4">
                 {{- content -}}
