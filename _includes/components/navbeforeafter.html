@@ -1,0 +1,24 @@
+{%- assign classnext = "page-item disabled" }
+{%- if page.next -%}
+ {%- assign classnext = "page-item" }
+{%- endif -%}
+{%- assign classprevious = "page-item disabled" }
+{%- if page.previous -%}
+ {%- assign classprevious = "page-item" }
+{%- endif -%}
+ <nav aria-label="Navigation" class="container-lg">
+    <ul class="col-xl-8 offset-xl-2 pagination pagination-lg justify-content-center justify-content-sm-between ">
+          <li class="{{ classprevious }}">
+            <a class="page-link" href="{{ page.previous.url | absolute_url }}" aria-label="Previous">
+              <span aria-hidden="true">«</span>
+              <span class="sr-only">Previous</span>
+              </a>
+          </li>
+          <li class="{{ classnext }}">
+            <a class="page-link" href="{{ page.next.url | absolute_url }}" aria-label="Next">
+            <span aria-hidden="true">»</span>
+            <span class="sr-only">Next</span>
+            </a>
+          </li>
+      </ul>
+</nav>

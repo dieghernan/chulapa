@@ -103,6 +103,12 @@ defaults:
       headertype: "base"
       sociallinks: "true"
       showdate: "false"
+      
+    scope:
+      path: ""
+      type: "demo"
+    values:
+      pagbeforeafter: "true"
 
 #Collections
 collections:
