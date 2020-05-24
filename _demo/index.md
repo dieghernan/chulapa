@@ -15,7 +15,7 @@ An index of the demo collections:
 		<h4>{{ demo.subtitle }}</h4>
   {%- endif -%}
 	<p>{{ demo.content |markdownify | strip_html | strip_newlines | strip |  truncatewords: 30 }}
-		<a href="{{ demo.url }}">[more]</a>
+		<a href="{{ demo.url | absolute_url | remove: ".html"  }}">[more]</a>
 	</p>
 </article>
 {% endunless %}
