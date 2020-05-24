@@ -104,9 +104,8 @@ defaults:
 
 #Collections
 collections:
-  pages:
+  demo:
     output: true
-    permalink: /demo/:name/
 
 # Conversion
 markdown: kramdown
