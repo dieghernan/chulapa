@@ -26,8 +26,8 @@ navbar:
     child:
     - title: Liquid examples
       url:  /liquid
-    - title: External url
-      url: https://www.google.com/
+    - title: Demos
+      url: /demo
   - title: Another
     child:
     - title: New
