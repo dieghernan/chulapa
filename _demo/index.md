@@ -1,7 +1,6 @@
 ---
 title: "Demos"
 subtitle: All demos in one place
-permalink: /demo
 ---
 
 An index of the demo collections:
@@ -9,6 +8,8 @@ An index of the demo collections:
 ## Index of demos
 {% for demo in  site.demo %}
 {% unless demo.url == "/demo" %}
+
+{{ demo | inspect }}
 <article>
 	<h3><a href="{{ demo.url }}">{{ demo.title }}</a></h3 >
 	{%- if demo.subtitle -%}
@@ -21,11 +22,4 @@ An index of the demo collections:
 {% endunless %}
 {% endfor %}
 
-{% for demo2 in  site.demo %}
 
-```
-{{ demo2 }}
-```
-
-
-{% endfor %}
