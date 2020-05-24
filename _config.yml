@@ -109,7 +109,7 @@ defaults:
       type: "demo"
     values:
       layout: "default"
-      pagbeforeafter: "true"
+      beforeafter: "true"
 
 #Collections
 collections:
