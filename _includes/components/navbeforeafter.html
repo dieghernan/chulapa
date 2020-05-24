@@ -2,9 +2,15 @@
 {%- if page.next.url -%}
  {%- assign classnext = "page-item" -%}
 {%- endif -%}
+{%- if page.url contains page.next.url -%}
+ {%- assign classnext = "page-item disabled" -%}
+{%- endif -%}
 {%- assign classprevious = "page-item disabled" -%}
 {%- if page.previous.url -%}
  {%- assign classprevious = "page-item" -%}
+{%- endif -%}
+{%- if page.url contains page.previous.url -%}
+ {%- assign classprevious = "page-item disabled" -%}
 {%- endif -%}
  <nav aria-label="Navigation" class="container-lg">
     <ul class="col-xl-8 offset-xl-2 pagination pagination-lg justify-content-center justify-content-sm-between ">
