@@ -25,4 +25,4 @@ An index of the demo collections:
 
 {{ page.id }}
 
-{{ page.path }}
+{{ page.next.id }}
