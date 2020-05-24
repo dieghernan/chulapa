@@ -2,6 +2,7 @@
 title: "Demos"
 subtitle: All demos in one place
 permalink: /demo
+beforeafter: false
 ---
 
 An index of the demo collections:
@@ -25,4 +26,4 @@ An index of the demo collections:
 
 {{ page.id }}
 
-{{ page.next.id }}
+{{ page.before.id }}
