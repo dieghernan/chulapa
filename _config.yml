@@ -102,6 +102,7 @@ defaults:
       layout: "default"
       headertype: "base"
       sociallinks: "true"
+      showdate: "false"
 
 #Collections
 collections:
