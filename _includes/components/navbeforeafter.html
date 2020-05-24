@@ -1,9 +1,9 @@
 {%- assign classnext = "page-item disabled" }
-{%- if page.next -%}
+{%- if page.next.url -%}
  {%- assign classnext = "page-item" }
 {%- endif -%}
 {%- assign classprevious = "page-item disabled" }
-{%- if page.previous -%}
+{%- if page.previous.url -%}
  {%- assign classprevious = "page-item" }
 {%- endif -%}
  <nav aria-label="Navigation" class="container-lg">

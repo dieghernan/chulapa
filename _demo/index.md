@@ -20,3 +20,8 @@ An index of the demo collections:
 </article>
 {% endunless %}
 {% endfor %}
+
+{% for item in page %}
+- {{ item }}
+{% endfor %}
+
