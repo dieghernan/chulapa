@@ -8,8 +8,7 @@ An index of the demo collections:
 
 ## Index of demos
 {% for demo in  site.demo %}
-{% if page.url == demo.url %}
-{% elsif %}
+{% unless demo.url == "/demo" %}
 <article>
 	<h3><a href="{{ demo.url }}">{{ demo.title }}</a></h3 >
 	{%- if demo.subtitle -%}
@@ -19,5 +18,14 @@ An index of the demo collections:
 		<a href="{{ demo.url }}">[more]</a>
 	</p>
 </article>
-{% endif %}
+{% endunless %}
+{% endfor %}
+
+{% for demo2 in  site.demo %}
+
+```
+{{ demo2 }}
+```
+
+
 {% endfor %}
