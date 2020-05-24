@@ -93,6 +93,15 @@ exclude:
 include:
  - _pages
 
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      headertype: "base"
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
