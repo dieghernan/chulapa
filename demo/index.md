@@ -7,7 +7,7 @@ permalink: /demo
 An index of the demo collections:
 
 ## Index of demos
-{% for demo in  site.projects %}
+{% for demo in  site.demo %}
 <article>
 	<h3><a href="{{ demo.url }}">{{ demo.title }}</a></h3 >
 	{%- if demo.subtitle -%}
