@@ -40,5 +40,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | strip | truncatewords: 20 }}" />
     <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" />
-    <meta property=”og:image” content="{{- ogimage -}}" />
+    <meta property="og:image" content="{{- ogimage -}}" />
+    <meta name="twitter:card" content="summary_large_image">
 </head>
