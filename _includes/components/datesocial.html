@@ -7,7 +7,7 @@
 
           {%- if page.sociallinks == "true" -%}
           <div class="col-xl-4 col text-right lead">
-            <a href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ metatitle | url_encode }}{%- if site.twitter.site -%}&via=@{{- site.twitter.site -}} {%- endif -%}" title="Share on Twitter"><i class="fa fa-twitter-square fa-lg mr-1"></i></a>
+            <a href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ metatitle | url_encode }}{%- if site.twitter.site -%}&via={{- site.twitter.site -}} {%- endif -%}" title="Share on Twitter"><i class="fa fa-twitter-square fa-lg mr-1"></i></a>
              <a href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="Share on Facebook"><i class="fa fa-facebook-square fa-lg"></i></a>
             <a href="https://www.linkedin.com/shareArticle?url={{ canonical_url }}&title={{ metatitle }}" title="Share on LinkedIn"><i class="fa fa-linkedin-square fa-lg ml-1"></i></a>
           </div>
