@@ -1,0 +1,233 @@
+/*!
+ * Specific classes and formats for chulapa
+ */
+ 
+#chulapaDateSocial {
+    color: $link-hover-color;
+    a {
+        color: $link-hover-color;
+        @include hover-focus() {
+            color: $link-hover-color;
+            }
+        
+    }
+}
+.chulapa-headingfont{
+    font-family: $headings-font-family;
+}
+
+.chulapa-links-hover-only{
+    a {
+        color: inherit;
+    }
+}
+ 
+ // Navbar
+.navbar-chulapa {
+    background-color: $navbar-chulapa-bg-color;
+    font-weight: bold;
+    .navbar-brand {
+        color: $navbar-chulapa-brand-color;
+        font-weight: bold;
+        @include hover-focus() {
+            color: $navbar-chulapa-brand-hover-color;
+        }
+
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: $navbar-chulapa-text-color;
+
+            @include hover-focus() {
+                color: $navbar-chulapa-hover-color;
+            }
+
+            &.disabled {
+                color: $navbar-chulapa-disabled-color;
+            }
+        }
+
+        .show>.nav-link,
+        .active>.nav-link,
+        .nav-link.show,
+        .nav-link.active {
+            color: $navbar-chulapa-active-color;
+        }
+    }
+
+    .navbar-toggler {
+        color: $navbar-chulapa-text-color;
+        border-color: $navbar-chulapa-toggler-border-color;
+        background-color: $navbar-chulapa-toggler-color-bg;
+    }
+
+    .navbar-toggler-icon {
+        background-image: escape-svg($navbar-chulapa-toggler-icon-bg);
+    }
+
+    .navbar-text {
+        color: $navbar-chulapa-text-color;
+
+        a {
+            color: $navbar-chulapa-active-color;
+
+            @include hover-focus() {
+                color: $navbar-chulapa-active-color;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        background-color: $navbar-chulapa-bg-color;
+        border-style: none;
+
+        .dropdown-item {
+            color: $navbar-chulapa-text-color;
+
+            @include hover-focus() {
+                background-color: $navbar-chulapa-hover-color;
+                color: $navbar-chulapa-bg-color;
+            }
+
+            &.disabled {
+                color: $navbar-chulapa-disabled-color;
+            }
+        }
+
+        .show>.dropdown-item,
+        .active>.dropdown-item,
+        .dropdown-item.show,
+        .dropdown-item.active {
+            background-color: $navbar-chulapa-hover-color;
+            color: $navbar-chulapa-bg-color;
+        }
+    }
+}
+
+// Hero and headers
+.hero-chulapa {
+    font-family: $headings-font-family;
+    background-color: $hero-chulapa-bg-color;
+    text-align: center;
+    @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 40vh, 35vh);
+    hr {
+        background-color: $hero-chulapa-text-color;
+        width: 15%;
+    }
+    h1,
+    p {
+        color: $hero-chulapa-text-color;
+        word-wrap: break-word;
+    }
+    p {
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
+        font-weight: 500;
+    }
+}
+
+.hero-chulapa-image {
+    @extend .hero-chulapa;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    h1,
+    p {
+        color: $white;
+        text-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+
+    hr {
+        background-color: $white;
+        box-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+}
+.splash-chulapa {
+    @extend .hero-chulapa;
+    height: calc(100vh - 56px);
+
+    h1 {
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
+        font-weight: 300;
+        word-wrap: break-word;
+    }
+    p {
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.5rem, 2.2rem);
+        font-weight: 300;
+        word-wrap: break-word;
+    }
+}
+.splash-chulapa-image {
+    @extend .splash-chulapa;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    h1,
+    p {
+        color: $white;
+        text-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+
+    hr {
+        background-color: $white;
+        box-shadow: 0.1rem 0.1rem 0.2rem $black;
+    }
+}
+
+.header-chulapa {
+	background-color: transparent;
+	color: $body-color;
+	h1, p {
+        color: $body-color;
+    }
+    hr {
+        background-color: color-yiq($body-bg, $hero-chulapa-bg-color, $body-color);
+        }
+    .header-chulapa-img{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        @include fluid-type(height,breakpoint-min("sm"), breakpoint-min("lg"), 20vh, 30vh);
+    }
+}
+
+ // Footer
+.footer-chulapa {
+    background-color: $footer-chulapa-bg-color;
+    color: $footer-chulapa-text-color;
+    border-top: 0.1rem solid rgba($footer-chulapa-text-color, 0.25);
+    
+    a {
+        color: $footer-chulapa-text-color;
+        text-decoration: none;
+        font-weight: bold;
+
+        @include hover-focus() {
+            color: $footer-chulapa-hover-color;
+        }
+
+    }
+
+    .nav-link {
+        color: transparent;
+
+        @include hover-focus() {
+            color: $footer-chulapa-hover-color;
+        }
+    }
+
+    .fa-stack {
+        @include hover-focus() {
+            color: $footer-chulapa-icon-hover-color;
+        }
+    }
+
+    .fa-inverse {
+        color: $footer-chulapa-icon-color;
+    }
+}
