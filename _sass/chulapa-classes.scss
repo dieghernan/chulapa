@@ -115,8 +115,8 @@
     background-color: $hero-chulapa-bg-color;
     text-align: center;
     @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 40vh, 35vh);
-    h1{
-@include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 2rem, 4rem);
+    h1 {
+@include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 2.5rem, 4.5rem);
 }
     hr {
         background-color: $hero-chulapa-text-color;
