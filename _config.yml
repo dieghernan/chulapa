@@ -130,6 +130,7 @@ exclude:
   - LICENSE
   - README.md
   - Gemfile
+  - vendor
 
 include:
  - _pages
