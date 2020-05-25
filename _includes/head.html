@@ -42,8 +42,9 @@
     <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" />
     <meta property="og:image" content="{{- ogimage -}}" />
     <meta name="twitter:card" content="summary_large_image">
-    {% if site.twitter.site -%}
+    {%- if site.twitter.site %}
     <meta name="twitter:site" content="@{{- site.twitter.site }}" />
     <meta name="twitter:creator" content="@{{- site.twitter.site }}" />
-    {%- endif %}
+    {% endif -%}
+    {%- include components/webtracking.html -%}
 </head>

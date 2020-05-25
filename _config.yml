@@ -19,6 +19,9 @@ twitter:
 og_image             : "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
 
 
+# Web tracking using Google
+gtag_id: "UA-139034853-2"    # gtag.js configuration Google Tag ID UA-139034853-2
+analytics_id: "UA-139034853-2" # analytics.js id. Provided for backward compatibility, better use gtag_id
 # B. Navigations
 
 navbar:
