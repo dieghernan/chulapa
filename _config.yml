@@ -3,7 +3,7 @@ locale          :      # Fallback "en-US"
 title           :  Chulapa # Fallback "repository_name" REV
 title_separator :      # Fallback " | "
 subtitle        :  A Jekyll theme for Github Pages powered by Bootstrap 
-banner          : "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
+
 
 url             : 
 baseurl         : 
@@ -12,6 +12,11 @@ baseurl         :
 author:
   name    : DHH
   avatar  : 
+
+# Social Sharing
+twitter:
+  site               : @jack
+og_image                 : "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
 
 
 # B. Navigations
