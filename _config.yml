@@ -20,7 +20,7 @@ og_image             : "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jp
 
 # Disqus ID
 
-disqus.shortname: chulapa #Your id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
+disqus_shortname: chulapa #Your id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
 
 # Web tracking using Google
 gtag_id:    # gtag.js configuration Google Tag ID 

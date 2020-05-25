@@ -1,4 +1,4 @@
-{% if site.disqus.shortname %}
+{% if site.disqus_shortname %}
   <script>
     var disqus_config = function () {
       this.page.url = "{{ canonical_url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
@@ -6,7 +6,7 @@
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
-      s.src = 'https://{{ site.disqus.shortname }}.disqus.com/embed.js';
+      s.src = 'https://{{- site.disqus_shortname -}}.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
