@@ -15,7 +15,7 @@ author:
 
 # Social Sharing
 twitter:
-  site               : jack  #Avoid the @
+  site               : "jack"  #Avoid the @
 og_image             : "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
 
 
