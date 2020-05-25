@@ -7,7 +7,7 @@
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
 {%- endif -%}
 {%- capture metatitle -%}{{ metatitle1 }} {{ site.title_separator | default: "|" }} {{ metatitle2 }}{%- endcapture -%}
-{%- assign: initimg = page.imghero | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
+{%- assign: initimg = page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
 {%- if initimg contains "http" -%}
 {%- assign: ogimage = initimg  -%}
 {%- else -%}
