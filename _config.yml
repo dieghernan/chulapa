@@ -10,6 +10,7 @@ baseurl         :
 
 algolia:                                                                
   application_id: KOIKA5PDQO
+  index_name: chulapa
 
 # Site Author
 author:
