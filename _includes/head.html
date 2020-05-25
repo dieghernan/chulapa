@@ -7,6 +7,12 @@
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
 {%- endif -%}
 {%- capture metatitle -%}{{ metatitle1 }} {{ site.title_separator | default: "|" }} {{ metatitle2 }}{%- endcapture -%}
+{%- assign: initimg = page.imghero | default: site.bannera | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
+{%- if initimg contains "http" -%}
+{%- assign: ogimage = initimg  -%}
+{%- else -%}
+{%- assign: ogimage = initimg | absolute_url  -%}
+{%- endif -%}
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
 <head>
@@ -17,15 +23,22 @@
     <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}">
     <meta name="description" content="{{ page.content | markdownify | strip_html | strip_newlines | strip | truncate: 130  }}"/>
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ canonical_url }}">
     <!-- CSS -->
-    {%- for font in site.googlefonts -%}
+    {% for font in site.googlefonts -%}
     <link href="{{ font.url }}" rel="stylesheet">
-    {%- endfor -%}
+    {%- endfor %}
     <!-- Fontawesome-->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!-- Chulapa css -->
+    <!-- Theme css (Bootstrap included) -->
     <link rel="stylesheet" href="{{- "assets/css/main.css " | relative_url -}}" />
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | relative_url -}}" />
-    <link rel="canonical" href="{{ canonical_url }}">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="{{ metatitle }}" />
+    <meta property="og:url" content="{{ canonical_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | strip | truncatewords: 20 }}" />
+    <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" />
+    <meta property=”og:image” content="{{- ogimage -}}" />
 </head>

@@ -10,7 +10,8 @@ baseurl         :
 
 # Site Author
 author:
-  name: DHH
+  name    : DHH
+  avatar  : 
 
 
 # B. Navigations
@@ -61,7 +62,7 @@ highlight-skin  :      # Fallback "default" #See http://jwarby.github.io/jekyll-
 
 # Google Fonts https://fonts.google.com/, add as many as you want
 googlefonts:
-  - url : #'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
+  - url : 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
 
   
 
