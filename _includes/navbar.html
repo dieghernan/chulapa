@@ -1,10 +1,8 @@
-{%- assign brand = site.navbar.brand.title | default: site.title | default: site.github.repository_name  -%}
 {%- if site.navbar.brand.url  -%}
   {%- assign brandurl = site.navbar.brand.url  -%}
 {%- else -%}
   {%- assign brandurl = site.url | append: site.baseurl -%}
 {%- endif -%}
-
 {%- assign thispageurl = page.url | replace: ".html", ""  -%}
 
  <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
@@ -13,7 +11,7 @@
            {%- if site.navbar.brand.img -%}
             <img src="{{ site.navbar.brand.img }}" width="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">
            {%- endif -%}
-           {{ brand }}</a>
+           {{ site.navbar.brand.title }}</a>
          {%- if site.navbar.nav -%}
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
