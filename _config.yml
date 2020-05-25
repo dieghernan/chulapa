@@ -2,7 +2,8 @@
 locale          :      # Fallback "en-US"
 title           :  Chulapa # Fallback "repository_name" REV
 title_separator :      # Fallback " | "
-subtitle        :  A Jekyll theme powered by Bootstrap 
+subtitle        :  A Jekyll theme for Github Pages powered by Bootstrap 
+banner          : "./assets/img/david-monje-YwrD58FfX9g-unsplash.jpg"
 
 url             : 
 baseurl         : 
@@ -65,9 +66,6 @@ googlefonts:
   
 
 # Theme and colors
-chufont:
-  font-family-sans-serif: Calibri, sans-serif
-
 chulapa-skin: 
   highlight   :  # Fallback "default" #See http://jwarby.github.io/jekyll-pygments-themes for options
   theme       : twitter-lights-out # Optional predefined skins
@@ -101,8 +99,6 @@ defaults:
     values:
       layout: "default"
       headertype: "base"
-      sociallinks: "true"
-      showdate: "false"
   -
     scope:
       path: ""

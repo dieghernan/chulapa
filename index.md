@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Index example
-subtitle: Some interesting thing
+title: Chulapa
+subtitle: A Jekyll theme for Github Pages powered by Bootstrap 
+headertype: hero
+imghero: "./assets/img/david-monje-YwrD58FfX9g-unsplash.jpg"
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.

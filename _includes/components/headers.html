@@ -1,6 +1,13 @@
+{%- if include.imghero -%}
+  {%- if include.imghero contains "http" -%}
+  {%- capture imghero -%}{{ include.imghero  }}{%- endcapture -%}
+  {%- else -%}
+  {%- capture imghero -%}{{ include.imghero | absolute_url  }}{%- endcapture -%}
+  {%- endif -%}
+{%- endif -%}
 {%- if include.headertype =="splash" -%}
-  {%- if include.imghero -%}
-<header class="jumbotron jumbotron-fluid mb-0 py-0 d-flex align-items-center splash-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('{{ include.imghero }}')">
+  {%- if imghero -%}
+<header class="jumbotron jumbotron-fluid mb-0 py-0 d-flex align-items-center splash-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('{{ imghero }}')">
   {%- else -%}
 <header class="jumbotron jumbotron-fluid mb-0 py-0 d-flex align-items-center splash-chulapa">
   {%- endif -%}
@@ -15,8 +22,8 @@
 {%- endif -%}
 
 {%- if include.headertype == "hero" -%}
-  {%- if include.imghero -%}
-<header class="jumbotron jumbotron-fluid mb-0 py-0 d-flex align-items-center hero-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('{{ include.imghero }}')">
+  {%- if imghero -%}
+<header class="jumbotron jumbotron-fluid mb-0 py-0 d-flex align-items-center hero-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('{{ imghero }}')">
   {%- else -%}
 <header class="jumbotron jumbotron-fluid mb-0 py-0 d-flex align-items-center hero-chulapa">
   {%- endif -%}
@@ -32,8 +39,8 @@
 
 {%- if include.headertype == "base" -%}
 <header class="jumbotron jumbotron-fluid mb-0 py-0 text-md-center header-chulapa">
-      {%- if include.imghero -%}
-      <div class="container-fluid header-chulapa-img" style="background-image: url('{{ include.imghero }}')">
+      {%- if imghero -%}
+      <div class="container-fluid header-chulapa-img" style="background-image: url('{{ imghero }}')">
       </div>
       {%- endif -%}
       <div class="container-lg pt-4">
