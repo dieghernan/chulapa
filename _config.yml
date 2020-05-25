@@ -8,6 +8,9 @@ subtitle        :  A Jekyll theme for Github Pages powered by Bootstrap
 url             : 
 baseurl         : 
 
+algolia:                                                                
+  application_id: KOIKA5PDQO
+
 # Site Author
 author:
   name    : DHH
