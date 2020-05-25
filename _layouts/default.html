@@ -3,7 +3,7 @@
 {%- include head.html -%}
 <body>
   {%- include navbar.html -%}
-  {%- include components/headers.html headertype= page.headertype imghero=page.imghero -%}
+  {%- include components/headers.html headertype= page.header_type imghero=page.header_img -%}
     <main class="container-lg pt-2 pb-5">
   {%- include components/datesocial.html -%}
       <div class="row">
@@ -12,7 +12,7 @@
             </div>
       </div>
     </main>
-    {%- if page.beforeafter == "true" -%}
+    {%- if page.show_bottomnavs -%}
     {%- include components/navbeforeafter.html -%}
     {%- endif -%}
    {%- include footer.html -%}

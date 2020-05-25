@@ -81,21 +81,7 @@ chulapa-skin:
     font-family-sans-serif: #Roboto, sans-serif
     hero-chulapa-bg-color: 
     
-
-plugins:
-  - jekyll-github-metadata
-  - jekyll-paginate
-  - jekyll-sitemap
-
-# XX. Other settings - no need to modify
-# Exclude these files from production site
-exclude:
-  - LICENSE
-  - README.md
-  - Gemfile
-
-include:
- - _pages
+#D. Defaults and collections
 
 # Defaults
 defaults:
@@ -104,22 +90,39 @@ defaults:
       path: ""
     values:
       layout: "default"
-      headertype: "base"
+      header_type: "base"
   -
     scope:
       path: ""
       type: "demo"
     values:
       layout: "default"
-      beforeafter: "true"
-      headertype: "base"
-      sociallinks: "true"
-      showdate: "false"
+      header_type: "hero"
+      show_bottomnavs: true
+      show_sociallinks: true
+
 
 #Collections
 collections:
   demo:
     output: true
+
+
+
+# XX. Other settings - no need to modify
+plugins:
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Exclude these files from production site
+exclude:
+  - LICENSE
+  - README.md
+  - Gemfile
+
+include:
+ - _pages
 
 # Conversion
 markdown: kramdown

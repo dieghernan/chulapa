@@ -1,7 +1,7 @@
 ---
 title: "Splash image no subtitle"
-headertype: splash
-imghero: "https://i.imgur.com/TveA612.jpg"
+header_type: splash
+header_img: "https://i.imgur.com/TveA612.jpg"
 date: 2020-02-28
 ---
 
@@ -10,11 +10,10 @@ This is the front matter
 ```yaml
 ---
 title: "Splash image no subtitle"
-headertype: splash
-imghero: "https://i.imgur.com/TveA612.jpg"
+header_type: splash
+header_img: "https://i.imgur.com/TveA612.jpg"
 date: 2020-02-28
 ---
-
 ```
 
 No date should be shown on the rendered page.

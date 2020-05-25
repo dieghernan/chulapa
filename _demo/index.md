@@ -2,7 +2,7 @@
 title: "Demos"
 subtitle: All demos in one place
 permalink: /demo
-beforeafter: false
+show_bottomnavs: 
 ---
 
 An index of the demo collections:
@@ -22,8 +22,25 @@ An index of the demo collections:
 {% endunless %}
 {% endfor %}
 
-{{ page.url }}
+Defaults yaml:
 
-{{ page.id }}
-
-{{ page.before.id }}
+```yaml
+---
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      header_type: "base"
+  -
+    scope:
+      path: ""
+      type: "demo"
+    values:
+      layout: "default"
+      header_type: "hero"
+      show_bottomnavs: true
+      show_sociallinks: true
+---
+```
