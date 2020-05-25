@@ -19,7 +19,11 @@
 .chulapa-links-hover-only{
     a {
         color: inherit;
-    }
+        @include hover() {
+            color: $link-hover-color;
+            text-decoration: $link-hover-decoration;
+            }
+        }
 }
  
  // Navbar
