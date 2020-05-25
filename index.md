@@ -2,8 +2,8 @@
 layout: default
 title: Chulapa
 subtitle: A Jekyll theme for Github Pages powered by Bootstrap 
-headertype: hero
-imghero: "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
+header_type: hero
+header_img: "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
