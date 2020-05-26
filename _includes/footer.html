@@ -20,7 +20,9 @@
 <!-- Footer -->
  <footer class="footer-chulapa text-center pt-3">
      <div class="container">
-{% include components/disqus.html %}
+         {% if page.show_comments -%}
+         {% include components/disqus.html %}
+         {%- endif %}
          <div class="row">
              <div class="col-xl-10 offset-xl-1">
                  {%- if site.footer.links -%}

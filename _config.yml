@@ -110,6 +110,7 @@ defaults:
       header_type: "hero"
       show_bottomnavs: true
       show_sociallinks: true
+      show_comments:
 
 
 #Collections
