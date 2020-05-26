@@ -5,7 +5,7 @@
 @font-face {
   font-family: chulapa;
   src: url(../fonts/Chulapa/Chulapa-Bold.otf);
-  font-display: swap;
+  font-display: fallback;
 }
 
  //Theming Bootstrap from config
