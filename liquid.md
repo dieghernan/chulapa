@@ -3,6 +3,38 @@ layout: default
 subtitle: Liquid 
 ---
 
+
+
+# New footers
+
+{%- assign tophat       = "preptor,lymcha,hootstrap,deeply,graymor,wandoo"     -%}
+{%- assign bootswatch   = "sketchy,lux,journal,minty"                      -%}
+{%- assign dieghernan   = "twitter,twitter-dim,twitter-lights-out,chulapa" -%}
+{%- assign selskin      = site.chulapa-skin.theme                             -%}
+{%- if tophat contains selskin -%}
+    {%- assign skinurl      = "https://themesguide.github.io/top-hat/dist/" -%}
+    {%- assign skinauthor   = "Tophat" -%}
+{%- elsif bootswatch contains selskin - %}
+    {%- assign skinurl      = "https://bootswatch.com/" -%}
+    {%- assign skinauthor   = "Bootswatch" -%}
+{%- elsif dieghernan contains selskin - %}
+    {%- assign skinurl      = "https://github.com/dieghernan" -%}
+    {%- assign skinauthor   = "dieghernan" -%}
+{%- else -%}
+  {%- assign skinauthor   = "none" -%}
+{%- endif -%}
+
+{{ tophat }}
+{{ bootswatch }}
+{{ dieghernan }}
+{{ selskin }}
+{{ skinurl }}
+{{ skinauthor }}
+
+
+## End
+
+
 {{ site.github.url }}
 
 
