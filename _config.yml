@@ -35,7 +35,7 @@ navbar:
   brand:
     title: Home
     url: 
-    img: https://i1.wp.com/www.gritosdemadrid.es/wp-content/uploads/2018/05/15x15-Puerta-del-Sol-Cartel-Calle-Azulejo.jpg
+    img: "./assets/img/site/brand.png"
   nav:
   - title: Showcase
     url: /bootstrap
