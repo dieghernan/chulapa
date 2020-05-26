@@ -126,10 +126,10 @@
     p {
         color: $hero-chulapa-text-color;
         word-wrap: break-word;
+        font-weight: 300;
     }
     p {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
-        font-weight: 500;
     }
 }
 
@@ -157,13 +157,9 @@
 
     h1 {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
-        font-weight: 300;
-        word-wrap: break-word;
     }
     p {
         @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.5rem, 2.2rem);
-        font-weight: 300;
-        word-wrap: break-word;
     }
 }
 .splash-chulapa-image {
