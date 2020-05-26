@@ -5,9 +5,6 @@ layout: null
 
 var store = [
   {%- for c in site.collections -%}
-    {%- if forloop.last -%}
-      {%- assign l = true -%}
-    {%- endif -%}
     {%- assign docs = c.docs | where_exp:'doc','doc.search != false' -%}
     {%- for doc in docs -%}
       {%- if doc.header.teaser -%}
@@ -45,6 +42,8 @@ var store = [
         "tags": {{ doc.tags | jsonify }},
         "url": {{ doc.url | absolute_url | jsonify }},
         "teaser": {{ teaser | absolute_url | jsonify }}
-      }{%- unless forloop.last and l -%},{%- endunless -%}
+      }{%- if forloop.last -%}
+      last {%- else -%},
+    {%- endif -%}
     {%- endfor -%}
   {%- endfor -%}]
