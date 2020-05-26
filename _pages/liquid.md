@@ -5,7 +5,7 @@ subtitle: Liquid
 permalink: /liquid
 ---
 
-{{ site.pages }}
+
 
 # New footers
 
@@ -208,6 +208,9 @@ End test
 {% endfor %}
 
 # C
-{% for item in site %}
--  {{ item }} - {{ item[0] }}
+{% for item in site.pages %}
+-  {{ item }} - {{ item[0] }} - {{ item | inspect }}
 {% endfor %}
+
+
+{{ site.pages | inspect }}
