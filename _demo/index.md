@@ -2,7 +2,7 @@
 title: "Demos"
 subtitle: All demos in one place
 permalink: /demo
-show_bottomnavs: 
+show_bottomnavs: false
 ---
 
 An index of the demo collections:
