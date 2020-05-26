@@ -3,32 +3,28 @@ layout: minimal
 title: Bootstrap showcase
 subtitle: Super long description of this page to check it. Enough
 permalink: /bootstrap
+date: 2015-07-28
+show_date: true
+show_bottomnavs: true
+show_sociallinks: true
+show_comments: true
 ---
-
-  {%- include components/headers.html headertype= page.headertype imghero=page.imghero -%}
-<div class="container-lg pt-2 pb-5">
-  <div class="row" id="chulapaDateSocial">
-      <div class="col col-xl-4 offset-xl-2 font-italic">
-        <time>Example date<time>
-      </div>
-      <div class="col col-xl-4 text-right lead">
-        <i class="fa fa-twitter-square fa-lg mr-1"></i>
-        <i class="fa fa-facebook-square fa-lg"></i>
-        <i class="fa fa-linkedin-square fa-lg ml-1"></i>
-      </div>
-  </div>
-</div>
-
+{%- include components/headers.html headertype= page.headertype imghero=page.imghero -%}
 {%- include components/headers.html headertype="hero" -%}
 {%- include components/headers.html headertype="hero" imghero="https://i.imgur.com/oqQqo6S.jpg" -%}
 {%- include components/headers.html headertype="splash" -%}
 {%- include components/headers.html headertype="splash" imghero="https://i.imgur.com/QzKOsan.jpg" -%}
 {%- include components/headers.html headertype="base" -%}
 {%- include components/headers.html headertype="base" imghero="https://i.imgur.com/tIErwRJ.jpg" -%}
-<main class="container-lg pt-2 pb-5">
-  <div class="row">
-        <div class="col-xl-8 offset-xl-2 mt-4">
-           {%- include snippets/bootstrapdemo.html -%}
-        </div>
-  </div>
-</main>
+  <main class="container-lg pt-2 pb-5">
+  {%- include components/datesocial.html -%}
+      <div class="row">
+            <div class="col-xl-8 offset-xl-2 mt-4">
+                {%- include snippets/bootstrapdemo.html  -%}
+            </div>
+      </div>
+    </main>
+    {%- if page.show_bottomnavs -%}
+    {%- include components/navbeforeafter.html -%}
+    {%- endif -%}
+
