@@ -22,7 +22,7 @@
 
 //$enable-responsive-font-sizes: true !default;
 
-{% if site.chulapa-skin.autothemer == true %}
+{% if site.chulapa-skin.autothemer %}
   // Autothemer: No overrides
   @import "skins/auto";
 {% endif %}
