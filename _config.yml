@@ -93,6 +93,8 @@ chulapa-skin:
     
 #D. Defaults and collections
 
+collections_dir: collections
+
 # Defaults
 defaults:
   -
