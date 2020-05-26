@@ -1,4 +1,19 @@
-    <!-- Footer -->
+{%- assign tophat: "preptor,lymcha,hootstrap,deeply,graymor,wandoo"     -%}
+{%- assign bootswatch: "sketchy,lux,journal,minty"                      -%}
+{%- assign dieghernan: "twitter,twitter-dim,twitter-lights-out,chulapa" -%}
+{%- assign selskin: site.chulapa-skin.theme                             -%}
+{%- if tophat contains selskin -%}
+    {%- assign skinurl: "https://themesguide.github.io/top-hat/dist/" -%}
+    {%- assign skinauthor: "Tophat" -%}
+{%- elsif bootswatch contains selskin - %}
+    {%- assign skinurl: "https://bootswatch.com/" -%}
+    {%- assign skinauthor: "Bootswatch" -%}
+{%- elsif dieghernan contains selskin - %}
+    {%- assign skinurl: "https://github.com/dieghernan" -%}
+    {%- assign skinauthor: "dieghernan" -%}
+{%- else -%}
+{%- endif -%}
+<!-- Footer -->
  <footer class="footer-chulapa text-center pt-3">
      <div class="container">
 {% include components/disqus.html %}
@@ -21,9 +36,8 @@
                  {%- endif -%}
                     <p class="pb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}</p>
           					<!-- Do not remove this in order to give  attributions -->
-          					{%- assign skin = site.data.skinners[site.chulapa-skin.theme] -%}
-          					{%- if skin -%}
-          					<p><b>{{- skin.name -}}</b> skin by <a href="{{ skin.url }}">{{ skin.author }}</a></p>
+          					{%- if selskin -%}
+          					<p><b>{{- selskin | remove: "-" | capitalize -}}</b> skin by <a href="{{ skinurl }}">{{ skinauthor }}</a></p>
           					{%- endif -%}
           					<p>Theme 
                         <a href="#" class="chulapa">Chulapa</a> 
