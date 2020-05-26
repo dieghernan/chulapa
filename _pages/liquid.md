@@ -5,7 +5,7 @@ subtitle: Liquid
 permalink: /liquid
 ---
 
-
+{{ site.pages }}
 
 # New footers
 
