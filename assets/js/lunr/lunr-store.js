@@ -1,13 +1,16 @@
 ---
 layout: null
 ---
-//Taken from minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
+
+/*
+Copyright (c) 2013-2020 Michael Rose and contributors
+MIT License
+From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
+*/
 
 var store = [
-  {%- for c in site.collections -%}
-    {%- assign docs = c.docs | where_exp:'doc','doc.search != false' -%}
-    {%- for doc in docs -%}
-        {%- assign teaser = doc.header_img | default: site.og_image -%}
+  {%- assign indexlunr = site.pages | concat: site.documents |  where_exp:'doc','doc.include_on_search != false' -%}
+  {%- for doc in site.indexlunr -%}
       {
         "title": {{ doc.title | jsonify }},
         "excerpt":
@@ -22,9 +25,9 @@ var store = [
               replace:"</h6>", " "|
             strip_html | strip_newlines | truncatewords: site.search.maxwords | jsonify }},
         "categories": {{ doc.categories | jsonify }},
+        "date": {{ doc.date | date: "%Y-%m-%d"}},
         "tags": {{ doc.tags | jsonify }},
         "url": {{ doc.url | absolute_url | jsonify }},
-        "img": {{ teaser | absolute_url | jsonify }}
+        "img": {{ doc.header_img | default: site.og_image | absolute_url | jsonify }}
       }{%- unless forloop.last -%},{%- endunless -%} 
-    {%- endfor -%}
   {%- endfor -%}]
