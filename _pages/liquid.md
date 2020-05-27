@@ -247,17 +247,15 @@ End test
 {% endfor %}
 
 # C
-{% for item in site.pages %}
+
+{% assign all = site.pages | concat: site.documents %}
+{% for item in all %}
 {% if item.include_on_search %}
--  {{ item.url  }}
+-  {{ item.url  }} {{ item.title }}
 {% endif %}
 {% endfor %}
 
-{% for item in site.documents %}
-{% if item.include_on_search %}
--  {{ item.url  }}
-{% endif %}
-{% endfor %}
+
 
 
 
