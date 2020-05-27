@@ -65,29 +65,6 @@ skinmakers:
 
 
 
-{{ page.skinmakers[site.chulapa-skin.theme]  }}
-
-
-{{ page.skinmakers }}
-# New footers
-
-{%- assign tophat       = "preptor,lymcha,hootstrap,deeply,graymor,wandoo"     -%}
-{%- assign bootswatch   = "sketchy,lux,journal,minty"                      -%}
-{%- assign dieghernan   = "twitter,twitter-dim,twitter-lights-out,chulapa" -%}
-{%- assign selskin      = site.chulapa-skin.theme                             -%}
-{%- if tophat contains selskin -%}
-    {%- assign skinurl      = "https://themesguide.github.io/top-hat/dist/" -%}
-    {%- assign skinauthor   = "Tophat" -%}
-{%- elsif bootswatch contains selskin - %}
-    {%- assign skinurl      = "https://bootswatch.com/" -%}
-    {%- assign skinauthor   = "Bootswatch" -%}
-{%- elsif dieghernan contains selskin - %}
-    {%- assign skinurl      = "https://github.com/dieghernan" -%}
-    {%- assign skinauthor   = "dieghernan" -%}
-{%- else -%}
-  {%- assign skinauthor   = "none" -%}
-{%- endif -%}
-
 {{ tophat }}
 {{ bootswatch }}
 {{ dieghernan }}
@@ -272,9 +249,16 @@ End test
 # C
 {% for item in site.pages %}
 {% if item.include_on_search %}
--  {{ item }} - {{ item[0] }} - {{ item | inspect }}
+-  {{ item.url  }}
 {% endif %}
 {% endfor %}
+
+{% for item in site.documents %}
+{% if item.include_on_search %}
+-  {{ item.url  }}
+{% endif %}
+{% endfor %}
+
 
 
 {{ site.pages | inspect }}
