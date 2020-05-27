@@ -11,6 +11,10 @@ baseurl         :
 algolia:                                                                
   application_id: KOIKA5PDQO
   index_name: chulapa
+  
+search:
+  provider:
+  maxwords: 300
 
 # Site Author
 author:
