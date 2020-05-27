@@ -1,16 +1,11 @@
 ---
 layout: null
 ---
-
 /*
 Copyright (c) 2013-2020 Michael Rose and contributors
 MIT License
 From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 */
----
-layout: null
----
-
 var idx = lunr(function () {
   this.field('title')
   this.field('excerpt')
