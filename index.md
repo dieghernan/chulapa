@@ -4,6 +4,7 @@ title: Chulapa
 subtitle: A Jekyll theme for Github Pages powered by Bootstrap 
 header_type: splash
 header_img: "./assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg"
+include_on_search: true
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
