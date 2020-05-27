@@ -8,6 +8,7 @@ From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 */
 var idx = lunr(function () {
   this.field('title')
+  this.field('subtitle')
   this.field('excerpt')
   this.field('categories')
   this.field('date')
@@ -19,6 +20,7 @@ var idx = lunr(function () {
   for (var item in store) {
     this.add({
       title: store[item].title,
+      subtitle: store[item].subtitle,
       excerpt: store[item].excerpt,
       categories: store[item].categories,
       date: store[item].date,

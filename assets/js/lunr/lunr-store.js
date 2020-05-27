@@ -13,6 +13,7 @@ var store = [
   {%- for doc in indexlunr -%}
       {
         "title": {{ doc.title | jsonify }},
+        "subtitle": {{ doc.subtitle | jsonify }},
         "excerpt":
             {{ doc.content | newline_to_br |
               replace:"<br />", " " |

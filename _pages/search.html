@@ -1,0 +1,26 @@
+---
+layout: minimal
+title: Search
+subtitle: 
+permalink: /search
+include_on_search: false
+---
+<main class="container-lg my-5 py-5">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2 my-auto text-center">
+            <div class="search-content">
+              <form class="search-content__form" onkeydown="return event.key != 'Enter';">
+                <label class="sr-only" for="search">
+                  Search
+                </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder=" " />
+    </form>
+  <div id="results" class="results"></div>
+</div>
+            </div>
+      </div>
+    </main>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{ '/assets/js/lunr/lunr-store.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/lunr/lunr-search.js' | relative_url }}"></script>
