@@ -25,7 +25,7 @@ var store = [
               replace:"</h6>", " "|
             strip_html | strip_newlines | truncatewords: site.search.maxwords | jsonify }},
         "categories": {{ doc.categories | jsonify }},
-        "date": {{ doc.date | date: "%Y-%m-%d"}},
+        "date": {{ doc.date | date: "%Y-%m-%d" | jsonify }},
         "tags": {{ doc.tags | jsonify }},
         "url": {{ doc.url | absolute_url | jsonify }},
         "img": {{ doc.header_img | default: site.og_image | absolute_url | jsonify }}
