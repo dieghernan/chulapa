@@ -11,6 +11,22 @@ baseurl         :
 algolia:                                                                
   application_id: KOIKA5PDQO
   index_name: chulapa
+  files_to_exclude:
+    - _layouts/*.html
+    - _includes/*.html
+  extensions_to_index:
+    - html
+    - md
+  searchableAttributes:                                                        
+      - title                                                                    
+      - headings                                                                 
+      - unordered(content)                                                       
+      - unordered(categories)                                                    
+      - unordered(date)                                                          
+      - unordered(subtitle)                                                      
+      - unordered(tags)   
+  customRanking:
+  
   
 search:
   provider:
