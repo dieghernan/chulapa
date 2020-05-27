@@ -103,6 +103,7 @@ defaults:
     values:
       layout: "default"
       header_type: "base"
+      include_on_search: true
   -
     scope:
       path: ""

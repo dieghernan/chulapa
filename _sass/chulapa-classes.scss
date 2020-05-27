@@ -114,7 +114,7 @@
     font-family: $headings-font-family;
     background-color: $hero-chulapa-bg-color;
     text-align: center;
-    @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 40vh, 35vh);
+    height: 40vh;
     hr {
         background-color: $hero-chulapa-text-color;
         width: 15%;
