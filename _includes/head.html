@@ -19,7 +19,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ site.author.name | default: site.github.owner_name }}">
-    <meta name="description" content="{{ page.content | markdownify | strip_html | strip_newlines | strip | truncate: 130  }}"/>
+    <meta name="description" content="{{ page.content | markdownify | newline_to_br | 
+              replace:'<br />', ' ' |
+              replace:'</p>', ' '   |
+              replace:'</h1>', ' ' |
+              replace:'</h2>', ' ' |
+              replace:'</h3>', ' ' |
+              replace:'</h4>', ' ' |
+              replace:'</h5>', ' ' |
+              replace:'</h6>', ' '|
+    strip_html | strip_newlines | truncate: 130  }}"/>
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ canonical_url }}">
     <!-- CSS -->
