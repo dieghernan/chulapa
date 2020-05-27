@@ -62,6 +62,9 @@ skinmakers:
     url: https://github.com/dieghernan
 ---
 
+
+
+
 {{ page.skinmakers[site.chulapa-skin.theme]  }}
 
 
@@ -268,7 +271,9 @@ End test
 
 # C
 {% for item in site.pages %}
+{% if item.include_on_search %}
 -  {{ item }} - {{ item[0] }} - {{ item | inspect }}
+{% endif %}
 {% endfor %}
 
 
