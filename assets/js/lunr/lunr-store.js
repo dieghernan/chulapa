@@ -10,7 +10,7 @@ From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 
 var store = [
   {%- assign indexlunr = site.pages | concat: site.documents |  where_exp:'doc','doc.include_on_search != false' -%}
-  {%- for doc in site.indexlunr -%}
+  {%- for doc in indexlunr -%}
       {
         "title": {{ doc.title | jsonify }},
         "excerpt":
