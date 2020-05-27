@@ -3,10 +3,69 @@ layout: default
 title: Playground
 subtitle: Liquid 
 permalink: /liquid
+skinmakers:
+  preptor:
+    name: Preptor
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+  lymcha:
+    name: Lymcha
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+  hootstrap:
+    name: Hootstrap
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+  deeply:
+    name: Deeply
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+  graymor:
+    name: Graymor
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+  wandoo:
+    name: Wandoo
+    author: Tophat
+    url: https://themesguide.github.io/top-hat/dist/
+  sketchy:
+    name: Sketchy
+    author: Bootswatch
+    url: https://bootswatch.com/
+  lux:
+    name: Lux
+    author: Bootswatch
+    url: https://bootswatch.com/
+  journal:
+    name: Journal
+    author: Bootswatch
+    url: https://bootswatch.com/
+  minty:
+    name: Minty
+    author: Bootswatch
+    url: https://bootswatch.com/
+  twitter:
+    name: Twitter
+    author: dieghernan
+    url: https://github.com/dieghernan
+  twitter-dim:
+    name: Twitter Dim
+    author: dieghernan
+    url: https://github.com/dieghernan
+  twitter-lights-out:
+    name: Twitter Lights Out
+    author: dieghernan
+    url: https://github.com/dieghernan
+  chulapa:
+    name: Chulapa
+    author: dieghernan
+    url: https://github.com/dieghernan
 ---
 
+{{ page.skinmakers[site.chulapa-skin.theme]  }}
 
 
+{{ page.skinmakers }}
 # New footers
 
 {%- assign tophat       = "preptor,lymcha,hootstrap,deeply,graymor,wandoo"     -%}
