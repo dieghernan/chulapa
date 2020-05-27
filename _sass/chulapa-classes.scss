@@ -115,9 +115,6 @@
     background-color: $hero-chulapa-bg-color;
     text-align: center;
     @include fluid-type(height,breakpoint-min("md"),  breakpoint-min("lg"), 40vh, 35vh);
-    h1 {
-@include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 2.5rem, 4.5rem);
-}
     hr {
         background-color: $hero-chulapa-text-color;
         width: 15%;
@@ -126,10 +123,24 @@
     p {
         color: $hero-chulapa-text-color;
         word-wrap: break-word;
-        font-weight: 300;
     }
     p {
-        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1rem, 1.3rem);
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), $font-size-base, $font-size-lg);
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .hero-chulapa h1{
+        font-size: $display4-size;
+        font-weight: $display4-weight;
+    }
+    .hero-chulapa p{
+        font-weight: $display4-weight;
+    }
+}
+@include media-breakpoint-up(lg) {
+    .hero-chulapa h1{
+        font-size: $display3-size;
     }
 }
 
@@ -139,7 +150,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
     h1,
     p {
         color: $white;
@@ -154,12 +164,15 @@
 .splash-chulapa {
     @extend .hero-chulapa;
     height: calc(100vh - 56px);
+    h1, p {
+        font-weight: $display1-weight;
+    }
 
     h1 {
-        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 3rem, 6rem);
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), $font-size-base * 3, $display1-size);
     }
     p {
-        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), 1.5rem, 2.2rem);
+        @include fluid-type(font-size,breakpoint-min("md"),  breakpoint-min("lg"), $font-size-base * 1.5, $h1-font-size);
     }
 }
 .splash-chulapa-image {
@@ -199,6 +212,11 @@
     }
 }
 
+@include media-breakpoint-up(md) {
+    .header-chulapa h1{
+        font-size: $display4-size;
+    }
+}
  // Footer
 .footer-chulapa {
     background-color: $footer-chulapa-bg-color;
