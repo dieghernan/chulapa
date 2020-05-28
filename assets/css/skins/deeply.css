@@ -1,0 +1,24 @@
+---
+---
+@charset "utf-8";
+// Custom free font: see https://diario.madrid.es/chulapa/
+@font-face {
+  font-family: chulapa;
+  src: url(../fonts/Chulapa/Chulapa-Bold.otf);
+  font-display: fallback;
+}
+@import "skins/deeply";
+$theme-colors:(
+  chulapa: $chulapa-col,
+);
+@import "bootstrap/bootstrap";
+@import "chulapa-master";
+//Highlighter
+/*!
+ * Pygments css
+ * Developed by jwarby (https://github.com/jwarby)
+ * Renamed to *.scss on this project
+ * Previews: (https://jwarby.github.io/jekyll-pygments-themes)
+ * UNLICENSE
+ */
+@import "pygments/{{- site.chulapa-skin.highlight | default: "default" -}}";
