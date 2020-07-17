@@ -1,9 +1,11 @@
 ---
+layout: default
 title: "About <span class="chulapa">Chulapa</span>"
-subtitle: License and Attributions
+subtitle: "License and Attributions"
 permalink: /about
 show_toc: true
 ---
+
 
 ## MIT License
 
@@ -30,11 +32,15 @@ Bootstrap v.4.5 is released under the [MIT license](https://github.com/twbs/boot
 
 Fontawesome 5.x is free, open source, and GPL friendly - [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License).
 
-This theme uses some pieces of code from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/), licensed under the [MIT license](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE).
+This theme uses some pieces of code from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) by [Michael Rose](https://mademistakes.com/), licensed under the [MIT license](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE).
 
-This theme uses [Pygments CSS Themes](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html), developed by [jwarby](https://github.com/jwarby/) and licensed under[The Unlicense](The Unlicense).
+This theme uses [Pygments CSS Themes](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html), developed by [jwarby](https://github.com/jwarby/) and licensed under [The Unlicense](The Unlicense).
 
 This theme uses [Ferpal Sans](https://www.silviaferpal.com/portfolio-1/ferpalsans) developed by Silvia Ferpal and it's free for personal use.
+
+This theme uses [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc) by [allejo](https://github.com/allejo) licensed under the [MIT license](https://github.com/allejo/jekyll-toc/blob/master/LICENSE.MIT.md).
+
+This theme uses [Compress HTML in Jekyll](http://jch.penibelst.de/) by [penibelst](https://github.com/penibelst) licensed under the [MIT license](https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE).
 
 I hereby declared not to be affiliated with any third party whose software may have been implemented on this software. To my best knowledge, all the third-party integrations included on this software adheres to the corresponding licenses. All legal brands used on this theme are displayed for informative and/or aesthetic purposes, and the corresponding logos were obtained from [https://fontawesome.com/](https://fontawesome.com/). 
 
