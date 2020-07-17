@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{{- content -}}
+
+{%- if page.include_collection -%}
+  {%- assign cols = page.include_collection | split: "," -%}
+  {%- for col  in cols -%}
+    {%- if forloop.first -%}
+      {%- assign alldocs = site.documents | 
+                          where_exp: "item", "item.collection == col" -%}
+      {%- assign showcol = false -%}
+    {%- else -%}
+      {%- assign docloop = site.documents | 
+                          where_exp: "item", "item.collection == col" -%}
+      {%- assign alldocs = alldocs | concat: docloop %}
+      {%- assign showcol = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign alldocs = site.documents -%}
+  {%- assign showcol = true -%}
+{% endif %}
+
+  {% assign sort =  page.index_sort | default: 'name' %}
+
+  {% if page.index_sort_asc %}
+  {% assign alldocs = alldocs | sort: "{{sort}}" %}
+  {% else %}
+  {% assign alldocs = alldocs | sort: "{{sort}}" | reverse  %}
+  {% endif %}
+  
+  {% assign end = page.index_items | default: 10   %}
+  
+{% include_cached components/indexcards.html cacheddocs=alldocs cachedlimit=end %}

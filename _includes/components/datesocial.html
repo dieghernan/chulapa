@@ -1,0 +1,35 @@
+{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
+{%- assign rooturl = "/" | absolute_url %}
+{%- assign basetitle = page.title | default: site.title | default: site.github.repository_name | strip_html  -%}
+{%- assign prependtitle = site.title | default: site.github.repository_name -%}
+{%- if canonical_url == rooturl %}
+{%- capture sharetitle -%}{{ basetitle}} {{ site.title_separator | default: "|" }} {{ page.subtitle | default: site.subtitle | default: site.github.project_tagline }}{%- endcapture -%}
+{%- else -%}
+{%- capture sharetitle -%}{{ basetitle }} {{ site.title_separator | default: "|" }} {{ prependtitle }}{%- endcapture -%}
+{%- endif -%}
+{%- assign sharetitle = sharetitle | strip_html  -%}
+ <div class="row pt-1 pt-md-2 chulapaDateSocial">
+           <div class="col-lg-4 offset-lg-2 col small">
+            {%- if page.date and page.show_date -%}
+            {% if page.last_modified_at %}
+            {%- assign dateformat1 = page.last_modified_at | date_to_string -%}
+            {%- assign dateformat2 = page.date | date_to_string -%}
+            <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time> 
+            <i class="fa fa-redo fa-xs" aria-hidden="true"></i>
+            <br>
+            <span class="font-weight-light chulapa-text-line-through">{% include_cached snippets/datetranslate.html  date=dateformat2 %}</span>
+            {% else %}
+            {%- assign dateformat = page.date | date_to_string -%}
+            <time datetime="{{ page.date | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+            {% endif %}
+            {%- endif -%}
+          </div>
+          {%- if page.show_sociallinks -%}
+          <div class="col-lg-4 col text-right lead">
+            <a  href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ sharetitle | url_encode }}{%- if site.twitter.site -%}&via={{- site.twitter.site -}} {%- endif -%}" title="Share on Twitter"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a>
+             <a  href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="Share on Facebook"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+             <a  href="https://api.whatsapp.com/send?&text={{ sharetitle | url_encode }}%20{{ canonical_url }}" title="Share on Whatsapp"><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
+            <a  href="https://www.linkedin.com/shareArticle?url={{ canonical_url }}&title={{ sharetitle | url_encode }}" title="Share on LinkedIn"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+          </div>
+          {%- endif -%}
+      </div>

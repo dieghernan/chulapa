@@ -1,0 +1,29 @@
+{%- assign avatar = page.author.avatar | default: site.author.avatar -%}
+{%- assign name = page.author.name | default: site.author.name | default: site.github.owner_name -%}
+{%- assign location = page.author.location | default: site.author.location -%}
+{%- assign links = page.author.links | default: site.author.links -%}
+				<div class="row d-flex align-items-center">
+				  {%- if avatar -%}
+				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto chulapa-avatar-size">
+					{%- endif -%}
+					<div class="col-9 col-lg-12 mt-lg-2 text-lg-center">
+						{{ name }}
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col text-lg-center">
+					  {%- if location -%}
+						<address class="d-inline d-lg-block my-1 small chulapa-links-hover-only">
+						  <a class="pr-2 pr-lg-0" href="https://www.google.com/maps/search/?api=1&query={{- location | url_encode | replace: '%20', '+' -}}">
+						    <i class="fas fa-map-marker-alt fa-lg mr-1" aria-hidden="true"></i>{{ location }}</a>
+						</address>
+						{%- endif -%}
+						{%- if links -%}
+						<div class="d-inline my-1 mx-lg-0 chulapa-links-hover-only">
+							{%- for item in links -%}
+							<a class="mx-1" href="{{ item.url }}"><i class="{{ item.icon }} fa-lg"></i></a>
+							{%- endfor -%}
+						</div>
+						{%- endif -%}
+					</div>
+				</div>

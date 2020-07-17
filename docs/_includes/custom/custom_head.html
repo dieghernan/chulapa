@@ -1,0 +1,20 @@
+{% if page.collection == "skins" %}
+  {% if page.skin %}
+    <link rel="stylesheet" href="{{- 'assets/css/skins/' | append: page.skin | append: '.css'  | absolute_url -}}" />
+  {% endif %}
+{% endif %}
+
+<!-- start custom head snippets -->
+<!-- https://realfavicongenerator.net/-->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+<link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+<link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="Chulapa">
+<meta name="application-name" content="Chulapa">
+<meta name="msapplication-TileColor" content="#efebdd">
+<meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+<meta name="theme-color" content="#efebdd">
+<!-- end custom head snippets -->

@@ -1,0 +1,1147 @@
+---
+layout: null
+title: Music scales
+subtitle: An experiment
+excerpt: Colab widget
+permalink: /assets/widgets/music-scales.html
+---
+<!doctype html>
+<html lang="{{- site.locale | default: 'en-US' -}}">
+	{%- include head.html -%}
+
+<style>
+audio,
+canvas,
+progress,
+video {
+  float: right;
+  margin-right: 0;
+  width: 100%;
+  min-width: 65px;
+  max-width: 300px;
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+</style>
+<body style="background-color: transparent">
+  <div class="
+      cell border-box-sizing code_cell rendered" style="display: none">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">Output</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">Dropdown</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">AppLayout</span><span class="p">,</span> <span class="n">IntProgress</span><span class="p">,</span> <span class="n">BoundedIntText</span><span class="p">,</span> <span class="n">GridspecLayout</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">in_colab</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span><span class="p">,</span> <span class="n">OrderedDict</span>
+
+<span class="n">continuous_update</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="k">class</span> <span class="nc">Timer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_job</span><span class="p">())</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_job</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">debounce</span><span class="p">(</span><span class="n">wait</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Decorator that will postpone a function&#39;s</span>
+<span class="sd">        execution until after `wait` seconds</span>
+<span class="sd">        have elapsed since the last time it was invoked. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">continuous_update</span><span class="p">:</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">def</span> <span class="nf">debounced</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="k">nonlocal</span> <span class="n">timer</span>
+                <span class="k">def</span> <span class="nf">call_it</span><span class="p">():</span>
+                    <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">timer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">timer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+                <span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">wait</span><span class="p">,</span> <span class="n">call_it</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">debounced</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fn</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered" style="display: none">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">octave_cents</span> <span class="o">=</span> <span class="mi">1200</span>
+
+<span class="n">fifth_circle_octaves</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="n">note_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C#&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;D#&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F#&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G#&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A#&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># Function to convert decimal to Roman Numerals </span>
+<span class="k">def</span> <span class="nf">roman</span><span class="p">(</span><span class="n">number</span><span class="p">):</span> 
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span>  
+           <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span> 
+    <span class="n">sym</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;IV&quot;</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="s2">&quot;IX&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;XL&quot;</span><span class="p">,</span>  
+           <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;XC&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;CD&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;CM&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">]</span> 
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">rom</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">while</span> <span class="n">number</span><span class="p">:</span> 
+        <span class="n">div</span> <span class="o">=</span> <span class="n">number</span> <span class="o">//</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+        <span class="n">number</span> <span class="o">%=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+  
+        <span class="k">while</span> <span class="n">div</span><span class="p">:</span> 
+            <span class="n">rom</span> <span class="o">+=</span> <span class="n">sym</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">div</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+        
+    <span class="k">return</span> <span class="n">rom</span>
+
+<span class="c1"># roman_nums = [&#39;I&#39;, &#39;II&#39;, &#39;III&#39;, &#39;IV&#39;, &#39;V&#39;, &#39;VI&#39;,</span>
+<span class="c1">#               &#39;VII&#39;, &#39;VIII&#39;, &#39;IX&#39;, &#39;X&#39;, &#39;XI&#39;, &#39;XII&#39;]</span>
+
+<span class="n">num_halftones</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">note_names</span><span class="p">)</span>
+<span class="n">halftone_cents</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">octave_cents</span> <span class="o">/</span> <span class="n">num_halftones</span><span class="p">)</span>
+
+<span class="n">a3_hz</span> <span class="o">=</span> <span class="mi">220</span>
+<span class="n">a3_index</span> <span class="o">=</span> <span class="n">note_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">ratio2cents</span><span class="p">(</span><span class="n">ratio</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span> <span class="o">*</span> <span class="n">octave_cents</span>
+
+
+<span class="k">def</span> <span class="nf">cents2ratio</span><span class="p">(</span><span class="n">cents</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">cents</span><span class="p">,</span> <span class="n">octave_cents</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">octave_fit</span><span class="p">(</span><span class="n">cents</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">cents</span> <span class="o">%</span> <span class="n">octave_cents</span>
+
+
+<span class="k">def</span> <span class="nf">tet_fit</span><span class="p">(</span><span class="n">cents</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">cents</span> <span class="o">/</span> <span class="n">halftone_cents</span><span class="p">)</span> <span class="o">*</span> <span class="n">halftone_cents</span>
+
+
+<span class="k">def</span> <span class="nf">stacked_fifths</span><span class="p">(</span><span class="n">num_notes</span><span class="p">,</span> <span class="n">fifth_val</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+    
+    <span class="n">note_cents</span> <span class="o">=</span> <span class="p">[</span><span class="n">octave_fit</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">fifth_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_notes</span><span class="p">)]</span>
+
+    <span class="n">ref_cents</span> <span class="o">=</span> <span class="n">note_cents</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>
+    <span class="n">note_cents</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">octave_fit</span><span class="p">(</span><span class="n">cents</span> <span class="o">-</span> <span class="n">ref_cents</span><span class="p">))</span> <span class="k">for</span> <span class="n">cents</span> <span class="ow">in</span> <span class="n">note_cents</span><span class="p">]</span>
+
+    <span class="n">note_cents</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">note_cents</span>
+    
+
+<span class="n">fifth_cents</span> <span class="o">=</span> <span class="n">ratio2cents</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1"># Pure fifth</span>
+<span class="n">majthird_cents</span> <span class="o">=</span> <span class="n">ratio2cents</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># Pure major third</span>
+
+<span class="n">note_freq_hz</span> <span class="o">=</span> <span class="p">[</span><span class="n">a3_hz</span> <span class="o">*</span> <span class="n">cents2ratio</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">a3_index</span><span class="p">)</span> <span class="o">*</span> <span class="n">halftone_cents</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_halftones</span><span class="p">)]</span>
+
+<span class="n">syntcomm_cents</span> <span class="o">=</span> <span class="n">octave_fit</span><span class="p">(</span><span class="n">fifth_cents</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">majthird_cents</span> <span class="c1"># Syntonic comma</span>
+
+
+<span class="c1"># Equal division of the octave</span>
+<span class="k">def</span> <span class="nf">edo</span><span class="p">(</span><span class="n">num_notes</span><span class="p">):</span>
+  <span class="n">tone_step</span> <span class="o">=</span> <span class="n">octave_cents</span> <span class="o">/</span> <span class="n">num_notes</span>
+  <span class="n">note_cents</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">tone_step</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_notes</span><span class="p">)</span> <span class="p">]</span>
+  <span class="k">return</span> <span class="n">note_cents</span>
+
+
+
+<span class="k">def</span> <span class="nf">pythagoras</span><span class="p">(</span><span class="n">num_notes</span><span class="o">=</span><span class="n">num_halftones</span><span class="p">):</span>
+    
+    <span class="k">return</span> <span class="n">stacked_fifths</span><span class="p">(</span><span class="n">num_notes</span><span class="p">,</span> <span class="n">fifth_cents</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    
+
+<span class="k">def</span> <span class="nf">five_limit_just</span><span class="p">():</span>
+    <span class="n">ratios</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="o">/</span><span class="mi">15</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span>
+              <span class="mi">45</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="o">/</span><span class="mi">8</span><span class="p">]</span>
+    <span class="n">note_cents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ratio2cents</span><span class="p">(</span><span class="n">ratios</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">note_cents</span>
+
+
+<span class="k">def</span> <span class="nf">seven_limit_just</span><span class="p">():</span>
+    <span class="n">ratios</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="o">/</span><span class="mi">15</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span>
+              <span class="mi">7</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="o">/</span><span class="mi">8</span><span class="p">]</span>
+    <span class="n">note_cents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ratio2cents</span><span class="p">(</span><span class="n">ratios</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">note_cents</span>
+
+
+<span class="k">def</span> <span class="nf">meantone</span><span class="p">(</span><span class="n">num_notes</span><span class="o">=</span><span class="n">num_halftones</span><span class="p">,</span> <span class="n">comma_split</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">meantone_fifth</span> <span class="o">=</span> <span class="n">fifth_cents</span> <span class="o">-</span> <span class="n">syntcomm_cents</span> <span class="o">/</span> <span class="n">comma_split</span>
+    <span class="k">return</span> <span class="n">stacked_fifths</span><span class="p">(</span><span class="n">num_notes</span><span class="p">,</span> <span class="n">meantone_fifth</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">twelve_tet</span><span class="p">():</span>
+    <span class="n">note_cents</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">halftone_cents</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_halftones</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">note_cents</span>
+
+
+<span class="k">def</span> <span class="nf">fifth_order</span><span class="p">(</span><span class="n">num_notes</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">fifths</span> <span class="o">=</span> <span class="n">octave_fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_notes</span><span class="p">)</span> <span class="o">*</span> <span class="n">fifth_cents</span><span class="p">)</span>
+    <span class="n">ordered</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">fifths</span><span class="p">))</span>
+    <span class="n">ordered</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ordered</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">first</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_notes</span>
+    <span class="k">return</span> <span class="n">ordered</span>
+
+
+<span class="k">def</span> <span class="nf">get_note_name</span><span class="p">(</span><span class="n">cents</span><span class="p">,</span> <span class="n">ref</span><span class="p">):</span>
+    
+    <span class="n">c_cents</span> <span class="o">=</span> <span class="n">octave_fit</span><span class="p">(</span><span class="n">cents</span> <span class="o">+</span> <span class="n">ref</span><span class="p">)</span>
+    <span class="n">c_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">c_cents</span> <span class="o">/</span> <span class="n">halftone_cents</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">note_names</span><span class="p">[</span><span class="n">c_index</span> <span class="o">%</span> <span class="n">num_halftones</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">get_cents</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ratio2cents</span><span class="p">(</span><span class="n">freq</span> <span class="o">/</span> <span class="n">note_freq_hz</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">get_error</span><span class="p">(</span><span class="n">cents</span><span class="p">,</span> <span class="n">round_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="n">cents2ratio</span><span class="p">(</span><span class="n">cents</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="k">if</span> <span class="n">round_digits</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e_sgn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">round_power</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">round_digits</span>
+        <span class="n">e_ceil</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">*</span> <span class="n">round_power</span><span class="p">)</span> <span class="o">/</span> <span class="n">round_power</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">e_sgn</span> <span class="o">*</span> <span class="n">e_ceil</span>
+        
+    <span class="k">return</span> <span class="n">error</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+
+  <div class="
+      cell border-box-sizing code_cell rendered" style="display: none">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pyth_name</span> <span class="o">=</span> <span class="s2">&quot;Pythagorean (pure fifths)&quot;</span>
+<span class="n">edo_name</span> <span class="o">=</span> <span class="s2">&quot;Equally divided octave&quot;</span>
+<span class="n">mtone_name</span> <span class="o">=</span> <span class="s2">&quot;Meantone (1/4-comma)&quot;</span>
+
+
+<span class="n">Temperament</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Temperament&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;get&#39;</span><span class="p">))</span>
+<span class="n">Scale</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;notes&#39;</span><span class="p">,</span> <span class="s1">&#39;fifth_origin&#39;</span><span class="p">))</span>
+<span class="n">Note</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Note&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;pitch&#39;</span><span class="p">))</span>
+
+
+<span class="n">root_notes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">Note</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">nf</span><span class="p">)</span> <span class="k">for</span> <span class="n">nn</span><span class="p">,</span> <span class="n">nf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">note_names</span><span class="p">,</span> <span class="n">note_freq_hz</span><span class="p">))</span>
+
+<span class="n">temp_chromatic</span> <span class="o">=</span> <span class="p">(</span><span class="n">Temperament</span><span class="p">(</span><span class="s2">&quot;Equal temperament&quot;</span><span class="p">,</span> <span class="n">twelve_tet</span><span class="p">),</span>
+                  <span class="n">Temperament</span><span class="p">(</span><span class="s2">&quot;Just intonation (5-limit)&quot;</span><span class="p">,</span> <span class="n">five_limit_just</span><span class="p">),</span>
+                  <span class="n">Temperament</span><span class="p">(</span><span class="n">pyth_name</span><span class="p">,</span> <span class="n">pythagoras</span><span class="p">),</span>
+                  <span class="n">Temperament</span><span class="p">(</span><span class="n">mtone_name</span><span class="p">,</span> <span class="n">meantone</span><span class="p">),</span>
+                  <span class="n">Temperament</span><span class="p">(</span><span class="n">edo_name</span><span class="p">,</span> <span class="n">edo</span><span class="p">))</span>
+
+<span class="n">temp_microtonal</span> <span class="o">=</span> <span class="p">(</span><span class="n">Temperament</span><span class="p">(</span><span class="n">edo_name</span><span class="p">,</span> <span class="n">edo</span><span class="p">),</span>
+                   <span class="n">Temperament</span><span class="p">(</span><span class="n">pyth_name</span><span class="p">,</span> <span class="n">pythagoras</span><span class="p">),</span>
+                   <span class="n">Temperament</span><span class="p">(</span><span class="n">mtone_name</span><span class="p">,</span> <span class="n">meantone</span><span class="p">))</span>
+
+<span class="n">scales</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Octave&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,),</span> <span class="mi">0</span><span class="p">),)</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Fifth&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Fourth&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major third&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor third&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major sixth&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor sixth&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major second&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor second&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Tritone&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Structural&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major triad&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor triad&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Diminished triad&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Augmented triad&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major tetratonic&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor tetratonic&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Dominant seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Diminished seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Half-diminished seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor-major seventh&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major pentatonic&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor pentatonic&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major hexatonic&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor hexatonic&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Whole-tone&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Blues scale&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Major scale&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Minor scale&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Harmonic minor&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Lydian mode&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Mixolyidian mode&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Dorian mode&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Phryigian mode&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>             
+             <span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Locrian mode&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Chromatic&quot;</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_halftones</span><span class="p">)),</span> <span class="mi">0</span><span class="p">),)</span>
+
+<span class="n">scales</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">0</span><span class="p">),)</span>
+<span class="n">scales</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;Quarter-tone&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">),)</span>
+<span class="n">scales</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">0</span><span class="p">),)</span>
+<span class="n">scales</span><span class="p">[</span><span class="mi">53</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Scale</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">0</span><span class="p">),)</span>
+
+<span class="n">scale_cols</span><span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+             <span class="mi">7</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+             <span class="mi">24</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">31</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">53</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+
+<span class="n">valid_num_notes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">scales</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+
+<span class="n">default_num_notes</span> <span class="o">=</span> <span class="mi">7</span>
+
+
+<span class="k">def</span> <span class="nf">get_notes</span><span class="p">(</span><span class="n">temperament</span><span class="p">,</span> <span class="n">notes</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">tempered_notes</span> <span class="o">=</span> <span class="n">temperament</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+        
+        <span class="n">f_ref</span> <span class="o">=</span> <span class="n">note_freq_hz</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>
+        <span class="n">note_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">Note</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tempered_notes</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">notes</span><span class="p">))</span>
+      
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+        <span class="n">tempered_notes</span> <span class="o">=</span> <span class="n">temperament</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        
+        <span class="n">shifted_notes</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n</span> <span class="o">+</span> <span class="n">root</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_halftones</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">]</span>
+
+        <span class="n">f_ref</span> <span class="o">=</span> <span class="n">note_freq_hz</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>
+        <span class="n">cent_ref</span> <span class="o">=</span> <span class="n">tempered_notes</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>
+        
+        <span class="n">note_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">Note</span><span class="p">(</span><span class="n">note_names</span><span class="p">[</span><span class="n">n</span><span class="p">],</span>
+                                <span class="n">octave_fit</span><span class="p">(</span><span class="n">tempered_notes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">cent_ref</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">shifted_notes</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;notes must be an integer or a tuple of integers.&quot;</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">note_tuple</span><span class="p">,</span> <span class="n">f_ref</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+
+  <div class="
+      cell border-box-sizing code_cell rendered" style="display: none">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">44100</span>      <span class="c1"># Sample rate (Hz)</span>
+
+<span class="k">def</span> <span class="nf">time2samples</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert time to number of samples at a certain rate.</span>
+<span class="sd">    :param t: Time in seconds</span>
+<span class="sd">    :param rate: Sampling rate.</span>
+<span class="sd">    :return: Number of samples for the given time at the given rate.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">rate</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">db2mag</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">db</span> <span class="o">/</span> <span class="mi">20</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">piecewiselin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create piecewise linear array</span>
+<span class="sd">    :param x: Lengths of the segments in number of samples.</span>
+<span class="sd">    :param y: Point values. Its length must be 1 greater than the lenght of x.</span>
+<span class="sd">    :return: Piecewise linear array.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">xlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ylen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">ylen</span> <span class="o">-</span> <span class="n">xlen</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Invalid dimensions len(x)=</span><span class="si">{xlen}</span><span class="s2">, len(y)=</span><span class="si">{ylen}</span><span class="s2">. len(x) must equal len(y) - 1.&quot;</span><span class="p">)</span>
+
+    <span class="n">y_start</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_stop</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="n">pwl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+    <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_start</span><span class="p">,</span> <span class="n">y_stop</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">pwl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pwl</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">pwl</span>
+
+
+<span class="k">def</span> <span class="nf">adsr</span><span class="p">(</span><span class="n">adsr_durations</span><span class="p">,</span> <span class="n">adsr_levels</span><span class="p">,</span> <span class="n">total_duration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sustain_fade</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">smooth_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="n">n_attack</span><span class="p">,</span> <span class="n">n_decay</span><span class="p">,</span> <span class="n">n_sustain</span><span class="p">,</span> <span class="n">n_release</span> <span class="o">=</span> <span class="n">adsr_durations</span>
+
+    <span class="n">keystroke_duration</span> <span class="o">=</span> <span class="n">n_attack</span> <span class="o">+</span> <span class="n">n_decay</span> <span class="o">+</span> <span class="n">n_sustain</span> <span class="o">+</span> <span class="n">n_release</span>
+    
+    <span class="n">db_floor</span><span class="p">,</span> <span class="n">db_peak</span><span class="p">,</span> <span class="n">db_sustain</span><span class="p">,</span> <span class="n">db_release</span> <span class="o">=</span> <span class="n">adsr_levels</span>
+
+    <span class="k">if</span> <span class="n">total_duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">total_duration</span> <span class="o">&lt;</span> <span class="n">keystroke_duration</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Total duration must be greater or equal than the overall keystroke duration&quot;</span><span class="p">)</span>
+        
+      <span class="n">fadeout</span> <span class="o">=</span> <span class="n">total_duration</span> <span class="o">-</span> <span class="n">keystroke_duration</span>
+
+      <span class="n">db_slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">db_floor</span> <span class="o">-</span> <span class="n">db_sustain</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_release</span>
+      <span class="n">db_release</span> <span class="o">+=</span> <span class="n">db_slope</span> <span class="o">*</span> <span class="n">fadeout</span>
+
+      <span class="n">n_release</span> <span class="o">+=</span> <span class="n">fadeout</span>
+
+    <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">adsr_levels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">6.0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Your dB levels are </span><span class="si">{adsr_levels}</span><span class="s2">. Levels greater than -6 dB may saturate.&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+    
+
+    <span class="c1">#################################################################</span>
+    <span class="c1">#                                                               #</span>
+    <span class="c1">#                       ADSR Curve                              #</span>
+    <span class="c1"># dB Level ^                                                    #</span>
+    <span class="c1">#          |                                                    #</span>
+    <span class="c1">#    Peak  |        X                                           #</span>
+    <span class="c1">#          |       X XX                                         #</span>
+    <span class="c1">#          |      X    XX                                       #</span>
+    <span class="c1"># Sustain  |     X       XXXXXXXXXXXXX                          #</span>
+    <span class="c1">#          |    X                     XX                        #</span>
+    <span class="c1">#          |   X                        XX                      #</span>
+    <span class="c1">#          |  X                           XX                    #</span>
+    <span class="c1">#          | X                              XX                  #</span>
+    <span class="c1">#   Floor  |X                                 X                 #</span>
+    <span class="c1">#          +--------------------------------------------&gt; Time  #</span>
+    <span class="c1">#          |-----|------------|---------|-------|-------|       #</span>
+    <span class="c1">#           Attack  Decay      Sustain   Release Fadeout        #</span>
+    <span class="c1">#################################################################</span>
+    
+    <span class="k">if</span> <span class="n">smooth_factor</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        
+        <span class="n">n_attack</span> <span class="o">//=</span> <span class="n">smooth_factor</span>
+        <span class="n">n_decay</span> <span class="o">//=</span> <span class="n">smooth_factor</span>
+        <span class="n">n_sustain</span> <span class="o">//=</span> <span class="n">smooth_factor</span>
+        <span class="n">n_release</span> <span class="o">//=</span> <span class="n">smooth_factor</span>
+
+    <span class="n">adsr_curve</span> <span class="o">=</span> <span class="n">piecewiselin</span><span class="p">((</span><span class="n">n_attack</span><span class="p">,</span> <span class="n">n_decay</span><span class="p">,</span> <span class="n">n_sustain</span><span class="p">,</span> <span class="n">n_release</span><span class="p">),</span>
+                              <span class="p">(</span><span class="n">db_floor</span><span class="p">,</span> <span class="n">db_peak</span><span class="p">,</span> <span class="n">db_sustain</span><span class="p">,</span>
+                               <span class="n">db_sustain</span> <span class="o">-</span> <span class="n">sustain_fade</span><span class="p">,</span> <span class="n">db_release</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">smooth_factor</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">adsr_curve</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">adsr_curve</span><span class="p">,</span> <span class="n">total_duration</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;hamming&quot;</span><span class="p">)</span>
+    
+    <span class="n">magnitudes</span> <span class="o">=</span> <span class="n">db2mag</span><span class="p">(</span><span class="n">adsr_curve</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">magnitudes</span>
+
+
+<span class="k">class</span> <span class="nc">Filter</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply Butterworth lowpass-filter to signal</span>
+<span class="sd">        :param x: Input signal.</span>
+<span class="sd">        :param fc: Cutoff frequency for the filtering. Default is 8 kHz.</span>
+<span class="sd">        :param fs: Sampling frequency. Default is 44.1 kHz</span>
+<span class="sd">        :param order: Order of the butterworth lowpass filter. Default is 4</span>
+<span class="sd">        :return: Filtered signal</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">fc</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">fs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initial</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">lfilter_zi</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initial</span>
+        
+    <span class="k">def</span> <span class="nf">lfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">zf</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">zf</span>
+        <span class="k">return</span> <span class="n">y</span>
+    
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">*=</span> <span class="mi">0</span>
+    
+
+<span class="k">def</span> <span class="nf">sawtooth_harmonics</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">n_harmonics</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fundamental</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                       <span class="n">power</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_phase</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    
+    <span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_harmonics</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">fundamental</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">**</span> <span class="n">power</span><span class="p">)</span>
+            
+        <span class="n">phase</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">t</span>
+        <span class="k">if</span> <span class="n">random_phase</span><span class="p">:</span>
+            <span class="n">phase</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="n">wave</span> <span class="o">+=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wave</span>
+
+
+<span class="n">lpf</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">fc</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">synthesize</span><span class="p">(</span><span class="n">note_frequencies</span><span class="p">,</span> <span class="n">fref</span><span class="o">=</span><span class="mf">261.626</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">,</span> <span class="n">fadeout</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+               <span class="n">attack</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">decay</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">sustain</span><span class="o">=-</span><span class="mi">15</span><span class="p">,</span> <span class="n">release</span><span class="o">=.</span><span class="mi">7</span><span class="p">,</span> <span class="n">sus_time</span><span class="o">=.</span><span class="mi">4</span><span class="p">,</span>
+               <span class="n">floor</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="n">peak</span><span class="o">=-</span><span class="mi">12</span><span class="p">,</span> <span class="n">rel_level</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=.</span><span class="mi">6</span><span class="p">,</span> <span class="n">chord_notes</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+               <span class="n">progress</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  
+
+  <span class="n">n_freqs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">note_frequencies</span><span class="p">)</span>
+  
+  <span class="n">octave_chord</span> <span class="o">=</span> <span class="n">n_freqs</span> <span class="o">==</span> <span class="mi">2</span>
+
+  <span class="n">chord</span> <span class="o">=</span> <span class="n">n_freqs</span> <span class="o">&lt;=</span> <span class="n">chord_notes</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="n">attack_samples</span> <span class="o">=</span> <span class="n">time2samples</span><span class="p">(</span><span class="n">attack</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+  <span class="n">decay_samples</span> <span class="o">=</span> <span class="n">time2samples</span><span class="p">(</span><span class="n">decay</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+  <span class="n">sustain_samples</span> <span class="o">=</span> <span class="n">time2samples</span><span class="p">(</span><span class="n">sus_time</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+  <span class="n">release_samples</span> <span class="o">=</span> <span class="n">time2samples</span><span class="p">(</span><span class="n">release</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+  <span class="n">fadeout_samples</span> <span class="o">=</span> <span class="n">time2samples</span><span class="p">(</span><span class="n">fadeout</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+
+  <span class="n">sample_spacing</span> <span class="o">=</span> <span class="n">time2samples</span><span class="p">(</span><span class="n">spacing</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+    
+  <span class="n">chord_length</span> <span class="o">=</span> <span class="n">sample_spacing</span> <span class="o">+</span> <span class="n">fadeout_samples</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">chord</span> <span class="k">else</span> <span class="mi">0</span>  
+
+  <span class="n">total_samples</span> <span class="o">=</span> <span class="n">sample_spacing</span> <span class="o">*</span> <span class="n">n_freqs</span>  <span class="o">+</span> <span class="n">fadeout_samples</span> <span class="o">+</span> <span class="n">chord_length</span>
+
+  <span class="n">adsr_samples</span> <span class="o">=</span> <span class="p">(</span><span class="n">attack_samples</span><span class="p">,</span> <span class="n">decay_samples</span><span class="p">,</span>
+                  <span class="n">sustain_samples</span><span class="p">,</span> <span class="n">release_samples</span><span class="p">)</span>
+  <span class="n">adsr_levels</span> <span class="o">=</span> <span class="p">(</span><span class="n">floor</span><span class="p">,</span> <span class="n">peak</span><span class="p">,</span> <span class="n">sustain</span><span class="p">,</span> <span class="n">rel_level</span><span class="p">)</span>
+    
+  <span class="n">chord_adsr_ivals</span> <span class="o">=</span> <span class="p">(</span><span class="n">attack_samples</span><span class="p">,</span> <span class="n">decay_samples</span><span class="p">,</span>
+                      <span class="mi">2</span> <span class="o">*</span> <span class="n">sustain_samples</span><span class="p">,</span> <span class="n">release_samples</span><span class="p">)</span>
+    
+  <span class="n">adsr_curve</span> <span class="o">=</span> <span class="n">adsr</span><span class="p">(</span><span class="n">adsr_samples</span><span class="p">,</span> <span class="n">adsr_levels</span><span class="p">)</span>
+  <span class="n">adsr_chord</span> <span class="o">=</span> <span class="n">adsr</span><span class="p">(</span><span class="n">chord_adsr_ivals</span><span class="p">,</span> <span class="n">adsr_levels</span><span class="p">,</span> <span class="n">total_duration</span><span class="o">=</span><span class="n">chord_length</span><span class="p">)</span> <span class="k">if</span> <span class="n">chord</span> <span class="k">else</span> <span class="mi">0</span>
+    
+  <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">total_samples</span><span class="p">)</span>
+
+  <span class="n">t_length</span> <span class="o">=</span> <span class="n">adsr_curve</span><span class="o">.</span><span class="n">size</span>
+    
+  <span class="n">max_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="n">chord_length</span><span class="p">,</span> <span class="n">t_length</span><span class="p">))</span>  
+
+  <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">max_length</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
+    
+  <span class="n">lpf</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">f_cent</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">note_frequencies</span><span class="p">):</span>
+    
+      <span class="n">last_note</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="n">n_freqs</span> <span class="o">-</span> <span class="mi">1</span>
+
+      <span class="n">t_offset</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">sample_spacing</span>
+      <span class="n">t_wave</span> <span class="o">=</span> <span class="n">t_offset</span> <span class="o">+</span> <span class="n">t_length</span>
+      <span class="n">t_filter</span> <span class="o">=</span> <span class="n">total_samples</span> <span class="k">if</span> <span class="n">last_note</span> <span class="k">else</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sample_spacing</span>
+
+      <span class="n">f_hz</span> <span class="o">=</span> <span class="n">fref</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">f_cent</span> <span class="o">/</span> <span class="n">octave_cents</span><span class="p">)</span>
+      
+      <span class="n">waveform</span> <span class="o">=</span> <span class="n">sawtooth_harmonics</span><span class="p">(</span><span class="n">f_hz</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">1.3</span><span class="p">)</span>
+      <span class="n">wave</span> <span class="o">=</span> <span class="n">waveform</span><span class="p">[:</span><span class="n">t_length</span><span class="p">]</span> <span class="o">*</span> <span class="n">adsr_curve</span>
+
+      <span class="n">data</span><span class="p">[</span><span class="n">t_offset</span><span class="p">:</span><span class="n">t_wave</span><span class="p">]</span> <span class="o">+=</span> <span class="n">wave</span>
+    
+      <span class="k">if</span> <span class="n">chord</span> <span class="ow">and</span> <span class="p">((</span><span class="ow">not</span> <span class="n">last_note</span><span class="p">)</span> <span class="ow">or</span> <span class="n">octave_chord</span><span class="p">):</span>
+         <span class="n">wave</span> <span class="o">=</span> <span class="n">waveform</span><span class="p">[:</span><span class="n">chord_length</span><span class="p">]</span> <span class="o">*</span> <span class="n">adsr_chord</span>
+         <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">chord_length</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">wave</span>
+            
+      <span class="n">data</span><span class="p">[</span><span class="n">t_offset</span><span class="p">:</span><span class="n">t_filter</span><span class="p">]</span> <span class="o">=</span> <span class="n">lpf</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">t_offset</span><span class="p">:</span><span class="n">t_filter</span><span class="p">])</span>
+            
+      <span class="k">if</span> <span class="n">progress</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">progress</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    
+    <span class="n">peak</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">peak</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">peak</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input" style="display: none">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">parse_options</span><span class="p">(</span><span class="n">options</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">o</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">options</span><span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">react</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">a</span><span class="o">.</span><span class="n">react</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        
+<span class="k">def</span> <span class="nf">unreact</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">a</span><span class="o">.</span><span class="n">react</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        
+<span class="n">audio_height</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span>
+<span class="n">btn_width</span> <span class="o">=</span> <span class="mi">55</span>
+
+<span class="n">head_layout</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">}</span>
+<span class="n">btn_layout</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{btn_width}</span><span class="s1">%&#39;</span><span class="p">}</span>
+<span class="n">output_layout</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;align_items&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;align_content&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;{100 - btn_width}%&#39;</span><span class="p">}</span>
+
+<span class="n">tuner_box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_content</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span>
+                                   <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+                                   <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">overflow</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="p">))</span>
+
+<span class="n">cent_margin</span> <span class="o">=</span> <span class="mi">5</span>
+            
+            
+<span class="k">def</span> <span class="nf">clip_neighbours</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+    
+    <span class="n">num_notes</span> <span class="o">=</span> <span class="n">btn_notes</span><span class="o">.</span><span class="n">value</span>
+        
+    <span class="n">note_widgets</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">pool</span><span class="p">[:</span><span class="n">num_notes</span><span class="p">]</span>
+
+    <span class="n">i_note</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">index</span>
+
+    <span class="n">low_note</span> <span class="o">=</span> <span class="n">note_widgets</span><span class="p">[(</span><span class="n">i_note</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_notes</span><span class="p">]</span>
+    <span class="n">high_note</span> <span class="o">=</span> <span class="n">note_widgets</span><span class="p">[(</span><span class="n">i_note</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_notes</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">low_note</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">note_widgets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">low_note</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="n">cent_margin</span>
+    <span class="k">if</span> <span class="n">high_note</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">note_widgets</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">high_note</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">cent_margin</span>
+        
+        
+<span class="k">def</span> <span class="nf">clip_value</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">owner</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">owner</span><span class="o">.</span><span class="n">react</span><span class="p">:</span>
+        <span class="n">pool</span> <span class="o">=</span> <span class="n">owner</span><span class="o">.</span><span class="n">pool</span>
+        <span class="k">if</span> <span class="n">pool</span> <span class="ow">is</span> <span class="n">sliders_pool</span><span class="p">:</span>
+            
+            <span class="n">num_notes</span> <span class="o">=</span> <span class="n">btn_notes</span><span class="o">.</span><span class="n">value</span>
+        
+            <span class="n">note_widgets</span> <span class="o">=</span> <span class="n">owner</span><span class="o">.</span><span class="n">pool</span><span class="p">[:</span><span class="n">num_notes</span><span class="p">]</span>
+
+            <span class="n">i_note</span> <span class="o">=</span> <span class="n">owner</span><span class="o">.</span><span class="n">index</span>
+
+            <span class="n">low_note</span> <span class="o">=</span> <span class="n">note_widgets</span><span class="p">[(</span><span class="n">i_note</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_notes</span><span class="p">]</span>
+            <span class="n">high_note</span> <span class="o">=</span> <span class="n">note_widgets</span><span class="p">[(</span><span class="n">i_note</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_notes</span><span class="p">]</span>
+            
+            <span class="n">low_value</span> <span class="o">=</span> <span class="n">low_note</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">cent_margin</span>
+            <span class="n">high_value</span> <span class="o">=</span> <span class="n">high_note</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="n">cent_margin</span>
+
+            <span class="k">if</span> <span class="n">owner</span> <span class="ow">is</span> <span class="n">note_widgets</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">low_value</span> <span class="o">-=</span> <span class="n">octave_cents</span>
+            <span class="k">elif</span> <span class="n">owner</span> <span class="ow">is</span> <span class="n">note_widgets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">high_value</span> <span class="o">+=</span> <span class="n">octave_cents</span>
+            
+            <span class="n">unreact</span><span class="p">(</span><span class="n">owner</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">owner</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">low_value</span><span class="p">:</span>
+                <span class="n">owner</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">low_value</span>
+            <span class="k">elif</span> <span class="n">owner</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">high_value</span><span class="p">:</span>
+                <span class="n">owner</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">high_value</span>
+
+            <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">owner</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">update_name</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+            <span class="n">plot_notes</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+
+            <span class="n">react</span><span class="p">(</span><span class="n">owner</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">pool</span> <span class="ow">is</span> <span class="n">cell_pool</span><span class="p">:</span>
+            <span class="n">clip_neighbours</span><span class="p">(</span><span class="n">owner</span><span class="p">)</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unrecognized pool&quot;</span><span class="p">)</span>
+            
+
+<span class="k">def</span> <span class="nf">notes2theta</span><span class="p">(</span><span class="n">note_list</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">note_list</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">octave_cents</span>
+    
+    <span class="k">return</span> <span class="n">theta</span>
+
+
+<span class="n">plot_out</span> <span class="o">=</span> <span class="n">Output</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_content</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+                                <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">min_height</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">,</span>
+                                <span class="n">justify_items</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">init_plot</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">plot_out</span><span class="p">:</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">header_visible</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">axis</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_theta_direction</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+        <span class="n">axis</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;polar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+        <span class="n">pline</span><span class="p">,</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;tab:purple&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+        <span class="n">pline</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">pline</span><span class="p">,</span> <span class="n">axis</span>
+
+
+<span class="k">def</span> <span class="nf">set_notes</span><span class="p">(</span><span class="n">notes</span><span class="p">):</span>
+    <span class="n">pline</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">init_plot</span><span class="p">()</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">notes2theta</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+    <span class="n">pline</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">btn_scale</span><span class="o">.</span><span class="n">fifth_order</span><span class="p">],</span> <span class="n">btn_notes</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">btn_scale</span><span class="o">.</span><span class="n">xticklabels</span><span class="p">)</span>
+
+    
+<span class="n">audio_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;flex-end&#39;</span><span class="p">)</span>
+
+<span class="n">audio_bar</span> <span class="o">=</span> <span class="n">IntProgress</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Generating notes&quot;</span><span class="p">,</span>
+                        <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">default_num_notes</span><span class="p">,</span>
+                        <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="o">**</span><span class="n">head_layout</span><span class="p">))</span>
+<span class="n">audio_out</span> <span class="o">=</span> <span class="n">Output</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">audio_layout</span><span class="p">)</span>
+
+<span class="n">audio_out</span><span class="o">.</span><span class="n">f_root</span> <span class="o">=</span> <span class="n">a3_hz</span>
+<span class="n">audio_out</span><span class="o">.</span><span class="n">fs</span> <span class="o">=</span> <span class="n">sampling_rate</span>
+<span class="n">audio_out</span><span class="o">.</span><span class="n">player</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">plot_notes</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">change</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">react</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">plot_out</span><span class="p">:</span>
+            
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">change</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+                <span class="n">notes</span> <span class="o">=</span> <span class="p">[</span><span class="n">nt</span><span class="o">.</span><span class="n">pitch</span> <span class="k">for</span> <span class="n">nt</span> <span class="ow">in</span> <span class="n">change</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">notes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ns</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pool</span><span class="p">[:</span><span class="n">btn_notes</span><span class="o">.</span><span class="n">value</span><span class="p">]]</span>
+            
+            <span class="n">set_notes</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+            <span class="n">plot_out</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="nd">@debounce</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">generate_notes</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">change</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">react</span><span class="p">:</span>
+        <span class="n">loading_audio</span><span class="p">()</span>
+        <span class="k">def</span> <span class="nf">audio_progress</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> <span class="n">audio_bar</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">change</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+            <span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">nt</span><span class="o">.</span><span class="n">pitch</span> <span class="k">for</span> <span class="n">nt</span> <span class="ow">in</span> <span class="n">change</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">ns</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pool</span><span class="p">[:</span><span class="n">btn_notes</span><span class="o">.</span><span class="n">value</span><span class="p">]]</span>
+            
+        <span class="n">freqs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">freqs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">octave_cents</span><span class="p">)</span>
+        <span class="n">audio_data</span> <span class="o">=</span> <span class="n">synthesize</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">fref</span><span class="o">=</span><span class="n">audio_out</span><span class="o">.</span><span class="n">f_root</span><span class="p">,</span>
+                                <span class="n">fs</span><span class="o">=</span><span class="n">audio_out</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="n">audio_progress</span><span class="p">)</span>
+        <span class="n">audio_data</span> <span class="o">=</span> <span class="n">compress</span><span class="p">(</span><span class="n">audio_data</span><span class="p">)</span>
+        
+        <span class="n">audio_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rate&quot;</span><span class="p">:</span> <span class="n">audio_out</span><span class="o">.</span><span class="n">fs</span><span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">in_colab</span><span class="p">:</span>
+            <span class="n">audio_kwargs</span><span class="p">[</span><span class="s2">&quot;normalize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">audio_out</span><span class="o">.</span><span class="n">player</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">audio</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">(</span><span class="n">audio_data</span><span class="p">,</span> <span class="n">autoplay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">audio_kwargs</span><span class="p">)</span>  
+            <span class="n">audio_out</span><span class="o">.</span><span class="n">player</span> <span class="o">=</span> <span class="n">audio</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">audio_bytes</span> <span class="o">=</span> <span class="n">audio_out</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">_make_wav</span><span class="p">(</span><span class="n">audio_data</span><span class="p">,</span> <span class="o">**</span><span class="n">audio_kwargs</span><span class="p">)</span>
+            <span class="n">audio_out</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">audio_bytes</span>
+            <span class="n">audio_out</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">audio_data</span>
+        <span class="k">with</span> <span class="n">audio_out</span><span class="p">:</span>
+            <span class="n">audio_out</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">audio_out</span><span class="o">.</span><span class="n">player</span><span class="p">)</span>
+        <span class="n">audio_ready</span><span class="p">()</span>
+        
+    
+<span class="k">def</span> <span class="nf">tune</span><span class="p">(</span><span class="n">change</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">change</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">react</span><span class="p">:</span>
+        
+        <span class="n">loading_audio</span><span class="p">()</span>
+        
+        <span class="n">n_notes</span> <span class="o">=</span> <span class="n">btn_notes</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">btn_root</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">temperament</span> <span class="o">=</span> <span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span><span class="p">[</span><span class="n">btn_temperament</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">scales</span><span class="p">[</span><span class="n">n_notes</span><span class="p">][</span><span class="n">btn_scale</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">temperament</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">edo_name</span> <span class="ow">or</span> <span class="n">n_notes</span> <span class="o">&gt;</span> <span class="n">num_halftones</span><span class="p">:</span>
+            <span class="n">scale_notes</span> <span class="o">=</span> <span class="n">n_notes</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scale_notes</span> <span class="o">=</span> <span class="n">scale</span><span class="o">.</span><span class="n">notes</span>
+
+
+        <span class="n">default_notes</span><span class="p">,</span> <span class="n">f_root</span> <span class="o">=</span> <span class="n">get_notes</span><span class="p">(</span><span class="n">temperament</span><span class="p">,</span> <span class="n">scale_notes</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span>
+        <span class="n">audio_out</span><span class="o">.</span><span class="n">f_root</span> <span class="o">=</span> <span class="n">f_root</span>
+
+        <span class="n">btn_scale</span><span class="o">.</span><span class="n">cents_root</span> <span class="o">=</span> <span class="n">get_cents</span><span class="p">(</span><span class="n">f_root</span><span class="p">)</span>
+
+        <span class="n">btn_scale</span><span class="o">.</span><span class="n">fifth_order</span> <span class="o">=</span> <span class="n">fifth_order</span><span class="p">(</span><span class="n">n_notes</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="n">scale</span><span class="o">.</span><span class="n">fifth_origin</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">n_notes</span> <span class="o">&gt;</span> <span class="n">num_halftones</span><span class="p">:</span>
+            <span class="n">btn_scale</span><span class="o">.</span><span class="n">xticklabels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">btn_scale</span><span class="o">.</span><span class="n">xticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="n">dn</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">dn</span> <span class="ow">in</span> <span class="n">default_notes</span><span class="p">]</span>
+
+        
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">scale_cols</span><span class="p">[</span><span class="n">n_notes</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">pool</span> <span class="o">=</span> <span class="n">sliders_pool</span>
+            <span class="n">unreact</span><span class="p">(</span><span class="o">*</span><span class="n">pool</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">tune_widget</span><span class="p">,</span> <span class="n">nt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">default_notes</span><span class="p">):</span>
+                <span class="n">tune_widget</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">tune_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">pitch</span>
+                <span class="n">react</span><span class="p">(</span><span class="n">tune_widget</span><span class="p">)</span>
+            <span class="n">show_tuner</span><span class="p">(</span><span class="n">n_notes</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pool</span> <span class="o">=</span> <span class="n">cell_pool</span>
+            <span class="n">unreact</span><span class="p">(</span><span class="o">*</span><span class="n">pool</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">tune_widget</span><span class="p">,</span> <span class="n">nt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">default_notes</span><span class="p">):</span>
+                <span class="n">tune_widget</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">tune_widget</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">tune_widget</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">octave_cents</span>
+                <span class="n">tune_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">pitch</span>
+            <span class="k">for</span> <span class="n">tune_widget</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">[:</span><span class="n">n_notes</span><span class="p">]:</span>
+                <span class="n">clip_neighbours</span><span class="p">(</span><span class="n">tune_widget</span><span class="p">)</span>
+                <span class="n">react</span><span class="p">(</span><span class="n">tune_widget</span><span class="p">)</span>
+            <span class="n">show_tuner</span><span class="p">(</span><span class="n">n_notes</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+        <span class="n">plot_notes</span><span class="p">(</span><span class="n">default_notes</span><span class="p">)</span>
+        <span class="n">generate_notes</span><span class="p">(</span><span class="n">default_notes</span><span class="p">)</span>
+    
+    
+<span class="k">def</span> <span class="nf">update_name</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">n_notes</span> <span class="o">=</span> <span class="n">btn_notes</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">widget</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">widget</span><span class="o">.</span><span class="n">react</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">btn_temperament</span><span class="o">.</span><span class="n">edo</span> <span class="ow">and</span> <span class="n">n_notes</span> <span class="o">&lt;=</span> <span class="n">num_halftones</span><span class="p">:</span>
+        <span class="n">cents</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">get_note_name</span><span class="p">(</span><span class="n">cents</span><span class="p">,</span> <span class="n">btn_scale</span><span class="o">.</span><span class="n">cents_root</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">widget</span><span class="o">.</span><span class="n">description</span><span class="p">:</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">btn_scale</span><span class="o">.</span><span class="n">xticklabels</span><span class="p">[</span><span class="n">widget</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+    
+<span class="n">sliders_pool</span> <span class="o">=</span> <span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_halftones</span><span class="p">):</span>
+    <span class="n">new_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">octave_cents</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                           <span class="n">continuous_update</span><span class="o">=</span><span class="n">continuous_update</span><span class="p">,</span>
+                           <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+                                         <span class="n">min_height</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s2">&quot;20px&quot;</span><span class="p">})</span>
+    
+    <span class="n">new_slider</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">n</span>
+    
+    <span class="n">new_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">clip_value</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">new_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_name</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">new_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">plot_notes</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">new_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">generate_notes</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">sliders_pool</span> <span class="o">+=</span> <span class="n">new_slider</span><span class="p">,</span>
+
+<span class="k">for</span> <span class="n">slider</span> <span class="ow">in</span> <span class="n">sliders_pool</span><span class="p">:</span>
+    <span class="n">slider</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">sliders_pool</span>
+
+<span class="n">unreact</span><span class="p">(</span><span class="o">*</span><span class="n">sliders_pool</span><span class="p">)</span>
+
+
+<span class="n">cell_pool</span> <span class="o">=</span> <span class="p">()</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">valid_num_notes</span><span class="p">)):</span>
+    <span class="n">new_cell</span> <span class="o">=</span> <span class="n">BoundedIntText</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">octave_cents</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                              <span class="n">continuous_update</span><span class="o">=</span><span class="n">continuous_update</span><span class="p">,</span>
+                              <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">min_width</span><span class="o">=</span><span class="s2">&quot;5%&quot;</span><span class="p">),</span>
+                              <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s2">&quot;15%&quot;</span><span class="p">})</span>
+    
+    <span class="n">new_cell</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">n</span>
+    
+    <span class="n">new_cell</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">clip_value</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">new_cell</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_name</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">new_cell</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">plot_notes</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">new_cell</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">generate_notes</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="n">cell_pool</span> <span class="o">+=</span> <span class="n">new_cell</span><span class="p">,</span>
+
+<span class="n">unreact</span><span class="p">(</span><span class="o">*</span><span class="n">cell_pool</span><span class="p">)</span>    
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cell_pool</span><span class="p">:</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">cell_pool</span>
+
+    
+<span class="k">def</span> <span class="nf">select_n_notes</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    
+    <span class="n">n_notes</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span>
+
+    <span class="n">audio_bar</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">n_notes</span>
+    <span class="n">btn_notes</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_notes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">loading_audio</span><span class="p">()</span>
+    
+    <span class="n">unreact</span><span class="p">(</span><span class="n">btn_temperament</span><span class="p">,</span> <span class="n">btn_root</span><span class="p">,</span> <span class="n">btn_scale</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">n_notes</span> <span class="o">&gt;</span> <span class="n">num_halftones</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">temp_microtonal</span><span class="p">:</span>
+            <span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span> <span class="o">=</span> <span class="n">temp_microtonal</span>
+            <span class="n">btn_temperament</span><span class="o">.</span><span class="n">value</span>  <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">btn_temperament</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">(</span><span class="n">temp_microtonal</span><span class="p">)</span>
+        <span class="n">btn_scale</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">temp_chromatic</span><span class="p">:</span>
+            <span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span> <span class="o">=</span> <span class="n">temp_chromatic</span>
+            <span class="n">btn_temperament</span><span class="o">.</span><span class="n">value</span>  <span class="o">=</span> <span class="mi">0</span>      
+        <span class="n">btn_temperament</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">(</span><span class="n">temp_chromatic</span><span class="p">)</span>
+        <span class="n">btn_scale</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">hide_tuner</span><span class="p">()</span>
+    
+    
+    <span class="n">btn_scale</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">(</span><span class="n">scales</span><span class="p">[</span><span class="n">n_notes</span><span class="p">])</span>
+    
+    <span class="n">btn_scale</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">tune</span><span class="p">()</span>
+    
+    <span class="n">react</span><span class="p">(</span><span class="n">btn_temperament</span><span class="p">,</span> <span class="n">btn_root</span><span class="p">,</span> <span class="n">btn_scale</span><span class="p">)</span>
+    
+    
+<span class="k">def</span> <span class="nf">select_temperament</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">new_temp</span> <span class="o">=</span> <span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span><span class="p">[</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]]</span>
+    <span class="n">edo_selected</span> <span class="o">=</span> <span class="n">new_temp</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">edo_name</span>
+    <span class="n">btn_scale</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">edo_selected</span>
+    <span class="n">btn_temperament</span><span class="o">.</span><span class="n">edo</span> <span class="o">=</span> <span class="n">edo_selected</span>
+    <span class="n">tune</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+
+
+<span class="n">btn_notes</span> <span class="o">=</span> <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">valid_num_notes</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">default_num_notes</span><span class="p">,</span>
+                     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Number of Notes&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                     <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
+                     <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="o">**</span><span class="n">head_layout</span><span class="p">))</span>
+
+<span class="n">btn_root</span> <span class="o">=</span> <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">parse_options</span><span class="p">(</span><span class="n">root_notes</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tonic/Root&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
+                    <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="o">**</span><span class="n">head_layout</span><span class="p">))</span>
+
+<span class="n">btn_temperament</span> <span class="o">=</span> <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">parse_options</span><span class="p">(</span><span class="n">temp_chromatic</span><span class="p">),</span>
+                           <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tuning&quot;</span><span class="p">,</span>
+                           <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
+                           <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="o">**</span><span class="n">head_layout</span><span class="p">))</span>
+
+<span class="n">btn_temperament</span><span class="o">.</span><span class="n">edo</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">btn_temperament</span><span class="o">.</span><span class="n">temperament</span> <span class="o">=</span> <span class="n">temp_chromatic</span>
+
+<span class="n">btn_scale</span> <span class="o">=</span> <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">parse_options</span><span class="p">(</span><span class="n">scales</span><span class="p">[</span><span class="n">default_num_notes</span><span class="p">]),</span>
+                     <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Scale/Chord&quot;</span><span class="p">,</span>
+                     <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
+                     <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="o">**</span><span class="n">head_layout</span><span class="p">))</span>
+
+<span class="n">btn_reset</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reset&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="o">**</span><span class="n">btn_layout</span><span class="p">))</span>
+
+<span class="n">react</span><span class="p">(</span><span class="n">btn_temperament</span><span class="p">,</span> <span class="n">btn_root</span><span class="p">,</span> <span class="n">btn_scale</span><span class="p">)</span>
+
+<span class="n">btn_notes</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">select_n_notes</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">btn_temperament</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">select_temperament</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">btn_root</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">tune</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">btn_scale</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">tune</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">btn_reset</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">tune</span><span class="p">)</span>
+
+<span class="n">layout_right</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+                      <span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">,</span>
+                      <span class="n">flex_flow</span><span class="o">=</span><span class="s1">&#39;column&#39;</span><span class="p">,</span>
+                      <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;flex-end&#39;</span><span class="p">)</span>
+
+<span class="n">right_box</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">btn_reset</span><span class="p">],</span>
+               <span class="n">layout</span><span class="o">=</span><span class="n">layout_right</span><span class="p">)</span>
+
+<span class="n">buttons</span> <span class="o">=</span> <span class="p">(</span><span class="n">btn_notes</span><span class="p">,</span> <span class="n">btn_root</span><span class="p">,</span> <span class="n">btn_temperament</span><span class="p">,</span><span class="n">btn_scale</span><span class="p">,</span> <span class="n">right_box</span><span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">=</span> <span class="n">AppLayout</span><span class="p">(</span><span class="n">pane_widths</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">pane_heights</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+               <span class="n">grid_gap</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">,</span>
+               <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">justify_items</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;290px&quot;</span><span class="p">,</span>
+                             <span class="n">align_content</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">))</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">right_sidebar</span> <span class="o">=</span> <span class="n">tuner_box</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">left_sidebar</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">(</span><span class="n">buttons</span> <span class="o">+</span> <span class="p">(</span><span class="n">audio_out</span><span class="p">,),</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">))</span>
+
+<span class="n">ui</span><span class="o">.</span><span class="n">loading</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">visible_tuner</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">loading_audio</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ui</span><span class="o">.</span><span class="n">loading</span><span class="p">:</span>
+        <span class="n">audio_bar</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">left_sidebar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">buttons</span> <span class="o">+</span> <span class="p">(</span><span class="n">audio_bar</span><span class="p">,)</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">loading</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        
+<span class="k">def</span> <span class="nf">audio_ready</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">ui</span><span class="o">.</span><span class="n">loading</span><span class="p">:</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">left_sidebar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">buttons</span> <span class="o">+</span> <span class="p">(</span><span class="n">audio_out</span><span class="p">,)</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">loading</span> <span class="o">=</span> <span class="kc">False</span>
+        
+<span class="k">def</span> <span class="nf">hide_tuner</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">ui</span><span class="o">.</span><span class="n">visible_tuner</span><span class="p">:</span>
+        <span class="n">tuner_box</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">visible_tuner</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        
+<span class="k">def</span> <span class="nf">show_tuner</span><span class="p">(</span><span class="n">n_notes</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">cols</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tuner_box</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">sliders_pool</span><span class="p">[:</span><span class="n">n_notes</span><span class="p">]</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">right_sidebar</span><span class="o">=</span> <span class="n">tuner_box</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_notes</span> <span class="o">/</span> <span class="n">cols</span><span class="p">))</span>
+        
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">GridspecLayout</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_content</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span>
+                                                        <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">))</span>
+        
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_notes</span><span class="p">):</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">n</span> <span class="o">//</span> <span class="n">cols</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell_pool</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        
+        <span class="n">ui</span><span class="o">.</span><span class="n">right_sidebar</span><span class="o">=</span> <span class="n">grid</span>
+    <span class="n">ui</span><span class="o">.</span><span class="n">visible_tuner</span> <span class="o">=</span> <span class="kc">True</span>
+        
+<span class="n">plot_box</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">([</span><span class="n">plot_out</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_content</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+                                <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+                                <span class="n">justify_items</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">))</span>
+
+<span class="n">select_n_notes</span><span class="p">({</span><span class="s2">&quot;old&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;new&quot;</span><span class="p">:</span> <span class="n">default_num_notes</span><span class="p">})</span>
+
+
+<span class="n">display</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">plot_box</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper text-center">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget" style="display: none">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+
+
+
+<!-- Loads nbinteract package -->
+<script src="https://unpkg.com/nbinteract-core" async></script>
+<script>
+  (function setupNbinteract() {
+    // If NbInteract hasn't loaded, wait one second and try again
+    if (window.NbInteract === undefined) {
+      setTimeout(setupNbinteract, 1000)
+      return
+    }
+
+    var interact = new window.NbInteract({
+      spec: 'rodrihgh/music-scales-playground/master',
+      baseUrl: 'https://mybinder.org',
+      provider: 'gh',
+    })
+    interact.prepare()
+
+    window.interact = interact
+  })()
+</script>
+</body>
+</html>

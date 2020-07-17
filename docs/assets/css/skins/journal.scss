@@ -1,0 +1,14 @@
+---
+---
+@charset "utf-8";
+// Custom free font: see https://diario.madrid.es/chulapa/
+@font-face {
+  font-family: chulapa;
+  src: url(https://dieghernan.github.io/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf);
+  font-display: fallback;
+}
+@import "skins/journal";
+@import "bootstrap/bootstrap";
+@import "chulapa-master";
+@import "reset-algolia";
+@import "pygments/zenburn";

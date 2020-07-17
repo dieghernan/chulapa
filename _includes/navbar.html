@@ -1,0 +1,193 @@
+{%- assign thispageurl = include.pageurl | replace: ".html", ""  -%}
+{%- if site.navbar.style == "modern" -%}
+	<div class="navbar-chulapa-modern">
+		<input type="checkbox" class="navbar-chulapa-modern-button d-none" id="navi-toggle">
+		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
+			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
+		</label>
+		<div class="navbar-chulapa-modern-background">&nbsp;</div>
+		<nav class="navbar-chulapa-modern-nav">
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="{{ site.navbar.brand.url | default: "" | absolute_url }}">
+					{%- if site.navbar.brand.img -%}
+					<img src="{{- site.navbar.brand.img | absolute_url -}}" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">
+					{%- endif -%}
+					{{- site.navbar.brand.title -}}
+					</a>
+				</li>
+				{%- for item in site.navbar.nav -%}
+					{%- if item.child[0] -%}
+				<li class="nav-item dropdown my-0 py-1">
+					{%- assign containteractive  =  false -%}
+					{%- for all in item.child -%}
+						{%- if thispageurl == all.url -%}
+							{%- assign containteractive  =  true -%}
+						{%- endif -%}
+					{%- endfor -%}
+					<a class="nav-link dropdown-toggle px-3 py-1 {% if containteractive == true %} active font-weight-bold {% endif %}" href="#" id="{{- item.title | strip | replace: " ", "-" -}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}}</a>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
+					{%- for entry in item.child -%}
+						<a class="dropdown-item nav-link d-block px-3 small {% if entry.url == thispageurl %} active font-weight-bold {% endif %}" href="{{ entry.url | absolute_url }}">{{ entry.title }} {% if entry.url == thispageurl %}<span class="sr-only">(current)</span>{% endif %}</a>
+					{%- endfor -%}
+					</div>
+				</li>
+					{%- else -%}
+				<li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1{% if item.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- item.url | absolute_url -}}">{{- item.title -}}{%- if item.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+				</li>
+					{%- endif -%}
+				{%- endfor -%}
+				{%- if site.search.provider -%}
+				{%- assign urlsearch = site.search.landing_page | default: '/search' -%}
+				<li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
+					{{- site.search.label | default: 'Search' -}}</a>
+				</li>
+				{%- endif -%}
+			</ul>
+		</nav>
+	</div>
+{%- elsif site.navbar.style == "dual" -%}	
+	<div class="navbar-chulapa-modern d-lg-none">
+		<input type="checkbox" class="navbar-chulapa-modern-button d-none" id="navi-toggle">
+		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
+			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
+		</label>
+		<div class="navbar-chulapa-modern-background">&nbsp;</div>
+		<nav class="navbar-chulapa-modern-nav">
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="{{ site.navbar.brand.url | default: "" | absolute_url }}">
+					{%- if site.navbar.brand.img -%}
+					<img src="{{- site.navbar.brand.img | absolute_url -}}" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">
+					{%- endif -%}
+					{{- site.navbar.brand.title -}}
+					</a>
+				</li>
+				{%- for item in site.navbar.nav -%}
+					{%- if item.child[0] -%}
+				<li class="nav-item dropdown my-0 py-1">
+					{%- assign containteractive  =  false -%}
+					{%- for all in item.child -%}
+						{%- if thispageurl == all.url -%}
+							{%- assign containteractive  =  true -%}
+						{%- endif -%}
+					{%- endfor -%}
+					<a class="nav-link dropdown-toggle px-3 py-1 {% if containteractive == true %} active font-weight-bold {% endif %}" href="#" id="{{- item.title | strip | replace: " ", "-" -}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}}</a>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
+					{%- for entry in item.child -%}
+						<a class="dropdown-item nav-link d-block px-3 small {% if entry.url == thispageurl %} active font-weight-bold {% endif %}" href="{{ entry.url | absolute_url }}">{{ entry.title }} {% if entry.url == thispageurl %}<span class="sr-only">(current)</span>{% endif %}</a>
+					{%- endfor -%}
+					</div>
+				</li>
+					{%- else -%}
+				<li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1{% if item.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- item.url | absolute_url -}}">{{- item.title -}}{%- if item.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+				</li>
+					{%- endif -%}
+				{%- endfor -%}
+				{%- if site.search.provider -%}
+				{%- assign urlsearch = site.search.landing_page | default: '/search' -%}
+				<li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
+					{{- site.search.label | default: 'Search' -}}</a>
+				</li>
+				{%- endif -%}
+			</ul>
+		</nav>
+	</div>
+	
+	<nav class="navbar sticky-top navbar-expand navbar-chulapa d-none d-lg-block ">
+	<div class="container-fluid mx-md-2">
+			<a class="navbar-brand text-uppercase font-weight-bold" href="{{ site.navbar.brand.url | default: "/" | absolute_url }}">
+			{%- if site.navbar.brand.img -%}
+				<img src="{{ site.navbar.brand.img | absolute_url }}" width="30" height="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">
+			{%- endif -%}{{- site.navbar.brand.title -}}</a>
+			{%- if site.navbar.nav -%}
+				<ul class="navbar-nav ml-auto">
+				{%- for item in site.navbar.nav -%}
+					{%- if item.child[0] -%}
+					<li class="nav-item mx-2 dropdown">
+					{%- assign containteractive  =  false -%}
+					{%- for all in item.child -%}
+						{%- if thispageurl == all.url -%}
+							{%- assign containteractive  =  true -%}
+						{% endif %}
+					{%- endfor -%}
+						<a class="nav-link text-uppercase font-weight-light dropdown-toggle {% if containteractive == true %} active font-weight-bold{%- endif -%}" href="#" id="{{- item.title | strip | replace: ' ', '-' -}}2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}} </a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}2">
+						{%- for entry in item.child -%}
+							<a class="dropdown-item text-uppercase font-weight-light {% if entry.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- entry.url | absolute_url -}}">{{- entry.title -}} {%- if entry.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+						{%- endfor -%}
+						</div>
+					</li>
+					{%- else -%}
+					<li class="nav-item mx-2">
+						<a class="nav-link text-uppercase font-weight-light {% if item.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- item.url | absolute_url -}}">{{- item.title -}}{%- if item.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+					</li>
+					{%- endif -%}
+			{%- endfor -%}
+			{%- if site.search.provider -%}
+				{%- assign urlsearch = site.search.landing_page | default: '/search' -%}
+					<li class="nav-item mx-2">
+						<a class="nav-link text-uppercase font-weight-light {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
+							<i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
+						</a>
+					</li>
+			{%- endif -%}
+			</ul>
+		{%- endif -%}
+	</div>
+</nav>
+	
+	
+{%- else -%}
+<nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
+	<div class="container-fluid mx-md-2">
+			<a class="navbar-brand font-weight-bold" href="{{ site.navbar.brand.url | default: "/" | absolute_url }}">
+			{%- if site.navbar.brand.img -%}
+				<img src="{{ site.navbar.brand.img | absolute_url }}" width="30" height="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">
+			{%- endif -%}{{- site.navbar.brand.title -}}</a>
+			{%- if site.navbar.nav -%}
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarToggler">
+				<ul class="navbar-nav ml-auto">
+				{%- for item in site.navbar.nav -%}
+					{%- if item.child[0] -%}
+					<li class="nav-item dropdown">
+					{%- assign containteractive  =  false -%}
+					{%- for all in item.child -%}
+						{%- if thispageurl == all.url -%}
+							{%- assign containteractive  =  true -%}
+						{% endif %}
+					{%- endfor -%}
+						<a class="nav-link dropdown-toggle {% if containteractive == true %} active font-weight-bold{%- endif -%}" href="#" id="{{- item.title | strip | replace: ' ', '-' -}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}} </a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
+						{%- for entry in item.child -%}
+							<a class="dropdown-item {% if entry.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- entry.url | absolute_url -}}">{{- entry.title -}} {%- if entry.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+						{%- endfor -%}
+						</div>
+					</li>
+					{%- else -%}
+					<li class="nav-item">
+						<a class="nav-link {% if item.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- item.url | absolute_url -}}">{{- item.title -}}{%- if item.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+					</li>
+					{%- endif -%}
+			{%- endfor -%}
+			{%- if site.search.provider -%}
+				{%- assign urlsearch = site.search.landing_page | default: '/search' -%}
+					<li class="nav-item">
+						<a class="nav-link {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
+							<span class="d-md-none p-0 pr-1">{{- site.search.label | default: 'Search' -}}</span><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
+						</a>
+					</li>
+			{%- endif -%}
+			</ul>
+			</div>
+		{%- endif -%}
+	</div>
+</nav>
+{%- endif -%}

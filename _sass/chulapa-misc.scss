@@ -1,0 +1,94 @@
+// Defaults needed as Bootstrap doesn't specifically format these tags
+body {
+    min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin-top:$spacer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    @include border-radius($border-radius-lg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    @extend .table;
+    @extend .table-sm;
+    @extend .table-responsive;
+    color: $body-color;
+    display: block;
+
+    thead {
+        th {
+            color: $thead-chulapa-text-color;
+            background-color: $thead-chulapa-bg-color;
+            border: 0;
+        }
+    }
+}
+
+hr {
+    height: 0.125rem;
+    border-width: 0;
+    background-color: $secondary;
+}
+
+blockquote {
+    @extend .px-2;
+    @extend .py-1;
+    background-color: $blockquote-chulapa-bg-color;
+    color: $blockquote-chulapa-text-color;
+    @include border-radius($border-radius-lg);
+}
+
+.footnotes {
+  font-size:$font-size-sm;
+  color: $footnote-chulapa-text-color;
+  margin-left: 1.5*$spacer;
+  margin-right: 1.5*$spacer;
+  border-top: $border-width solid $secondary;
+  
+  ol {
+    margin-top: $spacer;
+  }
+}
+
+a.reversefootnote {
+  color: $body-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+figcaption, caption, .figcaption, .caption {
+  @extend .figure-caption;
+  color: $footnote-chulapa-text-color;
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+.highlight {
+    @extend .p-2;
+}
+
+
+// Could be overriden by highlight css
+.highlight pre {
+    background-color: $pre-chulapa-bg-color;
+}
+
+
+
+
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
+  @include border-radius($border-radius-lg);
+  
+} 
+.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

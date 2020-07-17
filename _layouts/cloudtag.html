@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+{{- content -}}
+
+{%- if page.include_collection -%}
+  {%- assign cols = page.include_collection | split: "," -%}
+  {%- for col  in cols -%}
+    {%- if forloop.first -%}
+      {%- assign alldocs = site.documents | 
+                          where_exp: "item", "item.collection == col" -%}
+      {%- assign showcol = false -%}
+    {%- else -%}
+      {%- assign docloop = site.documents | 
+                          where_exp: "item", "item.collection == col" -%}
+      {%- assign alldocs = alldocs | concat: docloop %}
+      {%- assign showcol = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign alldocs = site.documents -%}
+  {%- assign showcol = true -%}
+{% endif %}
+
+
+{% assign alldocs = alldocs | sort: 'date' | reverse %}
+{% assign grouptag =  alldocs | map: 'tags' | join: ','  | split: ','  | group_by: tag | sort: 'size' | reverse %}
+<div class="row g-0 pt-5" id="tags">
+<div class="col">
+	{%- for tag in grouptag -%}
+	<a href="#{{- tag.name | replace: " ", "-" -}}" class="btn btn-primary m-1" role="button" style="font-size: calc(1rem + {{tag.size}}px/3 - 1px);"><i class="fa fa-tag mr-2" aria-hidden="true"></i>{{- tag.name -}}<span class="badge rounded-pill chulapa-pill-bg-primary ml-2">{{tag.size}}</span></a>
+	{%- endfor -%}
+	</div>
+</div>
+
+{% assign words_per_minute = site.words_per_minute | default: 200 %}
+{% for tag in grouptag %}
+<section id="{{- tag.name | replace: " ", "-" -}}" class="py-3">
+<div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
+  <h3 class="my-0"><i class="fa fa-tag mr-1" aria-hidden="true"></i>{{- tag.name -}} </h3>
+  <div class="badge rounded-pill chulapa-pill-bg-primary ml-2">{{tag.size}}</div>
+</div>
+  {% for document in alldocs %}
+  {% assign words = document.content | strip_html | number_of_words %}
+  {% assign readtime = "< 1’" | escape_once  %}
+  {% if words > words_per_minute %}
+  {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
+  {% endif %}
+	{% if document.tags contains tag.name %}
+  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
+    <div class="col">
+      <h5><a href="{{ document.url | absolute_url }}">{{ document.title }}</a></h5>
+      {%- if document.subtitle -%}<h6>{{- document.subtitle -}}</h6> {%- endif -%}
+      <div>
+        {% if document.date %}
+        {% assign dateformat = document.date | date: "%B %d, %Y" %}
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+{% if document.last_modified_at %} <i class="fa fa-redo" aria-hidden="true"></i>{% endif %} | 
+        {% endif %}
+        <i class="far fa-clock" aria-hidden="true"></i> {{ readtime }} 
+        {%- if showcol -%}
+        <span class="ml-2 badge  chulapa-pill-bg-light">{{ document.collection }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+    {% if document.header_img or document.og_image %}
+    <a href="{{ document.url | absolute_url }}" class="col-2 btn chulapa-overlay-img" style="background-image: url('{{ document.og_image | default: document.header_img | absolute_url }}')">
+    </a>
+    {% endif %}
+  </article>
+  {% endif %}
+  {% endfor %}
+  <div class="text-right">
+      <a href="#tags" class="btn btn-lg border-0 chulapa-text-body-color"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i><span class="sr-only">Top</span></a>
+  </div>
+</section>
+{% endfor %}

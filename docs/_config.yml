@@ -1,0 +1,276 @@
+remote_theme: dieghernan/chulapa
+
+title: Chulapa
+subtitle: A full flexible Jekyll theme  
+description: Template for creating free sites on Github Pages
+og_image: "./assets/img/site/chulapa-home.png" 
+timezone: "Europe/Madrid"
+author:
+  name: dieghernan
+  avatar: ./assets/img/site/dieghernan-avatar.png
+  location: Madrid, Spain
+  links:                
+    - url: https://github.com/dieghernan/
+      icon: "fab fa-github"
+    - url: https://dieghernan.github.io/
+      icon: fas fa-blog
+    - url: https://stackoverflow.com/users/7877917/dieghernan
+      icon: "fab fa-stack-overflow"
+
+gtag_id:  UA-139034853-2  
+
+search:
+  provider: algolia
+  algolia_logo: true
+  
+algolia:                                                                   
+  application_id        : "KOIKA5PDQO"
+  index_name            : "chulapa"
+  search_only_api_key   : "7f1fe42bef3f03458cb3a911ebc7e0ac"
+  files_to_exclude:         #Optional
+    - _layouts/*.html
+    - _includes/*.html
+    - _pages/liquid*
+  extensions_to_index:      #Optional
+    - html
+    - md
+  searchableAttributes:     #Optional                                                    
+      - title                                                                    
+      - headings                                                                 
+      - unordered(content)                                                       
+      - unordered(subtitle)                                                      
+      - unordered(categories)                                                    
+      - unordered(collection)                                                    
+      - unordered(tags) 
+  customRanking:            #Optional
+    - desc(include_on_search)
+    - desc(title)
+    - desc(content) 
+    - desc(subtitle)
+    
+comments:
+  provider: disqus
+  disqus_shortname: chulapa
+
+
+# B. Navigation
+navbar:
+  style :  dual 
+  brand:
+    title :  Home
+    img: "./assets/img/site/brand-clear.png"
+  nav:
+  - title: Blog
+    url: /blog/
+  - title: Docs
+    child:
+     - title: Installation
+       url: /docs/01-install
+     - title: Global Settings
+       url: /docs/02-config
+     - title: Theming your site
+       url: /docs/03-theming
+     - title: Layouts
+       url: /docs/04-layouts
+     - title: Tips & Tricks
+       url: /docs/05-tips-n-tricks
+     - title: Variable dictionary
+       url: /docs/variable-dictionary
+  - title: Skins		
+    url: /skins
+  - title: Demos
+    child:
+     - title: Index
+       url: /demo
+     - title: Archive (all)
+       url: /demo/archive
+     - title: Tag Cloud (2 cols)
+       url: /demo/tags
+     - title: Category Cloud (single)
+       url: /demo/category
+
+footer:
+  links:
+    - label: "RSS"
+      icon: "fa fa-rss"
+      url:  "./rss.xml"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: https://github.com/dieghernan/
+    - label: "My blog"
+      icon: "fas fa-blog"
+      url: "https://dieghernan.github.io/"
+
+# C. Theme Settings
+
+chulapa-skin: 
+  highlight   : "ZENBURN"
+  autothemer  :  true 
+  vars        :    
+    primary:   '#efebdd'
+    secondary: "#dfd7ba"
+    link-color: '#a19d8e'
+    
+    
+#enable-responsive-font-sizes: true
+
+    
+# D. Jekyll Defaults and collections: see https://jekyllrb.com/
+
+# Collections https://jekyllrb.com/docs/step-by-step/09-collections/
+collections:
+  demo:
+    output: true
+    permalink: /demo/:name
+  picsofmadrid:
+    output: true
+  docs:
+    output: true
+    permalink: /docs/:name
+  skins:
+    output: true
+    permalink: /skins/:name
+collections_dir     : collections
+permalink           : /:year:month:day_:title/
+
+
+# Blog pagination: on this site /blog/index.html. https://jekyllrb.com/docs/pagination/
+paginate: 4
+paginate_path: "/blog/page:num/"
+paginator_maxnum: 3  #default[3] Custom: max of number to be displayed on the paginator
+
+# Defaults https://jekyllrb.com/docs/configuration/front-matter-defaults/
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      header_type: "base"
+      include_on_search   : false
+      cloudtag_url        : "/tags"       #This is where the link on tags would redirect
+      cloudcategory_url   : "/categories" #This is where the link on categories would redirect
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      header_type       : "hero"
+      include_on_search : true
+      show_bottomnavs   : true
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      header_type       : "post"
+      include_on_search : true
+      include_on_feed   : true
+      show_date         : true
+      show_bottomnavs   : true
+      show_sociallinks  : true
+      show_comments     : true
+      show_tags         : true
+      show_categories   : true
+      show_author       : true
+      show_toc          : false
+  -
+    scope:
+      path: ""
+      type: "skins"
+    values:
+      header_type       : "splash"
+      cloudtag_url        : "/demo/tags"
+      include_on_search : false
+      include_on_feed   : false
+      show_date         : true
+      show_sociallinks  : true
+      show_comments     : true
+      show_tags         : true
+      show_categories   : true
+      show_bottomnavs   : true
+      show_author       : true
+      show_toc          : true
+  -
+    scope:
+      path: ""
+      type: "demo"
+    values:
+      layout: "default"
+      header_type: "base"
+      cloudtag_url        : "/demo/tags"
+      cloudcategory_url   : "/demo/category"
+  -
+    scope:
+      path: ""
+      type: "picsofmadrid"
+    values:
+      layout: "landingpage"
+      include_on_search : true
+      include_on_feed   : true
+      header_type       : "splash"
+      show_bottomnavs   : true
+      show_tags         : true
+      cloudtag_url        : "/tags_collection"       #This is where the link on tags would redirect
+  -
+    scope:
+      path: "assets/img/skinspreview"
+    values:
+      image_col         : skinpreview
+
+  -
+    scope:
+      path: "assets/img/gallery"
+    values:
+      image_col         : gallery
+
+
+
+
+
+# XX. Other settings - no need to modify
+# HTML Compression
+# - https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  blanklines: true
+
+plugins:
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-include-cache
+  - jekyll-sitemap
+
+# Exclude these files from production site
+exclude:
+  - LICENSE
+  - README.md
+  - Gemfile
+  - vendor
+
+include:
+ - _pages
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  footnote_backlink: '&uarr;'
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style

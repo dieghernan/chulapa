@@ -1,0 +1,15 @@
+{% assign size = page.categories | size %}
+{% if size > 0 %}
+<div class="container-lg my-1">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col">
+      <i class="far fa-folder-open fa-xs" aria-hidden="true"></i>
+      {%- for category in page.categories %}
+      <a href="{{- category | replace: " ", "-" | prepend: "#" |
+                   prepend: page.cloudcategory_url |
+                   absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-secondary">{{- category -}}</a>
+      {% endfor -%}
+      </div>
+    </div>
+</div>
+{% endif %}

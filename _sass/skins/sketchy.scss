@@ -1,0 +1,749 @@
+/*! Sketchy 4.5.0 by Bootswatch */
+
+//
+// Color system
+//
+
+$white: #fff ;
+$gray-100: #f8f9fa ;
+$gray-200: #f7f7f9 ;
+$gray-300: #dee2e6 ;
+$gray-400: #ccc ;
+$gray-500: #aaa ;
+$gray-600: #868e96 ;
+$gray-700: #555 ;
+$gray-800: #333 ;
+$gray-900: #212529 ;
+$black: #000 ;
+
+$blue: #007bff ;
+$indigo: #6610f2 ;
+$purple: #6f42c1 ;
+$pink: #e83e8c ;
+$red: #dc3545 ;
+$orange: #fd7e14 ;
+$yellow: #ffc107 ;
+$green: #28a745 ;
+$teal: #20c997 ;
+$cyan: #17a2b8 ;
+
+$primary: $gray-800 ;
+$secondary: $gray-700 ;
+$success: $green ;
+$info: $cyan ;
+$warning: $yellow ;
+$danger: $red ;
+$light: $white ;
+$dark: $gray-700 ;
+
+$yiq-contrasted-threshold: 200 ;
+
+// Links
+
+$link-decoration: none ;
+
+// Components
+
+$border-width: 2px ;
+
+$border-radius: 25px ;
+$border-radius-lg: 35px ;
+$border-radius-sm: 15px ;
+
+// Fonts
+
+$font-family-sans-serif: 'Neucha',
+-apple-system,
+system-ui,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+sans-serif ;
+
+$font-weight-base: 700 ;
+
+$headings-font-family: 'Cabin Sketch',
+cursive ;
+
+$blockquote-small-color: $gray-800 ;
+
+// Tables
+
+$table-accent-bg: $gray-400 ;
+$table-hover-bg: $white ;
+
+$table-border-width: 2px ;
+$table-border-color: $gray-800 ;
+
+// Forms
+
+$input-border-color: $gray-800 ;
+
+$input-focus-border-color: $input-border-color ;
+
+// Dropdowns
+
+$dropdown-border-color: $gray-800 ;
+$dropdown-divider-bg: $gray-800 ;
+
+$dropdown-link-hover-color: $white ;
+$dropdown-link-hover-bg: $gray-800 ;
+
+// Navs
+
+$nav-tabs-border-color: $gray-800 ;
+$nav-tabs-link-hover-border-color: $gray-800 ;
+$nav-tabs-link-active-color: $gray-800 ;
+$nav-tabs-link-active-border-color: $gray-800 ;
+
+// Navbar
+
+$navbar-dark-color: $white ;
+$navbar-dark-hover-color: $white ;
+$navbar-dark-toggler-border-color: $white ;
+
+$navbar-light-color: $gray-800 ;
+$navbar-light-hover-color: $gray-800 ;
+$navbar-light-active-color: $gray-800 ;
+$navbar-light-toggler-border-color: $gray-800 ;
+
+// Pagination
+
+$pagination-border-color: $gray-800 ;
+
+$pagination-hover-color: $white ;
+$pagination-hover-bg: $gray-800 ;
+$pagination-hover-border-color: $gray-800 ;
+
+$pagination-disabled-color: $gray-400 ;
+$pagination-disabled-border-color: $gray-800 ;
+
+
+// Jumbotron
+
+$jumbotron-bg: transparent ;
+
+// Cards
+
+$card-border-width: 2px ;
+$card-border-color: $gray-800 ;
+
+// Popovers
+
+$popover-border-color: $gray-800 ;
+
+// Badges
+
+$badge-padding-y: 0.5em ;
+$badge-padding-x: 1.2em ;
+
+// Toasts
+
+$toast-border-width: 2px ;
+$toast-border-color: $gray-800 ;
+
+$toast-header-color: $gray-800 ;
+$toast-header-border-color: $toast-border-color ;
+
+// Modals
+
+$modal-content-border-color: $gray-800 ;
+
+$modal-header-border-color: $gray-800 ;
+
+// Progress bars
+
+$progress-bg: $white ;
+$progress-bar-bg: $gray-400 ;
+
+// List group
+
+$list-group-border-color: $gray-800 ;
+
+$list-group-hover-bg: $gray-300 ;
+$list-group-active-color: $white ;
+$list-group-active-bg: $gray-800 ;
+
+$list-group-action-color: $gray-800 ;
+
+// Breadcrumbs
+
+$breadcrumb-bg: $white ;
+$breadcrumb-divider-color: $gray-800 ;
+$breadcrumb-active-color: $gray-800 ;
+
+// Close
+
+$close-color: $white ;
+$close-text-shadow: none ;
+
+// Sketchy 4.5.0
+// Bootswatch
+
+
+// Variables ===================================================================
+
+$web-font-path: "https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch&display=swap" ;
+@import url($web-font-path);
+
+$border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+$border-radius-lg: 555px 25px 15px 25px/25px 5px 35px 555px;
+$border-radius-sm: 255px 25px 225px 25px/25px 225px 25px 255px;
+
+$border-radius-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
+$border-radius-lg-sketchy: 555px 25px 15px 25px/25px 5px 35px 555px;
+$border-radius-sm-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
+
+
+@import "bootstrap/functions";
+
+// Navbar ======================================================================
+
+.navbar {
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px !important;
+
+    &.bg-light {
+        border-color: $gray-800 !important;
+    }
+
+    &.fixed-top {
+        border-radius: 0 25px 225px 0/25px 0 25px 255px !important;
+        border-width: 0 0 2px 0 !important;
+    }
+
+    &.fixed-bottom {
+        border-radius: 255px 25px 0 25px/25px 225px 25px 0 !important;
+        border-width: 2px 0 0 0 !important;
+    }
+
+    &-brand {
+        font-family: $headings-font-family !important;
+        font-weight: normal !important;
+        text-decoration: none !important;
+    }
+}
+
+// Buttons =====================================================================
+
+.btn {
+    border-radius: $border-radius-sketchy;
+    text-decoration: none !important;
+
+    &-lg {
+        border-radius: $border-radius-lg-sketchy ;
+    }
+
+    &-sm {
+        border-radius: $border-radius-sm-sketchy ;
+    }
+}
+
+// Typography ==================================================================
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: $font-family-sans-serif !important;
+}
+
+blockquote {
+    border-radius: 15px 27px 25px 25px/25px 25px 305px 635px !important;
+}
+
+// Tables ======================================================================
+
+table {
+
+    th,
+    td {
+        background-color: #fff !important;
+    }
+}
+
+.table-bordered {
+    background-color: $gray-800 !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border-radius: 5px 25px 5px 25px/25px 5px 25px 5px !important;
+    overflow: hidden !important;
+
+    th,
+    td {
+        border-radius: 5px 5px 25px 4px/5px 4px 3px 5px !important;
+    }
+
+    .table-success,
+    .table-success:hover {
+
+        td,
+        th {
+            background-color: $success !important;
+            color: $white !important;
+        }
+    }
+
+    .table-info,
+    .table-info:hover {
+
+        td,
+        th {
+            background-color: $info !important;
+            color: $white !important;
+        }
+    }
+
+    .table-warning,
+    .table-warning:hover {
+
+        td,
+        th {
+            background-color: $warning !important;
+            color: $white !important;
+        }
+    }
+
+    .table-danger,
+    .table-danger:hover {
+
+        td,
+        th {
+            background-color: $danger !important;
+            color: $white !important;
+        }
+    }
+}
+
+.table-dark {
+
+    th,
+    td,
+    &.table-hover .table-active:hover>th,
+    &.table-hover .table-active:hover>td {
+        background-color: $gray-800 !important;
+    }
+
+}
+
+
+// Forms =======================================================================
+
+input,
+.form-control,
+.input-group-text,
+.custom-file-label {
+  border-radius: $border-radius-sketchy;
+}
+
+textarea,
+textarea.form-control,
+select,
+select.form-control {
+  border-radius: $border-radius-lg-sketchy !important;
+}
+
+[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border: none;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -1.2em;
+    top: -0.9em;
+    display: inline-block;
+    width: 15px;
+    height: 16px;
+    border: 2px solid $gray-800;
+    border-radius: 2px 8px 2px 4px / 5px 3px 5px 3px;
+  }
+
+  &:checked:after {
+    content: "x";
+    position: absolute;
+    left: -0.64em;
+    top: -0.48em;
+    font-size: 1.5rem;
+    line-height: 0.5;
+    color: $gray-800;
+  }
+
+  &:disabled {
+    &:before {
+      border: 2px solid $gray-500;
+    }
+  }
+}
+
+[type="radio"] {
+  position: relative;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border: none;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -1.2em;
+    top: -0.9em;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid $gray-800;
+    border-radius: 50% 45% 40% 50% / 40% 50% 50% 45%;
+  }
+
+  &:checked:before {
+    background-color: $gray-800;
+  }
+
+  &:disabled {
+    &:before {
+      border: 2px solid $gray-500;
+    }
+  }
+}
+
+.form-check-label {
+  padding-left: 2.5rem;
+}
+
+.form-check-inline {
+  [type="checkbox"] {
+    &:before {
+      left: 0;
+      top: 0;
+    }
+
+    &:after {
+      left: 0.14em;
+      top: 0.12em;
+    }
+  }
+
+  [type="radio"] {
+    &:before {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .form-check-label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+// Navs ========================================================================
+
+.dropdown-menu {
+    border-radius: 555px 25px 25px 25px/25px 25px 25px 555px !important;
+    overflow: hidden !important;
+}
+
+.dropdown-divider {
+    border-top-width: 2px !important;
+}
+
+.list-group {
+    background-color: $gray-800 !important;
+    border: 2px solid $gray-800 !important;
+    border-radius: 45px 15px 35px 5px/15px 5px 15px 65px !important;
+    overflow: hidden !important;
+
+    &-item {
+        border-left: none !important;
+        border-right: none !important;
+        border-top: 2px solid $gray-800 !important;
+        border-radius: 255px 5px 225px 5px/25px 225px 25px 255px !important;
+
+        &:first-child {
+            border-top: none !important;
+        }
+
+        &:last-child {
+            border-bottom: none !important;
+        }
+    }
+}
+
+.nav-pills .nav-link,
+    {
+    border-radius: $border-radius-sketchy !important;
+}
+
+.nav-link,
+.page-link,
+.list-group-item,
+.dropdown-item {
+    text-decoration: none !important;
+}
+
+.nav-tabs {
+    .nav-link {
+        border-radius: 45px 15px 225px 5px/25px 225px 25px 255px !important;
+    }
+}
+
+.breadcrumb {
+    border: 2px solid $gray-800 !important;
+    border-radius: $border-radius-sketchy !important;
+}
+
+.pagination {
+    .page-link {
+        border-radius: 425px 255px 25px 25px/25px 25px 5px 25px !important;
+    }
+}
+
+// Indicators ==================================================================
+
+.progress {
+    border: 2px solid $gray-800 !important;
+}
+
+.badge {
+    border-radius: $border-radius-sm-sketchy !important;
+
+    &-pill {
+        border-radius: 7rem 8rem 8rem 8rem / 4rem 5rem 6rem 6rem !important;
+    }
+
+    &-warning {
+        color: $white !important;
+    }
+}
+
+.alert {
+    border-radius: $border-radius-sketchy !important;
+
+    &-dismissible {
+        .close {
+            color: transparent !important;
+
+            &:before {
+                right: 1rem !important;
+                top: 0.8rem !important;
+            }
+        }
+
+        &.alert-success {
+            border-color: $success !important;
+
+            &,
+            .alert-link,
+            .close:before {
+                color: $success !important;
+            }
+        }
+
+        &.alert-info {
+            border-color: $info !important;
+
+            &,
+            .alert-link,
+            .close:before {
+                color: $info !important;
+            }
+        }
+
+        &.alert-warning {
+            border-color: $warning !important;
+
+            &,
+            .alert-link,
+            .close:before {
+                color: $warning !important;
+            }
+        }
+
+        &.alert-danger {
+            border-color: $danger !important;
+
+            &,
+            .alert-link,
+            .close:before {
+                color: $danger !important;
+            }
+        }
+    }
+}
+
+// Progress bars ===============================================================
+
+.progress {
+    border-radius: $border-radius-sm-sketchy !important;
+}
+
+// Containers ==================================================================
+
+.card {
+    border-radius: 5px 5px 5px 5px/25px 25px 25px 5px !important;
+
+    &-outline {
+
+        &-primary,
+        &-success,
+        &-info,
+        &-warning,
+        &-danger {
+            border-width: 2px !important;
+        }
+    }
+
+    &-header {
+        border-bottom-width: 2px !important;
+        border-color: inherit !important;
+
+        &:first-child {
+            border-radius: 3px 3px 0 0/23px 23px 0 0 !important;
+        }
+    }
+
+    &-footer {
+        border-top-width: 2px !important;
+    }
+}
+
+.jumbotron {
+    border: 2px solid $gray-800 !important;
+    border-radius: $border-radius-lg-sketchy !important;
+}
+
+.toast {
+    border-radius: 10px 10px 15px 5px/5px 15px 5px 15px !important;
+
+    &-header {
+        font-family: $headings-font-family !important;
+    }
+}
+
+.modal {
+    &-content {
+        border-radius: 15px 5px 5px 25px/5px 25px 25px 5px !important;
+    }
+}
+
+.popover {
+    padding: 0 !important;
+    border-radius: 45px 85px 15px 25px/15px 10px 35px 555px !important;
+
+    &-title {
+        border-bottom: 2px solid $gray-800 !important;
+    }
+
+    &.popover-left::before,
+    &.bs-tether-element-attached-right::before {
+        right: -13px !important;
+    }
+
+    &.popover-top::before,
+    &.bs-tether-element-attached-bottom::before {
+        bottom: -13px !important;
+    }
+
+    &.popover-bottom::before,
+    &.bs-tether-element-attached-top::before {
+        top: -13px !important;
+    }
+
+    &.popover-right::before,
+    &.bs-tether-element-attached-left::before {
+        left: -13px !important;
+    }
+}
+
+.tooltip {
+
+    &-inner {
+        border-radius: $border-radius-sm-sketchy !important;
+    }
+}
+
+pre {
+    border: 2px solid $gray-800 !important;
+    border-radius: 15px 5px 5px 25px/5px 25px 25px 5px !important;
+}
+
+.close,
+.close:hover,
+.close:focus,
+.close:active {
+    opacity: 1 !important;
+
+    &:before {
+        position: absolute !important;
+        content: "X" !important;
+        color: $gray-800 !important;
+    }
+}
+
+.img {
+    &-thumbnail {
+        border-radius: $border-radius-sketchy !important;
+    }
+}
+
+//CUSTOM SASS CHULAPA
+$navbar-chulapa-bg-color: $white;
+
+.navbar-chulapa .dropdown-menu{
+    border-style: solid !important;
+}
+
+.navbar-chulapa-modern {
+
+.nav-link{
+
+border-radius: $border-radius-sketchy;
+}
+   .dropdown-menu{
+border-radius: 15px 5px 5px 25px/5px 25px 25px 5px !important;
+}
+}
+
+body p img,
+.hero-chulapa,
+.hero-chulapa-image {
+    border-radius: $border-radius-lg !important;
+}
+
+.footer-chulapa {
+    border: 2px solid $gray-800 !important;
+    border-radius: $border-radius-lg-sketchy !important;
+}
+
+pre {
+    border: 2px solid $gray-800;
+    border-radius: 15px 5px 5px 25px/5px 25px 25px 5px;
+}
+
+body p a {
+    text-decoration: underline !important;
+}
+
+.navbar-toggler, .navbar-chulapa-modern-background {
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+}
+.chulapa-card-img{
+  border-radius: 3px 3px 0 2px/23px 23px 0 2px !important;
+  
+}
+.chulapa-avatar-size{
+    border-radius: $border-radius-sm-sketchy !important;
+}
+
+.chulapa-pagination .page-link{
+    border-radius: $border-radius-sm-sketchy  !important;
+}

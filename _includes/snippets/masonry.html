@@ -1,0 +1,13 @@
+{%- if include.internal -%}
+  {%- assign bricks = site.static_files | 
+where: "image_col", include.internal | sort: "modified_time" | reverse | map: "path"  -%}
+{%- elsif include.external -%}
+  {%- assign bricks =include.external | strip_newlines | replace: " " , "" |split: ","  -%}
+{%- endif -%}
+{%- if bricks -%}
+<div class="chulapa-masonry">
+  {%- for brick in bricks -%}
+  <img class="chulapa-masonry-brick" src="{{- brick | absolute_url -}}">
+  {%- endfor -%}
+</div>
+{%- endif -%}

@@ -1,0 +1,310 @@
+# A. Site Settings /SEO options
+# Overall options for your site, would affect your site SEO
+# Default values are explained
+locale                  :    #default["en-US"] format language-TERRITORY , e.g fr, en-GB, es-MX, pt-BR
+title                   :     Chulapa #default["repository_name"]
+title_separator         :     #default [" | "]
+subtitle                :     A Jekyll theme for Github Pages powered by Bootstrap #default [your-repository-tagline]  
+url                     :     #See baseurl - On Github Pages you may leave it blank
+baseurl                 :     #On Github Pages you may leave it blank. Have a look to: https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
+words_per_minute        :     #default[200]
+timezone                :     "Europe/Madrid" #See https://jekyllrb.com/docs/configuration/options/
+og_image                :     "./assets/img/site/chulapa-madrid.jpg" #default[author.avatar (see below)] or [github-avatar]
+twitter_site            :     #Avoid @
+# Site Author: about the creator of this site
+# Add social links using full urls and "icon" using Fontawesome 5 selectors (e.g. "fab fa-twitter")
+author:
+  name                  :      Name Surname Company
+  avatar                :      ./assets/img/site/brand_black.png #Info: Your github avatar on https://github.com/[USERNAME].png
+  location              :      false
+  links:                
+    - url: https://twitter.com/jack
+      icon: "fab fa-twitter"
+    - url: https://www.facebook.com
+      icon: "fab fa-facebook"
+    - url: https://www.github.com
+      icon: "fab fa-github"
+    - url: https://www.instagram.com
+      icon: "fab fa-instagram"
+fa5_kit_code:  # Your FontAwesome 5 kit code. If not provided a free hosted version (slower) will be loaded:  https://fontawesome.com/ 
+# Web tracking - Google services https://analytics.google.com/analytics/web/
+# gtag_id is the preferred option, see https://developers.google.com/analytics/devguides/collection/gtagjs/migration?hl=en
+# analytics provided for backwards compatibility
+gtag_id                 :  UA-139034853-2  
+analytics_id            :  
+
+# Search providers
+# Available free search engines:
+# - lunr https://lunrjs.com/ 
+# - algolia v4 https://www.algolia.com/ - needs further configuration
+# - google custom search engine https://cse.google.es/ 
+search:
+  provider              : algolia #Select a provider for enable search: lunr, algolia, google
+  label                 :  #default ["Search"] Text on navbar when search is enabled 
+  landing_page          :  #default ["/search"] Link on navbar 
+  lunr_maxwords         :  #default [30] lunr only - May slow down your site build
+  algolia_logo          :  true #Displays algolia logo. Should be set to true if you are on a community plan, otherwise false.  
+
+google_cse_id: "002514516175957445995:ep842kgah4q" #Your cse id
+# This site uses jekyll-algolia plugin https://community.algolia.com/jekyll-algolia/
+# Recommended additional configuration provided, could be modified
+algolia:                                                                   
+  application_id        : "KOIKA5PDQO"
+  index_name            : "chulapa"
+  search_only_api_key   : "7f1fe42bef3f03458cb3a911ebc7e0ac"
+  files_to_exclude:         #Optional
+    - _layouts/*.html
+    - _includes/*.html
+    - _pages/liquid*
+    - docs/blog/index.html
+  extensions_to_index:      #Optional
+    - html
+    - md
+  searchableAttributes:     #Optional                                                    
+      - title                                                                    
+      - headings                                                                 
+      - unordered(content)                                                       
+      - unordered(subtitle)                                                      
+      - unordered(categories)                                                    
+      - unordered(collection)                                                    
+      - unordered(tags) 
+  customRanking:            #Optional
+    - desc(include_on_search)
+    - desc(title)
+    - desc(content) 
+    - desc(subtitle)
+    
+comments:
+  provider: disqus #Enable comments via Disqus https://disqus.com/
+  disqus_shortname: chulapa #Your site id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
+
+
+# B. Navigation
+# Configure your navbar and the footer of your site
+
+# Navbar: 
+#   "brand" options would be set on the left side of your navbar
+#   "nav" would be set on the right side. Two-level nav links available
+navbar:
+  style     :  modern #default is the classical top navbar, set "modern" for a fixed button navbar
+  brand:
+    title   :  Home
+    url     :   #default["url/baseurl"]
+    img     : "./assets/img/site/brand_black.png"
+  nav:
+  - title: Blog
+    url: /blog/
+  - title: Boostrap		
+    url: /bootstrap		
+  - title: Collections		
+    child:		
+     - title: Demos		
+       url: /demo		
+     - title : Pics of Madrid		
+       url: /picsofmadrid		
+  - title: Others		
+    child:		
+     - title: Liquid		
+       url: /liquid		
+     - title: Tags		
+       url: /tags 		
+  - title: Github		
+    url: https://github.com/dieghernan
+
+#Social links to be placed on your site footer
+footer:
+  links:
+    - label: "RSS"
+      icon: "fa fa-rss"
+      url:  "./rss.xml"
+    - label: "Twitter"
+      icon: "fab fa-twitter"
+      url: https://twitter.com/
+    - label: "Facebook"
+      icon: "fab fa-facebook"
+      url: https://www.facebook.com
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: https://www.github.com
+    - label: "Instagram"
+      icon: "fab fa-instagram"
+      url: https://www.instagram.com
+
+# C. Theme Settings
+# Google Fonts https://fonts.google.com/, add as many as you need
+googlefonts:
+ - url: https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&display=swap
+ # - url : # 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
+#  - url : #example: 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap' 
+
+
+# Chulapa is highly customisable - read the docs
+# Three ways:
+#   Use a predefined skin
+#   Use a base color and let chulapa do the rest (autothemer)
+#   Full customisation via Bootstrap https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults
+# 
+# Default skins can be also customized
+#
+#
+# Several options for code highlighting, see http://jwarby.github.io/jekyll-pygments-themes for previews
+
+
+# Theme and colors
+chulapa-skin: 
+  highlight   :  #default["default"]
+  theme       :  # Optional predefined skins
+  autothemer  :  true # Bool: Use autotheming
+  vars        :    
+    primary:   teal #default ["#007bff"] - Bootstrap blue
+    font-family-sans-serif: Rubik, sans-serif  #default ["bootstrap option"]
+    headings-font-family: Raleway, sans-serif
+    hero-chulapa-bg-color: 
+    
+# D. Jekyll Defaults and collections: see https://jekyllrb.com/
+
+# Collections https://jekyllrb.com/docs/step-by-step/09-collections/
+collections:
+  demo:
+    output: true
+    permalink: /demo/:name
+  picsofmadrid:
+    output: true
+  docs:
+    output: true
+    permalink: /docs/:name
+  skins:
+    output: true
+    permalink: /skins/:name
+    order:
+    - current.md
+collections_dir     : docs/collections
+permalink           : /:year:month:day_:title/
+
+
+# Blog pagination: on this site /blog/index.html. https://jekyllrb.com/docs/pagination/
+paginate: 4
+paginate_path: "/blog/page:num/"
+paginator_maxnum: 3  #default[3] Custom: max of number to be displayed on the paginator
+
+# Defaults https://jekyllrb.com/docs/configuration/front-matter-defaults/
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      header_type: "base"
+      include_on_search   : false
+      cloudtag_url        : "/tags"       #This is where the link on tags would redirect
+      cloudcategory_url   : "/categories" #This is where the link on categories would redirect
+
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      header_type       : "post"
+      include_on_search : true
+      include_on_feed   : true
+      show_date         : true
+      show_bottomnavs   : true
+      show_sociallinks  : true
+      show_comments     : false
+      show_tags         : true
+      show_categories   : true
+      show_author       : true
+      show_toc          : false
+  -
+    scope:
+      path: ""
+      type: "demo"
+    values:
+      header_type       : "hero"
+      show_bottomnavs   : true
+      show_sociallinks  : true
+      include_on_search : true
+      include_on_feed   : true
+  -
+    scope:
+      path: ""
+      type: "picsofmadrid"
+    values:
+      layout: "landingpage"
+      include_on_search : true
+      include_on_feed   : true
+      header_type       : "splash"
+      show_bottomnavs   : true
+      show_tags         : true
+      cloudtag_url        : "/tags_collection"       #This is where the link on tags would redirect
+  -
+    scope:
+      path: "assets/img/gallery"
+    values:
+      image_col         : gallery
+  -
+    scope:
+      path: ""
+      type: "skins"
+    values:
+      header_type       : "splash"
+      include_on_search : false
+      include_on_feed   : false
+      show_date         : true
+      show_sociallinks  : true
+      show_comments     : true
+      show_tags         : true
+      show_categories   : true
+      show_bottomnavs   : true
+      show_author       : true
+      show_toc          : true
+
+
+
+
+# XX. Other settings - no need to modify
+# HTML Compression
+# - https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  blanklines: true
+
+plugins:
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-include-cache
+  - jekyll-sitemap
+
+# Exclude these files from production site
+exclude:
+  - LICENSE
+  - README.md
+  - Gemfile
+  - vendor
+
+include:
+ - _pages
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  footnote_backlink: '&uarr;'
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style

@@ -1,0 +1,60 @@
+---
+layout: null
+---
+{%- assign og_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
+		<link>{{  ""  | absolute_url }}</link>
+		<description>{{ site.description | xml_escape }}</description>
+		<language>{{- site.locale | default: 'en-US' -}}</language>
+		<copyright>(c)  {{ site.time | date: '%Y' }}, {{  site.author.name | default: site.github.owner_name }}</copyright>	
+		<pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+		<category>blog</category>
+		<ttl>60</ttl>
+		<atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
+		<image>
+			<title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
+			<url>{{- og_image -}}</url>
+			<link>{{ ""  | absolute_url -}}</link>
+			<description>{{ site.description | xml_escape }}</description>
+		</image>
+		{%- assign wpm = words_per_minute | default: 200 -%}
+		{%- assign  alldocs = site.documents | 
+		            where_exp: "item", "item.include_on_feed == true" |
+		            where_exp: "item", "item.date != nil" | 
+		            sort: 'date' | reverse -%}
+		{%- for document in alldocs limit:15 -%}
+		{%- assign ogimage =  document.header_img | 
+		                      default: og_image |
+		                      absolute_url -%}
+		{%- assign words = document.content | strip_html | number_of_words -%}   	
+		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
+		<item>
+			<title>{{ document.title | strip_html | xml_escape }}</title>
+			<description>
+				<![CDATA[	
+ 				{% if document.subtitle %}<h3>{{ document.subtitle | xml_escape }}</h3>{% endif %}
+    		<div>{{ minutes }}’</div>
+				<div>{{ document.content | markdownify | truncatewords: 150 }}</div>
+				]]>
+			</description>
+			<link>{{ document.url | absolute_url }}</link>
+			<category> {{ document.collection }} </category>
+		    {% if document.tags.size > 0 %}
+		  	{% assign tagrss = document.tags | join: ','  | split: ',' | sort | where_exp: "tag","tag != document.layout " %}
+			    {% for tag in tagrss  %}
+			<category>{{ tag }}</category>
+			    {% endfor %}
+		  	{% endif %}
+  		<media:title type="html"><![CDATA[{{ document.title }} ]]></media:title>
+      <media:content url="{{- ogimage -}}" medium="image" width="485" height="321"/>
+      <media:thumbnail url="{{- ogimage -}}"  width="150" height="99"/>
+      <guid isPermaLink="true">{{ document.url | absolute_url }}</guid>
+      <pubDate>{{ document.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+		</item>
+		{%- endfor -%}
+	</channel>
+</rss>

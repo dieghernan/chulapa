@@ -1,0 +1,90 @@
+---
+layout: default
+---
+
+{{- content -}}
+
+
+{%- if page.include_collection -%}
+  {%- assign cols = page.include_collection | split: "," -%}
+  {%- for col  in cols -%}
+    {%- if forloop.first -%}
+      {%- assign alldocs = site.documents | 
+                          where_exp: "item", "item.collection == col" -%}
+      {%- assign showcol = false -%}
+    {%- else -%}
+      {%- assign docloop = site.documents | 
+                          where_exp: "item", "item.collection == col" -%}
+      {%- assign alldocs = alldocs | concat: docloop %}
+      {%- assign showcol = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign alldocs = site.documents -%}
+  {%- assign showcol = true -%}
+{% endif %}
+
+{%- assign alldocs = alldocs | sort: 'date' | reverse -%}
+{%- if page.include_missdates -%}
+{%- else -%}
+  {%- assign alldocs = alldocs | where_exp: "item", "item.date != nil" -%}
+{%- endif -%}
+
+
+{%- assign postsInYear = alldocs | group_by_exp: 'post', 'post.date | date: "%Y"' -%}
+<div class="row row-cols-1 row-cols-sm-2 pt-5 mx-n1" id="years">
+{%- for year in postsInYear -%}
+	<div class="col-sm-6 chulapa-links-hover-only py-2">
+		<a href="#{{ year.name | default: "-" }}" class="d-flex justify-content-between align-items-center border-bottom ">
+{{ year.name | default: "NA" }} <span class="badge rounded-pill chulapa-pill-bg-primary">{{ year.items | size }}</span>
+		</a>
+	</div>
+{%- endfor -%}
+</div>
+
+{%- for year in postsInYear -%}
+<section id="{{ year.name | default: "NA" }}" class="pt-5">
+	<h2 class="display-4 border-bottom border-chulapa">{{ year.name | default: "NA" }}</h2>
+	{%- assign postsInMonth = year.items | group_by_exp: 'post', 'post.date | date: "%B"' -%}
+	{%- for month in postsInMonth  -%}
+	{%- assign dateformat = month.name -%}
+	{% if dateformat %}
+	  <h3>{% include_cached snippets/datetranslate.html  date=dateformat %}</h3>
+	{% endif %}
+  	{%- for document in month.items -%}
+  	{%- assign excerpt = document.excerpt | markdownify | strip_html -%}
+  	{%- assign excerptfallback = document.content |
+									markdownify |  newline_to_br | 
+									replace:"<br />", ",.," | 
+									replace:"{{", ",.," | 
+									replace:"{%", ",.," | 
+									split: ",.," | first | strip_html -%}
+	<article class="ml-2 my-4">
+	  			  {% if document.date %}
+			  {% assign dateformat = document.date | date: "%A, %d" %}
+			  <p class="small mb-1"> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+{% if document.last_modified_at %} <i class="fa fa-redo fa-sm" aria-hidden="true"></i>{% endif %}</p>
+			  {% endif %}
+		<div class="row g-0 mb-2">
+			<div class="col">
+			{%- if showcol -%}
+        <p class="my-1 badge  chulapa-pill-bg-light">{{ document.collection }}</p>
+        {%- endif -%}
+				<h4><a href="{{- document.url | absolute_url -}}" class="chulapa-text-body-color">{{ document.title }}</a></h4>
+				{%- if document.subtitle -%}<h5>{{- document.subtitle -}}</h5> {%- endif -%}
+			</div>
+			{%- if document.header_img  or document.og_image  -%}
+			<a href="{{- document.url | absolute_url -}}" class="col-2 ml-2 btn chulapa-overlay-img chulapa-min-h-10" style="background-image: url('{{ document.og_image | default: document.header_img | absolute_url }}')"></a>
+			{%- endif -%}
+		</div>
+			<p>{{- excerpt | default: excerptfallback | truncatewords: 30 -}}</p>
+		
+	</article>
+	{% endfor %}
+<hr class="w-25 bg-light">
+	{% endfor %}
+	<div class="text-right">
+		<a href="#years" class="btn btn-lg border-0 chulapa-text-body-color"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i><span class="sr-only">Top</span></a>
+	</div>
+</section>
+{% endfor %}
