@@ -70,7 +70,7 @@ navbar:
        url: /docs/02-config
      - title: Theming your site
        url: /docs/03-theming
-     - title: Layouts
+     - title: Layouts & Snippets
        url: /docs/04-layouts
      - title: Tips & Tricks
        url: /docs/05-tips-n-tricks
