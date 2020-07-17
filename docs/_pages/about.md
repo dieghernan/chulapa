@@ -42,5 +42,11 @@ This theme uses [Jekyll Pure Liquid Table of Contents](https://github.com/allejo
 
 This theme uses [Compress HTML in Jekyll](http://jch.penibelst.de/) by [penibelst](https://github.com/penibelst) licensed under the [MIT license](https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE).
 
+This theme uses graphic resources from [Unplash](https://unsplash.com/@dieghernan/collections).
+
+This theme uses graphic resources from [Pexels](https://www.pexels.com/@dieghernan-3081919/collections/).
+
+This theme uses graphic resources from [Lorem Picsum](https://picsum.photos/).
+
 I hereby declared not to be affiliated with any third party whose software may have been implemented on this software. To my best knowledge, all the third-party integrations included on this software adheres to the corresponding licenses. All legal brands used on this theme are displayed for informative and/or aesthetic purposes, and the corresponding logos were obtained from [https://fontawesome.com/](https://fontawesome.com/). 
 
