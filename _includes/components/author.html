@@ -12,6 +12,9 @@
 				<div class="row d-flex align-items-center">
 				  {%- if avatar -%}
 				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto chulapa-avatar-size">
+				  {% else %}
+				  <div class="ml-3 mr-0 mx-lg-auto chulapa-avatar-size chulapa-gradient">
+				    </div>
 					{%- endif -%}
 					<div class="col-9 col-lg-12 mt-lg-2 text-lg-center">
 						{{ name }}
