@@ -147,10 +147,10 @@ defaults:
       path: ""
     values:
       layout: "default"
-      header_type: "base"
+      header_type         : "base"
       include_on_search   : false
-      cloudtag_url        : "/tags"       #This is where the link on tags would redirect
-      cloudcategory_url   : "/categories" #This is where the link on categories would redirect
+      cloudtag_url        : "/tags"
+      cloudcategory_url   : "/categories"
   -
     scope:
       path: ""
@@ -159,6 +159,7 @@ defaults:
       header_type       : "hero"
       include_on_search : true
       show_bottomnavs   : true
+      show_comments     : true
   -
     scope:
       path: ""
@@ -181,9 +182,8 @@ defaults:
       type: "skins"
     values:
       header_type       : "splash"
-      cloudtag_url        : "/demo/tags"
+      cloudtag_url      : "/demo/tags"
       include_on_search : false
-      include_on_feed   : false
       show_date         : true
       show_sociallinks  : true
       show_comments     : true
@@ -197,28 +197,15 @@ defaults:
       path: ""
       type: "demo"
     values:
-      layout: "default"
-      header_type: "base"
-      cloudtag_url        : "/demo/tags"
-      cloudcategory_url   : "/demo/category"
-  -
-    scope:
-      path: ""
-      type: "picsofmadrid"
-    values:
-      layout: "landingpage"
-      include_on_search : true
-      include_on_feed   : true
-      header_type       : "splash"
-      show_bottomnavs   : true
-      show_tags         : true
-      cloudtag_url        : "/tags_collection"       #This is where the link on tags would redirect
+      layout            : "default"
+      header_type       : "base"
+      cloudtag_url      : "/demo/tags"
+      cloudcategory_url : "/demo/category"
   -
     scope:
       path: "assets/img/skinspreview"
     values:
       image_col         : skinpreview
-
   -
     scope:
       path: "assets/img/gallery"
