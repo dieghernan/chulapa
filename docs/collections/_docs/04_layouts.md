@@ -353,7 +353,7 @@ Safe formats under the `fileurl` approach are `*.mp4`, `*.ogg` and `*.webm` file
 
 ### Localization of dates
 
-Overall <span class="Chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.
+Overall <span class="chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.
 
 When dealing with dates, I have designed a snippet that would try to translate months and weekdays to the language set on your `locale` variable on `_config`. As this moment, **english (default)**, french, spanish and german are supported. To use it.
 
