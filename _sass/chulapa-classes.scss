@@ -17,6 +17,10 @@
   background-color: transparent !important;
 }
 
+.chulapa-rounded-lg{
+  @include border-radius($border-radius-lg);
+}
+
 @each $color,
 $value in $theme-colors {
     .chulapa-pill-bg-#{$color} {

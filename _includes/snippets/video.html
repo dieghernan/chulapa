@@ -1,5 +1,5 @@
 {%- if include.fileurl -%}
-<div class="embed-responsive embed-responsive-16by9 my-2">
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
 <video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item" controls>
   Your browser does not support the video tag.
 </video>
@@ -8,15 +8,15 @@
 {% assign video_id = include.id %}
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
-<div class="embed-responsive embed-responsive-16by9 my-2">
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
 {%- if video_provider == "vimeo" -%}
-  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 {%- elsif video_provider == "youtube" -%}
-  <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ video_id }}" allowfullscreen></iframe>
 {%- elsif video_provider == "google-drive" -%}
-  <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview" frameborder="0" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen></iframe>
 {%- elsif video_provider == "bilibili" -%}
-  <iframe class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+  <iframe class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true"></iframe>
 {% endif %}
 </div>
 {% endif %}
