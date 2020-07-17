@@ -336,7 +336,7 @@ This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/
 
 {% include snippets/video.html id="XSq82im-Zkk" provider="youtube" %}
 
-That snippet has been extended and you can also display videos loaded via `url`;
+That snippet has been extended and you can also display videos loaded via `url`:
 
 {% raw %}
 ```
@@ -367,7 +367,7 @@ Safe formats under the `fileurl` approach are `*.mp4`, `*.ogg` and `*.webm` file
 
 Overall <span class="chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.
 
-When dealing with dates, I have designed a snippet that would try to translate months and weekdays to the language set on your `locale` variable on `_config`. As this moment, **english (default)**, french, spanish and german are supported. To use it.
+When dealing with dates, I have designed a snippet that would try to translate months and weekdays to the language set on your `locale` variable on `_config`. As this moment, **english (default)**, french, spanish and german are supported.
 
 **Date formatting** in Liquid is quite flexible. You can have a look to the [Jekyll documents](https://jekyllrb.com/docs/liquid/filters/) and the [official Liquid page](https://shopify.github.io/liquid/filters/date/)
 {: .alert .alert-info .p-3 .mx-2}

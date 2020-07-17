@@ -1,5 +1,5 @@
 {%- assign dateloc = include.date | downcase -%}
-{%- assign langlocale = include.lang | default: site.locale  | default: "en" | downcase | split: "-" | first -%}
+{%- assign langlocale = include.lang | default: site.locale  | default: "en" | downcase | slice: 0,2 -%}
 {%- assign supported = "es,fr,de" | split: "," -%}
 
 {%- assign finallang = "en" -%}
