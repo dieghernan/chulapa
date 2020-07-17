@@ -26,10 +26,21 @@ layout: default
 
 {% assign alldocs = alldocs | sort: 'date' | reverse %}
 {% assign groupcategory =  alldocs | map: 'categories' | join: ','  | split: ','  | group_by: category | sort: 'size' | reverse %}
+
+
+{%- for category in groupcategory -%}
+  {%- if forloop.first -%}
+    {%- assign sizemax = category.size -%}
+  {%- elsif forloop.last -%}
+    {% assign mid = category.size | plus: sizemax | divided_by: 2  %}
+  {%- endif -%}
+{%- endfor -%}
+
+
 <div class="row g-0 pt-5" id="categories">
 <div class="col">
 	{%- for category in groupcategory -%}
-	<a href="#{{- category.name | replace: " ", "-" -}}" class="btn btn-secondary m-1" role="button" style="font-size: calc(1rem + {{category.size}}px/3 - 1px);"><i class="far fa-folder-open mr-2" aria-hidden="true"></i>{{- category.name -}}<span class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{category.size}}</span></a>
+	<a href="#{{- category.name | replace: " ", "-" -}}" class="btn btn-secondary m-1" role="button" style="font-size:  min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ category.size }}rem - {{ mid }}rem))));"><i class="far fa-folder-open mr-2" aria-hidden="true"></i>{{- category.name -}}<span class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{category.size}}</span></a>
 	{%- endfor -%}
 	</div>
 </div>
