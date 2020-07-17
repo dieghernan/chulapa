@@ -353,17 +353,17 @@ Note that in the next examples you can skip the `lang` parameter, as by default 
 ```
 {%- assign formatdate = "2020-02-14" | date: "%A %d, %B %Y" %}
 
-Raw date output is {{ formatdate }}
+- Raw date output is {{ formatdate }}
 
-Without parameter: {% include snippets/datetranslate.html  date=formatdate  %}
+- Without parameter: {% include snippets/datetranslate.html  date=formatdate  %}
 
-In spanish: {% include snippets/datetranslate.html  date=formatdate lang="es-ES" %}
+- In spanish: {% include snippets/datetranslate.html  date=formatdate lang="es-ES" %}
 
-In german: {% include snippets/datetranslate.html  date=formatdate lang="de" %}
+- In german: {% include snippets/datetranslate.html  date=formatdate lang="de" %}
 
-In french: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
+- In french: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
 
-Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
+- Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
 
 ```
 {% endraw %}
@@ -371,17 +371,17 @@ Any other value in english: {% include snippets/datetranslate.html  date=formatd
 
 {%- assign formatdate = "2020-02-14" | date: "%A %d, %B %Y" %}
 
-Raw date output is {{ formatdate }}
+- Raw date output is {{ formatdate }}
 
-Without parameter: {% include snippets/datetranslate.html  date=formatdate  %}
+- Without parameter: {% include snippets/datetranslate.html  date=formatdate  %}
 
-In spanish: {% include snippets/datetranslate.html  date=formatdate lang="es-ES" %}
+- In spanish: {% include snippets/datetranslate.html  date=formatdate lang="es-ES" %}
 
-In german: {% include snippets/datetranslate.html  date=formatdate lang="de" %}
+- In german: {% include snippets/datetranslate.html  date=formatdate lang="de" %}
 
-In french: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
+- In french: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
 
-Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
+- Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
 
 
 
