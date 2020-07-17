@@ -336,8 +336,20 @@ This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/
 
 {% include snippets/video.html id="XSq82im-Zkk" provider="youtube" %}
 
+That snippet has been extended and you can also display videos loaded via `url`;
+
+{% raw %}
+```
+{% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
+```
+{% endraw %}
 
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
+
+Safe formats under the `fileulr` approach are `*.mp4`, `*.ogg` and `*.webm` files. Any other video format may not be displayed.
+{: .alert .alert-warning .p-3 .mx-2}
+
+
 
 ### Localization of dates
 
