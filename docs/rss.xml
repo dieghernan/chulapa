@@ -27,8 +27,8 @@ layout: null
 		            where_exp: "item", "item.date != nil" | 
 		            sort: 'date' | reverse -%}
 		{%- for document in alldocs limit:15 -%}
-		{%- assign ogimage =  document.header_img | 
-		                      default: og_image |
+		{%- assign ogimage = document.og_image | default: document.header_img | 
+		            default: site.og_image |
 		                      absolute_url -%}
 		{%- assign words = document.content | strip_html | number_of_words -%}   	
 		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
