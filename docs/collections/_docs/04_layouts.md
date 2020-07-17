@@ -346,7 +346,7 @@ That snippet has been extended and you can also display videos loaded via `url`;
 
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
 
-Safe formats under the `fileulr` approach are `*.mp4`, `*.ogg` and `*.webm` files. Any other video format may not be displayed.
+Safe formats under the `fileurl` approach are `*.mp4`, `*.ogg` and `*.webm` files. Any other video format may not be displayed.
 {: .alert .alert-warning .p-3 .mx-2}
 
 
