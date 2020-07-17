@@ -337,6 +337,8 @@ This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/
 {% include snippets/video.html id="XSq82im-Zkk" provider="youtube" %}
 
 
+{% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
+
 ### Localization of dates
 
 Overall <span class="Chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.

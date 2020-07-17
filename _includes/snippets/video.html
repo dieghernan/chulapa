@@ -1,14 +1,23 @@
+{%- if include.fileurl -%}
+
+<div class="embed-responsive embed-responsive-16by9 my-2">
+<video src="{{ include.fileurl | absolute_url }}" class="embed-responsive-item" controls>
+  Your browser does not support the video tag.
+</video>
+</div>
+{%- else -%}
 {% assign video_id = include.id %}
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
-<div class="embed-container m-2">
+<div class="embed-responsive embed-responsive-16by9 my-2">
 {%- if video_provider == "vimeo" -%}
-  <iframe src="https://player.vimeo.com/video/{{ video_id }}?dnt=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 {%- elsif video_provider == "youtube" -%}
-  <iframe src="https://www.youtube-nocookie.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
 {%- elsif video_provider == "google-drive" -%}
-  <iframe src="https://drive.google.com/file/d/{{ video_id }}/preview" frameborder="0" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview" frameborder="0" allowfullscreen></iframe>
 {%- elsif video_provider == "bilibili" -%}
-  <iframe src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+  <iframe class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 {% endif %}
 </div>
+{% endif %}
