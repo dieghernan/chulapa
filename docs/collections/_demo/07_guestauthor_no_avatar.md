@@ -1,25 +1,19 @@
 ---
-title: A guest author
-subtitle: And with a new project
+title: Guest author
+subtitle: But no location or image
 categories: [demo, author-guest]
-header_type: splash
-tags: [layout-default,header-splash, social-links, tags, categories, bottom-navs, date, comments, project-links, author, author-guest]
-date: 2020-02-29
+header_type: hero
+tags: [layout-default,header-hero, social-links, tags, categories, bottom-navs, date, comments,  author, author-guest, no-avatar, no-location]
+date: 2020-03-01
 show_date         : true
 show_sociallinks  : true
 show_tags         : true
 show_categories   : true
 show_bottomnavs   : true
-show_author       : true
 show_comments     : true
-project_links:
-    - url: https://github.com/
-      icon: fab fa-github
-      label: Check it on Github
+show_author       : true
 author:
   name: Octocat
-  avatar: https://github.com/octocat.png
-  location: San Francisco, CA 94107, United States
   links:                
     - url: https://github.com/github/
       icon: "fab fa-github"
@@ -31,18 +25,18 @@ author:
       icon: "fab fa-linkedin"
 ---
 
-This page shows how a contributor could be added to your blog. In this case **Octocat** is telling us about its plans on the next months...
+This page shows how a contributor could be added to your blog, but without an avatar or location. **Octocat** is shy today.
 
 
 
 ```yaml
 ---
-title: A guest author
-subtitle: And with a new project
+title: Guest author
+subtitle: But no location or image
 categories: [demo, author-guest]
-header_type: splash
-tags: [layout-default,header-splash, social-links, tags, categories, bottom-navs, date, comments, project-links, author, author-guest]
-date: 2020-02-29
+header_type: hero
+tags: [layout-default,header-hero, social-links, tags, categories, bottom-navs, date, comments,  author, author-guest, no-avatar, no-location]
+date: 2020-03-01
 show_date         : true
 show_sociallinks  : true
 show_tags         : true
@@ -50,14 +44,8 @@ show_categories   : true
 show_bottomnavs   : true
 show_comments     : true
 show_author       : true
-project_links:
-    - url: https://github.com/
-      icon: fab fa-github
-      label: Check it on Github
 author:
   name: Octocat
-  avatar: https://github.com/octocat.png
-  location: San Francisco, CA 94107, United States
   links:                
     - url: https://github.com/github/
       icon: "fab fa-github"
