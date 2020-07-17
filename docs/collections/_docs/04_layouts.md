@@ -340,16 +340,28 @@ That snippet has been extended and you can also display videos loaded via `url`;
 
 {% raw %}
 ```
+**Hosted on this repo**
+
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
+
+**publicdomainmovie.net**
+
+{% include snippets/video.html fileurl="https://ia803002.us.archive.org/2/items/bb_and_grampy/bb_and_grampy_512kb.mp4" %}
+
+
 ```
 {% endraw %}
 
+**Hosted on this repo**
+
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
+
+**publicdomainmovie.net**
+
+{% include snippets/video.html fileurl="https://ia803002.us.archive.org/2/items/bb_and_grampy/bb_and_grampy_512kb.mp4" %}
 
 Safe formats under the `fileurl` approach are `*.mp4`, `*.ogg` and `*.webm` files. Any other video format may not be displayed.
 {: .alert .alert-warning .p-3 .mx-2}
-
-
 
 ### Localization of dates
 
