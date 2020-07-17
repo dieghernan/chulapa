@@ -88,7 +88,8 @@ navbar:
        url: /demo/tags
      - title: Category Cloud (single)
        url: /demo/category
-
+     - title: About
+       url: /about
 footer:
   links:
     - label: "RSS"
