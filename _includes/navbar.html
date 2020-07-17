@@ -49,7 +49,7 @@
 		</nav>
 	</div>
 {%- elsif site.navbar.style == "dual" -%}	
-	<div class="navbar-chulapa-modern d-lg-none">
+	<div class="navbar-chulapa-modern d-md-none">
 		<input type="checkbox" class="navbar-chulapa-modern-button d-none" id="navi-toggle">
 		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
 			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
@@ -98,7 +98,7 @@
 		</nav>
 	</div>
 	
-	<nav class="navbar sticky-top navbar-expand navbar-chulapa d-none d-lg-block ">
+	<nav class="navbar sticky-top navbar-expand navbar-chulapa d-none d-md-block ">
 	<div class="container-fluid mx-md-2">
 			<a class="navbar-brand text-uppercase font-weight-bold" href="{{ site.navbar.brand.url | default: "/" | absolute_url }}">
 			{%- if site.navbar.brand.img -%}
