@@ -387,6 +387,7 @@ $value in $theme-colors {
         padding: 0;
         margin-bottom: map-get($spacers, 1);
         display: inline-block;
+        max-width: 100%;
         @include border-radius($border-radius);
 
     }
