@@ -317,7 +317,9 @@ https://picsum.photos/seed/70/700/500,
 {% assign externalgallery = "
 ./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
 https://picsum.photos/seed/70/700/500,
-./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" %}
+./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg,
+./assets/img/gallery/city-spain-dense-17658.jpg,
+./assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" %}
 
 {% include_cached snippets/masonry.html external=externalgallery %}
 
