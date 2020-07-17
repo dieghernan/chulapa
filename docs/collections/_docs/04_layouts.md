@@ -219,7 +219,7 @@ Optional arguments:
 - `include_collection`: see [Archive](#archive) layout.
 - `index_sort`: Sorting variable extracted from the front matter, as `title`, `date` or any custom variable. **name of the file**.
 - `index_sort_asc`: Set it to `true` if yo want to have the cards sorted in ascending order.
-- `page.index_items`: Limit the number of items to be displayed. **10**.
+- `index_items`: Limit the number of items to be displayed. **10**.
 
 See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
@@ -284,6 +284,40 @@ Then just copy the following snippet:
 {% endraw %}
 
 {% include_cached snippets/masonry.html internal="gallery" %}
+
+There are three optional parameters that you can use for controlling the output:
+- `index_sort`: *(internal galleries only)* See [Index category](#index-category). Note that static files, as images, has a [limited set of variables](https://jekyllrb.com/docs/static-files/). **modified_time**.
+- `index_sort_asc`: *(internal galleries only)* See [Index category](#index-category).
+- `index_items`: See [Index category](#index-category). **100**.
+
+
+{% raw %}
+```
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
+```
+{% endraw %}
+
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
+
+If you need further control of your output, you can just pass your internal gallery as external:
+
+{% raw %}
+```
+{% assign externalgallery = "
+./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
+https://picsum.photos/seed/70/700/500,
+./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" %}
+
+{% include_cached snippets/masonry.html external=externalgallery %}
+```
+{% endraw %}
+
+{% assign externalgallery = "
+./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
+https://picsum.photos/seed/70/700/500,
+./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" %}
+
+{% include_cached snippets/masonry.html external=externalgallery %}
 
 ### Video support
 
