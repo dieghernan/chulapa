@@ -8,6 +8,15 @@ test: demo
 ---
 
 
+{%- assign alldocs = site.documents -%}
+
+
+{% assign grouptag =  alldocs | map: 'tags' | join: ','  | split: ','  | group_by: tag | sort: 'size' | reverse %}
+
+{{ grouptag | inspect }}
+
+
+
 {% assign cols = page.test | split: "," %}
 
 
