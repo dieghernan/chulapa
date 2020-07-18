@@ -39,7 +39,7 @@ layout: null
  				{% if document.subtitle %}<h3>{{ document.subtitle | escape }}</h3>{% endif %}
     		<div>{{ minutes }}min.</div>
 				<div>{{ document.content
-				| markdownify | newline_to_br | truncatewords: 150 }}</div>
+				| markdownify }}</div>
 				]]>
 			</description>
 			<link>{{ document.url | absolute_url }}</link>
