@@ -49,11 +49,9 @@ author:
       icon: far fa-envelope
       ...
 ```
-### Sharing your content nicely
 
-You don't have to set anything, the theme already shipped this for you. Twitter Cards, LinkedIn Post Inspector, Facebook Validator, WhatsApp... even Google Structured Data! Every page shared would look awesome.
-
-Learn more about Google Structured Data [here](https://developers.google.com/search/docs/guides/intro-structured-data?hl=en). You can check any page on [this testing tool](https://search.google.com/structured-data/testing-tool/u/0/).
+**Your pages would look awesome on social networks**: You don't have to set anything, the theme already shipped this for you. Twitter Cards, LinkedIn Post Inspector, Facebook Validator, WhatsApp and some structured data! Every page shared would look awesome.
+{: .alert .alert-success .p-3 .mx-2 mb-3}
 
 ### Fontawesome
 
