@@ -83,6 +83,7 @@
     <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" />
     <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" />
     <meta name="description" content="{{- ogdesc | truncate: 130 -}}"/>
+    <meta name="thumbnail" content="{{ ogimage }}" />
     <meta name="robots" content="index, follow">
     {%- assign: keyword =  site.github.public_repositories | 
                           where_exp:"item", "item.name == site.github.repository_name " | 
