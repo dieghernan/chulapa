@@ -7,10 +7,11 @@ permalink: ./rss.xml
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 	<channel>
 		<title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
+		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
 		<link>{{  ""  | absolute_url }}</link>
 		<description>{{ site.description | xml_escape }}</description>
 		<language>{{- site.locale | default: 'en-US' -}}</language>
-		<copyright>(c)  {{ site.time | date: '%Y' }}, {{  site.author.name | default: site.github.owner_name }}</copyright>	
+		<copyright>(c) {{ site.time | date: '%Y' }}, {{  site.author.name | default: site.github.owner_name }}</copyright>	
 		<pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
 		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
 		<category>blog</category>
@@ -44,13 +45,13 @@ permalink: ./rss.xml
 				]]>
 			</description>
 			<link>{{ document.url | absolute_url }}</link>
-			<category> {{ document.collection }} </category>
-		    {% if document.tags.size > 0 %}
-		  	{% assign tagrss = document.tags | join: ','  | split: ',' | sort | where_exp: "tag","tag != document.layout " %}
-			    {% for tag in tagrss  %}
+			<category>{{ document.collection }}</category>
+		    {% if document.tags.size > 0 -%}
+		  	{%- assign tagrss = document.tags | join: ','  | split: ',' | sort | where_exp: "tag","tag != document.layout "   -%}
+			    {% for tag in tagrss  -%}
 			<category>{{ tag }}</category>
-			    {% endfor %}
-		  	{% endif %}
+			    {%- endfor %}
+		  	{%- endif %}
   		<media:title type="html"><![CDATA[{{ document.title }} ]]></media:title>
       <media:content url="{{- ogimage -}}" medium="image"/>
       <media:thumbnail url="{{- ogimage -}}" />
