@@ -94,7 +94,7 @@ footer:
   links:
     - label: "RSS"
       icon: "fa fa-rss"
-      url:  "./assets/rss.xml"
+      url:  "./rss.xml"
     - label: "GitHub"
       icon: "fab fa-github"
       url: https://github.com/dieghernan/

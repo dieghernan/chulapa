@@ -1,5 +1,6 @@
 ---
 layout: null
+permalink: ./rss.xml
 ---
 {%- assign og_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -26,7 +27,7 @@ layout: null
 		            where_exp: "item", "item.include_on_feed == true" |
 		            where_exp: "item", "item.date != nil" | 
 		            sort: 'date' | reverse -%}
-		{%- for document in alldocs limit:15 -%}
+		{%- for document in alldocs -%}
 		{%- assign ogimage = document.og_image | default: document.header_img | 
 		            default: site.og_image |
 		                      absolute_url -%}
