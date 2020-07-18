@@ -32,7 +32,7 @@ For some variables, a default value is provided. This value is shown at the end 
   - `name` of the author, it will be injected on several parts of your site, as the footer or different `<meta>` tags. **github username** for metadata.
   - `avatar`:  The avatar of the author, note that your github avatar is available on https://github.com/[USERNAME].png. Square images preferred.
   - `location`: As a nice touch, this would link to Google Maps 😉.
-  - `links`: A list of social links. You may set an url and a [Fontawesome 5](https://fontawesome.com/icons?d=gallery) code for each social link.
+  - `links`: A list of social links. You may set an url and a [Fontawesome 5](https://fontawesome.com/icons?d=gallery) code for each social link. You can also include an email address on this list. 
 
 See below a full example for an `author`:
 ```yaml
@@ -45,6 +45,8 @@ author:
       icon: "fab fa-twitter"
     - url: https://www.facebook.com
       icon: "fab fa-facebook"
+    - url: fake@email
+      icon: far fa-envelope
       ...
 ```
 ### Sharing your content nicely

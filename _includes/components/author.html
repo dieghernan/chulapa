@@ -32,7 +32,7 @@
 						<div class="d-inline my-1 mx-lg-0 chulapa-links-hover-only">
 							{%- for item in links -%}
 							{%- if item.url contains "@" -%}
-							<a class="mx-1" href="mailto:{{ item.url }}?subject={{ page.title | url_encode }}"><i class="{{ item.icon }} fa-lg"></i></a>
+							<a class="mx-1" href="mailto:{{ item.url }}?subject={{ page.title | url_encode | replace: '%20', '+' }}"><i class="{{ item.icon }} fa-lg"></i></a>
 							{%- else -%}
 							<a class="mx-1" href="{{ item.url }}"><i class="{{ item.icon }} fa-lg"></i></a>
 							{%- endif -%}
