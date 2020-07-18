@@ -106,7 +106,7 @@ author:
 
 - `include_on_feed`: Include on your feed this page.
 
-**Note that** the page would be included on the feed if this option is set to `true` **and** there is a `date` set. Post on Jekyll needs a date already present in the name of the file, but pages and collections don't, so set a `date` value for those. Also, you must have a copy of [this file](https://raw.githubusercontent.com/dieghernan/chulapa/master/docs/rss.xml)  on the root of your repo (where your `_config` file is hosted) named `rss.xml`.
+**Note that** the page would be included on the feed if this option is set to `true` **and** there is a `date` set. Posts on Jekyll needs a date already present in the name of the file, but pages and collections don't, so set a `date` value for those. Your feed ia available on `https://yoururl/rss.xml`.
 {: .alert .alert-warning .p-3 .mx-2}
 
 - `show_comments`: Activates comments on the page.
