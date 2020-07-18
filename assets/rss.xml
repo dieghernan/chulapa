@@ -15,7 +15,7 @@ permalink: ./rss.xml
 		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
-		<atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
+		<atom:link href="{{ page.url | absolute_url }}" rel="self" type="application/rss+xml" />
 		<image>
 			<title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
 			<url>{{- og_image -}}</url>
