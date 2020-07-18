@@ -327,14 +327,13 @@ https://picsum.photos/seed/70/700/500,
 
 This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#responsive-video-embed), so you may want to check its docs. Providers available are Youtube, Vimeo, videos hosted on Google Drive and bilibili.
 
-
 {% raw %}
 ```
-{% include snippets/video.html id="XSq82im-Zkk" provider="youtube" %}
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" %}
 ```
 {% endraw %}
 
-{% include snippets/video.html id="XSq82im-Zkk" provider="youtube" %}
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" %}
 
 That snippet has been extended and you can also display videos loaded via `url`:
 
