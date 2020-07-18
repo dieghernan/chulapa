@@ -23,6 +23,8 @@ author:
       icon: "fab fa-facebook"
     - url: https://www.linkedin.com/company/github
       icon: "fab fa-linkedin"
+    - url: fakeemail@github.com
+      icon: far fa-envelope
 ---
 
 This page shows how a contributor could be added to your blog, but without an avatar or location. **Octocat** is shy today.
