@@ -235,7 +235,7 @@ $value in $theme-colors {
 
 .splash-chulapa {
     @extend .hero-chulapa;
-    height: 100vh;
+    min-height: 100vh;
 
     h1,
     p {
@@ -301,7 +301,7 @@ $value in $theme-colors {
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        @include fluid-type(height, breakpoint-min("sm"), breakpoint-min("lg"), 20vh, 30vh);
+        @include fluid-type(height, breakpoint-min("sm"), breakpoint-min("lg"), 25vh, 33vh);
     }
 }
 
