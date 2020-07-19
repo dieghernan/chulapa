@@ -73,6 +73,16 @@
       }]
     }
     </script>
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "name": "{{ metatitle1 | strip_html }}",
+    "description": "{{ ogdesc }}"
+    }
+}
+</script>
+    
     <title>{{ metatitle | strip_html }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
     <!-- Feed -->
