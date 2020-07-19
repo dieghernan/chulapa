@@ -89,6 +89,9 @@ where_exp: "item", "item.url contains 'http'"
 {
   "@context" : "https://schema.org",
   "@type" : "Person",
+  {% if site.author.avatar %}
+  "image": "{{ site.author.avatar | absolute_url }}",
+  {% endif %}
   "name" : "{{ site.author.name | default: site.github.owner_name }}",
   "url" : "{{ "/" | absolute_url }}"
   {% if sitelink %}
