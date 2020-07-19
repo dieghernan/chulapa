@@ -9,7 +9,7 @@ h_max: 5
 
 <p class="font-weight-light font-italic lead">TL;DR</p>
 
-Learn how to modify your `_config.yml` file. If you are using the remote method and you didn't fork the chulapa-remote-PENDING repo, you can use [this file](https://github.com/dieghernan/chulapa/blob/master/_config.yml) as a starting point. Don't forget to add also `remote_theme: dieghernan/chulapa@[version]` to your file.
+Learn how to modify your `_config.yml` file. If you are using the remote method and you didn't fork the [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), you can use [this file](https://github.com/dieghernan/chulapa/blob/master/_config.yml) as a starting point. Don't forget to add also `remote_theme: dieghernan/chulapa@[version]` to your file.
 
 For some variables, a default value is provided. This value is shown at the end of the explanation **on bold**.
 

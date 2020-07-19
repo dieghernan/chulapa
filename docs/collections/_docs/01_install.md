@@ -10,7 +10,7 @@ excerpt: Install Chulapa on your Github repo
 
 ## 1. Remote theme method <i class="fas fa-thumbs-up fa-xs"></i>
 
-This is the **recommended option**. You can use the `jekyll-remote-theme` method with this theme. Go to this dedicated [repo - pending](). fork it and quickstart your site!
+This is the **recommended option**. You can use the `jekyll-remote-theme` method with this theme. Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), fork it and quickstart your site!
 
 If you prefer not to fork the dedicated repo, follow these steps:
 
@@ -25,7 +25,11 @@ remote_theme: dieghernan/chulapa@[releasetag]
 
 ```
     
-Be sure that you replace `@[releasetag]` with the desired release tag, or just use `dieghernan/chulapa` if you want to use the `master` branch version of the theme (on active development). Latest release is `dieghernan/chulapa@pending`.
+Be sure that you replace `@[releasetag]` with the desired release tag, or just use `dieghernan/chulapa` if you want to use the `master` branch version of the theme (on active development).
+
+**As by now** no releases of the theme are available, so you may use `remote_theme: dieghernan/chulapa`. Note that this theme is still **WIP**.
+{: .alert .alert-info .p-3 .mx-2}
+
 
 <div markdown="1" class="alert alert-warning p-3 mx-2">
 **Don't forget to deploy your site:**
