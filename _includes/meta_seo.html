@@ -91,6 +91,14 @@ where_exp: "item", "item.url contains 'http'"
   "@type" : "Person",
   "name" : "{{ site.author.name | default: site.github.owner_name }}",
   "url" : "{{ "/" | absolute_url }}"
+  {% if sitelink %}
+  ,  "sameAs" : [
+  {% for item in sitelink %}
+  "{{ item.url }}"{%- if forloop.last %}{% else %},{% endif %}
+  {% endfor %}
+  
+  ]
+  {% endif %}
 }
 </script>
 
