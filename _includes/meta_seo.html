@@ -92,6 +92,13 @@ where_exp: "item", "item.url contains 'http'"
   {% if site.author.avatar %}
   "image": "{{ site.author.avatar | absolute_url }}",
   {% endif %}
+  {% if site.author.location %}
+  "location": {
+    "@type": "Place",
+    "name": "{{ site.author.location }}"
+    },
+  {% endif %}
+  "description": "publisher",
   "name" : "{{ site.author.name | default: site.github.owner_name }}",
   "url" : "{{ "/" | absolute_url }}"
   {% if sitelink %}
@@ -104,7 +111,9 @@ where_exp: "item", "item.url contains 'http'"
   {% endif %}
 }
 </script>
+{% if page.author %}
 
+{% endif %}
     
     <title>{{ metatitle | strip_html }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
