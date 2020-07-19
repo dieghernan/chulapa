@@ -8,6 +8,7 @@
 {% assign video_id = include.id %}
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
+<!-- https://embedresponsively.com/ -->
 <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
 {%- if video_provider == "vimeo" -%}
   <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
@@ -17,6 +18,9 @@
   <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen></iframe>
 {%- elsif video_provider == "bilibili" -%}
   <iframe class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true"></iframe>
+{%- elsif video_provider == "dailymotion" -%}
+<iframe class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
 {% endif %}
 </div>
 {% endif %}
