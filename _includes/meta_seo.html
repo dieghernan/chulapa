@@ -82,6 +82,27 @@
     }
 }
 </script>
+{%- assign sitelink = site.author.links | 
+where_exp: "item", "item.url contains 'http'"
+-%}
+
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "Person",
+  "name" : "{{ site.author.name | default: site.github.owner_name }}",
+  "url" : "{{ "/" | absolute_url }}"
+  {%- if sitelinks -%}
+  ,
+  "sameAs" : [
+    {% for item in sitelinks %}
+    "{{ item.url | absolute_url }}"
+    {% if forloop.last %}{% else %},{% endif %}
+  ]
+  {% endif %}
+}
+</script>
+
     
     <title>{{ metatitle | strip_html }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
