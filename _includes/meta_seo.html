@@ -93,12 +93,12 @@ where_exp: "item", "item.url contains 'http'"
   "image": "{{ site.author.avatar | absolute_url }}",
   {% endif %}
   {% if site.author.location %}
-  "location": {
+  "homeLocation": {
     "@type": "Place",
     "name": "{{ site.author.location }}"
     },
   {% endif %}
-  "description": "publisher",
+  "description": "Publisher",
   "name" : "{{ site.author.name | default: site.github.owner_name }}",
   "url" : "{{ "/" | absolute_url }}"
   {% if sitelink %}
