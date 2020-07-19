@@ -8,6 +8,9 @@ test: demo
 ---
 
 
+{% include snippets/video.html id="xsr67x" provider="dailymotion" %}
+
+
 {%- assign alldocs = site.documents -%}
 
 

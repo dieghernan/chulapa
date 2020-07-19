@@ -325,7 +325,7 @@ https://picsum.photos/seed/70/700/500,
 
 ### Video support
 
-This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#responsive-video-embed), so you may want to check its docs. Providers available are Youtube, Vimeo, videos hosted on Google Drive and bilibili.
+This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#responsive-video-embed), so you may want to check its docs. Providers available are `youtube`, `vimeo`, `dailymotion` (new!), videos hosted on Google Drive (`google-drive`) and `bilibili`.
 
 {% raw %}
 ```
@@ -343,6 +343,7 @@ That snippet has been extended and you can also display videos loaded via `url`:
 
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
 
+
 **publicdomainmovie.net**
 
 {% include snippets/video.html fileurl="https://ia803002.us.archive.org/2/items/bb_and_grampy/bb_and_grampy_512kb.mp4" %}
@@ -354,6 +355,7 @@ That snippet has been extended and you can also display videos loaded via `url`:
 **Hosted on this repo**
 
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
+
 
 **publicdomainmovie.net**
 
