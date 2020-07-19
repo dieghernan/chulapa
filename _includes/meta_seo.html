@@ -131,8 +131,16 @@ where_exp: "item", "item.url contains 'http'"
   "name" : "{{ page.author.name  }}"
   {% if pagelink %}
     {% for item in pagelink %}
-      {% if forloop.fist %}
+      {% if forloop.first %}
   "url": "item.url"
+      {% else %}
+        {% if forloop.index == 2 %}
+      ,  "sameAs" : [
+        {% endif %}
+      "{{ item.url }}"{%- if forloop.last %}{% else %},{% endif %}
+        {% if forloop.index == 2 %}
+      ]
+        {% endif %}
       {% endif %}
     {% endfor %}
   {% endif %}
