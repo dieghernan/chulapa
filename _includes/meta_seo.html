@@ -15,8 +15,10 @@
                 replace:"{%", ",.," | 
                 split: ",.," | first -%}
 {%- assign ogdesc = page.excerpt | default: descfallback |
-                default: page.subtitle | default: page.title |
                 strip_html | escape_once  -%}
+{%- if page.subtitle -%}
+{%- assign ogdesc = page.subtitle | append: " - " | append: ogdesc | strip_html | escape_once  -%}
+{%- endif -%}
 {%- assign links = page.author.links | default: site.author.links -%}
 {%- for item in links -%}
   {%- if item.url contains "twitter.com/" -%}
