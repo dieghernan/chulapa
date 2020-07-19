@@ -2,20 +2,20 @@
 # Overall options for your site, would affect your site SEO
 # Default values are explained
 locale                  :    #default["en-US"] format language-TERRITORY , e.g fr, en-GB, es-MX, pt-BR
-title                   :     Chulapa #default["repository_name"]
+title                   :     #default["repository_name"]
 title_separator         :     #default [" | "]
-subtitle                :     A Jekyll theme for Github Pages powered by Bootstrap #default [your-repository-tagline]  
+subtitle                :     #default [your-repository-tagline]  
 url                     :     #See baseurl - On Github Pages you may leave it blank
 baseurl                 :     #On Github Pages you may leave it blank. Have a look to: https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
 words_per_minute        :     #default[200]
-timezone                :     "Europe/Madrid" #See https://jekyllrb.com/docs/configuration/options/
-og_image                :     "./assets/img/site/chulapa-madrid.jpg" #default[author.avatar (see below)] or [github-avatar]
+timezone                :     #"Europe/Madrid ,see https://jekyllrb.com/docs/configuration/options/
+og_image                :     #default[author.avatar (see below)] or [github-avatar]
 twitter_site            :     #Avoid @
 # Site Author: about the creator of this site
 # Add social links using full urls and "icon" using Fontawesome 5 selectors (e.g. "fab fa-twitter")
 author:
-  name                  :      Name Surname Company
-  avatar                :      ./assets/img/site/brand_black.png #Info: Your github avatar on https://github.com/[USERNAME].png
+  name                  :      #Name Surname Company
+  avatar                :      #./assets/img/site/brand_black.png Info: Your github avatar on https://github.com/[USERNAME].png
   location              :      false
   links:                
     - url: https://twitter.com/jack
@@ -30,7 +30,7 @@ fa5_kit_code:  # Your FontAwesome 5 kit code. If not provided a free hosted vers
 # Web tracking - Google services https://analytics.google.com/analytics/web/
 # gtag_id is the preferred option, see https://developers.google.com/analytics/devguides/collection/gtagjs/migration?hl=en
 # analytics provided for backwards compatibility
-gtag_id                 :  UA-139034853-2  
+gtag_id                 :  
 analytics_id            :  
 
 # Search providers
@@ -45,9 +45,9 @@ search:
   lunr_maxwords         :  #default [30] lunr only - May slow down your site build
   algolia_logo          :  true #Displays algolia logo. Should be set to true if you are on a community plan, otherwise false.  
 
-google_cse_id: "002514516175957445995:ep842kgah4q" #Your cse id
+google_cse_id: #Your cse id
 # This site uses jekyll-algolia plugin https://community.algolia.com/jekyll-algolia/
-# Recommended additional configuration provided, could be modified
+# Recommended additional configuration provided, could be modified. Add your own parameters
 algolia:                                                                   
   application_id        : "KOIKA5PDQO"
   index_name            : "chulapa"
@@ -75,8 +75,8 @@ algolia:
     - desc(subtitle)
     
 comments:
-  provider: disqus #Enable comments via Disqus https://disqus.com/
-  disqus_shortname: chulapa #Your site id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
+  provider: #Enable comments via Disqus https://disqus.com/
+  disqus_shortname: #Your site id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
 
 
 # B. Navigation
@@ -93,15 +93,7 @@ navbar:
     img     : "./assets/img/site/brand_black.png"
   nav:
   - title: Blog
-    url: /blog/
-  - title: Boostrap		
-    url: /bootstrap		
-  - title: Collections		
-    child:		
-     - title: Demos		
-       url: /demo		
-     - title : Pics of Madrid		
-       url: /picsofmadrid		
+    url: /blog	
   - title: Others		
     child:		
      - title: Liquid		
@@ -120,20 +112,10 @@ footer:
     - label: "Twitter"
       icon: "fab fa-twitter"
       url: https://twitter.com/
-    - label: "Facebook"
-      icon: "fab fa-facebook"
-      url: https://www.facebook.com
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: https://www.github.com
-    - label: "Instagram"
-      icon: "fab fa-instagram"
-      url: https://www.instagram.com
 
 # C. Theme Settings
 # Google Fonts https://fonts.google.com/, add as many as you need
 googlefonts:
- - url: https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&display=swap
  # - url : # 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
 #  - url : #example: 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap' 
 
@@ -157,9 +139,6 @@ chulapa-skin:
   autothemer  :  true # Bool: Use autotheming
   vars        :    
     primary:   teal #default ["#007bff"] - Bootstrap blue
-    font-family-sans-serif: Rubik, sans-serif  #default ["bootstrap option"]
-    headings-font-family: Raleway, sans-serif
-    hero-chulapa-bg-color: 
     
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 
@@ -168,16 +147,12 @@ collections:
   demo:
     output: true
     permalink: /demo/:name
-  picsofmadrid:
-    output: true
   docs:
     output: true
     permalink: /docs/:name
   skins:
     output: true
     permalink: /skins/:name
-    order:
-    - current.md
 collections_dir     : docs/collections
 permalink           : /:year:month:day_:title/
 
@@ -198,7 +173,6 @@ defaults:
       include_on_search   : false
       cloudtag_url        : "/tags"       #This is where the link on tags would redirect
       cloudcategory_url   : "/categories" #This is where the link on categories would redirect
-
   -
     scope:
       path: ""
@@ -210,7 +184,7 @@ defaults:
       show_date         : true
       show_bottomnavs   : true
       show_sociallinks  : true
-      show_comments     : false
+      show_comments     : true
       show_tags         : true
       show_categories   : true
       show_author       : true
@@ -225,39 +199,6 @@ defaults:
       show_sociallinks  : true
       include_on_search : true
       include_on_feed   : true
-  -
-    scope:
-      path: ""
-      type: "picsofmadrid"
-    values:
-      layout: "landingpage"
-      include_on_search : true
-      include_on_feed   : true
-      header_type       : "splash"
-      show_bottomnavs   : true
-      show_tags         : true
-      cloudtag_url        : "/tags_collection"       #This is where the link on tags would redirect
-  -
-    scope:
-      path: "assets/img/gallery"
-    values:
-      image_col         : gallery
-  -
-    scope:
-      path: ""
-      type: "skins"
-    values:
-      header_type       : "splash"
-      include_on_search : false
-      include_on_feed   : false
-      show_date         : true
-      show_sociallinks  : true
-      show_comments     : true
-      show_tags         : true
-      show_categories   : true
-      show_bottomnavs   : true
-      show_author       : true
-      show_toc          : true
 
 
 

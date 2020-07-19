@@ -18,11 +18,9 @@ author:
       icon: "fab fa-stack-overflow"
 
 gtag_id:  UA-139034853-2  
-
 search:
   provider: algolia
   algolia_logo: true
-  
 algolia:                                                                   
   application_id        : "KOIKA5PDQO"
   index_name            : "chulapa"
@@ -46,8 +44,7 @@ algolia:
     - desc(include_on_search)
     - desc(title)
     - desc(content) 
-    - desc(subtitle)
-    
+    - desc(subtitle)    
 comments:
   provider: disqus
   disqus_shortname: chulapa
@@ -103,7 +100,6 @@ footer:
       url: "https://dieghernan.github.io/"
 
 # C. Theme Settings
-
 chulapa-skin: 
   highlight   : "ZENBURN"
   autothemer  :  true 
@@ -111,11 +107,7 @@ chulapa-skin:
     primary:   '#efebdd'
     secondary: "#dfd7ba"
     link-color: '#a19d8e'
-    
-    
-#enable-responsive-font-sizes: true
-
-    
+       
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 
 # Collections https://jekyllrb.com/docs/step-by-step/09-collections/
@@ -123,8 +115,6 @@ collections:
   demo:
     output: true
     permalink: /demo/:name
-  picsofmadrid:
-    output: true
   docs:
     output: true
     permalink: /docs/:name
@@ -138,7 +128,7 @@ permalink           : /:year:month:day_:title/
 # Blog pagination: on this site /blog/index.html. https://jekyllrb.com/docs/pagination/
 paginate: 4
 paginate_path: "/blog/page:num/"
-paginator_maxnum: 3  #default[3] Custom: max of number to be displayed on the paginator
+paginator_maxnum: 3 
 
 # Defaults https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
@@ -203,18 +193,9 @@ defaults:
       cloudcategory_url : "/demo/category"
   -
     scope:
-      path: "assets/img/skinspreview"
-    values:
-      image_col         : skinpreview
-  -
-    scope:
       path: "assets/img/gallery"
     values:
       image_col         : gallery
-
-
-
-
 
 # XX. Other settings - no need to modify
 # HTML Compression
