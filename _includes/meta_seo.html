@@ -132,14 +132,16 @@ where_exp: "item", "item.url contains 'http'"
   {% if pagelink %}
     {% for item in pagelink %}
       {% if forloop.first %}
-  "url": "item.url"
+  , "url": "item.url"
       {% else %}
         {% if forloop.index == 2 %}
       ,  "sameAs" : [
         {% endif %}
-      "{{ item.url }}"{%- if forloop.last %}{% else %},{% endif %}
-        {% if forloop.index == 2 %}
-      ]
+      "{{ item.url }}"
+        {%- if forloop.last %}
+        ]
+        {% else %}
+        ,
         {% endif %}
       {% endif %}
     {% endfor %}
