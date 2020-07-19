@@ -106,15 +106,39 @@ where_exp: "item", "item.url contains 'http'"
   {% for item in sitelink %}
   "{{ item.url }}"{%- if forloop.last %}{% else %},{% endif %}
   {% endfor %}
-  
   ]
   {% endif %}
 }
 </script>
 {% if page.author %}
-
+{%- assign pagelink = page.author.links | 
+where_exp: "item", "item.url contains 'http'"
+-%}
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "Person",
+  {% if page.author.avatar %}
+  "image": "{{ page.author.avatar | absolute_url }}",
+  {% endif %}
+  {% if page.author.location %}
+  "homeLocation": {
+    "@type": "Place",
+    "name": "{{ page.author.location }}"
+    },
+  {% endif %}
+  "description": "Collaborator",
+  "name" : "{{ page.author.name  }}"
+  {% if pagelink %}
+    {% for item in pagelink %}
+      {% if forloop.fist %}
+  "url": "item.url"
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+}
+</script>
 {% endif %}
-    
     <title>{{ metatitle | strip_html }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
     <!-- Feed -->
