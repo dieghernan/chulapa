@@ -342,7 +342,9 @@ That snippet has been extended and you can also display videos loaded via `url`:
 **Hosted on this repo**
 
 {% include snippets/video.html fileurl="./assets/mp4/marseme_Alex_Soloviev.mp4" %}
-Marseme GO France by [Alex Soloviev](https://vimeo.com/alexsoloviev){: .caption}
+<div class="caption" markdown="1">
+Marseme GO France by [Alex Soloviev](https://vimeo.com/alexsoloviev)
+</div>
 
 **publicdomainmovie.net**
 
@@ -355,7 +357,9 @@ Marseme GO France by [Alex Soloviev](https://vimeo.com/alexsoloviev){: .caption}
 **Hosted on this repo**
 
 {% include snippets/video.html fileurl="./assets/mp4/marseme_Alex_Soloviev.mp4" %}
-Marseme GO France by [Alex Soloviev](https://vimeo.com/alexsoloviev){: .caption}
+<div class="caption" markdown="1">
+Marseme GO France by [Alex Soloviev](https://vimeo.com/alexsoloviev)
+</div>
 
 **publicdomainmovie.net**
 
