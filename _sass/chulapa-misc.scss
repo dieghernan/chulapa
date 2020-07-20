@@ -39,6 +39,7 @@ hr {
 }
 
 blockquote {
+    @extend .blockquote;
     @extend .px-2;
     @extend .py-1;
     background-color: $blockquote-chulapa-bg-color;
