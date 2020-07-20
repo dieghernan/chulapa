@@ -26,21 +26,25 @@ SOFTWARE.**
 
 ## Attributions
 
-<span class="chulapa">Chulapa</span> is a font owned by the City Council of Madrid designed and produced by Joancarles Casasín y Pablo Gámez on a previous design of Silvia Fernández Palomar licensed under [Creative Commons CC BY, Versión 4.0](https://creativecommons.org/licenses/by/4.0/). This theme uses a modification of this work in order to provide support to the english language.
+<span class="chulapa">Chulapa</span> is a font owned by the City Council of Madrid designed and produced by Joancarles Casasín y Pablo Gámez on a previous design of Silvia Fernández Palomar licensed under [Creative Commons CC BY, Versión 4.0](https://creativecommons.org/licenses/by/4.0/). This theme incorporates a modification of this work in order to provide support to the english language.
 
 Bootstrap v.4.5 is released under the [MIT license](https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE) and is copyright 2020 Twitter.
 
 Fontawesome 5.x is free, open source, and GPL friendly - [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License).
 
-This theme uses some pieces of code from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) by [Michael Rose](https://mademistakes.com/), licensed under the [MIT license](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE).
+This theme incorporates some pieces of code from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/), Copyright (c) 2013-2020 [Michael Rose](https://mademistakes.com/) and contributors distributed under the terms of the [MIT license](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE).
 
-This theme uses [Pygments CSS Themes](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html), developed by [jwarby](https://github.com/jwarby/) and licensed under [The Unlicense](The Unlicense).
+This theme incorporates [Pygments CSS Themes](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html), developed by [jwarby](https://github.com/jwarby/) distributed under the terms of [The Unlicense](https://github.com/jwarby/jekyll-pygments-themes/blob/master/UNLICENSE.txt).
 
-This theme uses [Ferpal Sans](https://www.silviaferpal.com/portfolio-1/ferpalsans) developed by Silvia Ferpal and it's free for personal use.
+This theme incorporates [Ferpal Sans](https://www.silviaferpal.com/portfolio-1/ferpalsans) developed by Silvia Ferpal and it's free for personal use.
 
-This theme uses [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc) by [allejo](https://github.com/allejo) licensed under the [MIT license](https://github.com/allejo/jekyll-toc/blob/master/LICENSE.MIT.md).
+This theme incorporates [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc), Copyright © 2017 [Vladimir "allejo" Jimenez](https://github.com/allejo) distributed under the terms of the [MIT license](https://github.com/allejo/jekyll-toc/blob/master/LICENSE.MIT.md).
 
-This theme uses [Compress HTML in Jekyll](http://jch.penibelst.de/) by [penibelst](https://github.com/penibelst) licensed under the [MIT license](https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE).
+This theme incorporates [Compress HTML in Jekyll](http://jch.penibelst.de/), Copyright (c) 2014 [Anatol Broder](https://github.com/penibelst) distributed under the terms of the [MIT license](https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE).
+
+This theme incorporates [Lunr](http://lunrjs.com),
+Copyright (c) 2013 Oliver Nightingale.
+Lunr is distributed under the terms of the [MIT License](https://github.com/olivernn/lunr.js/blob/master/LICENSE).
 
 This theme uses graphic resources from [Unplash](https://unsplash.com/@dieghernan/collections).
 
@@ -48,5 +52,5 @@ This theme uses graphic resources from [Pexels](https://www.pexels.com/@dieghern
 
 This theme uses graphic resources from [Lorem Picsum](https://picsum.photos/).
 
-I hereby declared not to be affiliated with any third party whose software may have been implemented on this software. To my best knowledge, all the third-party integrations included on this software adheres to the corresponding licenses. All legal brands used on this theme are displayed for informative and/or aesthetic purposes, and the corresponding logos were obtained from [https://fontawesome.com/](https://fontawesome.com/). 
+I hereby declared not to be endorsed by any third party whose resources may have been implemented on this software. To my best knowledge, all the third-party integrations included on this software adheres to the corresponding licenses. All legal brands used on this theme are displayed for informative and/or aesthetic purposes, and the corresponding logos were obtained from [https://fontawesome.com/](https://fontawesome.com/). 
 
