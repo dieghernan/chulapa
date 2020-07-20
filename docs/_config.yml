@@ -86,6 +86,10 @@ navbar:
        url: /demo/tags
      - title: Category Cloud (single)
        url: /demo/category
+     - title: Search Google CSE
+       url: /demo/search_google
+     - title: Search LUNR search
+       url: /demo/search_lunr
   - title: About
     url: /about
 footer:
