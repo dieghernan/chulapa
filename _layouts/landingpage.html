@@ -2,8 +2,11 @@
 layout: minimal
 ---
 <div class="chulapa-bg-hero">
-{%- include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links -%}
+	{% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
 	<main class="container-lg pb-3 flex-fill chulapa-landingpage-color">
+ {% if page.show_breadcrumb %}
+	  {%- include components/breadcrumb.html -%}
+	  {% endif %}
 		{%- if page.show_date or page.show_sociallinks -%}
 		  {%- include components/datesocial.html -%}
 		{%- endif -%}
@@ -15,8 +18,9 @@ layout: minimal
 			</aside>
 			<article class="col-lg-8 mt-3">
 			 {% if page.show_toc %} 
-                           {% assign maxlev = page.toc_maxlevel | default: 4 %}
-			 {% include components/toc.html sanitize=false html=content h_min=2 h_max=maxlev skipNoIDs=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5.px-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
+			               {% assign h_min = page.h_min | default: 2 %}
+                           {% assign h_max = page.h_max | default: 4 %}
+			 {% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skipNoIDs=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
 			  {% endif %}
 			{{- content -}}
 			</article>

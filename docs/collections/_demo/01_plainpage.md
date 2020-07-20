@@ -2,6 +2,7 @@
 title: Plain page
 categories: [demo]
 tags: [layout-default,header-base]
+show_breadcrumb: false
 ---
 
 This is how a plain page would look like. The layout and header type have been already set on the `_config` file as defaults:
