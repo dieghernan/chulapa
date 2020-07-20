@@ -9,7 +9,7 @@ header_img: /assets/img/gallery/city-spain-dense-17658.jpg
 tags: [layout-minimal,header-splash, image, project-links, bootstrap]
 project_links:
     - url: https://startbootstrap.com/previews/one-page-wonder/
-      label: Adapted from START BOOTSTRAP
+      label: Adapted from Start Bootstrap
 ---
 
 {% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
