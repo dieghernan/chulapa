@@ -139,6 +139,7 @@ defaults:
       layout: "default"
       header_type         : "base"
       include_on_search   : false
+      show_breadcrumb     : true #Remove, test
       cloudtag_url        : "/tags"
       cloudcategory_url   : "/categories"
   -

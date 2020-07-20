@@ -1,6 +1,7 @@
-<div class="row my-1 d-none">
+<div class="row mb-1 {% if page.show_breadcrumb %}{% else %}
+d-none{%- endif -%}">
   <nav aria-label="breadcrumb" class="col-lg-8 offset-lg-2 col small">
-   <ol class="breadcrumb mb-1 py-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+   <ol class="breadcrumb mb-1 py-1 chulapa-bg-transparent" itemscope itemtype="https://schema.org/BreadcrumbList">
      {% if page.breadcrumb_list %}
 
       {% else %}
@@ -9,7 +10,7 @@
           <meta itemprop="position" content="1" /></li>
     <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem">
-        <span itemprop="name">page.title</span>
+        <span itemprop="name">{{ page.title }}</span>
         <meta itemprop="position" content="2" />
       </li>
       {% endif %}
