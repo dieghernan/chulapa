@@ -251,7 +251,7 @@ The only purpose of this layout is to create a search page. You may not use it o
 
 On the page front matter, set `permalink:` to the same value of `search: landing_page:` you set on your `_config` file, otherwise the link on the navbar would be broken.
 
-#### Layout structure
+### Summary: Layout structure
 
 A technical note about the layout structure of <span class="chulapa">Chulapa</span>.
 
