@@ -34,6 +34,8 @@ function imgurl(p1) {
     return " "
   } else if (p1.indexOf("./") === 0) {
     return p1.replace("./", "{{ '/' | absolute_url }}");
+  } else if (p1.indexOf("/") === 0) {
+    return p1.replace("/", "{{ '/' | absolute_url }}");
   } else {
     return p1
   }
@@ -54,12 +56,19 @@ function parsetitle(hit) {
   }
 }
 
+function parseimg(img1, img2){
+if (img1 === undefined){
+  return img2;
+  } else {
+    return img1;
+  }
+}
 
 const hitTemplate = function(hit) {
   const url = hit.url;
   const title = parsetitle(hit);
   const content = parsecontent(hit);
-  const img = hit.header_img;
+  const img = parseimg(hit.og_image, hit.header_img);
   const imglink = imgurl(img);
   if (img === undefined){
   return `

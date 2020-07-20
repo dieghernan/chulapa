@@ -29,7 +29,7 @@ var store = [
         "date": {{ doc.date | date: "%Y-%m-%d" | jsonify }},
         "tags": {{ doc.tags | jsonify }},
         "url": {{ doc.url | absolute_url | jsonify }},
-        "img": {{ doc.header_img | absolute_url | jsonify }}
+        "img": {{ doc.og_image | default: doc.header_img | absolute_url | jsonify }}
       }{%- unless forloop.last -%},{%- endunless -%} 
   {%- endfor -%}]
 {%- endif -%}
