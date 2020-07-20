@@ -19,12 +19,12 @@ project_links:
     <div class="row align-items-center">
       <div class="col-lg-6 order-lg-2">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="https://picsum.photos/seed/1/400" alt="">
+          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/700x700/?madrid" alt="">
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4">Use any Bootstrap Template!</h2>
+          <h2 class="display-4 text-center te t-lg-left">Use any Bootstrap Template!</h2>
           <p>Some examples on <a href="https://getbootstrap.com/docs/4.5/examples/">Bootstrap Documentation</a>, <a href="https://startbootstrap.com/">StartBootstrap</a> or  <a href="https://www.google.com/search?q=%22Bootstrap+Templates%22">just Google it!</a> </p>
         </div>
       </div>
@@ -37,12 +37,12 @@ project_links:
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="https://picsum.photos/seed/2/400" alt="">
+          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/700x700/?madrid" alt="">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="p-5">
-          <h2 class="display-4">Just use HTML</h2>
+          <h2 class="display-4 text-center te t-lg-left">Just use HTML</h2>
           <p>Markdown files support also HTML code. Just copy and paste</p>
         </div>
       </div>
@@ -55,12 +55,12 @@ project_links:
     <div class="row align-items-center">
       <div class="col-lg-6 order-lg-2">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="https://picsum.photos/seed/3/400" alt="">
+          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/700x700/?madrid" alt="">
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4">Let there be rock!</h2>
+          <h2 class="display-4 text-center te t-lg-left">Let there be rock!</h2>
           <p><span class="chulapa">Chulapa</span> and Bootstrap FTW!</p>
         </div>
       </div>
