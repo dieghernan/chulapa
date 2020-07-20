@@ -260,13 +260,9 @@ A technical note about the layout structure of <span class="chulapa">Chulapa</sp
 #All purposes
 compress   #http://jch.penibelst.de/
    |
-   ├── minimal   <──├ head   <──├ meta_seo
-                    |           ├ webtracking
-                    |           └ custom_head
+   ├── minimal   <──├ head
                     ├ navbar
-                    |         
-          ├──────>  | PAGE CONTENT
-          |         |                      
+          ├──────>  ├ PAGE CONTENT
           |         ├ footer   <── components/disqus    
           |         └ custom_bottomscripts
           |
