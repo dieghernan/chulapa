@@ -19,7 +19,7 @@ project_links:
     <div class="row align-items-center">
       <div class="col-lg-6 order-lg-2">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/700x700/?madrid" alt="">
+          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/ImiT5XEi3Wk/700x700" alt="">
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
@@ -37,8 +37,7 @@ project_links:
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/700x700/?madrid" alt="">
-        </div>
+          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/dH7GC5QqO7Y/700x700" alt="">
       </div>
       <div class="col-lg-6">
         <div class="p-5">
@@ -55,7 +54,7 @@ project_links:
     <div class="row align-items-center">
       <div class="col-lg-6 order-lg-2">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/700x700/?madrid" alt="">
+          <img class="img-fluid rounded-circle" src="https://source.unsplash.com/Zy-W7KWEyFE/700x700" alt="">
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
