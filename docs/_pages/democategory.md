@@ -5,6 +5,11 @@ subtitle: 'Categories from <code>demo</code> collection only'
 header_type: hero
 permalink: /demo/category
 include_collection: demo
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
 ---
 
 Here you can find the list of categories includes in the `demo` collection.
@@ -21,5 +26,10 @@ subtitle: 'Categories from <code>demo</code> collection only'
 header_type: hero
 permalink: /demo/category
 include_collection: demo
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
 ```
 

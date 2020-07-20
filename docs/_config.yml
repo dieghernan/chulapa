@@ -198,6 +198,11 @@ defaults:
       cloudtag_url      : "/demo/tags"
       cloudcategory_url : "/demo/category"
       show_breadcrumb   : true
+      breadcrumb_list   :
+        - label: Home
+          url: /
+        - label: Demo
+          url: /demo
   -
     scope:
       path: "assets/img/gallery"

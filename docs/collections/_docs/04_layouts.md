@@ -110,7 +110,25 @@ author:
 {: .alert .alert-warning .p-3 .mx-2}
 
 - `show_comments`: Activates comments on the page.
+- `show_breadcrumb`: Shows breadcrumb navigation on a page. Use with `breadcrumb_list`.
+- `breadcrumb_list`: A list with breadcrumbs. It is a good practice to set this on your defaults.
 
+```yaml
+---
+title: "Plain post 3"
+show_breadcrumb: true
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
+---
+```
+
+See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
+
+Even if you don't want to show the breadcrumb, you can still specify the paths. That would create a valid data structure for Google Rich Results. More information [here](https://developers.google.com/search/docs/data-types/breadcrumb) and test tool [here](https://search.google.com/structured-data/testing-tool/).
+{: .alert .alert-info .p-3 .mx-2}
 
 #### Landing page
 

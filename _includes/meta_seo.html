@@ -58,6 +58,31 @@
     }
     </script>
     {% if page.show_breadcrumb %}
+    
+    {% elsif  page.breadcrumb_list %}
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+    {% for item in page.breadcrumb_list %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "name": "{{ item.label }}",
+        "item": "{{ item.url | absolute_url }}"
+      },
+        {% if forloop.last %}
+          {% assign loopplus1 = forloop.index | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+    {
+        "@type": "ListItem",
+        "position": {{ loopplus1 }},
+        "name": "{{ page.title | strip_html }}"
+      }
+    }
+    </script>
     {% else %}
     <script type="application/ld+json">
     {

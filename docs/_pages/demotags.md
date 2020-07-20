@@ -5,6 +5,11 @@ subtitle: 'Tags from <code>demo</code> and <code>skins</code> collections'
 header_type: hero
 permalink: /demo/tags
 include_collection: demo,skins
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
 ---
 
 Here you can find the list of tags includes in the `demo` and `skins` collections.
@@ -47,6 +52,11 @@ subtitle: 'Tags from <code>demo</code> collection only'
 header_type: hero
 permalink: /demo/tags
 include_collection: demo,skins
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
 ---
 
 ```
