@@ -227,6 +227,48 @@ See a working example [here](https://dieghernan.github.io/chulapa/demo).
 {: .alert .alert-info .p-3 .mx-2}
 
 
+#### Search layout
+
+The only purpose of this layout is to create a search page. You may not use it on others contexts.
+
+
+```
+# Layout structure
+#All purposes
+compress   #http://jch.penibelst.de/
+   ├── minimal   <──├ head   <──├ meta_seo
+   		    	    |			├ webtracking
+                    |           └ custom_head
+                    ├ navbar
+                    |         
+          ├──────>  | PAGE CONTENT
+          |         |                      
+          |         ├ footer   <── components/disqus    
+          |         └ custom_bottomscripts
+          |
+          └── default    <──├ components/headers
+            /landingpage    ├ components/breadcrumb
+                            ├ components/datesocial
+                            ├ components/author
+                            ├ components/toc
+         ├────────────>     ├ PAGE CONTENT
+         |                  ├ components/toc
+         |                  ├ components/navbeforeafter
+         |                  ├ components/categories
+         |                  └ components/tags
+         |                
+#Specific purpose
+# default layout only
+         |
+    	 |		
+         └──├ archive
+            ├ cloudcategory
+            ├ cloudtag
+            └ indexcategory
+
+```
+
+
 ## B. Snippets
 
 Snippets are small pieces of code that are available for you and may be useful for specific contents, as dates or images.
