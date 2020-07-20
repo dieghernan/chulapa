@@ -253,13 +253,15 @@ On the page front matter, set `permalink:` to the same value of `search: landing
 
 #### Layout structure
 
+A technical note about the layout structure of <span class="chulapa">Chulapa</span>.
 
 ```
 # Layout structure
 #All purposes
 compress   #http://jch.penibelst.de/
+   |
    ├── minimal   <──├ head   <──├ meta_seo
-   		    	        |		    ├ webtracking
+                    |           ├ webtracking
                     |           └ custom_head
                     ├ navbar
                     |         
@@ -274,7 +276,6 @@ compress   #http://jch.penibelst.de/
                             ├ components/author
                             ├ components/toc
          ├────────────>     ├ PAGE CONTENT
-         |                  ├ components/toc
          |                  ├ components/navbeforeafter
          |                  ├ components/categories
          |                  └ components/tags
@@ -282,7 +283,6 @@ compress   #http://jch.penibelst.de/
 #Specific purpose
 # default layout only
          |
-    	 |		
          └──├ archive
             ├ cloudcategory
             ├ cloudtag
