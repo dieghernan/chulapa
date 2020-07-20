@@ -84,8 +84,7 @@ header_img: /assets/img/gallery/city-spain-dense-17658.jpg
 tags: [layout-minimal,header-splash, image, project-links, bootstrap]
 project_links:
     - url: https://startbootstrap.com/previews/one-page-wonder/
-      icon: fab fa-bootstrap
-      label: Adapted from START BOOTSTRAP
+      label: Adapted from Start Bootstrap
 ---
 ```
 

@@ -13,7 +13,8 @@
     {% if include.projects %}
     <div class="btn-group-vertical btn-group-lg mt-5 text-center" role="group">
       {% for project in include.projects  %}
-      <a href="{{ project.url | absolute_url }}" class="btn chulapa-btn-project" role="button" aria-disabled="true"><i class="{{ project.icon }}"></i> {{ project.label }}</a>
+      <a href="{{ project.url | absolute_url }}" class="btn chulapa-btn-project" role="button" aria-disabled="true">
+        {% if project.icon %}<i class="{{ project.icon }} fa-lg mr-2"></i>{% endif %}{{ project.label }}</a>
       {% endfor %}
     </div>
   {% endif %}
@@ -34,7 +35,8 @@
         {% if include.projects %}
     <div class="btn-group-vertical btn-group-lg mt-2 text-center" role="group">
       {% for project in include.projects  %}
-      <a href="{{ project.url | absolute_url }}" class="btn chulapa-btn-project" role="button" aria-disabled="true"><i class="{{ project.icon }}"></i> {{ project.label }}</a>
+      <a href="{{ project.url | absolute_url }}" class="btn chulapa-btn-project" role="button" aria-disabled="true">
+                {% if project.icon %}<i class="{{ project.icon }} fa-lg mr-2"></i>{% endif %}{{ project.label }}</a>
       {% endfor %}
     </div>
   {% endif %}
@@ -56,7 +58,7 @@
             {% if include.projects %}
     <div class="btn-group btn-group-sm my-1 text-center" role="group">
       {% for project in include.projects  %}
-      <a href="{{ project.url | absolute_url }}" class="btn btn-primary" role="button" aria-disabled="true"><i class="{{ project.icon }}"></i> {{ project.label }}</a>
+      <a href="{{ project.url | absolute_url }}" class="btn btn-primary" role="button" aria-disabled="true">{% if project.icon %}<i class="{{ project.icon }} fa-lg mr-2"></i>{% endif %}{{ project.label }}</a>{{ project.label }}</a>
       {% endfor %}
     </div>
   {% endif %}
@@ -81,7 +83,7 @@
                         {% if include.projects %}
     <div class="btn-group btn-group-sm my-1 text-center" role="group">
       {% for project in include.projects  %}
-      <a href="{{ project.url | absolute_url }}" class="btn btn-primary" role="button" aria-disabled="true"><i class="{{ project.icon }}"></i> {{ project.label }}</a>
+      <a href="{{ project.url | absolute_url }}" class="btn btn-primary" role="button" aria-disabled="true">{% if project.icon %}<i class="{{ project.icon }} fa-lg mr-2"></i>{% endif %}{{ project.label }}</a>
       {% endfor %}
     </div>
   {% endif %}
