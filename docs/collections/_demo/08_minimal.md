@@ -88,7 +88,7 @@ project_links:
       label: Adapted from START BOOTSTRAP
 ---
 ```
-    </div>
+
   </div>
 </div>
 
