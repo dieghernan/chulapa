@@ -237,7 +237,7 @@ The only purpose of this layout is to create a search page. You may not use it o
 #All purposes
 compress   #http://jch.penibelst.de/
    ├── minimal   <──├ head   <──├ meta_seo
-   		    	    |			├ webtracking
+   		    	        |		      	├ webtracking
                     |           └ custom_head
                     ├ navbar
                     |         

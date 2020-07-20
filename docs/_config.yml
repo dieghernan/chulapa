@@ -139,7 +139,6 @@ defaults:
       layout: "default"
       header_type         : "base"
       include_on_search   : false
-      show_breadcrumb     : true #Remove, test
       cloudtag_url        : "/tags"
       cloudcategory_url   : "/categories"
   -
@@ -183,6 +182,12 @@ defaults:
       show_bottomnavs   : true
       show_author       : true
       show_toc          : true
+      show_breadcrumb   : true
+      breadcrumb_list   :
+        - label: Home
+          url: /
+        - label: Skins
+          url: /skins
   -
     scope:
       path: ""
@@ -192,6 +197,7 @@ defaults:
       header_type       : "base"
       cloudtag_url      : "/demo/tags"
       cloudcategory_url : "/demo/category"
+      show_breadcrumb   : true
   -
     scope:
       path: "assets/img/gallery"

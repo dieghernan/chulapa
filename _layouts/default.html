@@ -3,7 +3,9 @@ layout: minimal
 ---
 	{% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
 	<main class="container-lg pb-3 flex-fill">
+	  {% if page.show_breadcrumb %}
 	  {%- include components/breadcrumb.html -%}
+	  {% endif %}
 		{%- if page.show_date or page.show_sociallinks -%}
 		  {%- include components/datesocial.html -%}
 		{%- endif -%}

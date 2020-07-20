@@ -1,9 +1,20 @@
-<div class="row mb-1 {% if page.show_breadcrumb %}{% else %}
-d-none{%- endif -%}">
+<div class="row mb-1 pl-0">
   <nav aria-label="breadcrumb" class="col-lg-8 offset-lg-2 col small">
    <ol class="breadcrumb mb-1 py-1 chulapa-bg-transparent" itemscope itemtype="https://schema.org/BreadcrumbList">
      {% if page.breadcrumb_list %}
-
+       {% for item in page.breadcrumb_list %}
+             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem"><a href="{{ item.url | absolute_url }}" itemprop="item"><span itemprop="name">{{ item.label }}</span></a>
+          <meta itemprop="position" content="{{ forloop.index }}" /></li>
+          {% if forloop.last %}
+          {% assign loopplus1 = forloop.index | plus: 1 %}
+          {% endif %}
+       {% endfor %}
+       <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ page.title }}</span>
+        <meta itemprop="position" content="{{ loopplus1 }}" />
+      </li>
       {% else %}
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem"><a href="{{ "/" | absolute_url }}" itemprop="item"><span itemprop="name">Home</span></a>

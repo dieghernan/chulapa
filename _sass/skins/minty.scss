@@ -160,3 +160,6 @@ $navbar-chulapa-text-contrast: $white;
 $navbar-chulapa-text-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 80%);
 $navbar-chulapa-hover-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 50%);
 $navbar-chulapa-toggler-border-color: transparent;
+
+$breadcrumb-divider-color: $gray-600 !default;
+$breadcrumb-active-color: $breadcrumb-divider-color !default;
