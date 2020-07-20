@@ -69,7 +69,9 @@ project_links:
   </div>
 </section>
 
-
+<div class="container-lg my-1">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col" markdown="1">
 ```yaml
 ---
 layout: minimal
@@ -86,3 +88,8 @@ project_links:
       label: Adapted from START BOOTSTRAP
 ---
 ```
+    </div>
+  </div>
+</div>
+
+{%- include components/navbeforeafter.html -%}
