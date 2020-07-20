@@ -38,11 +38,12 @@ project_links:
       <div class="col-lg-6">
         <div class="p-5">
           <img class="img-fluid rounded-circle" src="https://source.unsplash.com/dH7GC5QqO7Y/700x700" alt="">
+        </div>
       </div>
       <div class="col-lg-6">
         <div class="p-5">
           <h2 class="display-4 text-center te t-lg-left">Just use HTML</h2>
-          <p>Markdown files support also HTML code. Just copy and paste</p>
+          <p>Markdown files support also <code>html</code> code. Just copy and paste</p>
         </div>
       </div>
     </div>
