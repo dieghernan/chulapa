@@ -249,13 +249,17 @@ See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
 The only purpose of this layout is to create a search page. You may not use it on others contexts.
 
+On the page front matter, set `permalink:` to the same value of `search: landing_page:` you set on your `_config` file, otherwise the link on the navbar would be broken.
+
+#### Layout structure
+
 
 ```
 # Layout structure
 #All purposes
 compress   #http://jch.penibelst.de/
    ├── minimal   <──├ head   <──├ meta_seo
-   		    	        |		      	├ webtracking
+   		    	        |		    ├ webtracking
                     |           └ custom_head
                     ├ navbar
                     |         
