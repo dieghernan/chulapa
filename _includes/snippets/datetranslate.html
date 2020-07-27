@@ -1,0 +1,48 @@
+{%- assign dateloc = include.date | downcase -%}
+{%- assign langlocale = include.lang | default: site.locale  | default: "en" | downcase | slice: 0,2 -%}
+{%- assign supported = "es,fr,de" | split: "," -%}
+
+{%- assign finallang = "en" -%}
+{%- for lang in supported -%}
+  {%- if lang == langlocale -%}
+    {%- assign finallang = lang -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if finallang == "en" -%}
+  {%- assign dateloc = dateloc -%}
+{%- else -%}
+  {%- assign en-days = 'monday,tuesday,wednesday,thursday,friday,saturday,sunday' 
+                        | split:',' -%}
+  {%- assign en-months = 'january,february,march,april,may,june,july,august,september,october,november,december' | split:',' -%}
+  {%- if finallang == "es" -%}
+    {%- assign days = 'lunes,martes,miércoles,jueves,viernes,sábado,domingo' 
+                      | split:',' -%}
+    {%- assign months = 'enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre' | split:',' -%}
+  {%- endif -%}
+  {%- if finallang == "fr" -%}
+    {%- assign days = 'lundi,mardi,mercredi,jeudi,vendredi,samedi,dimanche' 
+                      | split:',' -%}
+    {%- assign months = 'janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre' 
+					  | split:',' -%}
+  {%- endif -%}
+  {%- if finallang == "de" -%}
+    {%- assign days = 'montag,dienstag,mittwoch,donnerstag,freitag,samstag,sonntag' 
+                      | split:',' -%}
+    {%- assign months = 'januar,februar,märz,april,mai,juni,juli,august,september,oktober,november,dezember' 
+					  | split:',' -%}
+  {%- endif -%}
+  
+  {%- for i in (0..11) -%}
+    {%- assign sm = en-months[i] | slice: 0,3 -%}
+    {%- assign sml = months[i] | slice: 0,3 -%}
+    {%- if i < 7 -%}
+      {%- assign sd = en-days[i] | slice: 0,3 -%}
+      {%- assign sdl = days[i] | slice: 0,3 -%}
+    {%- endif -%}
+    {%- assign dateloc =  dateloc | replace: en-days[i], days[i] | 
+                        replace: en-months[i], months[i] | 
+                        replace: sm, sml | replace: sd, sdl  -%}
+  {%- endfor -%}
+{%- endif -%}
+{{ dateloc }}

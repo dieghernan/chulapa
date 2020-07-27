@@ -1,0 +1,52 @@
+---
+layout: null
+title: Example LUNR Search
+permalink: /demo/search_lunr
+include_on_search: false
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
+---
+<!doctype html>
+<html lang="{{- site.locale | default: 'en-US' -}}">
+	{%- include head.html -%}
+	<body class="d-flex flex-column">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+
+  .lunr{
+  font-family: 'Heebo', sans-serif;
+  background-color: black;
+  color: white;
+  }
+  </style>
+	{% include_cached navbar.html pageurl=page.url %}
+<header class="text-center header-chulapa"><div class="container-lg pt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+            <h1>{{ page.title }} <i class="fa fa-search" aria-hidden="true"></i></h1>
+            <h2 class="text-danger font-weight-bold"><i class="fas fa-exclamation-triangle"></i> Demo only</h2>
+			</div>
+		<div>
+	</div>
+</header>
+<main class="container-lg pt-2 pb-5 flex-fill">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 my-auto text-center">
+          <h3 class="text-danger">Limited to 20 pages</h3>
+          {%- include search/lunr.html -%}
+        </div>
+    </div>
+</main>
+	{%- include_cached footer.html -%}
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{ '/assets/demo-lunr-store.js' | absolute_url }}"></script>
+<script src="{{ '/assets/js/lunr/lunr-search.js' | absolute_url }}"></script>
+{% include custom/custom_bottomscripts.html %}
+</body>
+</html>

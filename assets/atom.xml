@@ -1,0 +1,67 @@
+---
+layout: null
+permalink: ./atom.xml
+---
+{%- assign og_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" >
+	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
+	<link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
+	<link href="{{  ""  | absolute_url }}" rel="alternate" type="text/html" />
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>{{ page.url | absolute_url }}</id>
+	<title>{{ site.title | strip_html  }}{% if site.subtitle %}{{ " | " | append: site.subtitle | strip_html }}{% endif %}</title>
+	{% if site.subtitle -%}
+	<subtitle>{{- site.subtitle | strip_html -}}</subtitle>
+	{%- endif %}
+	<author>
+		<name>{{ site.author.name | default: site.github.owner_name }}</name>
+		{% assign authorlink = site.author.links | where_exp: "item", "item.url contains 'http'" -%}
+		{% for link in authorlink limit: 1 -%}
+		<uri>{{ link.url | absolute_url }}</uri>
+		{%- endfor %}			
+	</author>
+	<rights>(c) {{ site.time | date: '%Y' }}, {{  site.author.name | default: site.github.owner_name }}</rights>
+	{% if site.navbar.brand.img -%}
+	<icon>{{- site.navbar.brand.img | absolute_url -}}</icon>
+	{%- endif %}
+	<logo>{{- og_image -}}</logo>
+	{%- assign wpm = words_per_minute | default: 200 -%}
+	{%- assign  alldocs = 	site.documents |
+	            where_exp: "item", "item.include_on_feed == true" |
+							where_exp: "item", "item.date != nil" | 
+							sort: 'date' | reverse -%}
+	{%- for document in alldocs  -%}
+	{%- assign entryimg =  document.og_image | default: document.header_img | absolute_url -%}
+	{%- assign words = document.content | strip_html | number_of_words -%}   	
+		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
+	<entry>
+		<title>{{ document.title | strip_html }}</title>
+		<link href="{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}" rel="alternate" type="text/html" title="{{ document.title | strip_html }}"/>
+		<published>{{ document.date | date_to_xmlschema }}</published>
+		<updated>{{ document.last_modified_at | default: document.date | date_to_xmlschema }}</updated>
+		<id>{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}</id>
+		<content type="html" xml:base="{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}">
+  		{% if entryimg %}
+			{{ "<img src='" | append: entryimg | append: "' >" | escape }}
+			{% endif %}
+	{{ "<p>" | append: minutes | 
+	         append: " min.</p>" | escape }}
+			{{ document.content | markdownify | escape }}
+		</content>
+		{% assign entryauthor = document.author | default: site.author %}
+		<author>
+			<name>{{ entryauthor.name | default: site.github.owner_name }}</name>
+			{%- for link in entryauthor.links limit: 1 -%}
+			<uri>{{ link.url | absolute_url }}</uri>
+			{%- endfor -%}		
+		</author>
+		<summary type="html">{{ document.excerpt | escape }}</summary>
+		<category term="{{ document.collection }}"/>
+		{% assign tagrss = document.tags | join: ','  | split: ',' | sort -%}
+		  {% for tag in tagrss  -%}
+		<category term="{{ tag }}"/>
+		  {%- endfor %}
+	</entry>
+    {%- endfor -%}	
+</feed>

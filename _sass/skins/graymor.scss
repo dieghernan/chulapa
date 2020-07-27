@@ -1,0 +1,26 @@
+/*! Tophat `Graymor` Bootstrap 4.3.1 theme */
+@import url(https://fonts.googleapis.com/css?family=Muli:200,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,400,700);
+
+$headings-font-family:Oswald;
+$font-family-base:Muli;
+
+$primary:#2f3c48;
+$secondary:#6f7f8c;
+$success:#3e4d59;
+$danger:#cc330d;
+$info:#5c8f94;
+$warning:#6e9fa5;
+$light:#eceeec;
+$dark:#1e2b37;
+$enable-rounded:false;
+
+
+// Add SASS theme customizations here..
+$link-color: mix($primary, #007bff, 70%);
+
+//Custom hero
+$hero-chulapa-bg-color: $primary;
+$navbar-chulapa-toggler-color: rgba(white, 0.4);
+$navbar-chulapa-toggler-border-color: rgba(white, 0.1);
+$navbar-chulapa-toggler-color-bg: transparent;

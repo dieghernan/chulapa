@@ -1,0 +1,11 @@
+<form onsubmit="return googleCustomSearchExecute();" id="cse-search-box-form-id" class="input-group ">
+  <label class="sr-only" for="search"> Search </label>
+  <input type="search" id="cse-search-input-box-id" class="form-control rounded" placeholder="{{ site.search.label | default: "Search" }}... (intro)"/>
+  </form>
+  <p class="text-right small mt-1"><img src="https://www.google.com/cse/static/images/1x/en/branding.png" class="gcsc-branding-img-noclear float-right" srcset="https://www.google.com/cse/static/images/2x/en/branding.png 2x" alt="enhanced by Google"></p>
+
+<div id="results" class="results mt-3 text-left">
+<gcse:searchresults-only></gcse:searchresults-only>
+</div>
+ 
+                

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Source+Sans+Pro&display=swap');
+
+$font-family-base: 'Source Sans Pro', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+
+$primary: #1abc9c;
+$info: #17a2b8;
+$success: #28a745;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: mix(white,$primary,85%);
+$dark: #343a40;
+$link-color: #1abc9c;
+$body-color: #444;
+$body-bg: mix(white,$primary,95%);
+$font-size-base: 1.125rem;
+$enable-rounded:  false; 
+$navbar-chulapa-toggler-border-color: transparent;

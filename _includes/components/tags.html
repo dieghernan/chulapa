@@ -1,0 +1,15 @@
+{% assign size = page.tags | size %}
+{% if size > 0 %}
+<div class="container-lg my-1">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col">
+      <i class="fas fa-tag mr-1 fa-xs" aria-hidden="true"></i>
+      {%- for tag in page.tags %}
+      <a href="{{- tag | replace: " ", "-" | prepend: "#" |
+                   prepend: page.cloudtag_url |
+                   absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-primary">{{- tag -}}</a>
+      {% endfor -%}
+      </div>
+    </div>
+</div>
+{% endif %}

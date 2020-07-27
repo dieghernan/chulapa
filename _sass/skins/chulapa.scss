@@ -1,0 +1,56 @@
+/*! Chulapa by dieghernan */
+
+@font-face {
+    font-family: ferpal;
+    src: url("https://dieghernan.github.io/chulapa/assets/fonts/Ferpal/Ferpal-Regular.otf");
+}
+
+$headings-font-family: chulapa,
+sans-serif;
+$font-family-sans-serif: ferpal,
+sans-serif;
+$enable-rounded: false;
+$btn-font-family: $headings-font-family;
+
+h1,
+h2,
+h3,
+h4,
+footer,
+blockquote,
+button,
+legend,
+label,
+.alert-heading,
+.btn,
+.card-header,
+.nav-tabs,
+.nav-pills,
+.badge,
+.breadcrumb,
+.pagination,
+.navbar {
+    font-family: $headings-font-family !important;
+    -webkit-font-feature-settings: "liga", "dlig";
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -moz-font-feature-settings: "liga", "dlig";
+    -ms-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+    text-rendering: optimizeLegibility;
+}
+
+.alert,
+.jumbotron {
+    font-family: $headings-font-family !important;
+}
+
+$primary: #edc7b7;
+$secondary: #687864;
+$success: #88bdbc;
+$info: #31708e;
+$warning: #fffe7a;
+$danger: #f13c20;
+$dark: darken($secondary, 10%);
+$navbar-chulapa-toggler-border-color: transparent;
+@import "skins/auto";

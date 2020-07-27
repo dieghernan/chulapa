@@ -1,0 +1,39 @@
+---
+layout: minimal
+---
+	{% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
+	<main class="container-lg pb-3 flex-fill">
+	  {% if page.show_breadcrumb or page.show_date or page.show_sociallinks -%}
+	  {%- include components/breadcrumbdatesocial.html -%}
+	  {% endif %}
+		<div class="row pt-2">
+			<aside class="col-lg-2 mt-lg-3 small">
+			  {%- if page.show_author -%}
+			  {% include components/author.html %}
+			  {%- endif -%}
+			</aside>
+			<article class="col-lg-8 mt-3">
+			 {% if page.show_toc %} 
+			               {% assign h_min = page.h_min | default: 2 %}
+                           {% assign h_max = page.h_max | default: 4 %}
+			 {% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skipNoIDs=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
+			  {% endif %}
+			{{- content -}}
+			</article>
+		</div>
+	</main>
+	{%- if page.show_bottomnavs -%}
+	  {%- include components/navbeforeafter.html -%}
+	{%- endif -%}
+	{%- if page.show_categories -%}
+		{% assign size = page.categories | size %}
+		{% if size > 0 %}
+  	{%- include components/categories.html-%}
+  	{% endif %}
+	{%- endif -%}
+	{%- if page.show_tags -%}
+		{% assign size = page.tags | size %}
+		{% if size > 0 %}
+	  {%- include components/tags.html-%}
+	  {% endif %}
+	{%- endif -%}

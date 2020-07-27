@@ -1,0 +1,20 @@
+{%- if include.internal -%}
+  {% assign sort =  include.index_sort | default: 'modified_time' %}
+  {%- assign bricks = site.static_files | where: "image_col", include.internal -%}
+  {% if include.index_sort_asc %}
+    {%- assign bricks = bricks | sort: "{{sort}}" | map: "path" -%}
+  {% else %}
+    {%- assign bricks = bricks | sort: "{{sort}}" | reverse | map: "path" -%}
+  {% endif %}
+{%- elsif include.external -%}
+  {%- assign bricks =include.external | strip_newlines | replace: " " , "" |split: ","  -%}
+{%- endif -%}
+{%- assign end =   include.index_items | default: 100   -%}
+{%- if bricks -%}
+<div class="chulapa-masonry mx-2 mt-2">
+  {%- for brick in bricks limit: end -%}
+  <img class="chulapa-masonry-brick" src="{{- brick | absolute_url -}}" 
+  alt="Masonry Item #{{- forloop.index -}}">
+  {%- endfor -%}
+</div>
+{%- endif -%}

@@ -1,0 +1,60 @@
+<div class="row my-1">
+<div class="col-lg-6 offset-lg-2 col small">
+  {% if page.show_breadcrumb %}
+  <nav aria-label="breadcrumb">
+   <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+     {% if page.breadcrumb_list %}
+       {% for item in page.breadcrumb_list %}
+             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem"><a href="{{ item.url | absolute_url }}" itemprop="item"><span itemprop="name">{{ item.label }}</span></a>
+          <meta itemprop="position" content="{{ forloop.index }}" /></li>
+          {% if forloop.last %}
+          {% assign loopplus1 = forloop.index | plus: 1 %}
+          {% endif %}
+       {% endfor %}
+       <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ page.title }}</span>
+        <meta itemprop="position" content="{{ loopplus1 }}" />
+      </li>
+      {% else %}
+      <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem"><a href="{{ "/" | absolute_url }}" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" /></li>
+    <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ page.title }}</span>
+        <meta itemprop="position" content="2" />
+      </li>
+      {% endif %}
+  </ol>
+  </nav>
+  {% endif %}
+              {%- if page.date and page.show_date -%}
+         <div class="chulapaDateSocial">
+            {% if page.last_modified_at %}
+            {%- assign dateformat1 = page.last_modified_at | date_to_string -%}
+            {%- assign dateformat2 = page.date | date_to_string -%}
+            <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time> 
+            <i class="fa fa-redo fa-xs" aria-hidden="true"></i>
+            <br>
+            <span class="font-weight-light chulapa-text-line-through">{% include_cached snippets/datetranslate.html  date=dateformat2 %}</span>
+            {% else %}
+            {%- assign dateformat = page.date | date_to_string -%}
+            <time datetime="{{ page.date | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+            {% endif %}
+         </div>
+      {%- endif -%}
+  
+</div>
+          {%- if page.show_sociallinks -%}
+          <div class="col-lg-2 col-3 text-right lead chulapaDateSocial">
+            <a  href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ sharetitle | url_encode }}{%- if site.twitter.site -%}&via={{- site.twitter.site -}}{%- endif -%}" title="Share on Twitter"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a>
+            <a  class="d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="Share on Facebook"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+
+             <a  href="https://api.whatsapp.com/send?&text={{ sharetitle | url_encode }}%20{{ canonical_url }}" title="Share on Whatsapp"><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
+         <a  class="d-none d-sm-inline" href="https://www.linkedin.com/shareArticle?url={{ canonical_url }}&title={{ sharetitle | url_encode }}" title="Share on LinkedIn"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+
+          </div>
+          {%- endif -%}
+</div>

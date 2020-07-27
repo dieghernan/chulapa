@@ -1,0 +1,277 @@
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - unreleased -->
+    <!--  MIT License-->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
+{%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | strip_html  -%}
+{%- assign metatitle2 = site.title | default: site.github.repository_name | strip_html -%}
+{%- assign strippedurl = page.url | replace: "index.html", "" -%}
+{%- if strippedurl == "/" -%}
+    {%- assign metatitle1 = site.title | default: site.github.repository_name  -%}
+    {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
+{%- endif -%}
+{%- capture metatitle -%}{{ metatitle1 | strip_html }} {{ site.title_separator | default: "|" }} {{ metatitle2 | strip_html }}{%- endcapture -%}
+{%- assign ogimage = page.og_image | default: page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
+{%- assign descfallback = page.content | 
+                markdownify |  newline_to_br | 
+                replace:"<br />", ",.," | 
+                replace:"{{", ",.," | 
+                replace:"{%", ",.," | 
+                split: ",.," | first -%}
+{%- assign ogdesc = page.excerpt | default: descfallback |
+                strip_html | escape_once  -%}
+{%- if page.subtitle -%}
+{%- assign ogdesc = page.subtitle | append: " - " | append: ogdesc | strip_html | escape_once  -%}
+{%- endif -%}
+{%- assign links = page.author.links | default: site.author.links -%}
+{%- for item in links -%}
+  {%- if item.url contains "twitter.com/" -%}
+    {%- assign twitterauthor = item.url | split: "/" | last -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+    <!--Google Structured Data-->
+    <script type="application/ld+json">
+        {
+      "@context": "https://schema.org",
+	  {% if page.collection == "posts" %}
+      "@type": "BlogPosting",
+	  {% else %}
+	  "@type": "Article",
+	  {% endif %}
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ canonical_url }}"
+      },
+      "headline": "{{ metatitle1 |  strip_html }}",
+      "image": "{{ ogimage }}",
+      "datePublished": "{{ page.date | default:  site.time | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | default:  site.time | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
+      },
+       "publisher": {
+        "@type": "Organization",
+        "name": "{{ site.author.name | default: site.github.owner_name }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url }}"
+        }
+      }
+    }
+    </script>
+    {% if page.show_breadcrumb and page.layout != "minimal" %}
+    
+    {% elsif  page.breadcrumb_list %}
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+    {% for item in page.breadcrumb_list %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "name": "{{ item.label }}",
+        "item": "{{ item.url | absolute_url }}"
+      },
+        {% if forloop.last %}
+          {% assign loopplus1 = forloop.index | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+    {
+        "@type": "ListItem",
+        "position": {{ loopplus1 }},
+        "name": "{{ page.title | strip_html }}"
+      }]
+    }
+    </script>
+    {% else %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ "/" | absolute_url }}"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.title | strip_html }}"
+      }]
+    }
+    </script>
+    {% endif  %}
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "name": "{{ metatitle1 | strip_html }}",
+    "description": "{{ ogdesc }}"
+    }
+}
+</script>
+{%- assign sitelink = site.author.links | 
+where_exp: "item", "item.url contains 'http'"
+-%}
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "Person",
+  {% if site.author.avatar %}
+  "image": "{{ site.author.avatar | absolute_url }}",
+  {% endif %}
+  {% if site.author.location %}
+  "homeLocation": {
+    "@type": "Place",
+    "name": "{{ site.author.location }}"
+    },
+  {% endif %}
+  "description": "Publisher",
+  "name" : "{{ site.author.name | default: site.github.owner_name }}",
+  "url" : "{{ "/" | absolute_url }}"
+  {% if sitelink %}
+  ,  "sameAs" : [
+  {% for item in sitelink %}
+  "{{ item.url }}"{%- if forloop.last %}{% else %},{% endif %}
+  {% endfor %}
+  ]
+  {% endif %}
+}
+</script>
+{% if page.author %}
+{%- assign pagelink = page.author.links | 
+where_exp: "item", "item.url contains 'http'"
+-%}
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "Person",
+  {% if page.author.avatar %}
+  "image": "{{ page.author.avatar | absolute_url }}",
+  {% endif %}
+  {% if page.author.location %}
+  "homeLocation": {
+    "@type": "Place",
+    "name": "{{ page.author.location }}"
+    },
+  {% endif %}
+  "description": "Collaborator",
+  "name" : "{{ page.author.name  }}"
+  {% if pagelink %}
+    {% for item in pagelink %}
+      {% if forloop.first %}
+  , "url": "{{ item.url }}"
+      {% else %}
+        {% if forloop.index == 2 %}
+      ,  "sameAs" : [
+        {% endif %}
+      "{{ item.url }}"
+        {%- if forloop.last %}
+        ]
+        {% else %}
+        ,
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+}
+</script>
+{% endif %}
+    <title>{{ metatitle | strip_html }}</title>
+    <link rel="canonical" href="{{ canonical_url }}">
+    <!-- Atom feed -->
+    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Atom feed" />
+    <!-- RSS 2.0 feed -->
+    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="{{ site.title }} RSS 2.0 feed" />
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" />
+    <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" />
+    <meta name="description" content="{{- ogdesc | truncate: 130 -}}"/>
+    <meta name="thumbnail" content="{{ ogimage }}" />
+    <meta name="robots" content="index, follow">
+    {%- assign: keyword =  site.github.public_repositories | 
+                          where_exp:"item", "item.name == site.github.repository_name " | 
+                          map: "topics" -%}
+    {% if keyword -%}
+    <meta name="keywords" content="{{- keyword - | join: ','}}"/>
+    {%- endif %}
+    {% if site.chulapa-skin.vars.primary -%}
+    <!-- Chrome, Firefox OS and Opera -->
+   <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
+   {%- endif %}
+    <!-- OpenGraph -->
+    <meta property="og:title" content="{{ metatitle | strip_html }}" />
+    <meta property="og:url" content="{{ canonical_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" />
+    <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" />
+    <meta property="og:image" content="{{- ogimage -}}" />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    {%- if site.twitter_site %}
+    <meta name="twitter:site" content="@{{- site.twitter_site  -}}" />
+    {% endif -%}
+    {%- if twitterauthor %}
+    <meta name="twitter:creator" content="@{{- twitterauthor  -}}" />
+    {% endif -%}
+
+    <!-- CSS -->
+    {% for font in site.googlefonts -%}
+      {% if font.url -%}
+    <link href="{{ font.url }}" rel="stylesheet">
+      {%- endif %}
+    {%- endfor %}
+    <!-- Fontawesome-->
+    <!-- v5.13 -->
+    {% if site.fa5_kit_code -%}
+    <script src="https://kit.fontawesome.com/{{ site.fa5_kit_code }}.js" crossorigin="anonymous"></script>
+    {%- else -%}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    {%- endif %}
+    {% if site.fa_v4_support -%}
+    <!-- Compatibility with FontAwesome 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.css">
+    {%- endif %}
+    <!-- Theme css (Bootstrap included) -->
+    <link rel="stylesheet" href="{{- "assets/css/main.css " | absolute_url -}}" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" />
+    {% if page.mathjax -%}
+    <script async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+{%- endif %}
+{%- if site.gtag_id %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{- site.gtag_id -}}');
+</script>
+{% endif -%}
+{%- if site.analytics_id %}
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', '{{- site.analytics_id -}}', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+{% endif -%}
+    {%- include custom/custom_head.html -%}
+</head>
