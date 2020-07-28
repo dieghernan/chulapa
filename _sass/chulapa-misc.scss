@@ -86,12 +86,14 @@ figcaption, caption, .figcaption, .caption {
 }
 
 .task-list {
+  margin: 0;
+  padding: 0;
  .task-list-item {
     list-style-type: none;
     margin: 0;
     padding: 0;
     .task-list-item-checkbox{
-     margin-right: $spacer * .25;
+     margin-right: $spacer * .5;
     }
   }
 }
