@@ -532,56 +532,56 @@ $value in $theme-colors {
     text-decoration: line-through;
 }
 
-.chulapa-bg-hero {
-  background-color: $hero-chulapa-bg-color;
+.chulapa-bg-landingpage {
+  background-color: $landingpage-chulapa-bg-color;
   header {
-    color: $hero-chulapa-text-color;
+    color: $landingpage-chulapa-text-color;
     a {
-      color: $hero-chulapa-text-color;
+      color: $landingpage-chulapa-text-color;
     }
   }
 }
 
 .chulapa-landingpage-color {
-    color: $hero-chulapa-text-color;
+    color: $landingpage-chulapa-text-color;
     .breadcrumb {
     .breadcrumb-item {
     + .breadcrumb-item {
       &::before {
-        color: mix($info, $hero-chulapa-text-color, 50%);
+        color: mix($info, $landingpage-chulapa-text-color, 50%);
         }
       }
       &.active {
-      color: $hero-chulapa-text-color;
+      color: $landingpage-chulapa-text-color;
       }
     }
     }
     
     a {
-        color: mix($info, $hero-chulapa-text-color, 50%);
+        color: mix($info, $landingpage-chulapa-text-color, 50%);
     }
 
     table,
     .chulapaDateSocial {
-        color: $hero-chulapa-text-color;
+        color: $landingpage-chulapa-text-color;
 
         a {
-            color: $hero-chulapa-text-color;
+            color: $landingpage-chulapa-text-color;
         }
     }
 
     hr {
-        background-color: $hero-chulapa-text-color;
+        background-color: $landingpage-chulapa-text-color;
     }
 
     .chulapa-pagination {
         .page-link {
 
-            color: $hero-chulapa-text-color;
+            color: $landingpage-chulapa-text-color;
 
             &:hover {
-                color: $hero-chulapa-bg-color;
-                background-color: $hero-chulapa-text-color;
+                color: $landingpage-chulapa-bg-color;
+                background-color: $landingpage-chulapa-text-color;
             }
         }
     }
@@ -589,7 +589,7 @@ $value in $theme-colors {
 
 .chulapa-landingpage-badges {
     i {
-        color: $hero-chulapa-text-color;
+        color: $landingpage-chulapa-text-color;
     }
 }
 
