@@ -2,9 +2,12 @@
 {%- assign colnav = site.navbar.expand | default: "md" -%}
 {%- if colnav == "always" -%}
 {%- assign navexp = "navbar-expand" -%}
+{%- assign disp = "sm" -%}
 {%- elsif colnav == "never" -%}
+{%- assign disp = "xl" -%}
 {%- else -%}
 {%- assign navexp = "navbar-expand-" | append: colnav -%}
+{%- assign disp = colnav -%}
 {%- endif -%}
 
 
@@ -58,7 +61,7 @@
 		</nav>
 	</div>
 {%- elsif site.navbar.style == "dual" -%}	
-	<div class="navbar-chulapa-fab d-md-none">
+	<div class="navbar-chulapa-fab d-{{- disp -}}-none">
 		<input type="checkbox" class="navbar-chulapa-fab-button d-none" id="navi-toggle">
 		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
 			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
@@ -107,7 +110,7 @@
 		</nav>
 	</div>
 	
-	<nav class="navbar {{ navexp }} sticky-top navbar-chulapa d-none d-md-block ">
+	<nav class="navbar sticky-top navbar-chulapa d-none d-{{- disp -}}-block ">
 	<div class="container-fluid mx-md-2">
 			<a class="navbar-brand text-uppercase font-weight-light" href="{{ site.navbar.brand.url | default: "/" | absolute_url }}">
 			{%- if site.navbar.brand.img -%}
