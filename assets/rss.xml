@@ -6,7 +6,7 @@ permalink: ./rss.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 	<channel>
-		<title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
+		<title>{{ site.title | append: " | " | append: site.subtitle | xml_escape  }}</title>
 		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
 		<link>{{  ""  | absolute_url }}</link>
 		<description>{{ site.description | xml_escape }}</description>
@@ -35,7 +35,7 @@ permalink: ./rss.xml
 		{%- assign words = document.content | strip_html | number_of_words -%}   	
 		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
 		<item>
-			<title>{{ document.title | strip_html | xml_escape }}</title>
+			<title>{{ document.title | strip_html | escape }}</title>
 			<description>
 				<![CDATA[	
  				{% if document.subtitle %}<h3>{{ document.subtitle | escape }}</h3>{% endif %}
