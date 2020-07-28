@@ -89,7 +89,7 @@
           {%- endif -%}
           <p class="mt-2 mb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}</p>
           <!-- Do not remove this in order to give  attributions -->
-          {%- if site.chulapa-skin.skin -%}
+          {%- if name -%}
           <p class="small"><b>{{- name -}}</b> skin by <a href="{{ url }}">{{ author }}</a></p>
           {%- endif -%}
           <p class="small">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
