@@ -24,6 +24,10 @@ $footer-chulapa-icon-hover-color: $footer-chulapa-hover-color !default;
 $hero-chulapa-bg-color: $navbar-chulapa-bg-color !default;
 $hero-chulapa-text-color: color-contrast($hero-chulapa-bg-color, $black, $white) !default;
 
+//Landing page
+$landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
+$landingpage-chulapa-text-color: color-contrast($landingpage-chulapa-bg-color, $black, $white) !default;
+
 //Misc
 //Blockquote
 $blockquote-chulapa-bg-color: darken($body-bg, 5%) !default;
