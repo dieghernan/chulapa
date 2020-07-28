@@ -59,11 +59,11 @@ Coming back to the question, you can use this approach:
 
 ```
 A simple info alert **check it out!**
-{: .alert .alert-info .p-3 .mx-2 mb-3}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 ```
 
 A simple info alert **check it out!**
-{: .alert .alert-info .p-3 .mx-2 mb-3}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 You can use `html` but it will take a little bit more of coding:
 
