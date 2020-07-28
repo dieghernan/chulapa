@@ -28,6 +28,10 @@ $value in $theme-colors {
     }
 }
 
+  .chulapa-btn-outline-body {
+    @include button-outline-variant($body-color);
+  }
+
 .chulapa-text-body-color {
     color: $body-color !important;
 }
