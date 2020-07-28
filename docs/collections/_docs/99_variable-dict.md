@@ -28,8 +28,10 @@ This page shows all the <span class="chulapa">Chulapa</span> variables that you 
 | `footer-chulapa-hover-color` | Footer text color on hover |
 | `footer-chulapa-icon-color` | Footer color of the social icons |
 | `footer-chulapa-icon-hover-color` | Footer color of the social icons on hover |
-| `hero-chulapa-bg-color` | Hero header background color. This affects also the `landingpage` background color |
+| `hero-chulapa-bg-color` | Hero header background color |
 | `hero-chulapa-text-color` | Hero header text color |
+| `landingpage-chulapa-bg-color` | Landing page background color |
+| `landingpage-chulapa-text-color` | Landing page text color |
 | `blockquote-chulapa-bg-color` | Blockquote background color |
 | `blockquote-chulapa-text-color` | Blockquote text color |
 | `footnote-chulapa-text-color` | Footnote/captions text color |
