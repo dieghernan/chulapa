@@ -232,9 +232,9 @@ $value in $theme-colors {
       border-color: $white;
       text-shadow: none;
       @include hover-focus() {
-            border-color: $white;
-            color: $hero-chulapa-text-color;
-            background-color:  $hero-chulapa-bg-color;
+            border-color: $light;
+            color: $light;
+            background-color:  $dark;
             text-shadow: none;
         }
     }
@@ -281,9 +281,9 @@ $value in $theme-colors {
       border-color: $white;
       text-shadow: none;
       @include hover-focus() {
-            border-color: $white;
-            color: $hero-chulapa-text-color;
-            background-color:  $hero-chulapa-bg-color;
+            border-color: $light;
+            color: $light;
+            background-color: $dark;
             text-shadow: none;
         }
     }
