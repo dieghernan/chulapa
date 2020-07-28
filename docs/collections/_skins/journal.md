@@ -16,7 +16,7 @@ Developed by [Bootswatch](https://bootswatch.com/), you can use it on your site.
 
 ```yaml
 chulapa-skin: 
-  theme       :  {{ page.skin }}
+  skin       :  {{ page.skin }}
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...

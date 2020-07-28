@@ -46,7 +46,7 @@ This theme includes 14+ skins from [Tophat Themes](https://themesguide.github.io
 
 ```yaml
 chulapa-skin: 
-  theme   : #name of the skin
+  skin   : #name of the skin
 ```
 
 You can use `vars` to override some parts of the theme.

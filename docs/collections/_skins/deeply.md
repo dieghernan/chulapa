@@ -17,7 +17,7 @@ Developed by [Tophat Themes](https://themesguide.github.io/top-hat/dist/), you c
 
 ```yaml
 chulapa-skin: 
-  theme       :  deeply
+  skin       :  deeply
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...

@@ -16,7 +16,7 @@ Developed by [dieghernan](https://github.com/dieghernan/), you can use it on you
 
 ```yaml
 chulapa-skin: 
-  theme       :  twitter-lights-out
+  skin       :  twitter-lights-out
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...

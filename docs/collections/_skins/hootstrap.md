@@ -16,7 +16,7 @@ Developed by [Themes.guide](http://themes.guide/), you can use it on your site. 
 
 ```yaml
 chulapa-skin: 
-  theme       :  hootstrap 
+  skin       :  hootstrap 
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
