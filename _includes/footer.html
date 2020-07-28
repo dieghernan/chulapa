@@ -1,60 +1,67 @@
-{%- if site.chulapa-skin.skin == 'preptor' -%}
+{%- if site.chulapa-skin.theme == 'preptor' -%}
 	{%- assign name = 'Preptor' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
-{%- elsif site.chulapa-skin.skin == 'lymcha' -%}
+{%- elsif site.chulapa-skin.theme == 'lymcha' -%}
 	{%- assign name = 'Lymcha' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
-{%- elsif site.chulapa-skin.skin == 'hootstrap' -%}
+{%- elsif site.chulapa-skin.theme == 'hootstrap' -%}
 	{%- assign name = 'Hootstrap' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
-{%- elsif site.chulapa-skin.skin == 'deeply' -%}
+{%- elsif site.chulapa-skin.theme == 'deeply' -%}
 	{%- assign name = 'Deeply' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
-{%- elsif site.chulapa-skin.skin == 'graymor' -%}
+{%- elsif site.chulapa-skin.theme == 'graymor' -%}
 	{%- assign name = 'Graymor' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
-{%- elsif site.chulapa-skin.skin == 'wandoo' -%}
+{%- elsif site.chulapa-skin.theme == 'wandoo' -%}
 	{%- assign name = 'Wandoo' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
-{%- elsif site.chulapa-skin.skin == 'sketchy' -%}
+{%- elsif site.chulapa-skin.theme == 'sketchy' -%}
 	{%- assign name = 'Sketchy' - %}
 	{%- assign author = 'Bootswatch' - %}
 	{%- assign url = 'https://bootswatch.com/' - %}
-{%- elsif site.chulapa-skin.skin == 'lux' -%}
+{%- elsif site.chulapa-skin.theme == 'lux' -%}
 	{%- assign name = 'Lux' - %}
 	{%- assign author = 'Bootswatch' - %}
 	{%- assign url = 'https://bootswatch.com/' - %}
-{%- elsif site.chulapa-skin.skin == 'journal' -%}
+{%- elsif site.chulapa-skin.theme == 'journal' -%}
 	{%- assign name = 'Journal' - %}
 	{%- assign author = 'Bootswatch' - %}
 	{%- assign url = 'https://bootswatch.com/' - %}
-{%- elsif site.chulapa-skin.skin == 'minty' -%}
+{%- elsif site.chulapa-skin.theme == 'minty' -%}
 	{%- assign name = 'Minty' - %}
 	{%- assign author = 'Bootswatch' - %}
 	{%- assign url = 'https://bootswatch.com/' - %}
-{%- elsif site.chulapa-skin.skin == 'twitter' -%}
+{%- elsif site.chulapa-skin.theme == 'twitter' -%}
 	{%- assign name = 'Twitter' - %}
 	{%- assign author = 'dieghernan' - %}
 	{%- assign url = 'https://github.com/dieghernan' - %}
-{%- elsif site.chulapa-skin.skin == 'twitter-dim' -%}
+{%- elsif site.chulapa-skin.theme == 'twitter-dim' -%}
 	{%- assign name = 'TwitterDim' - %}
 	{%- assign author = 'dieghernan' - %}
 	{%- assign url = 'https://github.com/dieghernan' - %}
-{%- elsif site.chulapa-skin.skin == 'twitter-lights-out' -%}
+{%- elsif site.chulapa-skin.theme == 'twitter-lights-out' -%}
 	{%- assign name = 'TwitterLightsOut' - %}
 	{%- assign author = 'dieghernan' - %}
   	{%- assign url = 'https://github.com/dieghernan' - %}
-  {%- elsif site.chulapa-skin.skin == 'chulapa' -%}
+  {%- elsif site.chulapa-skin.theme == 'chulapa' -%}
   	{%- assign name = 'Chulapa' - %}
   	{%- assign author = 'dieghernan' - %}
   	{%- assign url = 'https://github.com/dieghernan' - %}
-  {%- else -%}
+  {%- elsif site.chulapa-skin.theme == 'pear' -%}
+  	{%- assign name = 'Pear' - %}
+  	{%- assign author = 'dieghernan' - %}
+  	{%- assign url = 'https://github.com/dieghernan' - %}
+  {%- elsif site.chulapa-skin.theme == 'sunset' -%}
+  	{%- assign name = 'Sunset' - %}
+	{%- assign author = 'Tophat' - %}
+	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}  {%- else -%}
   {%- endif -%}
   <!-- Footer -->
   <footer class="footer-chulapa text-center mt-0 pt-3">
@@ -82,7 +89,7 @@
           {%- endif -%}
           <p class="mt-2 mb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}</p>
           <!-- Do not remove this in order to give  attributions -->
-          {%- if site.chulapa-skin.skin -%}
+          {%- if site.chulapa-skin.theme -%}
           <p class="small"><b>{{- name -}}</b> skin by <a href="{{ url }}">{{ author }}</a></p>
           {%- endif -%}
           <p class="small">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
