@@ -29,8 +29,10 @@ $value in $theme-colors {
 }
 
   .chulapa-pill-bg-body {
-    @include badge-variant($body-color);
-    border: $border-width solid $body-color;
+    @include badge-variant($body-bg);
+    border-style: solid;
+    border-width: $border-width;
+    border-color: color-contrast($body-bg);
   }
 
 .chulapa-text-body-color {
