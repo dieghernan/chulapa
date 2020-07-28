@@ -30,7 +30,7 @@ $value in $theme-colors {
 
   .chulapa-btn-outline-body {
     @include button-outline-variant($body-color);
-    border: $border-width solid $border-color;
+    border: $border-width solid $body-color;
   }
 
 .chulapa-text-body-color {
