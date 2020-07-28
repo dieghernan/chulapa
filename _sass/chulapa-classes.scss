@@ -28,8 +28,8 @@ $value in $theme-colors {
     }
 }
 
-  .chulapa-btn-outline-body {
-    @include button-outline-variant($body-color);
+  .chulapa-pill-bg-body {
+    @include badge-variant($body-color);
     border: $border-width solid $body-color;
   }
 

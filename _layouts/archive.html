@@ -49,7 +49,7 @@ layout: default
 	{%- for month in postsInMonth  -%}
 	{%- assign dateformat = month.name -%}
 	{% if dateformat %}
-	  <h3 class="font-weight-light small">{% include_cached snippets/datetranslate.html  date=dateformat %}</h3>
+	  <h5 class="font-weight-light">{% include_cached snippets/datetranslate.html  date=dateformat %}</h5>
 	{% endif %}
   	{%- for document in month.items -%}
 	<div class="ml-2 my-1">
@@ -63,7 +63,7 @@ layout: default
 				  {% if document.last_modified_at %} <i class="fa fa-redo fa-sm" aria-hidden="true"></i>{% endif %}
 			  {% endif %}
 			  {%- if showcol -%}
-			    <span class="mx-1 my-1 badge  chulapa-btn-outline-body">{{ document.collection }}</span>
+			    <span class="mx-1 my-1 badge chulapa-pill-bg-body">{{ document.collection }}</span>
         {%- endif -%}
         </p>
 			</article>

@@ -49,7 +49,7 @@ layout: default
 {% for category in groupcategory %}
 <section id="{{- category.name | replace: " ", "-" -}}" class="py-3">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
-  <h3 class="my-0"><i class="far fa-folder-open mr-1" aria-hidden="true"></i>{{- category.name -}} </h3>
+  <h5 class="my-0"><i class="far fa-folder-open mr-1" aria-hidden="true"></i>{{- category.name -}} </h5>
   <div class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{category.size}}</div>
 </div>
   {% for document in alldocs %}
@@ -61,9 +61,9 @@ layout: default
 	{% if document.categories contains category.name %}
   <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
     <div class="col">
-      <h5><a href="{{ document.url | absolute_url }}">{{ document.title }}</a></h5>
-      {%- if document.subtitle -%}<h6>{{- document.subtitle -}}</h6> {%- endif -%}
-      <div>
+      <h6><a href="{{ document.url | absolute_url }}">{{ document.title }}</a></h6>
+      {%- if document.subtitle -%}<p>{{- document.subtitle -}}</p> {%- endif -%}
+      <div class="small">
         {% if document.date %}
         {% assign dateformat = document.date | date: "%B %d, %Y" %}
         <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
@@ -71,7 +71,7 @@ layout: default
         {% endif %}
         <i class="far fa-clock" aria-hidden="true"></i> {{ readtime }} 
         {%- if showcol -%}
-        <span class="ml-2 badge  chulapa-btn-outline-body">{{ document.collection }}</span>
+        <span class="ml-2 badge chulapa-pill-bg-body">{{ document.collection }}</span>
         {%- endif -%}
       </div>
     </div>
