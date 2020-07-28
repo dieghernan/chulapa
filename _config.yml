@@ -90,7 +90,7 @@ comments:
 #   "brand" options would be set on the left side of your navbar
 #   "nav" would be set on the right side. Two-level nav links available
 navbar:
-  style     :  #default is the classical top navbar, set "fab" for a floating action button navbar
+  style     :  #default is the classical top navbar, set "fab" for a floating action button navbar or "dual"
   expand    :  # At which device size expand the navbar menu. default[md] https://getbootstrap.com/docs/4.5/layout/overview/
   brand:
     title   :  # Title in navbar
