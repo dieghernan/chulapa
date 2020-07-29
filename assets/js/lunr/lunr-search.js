@@ -84,7 +84,7 @@ $(document).ready(function() {
                     '</div>'		+
 					'<div class="col-4 col-md-3">' +
 					'<a href="' + store[ref].url + '" rel="permalink">' +
-					'<div class="rounded-lg chulapa-overlay-img chulapa-min-h-10"'+
+					'<div class="rounded-lg chulapa-overlay-img chulapa-gradient chulapa-min-h-10"'+
 					'style="background-image:' +
 					'url(\'' + store[ref].img + '\')" ></div>' +
 					'</div></a>' +

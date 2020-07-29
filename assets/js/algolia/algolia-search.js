@@ -95,7 +95,7 @@ const hitTemplate = function(hit) {
         </div>
       <div class="col-4 col-md-3">
       <a href="{{ '' | absolute_url }}${url}">
-        <div class="rounded-lg chulapa-overlay-img chulapa-min-h-10" style="background-image: url('${imglink}')" ></div>
+        <div class="rounded-lg chulapa-overlay-img chulapa-gradient chulapa-min-h-10" style="background-image: url('${imglink}')" ></div>
         </a>
         </div>
     </div>

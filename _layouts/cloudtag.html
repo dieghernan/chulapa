@@ -73,7 +73,7 @@ layout: default
       </div>
     </div>
     {% if document.header_img or document.og_image %}
-    <a href="{{ document.url | absolute_url }}" class="col-2 btn chulapa-overlay-img" style="background-image: url('{{ document.og_image | default: document.header_img | absolute_url }}')">
+    <a href="{{ document.url | absolute_url }}" class="col-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ document.og_image | default: document.header_img | absolute_url }}')">
     </a>
     {% endif %}
   </article>
