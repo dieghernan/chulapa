@@ -1,0 +1,10 @@
+- Update docs
+- New landingpage parameter
+- Add clipboard.js
+- Fix escaping on feeds
+- Fix attributions on footer
+- Task list support
+- Fix error on dual navbar
+- Expand navbar now controles the change on display
+- Small layout changes on image background
+- Fixes on radius of pear skin
