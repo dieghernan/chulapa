@@ -8,7 +8,7 @@ og_image: /assets/img/site/banner-blog.png
 <!-- Chulapa template for pagination -->
 {%- include components/headers.html headertype= page.header_type imghero=page.header_img -%}
 <main class="container-lg pb-3 flex-fill">
-  <div class="row pt-2">
+  <div class="row pt-2 mt-3">
     <section class="col-md-8 offset-md-2">
     {% include_cached components/indexcards.html cacheddocs=paginator.posts  cachedlimit=site.paginate %}
     </section>
