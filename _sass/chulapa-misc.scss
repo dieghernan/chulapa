@@ -71,8 +71,9 @@ a.reversefootnote {
 figcaption, caption, .figcaption, .caption {
   @extend .figure-caption;
   color: $footnote-chulapa-text-color;
-  margin-left: $spacer;
-  margin-right: $spacer;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlight {
