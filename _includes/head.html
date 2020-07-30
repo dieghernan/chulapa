@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - dev -->
+    <!-- Chulapa Jekyll Theme - master dev -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -187,9 +187,9 @@ where_exp: "item", "item.url contains 'http'"
     <title>{{ metatitle | strip_html }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
     <!-- Atom feed -->
-    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Atom feed" />
+    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" />
     <!-- RSS 2.0 feed -->
-    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="{{ site.title }} RSS 2.0 feed" />
+    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title }}" />
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" />
