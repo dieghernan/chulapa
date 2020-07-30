@@ -22,5 +22,6 @@ $(document).ready(function() {
         this.insertBefore(btn, this.firstChild);
       }
     });
-    new ClipboardJS('.btn-copy-code');
   });
+  
+new ClipboardJS('.btn-copy-code');
