@@ -27,8 +27,13 @@ remote_theme: dieghernan/chulapa@[releasetag]
     
 Be sure that you replace `@[releasetag]` with the desired release tag, or just use `dieghernan/chulapa` if you want to use the `master` branch version of the theme (on active development).
 
-**Latest release:** `dieghernan/chulapa@{{ site.github.releases[0].tag_name }}` 
-{: .alert .alert-info .p-3 .mx-2}
+**Latest release:**
+
+```yaml
+
+remote_theme:  dieghernan/chulapa@{{ site.github.releases[0].tag_name }}
+
+```
 
 
 <div markdown="1" class="alert alert-warning p-3 mx-2">
