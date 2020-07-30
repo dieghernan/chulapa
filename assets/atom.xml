@@ -42,7 +42,10 @@ permalink: ./atom.xml
 		<updated>{{ document.last_modified_at | default: document.date | date_to_xmlschema }}</updated>
 		<id>{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}</id>
 		<content type="html" xml:base="{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}">
-		{% if document.subtitle %}{{ "<h3>"| append: document.subtitle | append: "</h3>" | escape }}
+		{% if document.subtitle %}
+		{{ '<h3>' | append: document.subtitle | 
+	         append: '</h3>' | escape }}
+		
 		{% endif %}
   		{% if entryimg %}
 			{{ "<img src='" | append: entryimg | append: "' >" | escape }}
