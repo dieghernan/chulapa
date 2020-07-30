@@ -18,7 +18,7 @@ $(document).ready(function() {
         btn.setAttribute('type', 'btn');
         btn.classList.add( 'btn-copy-code', 'text-right');
         btn.setAttribute('data-clipboard-target', '#' + currentId);
-        btn.innerHTML = '<p class="btn btn-light btn-sm mb-0 "><i class="far fa-copy"></i></p>';
+        btn.innerHTML = '<p class="btn btn-primary btn-sm mb-0 "><i class="far fa-copy"></i></p>';
         this.insertBefore(btn, this.firstChild);
       }
     });
