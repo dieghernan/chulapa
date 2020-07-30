@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-// adapted from https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-4/
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -22,8 +22,7 @@ async function warningTooltip(btn, message) {
     btn.firstChild.removeAttribute('aria-label');
 }
 
-
-
+// adapted from https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-4/
 
 $(document).ready(function() {
     $('.highlight').each(function(i) {
