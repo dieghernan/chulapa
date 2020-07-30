@@ -241,7 +241,7 @@ Optional arguments:
 
 See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
-**Note that** for `posts` you have a better option provided by [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). If you go for this option, copy [this file](https://github.com/dieghernan/chulapa/blob/master/docs/blog/index.html) and use it on your site, according to your `paginate_path`.
+**Note that** for `posts` you have a better option provided by [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). If you go for this option, copy [this file](https://github.com/dieghernan/chulapa/blob/master/docs/blog/index.html) and use it on your site, according to your `paginate_path`. See a live demo on [chulapa-101](https://dieghernan.github.io/chulapa-101/blog/).
 {: .alert .alert-info .p-3 .mx-2}
 
 
