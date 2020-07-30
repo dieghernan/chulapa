@@ -2,22 +2,28 @@
 layout: null
 ---
 // adapted from https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-4/
-$('.invisible').tooltip({
-    trigger: 'click',
-    placement: 'bottom'
-});
-
-function setTooltip(btn, message) {
-    $(".invisible").tooltip('hide')
-        .attr('data-original-title', message)
-        .tooltip('show');
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function hideTooltip(btn) {
-    setTimeout(function() {
-        $(".invisible").tooltip('hide');
-    }, 1000);
+async function setTooltip(btn, message) {
+    btn.firstChild.setAttribute('class', 'btn btn-success btn-sm mb-0 ');
+    btn.setAttribute('aria-label', message);
+    await sleep(500);
+    btn.firstChild.setAttribute('class', 'btn btn-primary btn-sm mb-0');
+    btn.firstChild.removeAttribute('aria-label');
 }
+
+async function warningTooltip(btn, message) {
+    btn.firstChild.setAttribute('class', 'btn btn-danger btn-sm mb-0 ');
+    btn.setAttribute('aria-label', message);
+    await sleep(500);
+    btn.firstChild.setAttribute('class', 'btn btn-primary btn-sm mb-0');
+    btn.firstChild.removeAttribute('aria-label');
+}
+
+
+
 
 $(document).ready(function() {
     $('.highlight').each(function(i) {
@@ -33,7 +39,7 @@ $(document).ready(function() {
             // now create the button, setting the clipboard target to the id
             var btn = document.createElement('div');
             btn.setAttribute('type', 'btn');
-            btn.classList.add('btn-copy-code', 'text-right');
+            btn.classList.add('btn-copy-code', 'text-right', "mb-1");
             btn.setAttribute('data-clipboard-target', '#' + currentId);
             btn.innerHTML = '<p class="btn btn-primary btn-sm mb-0 "><i class="far fa-copy"></i><span class="invisible"></span></p>';
             this.insertBefore(btn, this.firstChild);
@@ -44,12 +50,10 @@ $(document).ready(function() {
 var clipboard = new ClipboardJS('.btn-copy-code');
 
 clipboard.on('success', function(e) {
-    setTooltip(e.trigger, 'Copied!');
-    hideTooltip(e.trigger);
     e.clearSelection();
+    setTooltip(e.trigger, 'Copied!');
 });
 
 clipboard.on('error', function(e) {
-    setTooltip(e.trigger, 'Failed!');
-    hideTooltip(e.trigger);
+    warningTooltip(e.trigger, 'Copied!');
 });
