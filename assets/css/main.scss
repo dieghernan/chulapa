@@ -42,4 +42,4 @@
  * Previews: (https://jwarby.github.io/jekyll-pygments-themes)
  * UNLICENSE
  */
-@import "pygments/{{- site.chulapa-skin.highlight | downcase | default: "default" -}}";
+@import "highlight/{{- site.chulapa-skin.highlight | downcase | default: "default" -}}";

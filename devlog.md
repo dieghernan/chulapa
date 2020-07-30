@@ -8,3 +8,4 @@
 - Expand navbar now controles the change on display
 - Small layout changes on image background
 - Fixes on radius of pear skin
+- Add dracula and change name of dirwctory
