@@ -10,7 +10,7 @@ async function setTooltip(btn, message) {
     btn.firstChild.setAttribute('class', 'btn btn-success btn-sm mb-0 ');
     btn.setAttribute('aria-label', message);
     await sleep(500);
-    btn.firstChild.setAttribute('class', 'btn btn-primary btn-sm mb-0');
+    btn.firstChild.setAttribute('class', 'btn btn-light btn-sm mb-0');
     btn.firstChild.removeAttribute('aria-label');
 }
 
@@ -18,7 +18,7 @@ async function warningTooltip(btn, message) {
     btn.firstChild.setAttribute('class', 'btn btn-danger btn-sm mb-0 ');
     btn.setAttribute('aria-label', message);
     await sleep(500);
-    btn.firstChild.setAttribute('class', 'btn btn-primary btn-sm mb-0');
+    btn.firstChild.setAttribute('class', 'btn btn-light btn-sm mb-0');
     btn.firstChild.removeAttribute('aria-label');
 }
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
             btn.setAttribute('type', 'btn');
             btn.classList.add('btn-copy-code', 'text-right', "mb-1");
             btn.setAttribute('data-clipboard-target', '#' + currentId);
-            btn.innerHTML = '<p class="btn btn-primary btn-sm mb-0 "><i class="far fa-copy"></i><span class="invisible"></span></p>';
+            btn.innerHTML = '<p class="btn btn-light btn-sm mb-0 "><i class="far fa-copy"></i><span class="invisible"></span></p>';
             this.insertBefore(btn, this.firstChild);
         }
     });
