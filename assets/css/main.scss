@@ -35,11 +35,4 @@
 {% endif %}
 
 //C. Highlighter
-/*!
- * Pygments css
- * Developed by jwarby (https://github.com/jwarby)
- * Renamed to *.scss on this project
- * Previews: (https://jwarby.github.io/jekyll-pygments-themes)
- * UNLICENSE
- */
 @import "highlight/{{- site.chulapa-skin.highlight | downcase | default: "default" -}}";
