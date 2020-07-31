@@ -1,0 +1,169 @@
+/* cran Theme
+ *
+ * Based on https://cran.r-project.org/
+ * Copyright 2020, All rights reserved
+ *
+ * Code licensed under the MIT license
+ *
+ * @author Diego H <https://github.com/dieghernan/>
+ */
+
+/*
+ * Variables
+ */
+
+$bg: #F8F8F8;  // Background
+$number: #099;
+$literal: #990073;
+$operator: #687687; // And parent
+$comment: #998; //font-style: italic
+$keyword: #900; //font-weight: bold
+$identifier: #000000;
+$string: #d14;
+
+
+/*
+ * Styles
+ */
+
+code {
+  color:$string;
+  font-weight: bold;
+}
+
+.highlight {
+  pre {
+    background: $bg;
+    color: $identifier;
+  }
+  
+  code {
+    font-weight:normal;
+  }
+  .hll,
+  .s,
+  .sa,
+  .sb,
+  .sc,
+  .dl,
+  .sd,
+  .s2,
+  .se,
+  .sh,
+  .si,
+  .sx,
+  .sr,
+  .s1,
+  .ss {
+    color: $string;
+  }
+
+  .go {
+    color: $identifier;
+    font-weight: bold;
+  }
+
+  .err,
+  .g,
+  .l,
+  .n,
+  .x,
+  .ge,
+  .gr,
+  .gh,
+  .gi,
+  .gp,
+  .gs,
+  .gu,
+  .gt,
+  .ld,
+  .no,
+  .nd,
+  .ni,
+  .ne,
+  .nn,
+  .nx,
+  .py,
+  .w,
+  .bp {
+    color: $identifier;
+  }
+
+  .gh,
+  .gi,
+  .gu {
+    font-weight: bold;
+  }
+
+  .bp {
+    font-style: italic;
+  }
+
+  .c,
+  .ch,
+  .cm,
+  .cpf,
+  .c1,
+  .cs {
+    color: $comment;
+    font-style: italic;
+  }
+
+  .kd,
+  .kt,
+  .nb,
+  .nl,
+  .nv,
+  .vc,
+  .vg,
+  .vi,
+  .vm {
+    color: $keyword;
+    font-style: bold;
+  }
+
+  .kd,
+  .nb,
+  .nl,
+  .nv,
+  .vc,
+  .vg,
+  .vi,
+  .vm {
+    font-style: italic;
+  }
+
+  .na,
+  .nc,
+  .nf,
+  .fm {
+    color: $literal;
+  }
+
+  .k,
+  .p,
+  .o,
+  .cp,
+  .kc,
+  .kn,
+  .kp,
+  .kr,
+  .nt,
+  .ow {
+    color: $operator;
+  }
+
+  .m,
+  .mb,
+  .mf,
+  .mh,
+  .mi,
+  .mo,
+  .il {
+    color: $number;
+  }
+
+  .gd {
+    color: $literal;
+  }
+}

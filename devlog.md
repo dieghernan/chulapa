@@ -10,3 +10,4 @@
 - Fixes on radius of pear skin
 - Add dracula and change name of directory
 - Add thankful_eyes and gruvbox.light highlighters
+- Add cran highlighter
