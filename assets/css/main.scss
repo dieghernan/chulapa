@@ -33,6 +33,3 @@
 {% if site.search.provider == "algolia" %}
 @import "reset-algolia";
 {% endif %}
-
-//C. Highlighter
-@import "highlight/{{- site.chulapa-skin.highlight | downcase | default: "default" -}}";

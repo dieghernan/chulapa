@@ -1,0 +1,5 @@
+---
+---
+@charset "utf-8";
+// Syntax highlighter
+@import "highlight/{{- site.chulapa-skin.highlight | downcase | default: "default" -}}";
