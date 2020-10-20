@@ -1,6 +1,6 @@
 ---
 layout: minimal
-title: '<span class="chulapa">Chulapa</span> blog'
+title: Blog
 subtitle: 'News and updates'
 excerpt: Latest news
 og_image: /assets/img/site/banner-blog.png
@@ -35,14 +35,14 @@ og_image: /assets/img/site/banner-blog.png
 	{%- if paginator.page == 1 -%}
 		{%- assign prevclass = "invisible" -%}
 		{%- assign firstclass = "invisible" -%}
-     {%- elsif paginator.page == paginator.total_pages -%}
+	{%- elsif paginator.page == paginator.total_pages -%}
 		{%- assign nextclass = "invisible" -%}
 		{%- assign lastclass ="invisible" -%}
 	{%- elsif paginator.page == 2 -%}
 			{%- assign firstclass = "invisible" -%}
 	{%- elsif paginator.page == prelast -%}
 			{%- assign lastclass ="invisible" -%}
-    {%- else -%}
+  {%- else -%}
 	{%- endif -%}
 	            <nav aria-label="Page navigation example" class="container-lg mt-4 chulapa-pagination text-center">
                 <ul class="col-md-8 offset-md-2 pagination justify-content-around ">
