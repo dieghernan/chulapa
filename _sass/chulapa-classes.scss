@@ -529,6 +529,22 @@ $value in $theme-colors {
     }
 }
 
+#markdown-toc {
+  @extend .chulapa-toc-wrapper;
+  @extend .list-group;
+  @extend .mb-5;
+  @extend .mx-3;
+  @extend .mx-lg-5;
+  li {
+    @extend .list-group-item;
+    @extend .font-weight-bold;
+    @extend .py-1;
+    @extend .pr-0;
+    @extend .mr-0;
+    @extend .chulapa-toc-reset;
+  }
+}
+
 .chulapa-text-line-through {
     text-decoration: line-through;
 }
