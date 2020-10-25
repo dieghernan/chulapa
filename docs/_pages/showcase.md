@@ -14,6 +14,6 @@ See below some live examples of <span class="chulapa">Chulapa</span>:
 
 - **[COVID19 en España](https://dieghernan.github.io/COVID19/)**, a dataviz project created with **RStudio** by [dieghernan](https://github.com/dieghernan) (spanish). 
 
-
+- **[leaflet-providersESP](https://dieghernan.github.io/leaflet-providersESP/)**, a plug-in for Leafletjs that contains configurations for various free WMS/WMTS tile providers of Spain. by [dieghernan](https://github.com/dieghernan) (spanish). 
 
 
