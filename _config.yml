@@ -228,7 +228,7 @@ kramdown:
   footnote_nr: 1
   footnote_backlink: '&uarr;'
   entity_output: as_char
-  toc_levels: 1..6
+  toc_levels: 2..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
