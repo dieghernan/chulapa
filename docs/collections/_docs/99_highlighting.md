@@ -67,6 +67,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 
 #### Python
 
+
 ```python
 @requires_authorization
 def somefunc(param1='', param2=0):
@@ -83,6 +84,8 @@ class SomeClass:
 ```
 
 #### Javascript
+
+
 ```js
 function $initHighlight(block, cls) {
   try {
@@ -108,6 +111,8 @@ export  $initHighlight;
 ```
 
 #### Java
+
+
 ```java
 /**
  * @author John Smith <john.smith@example.com>
@@ -129,6 +134,7 @@ public abstract strictfp class L2Char extends L2Object {
 
 #### C#
 
+
 ```csharp
 using System.IO.Compression;
 
@@ -149,6 +155,8 @@ namespace MyApplication
 ```
 
 #### Go
+
+
 ```go
 package main
 
@@ -167,6 +175,7 @@ func main() {
 
 #### HTML
 
+
 ```html
 <html>
   <head><title>Title!</title></head>
@@ -179,6 +188,7 @@ func main() {
 ```
 
 #### R
+
 
 ```r
 library("sf")
