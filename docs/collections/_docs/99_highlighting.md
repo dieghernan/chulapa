@@ -35,30 +35,6 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   });
   document.getElementById("count").innerHTML = "An overall of <span class='font-weight-bold'>" + styles.length + "</span> highlighting styles available";
   
-  /* Ready for next version - change id on link href css
-  	
-  	<link id="csshigh" rel="stylesheet" href="./assets/css/highlighter.css" />
-  	
-  	csshigh = document.getElementById("csshigh");
-  	console.log(csshigh.href);
-  	
-  	function reaplyStyles(themename){
-  		csshigh.href = 'https://dieghernan.github.io/remote/assets/css/highlighter/'+themename+'.css';
-  		
-  		title = document.getElementById("config");
-  		
-  		title.innerHTML = 'On your <code>_config.yml</code>';		
-  		
-  		sel = document.getElementById("selected");
-  		
-  		
-  		sel.innerHTML = '<h3>On your <code>_config.yml</code></h3><div class="highlight"><pre class="highlight"><code>' +
-  						'<span class="na">chulapa-skin</span><span class="pi">:</span> </br>' +
-  						'<span class="na">  highlight</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">' +
-  						themename + '"</span></code></pre></div>';
-  		
-      return true;
-  } */
 </script>
 
 
