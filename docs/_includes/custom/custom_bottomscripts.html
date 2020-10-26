@@ -1,5 +1,37 @@
 <!-- start custom scripts to be placed at the bottom of the page -->
 
+<script>
+  $(document).ready(function() {
+  	$('.dropdown-menu a').click(function() {
+  		$('#selected').html('<div class="highlight"><pre class="highlight"><code>' +
+  			'<span class="na">chulapa-skin</span><span class="pi">:</span> </br>' +
+  			'<span class="na">  highlight</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">' +
+  			$(this).text() + '"</span></code></pre></div>');
+  		$('#config').html('On your <code>_config.yml</code>');
+  
+  	});
+  
+  });
+  
+  
+  function removeAllSyntaxStyles() {
+  	$('link[rel=stylesheet][href*="highlight"]').remove();
+  }
+  
+  function addStyle(themename) {
+  	$('<link>').attr('rel', 'stylesheet')
+  		.attr('type', 'text/css')
+  		.attr('href', 'https://dieghernan.github.io/remote/assets/css/highlighter/' + themename + '.css')
+  		.appendTo('head');
+  }
+  
+  function reaplyStyles(themename) {
+  	removeAllSyntaxStyles();
+  	addStyle(themename);
+  	return true;
+  }
+</script>
+
 
 
 <!-- end custom bottom scripts -->
