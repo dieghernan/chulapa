@@ -12,3 +12,5 @@
 - Add thankful_eyes and gruvbox.light highlighters
 - Add cran highlighter
 - Add style toc kramdown
+- highlight on a separated css
+- lazy loading of masonry and videos
