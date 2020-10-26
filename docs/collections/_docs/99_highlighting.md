@@ -61,8 +61,6 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   } */
 </script>
 
-* create toc
-{:toc}
 
 
 
