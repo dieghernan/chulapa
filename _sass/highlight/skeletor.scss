@@ -1,0 +1,140 @@
+/* Skeletor Syntax 0.3.0
+ *
+ * https://github.com/ramonmcros/skeletor-syntax
+ *
+ * Code licensed under the MIT license
+ *
+ * (Poorly) Adapted by dieghernan https://github.com/dieghernan
+ */
+
+$bg: #2b2836;
+$text: #dce7fd;
+$comment: #655e7f;
+$punct: #dce7fd;
+$string: #93b4ff;
+$attr: #bd93f9;
+$bool: #ff8adb;
+$numb: $bool;
+$key: #f3e4a2;
+$regex: #84fba2;
+
+.highlight {
+	code,
+	pre {
+		background: $bg;
+		color: $text;
+	}
+
+	// Comment
+	.c,
+	.ch,
+	.cm,
+	.cpf,
+	.c1,
+	.cp,
+	.cs {
+		color: $comment;
+	}
+
+	// Punctuaction
+
+	.err,
+	.g,
+	.l,
+	.n,
+	.x,
+	.p,
+	.ge,
+	.gr,
+	.gh,
+	.gi,
+	.gp,
+	.gs,
+	.gu,
+	.gt,
+	.ld,
+	.no,
+	.nd,
+	.ni,
+	.ne,
+	.nn,
+	.nx,
+	.py,
+	.w,
+	.bp {
+		color: $punct;
+	}
+
+	// String
+
+	.hll,
+	.dl,
+	.sd,
+	.s2,
+	.se,
+	.sh,
+	.si,
+	.sx,
+	.s1,
+	.ss {
+		color: $string;
+	}
+
+	// Regex
+
+	.s,
+	.sa,
+	.sb,
+	.sc,
+	.sr {
+		color: $regex;
+	}
+
+	// Attribute
+	.na,
+	.nc,
+	.nf,
+	.fm {
+		color: $attr;
+	}
+
+	//Boolean
+
+	.kc,
+	.kn,
+	.kp,
+	.kr,
+	.ow {
+		color: $bool;
+	}
+
+	// Number
+	.m,
+	.mb,
+	.mf,
+	.mh,
+	.mi,
+	.mo,
+	.il {
+		color: $numb;
+	}
+
+	.k,
+	.nt,
+	.o {
+		color: $key;
+	}
+
+	.kd,
+	.kt,
+	.nb,
+	.nl,
+	.nv,
+	.vc,
+	.vg,
+	.vi,
+	.vm {
+		color: $string;
+	}
+}
+

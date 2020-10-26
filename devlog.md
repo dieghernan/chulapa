@@ -11,6 +11,7 @@
 - Add dracula and change name of directory
 - Add thankful_eyes and gruvbox.light highlighters
 - Add cran highlighter
+- Add skeletor highlighter
 - Add style toc kramdown
 - highlight on a separated css
 - lazy loading of masonry and videos
