@@ -1,6 +1,7 @@
 ---
 title: Syntax highlighting demo
 subtitle: Highlighters shipped with this theme.
+excerpt: This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.
 permalink: /docs/syntax-highlighting
 show_toc: false
 ---
