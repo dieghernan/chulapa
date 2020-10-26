@@ -33,7 +33,9 @@ If you use another provider, or you prefer another method, there are two feature
 
 ## Code highlighting
 
-Pygments highlighting styles available thanks to [@jwarby](http://jwarby.github.io/jekyll-pygments-themes). Just follow the link and choose the one you want. **default**
+Pygments highlighting styles available Have a look to the [Live demo](https://dieghernan.github.io/chulapa/docs/syntax-highlighting) and choose the one you want. **default**
+
+
 
 ```yaml
 chulapa-skin: 
