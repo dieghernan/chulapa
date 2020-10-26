@@ -113,7 +113,7 @@ footer:
 
 # C. Theme Settings
 chulapa-skin: 
-  highlight   : "ZENBURN"
+  highlight   : "github"
   autothemer  :  true 
   vars        :    
     primary:   '#efebdd'
