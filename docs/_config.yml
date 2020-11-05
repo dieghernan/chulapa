@@ -99,6 +99,8 @@ navbar:
         url: /showcase
       - title: Contribute
         url: /contribute
+      - title: Changelog
+        url: /CHANGELOG
 footer:
   links:
     - label: "RSS"
