@@ -5,7 +5,7 @@ permalink: /CHANGELOG
 ---
 
 
-## v1.0.0-beta.1 *2020-07-28*{:.text-muted}
+## v1.0.0-beta.1 *2020-07-28*{:.text-muted .small}
 
 Pre-release - first stable beta of the software
 
