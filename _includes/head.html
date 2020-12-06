@@ -225,6 +225,8 @@ where_exp: "item", "item.url contains 'http'"
     {% endif -%}
 
     <!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     {% for font in site.googlefonts -%}
       {% if font.url -%}
     <link href="{{ font.url }}" rel="stylesheet">
