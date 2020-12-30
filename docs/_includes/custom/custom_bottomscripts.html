@@ -28,6 +28,8 @@
   function reaplyStyles(themename) {
   	removeAllSyntaxStyles();
   	addStyle(themename);
+  	label = document.getElementById("dropdownMenuButton");
+  	label.innerHTML = themename;
   	return true;
   }
 </script>
