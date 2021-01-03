@@ -1,3 +1,5 @@
+{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
+{%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | strip_html  -%}
 <div class="row my-1">
 <div class="col-lg-6 offset-lg-2 col small">
   {% if page.show_breadcrumb %}
