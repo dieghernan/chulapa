@@ -67,7 +67,7 @@ The minimal files and folders you need are:
 - `Gemfile`
 - `_config.yml`
 
-You may need also to keep `.travis.yml` if you want to use Algolia as [your search engine](https://dieghernan.github.io/chulapa/docs/02-config#search-engines).
+You may need also to keep `.github/workflows/algolia-search.yml` if you want to use Algolia as [your search engine](https://dieghernan.github.io/chulapa/docs/02-config#search-engines).
 
 You can safely remove any other content of the repo.
 
