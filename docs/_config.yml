@@ -69,6 +69,8 @@ navbar:
        url: /docs/04-layouts
      - title: Tips & Tricks
        url: /docs/05-tips-n-tricks
+     - title: Markdown cheatsheet
+       url: /docs/markdown-cheatsheet
      - title: Syntax highlighting
        url: /docs/syntax-highlighting
      - title: Variable dictionary

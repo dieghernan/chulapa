@@ -25,7 +25,9 @@ You can also check the version on any page of your site, just watch the source c
 
 ### ...start with Markdown?
 
-See this [cheatsheet](https://www.markdownguide.org/cheat-sheet/). You may want to explore also [kramdown](https://kramdown.gettalong.org/quickref.html), that is the default rendered on [Jekyll](https://jekyllrb.com/docs/configuration/markdown/).
+[We've got you covered](../markdown-cheatsheet).
+
+You may want to have a look to this [cheatsheet](https://www.markdownguide.org/cheat-sheet/) and the [kramdown](https://kramdown.gettalong.org/quickref.html) reference, that is the default rendered on [Jekyll](https://jekyllrb.com/docs/configuration/markdown/).
 
 Just create a file with `.md` extension and you are good to go!
 
