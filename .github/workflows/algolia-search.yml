@@ -1,3 +1,4 @@
+# algolia-jekyll v1.0.0
 # Important: ALGOLIA_API_KEY should be set on Settings > Secrets
 # Name: ALGOLIA_API_KEY
 # Value: Your Algolia Admin API Key value (not be confused with Search-Only API Key)
@@ -7,10 +8,10 @@ on:
       - master
       - main
   
-name: algolia-search
+name: jekyll-algolia-ghpages
 
 jobs:
-  algolia-search:
+  jekyll-algolia-ghpages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
