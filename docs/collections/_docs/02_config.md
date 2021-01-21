@@ -114,13 +114,7 @@ algolia:
     - desc(subtitle)
 ```
 
-If you are deploying your site with Github Pages, you can create and update your Algolia index via GiHub Actions. All you have to do is:
-
-- Create a secret on your repo (*Settings>Secrets*) with name `ALGOLIA_API_KEY` and value set to your Algolia Admin API Key.
-- Create the folder `.github/workflows` on your repo and copy the [`algolia-search.yml`](https://github.com/dieghernan/chulapa/blob/master/.github/workflows/algolia-search.yml) file.
-- Confirm that GitHub Actions are enabled in your repo.
-
-After each commit, your index would be built automatically.
+If you are deploying your site with Github Pages, I recommend using this [GitHub Action](https://github.com/marketplace/actions/algolia-jekyll-action) to create and update your Algolia index after every commit automatically.
 
 ### Comments
 
