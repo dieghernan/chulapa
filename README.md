@@ -20,8 +20,8 @@
 -  **Masonry gallery**
 -  **Video support** - self-hosted or from core providers: Youtube, Vimeo, DailyMotion...
 -  **Structured data** for better SEO
--  **Code highlight** - 20 Pigment styles
--. **Mathjax** inside
+-  **Code highlight** - +20 Pygment styles
+- **Mathjax** inside
 -  **Google Analytics**
 -  **Twitter Cards** and **Open Graph** data valid for Facebook, LinkedIn and WhatsApp
 -  **14+ preinstalled skins**
