@@ -1,11 +1,18 @@
 ---
 layout: null
 ---
-    
-$('.btn-copy-code').tooltip({
-    trigger: 'click',
-    placement: 'bottom'
-});
+
+// Clipboard
+// Uses Bootstrap 4 + JQuery
+
+// Initialize tooltips BST4 - Fancy displaying
+// CSS btn-copy-code: Visibility controls that the button is shown only when hovering the code container
+//.btn-copy-code{position:absolute;right:30px;visibility:hidden} NOTE: visibilty optional
+//.highlighter-rouge:hover button.btn-copy-code{visibility:visible} NOTE: Skip if btn_copy_code not hidden
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
 function showTooltip(btn, message) {
     btn.tooltip('hide')
@@ -22,7 +29,7 @@ function hideTooltip(btn) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
+//
 async function setTooltip(btn, message) {
     btn.classList.remove('btn-light');
     btn.classList.add('btn-success');
@@ -44,42 +51,43 @@ async function warningTooltip(btn, message) {
     btn.classList.remove('btn-danger');
 }
 
-// adapted from https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-4/
+// End helpers tooltip
 
-$(document).ready(function() {
-    $('.highlight').each(function(i) {
-        if (!$(this).parent().hasClass('highlighter-rouge')) {
+// Insert buttons 
+$(document).ready(function() {	
+	// HTML Button styled with BST4
+	var copyButton = 	"<button class='btn btn-light btn-sm btn-chulapa-copy-code' " +
+	                    "type = 'button' " +
+						"data-toggle='tooltip'" +
+						"data-placement='left'" +
+						"data-clipboard-copy>" +  //Keyword
+						"<i class='far fa-copy'></i>" +
+						"</button>";
+						
+    // Insert copy buttons between pre  and code on Rouge:
+	$(copyButton).prependTo("pre.highlight");
 
-            // create an id for the current code section
-            var currentId = "codeblock" + (i + 1);
-
-            // find the code section and add the id to it
-            var codeSection = $(this).find('code');
-            codeSection.attr('id', currentId);
-
-            // now create the button, setting the clipboard target to the id
-            var btn = document.createElement('div');
-            //btn.setAttribute('type', 'btn');
-            btn.classList.add('text-right', "mb-1");
-            btn.innerHTML = '<p><i class="far fa-copy"></i></p>';
-            btn.firstChild.classList.add('btn-copy-code', 'btn', 'btn-light', 'btn-sm', 'mb-0')
-            btn.firstChild.setAttribute('data-clipboard-target', '#' + currentId);
-            this.insertBefore(btn, this.firstChild);
-        }
-    });
 });
 
-var clipboard = new ClipboardJS('.btn-copy-code');
-
+// Copy next Sibling - code part
+var clipboard = new ClipboardJS('[data-clipboard-copy]', { // Keyword
+    target: function(trigger) {
+        return trigger.nextElementSibling;
+    }
+});
+// Fancy displaying using BST4
 clipboard.on('success', function(e) {
     e.clearSelection();
     setTooltip(e.trigger, 'Copied!');
     var btn = $(e.trigger);
     showTooltip(btn, 'Copied!');
     hideTooltip(btn);
+	// Console
+    console.info('Text:', e.text);
 });
 
 clipboard.on('error', function(e) {
+	e.clearSelection();
     warningTooltip(e.trigger, 'Error!');
     var btn = $(e.trigger);
     showTooltip(btn, 'Error!');

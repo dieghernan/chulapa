@@ -828,3 +828,14 @@ $value in $theme-colors {
         transform: rotate(-135deg);
     }
 }
+
+// Repositioning Clipboard button
+.btn-chulapa-copy-code {
+  position: absolute;
+  right: 30px;
+  visibility: hidden;
+}
+
+.highlighter-rouge:hover button.btn-chulapa-copy-code {
+  visibility: visible;
+}
