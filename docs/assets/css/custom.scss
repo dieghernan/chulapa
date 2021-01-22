@@ -4,3 +4,15 @@
 #version {
   font-size: 0.8em;
 }
+
+// Pre doesn't wrap anymore
+pre {
+  word-wrap: normal;
+  word-break: normal;
+}
+
+pre code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
