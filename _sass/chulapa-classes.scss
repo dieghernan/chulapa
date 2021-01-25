@@ -833,9 +833,4 @@ $value in $theme-colors {
 .btn-chulapa-copy-code {
   position: absolute;
   right: 30px;
-  visibility: hidden;
-}
-
-.highlighter-rouge:hover button.btn-chulapa-copy-code {
-  visibility: visible;
 }
