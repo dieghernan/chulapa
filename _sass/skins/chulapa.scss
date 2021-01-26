@@ -1,14 +1,10 @@
 /*! Chulapa by dieghernan */
 
-@font-face {
-    font-family: ferpal;
-    src: url("https://dieghernan.github.io/chulapa/assets/fonts/Ferpal/Ferpal-Regular.otf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 $headings-font-family: chulapa,
 sans-serif;
-$font-family-sans-serif: ferpal,
-sans-serif;
+$font-family-base: 'Ibarra Real Nova', serif;
 $enable-rounded: false;
 $btn-font-family: $headings-font-family;
 

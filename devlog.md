@@ -15,3 +15,4 @@
 - Add style toc kramdown
 - highlight on a separated css
 - lazy loading of masonry and videos
+- Chulapa skin uses Ibarra Font for body 
