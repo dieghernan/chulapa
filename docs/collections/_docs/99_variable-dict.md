@@ -65,7 +65,8 @@ See full set of variables [here](https://raw.githubusercontent.com/dieghernan/ch
 | `headings-font-family` | Headings font family |
 | `font-size-base` | Base font size |
 | `headings-color` | Headings text color |
-
+| `carousel-control-color` | Color for carousel controls |
+| `carousel-indicator-active-bg` | Color for carousel indicators |
 
 ### Color map
 

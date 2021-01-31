@@ -22,3 +22,5 @@ $warning: mix(#ffc107, $primary, 75%) !default;
 $danger: mix(#dc3545, $primary, 75%) !default;
 $light: mix(white, $primary, 75%) !default;
 $dark: mix(black, $primary, 75%) !default;
+$carousel-control-color:             $dark !default;
+$carousel-indicator-active-bg:       $dark !default;
