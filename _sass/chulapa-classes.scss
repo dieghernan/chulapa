@@ -834,3 +834,11 @@ $value in $theme-colors {
   position: absolute;
   right: 30px;
 }
+
+// Normalize carousel
+
+.chulapa-carousel {
+  height: 66vh;
+  width: auto;
+  object-fit:cover;
+}
