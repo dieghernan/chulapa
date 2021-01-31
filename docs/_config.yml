@@ -124,6 +124,9 @@ chulapa-skin:
     primary:   '#efebdd'
     secondary: "#dfd7ba"
     link-color: '#a19d8e'
+    carousel-control-color: black
+    carousel-indicator-active-bg: black
+
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 collections:
   demo:

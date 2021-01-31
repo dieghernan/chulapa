@@ -446,6 +446,16 @@ This theme has an implementation of the [Bootstrap 4.x Carousel](https://getboot
 
 - `controls`: Include controls on the carousel?. **false**.
 
+You can control the color of the indicators vía you `_config.yml` file:
+
+```yaml 
+chulapa-skin:
+  vars: 
+    carousel-control-color: black
+    carousel-indicator-active-bg: black
+
+```
+
 See a full blown example here:
 
 {% raw %}
