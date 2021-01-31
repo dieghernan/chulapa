@@ -460,7 +460,7 @@ See a full blown example here:
 
 {% raw %}
 ```
-{% include_cached snippets/masonry.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
+{% include_cached snippets/carousel.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
 ```
 {% endraw %}
 
