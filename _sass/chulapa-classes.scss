@@ -838,7 +838,6 @@ $value in $theme-colors {
 // Normalize carousel
 
 .chulapa-carousel {
-  height: 66vh;
-  width: auto;
-  object-fit:cover;
+  height: 75vh;
+  object-fit:contain;
 }
