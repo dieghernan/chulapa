@@ -16,3 +16,5 @@
 - highlight on a separated css
 - lazy loading of masonry and videos
 - Chulapa skin uses Ibarra Font for body 
+- Masonry gets a random parameter
+- New feature: carousel 

@@ -1,0 +1,61 @@
+{%- if include.internal -%}
+  {% assign sort =  include.index_sort | default: 'modified_time' %}
+  {%- assign bricks = site.static_files | where: "image_col", include.internal -%}
+  {% if include.index_sort_asc %}
+    {%- assign bricks = bricks | sort: "{{sort}}" | map: "path" -%}
+  {% else %}
+    {%- assign bricks = bricks | sort: "{{sort}}" | reverse | map: "path" -%}
+  {% endif %}
+{%- elsif include.external -%}
+  {%- assign bricks = include.external | strip_newlines | replace: " " , "" |split: ","  -%}
+{%- endif -%}
+{%- assign interval =   include.interval | default: 5000   -%}
+{%- assign end =   include.index_items | default: 100   -%}
+
+{%- if bricks -%}
+  {% if include.random %}
+    {%- assign bricks = bricks | sample: bricks.size -%}
+  {%- endif -%}
+  {% assign id = bricks | join: ""| size %}
+  {% if include.indicators %}
+    {% assign id = id | times: 3 %}
+  {% endif %}
+  {% if include.indicators %}
+    {% assign id = id | times: 7 %}
+  {% endif %}
+  {% assign id = "Carousel" | append: id %}
+<div id="{{ id }}" class="carousel slide" data-ride="carousel" data-interval="{{- interval -}}">
+  {% if include.indicators %}
+  <ol class="carousel-indicators">
+      {%- for brick in bricks limit: end -%}
+	  {% if forloop.first == true %}
+	  <li data-target="#{{ id }}" data-slide-to="{{ forloop.index0 }}" class="active"></li>
+	  {% else %}
+	  <li data-target="#{{ id }}" data-slide-to="{{ forloop.index0 }}"></li>
+	  {% endif %}
+      {%- endfor -%}
+  </ol>	
+ {% endif %}
+  <div class="carousel-inner">
+  {%- for brick in bricks limit: end -%}
+    {% if forloop.first == true %}
+        <div class="carousel-item active">
+    {% else %}
+        <div class="carousel-item">
+    {% endif %}
+	<img class="d-block mw-100" style="height: 66vw;" src="{{- brick | absolute_url -}}" alt="Carousel Item #{{- forloop.index -}}">
+	</div>  
+  {%- endfor -%}
+  </div>
+  {% if include.controls %}
+  <a class="carousel-control-prev" href="#chulapaCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#{{ id }}" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  {%- endif -%}
+</div>
+{%- endif -%}

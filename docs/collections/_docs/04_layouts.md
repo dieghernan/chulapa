@@ -397,10 +397,12 @@ Then just copy the following snippet:
 
 {% include_cached snippets/masonry.html internal="gallery" %}
 
-There are three optional parameters that you can use for controlling the output:
+There are four optional parameters that you can use for controlling the output:
+
 - `index_sort`: *(internal galleries only)* See [Index category](#index-category). Note that static files, as images, has a [limited set of variables](https://jekyllrb.com/docs/static-files/). **modified_time**.
 - `index_sort_asc`: *(internal galleries only)* See [Index category](#index-category).
 - `index_items`: See [Index category](#index-category). **100**.
+- `random`: If set to `"true"` the output would be randomly sorted. This would override `index_sort`. **false**.
 
 
 {% raw %}
@@ -434,6 +436,25 @@ https://picsum.photos/seed/70/700/500,
 ./assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" %}
 
 {% include_cached snippets/masonry.html external=externalgallery %}
+
+### Bootstrap Carousel
+
+This theme has an implementation of the [Bootstrap 4.x Carousel](https://getbootstrap.com/docs/4.4/components/carousel/). The use is similar to the Masonry component with three additional parameters:
+
+- `interval`: The amount of time to delay between automatically cycling an item (ms). **5000**.
+- `indicators`: Include indicators on the carousel?. **false**.
+
+- `controls`: Include controls on the carousel?. **false**.
+
+See a full blown example here:
+
+{% raw %}
+```
+{% include_cached snippets/masonry.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
+```
+{% endraw %}
+
+{% include_cached snippets/masonry.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
 
 ### Video support
 

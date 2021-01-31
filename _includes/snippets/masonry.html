@@ -11,6 +11,9 @@
 {%- endif -%}
 {%- assign end =   include.index_items | default: 100   -%}
 {%- if bricks -%}
+  {% if include.random %}
+    {%- assign bricks = bricks | sample: bricks.size -%}
+  {%- endif -%}
 <div class="chulapa-masonry mx-2 mt-2">
   {%- for brick in bricks limit: end -%}
   <img loading="lazy" class="chulapa-masonry-brick" src="{{- brick | absolute_url -}}" 
