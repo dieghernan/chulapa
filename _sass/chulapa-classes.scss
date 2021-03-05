@@ -152,6 +152,7 @@ $value in $theme-colors {
         .dropdown-item.show,
         .dropdown-item.active {
             color: $navbar-chulapa-active-color;
+            background-color: $navbar-chulapa-bg-color;
         }
     }
 }
