@@ -21,7 +21,7 @@
       </li>
       {% else %}
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="{{ "/" | absolute_url }}" itemprop="item"><span itemprop="name">{{ site.title }}</span></a>
+          itemtype="https://schema.org/ListItem"><a href="{{ "/" | absolute_url }}" itemprop="item"><span itemprop="name">{{ site.navbar.brand.title | default: site.title | default: site.github.repository_name }}</span></a>
           <meta itemprop="position" content="1" /></li>
     <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem">
