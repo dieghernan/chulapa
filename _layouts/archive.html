@@ -43,7 +43,7 @@ layout: default
 </div>
 
 {%- for year in postsInYear -%}
-<section id="{{ year.name | default: "NA" }}" class="mt-2">
+<section id="{{ year.name | default: "NA" }}" class="mt-2 chulapa-archive">
 	<h2 class="border-bottom border-chulapa">{{ year.name | default: "NA" }}</h2>
 	{%- assign postsInMonth = year.items | group_by_exp: 'post', 'post.date | date: "%B"' -%}
 	{%- for month in postsInMonth  -%}
