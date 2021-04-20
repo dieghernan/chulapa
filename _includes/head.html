@@ -221,6 +221,8 @@ where_exp: "item", "item.url contains 'http'"
     {%- if twitterauthor %}
     <meta name="twitter:creator" content="@{{- twitterauthor  -}}" />
     {% endif -%}
+    
+    {%- include custom/custom_head_before_css.html -%}
 
     <!-- CSS -->
     <!-- Preconnect with Google Fonts -->
