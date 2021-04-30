@@ -641,7 +641,7 @@ $value in $theme-colors {
         position: fixed;
         @include border-radius(50%);
         font-size:1.25rem;
-        z-index: 2000;
+        z-index: 20000;
         cursor: pointer;
     }
 
@@ -651,7 +651,7 @@ $value in $theme-colors {
         @include border-radius(50%);
         position: fixed;
         background-image: radial-gradient($navbar-chulapa-bg-color, $navbar-chulapa-bg-color);
-        z-index: 1000;
+        z-index: 10000;
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
     }
@@ -661,7 +661,7 @@ $value in $theme-colors {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 1500;
+        z-index: 15000;
         opacity: 0;
         width: 0;
         transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
