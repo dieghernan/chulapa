@@ -19,7 +19,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   </div>
 </div>
 
-<p id ="config"></p>
+<p> Theme selected: <span id="config">None</span></p>
 <div id="selected" class="language-yaml highlighter-rouge"></div>
 
 <script>
@@ -45,7 +45,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   		
   		title = document.getElementById("config");
   		
-  		title.innerHTML = 'Theme selected: <strong>' + themename + '</strong>. On your <code>_config.yml</code>';		
+  		title.innerHTML = '<strong>' + themename + '</strong>. On your <code>_config.yml</code>';		
   		
   		sel = document.getElementById("selected");
   		
