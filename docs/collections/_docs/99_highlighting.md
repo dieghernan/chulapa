@@ -43,7 +43,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 
 
 
-
+<div markdown="1">
 #### Python
 
 ```python
@@ -181,3 +181,5 @@ pbenford <- function(q){
 plot(st_geometry(example), col = "red")
 
 ```
+
+</div>
