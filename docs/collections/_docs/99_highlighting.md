@@ -44,9 +44,9 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 
 
 
-#### Phyton
+#### Python
 
-```phyton
+```python
 @requires_authorization
 def somefunc(param1='', param2=0):
     r'''A docstring'''
