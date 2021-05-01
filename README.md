@@ -51,10 +51,10 @@ A great alternative for blogs, news, portfolios and personal sites. Want to know
 
 By using `jekyll-remote-theme` your repo would have remote access to the content of these folders:
 
-- `chulapa/assets`
-- `chulapa/_layouts`
-- `chulapa/_includes`
-- `chulapa/_sass`
+- `assets`
+- `_layouts`
+- `_includes`
+- `_sass`
 
 This method allows you to get updates easily
 
@@ -67,24 +67,22 @@ Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/
 You can migrate an existing page adding this line to your `_config.yml` and make sure to remove any previous theme or remote theme parameter:
   
 ```yaml
-remote_theme: dieghernan/chulapa@[releasetag]
+remote_theme: dieghernan/chulapa
 
 ... more config options
 ```
     
-Replace `[releasetag]` with the desired release tag, or just use `dieghernan/chulapa` if you want to use the `master` branch version of the theme (on active development).
 
-
-### B. Fork the base repository
+### B. Fork the base repository [Advance users only]
 
 You can fork [the base repo](https://github.com/dieghernan/chulapa/generate) and modify it. However, the site would be frozen at the moment of forking and it would make harder for you to get potential new features and upgrades.
 
 The minimal files and folders you need are:
  
-- `chulapa/assets`
-- `chulapa/_layouts`
-- `chulapa/_includes`
-- `chulapa/_sass`
+- `assets`
+- `_layouts`
+- `_includes`
+- `_sass`
 - `Gemfile`
 - `_config.yml`
 
