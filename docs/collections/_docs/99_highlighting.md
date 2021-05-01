@@ -24,9 +24,9 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 <div id="selected" class="language-yaml highlighter-rouge"></div>
 
 <script>
-  var styles = ['autumn', 'borland', 'bw', 'colorful', 'default', 'emacs',
-  	'friendly', 'fruity', 'github', 'manni', 'monokai', 'murphy','native',
-  	'pastie','perldoc','tango','trac','vim','vs','zenburn'
+  var styles = ['autumn', 'borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
+  	'friendly', 'fruity', 'github', 'gruvbox.light', 'manni', 'monokai', 'murphy','native',
+  	'pastie','perldoc','skeletor', 'tango','thankful_eyed', 'trac','vim','vs','zenburn'
   ].sort();
   
   styles.forEach(function(word) {
