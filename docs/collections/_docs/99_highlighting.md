@@ -19,8 +19,8 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   </div>
 </div>
 
-<p> Theme selected: <span id="config">None</span></p>
-<div id="selected" class="language-yaml highlighter-rouge"></div>
+<p>Theme selected: <span id="config">None</span></p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span> <br><span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
 
 <script>
   var styles = ['autumn', 'borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
@@ -47,13 +47,8 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   		
   		title.innerHTML = '<strong>' + themename + '</strong>. On your <code>_config.yml</code>';		
   		
-  		sel = document.getElementById("selected");
-  		
-  		
-  		sel.innerHTML = '<div class="highlight"><pre class="highlight"><code>' +
-  						'<span class="na">chulapa-skin</span><span class="pi">:</span> </br>' +
-  						'<span class="na">  highlight</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">' +
-  						themename + '"</span></code></pre></div>';
+  		sel = document.getElementById("selected");  	
+  		sel.innerHTML = themename;
   		
       return true;
   }
