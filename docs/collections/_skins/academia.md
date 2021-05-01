@@ -4,7 +4,7 @@ title: Academia
 subtitle: It purifies, it fixes, and it dignifies
 excerpt: Academia: It purifies, it fixes, and it dignifies developed by dieghernan.
 date: 2021-04-04
-last_modified_at: 2021-05-01
+last_modified_at: 2021-04-29
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: academia 
