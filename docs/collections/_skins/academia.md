@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Academia
-subtitle: A skin for night owls
-excerpt: Twitter Dim, a skin for night owls developed by dieghernan.
+subtitle: It purifies, it fixes, and it dignifies
+excerpt: Academia, It purifies, it fixes, and it dignifies developed by dieghernan.
 date: 2021-03-20
-last_modified_at: 2021-04-01
+last_modified_at: 2021-04-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: academia
