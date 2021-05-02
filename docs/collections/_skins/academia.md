@@ -8,7 +8,7 @@ last_modified_at: 2021-04-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: academia
-og_image: ./assets/img/skinspreview/academia.jpeg
+og_image: ./assets/img/skinspreview/academia.png
 ---
 
 
