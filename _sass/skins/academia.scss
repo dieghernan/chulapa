@@ -20,6 +20,7 @@ $h4-font-size: 1rem;
 $h5-font-size: 1rem;
 $h6-font-size: 1rem;
 
-.navbar-chulapa-fab .nav-link.active {
-    color: white !important;
+.navbar-chulapa-fab .dropdown-item.active, 
+.navbar-chulapa-fab .dropdown-item:active {
+    background-color:white;
 }
