@@ -15,7 +15,7 @@ jobs:
         with:
           ruby-version: '2.6'
           
-      - uses: actions/cache@v2
+      - uses: actions/cache@v2.1.6
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
