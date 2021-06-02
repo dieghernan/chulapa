@@ -341,6 +341,10 @@ th {
 $enable-rounded: false;
 $white: white;
 
+a {
+  color: $cyan;
+}
+
 .navbar-chulapa {
     .dropdown-item {
         font-size: $font-size-sm;
