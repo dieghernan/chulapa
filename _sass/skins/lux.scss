@@ -340,10 +340,7 @@ th {
 //CUSTOM SASS
 $enable-rounded: false;
 $white: white;
-
-a {
-  color: $cyan;
-}
+$link-color: $cyan;
 
 .navbar-chulapa {
     .dropdown-item {
