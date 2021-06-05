@@ -1,5 +1,11 @@
 remote_theme: dieghernan/chulapa
 
+
+repository: dieghernan/chulapa
+url: https://dieghernan.github.io
+baseurl: chulapa
+
+
 title: Chulapa
 subtitle: A full flexible Jekyll theme  
 description: Template for creating free sites on Github Pages
