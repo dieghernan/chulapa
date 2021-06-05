@@ -239,6 +239,7 @@ exclude:
   - README.md
   - Gemfile
   - vendor
+  - www_src
 include:
  - _pages
 markdown: kramdown
