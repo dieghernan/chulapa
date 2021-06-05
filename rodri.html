@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en-US"><head>
+   <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - master dev -->
+    <!--  MIT License-->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build 2021-06-05 02:30:15 +0200 -->
+    <!--Google Structured Data-->
+    <script type="application/ld+json">
+        {
+      "@context": "https://schema.org",
+	  "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dieghernan.github.io/chulapa/rodri"
+      },
+      "headline": "Playing with the maths of music",
+      "image": "https://uselessness.science/assets/images/music-math.png",
+      "datePublished": "2021-06-05T02:30:15+02:00",
+      "dateModified": "2021-06-05T02:30:15+02:00",
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo Hernangómez"
+      },
+       "publisher": {
+        "@type": "Organization",
+        "name": "dieghernan",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png"
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dieghernan.github.io/chulapa/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Playing with the maths of music"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "name": "Playing with the maths of music",
+    "description": "Music is ruled by mathematical laws. Staring at the numbers was not enough for me though, so I have coded a tool to actually listen to it."
+    }
+}
+</script><script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "Person",
+  "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Madrid, Spain"
+    },
+  "description": "Publisher",
+  "name" : "dieghernan",
+  "url" : "https://dieghernan.github.io/chulapa/"
+  ,  "sameAs" : [
+  "https://github.com/dieghernan/",
+  "https://dieghernan.github.io/",
+  "https://stackoverflow.com/users/7877917/dieghernan"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "Person",
+  "image": "https://uselessness.science//assets/images/bio-photo.jpg",
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Berlin, Germany"
+    },
+  "description": "Collaborator",
+  "name" : "Rodrigo Hernangómez"
+  , "url": "https://www.linkedin.com/in/rodrigohgh/"
+      ,  "sameAs" : [
+      "https://twitter.com/rodrihgh"
+        ,
+      "https://github.com/rodrihgh"
+        ,
+      "https://instagram.com/rodrihgh"
+        ]
+}
+</script>
+   <title>Playing with the maths of music | Chulapa</title>
+  <link rel="canonical" href="https://dieghernan.github.io/chulapa/rodri">
+    <!-- Atom feed -->
+  <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" />
+    <!-- RSS 2.0 feed -->
+  <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" />
+    <!-- Meta tags -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="author" content="Rodrigo Hernangómez" />
+   <meta name="copyright" content="dieghernan" />
+   <meta name="description" content="Music is ruled by mathematical laws. Staring at the numbers was not enough for me though, so I have coded a tool to actually li..."/>
+   <meta name="thumbnail" content="https://uselessness.science/assets/images/music-math.png" />
+   <meta name="robots" content="index, follow"><meta name="keywords" content="bootstrap,jekyll-theme,customization,video-player,google-analytics,disqus,free,floating-action-button,masonry-layout,mathjax-support,algolia-instantsearch,fontawesome5,lunrjs"/>
+    <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#efebdd">
+    <!-- OpenGraph -->
+   <meta property="og:title" content="Playing with the maths of music | Chulapa" />
+   <meta property="og:url" content="https://dieghernan.github.io/chulapa/rodri" />
+   <meta property="og:type" content="website" />
+   <meta property="og:description" content="Music is ruled by mathematical laws. Staring at the numbers was not enough for me though, so I have coded..." />
+   <meta property="og:locale" content="en-US" />
+   <meta property="og:image" content="https://uselessness.science/assets/images/music-math.png" />
+    <!-- Twitter Cards -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:creator" content="@rodrihgh" />
+    <!-- start custom head snippets -->
+<!-- this script is inserted before the css stylesheet -->
+<!-- end custom head snippets -->
+<!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Fontawesome-->
+    <!-- v5.13 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    <!-- Theme css (Bootstrap included) -->
+  <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/main.css" />
+    <!-- Highlighter -->
+  <link id="csshigh" rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/highlighter.css" />
+    <!-- Custom css -->
+  <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" />
+    <script async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139034853-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-139034853-5');
+</script>
+<!-- start custom head snippets -->
+<!-- https://realfavicongenerator.net/-->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+<link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+<link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="Chulapa">
+<meta name="application-name" content="Chulapa">
+<meta name="msapplication-TileColor" content="#efebdd">
+<meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+<meta name="theme-color" content="#efebdd">
+<!-- end custom head snippets -->
+</head>
+<body class="d-flex flex-column">
+	<div class="navbar-chulapa-fab">
+		<input type="checkbox" class="navbar-chulapa-fab-button d-none" id="navi-toggle">
+		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
+			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
+		</label>
+		<div class="navbar-chulapa-fab-background">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav">
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-clear.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
+				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="Docs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/01-install">Installation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Global Settings </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Theming your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/04-layouts">Layouts & Snippets </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-tips-n-tricks">Tips & Tricks </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
+				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="Demos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="About" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="About"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/license">License </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/showcase">Showcase </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/contribute">Contribute </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/CHANGELOG">Changelog </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
+				</li></ul>
+		</nav>
+	</div>	<header class="d-flex align-items-center splash-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('https://uselessness.science/assets/images/music-math.png')"><div class="container-lg">
+   <h1>Playing with the maths of music</h1>
+   <div class="btn-group-vertical btn-group-lg mt-5 text-center" role="group">
+      <a href="https://github.com/rodrihgh/music-scales-playground" class="btn chulapa-btn-project" role="button" aria-disabled="true">
+        <i class="fab fa-github fa-lg mr-2"></i>View on Github</a>
+      <a href="https://colab.research.google.com/github/rodrihgh/music-scales-playground/blob/master/music-scales.ipynb" class="btn chulapa-btn-project" role="button" aria-disabled="true">
+        <i class="fab fa-python fa-lg mr-2"></i>Open in Colab</a>
+   </div>
+ </div>
+</header>
+	<main class="container-lg pb-3 flex-fill">
+	 <div class="row my-1">
+<div class="col-lg-6 offset-lg-2 col small">
+ </div><div class="col-lg-2 col-3 text-right lead chulapaDateSocial">
+            <a  href="https://twitter.com/intent/tweet?url=https://dieghernan.github.io/chulapa/rodri&text=Playing+with+the+maths+of+music" title="Share on Twitter"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a>
+            <a  class="d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u=https://dieghernan.github.io/chulapa/rodri" title="Share on Facebook"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+             <a  href="https://api.whatsapp.com/send?&text=Playing+with+the+maths+of+music%20https://dieghernan.github.io/chulapa/rodri" title="Share on Whatsapp"><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
+         <a  class="d-none d-sm-inline" href="https://www.linkedin.com/shareArticle?url=https://dieghernan.github.io/chulapa/rodri&title=Playing+with+the+maths+of+music" title="Share on LinkedIn"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+         </div></div>
+		<div class="row pt-2">
+			<aside class="col-lg-2 mt-lg-3 small"><div class="row d-flex align-items-center mb-2"><img src="https://uselessness.science//assets/images/bio-photo.jpg" alt="Rodrigo Hernangómez" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size"><div class="col-9 col-lg-12 text-lg-center">
+						Rodrigo Hernangómez
+					</div>
+				</div>
+				<div class="row mb-2 mb-lg-0">
+					<div class="col text-lg-center"><address class="d-inline d-lg-block mr-2 mx-lg-auto mb-lg-2 small chulapa-links-hover-only">
+						  <a class="pr-lg-0" href="https://www.google.com/maps/search/?api=1&query=Berlin%2C+Germany">
+						    <i class="fas fa-map-marker-alt fa-lg mr-1" aria-hidden="true"></i>Berlin, Germany</a>
+						</address><div class="d-inline my-1 mx-lg-0 chulapa-links-hover-only"><a class="mr-2 mx-lg-1" href="https://www.linkedin.com/in/rodrigohgh/"><i class="fab fa-linkedin-in fa-lg"></i></a><a class="mr-2 mx-lg-1" href="https://twitter.com/rodrihgh"><i class="fab fa-twitter fa-lg"></i></a><a class="mr-2 mx-lg-1" href="https://github.com/rodrihgh"><i class="fab fa-github fa-lg"></i></a><a class="mr-2 mx-lg-1" href="https://instagram.com/rodrihgh"><i class="fab fa-instagram fa-lg"></i></a></div></div>
+				</div>
+</aside>
+			<article class="col-lg-8 mt-3">
+			<ul id="toc" class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5">
+ <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#-music-theory-goes-interactive"><i class="fas fa-palette"></i> Music theory goes interactive</a></li>
+ <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#-what-makes-sound-harmonious"><i class="fas fa-laptop-code"></i> What makes sound harmonious?</a></li>
+ <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#how-do-we-build-a-scale">How do we build a scale?</a></li>
+ <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#how-do-we-tune-our-scales">How do we tune our scales?</a>
+   <ul>
+     <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#cents-or-the-human-perception-of-music">Cents or the human perception of music</a></li>
+   </ul>
+ </li>
+ <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#references">References</a>
+   <ul>
+     <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#youtube">YouTube</a></li>
+     <li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#papers">Papers</a></li>
+   </ul>
+ </li>
+</ul>
+			 <p>Music is ruled by mathematical laws. Staring at the numbers was not enough for me though, so I have coded a tool to actually listen to it.</p>
+<h2 id="-music-theory-goes-interactive"><i class="fas fa-palette"></i> Music theory goes interactive</h2>
+<iframe src="https://dieghernan.github.io/chulapa/assets/widgets/music-scales.html" scrolling="no" width="100%" height="700" frameborder="0" allowtransparency="true">
+</iframe>
+<p>The widget can take up to one minute to load, so in the meantime
+let me explain what you can do with it.</p>
+<p>The main concept the tool revolves around is that of <strong>musical scale</strong>, i.e.,
+a set of musical notes ordered by their pitches.
+This definition is almost valid for <strong>chords</strong> as well,
+with the subtle difference that chord notes
+are meant to be played simultaneously while
+the notes of a scale are not.</p>
+<p>While exploring different scales and chords you can also
+tune these additional parameters:</p>
+<ul>
+ <li><strong>Number of notes</strong>: You may only be familiar with 7-note or 12-note scales, but
+from 1 to 53 and beyond all qualify as musical scales, and you are free to
+to select
+many of them.</li>
+ <li><strong>Tonic</strong>: This is the first note in the scale, which you can also select.
+In the case of chords (and forgetting about chord inversions),
+the first note is called
+the <strong>root</strong> of the chord.</li>
+ <li><strong>Tuning</strong>: Note pitches and intervals have not remained the same across
+centuries and cultures.
+From ancient Greece over the Baroque period up to our days, you can
+take a listen how tuning the old good scales was in the old good days.
+The different tuning options are explained <a href="#how-do-we-tune-our-scales">below</a>.</li>
+</ul>
+<p>The resulting encircled starry diagram shows <a href="#how-do-we-build-a-scale">how notes in the scale are distributed
+and where they come from</a>.
+For further customization you can just modify the interval of the individual notes
+with respect to the root. The number right to the corresponding slider
+will show the modified
+pitch in <a href="#cents-or-the-human-perception-of-music">cents</a>.</p>
+<p>Once you have pimped up your scale you can listen to the result<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.
+For a number of notes of 4 or less you will also hear them simultaneously
+at the end, implying the corresponding chord.</p>
+<p>That is pretty much it.
+The rest of this page is just my humble attempt to explain the music theory you need to
+know to fully understand the widget, as well as the mathematics and physics beneath.
+Needless to say, there are much better resources out there, so if you can spare 5-10 minutes
+I really encourage you to check some of the
+<a href="#youtube">videos</a> I have used as a reference.</p>
+<h2 id="-what-makes-sound-harmonious"><i class="fas fa-laptop-code"></i> What makes sound harmonious?</h2>
+<p>Humans find two notes pleasant or <strong>consonant</strong> when their pitches
+form a simple ratio. Here is a list of the most common examples of harmonious intervals
+and their frequency ratios:</p>
+<table>
+<thead>
+   <tr>
+     <th>Interval</th>
+     <th style="text-align: center">Example notes</th>
+     <th style="text-align: center">Frequency ratio</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>Octave</td>
+     <td style="text-align: center">C-C’</td>
+     <td style="text-align: center">1:2</td>
+   </tr>
+   <tr>
+     <td>Fifth</td>
+     <td style="text-align: center">C-G</td>
+     <td style="text-align: center">2:3</td>
+   </tr>
+   <tr>
+     <td>Fourth</td>
+     <td style="text-align: center">C-F</td>
+     <td style="text-align: center">3:4</td>
+   </tr>
+   <tr>
+     <td>Major third</td>
+     <td style="text-align: center">C-E</td>
+     <td style="text-align: center">4:5</td>
+   </tr>
+   <tr>
+     <td>Minor third</td>
+     <td style="text-align: center">A-C</td>
+     <td style="text-align: center">5:6</td>
+   </tr>
+ </tbody>
+</table>
+<p>On the other hand, irrational relations such as \(1:\sqrt{2}\)
+(whose simplest <em>good</em> rational approximation is \(32:45\))
+sound cacophonous or <strong>dissonant</strong> to our ears.
+In the case of \(1:\sqrt{2}\),
+by the way,
+we are talking about
+the infamous <em>tritone</em>,
+also known as
+<em>diminished fifth</em> 
+or <em>diabolus in musica</em>.
+This interval,
+which is found between F and B in the diatonic scale,
+was avoided for centuries because of its spooky,
+dissonant sound.</p>
+<p>The preference for simple ratios finds its explanation in the
+physics of strings and air vibrations, which account for the way
+how most instruments (including the human voice)
+produce notes. In a nutshell, vibrating strings
+(same as vibrating air inside of a tube)
+are restricted to generate sound waves at
+frequencies which are a multiple of a fundamental frequency.
+These sound waves, known as
+<strong>partials</strong>, resonate all at once
+whenever the string vibrates, and
+the underlying fundamental frequency is what we perceive
+as the note’s pitch.</p>
+<p><img src="https://uselessness.science/assets/images/partials.svg" alt="String partials" /></p>
+<p class="figcaption">Partials of a string tuned to \(C3=132\textrm{ Hz}\). You may note that it actually forms a C major chord. Adapted from Wikipedia</p>
+<p>The simpler the relation between two notes is
+(as in the table above),
+the more partials both notes
+will have in common
+and the more pleasant they will sound
+when played together.</p>
+<h2 id="how-do-we-build-a-scale">How do we build a scale?</h2>
+<p>Now that we know which notes sound good together,
+we can ask ourselves which ones we should use to play a melody.
+In other words, which notes we should use to <em>build a scale</em>.</p>
+<p>For that we can start by choosing notes whose frequency ratios are as simple as possible.
+As already mentioned, the simplest ratio equals 1 to 2 and corresponds to the <em>octave</em>.
+However, that ratio is so simple that humans universally perceive it as the same note,
+just played at different pitches.</p>
+<p>Also because of this, we can arbitrarily pick a first note and then restrict our search
+to notes whose pitch is 1 to 2 times that of our first choice.
+The reason for this is that any other pitch out of this range can be multiplied
+or divided by 2 as many times as needed until its relation to the original one
+falls under the interval
+\(\left(1,2\right)\), and it will still be perceived as the same note
+in a different octave.</p>
+<p>This leads to a periodic structure that repeats over and over again
+every time we jump into the next octave. In the <a href="#-music-theory-goes-interactive">widget graph</a>,
+this periodicty is represented by the circle.
+One turn around it equals one octave,
+and if we for instance traverse
+one octave and a half on the graph we will
+end up only half an octave away from the starting point.</p>
+<p>Once that we have ruled out the octave, the next simplest interval is the fifth at \(2:3\).
+With that we can already find new notes, e.g. if we start with a frequency of 100 Hz
+and we focus on pitches between 100 and 200 Hz:</p>
+\[\begin{aligned} f_1 &amp;= 100\textrm{ Hz} \\ f_2 &amp;= \frac{3}{2}\cdot 100 = 150\textrm{ Hz} \end{aligned}\]
+<p>Here \(f_2\) is the fifth of \(f_1\). We can further calculate the fifth of \(f_2\):</p>
+\[f_3 = \frac{3}{2}\cdot 150 \cdot\frac{1}{2} = 225 \cdot\frac{1}{2} = 112.5\textrm{ Hz}\]
+<p>225 Hz is already greater than 200 Hz, hence the division by two to find the note in
+a lower octave as 112.5 Hz. If we keep multiplying by
+\(\frac{3}{2}\) and fitting to the octave
+we will always encounter a new note.
+That is how many scales in the <a href="#-music-theory-goes-interactive">widget</a> are generated<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
+<p><img src="https://uselessness.science/assets/images/fifth_generation.gif" alt="Fifth relations for the chromatic scale" /></p>
+<p class="figcaption">Construction of the chromatic scale from fifth intervals.</p>
+<p>The purple connecting lines in the <a href="#-music-theory-goes-interactive">widget graph</a>
+above represent the fifth
+intervals that generate these scales<sup id="fnref:2:1" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.
+The resultant star patterns are the basis of the so-called
+<em>theory of well-formed scales</em>.</p>
+<p>The <strong>theory of well-formed scales</strong> gives a mathematical answer to the following question:
+how did different musical cultures fix the number of notes
+they use in their scales?
+This can be broken down to more specific questions, for instance:</p>
+<ul>
+ <li>Why does the Western diatonic scale have 7 notes?</li>
+ <li>Why is the diatonic scale extended into a 12-note chromatic scale?</li>
+ <li>Why is the pentatonic scale so prevalent in so many cultures,
+most notably in East Asia?</li>
+ <li>Does the traditional Arabic 17-tone scale make sense?</li>
+</ul>
+<p>All this scales can be derived from successive fifths.
+What makes numbers 5, 7, 12 or 17 special is that,
+for those scales, a note and its fifth are always separated
+by the same number of notes.
+The same goes for 53-tone scales as studied
+by Chinese theorists.
+This is the property that makes a scale <em>well-formed</em>.
+Even the name <em>fifth</em> comes
+from this: To find the fifth of a certain note in a diatonic
+scale, all you have to do is to count up to five through the notes of the scale
+starting by your reference note.</p>
+<p>In the <a href="#-music-theory-goes-interactive">widget</a>, you can check visually whether a scale is well-formed 
+if you choose the tuning as “Equally divided octave”.
+The resulting diagrams form regular stars
+for a number of notes of 3, 5, 7, 12, 17 and 53.
+This is a graphical confirmation of
+their “wellformedness”, and it contrasts
+with non-well-formed 4-note, 6-note or 24-note scales.</p>
+<h2 id="how-do-we-tune-our-scales">How do we tune our scales?</h2>
+<p>By now it should be clear that we can build a scale from two fundamental
+consonant intervals: octaves and fifths. Furthermore, we have assumed
+a ratio of \(\frac{2}{1}\) for octaves and \(\frac{3}{2}\)
+for fifths because of their pure, harmonious sound.
+This setup is simple, easy to understand and it has been
+massively used throughout history.
+In Europe, we have Greek mathematician
+Pythagoras as one of the earliest developers of this method,
+up to the point that the tuning of the resulting notes
+is referred to as <strong>Pythagorean tuning</strong>.</p>
+<p>Pythagorean tuning based on pure fifths presents, however, two major problems:</p>
+<ul>
+ <li>While it preserves octaves, fifths and fourths perfectly harmonious,
+other intervals today considered as consonant deviate significantly
+from their ideal ratio. Major thirds, for instance, are the next consonant interval
+with a ratio of \(\frac{5}{4}=1.25\). Nevertheless, Pythagorean tuning assigns
+\(\frac{81}{64}=1.265625\) to them, which constitutes a difference of 21.51 cents
+or an audible relative pitch error of 1.25%<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</li>
+ <li>When stacking fifths up to the 12-note chromatic scale,
+the last added note does not form a perfect fifth with the initial note
+(A# to F in the animation above), but a narrowed version with
+a difference of around 23 cents or 1.3% relative pitch error.
+This interval is perceptively dissonant and it is known as the <strong>wolf fifth</strong>
+because of its howling sound.</li>
+</ul>
+<p>We can try to change our fundamental intervals to compensate for that.
+The octave ratio of \(1:2\) is rarely altered though,
+as it constitutes a universal pillar of music perception,
+so we will have to tweak or <strong>temper</strong> our fifth
+to slightly different values.
+This concept of building a scale for different fifth ratios
+leads to the so-called <strong>regular temperaments</strong>. The ones
+I have considered in the
+<a href="#-music-theory-goes-interactive">widget</a> are the following ones:</p>
+<table>
+<thead>
+   <tr>
+     <th>Temperament</th>
+     <th style="text-align: left">Fifth ratio</th>
+     <th style="text-align: center">Fifth cents</th>
+     <th style="text-align: left">Observations</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><strong>Pythagorean</strong></td>
+     <td style="text-align: left">\(\frac{3}{2}=1.5\)</td>
+     <td style="text-align: center">702</td>
+     <td style="text-align: left">This is the temperament I just explained <a href="#how-do-we-build-a-scale">above</a>, which generates pure fifths and fourths.</td>
+   </tr>
+   <tr>
+     <td><strong>(1/4-comma) Meantone</strong></td>
+     <td style="text-align: left">\(\sqrt[4]{5}=1.4953\ldots\)</td>
+     <td style="text-align: center">697</td>
+     <td style="text-align: left">Most prominently used in the Renaissance and Baroque periods, this temperament narrows the fifth to achieve pure major thirds and minor sixths at \(\frac{5}{4}\) and \(\frac{8}{5}\), respectively.</td>
+   </tr>
+   <tr>
+     <td><strong>Equal temperament</strong></td>
+     <td style="text-align: left">\(2^{\frac{7}{12}}=1.4983\ldots\)</td>
+     <td style="text-align: center">700</td>
+     <td style="text-align: left">12-tone equal temperament is the tuning system used by most music pieces nowadays. It exhibits a slightly narrow fifth to generate equally spaced notes in the chromatic scale, eliminating wolf intervals.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Same as for the 12-tone equal temperament, one could adjust the fifth interval to
+achieve regularly spaced notes for any arbitrary number of notes.
+This option is selectable in the widget as “<strong>Equally divided octave</strong>” and
+it is generally as visually pleasing as acoustically unsettling, so use it
+at your own risk.</p>
+<p>In contrast with all these tuning systems, <strong>just intonation</strong> tuning does not stick
+to a fixed-size fifth but it rather adjusts every individual note to
+form a pure interval with the tonic note. The drawback of this system is
+its inflexibility; tunes based on the reference note will sound great,
+while other keys will not sound as harmonious or they will be directly cacophonous.</p>
+<p>In the widget, C has been taken as the reference note for just intonation in order
+to explore which keys work with it and which ones do not. You can, for instance,
+check the howling sound of its F#-C# fifth, which does not appear in equal temperament.
+Similarly, the wolf interval of Pythagorean and meantone tuning has also
+been placed between F# and C# for consistency.</p>
+<p>In the table below you can check the just intervals I have used as a reference,
+as well as its comparison with the available regular temperaments.
+As a rule of thumb, a difference equal or greater than \(\pm 10\) cents can be
+noticed by most people (you can read more about
+<a href="#cents-or-the-human-perception-of-music">cents and human perception</a> below).</p>
+<table>
+<thead>
+   <tr>
+     <th>Note</th>
+     <th style="text-align: left">Interval from C</th>
+     <th style="text-align: center">Just intonation ratio</th>
+     <th style="text-align: center">Comparison with equal temperament</th>
+     <th style="text-align: center">Comparison with Pythagorean tuning</th>
+     <th style="text-align: center">Comparison with 1/4-comma meantone temperament</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>C</td>
+     <td style="text-align: left">Unison</td>
+     <td style="text-align: center">1:1</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+   </tr>
+   <tr>
+     <td>C#</td>
+     <td style="text-align: left">Minor second</td>
+     <td style="text-align: center">15:16</td>
+     <td style="text-align: center">-12 cents<br />(-0.70%)</td>
+     <td style="text-align: center">-22 cents<br />(-1.27%)</td>
+     <td style="text-align: center">+5 cents<br />(+0.29%)</td>
+   </tr>
+   <tr>
+     <td>D</td>
+     <td style="text-align: left">Major second</td>
+     <td style="text-align: center">8:9</td>
+     <td style="text-align: center">-4 cents<br />(-0.24%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">-11 cents<br />(-0.64%)</td>
+   </tr>
+   <tr>
+     <td>D#</td>
+     <td style="text-align: left">Minor third</td>
+     <td style="text-align: center">5:6</td>
+     <td style="text-align: center">-16 cents<br />(-0.92%)</td>
+     <td style="text-align: center">-22 cents<br />(-1.27%)</td>
+     <td style="text-align: center">-6 cents<br />(-0.35%)</td>
+   </tr>
+   <tr>
+     <td>E</td>
+     <td style="text-align: left">Major third</td>
+     <td style="text-align: center">4:5</td>
+     <td style="text-align: center">+14 cents<br />(+0.82%)</td>
+     <td style="text-align: center">+22 cents<br />(+1.28%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+   </tr>
+   <tr>
+     <td>F</td>
+     <td style="text-align: left">Perfect fourth</td>
+     <td style="text-align: center">3:4</td>
+     <td style="text-align: center">+2 cents<br />(+0.12%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">+5 cents<br />(+0.29%)</td>
+   </tr>
+   <tr>
+     <td>F#</td>
+     <td style="text-align: left">Tritone</td>
+     <td style="text-align: center">32:45</td>
+     <td style="text-align: center">+10 cents<br />(+0.58%)</td>
+     <td style="text-align: center">+22 cents<br />(+1.28%)</td>
+     <td style="text-align: center">-11 cents<br />(-0.64%)</td>
+   </tr>
+   <tr>
+     <td>G</td>
+     <td style="text-align: left">Perfect fifth</td>
+     <td style="text-align: center">2:3</td>
+     <td style="text-align: center">-2 cents<br />(-0.12%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">-5 cents<br />(-0.29%)</td>
+   </tr>
+   <tr>
+     <td>G#</td>
+     <td style="text-align: left">Minor sixth</td>
+     <td style="text-align: center">5:8</td>
+     <td style="text-align: center">-14 cents<br />(-0.81%)</td>
+     <td style="text-align: center">-22 cents<br />(-1.27%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+   </tr>
+   <tr>
+     <td>A</td>
+     <td style="text-align: left">Major sixth</td>
+     <td style="text-align: center">3:5</td>
+     <td style="text-align: center">+16 cents<br />(+0.93%)</td>
+     <td style="text-align: center">+22 cents<br />(+1.28%)</td>
+     <td style="text-align: center">6 cents<br />(+0.35%)</td>
+   </tr>
+   <tr>
+     <td>A#</td>
+     <td style="text-align: left">Minor seventh</td>
+     <td style="text-align: center">5:9</td>
+     <td style="text-align: center">-18 cents<br />(-1.04%)</td>
+     <td style="text-align: center">-22 cents<br />(-1.27%)</td>
+     <td style="text-align: center">-11 cents<br />(-0.64%)</td>
+   </tr>
+   <tr>
+     <td>B</td>
+     <td style="text-align: left">Major seventh</td>
+     <td style="text-align: center">8:15</td>
+     <td style="text-align: center">+12 cents<br />(+0.70%)</td>
+     <td style="text-align: center">+22 cents<br />(+1.28%)</td>
+     <td style="text-align: center">-5 cents<br />(-0.29%)</td>
+   </tr>
+   <tr>
+     <td>C’</td>
+     <td style="text-align: left">Octave</td>
+     <td style="text-align: center">1:2</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+     <td style="text-align: center">0 cents<br />(0.00%)</td>
+   </tr>
+ </tbody>
+</table>
+<p>Let me suggest a couple of experiments you can try with the <a href="#-music-theory-goes-interactive">widget</a> to explore different temperaments:</p>
+<ul>
+ <li>Check the sound of <strong>wolf fifths</strong>. Select <em>number of notes 2</em>,
+root <em>F#</em> and scale <em>fifth</em>. Listen to it for different tunings:
+you should find it consonant for equal temperament and dissonant otherwise.</li>
+ <li>Check the “impurity” of thirds in equal temperament.
+Select <em>number of notes 2</em>,
+root <em>C</em> and scale <em>major third</em>. The sound should ring out pure for just intonation and meantone tuning.
+When playing both notes together in equal temperament, however, you may notice a subtle wobbling
+effect (kind of a rapid <em>wah-wah-wah</em> vibration) that you did not hear before.
+This is how “impure” thirds are in the music we listen to every day, even though we do not pay attention to it.</li>
+ <li>You can repeat the same experiment for minor thirds. These ring out nice and smooth for just intonation and
+wobble to a certain extent otherwise.</li>
+</ul>
+<h3 id="cents-or-the-human-perception-of-music">Cents or the human perception of music</h3>
+<p>Music intervals are formally studied using a
+measure unit called <strong>cent</strong>. The reason for using cents
+instead of a more physic-related unit of frequency such as
+hertz or cycles per second has to due with our own
+perception of sound. Pitch is perceived logarithmically, meaning
+that we feel two notes vibrating at 100 and 200 cycles per second
+as far apart as if they were vibrating at 200 and 400 cycles
+per second, or 400 and 800, etc. It is not the frequency
+<em>difference</em> that matters, but the frequency <em>ratio</em>; the ratio
+in the just mentioned examples stays constant at \(1:2\)
+(which you can recognize as the octave interval).
+This is what we refer to with <em>logarithmic phenomenon</em>.</p>
+<p>The <strong>cent</strong> is a logarithmic unit of pitch that allows us to
+reason about music perception in a much simpler way.
+1 cent equals the 100th part of an equal-tempered semitone, 100 cents
+equal one semitone, 200 cents equal a whole tone, and
+since one octave comprises 12 semitones we can go on
+until we get
+1200 cents = 1 octave.</p>
+<p>Cents have also allowed scientists and musicians to
+investigate and measure the limits of human music
+perception. It may be useful just to drop a couple of
+illustrative figures<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>, as cents are extensively
+discussed <a href="#how-do-we-tune-our-scales">above</a>:</p>
+<table>
+<thead>
+   <tr>
+     <th>Pitch ratio in cents</th>
+     <th style="text-align: left">Relative difference in linear frequency</th>
+     <th style="text-align: left">Human perception</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>1 cent</td>
+     <td style="text-align: left">\(&lt;0.06\%\)</td>
+     <td style="text-align: left">Unnoticeable.</td>
+   </tr>
+   <tr>
+     <td>5 cents</td>
+     <td style="text-align: left">\(&lt;0.3\%\)</td>
+     <td style="text-align: left">Just noticeable for trained ears.</td>
+   </tr>
+   <tr>
+     <td>10 cents</td>
+     <td style="text-align: left">\(&lt;0.6\%\)</td>
+     <td style="text-align: left">Generally noticeable when two notes played together.</td>
+   </tr>
+   <tr>
+     <td>20 cents</td>
+     <td style="text-align: left">\(&lt;1.2\%\)</td>
+     <td style="text-align: left">Generally noticeable when two notes played successively.</td>
+   </tr>
+   <tr>
+     <td>50 cents</td>
+     <td style="text-align: left">\(&lt;3\%\)</td>
+     <td style="text-align: left">Quarter tone interval. Rarely used in Western music, highly important in Middle Eastern music.</td>
+   </tr>
+   <tr>
+     <td>100 cents</td>
+     <td style="text-align: left">\(&lt;6\%\)</td>
+     <td style="text-align: left">Semitone interval. Definitely noticeable if familiar with Western music.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Fascinating enough, this reveals that our ability to discriminate
+pitch goes below a relative error of 0.6%, and that
+a semitone interval, with all its prevalence in Western music,
+accounts for less than 6% increase in frequency.</p>
+<h2 id="references">References</h2>
+<h3 id="youtube">YouTube</h3>
+<p class="alert alert-info p-3 mx-2"><strong>Note</strong> My personal recommendation is to go for the <em>Lemnismath</em> video
+if you understand Spanish, as it covers the basics for overtones and intervals
+<strong>plus</strong> the theory of well-formed scales. Unfortunately I have not found
+any good reference for the said theory in English, but <em>Minute Physics</em>
+video does a superb job summarizing everything else in less than 5 minutes.</p>
+<!-- Thanks to Minimal Mistakes -->
+<!-- https://embedresponsively.com/ -->
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg"><iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/P7iC-fbdKmQ" allowfullscreen=""></iframe>
+</div>
+<!-- Thanks to Minimal Mistakes -->
+<!-- https://embedresponsively.com/ -->
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg"><iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/1Hqm0dYKUx4" allowfullscreen=""></iframe>
+</div>
+<!-- Thanks to Minimal Mistakes -->
+<!-- https://embedresponsively.com/ -->
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg"><iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/Wx_kugSemfY" allowfullscreen=""></iframe>
+</div>
+<!-- Thanks to Minimal Mistakes -->
+<!-- https://embedresponsively.com/ -->
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg"><iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/cyW5z-M2yzw" allowfullscreen=""></iframe>
+</div>
+<h3 id="papers">Papers</h3>
+<ol>
+ <li>N. Carey and D. Clampitt, “Aspects of Well-Formed Scales,” Music Theory Spectr, vol. 11, no. 2, pp. 187–206, Oct. 1989,
+<a href="https://academic.oup.com/mts/article-abstract/11/2/187/1088094">doi: 10.2307/745935</a>.</li>
+ <li>M. Castrillón and M. Domínguez, “Un encuentro entre las matemáticas y la teoría de escalas musicales: Escalas bien formadas,”
+<a href="http://gaceta.rsme.es/abrir.php?id=1130">La Gaceta de la RSME, vol. 16, no. 1, pp. 87–106</a>, 2013.</li>
+</ol>
+<div class="footnotes" role="doc-endnotes">
+ <ol>
+   <li id="fn:1" role="doc-endnote">
+     <p>I have actually coded the note generation process from scratch, as I wanted to have harmonic-rich synth-like sounds that I can arbitrarily fix to any frequency. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&uarr;</a></p>
+   </li>
+   <li id="fn:2" role="doc-endnote">
+     <p>The stacking fifth method is used to build all modal, major or minor scales. In other cases (blues scale, harmonic minor, intervals and chords) the purple lines just involve some abuse of notation. Sorry not sorry. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&uarr;</a> <a href="#fnref:2:1" class="reversefootnote" role="doc-backlink">&uarr;<sup>2</sup></a></p>
+   </li>
+   <li id="fn:3" role="doc-endnote">
+     <p>Greeks actually deemed thirds dissonant for this reason. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&uarr;</a></p>
+   </li>
+   <li id="fn:4" role="doc-endnote">
+     <p>Although one might extract a linear relation between cents and frequency relative error from the table, this is just a linear approximation for small quantities. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&uarr;</a></p>
+   </li>
+ </ol>
+</div>
+</article>
+		</div>
+	</main><!-- Footer -->
+ <footer class="footer-chulapa text-center mt-0 pt-3">
+   <div class="container">
+     <div class="row">
+       <div class="col-xl-10 offset-xl-1"><div role="navigation" class="d-flex flex-wrap justify-content-center"><a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead"><span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span><span class="sr-only">RSS</span>
+            </a><a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead"><span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span><span class="sr-only">GitHub</span>
+            </a><a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead"><span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+              </span><span class="sr-only">My blog</span>
+            </a></div><p class="mt-2 mb-3">&copy; 2021 dieghernan</p>
+          <!-- Do not remove this in order to give  attributions --><p class="small">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
+          <!-- End  attributions -->
+       </div>
+     </div>
+ </div>
+</footer>
+<!-- Footer -->
+<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+	<script src="https://dieghernan.github.io/chulapa/assets/js/clipboardrouge.js"></script>
+	<!-- start custom scripts to be placed at the bottom of the page -->
+<!-- end custom bottom scripts -->
+	</body>
