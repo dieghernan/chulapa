@@ -74,7 +74,7 @@
       {
         "@type": "ListItem",
         "position": {{ forloop.index }},
-        "name": "{{ item.label }}",
+        "name": "{{ item.label | strip_html }}",
         "item": "{{ item.url | absolute_url }}"
       },
         {% if forloop.last %}
@@ -96,7 +96,7 @@
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "{{ site.navbar.brand.title | default: site.title | default: site.github.repository_name }}",
+        "name": "{{ site.navbar.brand.title | default: site.title | default: site.github.repository_name | strip_html }}",
         "item": "{{ "/" | absolute_url }}"
       },{
         "@type": "ListItem",
