@@ -121,7 +121,7 @@ footer:
     - label: "My blog"
       icon: "fas fa-blog"
       url: "https://dieghernan.github.io/"
-  copyright: "© 2021 <span class="chulapa">Chulapa</span> developers"
+  copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
 
 # C. Theme Settings
 chulapa-skin: 

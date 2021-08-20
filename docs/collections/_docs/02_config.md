@@ -191,7 +191,7 @@ You can also customize the copyright on the footer:
     
 ```yaml
 footer:
-  copyright: "© 2021 <span class="chulapa">Chulapa</span> developers"
+  copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
 ```
 
 <h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
