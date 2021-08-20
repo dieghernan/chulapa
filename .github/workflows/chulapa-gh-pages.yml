@@ -26,5 +26,5 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages'
-        jekyll_src: 'www_src'
+        jekyll_src: 'docs'
         keep_history: true
