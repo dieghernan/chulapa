@@ -187,6 +187,13 @@ footer:
       url: https://www.facebook.com
 ```
 
+You can also customize the copyright on the footer:
+    
+```yaml
+footer:
+  copyright: "&copy; 2021 <span class="chulapa">Chulapa</span> developers"
+```
+
 <h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
 
 This is the core feature of <span class="chulapa">Chulapa</span>, please find the full reference [here](./03-theming), or just navigate to the next page.

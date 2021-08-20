@@ -91,7 +91,17 @@
             {%- endfor -%}
           </div>
           {%- endif -%}
-          <p class="mt-2 mb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}</p>
+          <p class="mt-2 mb-3">
+          {%- if site.footer.copyright -%}
+          
+            {{ site.footer.copyright }}
+          
+          {%- else -%}
+          
+            &copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}
+            
+           {%- endif -%}
+            </p>
           <!-- Do not remove this in order to give  attributions -->
           {%- if name -%}
           <p class="small"><b>{{- name -}}</b> skin by <a href="{{ url }}">{{ author }}</a></p>

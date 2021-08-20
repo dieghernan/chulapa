@@ -112,6 +112,7 @@ footer:
     - label : #Label
       icon  : # Fontawesome 5 icon
       url   : # A link or email: https://twitter.com/jack, mail@example.com
+  copyright: # default is © <year> <name>
 
 # C. Theme Settings
 # Google Fonts https://fonts.google.com/, add as many as you need

@@ -18,3 +18,4 @@
 - Chulapa skin uses Ibarra Font for body 
 - Masonry gets a random parameter
 - New feature: carousel 
+- Add copyright option for footer
