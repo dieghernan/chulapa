@@ -10,6 +10,7 @@ title: Chulapa
 subtitle: A full flexible Jekyll theme  
 description: Template for creating free sites on Github Pages
 og_image: "./assets/img/site/banner.png" 
+twitter_site: dhernangomez
 timezone: "Europe/Madrid"
 author:
   name: dieghernan
