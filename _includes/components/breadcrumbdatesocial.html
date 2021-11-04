@@ -51,7 +51,7 @@
 </div>
           {%- if page.show_sociallinks -%}
           <div class="col-lg-2 col-3 text-right lead chulapaDateSocial">
-            <a  href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ sharetitle | url_encode }}{%- if site.twitter.site -%}&via={{- site.twitter.site -}}{%- endif -%}" title="Share on Twitter"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a>
+            <a  href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ sharetitle | url_encode }}{%- if site.twitter_site -%}&via={{- site.twitter_site -}}{%- endif -%}" title="Share on Twitter"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a>
             <a  class="d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="Share on Facebook"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
 
              <a  href="https://api.whatsapp.com/send?&text={{ sharetitle | url_encode }}%20{{ canonical_url }}" title="Share on Whatsapp"><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
