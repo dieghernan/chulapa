@@ -4,6 +4,8 @@ subtitle: Some additional information you may find useful
 excerpt: Advices and FAQs
 show_toc: true
 h_max: 3
+redirect_from:
+  - /docs/05-tips-n-tricks
 ---
 
 Additionally, there are some tips when using <span class="chulapa">Chulapa</span>, as well as code samples.
