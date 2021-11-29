@@ -1,5 +1,5 @@
 ---
-title: Tips & Tricks
+title: Frequently Asked Questions
 subtitle: Some additional information you may find useful
 excerpt: Advices and FAQs
 show_toc: true
