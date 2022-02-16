@@ -14,6 +14,9 @@
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline -%}
 {%- endif -%}
 {%- capture metatitle -%}{{ metatitle1 | strip_html }} {{ site.title_separator | default: "|" }} {{ metatitle2 | strip_html }}{%- endcapture -%}
+{%- assign mainname = site.title | default: site.github.repository_name  -%}
+{%- assign mainsub = site.subtitle | default: site.github.project_tagline -%}
+{%- capture sitename -%}{{ mainname | strip_html }} {{ site.title_separator | default: "|" }} {{ mainsub | strip_html }}{%- endcapture -%}
 {%- assign ogimage = page.og_image | default: page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
 {%- assign descfallback = page.content | 
                 markdownify |  newline_to_br | 
@@ -193,7 +196,7 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" />
     <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" />
-    <meta name="description" content="{{- ogdesc | truncate: 130 -}}"/>
+    <meta name="description" content="{{- ogdesc | truncate: 160 -}}"/>
     <meta name="thumbnail" content="{{ ogimage }}" />
     <meta name="robots" content="index, follow">
     {%- assign: keyword =  site.github.public_repositories | 
@@ -208,6 +211,7 @@ where_exp: "item", "item.url contains 'http'"
    {%- endif %}
     <!-- OpenGraph -->
     <meta property="og:title" content="{{ metatitle | strip_html }}" />
+    <meta property="og:site_name" content="{{ sitename | strip_html }}" />
     <meta property="og:url" content="{{ canonical_url }}" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" />
