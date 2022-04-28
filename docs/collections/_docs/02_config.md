@@ -118,12 +118,13 @@ If you are deploying your site with Github Pages, I recommend using this [GitHub
 
 ### Comments
 
-You can add a comment feature to a page. Currently only [Disqus](https://disqus.com/) is supported:
+You can add a comment feature to a page. Currently [Disqus](https://disqus.com/) and [giscus](https://giscus.app/) are supported:
 
 - `comments`:
-  - `provider`: Use `disqus` to enable it.
-  - `disqus_shortname`: Add your site id, on `https://DISQUS_SHORTNAME.disqus.com/admin/`.
+  - `provider`: Use `disqus` or `giscus` to enable it.
+  - `disqus_shortname`: Disqus only. Add your site id, on `https://DISQUS_SHORTNAME.disqus.com/admin/`.
 
+Configure **giscus** following their instructions and paste the resulting script on a file hosted on your GitHub repo with path *./_includes/custom/giscus.html*.
 
 ## B. Navigation
 

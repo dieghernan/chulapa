@@ -30,7 +30,7 @@
 -  **3 different navbar styles**
 -  **Atom and RSS 2.0** feed
 -  **Internal search** by Algolia, Lunr or Google Custom Search
--  **Comments** by Disqus
+-  **Comments** by Disqus and Giscus
 -  **Masonry gallery**
 -  **Video support** - self-hosted or from core providers: Youtube, Vimeo, DailyMotion...
 -  **Structured data** for better SEO
