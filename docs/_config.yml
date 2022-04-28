@@ -52,8 +52,8 @@ algolia:
     - desc(content) 
     - desc(subtitle)    
 comments:
-  provider: disqus
-  disqus_shortname: chulapa
+  provider: giscus
+  
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 
 # B. Navigation
