@@ -73,7 +73,7 @@
       {% if site.comments.provider == 'disqus' %}
         {% include components/disqus.html pageid=include.pageid pageurl=include.pageurl %}
       {%- elsif site.comments.provider == 'giscus' -%} 
-        <div class="container-lg">
+        <div class="container">
           <div class="row">
          {% include custom/giscus.html %}  
          </div>
