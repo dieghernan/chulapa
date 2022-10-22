@@ -3,27 +3,17 @@ on:
     branches:
       - master
       - main
+  workflow_dispatch: 
 
 name: algolia-search
 jobs:
   algolia-search:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.6'
-          bundler-cache: true
-          
-      - uses: actions/cache@v2.1.6
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-            
+      - uses: actions/checkout@v3
       - name: Algolia Jekyll Action
-        uses: dieghernan/algolia-jekyll-action@v1
+        uses: dieghernan/algolia-jekyll-action@main
         with:
           APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
+          cache-dir: 2
+          ruby-version: '3.0'
