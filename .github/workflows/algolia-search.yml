@@ -15,5 +15,3 @@ jobs:
         uses: dieghernan/algolia-jekyll-action@main
         with:
           APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
-          cache-dir: 2
-          ruby-version: '3.0'
