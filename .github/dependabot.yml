@@ -4,6 +4,11 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
-    time: "04:00"
   open-pull-requests-limit: 10
   versioning-strategy: increase-if-necessary
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
