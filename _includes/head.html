@@ -6,6 +6,7 @@
     <!-- Repo: https://github.com/dieghernan/chulapa -->
     <!-- Page build {{ site.time }} -->
     {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
+{%- assign home_url = "index.html" | absolute_url | replace: "index.html", "" | uri_escape -%}
 {%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | strip_html  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name | strip_html -%}
 {%- assign strippedurl = page.url | replace: "index.html", "" -%}
@@ -36,6 +37,9 @@
     {%- break -%}
   {%- endif -%}
 {%- endfor %}
+{%- assign authorlink = links | 
+find_exp: "item", "item.url contains 'http'"
+-%}
     <!--Google Structured Data-->
     <script type="application/ld+json">
         {
@@ -55,11 +59,15 @@
       "dateModified": "{{ page.last_modified_at | default: page.date | default:  site.time | date_to_xmlschema }}",
       "author": {
         "@type": "Person",
+        {% if authorlink %}
+        "url": "{{ authorlink }}",
+        {% endif %}
         "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
       },
        "publisher": {
         "@type": "Organization",
         "name": "{{ site.author.name | default: site.github.owner_name }}",
+        "url": "{{ home_url }}",
         "logo": {
           "@type": "ImageObject",
           "url": "{{ site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url }}"
@@ -67,7 +75,7 @@
       }
     }
     </script>
-    {% if  page.breadcrumb_list %}
+    {% if page.breadcrumb_list %}
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
