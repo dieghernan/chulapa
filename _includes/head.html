@@ -37,9 +37,9 @@
     {%- break -%}
   {%- endif -%}
 {%- endfor %}
-{%- assign authorlink = links | 
-find_exp: "item", "item.url contains 'http'"
--%}
+{%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" | first -%}
+
+
     <!--Google Structured Data-->
     <script type="application/ld+json">
         {
@@ -60,7 +60,7 @@ find_exp: "item", "item.url contains 'http'"
       "author": {
         "@type": "Person",
         {% if authorlink %}
-        "url": "{{ authorlink }}",
+        "url": "{{ authorlink.url }}",
         {% endif %}
         "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
       },
