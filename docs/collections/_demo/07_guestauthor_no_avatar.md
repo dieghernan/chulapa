@@ -63,6 +63,8 @@ author:
       icon: "fab fa-facebook"
     - url: https://www.linkedin.com
       icon: "fab fa-linkedin"
+    - url: fakeemail@github.com
+      icon: "far fa-envelope"
 project_links:
     - url: https://www.mathjax.org/
       icon: fas fa-superscript
