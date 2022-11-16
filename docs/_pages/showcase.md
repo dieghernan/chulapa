@@ -24,4 +24,6 @@ See below some live examples of <span class="chulapa">Chulapa</span>:
 
 - **[Dados de Laplace](https://dadosdelaplace.github.io/)**: Personal website of Javier Álvarez Liébana ([@dadosdelaplace](https://github.com/dadosdelaplace)).
 
+- **[Thoughts on Microsoft 365 Security, Compliance and Identity](https://www.thijoubert.com/)** by Thibault Joubert.
+
 
