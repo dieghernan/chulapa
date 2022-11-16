@@ -11,18 +11,19 @@ jobs:
   build-chulapa-gh-pages:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     # Use GitHub Actions' cache to shorten build times and decrease load on servers
-    - uses: actions/cache@v3.0.11
+    - uses: actions/cache@v3
+      with:
       with:
         path: vendor/bundle
-        key: ${{ runner.os }}-gems2-${{ hashFiles('**/Gemfile') }}
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
         restore-keys: |
-          ${{ runner.os }}-gems2-
- 
-    # Specify the target branch (optional)
-    - uses: helaili/jekyll-action@2.4.0
+          ${{ runner.os }}-gems-
+
+    # Standard usage
+    - uses:  helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages'
