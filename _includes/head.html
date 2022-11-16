@@ -37,9 +37,7 @@
     {%- break -%}
   {%- endif -%}
 {%- endfor %}
-{%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" | first -%}
-
-
+{%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" %}
     <!--Google Structured Data-->
     <script type="application/ld+json">
         {
@@ -59,10 +57,24 @@
       "dateModified": "{{ page.last_modified_at | default: page.date | default:  site.time | date_to_xmlschema }}",
       "author": {
         "@type": "Person",
-        {% if authorlink %}
-        "url": "{{ authorlink.url }}",
-        {% endif %}
         "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
+        {% if authorlink %}
+          {% for item in authorlink %}
+            {% if forloop.first %}
+        , "url": "{{ item.url }}"
+            {% else %}
+              {% if forloop.index == 2 %}
+        ,  "sameAs" : [
+              {% endif %}
+             "{{ item.url }}"
+              {%- if forloop.last %}
+            ]
+              {% else %}
+            ,
+              {% endif %}
+           {% endif %}
+         {% endfor %}
+       {% endif %}
       },
        "publisher": {
         "@type": "Organization",
