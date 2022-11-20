@@ -19,13 +19,13 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   </div>
 </div>
 
-<p>Theme selected: <span id="config">None</span></p>
+<p><span id="config">None</span></p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span> <br><span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
 
 <script>
   var styles = ['autumn', 'borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
   	'friendly', 'fruity', 'github', 'gruvbox.light', 'manni', 'monokai', 'murphy','native',
-  	'pastie','perldoc','skeletor', 'tango','thankful_eyed', 'trac','vim','vs','zenburn'
+  	'pastie','perldoc','skeletor', 'tango','thankful_eyes', 'trac','vim','vs','zenburn'
   ].sort();
   
   styles.forEach(function(word) {
@@ -41,14 +41,16 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   var csshigh = document.getElementById("csshigh");
   	
   	function reaplyStyles(themename){
-  		csshigh.href = 'https://dieghernan.github.io/remote/assets/css/highlighter/'+themename+'.css';
+  		csshigh.href = 'https://dieghernan.github.io/chulapa/assets/css/highlighter/'+themename+'.css';
   		
   		title = document.getElementById("config");
   		
-  		title.innerHTML = '<strong>' + themename + '</strong>. On your <code>_config.yml</code>';		
+  		title.innerHTML = 'On your <code>_config.yml</code>';		
   		
   		sel = document.getElementById("selected");  	
   		sel.innerHTML = themename;
+  		btn = document.getElementById("dropdownMenuButton");  	
+  		btn.innerHTML = themename;
   		
       return true;
   }
