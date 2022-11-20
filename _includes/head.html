@@ -258,10 +258,11 @@ where_exp: "item", "item.url contains 'http'"
     {%- endfor %}
     <!-- Fontawesome-->
     <!-- v5.13 -->
-    {% if site.fa5_kit_code -%}
-    <script src="https://kit.fontawesome.com/{{ site.fa5_kit_code }}.js" crossorigin="anonymous"></script>
+    {% assign fakit = site.fa5_kit_code | default: fa_kit_code %}
+    {% if fakit -%}
+    <script src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
     {%- else -%}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ site.fa_version | default: 6 }}/css/all.min.css">
     {%- endif %}
     {% if site.fa_v4_support -%}
     <!-- Compatibility with FontAwesome 4 -->

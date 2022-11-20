@@ -7,7 +7,7 @@
 ![GitHub](https://img.shields.io/github/license/dieghernan/chulapa) 
 ![Jekyll](https://img.shields.io/badge/jekyll-3.8.7-blue) 
 ![Bootstrap](https://img.shields.io/badge/bootstrap-4.5.0-blue) 
-![Fontawesome](https://img.shields.io/badge/fontawesome->5.0.0-blue) 
+![Fontawesome](https://img.shields.io/badge/fontawesome->6.x-blue) 
 ![Algolia](https://img.shields.io/badge/algolia->4.7.0-blue) 
 ![lunr](https://img.shields.io/badge/lunr-2.3.8-blue) 
 ![mathjax](https://img.shields.io/badge/mathjax-2.7.1-blue) 
@@ -26,7 +26,7 @@
 ## Notable features
 
 -  **Bootstrap 4** - Fully responsive
--  **Fontawesome 5** - v4 is supported via shims but would be deprecated at some point
+-  **Fontawesome 6** - v5 also supported. v4 is supported via shims but would be deprecated at some point
 -  **3 different navbar styles**
 -  **Atom and RSS 2.0** feed
 -  **Internal search** by Algolia, Lunr or Google Custom Search
@@ -102,7 +102,7 @@ You have available an extensive documentation [here](https://dieghernan.github.i
 
 Bootstrap v.4.5 is released under the [MIT license](https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE) and is copyright 2020 Twitter.
 
-Fontawesome 5.x is free, open source, and GPL friendly - [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License).
+Fontawesome 6.x is free, open source, and GPL friendly - [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License).
 
 This theme incorporates some pieces of code from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/), Copyright (c) 2013-2020 [Michael Rose](https://mademistakes.com/) and contributors distributed under the terms of the [MIT license](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE).
 

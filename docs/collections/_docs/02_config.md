@@ -56,12 +56,9 @@ author:
 
 ### Fontawesome
 
-<span class="chulapa">Chulapa</span> has its own installation of Fontawesome 5, so you don't need to set anything. However, if you want to use your own kit, jump to your Fontawesome account and grab the kitcode. Implement this kitcode after `fa5_kit_code:`.
+<span class="chulapa">Chulapa</span> has its own installation of Fontawesome 6, so you don't need to set anything. However, if you want to use your own kit, jump to your Fontawesome account and grab the kitcode. Implement this kitcode after `fa_kit_code:`.
 
 To enable v4 support, set `fa_v4_support: true`.
-
-**It is encouraged** to migrate to v5. Next Fontawesome version (v6) to be released at second half 2020
-{: .alert .alert-danger .p-3 .mx-2 mb-3}
 
 ### Google Analytics
 
