@@ -128,16 +128,16 @@ Let's say we want to implement the [Sunset theme](https://themesguide.github.io/
 @import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
 $headings-font-family:Voltaire;
 
-# $enable-grid-classes:false; THIS SHOULD BE OMMITED
-$primary:#2F414A;
-$secondary:#F47B53;
-$success:#420084;
-$danger:#f2460d;
-$info:#7ebcfa;
-$warning:#ff9933;
-$light:#eef0f2;
-$dark:#000633;
-# @import "bootstrap"; THIS SHOULD BE OMMITED
+# $enable-grid-classes:false; DONT PASTE THIS LINE ON THE PLY!!
+$primary: #2F414A;
+$secondary: #F47B53;
+$success: #420084;
+$danger: #f2460d;
+$info: #7ebcfa;
+$warning: #ff9933;
+$light: #eef0f2;
+$dark: #000633;
+# @import "bootstrap"; DONT PASTE THIS LINE ON THE PLY!!
 
 // Add SASS theme customizations here..
 
