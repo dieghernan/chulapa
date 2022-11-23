@@ -9,6 +9,8 @@ name: algolia-search
 jobs:
   algolia-search:
     runs-on: ubuntu-latest
+    env:
+      JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Algolia Jekyll Action

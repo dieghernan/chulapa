@@ -10,6 +10,8 @@ on:
 jobs:
   build-chulapa-gh-pages:
     runs-on: ubuntu-latest
+    env:
+      JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - uses: actions/checkout@v3
 
