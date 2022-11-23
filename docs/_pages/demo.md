@@ -1,7 +1,9 @@
 ---
 layout: indexcategory
-title: "Demos"
+title: '<span class="chulapa">Chulapa</span> Demos'
 subtitle: All demos in one place
+header_type: "hero"
+header_img: /assets/img/site/banner.png
 permalink: /demo
 include_collection: demo
 og_image: /assets/img/site/banner-demos.png

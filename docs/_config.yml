@@ -67,8 +67,8 @@ navbar:
     url: /blog/
   - title: Docs
     child:
-     - title: Full Docs
-       url: /demo
+     - title: Read the Docs
+       url: /docs
      - title: Installation
        url: /docs/01-install
      - title: Global Settings
@@ -197,6 +197,7 @@ defaults:
     values:
       header_type       : "splash"
       cloudtag_url      : "/demo/tags"
+      og_image          : '/assets/img/site/banner-skins.png'
       include_on_search : true
       show_date         : true
       show_sociallinks  : true
@@ -218,6 +219,7 @@ defaults:
       layout            : "default"
       header_type       : "base"
       cloudtag_url      : "/demo/tags"
+      og_image          : '/assets/img/site/banner-demos.png'
       include_on_search : true
       cloudcategory_url : "/demo/category"
       show_breadcrumb   : true

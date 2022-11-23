@@ -1,5 +1,5 @@
 ---
-title: Skins available on <span class="chulapa">Chulapa</span>
+title: <span class="chulapa">Chulapa</span> Skins
 subtitle: A preview of the different skins you would have with this theme
 header_type       : "hero"
 header_img : "./assets/img/site/chulapa-madrid.jpg"
