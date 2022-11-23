@@ -67,6 +67,8 @@ navbar:
     url: /blog/
   - title: Docs
     child:
+     - title: Full Docs
+       url: /demo
      - title: Installation
        url: /docs/01-install
      - title: Global Settings
@@ -168,6 +170,7 @@ defaults:
       include_on_search : true
       show_bottomnavs   : true
       show_comments     : true
+      og_image: "/assets/img/site/banner-docs.png"
   -
     scope:
       path: ""
