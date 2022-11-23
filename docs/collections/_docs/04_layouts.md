@@ -507,6 +507,27 @@ That snippet has been extended and you can also display videos loaded via `url`:
 Safe formats under the `fileurl` approach are `*.mp4`, `*.ogg` and `*.webm` files. Any other video format may not be displayed.
 {: .alert .alert-warning .p-3 .mx-2}
 
+
+#### <span class="text-danger">Experimental</span>: Deferred (lazy) loading of YouTube videos
+
+<span class="chulapa">Chulapa</span> also ships an implementation of the plugin
+[ytdefer](https://github.com/groupboard/ytdefer) as a snippet. This snippet
+initially displays an image of a YouTube video and the actual video is loaded and 
+starts playing when the user clicks on it. This implementation intends to improve
+page speed.  See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
+
+{% raw %}
+```
+{% include snippets/youtube.html id="XjZSoeFAX_Y" %}
+```
+{% endraw %}
+
+
+{% include snippets/youtube.html id="XjZSoeFAX_Y" %}
+
+Thanks to [@SCP-017](https://github.com/SCP-017) for the suggestion.
+
+
 ### Localization of dates
 
 Overall <span class="chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.

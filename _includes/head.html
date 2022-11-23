@@ -274,7 +274,9 @@ where_exp: "item", "item.url contains 'http'"
     <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" />
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" />
-    {% if page.mathjax -%}
+    <!-- Chulape Deferred (lazy) loading of YouTube videos, to improve page speed -->
+    <script src="{{- "assets/js/ch_ytdefer/ch_ytdefer.min.js" | absolute_url -}}"></script>
+{% if page.mathjax -%}
     <script async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>

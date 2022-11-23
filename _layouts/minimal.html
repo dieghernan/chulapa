@@ -14,6 +14,8 @@ layout: compress
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 	<script src="{{ './assets/js/clipboardrouge.js' | absolute_url }}"></script>
+	<!-- Chulape Deferred (lazy) loading of YouTube videos, to improve page speed -->
+	<script>window.addEventListener('load', ch_ytdefer_setup);</script>
 	{% include custom/custom_bottomscripts.html %}
 	</body>
 </html>
