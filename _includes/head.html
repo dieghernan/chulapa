@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - master dev -->
+    <!-- Chulapa Jekyll Theme - v1.0.0 -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -19,11 +19,11 @@
 {%- assign mainsub = site.subtitle | default: site.github.project_tagline -%}
 {%- capture sitename -%}{{ mainname | strip_html }} {{ site.title_separator | default: "|" }} {{ mainsub | strip_html }}{%- endcapture -%}
 {%- assign ogimage = page.og_image | default: page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
-{%- assign descfallback = page.content | 
-                markdownify |  newline_to_br | 
-                replace:"<br />", ",.," | 
-                replace:"{{", ",.," | 
-                replace:"{%", ",.," | 
+{%- assign descfallback = page.content |
+                markdownify |  newline_to_br |
+                replace:"<br />", ",.," |
+                replace:"{{", ",.," |
+                replace:"{%", ",.," |
                 split: ",.," | first -%}
 {%- assign ogdesc = page.excerpt | default: descfallback |
                 strip_html | escape_once  -%}
@@ -129,7 +129,7 @@
     }
     </script>
     {% endif  %}
-    
+
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -139,7 +139,7 @@
     }
 }
 </script>
-{%- assign sitelink = site.author.links | 
+{%- assign sitelink = site.author.links |
 where_exp: "item", "item.url contains 'http'"
 -%}
 <script type="application/ld+json">
@@ -168,7 +168,7 @@ where_exp: "item", "item.url contains 'http'"
 }
 </script>
 {% if page.author %}
-{%- assign pagelink = page.author.links | 
+{%- assign pagelink = page.author.links |
 where_exp: "item", "item.url contains 'http'"
 -%}
 <script type="application/ld+json">
@@ -219,8 +219,8 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="description" content="{{- ogdesc | truncate: 160 -}}"/>
     <meta name="thumbnail" content="{{ ogimage }}" />
     <meta name="robots" content="index, follow">
-    {%- assign: keyword =  site.github.public_repositories | 
-                          where_exp:"item", "item.name == site.github.repository_name " | 
+    {%- assign: keyword =  site.github.public_repositories |
+                          where_exp:"item", "item.name == site.github.repository_name " |
                           map: "topics" -%}
     {% if keyword -%}
     <meta name="keywords" content="{{- keyword - | join: ','}}"/>
@@ -245,7 +245,7 @@ where_exp: "item", "item.url contains 'http'"
     {%- if twitterauthor %}
     <meta name="twitter:creator" content="@{{- twitterauthor  -}}" />
     {% endif -%}
-    
+
     {%- include custom/custom_head_before_css.html -%}
 
     <!-- CSS -->
