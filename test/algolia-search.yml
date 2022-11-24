@@ -1,0 +1,24 @@
+# Move this file to .github/workflows/ folder
+# Important: ALGOLIA_API_KEY should be set on Settings > Secrets
+# Name: ALGOLIA_API_KEY
+# Value: Your Algolia Admin API Key value (not be confused with Search-Only API Key)
+# See https://github.com/marketplace/actions/algolia-jekyll-action
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch: 
+
+name: algolia-search
+jobs:
+  algolia-search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Algolia Jekyll Action
+        uses: dieghernan/algolia-jekyll-action@main
+        with:
+          APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
+
