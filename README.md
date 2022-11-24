@@ -3,12 +3,13 @@
 [1]: https://dieghernan.github.io/chulapa/
 [2]: https://dieghernan.github.io/chulapa/assets/img/site/banner.png (live preview)
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/dieghernan/chulapa) 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/dieghernan/chulapa)
+![Gem](https://img.shields.io/gem/v/chulapa-jekyll)
 ![GitHub](https://img.shields.io/github/license/dieghernan/chulapa) 
 ![Jekyll](https://img.shields.io/badge/jekyll-3.8.7-blue) 
 ![Bootstrap](https://img.shields.io/badge/bootstrap-4.5.0-blue) 
-![Fontawesome](https://img.shields.io/badge/fontawesome->6.x-blue) 
-![Algolia](https://img.shields.io/badge/algolia->4.7.0-blue) 
+![Fontawesome](https://img.shields.io/badge/fontawesome-6.x-blue) 
+![Algolia](https://img.shields.io/badge/algolia-4.7.0-blue) 
 ![lunr](https://img.shields.io/badge/lunr-2.3.8-blue) 
 ![mathjax](https://img.shields.io/badge/mathjax-2.7.1-blue) 
 ![GHpages](https://img.shields.io/badge/gh--pages-ready-succes) 
@@ -47,46 +48,62 @@
 A great alternative for blogs, news, portfolios and personal sites. Want to know more? [Go to Docs](https://dieghernan.github.io/chulapa/docs/01-install).
 
 ## Installation
-### A. Remote theme method
 
-By using `jekyll-remote-theme` your repo would have remote access to the content of these folders:
+Sample `_config` file [here](https://github.com/dieghernan/chulapa/blob/master/_config.yml).
 
-- `assets`
-- `_layouts`
-- `_includes`
-- `_sass`
+There are three possible ways for installing Chulapa:
 
-This method allows you to get updates easily
 
-#### Fresh start
+## A. Use our Github Template
+
+**Recommended if your are starting from scratch.**
 
 Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), fork it and quickstart your site!
 
-#### Migrate
+## B. Remote theme method
 
-You can migrate an existing page adding this line to your `_config.yml` and make sure to remove any previous theme or remote theme parameter:
-  
-```yaml
-remote_theme: dieghernan/chulapa
+**Recommended if you are migrating a previous site.**
 
-... more config options
-```
-    
+If you prefer not to use the template, you can use the `jekyll-remote-theme` method.
+Just follow these steps:
 
-### B. Fork the base repository [Advance users only]
+1.   Create a new GitHub repository or go to an existing one
+2.  Add this line to your `_config.yml`:
 
-You can fork [the base repo](https://github.com/dieghernan/chulapa/generate) and modify it. However, the site would be frozen at the moment of forking and it would make harder for you to get potential new features and upgrades.
+    ``` yaml
 
-The minimal files and folders you need are:
- 
-- `assets`
-- `_layouts`
-- `_includes`
-- `_sass`
-- `Gemfile`
-- `_config.yml`
+    remote_theme: dieghernan/chulapa
 
-Sample `_config` file [here](https://github.com/dieghernan/chulapa/blob/master/_config.yml).
+    ... more config options
+    ```
+3. Remove other `remote_theme/theme` instances of your `_config.yml` file.
+
+## C. Gem-based method 💎
+
+With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`, and `_sass` are stored in the theme’s gem, hidden from your immediate view.
+This allows for easier installation and updating as you don’t have to manage any of the theme files.
+
+To install as a Gem-based theme:
+
+1.  Add the following to your `Gemfile`:
+
+    ``` ruby
+    gem “chulapa-jekyll”
+    ```
+
+2.  Fetch and update bundled gems by running the following [Bundler](https://bundler.io/) command:
+
+    ``` bash
+    bundle
+    ```
+
+3.  Set the `theme` in your project’s Jekyll `_config.yml` file:
+
+    ``` yaml
+    theme: chulapa-jekyll
+    ```
+
+To update the theme run `bundle update`.
 
 ## Configuration and Layouts
 

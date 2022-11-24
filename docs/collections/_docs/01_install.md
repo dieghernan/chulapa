@@ -8,14 +8,19 @@ show_toc: true
 <span class="chulapa">Chulapa</span> was developed in and for Github.
 There are three tested possible ways to use <span class="chulapa">Chulapa</span>:
 
-## 1. Use our Github Template <i class="fa-solid fa-thumbs-up fa-xs"></i>
+## 1. Use our Github Template
 
-This is the **recommended option**.
+**Recommended if you are starting from scratch**
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), fork it and quickstart your site!
 
 ## 2. Remote theme method
 
-If you prefer not to use the template, you can use the `jekyll-remote-theme` method.
+**Recommended if you are migrating a site.**
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+You can use the `jekyll-remote-theme` method.
 Just follow these steps:
 
 1.   Create a new GitHub repository or go to an existing one
