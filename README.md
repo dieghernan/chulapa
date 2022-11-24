@@ -54,13 +54,13 @@ Sample `_config` file [here](https://github.com/dieghernan/chulapa/blob/master/_
 There are three possible ways for installing Chulapa:
 
 
-## A. Use our Github Template
+### A. Use our Github Template
 
 **Recommended if your are starting from scratch.**
 
 Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), fork it and quickstart your site!
 
-## B. Remote theme method
+### B. Remote theme method
 
 **Recommended if you are migrating a previous site.**
 
@@ -78,7 +78,7 @@ Just follow these steps:
     ```
 3. Remove other `remote_theme/theme` instances of your `_config.yml` file.
 
-## C. Gem-based method 💎
+### C. Gem-based method 💎
 
 With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`, and `_sass` are stored in the theme’s gem, hidden from your immediate view.
 This allows for easier installation and updating as you don’t have to manage any of the theme files.
