@@ -58,7 +58,8 @@ There are three possible ways for installing Chulapa:
 
 **Recommended if your are starting from scratch.**
 
-Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), fork it and quickstart your site!
+Create a Github account, click [this link](https://github.com/dieghernan/chulapa-101/generate) and quickstart your site!
+
 
 ### B. Remote theme method
 

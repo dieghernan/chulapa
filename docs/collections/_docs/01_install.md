@@ -13,7 +13,7 @@ There are three tested possible ways to use <span class="chulapa">Chulapa</span>
 **Recommended if you are starting from scratch**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-Create a Github account, go to [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), fork it and quickstart your site!
+Create a Github account, click [this link](https://github.com/dieghernan/chulapa-101/generate) and quickstart your site!
 
 ## 2. Remote theme method
 
