@@ -167,6 +167,7 @@ defaults:
       type: "docs"
     values:
       header_type       : "hero"
+      show_toc          : true
       include_on_search : true
       show_bottomnavs   : true
       show_comments     : true

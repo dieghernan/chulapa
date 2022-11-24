@@ -2,6 +2,7 @@
 title: Installation
 subtitle: How to use <span class="chulapa">Chulapa</span>
 excerpt: Install Chulapa on your Github repo
+show_toc: true
 ---
 
 <span class="chulapa">Chulapa</span> was developed in and for Github.
@@ -46,7 +47,7 @@ Note that making copies of theme files will prevent you from receiving any theme
 
 Please read the rest of the docs for further adjustments.
 
-## Gem-based method <i class="fa-solid fa-gem fa-xs"></i>
+## 3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i>
 
 With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`, and `_sass` are stored in the theme's gem, hidden from your immediate view.
 This allows for easier installation and updating as you don't have to manage any of the theme files.
