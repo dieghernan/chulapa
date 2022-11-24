@@ -305,7 +305,7 @@ Another
 
 **Large image**
 
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
+![Branching](https://picsum.photos/id/36/1200/600.jpg)
 
 
 ### Definition lists can be used with HTML syntax.
