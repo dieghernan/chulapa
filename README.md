@@ -89,7 +89,7 @@ To install as a Gem-based theme:
 1.  Add the following to your `Gemfile`:
 
     ``` ruby
-    gem “chulapa-jekyll”
+    gem "chulapa-jekyll"
     ```
 
 2.  Fetch and update bundled gems by running the following [Bundler](https://bundler.io/) command:
