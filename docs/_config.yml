@@ -1,9 +1,9 @@
-remote_theme: dieghernan/chulapa
+theme: dieghernan/chulapa
 
 
 repository: dieghernan/chulapa
-url: https://dieghernan.github.io
-baseurl: chulapa
+url: "https://dieghernan.github.io"
+baseurl: "/chulapa"
 
 
 title: Chulapa
