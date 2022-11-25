@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Algolia Jekyll Action
-        uses: dieghernan/dev/algolia-jekyll-action@main
+        uses: dieghernan/algolia-jekyll-action/dev@main
         with:
           APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
           jekyll_src: docs
