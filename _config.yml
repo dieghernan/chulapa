@@ -54,9 +54,9 @@ google_cse_id: #Your cse id
 # This site uses jekyll-algolia plugin https://community.algolia.com/jekyll-algolia/
 # Recommended additional configuration provided, could be modified. Add your own parameters
 algolia:                                                                   
-  application_id        : ""
-  index_name            : ""
-  search_only_api_key   : ""
+  application_id        : #As per your Algolia account
+  index_name            : #As per your Algolia account
+  search_only_api_key   : #As per your Algolia account
   files_to_exclude:         #Optional
     - _layouts/*.html
     - _includes/*.html
