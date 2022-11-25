@@ -1,3 +1,9 @@
+## v1.0.1 - 2022-11-25
+
+This version only affects to the gem:
+  - Remove dependencies to make it compatible with other Jekyll versions.
+
+
 ## v1.0.0 - 2022-11-24
 
 - [x] Bump version on `head`

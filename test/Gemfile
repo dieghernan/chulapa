@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
+gem "jekyll", "~> 4.0"
+
 # use local theme gem for testing
 gem "chulapa-jekyll", path: "../"
 
-gem 'github-pages', group: :jekyll_plugins
-group :jekyll_plugins do
-  gem 'jekyll-algolia', '~> 1.0'
-end
+gem 'jekyll-github-metadata'
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 gem "webrick"
