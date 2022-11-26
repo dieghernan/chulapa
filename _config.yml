@@ -2,6 +2,16 @@
 
 # Chulapa docs: https://dieghernan.github.io/chulapa/docs/02-config
 
+# XX. Installing Chulapa
+
+# With remote theme
+remote_theme: dieghernan/chulapa
+
+# With gem based method do this instead
+# theme: chulapa-jekyll
+# And at this to your Gemfile
+# gem install 'chulapa-jekyll'
+
 
 # A. Site Settings /SEO options
 # Overall options for your site, would affect your site SEO
