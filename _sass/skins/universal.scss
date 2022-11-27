@@ -22,3 +22,75 @@ $footer-chulapa-bg-color: #333;
 $footer-chulapa-text-color: #ccc;
 $footer-chulapa-icon-color: #ccc;
 $footer-chulapa-icon-hover-color: #724599;
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700 !important;
+}
+
+.splash-chulapa, .hero-chulapa, .header-chulapa {
+  color: black;
+}
+
+.header-chulapa {
+  text-align: center;
+}
+
+.chulapa-bg-landingpage header {
+  color: black !important;
+}
+
+// Remove rules
+header hr {
+  display: none;
+}
+
+
+// Navbar
+
+.navbar {
+
+   .navbar-brand {
+     font-weight: 300 !important;
+   }
+   .navbar-nav {
+     text-transform: uppercase;
+     text-decoration: underline;
+     letter-spacing: 0.08em;
+     color: black;
+   }
+}
+
+
+ // Icons
+
+.fa, .far, .fas, .fal, .fab { 
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  
+  &:hover {
+    -webkit-transform: scale(1.3, 1.3);
+    -ms-transform: scale(1.3, 1.3);
+    -o-transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3);
+  
+  }
+}
+
+// Misc
+
+th, .btn, .chulapa-toc-wrapper, .chulapa-subtitle, .breadcrumb, #markdown-toc {
+  text-transform: uppercase;
+}
+
+.language-plaintext {
+  color: $green;
+}
+
+
+a:hover, a:focus {
+    color: $footer-chulapa-icon-hover-color;
+    text-decoration: underline;
+}

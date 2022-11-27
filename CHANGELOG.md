@@ -2,6 +2,7 @@
 
 - Improve font loading on skins.
 - Add new "Share on Mastodon" button.
+- Improve Universal skin.
 
 
 ## v1.0.1 - 2022-11-25
