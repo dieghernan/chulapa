@@ -52,7 +52,9 @@ header hr {
 .navbar {
 
    .navbar-brand {
-     font-weight: 300 !important;
+     font-weight: 700 !important;
+     text-transform: uppercase;
+     letter-spacing: 0.08em;
    }
    .navbar-nav {
      text-transform: uppercase;
