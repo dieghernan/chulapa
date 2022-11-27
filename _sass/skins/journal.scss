@@ -6,6 +6,10 @@
 // Color system
 //
 
+$web-font-path: "https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" !default;
+@import url($web-font-path);
+
+
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #eee !default;
@@ -67,9 +71,6 @@ $pagination-hover-border-color: $primary !default;
 
 
 // Variables ===================================================================
-
-$web-font-path: "https://fonts.googleapis.com/css?family=News+Cycle:400,700&display=swap" !default;
-@import url($web-font-path);
 
 // Navbar ======================================================================
 

@@ -7,6 +7,10 @@
 // Color system
 //
 
+$web-font-path: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" !default;
+@import url($web-font-path);
+
+
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #f7f7f9 !default;
@@ -143,8 +147,6 @@ $font-size-sm: $font-size-base * .875 !default;
 
 // Variables ===================================================================
 
-$web-font-path: "https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap" !default;
-@import url($web-font-path);
 
 // Navbar ======================================================================
 

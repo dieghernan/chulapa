@@ -250,7 +250,8 @@ where_exp: "item", "item.url contains 'http'"
 
     <!-- CSS -->
     <!-- Preconnect with Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {% for font in site.googlefonts -%}
       {% if font.url -%}
     <link href="{{ font.url }}" rel="stylesheet">
