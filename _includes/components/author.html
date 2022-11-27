@@ -28,7 +28,8 @@
 						{%- if links -%}
 						<div class="d-inline my-1 mx-lg-0 chulapa-links-hover-only">
 							{%- for item in links -%}
-							{%- if item.url contains "http" -%}
+							{%- assign urlslice = item.url | slice: 0,3 -%}
+							{%- if urlslice == "http" -%}
 							<a class="mr-2 mx-lg-1" href="{{ item.url }}"><i class="{{ item.icon }} fa-lg"></i></a>
 							{%- else -%}
 							<a class="mr-2 mx-lg-1" href="mailto:{{ item.url }}?subject={{ site.title | append: ' web - ' | append: page.title | strip_html | uri_escape  }}"><i class="{{ item.icon }} fa-lg"></i></a>

@@ -92,7 +92,8 @@
           {%- if site.footer.links -%}
           <div role="navigation" class="d-flex flex-wrap justify-content-center">
             {%- for social in site.footer.links  -%}
-            {%- if social.url contains "@" -%}
+            {%- assign urlslice = social.url | slice: 0,3 -%}
+            {%- if urlslice != "http" -%}
             <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | uri_escape }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead"> 
             
             {%- else -%}
