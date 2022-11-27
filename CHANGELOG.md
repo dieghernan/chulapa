@@ -1,3 +1,9 @@
+## dev
+
+- Improve font loading on skins.
+- Add new "Share on Mastodon" button.
+
+
 ## v1.0.1 - 2022-11-25
 
 This version only affects to the gem:
