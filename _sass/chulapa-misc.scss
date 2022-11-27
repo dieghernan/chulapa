@@ -1,3 +1,8 @@
+/*!
+ * Misc classes and formats for chulapa
+ */
+
+
 // Defaults needed as Bootstrap doesn't specifically format these tags
 body {
     min-height: 100vh;
@@ -76,7 +81,7 @@ figcaption, caption, .figcaption, .caption {
   margin-right: auto;
 }
 
-.highlight {
+pre {
     @extend .p-2;
 }
 
