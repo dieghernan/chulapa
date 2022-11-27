@@ -4,6 +4,9 @@
 // Color system
 //
 
+$web-font-path: "https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch&display=swap" ;
+@import url($web-font-path);
+
 $white: #fff ;
 $gray-100: #f8f9fa ;
 $gray-200: #f7f7f9 ;
@@ -185,8 +188,6 @@ $close-text-shadow: none ;
 
 // Variables ===================================================================
 
-$web-font-path: "https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch&display=swap" ;
-@import url($web-font-path);
 
 $border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
 $border-radius-lg: 555px 25px 15px 25px/25px 5px 35px 555px;
