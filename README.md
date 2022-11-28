@@ -110,6 +110,10 @@ To update the theme run `bundle update`.
 
 You have available an extensive documentation [here](https://dieghernan.github.io/chulapa/docs/01-install)
 
+## Performance 
+
+[![Performance](https://raw.githubusercontent.com/dieghernan/chulapa/master/github-metrics.svg)](https://pagespeed.web.dev/report?url=https://dieghernan.github.io/chulapa/)
+
 ## License
 
 [The MIT License](https://dieghernan.github.io/chulapa/license)
