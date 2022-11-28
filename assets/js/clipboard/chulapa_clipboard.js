@@ -21,13 +21,13 @@ function sleep(ms) {
 }
 
 async function setTooltip(btn, tooltip, style) {
-  btn.classList.remove('btn-light');
+  btn.classList.remove('text-muted');
   btn.classList.add(style);
   btn.setAttribute('aria-label', tooltip);
   await sleep(1000);
+  btn.classList.add('text-muted');
   btn.setAttribute('aria-label', 'Copy code to clipboard');
   btn.removeAttribute('data-original-title');
-  btn.classList.add('btn-light');
   btn.classList.remove(style);
 }
 
@@ -50,7 +50,7 @@ function ch_clipboard_setup() {
       codeBlock.setAttribute('id', 'clipboard_code' + i);
       // Create button			
       var btn = d.createElement('button');
-      btn.classList.add('btn', 'btn-light', 'btn-sm', 'btn-chulapa-copy-code');
+      btn.classList.add('btn', 'text-muted', 'btn-sm', 'btn-chulapa-copy-code');
       btn.innerHTML = "<i class='far fa-copy'></i>";
       btn.id = 'clipboard_btn' + i;
       btn.type = 'button';
@@ -82,14 +82,14 @@ function ch_copy_cliboard(i) {
 
     // Set initial values
 
-    let style = 'btn-success';
+    let style = 'text-success';
     let msg = 'Copied on the clipboard:\n' + codeBlockStripped;
     let tooltip = 'Copied!';
     try {
       navigator.clipboard.writeText(codeBlockStripped);
     } catch {
       // Modify on error
-      style = 'btn-danger';
+      style = 'text-danger';
       tooltip = 'Error!';
       msg = 'Error when copying the code';
     }

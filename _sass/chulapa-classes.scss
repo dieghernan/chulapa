@@ -834,6 +834,8 @@ $value in $theme-colors {
 .btn-chulapa-copy-code {
   position: absolute;
   right: 30px;
+  margin-top: -0.3rem;
+  font-size: $font-size-sm * .8;
 }
 
 // Normalize carousel

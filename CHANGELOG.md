@@ -4,6 +4,7 @@
 - Add new "Share on Mastodon" button.
 - Improve Universal skin.
 - Remove Clipboard.js dependency. Chulapa now uses a custom script.
+- FontAwesome Icons now present transitions on hover.
 
 
 ## v1.0.1 - 2022-11-25
