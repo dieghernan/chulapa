@@ -4,7 +4,9 @@
   Your browser does not support the video tag.
 </video>
 </div>
-{%- else -%}
+{%- elsif include.provider == "youtube" -%}
+{% include snippets/youtube.html id=include.id %}
+{%- else -%
 {% assign video_id = include.id %}
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
