@@ -209,41 +209,41 @@ where_exp: "item", "item.url contains 'http'"
     <title>{{ metatitle | strip_html }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
     <!-- Atom feed -->
-    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" />
+    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" >
     <!-- RSS 2.0 feed -->
-    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title }}" />
+    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title }}" >
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" />
-    <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" />
-    <meta name="description" content="{{- ogdesc | truncate: 160 -}}"/>
-    <meta name="thumbnail" content="{{ ogimage }}" />
+    <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" >
+    <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" >
+    <meta name="description" content="{{- ogdesc | truncate: 160 -}}">
+    <meta name="thumbnail" content="{{ ogimage }}" >
     <meta name="robots" content="index, follow">
     {%- assign: keyword =  site.github.public_repositories |
                           where_exp:"item", "item.name == site.github.repository_name " |
                           map: "topics" -%}
     {% if keyword -%}
-    <meta name="keywords" content="{{- keyword - | join: ','}}"/>
+    <meta name="keywords" content="{{- keyword - | join: ','}}">
     {%- endif %}
     {% if site.chulapa-skin.vars.primary -%}
     <!-- Chrome, Firefox OS and Opera -->
    <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
    {%- endif %}
     <!-- OpenGraph -->
-    <meta property="og:title" content="{{ metatitle | strip_html }}" />
-    <meta property="og:site_name" content="{{ sitename | strip_html }}" />
-    <meta property="og:url" content="{{ canonical_url }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" />
-    <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" />
-    <meta property="og:image" content="{{- ogimage -}}" />
+    <meta property="og:title" content="{{ metatitle | strip_html }}" >
+    <meta property="og:site_name" content="{{ sitename | strip_html }}" >
+    <meta property="og:url" content="{{ canonical_url }}" >
+    <meta property="og:type" content="website" >
+    <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
+    <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" >
+    <meta property="og:image" content="{{- ogimage -}}" >
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     {%- if site.twitter_site %}
-    <meta name="twitter:site" content="@{{- site.twitter_site  -}}" />
+    <meta name="twitter:site" content="@{{- site.twitter_site  -}}" >
     {% endif -%}
     {%- if twitterauthor %}
-    <meta name="twitter:creator" content="@{{- twitterauthor  -}}" />
+    <meta name="twitter:creator" content="@{{- twitterauthor  -}}" >
     {% endif -%}
 
     {%- include custom/custom_head_before_css.html -%}
@@ -270,11 +270,11 @@ where_exp: "item", "item.url contains 'http'"
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.css">
     {%- endif %}
     <!-- Theme css (Bootstrap included) -->
-    <link rel="stylesheet" href="{{- "assets/css/main.css " | absolute_url -}}" />
+    <link rel="stylesheet" href="{{- "assets/css/main.css " | absolute_url -}}" >
     <!-- Highlighter -->
-    <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" />
+    <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" >
     <!-- Custom css -->
-    <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" />
+    <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" >
 {% if page.mathjax -%}
     <script async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
