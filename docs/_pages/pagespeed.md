@@ -15,5 +15,5 @@ Check the latest results of <span class="chulapa">Chulapa</span> on [PageSpeed](
 
 [![Performance](https://raw.githubusercontent.com/dieghernan/chulapa/master/github-metrics.svg)](https://pagespeed.web.dev/report?url=https://dieghernan.github.io/chulapa/)
 
-[^1]: PageSpeed Insights (PSI) reports on the user experience of a page on both mobile and desktop devices developed by Google.
+[^1]: PageSpeed Insights (PSI) is a tool developed by Google that reports on the user experience of a page on both mobile and desktop devices.
 
