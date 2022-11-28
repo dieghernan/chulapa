@@ -5,6 +5,7 @@
 - Improve Universal skin.
 - Remove Clipboard.js dependency. Chulapa now uses a custom script.
 - FontAwesome Icons now present transitions on hover.
+- YouTube videos are lazy-deferred by default.
 
 
 ## v1.0.1 - 2022-11-25

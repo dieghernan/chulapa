@@ -508,22 +508,11 @@ Safe formats under the `fileurl` approach are `*.mp4`, `*.ogg` and `*.webm` file
 {: .alert .alert-warning .p-3 .mx-2}
 
 
-#### <span class="text-danger">Experimental</span>: Deferred (lazy) loading of YouTube videos
+#### Deferred (lazy) loading of YouTube videos
 
-<span class="chulapa">Chulapa</span> also ships an implementation of the plugin
-[ytdefer](https://github.com/groupboard/ytdefer) as a snippet. This snippet
-initially displays an image of a YouTube video and the actual video is loaded and 
-starts playing when the user clicks on it. This implementation intends to improve
+YouTube videos are lazy deferred. This means that 
+initially a YouTube video is displayed as the  image preview and the actual video is loaded when the user clicks on the image. This implementation intends to improve
 page speed.  See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
-
-{% raw %}
-```
-{% include snippets/youtube.html id="XjZSoeFAX_Y" %}
-```
-{% endraw %}
-
-
-{% include snippets/youtube.html id="XjZSoeFAX_Y" %}
 
 Thanks to [@SCP-017](https://github.com/SCP-017) for the suggestion.
 
