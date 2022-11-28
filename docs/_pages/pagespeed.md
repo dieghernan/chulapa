@@ -3,8 +3,7 @@ title: PageSpeed Results
 subtitle: '<span class="chulapa">Chulapa</span> Theme Performance' 
 permalink: /pagespeed
 header_type: "hero"
-header_img: "https://raw.githubusercontent.com/dieghernan/chulapa/master/github-metrics.svg"
-og_image: /assets/img/site/banner.png
+header_img: /assets/img/site/banner.png
 ---
 
 ## High performance theme
