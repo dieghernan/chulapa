@@ -72,7 +72,7 @@ function ch_copy_cliboard(i) {
     // Select code content and strip HTML
     var codeBlock = d.getElementById('clipboard_code' + i)
       .innerHTML;
-    codeBlockStripped = codeBlock.replace(/(<([^>]+)>)/gi, '');
+    codeBlockStripped = stripHtml(codeBlock);
 
     // Reset clipboard
     navigator.clipboard.writeText('');
@@ -98,6 +98,12 @@ function ch_copy_cliboard(i) {
     hideTooltip(btnTrigger);
     console.log(msg);
   }
+}
+// stripHtml safely
+function stripHtml(html){
+   let tmp = document.createElement('DIV');
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || '';
 }
 
 window.addEventListener('load', ch_clipboard_setup);
