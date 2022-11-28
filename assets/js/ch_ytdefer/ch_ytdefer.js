@@ -79,3 +79,5 @@ function gen_ytdefer_clk(i) {
 
     };
 }
+
+window.addEventListener('load', ch_ytdefer_setup);

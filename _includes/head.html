@@ -258,7 +258,7 @@ where_exp: "item", "item.url contains 'http'"
       {%- endif %}
     {%- endfor %}
     <!-- Fontawesome-->
-    <!-- v5.13 -->
+    <!-- v6 -->
     {% assign fakit = site.fa5_kit_code | default: fa_kit_code %}
     {% if fakit -%}
     <script src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
@@ -275,8 +275,6 @@ where_exp: "item", "item.url contains 'http'"
     <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" />
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" />
-    <!-- Chulape Deferred (lazy) loading of YouTube videos, to improve page speed -->
-    <script src="{{- "assets/js/ch_ytdefer/ch_ytdefer.min.js" | absolute_url -}}"></script>
 {% if page.mathjax -%}
     <script async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
