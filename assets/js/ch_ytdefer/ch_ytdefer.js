@@ -32,7 +32,6 @@ function ch_ytdefer_setup() {
     }
     if (typeof YT == "undefined") {
         var js = d.createElement("script");
-        js.type = "text/javascript";
         js.src = "https://www.youtube.com/player_api";
         d.body.appendChild(js);
     }

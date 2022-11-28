@@ -10,7 +10,7 @@
        {% for item in page.breadcrumb_list %}
              <li class="breadcrumb-item" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem"><a href="{{ item.url | absolute_url }}" itemprop="item"><span itemprop="name">{{ item.label }}</span></a>
-          <meta itemprop="position" content="{{ forloop.index }}" /></li>
+          <meta itemprop="position" content="{{ forloop.index }}" ></li>
           {% if forloop.last %}
           {% assign loopplus1 = forloop.index | plus: 1 %}
           {% endif %}
@@ -18,16 +18,16 @@
        <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem">
         <span itemprop="name">{{ page.title }}</span>
-        <meta itemprop="position" content="{{ loopplus1 }}" />
+        <meta itemprop="position" content="{{ loopplus1 }}" >
       </li>
       {% else %}
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem"><a href="{{ "/" | absolute_url }}" itemprop="item"><span itemprop="name">{{ site.navbar.brand.title | default: site.title | default: site.github.repository_name }}</span></a>
-          <meta itemprop="position" content="1" /></li>
+          <meta itemprop="position" content="1" ></li>
     <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem">
         <span itemprop="name">{{ page.title }}</span>
-        <meta itemprop="position" content="2" />
+        <meta itemprop="position" content="2" >
       </li>
       {% endif %}
   </ol>

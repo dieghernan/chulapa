@@ -17,7 +17,7 @@
 <div class="chulapa-masonry mx-2 mt-2">
   {%- for brick in bricks limit: end -%}
   <img loading="lazy" class="chulapa-masonry-brick" src="{{- brick | absolute_url -}}" 
-  alt="Masonry Item #{{- forloop.index -}}">
+  alt="Masonry Item #{{- forloop.index -}}" >
   {%- endfor -%}
 </div>
 {%- endif -%}
