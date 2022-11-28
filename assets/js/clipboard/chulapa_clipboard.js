@@ -25,7 +25,7 @@ async function setTooltip(btn, tooltip, style) {
   btn.classList.add(style);
   btn.setAttribute('aria-label', tooltip);
   await sleep(1000);
-  btn.removeAttribute('aria-label');
+  btn.setAttribute('aria-label', 'Copy code to clipboard');
   btn.removeAttribute('data-original-title');
   btn.classList.add('btn-light');
   btn.classList.remove(style);
@@ -56,6 +56,7 @@ function ch_clipboard_setup() {
       btn.type = 'button';
       btn.setAttribute('data-toggle', 'tooltip');
       btn.setAttribute('data-placement', 'left');
+      btn.setAttribute('aria-label', 'Copy code to clipboard');
       //Function to copy to clipboard
       btn.onclick = ch_copy_cliboard(i);
       preBlock.prepend(btn);

@@ -11,15 +11,15 @@
 <!-- https://embedresponsively.com/ -->
 <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
 {%- if video_provider == "vimeo" -%}
-  <iframe loading="lazy" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 {%- elsif video_provider == "youtube" -%}
-  <iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ video_id }}" allowfullscreen></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ video_id }}" allowfullscreen></iframe>
 {%- elsif video_provider == "google-drive" -%}
-  <iframe loading="lazy" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen></iframe>
 {%- elsif video_provider == "bilibili" -%}
-  <iframe loading="lazy" class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true"></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true"></iframe>
 {%- elsif video_provider == "dailymotion" -%}
-<iframe loading="lazy" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 {% endif %}
 </div>
