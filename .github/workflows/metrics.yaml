@@ -1,0 +1,28 @@
+# Visit https://github.com/lowlighter/metrics#-documentation for full reference
+name: Metrics
+on:
+  # Schedule updates (on Monday)
+  schedule: [{cron: "0 9 * * 1"}]
+  # Lines below let you run workflow manually and on each commit
+  workflow_dispatch:  
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Current configuration doesn't require a GitHub token
+          token: NOT_NEEDED
+
+          # Options
+          user: dieghernan
+          template: classic
+          base: ""
+          config_timezone: Europe/Madrid
+          plugin_pagespeed: yes
+          plugin_pagespeed_detailed: yes
+          plugin_pagespeed_pwa: yes
+          plugin_pagespeed_screenshot: yes
+          plugin_pagespeed_url: https://dieghernan.github.io/chulapa/
