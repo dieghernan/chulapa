@@ -103,6 +103,8 @@ navbar:
        url: /demo/search_lunr
      - title: Classic Navbar
        url: /demo/classic-navbar
+  - title: PageSpeed Results
+    url:  /pagespeed
   - title: About
     child: 
       - title: License
