@@ -52,6 +52,6 @@ $pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hove
 // Cactus comments
 
 :root {
-  --cactus-text-color: $footer-chulapa-text-color;
-  --cactus-text-color--soft: footer-chulapa-hover-color;
+  --cactus-text-color: #{$footer-chulapa-text-color};
+  --cactus-text-color--soft: #{$footer-chulapa-hover-color};
 }
