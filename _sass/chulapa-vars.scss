@@ -46,3 +46,12 @@ $thead-chulapa-text-color: color-contrast($thead-chulapa-bg-color, $black, $whit
 $pagination-chulapa-text-color: $body-color !default;
 $pagination-chulapa-bg-hover-color: $primary !default;
 $pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hover-color, $black, $white) !default;
+
+
+
+// Cactus comments
+
+:root {
+  --cactus-text-color: $footer-chulapa-text-color;
+  --cactus-text-color--soft: footer-chulapa-hover-color;
+}
