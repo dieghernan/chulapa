@@ -249,6 +249,11 @@ where_exp: "item", "item.url contains 'http'"
     {%- include custom/custom_head_before_css.html -%}
 
     <!-- CSS -->
+  {% if site.comments.provider == 'cactus' -%}
+   <!-- Cactus comments -->
+   <script src="https://latest.cactus.chat/cactus.js"></script>
+   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+{%- endif %}
     <!-- Preconnect with Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -280,11 +285,6 @@ where_exp: "item", "item.url contains 'http'"
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
   {%- endif %}
-  {% if site.comments.provider == 'cactus' -%}
-   <!-- Cactus comments -->
-   <script src="https://latest.cactus.chat/cactus.js"></script>
-   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
-{%- endif %}
 {%- if site.gtag_id %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
