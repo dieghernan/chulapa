@@ -7,16 +7,16 @@ baseurl: "/chulapa"
 
 
 title: Chulapa
-subtitle: A full flexible Jekyll theme  
+subtitle: A full flexible Jekyll theme
 description: Template for creating free sites on Github Pages
-og_image: "./assets/img/site/banner.png" 
+og_image: "./assets/img/site/banner.png"
 twitter_site: dhernangomez
 timezone: "Europe/Madrid"
 author:
   name: dieghernan
   avatar: ./assets/img/site/dieghernan-avatar.png
   location: Madrid, Spain
-  links:                
+  links:
     - url: https://github.com/dieghernan/
       icon: "fab fa-github"
     - url: https://dieghernan.github.io/
@@ -27,7 +27,7 @@ gtag_id:  UA-139034853-5
 search:
   provider: algolia
   algolia_logo: true
-algolia:                                                                   
+algolia:
   application_id        : "KOIKA5PDQO"
   index_name            : "chulapa"
   search_only_api_key   : "7f1fe42bef3f03458cb3a911ebc7e0ac"
@@ -38,23 +38,22 @@ algolia:
   extensions_to_index:      #Optional
     - html
     - md
-  searchableAttributes:     #Optional                                                    
-    - title                                                                    
-    - headings                                                                 
-    - unordered(content)                                                       
-    - unordered(subtitle)                                                      
-    - unordered(categories)                                                    
-    - unordered(collection)                                                    
-    - unordered(tags) 
+  searchableAttributes:     #Optional
+    - title
+    - headings
+    - unordered(content)
+    - unordered(subtitle)
+    - unordered(categories)
+    - unordered(collection)
+    - unordered(tags)
   customRanking:            #Optional
     - desc(include_on_search)
     - desc(title)
-    - desc(content) 
-    - desc(subtitle)    
+    - desc(content)
+    - desc(subtitle)
 comments:
-  provider: cactus
-  cactus_shortname: chulapa
-  
+  provider: giscus
+
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 
 # B. Navigation
@@ -86,7 +85,7 @@ navbar:
        url: /docs/syntax-highlighting
      - title: Variable dictionary
        url: /docs/variable-dictionary
-  - title: Skins		
+  - title: Skins
     url: /skins
   - title: Demos
     child:
@@ -107,7 +106,7 @@ navbar:
   - title: PageSpeed Results
     url:  /pagespeed
   - title: About
-    child: 
+    child:
       - title: License
         url: /license
       - title: Showcase
@@ -130,10 +129,10 @@ footer:
   copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
 
 # C. Theme Settings
-chulapa-skin: 
+chulapa-skin:
   highlight   : "github"
-  autothemer  :  true 
-  vars        :    
+  autothemer  :  true
+  vars        :
     primary:   '#efebdd'
     secondary: "#dfd7ba"
     link-color: '#a19d8e'
@@ -153,7 +152,7 @@ collections_dir     : collections
 permalink           : /:year:month:day_:title/
 paginate: 4
 paginate_path: "/blog/page:num/"
-paginator_maxnum: 3 
+paginator_maxnum: 3
 defaults:
   -
     scope:
