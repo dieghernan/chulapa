@@ -19,10 +19,9 @@ layout: minimal
 			 {% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skipNoIDs=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
 			  {% endif %}
 			{{- content -}}
-			</article>
            {% if page.show_seo %}
 			<!-- Demo purposes only-->
-			<div class="bg-light p-1 mx-auto mb-3 mt-3 border border-dark">
+			<div class="bg-light p-3 mx-auto mb-3 mt-3 border border-dark">
 				<p class="lead">PageSpeed Report for this page</p>
 				<div class="card-group">
 				  <div class="card">
@@ -70,6 +69,7 @@ layout: minimal
 			  </div>
 
 		   {% endif %}
+		   </article>
 		</div>
 	</main>
 	{%- if page.show_bottomnavs -%}
