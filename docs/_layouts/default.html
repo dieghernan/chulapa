@@ -20,6 +20,56 @@ layout: minimal
 			  {% endif %}
 			{{- content -}}
 			</article>
+           {% if page.show_seo %}
+			<!-- Demo purposes only-->
+			<div class="bg-light p-3 mx-2 mb-3 mt-3 border border-dark">
+				<p class="lead">PageSpeed Report for this page</p>
+				<div class="card-group">
+				  <div class="card">
+					<div class="card-body text-center">
+					  <p class="card-text">Performance</p>
+					  <div id="p_bg" class="mx-auto chulapa-avatar-size bg-light border-light d-flex p-2 align-items-center justify-content-center">
+						<p class="text-center align-self-center my-auto" id="p_t">
+						  <i class="fa-solid fa-sync fa-spin"></i>
+						</p>
+					  </div>
+					</div>
+				  </div>
+				  <div class="card">
+					<div class="card-body text-center">
+					  <p class="card-text">Accesibility</p>
+					  <div id="a_bg" class="mx-auto chulapa-avatar-size bg-light border-light d-flex p-2 align-items-center justify-content-center">
+						<p class="text-center align-self-center my-auto" id="a_t">
+						  <i class="fa-solid fa-sync fa-spin"></i>
+						</p>
+					  </div>
+					</div>
+				  </div>
+				  <div class="card">
+					<div class="card-body text-center">
+					  <p class="card-text">Best Practices</p>
+					  <div id="bp_bg" class="mx-auto chulapa-avatar-size bg-light border-light d-flex p-2 align-items-center justify-content-center">
+						<p class="text-center align-self-center my-auto" id="bp_t">
+						  <i class="fa-solid fa-sync fa-spin"></i>
+						</p>
+					  </div>
+					</div>
+				  </div>
+				  <div class="card">
+					<div class="card-body text-center">
+					  <p class="card-text">SEO</p>
+					  <div id="s_bg" class="mx-auto chulapa-avatar-size bg-light border-light d-flex p-2 align-items-center justify-content-center">
+						<p class="text-center align-self-center my-auto" id="s_t">
+						  <i class="fa-solid fa-sync fa-spin"></i>
+						</p>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<p id="pglink"></p>
+			  </div>
+
+		   {% endif %}
 		</div>
 	</main>
 	{%- if page.show_bottomnavs -%}
