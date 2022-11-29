@@ -51,7 +51,14 @@ $pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hove
 
 // Cactus comments
 
+$cactus-btn-text: color-contrast($secondary, $black, $white);
+
 :root {
+  --cactus-error-color: #{$danger};
+  --cactus-border-radius: #{$btn-border-radius};
+  --cactus-button-text-color: #{$cactus-btn-text};
+  --cactus-border-color: #{$secondary};
+  --cactus-button-color: #{$secondary};
   --cactus-text-color: #{$footer-chulapa-text-color};
   --cactus-text-color--soft: #{$footer-chulapa-hover-color};
 }
