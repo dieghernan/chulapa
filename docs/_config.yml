@@ -52,7 +52,8 @@ algolia:
     - desc(content) 
     - desc(subtitle)    
 comments:
-  provider: giscus
+  provider: cactus
+  cactus_shortname: chulapa
   
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 
