@@ -163,6 +163,7 @@ defaults:
       include_on_search   : false
       cloudtag_url        : "/tags"
       cloudcategory_url   : "/categories"
+      show_seo            : true
   -
     scope:
       path: ""
@@ -173,7 +174,6 @@ defaults:
       include_on_search : true
       show_bottomnavs   : true
       show_comments     : true
-      show_seo          : true
       og_image: "/assets/img/site/banner-docs.png"
   -
     scope:
@@ -191,7 +191,6 @@ defaults:
       show_categories   : true
       show_author       : true
       show_breadcrumb   : true
-      show_seo          : true
       breadcrumb_list   :
         - label: Blog
           url: /blog/
@@ -213,6 +212,7 @@ defaults:
       show_author       : true
       show_toc          : true
       show_breadcrumb   : true
+      show_seo          : false
       breadcrumb_list   :
         - label: Skins
           url: /skins
@@ -228,7 +228,6 @@ defaults:
       include_on_search : true
       cloudcategory_url : "/demo/category"
       show_breadcrumb   : true
-      show_seo          : true
       breadcrumb_list   :
         - label: Demo
           url: /demo
