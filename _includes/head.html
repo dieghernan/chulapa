@@ -275,10 +275,15 @@ where_exp: "item", "item.url contains 'http'"
     <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" >
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" >
-{% if page.mathjax -%}
+      {% if page.mathjax -%}
     <script async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+  {%- endif %}
+  {% if site.comments.provider == 'cactus' -%}
+   <!-- Cactus comments -->
+   <script src="https://latest.cactus.chat/cactus.js"></script>
+   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
 {%- endif %}
 {%- if site.gtag_id %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
