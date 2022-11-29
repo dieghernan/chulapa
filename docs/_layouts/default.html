@@ -20,7 +20,7 @@ layout: minimal
 			  {% endif %}
 			{{- content -}}
            {% if page.show_seo %}
-			<!-- Demo purposes only-->
+					<!-- Demo purposes only-->
 			<div class="bg-light p-3 mx-auto mb-3 mt-3 border border-dark">
 			  <p class="lead">PageSpeed Report for this page</p>
 			  <div class="card" id="loadingcard">
@@ -36,6 +36,12 @@ layout: minimal
 			        </svg>
 			      </p>
 			      <p class="card-text">This can take a while...</p>
+			    </div>
+			  </div>
+			  <div class="card d-none" id="nowidget">
+			    <div class="card-body">
+			      <p class="card-text text-center text-muted"><i class="fa-solid fa-circle-xmark fa-lg"></i> Could not load widget</p>
+				  <p class="card-text text-center" id="nowidget_link"></p>
 			    </div>
 			  </div>
 			  <div class="card-group d-none" id="resultcard">
@@ -95,7 +101,6 @@ layout: minimal
 			  <p id="pglink" class="my-2" ></p>
 			</div>
 			<!-- End Demo -->
-
 		   {% endif %}
 		   </article>
 		</div>
