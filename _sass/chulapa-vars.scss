@@ -50,7 +50,7 @@ $pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hove
 
 // Chulapa Layouts
 
-$indexcards-chulapa-border-color: mix($body-color, $body-bg, 30%) !default;
+$indexcards-chulapa-border-color: $text-muted !default;
 
 // Cactus comments
 
