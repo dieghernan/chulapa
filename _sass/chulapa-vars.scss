@@ -48,6 +48,9 @@ $pagination-chulapa-bg-hover-color: $primary !default;
 $pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hover-color, $black, $white) !default;
 
 
+// Chulapa Layouts
+
+$indexcards-chulapa-border-color: mix($body-color, $body-bg, 30%) !default;
 
 // Cactus comments
 

@@ -41,6 +41,7 @@ This page shows all the <span class="chulapa">Chulapa</span> variables that you 
 | `pagination-chulapa-text-color` | Pagination text color |
 | `pagination-chulapa-text-hover-color` | Pagination text color on hover |
 | `pagination-chulapa-bg-hover-color` | Pagination background color on hover |
+| `indexcards-chulapa-border-color` | Border color of cards on `indexcategory` layout |
 
 ## Selected Bootstrap variables
 

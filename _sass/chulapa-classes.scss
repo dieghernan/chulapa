@@ -846,5 +846,5 @@ $value in $theme-colors {
 }
 
 .chulapa-border-card-index {
-  border-color: mix($body-color, $body-bg,    20%);
+  border-color: $indexcards-chulapa-border-color;
 }
