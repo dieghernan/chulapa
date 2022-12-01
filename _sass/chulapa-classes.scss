@@ -844,3 +844,7 @@ $value in $theme-colors {
   height: 75vh;
   object-fit:contain;
 }
+
+.chulapa-border-card-index {
+  border-color: $navbar-chulapa-text-color;
+}

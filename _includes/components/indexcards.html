@@ -1,7 +1,7 @@
 {%- assign alldocs = include.cacheddocs -%}
    {% for post in alldocs limit: include.cachedlimit %} 
 <div class="col-12 mb-2">
-<div class="card border-primary ">
+<div class="card chulapa-border-card-index">
 	<div class="row g-0">
 		<a href="{{- post.url | absolute_url -}}" class="col-sm-1 chulapa-min-h-10 chulapa-card-img chulapa-overlay-img chulapa-gradient {% if post.header_img == nil or post.og_image -%} d-none d-sm-flex {% endif %} "
 {% if post.header_img or post.og_image  -%} style="background-image: url('{{- post.og_image | default: post.header_img | absolute_url -}}')"{%-endif-%}>
