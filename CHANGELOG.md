@@ -3,6 +3,7 @@
 ### Added
 -   Add new "Share on Mastodon" button.
 -   Add Cactus as new comment provider.
+-   New `github` and `github-dark` skins.
 
 
 ### Changed

@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Mona Sans';
+  src:
+    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Mona-Sans/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Mona-Sans/Mona-Sans.woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+
+@font-face {
+  font-family: 'Hubot Sans';
+  src:
+    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Hubot-Sans/Hubot-Sans.woff2') format('woff2 supports variations'),
+    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Hubot-Sans/Hubot-Sans.woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+// Colors
+
+$primary: #22272e;
+$link-color: #0969da;
+$success: #2da44e;
+$warning: #d4a72c;
+$danger: #cf222e;
+$info: #8250df;
+
+$body-bg: #fff;
+$body-color: #24292f;
+
+// Typography
+
+$headings-font-family: 'Mona Sans', Roboto;
+$font-family-base: 'Hubot Sans', Roboto;
+$font-family-monospace: 'Roboto Mono', monospace;
+$headings-font-weight: 800;
+$text-muted: #8b949e;
+
+// Chulapa components
+
+$navbar-chulapa-bg-color: $primary;
+$navbar-chulapa-toggler-border-color: $primary;
+$navbar-chulapa-text-color: $body-bg;
+$navbar-chulapa-hover-color: $text-muted;
+$navbar-chulapa-brand-color: $navbar-chulapa-text-color;
+
+$footer-chulapa-bg-color: #0d1117;
+$footer-chulapa-text-color: #8b949e;
+$footer-chulapa-hover-color: #58a6ff;
+$footer-chulapa-icon-hover-color: mix($footer-chulapa-hover-color, $footer-chulapa-bg-color, 20%);
+
+// Misc
+// Blockquote
+$blockquote-chulapa-bg-color: $body-bg;
+$blockquote-chulapa-text-color: $body-color;
+
+$pre-chulapa-bg-color: #eff2ff;
+
+
+// Special rules
+
+.chulapaDateSocial time, .chulapaDateSocial .chulapa-text-line-through {
+  font-family: $font-family-monospace;
+}
+
+.chulapaDateSocial a {
+  color: $link-color !important;
+}
+
+time {
+  font-family: $font-family-monospace;
+  font-style: normal !important;
+}
+
+blockquote {
+    border-radius: 0 !important;
+    border-left: solid $link-color !important;
+}
+
+$pagination-chulapa-bg-hover-color: $primary;
+$min-contrast-ratio: 2;
+
+
+.hero-chulapa h1, 
+.hero-chulapa-image h1, 
+.splash-chulapa h1, 
+.splash-chulapa-image h1 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight !important;
+}
+
+nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight  !important;
+}
+
+
+
+.navbar-chulapa .active, .navbar-chulapa-fab .active {
+color: mix($navbar-chulapa-text-color, $navbar-chulapa-bg-color, 80%) !important;
+}
+
+
+.chulapa-links-hover-only i {
+  color:$link-color;
+}
