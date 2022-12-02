@@ -275,6 +275,11 @@ where_exp: "item", "item.url contains 'http'"
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.css">
     {%- endif %}
     <!-- Theme css (Bootstrap included) -->
+    {% if site.chulapa-skin.skin contains 'github' -%}
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Mona-Sans/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Hubot-Sans/Hubot-Sans.woff2" as="font" type="font/woff2" crossorigin>
+    {%- endif %}
+    
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="{{- "assets/css/main.css " | absolute_url -}}" >
     <!-- Highlighter -->
