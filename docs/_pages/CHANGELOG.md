@@ -20,9 +20,11 @@ permalink: /CHANGELOG
 -   FontAwesome Icons now present transitions on hover.
 -   YouTube videos are lazy-deferred by default.
 
--   [x] Bump version on `head`
--   [ ] Bump version on docs
--   [ ] Bump version on `chulapa-101` remote theme
+#### Checklist 
+
+- [x] Bump version on `head`
+- [ ] Bump version on docs
+- [ ] Bump version on `chulapa-101` remote theme
 
 ## v1.0.1 *2022-11-25*{:.text-muted .small}
 

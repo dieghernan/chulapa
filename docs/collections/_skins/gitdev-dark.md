@@ -8,7 +8,7 @@ last_modified_at: 2022-04-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: gitdev-dark
-og_image: ./assets/img/skinspreview/gitdev-dark.jpeg
+og_image: ./assets/img/skinspreview/gitdev-dark.png
 ---
 
 
