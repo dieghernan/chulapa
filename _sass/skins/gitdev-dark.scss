@@ -21,13 +21,20 @@
 
 // Colors
 
+// Just for autothemer
+
+$primary: #9686BE;
+
+/*! Import Autothemer */
+@import "skins/auto";
+
+// Assign again 
 $primary: #22272e;
 $link-color: #2B8FFD;
 $success: #2da44e;
 $warning: #d4a72c;
 $danger: #D86F75;
 $info: #9686BE;
-$dark: #373e47;
 $code-color: #E75D9D;
 
 $body-color: #fff;
@@ -96,9 +103,6 @@ $min-contrast-ratio: 2;
 
 
 // Lines for dark themes
-
-/*! Import Autothemer */
-@import "skins/auto";
 
 /*! Import Bootstrap 4 vars */
 @import "bootstrap/functions";
