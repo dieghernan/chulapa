@@ -95,11 +95,13 @@
           <div role="navigation" class="d-flex flex-wrap justify-content-center">
             {%- for social in site.footer.links  -%}
             {%- assign urlslice = social.url | slice: 0,4 -%}
-            {%- if urlslice != "http" -%}
+            {%- if urlslice == "http" -%}
+             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">                          {%- endif -%}
+            {%- elsif social.url contains "@" -%}
             <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | uri_escape }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead"> 
-            
             {%- else -%}
-            <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">                          {%- endif -%}
+             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">                 
+            {%- endif -%}	
               <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="{{ social.icon }} fa-stack-1x fa-inverse"></i>

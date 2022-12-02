@@ -31,8 +31,10 @@
 							{%- assign urlslice = item.url | slice: 0,4 -%}
 							{%- if urlslice == "http" -%}
 							<a class="mr-2 mx-lg-1" href="{{ item.url }}"><i class="{{ item.icon }} fa-lg"></i></a>
-							{%- else -%}
+							{%- elsif item.url contains "@" -%}
 							<a class="mr-2 mx-lg-1" href="mailto:{{ item.url }}?subject={{ site.title | append: ' web - ' | append: page.title | strip_html | uri_escape  }}"><i class="{{ item.icon }} fa-lg"></i></a>
+							{% else %}
+							<a class="mr-2 mx-lg-1" href="{{ item.url }}"><i class="{{ item.icon }} fa-lg"></i></a>
 							{%- endif -%}
 							{%- endfor -%}
 						</div>
