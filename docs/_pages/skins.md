@@ -11,7 +11,7 @@ permalink: /skins
 Additionally, you can have a preview of the current theme [here](https://dieghernan.github.io/chulapa/skins/current).
 
 
-{% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" %}
+{% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
 
 {% for post in alldocs -%} 

@@ -1,14 +1,14 @@
 ---
 layout: default
-title: GitHub Dark
+title: GitDev Dark
 subtitle: I develop better in the shadows
-excerpt: GitHub Dark, I develop better in the shadows developed by dieghernan.
+excerpt: GitDev Dark, I develop better in the shadows developed by dieghernan.
 date: 2022-03-20
 last_modified_at: 2022-04-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
-skin: github-dark
-og_image: ./assets/img/skinspreview/github-dark.png
+skin: gitdev-dark
+og_image: ./assets/img/skinspreview/gitdev-dark.jpeg
 ---
 
 
@@ -16,7 +16,7 @@ Developed by [dieghernan](https://github.com/dieghernan/), you can use it on you
 
 ```yaml
 chulapa-skin: 
-  skin       :  github-dark 
+  skin       :  gitdev-dark 
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...

@@ -1,14 +1,14 @@
 ---
 layout: default
-title: GitHub
+title: GitDev
 subtitle: Happy Coding
-excerpt: GitHub, Happy Coding developed by dieghernan.
+excerpt: GitDev, Happy Coding developed by dieghernan.
 date: 2022-03-20
 last_modified_at: 2022-04-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
-skin: github
-og_image: ./assets/img/skinspreview/github.png
+skin: gitdev
+og_image: ./assets/img/skinspreview/gitdev.jpeg
 ---
 
 
@@ -16,7 +16,7 @@ Developed by [dieghernan](https://github.com/dieghernan/), you can use it on you
 
 ```yaml
 chulapa-skin: 
-  skin       :  github 
+  skin       :  gitdev 
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
