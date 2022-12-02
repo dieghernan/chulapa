@@ -23,7 +23,9 @@
 
 // Just for autothemer, since primary is dark
 
-$primary: #8250df;
+$primary: #000;
+$black: #373e47;
+$light: #aab3be;
 
 /*! Import Autothemer */
 @import "skins/auto";
@@ -36,6 +38,7 @@ $warning: #d4a72c;
 $danger: #D86F75;
 $info: #9686BE;
 $code-color: #E75D9D;
+
 
 $body-color: #fff;
 $body-bg: #24292f;
