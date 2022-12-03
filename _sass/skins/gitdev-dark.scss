@@ -70,10 +70,6 @@ $pre-chulapa-bg-color: mix($body-bg, $body-color, 5%);
   font-family: $font-family-monospace;
 }
 
-.chulapaDateSocial a {
-  color: $link-color !important;
-}
-
 time {
   font-family: $font-family-monospace;
   font-style: normal !important;
@@ -96,6 +92,20 @@ $min-contrast-ratio: 2;
   font-weight: $headings-font-weight !important;
 }
 
+nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight  !important;
+}
+
+
+.navbar-chulapa .active, .navbar-chulapa-fab .active {
+color: mix($navbar-chulapa-text-color, $navbar-chulapa-bg-color, 80%) !important;
+}
+
+
+.chulapa-links-hover-only i {
+  color:$link-color;
+}
 
 // Lines for dark themes
 
@@ -151,20 +161,3 @@ $list-group-disabled-color:$gray-800;
 $list-group-disabled-bg:$black;
 $list-group-action-color:$white;
 $breadcrumb-active-color:$gray-500;
-
-
-nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight  !important;
-}
-
-
-
-.navbar-chulapa .active, .navbar-chulapa-fab .active {
-color: mix($navbar-chulapa-text-color, $navbar-chulapa-bg-color, 80%) !important;
-}
-
-
-.chulapa-links-hover-only i {
-  color:$link-color;
-}
