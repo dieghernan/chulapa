@@ -21,16 +21,11 @@
 
 // Colors
 
-// Just for autothemer, since primary is dark
+
 
 $primary: #000;
 $black: #373e47;
-$light: #aab3be;
-
-/*! Import Autothemer */
-@import "skins/auto";
-
-// Assign again 
+$light: #aab3be; 
 $primary: #22272e;
 $link-color: #2B8FFD;
 $success: #2da44e;
@@ -107,6 +102,8 @@ $min-contrast-ratio: 2;
 
 // Lines for dark themes
 
+/*! Import Autothemer */
+@import "skins/auto";
 /*! Import Bootstrap 4 vars */
 @import "bootstrap/functions";
 @import "bootstrap/variables";
@@ -145,7 +142,7 @@ $card-cap-bg:lighten($gray-800, 10%);
 $card-bg:lighten($body-bg, 5%);
 $modal-content-bg:lighten($body-bg, 5%);
 $modal-header-border-color:rgba(0, 0, 0, .2);
-$progress-bg:lighten($gray-900, 5%);
+$progress-bg:lighten($body-bg, 5%);
 $progress-bar-color:$gray-600;
 $list-group-bg:lighten($body-bg, 5%);
 $list-group-border-color:rgba($black, 0.6);
