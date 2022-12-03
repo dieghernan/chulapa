@@ -133,8 +133,6 @@ chulapa-skin:
   highlight   : "github"
   skin        : gitdev
   autothemer  :  true
-  vars:
-    pre-chulapa-bg-color: "#e5e5e5"
   
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 collections:
