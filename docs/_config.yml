@@ -131,12 +131,9 @@ footer:
 # C. Theme Settings
 chulapa-skin:
   highlight   : "github"
+  skin        : gitdev
   autothemer  :  true
-  vars        :
-    primary:   '#efebdd'
-    secondary: "#dfd7ba"
-    link-color: '#a19d8e'
-
+  
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 collections:
   demo:
