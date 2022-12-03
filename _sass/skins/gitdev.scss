@@ -58,7 +58,7 @@ $footer-chulapa-icon-hover-color: mix($footer-chulapa-hover-color, $footer-chula
 $blockquote-chulapa-bg-color: $body-bg;
 $blockquote-chulapa-text-color: $body-color;
 
-$pre-chulapa-bg-color: #eff2ff;
+$pre-chulapa-bg-color: #eff2ff !default;
 
 
 // Special rules
