@@ -21,9 +21,10 @@
 
 // Colors
 
+$body-color: #fff;
+$body-bg: #24292f;
 
-
-$primary: #fff;
+$primary: mix($body-color,$body-bg, 40%);
 $black: #373e47;
 $light: #aab3be; 
 $link-color: #2B8FFD;
@@ -32,10 +33,6 @@ $warning: #d4a72c;
 $danger: #D86F75;
 $info: #9686BE;
 $code-color: #E75D9D;
-
-
-$body-color: #fff;
-$body-bg: #24292f;
 
 // Typography
 
