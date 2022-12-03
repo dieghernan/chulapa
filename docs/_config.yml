@@ -61,7 +61,7 @@ navbar:
   style :  fab
   brand:
     title :  Home
-    img: "./assets/img/site/brand-clear.png"
+    img: "./assets/img/site/brand-white.png"
   nav:
   - title: Blog
     url: /blog/
@@ -133,6 +133,8 @@ chulapa-skin:
   highlight   : "github"
   skin        : gitdev
   autothemer  :  true
+  vars:
+    pre-chulapa-bg-color: "#e5e5e5"
   
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 collections:
