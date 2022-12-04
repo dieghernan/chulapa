@@ -21,70 +21,61 @@
 
 // Colors
 
-$body-color: #fff;
-$body-bg: #24292f;
+$body-color: #fff !default;
+$body-bg: #24292f !default;
 
-$primary: mix($body-color,$body-bg, 10%);
-$secondary: mix($body-color,$body-bg, 90%);
-$black: #373e47;
-$light: #aab3be; 
-$link-color: #2B8FFD;
-$success: #2da44e;
-$warning: #d4a72c;
-$danger: #D86F75;
-$info: #9686BE;
-$code-color: #E75D9D;
-$pre-chulapa-bg-color: mix(white, $primary, 95%);
+$primary: mix($body-color,$body-bg, 10%) !default;
+$secondary: mix($body-color,$body-bg, 90%) !default;
+$white: #fff !default;
+$black: #373e47 !default;
+$light: #aab3be !default;
+$link-color: #2B8FFD !default;
+$success: #2da44e !default;
+$warning: #d4a72c !default;
+$danger: #D86F75 !default;
+$info: #9686BE !default;
 
 
 // Typography
 
-$headings-font-family: 'Mona Sans', Roboto;
-$font-family-base: 'Hubot Sans', Roboto;
-$font-family-monospace: 'Roboto Mono', monospace;
-$headings-font-weight: 800;
-$text-muted: #8b949e;
+$headings-font-family: 'Mona Sans', Roboto !default;
+$font-family-base: 'Hubot Sans', Roboto !default;
+$font-family-monospace: 'Roboto Mono', monospace !default;
+$headings-font-weight: 800 !default;
+$text-muted: #8b949e !default;
 
 // Chulapa components
 
-$navbar-chulapa-bg-color: $body-bg;
-$navbar-chulapa-toggler-border-color: $body-bg;
-$navbar-chulapa-text-color: $body-color;
-$navbar-chulapa-hover-color: $text-muted;
-$navbar-chulapa-brand-color: $navbar-chulapa-text-color;
+$navbar-chulapa-bg-color: $body-bg !default;
+$navbar-chulapa-toggler-border-color: $body-bg !default;
+$navbar-chulapa-text-color: $body-color !default;
+$navbar-chulapa-hover-color: $text-muted !default;
+$navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 
-$footer-chulapa-bg-color: $body-bg;
-$footer-chulapa-text-color: #8b949e;
-$footer-chulapa-hover-color: #58a6ff;
-$footer-chulapa-icon-hover-color: mix($footer-chulapa-hover-color, $footer-chulapa-bg-color, 20%);
+$footer-chulapa-bg-color: $body-bg !default;
+$footer-chulapa-text-color: $text-muted !default;
+$footer-chulapa-hover-color: #58a6ff !default;
+$footer-chulapa-icon-hover-color: mix($footer-chulapa-hover-color, $footer-chulapa-bg-color, 20%) !default;
 
 // Misc
 // Blockquote
-$blockquote-chulapa-bg-color: $body-bg;
-$blockquote-chulapa-text-color: $body-color;
+$blockquote-chulapa-bg-color: $body-bg !default;
+$blockquote-chulapa-text-color: $body-color !default;
 
-$pre-chulapa-bg-color: mix($body-bg, $body-color, 5%);
+$pre-chulapa-bg-color: mix($body-bg, $body-color, 5%) !default;
+
+
+
+$pagination-chulapa-bg-hover-color: $white !default;
+$min-contrast-ratio: 2 !default;
+
+
+// Lines for dark themes
+
+@import "skins/dark-bg";
 
 
 // Special rules
-
-.chulapaDateSocial time, .chulapaDateSocial .chulapa-text-line-through {
-  font-family: $font-family-monospace;
-}
-
-time {
-  font-family: $font-family-monospace;
-  font-style: normal !important;
-}
-
-blockquote {
-    border-radius: 0 !important;
-    border-left: solid $link-color !important;
-}
-
-$pagination-chulapa-bg-hover-color: $primary;
-$min-contrast-ratio: 2;
-
 
 .hero-chulapa h1, 
 .hero-chulapa-image h1, 
@@ -109,57 +100,17 @@ color: mix($navbar-chulapa-text-color, $navbar-chulapa-bg-color, 80%) !important
   color:$link-color;
 }
 
-// Lines for dark themes
+.chulapaDateSocial time, .chulapaDateSocial .chulapa-text-line-through {
+  font-family: $font-family-monospace;
+}
 
-/*! Import Autothemer */
-@import "skins/auto";
-/*! Import Bootstrap 4 vars */
-@import "bootstrap/functions";
-@import "bootstrap/variables";
+time {
+  font-family: $font-family-monospace;
+  font-style: normal !important;
+}
 
-$link-hover-color:darken($link-color, 20%);
-$table-accent-bg: rgba($white, .05);
-$table-hover-bg:rgba($white, .075);
-$table-border-color:rgba($white, 0.3);
-$table-dark-border-color: $table-border-color;
-$table-dark-color:$white;
-$dropdown-bg:$gray-800;
-$dropdown-divider-bg:rgba($black, .15);
-$dropdown-link-color:$body-color;
-$dropdown-link-hover-color:$white;
-$dropdown-link-hover-bg:$body-bg;
-$nav-tabs-border-color:rgba($white, 0.3);
-$nav-tabs-link-hover-border-color:$nav-tabs-border-color;
-$nav-tabs-link-active-bg:transparent;
-$nav-tabs-link-active-border-color:$nav-tabs-border-color;
-$navbar-dark-hover-color:$white;
-$navbar-light-hover-color:$gray-800;
-$navbar-light-active-color:$gray-800;
-$pagination-color:$white;
-$pagination-bg:transparent;
-$pagination-border-color:rgba($black, 0.6);
-$pagination-hover-color:$white;
-$pagination-hover-bg:transparent;
-$pagination-hover-border-color:rgba($black, 0.6);
-$pagination-active-bg:transparent;
-$pagination-active-border-color:rgba($black, 0.6);
-$pagination-disabled-bg:transparent;
-$pagination-disabled-border-color:rgba($black, 0.6);
-$jumbotron-bg:lighten($body-bg, 5%);
-$card-border-color:rgba($black, 0.6);
-$card-cap-bg:lighten($gray-800, 10%);
-$card-bg:lighten($body-bg, 5%);
-$modal-content-bg:lighten($body-bg, 5%);
-$modal-header-border-color:rgba(0, 0, 0, .2);
-$progress-bg:lighten($body-bg, 5%);
-$progress-bar-color:$gray-600;
-$list-group-bg:lighten($body-bg, 5%);
-$list-group-border-color:rgba($black, 0.6);
-$list-group-hover-bg:lighten($body-bg, 10%);
-$list-group-active-color:$white;
-$list-group-active-bg:$list-group-hover-bg;
-$list-group-active-border-color:$list-group-border-color;
-$list-group-disabled-color:$gray-800;
-$list-group-disabled-bg:$black;
-$list-group-action-color:$white;
-$breadcrumb-active-color:$gray-500;
+blockquote {
+    border-radius: 0 !important;
+    border-left: solid $link-color !important;
+}
+
