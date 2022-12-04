@@ -7,22 +7,24 @@ $warning: #ffad1f !default;
 $danger: #e0245e !default;
 $info: #794bc4 !default;
 $dark: #192734 !default;
-$body-bg:#15202b !default;
-$body-color: #fff !default;
+$black: #15202b !default;
+$white: #fff !default;
+$body-bg: $black !default;
+$body-color: $white !default;
 $hero-chulapa-bg-color:#15202b !default;
 $thead-chulapa-bg-color: $primary !default;
-$blockquote-chulapa-bg-color: mix(white, $primary, 80%) !default;
-$blockquote-chulapa-text-color: mix(black, $primary, 80%) !default;
-$pre-chulapa-bg-color: mix(white, $primary, 95%) !default;
+$blockquote-chulapa-bg-color: mix($body-bg, $primary, 80%) !default;
+$blockquote-chulapa-text-color: mix($body-color, $primary, 95%) !default;
+$pre-chulapa-bg-color: mix($body-color, $primary, 95%) !default;
 
 
-$navbar-chulapa-bg-color: #15202b !default;
-$navbar-chulapa-text-color: white !default;
-$navbar-chulapa-brand-color: white !default;
+$navbar-chulapa-bg-color: $body-bg !default;
+$navbar-chulapa-text-color: $body-color !default;
+$navbar-chulapa-brand-color: $body-color !default;
 $navbar-chulapa-hover-color: $primary !default;
 $navbar-chulapa-active-color: $primary !default;
 
-$footer-chulapa-text-color: white !default;
+$footer-chulapa-text-color: $body-color !default;
 $footer-chulapa-hover-color: $primary !default;
 
 $pagination-chulapa-bg-hover-color: $primary !default;
