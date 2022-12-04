@@ -1,31 +1,30 @@
 
 // Some bootstrap variables
-$primary: #1da1f2;
-$secondary:#788995;
-$success: #17bf63;
-$warning: #ffad1f;
-$danger: #e0245e;
-$info: #794bc4;
-$light: #f5f8fa;
-$body-bg:#fff;
-$body-color: #14171a;
-$code-color: #E80E61;
-$hero-chulapa-bg-color:#fff;
-$thead-chulapa-bg-color: $primary;
-$blockquote-chulapa-bg-color: mix(white, $primary, 80%);
-$blockquote-chulapa-text-color: mix(black, $primary, 80%);
-$navbar-chulapa-bg-color: #fff;
-$navbar-chulapa-text-color: $body-color;
-$navbar-chulapa-brand-color:$body-color;
-$navbar-chulapa-hover-color: $primary;
-$navbar-chulapa-active-color: $primary;
+$primary: #1da1f2 !default;
+$secondary:#788995 !default;
+$success: #17bf63 !default;
+$warning: #ffad1f !default;
+$danger: #e0245e !default;
+$info: #794bc4 !default;
+$light: #f5f8fa !default;
+$body-bg:#fff !default;
+$body-color: #14171a !default;
+$code-color: #E80E61 !default;
+$hero-chulapa-bg-color:#fff !default;
+$thead-chulapa-bg-color: $primary !default;
+$blockquote-chulapa-bg-color: mix(white, $primary, 80%) !default;
+$blockquote-chulapa-text-color: mix(black, $primary, 80%) !default;
+$navbar-chulapa-bg-color: $body-bg !default;
+$navbar-chulapa-text-color: $body-color !default;
+$navbar-chulapa-brand-color:$body-color !default;
+$navbar-chulapa-hover-color: $primary !default;
+$navbar-chulapa-active-color: $primary !default;
+$hero-chulapa-bg-color: $primary !default;
+$footer-chulapa-text-color: $body-color !default;
+$footer-chulapa-hover-color: $primary !default;
 
-$footer-chulapa-text-color: $body-color;
-$footer-chulapa-hover-color: $primary;
+$pagination-chulapa-bg-hover-color: $primary !default;
 
-$pagination-chulapa-bg-hover-color: $primary;
+$min-contrast-ratio: 2 !default;
 
-$min-contrast-ratio: 2;
-
-
-$breadcrumb-divider: quote(">");
+$breadcrumb-divider: quote(">") !default;
