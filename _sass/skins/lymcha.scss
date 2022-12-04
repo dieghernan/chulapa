@@ -1,14 +1,14 @@
 /*! Tophat `Lymcha` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;700&display=swap');
-$headings-font-family:Muli;
+$headings-font-family:Muli !default;
 
-$primary:#07689F;
-$secondary:#C9D6DF;
-$success:#11D3BC;
-$danger:#F67280;
-$info:#A2D5F2;
-$warning:#FF7E67;
-$light:#FAFAFA;
-$dark:#4e4e4e;
+$primary:#07689F !default;
+$secondary:#C9D6DF !default;
+$success:#11D3BC !default;
+$danger:#F67280 !default;
+$info:#A2D5F2 !default;
+$warning:#FF7E67 !default;
+$light:#FAFAFA !default;
+$dark:#4e4e4e !default;
 
 // Add SASS theme customizations here..

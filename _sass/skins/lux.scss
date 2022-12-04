@@ -45,9 +45,10 @@ $dark: $gray-800 !default;
 
 $yiq-contrasted-threshold: 185 !default;
 
-// Options
+$enable-rounded: false !default;
+$link-color: $cyan !default;
 
-$enable-rounded: false ;
+// Options
 
 // Body
 
@@ -340,10 +341,6 @@ th {
 }
 
 //CUSTOM SASS
-$enable-rounded: false;
-$white: white;
-$link-color: $cyan;
-
 .navbar-chulapa {
     .dropdown-item {
         font-size: $font-size-sm;

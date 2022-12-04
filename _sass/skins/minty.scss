@@ -45,6 +45,17 @@ $dark: $gray-800 !default;
 $yiq-contrasted-threshold: 220 !default;
 
 
+$min-contrast-ratio: 2 !default;
+$navbar-chulapa-bg-color: $primary !default;
+$navbar-chulapa-text-contrast: $white !default;
+$navbar-chulapa-text-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 80%) !default;
+$navbar-chulapa-hover-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 50%) !default;
+$navbar-chulapa-toggler-border-color: transparent !default;
+
+$breadcrumb-divider-color: $gray-600 !default;
+$breadcrumb-active-color: $breadcrumb-divider-color !default;
+
+
 // Body
 
 $body-color: $gray-600 !default;
@@ -155,12 +166,3 @@ $breadcrumb-active-color: $breadcrumb-divider-color !default;
 
 //SASS CUSTOM
 
-$min-contrast-ratio: 2;
-$navbar-chulapa-bg-color: $primary;
-$navbar-chulapa-text-contrast: $white;
-$navbar-chulapa-text-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 80%);
-$navbar-chulapa-hover-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 50%);
-$navbar-chulapa-toggler-border-color: transparent;
-
-$breadcrumb-divider-color: $gray-600;
-$breadcrumb-active-color: $breadcrumb-divider-color;
