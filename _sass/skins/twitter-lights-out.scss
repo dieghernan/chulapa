@@ -19,12 +19,12 @@ $pre-chulapa-bg-color: mix($body-color, $primary, 95%) !default;
 
 
 $navbar-chulapa-bg-color: $body-bg !default;
-$navbar-chulapa-text-color: $$body-color !default;
-$navbar-chulapa-brand-color: $$body-color !default;
+$navbar-chulapa-text-color: $body-color !default;
+$navbar-chulapa-brand-color: $body-color !default;
 $navbar-chulapa-hover-color: $primary !default;
 $navbar-chulapa-active-color: $primary !default;
 
-$footer-chulapa-text-color: $$body-color !default;
+$footer-chulapa-text-color: $body-color !default;
 $footer-chulapa-hover-color: $primary !default;
 
 $pagination-chulapa-bg-hover-color: $primary !default;
