@@ -3,27 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap');
 
 
-$font-family-base: Roboto, sans-serif;
-$headings-font-family: Montserrat, sans-serif;
-$font-family-monospace: Roboto Mono, monospace;
-$white: white;
-$primary: #1565c0;
-$body-bg: white;
-$navbar-chulapa-bg-color: white;
-$navbar-chulapa-active-color: #2962ff;
-$footer-chulapa-icon-color: #1565c0;
-$footer-chulapa-icon-hover-color: transparent;
-$code-color: #E80E61;
-$h1-font-size: 2.25rem;
-$h2-font-size: 1.5rem;
-$h3-font-size: 1.25rem;
-$h4-font-size: 1rem;
-$h5-font-size: 1rem;
-$h6-font-size: 1rem;
+$font-family-base: Roboto, sans-serif !default;
+$headings-font-family: Montserrat, sans-serif !default;
+$font-family-monospace: Roboto Mono, monospace !default;
+$white: white !default;
+$primary: #1565c0 !default;
+$body-bg: white !default;
+$navbar-chulapa-bg-color: $body-bg !default;
+$navbar-chulapa-active-color: #2962ff !default;
+$footer-chulapa-icon-color: #1565c0 !default;
+$footer-chulapa-icon-hover-color: transparent !default;
+$h1-font-size: 2.25rem !default;
+$h2-font-size: 1.5rem !default;
+$h3-font-size: 1.25rem !default;
+$h4-font-size: 1rem !default;
+$h5-font-size: 1rem !default;
+$h6-font-size: 1rem !default;
 
 .navbar-chulapa-fab .dropdown-item.active, 
 .navbar-chulapa-fab .dropdown-item:active {
-    background-color:white;
+    background-color:$body-bg;
 }
 
 

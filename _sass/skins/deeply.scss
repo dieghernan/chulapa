@@ -78,7 +78,7 @@ $breadcrumb-active-color:$gray-500;
 }
 
 $blockquote-chulapa-bg-color: mix($white, $primary, 90%);
-$pre-chulapa-bg-color: mix($white, $primary, 95%);
+$pre-chulapa-bg-color: mix($body-color, $primary, 95%);
 
 $navbar-chulapa-bg-color: black;
 $navbar-chulapa-toggler-color: rgba(white, 0.4);
