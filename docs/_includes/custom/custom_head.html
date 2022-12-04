@@ -1,6 +1,10 @@
 {% if page.collection == "skins" %}
   {% if page.skin %}
-    <link rel="stylesheet" href="{{- 'assets/css/skins/' | append: page.skin | append: '.css'  | absolute_url -}}" />
+  <script>
+    var maincss = document.getElementById("maincss");
+    maincss.href = "{{- 'assets/css/skins/' | append: page.skin | append: '.css'  | absolute_url -}}";
+  
+  </script>
   {% endif %}
 {% endif %}
 
