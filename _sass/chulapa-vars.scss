@@ -35,7 +35,7 @@ $blockquote-chulapa-text-color: mix($blockquote-chulapa-bg-color, $body-color, 2
 
 $footnote-chulapa-text-color: color-contrast($body-bg, $gray-600, $gray-300) !default;
 
-$pre-chulapa-bg-color: transparent !default;
+$pre-chulapa-bg-color: mix($white, $primary, 95%) !default;
 
 //Table
 $thead-chulapa-bg-color: $primary !default;
