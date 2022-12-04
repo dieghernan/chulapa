@@ -1,89 +1,37 @@
 // Some bootstrap variables
-$primary: #1da1f2;
-$secondary:#788995;
-$success: #17bf63;
-$warning: #ffad1f;
-$danger: #e0245e;
-$info: #794bc4;
-$light: #c1c2c2;
-$dark: #15181c;
-$code-color: #E80E61;
-$body-bg:#000;
-$body-color: $light;
-$hero-chulapa-bg-color:#000;
-$hero-chulapa-text-color:$light;
-$thead-chulapa-bg-color: $primary;
-$blockquote-chulapa-bg-color: mix(white, $primary, 80%);
-$blockquote-chulapa-text-color: mix(black, $primary, 80%);
-$pre-chulapa-bg-color: mix(white, $primary, 95%);
+$primary: #1da1f2 !default;
+$secondary:#788995 !default;
+$success: #17bf63 !default;
+$warning: #ffad1f !default;
+$danger: #e0245e !default;
+$info: #794bc4 !default;
+$light: #c1c2c2 !default;
+$dark: #15181c !default;
+$body-bg:#000 !default;
+$body-color: $light !default;
+$hero-chulapa-bg-color:#000 !default;
+$hero-chulapa-text-color:$light !default;
+$thead-chulapa-bg-color: $primary !default;
+$blockquote-chulapa-bg-color: mix(white, $primary, 80%) !default;
+$blockquote-chulapa-text-color: mix(black, $primary, 80%) !default;
+$pre-chulapa-bg-color: mix(white, $primary, 95%) !default;
 
 
-$navbar-chulapa-bg-color: #000;
-$navbar-chulapa-text-color: $light;
-$navbar-chulapa-brand-color: $light;
-$navbar-chulapa-hover-color: $primary;
-$navbar-chulapa-active-color: $primary;
+$navbar-chulapa-bg-color: #000 !default;
+$navbar-chulapa-text-color: $light !default;
+$navbar-chulapa-brand-color: $light !default;
+$navbar-chulapa-hover-color: $primary !default;
+$navbar-chulapa-active-color: $primary !default;
 
-$footer-chulapa-text-color: $light;
-$footer-chulapa-hover-color: $primary;
+$footer-chulapa-text-color: $light !default;
+$footer-chulapa-hover-color: $primary !default;
 
-$pagination-chulapa-bg-hover-color: $primary;
+$pagination-chulapa-bg-hover-color: $primary !default;
 
-$min-contrast-ratio: 2;
+$min-contrast-ratio: 2 !default;
 
-$breadcrumb-divider: quote(">");
+$breadcrumb-divider: quote(">") !default;
 
-/*! Import Autothemer */
-@import "skins/auto";
+// Lines for dark themes
 
-/*! Import Bootstrap 4 vars */
-@import "bootstrap/functions";
-@import "bootstrap/variables";
-
-$link-hover-color:darken($link-color, 20%);
-$table-accent-bg: rgba($white, .05);
-$table-hover-bg:rgba($white, .075);
-$table-border-color:rgba($white, 0.3);
-$table-dark-border-color: $table-border-color;
-$table-dark-color:$white;
-$dropdown-bg:$gray-800;
-$dropdown-divider-bg:rgba($black, .15);
-$dropdown-link-color:$body-color;
-$dropdown-link-hover-color:$white;
-$dropdown-link-hover-bg:$body-bg;
-$nav-tabs-border-color:rgba($white, 0.3);
-$nav-tabs-link-hover-border-color:$nav-tabs-border-color;
-$nav-tabs-link-active-bg:transparent;
-$nav-tabs-link-active-border-color:$nav-tabs-border-color;
-$navbar-dark-hover-color:$white;
-$navbar-light-hover-color:$gray-800;
-$navbar-light-active-color:$gray-800;
-$pagination-color:$white;
-$pagination-bg:transparent;
-$pagination-border-color:rgba($black, 0.6);
-$pagination-hover-color:$white;
-$pagination-hover-bg:transparent;
-$pagination-hover-border-color:rgba($black, 0.6);
-$pagination-active-bg:transparent;
-$pagination-active-border-color:rgba($black, 0.6);
-$pagination-disabled-bg:transparent;
-$pagination-disabled-border-color:rgba($black, 0.6);
-$jumbotron-bg:lighten($body-bg, 5%);
-$card-border-color:rgba($black, 0.6);
-$card-cap-bg:lighten($gray-800, 10%);
-$card-bg:lighten($body-bg, 5%);
-$modal-content-bg:lighten($body-bg, 5%);
-$modal-header-border-color:rgba(0, 0, 0, .2);
-$progress-bg:lighten($gray-900, 5%);
-$progress-bar-color:$gray-600;
-$list-group-bg:lighten($body-bg, 5%);
-$list-group-border-color:rgba($black, 0.6);
-$list-group-hover-bg:lighten($body-bg, 10%);
-$list-group-active-color:$white;
-$list-group-active-bg:$list-group-hover-bg;
-$list-group-active-border-color:$list-group-border-color;
-$list-group-disabled-color:$gray-800;
-$list-group-disabled-bg:$black;
-$list-group-action-color:$white;
-$breadcrumb-active-color:$gray-500;
-
+@import "skins/dark-bg";

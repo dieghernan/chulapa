@@ -1,29 +1,28 @@
 // Adapted from Bootstrapius
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@100;300;400;500;700&display=swap");
 
-$font-family-base: "Roboto";
-$font-family-monospace: "Roboto Mono";
-$headings-font-weight: 700;
-$body-bg: #fff;
-$primary: #986dbd;
-$green: #97bf13;
-$red: #dc3545;
-$orange: #fd7e14;
-$yellow: #ffc107;
-$code-color: #E80E61;
-$headings-color: #333;
-$link-color: #986dbd;
-$navbar-chulapa-brand-color: #000;
-$navbar-chulapa-bg-color: white;
-$navbar-chulapa-toggler-color: #986dbd;
-$navbar-chulapa-active-color: #986dbd;
-$hero-chulapa-bg-color: #986dbd;
-$hero-chulapa-text-color: black;
-$footer-chulapa-bg-color: #333;
-$footer-chulapa-text-color: #ccc;
-$footer-chulapa-icon-color: #ccc;
-$footer-chulapa-icon-hover-color: #724599;
-
+$font-family-base: "Roboto" !default;
+$font-family-monospace: "Roboto Mono" !default;
+$headings-font-weight: 700 !default;
+$body-bg: #fff !default;
+$primary: #986dbd !default;
+$green: #97bf13 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$code-color: #E80E61 !default;
+$headings-color: #333 !default;
+$link-color: #986dbd !default;
+$navbar-chulapa-brand-color: #000 !default;
+$navbar-chulapa-bg-color: white !default;
+$navbar-chulapa-toggler-color: #986dbd !default;
+$navbar-chulapa-active-color: #986dbd !default;
+$hero-chulapa-bg-color: #986dbd !default;
+$hero-chulapa-text-color: black !default;
+$footer-chulapa-bg-color: #333 !default;
+$footer-chulapa-text-color: #ccc !default;
+$footer-chulapa-icon-color: #ccc !default;
+$footer-chulapa-icon-hover-color: #724599 !default;
 h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     letter-spacing: 0.08em;

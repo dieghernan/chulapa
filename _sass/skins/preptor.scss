@@ -1,18 +1,18 @@
 /*! Tophat `Preptor` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;700&family=Lato:wght@200;300;400;700&display=swap');
-$font-family-base:Muli;
-$headings-font-family:Lato;
+$font-family-base:Muli !default;
+$headings-font-family:Lato !default;
 
-$primary:#D80E70;
-$secondary:#dddddd;
-$success:#4EF037;
-$danger:#FA4659;
-$info:#00BBF0;
-$warning:#f4f133;
-$light:#eeeeee;
-$dark:#353535;
+$primary:#D80E70 !default;
+$secondary:#dddddd !default;
+$success:#4EF037 !default;
+$danger:#FA4659 !default;
+$info:#00BBF0 !default;
+$warning:#f4f133 !default;
+$light:#eeeeee !default;
+$dark:#353535 !default;
 
 // Add SASS theme customizations here..
-$hero-chulapa-bg-color:$primary;
-$blockquote-chulapa-bg-color: mix(white,$primary,80%);
+$hero-chulapa-bg-color:$primary !default;
+$blockquote-chulapa-bg-color: mix(white,$primary,80%) !default;
 

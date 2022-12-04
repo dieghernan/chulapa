@@ -1,14 +1,14 @@
 /*! Tophat `Wandoo` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&family=Comfortaa:wght@200;300;400;700&display=swap');
-$font-family-base:Nunito;
-$headings-font-family:Comfortaa;
+$font-family-base:Nunito !default;
+$headings-font-family:Comfortaa !default;
 
-$primary:#FF304F;
-$secondary:#CACACA;
-$success:#015668;
-$danger:#06648C;
-$info:#0F81C7;
-$warning:#0DE2EA;
-$light:#ececec;
-$dark:#222222;
-$gray-300:#e0e0e0;
+$primary:#FF304F !default;
+$secondary:#CACACA !default;
+$success:#015668 !default;
+$danger:#06648C !default;
+$info:#0F81C7 !default;
+$warning:#0DE2EA !default;
+$light:#ececec !default;
+$dark:#222222 !default;
+$gray-300:#e0e0e0 !default;
