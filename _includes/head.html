@@ -272,7 +272,7 @@ where_exp: "item", "item.url contains 'http'"
     {%- endif %}
     {% if site.fa_v4_support -%}
     <!-- Compatibility with FontAwesome 4 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
     {%- endif %}
     <!-- Theme css (Bootstrap included) -->
     {% if site.chulapa-skin.skin contains 'github' -%}
@@ -287,9 +287,7 @@ where_exp: "item", "item.url contains 'http'"
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" >
       {% if page.mathjax -%}
-    <script async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
   {%- endif %}
 {%- if site.gtag_id %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
