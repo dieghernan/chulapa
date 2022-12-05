@@ -478,6 +478,10 @@ $value in $theme-colors {
             cursor: auto;
             background-color: transparent;
             border-color: transparent;
+            
+            &.chulapa-label {
+              color: $pagination-chulapa-text-color;
+            }
         }
     }
 }
