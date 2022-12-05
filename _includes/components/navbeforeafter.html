@@ -6,6 +6,10 @@
 {%- if page.previous.url -%}
  {%- assign classitemprevious = "" -%}
 {%- endif -%}
+{%- assign titleitemprevious = page.previous.title | strip_html  | truncate: 30  -%}
+{%- assign titleitemnext = page.next.title | strip_html  | truncate: 30  -%}
+
+
 
 <nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
   <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
@@ -16,13 +20,13 @@
 	  </a>
     </li>
     <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-md-inline {{ classitemprevious -}}">
-      <p class="page-link chulapa-label">{{ page.previous.title | truncate: 30 }}</p>
+      <p class="page-link chulapa-label">{{ titleitemprevious }}</p>
     </li>
 	  <li class="page-item disabled mx-auto invisible">
 	   <p class="page-link">|</p>
 	  </li>	
 	  <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-md-inline {{ classitemnext -}}">
-	    <p class="page-link chulapa-label">{{ page.next.title | truncate: 30 }}</p>
+	    <p class="page-link chulapa-label">{{ titleitemnext }}</p>
 	  </li>
     <li class="page-item text-right ml-0 {{ classitemnext -}}">
       <a class="page-link border-0 px-4" href="{{ page.next.url | absolute_url }}">
