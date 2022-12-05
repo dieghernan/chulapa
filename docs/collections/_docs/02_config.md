@@ -1,5 +1,5 @@
 ---
-title: Theme global settings
+title: Global settings
 subtitle: Learn how to set up your new site
 excerpt: Setting up your new site
 show_toc: true
