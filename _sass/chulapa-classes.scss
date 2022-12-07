@@ -863,6 +863,7 @@ $value in $theme-colors {
 
 .chulapa-related (
   
+  border: $card-border-width solid $card-border-color;
   @include border-radius($card-border-radius);
 
 }
