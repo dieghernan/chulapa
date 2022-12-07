@@ -625,6 +625,11 @@ $value in $theme-colors {
      background-color: $landingpage-chulapa-bg-color;
      border-color: $landingpage-chulapa-text-color;
    }
+   
+   .card-footer {
+     border-top-color: $landingpage-chulapa-text-color;
+   }
+   
   .chulapa-text-body-color {
     color: $landingpage-chulapa-text-color !important;
 }

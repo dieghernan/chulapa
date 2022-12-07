@@ -99,7 +99,7 @@ author:
 
 - `h_min` and `h_max`: Minimum and maximum heading level to be included in the table of contents. **min: 2, max:  4**.
 
-- `show_related`: Would display up to three related pages. The post to be displayed are based on the collection and tags of the current page. **Note that this feature only works on pages that are part of a Jekyll collection*.
+- `show_related`: Would display up to three related pages. The post to be displayed are based on the tags of the current page.
 
 - `show_bottomnavs`: Would display navigation buttons on the bottom of the page for easily navigate to the next and previous page.
 
