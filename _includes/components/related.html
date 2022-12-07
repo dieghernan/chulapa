@@ -1,0 +1,48 @@
+{% assign thiscol = site.documents | where_exp: "item", "item.collection == page.collection" | where_exp: "item", "item.url != page.url"  %}
+
+{%- for tag in page.tags %}
+  {%- if forloop.first -%}
+    {%- assign relateddocs = thiscol | 
+                    where_exp: "item", "item.tags contains tag" -%}
+                    
+  {%- else -%}
+    {%- assign docloop = thiscol | 
+                    where_exp: "item", "item.tags contains tag" -%}
+    {%- assign relateddocs = relateddocs | concat: docloop | uniq %}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if relateddocs -%}
+  {%- assign related = relateddocs | sort: 'date' | reverse %}
+  {% for document in related limit:3 %}
+    {%- if forloop.first -%}
+<div class="container-lg">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <hr/>
+      <h5><i class="fa-solid fa-eye"><span class="sr-only">Featured</span></i></h5>
+      <div class="card-group">
+    {%- endif %}
+         <div class="card">
+          <div class="card-body">
+          <h6 class="card-title"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
+          {% if document.subtitle %}<p class="card-text">{{- document.subtitle -}}</p> {%- endif -%}
+    </div>
+    {% if document.date %}
+    {% assign dateformat = document.date | date: "%B %d, %Y" %}
+    <div class="card-footer bg-transparent">
+      <small><i class="far fa-calendar" aria-hidden="true"></i> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time></small>
+    </div>
+    {% endif %}
+  </div>
+    {%- if forloop.last -%}
+    </div>
+    </div>
+  </div>
+</div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+
+

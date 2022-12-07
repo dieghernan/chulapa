@@ -7,7 +7,8 @@
   - `gitdev` 
   - `gitdev-dark`
   - `towards`
-
+- New related component.
+- 
 ### Changed
 
 -   Improve font loading on skins.

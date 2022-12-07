@@ -27,6 +27,11 @@ layout: minimal
 	</main>
 </div>
 	<div class="chulapa-bg-landingpage">
+	{%- if page.show_related -%}
+	<div class="chulapa-landingpage-color">
+	  {%- include components/related.html -%}
+	  </div>
+	{%- endif -%}
 	{%- if page.show_bottomnavs -%}
 	<div class="chulapa-landingpage-color">
 	  {%- include components/navbeforeafter.html -%}

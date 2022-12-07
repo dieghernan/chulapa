@@ -99,6 +99,8 @@ author:
 
 - `h_min` and `h_max`: Minimum and maximum heading level to be included in the table of contents. **min: 2, max:  4**.
 
+- `show_related`: Would display up to three related pages. The post to be displayed are based on the collection and tags of the current page. **Note that this feature only works on pages that are part of a Jekyll collection*.
+
 - `show_bottomnavs`: Would display navigation buttons on the bottom of the page for easily navigate to the next and previous page.
 
 - `show_categories` and `show_tags` would display badges at the bottom with the `categories` and `tags` set for the page. This badges could be set as links to a cloud tag page, with the landing page url defined on `cloudtag_url` and `cloudcategory_url`. See [Cloud tags](#cloud-tags-and-categories) layouts.
