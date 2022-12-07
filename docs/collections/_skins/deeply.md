@@ -6,7 +6,7 @@ excerpt: Deeply, a dark background theme with bold contrasting colors developed 
 date: 2015-03-04
 last_modified_at: 2018-02-08
 header_img: https://images.unsplash.com/photo-1512618831669-521d4b375f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80
-tags: [skin, bootstrap, tophat, header-splash, image]
+tags: [dark-skin, skin, bootstrap, tophat, header-splash, image]
 categories: [skins]
 skin: deeply
 og_image: ./assets/img/skinspreview/deeply.png

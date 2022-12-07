@@ -5,7 +5,7 @@ subtitle: I develop better in the shadows
 excerpt: GitDev Dark, I develop better in the shadows developed by dieghernan.
 date: 2022-03-20
 last_modified_at: 2022-04-28
-tags: [skin, bootstrap, dieghernan, header-splash]
+tags: [dark-skin, skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: gitdev-dark
 og_image: ./assets/img/skinspreview/gitdev-dark.png

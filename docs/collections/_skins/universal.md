@@ -6,7 +6,7 @@ excerpt: Universal, clean and stylish by Bootstrapious.
 header_img: /assets/img/site/texture-bw.png
 date: 2022-03-07
 last_modified_at: 2022-11-23
-tags: [skin, bootstrap, tophat, header-splash,image]
+tags: [skin, bootstrap, dieghernan, header-splash,image]
 categories: [skins]
 skin: universal
 og_image: ./assets/img/skinspreview/universal.png

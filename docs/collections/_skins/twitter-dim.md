@@ -5,7 +5,7 @@ subtitle: A skin for night owls
 excerpt: Twitter Dim, a skin for night owls developed by dieghernan.
 date: 2020-03-20
 last_modified_at: 2020-07-01
-tags: [skin, bootstrap, dieghernan, header-splash]
+tags: [dark-skin, skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: twitter-dim
 og_image: ./assets/img/skinspreview/twitter-dim.png
