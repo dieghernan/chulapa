@@ -38,7 +38,7 @@
       <div class="card-group">
     {%- endif %}
        {% for document in areldoc limit: 1 %}
-         <article class="card {{ m }} border rounded">
+         <article class="card {{ m }} border chulapa-related">
           <div class="card-body">
           <h6 class="card-title"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
           {% if document.subtitle %}<p class="card-text">{{- document.subtitle -}}</p> {%- endif -%}

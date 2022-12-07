@@ -861,6 +861,12 @@ $value in $theme-colors {
   font-size: $font-size-sm;
 }
 
+.chulapa-related (
+  
+  @include border-radius($card-border-radius);
+
+}
+
 // Normalize carousel
 
 .chulapa-carousel {
