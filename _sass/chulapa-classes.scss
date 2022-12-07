@@ -617,6 +617,15 @@ $value in $theme-colors {
 }
 }
 
+.chulapa-landingpage-related {
+  color: $landingpage-chulapa-text-color;
+  background-color: $landingpage-chulapa-bg-color
+  
+  .chulapa-text-body-color {
+    color: $landingpage-chulapa-text-color !important;
+}
+}
+
 .chulapa-landingpage-badges {
     i {
         color: $landingpage-chulapa-text-color;
