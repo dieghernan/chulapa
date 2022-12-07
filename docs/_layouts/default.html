@@ -105,6 +105,10 @@ layout: minimal
 		   </article>
 		</div>
 	</main>
+	
+	{%- if page.show_related -%}
+	  {%- include components/related.html -%}
+	{%- endif -%}
 	{%- if page.show_bottomnavs -%}
 	  {%- include components/navbeforeafter.html -%}
 	{%- endif -%}

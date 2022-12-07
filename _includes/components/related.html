@@ -1,7 +1,5 @@
 {% assign thiscol = site.documents | where_exp: "item", "item.collection == page.collection" | where_exp: "item", "item.url != page.url"  %}
 
-<p> Debug
-
 {%- for tag in page.tags %}
   {%- if forloop.first -%}
     {%- assign relateddocs = thiscol | 
@@ -13,9 +11,6 @@
     {%- assign relateddocs = relateddocs | concat: docloop | uniq %}
   {%- endif -%}
 {%- endfor -%}
-
-
-<p> Debut {{ relateddocs | size }}
 
 {%- if relateddocs -%}
   {%- assign related = relateddocs | sort: 'date' | reverse %}
