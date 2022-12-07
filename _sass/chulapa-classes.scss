@@ -658,10 +658,10 @@
 
   .card.chulapa-related {
     background-color: $landingpage-chulapa-bg-color;
-    border-color: $landingpage-chulapa-text-color;
+    border-color: $landingpage-chulapa-text-color !important;
 
     .card-footer {
-      border-top-color: $landingpage-chulapa-text-color;
+      border-top-color: $landingpage-chulapa-text-color !important;
     }
 
     .chulapa-text-body-color {
