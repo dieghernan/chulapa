@@ -887,7 +887,7 @@
 }
 
 .card.chulapa-related {
-  @include border-radius($card-border-radius);
+  border-radius: $card-border-radius !important;
 
   border-color: $card-border-color;
 
