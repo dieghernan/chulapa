@@ -623,6 +623,7 @@ $value in $theme-colors {
    
    .card {
      background-color: $landingpage-chulapa-bg-color;
+     border-color: $landingpage-chulapa-text-color;
    }
   .chulapa-text-body-color {
     color: $landingpage-chulapa-text-color !important;
