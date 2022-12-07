@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Noto+Serif&display=swap');
+
+$font-family-base: 'Noto Serif', Georgia, Cambria, 'Times New Roman', Times, serif !default; 
+$headings-font-family: 'Heebo', "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$headings-font-weight: 900 !default;
+$input-btn-font-family:$headings-font-family !default;
+
+$primary: #607A8D !default;
+$black: #000000 !default;
+$white: #ffffff !default;
+$secondary: $black !default;
+$text-muted:#757575 !default;
+$success: #1a8917 !default;
+$warning: #fac145 !default;
+$danger: #E52A08 !default;
+$info: #fcd2bc !default;
+
+$navbar-chulapa-bg-color: $white !default;
+$navbar-chulapa-toggler-border-color: transparent !default;
+$navbar-chulapa-text-color: $text-muted !default;
+$navbar-chulapa-hover-color:  #A8A8A8 !default;
+$navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
+
+$footer-chulapa-bg-color: $black !default;
+$footer-chulapa-text-color: $white !default;
+$footer-chulapa-hover-color: mix($footer-chulapa-text-color, $footer-chulapa-bg-color, 20%) !default;
+
+$thead-chulapa-bg-color: $white !default;
+
+nav, footer, button, input, label, legend, table, form, aside, header,
+.nav, .card-header, .badge, .pagination, .breadcrumb, .chulapa-toc-wrapper, .chulapaDateSocial,
+.footnotes, #markdown-toc {
+    font-family: $headings-font-family;
+}
+.chulapa-links-hover-only i, .chulapaDateSocial i {
+  color: $primary;
+}
