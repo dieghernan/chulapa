@@ -28,11 +28,11 @@
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <hr/>
-      <h5><i class="fa-solid fa-eye"><span class="sr-only">Featured</span></i></h5>
+      <h5><i class="fa-solid fa-shuffle fa-xl"></i><span class="sr-only">Related</span></i></h5>
       <div class="card-group">
     {%- endif %}
        {% for document in areldoc limit: 1 %}
-         <div class="card mx-sm-1 border rounded">
+         <article class="card mx-sm-1 border rounded">
           <div class="card-body">
           <h6 class="card-title"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
           {% if document.subtitle %}<p class="card-text">{{- document.subtitle -}}</p> {%- endif -%}
@@ -41,9 +41,11 @@
           {% if document.date %}
     {% assign dateformat = document.date | date: "%B %d, %Y" %}
       <small><i class="far fa-calendar" aria-hidden="true"></i> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time></small>
+      {% else %}
+      <small>-</small>
       {% endif %}
     </div>
-  </div>
+  </article>
         {% endfor %}
     {%- if forloop.last -%}
     </div>
