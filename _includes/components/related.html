@@ -22,6 +22,12 @@
 
 {%- if groupurl -%}
   {% for id in groupurl limit:3 %}
+    {% assign m = "" %}
+    {% if forloop.index > 1 %}
+      {% assign m = "ml-sm-2" %}
+    {% endif %}
+    
+    
     {% assign areldoc = site.documents | where_exp: "item", "item.id == id.name" %}
     {%- if forloop.first -%}
 <div class="container-lg mt-1 mb2">
@@ -32,7 +38,7 @@
       <div class="card-group">
     {%- endif %}
        {% for document in areldoc limit: 1 %}
-         <article class="card mx-sm-1 border rounded">
+         <article class="card {{ m }} border rounded">
           <div class="card-body">
           <h6 class="card-title"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
           {% if document.subtitle %}<p class="card-text">{{- document.subtitle -}}</p> {%- endif -%}
