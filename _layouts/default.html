@@ -12,7 +12,7 @@ layout: minimal
 			  {% include components/author.html %}
 			  {%- endif -%}
 			</aside>
-			<article class="col-lg-8 mt-3">
+			<article id="maincontent" class="col-lg-8 mt-3">
 			 {% if page.show_toc %} 
 			               {% assign h_min = page.h_min | default: 2 %}
                            {% assign h_max = page.h_max | default: 4 %}
