@@ -6,19 +6,19 @@
 {%- for tag in page.tags %}
   {%- if forloop.first -%}
     {%- assign relateddocs = alldocs | 
-                    where_exp: "item", "item.tags contains tag" -%}
+                    where_exp: "item", "item.tags contains tag" | map: 'id' | join: ','  | split: ',' -%}
                     
   {%- else -%}
     {%- assign docloop = alldocs | 
-                    where_exp: "item", "item.tags contains tag" -%}
+                    where_exp: "item", "item.tags contains tag" | map: 'id' | join: ','  | split: ',' -%}
     {%- assign relateddocs = relateddocs | concat: docloop  %}
   {%- endif -%}
 {%- endfor -%}
 
-{%- assign thiscol = alldocs | where_exp: "item", "item.collection == page.collection"   -%}
+{%- assign thiscol = alldocs | where_exp: "item", "item.collection == page.collection"   | map: 'id' | join: ','  | split: ',' -%}
 
 
-{%- assign groupurl =  relateddocs | concat: thiscol | map: 'id' | join: ','  | split: ',' | group_by: id | sort: 'size' | reverse  -%}
+{%- assign groupurl =  relateddocs | concat: thiscol | group_by: id | sort: 'size' | reverse  -%}
 
 {% assign groupurl = groupurl | where_exp: "item", "item.size > 2"  -%}
 
