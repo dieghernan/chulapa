@@ -17,21 +17,27 @@
 
 {%- assign thiscol = alldocs | where_exp: "item", "item.collection == page.collection"   | map: 'id' | join: ','  | split: ',' -%}
 
-
 {%- assign groupurl =  relateddocs | concat: thiscol | group_by: id | sort: 'size' | reverse  -%}
 
 {% assign groupurl = groupurl | where_exp: "item", "item.size > 2"  -%}
 
-{%- if groupurl -%}
-  {% for id in groupurl limit:3 %}
-    {% assign m = "" %}
-    {% if forloop.index > 1 %}
-      {% assign m = "ml-sm-1" %}
-    {% endif %}
+
+{% for id in groupurl limit:3 %}
+  {%- if forloop.first -%}
+  {% assign reldoc = alldocs | where_exp: "item", "item.id == id.name" %}
+  {%- else -%}
+  {%- assign relloop = alldocs | 
+                    where_exp: "item", "item.id == id.name" -%}
+  {% assign reldoc = reldoc | concat: relloop %}
+  {% endif %}
+{% endfor %}
+
+{%- if reldoc -%}
+  {% for document in reldoc %}
+    {% assign m = "ml-sm-1" %}
     
-    
-    {% assign areldoc = site.documents | where_exp: "item", "item.id == id.name" %}
     {%- if forloop.first -%}
+    {% assign m = "" %}
 <div class="container-lg mt-1 mb-2">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
@@ -39,7 +45,6 @@
       <h5><i class="fa-solid fa-shuffle fa-xl"></i><span class="sr-only">Related</span></h5>
       <div class="card-group">
     {%- endif %}
-       {% for document in areldoc limit: 1 %}
          <article class="card {{ m }} border chulapa-related">
           <div class="card-body">
           <h6 class="card-title"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
@@ -54,7 +59,6 @@
       {% endif %}
     </div>
   </article>
-        {% endfor %}
     {%- if forloop.last -%}
     </div>
     </div>
