@@ -6,13 +6,15 @@ $('#maincontent').find('h1, h2, h3, h4, h5, h6').each(function() {
     var id = $(this).attr('id');
     if (id) {
         var anchor = document.createElement("a");
-        anchor.className = 'chulapa-header-link';
+        
+        anchor.classList.add('chulapa-header-link', 'ml-2');
         anchor.href = '#' + id;
-        anchor.innerHTML = '<span class=\"sr-only\">Permalink</span><i class=\"fas fa-link\"></i>';
+        anchor.innerHTML = '<span class=\"sr-only\">Permalink</span><i class=\"fas fa-link fa-2xs align-middle\"></i>';
         anchor.title = "Permalink";
         $(this).append(anchor);
     }
 });
+
 
 // Start Copy Clipboard
 
