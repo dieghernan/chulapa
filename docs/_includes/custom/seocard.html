@@ -1,0 +1,79 @@
+					<!-- Demo purposes only-->
+			<div class="bg-light p-3 mx-auto mb-3 mt-3 border border-dark rounded">
+			  <p class="lead">PageSpeed Report for this page</p>
+			  <div class="card" id="loadingcard">
+			    <div class="card-body">
+			      <p class="card-title lead">Generating PageSpeed Summary</p>
+			      <p class="card-text">
+			        <div class="d-flex justify-content-center">
+  <div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+			      </p>
+			      <p class="card-text">This can take a while...</p>
+			    </div>
+			  </div>
+			  <div class="card d-none" id="nowidget">
+			    <div class="card-body">
+			      <p class="card-text text-center text-muted"><i class="fa-solid fa-circle-xmark fa-lg"></i> Could not load widget</p>
+				  <p class="card-text text-center" id="nowidget_link"></p>
+			    </div>
+			  </div>
+			  <div class="card-group d-none" id="resultcard">
+			    <div class="card">
+			      <div class="card-body text-center">
+			        <p class="card-text">
+			          <svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg" id="p_gauge">
+    		             <style>.base{fill:#e5e5e5;stroke:#e5e5e5}.arc{stroke-width:10;stroke-linecap:round;fill:none;stroke-dashoffset:0;stroke:#a6a6a6}.text{font-size:40px;font-family:monospace;text-anchor:middle;font-weight:600;fill:#8d8d8d}.base_high{fill:#e6faf0;stroke:#e6faf0}.arc_high{stroke:#0c6}.text_high{fill:#080}.base_mid{fill:#fff7eb;stroke:#fff7eb}.arc_mid{stroke:#fa3}.text_mid{fill:#c33300}.base_fail{fill:#ffebeb;stroke:#ffebeb}.arc_fail{stroke:#f33}.text_fail{fill:#c00}</style>
+			            <circle class="base" r="53" cx="60" cy="60" />
+			            <circle class="arc" transform="rotate(-90 60 60)" r="53" cx="60" cy="60" stroke-dasharray="1 329" />
+			            <text class="text" x="60" y="60" dominant-baseline="central">-</text>
+			          </svg>
+			        </p>
+			        <p class="card-text"><strong>Performance</strong></p>
+			      </div>
+			    </div>
+			    <div class="card">
+			      <div class="card-body text-center">
+			        <p class="card-text">
+			          <svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg" id="a_gauge">
+					    <style>.base{fill:#e5e5e5;stroke:#e5e5e5}.arc{stroke-width:10;stroke-linecap:round;fill:none;stroke-dashoffset:0;stroke:#a6a6a6}.text{font-size:40px;font-family:monospace;text-anchor:middle;font-weight:600;fill:#8d8d8d}.base_high{fill:#e6faf0;stroke:#e6faf0}.arc_high{stroke:#0c6}.text_high{fill:#080}.base_mid{fill:#fff7eb;stroke:#fff7eb}.arc_mid{stroke:#fa3}.text_mid{fill:#c33300}.base_fail{fill:#ffebeb;stroke:#ffebeb}.arc_fail{stroke:#f33}.text_fail{fill:#c00}</style>
+			            <circle class="base" r="53" cx="60" cy="60" />
+			            <circle class="arc" transform="rotate(-90 60 60)" r="53" cx="60" cy="60" stroke-dasharray="1 329" />
+			            <text class="text" x="60" y="60" dominant-baseline="central">-</text>
+			          </svg>
+			        </p>
+			        <p class="card-text"><strong>Accesibility</strong></p>
+			      </div>
+			    </div>
+			    <div class="card">
+			      <div class="card-body text-center">
+			        <p class="card-text">
+			          <svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg" id="bp_gauge">
+   		             <style>.base{fill:#e5e5e5;stroke:#e5e5e5}.arc{stroke-width:10;stroke-linecap:round;fill:none;stroke-dashoffset:0;stroke:#a6a6a6}.text{font-size:40px;font-family:monospace;text-anchor:middle;font-weight:600;fill:#8d8d8d}.base_high{fill:#e6faf0;stroke:#e6faf0}.arc_high{stroke:#0c6}.text_high{fill:#080}.base_mid{fill:#fff7eb;stroke:#fff7eb}.arc_mid{stroke:#fa3}.text_mid{fill:#c33300}.base_fail{fill:#ffebeb;stroke:#ffebeb}.arc_fail{stroke:#f33}.text_fail{fill:#c00}</style>
+			            <circle class="base" r="53" cx="60" cy="60" />
+			            <circle class="arc" transform="rotate(-90 60 60)" r="53" cx="60" cy="60" stroke-dasharray="1 329" />
+			            <text class="text" x="60" y="60" dominant-baseline="central">-</text>
+			          </svg>
+			        </p>
+			        <p class="card-text"><strong>Best Practices</strong></p>
+			      </div>
+			    </div>
+			    <div class="card">
+			      <div class="card-body text-center">
+			        <p class="card-text">
+			          <svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg" id="s_gauge">
+			             <style>.base{fill:#e5e5e5;stroke:#e5e5e5}.arc{stroke-width:10;stroke-linecap:round;fill:none;stroke-dashoffset:0;stroke:#a6a6a6}.text{font-size:40px;font-family:monospace;text-anchor:middle;font-weight:600;fill:#8d8d8d}.base_high{fill:#e6faf0;stroke:#e6faf0}.arc_high{stroke:#0c6}.text_high{fill:#080}.base_mid{fill:#fff7eb;stroke:#fff7eb}.arc_mid{stroke:#fa3}.text_mid{fill:#c33300}.base_fail{fill:#ffebeb;stroke:#ffebeb}.arc_fail{stroke:#f33}.text_fail{fill:#c00}</style>
+			            <circle class="base" r="53" cx="60" cy="60" />
+			            <circle class="arc" transform="rotate(-90 60 60)" r="53" cx="60" cy="60" stroke-dasharray="1 329" />
+			            <text class="text" x="60" y="60" dominant-baseline="central">-</text>
+			          </svg>
+			        </p>
+			        <p class="card-text"><strong>SEO</strong></p>
+			      </div>
+			    </div>
+			  </div>
+			  <p id="pglink" class="my-2" ></p>
+			</div>
+			<!-- End Demo -->
