@@ -17,7 +17,7 @@ jobs:
       with:
         ruby-version: 2.6
         bundler-cache: true
-        jekyll_src: 'docs'
+        working-directory: 'docs'
         
     - name: Run jekyll-profile
       run: |
