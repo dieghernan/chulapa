@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch: 
+
+name: jekyll-profile
+jobs:
+  jekyll-profile:
+    runs-on: ubuntu-latest
+    env:
+      JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+        bundler-cache: true
+        jekyll_src: 'docs'
+        
+    - name: Run jekyll-profile
+      run: |
+        # Run Jekyll Profile
+        cd  docs
+        # Bundle install
+        echo "::group::Jekyll folder"
+        echo "Building Jekyll from: $PWD"
+        echo "::endgroup::"
+        # Updating Bundle
+        echo "::group::Bundle Update"
+        bundle update
+        echo "::endgroup::"
+        # Jekyll Profile
+        echo "::group::Jekyll Profile"
+        bundle exec jekyll build --profile >> $GITHUB_STEP_SUMMARY
+        echo "::endgroup::"
+      shell: bash
