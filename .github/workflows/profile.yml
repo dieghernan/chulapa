@@ -33,6 +33,6 @@ jobs:
         echo "::endgroup::"
         # Jekyll Profile
         echo "::group::Jekyll Profile"
-        bundle exec jekyll build --profile >> $GITHUB_STEP_SUMMARY
+        bundle exec jekyll build --incremental --profile >> $GITHUB_STEP_SUMMARY
         echo "::endgroup::"
       shell: bash

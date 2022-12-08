@@ -30,3 +30,4 @@ jobs:
         target_branch: 'gh-pages'
         jekyll_src: 'docs'
         keep_history: true
+        jekyll_build_options: '--incremental'
