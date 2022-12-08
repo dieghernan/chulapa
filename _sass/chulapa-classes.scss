@@ -878,6 +878,22 @@
   }
 }
 
+	h1, h2, h3, h4, h5, h6 {
+		.chulapa-header-link {
+			opacity: 0;
+			font-size: $font-size-sm;
+			-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+			-moz-transition: opacity 0.2s ease-in-out 0.1s;
+			-o-transition: opacity 0.2s ease-in-out 0.1s;
+			transition: opacity 0.2s ease-in-out 0.1s;
+		}
+
+		&:hover .chulapa-header-link {
+			opacity: 1;
+		}
+	}
+
+
 // Repositioning Clipboard button
 .btn-chulapa-copy-code {
   position: absolute;
