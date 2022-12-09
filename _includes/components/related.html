@@ -48,7 +48,7 @@
          <article class="card {{ m }} border chulapa-related">
           <div class="card-body">
           <h6 class="card-title"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
-          {% if document.subtitle %}<p class="card-text">{{- document.subtitle -}}</p> {%- endif -%}
+          {% if document.subtitle %}<p class="card-text"><small>{{- document.subtitle -}}</small></p> {%- endif -%}
     </div>
     <div class="card-footer bg-transparent">
           {% if document.date %}
