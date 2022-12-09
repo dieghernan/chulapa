@@ -930,9 +930,14 @@ h6 {
   border-radius: $card-border-radius !important;
 
   border-color: $card-border-color;
+  
+  .card-text {
+     opacity: .9;
+   }
 
   .card-footer {
     border-top-color: $card-border-color;
+    opacity: .9;
   }
 }
 
