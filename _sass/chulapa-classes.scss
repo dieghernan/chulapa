@@ -878,20 +878,44 @@
   }
 }
 
-	h1, h2, h3, h4, h5, h6 {
-		.chulapa-header-link {
-			opacity: 0;
-			-webkit-transition: opacity 0.2s ease-in-out 0.1s;
-			-moz-transition: opacity 0.2s ease-in-out 0.1s;
-			-o-transition: opacity 0.2s ease-in-out 0.1s;
-			transition: opacity 0.2s ease-in-out 0.1s;
-		}
+// Style links on header
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .chulapa-header-link {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease-in-out 0.1s;
+    -moz-transition: opacity 0.2s ease-in-out 0.1s;
+    -o-transition: opacity 0.2s ease-in-out 0.1s;
+    transition: opacity 0.2s ease-in-out 0.1s;
+    .fa,
+    .far,
+    .fas,
+    .fal,
+    .fab,
+    .fa-solid,
+    .fa-regular,
+    .fa-light,
+    .fa-thin,
+    .fa-duotone,
+    .fa-sharp,
+    .fa-brands {
+      &:hover {
+        -webkit-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+      }
+    }
+  }
 
-		&:hover .chulapa-header-link {
-			opacity: 1;
-		}
-	}
-
+  &:hover .chulapa-header-link {
+    opacity: 1;
+  }
+}
 
 // Repositioning Clipboard button
 .btn-chulapa-copy-code {
@@ -901,6 +925,7 @@
   font-size: $font-size-sm;
 }
 
+// Cards on related snippet
 .card.chulapa-related {
   border-radius: $card-border-radius !important;
 

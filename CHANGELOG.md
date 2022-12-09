@@ -7,8 +7,10 @@
   - `gitdev` 
   - `gitdev-dark`
   - `towards`
-- New related component.
-- 
+- New `related` component.
+-  Add link to headings via JS
+
+
 ### Changed
 
 -   Improve font loading on skins.
