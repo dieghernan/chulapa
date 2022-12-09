@@ -43,7 +43,7 @@
     <div class="col-lg-8 offset-lg-2">
       <hr>
       <h5><i class="fa-solid fa-shuffle fa-xl"></i><span class="sr-only">Related</span></h5>
-      <div class="card-group">
+      <nav class="card-group" aria-labelledby="related-articles">
     {%- endif %}
          <article class="card {{ m }} border chulapa-related">
           <div class="card-body">
@@ -60,7 +60,7 @@
     </div>
   </article>
     {%- if forloop.last -%}
-    </div>
+    </nav>
     </div>
   </div>
 </div>
