@@ -43,9 +43,9 @@
     <div class="col-lg-8 offset-lg-2">
       <hr>
       <p><i class="fa-solid fa-shuffle fa-xl"></i><span class="sr-only">Related</span></p>
-      <nav class="card-group" aria-labelledby="related-articles">
+      <nav class="card-group" aria-label="related-articles">
     {%- endif %}
-         <article class="card {{ m }} border chulapa-related">
+         <div class="card {{ m }} border chulapa-related">
           <div class="card-body">
           <p class="card-title chulapa-headingfont"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></p>
           {% if document.subtitle %}<p class="card-text"><small>{{- document.subtitle -}}</small></p> {%- endif -%}
@@ -58,7 +58,7 @@
       <small>-</small>
       {% endif %}
     </div>
-  </article>
+  </div>
     {%- if forloop.last -%}
     </nav>
     </div>
