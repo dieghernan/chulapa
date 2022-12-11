@@ -989,14 +989,14 @@ h6 {
 
 .bs-canvas-overlay.show {
    opacity: 0.3;
-   z-index: 1110;
+   z-index: 20001;
 }
 
 .bs-canvas {
    top: 0;
    width: 300px;
    margin-left: -300px;
-   z-index: 1110;
+   z-index: 20001;
    overflow-x: hidden;
    overflow-y: auto;
 }
