@@ -9,7 +9,7 @@
 				<i class="fa-solid fa-times"></i><span class="sr-only">Close Sidebar</span>
 			</button>
 		</p>
-		<nav class="navbar-nav px-3 my-auto">		   <p class="mb-2" ><a class="navbar-brand" href="#">{{ page.title }}</a></p>		
+		<nav class="navbar-nav px-3 my-auto">		   <p class="mb-2" ><a class="nav-link font-weight-bold lead" href="#">{{ page.title }}</a></p>		
 			{% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skip_no_ids=true id="sidetoc" class="nav.flex-column" item_class="nav-item.nav.d-block" anchor_class="nav-link" %}
 		</nav>    
 	</div>
