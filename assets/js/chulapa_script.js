@@ -1,20 +1,17 @@
-
-
 // Add anchors for headings
 // Adapted from Minimal Mistakes, (c) Michael Rose
 $('#maincontent').find('h1, h2, h3, h4, h5, h6').each(function() {
-    var id = $(this).attr('id');
-    if (id) {
-        var anchor = document.createElement("a");
-        
-        anchor.classList.add('chulapa-header-link', 'ml-2', 'chulapaDateSocial');
-        anchor.href = '#' + id;
-        anchor.innerHTML = '<span class=\"sr-only\">Permalink</span><i class=\"fas fa-link fa-2xs align-middle\"></i>';
-        anchor.title = "Permalink";
-        $(this).append(anchor);
-    }
-});
+  var id = $(this).attr('id');
+  if (id) {
+    var anchor = document.createElement("a");
 
+    anchor.classList.add('chulapa-header-link', 'ml-2', 'chulapaDateSocial');
+    anchor.href = '#' + id;
+    anchor.innerHTML = '<span class=\"sr-only\">Permalink</span><i class=\"fas fa-link fa-2xs align-middle\"></i>';
+    anchor.title = "Permalink";
+    $(this).append(anchor);
+  }
+});
 
 // Start Copy Clipboard
 
@@ -52,7 +49,6 @@ async function setTooltip(btn, tooltip, style) {
 }
 
 // End helpers tooltip
-
 
 // Insert buttons 
 function ch_clipboard_setup() {
@@ -120,10 +116,10 @@ function ch_copy_cliboard(i) {
   }
 }
 // stripHtml safely
-function stripHtml(html){
-   let tmp = document.createElement('DIV');
-   tmp.innerHTML = html;
-   return tmp.textContent || tmp.innerText || '';
+function stripHtml(html) {
+  let tmp = document.createElement('DIV');
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || '';
 }
 
 window.addEventListener('load', ch_clipboard_setup);
@@ -179,3 +175,4 @@ function closeSideBar() {
   btn.classList.remove("d-none");
   btn.setAttribute("aria-expanded", "false");
 }
+

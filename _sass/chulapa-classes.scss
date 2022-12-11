@@ -930,14 +930,14 @@ h6 {
   border-radius: $card-border-radius !important;
 
   border-color: $card-border-color;
-  
+
   .card-text {
-     opacity: .9;
-   }
+    opacity: 0.9;
+  }
 
   .card-footer {
     border-top-color: $card-border-color;
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
@@ -952,8 +952,37 @@ h6 {
   border-color: $indexcards-chulapa-border-color;
 }
 
-// Styles for sidebar
+// Chulapa disable fa animation
 
+.chulapa-fa-static {
+  .fa,
+  .far,
+  .fas,
+  .fal,
+  .fab,
+  .fa-solid,
+  .fa-regular,
+  .fa-light,
+  .fa-thin,
+  .fa-duotone,
+  .fa-sharp,
+  .fa-brands {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+
+    &:hover {
+      -webkit-transform: none;
+      -ms-transform: none;
+      -o-transform: none;
+      transform: none;
+    }
+  }
+}
+
+// Styles for sidebar
 
 .chulapa-btn-sidebar {
   top: 75vh;
@@ -964,53 +993,53 @@ h6 {
   z-index: 1099;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  
+
   &.has-toc {
-  visibility: visible;
-  opacity: 0.4;
+    visibility: visible;
+    opacity: 0.4;
   }
 }
 
 .chulapa-btn-nofocus {
-
   &.close {
-  text-shadow: none;
-  opacity:0.6;
-  
-  &:before {
-    content: "" !important;
+    text-shadow: none;
+    opacity: 0.6;
+
+    &:before {
+      content: "" !important;
+    }
   }
-  }
-  
+
   &:focus {
-   outline: 0;
-	text-shadow: none;
+    outline: 0;
+    text-shadow: none;
   }
 }
 
 .bs-canvas-overlay {
-   opacity: 0;
-   z-index: -1;
-   &.show {
-     opacity: 0.3;
-     z-index: 20001;
-   }
+  opacity: 0;
+  z-index: -1;
+  &.show {
+    opacity: 0.3;
+    z-index: 20001;
+  }
 }
 
 .bs-canvas {
-   top: 0;
-   width: 300px;
-   margin-left: -300px;
-   z-index: 1110;
-   overflow-x: hidden;
-   overflow-y: auto;
+  top: 0;
+  width: 300px;
+  margin-left: -300px;
+  z-index: 1110;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .bs-canvas-left {
-   left: 0;
+  left: 0;
 }
 .bs-canvas-anim {
-   transition: all .4s ease-out;
-   -webkit-transition: all .4s ease-out;
-   -moz-transition: all .4s ease-out;
-   -ms-transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -ms-transition: all 0.4s ease-out;
 }
+
