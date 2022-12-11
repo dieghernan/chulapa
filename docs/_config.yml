@@ -130,7 +130,6 @@ footer:
 # C. Theme Settings
 chulapa-skin:
   highlight   : "github"
-  skin        : gitdev
   autothemer  :  true
   
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
