@@ -954,6 +954,7 @@ h6 {
 
 // Styles for sidebar
 
+
 .chulapa-btn-sidebar {
   top: 75vh;
   left: 0;
@@ -963,40 +964,44 @@ h6 {
   z-index: 1099;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-.chulapa-btn-sidebar.has-toc {
+  
+  &.has-toc {
   visibility: visible;
   opacity: 0.4;
+  }
 }
 
-.chulapa-btn-nofocus.close {
+.chulapa-btn-nofocus {
+
+  &.close {
   text-shadow: none;
   opacity:0.6;
-}
-
-.chulapa-btn-nofocus.close:before {    
+  
+  &:before {
     content: "" !important;
+  }
+  }
+  
+  &:focus {
+   outline: 0;
+	text-shadow: none;
+  }
 }
 
-.chulapa-btn-nofocus:focus {
-    outline: 0;
-	text-shadow: none;
-}
 .bs-canvas-overlay {
    opacity: 0;
    z-index: -1;
-}
-
-.bs-canvas-overlay.show {
-   opacity: 0.3;
-   z-index: 20001;
+   &.show {
+     opacity: 0.3;
+     z-index: 20001;
+   }
 }
 
 .bs-canvas {
    top: 0;
    width: 300px;
    margin-left: -300px;
-   z-index: 20001;
+   z-index: 1110;
    overflow-x: hidden;
    overflow-y: auto;
 }
@@ -1009,4 +1014,3 @@ h6 {
    -moz-transition: all .4s ease-out;
    -ms-transition: all .4s ease-out;
 }
-
