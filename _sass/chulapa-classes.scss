@@ -985,9 +985,9 @@ h6 {
 // Styles for sidebar
 
 .chulapa-btn-sidebar {
-  top: 75vh;
+  bottom: 1.05 * map-get($spacers, 5);
   left: 0;
-  margin-left: -300px;
+  margin-left: -400px;
   opacity: 0.4;
   z-index: 1099;
   border-top-left-radius: 0;
