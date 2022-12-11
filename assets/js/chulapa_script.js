@@ -141,10 +141,13 @@ function setupSideBar() {
     iDiv.setAttribute("id", "sideBarOverlay");
     iDiv.setAttribute("onclick", "closeSideBar()");
     body.prepend(iDiv);
-  } else {
+  } else if (btn) {
+  
+    // ToC was requested but no toc produced
+    // Clean up DOM
+    btn.remove();
     document.getElementById("sideBar")
       .remove();
-    btn.remove();
   }
 }
 window.addEventListener("load", setupSideBar);
