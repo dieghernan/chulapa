@@ -206,18 +206,18 @@
 
 @include media-breakpoint-up(md) {
   .hero-chulapa h1 {
-    font-size: $display4-size;
-    font-weight: $display4-weight;
+    @include font-size(4);
+    font-weight: display-font-weight;
   }
 
   .hero-chulapa p {
-    font-weight: $display4-weight;
+    font-weight: display-font-weight;
   }
 }
 
 @include media-breakpoint-up(lg) {
   .hero-chulapa h1 {
-    font-size: $display3-size;
+    @include font-size(3);
   }
 }
 
@@ -343,7 +343,7 @@
 
 @include media-breakpoint-up(md) {
   .header-chulapa h1 {
-    font-size: $display4-size;
+    @include font-size(4);
   }
 }
 
