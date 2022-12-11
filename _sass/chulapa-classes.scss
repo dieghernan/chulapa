@@ -986,18 +986,11 @@ h6 {
 
 .chulapa-btn-sidebar {
   top: 75vh;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.4s linear;
+  margin-left: -300px;
+  opacity: 0.4;
   z-index: 1099;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-
-  &.has-toc {
-    visibility: visible;
-    opacity: 0.4;
-  }
 }
 
 .chulapa-btn-nofocus {
