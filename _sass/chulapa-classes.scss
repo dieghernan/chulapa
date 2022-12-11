@@ -258,7 +258,7 @@
 
   h1,
   p {
-    font-weight: $display1-weight;
+    font-weight: $display-font-weight;
   }
 
   h1 {
@@ -267,7 +267,7 @@
       breakpoint-min("md"),
       breakpoint-min("lg"),
       $font-size-base * 3,
-      $display1-size
+      @include font-size(1)
     );
   }
 
