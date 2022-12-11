@@ -58,6 +58,11 @@
     }
 }
 
+@mixin hover() {
+  &:hover { @content; }
+}
+
+
 @mixin badge-variant($bg) {
     color: color-contrast($bg);
     background-color: $bg;
