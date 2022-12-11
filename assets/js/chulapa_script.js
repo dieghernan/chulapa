@@ -137,7 +137,6 @@ function setupSideBar() {
   if (sT) {
     btn.classList.remove("d-none");
     btn.classList.add("has-toc");
-    body.classList.add("bs-canvas-anim");
     iDiv.classList.add("bs-canvas-overlay", "bg-dark", "position-fixed",
       "w-100", "h-100");
     iDiv.setAttribute("id", "sideBarOverlay");
@@ -152,14 +151,10 @@ window.addEventListener("load", setupSideBar);
 
 function openSideBar() {
   var btn = document.getElementById("demo");
-  var body = document.getElementById("body");
   btn.classList.add("d-none");
   btn.setAttribute("aria-expanded", "true");
   document.getElementById("sideBarOverlay")
     .classList.add("show");
-  body.style.overflowX = "hidden";
-  body.style.marginLeft = "300px";
-  body.style.marginRight = "-300px";
   document.getElementById("sideBar")
     .style.marginLeft = "0";
 }
@@ -170,8 +165,6 @@ function closeSideBar() {
     .removeAttribute("style");
   document.getElementById("sideBarOverlay")
     .classList.remove("show");
-  document.getElementById("body")
-    .removeAttribute("style");
   btn.classList.remove("d-none");
   btn.setAttribute("aria-expanded", "false");
 }
