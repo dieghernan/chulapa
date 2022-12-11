@@ -135,7 +135,7 @@ function setupSideBar() {
   // Create hidden overlay
   var iDiv = document.createElement("div");
   if (sT) {
-    btn.classList.style.marginLeft = "0";
+    btn.style.marginLeft = "0";
     iDiv.classList.add("bs-canvas-overlay", "bg-dark", "position-fixed",
       "w-100", "h-100");
     iDiv.setAttribute("id", "sideBarOverlay");
@@ -165,7 +165,7 @@ function closeSideBar() {
     .removeAttribute("style");
   document.getElementById("sideBarOverlay")
     .classList.remove("show");
-  btn.classList.style.marginLeft = "0";
+  btn.style.marginLeft = "0";
   btn.setAttribute("aria-expanded", "false");
 }
 
