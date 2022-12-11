@@ -93,7 +93,10 @@ author:
 
 - `show_toc`: Would display a table of contents of the page (thanks to [@allejo](https://github.com/allejo/jekyll-toc)). 
 
-- `show_sidetoc`: Alternative implementation of `show_toc` where the table of contents is displayed on an sliding off-canvas sidebar.
+- `show_sidetoc`: Alternative implementation of `show_toc` where the table of contents is displayed on an sliding off-canvas sidebar. You would notice a new button <button class="btn btn-primary btn-sm rounded-right bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" aria-label="Example button" style="opacity:0.4;border-top-left-radius: 0;
+  border-bottom-left-radius: 0;">
+		<i class="fa-solid fa-plus"></i><span class="sr-only">Example button</span>
+	</button> on the left side of your page, click it to expand the sidebar table of contents.
 
 **A technical note** Only headings with `id` would be displayed. If you are including headers via markdown (`### Title`) you don't have to worry, as **kramdown** would do it for you. However if you are using `html` (`<h1 id="aa">My heading</h1>`) don't forget to include the `id`.
 {: .alert .alert-info .p-3 .mx-2}
