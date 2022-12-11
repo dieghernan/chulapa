@@ -170,6 +170,7 @@ defaults:
     values:
       header_type       : "hero"
       show_toc          : true
+      show_sidetoc      : true
       include_on_search : true
       show_bottomnavs   : true
       show_comments     : true
@@ -212,6 +213,7 @@ defaults:
       show_bottomnavs   : true
       show_author       : true
       show_toc          : true
+      show_sidetoc      : true
       show_breadcrumb   : true
       show_seo          : false
       breadcrumb_list   :

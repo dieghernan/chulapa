@@ -13,13 +13,20 @@ layout: minimal
 			  {%- endif -%}
 			</aside>
 			<article id="maincontent" class="col-lg-8 mt-3">
+			{% if page.show_sidetoc %}
+			
+			{% include components/sidetoc.html %}
+			
+			{% endif %}
 			 {% if page.show_toc %} 
 			               {% assign h_min = page.h_min | default: 2 %}
                            {% assign h_max = page.h_max | default: 4 %}
+             <nav aria-label="table-of-contents">
 			 {% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skip_no_ids=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
+			 </nav>
 			  {% endif %}
 			{{- content -}}
-			{% if page.show_seo %}
+			{% if page.show_seo_removeme %}
 			{%- include custom/seocard.html -%}
 			{% endif %}
 			</article>
