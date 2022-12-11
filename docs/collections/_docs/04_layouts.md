@@ -93,6 +93,8 @@ author:
 
 - `show_toc`: Would display a table of contents of the page (thanks to [@allejo](https://github.com/allejo/jekyll-toc)). 
 
+- `show_sidetoc`: Alternative implementation of `show_toc` where the table of contents is displayed on an sliding off-canvas sidebar.
+
 **A technical note** Only headings with `id` would be displayed. If you are including headers via markdown (`### Title`) you don't have to worry, as **kramdown** would do it for you. However if you are using `html` (`<h1 id="aa">My heading</h1>`) don't forget to include the `id`.
 {: .alert .alert-info .p-3 .mx-2}
 
