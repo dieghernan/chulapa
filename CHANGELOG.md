@@ -8,7 +8,8 @@
   - `gitdev-dark`
   - `towards`
 - New `related` component.
--  Add link to headings via JS
+-  Add link to headings via JS.
+- Implemented `show_sidetoc`.
 
 
 ### Changed
