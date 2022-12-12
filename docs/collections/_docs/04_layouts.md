@@ -531,9 +531,10 @@ You can opt-out of this behaviour by using `nolazy` option:
 
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true" %}
 
-
-If the preview image is not displaying, try setting a lower resolution 
-(see [here](https://stackoverflow.com/a/2068371/7877917)) for possible values).
+On lazy mode, the snippet tries to load the preview from YouTube using the option `maxresdefault`.
+This preview may not be available for a particular video. If this is happening to you,
+try loading another image using another option by using the `video_res` parameter 
+(see [here](https://stackoverflow.com/a/2068371/7877917) for possible values).
 
 {% raw %}
 ```
