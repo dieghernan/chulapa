@@ -54,7 +54,7 @@
           <div class="col-lg-2 col-sm-4 col-3 text-right lead chulapaDateSocial">
             <a  href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ sharetitle | url_encode }}{%- if site.twitter_site -%}&via={{- site.twitter_site -}}{%- endif -%}{%- if tagsize > 0 -%}&hashtags={{- page.tags | join: "," | replace: " ", "-" | replace: "-", "" -}}{%- endif -%}" title="Share on Twitter"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a>
             
-            <a href="https://toot.kytta.dev/?text={{ sharetitle | uri_escape }}%20{{ canonical_url }}" title="Share on Mastodon"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i></a>
+            <a href="https://toot.kytta.dev/?text={{ sharetitle | uri_escape }}%20{{ canonical_url }}{%- if tagsize > 0 -%}{{- page.tags | join: '%20%23' | replace: " ", "-" | replace: "-", "" -}}{%- endif -%}" title="Share on Mastodon"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i></a>
             
             <a  class="d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="Share on Facebook"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
 
