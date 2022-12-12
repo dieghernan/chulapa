@@ -4,8 +4,18 @@
   Your browser does not support the video tag.
 </video>
 </div>
-{%- elsif include.provider == "youtube" and include.nolazy == "true" -%}
-{% include snippets/youtube.html id=include.id vide_res = include.video_res %}
+{%- elsif include.provider == "youtube" -%}
+  {%- if include.nolazy -%}
+  <!-- Thanks to Minimal Mistakes -->
+  <!-- https://embedresponsively.com/ -->
+  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
+      <iframe loading="lazy" title="Video from YouTube" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" allowfullscreen></iframe>
+    
+  </div>
+  {%- else -%}
+  {% include snippets/youtube.html id=include.id video_res = include.video_res %}
+  {%- endif %}
+
 {%- else -%
 {% assign video_id = include.id %}
 {% assign video_provider = include.provider %}
@@ -14,8 +24,6 @@
 <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
 {%- if video_provider == "vimeo" -%}
   <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-{%- elsif video_provider == "youtube" -%}
-  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ video_id }}" allowfullscreen></iframe>
 {%- elsif video_provider == "google-drive" -%}
   <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen></iframe>
 {%- elsif video_provider == "bilibili" -%}
