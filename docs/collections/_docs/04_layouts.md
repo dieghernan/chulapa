@@ -521,6 +521,29 @@ YouTube videos are lazy deferred. This means that
 initially a YouTube video is displayed as the  image preview and the actual video is loaded when the user clicks on the image. This implementation intends to improve
 page speed.  See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
 
+You can opt-out of this behaviour by using `nolazy` option:
+
+{% raw %}
+```
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true" %}
+```
+{% endraw %}
+
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true" %}
+
+
+If the preview image is not displaying, try setting a lower resolution 
+(see [here](https://stackoverflow.com/a/2068371/7877917)) for possible values).
+
+{% raw %}
+```
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hq2" %}
+```
+{% endraw %}
+
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hq2" %}
+
+
 Thanks to [@SCP-017](https://github.com/SCP-017) for the suggestion.
 
 
