@@ -134,10 +134,7 @@
            {%- endif -%}
             </p>
           <!-- Do not remove this in order to give  attributions -->
-          {%- if name -%}
-          <p class="chulapa-footer-brand"><b>{{- name -}}</b> skin by <a href="{{ url }}">{{ author }}</a></p>
-          {%- endif -%}
-          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a>{%- if name -%}. <b>{{- name -}}</b> skin by <a href="{{ url }}">{{ author }}</a>{%- endif -%}</p>
           <!-- End  attributions -->
         </div>
       </div>
