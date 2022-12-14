@@ -1,14 +1,13 @@
-var d = document;
-var sT = d.getElementById("sidetoc");
-var btn = d.getElementById("demo");
-var body = d.getElementById("body");
-var main = d.getElementById("maincontent");
+var sT = document.getElementById("sidetoc");
+var btn = document.getElementById("demo");
+var body = document.getElementById("body");
+var main = document.getElementById("maincontent");
 var heads = main.querySelectorAll("h1, h2, h3, h4, h5 , h6");
 var els = main.querySelectorAll("pre");
 
 // First load sidebar
 // Create hidden overlay
-var iDiv = d.createElement("div");
+var iDiv = document.createElement("div");
 if (sT) {
   btn.style.marginLeft = "0";
   iDiv.classList.add("bs-canvas-overlay", "bg-dark", "position-fixed",
@@ -20,23 +19,23 @@ if (sT) {
   // ToC was requested but no toc produced
   // Clean up DOM
   btn.remove();
-  d.getElementById("sideBar")
+  document.getElementById("sideBar")
     .remove();
 }
 
 function openSideBar() {
   btn.removeAttribute("style");
   btn.setAttribute("aria-expanded", "true");
-  d.getElementById("sideBarOverlay")
+  document.getElementById("sideBarOverlay")
     .classList.add("show");
-  d.getElementById("sideBar")
+  document.getElementById("sideBar")
     .style.marginLeft = "0";
 }
 
 function closeSideBar() {
-  d.getElementById("sideBar")
+  document.getElementById("sideBar")
     .removeAttribute("style");
-  d.getElementById("sideBarOverlay")
+  document.getElementById("sideBarOverlay")
     .classList.remove("show");
   btn.style.marginLeft = "0";
   btn.setAttribute("aria-expanded", "false");
@@ -47,9 +46,9 @@ heads.forEach(function (currentValue) {
   thish = currentValue;
   id = thish.id;
   if (id) {
-    anchor = d.createElement("a");
-    sp = d.createElement("span");
-    ic = d.createElement("i");
+    anchor = document.createElement("a");
+    sp = document.createElement("span");
+    ic = document.createElement("i");
     anchor.classList.add("chulapa-header-link", "ml-2",
       "chulapaDateSocial");
     anchor.href = "#" + id;
@@ -79,13 +78,13 @@ els.forEach(function (currentValue, currentIndex) {
     hashigh = preBlock.classList.contains("highlight");
     if (hashigh === false){
       preBlock.classList.add("highlight");
-      brk = d.createElement("br");
+      brk = document.createElement("br");
       codeBlock.prepend(brk);
     }
     // Add id to code block
     codeBlock.setAttribute("id", "clipboard_code" + i);
     // Create button
-    copybtn = d.createElement("button");
+    copybtn = document.createElement("button");
     copybtn.classList.add("btn", "text-muted", "btn-sm",
       "btn-chulapa-copy-code");
     copybtn.innerHTML = "<i class='far fa-copy'></i>";
@@ -139,14 +138,14 @@ async function setTooltip(thisbtn, tooltip, style) {
 function ch_copy_cliboard(i) {
   return function () {
     // Select code content and strip HTML
-    let thisCodeBlock = d.getElementById("clipboard_code" + i)
+    let thisCodeBlock = document.getElementById("clipboard_code" + i)
       .innerHTML;
     codeBlockStripped = stripHtml(thisCodeBlock);
 
     // Reset clipboard
     navigator.clipboard.writeText("");
 
-    thiscopybtn = d.getElementById("clipboard_btn" + i);
+    thiscopybtn = document.getElementById("clipboard_btn" + i);
     btnTrigger = $(thiscopybtn);
 
     // Set initial values
