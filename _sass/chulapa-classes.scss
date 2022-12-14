@@ -1041,3 +1041,69 @@ h6 {
   -ms-transition: all 0.4s ease-out;
 }
 
+
+// Classes for qusdis
+
+$cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
+
+#ch-cusdis {
+  background-color: $footer-chulapa-bg-color;
+  color: $cusdis-text-color;
+
+  input,
+  textarea {
+    &.bg-transparent:focus {
+      background-color: white !important;
+      color: $black !important;
+    }
+
+    @extend .form-control;
+  }
+
+  button {
+    &.bg-gray-200 {
+      @extend .btn;
+      @extend .btn-primary;
+      font-weight: $headings-font-weight;
+      font-family: $headings-font-family;
+    }
+  }
+
+  .border-color-gray-200 {
+    border-color: $cusdis-text-color;
+  }
+
+  .font-medium {
+    color: $footer-chulapa-text-color;
+    font-family: $headings-font-family;
+    font-weight: $font-weight-bold;
+  }
+
+  .text-gray-500 {
+    color: $cusdis-text-color;
+    &.text-sm {
+      font-size: $font-size-sm !important;
+    }
+  }
+
+  button {
+    &.text-gray-500 {
+      color: $footer-chulapa-text-color;
+    }
+  }
+
+  .border-color-gray-200 {
+    border-color: $footer-chulapa-text-color;
+  }
+
+  .underline {
+    color: $footer-chulapa-text-color;
+    text-decoration: none;
+    font-weight: bold;
+
+    @include hover-focus() {
+      color: $footer-chulapa-hover-color;
+    }
+  }
+}
+
