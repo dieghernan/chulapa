@@ -54,7 +54,8 @@ algolia:
     - desc(content)
     - desc(subtitle)
 comments:
-  provider: giscus
+  provider: cusdis
+  cusdis_app_id: "288e76e5-75e7-4291-a5ec-7b9383ffa79b"
 
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 
