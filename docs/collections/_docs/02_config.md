@@ -117,12 +117,20 @@ If you are deploying your site with Github Pages, I recommend using this [GitHub
 
 ### Comments
 
-You can add a comment feature to a page. Currently [Disqus](https://disqus.com/),
-[giscus](https://giscus.app/) and [Cactus](https://cactus.chat/) are supported:
+You can add a comment feature to a page. Currently the following services are supported:
+  
+  - [Disqus](https://disqus.com/), one of the most known comment providers for static sites,
+  - [cusdis](https://cusdis.com/), a lightweight, privacy-first, open-source comment system,
+  - [giscus](https://giscus.app/),  A comments system powered by [GitHub Discussions](https://docs.github.com/en/discussions)
+  - [Cactus](https://cactus.chat/), a federated comment system for the web, based on the Matrix protocol
+
 
 - `comments`:
-  - `provider`: Use `disqus`, `giscus` or `cactus` to enable it.
+  - `provider`: Use `disqus`, `cusdis`, `giscus` or `cactus` to enable it.
   - `disqus_shortname`: Disqus only. Add your site id, on `https://DISQUS_SHORTNAME.disqus.com/admin/`.
+  - `cusdis_app_id`:  Cusdis only, the app id of your service. On cusdis see **Embed code** and
+      use `data-app-id="THIS_IS_THE_APP_ID"`.
+  - `cusdis_host`: Cusdis only. If you are self-hosting Cusdis use this field.
   - `cactus_shortname`: Cactus only. The name of the name that you use for registering this site
       with Cactus.
 

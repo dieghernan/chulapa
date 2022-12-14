@@ -55,7 +55,7 @@ algolia:
     - desc(subtitle)
 comments:
   provider: cusdis
-  cusdis_app_id: "288e76e5-75e7-4291-a5ec-7b9383ffa79b"
+  cusdis_app_id: "ba6333c9-c7b1-4578-a932-e9ee3e71f120"
 
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 
@@ -136,7 +136,7 @@ chulapa-skin:
   highlight   : "github"
   skin        : gitdev
   autothemer  :  true
-  
+
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 collections:
   demo:
@@ -213,7 +213,7 @@ defaults:
       show_comments     : true
       show_tags         : true
       show_categories   : true
-      show_related      : true 
+      show_related      : true
       show_bottomnavs   : true
       show_author       : true
       show_toc          : true

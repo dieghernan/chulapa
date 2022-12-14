@@ -92,9 +92,11 @@ algolia:
     - desc(subtitle)
 
 comments:
-  provider:         #Enable comments via Disqus, giscus or Cactus.chat
+  provider:         #Enable comments via Disqus, giscus, Cactus.chat or cusdis
   disqus_shortname: #Your site id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
   cactus_shortname: #Your site id as registered with Cactus.chat
+  cusdis_app_id:    # Your cusdis app id
+  cusdis_host:      # Optionally you can use your own host
 
 
 # B. Navigation
