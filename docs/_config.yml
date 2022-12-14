@@ -18,10 +18,13 @@ author:
   links:
     - url: https://github.com/dieghernan/
       icon: "fab fa-github"
+      label: GitHub
     - url: https://dieghernan.github.io/
       icon: fas fa-blog
+      label: Blog
     - url: https://stackoverflow.com/users/7877917/dieghernan
       icon: "fab fa-stack-overflow"
+      label: StackOverflow
 gtag_id:  UA-139034853-5
 search:
   provider: algolia
@@ -173,6 +176,7 @@ defaults:
       include_on_search : true
       show_bottomnavs   : true
       show_comments     : true
+      show_breadcrumb   : true
       og_image: "/assets/img/site/banner-docs.png"
   -
     scope:

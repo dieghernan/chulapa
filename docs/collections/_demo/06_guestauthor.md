@@ -23,12 +23,16 @@ author:
   links:                
     - url: https://github.com/github/
       icon: "fab fa-github"
+      label: GitHub
     - url: https://twitter.com/github
       icon: fab fa-twitter
+      label: Twitter
     - url: https://github.com/facebook
       icon: "fab fa-facebook"
+      label: Facebook
     - url: https://www.linkedin.com
       icon: "fab fa-linkedin"
+      label: LinkedIn
 ---
 This page shows how a contributor could be added to your blog. In this case **Octocat** is telling us about its plans on the next months...
 
@@ -60,11 +64,15 @@ author:
   links:                
     - url: https://github.com/github/
       icon: "fab fa-github"
+      label: GitHub
     - url: https://twitter.com/github
       icon: fab fa-twitter
+      label: Twitter
     - url: https://github.com/facebook
       icon: "fab fa-facebook"
+      label: Facebook
     - url: https://www.linkedin.com
       icon: "fab fa-linkedin"
+      label: LinkedIn
 ---
 ```
