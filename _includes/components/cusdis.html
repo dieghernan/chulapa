@@ -7,7 +7,7 @@
       data-host="{{ site.comments.cusdis_host | default: 'https://cusdis.com' }}"
       data-app-id="{{ site.comments.cusdis_app_id }}"
       data-page-id="{{ include.pageid }}"
-      data-page-url="{{ include.pageurl }}"
+      data-page-url="{{ include.pageurl | absolute_url }}"
       data-page-title="{{ include.pagetitle }}"
       ></div>
       <script async defer src="{{ '/assets/js/cusdis/chulapa_cusdis.js' | absolute_url }}"></script>
