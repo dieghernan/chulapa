@@ -75,6 +75,13 @@ els.forEach(function (currentValue, currentIndex) {
   codeBlock = preBlock.firstChild;
   // If first child is code
   if (codeBlock.tagName.toLowerCase() == "code") {
+    // Add br is no native
+    hashigh = preBlock.classList.contains("highlight");
+    if (hashigh === false){
+      preBlock.classList.add("highlight");
+      brk = d.createElement("br");
+      codeBlock.prepend(brk);
+    }
     // Add id to code block
     codeBlock.setAttribute("id", "clipboard_code" + i);
     // Create button
