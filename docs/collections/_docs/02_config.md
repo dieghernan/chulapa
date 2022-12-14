@@ -44,10 +44,12 @@ author:
   links:                
     - url: https://twitter.com/jack
       icon: "fab fa-twitter"
+      label: "My personal Twitter"
     - url: https://www.facebook.com
       icon: "fab fa-facebook"
     - url: fake@email
       icon: far fa-envelope
+      label: "My personal email"
       ...
 ```
 

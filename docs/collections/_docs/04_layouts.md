@@ -88,6 +88,7 @@ author:
   links:
     - url: https://twitter.com/jack2
       icon: "fab fa-twitter"
+      label: "Twitter"
 ---
 ```
 
