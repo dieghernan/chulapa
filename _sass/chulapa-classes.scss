@@ -1048,10 +1048,17 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 #ch-cusdis {
   background-color: $footer-chulapa-bg-color;
   color: $cusdis-text-color;
+  overflow: hidden;
 
   .bg-blue-500 {
-    @extend .bg-info;
-    color: color-contrast($info, $black, $white);
+      @extend .bg-success;
+      color: color-contrast($success, $black,$white);
+      margin-left: 15vw;
+      margin-right: 15vw;
+      padding: 1rem !important;
+      font-size: $font-size-sm;
+      text-align: center;
+      border-radius: $input-border-radius-lg;
   }
 
   input,
