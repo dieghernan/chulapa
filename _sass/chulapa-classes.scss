@@ -1162,7 +1162,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     }  
   }
 
-  .welcomments__comment .welcomments__comment-message {
+  .welcomments__comment .welcomments__comment-message, .welcomments__email-notice, .welcomments__markdown-notice {
     color: $wlc-text-color;
     font-weight: $font-weight-normal;
     a {
@@ -1212,5 +1212,9 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     font-weight: $headings-font-weight;
     font-family: $headings-font-family;
     @include ch_bcolor($primary, $footer-chulapa-bg-color);
+  }
+  
+  .welcomments__form-group {
+    @extend .form-group;
   }
 }
