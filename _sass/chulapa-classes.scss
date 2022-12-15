@@ -1043,6 +1043,12 @@ h6 {
 
 // Classes for qusdis
 
+@mixin ch_bcolor($color1, $color2, $color3) {
+    @if $color1==$color2 {
+      border-color: $color3;
+  }
+}
+
 $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
 #ch-cusdis {
@@ -1077,6 +1083,7 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
       @extend .btn-primary;
       font-weight: $headings-font-weight;
       font-family: $headings-font-family;
+      @include ch_bcolor($primary, $footer-chulapa-bg-color, $footer-chulapa-text-color);
     }
   }
 
@@ -1214,5 +1221,6 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     @extend .btn-primary;
     font-weight: $headings-font-weight;
     font-family: $headings-font-family;
+    @include ch_bcolor($primary, $footer-chulapa-bg-color, $footer-chulapa-text-color);
   }
 }
