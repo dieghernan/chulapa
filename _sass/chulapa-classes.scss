@@ -1105,11 +1105,13 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   //Reply button
   button {
     &.text-gray-500 {
-      font-family: $font-family-base;
-      font-weight: $font-weight-normal;
-      @extend .btn;
-      @extend .btn-sm;
-      @include button-variant($footer-chulapa-bg-color,$footer-chulapa-text-color);
+      &.text-sm {
+        font-family: $font-family-base;
+        font-weight: $font-weight-normal;
+        @extend .btn;
+        @extend .btn-sm;
+        @include button-variant($footer-chulapa-bg-color,$footer-chulapa-text-color);
+      }
     }
   }
 
