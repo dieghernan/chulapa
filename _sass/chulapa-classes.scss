@@ -1046,6 +1046,7 @@ h6 {
 @mixin ch_bcolor($color1, $color2, $color3) {
     @if $color1==$color2 {
       border-color: $color3;
+      color: $color3;
   }
 }
 
