@@ -1154,15 +1154,17 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     font-weight: $font-weight-bold;
   }
   //Time
-  time {
-    color: $footer-chulapa-text-color;
-    font-weight: $font-weight-normal;
+  .welcomments__comment-time {  
+    @extend time;
+    time {
+      color: $footer-chulapa-text-color;
+      font-weight: $font-weight-normal;
+    }  
   }
 
-  .welcomments__comment-message {
+  .welcomments__comment .welcomments__comment-message {
     color: $wlc-text-color;
     font-weight: $font-weight-normal;
-    font-family: $font-family-base !important;
     a {
       color: $wlc-text-color;
       @include hover-focus() {
