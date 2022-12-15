@@ -18,9 +18,6 @@
 
 .chulapa-footer-brand {
   font-size: $font-size-base * .8;
-  a {
-    text-decoration: underline !important;
-  }
 }
 
 .chulapa-bg-transparent {
@@ -374,13 +371,13 @@
   );
 
   a {
-    color: $footer-chulapa-text-color;
+    color: $footer-chulapa-hover-color;
     text-decoration: none;
-    opacity: .8;
+
     font-weight: $font-weight-bold;
 
     @include hover-focus() {
-      color: $footer-chulapa-hover-color;
+      color: $footer-chulapa-text-color;
     }
   }
 
