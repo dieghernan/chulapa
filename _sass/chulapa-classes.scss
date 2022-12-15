@@ -1043,10 +1043,11 @@ h6 {
 
 // Classes for qusdis
 
-@mixin ch_bcolor($color1, $color2, $color3) {
+@mixin ch_bcolor($color1, $color2) {
     @if $color1==$color2 {
-      border-color: $color3;
-      color: $color3;
+      @extend .btn-secondary;
+  } @else {
+      @extend .btn-primary;
   }
 }
 
@@ -1081,10 +1082,9 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   button {
     &.bg-gray-200 {
       @extend .btn;
-      @extend .btn-primary;
       font-weight: $headings-font-weight;
       font-family: $headings-font-family;
-      @include ch_bcolor($primary, $footer-chulapa-bg-color, $footer-chulapa-text-color);
+      @include ch_bcolor($primary, $footer-chulapa-bg-color);
     }
   }
 
@@ -1219,9 +1219,8 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
   .welcomments__submit-button {
     @extend .btn;
-    @extend .btn-primary;
     font-weight: $headings-font-weight;
     font-family: $headings-font-family;
-    @include ch_bcolor($primary, $footer-chulapa-bg-color, $footer-chulapa-text-color);
+    @include ch_bcolor($primary, $footer-chulapa-bg-color);
   }
 }
