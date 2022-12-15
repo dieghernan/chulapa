@@ -54,8 +54,9 @@ algolia:
     - desc(content)
     - desc(subtitle)
 comments:
-  provider: cusdis
+  provider: welcomments
   cusdis_app_id: "ba6333c9-c7b1-4578-a932-e9ee3e71f120"
+  website_id: "XaFqz82GQETRJnLi7verVsyBS" 
 
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 

@@ -91,7 +91,9 @@
       {%- elsif site.comments.provider == 'cactus' -%}
       {% include components/cactus.html  pageurl=include.pageurl %}
       {%- elsif site.comments.provider == 'cusdis' -%}
-      {% include components/cusdis.html  pageid=include.pageid pageurl=include.pageurl pagetitle = include.pagetitle %}
+      {% include components/cusdis.html   pageid=include.pageid pageurl=include.pageurl pagetitle = include.pagetitle %}
+      {%- elsif site.comments.provider == 'welcomments' -%}
+      {% include components/welcomments.html  %}
       {%- elsif site.comments.provider == 'giscus' -%} 
         <div class="container">
           <div class="row">

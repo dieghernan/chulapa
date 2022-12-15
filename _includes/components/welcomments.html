@@ -1,0 +1,9 @@
+{% if site.comments.website_id %}
+<div class="container-lg">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+    {% include welcomments/comments.html website_id = site.comments.website_id %}
+    </div>
+  </div>
+</div>
+{% endif %}
