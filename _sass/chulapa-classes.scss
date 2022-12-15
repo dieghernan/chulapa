@@ -1146,17 +1146,6 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   text-align: left;
   font-family: $font-family-base;
 
-  p {
-    color: $footer-chulapa-text-color;
-    font-family: $font-family-base;
-    a {
-      color: $footer-chulapa-text-color;
-      @include hover-focus() {
-        color: $footer-chulapa-hover-color;
-      }
-    }
-  }
-
   //Name
   .welcomments__comments-title,
   .welcomments__author-name {
@@ -1171,14 +1160,12 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   }
 
   .welcomments__comment-message {
-    p {
+    color: $wlc-text-color;
+    font-family: $font-family-base !important;
+    a {
       color: $wlc-text-color;
-      font-family: $font-family-base;
-      a {
-        color: $wlc-text-color;
-        @include hover-focus() {
+      @include hover-focus() {
           color: $footer-chulapa-hover-color;
-        }
       }
     }
   }
