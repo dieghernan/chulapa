@@ -1,25 +1,5 @@
-@font-face {
-  font-family: 'Mona Sans';
-  src:
-    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Mona-Sans/Mona-Sans.woff2') format('woff2 supports variations'),
-    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Mona-Sans/Mona-Sans.woff2') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&family=Inter:wght@100..900&family=Inter+Tight:wght@100..900&display=swap');
 
-
-@font-face {
-  font-family: 'Hubot Sans';
-  src:
-    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Hubot-Sans/Hubot-Sans.woff2') format('woff2 supports variations'),
-    url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Hubot-Sans/Hubot-Sans.woff2') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-  font-display: swap;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 // Colors
 
@@ -36,8 +16,8 @@ $body-color: #24292f !default;
 
 // Typography
 
-$headings-font-family: 'Mona Sans', Roboto !default;
-$font-family-base: 'Hubot Sans', Roboto !default;
+$headings-font-family: 'Inter Tight', Roboto !default;
+$font-family-base: 'Inter', Roboto !default;
 $font-family-monospace: 'Roboto Mono', monospace !default;
 $headings-font-weight: 800 !default;
 $text-muted: #6A788A !default;

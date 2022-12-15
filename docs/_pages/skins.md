@@ -18,7 +18,7 @@ Additionally, you can have a preview of the current theme [here](https://diegher
   {%- if post.skin -%}
   <div class="my-2">
   <a href="{{- post.url | absolute_url -}}">
- <img class="w-100 rounded border" src="{{- "./assets/img/skinspreview/" | append: post.skin | append: ".png" | absolute_url  -}}" alt="{{ post.skin }}"></a>
+ <img class="w-100 rounded border" src="{{- "./assets/img/skinspreview/" | append: post.skin | append: ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
  </div>
  {%- endif -%}
 {%- endfor -%}
