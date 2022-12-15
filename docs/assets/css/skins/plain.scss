@@ -1,0 +1,34 @@
+---
+---
+@charset "utf-8";
+// Custom free font: see https://diario.madrid.es/chulapa/
+@font-face {
+  font-family: chulapa;
+  src: url('https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf');
+  font-display: fallback;
+}
+
+ //Theming Bootstrap from config
+
+//Theme
+
+//Theming Bootstrap from config // overrides 
+{% for var in site.chulapa-skin.vars %}
+  {% if var[1] != nil %}
+   ${{ var[0] }}: {{ var[1] }};
+  {% endif %}
+{% endfor%}
+
+
+{% if site.chulapa-skin.autothemer %}
+  // Autothemer: No overrides
+  @import "skins/auto";
+{% endif %}
+
+// Import bootstrap
+@import "bootstrap/bootstrap";
+//B. Chulapa specifics
+@import "chulapa-master";
+{% if site.search.provider == "algolia" %}
+@import "reset-algolia";
+{% endif %}

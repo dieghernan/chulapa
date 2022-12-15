@@ -1107,6 +1107,85 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     border-color: $footer-chulapa-text-color;
   }
 
+// Classes for qusdis
+
+$cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
+
+#ch-cusdis {
+  background-color: $footer-chulapa-bg-color;
+  color: $cusdis-text-color;
+  overflow: hidden;
+
+  .bg-blue-500 {
+    @extend .bg-success;
+    color: color-contrast($success, $black, $white);
+    margin-left: 15vw;
+    margin-right: 15vw;
+    padding: 1rem !important;
+    font-size: $font-size-sm;
+    text-align: center;
+    border-radius: $input-border-radius-lg;
+  }
+
+  input,
+  textarea {
+    &.bg-transparent:focus {
+      background-color: white !important;
+      color: $black !important;
+    }
+
+    @extend .form-control;
+  }
+
+  button {
+    &.bg-gray-200 {
+      @extend .btn;
+      @extend .btn-primary;
+      font-weight: $headings-font-weight;
+      font-family: $headings-font-family;
+    }
+  }
+
+  .border-color-gray-200 {
+    border-color: $cusdis-text-color;
+  }
+
+  // Name
+  .font-medium {
+    color: $footer-chulapa-text-color;
+    font-family: $headings-font-family;
+    font-weight: $font-weight-bold;
+  }
+
+  .text-gray-500 {
+    // Comment
+    color: $cusdis-text-color;
+    &.text-sm {
+      // Time
+      @extend time;
+      color: $footer-chulapa-text-color;
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  // Reply button
+  button {
+    &.text-gray-500 {
+      font-family: $font-family-base;
+      font-weight: $font-weight-normal;
+      @extend .btn;
+      @extend .btn-sm;
+      @include button-variant(
+        $footer-chulapa-bg-color,
+        $footer-chulapa-text-color
+      );
+    }
+  }
+
+  .border-color-gray-200 {
+    border-color: $footer-chulapa-text-color;
+  }
+
   .underline {
     color: $footer-chulapa-text-color;
     text-decoration: none;
@@ -1115,5 +1194,85 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     @include hover-focus() {
       color: $footer-chulapa-hover-color;
     }
+  }
+}
+
+$wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
+
+#welcomments__container {
+  text-align: left;
+
+  p {
+    color: $footer-chulapa-text-color;
+    a {
+      color: $footer-chulapa-text-color;
+      @include hover-focus() {
+        color: $footer-chulapa-hover-color;
+      }
+    }
+  }
+
+  // Name
+  .welcomments__comments-title,
+  .welcomments__author-name {
+    color: $footer-chulapa-text-color;
+    font-family: $headings-font-family;
+    font-weight: $font-weight-bold;
+  }
+  // Time
+  time {
+    color: $footer-chulapa-text-color;
+    font-weight: $font-weight-normal;
+  }
+
+  .welcomments__comment-message {
+    p {
+      color: $wlc-text-color;
+      a {
+        color: $wlc-text-color;
+        @include hover-focus() {
+          color: $footer-chulapa-hover-color;
+        }
+      }
+    }
+  }
+
+  $welc_levs: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+  @each $l in $welc_levs {
+    .welcomments__nesting-level-#{$l} {
+      border-color: $footer-chulapa-text-color;
+    }
+  }
+
+  // Reply button
+  .welcomments__comment-reply-link {
+    @extend .btn;
+    @extend .btn-sm;
+    @include button-variant(
+      $footer-chulapa-bg-color,
+      $footer-chulapa-text-color
+    );
+  }
+
+  input,
+  textarea {
+    @extend .form-control;
+  }
+
+  label {
+    font-size: $font-size-sm;
+    color: $footer-chulapa-text-color;
+    .welcomments__optional-notice {
+      color: $footer-chulapa-text-color;
+      opacity: 0.8;
+    }
+  }
+
+  .welcomments__submit-button {
+    @extend .btn;
+    @extend .btn-primary;
+    font-weight: $headings-font-weight;
+    font-family: $headings-font-family;
   }
 }
