@@ -1134,9 +1134,11 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
 #welcomments__container {
   text-align: left;
+  font-family: $font-family-base;
 
   p {
     color: $footer-chulapa-text-color;
+    font-family: $font-family-base;
     a {
       color: $footer-chulapa-text-color;
       @include hover-focus() {
@@ -1161,6 +1163,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   .welcomments__comment-message {
     p {
       color: $wlc-text-color;
+      font-family: $font-family-base;
       a {
         color: $wlc-text-color;
         @include hover-focus() {
@@ -1180,12 +1183,13 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
   //Reply button
   .welcomments__comment-reply-link {
+    font-family: $font-family-base;
     @extend .btn;
     @extend .btn-sm;
     @include button-variant(
       $footer-chulapa-bg-color,
       $footer-chulapa-text-color
-    );
+    ); 
   }
 
   input,
@@ -1195,6 +1199,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
   label {
     font-size: $font-size-sm;
+    font-family: $font-family-base;
     color: $footer-chulapa-text-color;
     .welcomments__optional-notice {
       color: $footer-chulapa-text-color;
