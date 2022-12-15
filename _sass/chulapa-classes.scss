@@ -1051,14 +1051,14 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   overflow: hidden;
 
   .bg-blue-500 {
-      @extend .bg-success;
-      color: color-contrast($success, $black,$white);
-      margin-left: 15vw;
-      margin-right: 15vw;
-      padding: 1rem !important;
-      font-size: $font-size-sm;
-      text-align: center;
-      border-radius: $input-border-radius-lg;
+    @extend .bg-success;
+    color: color-contrast($success, $black, $white);
+    margin-left: 15vw;
+    margin-right: 15vw;
+    padding: 1rem !important;
+    font-size: $font-size-sm;
+    text-align: center;
+    border-radius: $input-border-radius-lg;
   }
 
   input,
@@ -1107,85 +1107,6 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     border-color: $footer-chulapa-text-color;
   }
 
-// Classes for qusdis
-
-$cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
-
-#ch-cusdis {
-  background-color: $footer-chulapa-bg-color;
-  color: $cusdis-text-color;
-  overflow: hidden;
-
-  .bg-blue-500 {
-    @extend .bg-success;
-    color: color-contrast($success, $black, $white);
-    margin-left: 15vw;
-    margin-right: 15vw;
-    padding: 1rem !important;
-    font-size: $font-size-sm;
-    text-align: center;
-    border-radius: $input-border-radius-lg;
-  }
-
-  input,
-  textarea {
-    &.bg-transparent:focus {
-      background-color: white !important;
-      color: $black !important;
-    }
-
-    @extend .form-control;
-  }
-
-  button {
-    &.bg-gray-200 {
-      @extend .btn;
-      @extend .btn-primary;
-      font-weight: $headings-font-weight;
-      font-family: $headings-font-family;
-    }
-  }
-
-  .border-color-gray-200 {
-    border-color: $cusdis-text-color;
-  }
-
-  // Name
-  .font-medium {
-    color: $footer-chulapa-text-color;
-    font-family: $headings-font-family;
-    font-weight: $font-weight-bold;
-  }
-
-  .text-gray-500 {
-    // Comment
-    color: $cusdis-text-color;
-    &.text-sm {
-      // Time
-      @extend time;
-      color: $footer-chulapa-text-color;
-      font-weight: $font-weight-normal;
-    }
-  }
-
-  // Reply button
-  button {
-    &.text-gray-500 {
-      font-family: $font-family-base;
-      font-weight: $font-weight-normal;
-      @extend .btn;
-      @extend .btn-sm;
-      @include button-variant(
-        $footer-chulapa-bg-color,
-        $footer-chulapa-text-color
-      );
-    }
-  }
-
-  .border-color-gray-200 {
-    border-color: $footer-chulapa-text-color;
-  }
-
   .underline {
     color: $footer-chulapa-text-color;
     text-decoration: none;
@@ -1196,6 +1117,8 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     }
   }
 }
+
+//wellcomments
 
 $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
@@ -1212,14 +1135,14 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     }
   }
 
-  // Name
+  //Name
   .welcomments__comments-title,
   .welcomments__author-name {
     color: $footer-chulapa-text-color;
     font-family: $headings-font-family;
     font-weight: $font-weight-bold;
   }
-  // Time
+  //Time
   time {
     color: $footer-chulapa-text-color;
     font-weight: $font-weight-normal;
@@ -1245,7 +1168,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     }
   }
 
-  // Reply button
+  //Reply button
   .welcomments__comment-reply-link {
     @extend .btn;
     @extend .btn-sm;
