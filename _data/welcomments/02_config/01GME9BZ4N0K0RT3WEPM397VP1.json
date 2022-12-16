@@ -1,0 +1,10 @@
+{
+  "author": {
+    "name": "dieghernan"
+  },
+  "date": "2022-12-16T20:17:49Z",
+  "id": "01GME9BZ4N0K0RT3WEPM397VP1",
+  "message": "Testing code syntax highlighting\n\n```js\n// Javascript code with syntax highlighting.\nvar fun = function lang(l) {\n  dateformat.i18n = require('./lang/' + l)\n  return true;\n}\n```",
+  "message_html": "<p>Testing code syntax highlighting </p><pre><code class=\"js\">// Javascript code with syntax highlighting.\nvar fun = function lang(l) {\n  dateformat.i18n = require(&#39;./lang/&#39; + l)\n  return true;\n}</code></pre>",
+  "replying_to": "01GME95BGP5HDQWAWFXT49FDB5"
+}
