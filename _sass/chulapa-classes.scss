@@ -1219,4 +1219,8 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   .welcomments__form-group {
     @extend .form-group;
   }
+  
+  .btn-chulapa-copy-code {
+    display: none;
+  }
 }
