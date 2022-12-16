@@ -24,7 +24,7 @@
       <div class="welcomments__author-name-and-time">
         <h3 class="welcomments__author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
           {%- if author_website -%}
-          <a href="{{ author_website }}"><span itemprop="name">{{ author_name }}</span></a>
+          <span itemprop="name"><a href="{{ author_website }}">{{ author_name }}</a></span>
           {%- else -%}
           <span itemprop="name">{{ author_name }}</span>
           {%- endif -%}
