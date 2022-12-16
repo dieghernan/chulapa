@@ -2,13 +2,16 @@
 
 ### Added
 -   Add new "Share on Mastodon" button.
--   Add Cactus as new comment provider.
+-   Add more comment providers:
+    - Cactus
+    - Cusdis
+    - Welcomments
 -   New skins:
   - `gitdev` 
   - `gitdev-dark`
   - `towards`
 - New `related` component.
--  Add link to headings via JS.
+- Add link to headings via JS.
 - Implemented `show_sidetoc`.
 
 

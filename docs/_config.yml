@@ -118,7 +118,7 @@ navbar:
       - title: Contribute
         url: /contribute
       - title: Changelog
-        url: /CHANGELOG
+        url: https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md
 footer:
   links:
     - label: "RSS"
