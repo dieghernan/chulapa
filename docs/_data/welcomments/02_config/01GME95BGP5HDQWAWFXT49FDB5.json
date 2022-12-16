@@ -1,0 +1,10 @@
+{
+  "author": {
+    "name": "dieghernan",
+    "website": "https://dieghernan.github.io/"
+  },
+  "date": "2022-12-16T20:14:13Z",
+  "id": "01GME95BGP5HDQWAWFXT49FDB5",
+  "message": "We can use Markdown:\n\nSee **bold** and _italic_.\n\nA list:\n\n* One\n* Two\n\n# A header\n\n## A second header\n\nA [link](https://dieghernan.github.io/chulapa/docs/01-install)\n\nAn image\n\n![](https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg)",
+  "message_html": "<p>We can use Markdown:</p><p>See <strong>bold</strong> and <em>italic</em>.</p><p>A list:</p><ul><li>One</li><li>Two</li></ul><h1>A header</h1><h2>A second header</h2><p>A <a href=\"https://dieghernan.github.io/chulapa/docs/01-install\" rel=\"external nofollow\" target=\"_blank\">link</a></p><p>An image </p><p><img src=\"https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg\" alt=\"\" /></p>"
+}
