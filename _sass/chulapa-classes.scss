@@ -1167,6 +1167,9 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   .welcomments__comment .welcomments__comment-message, .welcomments__email-notice, .welcomments__markdown-notice {
     color: $wlc-text-color;
     font-weight: $font-weight-normal;
+    pre {
+      background-color: $wlc-text-color;
+    }
     a {
       color: $wlc-text-color;
       @include hover-focus() {
@@ -1220,7 +1223,4 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     @extend .form-group;
   }
   
-  .btn-chulapa-copy-code {
-    display: none;
-  }
 }
