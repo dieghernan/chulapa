@@ -180,6 +180,11 @@ defaults:
       show_comments     : true
       show_breadcrumb   : true
       og_image: "/assets/img/site/banner-docs.png"
+      breadcrumb_list   :
+        - label: Home
+          url: /
+        - label: Docs
+          url: /docs
   -
     scope:
       path: ""
