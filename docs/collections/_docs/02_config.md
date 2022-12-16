@@ -31,7 +31,7 @@ For some variables, a default value is provided. This value is shown at the end 
 - `twitter_site`: The twitter username **without @!** of the owner of the site. Useful when sharing on Twitter.
 - `author` of the site:
   - `name` of the author, it will be injected on several parts of your site, as the footer or different `<meta>` tags. **github username** for metadata.
-  - `avatar`:  The avatar of the author, note that your github avatar is available on https://github.com/[USERNAME].png. Square images preferred.
+  - `avatar`:  The avatar of the author, should be a small square image      preferably.
   - `location`: As a nice touch, this would link to Google Maps 😉.
   - `links`: A list of social links. You may set an url and a [Fontawesome 5](https://fontawesome.com/icons?d=gallery) code for each social link. You can also include an email address on this list. 
 
