@@ -23,10 +23,9 @@
     <div class="welcomments__author-information">
       <div class="welcomments__author-name-and-time">
         <h3 class="welcomments__author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          {%- if author_website -%}
-          <span itemprop="name"><a href="{{ author_website }}">{{ author_name }}</a></span>
-          {%- else -%}
           <span itemprop="name">{{ author_name }}</span>
+          {%- if author_website -%}
+          <a href="{{ author_website }}" class="mx-2" title="{{ author_name }} url"><span class="sr-only">{{ author_name }} url</span><i class="fas fa-link fa-xs" aria-hidden="true"></i></a>
           {%- endif -%}
         </h3>
         <p class="welcomments__comment-time">
@@ -45,3 +44,4 @@
     Reply to {{ author_name }}
   </a>
 </article>
+<a href="#gallery-size-of-a-leaflet-map-" class="mx-2" title="Permalink"><span class="sr-only">Permalink</span><i class="fas fa-link fa-xs" aria-hidden="true"></i></a>
