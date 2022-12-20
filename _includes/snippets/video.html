@@ -1,6 +1,6 @@
 {%- if include.fileurl -%}
-<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
-<video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item" controls>
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemprop="VideoObject" itemtype="https://schema.org/VideoObject">
+<video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item" controls itemprop="contentUrl" >
   Your browser does not support the video tag.
 </video>
 </div>
@@ -8,8 +8,8 @@
   {%- if include.nolazy -%}
   <!-- Thanks to Minimal Mistakes -->
   <!-- https://embedresponsively.com/ -->
-  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
-      <iframe loading="lazy" title="Video from YouTube" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" allowfullscreen></iframe>
+  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemprop="VideoObject" itemtype="https://schema.org/VideoObject">
+      <iframe loading="lazy" title="Video from YouTube" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" allowfullscreen itemprop="embedUrl"></iframe>
     
   </div>
   {%- else -%}
@@ -21,15 +21,15 @@
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
 <!-- https://embedresponsively.com/ -->
-<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg">
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemprop="VideoObject" itemtype="https://schema.org/VideoObject">
 {%- if video_provider == "vimeo" -%}
-  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
 {%- elsif video_provider == "google-drive" -%}
-  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen itemprop="embedUrl"></iframe>
 {%- elsif video_provider == "bilibili" -%}
-  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true"></iframe>
+  <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true" itemprop="embedUrl"></iframe>
 {%- elsif video_provider == "dailymotion" -%}
-<iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
 
 {% endif %}
 </div>

@@ -61,6 +61,7 @@ function gen_ytdefer_clk(i) {
         var ifr = d.createElement("div");
         ifr.id = "ch_ytdefer_frame" + i;
         ifr.classList.add("embed-responsive-item");
+        ifr.setAttribute("itemprop", "embedUrl");
         im.appendChild(ifr);
 
         //Remove attributes
