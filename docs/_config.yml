@@ -227,6 +227,7 @@ defaults:
       show_sidetoc      : true
       show_breadcrumb   : true
       show_seo          : false
+      show_applause     : true
       breadcrumb_list   :
         - label: Skins
           url: /skins

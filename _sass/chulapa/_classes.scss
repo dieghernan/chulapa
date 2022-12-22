@@ -1243,11 +1243,8 @@ applause-button {
   }
   
     .count-container {
-      position: absolute;
-      top: -60%;
-      width: 100%;
-      color: $light;
-      user-select: none;
+      top: -60% !important;
+      color: $body-color !important;
     }
   
     &.clap-limit-exceeded div {
@@ -1255,5 +1252,19 @@ applause-button {
       stroke: $light !important;
       color: $light !important;
     }
+}
+
+.chulapa-bg-landingpage {
+  applause-button {
+    div.style-root {
+      fill: $landingpage-chulapa-text-color !important;
+      stroke: $landingpage-chulapa-text-color !important;
+      color: $landingpage-chulapa-text-color !important;
+    }
+    
+    .count-container {
+      color: landingpage-chulapa-text-color !important;
+    }
+  }
 }
 
