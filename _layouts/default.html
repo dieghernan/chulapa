@@ -30,16 +30,9 @@ layout: minimal
 			{% if page.show_applause %} 
 			<div class="mb-2 mt-5 text-center"><applause-button id="applause" class="mx-auto" style="width: 40px; height: 40px;" url="{{ page.url | absolute_url }}"></applause-button></div>
 			{% endif %}
-			  
-
-			
-			
 			</article>
 		</div>
 	</main>
-	{%- if page.show_related -%}
-	  {%- include components/related.html -%}
-	{%- endif -%}
 	{%- if page.show_bottomnavs -%}
 	  {%- include components/navbeforeafter.html -%}
 	{%- endif -%}
@@ -54,4 +47,7 @@ layout: minimal
 		{% if size > 0 %}
 	  {%- include components/tags.html-%}
 	  {% endif %}
+	{%- endif -%}
+	{%- if page.show_related -%}
+	  {%- include components/related.html -%}
 	{%- endif -%}

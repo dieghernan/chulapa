@@ -35,17 +35,11 @@ layout: minimal
 			{% if page.show_applause %} 
 			<div class="mb-2 mt-5 text-center"><applause-button id="applause" class="mx-auto" style="width: 40px; height: 40px;" url="{{ page.url | absolute_url }}"></applause-button></div>
 			{% endif %}
-			
 			</article>
 		</div>
 	</main>
 </div>
 	<div class="chulapa-bg-landingpage">
-	{%- if page.show_related -%}
-	<div class="chulapa-landingpage-related">
-	  {%- include components/related.html -%}
-	  </div>
-	{%- endif -%}
 	{%- if page.show_bottomnavs -%}
 	<div class="chulapa-landingpage-color">
 	  {%- include components/navbeforeafter.html -%}
@@ -68,3 +62,8 @@ layout: minimal
 	{% endif %}
 	{%- endif -%}
 	</div>
+	{%- if page.show_related -%}
+	<div class="chulapa-landingpage-related">
+	  {%- include components/related.html -%}
+	  </div>
+	{%- endif -%}
