@@ -1248,9 +1248,9 @@ applause-button {
     }
   
     &.clap-limit-exceeded div {
-      fill: $light !important;
-      stroke: $light !important;
-      color: $light !important;
+      fill: $info !important;
+      stroke: $info !important;
+      color: $info !important;
     }
 }
 
@@ -1263,7 +1263,7 @@ applause-button {
     }
     
     .count-container {
-      color: landingpage-chulapa-text-color !important;
+      color: $landingpage-chulapa-text-color !important;
     }
   }
 }
