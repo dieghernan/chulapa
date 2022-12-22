@@ -1230,3 +1230,30 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 #disqus_recommendations {
     width: 100%;
 }
+
+
+// For applause button
+
+applause-button {
+  
+  div.style-root {
+    fill: $body-color !important;
+    stroke: $body-color !important;
+    color: $body-color !important;
+  }
+  
+    .count-container {
+      position: absolute;
+      top: -60%;
+      width: 100%;
+      color: $light;
+      user-select: none;
+    }
+  
+    &.clap-limit-exceeded div {
+      fill: $light !important;
+      stroke: $light !important;
+      color: $light !important;
+    }
+}
+

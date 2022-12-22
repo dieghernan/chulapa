@@ -174,11 +174,12 @@ defaults:
       type: "docs"
     values:
       header_type       : "hero"
-      show_sidetoc          : true
+      show_sidetoc      : true
       include_on_search : true
       show_bottomnavs   : true
       show_comments     : true
       show_breadcrumb   : true
+      show_applause     : true
       og_image: "/assets/img/site/banner-docs.png"
       breadcrumb_list   :
         - label: Home

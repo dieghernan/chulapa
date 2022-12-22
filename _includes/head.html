@@ -285,6 +285,11 @@ where_exp: "item", "item.url contains 'http'"
       {% if page.mathjax -%}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
   {%- endif %}
+  
+{%- if page.show_applause %} 
+  <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+  <script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+{% endif -%}
 {%- if site.gtag_id %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
