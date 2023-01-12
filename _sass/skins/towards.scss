@@ -23,7 +23,7 @@ $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 
 $footer-chulapa-bg-color: $black !default;
 $footer-chulapa-text-color: $white !default;
-$footer-chulapa-hover-color: mix($footer-chulapa-text-color, $footer-chulapa-bg-color, 20%) !default;
+$footer-chulapa-hover-color: mix($footer-chulapa-text-color, $footer-chulapa-bg-color, 90%) !default;
 
 $thead-chulapa-bg-color: $white !default;
 
@@ -34,6 +34,11 @@ nav, footer, button, input, label, legend, table, form, aside, header,
 }
 .chulapa-links-hover-only i, .chulapaDateSocial i {
   color: $primary;
+}
+
+label {
+  font-family: $headings-font-family !important;
+  font-weight: $headings-font-weight !important;
 }
 
 .hero-chulapa h1, 
