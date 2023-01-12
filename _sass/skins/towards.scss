@@ -23,7 +23,7 @@ $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 
 $footer-chulapa-bg-color: $black !default;
 $footer-chulapa-text-color: $white !default;
-$footer-chulapa-hover-color: mix($footer-chulapa-text-color, $footer-chulapa-bg-color, 90%) !default;
+$footer-chulapa-hover-color: $primary !default;
 
 $thead-chulapa-bg-color: $white !default;
 
