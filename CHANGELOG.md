@@ -13,6 +13,7 @@
 - New `related` component.
 - Add link to headings via JS.
 - Implemented `show_sidetoc`.
+- Added support for [microformats2](http://microformats.org/wiki/microformats2).
 
 
 ### Changed
