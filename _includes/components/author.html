@@ -9,7 +9,8 @@
   {%- assign location = site.author.location -%}
   {%- assign links =  site.author.links -%}
 {%- endif -%}
-				<div class="row d-flex align-items-center mb-2 h-card">
+               <div class="h-card">
+				<div class="row d-flex align-items-center mb-2">
 				  {%- if avatar -%}
 				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size u-photo">
 					{%- endif -%}
@@ -30,14 +31,15 @@
 							{%- for item in links -%}
 							{%- assign urlslice = item.url | slice: 0,4 -%}
 							{%- if urlslice == "http" -%}
-							<a class="mr-2 mx-lg-1 u-url" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
+							<a class="mr-2 mx-lg-1 u-url" rel="me" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 							{%- elsif item.url contains "@" -%}
 							<a class="mr-2 mx-lg-1 u-email" href="mailto:{{ item.url }}?subject={{ site.title | append: ' web - ' | append: page.title | strip_html | uri_escape  }}" title="{{ item.label | default: 'Email' }}" aria-label="{{ item.label | default: 'Email' }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 							{% else %}
-							<a class="mr-2 mx-lg-1 u-url" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}"><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
+							<a class="mr-2 mx-lg-1 u-url" rel="me" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}"><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 							{%- endif -%}
 							{%- endfor -%}
 						</div>
 						{%- endif -%}
 					</div>
+				</div>
 				</div>
