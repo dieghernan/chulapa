@@ -9,7 +9,7 @@
   {%- assign location = site.author.location -%}
   {%- assign links =  site.author.links -%}
 {%- endif -%}
-               <div class="h-card">
+               <div rel="author" class="h-card p-author">
 				<div class="row d-flex align-items-center mb-2">
 				  {%- if avatar -%}
 				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size u-photo">
