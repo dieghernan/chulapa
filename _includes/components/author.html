@@ -9,11 +9,11 @@
   {%- assign location = site.author.location -%}
   {%- assign links =  site.author.links -%}
 {%- endif -%}
-				<div class="row d-flex align-items-center mb-2">
+				<div class="row d-flex align-items-center mb-2 h-card">
 				  {%- if avatar -%}
-				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size">
+				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size u-photo">
 					{%- endif -%}
-					<div class="col-9 col-lg-12 text-lg-center">
+					<div class="col-9 col-lg-12 text-lg-center p-name">
 						{{ name }}
 					</div>
 				</div>
@@ -21,7 +21,7 @@
 					<div class="col text-lg-center">
 					  {%- if location -%}
 						<address class="d-inline d-lg-block mr-2 mx-lg-auto mb-lg-2 small chulapa-links-hover-only">
-						  <a class="pr-lg-0" href="https://www.google.com/maps/search/?api=1&query={{- location | url_encode | replace: '%20', '+' -}}">
+						  <a class="pr-lg-0 p-region" href="https://www.google.com/maps/search/?api=1&query={{- location | url_encode | replace: '%20', '+' -}}">
 						    <i class="fas fa-map-marker-alt fa-lg mr-1" aria-hidden="true"></i>{{ location }}</a>
 						</address>
 						{%- endif -%}
@@ -30,11 +30,11 @@
 							{%- for item in links -%}
 							{%- assign urlslice = item.url | slice: 0,4 -%}
 							{%- if urlslice == "http" -%}
-							<a class="mr-2 mx-lg-1" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
+							<a class="mr-2 mx-lg-1 u-url" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 							{%- elsif item.url contains "@" -%}
-							<a class="mr-2 mx-lg-1" href="mailto:{{ item.url }}?subject={{ site.title | append: ' web - ' | append: page.title | strip_html | uri_escape  }}" title="{{ item.label | default: 'Email' }}" aria-label="{{ item.label | default: 'Email' }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
+							<a class="mr-2 mx-lg-1 u-email" href="mailto:{{ item.url }}?subject={{ site.title | append: ' web - ' | append: page.title | strip_html | uri_escape  }}" title="{{ item.label | default: 'Email' }}" aria-label="{{ item.label | default: 'Email' }}" ><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 							{% else %}
-							<a class="mr-2 mx-lg-1" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}"><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
+							<a class="mr-2 mx-lg-1 u-url" href="{{ item.url }}" title="{{ item.label | default: item.icon }}" aria-label="{{ item.label | default: item.icon }}"><i class="{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 							{%- endif -%}
 							{%- endfor -%}
 						</div>
