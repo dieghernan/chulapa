@@ -43,13 +43,13 @@
             {% if page.last_modified_at %}
             {%- assign dateformat1 = page.last_modified_at | date_to_string -%}
             {%- assign dateformat2 = page.date | date_to_string -%}
-            <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time> 
+            <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time> 
             <i class="fa fa-redo fa-xs" aria-hidden="true"></i>
             <br>
             <span class="font-weight-light chulapa-text-line-through">{% include_cached snippets/datetranslate.html  date=dateformat2 %}</span>
             {% else %}
             {%- assign dateformat = page.date | date_to_string -%}
-            <time datetime="{{ page.date | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+            <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published" >{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
             {% endif %}
          </div>
       {%- endif -%}

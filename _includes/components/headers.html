@@ -5,10 +5,10 @@
 <header class="d-flex align-items-center splash-chulapa">
   {%- endif -%}
   <div class="container-lg">
-    <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+    <h1 class="p-name" >{{- page.title | default: "Where's your title?" -}}</h1>
     {%- if page.subtitle -%}
     <hr class="my-3">
-    <p class="chulapa-subtitle">{{- page.subtitle -}}</p>
+    <p class="chulapa-subtitle p-summary">{{- page.subtitle -}}</p>
     {%- endif -%}
     {% if include.projects %}
     <div class="btn-group-vertical btn-group-lg mt-5 text-center" role="group">
@@ -27,10 +27,10 @@
 <header class="d-flex align-items-center hero-chulapa">
   {%- endif -%}
   <div class="container-lg py-4">
-    <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+    <h1 class="p-name">{{- page.title | default: "Where's your title?" -}}</h1>
     {%- if page.subtitle -%}
     <hr class="my-3">
-    <p class="chulapa-subtitle">{{- page.subtitle -}}</p>
+    <p class="chulapa-subtitle p-summary">{{- page.subtitle -}}</p>
     {%- endif -%}
         {% if include.projects %}
     <div class="btn-group-vertical btn-group-lg mt-2 text-center" role="group">
@@ -51,9 +51,9 @@
       <div class="container-lg mt-2">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-            <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+            <h1 class="p-name">{{- page.title | default: "Where's your title?" -}}</h1>
             {%- if page.subtitle -%}
-            <p class="lead chulapa-subtitle">{{- page.subtitle -}}</p>
+            <p class="lead chulapa-subtitle p-summary">{{- page.subtitle -}}</p>
             {%- endif -%}
             {% if include.projects %}
     <div class="btn-group btn-group-sm my-1 text-center" role="group">
@@ -77,9 +77,9 @@
       <div class="container-lg mt-2">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-            <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+            <h1 class="p-name">{{- page.title | default: "Where's your title?" -}}</h1>
             {%- if page.subtitle -%}
-            <p class="lead chulapa-subtitle">{{- page.subtitle -}}</p>
+            <p class="lead chulapa-subtitle p-summary">{{- page.subtitle -}}</p>
             {%- endif -%}
             {% if include.projects %}
     <div class="btn-group btn-group-sm my-1 text-center" role="group">
@@ -102,9 +102,9 @@
       <div class="container-lg mt-2">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-            <h1>{{- page.title | default: "Where's your title?" -}}</h1>
+            <h1 class="p-name">{{- page.title | default: "Where's your title?" -}}</h1>
             {%- if page.subtitle -%}
-            <p class="lead chulapa-subtitle">{{- page.subtitle -}}</p>
+            <p class="lead chulapa-subtitle p-summary">{{- page.subtitle -}}</p>
             {%- endif -%}
                         {% if include.projects %}
     <div class="btn-group btn-group-sm my-1 text-center" role="group">
