@@ -7,7 +7,7 @@
       {%- for tag in page.tags %}
       <a href="{{- tag | replace: " ", "-" | prepend: "#" |
                    prepend: page.cloudtag_url |
-                   absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-primary p-category">{{- tag -}}</a>
+                   absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-primary p-category" rel="tag" >{{- tag -}}</a>
       {% endfor -%}
       </div>
     </div>
