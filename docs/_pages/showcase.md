@@ -28,4 +28,4 @@ See below some live examples of <span class="chulapa">Chulapa</span>:
 
 - **[localmap.jp](https://localmap.jp/)** 📍 LocalMap shows what happened in your local areas on Geolonia Maps. Organized by 高田馬場経済新聞, developed by YassLab Inc.
 
-
+- **[Celestial Data](https://dieghernan.github.io/celestial_data/)**, compilation of celestial data geojson objects by [@dieghernan](https://github.com/dieghernan).
