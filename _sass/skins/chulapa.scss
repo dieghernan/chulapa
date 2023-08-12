@@ -49,4 +49,6 @@ $warning: #fffe7a !default;
 $danger: #f13c20 !default;
 $dark: darken($secondary, 10%) !default;
 $navbar-chulapa-toggler-border-color: transparent !default;
+
+/* Use auto */
 @import "skins/auto";

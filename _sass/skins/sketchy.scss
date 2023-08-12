@@ -213,12 +213,12 @@ $border-radius-sm-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
 
     &.fixed-top {
         border-radius: 0 25px 225px 0/25px 0 25px 255px !important;
-        border-width: 0 0 2px 0 !important;
+        border-width: 0 0 2px !important;
     }
 
     &.fixed-bottom {
         border-radius: 255px 25px 0 25px/25px 225px 25px 0 !important;
-        border-width: 2px 0 0 0 !important;
+        border-width: 2px 0 0 !important;
     }
 
     &-brand {

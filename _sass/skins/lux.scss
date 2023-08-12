@@ -176,11 +176,11 @@ $font-size-sm: $font-size-base * .875 !default;
     border: 1px solid rgba(0, 0, 0, 0.1);
 
     &.navbar-fixed-top {
-        border-width: 0 0 1px 0;
+        border-width: 0 0 1px;
     }
 
     &.navbar-bottom-top {
-        border-width: 1px 0 0 0;
+        border-width: 1px 0 0;
     }
 }
 
