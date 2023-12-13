@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v1.0.1.dev -->
+    <!-- Chulapa Jekyll Theme - v1.1.0 -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -255,7 +255,7 @@ where_exp: "item", "item.url contains 'http'"
    <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
 {%- endif %}
     <!-- Preconnect with Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {% for font in site.googlefonts -%}
       {% if font.url -%}
@@ -274,7 +274,7 @@ where_exp: "item", "item.url contains 'http'"
     <!-- Compatibility with FontAwesome 4 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
     {%- endif %}
-    {%- if page.show_applause %} 
+    {%- if page.show_applause %}
   <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
   <script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
 {% endif -%}
@@ -289,7 +289,7 @@ where_exp: "item", "item.url contains 'http'"
       {% if page.mathjax -%}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
   {%- endif %}
-  
+
 {%- if site.gtag_id %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
