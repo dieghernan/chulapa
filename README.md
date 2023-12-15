@@ -39,7 +39,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 -   **Code highlight** - +20 Pygment styles
 -   **Mathjax** inside
 -   **Google Analytics**
--   **Twitter Cards** and **Open Graph** data valid for Facebook, LinkedIn and
+-   **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
     WhatsApp
 -   **14+ preinstalled skins**
 -   **Powerful look-and-feel customization** with a dedicated sandbox

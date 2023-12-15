@@ -1,3 +1,9 @@
+## dev
+
+### Changed
+
+-  Twitter share button renamed to X. Also, the icon has been updated.
+
 ## v1.1.0 - 2023-12-13
 
 ### Added

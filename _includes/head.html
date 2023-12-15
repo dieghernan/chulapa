@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v1.1.0 -->
+    <!-- Chulapa Jekyll Theme - {{ site.data.version.dev }} -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -237,7 +237,7 @@ where_exp: "item", "item.url contains 'http'"
     <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
     <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" >
     <meta property="og:image" content="{{- ogimage -}}" >
-    <!-- Twitter Cards -->
+    <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
     {%- if site.twitter_site %}
     <meta name="twitter:site" content="@{{- site.twitter_site  -}}" >

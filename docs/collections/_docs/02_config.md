@@ -27,8 +27,8 @@ For some variables, a default value is provided. This value is shown at the end 
 
 **Search Engine Optimization** is important (obviously) for any site. Some of the previous options would affect to SEO, however <span class="chulapa">Chulapa</span> has a specific focus on that (check also [our PageSpeed Results](https://dieghernan.github.io/chulapa/pagespeed)):
 
-- `og_image`: The default image to be displayed  when a page of your site is shared on any of the major social networks (Facebook, Twitter, etc.). If `header_img` or `og_image` are set on  the front matter of a page those images would be used instead. **Author avatar (if set, see below) or your Github avatar**.
-- `twitter_site`: The twitter username **without @!** of the owner of the site. Useful when sharing on Twitter.
+- `og_image`: The default image to be displayed  when a page of your site is shared on any of the major social networks (Facebook, Twitter/X, etc.). If `header_img` or `og_image` are set on  the front matter of a page those images would be used instead. **Author avatar (if set, see below) or your Github avatar**.
+- `twitter_site`: The twitter/X username **without @!** of the owner of the site. Useful when sharing on Twitter/X.
 - `author` of the site:
   - `name` of the author, it will be injected on several parts of your site, as the footer or different `<meta>` tags. **github username** for metadata.
   - `avatar`:  The avatar of the author, should be a small square image      preferably.
@@ -42,9 +42,9 @@ author:
   avatar                :      https://github.com/devdhh.png
   location              :      New York, US
   links:                
-    - url: https://twitter.com/jack
+    - url: https://x.com/jack
       icon: "fab fa-twitter"
-      label: "My personal Twitter"
+      label: "My personal Twitter/X"
     - url: https://www.facebook.com
       icon: "fab fa-facebook"
     - url: fake@email
