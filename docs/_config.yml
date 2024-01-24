@@ -54,7 +54,7 @@ algolia:
     - desc(content)
     - desc(subtitle)
 comments:
-  provider: welcomments
+  provider: giscus
   cusdis_app_id: "ba6333c9-c7b1-4578-a932-e9ee3e71f120"
   website_id: "XaFqz82GQETRJnLi7verVsyBS" 
 
