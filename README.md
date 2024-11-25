@@ -124,10 +124,14 @@ You have available an extensive documentation
 ## Performance
 
 [![Performance](https://raw.githubusercontent.com/dieghernan/chulapa/master/github-metrics.svg)](https://pagespeed.web.dev/report?url=https://dieghernan.github.io/chulapa/)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa?ref=badge_shield)
 
 ## License
 
 [The MIT License](https://dieghernan.github.io/chulapa/license)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa?ref=badge_large)
 
 ## Attributions
 
