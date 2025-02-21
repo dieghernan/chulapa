@@ -4,7 +4,7 @@
 
 -  Twitter share button renamed to X. Also, the icon has been updated.
 - Share on Mastodon link replaced by Share on Bluesky.
-- Add Monotone and Minco skins.
+- Add Electro, Monotone and Minco skins.
 
 ## v1.1.0 - 2023-12-13
 
