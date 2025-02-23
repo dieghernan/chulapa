@@ -26,6 +26,10 @@
 	{%- assign name = 'Wandoo' - %}
 	{%- assign author = 'Tophat' - %}
 	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
+{%- elsif site.chulapa-skin.skin == 'mickie' -%}
+	{%- assign name = 'Mickie' - %}
+	{%- assign author = 'Tophat' - %}
+	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
 {%- elsif site.chulapa-skin.skin == 'sketchy' -%}
 	{%- assign name = 'Sketchy' - %}
 	{%- assign author = 'Bootswatch' - %}
@@ -85,15 +89,15 @@
   {%- elsif site.chulapa-skin.skin == 'universal' -%}
   	{%- assign name = 'Universal' - %}
   	{%- assign author = 'Bootstrapious' - %}
-  	{%- assign url = 'https://bootstrapious.com/' - %}	
+  	{%- assign url = 'https://bootstrapious.com/' - %}
   {%- elsif site.chulapa-skin.skin == 'monotone' -%}
   	{%- assign name = 'Monotone' - %}
   	{%- assign author = 'Tophat' - %}
-  	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}	
+  	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
   {%- elsif site.chulapa-skin.skin == 'minco' -%}
   	{%- assign name = 'Minco' - %}
   	{%- assign author = 'Tophat' - %}
-  	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}	
+  	{%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}
   {%- elsif site.chulapa-skin.skin == 'sunset' -%}
   	{%- assign name = 'Sunset' - %}
 	{%- assign author = 'Tophat' - %}
@@ -110,11 +114,11 @@
       {% include components/cusdis.html   pageid=include.pageid pageurl=include.pageurl pagetitle = include.pagetitle %}
       {%- elsif site.comments.provider == 'welcomments' -%}
       {% include components/welcomments.html  %}
-      {%- elsif site.comments.provider == 'giscus' -%} 
+      {%- elsif site.comments.provider == 'giscus' -%}
         <div class="container">
           <div class="row">
             <div class="col-lg-8 offset-lg-2">
-         {% include custom/giscus.html %}  
+         {% include custom/giscus.html %}
             </div>
          </div>
        </div>
@@ -128,12 +132,12 @@
             {%- for social in site.footer.links  -%}
             {%- assign urlslice = social.url | slice: 0,4 -%}
             {%- if urlslice == "http" -%}
-             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">                         
+             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
             {%- elsif social.url contains "@" -%}
-            <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | uri_escape }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead"> 
+            <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | uri_escape }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
             {%- else -%}
-             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">                 
-            {%- endif -%}	
+             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
+            {%- endif -%}
               <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="{{ social.icon }} fa-stack-1x fa-inverse"></i>
@@ -144,13 +148,13 @@
           {%- endif -%}
           <p class="mt-2 mb-3">
           {%- if site.footer.copyright -%}
-          
+
             {{ site.footer.copyright }}
-          
+
           {%- else -%}
-          
+
             &copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}
-            
+
            {%- endif -%}
             </p>
           <!-- Do not remove this in order to give  attributions -->
