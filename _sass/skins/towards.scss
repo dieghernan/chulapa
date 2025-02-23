@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-$font-family-base: "Work Sans", sans-serif; 
+$font-family-base: "Work Sans", sans-serif;
 $headings-font-family: $font-family-base;
 $headings-font-weight:  bold;
 
@@ -11,3 +11,11 @@ $success:   #00d084;
 $info:  #8ed1fc;
 $warning:     #fcb900;
 $danger:      #cf2e2e;
+
+.hero-chulapa h1,
+.hero-chulapa-image h1,
+.splash-chulapa h1,
+.splash-chulapa-image h1 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight !important;
+}
