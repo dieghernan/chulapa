@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+$font-family-base: 'Source Serif', Georgia, Cambria, 'Times New Roman', Times, serif !default; 
+$headings-font-family: 'Mona Sans', "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$headings-font-weight: 900 !default;
+$input-btn-font-family:$headings-font-family !default;
+$font-family-monospace: Inconsolata, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+
+
+$primary: #242424 !default;
+$black: #242424 !default;
+$white: #ffffff !default;
+$secondary: $black !default;
+$text-muted:#757575 !default;
+$success: #1a8917 !default;
+$warning: #FFC017 !default;
+$danger: #cc5454 !default;
+$info: rgba(0, 0, 0, .54) !default;
+$link-color: #0000008a;
+
+
+$navbar-chulapa-bg-color: $white !default;
+$navbar-chulapa-toggler-border-color: transparent !default;
+$navbar-chulapa-text-color: $text-muted !default;
+$navbar-chulapa-hover-color:  #A8A8A8 !default;
+$navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
+
+$footer-chulapa-bg-color: $black !default;
+$footer-chulapa-text-color: $white !default;
+$footer-chulapa-hover-color: $primary !default;
+
+$thead-chulapa-bg-color: $white !default;
+
+nav, footer, button, input, label, legend, table, form, aside, header,
+.nav, .card-header, .badge, .pagination, .breadcrumb, .chulapa-toc-wrapper, .chulapaDateSocial,
+.footnotes, #markdown-toc {
+    font-family: $headings-font-family;
+}
+.chulapa-links-hover-only i, .chulapaDateSocial i {
+  color: $primary;
+}
+
+label {
+  font-family: $headings-font-family !important;
+  font-weight: $headings-font-weight !important;
+}
+
+.hero-chulapa h1, 
+.hero-chulapa-image h1, 
+.splash-chulapa h1, 
+.splash-chulapa-image h1 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight !important;
+}
