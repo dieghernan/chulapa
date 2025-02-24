@@ -202,9 +202,9 @@ layout: cloudcategory
 ---
 ```
 
-##### Jekyll > 4.1.0
+##### Jekyll >= 4.1.0
 
-Pre-requisite: Create a folder `_plugins` in your root (same level as `_data`, `_includes`, etc.) and copy this file: <https://github.com/dieghernan/chulapa-jekyll4/blob/main/_plugins/grouptag.rb>.
+Pre-requisite: Create a folder `_plugins` in your root (same level as `_data`, `_includes`, etc.) and copy this file: <https://github.com/dieghernan/chulapa/blob/master/_plugins/grouptag.rb>.
 
 Now use
 
