@@ -37,8 +37,9 @@ Just follow these steps:
 <div class="alert alert-warning p-3 mx-2" markdown="1">
 **Don't forget to deploy your site:**
 
--   On your Github repo, go to *Setting \> Github Pages* and publish your site.
--   Add your content.
+-   On your Github repo, go to *Setting \> Github Pages*..
+-   Select *Source \> Github Actions* and set the corresponding action. See an example in <https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml>
+
 </div>
 
 By using `jekyll-remote-theme` your repo would have remote access to the content of these folders:

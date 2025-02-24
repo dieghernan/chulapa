@@ -1,5 +1,5 @@
 ---
-layout: cloudcategory
+layout: cloudcategory2
 title: Navigate categories
 subtitle: 'Categories from <code>demo</code> collection only'
 header_type: hero
@@ -20,7 +20,7 @@ See the [Cloud Tag demo](https://dieghernan.github.io/chulapa/demo/tags) as an e
 The front matter of this page:
 
 ```yaml
-layout: cloudcategory
+layout: cloudcategory2
 title: Navigate categories
 subtitle: 'Categories from <code>demo</code> collection only'
 header_type: hero

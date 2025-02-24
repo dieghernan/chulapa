@@ -261,7 +261,7 @@ plugins:
   - jekyll-paginate
   - jekyll-include-cache
   - jekyll-sitemap
-  - jekyll-redirect-from
+  - jekyll-remote-theme
 exclude:
   - LICENSE
   - README.md

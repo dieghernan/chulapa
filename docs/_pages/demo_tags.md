@@ -1,5 +1,5 @@
 ---
-layout: cloudtag
+layout: cloudtag2
 title: Navigate the tags
 subtitle: 'Tags from <code>demo</code> and <code>skins</code> collections'
 header_type: hero
@@ -46,7 +46,7 @@ The front matter of this page:
 
 ```yaml
 ---
-layout: cloudtag
+layout: cloudtag2
 title: Navigate the tags
 subtitle: 'Tags from <code>demo</code> collection only'
 header_type: hero

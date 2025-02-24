@@ -3,13 +3,13 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Pages
+# Based on https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
+name: Deploy Chulapa Jekyll site to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["master","main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to work out-of-the-box with jekyll-github-metadata
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,15 +42,15 @@ jobs:
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          working-directory: 'docs'
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+          cache-version: 1 # Increment this number if you need to re-download cached gems
+          working-directory: 'docs' # Omit when site is in the root folder
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: |
-          cd  docs
+          cd  docs # Omit when site is in the root folder
           bundle exec jekyll build --incremental --baseurl "${{ steps.pages.outputs.base_path }}"
         shell: bash
         env:
@@ -59,7 +59,7 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/_site/
+          path: docs/_site/ # Omit when site is in the root folder
 
   # Deployment job
   deploy:

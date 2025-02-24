@@ -20,6 +20,7 @@ For some variables, a default value is provided. This value is shown at the end 
 - `title`, `title_separator` and `subtitle`: Set several `<meta>` tags and defines the text to be displayed on top of the browsers. **repository_name \| project_tagline**.
 - `description`:  Brief description of your site. **project_tagline**.
 - `url` and `baseurl`: If you are deploying on Github just ignore these pesky two. You may (or may not) want to read [Clearing Up Confusion Around baseurl -- Again](https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/) by Parker Moore (Jekyll).
+- `repository`: Set as the slug of your repo on Github (e.g. `dieghernan/chulapa`). **This value is unset and must be provided by the user**-
 - `words_per_minute`: Used for computing the reading time of the page. **200**.
 - `timezone`: Used for setting the timezone of your dates and hours. See [Jekyll Docs](https://jekyllrb.com/docs/configuration/options).
 
