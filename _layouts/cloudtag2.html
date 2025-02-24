@@ -25,22 +25,29 @@ layout: default
 
 
 {% assign alldocs = alldocs | sort: 'date' | reverse %}
-{% assign grouptag = alldocs | map: 'tags' |  join: ','  | split: ',' | uniq | sort %}
-
+{% assign tag_count = alldocs | map: 'tags' | count_by_item %}
+{%- for tag in tag_count -%}
+  {%- if forloop.first -%}
+    {%- assign sizemax = tag[1] -%}
+  {%- elsif forloop.last -%}
+    {% assign mid = tag[1] | plus: sizemax | divided_by: 2  %}
+  {%- endif -%}
+{%- endfor -%}
 
 <div class="row g-0 pt-5" id="tags">
 <div class="col">
-	{%- for tag in grouptag -%}
-	<a href="#{{- tag | replace: " ", "-" -}}" class="btn btn-primary m-1" role="button" ><i class="fa fa-tag mr-2" aria-hidden="true"></i>{{- tag -}}</a>
+	{%- for tag in tag_count -%}
+	<a href="#{{- tag[0] | replace: " ", "-" -}}" class="btn btn-primary m-1" role="button" style="font-size: min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ tag[1] }}rem - {{ mid }}rem))));"><i class="fa fa-tag mr-2" aria-hidden="true"></i>{{- tag[0] -}}<span class="badge rounded-pill chulapa-pill-bg-primary ml-2">{{tag[1]}}</span></a>
 	{%- endfor -%}
 	</div>
 </div>
 
 {% assign words_per_minute = site.words_per_minute | default: 200 %}
-{% for tag in grouptag %}
-<section id="{{- tag | replace: " ", "-" -}}" class="py-3 chulapa-cloudtag">
+{% for tag in tag_count %}
+<section id="{{- tag[0] | replace: " ", "-" -}}" class="py-3 chulapa-cloudtag">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
-  <h5 class="my-0"><i class="fa fa-tag mr-1" aria-hidden="true"></i>{{- tag -}} </h5>
+  <h5 class="my-0"><i class="fa fa-tag mr-1" aria-hidden="true"></i>{{- tag[0] -}} </h5>
+  <div class="badge rounded-pill chulapa-pill-bg-primary ml-2">{{tag[1]}}</div>
 </div>
   {% for document in alldocs %}
   {% assign words = document.content | strip_html | number_of_words %}
@@ -48,7 +55,7 @@ layout: default
   {% if words > words_per_minute %}
   {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
   {% endif %}
-	{% if document.tags contains tag %}
+	{% if document.tags contains tag[0] %}
   <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
     <div class="col">
       <h6><a href="{{ document.url | absolute_url }}">{{ document.title }}</a></h6>

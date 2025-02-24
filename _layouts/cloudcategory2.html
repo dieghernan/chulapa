@@ -25,21 +25,32 @@ layout: default
 {% endif %}
 
 {% assign alldocs = alldocs | sort: 'date' | reverse %}
-{% assign groupcategory = alldocs | map: 'categories' |  join: ','  | split: ',' | uniq | sort %}
+{% assign cat_count = alldocs | map: 'categories' | count_by_item %}
+
+
+{%- for category in cat_count -%}
+  {%- if forloop.first -%}
+    {%- assign sizemax = category[1] -%}
+  {%- elsif forloop.last -%}
+    {% assign mid = category[1] | plus: sizemax | divided_by: 2  %}
+  {%- endif -%}
+{%- endfor -%}
+
 
 <div class="row g-0 pt-5" id="categories">
 <div class="col">
-	{%- for category in groupcategory -%}
-	<a href="#{{- category | replace: " ", "-" -}}" class="btn btn-secondary m-1" role="button" ><i class="far fa-folder-open mr-2" aria-hidden="true"></i>{{- category -}}</a>
+	{%- for category in cat_count -%}
+	<a href="#{{- category[0] | replace: " ", "-" -}}" class="btn btn-secondary m-1" role="button" style="font-size:  min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ category[1] }}rem - {{ mid }}rem))));"><i class="far fa-folder-open mr-2" aria-hidden="true"></i>{{- category[0] -}}<span class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{category[1]}}</span></a>
 	{%- endfor -%}
 	</div>
 </div>
 
 {% assign words_per_minute = site.words_per_minute | default: 200 %}
-{% for category in groupcategory %}
-<section id="{{- category | replace: " ", "-" -}}" class="py-3 chulapa-cloudcategory">
+{% for category in cat_count %}
+<section id="{{- category[0] | replace: " ", "-" -}}" class="py-3 chulapa-cloudcategory">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
-  <h5 class="my-0"><i class="far fa-folder-open mr-1" aria-hidden="true"></i>{{- category -}} </h5>
+  <h5 class="my-0"><i class="far fa-folder-open mr-1" aria-hidden="true"></i>{{- category[0] -}} </h5>
+  <div class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{category[1]}}</div>
 </div>
   {% for document in alldocs %}
   {% assign words = document.content | strip_html | number_of_words %}
@@ -47,7 +58,7 @@ layout: default
   {% if words > words_per_minute %}
   {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
   {% endif %}
-	{% if document.categories contains category %}
+	{% if document.categories contains category[0] %}
   <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
     <div class="col">
       <h6><a href="{{ document.url | absolute_url }}" class="p-name u-url">{{ document.title }}</a></h6>
