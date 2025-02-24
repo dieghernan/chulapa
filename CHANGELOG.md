@@ -1,12 +1,21 @@
 ## dev
 
-### Changed
+### Added
 
--   New versions of cloudtag and cloudcategory layout compatible with Jekyll >= 4.1.0.
+-   New versions of `cloudtag` and `cloudcategory` (`cloudtag2` and `cloudcategory2`) layouts compatible with Jekyll >= 4.1.0.
+-   New skins:
+    - `focal`
+    - `media`
+    - `electro`
+    - `monotone`
+    - `mickie`.
+    - `skeeblu`
+    - `minco`
+
+### Changed
 -   Twitter share button renamed to X. Also, the icon has been updated.
 -   Share on Mastodon link replaced by Share on Bluesky.
--   Add Focal, Media, Electro, Monotone, Mickie, Skeeblu and Minco skins.
--   Update Towards skin.
+-   Update `towards` skin.
 
 ## v1.1.0 - 2023-12-13
 
