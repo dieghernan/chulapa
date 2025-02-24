@@ -25,7 +25,7 @@ layout: default
 
 
 {% assign alldocs = alldocs | sort: 'date' | reverse %}
-{% assign grouptag = alldocs | map: 'tags' | count_by_item: tag %}
+{% assign grouptag = alldocs | map: 'tags' | count_by_item %}
 {%- for tag in grouptag -%}
   {%- if forloop.first -%}
     {%- assign sizemax = tag[1] -%}

@@ -18,3 +18,4 @@ jobs:
         with:
           APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
           jekyll_src: docs
+          ruby-version: '3.1'
