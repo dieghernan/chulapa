@@ -4,10 +4,11 @@
 
 # XX. Installing Chulapa
 
-# With remote theme
+# Choose between:
+# a. With remote theme
 remote_theme: dieghernan/chulapa
 
-# With gem based method do this instead
+# b. With gem based method
 # theme: chulapa-jekyll
 # And at this to your Gemfile
 # gem install 'chulapa-jekyll'
@@ -23,6 +24,7 @@ subtitle                :     #default [your-repository-tagline]
 description             :     #default [your-repository-tagline]
 url                     :     #See baseurl - On Github Pages you may leave it blank - If you use CNAME use your domain
 baseurl                 :     #On Github Pages you may leave it blank. Have a look to: https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
+repository              :     # Needs to be set (e.g. dieghernan/chulapa)
 words_per_minute        :     #default[200]
 timezone                :     #"Europe/Madrid ,see https://jekyllrb.com/docs/configuration/options/ and https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -223,6 +225,7 @@ plugins:
   - jekyll-paginate
   - jekyll-include-cache
   - jekyll-sitemap
+  - jekyll-remote-theme
 
 # Exclude these files from production site
 exclude:

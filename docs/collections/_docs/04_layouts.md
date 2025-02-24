@@ -185,15 +185,18 @@ There are two layouts you can use to create clouds of tags and categories:
 
 ```yaml
 ---
-layout: cloudtag
+layout: cloudtag2 (or cloudtag, see Note)
 ---
 
 OR
 
 ---
-layout: cloudcategory
+layout: cloudcategory2 (or cloudcategory, see Note)
 ---
 ```
+
+**For Jekyll >= 4.1.0** you should use `cloudtag2/cloudcategory2`, as the previous `cloudtag/cloudcategory` were leveraging on a Jekyll bug that was fixed starting on that version. More details in [chulapa/issues/29](https://github.com/dieghernan/chulapa/issues/29).
+{: .alert .alert-danger .p-3 .mx-2}
 
 For setting up the clouds you may perform two steps:
 
@@ -220,7 +223,7 @@ The front matter of your cloud page:
 
 ```yaml
 ---
-layout: cloudtag #OR cloudcategory
+layout: cloudtag2 #OR cloudcategory2. cloudtag/cloudcategory are not supported any more
 permalink: [URL_CLOUDTAG] # OR [URL_CLOUDCATEGORY]
 include_collection: [NAME OF YOUR COLLECTION]
 ---
