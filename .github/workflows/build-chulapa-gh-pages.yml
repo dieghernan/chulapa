@@ -51,7 +51,7 @@ jobs:
         # Outputs to the './_site' directory by default
         run: |
           cd  docs # Omit when site is in the root folder
-          bundle exec jekyll build --incremental --baseurl "${{ steps.pages.outputs.base_path }}"
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         shell: bash
         env:
           JEKYLL_ENV: production
