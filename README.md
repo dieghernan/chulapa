@@ -3,9 +3,9 @@ preview](https://dieghernan.github.io/chulapa/assets/img/site/banner.png "live p
 
 ![GitHub release (latest by
 date)](https://img.shields.io/github/v/release/dieghernan/chulapa) [![Gem
-Version](https://badge.fury.io/rb/chulapa-jekyll.svg)](https://rubygems.org/gems/chulapa-jekyll)
+Version](https://img.shields.io/gem/v/chulapa-jekyll?color=success)
 ![GitHub](https://img.shields.io/github/license/dieghernan/chulapa)
-![Jekyll](https://img.shields.io/badge/jekyll-3.8.7-blue)
+![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.8.7-blue)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-4.5.0-blue)
 ![Fontawesome](https://img.shields.io/badge/fontawesome-6.x-blue)
 ![Algolia](https://img.shields.io/badge/algolia-4.x-blue)
@@ -121,17 +121,9 @@ To update the theme run `bundle update`.
 You have available an extensive documentation
 [here](https://dieghernan.github.io/chulapa/docs/01-install)
 
-## Performance
-
-[![Performance](https://raw.githubusercontent.com/dieghernan/chulapa/master/github-metrics.svg)](https://pagespeed.web.dev/report?url=https://dieghernan.github.io/chulapa/)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa?ref=badge_shield)
-
 ## License
 
 [The MIT License](https://dieghernan.github.io/chulapa/license)
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdieghernan%2Fchulapa?ref=badge_large)
 
 ## Attributions
 
