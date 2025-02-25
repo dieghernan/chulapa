@@ -1,4 +1,4 @@
-## dev
+## v2.0.0 - 2025-02-24
 
 ### Added
 
@@ -16,6 +16,10 @@
 -   Twitter share button renamed to X. Also, the icon has been updated.
 -   Share on Mastodon link replaced by Share on Bluesky.
 -   Update `towards` skin.
+
+-   [x] Bump version on `head`
+-   [x] Bump version on docs
+-   [ ] Bump version on `chulapa-101` remote theme
 
 ## v1.1.0 - 2023-12-13
 

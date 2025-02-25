@@ -2,6 +2,9 @@
 
 # Chulapa docs: https://dieghernan.github.io/chulapa/docs/02-config
 
+# Leave this
+github: [metadata]
+
 # XX. Installing Chulapa
 
 # Choose between:

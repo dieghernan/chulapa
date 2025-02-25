@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "chulapa-jekyll"
-  spec.version       = "1.1.0"
+  spec.version       = "2.0.0"
   spec.authors       = ["Diego H."]
   spec.email         = ["diego.hernangomezherrero@gmail.com"]
 
@@ -19,5 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-paginate", "~> 1.1"
   spec.add_runtime_dependency "jekyll-include-cache", "~> 0.1"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.3"
-
+  spec.add_runtime_dependency "jekyll-github-metadata", "~> 2.13"
+  spec.add_runtime_dependency "kramdown-parser-gfm", "~> 1.1"
+  
 end
