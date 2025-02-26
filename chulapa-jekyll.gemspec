@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "chulapa-jekyll"
-  spec.version       = "2.0.0"
+  spec.version       = "2.0.1"
   spec.authors       = ["Diego H."]
   spec.email         = ["diego.hernangomezherrero@gmail.com"]
 

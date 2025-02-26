@@ -181,14 +181,7 @@ layout: archive
 
 #### Cloud tags and categories
 
-There are two layouts you can use to create clouds of tags and categories.
-
-**Jekyll >= 4.1.0** introduced a breaking change on this feature, so setup differs depending on the version you use. More details in [chulapa/issues/29](https://github.com/dieghernan/chulapa/issues/29).
-{: .alert .alert-danger .p-3 .mx-2}
-
-##### Jekyll < 4.1.0
-
-Just use
+There are two layouts you can use to create clouds of tags and categories:
 
 ```yaml
 ---
@@ -202,29 +195,10 @@ layout: cloudcategory
 ---
 ```
 
-##### Jekyll >= 4.1.0
-
-Pre-requisite: Create a folder `_plugins` in your root (same level as `_data`, `_includes`, etc.) and copy this file: <https://github.com/dieghernan/chulapa/blob/master/_plugins/grouptag.rb>.
-
-Now use
-
-```yaml
----
-layout: cloudtag2
----
-
-OR
-
----
-layout: cloudcategory2
----
-```
-
-##### Global Setup
 
 For setting up the clouds you may perform two steps:
 
-**1. Set the url were the tag cloud would be host**
+**1. Set the url were the tag cloud would be hosted**
 
 This could be easily done on your `_config` file via [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/). This example would show how to set this for a specific collection [NAME OF YOUR COLLECTION]:
 
