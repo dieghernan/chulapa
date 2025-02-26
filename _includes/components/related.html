@@ -1,3 +1,4 @@
+<!-- Compatible with Jekyll v3 and v4, pure Jekyll group by -->
 
 {%- if page.tags -%}
 {%- assign alldocs = site.documents |  where_exp: "item", "item.url != page.url"  -%}
@@ -15,19 +16,50 @@
   {%- endif -%}
 {%- endfor -%}
 
+
 {%- assign thiscol = alldocs | where_exp: "item", "item.collection == page.collection"   | map: 'id' | join: ','  | split: ',' -%}
 
-{%- assign groupurl =  relateddocs | concat: thiscol | group_by: id | sort: 'size' | reverse  -%}
 
-{% assign groupurl = groupurl | where_exp: "item", "item.size > 2"  -%}
+{%- assign alltags =  relateddocs | concat: thiscol   -%}
+{%- assign single_tags =  alltags | uniq  -%}
+{% assign count_tags = '' | split: ',' %}
+{% assign n_tags = single_tags | size |  minus: 1 %}
+
+{%- for i in (0..n_tags) %}
+  {% assign count_this_tag = alltags | where_exp:"item", "item == single_tags[i]" | size %}
+  {% assign count_tags = count_tags | push: count_this_tag %}
+{%- endfor -%}
+
+{% assign items_max = count_tags | sort | last %}
+{% assign sorted_tags = '' | split: ',' %}
+{% assign sorted_count_tags = '' | split: ',' %}
 
 
-{% for id in groupurl limit:3 %}
+{% for i in (1..items_max) reversed %}
+  {% for j in (0..n_tags) %}
+    {% if count_tags[j] == i %}
+     {% assign sorted_tags = sorted_tags | push: single_tags[j] %}
+     {% assign sorted_count_tags = sorted_count_tags | push: i %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% assign sorted_tags= sorted_tags | uniq %}
+
+{% assign gtop = '' | split: ',' %}
+
+{%- for i in (0..n_tags) %}
+  {%- if sorted_count_tags[i] > 2 -%}
+    {% assign gtop = gtop | push: sorted_tags[i] %}
+  {%- endif -%}
+{%- endfor -%}
+
+{% for id in gtop limit:3 %}
   {%- if forloop.first -%}
-  {% assign reldoc = alldocs | where_exp: "item", "item.id == id.name" %}
+  {% assign reldoc = alldocs | where_exp: "item", "item.id == id" %}
   {%- else -%}
   {%- assign relloop = alldocs | 
-                    where_exp: "item", "item.id == id.name" -%}
+                    where_exp: "item", "item.id == id" -%}
   {% assign reldoc = reldoc | concat: relloop %}
   {% endif %}
 {% endfor %}

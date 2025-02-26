@@ -1,3 +1,11 @@
+## dev
+
+### Changed
+
+- Issue with `group_by` fixed with pure Liquid approach (compatible with Jekyll 3 & 4). This affects to `related` plug-in
+  and `cloudtag` and `cloudcategory`. Now `cloudtag2` and `cloudcategory2` approaches are not recommended any more and will
+  redirect to `cloudtag` and `cloudcategory`. **Plugin `grouptag.rb` not required any more**.
+
 ## v2.0.0 - 2025-02-24
 
 ### Added
