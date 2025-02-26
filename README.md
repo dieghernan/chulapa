@@ -2,7 +2,8 @@
 preview](https://dieghernan.github.io/chulapa/assets/img/site/banner.png "live preview")](https://dieghernan.github.io/chulapa/)
 
 ![GitHub release (latest by
-date)](https://img.shields.io/github/v/release/dieghernan/chulapa) [![Gem
+date)](https://img.shields.io/github/v/release/dieghernan/chulapa) 
+![Gem
 Version](https://img.shields.io/gem/v/chulapa-jekyll?color=success)
 ![GitHub](https://img.shields.io/github/license/dieghernan/chulapa)
 ![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.8.7-blue)
