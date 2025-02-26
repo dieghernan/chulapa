@@ -34,5 +34,10 @@ jobs:
         # Jekyll Profile
         echo "::group::Jekyll Profile"
         bundle exec jekyll build --incremental --profile >> $GITHUB_STEP_SUMMARY
+        # Nice formatting
+        sed -i 's/+-/|/g' $GITHUB_STEP_SUMMARY
+                sed -i 's/-+/|/g' $GITHUB_STEP_SUMMARY
+        sed -i 's/Build Process Summary/## Build Process Summary/g' $GITHUB_STEP_SUMMARY
+        sed -i 's/Site Render Stats/## Site Render Stats/g' $GITHUB_STEP_SUMMARY
         echo "::endgroup::"
       shell: bash
