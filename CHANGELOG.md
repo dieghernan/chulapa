@@ -1,3 +1,7 @@
+## dev
+
+. Fix a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section is not rendered, possible collusion with keyword.
+
 ## v2.0.1 - 2025-02-26
 
 # HOTFIX

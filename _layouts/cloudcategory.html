@@ -58,14 +58,14 @@ layout: default
 <div class="row g-0 pt-5" id="categories">
 <div class="col">
 	{%- for i in (0..n_tags)-%}
-	<a href="#{{-  sorted_tags[i] | replace: " ", "-" -}}" class="btn btn-secondary m-1" role="button" style="font-size:  min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{  sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="far fa-folder-open mr-2" aria-hidden="true"></i>{{-  sorted_tags[i] -}}<span class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{ sorted_count_tags[i]}}</span></a>
+	<a href="#{{-  sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="btn btn-secondary m-1" role="button" style="font-size:  min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{  sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="far fa-folder-open mr-2" aria-hidden="true"></i>{{-  sorted_tags[i] -}}<span class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{ sorted_count_tags[i]}}</span></a>
 	{%- endfor -%}
 	</div>
 </div>
 
 {% assign words_per_minute = site.words_per_minute | default: 200 %}
 {% for i in (0..n_tags) %}
-<section id="{{-  sorted_tags[i] | replace: " ", "-" -}}" class="py-3 chulapa-cloudcategory">
+<section id="{{-  sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="py-3 chulapa-cloudcategory">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
   <h5 class="my-0"><i class="far fa-folder-open mr-1" aria-hidden="true"></i>{{-  sorted_tags[i] -}} </h5>
   <div class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{ sorted_count_tags[i]}}</div>
