@@ -46,7 +46,7 @@ The front matter of this page:
 
 ```yaml
 ---
-layout: cloudtag2
+layout: cloudtag
 title: Navigate the tags
 subtitle: 'Tags from <code>demo</code> collection only'
 header_type: hero
@@ -61,7 +61,6 @@ breadcrumb_list:
 
 ```
 
-`layout: cloudtag` may also work if you are using Jekyll < 4.10.
 
 The tag cloud should be generated right after this line:
 
