@@ -27,7 +27,7 @@ $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 
 $footer-chulapa-bg-color: $black !default;
 $footer-chulapa-text-color: $white !default;
-$footer-chulapa-hover-color: $primary !default;
+$footer-chulapa-hover-color: #ffffff8a !default;
 
 $thead-chulapa-bg-color: $white !default;
 
@@ -59,9 +59,4 @@ a:not([class]){
 
 .chulapa-toc-reset a {
     text-decoration: none;
-}
-
-.chulapa-footer-brand a {
-  text-decoration: none;
-  color: #ffffff8a;
 }
