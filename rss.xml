@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>Chulapa | A full flexible Jekyll theme</title>
+		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
+		<link>https://dieghernan.github.io/chulapa</link>
+		<description>Template for creating free sites on Github Pages</description>
+		<language>en-US</language>
+		<copyright>(c) 2025, dieghernan</copyright>	
+		<pubDate>Fri, 28 Feb 2025 21:17:37 +0100</pubDate>
+		<lastBuildDate>Fri, 28 Feb 2025 21:17:37 +0100</lastBuildDate>
+		<category>blog</category>
+		<ttl>60</ttl>
+		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
+		<image>
+			<title>Chulapa | A full flexible Jekyll theme</title>
+			<url>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</url>
+			<link>https://dieghernan.github.io/chulapa</link>
+			<description>Template for creating free sites on Github Pages</description>
+		</image><item>
+			<title>Welcome</title>
+			<description>
+				<![CDATA[	
+ 				
+    		<p>1 min.</p>
+				<div><p>Welcome to <span class="chulapa">Chulapa</span>. This is another Jekyll theme that you can use for creating your site.</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>In the last couple of years I created some tiny websites using Github Pages. However, I was not very happy with some of the thousands of Jekyll themes available, since I didn’t find anyone that ticked all the marks:</p>
+
+<ul>
+  <li>Easy to use</li>
+  <li>Awesome looking</li>
+  <li>Plenty of add-ons</li>
+  <li>Feed</li>
+</ul>
+
+<p>So, as a way of challenge myself, I decided to build this one from scratch. My main references were <a href="https://beautifuljekyll.com/">Beautiful Jekyll</a> and <a href="https://mmistakes.github.io/minimal-mistakes/">Minimal Mistakes</a>, that are two pretty good options, much more mature than this one and with hundreds of users. So, why not learn for them? There are pieces and components of these themes on this one.</p>
+
+<h2 id="one-theme-a-thousand-looks">One theme, a thousand looks</h2>
+
+<p>Without knowing nothing about <code class="language-plaintext highlighter-rouge">css</code>, I taught myself about rules, specificities, flexboxes, etc. through implementing <strong>Bootstrap v4</strong> as the <code class="language-plaintext highlighter-rouge">css</code> base of <span class="chulapa">Chulapa</span>.</p>
+
+<p>This is not the first theme with this implementation, but I found the way to configure it via <code class="language-plaintext highlighter-rouge">_config</code>, that allows any user to easily change the look of the site without knowing nothing about <code class="language-plaintext highlighter-rouge">css/scss</code>. On top of that, implementing Bootstrap themes from third parties is fast and reliable.</p>
+
+<p>The huge advantage is that, if you give it a go, you can use  <span class="chulapa">Chulapa</span> in any site you want but still define an unique look to each of them. No one could notice that the theme is the same!</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>Currently I am developing the docs and examples of this theme, so there is not a stable release yet. You can start using it right now but consider this as the <strong>alpha version</strong>.</p>
+
+<p>On top of that, <strong>Bootstrap v5</strong> and <strong>Fontawesome 6</strong> are on this way with some potential breaking changes. I am already preparing the theme for migration, please stay tuned for more updates!</p>
+</div>
+				]]>
+			</description>
+			<link>https://dieghernan.github.io/chulapa/blog/20200515_welcome</link>
+			<category>posts</category>
+		    <category>bootstrap</category><category>jekyll</category><category>news</category><media:title type="html"><![CDATA[Welcome ]]></media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg" medium="image"/>
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20200515_welcome</guid>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0200</pubDate>
+		</item></channel>
+</rss>

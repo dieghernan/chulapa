@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" >
+	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
+	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
+	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
+	<updated>2025-02-28T21:17:37+01:00</updated>
+	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
+	<title>Chulapa | A full flexible Jekyll theme</title>
+	<subtitle>A full flexible Jekyll theme</subtitle>
+	<author>
+		<name>dieghernan</name>
+		<uri>https://github.com/dieghernan/</uri>			
+	</author>
+	<rights>(c) 2025, dieghernan</rights>
+	<icon>https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png</icon>
+	<logo>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</logo><entry>
+		<title>Welcome</title>
+		<link href="https://dieghernan.github.io/chulapa/blog/20200515_welcome" rel="alternate" type="text/html" title="Welcome"/>
+		<published>2020-05-15T00:00:00+02:00</published>
+		<updated>2020-05-15T00:00:00+02:00</updated>
+		<id>https://dieghernan.github.io/chulapa/blog/20200515_welcome</id>
+		<content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20200515_welcome">
+		
+  		
+			&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg&#39; &gt;
+			
+	&lt;p&gt;1 min.&lt;/p&gt;
+			&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme that you can use for creating your site.&lt;/p&gt;
+
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;In the last couple of years I created some tiny websites using Github Pages. However, I was not very happy with some of the thousands of Jekyll themes available, since I didn’t find anyone that ticked all the marks:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Easy to use&lt;/li&gt;
+  &lt;li&gt;Awesome looking&lt;/li&gt;
+  &lt;li&gt;Plenty of add-ons&lt;/li&gt;
+  &lt;li&gt;Feed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, as a way of challenge myself, I decided to build this one from scratch. My main references were &lt;a href=&quot;https://beautifuljekyll.com/&quot;&gt;Beautiful Jekyll&lt;/a&gt; and &lt;a href=&quot;https://mmistakes.github.io/minimal-mistakes/&quot;&gt;Minimal Mistakes&lt;/a&gt;, that are two pretty good options, much more mature than this one and with hundreds of users. So, why not learn for them? There are pieces and components of these themes on this one.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-theme-a-thousand-looks&quot;&gt;One theme, a thousand looks&lt;/h2&gt;
+
+&lt;p&gt;Without knowing nothing about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;css&lt;/code&gt;, I taught myself about rules, specificities, flexboxes, etc. through implementing &lt;strong&gt;Bootstrap v4&lt;/strong&gt; as the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;css&lt;/code&gt; base of &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is not the first theme with this implementation, but I found the way to configure it via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config&lt;/code&gt;, that allows any user to easily change the look of the site without knowing nothing about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;css/scss&lt;/code&gt;. On top of that, implementing Bootstrap themes from third parties is fast and reliable.&lt;/p&gt;
+
+&lt;p&gt;The huge advantage is that, if you give it a go, you can use  &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; in any site you want but still define an unique look to each of them. No one could notice that the theme is the same!&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;Currently I am developing the docs and examples of this theme, so there is not a stable release yet. You can start using it right now but consider this as the &lt;strong&gt;alpha version&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;On top of that, &lt;strong&gt;Bootstrap v5&lt;/strong&gt; and &lt;strong&gt;Fontawesome 6&lt;/strong&gt; are on this way with some potential breaking changes. I am already preparing the theme for migration, please stay tuned for more updates!&lt;/p&gt;
+
+		</content>
+		
+		<author>
+			<name>dieghernan</name><uri>https://github.com/dieghernan/</uri></author>
+		<summary type="html">&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme that you can use for creating your site.&lt;/p&gt;
+</summary>
+		<category term="posts"/>
+		<category term="bootstrap"/><category term="jekyll"/><category term="news"/>
+	</entry></feed>
