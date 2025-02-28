@@ -12,3 +12,11 @@ $light:#eef0f2 !default;
 $dark:#000633 !default;
 
 // Add SASS theme customizations here..
+
+a:not([class]){
+  text-decoration: underline;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}

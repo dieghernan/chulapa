@@ -88,3 +88,12 @@ $navbar-chulapa-toggler-color-bg: transparent;
 
 $pagination-chulapa-text-color: $primary;
 $pagination-chulapa-bg-hover-color: $primary;
+
+
+a:not([class]){
+  text-decoration: underline;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}

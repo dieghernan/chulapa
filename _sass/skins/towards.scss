@@ -19,3 +19,11 @@ $danger:      #cf2e2e;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight !important;
 }
+
+a:not([class]){
+  text-decoration: underline;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}

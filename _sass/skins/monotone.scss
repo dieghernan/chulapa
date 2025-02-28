@@ -12,3 +12,11 @@ $info:#515151;
 $warning:#5f5f5f;
 $light:#eceeec;
 $dark:#111111;
+
+a:not([class]){
+  text-decoration: underline;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}
