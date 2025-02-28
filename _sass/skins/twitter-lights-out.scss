@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+$headings-font-family:"Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
+$font-family-base: $headings-font-family;
+
+
+$headings-font-weight: 800 !default;
 // Some bootstrap variables
-$primary: #1da1f2 !default;
+$primary: #1d9bf0 !default;
 $secondary:#788995 !default;
-$success: #17bf63 !default;
-$warning: #ffad1f !default;
-$danger: #e0245e !default;
-$info: #7B6E94 !default;
+$success: #00ba7c !default;
+$warning: #ff7a00 !default;
+$danger: #f91880 !default;
+$info: #7856ff !default;
 $light: #c1c2c2 !default;
 $dark: #15181c !default;
 $black: #000 !default;
