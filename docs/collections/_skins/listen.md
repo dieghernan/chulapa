@@ -3,7 +3,7 @@ layout: default
 title: Listen
 subtitle: A dark theme on spot
 excerpt: Listen, dark theme on spot.
-date: 2025-02-20
+date: 2025-02-27
 last_modified_at: 2025-02-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
