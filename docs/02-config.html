@@ -5,7 +5,7 @@
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2025-03-01 23:05:31 +0100 -->
+    <!-- Page build 2025-03-02 00:38:50 +0100 -->
      <!-- Jekyll Version 4.4.1 -->
     <!--Google Structured Data-->
     <script type="application/ld+json">
@@ -18,8 +18,8 @@
       },
       "headline": "Global settings",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-03-01T23:05:31+01:00",
-      "dateModified": "2025-03-01T23:05:31+01:00",
+      "datePublished": "2025-03-02T00:38:50+01:00",
+      "dateModified": "2025-03-02T00:38:50+01:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -178,7 +178,7 @@
 				</li><li class="nav-item my-0 py-1">
 					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
 				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="Demos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
-					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
 				</li><li class="nav-item my-0 py-1">
 					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/pagespeed">PageSpeed Results</a>
 				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="About" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
@@ -282,15 +282,18 @@
  <li><code class="language-plaintext highlighter-rouge">gtag_id</code> and <code class="language-plaintext highlighter-rouge">analytics_id</code>: Use either your gtag (recommended) or your Google Analytics tracking code. <a href="https://developers.google.com/analytics/devguides/collection/gtagjs">Learn more</a>.</li>
 </ul>
 <h3 id="search-engines">Search engines</h3>
-<p>When enabled, this theme would install an internal search capability of your site. There are three free engines available, <a href="https://lunrjs.com/">Lunr.js</a>, <a href="https://www.algolia.com/">Algolia</a> and <a href="https://developers.google.com/custom-search">Google Custom Search</a>.</p>
-<p>While Lunr is fully integrated on the theme, for Algolia and Google CSE you may need to create an account and perform some additional steps.</p>
+<p>When enabled, this theme would install an internal search capability of your site. There are three free engines available, <a href="https://lunrjs.com/">Lunr.js</a>, <a href="https://www.algolia.com/">Algolia</a>, <a href="https://developers.google.com/custom-search">Google Custom Search</a>
+and <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a>.</p>
+<p>While Lunr and Simple-Jekyll-Search are fully integrated on the theme, for 
+Algolia and Google CSE you may need to create an account and perform some additional steps.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">search</code>:
    <ul>
-     <li><code class="language-plaintext highlighter-rouge">provider</code>: Select a provider for enable search: <code class="language-plaintext highlighter-rouge">lunr</code>, <code class="language-plaintext highlighter-rouge">algolia</code> or <code class="language-plaintext highlighter-rouge">google</code>.</li>
+     <li><code class="language-plaintext highlighter-rouge">provider</code>: Select a provider for enable search: <code class="language-plaintext highlighter-rouge">lunr</code>, <code class="language-plaintext highlighter-rouge">algolia</code>, <code class="language-plaintext highlighter-rouge">google</code> or <code class="language-plaintext highlighter-rouge">simplesearch</code>.</li>
      <li><code class="language-plaintext highlighter-rouge">label</code>: Text to be displayed on the navbar when enabled. Useful for localization (i.e. you can set it as Búsqueda or Ricerca). <strong>Search</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">landing_page</code>:  url of your search page, useful for localization. <strong>“/search”</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">lunr_maxwords</code>: <code class="language-plaintext highlighter-rouge">lunr</code> only, number of word to be included in the index. <strong>30</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code>: <code class="language-plaintext highlighter-rouge">simplesearch</code> only, number of word to be included in the index. <strong>30</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">algolia_logo</code>: Your must set it as <code class="language-plaintext highlighter-rouge">true</code> if your are on a Community (Free) Algolia plan.</li>
    </ul>
  </li>

@@ -26,7 +26,7 @@ var store = [{
         "excerpt":
             "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults: - scope: path: \"\" type: \"demo\"...",
         "categories": ["demo"],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": ["layout-default","header-base"],
         "url": "https://dieghernan.github.io/chulapa/demo/01-plainpage",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
@@ -36,7 +36,7 @@ var store = [{
         "excerpt":
             "This is how a plain page with an image would look like. An image is displayed on top of the header. Some other components are shown, as tags or social...",
         "categories": ["demo"],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": ["layout-default","header-base","image","social-links","tags","categories","bottom-navs"],
         "url": "https://dieghernan.github.io/chulapa/demo/02-plainpage-img",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
@@ -96,7 +96,7 @@ var store = [{
         "excerpt":
             "Layout minimal A blank canvas for you Adapted from Start Bootstrap Use any Bootstrap Template! Some examples on Bootstrap Documentation, StartBootstrap or just Google it! Just use HTML Markdown files...",
         "categories": ["demo","layout"],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": ["layout-minimal","header-splash","image","project-links","bootstrap"],
         "url": "https://dieghernan.github.io/chulapa/demo/08-minimal",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
@@ -106,7 +106,7 @@ var store = [{
         "excerpt":
             "This page shows the image header. It is recommended to use a .png file with transparent background. Large images are also recommended. --- title: Image on header subtitle: Transparencies work...",
         "categories": ["demo","layout"],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": ["layout-default","header-image","image"],
         "url": "https://dieghernan.github.io/chulapa/demo/09-image-header",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
@@ -116,7 +116,7 @@ var store = [{
         "excerpt":
             "I don’t have tags   --- title: Plain page with no tags subtitle: Corner case show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true ---  ",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/demo/10-plainpage-notags",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
@@ -136,7 +136,7 @@ var store = [{
         "excerpt":
             "Chulapa was developed in and for Github. There are three tested possible ways to use Chulapa: 1. Use our Github Template Recommended if you are starting from scratch Create a...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/01-install",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -146,7 +146,7 @@ var store = [{
         "excerpt":
             "TL;DR Learn how to modify your _config.yml file. If you are using the remote method and you didn’t fork the chulapa-101 repo, you can use this file as a starting...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/02-config",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -156,7 +156,7 @@ var store = [{
         "excerpt":
             "Chulapa has a powerful theming interface, meaning that you could use this template for several sites and the look-and-feel of each one could be completely different. We have already introduced...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/03-theming",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -166,7 +166,7 @@ var store = [{
         "excerpt":
             "Once that you have set your site and you are happy with the look, you can start creating your content. It is assumed that you are familiar with Markdown and...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/04-layouts",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -176,7 +176,7 @@ var store = [{
         "excerpt":
             "Additionally, there are some tips when using Chulapa, as well as code samples. How do I… …know which version of the theme I am using? If you are on remote_theme...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/05-faq",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -186,7 +186,7 @@ var store = [{
         "excerpt":
             "This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below. Select Theme None chulapa-skin: highlight: Python @requires_authorization...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -196,7 +196,7 @@ var store = [{
         "excerpt":
             "What’s Markdown? Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
@@ -206,7 +206,7 @@ var store = [{
         "excerpt":
             "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed. Chulapa-specific variables vars Description navbar-chulapa-bg-color Navbar...",
         "categories": [],
-        "date": "2025-03-01",
+        "date": "2025-03-02",
         "tags": [],
         "url": "https://dieghernan.github.io/chulapa/docs/variable-dictionary",
         "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
