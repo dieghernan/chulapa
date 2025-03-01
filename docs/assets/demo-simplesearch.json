@@ -1,7 +1,7 @@
 ---
 layout: null
+comment:  Demo for docs. Don't use this script on production 
 ---
-/* Demo for docs. Don't use this script on production */
 {% assign maxwords = site.search.simplesearch_maxwords | default: "30"  %}
 {%- assign indexsimple = site.pages | concat: site.documents |  where_exp:'doc','doc.include_on_search != false' -%}
 
