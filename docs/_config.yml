@@ -107,6 +107,8 @@ navbar:
        url: /demo/search_google
      - title: Search LUNR
        url: /demo/search_lunr
+     - title: Search Simple Jekyll Search
+       url: /demo/search_simple
      - title: Classic Navbar
        url: /demo/classic-navbar
   - title: PageSpeed Results

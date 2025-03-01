@@ -32,6 +32,8 @@
             {%- include search/google.html -%}
             {% elsif site.search.provider == "algolia" %}
             {%- include search/algolia.html -%}
+            {% elsif site.search.provider == "simplesearch" %}
+            {%- include search/simplesearch.html -%}
             {%- else -%}
             <h2 class="mt-5 pt-5 display-4"> N/A </h2>
              {%- endif -%}

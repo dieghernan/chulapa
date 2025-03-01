@@ -1,0 +1,39 @@
+<form class="input-group">
+    <label class="sr-only" for="search"> Search </label>
+    <input type="search" id="search-input" class="form-control rounded-right" placeholder="{{ site.search.label | default: "Search" }}...">
+</form>
+<p class="text-right small mt-1"> Powered by <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></p>
+
+<div id="results-container" class="mt-3 text-left"></div>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    searchResultTemplate:   '<article class="my-2 text-left">' 	+
+                    '<div class="row">'	+
+                    '<div class="col">' +
+                    '<h5 class="chulapa-links-hover-only" itemprop="headline">' +
+                    '<a href="{url}" rel="permalink">{title}</a>' +
+                    '</h5>' +
+                    '</div>'		+
+					'<div class="col-4 col-md-3">' +
+					'<a href="{url}" rel="permalink">' +
+					'<div class="rounded-lg chulapa-overlay-img chulapa-min-h-10"'+
+					'style="background-image{img}" ></div>' +
+					'</div></a>' +
+                    '</div>' +		
+                    '<div class="row mt-2">' +
+                    '<div class="col">' +
+                    '<p>{excerpt}</p>' +
+					'</div>' +
+					'</div>' +
+					'<hr>' +
+					'</article>'
+	
+	,
+    json: '{{ "/assets/js/simplesearch/simplesearch-store.json" | absolute_url }}' 
+    });
+</script>

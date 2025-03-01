@@ -1,0 +1,73 @@
+---
+layout: null
+title: Example Simple Jekyll Search
+permalink: /demo/search_simple
+include_on_search: false
+breadcrumb_list:
+  - label: Home
+    url: /
+  - label: Demo
+    url: /demo
+---
+<!doctype html>
+<html lang="{{- site.locale | default: 'en-US' -}}">
+	{%- include head.html -%}
+	<body class="d-flex flex-column">
+	{% include_cached navbar.html pageurl=page.url %}
+<header class="text-center header-chulapa"><div class="container-lg pt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+            <h1>{{ page.title }} <i class="fa fa-search" aria-hidden="true"></i></h1>
+			</div>
+		</div>
+	</div>
+</header>
+<main class="container-lg pt-2 pb-5 flex-fill">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 my-auto text-center">
+          <form class="input-group">
+            <label class="sr-only" for="search"> Search </label>
+            <input type="search" id="search-input" class="form-control rounded-right" placeholder="{{ site.search.label | default: "Search" }}...">
+        </form>
+        <p class="text-right small mt-1"> Powered by <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></p>
+        
+        <div id="results-container" class="mt-3 text-left"></div>
+        
+        <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+        
+        <script>
+            SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            searchResultTemplate:   '<article class="my-2 text-left">' 	+
+                            '<div class="row">'	+
+                            '<div class="col">' +
+                            '<h5 class="chulapa-links-hover-only" itemprop="headline">' +
+                            '<a href="{url}" rel="permalink">{title}</a>' +
+                            '</h5>' +
+                            '</div>'		+
+                  '<div class="col-4 col-md-3">' +
+                  '<a href="{url}" rel="permalink">' +
+                  '<div class="rounded-lg chulapa-overlay-img chulapa-min-h-10"'+
+                  'style="background-image{img}" ></div>' +
+                  '</div></a>' +
+                            '</div>' +		
+                            '<div class="row mt-2">' +
+                            '<div class="col">' +
+                            '<p>{excerpt}</p>' +
+                  '</div>' +
+                  '</div>' +
+                  '<hr>' +
+                  '</article>'
+          
+          ,
+            json: '{{ "/assets/demo/simplesearch/demo-simplesearch.json" | absolute_url }}' 
+            });
+        </script>
+        </div>
+    </div>
+</main>
+	{%- include_cached footer.html -%}
+{% include custom/custom_bottomscripts.html %}
+</body>
+</html>
