@@ -4,6 +4,7 @@
 -   New skins:
     - `listen`
 - New search with [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search).
+- New search with [Fuse.js](https://fusejs.io).
 ### Changed
 
 - Fix a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section is not rendered, possible collusion with keyword.

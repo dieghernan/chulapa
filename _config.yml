@@ -60,12 +60,15 @@ analytics_id            :
 # - lunr https://lunrjs.com/
 # - algolia v4 https://www.algolia.com/ - needs further configuration
 # - google custom search engine https://cse.google.es/
+# - simplesearch: https://github.com/christian-fei/Simple-Jekyll-Search 
+# - fusejs: https://fusejs.io/
 search:
-  provider              : algolia #Select a provider for enable search: lunr, algolia, google, simplesearch
+  provider              : algolia #Select a provider for enable search: lunr, algolia, google, simplesearch, fusejs
   label                 :  #default ["Search"] Text on navbar when search is enabled
   landing_page          :  #default ["/search"] Link on navbar
   lunr_maxwords         :  #default [30] lunr only - May slow down your site build
   simplesearch_maxwords :  #default [30] simplesearch only - May slow down your site build
+  fusejs_maxwords       :  #default [30] fusejs only - May slow down your site build
   algolia_logo          :  true #Displays algolia logo. Should be set to true if you are on a community plan, otherwise false.
 
 google_cse_id: #Your cse id

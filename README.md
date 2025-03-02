@@ -11,6 +11,7 @@ Version](https://img.shields.io/gem/v/chulapa-jekyll?color=success)
 ![Fontawesome](https://img.shields.io/badge/fontawesome-6.x-blue)
 ![Algolia](https://img.shields.io/badge/algolia-4.x-blue)
 ![lunr](https://img.shields.io/badge/lunr-2.x-blue)
+![fuse.js](https://img.shields.io/badge/fuse.js-7.x-blue)
 ![mathjax](https://img.shields.io/badge/mathjax-3.x-blue)
 ![GHpages](https://img.shields.io/badge/gh--pages-ready-succes)
 ![google-analytics](https://img.shields.io/badge/google--analytics-ready-succes)
@@ -31,7 +32,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
     be deprecated at some point
 -   **3 different navbar styles**
 -   **Atom and RSS 2.0** feed
--   **Internal search** by Algolia, Lunr or Google Custom Search
+-   **Internal search** by Algolia, Lunr, Fuse.js, Simple-Jekyll-Search or Google Custom Search
 -   **Comments** by Disqus and Giscus
 -   **Masonry gallery**
 -   **Video support** - self-hosted or from core providers: Youtube, Vimeo,

@@ -34,6 +34,8 @@
             {%- include search/algolia.html -%}
             {% elsif site.search.provider == "simplesearch" %}
             {%- include search/simplesearch.html -%}
+            {% elsif site.search.provider == "fusejs" %}
+            {%- include search/fusejs.html -%}
             {%- else -%}
             <h2 class="mt-5 pt-5 display-4"> N/A </h2>
              {%- endif -%}
@@ -54,6 +56,10 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script> 
 <script src="{{ '/assets/js/algolia/algolia-search.js' | absolute_url }}"></script>
 {% endif %}
+{%- if site.search.provider == "fusejs" -%}
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
+<script src="{{ '/assets/js/fusejs/fusejs-store.js' | absolute_url }}"></script>
+<script src="{{ '/assets/js/fusejs/fusejs-search.js' | absolute_url }}"></script>
 {%- if site.search.provider == "google" -%}
 <script src="{{ '/assets/js/google/google-search.js' | absolute_url }}"></script>
 {% endif %}
