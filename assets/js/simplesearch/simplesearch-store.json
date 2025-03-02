@@ -35,7 +35,7 @@ layout: null
     "date": {{ doc.date | date: "%Y-%m-%d" | strip_html | jsonify }},
     "tags": {{ doc.tags | join: ', ' | strip_html | jsonify }},
     "url": {{ doc.url | absolute_url | escape | jsonify }},
-ç	  {% if myimg -%}
+	  {% if myimg -%}
 		"img": ":url('{{ myimg | absolute_url | escape }}')"
 	  {%- else -%}
 		"img": ": none"
