@@ -4,7 +4,7 @@
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build {{ site.time }} -->
+    <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
      <!-- Jekyll Version {{ jekyll.version }} -->
     {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
 {%- assign home_url = "index.html" | absolute_url | replace: "index.html", "" | uri_escape -%}
