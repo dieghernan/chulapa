@@ -9,9 +9,9 @@ layout: null
   {% for doc in indexsimple %}
 	{%- assign myimg = doc.og_image | default: doc.header_img  -%}
     {
-		"title": {{ doc.title | jsonify }},
-        "subtitle": {{ doc.subtitle | jsonify }},
-		"excerpt": {{ doc.content | newline_to_br |
+		"title": {{ doc.title | strip_html | jsonify }},
+    "subtitle": {{ doc.subtitle | strip_html | jsonify }},
+    "excerpt": {{ doc.content | newline_to_br |
               replace:"<br />", " " |
               replace:"</p>", " " |
               replace:"</h1>", " " |
@@ -21,10 +21,10 @@ layout: null
               replace:"</h5>", " " |
               replace:"</h6>", " "|
             strip_html | strip_newlines | truncatewords: maxwords | jsonify }},
-        "categories": {{ doc.categories | join: ', ' | jsonify }},
-        "date": {{ doc.date | date: "%Y-%m-%d" | jsonify }},
-        "tags": {{ doc.tags | join: ', ' | jsonify }},
-        "url": {{ doc.url | absolute_url | escape | jsonify }},
+    "categories": {{ doc.categories | join: ', ' | strip_html  | jsonify }},
+    "date": {{ doc.date | date: "%Y-%m-%d" | strip_html | jsonify }},
+    "tags": {{ doc.tags | join: ', ' | strip_html | jsonify }},
+    "url": {{ doc.url | absolute_url | escape | jsonify }},
 	  {% if myimg -%}
 		"img": ":url('{{ myimg | absolute_url | escape }}')"
 	  {%- else -%}
