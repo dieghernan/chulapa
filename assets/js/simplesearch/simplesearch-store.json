@@ -19,7 +19,7 @@ layout: null
     {
 		"title": {{ doc.title | strip_html | jsonify }},
     "subtitle": {{ doc.subtitle | strip_html | jsonify }},
-    "excerpt": {{ doc.ogdesc | strip_html | jsonify }},
+    "excerpt": {{ ogdesc | strip_html | jsonify }},
     "content": {{ doc.content | newline_to_br |
               replace:"<br />", " " |
               replace:"</p>", " " |
