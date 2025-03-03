@@ -18,8 +18,8 @@
       },
       "headline": "Global settings",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-03-03T21:22:09+01:00",
-      "dateModified": "2025-03-03T21:22:09+01:00",
+      "datePublished": "2025-03-03T21:47:28+01:00",
+      "dateModified": "2025-03-03T21:47:28+01:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -299,9 +299,10 @@ Algolia and Google CSE you may need to create an account and perform some additi
      <li><code class="language-plaintext highlighter-rouge">provider</code>: Select a provider for enable search: <code class="language-plaintext highlighter-rouge">lunr</code>, <code class="language-plaintext highlighter-rouge">algolia</code>, <code class="language-plaintext highlighter-rouge">google</code>, <code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code>.</li>
      <li><code class="language-plaintext highlighter-rouge">label</code>: Text to be displayed on the navbar when enabled. Useful for localization (i.e. you can set it as Búsqueda or Ricerca). <strong>Search</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">landing_page</code>:  url of your search page, useful for localization. <strong>“/search”</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">lunr_maxwords</code>: <code class="language-plaintext highlighter-rouge">lunr</code> only, number of word to be included in the index. <strong>30</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code>: <code class="language-plaintext highlighter-rouge">simplesearch</code> only, number of word to be included in the index. <strong>30</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">fusejs_maxwords</code>: <code class="language-plaintext highlighter-rouge">fusejs</code> only, number of word to be included in the index. <strong>30</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">lunr_maxwords</code>: <strong>DEPRECATED</strong>, use <code class="language-plaintext highlighter-rouge">maxwords</code>.</li>
+     <li><code class="language-plaintext highlighter-rouge">maxwords: </code>simplesearch<code class="language-plaintext highlighter-rouge">, </code>fusejs<code class="language-plaintext highlighter-rouge">, </code>lunr` only, number of word to be
+ included in the index. <strong>30</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">show_attrib</code>: Show attributions/logo on search engine <strong>true</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">algolia_logo</code>: Your must set it as <code class="language-plaintext highlighter-rouge">true</code> if your are on a Community (Free) Algolia plan.</li>
    </ul>
  </li>
