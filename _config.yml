@@ -66,7 +66,7 @@ search:
   provider              : algolia #Select a provider for enable search: lunr, algolia, google, simplesearch, fusejs
   label                 :  #default ["Search"] Text on navbar when search is enabled
   landing_page          :  #default ["/search"] Link on navbar
-  maxwords              :  #default [30] simplesearch, fusejs only - May slow down your site build
+  maxwords              :  #default [30] lunr simplesearch, fusejs only - May slow down your site build
   show_attrib           :   #default ["true"] Show attributions/logo on search engine
   algolia_logo          :  true #Displays algolia logo. Should be set to true if you are on a community plan, otherwise false.
 

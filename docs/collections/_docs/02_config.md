@@ -71,6 +71,7 @@ To enable v4 support, set `fa_v4_support: true`.
 
 When enabled, this theme would install an internal search capability of your site. 
 The following engines are available:
+
 - [Lunr.js](https://lunrjs.com/)
 - [Fuse.js](https://www.fusejs.io/)
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)
@@ -84,9 +85,10 @@ Algolia and Google CSE you may need to create an account and perform some additi
   - `provider`: Select a provider for enable search: `lunr`, `algolia`, `google`, `simplesearch`, `fusejs`.
   - `label`: Text to be displayed on the navbar when enabled. Useful for localization (i.e. you can set it as Búsqueda or Ricerca). **Search**.
   - `landing_page`:  url of your search page, useful for localization. **"/search"**.
-  - `lunr_maxwords`: `lunr` only, number of word to be included in the index. **30**.
-  - `simplesearch_maxwords`: `simplesearch` only, number of word to be included in the index. **30**.
-  - `fusejs_maxwords`: `fusejs` only, number of word to be included in the index. **30**.
+  - `lunr_maxwords`: **DEPRECATED**, use `maxwords`.
+  - `maxwords: `simplesearch`, `fusejs`, `lunr` only, number of word to be
+     included in the index. **30**.
+  - `show_attrib`: Show attributions/logo on search engine **true**.
   - `algolia_logo`: Your must set it as `true` if your are on a Community (Free) Algolia plan.  
 
 - `google_cse_id`: Your Google Custom Search id, available on *cse.google.com > Your search engine > Settings*.
