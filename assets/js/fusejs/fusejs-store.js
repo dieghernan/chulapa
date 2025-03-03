@@ -7,7 +7,7 @@ MIT License
 From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 */
 {%- if site.search.provider == "fusejs" -%}
-{% assign maxwords = site.search.fusejs_maxwords | default: "30" %}
+{% assign maxwords = site.search.fusejs_maxwords | default: site.search.maxwords | default: "30" %}
 var store = [
   {%- assign indexfusejs = site.pages | concat: site.documents | where_exp: 'doc', 'doc.include_on_search != false' -%}
   {%- for doc in indexfusejs -%}

@@ -7,7 +7,7 @@ MIT License
 From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 */
 {%- if site.search.provider =="lunr" -%}
-{% assign maxwords = site.search.lunr_maxwords | default: "30"  %}
+{% assign maxwords = site.search.lunr_maxwords | default: site.search.maxwords | default: "30"  %}
 var store = [
 {%- assign indexlunr = site.pages | concat: site.documents |  where_exp:'doc','doc.include_on_search != false' -%}
   {%- for doc in indexlunr -%}
