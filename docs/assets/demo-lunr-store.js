@@ -12,7 +12,7 @@ var store = [
                               replace:"{{", ",.," |
                               replace:"{%", ",.," |
                               split: ",.," | first -%}
-    {%- assign ogdesc = doc.excerpt | default: descfallback | strip_html  -%}
+    {%- assign ogdesc = doc.excerpt | default: descfallback | strip_html | strip_newlines  -%}
     {
     "title": {{ doc.title | jsonify }},
     "subtitle": {{ doc.subtitle | jsonify }},
