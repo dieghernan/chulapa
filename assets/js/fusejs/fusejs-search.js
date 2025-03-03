@@ -91,9 +91,10 @@ function init() {
         includeScore: true,
         includeMatches: true, // For search highlight
         minMatchCharLength: 2,
+        shouldSort: true,
         distance: 1000,
         ignoreLocation: true,
-        useExtendedSearch: true,
+        useExtendedSearch: false,
     };
     const fuse = new Fuse(store, options);
 
