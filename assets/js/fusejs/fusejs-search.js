@@ -9,7 +9,7 @@ function init() {
     const resultsContainer = document.getElementById('results');
     const resultCount = document.getElementById('resultscount');
     const options = {
-        keys: ['title', 'subtitle', 'excerpt', 'categories', 'date', 'tags'],
+        keys: ['title', 'subtitle', 'excerpt', 'content', 'categories', 'date', 'tags'],
         isCaseSensitive: false,
         useExtendedSearch: true,
         ignoreLocation: true,
@@ -48,7 +48,7 @@ function init() {
                             </div>
                             <div class="row mt-2">
                                 <div class="col">
-                                    <p>${i.item.excerpt.split(" ").splice(0, 10).join(" ").trim()}</p>
+                                    <p>${i.item.excerpt}</p>
                                 </div>
                             </div>
                             <hr>

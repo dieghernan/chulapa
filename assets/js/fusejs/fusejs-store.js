@@ -11,10 +11,18 @@ From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 var store = [
   {%- assign indexfusejs = site.pages | concat: site.documents | where_exp: 'doc', 'doc.include_on_search != false' -%}
   {%- for doc in indexfusejs -%}
+    {%- assign descfallback = page.content |
+                              markdownify |  newline_to_br |
+                              replace:"<br />", ",.," |
+                              replace:"{{", ",.," |
+                              replace:"{%", ",.," |
+                              split: ",.," | first -%}
+    {%- assign ogdesc = page.excerpt | default: descfallback | strip_html  -%}
       {
         "title": {{ doc.title | jsonify }},
         "subtitle": {{ doc.subtitle | jsonify }},
-        "excerpt": {{ doc.content | newline_to_br |
+        "excerpt": {{ ogdesc | jsonify }},
+        "content": {{ doc.content | newline_to_br |
                       replace: "<br />", " " |
                       replace: "</p>", " " |
                       replace: "</h1>", " " |
@@ -31,5 +39,5 @@ var store = [
         "img": {{ doc.og_image | default: doc.header_img | absolute_url | jsonify }}
       }{%- unless forloop.last -%},{%- endunless -%}
   {%- endfor -%}
-];
+]
 {%- endif -%}
