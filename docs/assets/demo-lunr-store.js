@@ -14,9 +14,9 @@ var store = [
                               split: ",.," | first -%}
     {%- assign ogdesc = doc.excerpt | default: descfallback | strip_html | strip_newlines  -%}
     {
-    "title": {{ doc.title | jsonify }},
-    "subtitle": {{ doc.subtitle | jsonify }},
-    "excerpt": {{ ogdesc | jsonify }},
+    "title": {{ doc.title | strip | jsonify }},
+    "subtitle": {{ doc.subtitle | strip | jsonify }},
+    "excerpt": {{ ogdesc | strip | jsonify }},
     "content": {{ doc.content | newline_to_br |
                   replace: "<br />", " " |
                   replace: "</p>", " " |
@@ -26,7 +26,7 @@ var store = [
                   replace: "</h4>", " " |
                   replace: "</h5>", " " |
                   replace: "</h6>", " " |
-                  strip_html | strip_newlines | truncatewords: maxwords | jsonify }},
+                  strip_html | strip_newlines | truncatewords: maxwords | strip | jsonify }},
       "categories": {{ doc.categories | jsonify }},
       "date": {{ doc.date | date: "%Y-%m-%d" | jsonify }},
       "tags": {{ doc.tags | jsonify }},
