@@ -18,8 +18,8 @@
       },
       "headline": "Installation",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-03-03T01:53:43+01:00",
-      "dateModified": "2025-03-03T01:53:43+01:00",
+      "datePublished": "2025-03-03T11:18:37+01:00",
+      "dateModified": "2025-03-03T11:18:37+01:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -230,65 +230,69 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-use-our-github-template">1. Use our Github Template</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-remote-theme-method">2. Remote theme method</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
 			</nav>
-			 <p><span class="chulapa">Chulapa</span> was developed in and for Github.
-There are three tested possible ways to use <span class="chulapa">Chulapa</span>:</p>
+			 <p><span class="chulapa">Chulapa</span> was developed in and for Github. There are
+three tested possible ways to use <span class="chulapa">Chulapa</span>:</p>
 <h2 id="1-use-our-github-template">1. Use our Github Template</h2>
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are starting from scratch</strong></p>
-<p>Create a Github account, click <a href="https://github.com/dieghernan/chulapa-101/generate">this link</a> and quickstart your site!</p>
+<p>Create a Github account, click <a href="https://github.com/dieghernan/chulapa-101/generate">this link</a>
+and quickstart your site!</p>
 <h2 id="2-remote-theme-method">2. Remote theme method</h2>
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are migrating a site.</strong></p>
-<p>You can use the <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> method.
-Just follow these steps:</p>
+<p>You can use the <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> method. Just follow these steps:</p>
 <ol>
- <li>Create a new GitHub repository or go to an existing one</li>
+ <li>Create a new GitHub repository or go to an existing one.</li>
  <li>
    <p>Add this line to your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-   <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa</span>
-
-<span class="nn">...</span> <span class="s">more config options</span>
+   <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa</span>
+ <span class="s">... more config options</span>
 </code></pre></div>  </div>
  </li>
- <li>Remove other <code class="language-plaintext highlighter-rouge">remote_theme/theme</code> instances of your <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</li>
+ <li>Remove other <code class="language-plaintext highlighter-rouge">remote_theme/theme</code> instances from your <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</li>
 </ol>
 <div class="alert alert-warning p-3 mx-2">
  <p><strong>Don’t forget to deploy your site:</strong></p>
  <ul>
-   <li>On your Github repo, go to <em>Setting &gt; Github Pages</em>..</li>
-   <li>Select <em>Source &gt; Github Actions</em> and set the corresponding action. See an example in <a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml</a></li>
+   <li>On your Github repo, go to <em>Settings &gt; Github Pages</em>.</li>
+   <li>Select <em>Source &gt; Github Actions</em> and set the corresponding action. See an
+example in <a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml</a></li>
  </ul>
 </div>
-<p>By using <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> your repo would have remote access to the content of these folders:</p>
+<p>By using <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code>, your repo will have remote access to the content
+of these folders:</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">assets</code></li>
  <li><code class="language-plaintext highlighter-rouge">_layouts</code></li>
  <li><code class="language-plaintext highlighter-rouge">_includes</code></li>
  <li><code class="language-plaintext highlighter-rouge">_sass</code></li>
 </ul>
-<p>Note that making copies of theme files will prevent you from receiving any theme updates on those files.</p>
+<p>Note that making copies of theme files will prevent you from receiving any theme
+updates on those files.</p>
 <p>Please read the rest of the docs for further adjustments.</p>
 <h2 id="3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></h2>
-<p>With Gem-based themes, directories such as the <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>, and <code class="language-plaintext highlighter-rouge">_sass</code> are stored in the theme’s gem, hidden from your immediate view.
-This allows for easier installation and updating as you don’t have to manage any of the theme files.</p>
+<p>With Gem-based themes, directories such as the <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>,
+and <code class="language-plaintext highlighter-rouge">_sass</code> are stored in the theme’s gem, hidden from your immediate view. This
+allows for easier installation and updating as you don’t have to manage any of
+the theme files.</p>
 <p>To install as a Gem-based theme:</p>
 <ol>
  <li>
    <p>Add the following to your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
-   <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"chulapa-jekyll"</span>
+   <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">gem</span> <span class="s2">"chulapa-jekyll"</span>
 </code></pre></div>  </div>
  </li>
  <li>
-   <p>Fetch and update bundled gems by running the following <a href="https://bundler.io/">Bundler</a> command:</p>
-   <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle
+   <p>Fetch and update bundled gems by running the following <a href="https://bundler.io/">Bundler</a>
+command:</p>
+   <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bundle
 </code></pre></div>  </div>
  </li>
  <li>
    <p>Set the <code class="language-plaintext highlighter-rouge">theme</code> in your project’s Jekyll <code class="language-plaintext highlighter-rouge">_config.yml</code> file:</p>
-   <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">theme</span><span class="pi">:</span> <span class="s">chulapa-jekyll</span>
+   <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">theme</span><span class="pi">:</span> <span class="s">chulapa-jekyll</span>
 </code></pre></div>  </div>
  </li>
 </ol>
-<p>To update the theme run <code class="language-plaintext highlighter-rouge">bundle update</code>.</p>
+<p>To update the theme, run <code class="language-plaintext highlighter-rouge">bundle update</code>.</p>
 			<div class="mb-2 mt-5 text-center"><applause-button id="applause" class="mx-auto" style="width: 40px; height: 40px;" url="https://dieghernan.github.io/chulapa/docs/01-install"></applause-button></div>
 			</article>
 		</div>

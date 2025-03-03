@@ -18,8 +18,8 @@
       },
       "headline": "Global settings",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-03-03T01:53:43+01:00",
-      "dateModified": "2025-03-03T01:53:43+01:00",
+      "datePublished": "2025-03-03T11:18:37+01:00",
+      "dateModified": "2025-03-03T11:18:37+01:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -282,18 +282,26 @@
  <li><code class="language-plaintext highlighter-rouge">gtag_id</code> and <code class="language-plaintext highlighter-rouge">analytics_id</code>: Use either your gtag (recommended) or your Google Analytics tracking code. <a href="https://developers.google.com/analytics/devguides/collection/gtagjs">Learn more</a>.</li>
 </ul>
 <h3 id="search-engines">Search engines</h3>
-<p>When enabled, this theme would install an internal search capability of your site. There are three free engines available, <a href="https://lunrjs.com/">Lunr.js</a>, <a href="https://www.algolia.com/">Algolia</a>, <a href="https://developers.google.com/custom-search">Google Custom Search</a>
-and <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a>.</p>
-<p>While Lunr and Simple-Jekyll-Search are fully integrated on the theme, for 
+<p>When enabled, this theme would install an internal search capability of your site. 
+The following engines are available:</p>
+<ul>
+ <li><a href="https://lunrjs.com/">Lunr.js</a></li>
+ <li><a href="https://www.fusejs.io/">Fuse.js</a></li>
+ <li><a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></li>
+ <li><a href="https://www.algolia.com/">Algolia</a></li>
+ <li><a href="https://developers.google.com/custom-search">Google Custom Search</a></li>
+</ul>
+<p>While Lunr, Fuse.js and Simple-Jekyll-Search are fully integrated on the theme, for 
 Algolia and Google CSE you may need to create an account and perform some additional steps.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">search</code>:
    <ul>
-     <li><code class="language-plaintext highlighter-rouge">provider</code>: Select a provider for enable search: <code class="language-plaintext highlighter-rouge">lunr</code>, <code class="language-plaintext highlighter-rouge">algolia</code>, <code class="language-plaintext highlighter-rouge">google</code> or <code class="language-plaintext highlighter-rouge">simplesearch</code>.</li>
+     <li><code class="language-plaintext highlighter-rouge">provider</code>: Select a provider for enable search: <code class="language-plaintext highlighter-rouge">lunr</code>, <code class="language-plaintext highlighter-rouge">algolia</code>, <code class="language-plaintext highlighter-rouge">google</code>, <code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code>.</li>
      <li><code class="language-plaintext highlighter-rouge">label</code>: Text to be displayed on the navbar when enabled. Useful for localization (i.e. you can set it as Búsqueda or Ricerca). <strong>Search</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">landing_page</code>:  url of your search page, useful for localization. <strong>“/search”</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">lunr_maxwords</code>: <code class="language-plaintext highlighter-rouge">lunr</code> only, number of word to be included in the index. <strong>30</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code>: <code class="language-plaintext highlighter-rouge">simplesearch</code> only, number of word to be included in the index. <strong>30</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">fusejs_maxwords</code>: <code class="language-plaintext highlighter-rouge">fusejs</code> only, number of word to be included in the index. <strong>30</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">algolia_logo</code>: Your must set it as <code class="language-plaintext highlighter-rouge">true</code> if your are on a Community (Free) Algolia plan.</li>
    </ul>
  </li>
