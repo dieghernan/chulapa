@@ -11,13 +11,13 @@ From minimal-mistakes: https://github.com/mmistakes/minimal-mistakes/
 var store = [
   {%- assign indexfusejs = site.pages | concat: site.documents | where_exp: 'doc', 'doc.include_on_search != false' -%}
   {%- for doc in indexfusejs -%}
-    {%- assign descfallback = page.content |
+    {%- assign descfallback = doc.content |
                               markdownify |  newline_to_br |
                               replace:"<br />", ",.," |
                               replace:"{{", ",.," |
                               replace:"{%", ",.," |
                               split: ",.," | first -%}
-    {%- assign ogdesc = page.excerpt | default: descfallback | strip_html  -%}
+    {%- assign ogdesc = doc.excerpt | default: descfallback | strip_html  -%}
       {
         "title": {{ doc.title | jsonify }},
         "subtitle": {{ doc.subtitle | jsonify }},
