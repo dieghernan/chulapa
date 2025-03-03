@@ -29,6 +29,12 @@ const highlight = (fuseSearchResult, highlightClassName) => {
         });
 
         regions.forEach(region => {
+
+            // Was this region already included in content?
+            if(nextUnhighlightedRegionStartingIndex > region[0]){
+                return content;
+            }
+
             // Not highlight single letters
             if (region[0] == region[1]) {
                 return content;
