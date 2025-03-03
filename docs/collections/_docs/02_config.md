@@ -86,7 +86,7 @@ Algolia and Google CSE you may need to create an account and perform some additi
   - `label`: Text to be displayed on the navbar when enabled. Useful for localization (i.e. you can set it as Búsqueda or Ricerca). **Search**.
   - `landing_page`:  url of your search page, useful for localization. **"/search"**.
   - `lunr_maxwords`: **DEPRECATED**, use `maxwords`.
-  - `maxwords: `simplesearch`, `fusejs`, `lunr` only, number of word to be
+  - `maxwords`: `simplesearch`, `fusejs`, `lunr` only, number of words to be
      included in the index. **30**.
   - `show_attrib`: Show attributions/logo on search engine **true**.
   - `algolia_logo`: Your must set it as `true` if your are on a Community (Free) Algolia plan.  
