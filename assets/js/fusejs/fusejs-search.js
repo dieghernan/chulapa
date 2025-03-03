@@ -7,7 +7,7 @@ layout: null
 // Avoid highlighting single characters
 // Mask highlighting happening in html tags (class or style)
 
-const highlight = (fuseSearchResult, highlightClassName) => {
+const highlight = (fuseSearchResult, highlightClassName, termLen) => {
     const set = (obj, path, value) => {
         const pathValue = path.split('.');
         let i;
@@ -19,24 +19,30 @@ const highlight = (fuseSearchResult, highlightClassName) => {
         obj[pathValue[i]] = value;
     };
 
-    const generateHighlightedText = (inputText, regions) => {
+    const generateHighlightedText = (inputText, regions, termLen) => {
         let content = '';
         let nextUnhighlightedRegionStartingIndex = 0;
 
         // Sort regions to avoid breaking layout
-        regions = regions.sort(function(a, b) {
+        regions = regions.sort(function (a, b) {
             return a[0] - b[0];
         });
 
         regions.forEach(region => {
 
             // Was this region already included in content?
-            if(nextUnhighlightedRegionStartingIndex > region[0]){
+            if (nextUnhighlightedRegionStartingIndex > region[0]) {
                 return content;
             }
 
-            // Not highlight single letters
-            if (region[0] == region[1]) {
+            // Not highlight short matches to avoid visual cluttering
+            // min 2 chars
+            if (region[1] - region[0] < 2) {
+                return content;
+            }
+
+            // And based on search term length
+            if (region[1] - region[0] < parseInt(termLen / 2)) {
                 return content;
             }
 
@@ -75,7 +81,7 @@ const highlight = (fuseSearchResult, highlightClassName) => {
             const highlightedItem = { ...item };
 
             matches.forEach((match) => {
-                set(highlightedItem, match.key, generateHighlightedText(match.value, match.indices));
+                set(highlightedItem, match.key, generateHighlightedText(match.value, match.indices, termLen));
             });
 
             return highlightedItem;
@@ -89,16 +95,21 @@ function init() {
     const resultsContainer = document.getElementById('results');
     const resultCount = document.getElementById('resultscount');
     const options = {
-        keys: ['title', 'subtitle', 'excerpt', 'content', 'categories', 'date', 'tags'],
+        keys: ['subtitle', 'content', 'categories', 'date',
+            { name: 'title', weight: 1.15 },
+            { name: 'tags', weight: 1.1 },
+            { name: 'excerpt', weight: 1.05 }
+        ],
         isCaseSensitive: false,
         ignoreDiacritics: true,
         includeScore: true,
         includeMatches: true, // For search highlight
         minMatchCharLength: 2,
+        threshold: 0.35,
         shouldSort: true,
-        distance: 1000,
         ignoreLocation: true,
-        useExtendedSearch: false,
+        ignoreFieldNorm: true,
+        useExtendedSearch: true,
     };
     const fuse = new Fuse(store, options);
 
@@ -161,15 +172,16 @@ function init() {
 
     function handleInputChange() {
         var terms = termsInput.value;
+        var termLen = terms.length;
         if (!terms) {
             resultsContainer.textContent = '';
             return;
         }
-        if (terms.length == 1) {
+        if (termLen == 1) {
             terms = "^" + terms;
         }
         const result = fuse.search(terms, { limit: 10 });
-        const resultFilter = result.filter((x) => x.score <= 0.75);
+        const resultFilter = result.filter((x) => x.score < 0.75);
 
         // log results
         const itLen = resultFilter.length;
@@ -177,11 +189,11 @@ function init() {
             console.log("No match for '" + terms + "'");
         } else {
             resultFilter.forEach(i => {
-                console.log("Searching string '" + terms + "' gives Score: " + Math.round((i.score + Number.EPSILON) * 1000000) / 1000000 + " for title: " + i.item.title);
+                console.log("Searching string '" + terms + "' gives Score: " + parseInt(i.score * 1000000) / 1000000 + " for title: " + i.item.title);
             });
         }
 
-        const res = highlight(resultFilter, "bg-warning text-dark"); // array of items with highlighted fields
+        const res = highlight(resultFilter, "bg-warning text-dark", termLen); // array of items with highlighted fields
         renderEntries(res);
     }
 
