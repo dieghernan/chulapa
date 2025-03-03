@@ -1,4 +1,5 @@
-// Based in https://gist.github.com/evenfrost/1ba123656ded32fb7a0cd4651efd4db0
+// Based on https://gist.github.com/evenfrost/1ba123656ded32fb7a0cd4651efd4db0
+// Sort regions to avoid breaking layout
 // Avoid highlighting single characters
 // Mask highlighting happening in html tags (class or style)
 
@@ -17,6 +18,11 @@ const highlight = (fuseSearchResult, highlightClassName) => {
     const generateHighlightedText = (inputText, regions) => {
         let content = '';
         let nextUnhighlightedRegionStartingIndex = 0;
+
+        // Sort regions to avoid breaking layout
+        regions = regions.sort(function(a, b) {
+            return a[0] - b[0];
+        });
 
         regions.forEach(region => {
             // Not highlight single letters
