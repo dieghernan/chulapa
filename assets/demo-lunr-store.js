@@ -12,7 +12,7 @@ var store = [{
       "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png"
     },{
     "title": "Welcome",
-    "subtitle": null,
+    "subtitle": "",
     "excerpt": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site.",
     "content": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site. Motivation In the last couple of years I created some tiny websites using Github...",
       "categories": [],
@@ -22,7 +22,7 @@ var store = [{
       "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg"
     },{
     "title": "Plain page",
-    "subtitle": null,
+    "subtitle": "",
     "excerpt": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults:",
     "content": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults: - scope: path: \"\" type: \"demo\"...",
       "categories": ["demo"],
@@ -42,7 +42,7 @@ var store = [{
       "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
     },{
     "title": "Post header",
-    "subtitle": null,
+    "subtitle": "",
     "excerpt": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.",
     "content": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content. --- title: Post header categories:...",
       "categories": ["demo"],
@@ -114,7 +114,7 @@ var store = [{
     "title": "Plain page with no tags",
     "subtitle": "Corner case",
     "excerpt": "I don’t have tags",
-    "content": "I don’t have tags   --- title: Plain page with no tags subtitle: Corner case show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true ---  ",
+    "content": "I don’t have tags   --- title: Plain page with no tags subtitle: Corner case show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true ---",
       "categories": [],
       "date": "2025-03-03",
       "tags": [],
@@ -122,7 +122,7 @@ var store = [{
       "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png"
     },{
     "title": "Related",
-    "subtitle": null,
+    "subtitle": "",
     "excerpt": "This page shows the related snippet. See how related pages appeared on the bottom.",
     "content": "This page shows the related snippet. See how related pages appeared on the bottom. --- title: Related categories: [demo] header_type: post tags: [layout-default,header-post, social-links, tags, categories, bottom-navs, author, date, related]...",
       "categories": ["demo"],
@@ -202,7 +202,7 @@ var store = [{
       "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
     },{
     "title": "Variables dictionary",
-    "subtitle": null,
+    "subtitle": "",
     "excerpt": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed.",
     "content": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed. Chulapa-specific variables vars Description navbar-chulapa-bg-color Navbar...",
       "categories": [],
