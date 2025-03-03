@@ -1,7 +1,8 @@
-
-{% assign show_attrib = site.search.show_attrib | default: true %}
-
-{% if show_attrib %}
+{% if site.search.show_attrib == false %}
+	{% assign show_attrib = site.search.show_attrib %}
+{% else %}
+	{% assign show_attrib = true %}
+{% endif %}
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
