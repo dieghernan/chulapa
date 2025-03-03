@@ -20,8 +20,8 @@
       },
       "headline": "Example L U N R Search",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png",
-      "datePublished": "2025-03-03T18:48:28+01:00",
-      "dateModified": "2025-03-03T18:48:28+01:00",
+      "datePublished": "2025-03-03T20:31:28+01:00",
+      "dateModified": "2025-03-03T20:31:28+01:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -252,13 +252,29 @@
 </header>
 <main class="container-lg pt-2 pb-5 flex-fill">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2 my-auto text-center">           <form class="input-group">
-               <label class="sr-only" for="search"> Search </label>
-               <input type="search" id="search" class="form-control rounded-right" placeholder="Search...">
-           </form>
-           <p class="text-right small mt-1"> Powered by <a href="https://lunrjs.com/" class="lunr px-2">L U N R</a></p>
-           <div id="resultscount"></div>
-           <div id="results" class="mt-3 text-left"></div>
+        <div class="col-lg-8 offset-lg-2 my-auto text-center">
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+  
+    .lunr{
+    font-family: 'Heebo', sans-serif;
+    background-color: black;
+    color: white;
+    }
+    </style>
+
+
+<form class="input-group">
+    <label class="sr-only" for="search"> Search </label>
+    <input type="search" id="search" class="form-control rounded-right" placeholder="Search...">
+</form>
+
+    <p class="text-right small mt-1"> Powered by <a href="https://lunrjs.com/" class="lunr px-2">L U N R</a></p>
+
+<div id="resultscount"></div>
+<div id="results" class="mt-3 text-left"></div>
 </div>
     </div>
 </main><!-- Footer -->
