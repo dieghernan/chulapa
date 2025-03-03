@@ -20,8 +20,8 @@
       },
       "headline": "Example Fuse.js Search",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png",
-      "datePublished": "2025-03-03T12:41:31+01:00",
-      "dateModified": "2025-03-03T12:41:31+01:00",
+      "datePublished": "2025-03-03T13:53:28+01:00",
+      "dateModified": "2025-03-03T13:53:28+01:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -243,11 +243,29 @@
 </header>
 <main class="container-lg pt-2 pb-5 flex-fill">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2 my-auto text-center"><form class="input-group">
+        <div class="col-lg-8 offset-lg-2 my-auto text-center"><style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
+    
+    .fuse {
+        font-family: "Source Sans 3", serif;
+        font-weight: 400;
+        }
+      
+    .fuse-logo {
+        color: #9b59b6;
+        font-weight: bolder;
+        --fa-animation-iteration-count:0.35;
+        --fa-animation-duration: 0.5s;
+        --fa-animation-delay: 0.75s;
+        }
+        
+</style>
+
+<form class="input-group">
     <label class="sr-only" for="search"> Search </label>
     <input type="search" id="search" class="form-control rounded-right" placeholder="Search...">
 </form>
-<p class="text-right small mt-1"> Powered by <a href="https://www.fusejs.io/">Fuse.js</a></p>
+<p class="text-right small mt-1"> Powered by <a href="https://www.fusejs.io/"><i class="fa-solid fa-asterisk fa-lg fa-spin fuse-logo"></i> Fuse.js</a></p>
 <div id="resultscount"></div>
 <div id="results" class="mt-3 text-left"></div>
 </div>
