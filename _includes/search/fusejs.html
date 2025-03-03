@@ -1,3 +1,8 @@
+
+{% assign show_attrib = site.search.show_attrib | default: true %}
+
+{% if show_attrib %}
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
     
@@ -16,10 +21,14 @@
         
 </style>
 
+{% endif %}
+
 <form class="input-group">
     <label class="sr-only" for="search"> Search </label>
     <input type="search" id="search" class="form-control rounded-right" placeholder="{{ site.search.label | default: "Search" }}...">
 </form>
+{% if show_attrib %}
 <p class="text-right small mt-1"> Powered by <a href="https://www.fusejs.io/"><i class="fa-solid fa-asterisk fa-lg fa-spin fuse-logo"></i> Fuse.js</a></p>
+{% endif %}
 <div id="resultscount"></div>
 <div id="results" class="mt-3 text-left"></div>
