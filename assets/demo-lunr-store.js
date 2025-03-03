@@ -13,7 +13,7 @@ var store = [{
     },{
     "title": "Welcome",
     "subtitle": null,
-    "excerpt": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site.\n",
+    "excerpt": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site.",
     "content": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site. Motivation In the last couple of years I created some tiny websites using Github...",
       "categories": [],
       "date": "2020-05-15",
@@ -23,7 +23,7 @@ var store = [{
     },{
     "title": "Plain page",
     "subtitle": null,
-    "excerpt": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults:\n",
+    "excerpt": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults:",
     "content": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults: - scope: path: \"\" type: \"demo\"...",
       "categories": ["demo"],
       "date": "2025-03-03",
@@ -33,7 +33,7 @@ var store = [{
     },{
     "title": "Plain page with image",
     "subtitle": "Expanding the layout",
-    "excerpt": "This is how a plain page with an image would look like.\n",
+    "excerpt": "This is how a plain page with an image would look like.",
     "content": "This is how a plain page with an image would look like. An image is displayed on top of the header. Some other components are shown, as tags or social...",
       "categories": ["demo"],
       "date": "2025-03-03",
@@ -43,7 +43,7 @@ var store = [{
     },{
     "title": "Post header",
     "subtitle": null,
-    "excerpt": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.\n",
+    "excerpt": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.",
     "content": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content. --- title: Post header categories:...",
       "categories": ["demo"],
       "date": "2020-01-01",
@@ -53,7 +53,7 @@ var store = [{
     },{
     "title": "Landing page",
     "subtitle": "First impression is the last impression",
-    "excerpt": "This page shows the hero header with an image with the landingpage layout.\n",
+    "excerpt": "This page shows the hero header with an image with the landingpage layout.",
     "content": "This page shows the hero header with an image with the landingpage layout. --- layout: landingpage title: Landing page subtitle: First impression is the last impression categories: [demo, landingpage] header_type:...",
       "categories": ["demo","landingpage"],
       "date": "2020-01-04",
@@ -63,7 +63,7 @@ var store = [{
     },{
     "title": "Use MathJax",
     "subtitle": "Project page with a hero header",
-    "excerpt": "This page shows the hero header with a project button. It also has enabled \ncomments, mathjax and a modified date.\n",
+    "excerpt": "This page shows the hero header with a project button. It also has enabled comments, mathjax and a modified date.",
     "content": "This page shows the hero header with a project button. It also has enabled comments, mathjax and a modified date. Example of MathJax: \\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS\\] ---...",
       "categories": ["demo"],
       "date": "2020-02-03",
@@ -73,7 +73,7 @@ var store = [{
     },{
     "title": "A guest author",
     "subtitle": "And with a new project",
-    "excerpt": "This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months…\n",
+    "excerpt": "This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months…",
     "content": "This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months… --- title: A guest...",
       "categories": ["demo","author-guest"],
       "date": "2020-02-29",
@@ -83,7 +83,7 @@ var store = [{
     },{
     "title": "Guest author",
     "subtitle": "But no location or image",
-    "excerpt": "This page shows how a contributor could be added to your blog, but without an avatar or location. Octocat is shy today.\n",
+    "excerpt": "This page shows how a contributor could be added to your blog, but without an avatar or location. Octocat is shy today.",
     "content": "This page shows how a contributor could be added to your blog, but without an avatar or location. Octocat is shy today. --- title: Guest author subtitle: But no location...",
       "categories": ["demo","author-guest"],
       "date": "2020-03-01",
@@ -103,7 +103,7 @@ var store = [{
     },{
     "title": "Image on header",
     "subtitle": "Transparencies work better",
-    "excerpt": "This page shows the image header. It is recommended to use a .png file with transparent background. Large images are also recommended.\n",
+    "excerpt": "This page shows the image header. It is recommended to use a .png file with transparent background. Large images are also recommended.",
     "content": "This page shows the image header. It is recommended to use a .png file with transparent background. Large images are also recommended. --- title: Image on header subtitle: Transparencies work...",
       "categories": ["demo","layout"],
       "date": "2025-03-03",
@@ -113,7 +113,7 @@ var store = [{
     },{
     "title": "Plain page with no tags",
     "subtitle": "Corner case",
-    "excerpt": "I don’t have tags\n",
+    "excerpt": "I don’t have tags",
     "content": "I don’t have tags   --- title: Plain page with no tags subtitle: Corner case show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true ---  ",
       "categories": [],
       "date": "2025-03-03",
@@ -123,7 +123,7 @@ var store = [{
     },{
     "title": "Related",
     "subtitle": null,
-    "excerpt": "This page shows the related snippet. See how related pages appeared on the bottom.\n",
+    "excerpt": "This page shows the related snippet. See how related pages appeared on the bottom.",
     "content": "This page shows the related snippet. See how related pages appeared on the bottom. --- title: Related categories: [demo] header_type: post tags: [layout-default,header-post, social-links, tags, categories, bottom-navs, author, date, related]...",
       "categories": ["demo"],
       "date": "2022-12-01",
@@ -153,7 +153,7 @@ var store = [{
     },{
     "title": "Theming <span class=\"chulapa\">Chulapa</span>",
     "subtitle": "A powerful interface to pimp your site",
-    "excerpt": "Chulapa has a powerful theming interface, meaning that you could use this template for several sites and the look-and-feel of each one could be completely different. We have already introduced the dual navbar system, but you can customize colors and fonts, and even more characteristics as spacing, border, buttons…\n",
+    "excerpt": "Chulapa has a powerful theming interface, meaning that you could use this template for several sites and the look-and-feel of each one could be completely different. We have already introduced the dual navbar system, but you can customize colors and fonts, and even more characteristics as spacing, border, buttons…",
     "content": "Chulapa has a powerful theming interface, meaning that you could use this template for several sites and the look-and-feel of each one could be completely different. We have already introduced...",
       "categories": [],
       "date": "2025-03-03",
@@ -183,7 +183,7 @@ var store = [{
     },{
     "title": "Syntax highlighting demo",
     "subtitle": "Highlighters shipped with this theme.",
-    "excerpt": "This page is a demo of the different styles of\nsyntax highlighting shipped by default with this\ntheme. Just make your selection below.\n",
+    "excerpt": "This page is a demo of the different styles ofsyntax highlighting shipped by default with thistheme. Just make your selection below.",
     "content": "This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below. Select Theme None chulapa-skin: highlight: Python @requires_authorization...",
       "categories": [],
       "date": "2025-03-03",
@@ -203,7 +203,7 @@ var store = [{
     },{
     "title": "Variables dictionary",
     "subtitle": null,
-    "excerpt": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed.\n",
+    "excerpt": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed.",
     "content": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed. Chulapa-specific variables vars Description navbar-chulapa-bg-color Navbar...",
       "categories": [],
       "date": "2025-03-03",
@@ -213,7 +213,7 @@ var store = [{
     },{
     "title": "Current skin",
     "subtitle": "Showing al the different Bootstrap components available",
-    "excerpt": "This is a demo page showing the different components of Bootstrap and how they look on this site under the current configuration.\n",
+    "excerpt": "This is a demo page showing the different components of Bootstrap and how they look on this site under the current configuration.",
     "content": "This is a demo page showing the different components of Bootstrap and how they look on this site under the current configuration. Previous | Deeply Deeply Next skins skin bootstrap...",
       "categories": ["skins"],
       "date": "2015-03-03",
