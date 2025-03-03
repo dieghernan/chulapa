@@ -3,7 +3,7 @@
 var store = [{
     "title": "<span class=\"chulapa\">Chulapa</span>",
     "subtitle": "A full flexible Jekyll theme for Github Pages",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Jekyll template for fast creation of free site on Github Pages. Based on Bootstrap and shipped with lots of features",
     "content": "Latest release {{ site.data.version.release }} Read the docs Easy to install Create a fully responsive website hosted on Github in minutes - for free! First-class features Fontawesome, comments, internal search,...",
       "categories": null,
       "date": null,
@@ -13,7 +13,7 @@ var store = [{
     },{
     "title": "Welcome",
     "subtitle": null,
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site.\n",
     "content": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site. Motivation In the last couple of years I created some tiny websites using Github...",
       "categories": [],
       "date": "2020-05-15",
@@ -23,7 +23,7 @@ var store = [{
     },{
     "title": "Plain page",
     "subtitle": null,
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults:\n",
     "content": "This is how a plain page would look like. The layout and header type have been already set on the _config file as defaults: - scope: path: \"\" type: \"demo\"...",
       "categories": ["demo"],
       "date": "2025-03-03",
@@ -33,7 +33,7 @@ var store = [{
     },{
     "title": "Plain page with image",
     "subtitle": "Expanding the layout",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This is how a plain page with an image would look like.\n",
     "content": "This is how a plain page with an image would look like. An image is displayed on top of the header. Some other components are shown, as tags or social...",
       "categories": ["demo"],
       "date": "2025-03-03",
@@ -43,7 +43,7 @@ var store = [{
     },{
     "title": "Post header",
     "subtitle": null,
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.\n",
     "content": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content. --- title: Post header categories:...",
       "categories": ["demo"],
       "date": "2020-01-01",
@@ -53,7 +53,7 @@ var store = [{
     },{
     "title": "Landing page",
     "subtitle": "First impression is the last impression",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows the hero header with an image with the landingpage layout.\n",
     "content": "This page shows the hero header with an image with the landingpage layout. --- layout: landingpage title: Landing page subtitle: First impression is the last impression categories: [demo, landingpage] header_type:...",
       "categories": ["demo","landingpage"],
       "date": "2020-01-04",
@@ -63,7 +63,7 @@ var store = [{
     },{
     "title": "Use MathJax",
     "subtitle": "Project page with a hero header",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows the hero header with a project button. It also has enabled \ncomments, mathjax and a modified date.\n",
     "content": "This page shows the hero header with a project button. It also has enabled comments, mathjax and a modified date. Example of MathJax: \\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS\\] ---...",
       "categories": ["demo"],
       "date": "2020-02-03",
@@ -73,7 +73,7 @@ var store = [{
     },{
     "title": "A guest author",
     "subtitle": "And with a new project",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months…\n",
     "content": "This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months… --- title: A guest...",
       "categories": ["demo","author-guest"],
       "date": "2020-02-29",
@@ -83,7 +83,7 @@ var store = [{
     },{
     "title": "Guest author",
     "subtitle": "But no location or image",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows how a contributor could be added to your blog, but without an avatar or location. Octocat is shy today.\n",
     "content": "This page shows how a contributor could be added to your blog, but without an avatar or location. Octocat is shy today. --- title: Guest author subtitle: But no location...",
       "categories": ["demo","author-guest"],
       "date": "2020-03-01",
@@ -93,7 +93,7 @@ var store = [{
     },{
     "title": "Layout minimal",
     "subtitle": "A blank canvas for you",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Use the layout minimal with html to unleash your creativity",
     "content": "Layout minimal A blank canvas for you Adapted from Start Bootstrap Use any Bootstrap Template! Some examples on Bootstrap Documentation, StartBootstrap or just Google it! Just use HTML Markdown files...",
       "categories": ["demo","layout"],
       "date": "2025-03-03",
@@ -103,7 +103,7 @@ var store = [{
     },{
     "title": "Image on header",
     "subtitle": "Transparencies work better",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows the image header. It is recommended to use a .png file with transparent background. Large images are also recommended.\n",
     "content": "This page shows the image header. It is recommended to use a .png file with transparent background. Large images are also recommended. --- title: Image on header subtitle: Transparencies work...",
       "categories": ["demo","layout"],
       "date": "2025-03-03",
@@ -113,7 +113,7 @@ var store = [{
     },{
     "title": "Plain page with no tags",
     "subtitle": "Corner case",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "I don’t have tags\n",
     "content": "I don’t have tags   --- title: Plain page with no tags subtitle: Corner case show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true ---  ",
       "categories": [],
       "date": "2025-03-03",
@@ -123,7 +123,7 @@ var store = [{
     },{
     "title": "Related",
     "subtitle": null,
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows the related snippet. See how related pages appeared on the bottom.\n",
     "content": "This page shows the related snippet. See how related pages appeared on the bottom. --- title: Related categories: [demo] header_type: post tags: [layout-default,header-post, social-links, tags, categories, bottom-navs, author, date, related]...",
       "categories": ["demo"],
       "date": "2022-12-01",
@@ -133,7 +133,7 @@ var store = [{
     },{
     "title": "Installation",
     "subtitle": "How to use <span class=\"chulapa\">Chulapa</span>",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Install Chulapa on your Github repo",
     "content": "Chulapa was developed in and for Github. There are three tested possible ways to use Chulapa: 1. Use our Github Template Recommended if you are starting from scratch Create a...",
       "categories": [],
       "date": "2025-03-03",
@@ -143,7 +143,7 @@ var store = [{
     },{
     "title": "Global settings",
     "subtitle": "Learn how to set up your new site",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Setting up your new site",
     "content": "TL;DR Learn how to modify your _config.yml file. If you are using the remote method and you didn’t fork the chulapa-101 repo, you can use this file as a starting...",
       "categories": [],
       "date": "2025-03-03",
@@ -153,7 +153,7 @@ var store = [{
     },{
     "title": "Theming <span class=\"chulapa\">Chulapa</span>",
     "subtitle": "A powerful interface to pimp your site",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Chulapa has a powerful theming interface, meaning that you could use this template for several sites and the look-and-feel of each one could be completely different. We have already introduced the dual navbar system, but you can customize colors and fonts, and even more characteristics as spacing, border, buttons…\n",
     "content": "Chulapa has a powerful theming interface, meaning that you could use this template for several sites and the look-and-feel of each one could be completely different. We have already introduced...",
       "categories": [],
       "date": "2025-03-03",
@@ -163,7 +163,7 @@ var store = [{
     },{
     "title": "Layouts & Snippets",
     "subtitle": "Add your content",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Learn how to start adding your content to your new site",
     "content": "Once that you have set your site and you are happy with the look, you can start creating your content. It is assumed that you are familiar with Markdown and...",
       "categories": [],
       "date": "2025-03-03",
@@ -173,7 +173,7 @@ var store = [{
     },{
     "title": "Frequently Asked Questions",
     "subtitle": "Some additional information you may find useful",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Advices and FAQs",
     "content": "Additionally, there are some tips when using Chulapa, as well as code samples. How do I… …know which version of the theme I am using? If you are on remote_theme...",
       "categories": [],
       "date": "2025-03-03",
@@ -183,7 +183,7 @@ var store = [{
     },{
     "title": "Syntax highlighting demo",
     "subtitle": "Highlighters shipped with this theme.",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page is a demo of the different styles of\nsyntax highlighting shipped by default with this\ntheme. Just make your selection below.\n",
     "content": "This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below. Select Theme None chulapa-skin: highlight: Python @requires_authorization...",
       "categories": [],
       "date": "2025-03-03",
@@ -193,7 +193,7 @@ var store = [{
     },{
     "title": "Markdown cheatsheet",
     "subtitle": "The basic syntax of your page",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "A demo page checking Markdown",
     "content": "What’s Markdown? Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one...",
       "categories": [],
       "date": "2025-03-03",
@@ -203,7 +203,7 @@ var store = [{
     },{
     "title": "Variables dictionary",
     "subtitle": null,
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed.\n",
     "content": "This page shows all the Chulapa variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed. Chulapa-specific variables vars Description navbar-chulapa-bg-color Navbar...",
       "categories": [],
       "date": "2025-03-03",
@@ -213,7 +213,7 @@ var store = [{
     },{
     "title": "Current skin",
     "subtitle": "Showing al the different Bootstrap components available",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "This is a demo page showing the different components of Bootstrap and how they look on this site under the current configuration.\n",
     "content": "This is a demo page showing the different components of Bootstrap and how they look on this site under the current configuration. Previous | Deeply Deeply Next skins skin bootstrap...",
       "categories": ["skins"],
       "date": "2015-03-03",
@@ -223,7 +223,7 @@ var store = [{
     },{
     "title": "Deeply",
     "subtitle": "A dark background theme with bold contrasting colors",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Deeply, a dark background theme with bold contrasting colors developed by Tophat Themes.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : deeply autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2015-03-04",
@@ -233,7 +233,7 @@ var store = [{
     },{
     "title": "Hootstrap",
     "subtitle": "It’s a hootin, hollarin ho-down y’all!",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Hootstrap, it’s a hootin, hollarin ho-down y’all! developed by Themes.guide",
     "content": "Developed by Themes.guide, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : hootstrap autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2015-03-04",
@@ -243,7 +243,7 @@ var store = [{
     },{
     "title": "Journal",
     "subtitle": "Crisp like a new sheet of paper",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Journal, crisp like a new sheet of paper developed by Bootswatch.",
     "content": "Developed by Bootswatch, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : journal autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2015-03-05",
@@ -253,7 +253,7 @@ var store = [{
     },{
     "title": "LUX",
     "subtitle": "A touch of class",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Lux, a touch of class developed by Bootswatch.",
     "content": "Developed by Bootswatch, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : lux autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2015-03-05",
@@ -263,7 +263,7 @@ var store = [{
     },{
     "title": "Minty",
     "subtitle": "A fresh feel",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Minty, a fresh feel developed by Bootswatch.",
     "content": "Developed by Bootswatch, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : minty autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2015-03-05",
@@ -273,7 +273,7 @@ var store = [{
     },{
     "title": "Sketchy",
     "subtitle": "A hand-drawn look for mockups and mirth",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Sketchy, a hand-drawn look for mockups and mirth developed by Bootswatch.",
     "content": "Developed by Bootswatch, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : sketchy autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2015-03-06",
@@ -283,7 +283,7 @@ var store = [{
     },{
     "title": "Sunset",
     "subtitle": "Hungover on the beach at sunrise",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Sunset, hungover on the beach at sunrise developed by Tophat Themes.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : sunset autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2019-03-07",
@@ -293,7 +293,7 @@ var store = [{
     },{
     "title": "<span class=\"chulapa\">Chulapa</span><small style=\"font-size:50%; color:#687864;\"> skin</small>",
     "subtitle": "Get lost in Madrid",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Chulapa, get lost in Madrid developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : chulapa autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2019-05-15",
@@ -303,7 +303,7 @@ var store = [{
     },{
     "title": "Twitter",
     "subtitle": "Fly high with a light skin",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Twitter, fly high with a light skin developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : twitter autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2020-02-14",
@@ -313,7 +313,7 @@ var store = [{
     },{
     "title": "Graymor",
     "subtitle": "Square corners with shades of gray and sea green",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Graymor, square corners with shades of gray and sea green developed by Tophat Themes.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : graymor autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2020-03-07",
@@ -323,7 +323,7 @@ var store = [{
     },{
     "title": "Lymcha",
     "subtitle": "Like a sunny summer day in Northern Italy",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Lymcha, like a sunny summer day in Northern Italy developed by Tophat Themes.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : lymcha autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2020-03-07",
@@ -333,7 +333,7 @@ var store = [{
     },{
     "title": "Preptor",
     "subtitle": "A bright, hot pink theme in good taste.",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Preptor, a bright, hot pink theme in good taste developed by Tophat Themes.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : preptor autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2020-03-07",
@@ -343,7 +343,7 @@ var store = [{
     },{
     "title": "Wandoo",
     "subtitle": "A pleasant theme with red primary color",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Wandoo, a pleasant theme with red primary color developed by Tophat Themes.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : wandoo autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2020-03-07",
@@ -353,7 +353,7 @@ var store = [{
     },{
     "title": "Twitter Dim",
     "subtitle": "A skin for night owls",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Twitter Dim, a skin for night owls developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : twitter-dim autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2020-03-20",
@@ -363,7 +363,7 @@ var store = [{
     },{
     "title": "Twitter Lights Out",
     "subtitle": "Lights off, dream on",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Twitter Lights Out, lights off dream on developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : twitter-lights-out autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2020-04-20",
@@ -373,7 +373,7 @@ var store = [{
     },{
     "title": "Pear",
     "subtitle": "A juicy and fresh skin on nice greens",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Pear, a juicy and fresh skin on nice greens developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : pear autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2020-07-22",
@@ -383,7 +383,7 @@ var store = [{
     },{
     "title": "Towards",
     "subtitle": "Data Science is great",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : towards autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2021-02-14",
@@ -393,7 +393,7 @@ var store = [{
     },{
     "title": "Academia",
     "subtitle": "It purifies, it fixes, and it dignifies",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Academia, It purifies, it fixes, and it dignifies developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : academia autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2021-03-20",
@@ -403,7 +403,7 @@ var store = [{
     },{
     "title": "Universal",
     "subtitle": "Clean & Stylish",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Universal, clean and stylish by Bootstrapious.",
     "content": "Developed by Bootstrapious, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : universal autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2022-03-07",
@@ -413,7 +413,7 @@ var store = [{
     },{
     "title": "GitDev Dark",
     "subtitle": "I develop better in the shadows",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "GitDev Dark, I develop better in the shadows developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : gitdev-dark autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2022-03-20",
@@ -423,7 +423,7 @@ var store = [{
     },{
     "title": "GitDev",
     "subtitle": "Happy Coding",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "GitDev, Happy Coding developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : gitdev autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2022-03-20",
@@ -433,7 +433,7 @@ var store = [{
     },{
     "title": "Monotone",
     "subtitle": "Resigned to the monotony of one color",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Monotone, resigned to the monotony of one color.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : monotone autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2025-02-10",
@@ -443,7 +443,7 @@ var store = [{
     },{
     "title": "Minco",
     "subtitle": "Unique and stylish with a readable font",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Minco, unique and stylish with a readable font.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : minco autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2025-02-11",
@@ -453,7 +453,7 @@ var store = [{
     },{
     "title": "Electro",
     "subtitle": "The intense, saturated blue theme with rounded buttons",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Electro, the intense, saturated blue theme with rounded buttons.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : electro autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2025-02-14",
@@ -463,7 +463,7 @@ var store = [{
     },{
     "title": "Mickie",
     "subtitle": "Like a precocious child that doesn't go away",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Mickie, like a precocious child that doesn't go away.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : mickie autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2025-02-16",
@@ -473,7 +473,7 @@ var store = [{
     },{
     "title": "Focal",
     "subtitle": "Stay focus",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Focal, stay focus developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : focal autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2025-02-20",
@@ -483,7 +483,7 @@ var store = [{
     },{
     "title": "Skeeblu",
     "subtitle": "A big, blue sky and no clouds in sight",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Skeeblu, a big, blue sky and no clouds in sight.",
     "content": "Developed by Tophat Themes, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : skeeblu autothemer : # Autotheming may...",
       "categories": ["skins"],
       "date": "2025-02-20",
@@ -493,7 +493,7 @@ var store = [{
     },{
     "title": "Media",
     "subtitle": "Read, write, learn, share",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Media, read, write, learn, share developed by dieghernan.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : media autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2025-02-21",
@@ -503,7 +503,7 @@ var store = [{
     },{
     "title": "Listen",
     "subtitle": "A dark theme on spot",
-    "excerpt": "/* Demo for docs. Don’t use this script on production */",
+    "excerpt": "Listen, dark theme on spot.",
     "content": "Developed by dieghernan, you can use it on your site. Just go to your _config.yml file and modify this lines chulapa-skin: skin : listen autothemer : # Autotheming may not...",
       "categories": ["skins"],
       "date": "2025-02-27",
