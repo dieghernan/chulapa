@@ -20,12 +20,9 @@ const highlight = (fuseSearchResult, highlightClassName, termLen) => {
         let nextUnhighlightedRegionStartingIndex = 0;
 
         // Sort regions to avoid breaking layout
-        regions = regions.sort(function (a, b) {
-            return a[0] - b[0];
-        });
+        regions = regions.sort((a, b) => a[0] - b[0]);
 
         regions.forEach(region => {
-
             // Was this region already included in content?
             if (nextUnhighlightedRegionStartingIndex > region[0]) {
                 return content;
@@ -49,10 +46,7 @@ const highlight = (fuseSearchResult, highlightClassName, termLen) => {
             const indexIniTag = theInput.indexOf("<");
             const indexCloseTag = theInput.indexOf(">");
 
-            if (indexCloseTag < indexIniTag) {
-                return content;
-            }
-            if (indexIniTag == -1 && indexCloseTag > 0) {
+            if (indexCloseTag < indexIniTag || (indexIniTag == -1 && indexCloseTag > 0)) {
                 return content;
             }
 
@@ -138,7 +132,7 @@ function init() {
                             </div>
                             <div class="row mt-2">
                                 <div class="col">
-                                    <p>${i.excerpt}</p>
+                                    <p>${i.excerpt.trim()}</p>
                                 </div>
                             </div>
                             <hr>
@@ -155,7 +149,7 @@ function init() {
                             </div>
                             <div class="row mt-2">
                                 <div class="col">
-                                    <p>${i.excerpt.split(" ").splice(0, 10).join(" ").trim()}</p>
+                                    <p>${i.excerpt.trim()}</p>
                                 </div>
                             </div>
                             <hr>
@@ -167,14 +161,14 @@ function init() {
     }
 
     function handleInputChange() {
-        var terms = termsInput.value;
-        var termLen = terms.length;
+        let terms = termsInput.value;
+        const termLen = terms.length;
         if (!terms) {
             resultsContainer.textContent = '';
             return;
         }
-        if (termLen == 1) {
-            terms = "^" + terms;
+        if (termLen === 1) {
+            terms = `^${terms}`;
         }
         const result = fuse.search(terms, { limit: 10 });
         const resultFilter = result.filter((x) => x.score < 0.75);
@@ -182,10 +176,10 @@ function init() {
         // log results
         const itLen = resultFilter.length;
         if (itLen === 0) {
-            console.log("No match for '" + terms + "'");
+            console.log(`No match for '${terms}'`);
         } else {
             resultFilter.forEach(i => {
-                console.log("Searching string '" + terms + "' gives Score: " + parseInt(i.score * 1000000) / 1000000 + " for title: " + i.item.title);
+                console.log(`Searching string '${terms}' gives Score: ${parseInt(i.score * 1000000) / 1000000} for title: ${i.item.title}`);
             });
         }
 

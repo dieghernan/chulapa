@@ -67,7 +67,6 @@ const highlight = (lunrSearchResult, highlightClassName, termLen) => {
 // lunr to fusejs layout
 const lunr2fuse = (result) => {
     result.forEach(i => {
-
         i["item"] = store[i.ref];
         i["refIndex"] = i.ref;
 
@@ -143,7 +142,7 @@ function init() {
                             </div>
                             <div class="row mt-2">
                                 <div class="col">
-                                    <p>${i.excerpt}</p>
+                                    <p>${i.excerpt.trim()}</p>
                                 </div>
                             </div>
                             <hr>
@@ -160,7 +159,7 @@ function init() {
                             </div>
                             <div class="row mt-2">
                                 <div class="col">
-                                    <p>${i.excerpt.split(" ").splice(0, 10).join(" ").trim()}</p>
+                                    <p>${i.excerpt.trim()}</p>
                                 </div>
                             </div>
                             <hr>
@@ -172,18 +171,18 @@ function init() {
     }
 
     function handleInputChange() {
-        var terms = termsInput.value;
-        var termLen = terms.length;
+        let terms = termsInput.value;
+        const termLen = terms.length;
         if (!terms) {
             resultsContainer.textContent = '';
             return;
         }
-        if (termLen == 1) {
-            terms = "^" + terms;
+        if (termLen === 1) {
+            terms = `^${terms}`;
         }
 
         // Config search
-        var idx = lunr(function () {
+        const idx = lunr(function () {
             this.field('title');
             this.field('subtitle');
             this.field('excerpt');
@@ -196,7 +195,7 @@ function init() {
             this.pipeline.remove(lunr.trimmer);
             this.metadataWhitelist = ['position'];
 
-            for (var item in store) {
+            for (const item in store) {
                 this.add({
                     title: store[item].title,
                     subtitle: store[item].subtitle,
@@ -210,21 +209,19 @@ function init() {
             }
         });
 
-        // trigger search
+        // Trigger search
         terms = terms.toLowerCase();
-        var result = idx.query(function (q) {
-            terms.split(lunr.tokenizer.separator).forEach(function (term) {
-                q.term(term, {
-                    boost: 100
-                });
-                if (terms.lastIndexOf(" ") != terms.length - 1) {
+        const result = idx.query(q => {
+            terms.split(lunr.tokenizer.separator).forEach(term => {
+                q.term(term, { boost: 100 });
+                if (terms.lastIndexOf(" ") !== terms.length - 1) {
                     q.term(term, {
                         usePipeline: false,
                         wildcard: lunr.Query.wildcard.TRAILING,
                         boost: 10
                     });
                 }
-                if (term != "") {
+                if (term !== "") {
                     q.term(term, {
                         usePipeline: false,
                         editDistance: 1,
@@ -237,17 +234,17 @@ function init() {
         const lunres = lunr2fuse(result);
 
         const resultFilter = lunres.filter((x) => x.score > 0.5);
-        // log results
+        // Log results
         const itLen = resultFilter.length;
         if (itLen === 0) {
-            console.log("No match for '" + terms + "'");
+            console.log(`No match for '${terms}'`);
         } else {
             resultFilter.forEach(i => {
-                console.log("Searching string '" + terms + "' gives Score: " + parseInt(i.score * 1000) / 1000 + " for title: " + i.item.title);
+                console.log(`Searching string '${terms}' gives Score: ${parseInt(i.score * 1000) / 1000} for title: ${i.item.title}`);
             });
         }
 
-        const res = highlight(resultFilter, "bg-warning text-dark", termLen); // array of items with highlighted fields
+        const res = highlight(resultFilter, "bg-warning text-dark", termLen); // Array of items with highlighted fields
         renderEntries(res);
     }
 
