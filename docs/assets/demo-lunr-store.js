@@ -2,7 +2,7 @@
 layout: null
 ---
 /* Demo for docs. Don't use this script on production */
-{% assign maxwords = "600"  %}
+{% assign maxwords = "5000"  %}
 var store = [
 {%- assign indexlunr = site.pages | concat: site.documents |  where_exp:'doc','doc.include_on_search != false' -%}
   {%- for doc in indexlunr -%}
