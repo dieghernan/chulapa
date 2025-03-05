@@ -38,7 +38,7 @@
 {%- if site.search.provider == "lunr" -%}
 <script src="https://unpkg.com/lunr/lunr.min.js"></script>
 <script src="{{ '/assets/js/lunr/lunr-store.js' | absolute_url }}"></script>
-<script src="{{ '/assets/js/lunr/lunr-search.js' | absolute_url }}"></script>
+<script src="{{ '/assets/js/lunr/lunr-search.min.js' | absolute_url }}"></script>
 {% endif %}
 {%- if site.search.provider == "algolia" -%}
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
