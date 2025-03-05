@@ -5,6 +5,7 @@
     - `listen`
 - New search with [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search).
 - New search with [Fuse.js](https://fusejs.io).
+- Results with `lunr` and `fusejs` highlights matched terms like `algolia`.
 
 ### Changed
 - Fix a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section is
