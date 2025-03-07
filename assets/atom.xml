@@ -36,16 +36,18 @@ permalink: ./atom.xml
 	{%- assign words = document.content | strip_html | number_of_words -%}   	
 		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
 	<entry>
-		<title>{{ document.title | strip_html | escape }}</title>
-		<link href="{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}" rel="alternate" type="text/html" title="{{ document.title | strip_html | escape }}"/>
+		<title>{{ document.title | markdownify | strip_html | xml_escape | escape }}</title>
+		<link href="{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}" rel="alternate" type="text/html" title="{{ document.title | markdownify | strip_html | xml_escape | escape }}"/>
 		<published>{{ document.date | date_to_xmlschema }}</published>
 		<updated>{{ document.last_modified_at | default: document.date | date_to_xmlschema }}</updated>
 		<id>{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}</id>
 		<content type="html" xml:base="{{ document.url | replace: "index.html", "" | absolute_url | uri_escape }}">
 		{% if document.subtitle %}
-		{{ '<h3>' | append: document.subtitle | 
-	         append: '</h3>' | escape }}
 		
+		{%- assign thesub = document.subtitle | markdownify -%}
+		{%- assign thesub = thesub | remove: '<p>' | remove: '</p>' | strip | strip_newlines %}
+		
+		{{ '<h3>' | append: thesub | append: '</h3>' | xml_escape | escape }}
 		{% endif %}
   		{% if entryimg %}
 			{{ "<img src='" | append: entryimg | append: "' >" | escape }}
