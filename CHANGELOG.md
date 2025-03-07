@@ -6,6 +6,8 @@
 - New search with [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search).
 - New search with [Fuse.js](https://fusejs.io).
 - Results with `lunr` and `fusejs` highlights matched terms like `algolia`.
+- Full support for Markdown in titles and subtitles (before only HTML tagging 
+  was supported.)
 
 ### Changed
 - Fix a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section is
@@ -14,6 +16,12 @@
   `site.search.maxwords`.
 - New option `site.search.show_attrib` to hide attribution of engine searches
   (not recommended but provided as a feature).
+
+#### Checklist
+
+- [ ] Bump version on `head`
+- [ ] Bump version on docs
+- [ ] Bump version on `chulapa-101` remote theme
 
 ## v2.0.1 - 2025-02-26
 
@@ -44,9 +52,6 @@
 - Twitter share button renamed to X. Also, the icon has been updated.
 - Share on Mastodon link replaced by Share on Bluesky.
 - Update `towards` skin.
-- [x] Bump version on `head`
-- [x] Bump version on docs
-- [ ] Bump version on `chulapa-101` remote theme
 
 ## v1.1.0 - 2023-12-13
 
@@ -73,11 +78,6 @@
 - YouTube videos are lazy-deferred by default.
 - Improvements on pagination.
 - Several adjustments on skins.
-
-#### Checklist
-- [x] Bump version on `head`
-- [x] Bump version on docs
-- [ ] Bump version on `chulapa-101` remote theme
 
 ## v1.0.1 - 2022-11-25
 
