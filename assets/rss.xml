@@ -35,10 +35,10 @@ permalink: ./rss.xml
 		{%- assign words = document.content | strip_html | number_of_words -%}   	
 		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
 		<item>
-			<title>{{ document.title | strip_html | escape }}</title>
+			<title>{{ document.title | markdownify | strip_html | strip_newlines | strip | escape }}</title>
 			<description>
 				<![CDATA[	
- 				{% if document.subtitle %}<h3>{{ document.subtitle | markdownify }}</h3>{% endif %}
+ 				{% if document.subtitle %}<h3>{{ document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip | strip_newlines }}</h3>{% endif %}
     		<p>{{ minutes }} min.</p>
 				<div>{{ document.content
 				| markdownify }}</div>
