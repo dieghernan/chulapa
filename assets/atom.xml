@@ -47,7 +47,8 @@ permalink: ./atom.xml
 		{%- assign thesub = document.subtitle | markdownify -%}
 		{%- assign thesub = thesub | remove: '<p>' | remove: '</p>' | strip | strip_newlines %}
 		
-		{{ '<h3>' | append: thesub | append: '</h3>' | xml_escape | escape }}
+		{{ '<h3>' | append: thesub | 
+	         append: '</h3>' | escape }}
 		{% endif %}
   		{% if entryimg %}
 			{{ "<img src='" | append: entryimg | append: "' >" | escape }}
