@@ -40,7 +40,7 @@ $footer-chulapa-hover-color: $primary !default;
 $pagination-chulapa-bg-hover-color: $primary !default;
 
 $min-contrast-ratio: 2 !default;
-
+$yiq-contrasted-threshold: 130 !default;
 // Lines for dark themes
 
 @import "skins/dark-bg";
