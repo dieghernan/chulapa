@@ -14,13 +14,13 @@ layout: null
                               replace: "{{", ",.," |
                               replace: "{%", ",.," |
                               split: ",.," | first -%}
-    {%- assign ogdesc = doc.excerpt | default: descfallback | strip_html | strip_newlines -%}
+    {%- assign ogdesc = doc.excerpt | markdownify | default: descfallback | strip_html | strip_newlines -%}
 
     {
-      "title": {{ doc.title | strip_html | strip | default: " " | jsonify }},
-      "subtitle": {{ doc.subtitle | strip_html | strip | default: " " | jsonify }},
+      "title": {{ doc.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip_html | strip | default: " " | jsonify }},
+      "subtitle": {{ doc.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip_html | strip | default: " " | jsonify }},
       "excerpt": {{ ogdesc | strip_html | strip | default: " " | jsonify }},
-      "content": {{ doc.content | newline_to_br |
+      "content": {{ doc.content | markdownify | newline_to_br |
                     replace: "<br />", " " |
                     replace: "</p>", " " |
                     replace: "</h1>", " " |

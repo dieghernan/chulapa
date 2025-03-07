@@ -17,12 +17,12 @@ var store = [
                               replace:"{{", ",.," |
                               replace:"{%", ",.," |
                               split: ",.," | first -%}
-    {%- assign ogdesc = doc.excerpt | default: descfallback | strip_html | strip_newlines  -%}
+    {%- assign ogdesc = doc.excerpt | markdownify | default: descfallback | strip_html | strip_newlines  -%}
       {
-        "title": {{ doc.title | strip | jsonify }},
-        "subtitle": {{ doc.subtitle | strip | jsonify }},
-        "excerpt": {{ ogdesc | strip | jsonify }},
-        "content": {{ doc.content | newline_to_br |
+        "title": {{ doc.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip | jsonify }},
+        "subtitle": {{ doc.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip | jsonify }},
+        "excerpt": {{ ogdesc | markdownify | strip | jsonify }},
+        "content": {{ doc.content | markdownify | newline_to_br |
                       replace: "<br />", " " |
                       replace: "</p>", " " |
                       replace: "</h1>", " " |
