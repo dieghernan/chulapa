@@ -81,8 +81,8 @@ layout: default
 	{% if document.tags contains sorted_tags[i] %}
   <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
     <div class="col">
-      <h6><a href="{{ document.url | absolute_url }}">{{ document.title }}</a></h6>
-      {%- if document.subtitle -%}<p>{{- document.subtitle -}}</p> {%- endif -%}
+      <h6><a href="{{ document.url | absolute_url }}">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>
+      {%- if document.subtitle -%}<p>{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
       <div class="small">
         {% if document.date %}
         {% assign dateformat = document.date | date: "%B %d, %Y" %}

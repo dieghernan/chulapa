@@ -1,5 +1,5 @@
 {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
-{%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | strip_html  -%}
+{%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip_newlines }}  -%}
 {%- assign classbread = "col-lg-8" -%}
 {%- if page.show_sociallinks -%}
   {%- assign classbread = "col-lg-5" -%}
@@ -22,7 +22,7 @@
        {% endfor %}
        <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem">
-        <span itemprop="name">{{ page.title }}</span>
+        <span itemprop="name">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</span>
         <meta itemprop="position" content="{{ loopplus1 }}" >
       </li>
       {% else %}
@@ -31,7 +31,7 @@
           <meta itemprop="position" content="1" ></li>
     <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem">
-        <span itemprop="name">{{ page.title }}</span>
+        <span itemprop="name">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</span>
         <meta itemprop="position" content="2" >
       </li>
       {% endif %}

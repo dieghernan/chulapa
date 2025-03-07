@@ -79,8 +79,8 @@
     {%- endif %}
          <div class="card {{ m }} border chulapa-related">
           <div class="card-body">
-          <p class="card-title chulapa-headingfont"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title }}</a></p>
-          {% if document.subtitle %}<p class="card-text"><small>{{- document.subtitle -}}</small></p> {%- endif -%}
+          <p class="card-title chulapa-headingfont"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></p>
+          {% if document.subtitle %}<p class="card-text"><small>{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</small></p> {%- endif -%}
     </div>
     <div class="card-footer bg-transparent">
           {% if document.date %}

@@ -55,7 +55,7 @@ layout: default
 	<div class="ml-2 my-1">
 		<div class="row g-0">
 			<article class="col">
-				<h6 class="my-2"><a href="{{- document.url | absolute_url -}}" class="chulapa-text-body-color">{{ document.title }}</a></h6>
+				<h6 class="my-2"><a href="{{- document.url | absolute_url -}}" class="chulapa-text-body-color">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>
 				<p class="small mb-1">
 				{% if document.date %}
 				{% assign dateformat = document.date | date: "%A, %d" %}

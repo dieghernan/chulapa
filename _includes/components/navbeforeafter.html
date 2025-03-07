@@ -6,8 +6,8 @@
 {%- if page.previous.url -%}
  {%- assign classitemprevious = "" -%}
 {%- endif -%}
-{%- assign titleitemprevious = page.previous.title | strip_html  | truncate: 30  -%}
-{%- assign titleitemnext = page.next.title | strip_html  | truncate: 30  -%}
+{%- assign titleitemprevious = page.previous.title | markdownify | strip_html | strip_newlines | strip | truncate: 30  -%}
+{%- assign titleitemnext = page.next.title | markdownify | strip_html | strip_newlines | strip | truncate: 30  -%}
 
 
 

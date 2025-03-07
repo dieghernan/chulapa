@@ -1,0 +1,26 @@
+{%- assign alldocs = include.cacheddocs -%}
+   {% for post in alldocs limit: include.cachedlimit %} 
+   <div class="ml-2 my-1">
+       <div class="row g-0">
+           <article class="col">
+               <h6 class="my-2"><a href="{{- post.url | absolute_url -}}" class="chulapa-text-body-color">{{ post.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>
+               <p class="small mb-1">
+               {% if post.date %}
+               {% assign dateformat = post.date | date: "%A, %d, %B %Y" %}
+                 <time datetime="{{- post.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+                 {% if post.last_modified_at %} <i class="fa fa-redo fa-sm" aria-hidden="true"></i>{% endif %}
+             {% endif %}
+               <span class="mx-1 my-1 badge chulapa-pill-bg-body">{{ post.collection }}</span>
+       </p>
+           </article>
+           {%- if post.header_img  or post.og_image  -%}
+           <a href="{{- post.url | absolute_url -}}" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ post.og_image | default: post.header_img | absolute_url }}')"></a>
+           {%- endif -%}
+       </div>
+       {% unless forloop.last -%}
+       <hr class="w-25 m-0"/>
+       {% endunless -%}
+
+   </div>
+
+{% endfor %}
