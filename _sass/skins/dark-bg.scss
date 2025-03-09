@@ -58,9 +58,9 @@ $list-group-disabled-bg:$black;
 $list-group-action-color:$white;
 $breadcrumb-active-color:$gray-500;
 
-$toast-background-color: rgba($gray-800, .15);
-$toast-header-background-color: $toast-background-color;
-$breadcrumb-bg: rgba($gray-800, .15);;
+$toast-background-color: lighten($body-bg, 5%);
+$toast-header-background-color: lighten($body-bg, 5%);
+$breadcrumb-bg: lighten($body-bg, 5%);
 
 // Tables ======================================================================
 
