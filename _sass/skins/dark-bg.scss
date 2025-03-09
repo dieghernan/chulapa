@@ -57,13 +57,10 @@ $list-group-disabled-color:$gray-800;
 $list-group-disabled-bg:$black;
 $list-group-action-color:$white;
 $breadcrumb-active-color:$gray-500;
-$breadcrumb-bg: $body-bg;
-.card .card-header, .card .card-footer {
-  background-color: inherit !important;
-}
+
 $toast-background-color: rgba($gray-800, .15);
 $toast-header-background-color: $toast-background-color;
-$breadcrumb-bg: rgba($gray-900, .15);;
+$breadcrumb-bg: rgba($gray-800, .15);;
 
 // Tables ======================================================================
 
@@ -73,11 +70,16 @@ $breadcrumb-bg: rgba($gray-900, .15);;
   &-success,
   &-info,
   &-warning,
+  &-light,
   &-danger {
     color: $dark !important;
-  }
+  } 
 }
 
 .card.card-title, card.card-footer {
   background-color: inherit !important;
 }
+
+.card.bg-light {
+  color: $dark !important;
+} 
