@@ -5,7 +5,7 @@ subtitle: A dark theme on spot
 excerpt: Listen, dark theme on spot.
 date: 2025-02-27
 last_modified_at: 2025-02-28
-tags: [skin, bootstrap, dieghernan, header-splash]
+tags: [dark-skin, skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: listen
 og_image: ./assets/img/skinspreview/listen.png
