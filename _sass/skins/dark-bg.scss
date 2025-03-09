@@ -5,7 +5,7 @@ $code-color: #E9468E !default;
 $blockquote-chulapa-bg-color: $body-bg !default;
 $blockquote-chulapa-text-color: $body-color !default;
 $pre-chulapa-bg-color: $body-color !default;
-
+$component-active-bg: $primary !default;
 
 /*! Import Bootstrap 4 vars */
 @import "bootstrap/functions";
@@ -39,7 +39,7 @@ $pagination-hover-bg:lighten($body-bg, 5%);
 $pagination-hover-border-color:rgba($black, 0.6);
 $pagination-active-bg:lighten($primary, 5%);
 $pagination-active-border-color:rgba($black, 0.6);
-$pagination-disabled-bg:lighten($gray-800, 10%);
+$pagination-disabled-bg:lighten($body-bg, 5%);
 $pagination-disabled-border-color:rgba($black, 0.6);
 $jumbotron-bg:lighten($body-bg, 5%);
 $card-border-color:rgba($black, 0.6);
