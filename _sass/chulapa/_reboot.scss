@@ -12,6 +12,13 @@ h1,h2,h3,h4,h5,h6{
   margin-top:$spacer;
 }
 
+// On cards these headings should be margin-top: 0 to adjust the sizes
+.card {
+      h1,h2,h3,h4,h5,h6{
+      margin-top:0;
+    }
+}
+
 img {
     max-width: 95%;
     height: auto;
