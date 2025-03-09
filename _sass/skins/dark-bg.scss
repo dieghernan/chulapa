@@ -87,9 +87,9 @@ $breadcrumb-bg: lighten($body-bg, 5%);
 } 
 
 .close {
-  opacity: .6;
+  opacity: .6 !important;
 
   &:hover {
-    opacity: 1;
+    opacity: 1 !important; 
   }
 }
