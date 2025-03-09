@@ -11,6 +11,8 @@ $pre-chulapa-bg-color: $body-color !default;
 @import "bootstrap/functions";
 @import "bootstrap/variables";
 
+$close-color: $white;
+$close-text-shadow: none;
 $link-hover-color:darken($link-color, 20%);
 $table-accent-bg: rgba($white, .05);
 $table-hover-bg:rgba($white, .075);
@@ -83,3 +85,11 @@ $breadcrumb-bg: lighten($body-bg, 5%);
 .card.bg-light {
   color: $dark !important;
 } 
+
+.close {
+  opacity: .6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
