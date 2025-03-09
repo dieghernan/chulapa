@@ -61,8 +61,9 @@ $breadcrumb-bg: $body-bg;
 .card .card-header, .card .card-footer {
   background-color: inherit !important;
 }
-$toast-background-color: rgba($body-bg, .85) !default;
-$toast-header-background-color: $toast-background-color !default;
+$toast-background-color: rgba($gray-800, .15);
+$toast-header-background-color: $toast-background-color;
+$breadcrumb-bg: rgba($gray-900, .15);;
 
 // Tables ======================================================================
 
