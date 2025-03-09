@@ -7,8 +7,6 @@ $blockquote-chulapa-text-color: $body-color !default;
 $pre-chulapa-bg-color: $body-color !default;
 
 
-/*! Import Autothemer */
-@import "skins/auto";
 /*! Import Bootstrap 4 vars */
 @import "bootstrap/functions";
 @import "bootstrap/variables";
@@ -60,3 +58,6 @@ $list-group-disabled-bg:$black;
 $list-group-action-color:$white;
 $breadcrumb-active-color:$gray-500;
 
+.card .card-header, .card .card-footer {
+  background-color: inherit !important;
+)
