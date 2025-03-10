@@ -56,13 +56,11 @@
 
 {% for id in gtop limit:3 %}
   {%- if forloop.first -%}
-  {% assign reldoc = alldocs | where_exp: "item", "item.id == id" %}
-  {% assign reldoc = reldoc | sort: 'date' | reverse %}
+  {% assign reldoc = alldocs | where_exp: "item", "item.id == id" | sort: 'date' | reverse %}
 
   {%- else -%}
   {%- assign relloop = alldocs | 
-                    where_exp: "item", "item.id == id" -%}
-  {% assign relloop = relloop | sort: 'date' | reverse %}                  
+                    where_exp: "item", "item.id == id" | sort: 'date' | reverse -%}
   {% assign reldoc = reldoc | concat: relloop %}
   {% endif %}
 {% endfor %}
