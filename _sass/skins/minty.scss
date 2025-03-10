@@ -89,7 +89,9 @@ $pagination-disabled-border-color:  $pagination-disabled-bg !default;
 
 // Breadcrumbs
 
-// omitted
+$breadcrumb-bg:                     $primary !default;
+$breadcrumb-divider-color:          $gray-300 !default;
+$breadcrumb-active-color:           $breadcrumb-divider-color !default;
 
 
 $min-contrast-ratio: 2 !default;
@@ -201,11 +203,11 @@ legend {
 
 .breadcrumb {
   a {
-    color: $primary;
+    color: $secondary;
   }
 
   a:hover {
-    color: $white;
+    color: $gray-300;
     text-decoration: none;
   }
 }
