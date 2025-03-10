@@ -719,3 +719,6 @@ $pre-color:                         inherit !default;
   .page-link.chulapa-label {
     border:none
   }
+  
+  $chulapa-toc-bg: lighten($body-bg, 5%);
+  

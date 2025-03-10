@@ -6,7 +6,7 @@ $blockquote-chulapa-bg-color: $body-bg !default;
 $blockquote-chulapa-text-color: $body-color !default;
 $pre-chulapa-bg-color: $body-color !default;
 $component-active-bg: $primary !default;
-
+$chulapa-toc-bg: lighten($body-bg, 5%);
 /*! Import Bootstrap 4 vars */
 @import "bootstrap/functions";
 @import "bootstrap/variables";

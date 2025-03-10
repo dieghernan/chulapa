@@ -541,9 +541,9 @@
 }
 .chulapa-toc-wrapper {
   .list-group-item {
-    background-color: $light;
+    background-color: $chulapa-toc-bg;
     a {
-      color: color-contrast($light);
+      color: color-contrast($chulapa-toc-bg);
     }
     &:first-child {
       @include border-top-radius($border-radius-lg);

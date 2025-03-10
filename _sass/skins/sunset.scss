@@ -10,6 +10,7 @@ $info:#7ebcfa !default;
 $warning:#ff9933 !default;
 $light:#eef0f2 !default;
 $dark:#000633 !default;
+$white:    #fff !default;
 
 // Add SASS theme customizations here..
 
@@ -19,4 +20,8 @@ a:not([class]){
 
 .chulapa-toc-reset a {
     text-decoration: none;
+}
+
+.card.bg-primary{
+  color: $white;
 }

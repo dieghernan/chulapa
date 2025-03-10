@@ -53,6 +53,10 @@ $pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hove
 
 $indexcards-chulapa-border-color: $text-muted !default;
 
+// TOC bg
+
+$chulapa-toc-bg: $light !default;
+
 // Cactus comments
 
 $cactus-btn-text: color-contrast($secondary, $black, $white);

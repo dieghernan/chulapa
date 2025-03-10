@@ -417,3 +417,5 @@ $pre-color:                         inherit !default;
   .card.border-secondary.text-secondary {
     color: $white !important;
   }
+  
+  $chulapa-toc-bg: lighten($body-bg, 5%);

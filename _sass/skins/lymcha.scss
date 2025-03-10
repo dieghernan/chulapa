@@ -10,5 +10,9 @@ $info:#A2D5F2 !default;
 $warning:#FF7E67 !default;
 $light:#FAFAFA !default;
 $dark:#4e4e4e !default;
+$white:    #fff !default;
 
 // Add SASS theme customizations here..
+.card.bg-primary{
+  color: $white;
+}

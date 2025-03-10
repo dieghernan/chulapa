@@ -275,12 +275,17 @@ table {
     }
   }
   
-
+$chulapa-toc-bg: lighten($body-bg, 5%);
 
   .card .card-header, .card .card-footer {
   background-color: inherit;
 }
 
-.card.bg-light {
+.card.bg-light, .card.bg-primary {
     color: $dark;
   }
+  
+  
+.alert {
+  border: none !important;
+}
