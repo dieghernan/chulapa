@@ -28,6 +28,7 @@ $dropdown-link-active-bg: lighten($primary, 30%) !default;
 $hero-chulapa-bg-color: $primary !default;
 $footer-chulapa-text-color: $body-color !default;
 $footer-chulapa-hover-color: $primary !default;
+$navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
 
 $pagination-chulapa-bg-hover-color: $primary !default;
 

@@ -24,6 +24,7 @@ $navbar-chulapa-toggler-border-color: transparent !default;
 $navbar-chulapa-text-color: $text-muted !default;
 $navbar-chulapa-hover-color:  #A8A8A8 !default;
 $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
+$navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
 
 $footer-chulapa-bg-color: $black !default;
 $footer-chulapa-text-color: $white !default;

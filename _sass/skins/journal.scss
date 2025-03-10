@@ -63,7 +63,7 @@ $navbar-chulapa-bg-color: $white;
 $navbar-chulapa-hover-color: lighten($primary, 10%);
 $footer-chulapa-text-color: $black;
 $footer-chulapa-hover-color: $navbar-chulapa-hover-color;
-
+$navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
 // Import bootstrap
 @import "bootstrap/bootstrap";
 
