@@ -341,8 +341,8 @@ $landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
 }
 
 .alert {
-  border: none;
-  color: $white;
+  border: none  !important;
+  color: $white !important;
 
   a,
   .alert-link {
@@ -381,4 +381,8 @@ $landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
       color: $black;
     }
   }
+}
+
+.card.bg-primary{
+  color: $white;
 }

@@ -649,8 +649,8 @@ $pre-color:                         inherit !default;
   // Indicators ==================================================================
   
   .alert {
-    border: none;
-    color: $white;
+    border: none !important;
+    color: $white !important;
   
     a,
     .alert-link {
@@ -714,4 +714,8 @@ $pre-color:                         inherit !default;
 
   .card.border-primary, .card.border-secondary {
     color: $body-color !important;
+  }
+
+  .page-link.chulapa-label {
+    border:none
   }

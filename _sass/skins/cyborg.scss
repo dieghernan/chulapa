@@ -430,7 +430,7 @@ legend {
 // Indicators ==================================================================
 
 .alert {
-  border: none;
+  border: none !important;
   color: $white;
 
   a,

@@ -370,7 +370,7 @@ $pre-color:                         inherit !default;
   }
   
   .alert {
-    border: none;
+    border: none !important;
     color: $white;
   
     a,

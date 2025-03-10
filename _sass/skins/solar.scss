@@ -386,7 +386,7 @@ $indexcards-chulapa-border-color: $body-bg !default;
 // Indicators ==================================================================
 
 .alert {
-  border: none;
+  border: none !important;
   color: $white !important;
 
   a,
