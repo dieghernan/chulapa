@@ -203,7 +203,7 @@ legend {
 
 .breadcrumb {
   border-color: $primary;
-  border-width: $border-width;
+  border-width: $border-width !important;
   a {
     color: $primary;
   }
