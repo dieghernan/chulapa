@@ -70,7 +70,9 @@ $list-group-disabled-color:$gray-800;
 $list-group-disabled-bg:$black;
 $list-group-action-color:$white;
 $breadcrumb-active-color:$gray-500;
-
+$toast-background-color:  rgba($gray-800, 0.4);
+$toast-header-background-color: $toast-background-color;
+$breadcrumb-bg: $gray-900;
 
 // Add SASS theme customizations here..
 .navbar-dark.bg-primary {
@@ -97,3 +99,188 @@ a:not([class]){
 .chulapa-toc-reset a {
     text-decoration: none;
 }
+
+// Tables ======================================================================
+
+table {
+    color: $white !important;
+  }
+  
+  .table {
+    &-primary {
+      &,
+      > th,
+      > td {
+        background-color: $primary !important;
+      }
+    }
+  
+    &-secondary {
+      &,
+      > th,
+      > td {
+        background-color: $secondary !important;
+      }
+    }
+  
+    &-light {
+      &,
+      > th,
+      > td {
+        background-color: $light !important;
+        color: $dark !important;
+      }
+    }
+  
+    &-dark {
+      &,
+      > th,
+      > td {
+        background-color: $dark !important;
+      }
+    }
+  
+    &-success {
+      &,
+      > th,
+      > td {
+        background-color: $success !important;
+      }
+    }
+  
+    &-info {
+      &,
+      > th,
+      > td {
+        background-color: $info !important;
+      }
+    }
+  
+    &-danger {
+      &,
+      > th,
+      > td {
+        background-color: $danger !important;
+      }
+    }
+  
+    &-warning {
+      &,
+      > th,
+      > td {
+        background-color: $warning !important;
+      }
+    }
+  
+    &-active {
+      &,
+      > th,
+      > td {
+        background-color: $table-active-bg !important;
+      }
+    }
+  
+    &-hover {
+      .table-primary:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($primary, 5%) !important;
+        }
+      }
+  
+      .table-secondary:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($secondary, 5%) !important;
+          background-color: lighten($secondary, 30%) !important;
+        }
+      }
+  
+      .table-light:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($light, 5%) !important;
+          color: $dark  !important;
+        }
+      }
+  
+      .table-dark:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($dark, 5%) !important;
+        }
+      }
+  
+      .table-success:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($success, 5%) !important;
+        }
+      }
+  
+      .table-info:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($info, 5%) !important;
+        }
+      }
+  
+      .table-danger:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($danger, 5%) !important;
+        }
+      }
+  
+      .table-warning:hover {
+        &,
+        > th,
+        > td {
+          background-color: darken($warning, 5%) !important;
+        }
+      }
+  
+      .table-active:hover {
+        &,
+        > th,
+        > td {
+          background-color: $table-active-bg !important;
+          color: darken($white, 30%) !important;
+        }
+      }
+  
+    }
+  }
+
+  // Indicators ==================================================================
+
+.alert {
+  
+    a,
+    .alert-link {
+      text-decoration: underline;
+    }
+  
+    @each $color, $value in $theme-colors {
+      &-#{$color} {
+          background-color: $value !important;
+      }
+    }
+  }
+  
+
+
+  .card .card-header, .card .card-footer {
+  background-color: inherit;
+}
+
+.card.bg-light {
+    color: $dark;
+  }

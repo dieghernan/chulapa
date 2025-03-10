@@ -1,16 +1,11 @@
-/*! Journal 4.5.0 by Bootswatch */
-// Journal 4.5.0
+// Journal 4.6.2
 // Bootswatch
 
 //
 // Color system
 //
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" !default;
-@import url($web-font-path);
-
-
-$white: #fff !default;
+$white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #eee !default;
 $gray-300: #dee2e6 !default;
@@ -20,126 +15,117 @@ $gray-600: #777 !default;
 $gray-700: #495057 !default;
 $gray-800: #333 !default;
 $gray-900: #222 !default;
-$black: #000 !default;
+$black:    #000 !default;
 
-$blue: #EB6864 !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink: #e83e8c !default;
-$red: #F57A00 !default;
-$orange: #fd7e14 !default;
-$yellow: #F5E625 !default;
-$green: #22B24C !default;
-$teal: #20c997 !default;
-$cyan: #369 !default;
+$blue:    #eb6864 !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #f57a00 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #f5e625 !default;
+$green:   #22b24c !default;
+$teal:    #20c997 !default;
+$cyan:    #369 !default;
 
-$primary: $blue !default;
-$secondary: $gray-500 !default;
-$success: $green !default;
-$info: $cyan !default;
-$warning: $yellow !default;
-$danger: $red !default;
-$light: $gray-100 !default;
-$dark: $gray-900 !default;
+$primary:       $blue !default;
+$secondary:     $gray-500 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
 
 // Fonts
 
-$headings-font-family: "News Cycle",
-"Arial Narrow Bold",
-sans-serif !default;
-$headings-font-weight: 700 !default;
-$headings-line-height: 1.1 !default;
+$headings-font-family:   "News Cycle", "Arial Narrow Bold", sans-serif !default;
+$headings-font-weight:    700 !default;
+$headings-line-height:    1.1 !default;
 
 // Buttons
 
-$input-btn-padding-x: 1rem !default;
+$input-btn-padding-x:         1rem !default;
 
 // Navbar
 
-$navbar-light-color: rgba($black, .7) !default;
-$navbar-light-hover-color: $black !default;
-$navbar-light-active-color: $black !default;
+$navbar-light-color:                rgba($black, .7) !default;
+$navbar-light-hover-color:          $black !default;
+$navbar-light-active-color:         $black !default;
 
 // Pagination
 
-$pagination-hover-color: $white !default;
-$pagination-hover-bg: $primary !default;
-$pagination-hover-border-color: $primary !default;
-
-// Journal 4.5.0
-// Bootswatch
-
-// Import bootstrap
-@import "bootstrap/bootstrap";
-
-// Variables ===================================================================
-
-// Navbar ======================================================================
-
-.bg-dark {
-    background-color: #000 !important;
-}
-
-.bg-light {
-    background-color: $white !important;
-    color: $black;
-    border: 1px solid $gray-200;
-
-    &.navbar-fixed-top {
-        border-width: 0 0 1px;
-    }
-
-    &.navbar-fixed-bottom {
-        border-width: 1px 0 0;
-    }
-}
-
-.navbar {
-    font-size: 18px;
-    font-family: $headings-font-family;
-    font-weight: $headings-font-weight;
-}
-
-.navbar-brand {
-    padding-top: 0.5rem;
-    font-size: inherit;
-    font-weight: $headings-font-weight;
-    text-transform: uppercase;
-}
-
-// Buttons =====================================================================
-
-.btn {
-    font-family: $headings-font-family !important;
-    font-weight: $headings-font-weight !important;
-
-    &-secondary,
-    &-warning {
-        color: $white !important;
-    }
-}
-
-// Typography ==================================================================
-
-// Tables ======================================================================
-
-// Forms =======================================================================
-
-// Navs ========================================================================
-
-.pagination {
-    a:hover {
-        text-decoration: none;
-    }
-}
-
-// Indicators ==================================================================
-
-// Progress bars ===============================================================
-
-// Containers ==================================================================
+$pagination-hover-color:            $white !default;
+$pagination-hover-bg:               $primary !default;
+$pagination-hover-border-color:     $primary !default;
 
 $navbar-chulapa-bg-color: $white;
 $navbar-chulapa-hover-color: lighten($primary, 10%);
 $footer-chulapa-text-color: $black;
 $footer-chulapa-hover-color:$navbar-chulapa-hover-color;
+
+// Import bootstrap
+@import "bootstrap/bootstrap";
+
+// Journal 4.6.2
+// Bootswatch
+
+
+// Variables ===================================================================
+
+$web-font-path: "https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" !default;
+@if $web-font-path {
+  @import url($web-font-path);
+}
+// Navbar ======================================================================
+
+.bg-dark {
+  background-color: $black !important;
+}
+
+.bg-light {
+  background-color: $white !important;
+  color: $black;
+  border: 1px solid $gray-200;
+
+  &.navbar-fixed-top {
+    border-width: 0 0 1px;
+  }
+
+  &.navbar-fixed-bottom {
+    border-width: 1px 0 0;
+  }
+}
+
+.navbar {
+  font-size: 18px;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+}
+
+.navbar-brand {
+  padding-top: .5rem;
+  font-size: inherit;
+  font-weight: $headings-font-weight;
+  text-transform: uppercase;
+}
+
+// Buttons =====================================================================
+
+.btn {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+
+  &-secondary,
+  &-warning {
+    color: $white;
+  }
+}
+
+// Navs ========================================================================
+
+.pagination {
+  a:hover {
+    text-decoration: none;
+  }
+}

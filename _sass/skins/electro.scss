@@ -10,6 +10,7 @@ $info:#7ebcfa;
 $warning:#00f900;
 $light:#eef0f2;
 $dark:#000633;
+$white:    #fff !default;
 
 $body-bg:#ffffff;
 $display1-weight:600;
@@ -18,3 +19,8 @@ $display3-weight:600;
 $btn-border-radius:1.3rem;
 $btn-border-radius-lg:1.6rem;
 $btn-border-radius-sm:.8rem;
+
+.card.bg-primary{
+    color: $white;
+}
+  

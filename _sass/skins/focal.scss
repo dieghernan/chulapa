@@ -21,6 +21,7 @@ $danger: #ff0000;
 $light: #f2f1f1;
 $dark: #262626;
 $body-color: $dark;
+$white:    #fff !default;
 
 a:not([class]){
   text-decoration: underline;
@@ -50,3 +51,11 @@ nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
 }
 
 
+.card.bg-primary{
+    color: $white;
+  }
+  
+  .card.bg-secondary{
+    color: $white;
+  }
+  

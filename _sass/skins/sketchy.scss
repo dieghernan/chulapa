@@ -263,7 +263,7 @@ table {
 
     th,
     td {
-        background-color: #fff !important;
+        background-color: #fff;
     }
 }
 
@@ -689,6 +689,10 @@ pre {
     &-thumbnail {
         border-radius: $border-radius-sketchy !important;
     }
+}
+
+.card.bg-primary, .card.bg-secondary {
+    color: $white;
 }
 
 //CUSTOM SASS CHULAPA

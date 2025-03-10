@@ -3,6 +3,12 @@
 ### Added
 - New skins:
     - `listen`
+    - `cyborg`
+    - `darkly`
+    - `flatly`
+    - `materia`
+    - `slate`
+    - `solar`
 - New search with [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search).
 - New search with [Fuse.js](https://fusejs.io).
 - Results with `lunr` and `fusejs` highlights matched terms like `algolia`.

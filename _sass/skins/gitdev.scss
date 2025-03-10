@@ -10,6 +10,7 @@ $warning: #C15807 !default;
 $danger: #cf222e !default;
 $info: #8250df !default;
 $black: #0d1117 !default;
+$white:    #fff !default;
 
 $body-bg: #fff !default;
 $body-color: #24292f !default;
@@ -83,4 +84,12 @@ color: mix($navbar-chulapa-text-color, $navbar-chulapa-bg-color, 80%) !important
 
 .chulapa-links-hover-only i {
   color:$link-color;
+}
+
+.card.bg-primary{
+  color: $white;
+}
+
+.card.bg-secondary{
+  color: $white;
 }

@@ -13,6 +13,7 @@ $warning:#6e9fa5 !default;
 $light:#eceeec !default;
 $dark:#1e2b37 !default;
 $enable-rounded:false !default;
+$white:    #fff !default;
 
 
 // Add SASS theme customizations here..
@@ -23,3 +24,11 @@ $hero-chulapa-bg-color: $primary !default;
 $navbar-chulapa-toggler-color: rgba(white, 0.4) !default;
 $navbar-chulapa-toggler-border-color: rgba(white, 0.1) !default;
 $navbar-chulapa-toggler-color-bg: transparent !default;
+
+.card.bg-primary{
+  color: $white;
+}
+
+.card.bg-secondary{
+  color: $white;
+}
