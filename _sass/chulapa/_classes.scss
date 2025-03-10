@@ -97,6 +97,7 @@
 
       @include hover-focus() {
         color: $navbar-chulapa-hover-color;
+        background-color: lighten($navbar-chulapa-bg-color, 10%);
       }
 
       &.disabled {
