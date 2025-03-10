@@ -1,16 +1,17 @@
 // Cyborg 4.6.2
 // Bootswatch
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 //
 // Color system
 //
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #adafae !default;
+$gray-400: #adafae !default; // Double-check this color
 $gray-500: #888 !default;
 $gray-600: #555 !default;
 $gray-700: #282828 !default;
@@ -40,7 +41,6 @@ $dark:          $gray-400 !default;
 
 $yiq-contrasted-threshold:  175 !default;
 
-
 // Body
 
 $body-bg:       #060606 !default;
@@ -48,7 +48,6 @@ $body-color:    $gray-400 !default;
 
 // Fonts
 
-// stylelint-disable-next-line value-keyword-case
 $font-family-sans-serif:  Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
 $font-size-base:          .875rem !default;
 $h1-font-size:            4rem !default;
@@ -112,7 +111,6 @@ $pagination-hover-border-color:        $pagination-border-color !default;
 $pagination-disabled-bg:               $pagination-bg !default;
 $pagination-disabled-border-color:     $pagination-border-color !default;
 
-
 // Jumbotron
 
 $jumbotron-bg:                      $gray-700 !default;
@@ -169,19 +167,14 @@ $close-text-shadow:                 none !default;
 
 $pre-color:                         inherit !default;
 
-
 $navbar-chulapa-bg-color: $body-bg !default;
 @import "skins/dark-bg";
-
-
 
 // Cyborg 4.6.2
 // Bootswatch
 
-
 // Import bootstrap
 @import "bootstrap/bootstrap";
-
 
 // Navbar ======================================================================
 
@@ -373,7 +366,6 @@ table {
         background-color: $table-active-bg !important;
       }
     }
-
   }
 }
 
@@ -503,11 +495,11 @@ legend {
   }
 }
 
-.card.bg-primary{
+.card.bg-primary {
   color: $white;
 }
 
-.card.bg-secondary{
+.card.bg-secondary {
   color: $white;
 }
 

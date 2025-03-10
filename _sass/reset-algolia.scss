@@ -1,28 +1,26 @@
-.ais-SearchBox-input{
-  @extend .form-control;
-  @extend .rounded;
+.ais-SearchBox-input {
+    @extend .form-control;
+    @extend .rounded;
 }
 
 .ais-Hits {
-  
-  ol{
-    padding:0;
-    list-style-type: none;
-    list-style: none;
-  }
-  
-  li {
-    list-style: none;
-  }
-  
+    ol {
+        padding: 0;
+        list-style-type: none;
+        list-style: none;
+    }
+
+    li {
+        list-style: none;
+    }
 }
 
 .ais-Highlight {
-  background-color: $warning;
-  font-style: initial;
-  font-family: inherit;
+    background-color: $warning;
+    font-style: initial;
+    font-family: inherit;
 }
 
 .ais-Hits-item {
-  list-style-type: none;
+    list-style-type: none;
 }

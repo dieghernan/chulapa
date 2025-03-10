@@ -128,8 +128,7 @@ $btn-focus-box-shadow:   0 0 0 2px mix(rgba($white, .5), rgba($black, .5), 80%) 
 $input-box-shadow:       inset 0 -1px 0 mix($white, $black, 86.7%) !default;
 $input-focus-box-shadow: inset 0 -2px 0 $primary !default;
 
-
-$navbar-chulapa-hover-color	: $gray-800 !default;
+$navbar-chulapa-hover-color: $gray-800 !default;
 
 // Import bootstrap
 @import "bootstrap/bootstrap";
@@ -137,10 +136,9 @@ $navbar-chulapa-hover-color	: $gray-800 !default;
 // Materia 4.6.2
 // Bootswatch
 
-
 // Mixins ======================================================================
 
-@mixin ripple($color){
+@mixin ripple($color) {
   position: relative;
 
   &::before {
@@ -175,7 +173,7 @@ $navbar-chulapa-hover-color	: $gray-800 !default;
   }
 }
 
-@mixin btn($class,$bg,$color){
+@mixin btn($class, $bg, $color) {
   .btn-#{$class} {
     &:focus {
       background-color: $bg;
@@ -261,7 +259,7 @@ $navbar-chulapa-hover-color	: $gray-800 !default;
     &:hover,
     &:focus {
       box-shadow: none;
-      color: $link-hover-color ;
+      color: $link-hover-color;
       text-decoration: $link-hover-decoration;
     }
 
@@ -293,8 +291,9 @@ $navbar-chulapa-hover-color	: $gray-800 !default;
   }
 
   &-outline-secondary {
-    border-color: $gray-200   !important;
+    border-color: $gray-200 !important;
     color: $gray-300 !important;
+
     &:hover,
     &:focus {
       color: $dark !important;
@@ -672,7 +671,6 @@ select.form-control {
     border-bottom-right-radius: $btn-border-radius-lg;
   }
 }
-
 
 .form-group-lg {
   select,

@@ -62,7 +62,7 @@ $pagination-hover-border-color:     $primary !default;
 $navbar-chulapa-bg-color: $white;
 $navbar-chulapa-hover-color: lighten($primary, 10%);
 $footer-chulapa-text-color: $black;
-$footer-chulapa-hover-color:$navbar-chulapa-hover-color;
+$footer-chulapa-hover-color: $navbar-chulapa-hover-color;
 
 // Import bootstrap
 @import "bootstrap/bootstrap";
@@ -70,13 +70,13 @@ $footer-chulapa-hover-color:$navbar-chulapa-hover-color;
 // Journal 4.6.2
 // Bootswatch
 
-
 // Variables ===================================================================
 
 $web-font-path: "https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" !default;
 @if $web-font-path {
   @import url($web-font-path);
 }
+
 // Navbar ======================================================================
 
 .bg-dark {

@@ -1,15 +1,13 @@
 /*! Focal by dieghernan */
 
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 $font-family-base: "Fira Sans", sans-serif;
 $headings-font-family: "Playfair Display", serif;
 
-
 .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
-    font-family: $font-family-base;
-    font-weight: 600;
+  font-family: $font-family-base;
+  font-weight: 600;
 }
 
 $primary: #ff9285;
@@ -21,41 +19,39 @@ $danger: #ff0000;
 $light: #f2f1f1;
 $dark: #262626;
 $body-color: $dark;
-$white:    #fff !default;
+$white: #fff !default;
 
-a:not([class]){
+a:not([class]) {
   text-decoration: underline;
   color: $dark;
 }
 
 .chulapa-toc-reset a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 $navbar-chulapa-bg-color: white;
-$thead-chulapa-bg-color: white; 
+$thead-chulapa-bg-color: white;
 $hero-chulapa-bg-color: $light;
-$footer-chulapa-bg-color: 	$hero-chulapa-bg-color;
+$footer-chulapa-bg-color: $hero-chulapa-bg-color;
 
-.hero-chulapa h1, 
-.hero-chulapa-image h1, 
-.splash-chulapa h1, 
+.hero-chulapa h1,
+.hero-chulapa-image h1,
+.splash-chulapa h1,
 .splash-chulapa-image h1 {
-    font-family: $font-family-base;
-    font-weight: 600 !important;
+  font-family: $font-family-base;
+  font-weight: 600 !important;
 }
 
 nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
-    font-family: $font-family-base;
-    font-weight: 600 !important;
+  font-family: $font-family-base;
+  font-weight: 600 !important;
 }
 
+.card.bg-primary {
+  color: $white;
+}
 
-.card.bg-primary{
-    color: $white;
-  }
-  
-  .card.bg-secondary{
-    color: $white;
-  }
-  
+.card.bg-secondary {
+  color: $white;
+}

@@ -173,6 +173,7 @@ $close-text-shadow:                 none !default;
 $pre-color:                         inherit !default;
 $navbar-chulapa-bg-color: $dark !default;
 $indexcards-chulapa-border-color: $body-bg !default;
+
 // Import bootstrap
 @import "bootstrap/bootstrap";
 
@@ -352,7 +353,6 @@ $indexcards-chulapa-border-color: $body-bg !default;
         background-color: $table-active-bg !important;
       }
     }
-
   }
 }
 
@@ -414,11 +414,11 @@ $indexcards-chulapa-border-color: $body-bg !default;
   }
 }
 
-.card.bg-primary{
+.card.bg-primary {
   color: $white;
 }
 
-.card.bg-secondary{
+.card.bg-secondary {
   color: $white;
 }
 

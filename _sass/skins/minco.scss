@@ -1,20 +1,31 @@
 /*! Tophat `Minco` Bootstrap 4.3.1 theme */
+
+// Import Google Fonts
 @import url(https://fonts.googleapis.com/css?family=Crete+Round:200,300,400,700);
-$headings-font-family:'Crete Round';
 
-$primary:#083358;
-$secondary:#F67280;
-$success:#0074E4;
-$danger:#FF4057;
-$info:#74DBEF;
-$warning:#FC3C3C;
-$light:#F2F2F0;
-$dark:#072247;
+// Font Family
+$headings-font-family: 'Crete Round';
 
-a:not([class]){
-  text-decoration: underline;
+// Color Variables
+$primary: #083358;
+$secondary: #F67280;
+$success: #0074E4;
+$danger: #FF4057;
+$info: #74DBEF;
+$warning: #FC3C3C;
+$light: #F2F2F0;
+$dark: #072247;
+$white: #ffffff !default;
+
+// Styles
+a:not([class]) {
+    text-decoration: underline;
 }
 
 .chulapa-toc-reset a {
     text-decoration: none;
+}
+
+.card.bg-primary {
+    color: $white;
 }

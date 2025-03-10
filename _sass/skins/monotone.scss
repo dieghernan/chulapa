@@ -12,6 +12,7 @@ $info:#515151;
 $warning:#5f5f5f;
 $light:#eceeec;
 $dark:#111111;
+$white: #ffffff !default;
 
 a:not([class]){
   text-decoration: underline;
@@ -19,4 +20,8 @@ a:not([class]){
 
 .chulapa-toc-reset a {
     text-decoration: none;
+}
+
+.card.bg-primary, .card.bg-secondary {
+  color: $white;
 }

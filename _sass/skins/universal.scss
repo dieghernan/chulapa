@@ -11,7 +11,6 @@ $red: #dc3545 !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
 $code-color: #E80E61 !default;
-$headings-color: #333 !default;
 $link-color: #986dbd !default;
 $navbar-chulapa-brand-color: #000 !default;
 $navbar-chulapa-bg-color: $body-bg !default;
@@ -23,13 +22,16 @@ $footer-chulapa-bg-color: #333 !default;
 $footer-chulapa-text-color: #ccc !default;
 $footer-chulapa-icon-color: #ccc !default;
 $footer-chulapa-icon-hover-color: #724599 !default;
+
 h1, h2, h3, h4, h5, h6 {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700 !important;
 }
 
-.splash-chulapa, .hero-chulapa, .header-chulapa {
+.splash-chulapa,
+.hero-chulapa,
+.header-chulapa {
   color: black;
 }
 
@@ -46,28 +48,28 @@ header hr {
   display: none;
 }
 
-
 // Navbar
-
 .navbar {
-
-   .navbar-brand {
-     font-weight: 700 !important;
-     text-transform: uppercase;
-     letter-spacing: 0.08em;
-   }
-   .navbar-nav {
-     text-transform: uppercase;
-     text-decoration: underline;
-     letter-spacing: 0.08em;
-     color: black;
-   }
+  .navbar-brand {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .navbar-nav {
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.08em;
+    color: black;
+  }
 }
 
-
 // Misc
-
-th, .btn, .chulapa-toc-wrapper, .chulapa-subtitle, .breadcrumb, #markdown-toc {
+th,
+.btn,
+.chulapa-toc-wrapper,
+.chulapa-subtitle,
+.breadcrumb,
+#markdown-toc {
   text-transform: uppercase;
 }
 
@@ -75,8 +77,8 @@ th, .btn, .chulapa-toc-wrapper, .chulapa-subtitle, .breadcrumb, #markdown-toc {
   color: $green;
 }
 
-
-a:hover, a:focus {
-    color: $footer-chulapa-icon-hover-color;
-    text-decoration: underline;
+a:hover,
+a:focus {
+  color: $footer-chulapa-icon-hover-color;
+  text-decoration: underline;
 }

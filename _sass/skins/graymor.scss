@@ -1,34 +1,33 @@
 /*! Tophat `Graymor` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;700&family=Oswald:wght@200;300;400;700&display=swap');
 
-$headings-font-family:Oswald !default;
-$font-family-base:Muli !default;
+$headings-font-family: Oswald !default;
+$font-family-base: Muli !default;
 
-$primary:#2f3c48 !default;
-$secondary:#6f7f8c !default;
-$success:#3e4d59 !default;
-$danger:#cc330d !default;
-$info:#5c8f94 !default;
-$warning:#6e9fa5 !default;
-$light:#eceeec !default;
-$dark:#1e2b37 !default;
-$enable-rounded:false !default;
-$white:    #fff !default;
-
+$primary: #2f3c48 !default;
+$secondary: #6f7f8c !default;
+$success: #3e4d59 !default;
+$danger: #cc330d !default;
+$info: #5c8f94 !default;
+$warning: #6e9fa5 !default;
+$light: #eceeec !default;
+$dark: #1e2b37 !default;
+$enable-rounded: false !default;
+$white: #fff !default;
 
 // Add SASS theme customizations here..
 $link-color: mix($primary, #007bff, 70%) !default;
 
-//Custom hero
+// Custom hero
 $hero-chulapa-bg-color: $primary !default;
 $navbar-chulapa-toggler-color: rgba(white, 0.4) !default;
 $navbar-chulapa-toggler-border-color: rgba(white, 0.1) !default;
 $navbar-chulapa-toggler-color-bg: transparent !default;
 
-.card.bg-primary{
+.card.bg-primary {
   color: $white;
 }
 
-.card.bg-secondary{
+.card.bg-secondary {
   color: $white;
 }

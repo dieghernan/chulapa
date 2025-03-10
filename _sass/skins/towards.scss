@@ -2,15 +2,16 @@
 
 $font-family-base: "Work Sans", sans-serif;
 $headings-font-family: $font-family-base;
-$headings-font-weight:  bold;
+$headings-font-weight: bold;
 
 $body-color: #2a2a2a;
 $primary: #355876;
 $secondary: #757575;
-$success:   #00d084;
-$info:  #8ed1fc;
-$warning:     #fcb900;
-$danger:      #cf2e2e;
+$success: #00d084;
+$info: #8ed1fc;
+$warning: #fcb900;
+$danger: #cf2e2e;
+$white: #fff !default;
 
 .hero-chulapa h1,
 .hero-chulapa-image h1,
@@ -20,10 +21,14 @@ $danger:      #cf2e2e;
   font-weight: $headings-font-weight !important;
 }
 
-a:not([class]){
+a:not([class]) {
   text-decoration: underline;
 }
 
 .chulapa-toc-reset a {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+.card.bg-primary {
+  color: $white;
 }

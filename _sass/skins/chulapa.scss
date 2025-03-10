@@ -2,8 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
-$headings-font-family: chulapa,
-sans-serif !default;
+$headings-font-family: chulapa, sans-serif !default;
 $font-family-base: 'Ibarra Real Nova', serif !default;
 $enable-rounded: false !default;
 $btn-font-family: $headings-font-family !default;
@@ -49,11 +48,11 @@ $warning: #fffe7a !default;
 $danger: #f13c20 !default;
 $dark: darken($secondary, 10%) !default;
 $navbar-chulapa-toggler-border-color: transparent !default;
-$white:    #fff !default;
+$white: #fff !default;
 
-.card.bg-secondary{
+.card.bg-secondary {
     color: $white;
-  }
+}
 
 /* Use auto */
 @import "skins/auto";

@@ -1,76 +1,76 @@
 /*! Tophat `Deeply` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@200;300;400;700&display=swap');
-$headings-font-family:Comfortaa;
+$headings-font-family: Comfortaa;
 
-$primary:#FF550B;
-$secondary:#303030;
-$success:#015668;
-$danger:#FF304F;
-$info:#0F81C7;
-$warning:#0DE2EA;
-$light:#e8e8e8;
-$dark:#000000;
+$primary: #FF550B;
+$secondary: #303030;
+$success: #015668;
+$danger: #FF304F;
+$info: #0F81C7;
+$warning: #0DE2EA;
+$light: #e8e8e8;
+$dark: #000000;
 
 /*! Import Bootstrap 4 variables */
 @import "bootstrap/functions";
 @import "bootstrap/variables";
 
-$enable-shadows:true;
-$gray-300:#000000;
-$gray-800:#555555;
-$body-bg:$black;
-$body-color:#cccccc;
-$link-color:#f0f0f0;
-$link-hover-color:darken($link-color, 20%);
-$font-size-base:1.1rem;
+$enable-shadows: true;
+$gray-300: #000000;
+$gray-800: #555555;
+$body-bg: $black;
+$body-color: #cccccc;
+$link-color: #f0f0f0;
+$link-hover-color: darken($link-color, 20%);
+$font-size-base: 1.1rem;
 $table-accent-bg: rgba($white, .05);
-$table-hover-bg:rgba($white, .075);
-$table-border-color:rgba($white, 0.3);
+$table-hover-bg: rgba($white, .075);
+$table-border-color: rgba($white, 0.3);
 $table-dark-border-color: $table-border-color;
-$table-dark-color:$white;
-$input-bg:$gray-300;
+$table-dark-color: $white;
+$input-bg: $gray-300;
 $input-disabled-bg: #ccc;
-$dropdown-bg:$gray-800;
-$dropdown-divider-bg:rgba($black, .15);
-$dropdown-link-color:$body-color;
-$dropdown-link-hover-color:$white;
-$dropdown-link-hover-bg:$body-bg;
-$nav-tabs-border-color:rgba($white, 0.3);
-$nav-tabs-link-hover-border-color:$nav-tabs-border-color;
-$nav-tabs-link-active-bg:transparent;
-$nav-tabs-link-active-border-color:$nav-tabs-border-color;
-$navbar-dark-hover-color:$white;
-$navbar-light-hover-color:$gray-800;
-$navbar-light-active-color:$gray-800;
-$pagination-color:$white;
-$pagination-bg:transparent;
-$pagination-border-color:rgba($black, 0.6);
-$pagination-hover-color:$white;
-$pagination-hover-bg:transparent;
-$pagination-hover-border-color:rgba($black, 0.6);
-$pagination-active-bg:transparent;
-$pagination-active-border-color:rgba($black, 0.6);
-$pagination-disabled-bg:transparent;
-$pagination-disabled-border-color:rgba($black, 0.6);
-$jumbotron-bg:darken($gray-900, 5%);
-$card-border-color:rgba($black, 0.6);
-$card-cap-bg:lighten($gray-800, 10%);
-$card-bg:lighten($body-bg, 5%);
-$modal-content-bg:lighten($body-bg, 5%);
-$modal-header-border-color:rgba(0, 0, 0, .2);
-$progress-bg:darken($gray-900, 5%);
-$progress-bar-color:$gray-600;
-$list-group-bg:lighten($body-bg, 5%);
-$list-group-border-color:rgba($black, 0.6);
-$list-group-hover-bg:lighten($body-bg, 10%);
-$list-group-active-color:$white;
-$list-group-active-bg:$list-group-hover-bg;
-$list-group-active-border-color:$list-group-border-color;
-$list-group-disabled-color:$gray-800;
-$list-group-disabled-bg:$black;
-$list-group-action-color:$white;
-$breadcrumb-active-color:$gray-500;
-$toast-background-color:  rgba($gray-800, 0.4);
+$dropdown-bg: $gray-800;
+$dropdown-divider-bg: rgba($black, .15);
+$dropdown-link-color: $body-color;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $body-bg;
+$nav-tabs-border-color: rgba($white, 0.3);
+$nav-tabs-link-hover-border-color: $nav-tabs-border-color;
+$nav-tabs-link-active-bg: transparent;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color;
+$navbar-dark-hover-color: $white;
+$navbar-light-hover-color: $gray-800;
+$navbar-light-active-color: $gray-800;
+$pagination-color: $white;
+$pagination-bg: transparent;
+$pagination-border-color: rgba($black, 0.6);
+$pagination-hover-color: $white;
+$pagination-hover-bg: transparent;
+$pagination-hover-border-color: rgba($black, 0.6);
+$pagination-active-bg: rgba($primary, 0.9);
+$pagination-active-border-color: rgba($black, 0.6);
+$pagination-disabled-bg: rgba($gray-800, 0.3);
+$pagination-disabled-border-color: rgba($black, 0.6);
+$jumbotron-bg: darken($gray-900, 5%);
+$card-border-color: rgba($black, 0.6);
+$card-cap-bg: lighten($gray-800, 10%);
+$card-bg: lighten($body-bg, 5%);
+$modal-content-bg: lighten($body-bg, 5%);
+$modal-header-border-color: rgba(0, 0, 0, .2);
+$progress-bg: darken($gray-900, 5%);
+$progress-bar-color: $gray-600;
+$list-group-bg: lighten($body-bg, 5%);
+$list-group-border-color: rgba($black, 0.6);
+$list-group-hover-bg: lighten($body-bg, 10%);
+$list-group-active-color: $white;
+$list-group-active-bg: $list-group-hover-bg;
+$list-group-active-border-color: $list-group-border-color;
+$list-group-disabled-color: $gray-800;
+$list-group-disabled-bg: $black;
+$list-group-action-color: $white;
+$breadcrumb-active-color: $gray-500;
+$toast-background-color: rgba($gray-800, 0.4);
 $toast-header-background-color: $toast-background-color;
 $breadcrumb-bg: $gray-900;
 
@@ -91,9 +91,8 @@ $navbar-chulapa-toggler-color-bg: transparent;
 $pagination-chulapa-text-color: $primary;
 $pagination-chulapa-bg-hover-color: $primary;
 
-
-a:not([class]){
-  text-decoration: underline;
+a:not([class]) {
+    text-decoration: underline;
 }
 
 .chulapa-toc-reset a {
@@ -104,188 +103,186 @@ a:not([class]){
 
 table {
     color: $white !important;
-  }
-  
-  .table {
-    &-primary {
-      &,
-      > th,
-      > td {
-        background-color: $primary !important;
-      }
-    }
-  
-    &-secondary {
-      &,
-      > th,
-      > td {
-        background-color: $secondary !important;
-      }
-    }
-  
-    &-light {
-      &,
-      > th,
-      > td {
-        background-color: $light !important;
-        color: $dark !important;
-      }
-    }
-  
-    &-dark {
-      &,
-      > th,
-      > td {
-        background-color: $dark !important;
-      }
-    }
-  
-    &-success {
-      &,
-      > th,
-      > td {
-        background-color: $success !important;
-      }
-    }
-  
-    &-info {
-      &,
-      > th,
-      > td {
-        background-color: $info !important;
-      }
-    }
-  
-    &-danger {
-      &,
-      > th,
-      > td {
-        background-color: $danger !important;
-      }
-    }
-  
-    &-warning {
-      &,
-      > th,
-      > td {
-        background-color: $warning !important;
-      }
-    }
-  
-    &-active {
-      &,
-      > th,
-      > td {
-        background-color: $table-active-bg !important;
-      }
-    }
-  
-    &-hover {
-      .table-primary:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($primary, 5%) !important;
-        }
-      }
-  
-      .table-secondary:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($secondary, 5%) !important;
-          background-color: lighten($secondary, 30%) !important;
-        }
-      }
-  
-      .table-light:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($light, 5%) !important;
-          color: $dark  !important;
-        }
-      }
-  
-      .table-dark:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($dark, 5%) !important;
-        }
-      }
-  
-      .table-success:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($success, 5%) !important;
-        }
-      }
-  
-      .table-info:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($info, 5%) !important;
-        }
-      }
-  
-      .table-danger:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($danger, 5%) !important;
-        }
-      }
-  
-      .table-warning:hover {
-        &,
-        > th,
-        > td {
-          background-color: darken($warning, 5%) !important;
-        }
-      }
-  
-      .table-active:hover {
-        &,
-        > th,
-        > td {
-          background-color: $table-active-bg !important;
-          color: darken($white, 30%) !important;
-        }
-      }
-  
-    }
-  }
-
-  // Indicators ==================================================================
-
-.alert {
-  
-    a,
-    .alert-link {
-      text-decoration: underline;
-    }
-  
-    @each $color, $value in $theme-colors {
-      &-#{$color} {
-          background-color: $value !important;
-      }
-    }
-  }
-  
-$chulapa-toc-bg: lighten($body-bg, 5%);
-
-  .card .card-header, .card .card-footer {
-  background-color: inherit;
 }
 
-.card.bg-light, .card.bg-primary {
-    color: $dark;
-  }
-  
-  
+.table {
+    &-primary {
+        &,
+        > th,
+        > td {
+            background-color: $primary !important;
+        }
+    }
+
+    &-secondary {
+        &,
+        > th,
+        > td {
+            background-color: $secondary !important;
+        }
+    }
+
+    &-light {
+        &,
+        > th,
+        > td {
+            background-color: $light !important;
+            color: $dark !important;
+        }
+    }
+
+    &-dark {
+        &,
+        > th,
+        > td {
+            background-color: $dark !important;
+        }
+    }
+
+    &-success {
+        &,
+        > th,
+        > td {
+            background-color: $success !important;
+        }
+    }
+
+    &-info {
+        &,
+        > th,
+        > td {
+            background-color: $info !important;
+        }
+    }
+
+    &-danger {
+        &,
+        > th,
+        > td {
+            background-color: $danger !important;
+        }
+    }
+
+    &-warning {
+        &,
+        > th,
+        > td {
+            background-color: $warning !important;
+        }
+    }
+
+    &-active {
+        &,
+        > th,
+        > td {
+            background-color: $table-active-bg !important;
+        }
+    }
+
+    &-hover {
+        .table-primary:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($primary, 5%) !important;
+            }
+        }
+
+        .table-secondary:hover {
+            &,
+            > th,
+            > td {
+                background-color: lighten($secondary, 30%) !important;
+            }
+        }
+
+        .table-light:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($light, 5%) !important;
+                color: $dark !important;
+            }
+        }
+
+        .table-dark:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($dark, 5%) !important;
+            }
+        }
+
+        .table-success:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($success, 5%) !important;
+            }
+        }
+
+        .table-info:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($info, 5%) !important;
+            }
+        }
+
+        .table-danger:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($danger, 5%) !important;
+            }
+        }
+
+        .table-warning:hover {
+            &,
+            > th,
+            > td {
+                background-color: darken($warning, 5%) !important;
+            }
+        }
+
+        .table-active:hover {
+            &,
+            > th,
+            > td {
+                background-color: $table-active-bg !important;
+                color: darken($white, 30%) !important;
+            }
+        }
+    }
+}
+
+// Indicators ==================================================================
+
 .alert {
-  border: none !important;
+    a,
+    .alert-link {
+        text-decoration: underline;
+    }
+
+    @each $color, $value in $theme-colors {
+        &-#{$color} {
+            background-color: $value !important;
+        }
+    }
+}
+
+$chulapa-toc-bg: lighten($body-bg, 5%);
+
+.card .card-header,
+.card .card-footer {
+    background-color: inherit;
+}
+
+.card.bg-light,
+.card.bg-primary {
+    color: $dark;
+}
+
+.alert {
+    border: none !important;
 }

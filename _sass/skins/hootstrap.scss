@@ -1,21 +1,24 @@
 /*! Themestr.app `Hootstrap` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;700&family=Autour+One:wght@200;300;400;700&display=swap');
 
-$font-family-base:Open Sans !default;
+$font-family-base: Open Sans !default;
 $headings-font-family: 'Autour One' !default;
 
-$primary:#528078 !default;
-$secondary:#eed75a !default;
-$success:#FEC100 !default;
-$danger:#703B3B !default;
-$info:#63e792 !default;
-$warning:#FFE869 !default;
-$light:#FDFBF7 !default;
-$dark:#555555 !default;
-$white:    #fff !default;
-
+$primary: #528078 !default;
+$secondary: #eed75a !default;
+$success: #FEC100 !default;
+$danger: #703B3B !default;
+$info: #63e792 !default;
+$warning: #FFE869 !default;
+$light: #FDFBF7 !default;
+$dark: #555555 !default;
+$white: #fff !default;
 
 // Add SASS theme customizations here..
-.card.bg-primary{
+.card.bg-primary {
+  color: $white;
+}
+
+.card.bg-secondary {
   color: $white;
 }

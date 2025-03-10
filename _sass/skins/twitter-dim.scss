@@ -1,14 +1,14 @@
-//Twitter dim
+// Twitter dim
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
-$headings-font-family:"Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
+$headings-font-family: "Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
 $font-family-base: $headings-font-family;
 
+$headings-font-weight: 800 !default;
 
-$headings-font-weight:        800 !default;
 // Some bootstrap variables
 $primary: #1d9bf0 !default;
-$secondary:#788995 !default;
+$secondary: #788995 !default;
 $success: #00ba7c !default;
 $warning: #ff7a00 !default;
 $danger: #f91880 !default;
@@ -18,12 +18,11 @@ $black: #15202b !default;
 $white: #fff !default;
 $body-bg: $black !default;
 $body-color: $white !default;
-$hero-chulapa-bg-color:#15202b !default;
+$hero-chulapa-bg-color: #15202b !default;
 $thead-chulapa-bg-color: $primary !default;
 $blockquote-chulapa-bg-color: mix($body-bg, $primary, 80%) !default;
 $blockquote-chulapa-text-color: mix($body-color, $primary, 95%) !default;
 $pre-chulapa-bg-color: mix($body-color, $primary, 95%) !default;
-
 
 $navbar-chulapa-bg-color: $body-bg !default;
 $navbar-chulapa-text-color: $body-color !default;
@@ -42,6 +41,9 @@ $min-contrast-ratio: 2 !default;
 $breadcrumb-divider: quote(">") !default;
 
 // Lines for dark themes
-
 @import "skins/dark-bg";
 
+.card.bg-primary,
+.card.bg-secondary {
+  color: $light;
+}

@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+// Butterfly
 
-$headings-font-family: "Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
-$font-family-base: $headings-font-family;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-$headings-font-weight: 800 !default;
-// Some bootstrap variables
-$primary: #1d9bf0 !default;
-$secondary: #788995 !default;
-$success: #00ba7c !default;
-$warning: #ff7a00 !default;
-$danger: #f91880 !default;
-$info: #7856ff !default;
-$light: #c1c2c2 !default;
-$dark: #15181c !default;
-$black: #000 !default;
+$headings-font-family: 'Inter', Roboto !default;
+$font-family-base: 'Inter', Roboto !default;
+
+$primary: #1083fe !default;
+$secondary: #c5cfd9 !default;
+$success: #00a400;
+$info: #54c7ec;
+$warning: #ffba00;
+$danger: #fa383e;
+$dark: #0b0f14 !default;
 $white: #fff !default;
+$black: #000000;
+
 $body-bg: $black !default;
-$body-color: $light !default;
-$hero-chulapa-bg-color: #000 !default;
-$hero-chulapa-text-color: $light !default;
+$body-color: $white !default;
+
+$hero-chulapa-bg-color: #15202b !default;
 $thead-chulapa-bg-color: $primary !default;
 $blockquote-chulapa-bg-color: mix($body-bg, $primary, 80%) !default;
 $blockquote-chulapa-text-color: mix($body-color, $primary, 95%) !default;
@@ -38,13 +38,14 @@ $pagination-chulapa-bg-hover-color: $primary !default;
 
 $min-contrast-ratio: 2 !default;
 
-$breadcrumb-divider: quote(">") !default;
-
 // Lines for dark themes
 
 @import "skins/dark-bg";
 
-.card.bg-primary,
+.card.bg-primary {
+    color: $light;
+}
+
 .card.bg-secondary {
-    color: $white;
+    color: $dark;
 }

@@ -1,27 +1,28 @@
 /*! Tophat `Sunset` Bootstrap 4.3.1 theme */
 @import url('https://fonts.googleapis.com/css2?family=Voltaire:wght@200;300;400;700&display=swap');
-$headings-font-family:Voltaire !default;
 
-$primary:#2F414A !default;
-$secondary:#F47B53 !default;
-$success:#420084 !default;
-$danger:#f2460d !default;
-$info:#7ebcfa !default;
-$warning:#ff9933 !default;
-$light:#eef0f2 !default;
-$dark:#000633 !default;
-$white:    #fff !default;
+$headings-font-family: Voltaire !default;
+
+$primary: #2F414A !default;
+$secondary: #F47B53 !default;
+$success: #420084 !default;
+$danger: #f2460d !default;
+$info: #7ebcfa !default;
+$warning: #ff9933 !default;
+$light: #eef0f2 !default;
+$dark: #000633 !default;
+$white: #fff !default;
 
 // Add SASS theme customizations here..
 
-a:not([class]){
+a:not([class]) {
   text-decoration: underline;
 }
 
 .chulapa-toc-reset a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.card.bg-primary{
+.card.bg-primary {
   color: $white;
 }

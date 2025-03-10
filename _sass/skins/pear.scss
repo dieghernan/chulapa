@@ -7,14 +7,18 @@ $info: #17a2b8 !default;
 $success: #28a745 !default;
 $warning: #ffc107 !default;
 $danger: #dc3545 !default;
-$light: mix(white,$primary,85%) !default;
+$light: mix(white, $primary, 85%) !default;
 $dark: #343a40 !default;
 $link-color: #1abc9c !default;
 $body-color: #444 !default;
-$body-bg: mix(white,$primary,95%) !default;
+$body-bg: mix(white, $primary, 95%) !default;
 $font-size-base: 1.125rem !default;
 $navbar-chulapa-toggler-border-color: transparent !default;
-$border-width:3px !default;
-$btn-border-radius:  1.35rem !default;
+$border-width: 3px !default;
+$btn-border-radius: 1.35rem !default;
 $btn-border-radius-lg: 10rem !default;
-$btn-border-radius-sm:  1rem !default;
+$btn-border-radius-sm: 1rem !default;
+
+.card.bg-secondary {
+    color: $light;
+}

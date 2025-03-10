@@ -10,7 +10,7 @@ $font-family-monospace: Inconsolata, SFMono-Regular, Menlo, Monaco, Consolas, "L
 $primary: #242424 !default;
 $black: #242424 !default;
 $white: #ffffff !default;
-$secondary: $black !default;
+$secondary: #555555 !default;
 $text-muted:#757575 !default;
 $success: #1a8917 !default;
 $warning: #FFC017 !default;
@@ -59,4 +59,8 @@ a:not([class]){
 
 .chulapa-toc-reset a {
     text-decoration: none;
+}
+
+.card.bg-primary, .card.bg-secondary {
+  color: $white;
 }

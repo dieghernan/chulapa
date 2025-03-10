@@ -1,7 +1,7 @@
 /*!
  * Specific classes and formats for chulapa
  */
-.chulapa {
+ .chulapa {
   font-family: chulapa, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -17,7 +17,7 @@
 }
 
 .chulapa-footer-brand {
-  font-size: $font-size-base * .8;
+  font-size: $font-size-base * 0.8;
 }
 
 .chulapa-bg-transparent {
@@ -1046,10 +1046,10 @@ h6 {
 // Classes for qusdis
 
 @mixin ch_bcolor($color1, $color2) {
-    @if $color1==$color2 {
-      @extend .btn-secondary;
+  @if $color1==$color2 {
+    @extend .btn-secondary;
   } @else {
-      @extend .btn-primary;
+    @extend .btn-primary;
   }
 }
 
@@ -1120,7 +1120,10 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
         font-weight: $font-weight-normal;
         @extend .btn;
         @extend .btn-sm;
-        @include button-variant($footer-chulapa-bg-color,$footer-chulapa-text-color);
+        @include button-variant(
+          $footer-chulapa-bg-color,
+          $footer-chulapa-text-color
+        );
       }
     }
   }
@@ -1157,15 +1160,17 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     font-weight: $font-weight-bold;
   }
   //Time
-  .welcomments__comment-time {  
+  .welcomments__comment-time {
     @extend time;
     time {
       color: $footer-chulapa-text-color;
       font-weight: $font-weight-normal;
-    }  
+    }
   }
 
-  .welcomments__comment .welcomments__comment-message, .welcomments__email-notice, .welcomments__markdown-notice {
+  .welcomments__comment .welcomments__comment-message,
+  .welcomments__email-notice,
+  .welcomments__markdown-notice {
     color: $wlc-text-color;
     font-weight: $font-weight-normal;
     pre {
@@ -1174,7 +1179,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     a {
       color: $wlc-text-color;
       @include hover-focus() {
-          color: $footer-chulapa-hover-color;
+        color: $footer-chulapa-hover-color;
       }
     }
   }
@@ -1195,7 +1200,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     @include button-variant(
       $footer-chulapa-bg-color,
       $footer-chulapa-text-color
-    ); 
+    );
   }
 
   input,
@@ -1219,14 +1224,13 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     font-family: $headings-font-family;
     @include ch_bcolor($primary, $footer-chulapa-bg-color);
   }
-  
+
   .welcomments__form-group {
     @extend .form-group;
   }
-  
 }
 
 // For disqus recommendations
 #disqus_recommendations {
-    width: 100%;
+  width: 100%;
 }

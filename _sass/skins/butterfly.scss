@@ -1,0 +1,24 @@
+// Butterfly
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+$headings-font-family: 'Inter', Roboto !default;
+$font-family-base: 'Inter', Roboto !default;
+
+$primary: #1083f3 !default;
+$secondary: #8d8e96 !default;
+$success: #00a400;
+$info: #54c7ec;
+$warning: #ffba00;
+$danger: #fa383e;
+$dark: #0b0f14 !default;
+$white: #fff !default;
+
+$body-color: $dark !default;
+
+$navbar-chulapa-bg-color: $white;
+$thead-chulapa-bg-color: $white;
+
+.card.bg-primary {
+    color: $white;
+}

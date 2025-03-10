@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
-$headings-font-family:"Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
+$headings-font-family: "Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
 $font-family-base: $headings-font-family;
 
+$headings-font-weight: 800 !default;
 
-$headings-font-weight:        800 !default;
 // Some bootstrap variables
 $primary: #1d9bf0 !default;
-$secondary:#788995 !default;
+$secondary: #788995 !default;
 $success: #00ba7c !default;
 $warning: #ff7a00 !default;
 $danger: #f91880 !default;
 $info: #7856ff !default;
 $light: #f5f8fa !default;
-$body-bg:#fff !default;
+$body-bg: #fff !default;
 $body-color: #14171a !default;
 $code-color: #E80E61 !default;
 $thead-chulapa-bg-color: $primary !default;
@@ -21,7 +21,7 @@ $blockquote-chulapa-bg-color: mix(white, $primary, 80%) !default;
 $blockquote-chulapa-text-color: mix(black, $primary, 80%) !default;
 $navbar-chulapa-bg-color: $body-bg !default;
 $navbar-chulapa-text-color: $body-color !default;
-$navbar-chulapa-brand-color:$body-color !default;
+$navbar-chulapa-brand-color: $body-color !default;
 $navbar-chulapa-hover-color: $primary !default;
 $navbar-chulapa-active-color: $primary !default;
 $dropdown-link-active-bg: lighten($primary, 30%) !default;
@@ -34,3 +34,8 @@ $pagination-chulapa-bg-hover-color: $primary !default;
 $min-contrast-ratio: 2 !default;
 
 $breadcrumb-divider: quote(">") !default;
+
+.card.bg-primary,
+.card.bg-secondary {
+  color: $body-bg;
+}
