@@ -1,105 +1,94 @@
 <!-- Compatible with Jekyll v3 and v4, pure Jekyll group by -->
 
 {%- if page.tags -%}
-{%- assign alldocs = site.documents |  where_exp: "item", "item.url != page.url"  -%}
+  {%- assign all_docs = site.documents | where_exp: "item", "item.url != page.url" -%}
 
-
-{%- for tag in page.tags %}
-  {%- if forloop.first -%}
-    {%- assign relateddocs = alldocs | 
-                    where_exp: "item", "item.tags contains tag" | map: 'id' | join: ','  | split: ',' -%}
-                    
-  {%- else -%}
-    {%- assign docloop = alldocs | 
-                    where_exp: "item", "item.tags contains tag" | map: 'id' | join: ','  | split: ',' -%}
-    {%- assign relateddocs = relateddocs | concat: docloop  %}
-  {%- endif -%}
-{%- endfor -%}
-
-
-{%- assign thiscol = alldocs | where_exp: "item", "item.collection == page.collection"   | map: 'id' | join: ','  | split: ',' -%}
-
-
-{%- assign alltags =  relateddocs | concat: thiscol   -%}
-{%- assign single_tags =  alltags | uniq  -%}
-{% assign count_tags = '' | split: ',' %}
-{% assign n_tags = single_tags | size |  minus: 1 %}
-
-{%- for i in (0..n_tags) %}
-  {% assign count_this_tag = alltags | where_exp:"item", "item == single_tags[i]" | size %}
-  {% assign count_tags = count_tags | push: count_this_tag %}
-{%- endfor -%}
-
-{% assign items_max = count_tags | sort | last %}
-{% assign sorted_tags = '' | split: ',' %}
-{% assign sorted_count_tags = '' | split: ',' %}
-
-
-{% for i in (1..items_max) reversed %}
-  {% for j in (0..n_tags) %}
-    {% if count_tags[j] == i %}
-     {% assign sorted_tags = sorted_tags | push: single_tags[j] %}
-     {% assign sorted_count_tags = sorted_count_tags | push: i %}
-    {% endif %}
-  {% endfor %}
-{% endfor %}
-
-{% assign sorted_tags= sorted_tags | uniq %}
-
-{% assign gtop = '' | split: ',' %}
-
-{%- for i in (0..n_tags) %}
-  {%- if sorted_count_tags[i] > 2 -%}
-    {% assign gtop = gtop | push: sorted_tags[i] %}
-  {%- endif -%}
-{%- endfor -%}
-
-{% for id in gtop limit:3 %}
-  {%- if forloop.first -%}
-  {% assign reldoc = alldocs | where_exp: "item", "item.id == id" | sort: 'date' | reverse %}
-
-  {%- else -%}
-  {%- assign relloop = alldocs | 
-                    where_exp: "item", "item.id == id" | sort: 'date' | reverse -%}
-  {% assign reldoc = reldoc | concat: relloop %}
-  {% endif %}
-{% endfor %}
-
-{%- if reldoc -%}
-  {% for document in reldoc %}
-    {% assign m = "ml-sm-1" %}
-    
+  {%- for tag in page.tags -%}
     {%- if forloop.first -%}
-    {% assign m = "" %}
-<div class="container-lg mt-1 mb-2">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <hr>
-      <p><i class="fa-solid fa-shuffle fa-xl"></i><span class="sr-only">Related</span></p>
-      <nav class="card-group" aria-label="related-articles">
-    {%- endif %}
-         <div class="card {{ m }} border chulapa-related">
-          <div class="card-body">
-          <p class="card-title chulapa-headingfont"><a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></p>
-          {% if document.subtitle %}<p class="card-text"><small>{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</small></p> {%- endif -%}
-    </div>
-    <div class="card-footer bg-transparent">
-          {% if document.date %}
-    {% assign dateformat = document.date | date: "%B %d, %Y" %}
-      <small><i class="far fa-calendar" aria-hidden="true"></i> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time></small>
-      {% else %}
-      <small>-</small>
-      {% endif %}
-    </div>
-  </div>
-    {%- if forloop.last -%}
-    </nav>
-    </div>
-  </div>
-</div>
+      {%- assign related_docs = all_docs | where_exp: "item", "item.tags contains tag" | map: 'id' | join: ',' | split: ',' -%}
+    {%- else -%}
+      {%- assign doc_loop = all_docs | where_exp: "item", "item.tags contains tag" | map: 'id' | join: ',' | split: ',' -%}
+      {%- assign related_docs = related_docs | concat: doc_loop -%}
     {%- endif -%}
   {%- endfor -%}
-{%- endif -%}
+
+  {%- assign this_col = all_docs | where_exp: "item", "item.collection == page.collection" | map: 'id' | join: ',' | split: ',' -%}
+  {%- assign all_tags = related_docs | concat: this_col -%}
+  {%- assign unique_tags = all_tags | uniq -%}
+  {% assign tag_counts = '' | split: ',' %}
+  {% assign num_tags = unique_tags | size | minus: 1 %}
+
+  {%- for i in (0..num_tags) -%}
+    {% assign tag_count = all_tags | where_exp: "item", "item == unique_tags[i]" | size %}
+    {% assign tag_counts = tag_counts | push: tag_count %}
+  {%- endfor -%}
+
+  {% assign max_items = tag_counts | sort | last %}
+  {% assign sorted_tag_counts = '' | split: ',' %}
+  {% assign sorted_docs = '' | split: ',' %}
+
+  {% for i in (1..max_items) reversed %}
+    {% if i > 2 %}
+      {% assign sorted_docs_loop = '' | split: ',' %}
+      {% for j in (0..num_tags) %}
+        {% if tag_counts[j] == i %}
+          {% assign sorted_tag_counts = sorted_tag_counts | push: i %}
+          {% assign id = unique_tags[j] %}
+          {% assign related_doc = all_docs | where_exp: "item", "item.id == id" %}
+          {% assign sorted_docs_loop = sorted_docs_loop | concat: related_doc | sort: 'date' | reverse %}
+        {% endif %}
+      {% endfor %}
+      {% assign sorted_docs = sorted_docs | concat: sorted_docs_loop %}
+    {% endif %}
+  {% endfor %}
+
+  {%- if sorted_docs -%}
+    {% for document in sorted_docs limit: 3 %}
+      {% assign margin_class = "ml-sm-1" %}
+      {%- if forloop.first -%}
+        {% assign margin_class = "" %}
+        <div class="container-lg mt-1 mb-2">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <hr>
+              <p><i class="fa-solid fa-shuffle fa-xl"></i><span class="sr-only">Related</span></p>
+              <nav class="card-group" aria-label="related-articles">
+      {%- endif -%}
+      <div class="card {{ margin_class }} border chulapa-related">
+        <div class="card-body">
+          <p class="card-title chulapa-headingfont">
+            <a href="{{ document.url | absolute_url }}" class="chulapa-text-body-color">
+              {{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}
+            </a>
+          </p>
+          {% if document.subtitle %}
+            <p class="card-text">
+              <small>{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</small>
+            </p>
+          {%- endif -%}
+        </div>
+        <div class="card-footer bg-transparent">
+          {% if document.date %}
+            {% assign date_format = document.date | date: "%B %d, %Y" %}
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="{{- document.date | date_to_xmlschema -}}">
+                {% include_cached snippets/datetranslate.html date=date_format %}
+              </time>
+            </small>
+          {% else %}
+            <small>-</small>
+          {% endif %}
+        </div>
+      </div>
+      {%- if forloop.last -%}
+              </nav>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
 {%- endif -%}
 
 
