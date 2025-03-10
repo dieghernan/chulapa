@@ -3,6 +3,7 @@ $navbar-chulapa-bg-color: $primary !default;
 $navbar-chulapa-text-contrast: color-contrast($navbar-chulapa-bg-color, $black, $white);
 $navbar-chulapa-text-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 50%) !default;
 $navbar-chulapa-hover-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 75%) !default;
+$navbar-chulapa-hover-bg-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 15%) !default;
 $navbar-chulapa-active-color: $navbar-chulapa-text-contrast !default;
 $navbar-chulapa-disabled-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 20%) !default;
 $navbar-chulapa-brand-color: $navbar-chulapa-active-color !default;
