@@ -59,10 +59,7 @@
             {%- assign thispageurl = page.url | replace: ".html", ""  -%}
             <nav class="navbar navbar-expand-lg sticky-top navbar-chulapa border border-light my-2">
                <div class="container-fluid mx-md-2">
-                     <a class="navbar-brand font-weight-bold" href="{{ site.navbar.brand.url | default: "/" | absolute_url }}">
-                     {%- if site.navbar.brand.img -%}
-                        <img src="{{ site.navbar.brand.img | absolute_url }}" width="30" height="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">
-                     {%- endif -%}{{- site.navbar.brand.title -}}</a>
+                     <a class="navbar-brand font-weight-bold" href="{{ site.navbar.brand.url | default: "/" | absolute_url }}">{{- site.navbar.brand.title -}}</a>
                      {%- if site.navbar.nav -%}
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

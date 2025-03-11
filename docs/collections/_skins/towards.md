@@ -8,7 +8,7 @@ date: 2021-02-14
 last_modified_at: 2022-06-03
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
-skin: towards
+skin: towards_skin
 og_image: ./assets/img/skinspreview/towards.png
 ---
 
