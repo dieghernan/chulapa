@@ -41,7 +41,7 @@ nav, footer, button, input, label, legend, table, form, aside, header,
   color: $primary;
 }
 
-label {
+label, .navbar-brand {
   font-family: $headings-font-family !important;
   font-weight: $headings-font-weight !important;
 }
