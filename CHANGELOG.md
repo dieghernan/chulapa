@@ -12,6 +12,8 @@
     - `butterfly`
     - `butterfly-dim`
     - `butterfly-dark`
+    - `yeti`
+    - `united`
 - New search with [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search).
 - New search with [Fuse.js](https://fusejs.io).
 - Results with `lunr` and `fusejs` highlight matched terms like `algolia`.
