@@ -10,7 +10,7 @@ permalink: /skins
 
 Additionally, you can have a preview of the current theme [here](https://dieghernan.github.io/chulapa/skins/current).
 
-<p class="lead font-weight-bolder text-info">Click on the image to see a full-blow example!</p>
+<p class="lead font-weight-bolder text-info">Click on the image to see a full-blown example!</p>
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
 <div class="card-group">
