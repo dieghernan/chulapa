@@ -13,9 +13,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 // On cards these headings should be margin-top: 0 to adjust the sizes
+// Also reset images
 .card {
       h1,h2,h3,h4,h5,h6{
       margin-top:0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 0%;
     }
 }
 

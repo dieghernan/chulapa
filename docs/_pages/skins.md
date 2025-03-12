@@ -17,7 +17,7 @@ Additionally, you can have a preview of the current theme [here](https://diegher
 {% for post in alldocs -%} 
   {%- if post.skin -%}
   <div class="col mb-3">
-  <div class="card border-primary">
+  <div class="card h-100 border-light">
   <a href="{{- post.url | absolute_url -}}">
  <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
      <div class="card-body text-center">
