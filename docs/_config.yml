@@ -294,6 +294,12 @@ sass:
   sass_dir: _sass
   style: compressed
   quiet_deps: true
-  silence_deprecations: [import]
-  future_deprecations: [import]
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
+    - mixed-decls
+    - abs-percent
+    - function-units
+    - color-functions
 
