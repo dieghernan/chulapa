@@ -19,11 +19,13 @@ Additionally, you can have a preview of the current theme [here](https://diegher
   <div class="col mb-3">
   <div class="card h-100 border-light">
   <a href="{{- post.url | absolute_url -}}">
- <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
+ <img class="card-img-top border border-light" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
      <div class="card-body text-center">
-      <h5 class="card-title">{{ post.title }}</h5>
+      <h5 class="card-title font-weight-bolder">{{ post.title }}</h5>
       <p class="card-text small">{{ post.subtitle}}</p>
-      <p><a href="{{- post.url | absolute_url -}}" class="btn btn-primary btn-sm">Preview</a></p>
+    </div>
+    <div class="card-footer text-center bg-transparent border-top-0">
+    <a href="{{- post.url | absolute_url -}}" class="btn btn-primary btn-sm">Preview</a>
     </div>
   </div>
   </div>
