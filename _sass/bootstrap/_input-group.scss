@@ -1,3 +1,7 @@
+@use "mixins/border-radius";
+@use "variables";
+@use "vendor/rfs";
+
 // stylelint-disable selector-no-qualifying-type
 
 //
@@ -24,7 +28,7 @@
     + .form-control,
     + .custom-select,
     + .custom-file {
-      margin-left: -$input-border-width;
+      margin-left: -(variables.$input-border-width);
     }
   }
 
@@ -42,8 +46,8 @@
 
   > .form-control,
   > .custom-select {
-    &:not(:last-child) { @include border-right-radius(0); }
-    &:not(:first-child) { @include border-left-radius(0); }
+    &:not(:last-child) { @include border-radius.border-right-radius(0); }
+    &:not(:first-child) { @include border-radius.border-left-radius(0); }
   }
 
   // Custom file inputs have more complex markup, thus requiring different
@@ -53,8 +57,8 @@
     align-items: center;
 
     &:not(:last-child) .custom-file-label,
-    &:not(:last-child) .custom-file-label::after { @include border-right-radius(0); }
-    &:not(:first-child) .custom-file-label { @include border-left-radius(0); }
+    &:not(:last-child) .custom-file-label::after { @include border-radius.border-right-radius(0); }
+    &:not(:first-child) .custom-file-label { @include border-radius.border-left-radius(0); }
   }
 }
 
@@ -85,12 +89,12 @@
   .btn + .input-group-text,
   .input-group-text + .input-group-text,
   .input-group-text + .btn {
-    margin-left: -$input-border-width;
+    margin-left: -(variables.$input-border-width);
   }
 }
 
-.input-group-prepend { margin-right: -$input-border-width; }
-.input-group-append { margin-left: -$input-border-width; }
+.input-group-prepend { margin-right: -(variables.$input-border-width); }
+.input-group-append { margin-left: -(variables.$input-border-width); }
 
 
 // Textual addons
@@ -101,17 +105,17 @@
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: $input-padding-y $input-padding-x;
+  padding: variables.$input-padding-y variables.$input-padding-x;
   margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
-  @include font-size($input-font-size); // Match inputs
-  font-weight: $font-weight-normal;
-  line-height: $input-line-height;
-  color: $input-group-addon-color;
+  @include rfs.font-size(variables.$input-font-size); // Match inputs
+  font-weight: variables.$font-weight-normal;
+  line-height: variables.$input-line-height;
+  color: variables.$input-group-addon-color;
   text-align: center;
   white-space: nowrap;
-  background-color: $input-group-addon-bg;
-  border: $input-border-width solid $input-group-addon-border-color;
-  @include border-radius($input-border-radius);
+  background-color: variables.$input-group-addon-bg;
+  border: variables.$input-border-width solid variables.$input-group-addon-border-color;
+  @include border-radius.border-radius(variables.$input-border-radius);
 
   // Nuke default margins from checkboxes and radios to vertically center within.
   input[type="radio"],
@@ -128,7 +132,7 @@
 
 .input-group-lg > .form-control:not(textarea),
 .input-group-lg > .custom-select {
-  height: $input-height-lg;
+  height: variables.$input-height-lg;
 }
 
 .input-group-lg > .form-control,
@@ -137,15 +141,15 @@
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn {
-  padding: $input-padding-y-lg $input-padding-x-lg;
-  @include font-size($input-font-size-lg);
-  line-height: $input-line-height-lg;
-  @include border-radius($input-border-radius-lg);
+  padding: variables.$input-padding-y-lg variables.$input-padding-x-lg;
+  @include rfs.font-size(variables.$input-font-size-lg);
+  line-height: variables.$input-line-height-lg;
+  @include border-radius.border-radius(variables.$input-border-radius-lg);
 }
 
 .input-group-sm > .form-control:not(textarea),
 .input-group-sm > .custom-select {
-  height: $input-height-sm;
+  height: variables.$input-height-sm;
 }
 
 .input-group-sm > .form-control,
@@ -154,15 +158,15 @@
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
-  padding: $input-padding-y-sm $input-padding-x-sm;
-  @include font-size($input-font-size-sm);
-  line-height: $input-line-height-sm;
-  @include border-radius($input-border-radius-sm);
+  padding: variables.$input-padding-y-sm variables.$input-padding-x-sm;
+  @include rfs.font-size(variables.$input-font-size-sm);
+  line-height: variables.$input-line-height-sm;
+  @include border-radius.border-radius(variables.$input-border-radius-sm);
 }
 
 .input-group-lg > .custom-select,
 .input-group-sm > .custom-select {
-  padding-right: $custom-select-padding-x + $custom-select-indicator-padding;
+  padding-right: variables.$custom-select-padding-x + variables.$custom-select-indicator-padding;
 }
 
 
@@ -179,7 +183,7 @@
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
-  @include border-right-radius(0);
+  @include border-radius.border-right-radius(0);
 }
 
 .input-group > .input-group-append > .btn,
@@ -188,5 +192,5 @@
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-  @include border-left-radius(0);
+  @include border-radius.border-left-radius(0);
 }

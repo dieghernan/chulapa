@@ -1,7 +1,9 @@
+@use "deprecate";
+
 // Sizing shortcuts
 
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
-  @include deprecate("`size()`", "v4.3.0", "v5");
+  @include deprecate.deprecate("`size()`", "v4.3.0", "v5");
 }

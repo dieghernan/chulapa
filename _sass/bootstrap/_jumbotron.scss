@@ -1,17 +1,21 @@
-.jumbotron {
-  padding: $jumbotron-padding ($jumbotron-padding / 2);
-  margin-bottom: $jumbotron-padding;
-  color: $jumbotron-color;
-  background-color: $jumbotron-bg;
-  @include border-radius($border-radius-lg);
+@use "mixins/border-radius";
+@use "mixins/breakpoints";
+@use "variables";
 
-  @include media-breakpoint-up(sm) {
-    padding: ($jumbotron-padding * 2) $jumbotron-padding;
+.jumbotron {
+  padding: variables.$jumbotron-padding (variables.$jumbotron-padding / 2);
+  margin-bottom: variables.$jumbotron-padding;
+  color: variables.$jumbotron-color;
+  background-color: variables.$jumbotron-bg;
+  @include border-radius.border-radius(variables.$border-radius-lg);
+
+  @include breakpoints.media-breakpoint-up(sm) {
+    padding: (variables.$jumbotron-padding * 2) variables.$jumbotron-padding;
   }
 }
 
 .jumbotron-fluid {
   padding-right: 0;
   padding-left: 0;
-  @include border-radius(0);
+  @include border-radius.border-radius(0);
 }

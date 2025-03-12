@@ -1,3 +1,4 @@
+@use "sass:meta";
 /*!
  * Bootstrap Grid v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -16,14 +17,14 @@ html {
   box-sizing: inherit;
 }
 
-@import "functions";
-@import "variables";
+@include meta.load-css("functions");
+@include meta.load-css("variables");
 
-@import "mixins/breakpoints";
-@import "mixins/grid-framework";
-@import "mixins/grid";
+@include meta.load-css("mixins/breakpoints");
+@include meta.load-css("mixins/grid-framework");
+@include meta.load-css("mixins/grid");
 
-@import "grid";
-@import "utilities/display";
-@import "utilities/flex";
-@import "utilities/spacing";
+@include meta.load-css("grid");
+@include meta.load-css("utilities/display");
+@include meta.load-css("utilities/flex");
+@include meta.load-css("utilities/spacing");

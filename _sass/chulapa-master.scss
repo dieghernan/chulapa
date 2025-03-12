@@ -4,8 +4,8 @@
  * Licensed under MIT
  */
 
-@import "chulapa/_bootstrapv5";
-@import "chulapa/_mixins";
-@import "chulapa/_variables";
-@import "chulapa/_reboot";
-@import "chulapa/_classes";
+@use "chulapa/_bootstrapv5";
+@use "chulapa/_mixins";
+@use "chulapa/_variables";
+@use "chulapa/_reboot";
+@use "chulapa/_classes";

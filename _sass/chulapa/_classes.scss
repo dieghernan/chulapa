@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "sass:map";
+@use "bootstrapv5";
+@use "mixins";
+@use "variables";
+
 /*!
  * Specific classes and formats for chulapa
  */
@@ -30,15 +36,15 @@
 
 @each $color, $value in $theme-colors {
   .chulapa-pill-bg-#{$color} {
-    @include badge-variant($value);
+    @include mixins.badge-variant($value);
   }
 }
 
 .chulapa-pill-bg-body {
-  @include badge-variant($body-bg);
+  @include mixins.badge-variant($body-bg);
   border-style: solid;
   border-width: $border-width;
-  border-color: color-contrast($body-bg);
+  border-color: bootstrapv5.color-contrast($body-bg);
 }
 
 .chulapa-text-body-color {
@@ -71,36 +77,36 @@
 
 // Navbar
 .navbar-chulapa {
-  background-color: $navbar-chulapa-bg-color;
+  background-color: variables.$navbar-chulapa-bg-color;
 
   .navbar-brand {
-    color: $navbar-chulapa-brand-color;
+    color: variables.$navbar-chulapa-brand-color;
     font-weight: bold;
 
-    @include hover-focus() {
-      color: $navbar-chulapa-brand-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$navbar-chulapa-brand-hover-color;
     }
   }
 
   .btn {
-    border-color: $navbar-chulapa-text-color;
-    color: $navbar-chulapa-text-color;
+    border-color: variables.$navbar-chulapa-text-color;
+    color: variables.$navbar-chulapa-text-color;
 
-    @include hover-focus() {
-      color: $navbar-chulapa-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$navbar-chulapa-hover-color;
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-chulapa-text-color;
+      color: variables.$navbar-chulapa-text-color;
 
-      @include hover-focus() {
-        color: $navbar-chulapa-hover-color;
+      @include mixins.hover-focus() {
+        color: variables.$navbar-chulapa-hover-color;
       }
 
       &.disabled {
-        color: $navbar-chulapa-disabled-color;
+        color: variables.$navbar-chulapa-disabled-color;
       }
     }
 
@@ -108,46 +114,46 @@
     .active > .nav-link,
     .nav-link.show,
     .nav-link.active {
-      color: $navbar-chulapa-active-color;
+      color: variables.$navbar-chulapa-active-color;
     }
   }
 
   .navbar-toggler {
-    color: $navbar-chulapa-text-color;
-    border-color: $navbar-chulapa-toggler-border-color;
-    background-color: $navbar-chulapa-toggler-color-bg;
+    color: variables.$navbar-chulapa-text-color;
+    border-color: variables.$navbar-chulapa-toggler-border-color;
+    background-color: variables.$navbar-chulapa-toggler-color-bg;
   }
 
   .navbar-toggler-icon {
-    background-image: escape-svg($navbar-chulapa-toggler-icon-bg);
+    background-image: escape-svg(variables.$navbar-chulapa-toggler-icon-bg);
   }
 
   .navbar-text {
-    color: $navbar-chulapa-text-color;
+    color: variables.$navbar-chulapa-text-color;
 
     a {
-      color: $navbar-chulapa-active-color;
+      color: variables.$navbar-chulapa-active-color;
 
-      @include hover-focus() {
-        color: $navbar-chulapa-active-color;
+      @include mixins.hover-focus() {
+        color: variables.$navbar-chulapa-active-color;
       }
     }
   }
 
   .dropdown-menu {
-    background-color: $navbar-chulapa-bg-color;
+    background-color: variables.$navbar-chulapa-bg-color;
     border-style: none;
 
     .dropdown-item {
-      color: $navbar-chulapa-text-color;
+      color: variables.$navbar-chulapa-text-color;
 
-      @include hover-focus() {
-        color: $navbar-chulapa-hover-color;
-        background-color: $navbar-chulapa-hover-bg-color;
+      @include mixins.hover-focus() {
+        color: variables.$navbar-chulapa-hover-color;
+        background-color: variables.$navbar-chulapa-hover-bg-color;
       }
 
       &.disabled {
-        color: $navbar-chulapa-disabled-color;
+        color: variables.$navbar-chulapa-disabled-color;
       }
     }
 
@@ -155,8 +161,8 @@
     .active > .dropdown-item,
     .dropdown-item.show,
     .dropdown-item.active {
-      color: $navbar-chulapa-active-color;
-      background-color: $navbar-chulapa-bg-color;
+      color: variables.$navbar-chulapa-active-color;
+      background-color: variables.$navbar-chulapa-bg-color;
     }
   }
 }
@@ -164,24 +170,24 @@
 // Hero and headers
 .hero-chulapa {
   font-family: $headings-font-family;
-  background-color: $hero-chulapa-bg-color;
+  background-color: variables.$hero-chulapa-bg-color;
   text-align: center;
   min-height: 40vh;
 
   hr {
-    background-color: $hero-chulapa-text-color;
+    background-color: variables.$hero-chulapa-text-color;
     width: 15%;
   }
 
   h1,
   p {
-    color: $hero-chulapa-text-color;
+    color: variables.$hero-chulapa-text-color;
     word-wrap: break-word;
     -ms-word-wrap: break-word;
   }
 
   p {
-    @include fluid-type(
+    @include mixins.fluid-type(
       font-size,
       breakpoint-min("md"),
       breakpoint-min("lg"),
@@ -191,19 +197,19 @@
   }
 
   .chulapa-btn-project {
-    border-color: $hero-chulapa-text-color;
-    color: $hero-chulapa-text-color;
-    @include fluid-type(
+    border-color: variables.$hero-chulapa-text-color;
+    color: variables.$hero-chulapa-text-color;
+    @include mixins.fluid-type(
       font-size,
       breakpoint-min("md"),
       breakpoint-min("lg"),
       $font-size-base,
       $font-size-lg
     );
-    @include hover-focus() {
-      border-color: $hero-chulapa-text-color;
-      color: $hero-chulapa-bg-color;
-      background-color: $hero-chulapa-text-color;
+    @include mixins.hover-focus() {
+      border-color: variables.$hero-chulapa-text-color;
+      color: variables.$hero-chulapa-bg-color;
+      background-color: variables.$hero-chulapa-text-color;
       text-shadow: none;
     }
   }
@@ -248,7 +254,7 @@
     color: $white;
     border-color: $white;
     text-shadow: none;
-    @include hover-focus() {
+    @include mixins.hover-focus() {
       border-color: $light;
       color: $light;
       background-color: $dark;
@@ -267,7 +273,7 @@
   }
 
   h1 {
-    @include fluid-type(
+    @include mixins.fluid-type(
       font-size,
       breakpoint-min("md"),
       breakpoint-min("lg"),
@@ -277,7 +283,7 @@
   }
 
   p {
-    @include fluid-type(
+    @include mixins.fluid-type(
       font-size,
       breakpoint-min("md"),
       breakpoint-min("lg"),
@@ -310,7 +316,7 @@
     background-color: transparent;
     border-color: $white;
     text-shadow: none;
-    @include hover-focus() {
+    @include mixins.hover-focus() {
       border-color: $light;
       color: $light;
       background-color: $dark;
@@ -330,9 +336,9 @@
   }
 
   hr {
-    background-color: color-contrast(
+    background-color: bootstrapv5.color-contrast(
       $body-bg,
-      $hero-chulapa-bg-color,
+      variables.$hero-chulapa-bg-color,
       $body-color
     );
   }
@@ -362,42 +368,42 @@
 }
 
 .footer-chulapa {
-  background-color: $footer-chulapa-bg-color;
-  color: $footer-chulapa-text-color;
+  background-color: variables.$footer-chulapa-bg-color;
+  color: variables.$footer-chulapa-text-color;
   font-weight: $font-weight-normal;
   border-top: chulapa-footertop(
-    $footer-chulapa-bg-color,
+    variables.$footer-chulapa-bg-color,
     $body-bg,
-    $footer-chulapa-text-color
+    variables.$footer-chulapa-text-color
   );
 
   a {
-    color: $footer-chulapa-hover-color;
+    color: variables.$footer-chulapa-hover-color;
     text-decoration: none;
 
     font-weight: $font-weight-bold;
 
-    @include hover-focus() {
-      color: $footer-chulapa-text-color;
+    @include mixins.hover-focus() {
+      color: variables.$footer-chulapa-text-color;
     }
   }
 
   .chulapa-footer-sociallink {
     color: transparent;
 
-    @include hover-focus() {
-      color: $footer-chulapa-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$footer-chulapa-hover-color;
     }
   }
 
   .fa-stack {
-    @include hover-focus() {
-      color: $footer-chulapa-icon-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$footer-chulapa-icon-hover-color;
     }
   }
 
   .fa-inverse {
-    color: $footer-chulapa-icon-color;
+    color: variables.$footer-chulapa-icon-color;
   }
 }
 
@@ -417,7 +423,7 @@
 
 .chulapa-header-image {
   object-fit: contain;
-  @include fluid-type(
+  @include mixins.fluid-type(
     height,
     breakpoint-min("md"),
     breakpoint-min("lg"),
@@ -432,7 +438,7 @@
 
 .chulapa-masonry {
   column-count: 2;
-  column-gap: map-get($spacers, 1);
+  column-gap: map.get($spacers, 1);
 
   @include media-breakpoint-up(md) {
     column-count: 3;
@@ -443,7 +449,7 @@
     margin: 0;
     border: 0;
     padding: 0;
-    margin-bottom: map-get($spacers, 1);
+    margin-bottom: map.get($spacers, 1);
     display: inline-block;
     max-width: 100%;
     @include border-radius($border-radius);
@@ -471,15 +477,15 @@
   .fa-stack {
     color: transparent;
 
-    @include hover-focus() {
-      color: $pagination-chulapa-bg-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$pagination-chulapa-bg-hover-color;
     }
   }
 
   .fa-inverse {
     color: $body-color;
 
-    @include hover-focus() {
+    @include mixins.hover-focus() {
       color: $white;
     }
   }
@@ -489,14 +495,14 @@
   }
 
   .page-link {
-    color: $pagination-chulapa-text-color;
+    color: variables.$pagination-chulapa-text-color;
     background-color: transparent;
 
     &:hover {
       z-index: 2;
-      color: $pagination-chulapa-text-hover-color;
-      background-color: $pagination-chulapa-bg-hover-color;
-      border-color: $pagination-chulapa-bg-hover-color;
+      color: variables.$pagination-chulapa-text-hover-color;
+      background-color: variables.$pagination-chulapa-bg-hover-color;
+      border-color: variables.$pagination-chulapa-bg-hover-color;
     }
 
     &:focus {
@@ -507,13 +513,13 @@
 
   .page-item {
     &.active .page-link {
-      color: $pagination-chulapa-text-hover-color;
-      background-color: $pagination-chulapa-bg-hover-color;
-      border-color: $pagination-chulapa-bg-hover-color;
+      color: variables.$pagination-chulapa-text-hover-color;
+      background-color: variables.$pagination-chulapa-bg-hover-color;
+      border-color: variables.$pagination-chulapa-bg-hover-color;
     }
 
     &.disabled .page-link {
-      color: change-color($pagination-chulapa-text-color, $alpha: 0.7);
+      color: color.change(variables.$pagination-chulapa-text-color, $alpha: 0.7);
       pointer-events: none;
       // Opinionated: remove the "hand" cursor set previously for .page-link
       cursor: auto;
@@ -521,7 +527,7 @@
       border-color: transparent;
 
       &.chulapa-label {
-        color: $pagination-chulapa-text-color;
+        color: variables.$pagination-chulapa-text-color;
       }
     }
   }
@@ -542,18 +548,18 @@
 }
 .chulapa-toc-wrapper {
   .list-group-item {
-    background-color: $chulapa-toc-bg;
+    background-color: variables.$chulapa-toc-bg;
     a {
-      color: color-contrast($chulapa-toc-bg);
+      color: bootstrapv5.color-contrast(variables.$chulapa-toc-bg);
     }
     &:first-child {
       @include border-top-radius($border-radius-lg);
-      padding-top: map-get($spacers, 2) !important;
+      padding-top: map.get($spacers, 2) !important;
     }
 
     &:last-child {
       @include border-bottom-radius($border-radius-lg);
-      padding-bottom: map-get($spacers, 2) !important;
+      padding-bottom: map.get($spacers, 2) !important;
     }
   }
 }
@@ -600,94 +606,94 @@
 }
 
 .chulapa-bg-landingpage {
-  background-color: $landingpage-chulapa-bg-color;
+  background-color: variables.$landingpage-chulapa-bg-color;
   header {
-    color: $landingpage-chulapa-text-color;
+    color: variables.$landingpage-chulapa-text-color;
     a {
-      color: $landingpage-chulapa-text-color;
+      color: variables.$landingpage-chulapa-text-color;
     }
   }
 }
 
 .chulapa-landingpage-color {
-  color: $landingpage-chulapa-text-color;
+  color: variables.$landingpage-chulapa-text-color;
   .breadcrumb {
     .breadcrumb-item {
       + .breadcrumb-item {
         &::before {
-          color: mix($info, $landingpage-chulapa-text-color, 50%);
+          color: color.mix($info, variables.$landingpage-chulapa-text-color, 50%);
         }
       }
       &.active {
-        color: $landingpage-chulapa-text-color;
+        color: variables.$landingpage-chulapa-text-color;
       }
     }
   }
 
   a {
-    color: mix($info, $landingpage-chulapa-text-color, 50%);
+    color: color.mix($info, variables.$landingpage-chulapa-text-color, 50%);
   }
 
   table,
   .chulapaDateSocial {
-    color: $landingpage-chulapa-text-color;
+    color: variables.$landingpage-chulapa-text-color;
 
     a {
-      color: $landingpage-chulapa-text-color;
+      color: variables.$landingpage-chulapa-text-color;
     }
   }
 
   hr {
-    background-color: $landingpage-chulapa-text-color;
+    background-color: variables.$landingpage-chulapa-text-color;
   }
 
   .chulapa-pagination {
     .page-link {
-      color: $landingpage-chulapa-text-color;
+      color: variables.$landingpage-chulapa-text-color;
 
       &:hover {
-        color: $landingpage-chulapa-bg-color;
-        background-color: $landingpage-chulapa-text-color;
+        color: variables.$landingpage-chulapa-bg-color;
+        background-color: variables.$landingpage-chulapa-text-color;
       }
     }
   }
 
   @each $color, $value in $theme-colors {
     .chulapa-pill-bg-#{$color} {
-      @include badge-variant($value);
+      @include mixins.badge-variant($value);
     }
   }
 }
 
 .chulapa-landingpage-related {
-  color: $landingpage-chulapa-text-color;
-  background-color: $landingpage-chulapa-bg-color;
+  color: variables.$landingpage-chulapa-text-color;
+  background-color: variables.$landingpage-chulapa-bg-color;
 
   .card.chulapa-related {
-    background-color: $landingpage-chulapa-bg-color;
-    border-color: $landingpage-chulapa-text-color !important;
+    background-color: variables.$landingpage-chulapa-bg-color;
+    border-color: variables.$landingpage-chulapa-text-color !important;
 
     .card-footer {
-      border-top-color: $landingpage-chulapa-text-color !important;
+      border-top-color: variables.$landingpage-chulapa-text-color !important;
     }
 
     .chulapa-text-body-color {
-      color: $landingpage-chulapa-text-color !important;
+      color: variables.$landingpage-chulapa-text-color !important;
     }
   }
 }
 
 .chulapa-landingpage-badges {
   i {
-    color: $landingpage-chulapa-text-color;
+    color: variables.$landingpage-chulapa-text-color;
   }
 }
 
 .chulapa-landingpage-tag {
   a {
-    border: $border-width solid $landingpage-chulapa-text-color;
+    border: $border-width solid variables.$landingpage-chulapa-text-color;
     background-color: transparent;
-    color: $landingpage-chulapa-text-color;
+    color: variables.$landingpage-chulapa-text-color;
   }
 }
 
@@ -698,8 +704,8 @@
   }
 
   .navbar-toggler {
-    background-color: $navbar-chulapa-bg-color;
-    border-color: $navbar-chulapa-toggler-border-color;
+    background-color: variables.$navbar-chulapa-bg-color;
+    border-color: variables.$navbar-chulapa-toggler-border-color;
     height: 56px;
     width: 56px;
     position: fixed;
@@ -715,8 +721,8 @@
     @include border-radius(50%);
     position: fixed;
     background-image: radial-gradient(
-      $navbar-chulapa-bg-color,
-      $navbar-chulapa-bg-color
+      variables.$navbar-chulapa-bg-color,
+      variables.$navbar-chulapa-bg-color
     );
     z-index: 10000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -742,34 +748,34 @@
   }
 
   .dropdown-menu {
-    background-color: $navbar-chulapa-bg-color;
-    border-color: $navbar-chulapa-text-color;
+    background-color: variables.$navbar-chulapa-bg-color;
+    border-color: variables.$navbar-chulapa-text-color;
 
     .dropdown-item {
-      color: $navbar-chulapa-text-color;
+      color: variables.$navbar-chulapa-text-color;
 
       .nav-link {
         &.disabled {
-          color: $navbar-chulapa-disabled-color;
+          color: variables.$navbar-chulapa-disabled-color;
         }
 
         &.active {
-          color: $navbar-chulapa-active-color;
+          color: variables.$navbar-chulapa-active-color;
         }
       }
     }
   }
 
   .navbar-brand {
-    color: $navbar-chulapa-brand-color;
+    color: variables.$navbar-chulapa-brand-color;
 
-    @include hover-focus() {
-      color: $navbar-chulapa-brand-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$navbar-chulapa-brand-hover-color;
     }
   }
 
   .nav-link {
-    color: $navbar-chulapa-text-color;
+    color: variables.$navbar-chulapa-text-color;
 
     &:link,
     &:visited {
@@ -778,7 +784,7 @@
         120deg,
         transparent 0%,
         transparent 50%,
-        $navbar-chulapa-hover-color 50%
+        variables.$navbar-chulapa-hover-color 50%
       );
       background-size: 280%;
       transition: all 0.4s;
@@ -787,44 +793,44 @@
     &:hover,
     &:active {
       background-position: 100%;
-      color: $navbar-chulapa-bg-color;
-      transform: translateX(map-get($spacers, 2));
+      color: variables.$navbar-chulapa-bg-color;
+      transform: translateX(map.get($spacers, 2));
     }
 
     &.disabled {
-      color: $navbar-chulapa-disabled-color;
+      color: variables.$navbar-chulapa-disabled-color;
     }
 
     &.active {
-      color: $navbar-chulapa-active-color;
+      color: variables.$navbar-chulapa-active-color;
 
-      @include hover-focus() {
-        color: $navbar-chulapa-text-color;
+      @include mixins.hover-focus() {
+        color: variables.$navbar-chulapa-text-color;
       }
     }
   }
 
   @include media-breakpoint-down(lg) {
     .navbar-toggler {
-      bottom: 1.05 * map-get($spacers, 5);
-      right: map-get($spacers, 4);
+      bottom: 1.05 * map.get($spacers, 5);
+      right: map.get($spacers, 4);
     }
 
     .navbar-chulapa-fab-background {
-      bottom: 1.05 * map-get($spacers, 5);
-      right: map-get($spacers, 4);
+      bottom: 1.05 * map.get($spacers, 5);
+      right: map.get($spacers, 4);
     }
   }
 
   @include media-breakpoint-up(lg) {
     .navbar-toggler {
-      top: map-get($spacers, 4);
-      right: 2 * map-get($spacers, 5);
+      top: map.get($spacers, 4);
+      right: 2 * map.get($spacers, 5);
     }
 
     .navbar-chulapa-fab-background {
-      top: map-get($spacers, 4);
-      right: 2 * map-get($spacers, 5);
+      top: map.get($spacers, 4);
+      right: 2 * map.get($spacers, 5);
     }
   }
 
@@ -849,7 +855,7 @@
     &::after {
       width: 2rem;
       height: 2px;
-      background-color: $navbar-chulapa-toggler-color;
+      background-color: variables.$navbar-chulapa-toggler-color;
       display: inline-block;
     }
 
@@ -956,7 +962,7 @@ h6 {
 }
 
 .chulapa-border-card-index {
-  border-color: $indexcards-chulapa-border-color;
+  border-color: variables.$indexcards-chulapa-border-color;
 }
 
 // Chulapa disable fa animation
@@ -992,7 +998,7 @@ h6 {
 // Styles for sidebar
 
 .chulapa-btn-sidebar {
-  bottom: 1.05 * map-get($spacers, 5);
+  bottom: 1.05 * map.get($spacers, 5);
   left: 0;
   margin-left: -400px;
   opacity: 0.4;
@@ -1054,16 +1060,16 @@ h6 {
   }
 }
 
-$cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
+$cusdis-text-color: bootstrapv5.color-contrast(variables.$footer-chulapa-bg-color, $black, $white);
 
 #ch-cusdis {
-  background-color: $footer-chulapa-bg-color;
+  background-color: variables.$footer-chulapa-bg-color;
   color: $cusdis-text-color;
   overflow: hidden;
 
   .bg-blue-500 {
     @extend .bg-success;
-    color: color-contrast($success, $black, $white);
+    color: bootstrapv5.color-contrast($success, $black, $white);
     margin-left: 15vw;
     margin-right: 15vw;
     padding: 1rem !important;
@@ -1087,7 +1093,7 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
       @extend .btn;
       font-weight: $headings-font-weight;
       font-family: $headings-font-family;
-      @include ch_bcolor($primary, $footer-chulapa-bg-color);
+      @include ch_bcolor($primary, variables.$footer-chulapa-bg-color);
     }
   }
 
@@ -1097,7 +1103,7 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
   //Name
   .font-medium {
-    color: $footer-chulapa-text-color;
+    color: variables.$footer-chulapa-text-color;
     font-family: $headings-font-family;
     font-weight: $font-weight-bold;
   }
@@ -1108,7 +1114,7 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     &.text-sm {
       //Time
       @extend time;
-      color: $footer-chulapa-text-color;
+      color: variables.$footer-chulapa-text-color;
       font-weight: $font-weight-normal;
     }
   }
@@ -1122,31 +1128,31 @@ $cusdis-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
         @extend .btn;
         @extend .btn-sm;
         @include button-variant(
-          $footer-chulapa-bg-color,
-          $footer-chulapa-text-color
+          variables.$footer-chulapa-bg-color,
+          variables.$footer-chulapa-text-color
         );
       }
     }
   }
 
   .border-color-gray-200 {
-    border-color: $footer-chulapa-text-color;
+    border-color: variables.$footer-chulapa-text-color;
   }
 
   .underline {
-    color: $footer-chulapa-text-color;
+    color: variables.$footer-chulapa-text-color;
     text-decoration: none;
     font-weight: bold;
 
-    @include hover-focus() {
-      color: $footer-chulapa-hover-color;
+    @include mixins.hover-focus() {
+      color: variables.$footer-chulapa-hover-color;
     }
   }
 }
 
 //wellcomments
 
-$wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
+$wlc-text-color: bootstrapv5.color-contrast(variables.$footer-chulapa-bg-color, $black, $white);
 
 #welcomments__container {
   text-align: left;
@@ -1156,7 +1162,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   //Name
   .welcomments__comments-title,
   .welcomments__author-name {
-    color: $footer-chulapa-text-color;
+    color: variables.$footer-chulapa-text-color;
     font-family: $headings-font-family;
     font-weight: $font-weight-bold;
   }
@@ -1164,7 +1170,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   .welcomments__comment-time {
     @extend time;
     time {
-      color: $footer-chulapa-text-color;
+      color: variables.$footer-chulapa-text-color;
       font-weight: $font-weight-normal;
     }
   }
@@ -1179,8 +1185,8 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     }
     a {
       color: $wlc-text-color;
-      @include hover-focus() {
-        color: $footer-chulapa-hover-color;
+      @include mixins.hover-focus() {
+        color: variables.$footer-chulapa-hover-color;
       }
     }
   }
@@ -1189,7 +1195,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 
   @each $l in $welc_levs {
     .welcomments__nesting-level-#{$l} {
-      border-color: $footer-chulapa-text-color;
+      border-color: variables.$footer-chulapa-text-color;
     }
   }
 
@@ -1199,8 +1205,8 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     @extend .btn;
     @extend .btn-sm;
     @include button-variant(
-      $footer-chulapa-bg-color,
-      $footer-chulapa-text-color
+      variables.$footer-chulapa-bg-color,
+      variables.$footer-chulapa-text-color
     );
   }
 
@@ -1212,9 +1218,9 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
   label {
     font-size: $font-size-sm;
     font-family: $font-family-base;
-    color: $footer-chulapa-text-color;
+    color: variables.$footer-chulapa-text-color;
     .welcomments__optional-notice {
-      color: $footer-chulapa-text-color;
+      color: variables.$footer-chulapa-text-color;
       opacity: 0.8;
     }
   }
@@ -1223,7 +1229,7 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
     @extend .btn;
     font-weight: $headings-font-weight;
     font-family: $headings-font-family;
-    @include ch_bcolor($primary, $footer-chulapa-bg-color);
+    @include ch_bcolor($primary, variables.$footer-chulapa-bg-color);
   }
 
   .welcomments__form-group {

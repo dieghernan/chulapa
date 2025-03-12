@@ -1,3 +1,9 @@
+@use "mixins/box-shadow";
+@use "mixins/buttons";
+@use "mixins/hover";
+@use "mixins/transition";
+@use "variables";
+
 // stylelint-disable selector-no-qualifying-type
 
 //
@@ -6,46 +12,46 @@
 
 .btn {
   display: inline-block;
-  font-family: $btn-font-family;
-  font-weight: $btn-font-weight;
-  color: $body-color;
+  font-family: variables.$btn-font-family;
+  font-weight: variables.$btn-font-weight;
+  color: variables.$body-color;
   text-align: center;
-  text-decoration: if($link-decoration == none, null, none);
-  white-space: $btn-white-space;
+  text-decoration: if(variables.$link-decoration == none, null, none);
+  white-space: variables.$btn-white-space;
   vertical-align: middle;
   user-select: none;
   background-color: transparent;
-  border: $btn-border-width solid transparent;
-  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
-  @include transition($btn-transition);
+  border: variables.$btn-border-width solid transparent;
+  @include buttons.button-size(variables.$btn-padding-y, variables.$btn-padding-x, variables.$btn-font-size, variables.$btn-line-height, variables.$btn-border-radius);
+  @include transition.transition(variables.$btn-transition);
 
-  @include hover() {
-    color: $body-color;
+  @include hover.hover() {
+    color: variables.$body-color;
     text-decoration: none;
   }
 
   &:focus,
   &.focus {
     outline: 0;
-    box-shadow: $btn-focus-box-shadow;
+    box-shadow: variables.$btn-focus-box-shadow;
   }
 
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    opacity: $btn-disabled-opacity;
-    @include box-shadow(none);
+    opacity: variables.$btn-disabled-opacity;
+    @include box-shadow.box-shadow(none);
   }
 
   &:not(:disabled):not(.disabled) {
-    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+    cursor: if(variables.$enable-pointer-cursor-for-buttons, pointer, null);
 
     &:active,
     &.active {
-      @include box-shadow($btn-active-box-shadow);
+      @include box-shadow.box-shadow(variables.$btn-active-box-shadow);
 
       &:focus {
-        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+        @include box-shadow.box-shadow(variables.$btn-focus-box-shadow, variables.$btn-active-box-shadow);
       }
     }
   }
@@ -62,15 +68,15 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-@each $color, $value in $theme-colors {
+@each $color, $value in variables.$theme-colors {
   .btn-#{$color} {
-    @include button-variant($value, $value);
+    @include buttons.button-variant($value, $value);
   }
 }
 
-@each $color, $value in $theme-colors {
+@each $color, $value in variables.$theme-colors {
   .btn-outline-#{$color} {
-    @include button-outline-variant($value);
+    @include buttons.button-outline-variant($value);
   }
 }
 
@@ -81,23 +87,23 @@ fieldset:disabled a.btn {
 
 // Make a button look and behave like a link
 .btn-link {
-  font-weight: $font-weight-normal;
-  color: $link-color;
-  text-decoration: $link-decoration;
+  font-weight: variables.$font-weight-normal;
+  color: variables.$link-color;
+  text-decoration: variables.$link-decoration;
 
-  @include hover() {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+  @include hover.hover() {
+    color: variables.$link-hover-color;
+    text-decoration: variables.$link-hover-decoration;
   }
 
   &:focus,
   &.focus {
-    text-decoration: $link-hover-decoration;
+    text-decoration: variables.$link-hover-decoration;
   }
 
   &:disabled,
   &.disabled {
-    color: $btn-link-disabled-color;
+    color: variables.$btn-link-disabled-color;
     pointer-events: none;
   }
 
@@ -110,11 +116,11 @@ fieldset:disabled a.btn {
 //
 
 .btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+  @include buttons.button-size(variables.$btn-padding-y-lg, variables.$btn-padding-x-lg, variables.$btn-font-size-lg, variables.$btn-line-height-lg, variables.$btn-border-radius-lg);
 }
 
 .btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+  @include buttons.button-size(variables.$btn-padding-y-sm, variables.$btn-padding-x-sm, variables.$btn-font-size-sm, variables.$btn-line-height-sm, variables.$btn-border-radius-sm);
 }
 
 
@@ -128,7 +134,7 @@ fieldset:disabled a.btn {
 
   // Vertically space out multiple block buttons
   + .btn-block {
-    margin-top: $btn-block-spacing-y;
+    margin-top: variables.$btn-block-spacing-y;
   }
 }
 

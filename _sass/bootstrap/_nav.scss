@@ -1,3 +1,7 @@
+@use "mixins/border-radius";
+@use "mixins/hover";
+@use "variables";
+
 // Base class
 //
 // Kickstart any navigation component with a set of style resets. Works with
@@ -13,16 +17,16 @@
 
 .nav-link {
   display: block;
-  padding: $nav-link-padding-y $nav-link-padding-x;
-  text-decoration: if($link-decoration == none, null, none);
+  padding: variables.$nav-link-padding-y variables.$nav-link-padding-x;
+  text-decoration: if(variables.$link-decoration == none, null, none);
 
-  @include hover-focus() {
+  @include hover.hover-focus() {
     text-decoration: none;
   }
 
   // Disabled state lightens text
   &.disabled {
-    color: $nav-link-disabled-color;
+    color: variables.$nav-link-disabled-color;
     pointer-events: none;
     cursor: default;
   }
@@ -33,22 +37,22 @@
 //
 
 .nav-tabs {
-  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-bottom: variables.$nav-tabs-border-width solid variables.$nav-tabs-border-color;
 
   .nav-item {
-    margin-bottom: -$nav-tabs-border-width;
+    margin-bottom: -(variables.$nav-tabs-border-width);
   }
 
   .nav-link {
-    border: $nav-tabs-border-width solid transparent;
-    @include border-top-radius($nav-tabs-border-radius);
+    border: variables.$nav-tabs-border-width solid transparent;
+    @include border-radius.border-top-radius(variables.$nav-tabs-border-radius);
 
-    @include hover-focus() {
-      border-color: $nav-tabs-link-hover-border-color;
+    @include hover.hover-focus() {
+      border-color: variables.$nav-tabs-link-hover-border-color;
     }
 
     &.disabled {
-      color: $nav-link-disabled-color;
+      color: variables.$nav-link-disabled-color;
       background-color: transparent;
       border-color: transparent;
     }
@@ -56,16 +60,16 @@
 
   .nav-link.active,
   .nav-item.show .nav-link {
-    color: $nav-tabs-link-active-color;
-    background-color: $nav-tabs-link-active-bg;
-    border-color: $nav-tabs-link-active-border-color;
+    color: variables.$nav-tabs-link-active-color;
+    background-color: variables.$nav-tabs-link-active-bg;
+    border-color: variables.$nav-tabs-link-active-border-color;
   }
 
   .dropdown-menu {
     // Make dropdown border overlap tab border
-    margin-top: -$nav-tabs-border-width;
+    margin-top: -(variables.$nav-tabs-border-width);
     // Remove the top rounded corners here since there is a hard edge above the menu
-    @include border-top-radius(0);
+    @include border-radius.border-top-radius(0);
   }
 }
 
@@ -76,13 +80,13 @@
 
 .nav-pills {
   .nav-link {
-    @include border-radius($nav-pills-border-radius);
+    @include border-radius.border-radius(variables.$nav-pills-border-radius);
   }
 
   .nav-link.active,
   .show > .nav-link {
-    color: $nav-pills-link-active-color;
-    background-color: $nav-pills-link-active-bg;
+    color: variables.$nav-pills-link-active-color;
+    background-color: variables.$nav-pills-link-active-bg;
   }
 }
 

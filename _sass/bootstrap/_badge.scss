@@ -1,3 +1,10 @@
+@use "mixins/badge";
+@use "mixins/border-radius";
+@use "mixins/hover";
+@use "mixins/transition";
+@use "variables";
+@use "vendor/rfs";
+
 // Base class
 //
 // Requires one of the contextual, color modifier classes for `color` and
@@ -5,18 +12,18 @@
 
 .badge {
   display: inline-block;
-  padding: $badge-padding-y $badge-padding-x;
-  @include font-size($badge-font-size);
-  font-weight: $badge-font-weight;
+  padding: variables.$badge-padding-y variables.$badge-padding-x;
+  @include rfs.font-size(variables.$badge-font-size);
+  font-weight: variables.$badge-font-weight;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  @include border-radius($badge-border-radius);
-  @include transition($badge-transition);
+  @include border-radius.border-radius(variables.$badge-border-radius);
+  @include transition.transition(variables.$badge-transition);
 
   @at-root a#{&} {
-    @include hover-focus() {
+    @include hover.hover-focus() {
       text-decoration: none;
     }
   }
@@ -38,17 +45,17 @@
 // Make them extra rounded with a modifier to replace v3's badges.
 
 .badge-pill {
-  padding-right: $badge-pill-padding-x;
-  padding-left: $badge-pill-padding-x;
-  @include border-radius($badge-pill-border-radius);
+  padding-right: variables.$badge-pill-padding-x;
+  padding-left: variables.$badge-pill-padding-x;
+  @include border-radius.border-radius(variables.$badge-pill-border-radius);
 }
 
 // Colors
 //
 // Contextual variations (linked badges get darker on :hover).
 
-@each $color, $value in $theme-colors {
+@each $color, $value in variables.$theme-colors {
   .badge-#{$color} {
-    @include badge-variant($value);
+    @include badge.badge-variant($value);
   }
 }

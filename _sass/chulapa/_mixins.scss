@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "sass:math";
+@use "sass:meta";
+@use "bootstrapv5";
+
 // ----
 // Sass (vundefined)
 // Compass (vundefined)
@@ -43,7 +48,7 @@
 }
 
 @function strip-unit($number) {
-    @if type-of($number)=="number"and not unitless($number) {
+    @if meta.type-of($number)=="number"and not math.is-unitless($number) {
         @return $number / ($number * 0 + 1);
     }
 
@@ -59,13 +64,13 @@
 }
 
 @mixin badge-variant($bg) {
-    color: color-contrast($bg);
+    color: bootstrapv5.color-contrast($bg);
     background-color: $bg;
 
     @at-root a#{&} {
         @include hover-focus() {
-            color: color-contrast($bg);
-            background-color: darken($bg, 10%);
+            color: bootstrapv5.color-contrast($bg);
+            background-color: color.adjust($bg, $lightness: -10%);
         }
 
         &:focus,

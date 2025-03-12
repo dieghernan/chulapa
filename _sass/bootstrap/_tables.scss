@@ -1,27 +1,34 @@
+@use "sass:map";
+@use "functions";
+@use "mixins/breakpoints";
+@use "mixins/hover";
+@use "mixins/table-row";
+@use "variables";
+
 //
 // Basic Bootstrap table
 //
 
 .table {
   width: 100%;
-  margin-bottom: $spacer;
-  color: $table-color;
-  background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+  margin-bottom: variables.$spacer;
+  color: variables.$table-color;
+  background-color: variables.$table-bg; // Reset for nesting within parents with `background-color`.
 
   th,
   td {
-    padding: $table-cell-padding;
+    padding: variables.$table-cell-padding;
     vertical-align: top;
-    border-top: $table-border-width solid $table-border-color;
+    border-top: variables.$table-border-width solid variables.$table-border-color;
   }
 
   thead th {
     vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
+    border-bottom: (2 * variables.$table-border-width) solid variables.$table-border-color;
   }
 
   tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
+    border-top: (2 * variables.$table-border-width) solid variables.$table-border-color;
   }
 }
 
@@ -33,7 +40,7 @@
 .table-sm {
   th,
   td {
-    padding: $table-cell-padding-sm;
+    padding: variables.$table-cell-padding-sm;
   }
 }
 
@@ -43,17 +50,17 @@
 // Add or remove borders all around the table and between all the columns.
 
 .table-bordered {
-  border: $table-border-width solid $table-border-color;
+  border: variables.$table-border-width solid variables.$table-border-color;
 
   th,
   td {
-    border: $table-border-width solid $table-border-color;
+    border: variables.$table-border-width solid variables.$table-border-color;
   }
 
   thead {
     th,
     td {
-      border-bottom-width: 2 * $table-border-width;
+      border-bottom-width: 2 * variables.$table-border-width;
     }
   }
 }
@@ -72,8 +79,8 @@
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  tbody tr:nth-of-type(#{$table-striped-order}) {
-    background-color: $table-accent-bg;
+  tbody tr:nth-of-type(#{variables.$table-striped-order}) {
+    background-color: variables.$table-accent-bg;
   }
 }
 
@@ -84,9 +91,9 @@
 
 .table-hover {
   tbody tr {
-    @include hover() {
-      color: $table-hover-color;
-      background-color: $table-hover-bg;
+    @include hover.hover() {
+      color: variables.$table-hover-color;
+      background-color: variables.$table-hover-bg;
     }
   }
 }
@@ -97,11 +104,11 @@
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-@each $color, $value in $theme-colors {
-  @include table-row-variant($color, theme-color-level($color, $table-bg-level), theme-color-level($color, $table-border-level));
+@each $color, $value in variables.$theme-colors {
+  @include table-row.table-row-variant($color, functions.theme-color-level($color, variables.$table-bg-level), functions.theme-color-level($color, variables.$table-border-level));
 }
 
-@include table-row-variant(active, $table-active-bg);
+@include table-row.table-row-variant(active, variables.$table-active-bg);
 
 
 // Dark styles
@@ -112,29 +119,29 @@
 .table {
   .thead-dark {
     th {
-      color: $table-dark-color;
-      background-color: $table-dark-bg;
-      border-color: $table-dark-border-color;
+      color: variables.$table-dark-color;
+      background-color: variables.$table-dark-bg;
+      border-color: variables.$table-dark-border-color;
     }
   }
 
   .thead-light {
     th {
-      color: $table-head-color;
-      background-color: $table-head-bg;
-      border-color: $table-border-color;
+      color: variables.$table-head-color;
+      background-color: variables.$table-head-bg;
+      border-color: variables.$table-border-color;
     }
   }
 }
 
 .table-dark {
-  color: $table-dark-color;
-  background-color: $table-dark-bg;
+  color: variables.$table-dark-color;
+  background-color: variables.$table-dark-bg;
 
   th,
   td,
   thead th {
-    border-color: $table-dark-border-color;
+    border-color: variables.$table-dark-border-color;
   }
 
   &.table-bordered {
@@ -142,16 +149,16 @@
   }
 
   &.table-striped {
-    tbody tr:nth-of-type(#{$table-striped-order}) {
-      background-color: $table-dark-accent-bg;
+    tbody tr:nth-of-type(#{variables.$table-striped-order}) {
+      background-color: variables.$table-dark-accent-bg;
     }
   }
 
   &.table-hover {
     tbody tr {
-      @include hover() {
-        color: $table-dark-hover-color;
-        background-color: $table-dark-hover-bg;
+      @include hover.hover() {
+        color: variables.$table-dark-hover-color;
+        background-color: variables.$table-dark-hover-bg;
       }
     }
   }
@@ -164,12 +171,12 @@
 // size of where your table will overflow.
 
 .table-responsive {
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint, $grid-breakpoints);
-    $infix: breakpoint-infix($next, $grid-breakpoints);
+  @each $breakpoint in map.keys(variables.$grid-breakpoints) {
+    $next: breakpoints.breakpoint-next($breakpoint, variables.$grid-breakpoints);
+    $infix: breakpoints.breakpoint-infix($next, variables.$grid-breakpoints);
 
     &#{$infix} {
-      @include media-breakpoint-down($breakpoint) {
+      @include breakpoints.media-breakpoint-down($breakpoint) {
         display: block;
         width: 100%;
         overflow-x: auto;

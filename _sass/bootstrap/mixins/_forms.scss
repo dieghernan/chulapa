@@ -1,3 +1,12 @@
+@use "sass:color";
+@use "../functions";
+@use "../variables";
+@use "../vendor/rfs";
+@use "border-radius";
+@use "box-shadow";
+@use "deprecate";
+@use "gradients";
+
 // Form control focus state
 //
 // Generate a customized focus state and for any input with the specified color,
@@ -12,18 +21,18 @@
 // contrast against a dark gray background.
 @mixin form-control-focus($ignore-warning: false) {
   &:focus {
-    color: $input-focus-color;
-    background-color: $input-focus-bg;
-    border-color: $input-focus-border-color;
+    color: variables.$input-focus-color;
+    background-color: variables.$input-focus-bg;
+    border-color: variables.$input-focus-border-color;
     outline: 0;
-    @if $enable-shadows {
-      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+    @if variables.$enable-shadows {
+      @include box-shadow.box-shadow(variables.$input-box-shadow, variables.$input-focus-box-shadow);
     } @else {
       // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: $input-focus-box-shadow;
+      box-shadow: variables.$input-focus-box-shadow;
     }
   }
-  @include deprecate("The `form-control-focus()` mixin", "v4.4.0", "v5", $ignore-warning);
+  @include deprecate.deprecate("The `form-control-focus()` mixin", "v4.4.0", "v5", $ignore-warning);
 }
 
 // This mixin uses an `if()` technique to be compatible with Dart Sass
@@ -45,8 +54,8 @@
   .#{$state}-feedback {
     display: none;
     width: 100%;
-    margin-top: $form-feedback-margin-top;
-    @include font-size($form-feedback-font-size);
+    margin-top: variables.$form-feedback-margin-top;
+    @include rfs.font-size(variables.$form-feedback-font-size);
     color: $color;
   }
 
@@ -56,13 +65,13 @@
     z-index: 5;
     display: none;
     max-width: 100%; // Contain to parent when possible
-    padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
+    padding: variables.$form-feedback-tooltip-padding-y variables.$form-feedback-tooltip-padding-x;
     margin-top: .1rem;
-    @include font-size($form-feedback-tooltip-font-size);
-    line-height: $form-feedback-tooltip-line-height;
-    color: color-yiq($color);
-    background-color: rgba($color, $form-feedback-tooltip-opacity);
-    @include border-radius($form-feedback-tooltip-border-radius);
+    @include rfs.font-size(variables.$form-feedback-tooltip-font-size);
+    line-height: variables.$form-feedback-tooltip-line-height;
+    color: functions.color-yiq($color);
+    background-color: rgba($color, variables.$form-feedback-tooltip-opacity);
+    @include border-radius.border-radius(variables.$form-feedback-tooltip-border-radius);
   }
 
   @include form-validation-state-selector($state) {
@@ -76,17 +85,17 @@
     @include form-validation-state-selector($state) {
       border-color: $color;
 
-      @if $enable-validation-icons {
-        padding-right: $input-height-inner;
-        background-image: escape-svg($icon);
+      @if variables.$enable-validation-icons {
+        padding-right: variables.$input-height-inner;
+        background-image: functions.escape-svg($icon);
         background-repeat: no-repeat;
-        background-position: right $input-height-inner-quarter center;
-        background-size: $input-height-inner-half $input-height-inner-half;
+        background-position: right variables.$input-height-inner-quarter center;
+        background-size: variables.$input-height-inner-half variables.$input-height-inner-half;
       }
 
       &:focus {
         border-color: $color;
-        box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+        box-shadow: 0 0 0 variables.$input-focus-width rgba($color, .25);
       }
     }
   }
@@ -94,9 +103,9 @@
   // stylelint-disable-next-line selector-no-qualifying-type
   textarea.form-control {
     @include form-validation-state-selector($state) {
-      @if $enable-validation-icons {
-        padding-right: $input-height-inner;
-        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+      @if variables.$enable-validation-icons {
+        padding-right: variables.$input-height-inner;
+        background-position: top variables.$input-height-inner-quarter right variables.$input-height-inner-quarter;
       }
     }
   }
@@ -105,14 +114,14 @@
     @include form-validation-state-selector($state) {
       border-color: $color;
 
-      @if $enable-validation-icons {
-        padding-right: $custom-select-feedback-icon-padding-right;
-        background: $custom-select-background, escape-svg($icon) $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
+      @if variables.$enable-validation-icons {
+        padding-right: variables.$custom-select-feedback-icon-padding-right;
+        background: variables.$custom-select-background, functions.escape-svg($icon) variables.$custom-select-bg no-repeat variables.$custom-select-feedback-icon-position / variables.$custom-select-feedback-icon-size;
       }
 
       &:focus {
         border-color: $color;
-        box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+        box-shadow: 0 0 0 variables.$input-focus-width rgba($color, .25);
       }
     }
   }
@@ -142,14 +151,14 @@
 
       &:checked {
         ~ .custom-control-label::before {
-          border-color: lighten($color, 10%);
-          @include gradient-bg(lighten($color, 10%));
+          border-color: color.adjust($color, $lightness: 10%);
+          @include gradients.gradient-bg(color.adjust($color, $lightness: 10%));
         }
       }
 
       &:focus {
         ~ .custom-control-label::before {
-          box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+          box-shadow: 0 0 0 variables.$input-focus-width rgba($color, .25);
         }
 
         &:not(:checked) ~ .custom-control-label::before {
@@ -169,7 +178,7 @@
       &:focus {
         ~ .custom-file-label {
           border-color: $color;
-          box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+          box-shadow: 0 0 0 variables.$input-focus-width rgba($color, .25);
         }
       }
     }

@@ -1,3 +1,5 @@
+@use "variables";
+
 /*!
  * Misc classes and formats for chulapa
  */
@@ -37,8 +39,8 @@ table {
 
     thead {
         th {
-            color: $thead-chulapa-text-color;
-            background-color: $thead-chulapa-bg-color;
+            color: variables.$thead-chulapa-text-color;
+            background-color: variables.$thead-chulapa-bg-color;
             border: 0;
         }
     }
@@ -54,14 +56,14 @@ blockquote {
     @extend .blockquote;
     @extend .px-2;
     @extend .py-1;
-    background-color: $blockquote-chulapa-bg-color;
-    color: $blockquote-chulapa-text-color;
+    background-color: variables.$blockquote-chulapa-bg-color;
+    color: variables.$blockquote-chulapa-text-color;
     @include border-radius($border-radius-lg);
 }
 
 .footnotes {
   font-size:$font-size-sm;
-  color: $footnote-chulapa-text-color;
+  color: variables.$footnote-chulapa-text-color;
   margin-left: 1.5*$spacer;
   margin-right: 1.5*$spacer;
   border-top: $border-width solid $secondary;
@@ -82,7 +84,7 @@ a.reversefootnote {
 
 figcaption, caption, .figcaption, .caption {
   @extend .figure-caption;
-  color: $footnote-chulapa-text-color;
+  color: variables.$footnote-chulapa-text-color;
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -95,7 +97,7 @@ pre {
 
 // Could be overriden by highlight css
 .highlight pre {
-    background-color: $pre-chulapa-bg-color;
+    background-color: variables.$pre-chulapa-bg-color;
 }
 
 .task-list {

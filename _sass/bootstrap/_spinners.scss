@@ -1,3 +1,5 @@
+@use "variables";
+
 //
 // Rotating border
 //
@@ -8,10 +10,10 @@
 
 .spinner-border {
   display: inline-block;
-  width: $spinner-width;
-  height: $spinner-height;
+  width: variables.$spinner-width;
+  height: variables.$spinner-height;
   vertical-align: text-bottom;
-  border: $spinner-border-width solid currentColor;
+  border: variables.$spinner-border-width solid currentColor;
   border-right-color: transparent;
   // stylelint-disable-next-line property-blacklist
   border-radius: 50%;
@@ -19,9 +21,9 @@
 }
 
 .spinner-border-sm {
-  width: $spinner-width-sm;
-  height: $spinner-height-sm;
-  border-width: $spinner-border-width-sm;
+  width: variables.$spinner-width-sm;
+  height: variables.$spinner-height-sm;
+  border-width: variables.$spinner-border-width-sm;
 }
 
 //
@@ -40,8 +42,8 @@
 
 .spinner-grow {
   display: inline-block;
-  width: $spinner-width;
-  height: $spinner-height;
+  width: variables.$spinner-width;
+  height: variables.$spinner-height;
   vertical-align: text-bottom;
   background-color: currentColor;
   // stylelint-disable-next-line property-blacklist
@@ -51,6 +53,6 @@
 }
 
 .spinner-grow-sm {
-  width: $spinner-width-sm;
-  height: $spinner-height-sm;
+  width: variables.$spinner-width-sm;
+  height: variables.$spinner-height-sm;
 }

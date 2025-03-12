@@ -1,3 +1,13 @@
+@use "sass:map";
+@use "functions";
+@use "mixins/border-radius";
+@use "mixins/box-shadow";
+@use "mixins/breakpoints";
+@use "mixins/forms";
+@use "mixins/transition";
+@use "variables";
+@use "vendor/rfs";
+
 // stylelint-disable selector-no-qualifying-type
 
 //
@@ -7,22 +17,22 @@
 .form-control {
   display: block;
   width: 100%;
-  height: $input-height;
-  padding: $input-padding-y $input-padding-x;
-  font-family: $input-font-family;
-  @include font-size($input-font-size);
-  font-weight: $input-font-weight;
-  line-height: $input-line-height;
-  color: $input-color;
-  background-color: $input-bg;
+  height: variables.$input-height;
+  padding: variables.$input-padding-y variables.$input-padding-x;
+  font-family: variables.$input-font-family;
+  @include rfs.font-size(variables.$input-font-size);
+  font-weight: variables.$input-font-weight;
+  line-height: variables.$input-line-height;
+  color: variables.$input-color;
+  background-color: variables.$input-bg;
   background-clip: padding-box;
-  border: $input-border-width solid $input-border-color;
+  border: variables.$input-border-width solid variables.$input-border-color;
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  @include border-radius($input-border-radius, 0);
+  @include border-radius.border-radius(variables.$input-border-radius, 0);
 
-  @include box-shadow($input-box-shadow);
-  @include transition($input-transition);
+  @include box-shadow.box-shadow(variables.$input-box-shadow);
+  @include transition.transition(variables.$input-transition);
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -33,15 +43,15 @@
   // Remove select outline from select box in FF
   &:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 $input-color;
+    text-shadow: 0 0 0 variables.$input-color;
   }
 
   // Customize the `:focus` state to imitate native WebKit styles.
-  @include form-control-focus($ignore-warning: true);
+  @include forms.form-control-focus($ignore-warning: true);
 
   // Placeholder
   &::placeholder {
-    color: $input-placeholder-color;
+    color: variables.$input-placeholder-color;
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
@@ -53,7 +63,7 @@
   // don't honor that edge case; we style them as disabled anyway.
   &:disabled,
   &[readonly] {
-    background-color: $input-disabled-bg;
+    background-color: variables.$input-disabled-bg;
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
@@ -75,8 +85,8 @@ select.form-control {
     // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
     // match the appearance of the native widget.
     // See https://github.com/twbs/bootstrap/issues/19398.
-    color: $input-color;
-    background-color: $input-bg;
+    color: variables.$input-color;
+    background-color: variables.$input-bg;
   }
 }
 
@@ -95,25 +105,25 @@ select.form-control {
 // For use with horizontal and inline forms, when you need the label (or legend)
 // text to align with the form controls.
 .col-form-label {
-  padding-top: add($input-padding-y, $input-border-width);
-  padding-bottom: add($input-padding-y, $input-border-width);
+  padding-top: functions.add(variables.$input-padding-y, variables.$input-border-width);
+  padding-bottom: functions.add(variables.$input-padding-y, variables.$input-border-width);
   margin-bottom: 0; // Override the `<label>/<legend>` default
-  @include font-size(inherit); // Override the `<legend>` default
-  line-height: $input-line-height;
+  @include rfs.font-size(inherit); // Override the `<legend>` default
+  line-height: variables.$input-line-height;
 }
 
 .col-form-label-lg {
-  padding-top: add($input-padding-y-lg, $input-border-width);
-  padding-bottom: add($input-padding-y-lg, $input-border-width);
-  @include font-size($input-font-size-lg);
-  line-height: $input-line-height-lg;
+  padding-top: functions.add(variables.$input-padding-y-lg, variables.$input-border-width);
+  padding-bottom: functions.add(variables.$input-padding-y-lg, variables.$input-border-width);
+  @include rfs.font-size(variables.$input-font-size-lg);
+  line-height: variables.$input-line-height-lg;
 }
 
 .col-form-label-sm {
-  padding-top: add($input-padding-y-sm, $input-border-width);
-  padding-bottom: add($input-padding-y-sm, $input-border-width);
-  @include font-size($input-font-size-sm);
-  line-height: $input-line-height-sm;
+  padding-top: functions.add(variables.$input-padding-y-sm, variables.$input-border-width);
+  padding-bottom: functions.add(variables.$input-padding-y-sm, variables.$input-border-width);
+  @include rfs.font-size(variables.$input-font-size-sm);
+  line-height: variables.$input-line-height-sm;
 }
 
 
@@ -125,14 +135,14 @@ select.form-control {
 .form-control-plaintext {
   display: block;
   width: 100%;
-  padding: $input-padding-y 0;
+  padding: variables.$input-padding-y 0;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
-  @include font-size($input-font-size);
-  line-height: $input-line-height;
-  color: $input-plaintext-color;
+  @include rfs.font-size(variables.$input-font-size);
+  line-height: variables.$input-line-height;
+  color: variables.$input-plaintext-color;
   background-color: transparent;
   border: solid transparent;
-  border-width: $input-border-width 0;
+  border-width: variables.$input-border-width 0;
 
   &.form-control-sm,
   &.form-control-lg {
@@ -150,19 +160,19 @@ select.form-control {
 // Repeated in `_input_group.scss` to avoid Sass extend issues.
 
 .form-control-sm {
-  height: $input-height-sm;
-  padding: $input-padding-y-sm $input-padding-x-sm;
-  @include font-size($input-font-size-sm);
-  line-height: $input-line-height-sm;
-  @include border-radius($input-border-radius-sm);
+  height: variables.$input-height-sm;
+  padding: variables.$input-padding-y-sm variables.$input-padding-x-sm;
+  @include rfs.font-size(variables.$input-font-size-sm);
+  line-height: variables.$input-line-height-sm;
+  @include border-radius.border-radius(variables.$input-border-radius-sm);
 }
 
 .form-control-lg {
-  height: $input-height-lg;
-  padding: $input-padding-y-lg $input-padding-x-lg;
-  @include font-size($input-font-size-lg);
-  line-height: $input-line-height-lg;
-  @include border-radius($input-border-radius-lg);
+  height: variables.$input-height-lg;
+  padding: variables.$input-padding-y-lg variables.$input-padding-x-lg;
+  @include rfs.font-size(variables.$input-font-size-lg);
+  line-height: variables.$input-line-height-lg;
+  @include border-radius.border-radius(variables.$input-border-radius-lg);
 }
 
 // stylelint-disable-next-line no-duplicate-selectors
@@ -183,12 +193,12 @@ textarea.form-control {
 // horizontal forms, use the predefined grid classes.
 
 .form-group {
-  margin-bottom: $form-group-margin-bottom;
+  margin-bottom: variables.$form-group-margin-bottom;
 }
 
 .form-text {
   display: block;
-  margin-top: $form-text-margin-top;
+  margin-top: variables.$form-text-margin-top;
 }
 
 
@@ -199,13 +209,13 @@ textarea.form-control {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -$form-grid-gutter-width / 2;
-  margin-left: -$form-grid-gutter-width / 2;
+  margin-right: -(variables.$form-grid-gutter-width) / 2;
+  margin-left: -(variables.$form-grid-gutter-width) / 2;
 
   > .col,
   > [class*="col-"] {
-    padding-right: $form-grid-gutter-width / 2;
-    padding-left: $form-grid-gutter-width / 2;
+    padding-right: variables.$form-grid-gutter-width / 2;
+    padding-left: variables.$form-grid-gutter-width / 2;
   }
 }
 
@@ -217,18 +227,18 @@ textarea.form-control {
 .form-check {
   position: relative;
   display: block;
-  padding-left: $form-check-input-gutter;
+  padding-left: variables.$form-check-input-gutter;
 }
 
 .form-check-input {
   position: absolute;
-  margin-top: $form-check-input-margin-y;
-  margin-left: -$form-check-input-gutter;
+  margin-top: variables.$form-check-input-margin-y;
+  margin-left: -(variables.$form-check-input-gutter);
 
   // Use [disabled] and :disabled for workaround https://github.com/twbs/bootstrap/issues/28247
   &[disabled] ~ .form-check-label,
   &:disabled ~ .form-check-label {
-    color: $text-muted;
+    color: variables.$text-muted;
   }
 }
 
@@ -240,13 +250,13 @@ textarea.form-control {
   display: inline-flex;
   align-items: center;
   padding-left: 0; // Override base .form-check
-  margin-right: $form-check-inline-margin-x;
+  margin-right: variables.$form-check-inline-margin-x;
 
   // Undo .form-check-input defaults and add some `margin-right`.
   .form-check-input {
     position: static;
     margin-top: 0;
-    margin-right: $form-check-inline-input-margin-x;
+    margin-right: variables.$form-check-inline-input-margin-x;
     margin-left: 0;
   }
 }
@@ -259,8 +269,8 @@ textarea.form-control {
 // pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
 // server side validation.
 
-@each $state, $data in $form-validation-states {
-  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+@each $state, $data in variables.$form-validation-states {
+  @include forms.form-validation-state($state, map.get($data, color), map.get($data, icon));
 }
 
 // Inline forms
@@ -285,7 +295,7 @@ textarea.form-control {
   }
 
   // Kick in the inline
-  @include media-breakpoint-up(sm) {
+  @include breakpoints.media-breakpoint-up(sm) {
     label {
       display: flex;
       align-items: center;
@@ -332,7 +342,7 @@ textarea.form-control {
       position: relative;
       flex-shrink: 0;
       margin-top: 0;
-      margin-right: $form-check-input-margin-x;
+      margin-right: variables.$form-check-input-margin-x;
       margin-left: 0;
     }
 

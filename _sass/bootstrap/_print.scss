@@ -1,3 +1,5 @@
+@use "variables";
+
 // stylelint-disable declaration-no-important, selector-no-qualifying-type
 
 // Source: https://github.com/h5bp/main.css/blob/master/src/_print.css
@@ -8,7 +10,7 @@
 // https://www.phpied.com/delay-loading-your-print-css/
 // ==========================================================================
 
-@if $enable-print-styles {
+@if variables.$enable-print-styles {
   @media print {
     *,
     *::before,
@@ -51,7 +53,7 @@
     }
     pre,
     blockquote {
-      border: $border-width solid $gray-500; // Bootstrap custom code; using `$border-width` instead of 1px
+      border: variables.$border-width solid variables.$gray-500; // Bootstrap custom code; using `$border-width` instead of 1px
       page-break-inside: avoid;
     }
 
@@ -87,13 +89,13 @@
     // We don't set margin here because it breaks `size` in Chrome. We also
     // don't use `!important` on `size` as it breaks in Chrome.
     @page {
-      size: $print-page-size;
+      size: variables.$print-page-size;
     }
     body {
-      min-width: $print-body-min-width !important;
+      min-width: variables.$print-body-min-width !important;
     }
     .container {
-      min-width: $print-body-min-width !important;
+      min-width: variables.$print-body-min-width !important;
     }
 
     // Bootstrap components
@@ -101,7 +103,7 @@
       display: none;
     }
     .badge {
-      border: $border-width solid $black;
+      border: variables.$border-width solid variables.$black;
     }
 
     .table {
@@ -109,14 +111,14 @@
 
       td,
       th {
-        background-color: $white !important;
+        background-color: variables.$white !important;
       }
     }
 
     .table-bordered {
       th,
       td {
-        border: 1px solid $gray-300 !important;
+        border: 1px solid variables.$gray-300 !important;
       }
     }
 
@@ -127,13 +129,13 @@
       td,
       thead th,
       tbody + tbody {
-        border-color: $table-border-color;
+        border-color: variables.$table-border-color;
       }
     }
 
     .table .thead-dark th {
       color: inherit;
-      border-color: $table-border-color;
+      border-color: variables.$table-border-color;
     }
 
     // Bootstrap specific changes end

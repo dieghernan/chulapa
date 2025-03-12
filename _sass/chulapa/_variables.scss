@@ -1,11 +1,14 @@
+@use "sass:color";
+@use "bootstrapv5";
+
 //Navbar
 $navbar-chulapa-bg-color: $primary !default;
-$navbar-chulapa-text-contrast: color-contrast($navbar-chulapa-bg-color, $black, $white);
-$navbar-chulapa-text-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 50%) !default;
-$navbar-chulapa-hover-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 75%) !default;
-$navbar-chulapa-hover-bg-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 10%) !default;
+$navbar-chulapa-text-contrast: bootstrapv5.color-contrast($navbar-chulapa-bg-color, $black, $white);
+$navbar-chulapa-text-color: color.mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 50%) !default;
+$navbar-chulapa-hover-color: color.mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 75%) !default;
+$navbar-chulapa-hover-bg-color: color.mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 10%) !default;
 $navbar-chulapa-active-color: $navbar-chulapa-text-contrast !default;
-$navbar-chulapa-disabled-color: mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 20%) !default;
+$navbar-chulapa-disabled-color: color.mix($navbar-chulapa-text-contrast, $navbar-chulapa-bg-color, 20%) !default;
 $navbar-chulapa-brand-color: $navbar-chulapa-active-color !default;
 $navbar-chulapa-brand-hover-color: $navbar-chulapa-active-color !default;
 $navbar-chulapa-toggler-color: $navbar-chulapa-text-color !default;
@@ -16,38 +19,38 @@ $navbar-chulapa-toggler-border-color: $navbar-chulapa-toggler-color !default;
 
 //Footer
 $footer-chulapa-bg-color: $navbar-chulapa-bg-color !default;
-$footer-chulapa-text-contrast: color-contrast($footer-chulapa-bg-color, $black, $white);
-$footer-chulapa-text-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 75%) !default;
-$footer-chulapa-hover-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 90%) !default;
+$footer-chulapa-text-contrast: bootstrapv5.color-contrast($footer-chulapa-bg-color, $black, $white);
+$footer-chulapa-text-color: color.mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 75%) !default;
+$footer-chulapa-hover-color: color.mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 90%) !default;
 $footer-chulapa-icon-color: $footer-chulapa-text-color !default;
-$footer-chulapa-icon-hover-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 50%) !default;
+$footer-chulapa-icon-hover-color: color.mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 50%) !default;
 
 //Hero
 $hero-chulapa-bg-color: $navbar-chulapa-bg-color !default;
-$hero-chulapa-text-color: color-contrast($hero-chulapa-bg-color, $black, $white) !default;
+$hero-chulapa-text-color: bootstrapv5.color-contrast($hero-chulapa-bg-color, $black, $white) !default;
 
 //Landing page
 $landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
-$landingpage-chulapa-text-color: color-contrast($landingpage-chulapa-bg-color, $black, $white) !default;
+$landingpage-chulapa-text-color: bootstrapv5.color-contrast($landingpage-chulapa-bg-color, $black, $white) !default;
 
 //Misc
 //Blockquote
-$blockquote-chulapa-bg-color: darken($body-bg, 5%) !default;
-$blockquote-chulapa-text-color: mix($blockquote-chulapa-bg-color, $body-color, 20%) !default;
+$blockquote-chulapa-bg-color: color.adjust($body-bg, $lightness: -5%) !default;
+$blockquote-chulapa-text-color: color.mix($blockquote-chulapa-bg-color, $body-color, 20%) !default;
 
-$footnote-chulapa-text-color: color-contrast($body-bg, $gray-600, $gray-300) !default;
+$footnote-chulapa-text-color: bootstrapv5.color-contrast($body-bg, $gray-600, $gray-300) !default;
 
-$pre-chulapa-bg-color: mix($white, $primary, 95%) !default;
+$pre-chulapa-bg-color: color.mix($white, $primary, 95%) !default;
 
 //Table
 $thead-chulapa-bg-color: $primary !default;
-$thead-chulapa-text-color: color-contrast($thead-chulapa-bg-color, $black, $white) !default;
+$thead-chulapa-text-color: bootstrapv5.color-contrast($thead-chulapa-bg-color, $black, $white) !default;
 
 
 //Pagination
 $pagination-chulapa-text-color: $body-color !default;
 $pagination-chulapa-bg-hover-color: $primary !default;
-$pagination-chulapa-text-hover-color: color-contrast($pagination-chulapa-bg-hover-color, $black, $white) !default;
+$pagination-chulapa-text-hover-color: bootstrapv5.color-contrast($pagination-chulapa-bg-hover-color, $black, $white) !default;
 
 
 // Chulapa Layouts
@@ -60,7 +63,7 @@ $chulapa-toc-bg: $light !default;
 
 // Cactus comments
 
-$cactus-btn-text: color-contrast($secondary, $black, $white);
+$cactus-btn-text: bootstrapv5.color-contrast($secondary, $black, $white);
 
 :root {
   --cactus-error-color: #{$danger};
