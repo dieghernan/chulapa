@@ -5,6 +5,12 @@ $font-family-base: $headings-font-family;
 
 $headings-font-weight: 800 !default;
 
+// Disable ligatures
+
+:root {
+    font-variant-ligatures: none;
+}
+
 // Some bootstrap variables
 $primary: #1ed760 !default;
 $secondary: #7c7c7c !default;

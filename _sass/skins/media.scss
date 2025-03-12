@@ -6,6 +6,12 @@ $input-btn-font-family:$headings-font-family !default;
 $font-family-monospace: Inconsolata, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
 
+// Disable ligatures
+
+:root {
+  font-variant-ligatures: none;
+}
+
 
 $primary: #242424 !default;
 $black: #242424 !default;

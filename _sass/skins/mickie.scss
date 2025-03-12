@@ -3,6 +3,13 @@
 
 $headings-font-family: Raleway;
 
+// Disable ligatures
+
+:root {
+    font-variant-ligatures: none;
+}
+
+
 $primary: #f6648C;
 $secondary: #CACACA;
 $success: #035668;

@@ -2,6 +2,13 @@
 $font-family-base: 'Source Sans Pro', sans-serif !default;
 $headings-font-family: 'Raleway', sans-serif !default;
 
+// Disable ligatures
+
+:root {
+    font-variant-ligatures: none;
+}
+
+
 $primary: #1abc9c !default;
 $info: #17a2b8 !default;
 $success: #28a745 !default;
