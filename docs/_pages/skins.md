@@ -22,7 +22,7 @@ Additionally, you can have a preview of the current theme [here](https://diegher
  <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
      <div class="card-body text-center">
       <h5 class="card-title">{{ post.title }}</h5>
-      <p class="card-text">{{ post.subtitle}}</p>
+      <p class="card-text small">{{ post.subtitle}}</p>
       <p><a href="{{- post.url | absolute_url -}}" class="btn btn-primary btn-sm">Preview</a></p>
     </div>
   </div>
