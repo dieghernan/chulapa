@@ -1,5 +1,4 @@
-// Yeti 4.6.2
-// Bootswatch
+// Yeti 4.6.2 - Bootswatch
 
 // Color system
 $white:    #fff !default;
@@ -42,7 +41,6 @@ $border-radius-lg:            0 !default;
 $border-radius-sm:            0 !default;
 
 // Fonts
-// stylelint-disable-next-line value-keyword-case
 $font-family-sans-serif:      "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $font-size-base:              .9375rem !default;
 $font-size-sm:                $font-size-base * .88 !default;
@@ -93,7 +91,7 @@ $list-group-disabled-bg:            $gray-200 !default;
 $close-color:                       $gray-600 !default;
 $close-text-shadow:                 none !default;
 
-// Variables ===================================================================
+// Variables
 $web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" !default;
 @if $web-font-path {
   @import url($web-font-path);
@@ -103,7 +101,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-// Typography ==================================================================
+// Typography
 .text-secondary {
   color: $gray-700 !important;
 }
@@ -112,7 +110,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,
   color: $gray-600 !important;
 }
 
-// Navbar ======================================================================
+// Navbar
 .navbar {
   font-size: $font-size-sm;
   font-weight: $headings-font-weight;
@@ -174,7 +172,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,
   }
 }
 
-// Buttons =====================================================================
+// Buttons
 .btn {
   &-primary {
     border-color: darken($primary, 5%);
@@ -303,7 +301,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,
   }
 }
 
-// Tables ======================================================================
+// Tables
 table {
   font-size: $font-size-sm !important;
 }
@@ -464,7 +462,7 @@ table {
   }
 }
 
-// Forms =======================================================================
+// Forms
 label,
 .control-label,
 .help-block,
@@ -474,7 +472,7 @@ label,
   font-size: $font-size-sm;
 }
 
-// Navs ========================================================================
+// Navs
 .dropdown-item {
   padding-top: .75rem;
   padding-bottom: .75rem;
@@ -549,7 +547,7 @@ label,
   font-weight: 300;
 }
 
-// Indicators ==================================================================
+// Indicators
 .close {
   opacity: .6;
   text-shadow: none;
@@ -654,7 +652,7 @@ label,
   }
 }
 
-// Progress bars ===============================================================
+// Progress bars
 .progress[value] {
   height: 22px;
   padding: 2px;
@@ -663,13 +661,13 @@ label,
   @include box-shadow(none);
 }
 
-// Popovers ====================================================================
+// Popovers
 .popover-header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-// Cards =======================================================================
+// Cards
 .card.bg-primary {
   color: $white;
 }

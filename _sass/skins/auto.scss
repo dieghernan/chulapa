@@ -3,6 +3,7 @@
  * Copyright 2020 Chulapa Jekyll Skin Author
  * Licensed under MIT
  */
+
 $primary: #007bff !default;
 $white: mix(#fff, $primary, 95%) !default;
 $gray-100: mix(#f8f9fa, $primary, 85%) !default;
@@ -15,6 +16,7 @@ $gray-700: mix(#495057, $primary, 85%) !default;
 $gray-800: mix(#343a40, $primary, 85%) !default;
 $gray-900: mix(#212529, $primary, 85%) !default;
 $black: mix(#000, $primary, 95%) !default;
+
 $secondary: $gray-600 !default;
 $success: mix(#28a745, $primary, 75%) !default;
 $info: mix(#17a2b8, $primary, 75%) !default;
@@ -22,6 +24,7 @@ $warning: mix(#ffc107, $primary, 75%) !default;
 $danger: mix(#dc3545, $primary, 75%) !default;
 $light: mix(white, $primary, 75%) !default;
 $dark: mix(black, $primary, 75%) !default;
-$carousel-control-color:             $dark !default;
-$carousel-indicator-active-bg:       $dark !default;
+
+$carousel-control-color: $dark !default;
+$carousel-indicator-active-bg: $dark !default;
 $code-color: #E80E61 !default;

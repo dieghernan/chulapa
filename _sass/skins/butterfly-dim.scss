@@ -2,18 +2,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-$headings-font-family: 'Inter', Roboto !default;
-$font-family-base: 'Inter', Roboto !default;
+$headings-font-family: 'Inter', 'Roboto' !default;
+$font-family-base: 'Inter', 'Roboto' !default;
 
 $primary: #208bfe !default;
 $secondary: #c9d2db !default;
-$success: #00a400;
-$info: #54c7ec;
-$warning: #ffba00;
-$danger: #fa383e;
+$success: #00a400 !default;
+$info: #54c7ec !default;
+$warning: #ffba00 !default;
+$danger: #fa383e !default;
 $dark: #0b0f14 !default;
-$white: #fff !default;
-$black: #161e27;
+$white: #ffffff !default;
+$black: #161e27 !default;
 
 $body-bg: $black !default;
 $body-color: $white !default;
@@ -38,12 +38,10 @@ $pagination-chulapa-bg-hover-color: $primary !default;
 
 $min-contrast-ratio: 2 !default;
 
-// Lines for dark themes
-
 @import "skins/dark-bg";
 
 .card.bg-primary {
-    color: $light;
+    color: $white;
 }
 
 .card.bg-secondary {

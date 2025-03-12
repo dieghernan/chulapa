@@ -3,6 +3,11 @@
 $headings-font-family: "Raleway", Helvetica, Arial, sans-serif;
 $font-family-base: $headings-font-family;
 
+// Disable ligatures
+:root {
+  font-variant-ligatures: none;
+}
+
 $headings-font-weight: 800 !default;
 
 // Some bootstrap variables
@@ -43,5 +48,4 @@ $min-contrast-ratio: 2 !default;
 $yiq-contrasted-threshold: 130 !default;
 
 // Lines for dark themes
-
 @import "skins/dark-bg";

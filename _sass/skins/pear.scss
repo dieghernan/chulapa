@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
 $font-family-base: 'Source Sans Pro', sans-serif !default;
 $headings-font-family: 'Raleway', sans-serif !default;
 
@@ -20,5 +21,11 @@ $btn-border-radius-lg: 10rem !default;
 $btn-border-radius-sm: 1rem !default;
 
 .card.bg-secondary {
-    color: $light;
+  color: $light;
 }
+
+// Disable ligatures
+:root {
+  font-variant-ligatures: none;
+}
+

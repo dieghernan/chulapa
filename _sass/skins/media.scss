@@ -1,28 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
-$font-family-base: 'Source Serif', Georgia, Cambria, 'Times New Roman', Times, serif !default; 
+
+$font-family-base: 'Source Serif', Georgia, Cambria, 'Times New Roman', Times, serif !default;
 $headings-font-family: 'Mona Sans', "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $headings-font-weight: 900 !default;
-$input-btn-font-family:$headings-font-family !default;
+$input-btn-font-family: $headings-font-family !default;
 $font-family-monospace: Inconsolata, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
-
+// Disable ligatures
+:root {
+  font-variant-ligatures: none;
+}
 
 $primary: #242424 !default;
 $black: #242424 !default;
 $white: #ffffff !default;
 $secondary: #555555 !default;
-$text-muted:#757575 !default;
+$text-muted: #757575 !default;
 $success: #1a8917 !default;
 $warning: #FFC017 !default;
 $danger: #cc5454 !default;
 $info: rgba(0, 0, 0, .54) !default;
 $link-color: #0000008a;
 
-
 $navbar-chulapa-bg-color: $white !default;
 $navbar-chulapa-toggler-border-color: transparent !default;
 $navbar-chulapa-text-color: $text-muted !default;
-$navbar-chulapa-hover-color:  #A8A8A8 !default;
+$navbar-chulapa-hover-color: #A8A8A8 !default;
 $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 $navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
 
@@ -35,13 +38,14 @@ $thead-chulapa-bg-color: $white !default;
 nav, footer, button, input, label, legend, table, form, aside, header,
 .nav, .card-header, .badge, .pagination, .breadcrumb, .chulapa-toc-wrapper, .chulapaDateSocial,
 .footnotes, #markdown-toc {
-    font-family: $headings-font-family;
+  font-family: $headings-font-family;
 }
+
 .chulapa-links-hover-only i, .chulapaDateSocial i {
   color: $primary;
 }
 
-label,.navbar-chulapa .navbar-brand {
+label, .navbar-chulapa .navbar-brand {
   font-family: $headings-font-family !important;
   font-weight: $headings-font-weight !important;
 }
@@ -54,12 +58,12 @@ label,.navbar-chulapa .navbar-brand {
   font-weight: $headings-font-weight !important;
 }
 
-a:not([class]){
+a:not([class]) {
   text-decoration: underline;
 }
 
 .chulapa-toc-reset a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .card.bg-primary, .card.bg-secondary {

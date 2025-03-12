@@ -2,18 +2,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+$font-family-base: 'Roboto', sans-serif !default;
+$headings-font-family: 'Montserrat', sans-serif !default;
+$font-family-monospace: 'Roboto Mono', monospace !default;
 
-$font-family-base: Roboto, sans-serif !default;
-$headings-font-family: Montserrat, sans-serif !default;
-$font-family-monospace: Roboto Mono, monospace !default;
-$white: white !default;
+$white: #ffffff !default;
 $primary: #1565c0 !default;
-$body-bg: white !default;
+$body-bg: $white !default;
 $navbar-chulapa-bg-color: $body-bg !default;
 $navbar-chulapa-active-color: #2962ff !default;
-$footer-chulapa-icon-color: #1565c0 !default;
+$footer-chulapa-icon-color: $primary !default;
 $footer-chulapa-icon-hover-color: transparent !default;
 $hero-chulapa-bg-color: $primary !default;
+
 $h1-font-size: 2.25rem !default;
 $h2-font-size: 1.5rem !default;
 $h3-font-size: 1.25rem !default;
@@ -23,18 +24,17 @@ $h6-font-size: 1rem !default;
 
 .navbar-chulapa-fab .dropdown-item.active, 
 .navbar-chulapa-fab .dropdown-item:active {
-    background-color:$body-bg;
+    background-color: $body-bg;
 }
-
 
 .chulapa-links-hover-only i {
-  color:$primary;
+    color: $primary;
 }
 
-.card.bg-primary{
-  color: $white;
+.card.bg-primary {
+    color: $white;
 }
 
-.card.bg-secondary{
-  color: $white;
+.card.bg-secondary {
+    color: $white;
 }
