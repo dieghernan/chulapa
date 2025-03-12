@@ -13,9 +13,10 @@ Additionally, you can have a preview of the current theme [here](https://diegher
 <p class="lead font-weight-bolder text-info">Click on the image to see a full-blown example!</p>
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
-<div class="card-group">
+<div class="row row-cols-1 row-cols-md-2">
 {% for post in alldocs -%} 
   {%- if post.skin -%}
+  <div class="col mb-4">
   <div class="card">
   <a href="{{- post.url | absolute_url -}}">
  <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
@@ -23,6 +24,7 @@ Additionally, you can have a preview of the current theme [here](https://diegher
       <h5 class="card-title">{{ post.title }}</h5>
       <p class="card-text">{{ post.subtitle}}</p>
     </div>
+  </div>
   </div>
  {%- endif -%}
 {%- endfor -%}
