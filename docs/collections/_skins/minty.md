@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: minty
 og_image: ./assets/img/skinspreview/minty.png
+skin_author: Bootswatch
 ---
 
 

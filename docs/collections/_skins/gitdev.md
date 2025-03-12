@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: gitdev
 og_image: ./assets/img/skinspreview/gitdev.png
+skin_author: dieghernan
 ---
 
 

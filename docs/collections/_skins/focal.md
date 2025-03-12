@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: focal
 og_image: ./assets/img/skinspreview/focal.png
+skin_author: dieghernan
 ---
 
 

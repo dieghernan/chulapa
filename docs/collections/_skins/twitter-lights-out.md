@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: twitter-lights-out 
 og_image: ./assets/img/skinspreview/twitter-lights-out.png
+skin_author: dieghernan
 ---
 
 

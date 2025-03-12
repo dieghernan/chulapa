@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: darkly
 og_image: ./assets/img/skinspreview/darkly.png
+skin_author: Bootswatch
 ---
 
 

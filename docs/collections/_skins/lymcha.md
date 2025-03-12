@@ -9,6 +9,7 @@ tags: [skin, bootstrap, tophat, header-splash]
 categories: [skins]
 skin: lymcha
 og_image: ./assets/img/skinspreview/lymcha.png
+skin_author: Tophat Themes
 ---
 
 

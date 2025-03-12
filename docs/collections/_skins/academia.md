@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: academia
 og_image: ./assets/img/skinspreview/academia.png
+skin_author: dieghernan
 ---
 
 

@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: cyborg
 og_image: ./assets/img/skinspreview/cyborg.png
+skin_author: Bootswatch
 ---
 
 

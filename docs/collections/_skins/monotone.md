@@ -9,6 +9,7 @@ tags: [skin, tophat, dieghernan, header-splash]
 categories: [skins]
 skin: monotone
 og_image: ./assets/img/skinspreview/monotone.png
+skin_author: Tophat Themes
 ---
 
 

@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: pear
 og_image: ./assets/img/skinspreview/pear.png
+skin_author: dieghernan
 ---
 
 

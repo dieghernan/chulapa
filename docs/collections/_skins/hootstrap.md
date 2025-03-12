@@ -9,6 +9,7 @@ tags: [skin, bootstrap, themes-guide, header-splash]
 categories: [skins]
 skin: hootstrap 
 og_image: ./assets/img/skinspreview/hootstrap.png
+skin_author: Themes.guide
 ---
 
 

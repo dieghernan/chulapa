@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: flatly
 og_image: ./assets/img/skinspreview/flatly.png
+skin_author: Bootswatch
 ---
 
 

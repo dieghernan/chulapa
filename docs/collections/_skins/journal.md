@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: journal
 og_image: ./assets/img/skinspreview/journal.png
+skin_author: Bootswatch
 ---
 
 

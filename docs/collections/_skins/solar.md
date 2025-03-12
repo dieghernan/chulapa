@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: solar
 og_image: ./assets/img/skinspreview/solar.png
+skin_author: Bootswatch
 ---
 
 

@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: united
 og_image: ./assets/img/skinspreview/united.png
+skin_author: Bootswatch
 ---
 
 

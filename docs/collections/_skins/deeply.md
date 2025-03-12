@@ -10,6 +10,7 @@ tags: [dark-skin, skin, bootstrap, tophat, header-splash, image]
 categories: [skins]
 skin: deeply
 og_image: ./assets/img/skinspreview/deeply.png
+skin_author: Tophat Themes
 ---
 
 

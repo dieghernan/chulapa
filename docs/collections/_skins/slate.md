@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: slate
 og_image: ./assets/img/skinspreview/slate.png
+skin_author: Bootswatch
 ---
 
 

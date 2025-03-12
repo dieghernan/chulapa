@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: sketchy
 og_image: ./assets/img/skinspreview/sketchy.png
+skin_author: Bootswatch
 ---
 
 

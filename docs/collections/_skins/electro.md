@@ -9,6 +9,7 @@ tags: [skin, tophat, dieghernan, header-splash]
 categories: [skins]
 skin: electro
 og_image: ./assets/img/skinspreview/electro.png
+skin_author: Tophat Themes
 ---
 
 

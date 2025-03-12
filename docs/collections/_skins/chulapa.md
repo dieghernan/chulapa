@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: chulapa
 og_image: ./assets/img/skinspreview/chulapa.png
+skin_author: dieghernan
 ---
 
 

@@ -9,6 +9,7 @@ tags: [skin, bootstrap, tophat, header-splash]
 categories: [skins]
 skin: graymor
 og_image: ./assets/img/skinspreview/graymor.png
+skin_author: Tophat Themes
 ---
 
 

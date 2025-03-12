@@ -9,6 +9,7 @@ tags: [skin, tophat, dieghernan, header-splash]
 categories: [skins]
 skin: minco
 og_image: ./assets/img/skinspreview/minco.png
+skin_author: Tophat Themes
 ---
 
 

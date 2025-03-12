@@ -10,6 +10,7 @@ tags: [skin, bootstrap, dieghernan, header-splash,image]
 categories: [skins]
 skin: universal
 og_image: ./assets/img/skinspreview/universal.png
+skin_author: dieghernan
 ---
 
 

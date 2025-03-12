@@ -9,6 +9,7 @@ tags: [skin, bootstrap, tophat, header-splash]
 categories: [skins]
 skin: wandoo
 og_image: ./assets/img/skinspreview/wandoo.png
+skin_author: Tophat Themes
 ---
 
 

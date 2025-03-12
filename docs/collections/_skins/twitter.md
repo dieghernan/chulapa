@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: twitter
 og_image: ./assets/img/skinspreview/twitter.png
+skin_author: dieghernan
 ---
 
 

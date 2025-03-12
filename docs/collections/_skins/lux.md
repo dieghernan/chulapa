@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: lux
 og_image: ./assets/img/skinspreview/lux.png
+skin_author: Bootswatch
 ---
 
 

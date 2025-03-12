@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: butterfly_current
 og_image: ./assets/img/skinspreview/butterfly.png
+skin_author: dieghernan
 ---
 
 

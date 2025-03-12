@@ -10,6 +10,7 @@ tags: [skin, bootstrap, tophat, header-splash,image]
 categories: [skins]
 skin: sunset
 og_image: ./assets/img/skinspreview/sunset.png
+skin_author: Tophat Themes
 ---
 
 

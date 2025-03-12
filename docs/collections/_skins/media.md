@@ -9,6 +9,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: media
 og_image: ./assets/img/skinspreview/media.png
+skin_author: dieghernan
 ---
 
 

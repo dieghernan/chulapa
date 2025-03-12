@@ -9,6 +9,7 @@ tags: [skin, bootstrap, tophat, header-splash]
 categories: [skins]
 skin: preptor
 og_image: ./assets/img/skinspreview/preptor.png
+skin_author: Tophat Themes
 ---
 
 

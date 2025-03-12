@@ -9,6 +9,7 @@ tags: [skin, bootstrap, bootswatch, header-splash]
 categories: [skins]
 skin: materia
 og_image: ./assets/img/skinspreview/materia.png
+skin_author: Bootswatch
 ---
 
 

@@ -9,6 +9,7 @@ tags: [skin, tophat, dieghernan, header-splash]
 categories: [skins]
 skin: mickie
 og_image: ./assets/img/skinspreview/mickie.png
+skin_author: Tophat Themes
 ---
 
 

@@ -10,6 +10,7 @@ tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: towards
 og_image: ./assets/img/skinspreview/towards.png
+skin_author: dieghernan
 ---
 
 

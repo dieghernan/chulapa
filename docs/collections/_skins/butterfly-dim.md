@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: butterfly-dim
 og_image: ./assets/img/skinspreview/butterfly-dim.png
+skin_author: dieghernan
 ---
 
 

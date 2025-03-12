@@ -9,6 +9,7 @@ tags: [dark-skin, skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: twitter-dim
 og_image: ./assets/img/skinspreview/twitter-dim.png
+skin_author: dieghernan
 ---
 
 
