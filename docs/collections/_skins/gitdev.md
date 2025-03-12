@@ -7,7 +7,7 @@ date: 2022-03-20
 last_modified_at: 2022-04-28
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
-skin: gitdev_current
+skin: gitdev
 og_image: ./assets/img/skinspreview/gitdev.png
 ---
 

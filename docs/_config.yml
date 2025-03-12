@@ -67,7 +67,7 @@ navbar:
   style :  fab
   brand:
     title :  Home
-    img: "./assets/img/site/brand-white.png"
+    img: "./assets/img/site/brand-clear.png"
   nav:
   - title: Blog
     url: /blog/
@@ -140,8 +140,8 @@ footer:
 
 # C. Theme Settings
 chulapa-skin:
-  highlight   : "github"
-  skin        : towards
+  highlight   : "vs"
+  skin        : butterfly
   autothemer  :  true
 
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
