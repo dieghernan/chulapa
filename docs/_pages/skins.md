@@ -10,19 +10,21 @@ permalink: /skins
 
 Additionally, you can have a preview of the current theme [here](https://dieghernan.github.io/chulapa/skins/current).
 
-<p class="lead font-weight-bolder text-info">Click on the image to see a full-blown example!</p>
+
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
 <div class="row row-cols-1 row-cols-md-2">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 {% for post in alldocs -%} 
   {%- if post.skin -%}
-  <div class="col mb-4">
-  <div class="card">
+  <div class="col mb-3">
+  <div class="card border-primary">
   <a href="{{- post.url | absolute_url -}}">
  <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
-     <div class="card-body">
+     <div class="card-body text-center">
       <h5 class="card-title">{{ post.title }}</h5>
       <p class="card-text">{{ post.subtitle}}</p>
+      <p><a href="{{- post.url | absolute_url -}}" class="btn btn-primary btn-sm">Preview</a></p>
     </div>
   </div>
   </div>
