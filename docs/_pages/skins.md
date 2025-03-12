@@ -13,7 +13,6 @@ Additionally, you can have a preview of the current theme [here](https://diegher
 
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
-<div class="row row-cols-1 row-cols-md-2">
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 {% for post in alldocs -%} 
   {%- if post.skin -%}
