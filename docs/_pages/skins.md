@@ -21,8 +21,6 @@ Additionally, you can have a preview of the current theme [here](https://diegher
   <a href="{{- post.url | absolute_url -}}">
  <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
      <div class="card-body text-center border-top">
-      <h5 class="card-title font-weight-bolder">{{ post.title }}</h5>
-      <p class="card-text small">{{ post.subtitle}}</p>
       {%- if post.skin_author -%}
       <p class="card-text small text-right font-weight-light font-italic text-secondary">by {{ post.skin_author}}</p>
       {%- endif -%}

@@ -178,13 +178,13 @@ $close-text-shadow: none;
 
 // Variables ===================================================================
 
-$border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
-$border-radius-lg: 555px 25px 15px 25px/25px 5px 35px 555px;
-$border-radius-sm: 255px 25px 225px 25px/25px 225px 25px 255px;
+$border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px;
+$border-radius-lg: 555px 25px 15px 25px / 25px 5px 35px 555px;
+$border-radius-sm: 255px 25px 225px 25px / 25px 225px 25px 255px;
 
-$border-radius-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
-$border-radius-lg-sketchy: 555px 25px 15px 25px/25px 5px 35px 555px;
-$border-radius-sm-sketchy: 255px 25px 225px 25px/25px 225px 25px 255px;
+$border-radius-sketchy: 255px 25px 225px 25px / 25px 225px 25px 255px;
+$border-radius-lg-sketchy: 555px 25px 15px 25px / 25px 5px 35px 555px;
+$border-radius-sm-sketchy: 255px 25px 225px 25px / 25px 225px 25px 255px;
 
 @import "bootstrap/functions";
 
@@ -590,6 +590,14 @@ select.form-control {
   }
 }
 
+.card-img-top {
+  border-radius: 3px 3px 0 2px/23px 23px 0 2px !important;
+}
+
+.card-img-bottom {
+ border-radius: 5px 5px 5px 5px/25px 25px 25px 5px !important;
+}
+
 .jumbotron {
   border: 2px solid $gray-800 !important;
   border-radius: $border-radius-lg-sketchy !important;
@@ -693,7 +701,7 @@ body p img,
 .hero-chulapa,
 .hero-chulapa-image,
 .embed-responsive {
-  border-radius: $border-radius-lg !important;
+  border-radius: $border-radius-sketchy !important;
 }
 
 .footer-chulapa {
