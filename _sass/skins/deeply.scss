@@ -93,6 +93,7 @@ $pagination-chulapa-bg-hover-color: $primary;
 
 a:not([class]) {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .chulapa-toc-reset a {

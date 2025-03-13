@@ -24,6 +24,7 @@ $white: #fff !default;
 a:not([class]) {
   text-decoration: underline;
   color: $dark;
+  text-decoration-thickness: 2px;
 }
 
 .chulapa-toc-reset a {
