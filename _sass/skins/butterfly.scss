@@ -5,6 +5,11 @@
 $headings-font-family: 'Inter', 'Roboto' !default;
 $font-family-base: 'Inter', 'Roboto' !default;
 
+// Disable ligatures
+:root {
+  font-variant-ligatures: none;
+}
+
 $primary: #1083f3 !default;
 $secondary: #8d8e96 !default;
 $success: #00a400 !default;
@@ -20,5 +25,5 @@ $navbar-chulapa-bg-color: $white !default;
 $thead-chulapa-bg-color: $white !default;
 
 .card.bg-primary {
-    color: $white;
+  color: $white;
 }

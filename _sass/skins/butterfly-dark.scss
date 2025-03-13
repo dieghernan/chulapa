@@ -5,6 +5,11 @@
 $headings-font-family: 'Inter', 'Roboto' !default;
 $font-family-base: 'Inter', 'Roboto' !default;
 
+// Disable ligatures
+:root {
+  font-variant-ligatures: none;
+}
+
 $primary: #1083fe !default;
 $secondary: #c5cfd9 !default;
 $success: #00a400 !default;
@@ -41,9 +46,9 @@ $min-contrast-ratio: 2 !default;
 @import "skins/dark-bg";
 
 .card.bg-primary {
-    color: $white;
+  color: $white;
 }
 
 .card.bg-secondary {
-    color: $dark;
+  color: $dark;
 }
