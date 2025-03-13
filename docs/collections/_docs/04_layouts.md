@@ -109,8 +109,7 @@ author:
 
 - `show_random`: Would display up to three random pages somehow related with the tags of the current page (see `show_random`).
  
-- `related_label` and `random_label`: Insert html just before the related pages. You can use html code.
-
+- `related_label` and `random_label`: Insert a text just before the related pages. You can use html code.
 
 - `show_bottomnavs`: Would display navigation buttons on the bottom of the page for easily navigate to the next and previous page.
 

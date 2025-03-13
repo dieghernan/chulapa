@@ -225,7 +225,10 @@ defaults:
       show_comments     : true
       show_tags         : true
       show_categories   : true
+      show_related      : true 
+      related_label     : '<p><i class="fa-solid fa-right-left"></i></p>'
       show_random       : true 
+      random_label      : '<p><i class="fa-solid fa-shuffle"></i></p>'
       show_bottomnavs   : true
       show_author       : true
       show_toc          : true
