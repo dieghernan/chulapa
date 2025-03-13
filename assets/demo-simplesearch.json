@@ -47,10 +47,10 @@
       "title": "Post header",
       "subtitle": " ",
       "excerpt": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.",
-      "content": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.   --- title: Post header categories: [demo] header_type: post tags: [layout-default,header-post, image, social-links, tags, categories, bottom-navs, author, date] date: 2020-02-03 show_date         : true show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true show_author: true ---",
+      "content": "This page shows the post header with the default author set on your _config file. It also shows the date on top of the content.   --- title: Post header categories: [demo] header_type: post tags: [layout-default,header-post, image, social-links, tags, categories, bottom-navs, author, date] date: 2020-02-03 show_date         : true show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true show_author: true show_random: true ---",
       "categories": "demo",
       "date": "2020-01-01",
-      "tags": "layout-default, header-post, social-links, tags, categories, bottom-navs, author, date",
+      "tags": "layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, random",
       "url": "https://dieghernan.github.io/chulapa/demo/03-postheader",
       "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"
     } ,
@@ -140,6 +140,17 @@
       "date": "2022-12-01",
       "tags": "layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, related",
       "url": "https://dieghernan.github.io/chulapa/demo/11-related",
+      "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"
+    } ,
+  {
+      "title": "Related and Random",
+      "subtitle": " ",
+      "excerpt": "This page shows the related and random snippet. See how both appeared on the bottom, although you may not useboth card types at the same time",
+      "content": "This page shows the related and random snippet. See how both appeared on the bottom, although you may not use both card types at the same time   --- title: Related and Random categories: [demo] header_type: post tags: [layout-default,header-post, social-links, tags, categories, bottom-navs, author, date, related, random] date: 2022-12-01 show_date         : true show_related  : true show_random  : true related_label: '&lt;h4&gt;There are related posts&lt;/h4&gt;' random_label: '&lt;h4&gt;These are random, they will change on each build&lt;/h4&gt;' show_sociallinks  : true show_tags         : true show_categories   : true show_bottomnavs   : true show_author: true ---",
+      "categories": "demo",
+      "date": "2022-12-01",
+      "tags": "layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, related, random",
+      "url": "https://dieghernan.github.io/chulapa/demo/12-related-random",
       "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"
     } ,
   {
