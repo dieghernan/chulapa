@@ -14,11 +14,12 @@ Additionally, you can have a preview of the current theme [here](https://diegher
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
 {% assign total = 0 %}
-  {% assign valid_skin = '' | split: ',' %}
+{% assign valid_skin = '' | split: ',' %}
   {% for post in alldocs %}
      {% if post.skin %}
       {% assign total = total | plus: 1 %}
-      {% assign valid_skin = valid_skin | concat: post %}
+      {% assign doc = alldocs | where_exp: "item", "item.id == post.id" %}
+      {% assign valid_skin = valid_skin | concat: doc %}
      {% endif %}
   {% endfor %}
 
