@@ -149,3 +149,8 @@ pre {
     color: $primary;
     accent-color: currentcolor;
 }
+
+img.rounded-pill {
+  padding-right: 0;
+  padding-left: 0;
+}
