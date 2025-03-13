@@ -5,7 +5,7 @@ subtitle: The intense, saturated blue theme with rounded buttons
 excerpt: Electro, the intense, saturated blue theme with rounded buttons.
 date: 2025-02-14
 last_modified_at: 2025-02-20
-tags: [skin, tophat, dieghernan, header-splash]
+tags: [skin, tophat, bootstrap, header-splash]
 categories: [skins]
 skin: electro
 og_image: ./assets/img/skinspreview/electro.png

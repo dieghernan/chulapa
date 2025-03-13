@@ -47,3 +47,6 @@ layout: minimal
 	{%- if page.show_related -%}
 	  {%- include components/related.html -%}
 	{%- endif -%}
+		{%- if page.show_random -%}
+	  {%- include components/random.html -%}
+	{%- endif -%}

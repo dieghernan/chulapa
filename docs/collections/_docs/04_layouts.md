@@ -107,6 +107,10 @@ author:
 
 - `show_related`: Would display up to three related pages. The post to be displayed are based on the tags of the current page.
 
+- `show_random`: Would display up to three random pages somehow related with the tags of the current page (see `show_random`).
+ 
+- `related_label` and `random_label`: Insert a text just before the related pages. You can use html code.
+
 - `show_bottomnavs`: Would display navigation buttons on the bottom of the page for easily navigate to the next and previous page.
 
 - `show_categories` and `show_tags` would display badges at the bottom with the `categories` and `tags` set for the page. This badges could be set as links to a cloud tag page, with the landing page url defined on `cloudtag_url` and `cloudcategory_url`. See [Cloud tags](#cloud-tags-and-categories) layouts.

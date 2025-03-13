@@ -42,7 +42,14 @@
     {% endif %}
   {% endfor %}
 
+{% assign total = 0 %}
+  {% for post in sorted_docs %}
+      {% assign total = total | plus: 1 %}
+  {% endfor %}
+   
+
   {%- if sorted_docs -%}
+        {% assign sorted_docs = sorted_docs | sample: total %}
     {% for document in sorted_docs limit: 3 %}
       {% assign margin_class = "ml-sm-1" %}
       {%- if forloop.first -%}
@@ -51,8 +58,8 @@
           <div class="row">
             <div class="col-lg-8 offset-lg-2">
               <hr>
-              {% if page.related_label %}
-                {{ page.related_label }}
+              {% if page.random_label %}
+                {{ page.random_label }}
               {% endif %}
               <nav class="card-group" aria-label="related-articles">
       {%- endif -%}
