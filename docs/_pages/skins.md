@@ -13,9 +13,22 @@ Additionally, you can have a preview of the current theme [here](https://diegher
 
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
 
+{% assign total = 0 %}
+  {% assign valid_skin = '' | split: ',' %}
+  {% for post in alldocs %}
+     {% if post.skin %}
+      {% assign total = total | plus: 1 %}
+      {% assign valid_skin = valid_skin | concat: post %}
+     {% endif %}
+  {% endfor %}
+
+{% assign valid_skin = valid_skin | sample: total %}
+
+
+<p class="lead">{{ total }} skins available<
+
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mx-auto">
-{% for post in alldocs -%} 
-  {%- if post.skin -%}
+{% for post in valid_skin -%} 
   <div class="col mb-3">
   <div class="card h-100 border">
   <a href="{{- post.url | absolute_url -}}">
@@ -30,7 +43,6 @@ Additionally, you can have a preview of the current theme [here](https://diegher
     </div>
   </div>
   </div>
- {%- endif -%}
 {%- endfor -%}
 </div>
 
