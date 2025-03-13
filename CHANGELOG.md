@@ -19,6 +19,8 @@
 - Results with `lunr` and `fusejs` highlight matched terms like `algolia`.
 - Full support for Markdown in titles and subtitles (previously only HTML 
   tagging was supported).
+- New widget Random (`show_random`) and possibility of add labels to Random and Related posts with
+  `related_label` and `random_label`.
 
 ### Changed
 - Fixed a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section 
