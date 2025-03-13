@@ -6,13 +6,16 @@
 .ais-Hits {
     ol {
         padding: 0;
-        list-style-type: none;
         list-style: none;
     }
 
     li {
         list-style: none;
     }
+}
+
+.ais-Hits {
+    padding: 0;
 }
 
 .ais-Highlight {
@@ -22,5 +25,5 @@
 }
 
 .ais-Hits-item {
-    list-style-type: none;
+    list-style: none;
 }
