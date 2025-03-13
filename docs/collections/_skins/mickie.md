@@ -5,7 +5,7 @@ subtitle: Like a precocious child that doesn't go away
 excerpt: Mickie, like a precocious child that doesn't go away.
 date: 2025-02-16
 last_modified_at: 2025-02-23
-tags: [skin, tophat, dieghernan, header-splash]
+tags: [skin, tophat, bootstrap, header-splash]
 categories: [skins]
 skin: mickie
 og_image: ./assets/img/skinspreview/mickie.png

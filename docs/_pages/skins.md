@@ -26,7 +26,7 @@ Additionally, you can have a preview of the current theme [here](https://diegher
 {% assign valid_skin = valid_skin | sample: total %}
 
 
-<p class="lead">{{ total }} skins available<
+<p class="lead"><strong>{{ total }}</strong> skins available!</p>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mx-auto">
 {% for post in valid_skin -%} 

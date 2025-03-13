@@ -5,7 +5,7 @@ subtitle: Unique and stylish with a readable font
 excerpt: Minco, unique and stylish with a readable font.
 date: 2025-02-11
 last_modified_at: 2025-02-16
-tags: [skin, tophat, dieghernan, header-splash]
+tags: [skin, tophat, bootstrap, header-splash]
 categories: [skins]
 skin: minco
 og_image: ./assets/img/skinspreview/minco.png

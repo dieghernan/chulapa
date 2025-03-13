@@ -225,7 +225,7 @@ defaults:
       show_comments     : true
       show_tags         : true
       show_categories   : true
-      show_related      : true
+      show_random       : true 
       show_bottomnavs   : true
       show_author       : true
       show_toc          : true

@@ -5,7 +5,7 @@ subtitle: A big, blue sky and no clouds in sight
 excerpt: Skeeblu, a big, blue sky and no clouds in sight.
 date: 2025-02-20
 last_modified_at: 2025-02-23
-tags: [skin, tophat, dieghernan, header-splash]
+tags: [skin, tophat, bootstrap, header-splash]
 categories: [skins]
 skin: skeeblu
 og_image: ./assets/img/skinspreview/skeeblu.png

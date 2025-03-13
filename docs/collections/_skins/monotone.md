@@ -5,7 +5,7 @@ subtitle: Resigned to the monotony of one color
 excerpt: Monotone, resigned to the monotony of one color.
 date: 2025-02-10
 last_modified_at: 2025-02-14
-tags: [skin, tophat, dieghernan, header-splash]
+tags: [skin, tophat, bootstrap, header-splash]
 categories: [skins]
 skin: monotone
 og_image: ./assets/img/skinspreview/monotone.png
