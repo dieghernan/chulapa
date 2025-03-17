@@ -36,7 +36,7 @@ Additionally, you can have a preview of the current theme [here](https://diegher
  <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url  -}}" alt="{{ post.skin }}"></a>
      <div class="card-body text-center border-top">
       {%- if post.skin_author -%}
-      <p class="card-text small text-right font-weight-light font-italic text-secondary">by {{ post.skin_author}}</p>
+      <p class="card-text text-right"><span class="font-weight-bold">{{ post.skin }}</span> <br><span class="small font-weight-light font-italic text-secondary">by {{ post.skin_author}}</span></p>
       {%- endif -%}
     </div>
     <div class="card-footer text-center bg-transparent border-top-0">
