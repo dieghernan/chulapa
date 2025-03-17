@@ -18,3 +18,5 @@ for (i in lall) {
 }
 
 # resmush::resmush_dir("./docs/assets/", recursive = TRUE, overwrite = TRUE)
+
+# xfun::optipng("./docs/assets/")
