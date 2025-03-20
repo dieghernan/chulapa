@@ -639,5 +639,5 @@ var store = [{
       "date": "2025-03-18",
       "tags": ["skin","bootstrap","dieghernan","header-splash"],
       "url": "https://dieghernan.github.io/chulapa/skins/navi",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/skinspreview/butterfly.png"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/skinspreview/navi.png"
     }]
