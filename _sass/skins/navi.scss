@@ -1,0 +1,26 @@
+// Navi
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+$headings-font-family: 'Sora', 'Roboto' !default;
+$font-family-base: 'Sora', 'Roboto' !default;
+
+
+$primary: #457AFF !default;
+$secondary: #000033 !default;
+$success: #00a648 !default;
+$info: #6d3fa1 !default;
+$warning: #f7df1e !default;
+$danger: #b52e31 !default;
+$dark: #23263b !default;
+$light: #d6d6e7 !default;
+$white: #ffffff !default;
+
+$body-color: $dark !default;
+
+$navbar-chulapa-bg-color: $secondary !default;
+$thead-chulapa-bg-color: $secondary !default;
+
+.card.bg-primary, .card.bg-secondary {
+  color: $white;
+}

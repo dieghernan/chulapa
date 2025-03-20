@@ -141,7 +141,7 @@ footer:
 # C. Theme Settings
 chulapa-skin:
   highlight   : "vs"
-  skin        : butterfly
+  skin        : navi
   autothemer  :  true
 
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/

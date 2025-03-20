@@ -1,5 +1,5 @@
 resmush::resmush_dir("./docs/assets/img/skinspreview", recursive = TRUE, overwrite = TRUE)
-
+xfun::optipng("./docs/assets/img/skinspreview")
 
 lall <- list.files("./docs/assets/img/skinspreview", pattern = ".png", full.names = TRUE)
 

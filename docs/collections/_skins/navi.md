@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Butterfly
-subtitle: As it should be
-excerpt: Butterfly, as it should be.
-date: 2025-03-01
-last_modified_at: 2025-03-07
+title: Navi
+subtitle: Finally we found each other
+excerpt: Navi, finally we found each other.
+date: 2025-03-18
+last_modified_at: 2025-03-19
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
 skin: butterfly
@@ -17,7 +17,7 @@ Developed by [dieghernan](https://github.com/dieghernan/), you can use it on you
 
 ```yaml
 chulapa-skin: 
-  skin        :  {{ page.skin }}
+  skin        :  navi
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
