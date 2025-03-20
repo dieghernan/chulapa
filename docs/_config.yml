@@ -67,7 +67,7 @@ navbar:
   style :  fab
   brand:
     title :  Home
-    img: "./assets/img/site/brand-clear.png"
+    img: "./assets/img/site/brand-white.png"
   nav:
   - title: Blog
     url: /blog/
