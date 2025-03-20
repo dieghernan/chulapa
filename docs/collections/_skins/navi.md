@@ -7,8 +7,8 @@ date: 2025-03-18
 last_modified_at: 2025-03-19
 tags: [skin, bootstrap, dieghernan, header-splash]
 categories: [skins]
-skin: butterfly
-og_image: ./assets/img/skinspreview/butterfly.png
+skin: navi_current
+og_image: ./assets/img/skinspreview/navi.png
 skin_author: dieghernan
 ---
 
