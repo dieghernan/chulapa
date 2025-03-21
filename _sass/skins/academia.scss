@@ -22,6 +22,8 @@ $h4-font-size: 1rem !default;
 $h5-font-size: 1rem !default;
 $h6-font-size: 1rem !default;
 
+$landingpage-chulapa-bg-color: mix($primary, #000000, 5%);
+
 .navbar-chulapa-fab .dropdown-item.active, 
 .navbar-chulapa-fab .dropdown-item:active {
     background-color: $body-bg;
