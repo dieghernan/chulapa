@@ -673,6 +673,11 @@
     background-color: $landingpage-card-bg;
 
   }
+  
+  .close {
+    color: $white;
+    text-shadow: none;
+  }
 
   .page-item.disabled {
     background-color: $landingpage-chulapa-bg-color;
