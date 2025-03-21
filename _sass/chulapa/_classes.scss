@@ -603,7 +603,7 @@
   background-color: $landingpage-chulapa-bg-color;
   header {
     color: $landingpage-chulapa-text-color;
-    a {
+    a:not([class]) {
       color: $landingpage-chulapa-text-color;
     }
   }
@@ -669,7 +669,7 @@
     color: $landingpage-chulapa-text-color;
   }
 
-  .breadcrumb, .page-link, .card, .toast, .jumbotron, .list-group-item, #markdown-toc li {
+  .breadcrumb, .page-link, .card, .toast, .progress, .jumbotron, .list-group-item, #markdown-toc li {
     background-color: $landingpage-card-bg;
 
   }
