@@ -652,6 +652,32 @@
     }
   }
 
+  .chulapa-toc-wrapper .list-group-item {
+    background-color: $landingpage-card-bg;
+
+    a {
+      color: $landingpage-chulapa-text-color;
+    }
+  }
+  blockquote {
+    background-color: $landingpage-card-bg;
+    color: $landingpage-chulapa-text-color;
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: $landingpage-card-bg;
+    color: $landingpage-chulapa-text-color;
+  }
+
+  .breadcrumb, .page-link, .card, .toast, .jumbotron, .list-group-item, #markdown-toc li {
+    background-color: $landingpage-card-bg;
+
+  }
+
+  .card.bg-light {
+    color: $landingpage-chulapa-text-color;
+  }
+
   @each $color, $value in $theme-colors {
     .chulapa-pill-bg-#{$color} {
       @include badge-variant($value);

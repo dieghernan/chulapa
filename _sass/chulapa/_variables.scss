@@ -29,6 +29,7 @@ $hero-chulapa-text-color: color-contrast($hero-chulapa-bg-color, $black, $white)
 //Landing page
 $landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
 $landingpage-chulapa-text-color: color-contrast($landingpage-chulapa-bg-color, $black, $white) !default;
+$landingpage-card-bg: mix($landingpage-chulapa-text-color, $landingpage-chulapa-bg-color, 5%);
 
 //Misc
 //Blockquote
