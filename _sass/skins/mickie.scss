@@ -11,9 +11,19 @@ $info: #3F81C7;
 $warning: #0DE2EA;
 $light: #eAeAeA;
 $dark: #223322;
+$white:    #fff !default;
 
 // Disable ligatures
 :root {
   font-variant-ligatures: none;
 }
+
+.card.bg-primary {
+  color: $white;
+}
+
+$min-contrast-ratio: 2 !default;
+$navbar-chulapa-text-color: $white;
+
+
 
