@@ -675,8 +675,10 @@
   }
 
   .page-item.disabled {
-    color: $dark;
-
+    background-color: $landingpage-chulapa-bg-color;
+    .page-link {
+      background-color: $landingpage-chulapa-bg-color;
+    }
   }
   .card.bg-light {
     color: $landingpage-chulapa-bg-color;
