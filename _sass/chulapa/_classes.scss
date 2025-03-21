@@ -624,7 +624,7 @@
     }
   }
 
-  a {
+  a:not([class]) {
     color: mix($info, $landingpage-chulapa-text-color, 50%);
   }
 
@@ -674,8 +674,12 @@
 
   }
 
+  .page-item.disabled {
+    color: $dark;
+
+  }
   .card.bg-light {
-    color: $landingpage-chulapa-text-color;
+    color: $landingpage-chulapa-bg-color;
   }
 
   @each $color, $value in $theme-colors {
