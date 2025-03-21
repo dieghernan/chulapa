@@ -20,7 +20,7 @@ $light: #f2f1f1;
 $dark: #262626;
 $body-color: $dark;
 $white: #fff !default;
-$body-bg: $light;
+
 a:not([class]) {
   text-decoration: underline;
   color: $dark;
@@ -31,9 +31,9 @@ a:not([class]) {
   text-decoration: none;
 }
 
-$navbar-chulapa-bg-color: $light;
-$thead-chulapa-bg-color: $light;
-$hero-chulapa-bg-color: $light;
+$navbar-chulapa-bg-color: $dark;
+$thead-chulapa-bg-color: $dark;
+$hero-chulapa-bg-color: $dark;
 $footer-chulapa-bg-color: $hero-chulapa-bg-color;
 
 .hero-chulapa h1,
