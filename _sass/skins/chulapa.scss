@@ -54,4 +54,8 @@ $white: #ffffff !default;
     color: $white;
 }
 
+.chulapa-landingpage-color .card.bg-light {
+  color: $dark !important;
+}
+
 @import "skins/auto";

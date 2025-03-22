@@ -503,6 +503,10 @@ legend {
   color: $white;
 }
 
+.card.bg-dark {
+  color: $black !important;
+}
+
 .card .card-header {
   background-color: inherit;
 }

@@ -417,4 +417,8 @@ $pre-color: inherit !default;
   color: $white !important;
 }
 
+.card.bg-light {
+  color: $black;
+}
+
 $chulapa-toc-bg: lighten($body-bg, 5%);

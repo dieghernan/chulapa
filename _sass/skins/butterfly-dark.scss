@@ -23,7 +23,7 @@ $black: #000000 !default;
 $body-bg: $black !default;
 $body-color: $white !default;
 
-$hero-chulapa-bg-color: #15202b !default;
+$hero-chulapa-bg-color: $body-bg !default;
 $thead-chulapa-bg-color: $primary !default;
 $blockquote-chulapa-bg-color: mix($body-bg, $primary, 80%) !default;
 $blockquote-chulapa-text-color: mix($body-color, $primary, 95%) !default;

@@ -8,12 +8,13 @@ $font-family-monospace: 'Roboto Mono', monospace !default;
 
 $white: #ffffff !default;
 $primary: #1565c0 !default;
+$secondary: #2962ff !default;
 $body-bg: $white !default;
 $navbar-chulapa-bg-color: $body-bg !default;
 $navbar-chulapa-active-color: #2962ff !default;
 $footer-chulapa-icon-color: $primary !default;
 $footer-chulapa-icon-hover-color: transparent !default;
-$hero-chulapa-bg-color: $primary !default;
+$hero-chulapa-bg-color: darken($primary, 20%) !default;
 
 $h1-font-size: 2.25rem !default;
 $h2-font-size: 1.5rem !default;
@@ -21,8 +22,6 @@ $h3-font-size: 1.25rem !default;
 $h4-font-size: 1rem !default;
 $h5-font-size: 1rem !default;
 $h6-font-size: 1rem !default;
-
-$landingpage-chulapa-bg-color: mix($primary, #000000, 33%);
 
 .navbar-chulapa-fab .dropdown-item.active, 
 .navbar-chulapa-fab .dropdown-item:active {

@@ -27,3 +27,7 @@ $thead-chulapa-bg-color: $white !default;
 .card.bg-primary {
   color: $white;
 }
+
+.chulapa-landingpage-color .card.bg-light {
+  color: $dark !important;
+}

@@ -649,9 +649,6 @@
         color: $landingpage-chulapa-bg-color;
         background-color: $landingpage-chulapa-text-color;
       }
-      &.disabled {
-        color: darken($landingpage-chulapa-text-color, 5%);
-      }
     }
   }
 
@@ -686,8 +683,14 @@
     background-color: $landingpage-chulapa-bg-color;
     .page-link {
       background-color: $landingpage-chulapa-bg-color;
+
+      &.chulapa-label {
+        color: mix($dark, $landingpage-chulapa-text-color, 40%);
+      }
     }
   }
+
+  
   .card.bg-light {
     color: $landingpage-chulapa-bg-color;
   }
