@@ -650,7 +650,7 @@
         background-color: $landingpage-chulapa-text-color;
       }
       &.disabled {
-        color: mix($dark, $landingpage-chulapa-text-color, 10%);
+        color: darken($landingpage-chulapa-text-color, 5%);
       }
     }
   }
