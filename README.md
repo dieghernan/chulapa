@@ -43,7 +43,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 -   **Google Analytics**
 -   **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
     WhatsApp
--   **14+ preinstalled skins**
+-   **40+ preinstalled skins**
 -   **Powerful look-and-feel customization** with a dedicated sandbox
 -   **Archive, cloud tag and index special layouts**
 -   **Do you like breadcrumbs?** We have it.
