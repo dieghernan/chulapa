@@ -1,0 +1,18 @@
+/*!
+ * Solarized Dark
+
+ * For use with Jekyll and Pygments
+ *
+ * http://ethanschoonover.com/solarized
+ *
+ * SOLARIZED HEX      ROLE
+ * --------- -------- ------------------------------------------
+ * base03    #002b36  background
+ * base01    #586e75  comments / secondary content
+ * base1     #93a1a1  body text / default code / primary content
+ * orange    #cb4b16  constants
+ * red       #dc322f  regex, special keywords
+ * blue      #268bd2  reserved keywords
+ * cyan      #2aa198  strings, numbers
+ * green     #859900  operators, other keywords
+ */.highlight,.highlight pre,.highlight table{background-color:#002b36;color:#839496}.highlight .c,.highlight .cm,.highlight .c1,.highlight .sd{color:#586e75}.highlight .g,.highlight .l,.highlight .n,.highlight .h,.highlight .p,.highlight .go,.highlight .gp,.highlight .gs,.highlight .gt,.highlight .nl,.highlight .nn,.highlight .nx,.highlight .py,.highlight .w{color:#839496}.highlight .k,.highlight .kn,.highlight .kp,.highlight .o,.highlight .ow,.highlight .gi{color:#859900}.highlight .x,.highlight .gh,.highlight .gu,.highlight .ni,.highlight .ne{color:#cb4b16}.highlight .m,.highlight .mf,.highlight .mh,.highlight .mi,.highlight .mo,.highlight .s,.highlight .s1,.highlight .s2,.highlight .sc,.highlight .sx,.highlight .si,.highlight .il{color:#2aa198}.highlight .kc,.highlight .nt,.highlight .nv,.highlight .nc,.highlight .nd,.highlight .nf,.highlight .bp,.highlight .vc,.highlight .vg,.highlight .vi{color:#268bd2}.highlight .kt,.highlight .sr,.highlight .gr{color:#dc322f}.highlight .nb{color:#b58900}.highlight .ge{color:#93a1a1;font-style:italic}.highlight .gs{font-weight:bold}.highlight .err{color:#dc322f;background-color:#fdf6e3}/*# sourceMappingURL=solarized-dark.css.map */
