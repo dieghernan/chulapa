@@ -1,0 +1,103 @@
+---
+---
+/*!
+ * Solarized
+
+ * For use with Jekyll and Pygments
+ *
+ * http://ethanschoonover.com/solarized
+ *
+ */
+
+ $base03:    #002b36;
+ $base02:    #073642;
+ $base01:    #586e75;
+ $base00:    #657b83;
+ $base0:     #839496;
+ $base1:     #93a1a1;
+ $base2:     #eee8d5;
+ $base3:     #fdf6e3;
+ $yellow:    #b58900;
+ $orange:    #cb4b16;
+ $red:       #dc322f;
+ $magenta:   #d33682;
+ $violet:    #6c71c4;
+ $blue:      #268bd2;
+ $cyan:      #2aa198;
+ $green:     #859900;
+ 
+ .highlight,
+ .highlight pre,
+ .highlight table {
+     background-color: $base3;
+     color: $base00;
+ }
+ 
+ /* Grouped rules with the same color */
+ .highlight .c,
+ .highlight .cm,
+ .highlight .c1,
+ .highlight .sd { color: $base1; } /* Comments */
+ 
+ .highlight .g,
+ .highlight .l,
+ .highlight .n,
+ .highlight .h,
+ .highlight .p,
+ .highlight .go,
+ .highlight .gp,
+ .highlight .gs,
+ .highlight .gt,
+ .highlight .nl,
+ .highlight .nn,
+ .highlight .nx,
+ .highlight .py,
+ .highlight .w { color: $base00; } /* Generic and default text */
+ 
+ .highlight .k,
+ .highlight .kn,
+ .highlight .kp,
+ .highlight .o,
+ .highlight .ow,
+ .highlight .gi { color: $green; } /* Keywords and operators */
+ 
+ .highlight .x,
+ .highlight .gh,
+ .highlight .gu,
+ .highlight .ni,
+ .highlight .ne { color: $orange; } /* Constants and special names */
+ 
+ .highlight .m,
+ .highlight .mf,
+ .highlight .mh,
+ .highlight .mi,
+ .highlight .mo,
+ .highlight .s,
+ .highlight .s1,
+ .highlight .s2,
+ .highlight .sc,
+ .highlight .sx,
+ .highlight .si,
+ .highlight .il { color: $cyan; } /* Numbers and strings */
+ 
+ .highlight .kc,
+ .highlight .nt,
+ .highlight .nv,
+ .highlight .nc,
+ .highlight .nd,
+ .highlight .nf,
+ .highlight .bp,
+ .highlight .vc,
+ .highlight .vg,
+ .highlight .vi { color: $blue; } /* Classes, tags, and variables */
+ 
+ .highlight .kt,
+ .highlight .sr,
+ .highlight .gr { color: $red; } /* Types and errors */
+ 
+ .highlight .nb { color: $yellow; } /* Built-in names */
+ 
+ .highlight .ge { color: $base01; font-style: italic; } /* Emphasis */
+ .highlight .gs { font-weight: bold; } /* Strong text */
+ .highlight .err { color: $red; background-color: $base03; } /* Errors */
+ 

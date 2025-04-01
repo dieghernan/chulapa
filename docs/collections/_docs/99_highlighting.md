@@ -23,9 +23,9 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span> <br><span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
 
 <script>
-  var styles = ['autumn', 'base16.solarized', 'base16.solarized.dark', 'borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
+  var styles = ['autumn','borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
   	'friendly', 'fruity', 'github', 'gruvbox.light', 'manni', 'monokai', 'murphy','native',
-  	'pastie','perldoc','skeletor', 'tango','thankful_eyes', 'trac','vim','vs','zenburn'
+  	'pastie','perldoc', 'solarized', 'solarized-dark', 'skeletor', 'tango','thankful_eyes', 'trac','vim','vs','zenburn'
   ].sort();
   
   styles.forEach(function(word) {

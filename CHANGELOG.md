@@ -23,8 +23,8 @@
 - New widget Random (`show_random`) and possibility of add labels to Random and Related posts with
   `related_label` and `random_label`.
 - New highlight styles:
-  - `base16.solarized`
-  - `base16.solarized.dark`
+  - `solarized`
+  - `solarized-dark`
 
 ### Changed
 - Fixed a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section 
