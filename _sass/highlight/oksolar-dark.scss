@@ -1,0 +1,100 @@
+/*!
+ * OKsolar Dark
+
+ * For use with Jekyll and Pygments
+ *
+ */
+
+// Base Colors
+$base03:    #002d38;
+$base02:    #093946;
+$base01:    #5b7279;
+$base00:    #657377;
+$base0:     #98a8a8;
+$base1:     #8faaab;
+$base2:     #f1e9d2;
+$base3:     #fbf7ef;
+$yellow:    #ac8300;
+$orange:    #d56500;
+$red:       #f23749;
+$magenta:   #dd459d;
+$violet:    #7d80d1;
+$blue:      #2b90d8;
+$cyan:      #259d94;
+$green:     #819500;
+
+
+.highlight,
+.highlight pre,
+.highlight table {
+    background-color: $base03;
+    color: $base0;
+}
+
+/* Grouped rules with the same color */
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .sd { color: $base01; } /* Comments */
+
+.highlight .g,
+.highlight .l,
+.highlight .n,
+.highlight .h,
+.highlight .p,
+.highlight .go,
+.highlight .gp,
+.highlight .gs,
+.highlight .gt,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py,
+.highlight .w { color: $base0; } /* Generic and default text */
+
+.highlight .k,
+.highlight .kn,
+.highlight .kp,
+.highlight .o,
+.highlight .ow,
+.highlight .gi { color: $green; } /* Keywords and operators */
+
+.highlight .x,
+.highlight .gh,
+.highlight .gu,
+.highlight .ni,
+.highlight .ne { color: $orange; } /* Constants and special names */
+
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sc,
+.highlight .sx,
+.highlight .si,
+.highlight .il { color: $cyan; } /* Numbers and strings */
+
+.highlight .kc,
+.highlight .nt,
+.highlight .nv,
+.highlight .nc,
+.highlight .nd,
+.highlight .nf,
+.highlight .bp,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi { color: $blue; } /* Classes, tags, and variables */
+
+.highlight .kt,
+.highlight .sr,
+.highlight .gr { color: $red; } /* Types and errors */
+
+.highlight .nb { color: $yellow; } /* Built-in names */
+
+.highlight .ge { color: $base1; font-style: italic; } /* Emphasis */
+.highlight .gs { font-weight: bold; } /* Strong text */
+.highlight .err { color: $red; background-color: $base3; } /* Errors */

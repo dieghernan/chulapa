@@ -24,7 +24,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 
 <script>
   var styles = ['autumn','borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
-  	'friendly', 'fruity', 'github', 'gruvbox.light', 'manni', 'monokai', 'murphy','native',
+  	'friendly', 'fruity', 'github', 'github-dark', 'gruvbox.light', 'manni', 'monokai', 'murphy','native', 'oksolar', 'oksolar-dark',
   	'pastie','perldoc', 'solarized', 'solarized-dark', 'skeletor', 'tango','thankful_eyes', 'trac','vim','vs','zenburn'
   ].sort();
   
