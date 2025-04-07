@@ -25,6 +25,11 @@
 - New highlight styles:
   - `solarized`
   - `solarized-dark`
+  - `selenized`
+  - `selenized-dark`
+  - `oksolar`
+  - `oksolar-dark`
+  - `github-dark`
 
 ### Changed
 - Fixed a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section 
