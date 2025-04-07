@@ -25,7 +25,7 @@
 - New highlight styles:
   - `solarized`
   - `solarized-dark`
-  - `selenized`
+  - `selenized-light`
   - `selenized-dark`
   - `oksolar`
   - `oksolar-dark`
