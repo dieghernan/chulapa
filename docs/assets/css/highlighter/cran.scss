@@ -24,7 +24,9 @@
  $cp-col: $c-col; // Comment.Preproc, Preprocessor comments such as <% %> in ERb
  $c1-col: $c-col; // Comment.Single, Comments that end at the end of the line
  $cs-col: $c-col; // Comment.Special, Special data in comments such as @license in Javadoc
- 
+ $ch-col: $c-col; // Comment.Hashbang, Shebang comments (e.g. #!/usr/bin/env ruby)
+ $cpf-col: $c-col; // Comment.PreprocFile, Preprocessor file comments (e.g. #include in C)
+
  $err-col: #ff0000; // Error, Lexer errors
  
  // Generic
@@ -65,6 +67,7 @@
  $s-col: $l-col; // Literal.String, String literals
  $sb-col: $s-col; // Literal.String.Backtick, String enclosed in backticks
  $sc-col: #4070a0; // Literal.String.Char, Token type for single characters
+ $dl-col: $s-col; // Literal.String.Delimiter // Delimiters in strings (e.g. "foo" in "foo bar")
  $sd-col: $s-col; // Literal.String.Doc, Documentation strings (such as in Python)
  $s2-col: $s-col; // Literal.String.Double, Double quoted strings
  $se-col: $s-col; // Literal.String.Escape, Escaped sequences in strings
@@ -74,7 +77,8 @@
  $sr-col: $s-col; // Literal.String.Regex, Regular expressions literals
  $s1-col: $s-col; // Literal.String.Single, Single quoted strings
  $ss-col: $s-col; // Literal.String.Symbol, Symbols (such as :foo in Ruby)
- 
+ $sa-col:$s-col; // Literal.String.Affix, Affix strings (such as %w{foo} in Ruby)
+
  // Names
  $n-col: $base-col; // Name, Variable/function names
  $na-col: #7d9029; // Name.Attribute, Attributes (in HTML for instance)
@@ -95,7 +99,9 @@
  $vc-col: $nf-col; // Name.Variable.Class, Token for class variables (e.g. @@var in Ruby)
  $vg-col: $nf-col; // Name.Variable.Global, For global variables (such as $LOAD_PATH in Ruby)
  $vi-col: $nf-col; // Name.Variable.Instance, Token for instance variables (such as @var in Ruby)
- 
+ $fm-col: $base-col; // Name.Function.Magic, Token for magic functions (e.g. __init__ in Python)
+ $vm-col: $nf-col; // Name.Variable.Magic, Token for magic variables (e.g. $0 in Ruby)
+
  // Operators
  $o-col: #666666; // Operator, Operators (commonly +, -, /, *)
  $ow-col: $o-col; // Operator.Word, Word operators (e.g. and)
@@ -103,6 +109,7 @@
  // Others
  $x-col: #007020; // Other, Token for data not matched by a parser (e.g. HTML markup in PHP code)
  $p-col: $x-col; // Punctuation, Punctuation which is not an operator
+ $pm-col: $p-col; // Punctuation.Markup, Punctuation used in markup
  $w-col: $base-col; // Text.Whitespace, Specially highlighted whitespace
  
  /*
@@ -147,7 +154,16 @@
    color: $cs-col;
    font-style: italic;
  } // Comment.Special
- 
+ .highlight .ch { 
+  color: $ch-col; 
+  font-style: italic;
+
+} /* Comment.Hashbang */
+.highlight .cpf { 
+  color: $cpf-col;
+  font-style: italic;
+} /* Comment.PreprocFile */
+
  .highlight .err {
    color: $err-col;
    font-weight: bold;
@@ -254,6 +270,9 @@
  .highlight .sc {
    color: $sc-col;
  } // Literal.String.Char
+ .highlight .dl {
+  color: $dl-col;
+} // Literal.String.Delimiter
  .highlight .sd {
    color: $sd-col;
  } // Literal.String.Doc
@@ -281,7 +300,10 @@
  .highlight .ss {
    color: $ss-col;
  } // Literal.String.Symbol
- 
+ .highlight .sa {
+  color: $sa-col;
+} // Literal.String.Affix
+
  // Names
  .highlight .n {
    color: $n-col;
@@ -340,7 +362,13 @@
  .highlight .vi {
    color: $vi-col;
  } // Name.Variable.Instance
- 
+ .highlight .fm {
+  color: $fm-col;
+} // Name.Function.Magic
+.highlight .vm {
+  color: $vm-col;
+} // Name.Variable.Magic 
+
  // Operators
  .highlight .o {
    color: $o-col;
@@ -356,6 +384,9 @@
  .highlight .p {
    color: $p-col;
  } // Punctuation
+ .highlight .pm {
+  color: $pm-col;
+} // Punctuation.Markup
  .highlight .w {
    color: $w-col;
  } // Text.Whitespace
