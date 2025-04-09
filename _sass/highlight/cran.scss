@@ -25,6 +25,9 @@ $string: #d14;
 /*
  * Styles
  */
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+
 
 code {
   color:$string;
@@ -36,7 +39,7 @@ code {
     background: $bg;
     color: $identifier;
   }
-  
+
   code {
     font-weight:normal;
   }

@@ -26,20 +26,22 @@ $blue:      #2b90d8;
 $cyan:      #259d94;
 $green:     #819500;
 
- 
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+
  .highlight,
  .highlight pre,
  .highlight table {
      background-color: $base3;
      color: $base00;
  }
- 
+
  /* Grouped rules with the same color */
  .highlight .c,
  .highlight .cm,
  .highlight .c1,
  .highlight .sd { color: $base1; } /* Comments */
- 
+
  .highlight .g,
  .highlight .l,
  .highlight .n,
@@ -54,20 +56,20 @@ $green:     #819500;
  .highlight .nx,
  .highlight .py,
  .highlight .w { color: $base00; } /* Generic and default text */
- 
+
  .highlight .k,
  .highlight .kn,
  .highlight .kp,
  .highlight .o,
  .highlight .ow,
  .highlight .gi { color: $green; } /* Keywords and operators */
- 
+
  .highlight .x,
  .highlight .gh,
  .highlight .gu,
  .highlight .ni,
  .highlight .ne { color: $orange; } /* Constants and special names */
- 
+
  .highlight .m,
  .highlight .mf,
  .highlight .mh,
@@ -80,7 +82,7 @@ $green:     #819500;
  .highlight .sx,
  .highlight .si,
  .highlight .il { color: $cyan; } /* Numbers and strings */
- 
+
  .highlight .kc,
  .highlight .nt,
  .highlight .nv,
@@ -91,14 +93,14 @@ $green:     #819500;
  .highlight .vc,
  .highlight .vg,
  .highlight .vi { color: $blue; } /* Classes, tags, and variables */
- 
+
  .highlight .kt,
  .highlight .sr,
  .highlight .gr { color: $red; } /* Types and errors */
- 
+
  .highlight .nb { color: $yellow; } /* Built-in names */
- 
+
  .highlight .ge { color: $base01; font-style: italic; } /* Emphasis */
  .highlight .gs { font-weight: bold; } /* Strong text */
  .highlight .err { color: $red; background-color: $base03; } /* Errors */
- 
+

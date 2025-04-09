@@ -14,6 +14,34 @@ for (i in seq_len(length(sassf))) {
   enc <- guess_encoding(f)$encoding[1]
 
   lns <- read_lines(f, locale = locale(encoding = enc))
+  if(!any(str_detect(lns, fixed(".highlight pre")))){
+    message(f)
+  }
+}
+
+for (i in seq_len(length(sassf))) {
+  f <- sassf[i]
+  enc <- guess_encoding(f)$encoding[1]
+
+  lns <- read_lines(f, locale = locale(encoding = enc))
+  if(!any(str_detect(lns, fixed(".highlight table td")))){
+    message(f)
+  }
+}
+for (i in seq_len(length(sassf))) {
+  f <- sassf[i]
+  enc <- guess_encoding(f)$encoding[1]
+
+  lns <- read_lines(f, locale = locale(encoding = enc))
+  if(!any(str_detect(lns, fixed(".highlight .hll")))){
+    message(f)
+  }
+}
+for (i in seq_len(length(sassf))) {
+  f <- sassf[i]
+  enc <- guess_encoding(f)$encoding[1]
+
+  lns <- read_lines(f, locale = locale(encoding = enc))
 
   lns <- str_replace(lns, fixed(".highlight {"), ".highlight pre {")
   write_lines(lns, f)
@@ -28,4 +56,9 @@ sassf |>
   basename() |>
   str_remove_all(".scss") %>%
   paste0("'", ., "'", collapse = ",") |>
+  clipr::write_clip()
+
+sassf |>
+  basename() |>
+  str_remove_all(".scss") %>%
   clipr::write_clip()

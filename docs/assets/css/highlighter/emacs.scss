@@ -1,11 +1,8 @@
 ---
 ---
 
-pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
 .highlight .hll { background-color: #ffffcc }
 .highlight pre { background: #f8f8f8; }
 .highlight .c { color: #080; font-style: italic } /* Comment */

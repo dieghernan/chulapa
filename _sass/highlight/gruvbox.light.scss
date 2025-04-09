@@ -1,8 +1,5 @@
-pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
 .highlight .hll { background-color: #3c3836 }
 .highlight pre { background: #fbf1c7; }
 .highlight .c { color: #928374; font-style: italic } /* Comment */

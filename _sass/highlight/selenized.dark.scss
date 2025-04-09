@@ -1,41 +1,40 @@
----
----
-
 // Define color variables
-$highlight-bg-base: #FBF3DB;
-$highlight-color-base: #53676D;
+$highlight-bg-base: #103C48;
+$highlight-color-base: #ADBCBC;
 
-$highlight-bg-hll: #D5CDB6;
-$highlight-color-comment: #909995;
-$highlight-color-keyword: #489100;
-$highlight-color-operator: #489100;
-$highlight-color-heading: #A78300;
-$highlight-color-subheading: #A78300;
-$highlight-color-type: #489100;
-$highlight-color-number: #009C8F;
-$highlight-color-string: #009C8F;
-$highlight-color-builtin: #0072D4;
-$highlight-color-class: #0072D4;
-$highlight-color-decorator: #0072D4;
-$highlight-color-entity: #0072D4;
-$highlight-color-attribute: #0072D4;
-$highlight-color-exception: #AD8900;
-$highlight-color-function: #0072D4;
-$highlight-color-namespace: #53676D;
-$highlight-color-tag: #A78300;
-$highlight-color-label: #A78300;
-$highlight-color-variable: #53676D;
-$highlight-color-whitespace: #ECE3CC;
-$highlight-color-symbol: #489100;
-$highlight-color-regex: #0072D4;
-$highlight-color-error: #D2212D;
-$highlight-color-emph: #A78300;
-$highlight-color-traceback: #D2212D; 
-$highlight-color-inserted: #A78300; 
-$highlight-color-output: #D5CDB6;
-$highlight-color-prompt: #D5CDB6;
+$highlight-bg-hll: #2D5B69;
+$highlight-color-comment: #72898F;
+$highlight-color-keyword: #75B938;
+$highlight-color-operator: #75B938;
+$highlight-color-heading: #EBC13D;
+$highlight-color-subheading: #EBC13D;
+$highlight-color-type: #75B938;
+$highlight-color-number: #41C7B9;
+$highlight-color-string: #41C7B9;
+$highlight-color-builtin: #4695F7;
+$highlight-color-class: #4695F7;
+$highlight-color-decorator: #4695F7;
+$highlight-color-entity: #4695F7;
+$highlight-color-attribute: #4695F7;
+$highlight-color-exception: #DBB32D;
+$highlight-color-function: #4695F7;
+$highlight-color-namespace: #ADBCBC;
+$highlight-color-tag: #EBC13D;
+$highlight-color-label: #EBC13D;
+$highlight-color-variable: #ADBCBC;
+$highlight-color-whitespace: #184956;
+$highlight-color-symbol: #75B938;
+$highlight-color-regex: #4695F7;
+$highlight-color-error: #fa5750;
+$highlight-color-emph: #EBC13D;
+$highlight-color-traceback: #fa5750;
+$highlight-color-inserted: #EBC13D;
+$highlight-color-output: #2d5b69;
+$highlight-color-prompt: #2d5b69;
 
 // Highlight styles
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
 
 .highlight,
 .highlight pre,

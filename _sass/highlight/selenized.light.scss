@@ -27,12 +27,14 @@ $highlight-color-symbol: #489100;
 $highlight-color-regex: #0072D4;
 $highlight-color-error: #D2212D;
 $highlight-color-emph: #A78300;
-$highlight-color-traceback: #D2212D; 
-$highlight-color-inserted: #A78300; 
+$highlight-color-traceback: #D2212D;
+$highlight-color-inserted: #A78300;
 $highlight-color-output: #D5CDB6;
 $highlight-color-prompt: #D5CDB6;
 
 // Highlight styles
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
 
 .highlight,
 .highlight pre,
