@@ -4,21 +4,20 @@ Rouge highlighters of different sources:
 
 ## Default Rouge themes
 
-<https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes>
-Built with the terminal command:
+<https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes> Built with
+the terminal command:
 
-
-```shell
+``` shell
 rougify style base16 > base16.scss
 rougify style bw > bw.scss
 rougify style colorful > colorful.scss
 rougify style github > github.scss
 rougify style gruvbox > gruvbox.scss
-rougify style igor_pro > igor_pro.scss
+rougify style igorpro > igorpro.scss
 rougify style magritte > magritte.scss
 rougify style molokai > molokai.scss
 rougify style monokai > monokai.scss
-rougify style monokai_sublime > monokai_sublime.scss
+rougify style monokai.sublime > monokai.sublime.scss
 rougify style pastie > pastie.scss
 rougify style thankful_eyes > thankful_eyes.scss
 rougify style tulip > tulip.scss
@@ -26,28 +25,27 @@ rougify style tulip > tulip.scss
 
 Themes included:
 
-- base16
-- bw
-- colorful
-- github
-- gruvbox
-- igor_pro
-- magritte
-- molokai
-- monokai
-- monokai_sublime
-- pastie
-- thankful_eyes
-- tulip
-
+-   base16
+-   bw
+-   colorful
+-   github
+-   gruvbox
+-   igorpro
+-   magritte
+-   molokai
+-   monokai
+-   monokai.sublime
+-   pastie
+-   thankful_eyes
+-   tulip
 
 ## Selected pygment themes
 
-See https://pygments.org/.
+See <https://pygments.org/>.
 
-Build with (see https://github.com/richleland/pygments-css):
+Build with (see <https://github.com/richleland/pygments-css>):
 
-```shell
+``` shell
 pygmentize -S abap -f html -a .highlight > abap.scss
 pygmentize -S algol -f html -a .highlight > algol.scss
 pygmentize -S algol_nu -f html -a .highlight > algol_nu.scss
@@ -97,70 +95,69 @@ pygmentize -S vim -f html -a .highlight > vim.scss
 pygmentize -S vs -f html -a .highlight > vs.scss
 pygmentize -S xcode -f html -a .highlight > xcode.scss
 pygmentize -S zenburn -f html -a .highlight > zenburn.scss
-
 ```
 
- - abap
- - algol
- - algol_nu
- - arduino
- - autumn
- - bw
- - borland
- - coffee
- - colorful
- - default
- - dracula
- - emacs
- - friendly_grayscale
- - friendly
- - fruity
- - github-dark
- - gruvbox-dark
- - gruvbox-light
- - igor
- - inkpot
- - lightbulb
- - lilypond
- - lovelace
- - manni
- - material
- - monokai
- - murphy
- - native
- - nord-darker
- - nord
- - one-dark
- - paraiso-dark
- - paraiso-light
- - pastie
- - perldoc
- - rainbow_dash
- - rrt
- - sas
- - solarized-dark
- - solarized-light
- - staroffice
- - stata-dark
- - stata-light
- - tango
- - trac
- - vim
- - vs
- - xcode
- - zenburn
-
+-   abap
+-   algol
+-   algol_nu
+-   arduino
+-   autumn
+-   bw
+-   borland
+-   coffee
+-   colorful
+-   default
+-   dracula
+-   emacs
+-   friendly_grayscale
+-   friendly
+-   fruity
+-   github-dark
+-   gruvbox-dark
+-   gruvbox-light
+-   igor
+-   inkpot
+-   lightbulb
+-   lilypond
+-   lovelace
+-   manni
+-   material
+-   monokai
+-   murphy
+-   native
+-   nord-darker
+-   nord
+-   one-dark
+-   paraiso-dark
+-   paraiso-light
+-   pastie
+-   perldoc
+-   rainbow_dash
+-   rrt
+-   sas
+-   solarized-dark
+-   solarized-light
+-   staroffice
+-   stata-dark
+-   stata-light
+-   tango
+-   trac
+-   vim
+-   vs
+-   xcode
+-   zenburn
 
 ## Custom Theme Builder
-- <https://jwarby.github.io/jekyll-pygments-themes>
+
+-   <https://jwarby.github.io/jekyll-pygments-themes>
 
 ## Using Themes Without Jekyll
+
 If you want to use the themes with something other than Jekyll, you may need to
 remove or change the CSS style prefix of `.highlight`.
 
 ## Links
 
-- [Jekyll](http://jekyllrb.com/) ([direct link to code highlighting documentation](http://jekyllrb.com/docs/templates/#code-snippet-highlighting))
-- [Pygments](http://pygments.org)
-
-
+-   [Jekyll](http://jekyllrb.com/) ([direct link to code highlighting
+    documentation](http://jekyllrb.com/docs/templates/#code-snippet-highlighting))
+-   [Pygments](http://pygments.org)

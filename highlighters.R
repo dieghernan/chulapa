@@ -4,7 +4,6 @@ library(tidyverse)
 sassf <- list.files("_sass/highlight", pattern = ".scss", full.names = TRUE)
 
 
-i <- i
 
 for (i in seq_len(length(sassf))) {
   f <- sassf[i]
