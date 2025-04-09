@@ -23,9 +23,17 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span> <br><span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
 
 <script>
-  var styles = ['autumn','borland', 'bw', 'colorful',  'cran','default', 'dracula', 'emacs',
-  	'friendly', 'fruity', 'github', 'github-dark', 'gruvbox.light', 'manni', 'monokai', 'murphy','native', 'oksolar', 'oksolar-dark', 'pastie','perldoc', 'selenized-light', 'selenized-dark', 'solarized', 'solarized-dark', 'skeletor', 'tango','thankful_eyes', 'trac','vim','vs','zenburn'
-  ].sort();
+  var styles = ['abap','algol','algol_nu','arduino','autumn','base16','borland',
+  'bw','coffee','colorful','cran','default','dracula','emacs','friendly',
+  'friendly_grayscale','fruity','github.dark','github','gruvbox.dark',
+  'gruvbox.light','gruvbox','igor','igor_pro','inkpot','lightbulb','lilypond',
+  'lovelace','magritte','manni','material','molokai','monokai',
+  'monokai_sublime','murphy','native','nord.darker','nord','oksolar-dark',
+  'oksolar','one.dark','paraiso.dark','paraiso.light','pastie','perldoc',
+  'rainbow_dash','rrt','sas','selenized-dark','selenized-light','skeletor',
+  'solarized.dark','solarized.light','staroffice','stata.dark','stata.light',
+  'tango','thankful_eyes','trac','tulip','vim','vs','xcode','zenburn'
+].sort();
   
   styles.forEach(function(word) {
   	var row = document.createElement('a');
