@@ -18,8 +18,8 @@
       },
       "headline": "Syntax highlighting demo",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-04-09T18:55:54+02:00",
-      "dateModified": "2025-04-09T18:55:54+02:00",
+      "datePublished": "2025-04-09T19:01:24+02:00",
+      "dateModified": "2025-04-09T19:01:24+02:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -269,7 +269,23 @@
 </script>
 <div>
  <h4 id="python">Python</h4>
- <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@requires_authorization</span>
+ <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
+
+<span class="c1"># This is an example
+</span><span class="k">class</span> <span class="nc">Math</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="sh">"""</span><span class="s">Fibonacci series up to n.</span><span class="sh">"""</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">a</span>
+            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="nf">fib</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">The answer is </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+
+<span class="nd">@requires_authorization</span>
 <span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="sh">''</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sa">r</span><span class="sh">'''</span><span class="s">A docstring</span><span class="sh">'''</span>
     <span class="k">if</span> <span class="n">param1</span> <span class="o">&gt;</span> <span class="n">param2</span><span class="p">:</span> <span class="c1"># interesting
