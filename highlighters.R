@@ -3,7 +3,9 @@ library(tidyverse)
 
 sassf <- list.files("_sass/highlight", pattern = ".scss", full.names = TRUE)
 
-
+file.path("./docs/assets/css/highlighter") |>
+  list.files(full.names = TRUE) |>
+  unlink()
 
 for (i in seq_len(length(sassf))) {
   f <- sassf[i]
