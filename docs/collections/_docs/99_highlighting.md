@@ -24,7 +24,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
 
 <script>
   var styles = ['abap','algol','algol_nu','arduino','autumn','base16','borland',
-  'bw','coffee','colorful','cran','default','dracula','emacs','friendly',
+  'bw','coffee','cobalt2','colorful','cran','default','dracula','emacs','friendly',
   'friendly_grayscale','fruity','github.dark','github','gruvbox.dark',
   'gruvbox.light','gruvbox','igor','igorpro','inkpot','lightbulb','lilypond',
   'lovelace','magritte','manni','material','molokai','monokai',

@@ -31,6 +31,7 @@
     -   `arduino`
     -   `base16`
     -   `coffee`
+    -   `cobalt2`
     -   `friendly_grayscale`
     -   `github.dark`
     -   `gruvbox.dark`

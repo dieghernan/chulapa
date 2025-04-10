@@ -25,20 +25,19 @@ rougify style tulip > tulip.scss
 
 Themes included:
 
-- `base16`
-- `bw`
-- `colorful`
-- `github`
-- `gruvbox`
-- `igorpro`
-- `magritte`
-- `molokai`
-- `monokai`
-- `monokai.sublime`
-- `pastie`
-- `thankful_eyes`
-- `tulip`
-
+-   `base16`
+-   `bw`
+-   `colorful`
+-   `github`
+-   `gruvbox`
+-   `igorpro`
+-   `magritte`
+-   `molokai`
+-   `monokai`
+-   `monokai.sublime`
+-   `pastie`
+-   `thankful_eyes`
+-   `tulip`
 
 ## Selected pygment themes
 
@@ -98,68 +97,69 @@ pygmentize -S xcode -f html -a .highlight > xcode.scss
 pygmentize -S zenburn -f html -a .highlight > zenburn.scss
 ```
 
-- `abap`
-- `algol`
-- `algol_nu`
-- `arduino`
-- `autumn`
-- `bw`
-- `borland`
-- `coffee`
-- `colorful`
-- `default`
-- `dracula`
-- `emacs`
-- `friendly_grayscale`
-- `friendly`
-- `fruity`
-- `github.dark`
-- `gruvbox.dark`
-- `gruvbox.light`
-- `igor`
-- `inkpot`
-- `lightbulb`
-- `lilypond`
-- `lovelace`
-- `manni`
-- `material`
-- `monokai`
-- `murphy`
-- `native`
-- `nord.darker`
-- `nord`
-- `one.dark`
-- `paraiso.dark`
-- `paraiso.light`
-- `pastie`
-- `perldoc`
-- `rainbow_dash`
-- `rrt`
-- `sas`
-- `solarized.dark`
-- `solarized.light`
-- `staroffice`
-- `stata.dark`
-- `stata.light`
-- `tango`
-- `trac`
-- `vim`
-- `vs`
-- `xcode`
-- `zenburn`
+-   `abap`
+-   `algol`
+-   `algol_nu`
+-   `arduino`
+-   `autumn`
+-   `bw`
+-   `borland`
+-   `coffee`
+-   `colorful`
+-   `default`
+-   `dracula`
+-   `emacs`
+-   `friendly_grayscale`
+-   `friendly`
+-   `fruity`
+-   `github.dark`
+-   `gruvbox.dark`
+-   `gruvbox.light`
+-   `igor`
+-   `inkpot`
+-   `lightbulb`
+-   `lilypond`
+-   `lovelace`
+-   `manni`
+-   `material`
+-   `monokai`
+-   `murphy`
+-   `native`
+-   `nord.darker`
+-   `nord`
+-   `one.dark`
+-   `paraiso.dark`
+-   `paraiso.light`
+-   `pastie`
+-   `perldoc`
+-   `rainbow_dash`
+-   `rrt`
+-   `sas`
+-   `solarized.dark`
+-   `solarized.light`
+-   `staroffice`
+-   `stata.dark`
+-   `stata.light`
+-   `tango`
+-   `trac`
+-   `vim`
+-   `vs`
+-   `xcode`
+-   `zenburn`
 
 ## Custom themes
 
 Some themes created by myself:
 
-- `cran`
-- `oksolar.dark`
-- `oksolar.light`
-- `selenized.black`
-- `selenized.dark`
-- `selenized.light`
-- `selenized.white`
-- `skeletor`
+-   `cran`
+-   `cobalt2`
+-   `oksolar.dark`
+-   `oksolar.light`
+-   `selenized.black`
+-   `selenized.dark`
+-   `selenized.light`
+-   `selenized.white`
+-   `skeletor`
 
 ## Theme Builder
 
