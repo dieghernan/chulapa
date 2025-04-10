@@ -2,7 +2,7 @@ library(tidyverse)
 
 
 sassf <- list.files("_sass/highlight", pattern = ".scss", full.names = TRUE)
-
+sassf <- sassf[!grepl("template", sassf)]
 i <- 1
 
 file.path("./docs/assets/css/highlighter") |>
@@ -55,9 +55,7 @@ for (i in seq_len(length(sassf))) {
 sassf |>
   basename() |>
   str_remove_all(".scss") %>%
-  paste0("'", ., "'", collapse = ",") |>
-  clipr::write_clip()
-
+  paste0("'", ., "'", collapse = ",") 
 sassf |>
   basename() |>
   str_remove_all(".scss") %>%

@@ -30,9 +30,10 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   'lovelace','magritte','manni','material','molokai','monokai',
   'monokai.sublime','murphy','native','nord.darker','nord','oksolar.dark',
   'oksolar.light','one.dark','paraiso.dark','paraiso.light','pastie','perldoc',
-  'rainbow_dash','rrt','sas','selenized.dark','selenized.light','skeletor',
-  'solarized.dark','solarized.light','staroffice','stata.dark','stata.light',
-  'tango','thankful_eyes','trac','tulip','vim','vs','xcode','zenburn'].sort();
+  'rainbow_dash','rrt','sas','selenized.black','selenized.dark',
+  'selenized.light','selenized.white','skeletor','solarized.dark',
+  'solarized.light','staroffice','stata.dark','stata.light','tango',
+  'thankful_eyes','trac','tulip','vim','vs','xcode','zenburn'].sort();
   
   styles.forEach(function(word) {
   	var row = document.createElement('a');

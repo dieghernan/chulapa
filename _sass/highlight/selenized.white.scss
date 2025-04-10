@@ -1,9 +1,6 @@
----
----
-
-/* skeletor Theme for Jekyll (Rouge)
+/* selenized.white theme
  *
- * Based on https://ramonmcros.com/skeletor-syntax/prism.html
+ * Based on https://github.com/jan-warchol/selenized
  *
  * @author Diego H <https://github.com/dieghernan/>
  */
@@ -12,27 +9,27 @@
  * Variables
  */
 
- $base-col: #dce7fd; // Base color
- $bg-col: #2b2836; // Background color
+ $base-col: #474747; // Base color
+ $bg-col: #FFFFFF; // Background color
  
  // Comments
- $c-col: #655e7f; // Comment, Single ligne comments
+ $c-col: #878787; // Comment, Single ligne comments
  $cm-col: $c-col; // Comment.Multiline, Mutliline comments
- $cp-col: #ff8adb; // Comment.Preproc, Preprocessor comments such as <% %> in ERb
+ $cp-col: #D6000C; // Comment.Preproc, Preprocessor comments such as <% %> in ERb
  $c1-col: $c-col; // Comment.Single, Comments that end at the end of the line
  $cs-col: $c-col; // Comment.Special, Special data in comments such as @license in Javadoc
  $ch-col: $c-col; // Comment.Hashbang, Shebang comments (e.g. #!/usr/bin/env ruby)
  $cpf-col: $cp-col; // Comment.PreprocFile, Preprocessor file comments (e.g. #include in C)
  
- $err-col: #ff8adb; // Error, Lexer errors
+ $err-col: #C49700; // Error, Lexer errors
  
  // Generic
- $g-col: $base-col; // Generic, Unstyled token
+ $g-col: #1D9700; // Generic, Unstyled token
  $gd-col: $g-col; // Generic.Deleted, Token value as deleted
  $ge-col: $g-col; // Generic.Emph, Token value as emphasized
  $gr-col: $err-col; // Generic.Error, Token value as an error message
- $gh-col: #bd93f9; // Generic.Heading, Token value as a headline
- $gi-col: #f3e4a2; // Generic.Inserted, Token value as inserted
+ $gh-col: #AF8500; // Generic.Heading, Token value as a headline
+ $gi-col: $g-col; // Generic.Inserted, Token value as inserted
  $gl-col: $g-col; // Generic.Lineno, Line numbers
  $go-col: $g-col; // Generic.Output, Marked as a program output
  $gp-col: $g-col; // Generic.Prompt, Marked as a command prompt
@@ -41,20 +38,20 @@
  $gt-col: $err-col; // Generic.Traceback, Mark the token as a part of an error traceback
  
  // Keyword
- $k-col: #f3e4a2; // Keyword, Any keyword
- $kc-col: #ff8adb; // Keyword.Constant, Keywords that are constants
- $kd-col: $k-col; // Keyword.Declaration, Keywords used for variable declaration (e.g. var in javascript)
+ $k-col: #1D9700; // Keyword, Any keyword
+ $kc-col: #00AD9C; // Keyword.Constant, Keywords that are constants
+ $kd-col: #1D9700; // Keyword.Declaration, Keywords used for variable declaration (e.g. var in javascript)
  $kn-col: $k-col; // Keyword.Namespace, Keywords used for namespace declarations
  $kp-col: $k-col; // Keyword.Pseudo, Keywords that aren't really keywords
- $kr-col: $k-col; // Keyword.Reserved, Keywords which are reserved (such as end in Ruby)
+ $kr-col: #D6000C; // Keyword.Reserved, Keywords which are reserved (such as end in Ruby)
  $kt-col: $k-col; // Keyword.Type, Keywords wich refer to a type id (such as int in C)
  
  // Literal
- $l-col: $base-col; // Literal, Any literal (if not further defined)
- $ld-col: #ff8adb; // Literal.Date, Date literals
+ $l-col: #00AD9C; // Literal, Any literal (if not further defined)
+ $ld-col: $l-col; // Literal.Date, Date literals
  
  // Numbers
- $m-col: #ff8adb; // Literal.Number, Any number literal (if not further defined)
+ $m-col: $l-col; // Literal.Number, Any number literal (if not further defined)
  $mb-col: $m-col; // Literal.Number.Bin, Binary literals
  $mf-col: $m-col; // Literal.Number.Float, Float numbers
  $mh-col: $m-col; // Literal.Number.Hex, Hexadecimal numbers
@@ -64,7 +61,7 @@
  $mo-col: $m-col; // Literal.Number.Oct, Octal literals
  
  // Strings
- $s-col: #93b4ff; // Literal.String, String literals
+ $s-col: $l-col; // Literal.String, String literals
  $sb-col: $s-col; // Literal.String.Backtick, String enclosed in backticks
  $sc-col: $s-col; // Literal.String.Char, Token type for single characters
  $dl-col: $s-col; // Literal.String.Delimiter // Delimiters in strings (e.g. "foo" in "foo bar")
@@ -74,28 +71,28 @@
  $sh-col: $s-col; // Literal.String.Heredoc, For "heredoc" strings (e.g. in Ruby)
  $si-col: $s-col; // Literal.String.Interpol, For interpoled part in strings (e.g. in Ruby)
  $sx-col: $s-col; // Literal.String.Other, Token type for any other strings (for example %q{foo} string constructs in Ruby)
- $sr-col: #84fba2; // Literal.String.Regex, Regular expressions literals
+ $sr-col: $s-col; // Literal.String.Regex, Regular expressions literals
  $s1-col: $s-col; // Literal.String.Single, Single quoted strings
  $ss-col: $s-col; // Literal.String.Symbol, Symbols (such as :foo in Ruby)
  $sa-col: $s-col; // Literal.String.Affix, Affix strings (such as %w{foo} in Ruby)
  
  // Names
  $n-col: $base-col; // Name, Variable/function names
- $na-col: #bd93f9; // Name.Attribute, Attributes (in HTML for instance)
- $nb-col: #f3e4a2; // Name.Builtin, Builtin names which are available in the global namespace
+ $na-col: $n-col; // Name.Attribute, Attributes (in HTML for instance)
+ $nb-col: #0064E4; // Name.Builtin, Builtin names which are available in the global namespace
  $bp-col: $nb-col; // Name.Builtin.Pseudo, Builtin names that are implicit (such as self in Ruby)
- $nc-col: $n-col; // Name.Class, For class declaration
- $no-col: #dce7fd; // Name.Constant, For constants
- $nd-col: $n-col; // Name.Decorator, For decorators in languages such as Python or Java
- $ni-col: #dce7fd; // Name.Entity, Token for entitites such as &nbsp; in HTML
+ $nc-col: #0064E4; // Name.Class, For class declaration
+ $no-col: #D6000C; // Name.Constant, For constants
+ $nd-col: #0064E4; // Name.Decorator, For decorators in languages such as Python or Java
+ $ni-col: $n-col; // Name.Entity, Token for entitites such as &nbsp; in HTML
  $ne-col: $err-col; // Name.Exception, Exceptions and errors (e.g. ArgumentError in Ruby)
- $nf-col: #bd93f9; // Name.Function, Function names
- $nl-col: #93b4ff; // Name.Label, For label names
+ $nf-col: #0064E4; // Name.Function, Function names
+ $nl-col: $n-col; // Name.Label, For label names
  $nn-col: $nf-col; // Name.Namespace, Token for namespaces
- $nx-col: #dce7fd; // Name.Other, For other names
+ $nx-col: $n-col; // Name.Other, For other names
  $py-col: $n-col; // Name.Property, Token for properties
- $nt-col: #f3e4a2; // Name.Tag, Tag mainly for markup such as XML or HTML
- $nv-col: #84fba2; // Name.Variable, Token for variables
+ $nt-col: $gh-col; // Name.Tag, Tag mainly for markup such as XML or HTML
+ $nv-col: $nf-col; // Name.Variable, Token for variables
  $vc-col: $nf-col; // Name.Variable.Class, Token for class variables (e.g. @@var in Ruby)
  $vg-col: $nf-col; // Name.Variable.Global, For global variables (such as $LOAD_PATH in Ruby)
  $vi-col: $nf-col; // Name.Variable.Instance, Token for instance variables (such as @var in Ruby)
@@ -103,12 +100,12 @@
  $vm-col: $nf-col; // Name.Variable.Magic, Token for magic variables (e.g. $0 in Ruby)
  
  // Operators
- $o-col: #f3e4a2; // Operator, Operators (commonly +, -, /, *)
+ $o-col: #1D9700; // Operator, Operators (commonly +, -, /, *)
  $ow-col: $o-col; // Operator.Word, Word operators (e.g. and)
  
  // Others
  $x-col: $base-col; // Other, Token for data not matched by a parser (e.g. HTML markup in PHP code)
- $p-col: #dce7fd; // Punctuation, Punctuation which is not an operator
+ $p-col: #474747; // Punctuation, Punctuation which is not an operator
  $pm-col: $p-col; // Punctuation.Markup, Punctuation used in markup
  $w-col: $base-col; // Text.Whitespace, Specially highlighted whitespace
  
@@ -136,22 +133,26 @@
  // Comments
  .highlight .c {
    color: $c-col;
+   font-style: italic;
  } // Comment
  .highlight .cm {
    color: $cm-col;
+   font-style: italic;
  } // Comment.Multiline
  .highlight .cp {
    color: $cp-col;
-   font-weight: bold;
  } // Comment.Preproc
  .highlight .c1 {
    color: $c1-col;
+   font-style: italic;
  } // Comment.Single
  .highlight .cs {
    color: $cs-col;
+   font-style: italic;
  } // Comment.Special
  .highlight .ch {
    color: $ch-col;
+   font-style: italic;
  } /* Comment.Hashbang */
  .highlight .cpf {
    color: $cpf-col;

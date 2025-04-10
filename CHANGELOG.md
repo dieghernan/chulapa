@@ -55,8 +55,10 @@
     -   `rainbow_dash`
     -   `rrt`
     -   `sas`
+    -   `selenized.black`
     -   `selenized.dark`
     -   `selenized.light`
+    -   `selenized.white`
     -   `solarized.dark`
     -   `solarized.light`
     -   `staroffice`

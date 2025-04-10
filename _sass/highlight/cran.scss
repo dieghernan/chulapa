@@ -22,23 +22,23 @@
  $c1-col: $c-col; // Comment.Single, Comments that end at the end of the line
  $cs-col: $c-col; // Comment.Special, Special data in comments such as @license in Javadoc
  $ch-col: $c-col; // Comment.Hashbang, Shebang comments (e.g. #!/usr/bin/env ruby)
- $cpf-col: $c-col; // Comment.PreprocFile, Preprocessor file comments (e.g. #include in C)
-
+ $cpf-col: $cp-col; // Comment.PreprocFile, Preprocessor file comments (e.g. #include in C)
+ 
  $err-col: #ff0000; // Error, Lexer errors
  
  // Generic
  $g-col: $base-col; // Generic, Unstyled token
- $gd-col: $base-col; // Generic.Deleted, Token value as deleted
- $ge-col: $base-col; // Generic.Emph, Token value as emphasized
- $gr-col: $base-col; // Generic.Error, Token value as an error message
+ $gd-col: $g-col; // Generic.Deleted, Token value as deleted
+ $ge-col: $g-col; // Generic.Emph, Token value as emphasized
+ $gr-col: $err-col; // Generic.Error, Token value as an error message
  $gh-col: #ba2121; // Generic.Heading, Token value as a headline
- $gi-col: $base-col; // Generic.Inserted, Token value as inserted
- $gl-col: $base-col; // Generic.Lineno, Line numbers
- $go-col: $base-col; // Generic.Output, Marked as a program output
- $gp-col: $base-col; // Generic.Prompt, Marked as a command prompt
- $gs-col: $base-col; // Generic.Strong, Mark the token value as bold (for rst lexer)
+ $gi-col: $g-col; // Generic.Inserted, Token value as inserted
+ $gl-col: $g-col; // Generic.Lineno, Line numbers
+ $go-col: $g-col; // Generic.Output, Marked as a program output
+ $gp-col: $g-col; // Generic.Prompt, Marked as a command prompt
+ $gs-col: $g-col; // Generic.Strong, Mark the token value as bold (for rst lexer)
  $gu-col: $gh-col; // Generic.Subheading, Marked as a subheadline
- $gt-col: $base-col; // Generic.Traceback, Mark the token as a part of an error traceback
+ $gt-col: $err-col; // Generic.Traceback, Mark the token as a part of an error traceback
  
  // Keyword
  $k-col: #007020; // Keyword, Any keyword
@@ -52,6 +52,8 @@
  // Literal
  $l-col: #4070a0; // Literal, Any literal (if not further defined)
  $ld-col: #bb6688; // Literal.Date, Date literals
+ 
+ // Numbers
  $m-col: #40a070; // Literal.Number, Any number literal (if not further defined)
  $mb-col: $m-col; // Literal.Number.Bin, Binary literals
  $mf-col: $m-col; // Literal.Number.Float, Float numbers
@@ -61,6 +63,7 @@
  $il-col: $m-col; // Literal.Number.Integer.Long, Long interger literals
  $mo-col: $m-col; // Literal.Number.Oct, Octal literals
  
+ // Strings
  $s-col: $l-col; // Literal.String, String literals
  $sb-col: $s-col; // Literal.String.Backtick, String enclosed in backticks
  $sc-col: #4070a0; // Literal.String.Char, Token type for single characters
@@ -74,8 +77,8 @@
  $sr-col: $s-col; // Literal.String.Regex, Regular expressions literals
  $s1-col: $s-col; // Literal.String.Single, Single quoted strings
  $ss-col: $s-col; // Literal.String.Symbol, Symbols (such as :foo in Ruby)
- $sa-col:$s-col; // Literal.String.Affix, Affix strings (such as %w{foo} in Ruby)
-
+ $sa-col: $s-col; // Literal.String.Affix, Affix strings (such as %w{foo} in Ruby)
+ 
  // Names
  $n-col: $base-col; // Name, Variable/function names
  $na-col: #7d9029; // Name.Attribute, Attributes (in HTML for instance)
@@ -85,20 +88,20 @@
  $no-col: #880000; // Name.Constant, For constants
  $nd-col: #06287e; // Name.Decorator, For decorators in languages such as Python or Java
  $ni-col: $n-col; // Name.Entity, Token for entitites such as &nbsp; in HTML
- $ne-col: $n-col; // Name.Exception, Exceptions and errors (e.g. ArgumentError in Ruby)
+ $ne-col: $err-col; // Name.Exception, Exceptions and errors (e.g. ArgumentError in Ruby)
  $nf-col: #06287e; // Name.Function, Function names
  $nl-col: #008000; // Name.Label, For label names
  $nn-col: $nf-col; // Name.Namespace, Token for namespaces
  $nx-col: $n-col; // Name.Other, For other names
  $py-col: $n-col; // Name.Property, Token for properties
- $nt-col: $n-col; // Name.Tag, Tag mainly for markup such as XML or HTML
+ $nt-col: $gh-col; // Name.Tag, Tag mainly for markup such as XML or HTML
  $nv-col: $nf-col; // Name.Variable, Token for variables
  $vc-col: $nf-col; // Name.Variable.Class, Token for class variables (e.g. @@var in Ruby)
  $vg-col: $nf-col; // Name.Variable.Global, For global variables (such as $LOAD_PATH in Ruby)
  $vi-col: $nf-col; // Name.Variable.Instance, Token for instance variables (such as @var in Ruby)
- $fm-col: $base-col; // Name.Function.Magic, Token for magic functions (e.g. __init__ in Python)
+ $fm-col: $nf-col; // Name.Function.Magic, Token for magic functions (e.g. __init__ in Python)
  $vm-col: $nf-col; // Name.Variable.Magic, Token for magic variables (e.g. $0 in Ruby)
-
+ 
  // Operators
  $o-col: #666666; // Operator, Operators (commonly +, -, /, *)
  $ow-col: $o-col; // Operator.Word, Word operators (e.g. and)
@@ -110,8 +113,8 @@
  $w-col: $base-col; // Text.Whitespace, Specially highlighted whitespace
  
  /*
-  * Styles
-  */
+   * Styles
+   */
  
  // Overall
  .highlight table td {
@@ -151,16 +154,15 @@
    color: $cs-col;
    font-style: italic;
  } // Comment.Special
- .highlight .ch { 
-  color: $ch-col; 
-  font-style: italic;
-
-} /* Comment.Hashbang */
-.highlight .cpf { 
-  color: $cpf-col;
-  font-style: italic;
-} /* Comment.PreprocFile */
-
+ .highlight .ch {
+   color: $ch-col;
+   font-style: italic;
+ } /* Comment.Hashbang */
+ .highlight .cpf {
+   color: $cpf-col;
+   font-style: italic;
+ } /* Comment.PreprocFile */
+ 
  .highlight .err {
    color: $err-col;
    font-weight: bold;
@@ -204,10 +206,9 @@
    color: $gt-col;
  } // Generic.Traceback
  .highlight .ges {
-   font-weight: bold; 
+   font-weight: bold;
    font-style: italic;
  } // Generic.EmphStrong
-
  
  // Keyword
  .highlight .k {
@@ -273,8 +274,8 @@
    color: $sc-col;
  } // Literal.String.Char
  .highlight .dl {
-  color: $dl-col;
-} // Literal.String.Delimiter
+   color: $dl-col;
+ } // Literal.String.Delimiter
  .highlight .sd {
    color: $sd-col;
  } // Literal.String.Doc
@@ -303,9 +304,9 @@
    color: $ss-col;
  } // Literal.String.Symbol
  .highlight .sa {
-  color: $sa-col;
-} // Literal.String.Affix
-
+   color: $sa-col;
+ } // Literal.String.Affix
+ 
  // Names
  .highlight .n {
    color: $n-col;
@@ -365,12 +366,12 @@
    color: $vi-col;
  } // Name.Variable.Instance
  .highlight .fm {
-  color: $fm-col;
-} // Name.Function.Magic
-.highlight .vm {
-  color: $vm-col;
-} // Name.Variable.Magic 
-
+   color: $fm-col;
+ } // Name.Function.Magic
+ .highlight .vm {
+   color: $vm-col;
+ } // Name.Variable.Magic
+ 
  // Operators
  .highlight .o {
    color: $o-col;
@@ -387,8 +388,8 @@
    color: $p-col;
  } // Punctuation
  .highlight .pm {
-  color: $pm-col;
-} // Punctuation.Markup
+   color: $pm-col;
+ } // Punctuation.Markup
  .highlight .w {
    color: $w-col;
  } // Text.Whitespace

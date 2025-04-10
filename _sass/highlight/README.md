@@ -155,8 +155,10 @@ Some themes created by myself:
 - `cran`
 - `oksolar.dark`
 - `oksolar.light`
+- `selenized.black`
 - `selenized.dark`
 - `selenized.light`
+- `selenized.white`
 - `skeletor`
 
 ## Theme Builder
