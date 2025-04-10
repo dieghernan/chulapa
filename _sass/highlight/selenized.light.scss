@@ -11,7 +11,8 @@
 
  $base-col: #53676D; // Base color
  $bg-col: #FBF3DB; // Background color
- 
+$code-col: $base-col; // Not highlighted code, i.e. <code>foo</code>
+
  // Comments
  $c-col: #909995; // Comment, Single ligne comments
  $cm-col: $c-col; // Comment.Multiline, Mutliline comments
@@ -121,8 +122,9 @@
    margin: 0;
  }
  
+ // Not highlighted color
  code {
-   color: $base-col;
+   color: $code-col;
  }
  
  .highlight pre {
