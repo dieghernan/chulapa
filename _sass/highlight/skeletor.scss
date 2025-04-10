@@ -69,11 +69,11 @@
  $dl-col: $s-col; // Literal.String.Delimiter // Delimiters in strings (e.g. "foo" in "foo bar")
  $sd-col: $s-col; // Literal.String.Doc, Documentation strings (such as in Python)
  $s2-col: $s-col; // Literal.String.Double, Double quoted strings
- $se-col: $s-col; // Literal.String.Escape, Escaped sequences in strings
  $sh-col: $s-col; // Literal.String.Heredoc, For "heredoc" strings (e.g. in Ruby)
  $si-col: $s-col; // Literal.String.Interpol, For interpoled part in strings (e.g. in Ruby)
  $sx-col: $s-col; // Literal.String.Other, Token type for any other strings (for example %q{foo} string constructs in Ruby)
  $sr-col: #84fba2; // Literal.String.Regex, Regular expressions literals
+ $se-col: $sr-col; // Literal.String.Escape, Escaped sequences in strings
  $s1-col: $s-col; // Literal.String.Single, Single quoted strings
  $ss-col: $s-col; // Literal.String.Symbol, Symbols (such as :foo in Ruby)
  $sa-col: $s-col; // Literal.String.Affix, Affix strings (such as %w{foo} in Ruby)
