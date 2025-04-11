@@ -18,8 +18,8 @@
       },
       "headline": "Syntax highlighting demo",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-04-11T16:40:03+02:00",
-      "dateModified": "2025-04-11T16:40:03+02:00",
+      "datePublished": "2025-04-11T17:05:07+02:00",
+      "dateModified": "2025-04-11T17:05:07+02:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -222,7 +222,7 @@
 			</button>
 		</p>
 		<nav class="navbar-nav px-3 my-auto">		  <p class="mb-2" ><a class="nav-link font-weight-bold lead" href="#">Syntax highlighting demo</a></p>		
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#python" class="nav-link">Python</a></li><li class="nav-item nav d-block"><a href="#javascript" class="nav-link">Javascript</a></li><li class="nav-item nav d-block"><a href="#java" class="nav-link">Java</a></li><li class="nav-item nav d-block"><a href="#c" class="nav-link">C#</a></li><li class="nav-item nav d-block"><a href="#go" class="nav-link">Go</a></li><li class="nav-item nav d-block"><a href="#html" class="nav-link">HTML</a></li><li class="nav-item nav d-block"><a href="#r" class="nav-link">R</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#javascript" class="nav-link">Javascript</a></li><li class="nav-item nav d-block"><a href="#python" class="nav-link">Python</a></li><li class="nav-item nav d-block"><a href="#java" class="nav-link">Java</a></li><li class="nav-item nav d-block"><a href="#c" class="nav-link">C#</a></li><li class="nav-item nav d-block"><a href="#html" class="nav-link">HTML</a></li><li class="nav-item nav d-block"><a href="#r" class="nav-link">R</a></li><li class="nav-item nav d-block"><a href="#ruby" class="nav-link">Ruby</a></li></ul>
 		</nav>   
 	</div>
 			<p>This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.</p>
@@ -267,139 +267,548 @@
       return true;
   }
 </script>
+<p>Demo of the different pieces of code for testing syntax highlighting.</p>
 <div>
- <h4 id="python">Python</h4>
- <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
-
-<span class="c1"># This is an example
-</span><span class="k">class</span> <span class="nc">Math</span><span class="p">:</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="sh">"""</span><span class="s">Fibonacci series up to n.</span><span class="sh">"""</span>
-        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-        <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">a</span>
-            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="nf">fib</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
-<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">The answer is </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
-
-
-<span class="nd">@requires_authorization</span>
-<span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="sh">''</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sh">'''</span><span class="s">A docstring</span><span class="sh">'''</span>
-    <span class="k">if</span> <span class="n">param1</span> <span class="o">&gt;</span> <span class="n">param2</span><span class="p">:</span> <span class="c1"># interesting
-</span>        <span class="k">print</span> <span class="sh">'</span><span class="s">Gre</span><span class="se">\'</span><span class="s">ater</span><span class="sh">'</span>
-    <span class="nf">return </span><span class="p">(</span><span class="n">param2</span> <span class="o">-</span> <span class="n">param1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mb">0b10</span><span class="n">l</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">None</span>
-
-<span class="k">class</span> <span class="nc">SomeClass</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="sh">'''</span><span class="s">interpreter
-</span><span class="gp">...</span> <span class="n">prompt</span><span class="sh">'''</span>
-
-</code></pre></div></div>
- <h4 id="javascript">Javascript</h4>
- <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">$initHighlight</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)</span> <span class="p">{</span>
+ <h2 id="javascript">Javascript</h2>
+ <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Cross-browser xml parsing</span>
+<span class="kd">var</span> <span class="nx">parseXML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">xml</span><span class="p">,</span> <span class="nx">tmp</span><span class="p">;</span>
+  <span class="k">if </span><span class="p">(</span> <span class="o">!</span><span class="nx">data</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">data</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
   <span class="k">try</span> <span class="p">{</span>
-    <span class="k">if </span><span class="p">(</span><span class="nx">cls</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="sr">/</span><span class="se">\b</span><span class="sr">no</span><span class="se">\-</span><span class="sr">highlight</span><span class="se">\b</span><span class="sr">/</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-      <span class="k">return</span> <span class="nf">process</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="mh">0x0F</span><span class="p">)</span> <span class="o">+</span>
-             <span class="s2">` class="</span><span class="p">${</span><span class="nx">cls</span><span class="p">}</span><span class="s2">"`</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* handle exception */</span>
+    <span class="k">if </span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">DOMParser</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">// Standard</span>
+      <span class="nx">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DOMParser</span><span class="p">();</span>
+      <span class="nx">xml</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">.</span><span class="nf">parseFromString</span><span class="p">(</span> <span class="nx">data</span> <span class="p">,</span> <span class="dl">"</span><span class="s2">text/xml</span><span class="dl">"</span> <span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// IE</span>
+      <span class="nx">xml</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ActiveXObject</span><span class="p">(</span> <span class="dl">"</span><span class="s2">Microsoft.XMLDOM</span><span class="dl">"</span> <span class="p">);</span>
+      <span class="nx">xml</span><span class="p">.</span><span class="k">async</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">xml</span><span class="p">.</span><span class="nf">loadXML</span><span class="p">(</span> <span class="nx">data</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">catch</span><span class="p">(</span> <span class="nx">e</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">xml</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="k">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">classes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if </span><span class="p">(</span><span class="nf">checkCondition</span><span class="p">(</span><span class="nx">classes</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if </span><span class="p">(</span> <span class="o">!</span><span class="nx">xml</span> <span class="o">||</span> <span class="o">!</span><span class="nx">xml</span><span class="p">.</span><span class="nx">documentElement</span> <span class="o">||</span> <span class="nx">xml</span><span class="p">.</span><span class="nf">getElementsByTagName</span><span class="p">(</span> <span class="dl">"</span><span class="s2">parsererror</span><span class="dl">"</span> <span class="p">).</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">jQuery</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span> <span class="dl">"</span><span class="s2">Invalid XML: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">data</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">xml</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Bind a function to a context, optionally partially applying any arguments.</span>
+<span class="kd">var</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">context</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">tmp</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">proxy</span><span class="p">;</span>
+
+  <span class="k">if </span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">context</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">[</span> <span class="nx">context</span> <span class="p">];</span>
+    <span class="nx">context</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">;</span>
+    <span class="nx">fn</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="k">return </span><span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">web</span><span class="o">-</span><span class="nx">component</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">block</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/web-component</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>  <span class="p">)</span>
-<span class="p">}</span>
+  <span class="c1">// Quick check to determine if target is callable, in the spec</span>
+  <span class="c1">// this throws a TypeError, but we will just return undefined.</span>
+  <span class="k">if </span><span class="p">(</span> <span class="o">!</span><span class="nx">jQuery</span><span class="p">.</span><span class="nf">isFunction</span><span class="p">(</span> <span class="nx">fn</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<span class="k">export</span>  <span class="nx">$initHighlight</span><span class="p">;</span>
+  <span class="c1">// Simulated bind</span>
+  <span class="nx">args</span> <span class="o">=</span> <span class="nx">core_slice</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span> <span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+  <span class="nx">proxy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fn</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span> <span class="nx">context</span> <span class="o">||</span> <span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nf">concat</span><span class="p">(</span> <span class="nx">core_slice</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span> <span class="nx">arguments</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Set the guid of unique handler to the same of original handler, so it can be removed</span>
+  <span class="nx">proxy</span><span class="p">.</span><span class="nx">guid</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">guid</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">guid</span> <span class="o">||</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">guid</span><span class="o">++</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">proxy</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">play</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">something</span><span class="p">;</span> <span class="p">}</span>
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">play</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">play</span> <span class="o">=</span> <span class="nx">myfunc</span>
+<span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://example.com:3000/pathname/?search=test#hash</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">hostname</span><span class="p">;</span> <span class="c1">// =&gt; "example.com"</span>
+
+
 </code></pre></div></div>
- <h4 id="java">Java</h4>
+ <h2 id="python">Python</h2>
+ <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">#!/usr/bin/python
+# -*- coding: utf-8 -*-
+</span>
+<span class="kn">import</span> <span class="n">re</span>
+<span class="kn">import</span> <span class="n">sublime</span>
+<span class="kn">import</span> <span class="n">sublime_plugin</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+
+<span class="k">class</span> <span class="nc">SublimeTasksBase</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="p">.</span><span class="n">TextCommand</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">edit</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">open_tasks_bullet</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">done_tasks_bullet</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">done_tasks_bullet</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">date_format</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">date_format</span><span class="sh">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">done_tag</span><span class="sh">'</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">done_tag</span> <span class="o">=</span> <span class="sh">"</span><span class="s">@done</span><span class="sh">"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">done_tag</span> <span class="o">=</span> <span class="sh">""</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">runCommand</span><span class="p">(</span><span class="n">edit</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">NewCommand</span><span class="p">(</span><span class="n">SublimeTasksBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">runCommand</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">edit</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">():</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+            <span class="n">line_contents</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">).</span><span class="nf">rstrip</span><span class="p">()</span>
+            <span class="n">has_bullet</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sh">'</span><span class="s">^(\s*)[</span><span class="sh">'</span> <span class="o">+</span> <span class="n">re</span><span class="p">.</span><span class="nf">escape</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span><span class="p">)</span> <span class="o">+</span> <span class="n">re</span><span class="p">.</span><span class="nf">escape</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">done_tasks_bullet</span><span class="p">)</span> <span class="o">+</span> <span class="sh">'</span><span class="s">]</span><span class="sh">'</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+            <span class="n">current_scope</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">scope_name</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">b</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">has_bullet</span><span class="p">:</span>
+                <span class="n">grps</span> <span class="o">=</span> <span class="n">has_bullet</span><span class="p">.</span><span class="nf">groups</span><span class="p">()</span>
+                <span class="n">line_contents</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span> <span class="o">+</span> <span class="n">grps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="sh">'</span><span class="s">header</span><span class="sh">'</span> <span class="ow">in</span> <span class="n">current_scope</span><span class="p">:</span>
+                <span class="n">header</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sh">'</span><span class="s">^(\s*)\S+</span><span class="sh">'</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
+                    <span class="n">grps</span> <span class="o">=</span> <span class="n">header</span><span class="p">.</span><span class="nf">groups</span><span class="p">()</span>
+                    <span class="n">line_contents</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span> <span class="o">+</span> <span class="n">grps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line_contents</span> <span class="o">=</span>  <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">b</span>
+                <span class="n">pt</span> <span class="o">=</span> <span class="n">sublime</span><span class="p">.</span><span class="nc">Region</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">clear</span><span class="p">()</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">add</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">has_space</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sh">'</span><span class="s">^(\s+)(.*)</span><span class="sh">'</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">has_space</span><span class="p">:</span>
+                    <span class="n">grps</span> <span class="o">=</span> <span class="n">has_space</span><span class="p">.</span><span class="nf">groups</span><span class="p">()</span>
+                    <span class="n">spaces</span> <span class="o">=</span> <span class="n">grps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">line_contents</span> <span class="o">=</span> <span class="n">spaces</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">grps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line_contents</span> <span class="o">=</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">b</span>
+                    <span class="n">pt</span> <span class="o">=</span> <span class="n">sublime</span><span class="p">.</span><span class="nc">Region</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">clear</span><span class="p">()</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">add</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+
+
+
+</code></pre></div></div>
+ <h2 id="java">Java</h2>
  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="cm">/**
- * @author John Smith &lt;john.smith@example.com&gt;
-*/</span>
-<span class="kn">package</span> <span class="nn">l2f.gameserver.model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">strictfp</span> <span class="kd">class</span> <span class="nc">L2Char</span> <span class="kd">extends</span> <span class="nc">L2Object</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Short</span> <span class="no">ERROR</span> <span class="o">=</span> <span class="mh">0x0001</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveTo</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">z</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">_ai</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="n">log</span><span class="o">(</span><span class="s">"Should not be called"</span><span class="o">);</span>
-    <span class="k">if</span> <span class="o">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// wtf!?</span>
-      <span class="k">return</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Life</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">show</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">){</span>
+        <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">grid</span><span class="o">){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">val</span> <span class="o">:</span> <span class="n">row</span><span class="o">)</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">val</span><span class="o">)</span>
+                    <span class="n">s</span> <span class="o">+=</span> <span class="s">"*"</span><span class="o">;</span>
+                <span class="k">else</span>
+                    <span class="n">s</span> <span class="o">+=</span> <span class="s">"."</span><span class="o">;</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s">"\n"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
     <span class="o">}</span>
-  <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="nf">gen</span><span class="o">(){</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">10</span><span class="o">][</span><span class="mi">10</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">r</span><span class="o">++)</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">c</span><span class="o">++)</span>
+                <span class="k">if</span><span class="o">(</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mf">0.7</span> <span class="o">)</span>
+                    <span class="n">grid</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">grid</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span> <span class="o">=</span> <span class="n">gen</span><span class="o">();</span>
+        <span class="n">show</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="n">world</span> <span class="o">=</span> <span class="n">nextGen</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+        <span class="n">show</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+            <span class="n">world</span> <span class="o">=</span> <span class="n">nextGen</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+            <span class="n">show</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="nf">nextGen</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span><span class="o">){</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">newWorld</span>
+            <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">world</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">r</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">c</span><span class="o">++){</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">numNeighbors</span><span class="o">(</span><span class="n">world</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">c</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(</span> <span class="n">occupiedNext</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">world</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">])</span> <span class="o">)</span>
+                    <span class="n">newWorld</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">newWorld</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">occupiedNext</span><span class="o">(</span><span class="kt">int</span> <span class="n">numNeighbors</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">occupied</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span> <span class="n">occupied</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">numNeighbors</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">numNeighbors</span> <span class="o">==</span> <span class="mi">3</span><span class="o">))</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(!</span><span class="n">occupied</span> <span class="o">&amp;&amp;</span> <span class="n">numNeighbors</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numNeighbors</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">world</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">r</span><span class="o">++)</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">c</span><span class="o">++)</span>
+                <span class="k">if</span><span class="o">(</span> <span class="n">inbounds</span><span class="o">(</span><span class="n">world</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">c</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">world</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">)</span>
+                    <span class="n">num</span><span class="o">++;</span>
+
+        <span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">inbounds</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+        <span class="n">c</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+
 <span class="o">}</span>
 
-</code></pre></div></div>
- <h4 id="c">C#</h4>
- <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO.Compression</span><span class="p">;</span>
 
-<span class="cp">#pragma warning disable 414, 3021
-</span>
-<span class="k">namespace</span> <span class="nn">MyApplication</span>
+</code></pre></div></div>
+ <h2 id="c">C#</h2>
+ <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Abp.Domain.Entities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Abp.Domain.Repositories</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Abp.MemoryDb.Repositories</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="nf">Obsolete</span><span class="p">(</span><span class="s">"..."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Program</span> <span class="p">:</span> <span class="n">IInterface</span>
+    <span class="c1">//TODO: Implement thread-safety..?</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">MemoryRepository</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">,</span> <span class="n">TPrimaryKey</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">AbpRepositoryBase</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">,</span> <span class="n">TPrimaryKey</span><span class="p">&gt;</span>
+        <span class="k">where</span> <span class="n">TEntity</span> <span class="p">:</span> <span class="k">class</span><span class="err">,</span> <span class="nc">IEntity</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;</span>
     <span class="p">{</span>
-        <span class="k">public</span> <span class="k">static</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="nf">JustDoIt</span><span class="p">(</span><span class="kt">int</span> <span class="n">count</span><span class="p">)</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">IMemoryDatabaseProvider</span> <span class="n">_databaseProvider</span><span class="p">;</span>
+        <span class="k">protected</span> <span class="n">MemoryDatabase</span> <span class="n">Database</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_databaseProvider</span><span class="p">.</span><span class="n">Database</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+
+        <span class="k">protected</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">&gt;</span> <span class="n">Table</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Database</span><span class="p">.</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">&gt;();</span> <span class="p">}</span> <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">MemoryPrimaryKeyGenerator</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;</span> <span class="n">_primaryKeyGenerator</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="nf">MemoryRepository</span><span class="p">(</span><span class="n">IMemoryDatabaseProvider</span> <span class="n">databaseProvider</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Hello </span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s">!"</span><span class="p">);</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">})</span>
+            <span class="n">_databaseProvider</span> <span class="p">=</span> <span class="n">databaseProvider</span><span class="p">;</span>
+            <span class="n">_primaryKeyGenerator</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MemoryPrimaryKeyGenerator</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">&gt;</span> <span class="nf">GetAll</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Table</span><span class="p">.</span><span class="nf">AsQueryable</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">TEntity</span> <span class="nf">Insert</span><span class="p">(</span><span class="n">TEntity</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">entity</span><span class="p">.</span><span class="nf">IsTransient</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="n">entity</span><span class="p">.</span><span class="n">Id</span> <span class="p">=</span> <span class="n">_primaryKeyGenerator</span><span class="p">.</span><span class="nf">GetNext</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="n">Table</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">entity</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">TEntity</span> <span class="nf">Update</span><span class="p">(</span><span class="n">TEntity</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">Table</span><span class="p">.</span><span class="nf">FindIndex</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">EqualityComparer</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;.</span><span class="n">Default</span><span class="p">.</span><span class="nf">Equals</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">entity</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">entity</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">entity</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">TEntity</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">Delete</span><span class="p">(</span><span class="n">entity</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">TPrimaryKey</span> <span class="n">id</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">Table</span><span class="p">.</span><span class="nf">FindIndex</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">EqualityComparer</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;.</span><span class="n">Default</span><span class="p">.</span><span class="nf">Equals</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">id</span><span class="p">));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Table</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
- <h4 id="go">Go</h4>
- <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+ <h2 id="html">HTML</h2>
+ <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Meta, title, CSS, favicons, etc. --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"author"</span> <span class="na">content=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Bootstrap<span class="nt">&lt;/title&gt;</span>
 
-<span class="k">import</span> <span class="s">"fmt"</span>
+    <span class="c">&lt;!-- Bootstrap core CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./dist/css/bootstrap.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
 
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">float64</span><span class="p">)</span>
-    <span class="n">ch</span> <span class="o">&lt;-</span> <span class="m">1.0e10</span>    <span class="c">// magic number</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="n">ch</span>
-    <span class="k">defer</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">`exitting now\`</span><span class="p">)</span>
-    <span class="k">go</span> <span class="nb">println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">"hello world!"</span><span class="p">))</span>
-    <span class="k">return</span>
-<span class="p">}</span>
+    <span class="c">&lt;!-- Documentation extras --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./assets/css/docs.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./assets/css/pygments-manni.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
 
-</code></pre></div></div>
- <h4 id="html">HTML</h4>
- <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;&lt;title&gt;</span>Title!<span class="nt">&lt;/title&gt;&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"foo"</span><span class="nt">&gt;</span>Hello, World!<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="nt">&lt;/script&gt;</span>
-    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span><span class="nf">#foo</span> <span class="p">{</span> <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span> <span class="p">}</span><span class="nt">&lt;/style&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"./assets/ico/favicon.png"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">"bs-docs-home"</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- Docs master nav --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse navbar-fixed-top bs-docs-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./"</span> <span class="na">class=</span><span class="s">"navbar-brand"</span><span class="nt">&gt;</span>Bootstrap 3 RC1<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"navbar-toggle"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">".bs-navbar-collapse"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-collapse collapse bs-navbar-collapse"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./getting-started"</span><span class="nt">&gt;</span>Getting started<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./css"</span><span class="nt">&gt;</span>CSS<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./components"</span><span class="nt">&gt;</span>Components<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./javascript"</span><span class="nt">&gt;</span>JavaScript<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./customize"</span><span class="nt">&gt;</span>Customize<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Page content of course! --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bs-masthead"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Bootstrap 3<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead"</span><span class="nt">&gt;</span>Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://getbootstrap.com/bs-v3.0.0-rc1-dist.zip"</span> <span class="na">class=</span><span class="s">"btn btn-bs btn-large"</span> <span class="na">onclick=</span><span class="s">"_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.0 RC1']);"</span><span class="nt">&gt;</span>Download Bootstrap<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./assets/js/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./dist/js/bootstrap.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./assets/js/holder.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./assets/js/application.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 
 </code></pre></div></div>
- <h4 id="r">R</h4>
- <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"sf"</span><span class="p">)</span><span class="w">
-</span><span class="n">dbenford</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="w">
-    </span><span class="n">log10</span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="w">
+ <h2 id="r">R</h2>
+ <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">geom_dotplot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="p">(</span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bindot"</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"identity"</span><span class="p">,</span><span class="w">
+</span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">binwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">binaxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s2">"dotdensity"</span><span class="p">,</span><span class="w"> </span><span class="n">binpositions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bygroup"</span><span class="p">,</span><span class="w"> </span><span class="n">stackdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"up"</span><span class="p">,</span><span class="w">
+</span><span class="n">stackratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">dotsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stackgroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">GeomDotplot</span><span class="o">$</span><span class="n">new</span><span class="p">(</span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapping</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w">
+  </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">na.rm</span><span class="p">,</span><span class="w"> </span><span class="n">binwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binwidth</span><span class="p">,</span><span class="w"> </span><span class="n">binaxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binaxis</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">binpositions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binpositions</span><span class="p">,</span><span class="w">
+  </span><span class="n">stackdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackdir</span><span class="p">,</span><span class="w"> </span><span class="n">stackratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackratio</span><span class="p">,</span><span class="w"> </span><span class="n">dotsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dotsize</span><span class="p">,</span><span class="w"> </span><span class="n">stackgroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackgroups</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span><span class="n">pbenford</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">q</span><span class="p">){</span><span class="w">
-    </span><span class="n">cumprobs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cumsum</span><span class="p">(</span><span class="n">dbenford</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">))</span><span class="w">
-    </span><span class="nf">return</span><span class="p">(</span><span class="n">cumprobs</span><span class="p">[</span><span class="n">q</span><span class="p">])</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="n">GeomDotplot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">proto</span><span class="p">(</span><span class="n">Geom</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">objname</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"dotplot"</span><span class="w">
 
-</span><span class="n">plot</span><span class="p">(</span><span class="n">st_geometry</span><span class="p">(</span><span class="n">example</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">)</span><span class="w">
+  </span><span class="n">new</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">){</span><span class="w">
+    </span><span class="c1"># This code is adapted from Layer$new. It's needed to pull out the stat_params</span><span class="w">
+    </span><span class="c1"># and geom_params, then manually add binaxis to both sets of params. Otherwise</span><span class="w">
+    </span><span class="c1"># Layer$new will give binaxis only to the geom.</span><span class="w">
 
+    </span><span class="n">stat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Stat</span><span class="o">$</span><span class="n">find</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span><span class="w">
+    </span><span class="n">match.params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">possible</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">"..."</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">possible</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="n">params</span><span class="w">
+      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="n">params</span><span class="p">[</span><span class="n">match</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">possible</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">params</span><span class="p">),</span><span class="w"> </span><span class="n">nomatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+    </span><span class="n">params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">...</span><span class="p">)</span><span class="w">
+    </span><span class="c1"># American names must be changed here so that they'll go to geom_params;</span><span class="w">
+    </span><span class="c1"># otherwise they'll end up in stat_params</span><span class="w">
+    </span><span class="n">params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rename_aes</span><span class="p">(</span><span class="n">params</span><span class="p">)</span><span class="w">
+
+    </span><span class="n">geom_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">match.params</span><span class="p">(</span><span class="n">.</span><span class="o">$</span><span class="n">parameters</span><span class="p">(),</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w">
+    </span><span class="n">stat_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">match.params</span><span class="p">(</span><span class="n">stat</span><span class="o">$</span><span class="n">parameters</span><span class="p">(),</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w">
+    </span><span class="n">stat_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stat_params</span><span class="p">[</span><span class="n">setdiff</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">stat_params</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">geom_params</span><span class="p">))]</span><span class="w">
+    </span><span class="c1"># Add back binaxis</span><span class="w">
+    </span><span class="n">stat_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">stat_params</span><span class="p">,</span><span class="w"> </span><span class="n">binaxis</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># If identical(position, "stack") or position is position_stack() (the test</span><span class="w">
+    </span><span class="c1">#  is kind of complex), tell them to use stackgroups=TRUE instead. Need to</span><span class="w">
+    </span><span class="c1">#  use identical() instead of ==, because == will fail if object is</span><span class="w">
+    </span><span class="c1">#  position_stack() or position_dodge()</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">identical</span><span class="p">(</span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="s2">"stack"</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">is.proto</span><span class="p">(</span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">position</span><span class="o">$</span><span class="n">objname</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"stack"</span><span class="p">)))</span><span class="w">
+      </span><span class="n">message</span><span class="p">(</span><span class="s2">"position=\"stack\" doesn't work properly with geom_dotplot. Use stackgroups=TRUE instead."</span><span class="p">)</span><span class="w">
+
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackgroups</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"dotdensity"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binpositions</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"bygroup"</span><span class="p">)</span><span class="w">
+      </span><span class="n">message</span><span class="p">(</span><span class="s1">'geom_dotplot called with stackgroups=TRUE and method="dotdensity". You probably want to set binpositions="all"'</span><span class="p">)</span><span class="w">
+
+    </span><span class="n">do.call</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">,</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapping</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">,</span><span class="w"> </span><span class="n">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w">
+                          </span><span class="n">geom_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">geom_params</span><span class="p">,</span><span class="w"> </span><span class="n">stat_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat_params</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">))</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+
+  </span><span class="n">reparameterise</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">%||%</span><span class="w">
+      </span><span class="n">params</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">%||%</span><span class="w"> </span><span class="p">(</span><span class="n">resolution</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># Set up the stacking function and range</span><span class="w">
+    </span><span class="k">if</span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"up"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">.5</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"down"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">.5</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-1</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"center"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-.5</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">.5</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"centerwhole"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-.5</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">.5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+
+    </span><span class="c1"># Fill the bins: at a given x (or y), if count=3, make 3 entries at that x</span><span class="w">
+    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="p">[</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">count</span><span class="p">),</span><span class="w"> </span><span class="p">]</span><span class="w">
+
+    </span><span class="c1"># Next part will set the position of each dot within each stack</span><span class="w">
+    </span><span class="c1"># If stackgroups=TRUE, split only on x (or y) and panel; if not stacking, also split by group</span><span class="w">
+    </span><span class="n">plyvars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">%||%</span><span class="w"> </span><span class="s2">"x"</span><span class="w">
+    </span><span class="n">plyvars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">plyvars</span><span class="p">,</span><span class="w"> </span><span class="s2">"PANEL"</span><span class="p">)</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackgroups</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">params</span><span class="o">$</span><span class="n">stackgroups</span><span class="p">)</span><span class="w">
+      </span><span class="n">plyvars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">plyvars</span><span class="p">,</span><span class="w"> </span><span class="s2">"group"</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># Within each x, or x+group, set countidx=1,2,3, and set stackpos according to stack function</span><span class="w">
+    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">plyvars</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="n">xx</span><span class="o">$</span><span class="n">countidx</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">nrow</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span><span class="w">
+            </span><span class="n">xx</span><span class="o">$</span><span class="n">stackpos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackdots</span><span class="p">(</span><span class="n">xx</span><span class="o">$</span><span class="n">countidx</span><span class="p">)</span><span class="w">
+            </span><span class="n">xx</span><span class="w">
+          </span><span class="p">})</span><span class="w">
+
+
+    </span><span class="c1"># Set the bounding boxes for the dots</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"x"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1"># ymin, ymax, xmin, and xmax define the bounding rectangle for each stack</span><span class="w">
+      </span><span class="c1"># Can't do bounding box per dot, because y position isn't real.</span><span class="w">
+      </span><span class="c1"># After position code is rewritten, each dot should have its own bounding box.</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">binwidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">binwidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">ymin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackaxismin</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">ymax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackaxismax</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">y</span><span class="w">    </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">
+
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"y"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1"># ymin, ymax, xmin, and xmax define the bounding rectangle for each stack</span><span class="w">
+      </span><span class="c1"># Can't do bounding box per dot, because x position isn't real.</span><span class="w">
+      </span><span class="c1"># xmin and xmax aren't really the x bounds, because of the odd way the grob</span><span class="w">
+      </span><span class="c1"># works. They're just set to the standard x +- width/2 so that dot clusters</span><span class="w">
+      </span><span class="c1"># can be dodged like other geoms.</span><span class="w">
+      </span><span class="c1"># After position code is rewritten, each dot should have its own bounding box.</span><span class="w">
+      </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">group</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="p">,</span><span class="w">
+            </span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">binwidth</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">
+            </span><span class="n">ymax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">binwidth</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackaxismin</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackaxismax</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+    </span><span class="n">df</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+ <h2 id="ruby">Ruby</h2>
+ <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">HTMLProcessor</span>
+
+  <span class="c1"># called before parsing anything</span>
+  <span class="k">def</span> <span class="nf">start_parsing</span><span class="p">(</span><span class="n">scope_name</span><span class="p">)</span>
+    <span class="vi">@line</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="vi">@offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="vi">@text</span><span class="o">=</span> <span class="p">[]</span>
+  <span class="k">end</span>
+
+  <span class="c1"># called after parsing everything</span>
+  <span class="k">def</span> <span class="nf">end_parsing</span><span class="p">(</span><span class="n">scope_name</span><span class="p">)</span>
+    <span class="vi">@text</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+      <span class="vi">@text</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;span class='l l-</span><span class="si">#{</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">scope_name</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span><span class="s1">' '</span><span class="p">)</span><span class="si">}</span><span class="s2">'&gt;</span><span class="si">#{</span><span class="n">line</span><span class="si">}</span><span class="s2">&lt;/span&gt;"</span>
+    <span class="k">end</span>
+    <span class="nb">puts</span> <span class="vi">@text</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># called before processing a line</span>
+  <span class="k">def</span> <span class="nf">new_line</span><span class="p">(</span><span class="n">line_content</span><span class="p">)</span>
+    <span class="vi">@offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="vi">@line</span> <span class="o">=</span> <span class="n">line_content</span><span class="p">.</span><span class="nf">clone</span>
+    <span class="vi">@text</span> <span class="o">&lt;&lt;</span> <span class="vi">@line</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">open_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">position_in_current_line</span><span class="p">)</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="s2">"&lt;s class='</span><span class="si">#{</span><span class="n">tag_name</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span><span class="s2">" "</span><span class="p">)</span><span class="si">}</span><span class="s2">'&gt;"</span>
+    <span class="vi">@line</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">position_in_current_line</span> <span class="o">+</span> <span class="vi">@offset</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+    <span class="vi">@offset</span> <span class="o">+=</span> <span class="n">tag</span><span class="p">.</span><span class="nf">size</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">close_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">position_in_current_line</span><span class="p">)</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="s2">"&lt;/s&gt;"</span>
+    <span class="vi">@line</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">position_in_current_line</span> <span class="o">+</span> <span class="vi">@offset</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+    <span class="vi">@offset</span> <span class="o">+=</span> <span class="n">tag</span><span class="p">.</span><span class="nf">size</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">syntax</span> <span class="o">=</span> <span class="no">Textpow</span><span class="p">.</span><span class="nf">syntax</span><span class="p">(</span><span class="s1">'ruby'</span><span class="p">)</span> <span class="c1"># or 'source.ruby' or 'lib/textpow/syntax/source.ruby.syntax'</span>
+<span class="n">processor</span> <span class="o">=</span> <span class="no">HTMLProcessor</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">syntax</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">processor</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../boot'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="s1">'rails/all'</span>
+
+<span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="no">Bundler</span><span class="p">)</span>
+  <span class="c1"># If you precompile assets before deploying to production, use this line</span>
+  <span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="o">*</span><span class="no">Rails</span><span class="p">.</span><span class="nf">groups</span><span class="p">(</span><span class="ss">:assets</span> <span class="o">=&gt;</span> <span class="sx">%w(development test)</span><span class="p">))</span>
+  <span class="c1"># If you want your assets lazily compiled in production, use this line</span>
+  <span class="c1"># Bundler.require(:default, :assets, Rails.env)</span>
+<span class="k">end</span>
+
+<span class="nb">require</span> <span class="s1">'rubygems'</span>
+
+<span class="c1"># Set up gems listed in the Gemfile.</span>
+<span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">]</span> <span class="o">||=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../../Gemfile'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="s1">'bundler/setup'</span> <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">])</span>
+
+
+</code></pre></div></div>
 </div>
 </article>
 		</div>
