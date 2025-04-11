@@ -1,5 +1,13 @@
 library(tidyverse)
 
+download.file("https://raw.githubusercontent.com/dracula/pygments/refs/heads/master/dracula.css",
+              "_sass/highlight/dracula.scss"
+              )
+
+dr <- read_lines("_sass/highlight/dracula.scss")
+dr <- str_replace_all(dr, "  ", " ")
+dr <- str_replace(dr, fixed(" .highlight {"), " .highlight pre {")
+write_lines(dr, "_sass/highlight/dracula.scss")
 
 sassf <- list.files("_sass/highlight", pattern = ".scss", full.names = TRUE)
 sassf <- sassf[!grepl("template", sassf)]
@@ -55,7 +63,7 @@ for (i in seq_len(length(sassf))) {
 sassf |>
   basename() |>
   str_remove_all(".scss") %>%
-  paste0("'", ., "'", collapse = ",") 
+  paste0("'", ., "'", collapse = ",")
 sassf |>
   basename() |>
   str_remove_all(".scss") %>%

@@ -56,7 +56,6 @@ pygmentize -S borland -f html -a .highlight > borland.scss
 pygmentize -S coffee -f html -a .highlight > coffee.scss
 pygmentize -S colorful -f html -a .highlight > colorful.scss
 pygmentize -S default -f html -a .highlight > default.scss
-pygmentize -S dracula -f html -a .highlight > dracula.scss
 pygmentize -S emacs -f html -a .highlight > emacs.scss
 pygmentize -S friendly_grayscale -f html -a .highlight > friendly_grayscale.scss
 pygmentize -S friendly -f html -a .highlight > friendly.scss
@@ -107,7 +106,6 @@ pygmentize -S zenburn -f html -a .highlight > zenburn.scss
 -   `coffee`
 -   `colorful`
 -   `default`
--   `dracula`
 -   `emacs`
 -   `friendly_grayscale`
 -   `friendly`
@@ -160,6 +158,10 @@ Some themes created by myself:
 -   `selenized.light`
 -   `selenized.white`
 -   `skeletor`
+
+## Dracula
+
+From the official repo: <https://github.com/dracula/pygments>
 
 ## Theme Builder
 
