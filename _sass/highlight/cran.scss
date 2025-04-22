@@ -19,7 +19,7 @@ code {
 }
 
 
-$comments: #60a0b0;
+$comment: #60a0b0;
 $constant_language: #880000;
 $constant_numeric: #40a070;
 $constant_numeric_float: #40a070;
@@ -30,14 +30,13 @@ $keyword_control: #007020;
 $keyword_control_import: #008000;
 $keyword_operator: #4070a0;
 $markup_heading: #ba2121;
+$storage_type: #902000;
 $string: #4070a0;
+$string_regexp: #bb6688;
 $support: #008000;
-$support_constant: #bb6688;
 $variable: #19177c;
 
-// Additional classes, needed when migrating from Pandoc/Skyhighlighting
-$storage_type: $entity_name;
-
+// Additional classes, needed when migrating from Pandoc
 .highlight .sc{color: #40a070;} //String.Char uses CharToK
 
 // tmTheme scopes as SASS variables
@@ -45,10 +44,10 @@ $storage_type: $entity_name;
 // See more in: https://macromates.com/manual/en/language_grammars
 
 // Comments
-$comments:                  $foreground !default; //Any comments
-$comments_block:            $comments !default; //Multi-line comments /* … */,<- … -->.
-$comments_line:             $comments !default; //Line comments
-$comments_line_number-sign: $comments_line !default; // # comment
+$comment:                  $foreground !default; //Any comments
+$comment_block:            $comment !default; //Multi-line comments /* … */,<- … -->.
+$comment_line:             $comment !default; //Line comments
+$comment_line_number-sign: $comment_line !default; // # comment
 
 // Constants
 $constant_character_escape: $foreground !default; //Escape sequences.
@@ -150,19 +149,19 @@ $variable_other:     $variable !default; //Other variables, like $some_variables
 /* Comments */
 .highlight {
   // Scope: comments
-  .c   {color:$comments;font-style: italic;} //Comment
-  .cp  {color:$comments;font-style: italic;} //Comment.Preproc
-  .cpf {color:$comments;font-style: italic;} //Comment.PreprocFile
+  .c   {color:$comment;font-style: italic;} //Comment
+  .cp  {color:$comment;font-style: italic;} //Comment.Preproc
+  .cpf {color:$comment;font-style: italic;} //Comment.PreprocFile
   
   // Scope: comments.block
-  .cm  {color:$comments_block;font-style: italic;} //Comment.Multiline
+  .cm  {color:$comment_block;font-style: italic;} //Comment.Multiline
   
   // Scope: comments.line
-  .c1  {color:$comments_line;font-style: italic;} //Comment.Single
-  .cs  {color:$comments_line;font-style: italic;} //Comment.Special
+  .c1  {color:$comment_line;font-style: italic;} //Comment.Single
+  .cs  {color:$comment_line;font-style: italic;} //Comment.Special
   
   // Scope: comments.line.number-sign
-  .ch  {color:$comments_line_number-sign;font-style: italic;} //Comment.Hashbang
+  .ch  {color:$comment_line_number-sign;font-style: italic;} //Comment.Hashbang
 }
 
 /* Constants */
@@ -234,7 +233,7 @@ $variable_other:     $variable !default; //Other variables, like $some_variables
   .gh  {color:$markup_heading;font-style: italic;} //Generic.Heading
   .gu  {color:$markup_heading;font-style: italic;} //Generic.Subheading
   .ge  {color:$markup_italic; font-style:italic;} //Generic.Emph
-  .ges {font-weight:bold; font-style:italic;} //Generic.EmphStrong
+  .ges {font-weight:bold; font-style:italic;} /* Generic.EmphStrong */
 }
 
 /* Punctuation */
