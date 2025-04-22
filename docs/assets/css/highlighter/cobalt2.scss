@@ -1,398 +1,295 @@
 ---
 ---
 
-/* cobalt2 for Rouge / Pygments (css)
+/* cobalt2 Theme for pygments/Jekyll
  *
- * From https://github.com/wesbos/cobalt2
+ * Based on https://github.com/wesbos/cobalt2 tmTheme
+ * Created by Wes Bos
  *
- *
- * @author Diego H <https://github.com/dieghernan/>
+ * Adapted by Diego H <https://github.com/dieghernan/>
  */
+ 
 
-/*
- * Variables
- */
+// Top level colors
+$foreground:  #FFFFFF; // Base color: usually on Settings > Foreground
+$background:    #193549; // Background color: usually on Settings > Background
 
- $base-col: #FFFFFF; // Base color
- $bg-col: #193549; // Background color
- $code-col: $bg-col; // Not highlighted code, i.e. <code>foo</code>
- 
- // Comments
- $c-col: #0088FF; // Comment, Single ligne comments
- $cm-col: $c-col; // Comment.Multiline, Mutliline comments
- $cp-col: $c-col; // Comment.Preproc, Preprocessor comments such as <% %> in ERb
- $c1-col: $c-col; // Comment.Single, Comments that end at the end of the line
- $cs-col: $c-col; // Comment.Special, Special data in comments such as @license in Javadoc
- $ch-col: $c-col; // Comment.Hashbang, Shebang comments (e.g. #!/usr/bin/env ruby)
- $cpf-col: $cp-col; // Comment.PreprocFile, Preprocessor file comments (e.g. #include in C)
- 
- $err-col: #FF1E00; // Error, Lexer errors
- 
- // Generic
- $g-col: $base-col; // Generic, Unstyled token
- $gd-col: $g-col; // Generic.Deleted, Token value as deleted
- $ge-col: $g-col; // Generic.Emph, Token value as emphasized
- $gr-col: $err-col; // Generic.Error, Token value as an error message
- $gh-col: #9EFFFF; // Generic.Heading, Token value as a headline
- $gi-col: $g-col; // Generic.Inserted, Token value as inserted
- $gl-col: $g-col; // Generic.Lineno, Line numbers
- $go-col: $g-col; // Generic.Output, Marked as a program output
- $gp-col: $g-col; // Generic.Prompt, Marked as a command prompt
- $gs-col: $g-col; // Generic.Strong, Mark the token value as bold (for rst lexer)
- $gu-col: $gh-col; // Generic.Subheading, Marked as a subheadline
- $gt-col: $err-col; // Generic.Traceback, Mark the token as a part of an error traceback
- 
- // Keyword
- $k-col: #FF9D00; // Keyword, Any keyword
- $kc-col: #FF628C; // Keyword.Constant, Keywords that are constants
- $kd-col: $k-col; // Keyword.Declaration, Keywords used for variable declaration (e.g. var in javascript)
- $kn-col: $k-col; // Keyword.Namespace, Keywords used for namespace declarations
- $kp-col: $k-col; // Keyword.Pseudo, Keywords that aren't really keywords
- $kr-col: $k-col; // Keyword.Reserved, Keywords which are reserved (such as end in Ruby)
- $kt-col: $k-col; // Keyword.Type, Keywords wich refer to a type id (such as int in C)
- 
- // Literal
- $l-col: #FF628C; // Literal, Any literal (if not further defined)
- $ld-col: $l-col; // Literal.Date, Date literals
- 
- // Numbers
- $m-col: $l-col; // Literal.Number, Any number literal (if not further defined)
- $mb-col: $m-col; // Literal.Number.Bin, Binary literals
- $mf-col: $m-col; // Literal.Number.Float, Float numbers
- $mh-col: $m-col; // Literal.Number.Hex, Hexadecimal numbers
- $mx-col: $m-col; // Literal.Number.Hex, Hexadecimal literals
- $mi-col: $m-col; // Literal.Number.Integer, Integer literals
- $il-col: $m-col; // Literal.Number.Integer.Long, Long interger literals
- $mo-col: $m-col; // Literal.Number.Oct, Octal literals
- 
- // Strings
- $s-col: #3AD900; // Literal.String, String literals
- $sb-col: $s-col; // Literal.String.Backtick, String enclosed in backticks
- $sc-col: $s-col; // Literal.String.Char, Token type for single characters
- $dl-col: $s-col; // Literal.String.Delimiter // Delimiters in strings (e.g. "foo" in "foo bar")
- $sd-col: $s-col; // Literal.String.Doc, Documentation strings (such as in Python)
- $s2-col: $s-col; // Literal.String.Double, Double quoted strings
- $se-col: #80FFC2; // Literal.String.Escape, Escaped sequences in strings
- $sh-col: $s-col; // Literal.String.Heredoc, For "heredoc" strings (e.g. in Ruby)
- $si-col: $s-col; // Literal.String.Interpol, For interpoled part in strings (e.g. in Ruby)
- $sx-col: $s-col; // Literal.String.Other, Token type for any other strings (for example %q{foo} string constructs in Ruby)
- $sr-col: #80FFC2; // Literal.String.Regex, Regular expressions literals
- $s1-col: $s-col; // Literal.String.Single, Single quoted strings
- $ss-col: $s-col; // Literal.String.Symbol, Symbols (such as :foo in Ruby)
- $sa-col: $s-col; // Literal.String.Affix, Affix strings (such as %w{foo} in Ruby)
- 
- // Names
- $n-col: $base-col; // Name, Variable/function names
- $na-col: $n-col; // Name.Attribute, Attributes (in HTML for instance)
- $nb-col: #80FFBB; // Name.Builtin, Builtin names which are available in the global namespace
- $bp-col: $nb-col; // Name.Builtin.Pseudo, Builtin names that are implicit (such as self in Ruby)
- $nc-col: #FFC600; // Name.Class, For class declaration
- $no-col: $n-col; // Name.Constant, For constants
- $nd-col: $n-col; // Name.Decorator, For decorators in languages such as Python or Java
- $ni-col: $n-col; // Name.Entity, Token for entitites such as &nbsp; in HTML
- $ne-col: $err-col; // Name.Exception, Exceptions and errors (e.g. ArgumentError in Ruby)
- $nf-col: #FFB054; // Name.Function, Function names
- $nl-col: $n-col; // Name.Label, For label names
- $nn-col: $nf-col; // Name.Namespace, Token for namespaces
- $nx-col: $n-col; // Name.Other, For other names
- $py-col: $n-col; // Name.Property, Token for properties
- $nt-col: $gh-col; // Name.Tag, Tag mainly for markup such as XML or HTML
- $nv-col: $nf-col; // Name.Variable, Token for variables
- $vc-col: $nf-col; // Name.Variable.Class, Token for class variables (e.g. @@var in Ruby)
- $vg-col: $nf-col; // Name.Variable.Global, For global variables (such as $LOAD_PATH in Ruby)
- $vi-col: $nf-col; // Name.Variable.Instance, Token for instance variables (such as @var in Ruby)
- $fm-col: $nf-col; // Name.Function.Magic, Token for magic functions (e.g. __init__ in Python)
- $vm-col: $nf-col; // Name.Variable.Magic, Token for magic variables (e.g. $0 in Ruby)
- 
- // Operators
- $o-col: #FF628C; // Operator, Operators (commonly +, -, /, *)
- $ow-col: $o-col; // Operator.Word, Word operators (e.g. and)
- 
- // Others
- $x-col: $base-col; // Other, Token for data not matched by a parser (e.g. HTML markup in PHP code)
- $p-col: #E1EFFF; // Punctuation, Punctuation which is not an operator
- $pm-col: $p-col; // Punctuation.Markup, Punctuation used in markup
- $w-col: $base-col; // Text.Whitespace, Specially highlighted whitespace
- 
- /*
-   * Styles
-   */
- 
- // Overall
- .highlight table td {
-   padding: 5px;
- }
- .highlight table pre {
-   margin: 0;
- }
- 
- // Not highlighted color
- code {
-   color: $code-col;
- }
- 
- .highlight pre {
-   background: $bg-col;
-   color: $base-col;
- }
- 
- // Comments
- .highlight .c {
-   color: $c-col;
-   font-style: italic;
- } // Comment
- .highlight .cm {
-   color: $cm-col;
-      font-style: italic;
- } // Comment.Multiline
- .highlight .cp {
-   color: $cp-col;
-      font-style: italic;
- } // Comment.Preproc
- .highlight .c1 {
-   color: $c1-col;
-      font-style: italic;
- } // Comment.Single
- .highlight .cs {
-   color: $cs-col;
-      font-style: italic;
- } // Comment.Special
- .highlight .ch {
-   color: $ch-col;
-      font-style: italic;
- } /* Comment.Hashbang */
- .highlight .cpf {
-   color: $cpf-col;
-      font-style: italic;
- } /* Comment.PreprocFile */
- 
- .highlight .err {
-   color: $err-col;
- } // Error
- 
- // Generic
- .highlight .g {
-   color: $g-col;
- } // Generic
- .highlight .gd {
-   color: $gd-col;
- } // Generic.Deleted
- .highlight .ge {
-   color: $ge-col;
- } // Generic.Emph
- .highlight .gr {
-   color: $gr-col;
- } // Generic.Error
- .highlight .gh {
-   color: $gh-col;
- } // Generic.Heading
- .highlight .gi {
-   color: $gi-col;
- } // Generic.Inserted
- .highlight .gl {
-   color: $gl-col;
- } // Generic.Lineno
- .highlight .go {
-   color: $go-col;
- } // Generic.Output
- .highlight .gp {
-   color: $gp-col;
- } // Generic.Prompt
- .highlight .gs {
-   color: $gs-col;
- } // Generic.Strong
- .highlight .gu {
-   color: $gu-col;
- } // Generic.Subheading
- .highlight .gt {
-   color: $gt-col;
- } // Generic.Traceback
- .highlight .ges {
-   font-weight: bold;
-   font-style: italic;
- } // Generic.EmphStrong
- 
- // Keyword
- .highlight .k {
-   color: $k-col;
- } // Keyword
- .highlight .kc {
-   color: $kc-col;
- } // Keyword.Constant
- .highlight .kd {
-   color: $kd-col;
- } // Keyword.Declaration
- .highlight .kn {
-   color: $kn-col;
- } // Keyword.Namespace
- .highlight .kp {
-   color: $kp-col;
- } // Keyword.Pseudo
- .highlight .kr {
-   color: $kr-col;
- } // Keyword.Reserved
- .highlight .kt {
-   color: $kt-col;
- } // Keyword.Type
- 
- // Literal
- .highlight .l {
-   color: $l-col;
- } // Literal
- .highlight .ld {
-   color: $ld-col;
- } // Literal.Date
- .highlight .m {
-   color: $m-col;
- } // Literal.Number
- .highlight .mb {
-   color: $mb-col;
- } // Literal.Number.Bin
- .highlight .mf {
-   color: $mf-col;
- } // Literal.Number.Float
- .highlight .mh {
-   color: $mh-col;
- } // Literal.Number.Hex
- .highlight .mx {
-   color: $mx-col;
- } // Literal.Number.Hex
- .highlight .mi {
-   color: $mi-col;
- } // Literal.Number.Integer
- .highlight .il {
-   color: $il-col;
- } // Literal.Number.Integer.Long
- .highlight .mo {
-   color: $mo-col;
- } // Literal.Number.Oct
- .highlight .s {
-   color: $s-col;
- } // Literal.String
- .highlight .sb {
-   color: $sb-col;
- } // Literal.String.Backtick
- .highlight .sc {
-   color: $sc-col;
- } // Literal.String.Char
- .highlight .dl {
-   color: $dl-col;
- } // Literal.String.Delimiter
- .highlight .sd {
-   color: $sd-col;
- } // Literal.String.Doc
- .highlight .s2 {
-   color: $s2-col;
- } // Literal.String.Double
- .highlight .se {
-   color: $se-col;
- } // Literal.String.Escape
- .highlight .sh {
-   color: $sh-col;
- } // Literal.String.Heredoc
- .highlight .si {
-   color: $si-col;
- } // Literal.String.Interpol
- .highlight .sx {
-   color: $sx-col;
- } // Literal.String.Other
- .highlight .sr {
-   color: $sr-col;
- } // Literal.String.Regex
- .highlight .s1 {
-   color: $s1-col;
- } // Literal.String.Single
- .highlight .ss {
-   color: $ss-col;
- } // Literal.String.Symbol
- .highlight .sa {
-   color: $sa-col;
- } // Literal.String.Affix
- 
- // Names
- .highlight .n {
-   color: $n-col;
- } // Name
- .highlight .na {
-   color: $na-col;
- } // Name.Attribute
- .highlight .nb {
-   color: $nb-col;
- } // Name.Builtin
- .highlight .bp {
-   color: $bp-col;
- } // Name.Builtin.Pseudo
- .highlight .nc {
-   color: $nc-col;
- } // Name.Class
- .highlight .no {
-   color: $no-col;
- } // Name.Constant
- .highlight .nd {
-   color: $nd-col;
- } // Name.Decorator
- .highlight .ni {
-   color: $ni-col;
- } // Name.Entity
- .highlight .ne {
-   color: $ne-col;
- } // Name.Exception
- .highlight .nf {
-   color: $nf-col;
- } // Name.Function
- .highlight .nl {
-   color: $nl-col;
- } // Name.Label
- .highlight .nn {
-   color: $nn-col;
- } // Name.Namespace
- .highlight .nx {
-   color: $nx-col;
- } // Name.Other
- .highlight .py {
-   color: $py-col;
- } // Name.Property
- .highlight .nt {
-   color: $nt-col;
- } // Name.Tag
- .highlight .nv {
-   color: $nv-col;
- } // Name.Variable
- .highlight .vc {
-   color: $vc-col;
- } // Name.Variable.Class
- .highlight .vg {
-   color: $vg-col;
- } // Name.Variable.Global
- .highlight .vi {
-   color: $vi-col;
- } // Name.Variable.Instance
- .highlight .fm {
-   color: $fm-col;
- } // Name.Function.Magic
- .highlight .vm {
-   color: $vm-col;
- } // Name.Variable.Magic
- 
- // Operators
- .highlight .o {
-   color: $o-col;
- } // Operator
- .highlight .ow {
-   color: $ow-col;
- } // Operator.Word
- 
- // Others
- .highlight .x {
-   color: $x-col;
- } // Other
- .highlight .p {
-   color: $p-col;
- } // Punctuation
- .highlight .pm {
-   color: $pm-col;
- } // Punctuation.Markup
- .highlight .w {
-   color: $w-col;
- } // Text.Whitespace
- 
+$comment: #0088FF;
+$constant_character_escape: #FF628C;
+$constant_language: $constant_character_escape;
+$constant_numeric: $constant_character_escape;
+$constant_other: $constant_character_escape;
+$entity_name: #ffc600;
+$entity_name_tag: #2AFFDF;
+$entity_name_type: #FB94FF;
+$entity_other_attribute-name: #ffc600;
+$invalid: #F8F8F8;
+$keyword_control: #FF9D00;
+$keyword_operator: #FF9D00;
+$markup_bold: #C1AFFF;
+$markup_heading: #C8E4FD;
+$markup_italic: #B8FFD9;
+$punctuation_definition: #E1EFFF;
+$storage_type: #ffc600;
+$string: #3AD900;
+$string_quoted: #9EFF80;
+$string_regexp: #80FFC2;
+$support: #80FFBB;
+$support_constant:#EB939A;
+$variable: #CCCCCC;
+$variable_language: #FB94FF;
+
+// tmTheme scopes as SASS variables
+// Naming convention: scope_without_dots
+// See more in: https://macromates.com/manual/en/language_grammars
+
+
+// Comments
+$comment:                  $foreground !default; //Any comments
+$comment_block:            $comment !default; //Multi-line comments /* … */,<- … -->.
+$comment_line:             $comment !default; //Line comments
+$comment_line_number-sign: $comment_line !default; // # comment
+
+// Constants
+$constant_character_escape: $foreground !default; //Escape sequences.
+$constant_language:         $foreground !default; //Special constants like true, false,nil
+
+// Constant: Numbers 
+$constant_numeric:          $foreground !default; //Any number
+$constant_numeric_float:    $constant_numeric !default; // Floating number
+$constant_numeric_integer:  $constant_numeric !default; //Integers
+
+// Other constants
+$constant_other:        $foreground !default; //Any other constants, e.g. colors in CSS.
+$constant_other_symbol: $constant_other !default; // 
+
+// Entities: Part of the document, for example a chapter, class, function, or tag.
+$entity_name:                 $foreground !default; //Larger entity
+$entity_name_tag:             $entity_name !default; //Tag name.
+$entity_name_type:            $entity_name !default; //Type declaration or class.
+$entity_other_attribute-name: $foreground !default; //Name of an attribute (mainly in tags).
+
+// Invalid: Stuff that is invalid, illegal or deprecated
+// Mapped to errors in Pygments
+$invalid: $foreground !default;
+
+// Keywords
+$keyword_control:         $foreground !default; //Related to flow control: continue, while, return, etc.
+$keyword_control_import:  $keyword_control !default;
+$keyword_operator:        $foreground !default; //Operators can be textual (e.g. or) or be characters.
+
+// Markup: For markup languages and generally applies to larger subsets of the text
+$markup_bold:             $foreground !default; //Bold text.
+$markup_heading:          $foreground !default; //Section header.
+$markup_italic:           $foreground !default; //Italic text
+
+
+// Punctuation
+// Specific of SublimeText, see:
+// https://www.sublimetext.com/docs/scope_naming.html#alphabetical-reference
+$punctuation_definition: $foreground !default;
+
+// Storage: These are keywords in Pygments
+$storage_type: $foreground !default; //Type of something, class, function, int, var, etc.
+
+
+// Strings
+$string:                $foreground !default; //Strings
+$string_interpolated:   $string !default; //Strings which are "evaluated": `date`, $(pwd).
+$string_quoted:         $string !default; //Quoted strings
+$string_quoted_single:  $string_quoted !default; //Single quoted strings: 'foo'.
+$string_quoted_double:  $string_quoted !default; //Double quoted strings: "foo".
+$string_quoted_other:   $string_quoted !default; //Other types of quoting: $'shell', %s{...}.
+$string_regexp:         $string !default; //Regular expressions: /(\w+)/.
+
+// Support: Built-in things
+$support:           $foreground !default; //Things provided by a framework or library.
+$support_constant:  $support !default; //Constants (magic values) provided by the framework/library.
+$support_type:      $support !default; //Types provided by the framework/library,
+
+
+// Variable
+$variable:           $foreground !default; //Not all languages allow easy identification (and thus markup) of these.
+$variable_language:  $variable !default; //Reserved language variables like this,super,self, etc.
+$variable_other:     $variable !default; //Other variables, like $some_variables.
+
+// Not mapped Pygment classes, we don't provide special styles here
+// but can be easily added as:
+// .highlight .esc {color: myColor;}
+// Pygment css class -> Description
+// .esc -> Escape 
+// .g   -> Generic (A generic, unstyled token. Normally not used)
+// .gd  -> Generic.Deleted (Marks the token value as deleted)
+// .gi  -> Generic.Inserted (Marks the token value as inserted)
+// .go  -> Generic.Output (Marks the token value as program output)
+// .gp  -> Generic.Prompt (Marks the token value as command prompt)
+// .hll -> High-lighted Line
+// .kr  -> Keyword.Reserved (For reserved keywords)
+// .l   -> Literal (For any literal if not further defined)
+// .ld  -> Literal.Date (for date literals)
+// .n   -> Name (For any name (variable names, function names, classes))
+// .nx  -> Name.Other (Other names. Normally unused.)
+// .x   -> Other (special token for data not matched by a parser (e.g. HTML markup in PHP code))
+// .sa  -> String.Affix (Token type for affixes)
+// .sc  -> String.Char (Token type for single characters (e.g. Java, C).)
+// .sd  -> String.Doc (Token type for documentation strings)
+// .w   -> Whitespace (for whitespace)
+
+// Styles
+
+/* Overall */
+ .highlight table td {padding: 5px;}
+ .highlight table pre {margin: 0;}
+ .highlight pre {background:$background; color:$foreground;}
+
+
+
+// Classes
+/* Comments */
+.highlight {
+  // Scope: comments
+  .c   {color:$comment; font-style: italic;} //Comment
+  .cp  {color:$comment; font-style: italic} //Comment.Preproc
+  .cpf {color:$comment; font-style: italic} //Comment.PreprocFile
+  
+  // Scope: comments.block
+  .cm  {color:$comment_block; font-style: italic} //Comment.Multiline
+  
+  // Scope: comments.line
+  .c1  {color:$comment_line; font-style: italic} //Comment.Single
+  .cs  {color:$comment_line; font-style: italic} //Comment.Special
+  
+  // Scope: comments.line.number-sign
+  .ch  {color:$comment_line_number-sign; font-style: italic} //Comment.Hashbang
+}
+
+/* Constants */
+.highlight {
+  // Scope: constant.character.escape
+  .se  {color:$constant_character_escape;} //String.Escape
+  
+  // Scope: constant.language
+  .kc  {color:$constant_language;} //Keyword.Constant
+  
+  // Scope: constant.ither
+  .no  {color:$constant_other;} //Name.Constant
+  .ss  {color:$constant_other_symbol;} //String.Symbol
+}
+
+/* Numbers */
+.highlight {
+  // Scope: constant.numeric and children
+  .m   {color:$constant_numeric;} //Number
+  .mb  {color:$constant_numeric;} //Number.Bin
+  .mh  {color:$constant_numeric;} //Number.Hex
+  .mo  {color:$constant_numeric;} //Number.Oct
+  .mf  {color:$constant_numeric_float;} //Number.Float
+  .mi  {color:$constant_numeric_integer;} //Number.Integer
+  .il  {color:$constant_numeric_integer;} //Number.Integer.Long
+}
+
+/* Entities */
+.highlight {
+  // Scope: entity.name
+  .nc {color:$entity_name;} //Name.Class
+  .nd {color:$entity_name;} //Name.Decorator
+  .ne {color:$entity_name;} //Name.Entity
+  .nf {color:$entity_name;} //Name.Function
+  .py {color:$entity_name;} //Name.Property
+
+  .nt {color:$entity_name_tag;} //Name.Tag
+  .nn {color:$entity_name_type;} //Name.Namespace
+  
+  // Scope: entity.other
+  .na {color:$entity_other_attribute-name; font-style: italic;} //Name.Attribute
+}
+
+/* Invalid */
+.highlight {
+  // Scope: Invalid
+  .err {color:$invalid; background-color: #800F00;} //Error
+  .gr  {color:$invalid; background-color: #800F00;} //Generic.Error
+  .gt  {color:$invalid; background-color: #800F00;} //Generic.Traceback
+  .ne  {color:$invalid; background-color: #800F00;} //Name.Exception
+}
+
+/* Keywords */
+.highlight {
+  // Scope: keyword.control
+  .k  {color:$keyword_control;} //Keyword
+  .kn {color:$keyword_control_import;} //Keyword.Namespace
+  
+  // Scope: keyword.operator
+  .o  {color:$keyword_operator;} //Operator
+  .ow {color:$keyword_operator;} //Operator.Word
+}
+
+/* Markup */
+// We add italics, etc. on css
+.highlight {
+  // Scope: Subclasses of markup
+  .gs  {color:$markup_bold; font-weight:bold;} //Generic.Strong
+  .gh  {color:$markup_heading; background-color: #15232D;} //Generic.Heading
+  .gu  {color:$markup_heading; background-color: #15232D;} //Generic.Subheading
+  .ge  {color:$markup_italic; font-style:italic;} //Generic.Emph
+  .ges {font-weight:bold; font-style:italic;} //Generic.EmphStrong
+}
+
+/* Punctuation */
+.highlight {
+  // Scope: punctuation.definition
+  .p  {color:$punctuation_definition;} //Punctuation
+  .pm {color:$punctuation_definition;} //Punctuation.Marker
+  .dl {color:$punctuation_definition;} //String.Delimiter
+  .sh {color:$punctuation_definition;} //String.Heredoc
+}
+
+/* Storage */
+.highlight {
+  // Scope: storage.type
+  .kd {color:$storage_type;} //Keyword.Declaration
+  .kt {color:$storage_type;} //Keyword.Type
+}
+
+/* String */
+.highlight {
+  // Scope: string
+  .s  {color:$string;} //String
+  
+  // Scope: string.quoted
+  .sb {color:$string_quoted;} //String.Backtick
+  .s1 {color:$string_quoted_single;} //String.Single
+  .s2 {color:$string_quoted_double;} //String.Double
+  .sx {color:$string_quoted_other;} //String.Other
+  
+  // Scope: string.interpolated
+  .si {color:$string_interpolated;} //String.Interpol
+  
+  // Scope: string.regexp
+  .sr {color:$string_regexp;} //String.Regex
+}
+
+/* Support */
+.highlight {
+  // Scope: support
+  .nb {color:$support;} //Name.Builtin
+  .bp {color:$support;} //Name.Builtin.Pseudo
+  
+  // Scope: support.constant
+  .fm {color:$support_constant;} //Name.Function.Magic
+  .vm {color:$support_constant;} //Name.Variable.Magic
+  
+  .nl {color: $support_type}; //Name.Label
+}
+
+/* Variable */
+.highlight {
+  .vi {color:$variable; background-color: #0D3A58;} //Name.Variable.Instance
+  
+  .kp {color:$variable_language;} //Keyword.Pseudo
+  
+  // Scope: variable.other
+  .nv {color:$variable_other; background-color: #0D3A58;} // Name.Variable
+  .vc {color:$variable_other; background-color: #0D3A58;} // Name.Variable.Class
+  .vg {color:$variable_other; background-color: #0D3A58;} // Name.Variable.Global
+}
