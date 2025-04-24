@@ -5,8 +5,8 @@
  *
  * Adapted by Diego H <https://github.com/dieghernan/>
  */
- 
- $white: #ffffff;
+
+$white: #ffffff;
 $lightblue: #dce7fd;
 $yellow: #f3e4a2;
 $orange: #ffb793;
@@ -40,8 +40,8 @@ $keyword_operator: $yellow;  // Prismjs: operator
 $markup_bold: $foreground; // Prismjs: bold
 $markup_italic: $foreground; //Prismjs: italic
 $markup_heading: $purple; // Prismjs: title
-$punctuation_definition: $lightblue; // Prismjs: punctuation 
-$storage_type: $purple; // Prismjs: keyword 
+$punctuation_definition: $lightblue; // Prismjs: punctuation
+$storage_type: $purple; // Prismjs: keyword
 $string: $blue; // Prismjs: string
 $string_regexp: $green; // Prismjs: regex
 $support_type: $blue; // Prismjs: property
@@ -65,10 +65,31 @@ $variable: $foreground; // Prismjs: variable
 }
 .language-css .highlight {
   .nt {color: $purple;}
+  .cp {color: $orchid; font-weight: bold;}
+  .k {color: $yellow;}
 }
 .language-php .highlight {
   .k, .kd, .kt {color: $green;}
   .n {color: $blue;}
+}
+.language-sass .highlight {
+  .s, .s1, .s2, .sb, .sx, .sr, .no {color: $lightblue;}
+  .k {color: $yellow;}
+  .nv, .si {color: $green;}
+  .ow, .o, .nt {color: $purple;}
+  .nn, {color: $orchid;}
+  .na {color: $blue;}
+}
+
+.language-markdown .highlight {
+  .sb {color: $green;}
+}
+
+.language-yaml .highlight {
+  .nt, .nl, .nv {color: $green;}
+  .na {color: $purple;}
+  .kt {color: $yellow;}
+  .s, .s1, .s2, .sx, .sb {color: $foreground}
 }
 // tmTheme scopes as SASS variables
 // Naming convention: scope_without_dots
@@ -84,14 +105,14 @@ $comment_line_number-sign: $comment_line !default; // # comment
 $constant_character_escape: $foreground !default; //Escape sequences.
 $constant_language:         $foreground !default; //Special constants like true, false,nil
 
-// Constant: Numbers 
+// Constant: Numbers
 $constant_numeric:          $foreground !default; //Any number
 $constant_numeric_float:    $constant_numeric !default; // Floating number
 $constant_numeric_integer:  $constant_numeric !default; //Integers
 
 // Other constants
 $constant_other:        $foreground !default; //Any other constants, e.g. colors in CSS.
-$constant_other_symbol: $constant_other !default; // 
+$constant_other_symbol: $constant_other !default; //
 
 // Entities: Part of the document, for example a chapter, class, function, or tag.
 $entity_name:                 $foreground !default; //Larger entity
@@ -147,7 +168,7 @@ $variable_other:     $variable !default; //Other variables
 // but can be easily added as:
 // .highlight .esc {color: myColor;}
 // Pygment css class -> Description
-// .esc -> Escape 
+// .esc -> Escape
 // .g   -> Generic (A generic, unstyled token. Normally not used)
 // .gd  -> Generic.Deleted (Marks the token value as deleted)
 // .gi  -> Generic.Inserted (Marks the token value as inserted)
@@ -183,14 +204,14 @@ $variable_other:     $variable !default; //Other variables
   .c   {color:$comment;} //Comment
   .cp  {color:$comment;} //Comment.Preproc
   .cpf {color:$comment;} //Comment.PreprocFile
-  
+
   // Scope: comments.block
   .cm  {color:$comment_block;} //Comment.Multiline
-  
+
   // Scope: comments.line
   .c1  {color:$comment_line;} //Comment.Single
   .cs  {color:$comment_line;} //Comment.Special
-  
+
   // Scope: comments.line.number-sign
   .ch  {color:$comment_line_number-sign;} //Comment.Hashbang
 }
@@ -199,10 +220,10 @@ $variable_other:     $variable !default; //Other variables
 .highlight {
   // Scope: constant.character.escape
   .se  {color:$constant_character_escape;} //String.Escape
-  
+
   // Scope: constant.language
   .kc  {color:$constant_language;} //Keyword.Constant
-  
+
   // Scope: constant.other
   .no  {color:$constant_other;} //Name.Constant
   .ss  {color:$constant_other_symbol;} //String.Symbol
@@ -231,7 +252,7 @@ $variable_other:     $variable !default; //Other variables
 
   .nt {color:$entity_name_tag;} //Name.Tag
   .nn {color:$entity_name_type;} //Name.Namespace
-  
+
   // Scope: entity.other
   .na {color:$entity_other_attribute-name;} //Name.Attribute
 }
@@ -250,7 +271,7 @@ $variable_other:     $variable !default; //Other variables
   // Scope: keyword.control
   .k  {color:$keyword_control;} //Keyword
   .kn {color:$keyword_control_import;} //Keyword.Namespace
-  
+
   // Scope: keyword.operator
   .o  {color:$keyword_operator;} //Operator
   .ow {color:$keyword_operator;} //Operator.Word
@@ -287,16 +308,16 @@ $variable_other:     $variable !default; //Other variables
 .highlight {
   // Scope: string
   .s  {color:$string;} //String
-  
+
   // Scope: string.quoted
   .sb {color:$string_quoted;} //String.Backtick
   .s1 {color:$string_quoted_single;} //String.Single
   .s2 {color:$string_quoted_double;} //String.Double
   .sx {color:$string_quoted_other;} //String.Other
-  
+
   // Scope: string.interpolated
   .si {color:$string_interpolated;} //String.Interpol
-  
+
   // Scope: string.regexp
   .sr {color:$string_regexp;} //String.Regex
 }
@@ -306,20 +327,20 @@ $variable_other:     $variable !default; //Other variables
   // Scope: support
   .nb {color:$support;} //Name.Builtin
   .bp {color:$support;} //Name.Builtin.Pseudo
-  
+
   // Scope: support.constant
   .fm {color:$support_constant;} //Name.Function.Magic
   .vm {color:$support_constant;} //Name.Variable.Magic
-  
+
   .nl {color: $support_type}; //Name.Label
 }
 
 /* Variable */
 .highlight {
   .vi {color:$variable;} //Name.Variable.Instance
-  
+
   .kp {color:$variable_language;} //Keyword.Pseudo
-  
+
   // Scope: variable.other
   .nv {color:$variable_other;} // Name.Variable
   .vc {color:$variable_other;} // Name.Variable.Class
