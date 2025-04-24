@@ -632,5 +632,143 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 ```
 
+## SASS
+
+
+```sass
+
+@import "foo.scss";
+
+@media (min-width: 600px) {}
+.seriousError {
+    @extend .error;
+}
+
+@for $i from 1 through 3 {}
+
+
+@font-face {
+	font-family: "opensans";
+	src: font-url("opensans.ttf");
+}
+
+$width: 5em;
+
+#main {
+    width: $width;
+}
+
+p.#{$name} {
+    #{$attr}-color: blue;
+}
+
+```
+
+## Markdown
+
+
+```markdown
+
+Title 1
+==
+
+Title 2
+-------
+
+# Title 1
+## Title 2
+### Title 3
+#### Title 4
+##### Title 5
+###### Title 6
+
+Normal text
+
+*Italic*
+**Bold on
+multiple lines**
+*Italic on
+multiple lines too*
+__It also works with underscores__
+_It also works with underscores_
+
+__An empty line
+
+is not allowed__
+
+[Prism](http://www.prismjs.com)
+[Prism](http://www.prismjs.com “Prism”)
+
+[prism link]: http://www.prismjs.com (Prism)
+[Prism] [prism link]
+
+* This is
+* an unordered list
+
+1. This is an
+2. ordered list
+
+* *List item in italic*
+* **List item in bold**
+* [List item as a link](http://example.com “This is an example”)
+
+> This is a quotation
+>> With another quotation inside
+> _italic here_, __bold there__
+> And a [link](http://example.com)
+
+
+Inline code between backticks `Paragraph`
+
+    some_code(); /* Indented
+    with four spaces */
+
+	some_code(); /* Indented
+	with a tab */
+
+
+```
+
+
+## YAML
+
+
+```yaml
+
+
+%YAML 1.2
+--- !<tag:clarkevans.com,2002:invoice>
+invoice: 34843
+date   : 2001-01-23
+bill-to: &id001
+  given  : Chris
+  family : Dumars
+  address:
+    lines: |
+      458 Walkman Dr.
+      Suite #292
+    city    : Royal Oak
+    state   : MI
+    postal  : 48046
+ship-to:
+  <<: *id001
+  product:
+    - sku         : BL394D
+      quantity    : 4
+      description : Basketball
+      price       : 450.00
+    - sku         : BL4438H
+      quantity    : 1
+      description : Super Hoop
+      price       : 2392.00
+tax  : 251.42
+total: 4443.52
+comments:
+    Late afternoon is best.
+    Backup contact is Nancy
+
+
+```
+
 
 </div>
