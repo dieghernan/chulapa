@@ -18,8 +18,8 @@
       },
       "headline": "Syntax highlighting demo",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2025-04-24T20:12:22+02:00",
-      "dateModified": "2025-04-24T20:12:22+02:00",
+      "datePublished": "2025-04-24T20:26:53+02:00",
+      "dateModified": "2025-04-24T20:26:53+02:00",
       "author": {
         "@type": "Person",
         "name": "dieghernan"
@@ -222,7 +222,7 @@
 			</button>
 		</p>
 		<nav class="navbar-nav px-3 my-auto">		  <p class="mb-2" ><a class="nav-link font-weight-bold lead" href="#">Syntax highlighting demo</a></p>		
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#javascript" class="nav-link">Javascript</a></li><li class="nav-item nav d-block"><a href="#python" class="nav-link">Python</a></li><li class="nav-item nav d-block"><a href="#java" class="nav-link">Java</a></li><li class="nav-item nav d-block"><a href="#c" class="nav-link">C#</a></li><li class="nav-item nav d-block"><a href="#html" class="nav-link">HTML</a></li><li class="nav-item nav d-block"><a href="#r" class="nav-link">R</a></li><li class="nav-item nav d-block"><a href="#ruby" class="nav-link">Ruby</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#javascript" class="nav-link">Javascript</a></li><li class="nav-item nav d-block"><a href="#python" class="nav-link">Python</a></li><li class="nav-item nav d-block"><a href="#java" class="nav-link">Java</a></li><li class="nav-item nav d-block"><a href="#c" class="nav-link">C#</a></li><li class="nav-item nav d-block"><a href="#html" class="nav-link">HTML</a></li><li class="nav-item nav d-block"><a href="#r" class="nav-link">R</a></li><li class="nav-item nav d-block"><a href="#ruby" class="nav-link">Ruby</a></li><li class="nav-item nav d-block"><a href="#sass" class="nav-link">SASS</a></li><li class="nav-item nav d-block"><a href="#markdown" class="nav-link">Markdown</a></li><li class="nav-item nav d-block"><a href="#yaml" class="nav-link">YAML</a></li></ul>
 		</nav>   
 	</div>
 			<p>This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.</p>
@@ -806,6 +806,131 @@
 <span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">]</span> <span class="o">||=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../../Gemfile'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
 
 <span class="nb">require</span> <span class="s1">'bundler/setup'</span> <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">])</span>
+
+
+</code></pre></div></div>
+ <h2 id="sass">SASS</h2>
+ <div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">@import</span> <span class="s">"foo.scss";</span>
+
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">600px</span><span class="p">)</span> <span class="err">{}</span>
+<span class="nc">.seriousError</span> <span class="err">{</span>
+    <span class="k">@extend</span> <span class="nc">.error</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">3</span> <span class="err">{}</span>
+
+
+<span class="k">@font-face</span> <span class="err">{</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">"opensans"</span><span class="err">;</span>
+	<span class="nl">src</span><span class="p">:</span> <span class="nf">font-url</span><span class="p">(</span><span class="s2">"opensans.ttf"</span><span class="p">)</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nv">$width</span><span class="p">:</span> <span class="m">5em</span><span class="err">;</span>
+
+<span class="nn">#main</span> <span class="err">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nv">$width</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nt">p</span><span class="nc">.</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span> <span class="err">{</span>
+    <span class="si">#{</span><span class="nv">$attr</span><span class="si">}</span><span class="na">-color</span><span class="p">:</span> <span class="no">blue</span><span class="err">;</span>
+<span class="err">}</span>
+
+</code></pre></div></div>
+ <h2 id="markdown">Markdown</h2>
+ <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="gu">Title 1
+==
+</span>
+<span class="gh">Title 2
+-------
+</span>
+<span class="gh"># Title 1</span>
+<span class="gu">## Title 2</span>
+<span class="gu">### Title 3</span>
+<span class="gu">#### Title 4</span>
+<span class="gu">##### Title 5</span>
+<span class="gu">###### Title 6</span>
+
+Normal text
+
+<span class="ge">*Italic*</span>
+<span class="ge">**</span>Bold on
+multiple lines<span class="ge">**</span>
+<span class="err">*</span>Italic on
+multiple lines too<span class="err">*</span>
+<span class="gs">__It also works with underscores__</span>
+<span class="ge">_It also works with underscores_</span>
+
+<span class="ge">__</span>An empty line
+
+is not allowed__
+
+<span class="p">[</span><span class="nv">Prism</span><span class="p">](</span><span class="sx">http://www.prismjs.com</span><span class="p">)</span>
+<span class="p">[</span><span class="nv">Prism</span><span class="p">](</span><span class="sx">http://www.prismjs.com</span> “Prism”)
+
+<span class="p">[</span><span class="ss">prism link</span><span class="p">]:</span> <span class="sx">http://www.prismjs.com</span> <span class="nn">(Prism)</span>
+[Prism] [prism link]
+<span class="p">
+*</span> This is
+<span class="p">*</span> an unordered list
+<span class="p">
+1.</span> This is an
+<span class="p">2.</span> ordered list
+<span class="p">
+*</span> <span class="ge">*List item in italic*</span>
+<span class="p">*</span> <span class="gs">**List item in bold**</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">List item as a link</span><span class="p">](</span><span class="sx">http://example.com</span> “This is an example”)
+<span class="gt">
+&gt; This is a quotation</span>
+<span class="gt">&gt;&gt; With another quotation inside</span>
+<span class="gt">&gt; _italic here_, __bold there__</span>
+<span class="gt">&gt; And a [link](http://example.com)</span><span class="sb">
+
+
+</span>Inline code between backticks <span class="sb">`Paragraph`
+
+    some_code(); /* Indented
+    with four spaces */
+
+	some_code(); /* Indented
+	with a tab */
+
+
+</span></code></pre></div></div>
+ <h2 id="yaml">YAML</h2>
+ <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="nt">%YAML</span> <span class="m">1.2</span>
+<span class="nn">---</span> <span class="kt">!&lt;tag:clarkevans.com,2002:invoice&gt;</span>
+<span class="na">invoice</span><span class="pi">:</span> <span class="m">34843</span>
+<span class="na">date   </span><span class="pi">:</span> <span class="s">2001-01-23</span>
+<span class="na">bill-to</span><span class="pi">:</span> <span class="nl">&amp;id001</span>
+  <span class="na">given  </span><span class="pi">:</span> <span class="s">Chris</span>
+  <span class="na">family </span><span class="pi">:</span> <span class="s">Dumars</span>
+  <span class="na">address</span><span class="pi">:</span>
+    <span class="na">lines</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">458 Walkman Dr.</span>
+      <span class="s">Suite #292</span>
+    <span class="na">city    </span><span class="pi">:</span> <span class="s">Royal Oak</span>
+    <span class="na">state   </span><span class="pi">:</span> <span class="s">MI</span>
+    <span class="na">postal  </span><span class="pi">:</span> <span class="m">48046</span>
+<span class="na">ship-to</span><span class="pi">:</span>
+  <span class="na">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*id001</span>
+  <span class="na">product</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">sku         </span><span class="pi">:</span> <span class="s">BL394D</span>
+      <span class="na">quantity    </span><span class="pi">:</span> <span class="m">4</span>
+      <span class="na">description </span><span class="pi">:</span> <span class="s">Basketball</span>
+      <span class="na">price       </span><span class="pi">:</span> <span class="m">450.00</span>
+    <span class="pi">-</span> <span class="na">sku         </span><span class="pi">:</span> <span class="s">BL4438H</span>
+      <span class="na">quantity    </span><span class="pi">:</span> <span class="m">1</span>
+      <span class="na">description </span><span class="pi">:</span> <span class="s">Super Hoop</span>
+      <span class="na">price       </span><span class="pi">:</span> <span class="m">2392.00</span>
+<span class="na">tax  </span><span class="pi">:</span> <span class="m">251.42</span>
+<span class="na">total</span><span class="pi">:</span> <span class="m">4443.52</span>
+<span class="na">comments</span><span class="pi">:</span>
+    <span class="s">Late afternoon is best.</span>
+    <span class="s">Backup contact is Nancy</span>
 
 
 </code></pre></div></div>
