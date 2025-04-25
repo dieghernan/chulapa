@@ -204,6 +204,127 @@ class NewCommand(SublimeTasksBase):
 
 ```
 
+## CSS
+
+```css
+
+
+body {
+  font-family: arial;
+}
+
+h1, p, table {
+  background-color:#CCC;
+  border: 1px solid;
+  color:#39F;
+  text-align: center;
+  width: 100%;
+}
+
+.addon-store .pagehead h1 { display: inline-block }
+.addon-store .addon-summary:after { clear: both }
+
+#addon-store .pagehead .electrocat-small {
+    bottom: -7px;
+    position: absolute;
+    right: 0;
+}
+
+.addon-store .addons-nav a.selected {
+    border-bottom-color: #d26911;
+    color: #333;
+    font-weight: bold;
+    padding: 0 0 14px;
+}
+
+.addon-store .addon-icon {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    float: left;
+    height: 80px;
+    margin-right: 14px;
+    width: 80px;
+}
+
+.addon-store .developer-callout {
+    background-color: #f1f1f1;
+    background-image: -moz-linear-gradient(#fafafa, #f1f1f1);
+    background-image: -webkit-linear-gradient(#fafafa, #f1f1f1);
+    background-image: linear-gradient(#fafafa, #f1f1f1);
+    background-repeat: repeat-x;
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 #fff, 0 1px 5px #f1f1f1;
+    margin-top: 40px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.addon-field-editor .addon-field-list, .addon-field-editor .addon-new-field {
+    -moz-box-sizing: border-box;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    width: 595px;
+}
+
+p { color: red !important; }
+
+@media screen and (min-width: 100px) {}
+
+
+@main-color: red;
+
+.foo {
+	background: @main-color;
+}
+
+
+
+```
+
+## SCSS
+
+```scss
+
+
+@import "foo.scss";
+
+@media (min-width: 600px) {}
+.seriousError {
+    @extend .error;
+}
+
+@for $i from 1 through 3 {}
+
+
+@font-face {
+	font-family: "opensans";
+	src: font-url("opensans.ttf");
+}
+
+$width: 5em;
+
+#main {
+    width: $width;
+}
+
+p.#{$name} {
+    #{$attr}-color: blue;
+}
+
+
+
+
+
+
+```
+
+
+
+
 ## Java
 
 ```java
@@ -631,38 +752,64 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 
 ```
+## PHP
 
-## SASS
-
-
-```sass
-
-@import "foo.scss";
-
-@media (min-width: 600px) {}
-.seriousError {
-    @extend .error;
-}
-
-@for $i from 1 through 3 {}
+```php
 
 
-@font-face {
-	font-family: "opensans";
-	src: font-url("opensans.ttf");
-}
 
-$width: 5em;
+<?php
 
-#main {
-    width: $width;
-}
+// base class with member properties and methods
+class Vegetable {
 
-p.#{$name} {
-    #{$attr}-color: blue;
-}
+   var $edible;
+   var $color;
+
+   function Vegetable($edible, $color="green")
+   {
+       $this->edible = $edible;
+       $this->color = $color;
+   }
+
+   function is_edible()
+   {
+       return $this->edible;
+   }
+
+   function what_color()
+   {
+       return $this->color;
+   }
+
+} // end of class Vegetable
+
+// extends the base class
+class Spinach extends Vegetable {
+
+   var $cooked = false;
+
+   function Spinach()
+   {
+       $this->Vegetable(true, "green");
+   }
+
+   function cook_it()
+   {
+       $this->cooked = true;
+   }
+
+   function is_cooked()
+   {
+       return $this->cooked;
+   }
+
+} // end of class Spinach
+
+?>
 
 ```
+
 
 ## Markdown
 
@@ -770,5 +917,80 @@ comments:
 
 ```
 
+
+## JSON
+
+```json
+
+{
+ "query": {
+  "count": 10,
+  "created": "2011-06-21T08:10:46Z",
+  "lang": "en-US",
+  "results": {
+   "photo": [
+    {
+     "farm": "6",
+     "id": "5855620975",
+     "isfamily": "0",
+     "isfriend": "0",
+     "ispublic": "1",
+     "owner": "32021554@N04",
+     "secret": "f1f5e8515d",
+     "server": "5110",
+     "title": "7087 bandit cat"
+    },
+    {
+     "farm": "4",
+     "id": "5856170534",
+     "isfamily": "0",
+     "isfriend": "0",
+     "ispublic": "1",
+     "owner": "32021554@N04",
+     "secret": "ff1efb2a6f",
+     "server": "3217",
+     "title": "6975 rusty cat"
+    },
+    {
+     "farm": "6",
+     "id": "5856172972",
+     "isfamily": "0",
+     "isfriend": "0",
+     "ispublic": "1",
+     "owner": "51249875@N03",
+     "secret": "6c6887347c",
+     "server": "5192",
+     "title": "watermarked-cats"
+    },
+    {
+     "farm": "6",
+     "id": "5856168328",
+     "isfamily": "0",
+     "isfriend": "0",
+     "ispublic": "1",
+     "owner": "32021554@N04",
+     "secret": "0c1cfdf64c",
+     "server": "5078",
+     "title": "7020 mandy cat"
+    },
+    {
+     "farm": "3",
+     "id": "5856171774",
+     "isfamily": "0",
+     "isfriend": "0",
+     "ispublic": "1",
+     "owner": "32021554@N04",
+     "secret": "7f5a3180ab",
+     "server": "2696",
+     "title": "7448 bobby cat"
+    }
+   ]
+  }
+ }
+}
+
+
+
+```
 
 </div>

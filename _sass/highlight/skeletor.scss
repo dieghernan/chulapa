@@ -52,8 +52,9 @@ $variable: $foreground; // Prismjs: variable
 .highlight .nc {color: $foreground !important;} // Primsjs class-name to Name.Class
 .highlight .sc{color: $yellow;} //Primsjs: char to String.Char
 
-.language-css .highlight {
-  .nc, .nf {color: $purple !important;} // Prismjs selector: CSS specific
+.language-css .highlight, .language-scss .highlight {
+  .nc {color: $purple !important} // Prismjs selector: CSS specific
+  .nf, .nt, .nn {color: $purple} // Prismjs selector: CSS specific
 }
 .language-html .highlight {
   .na, {color: $purple;} // Prismjs attr-name: CSS specific
@@ -62,24 +63,24 @@ $variable: $foreground; // Prismjs: variable
 // Special scope of Skeletor
 .language-javascript .highlight {
   .k, .kd {color: $yellow;}
-  .nc {color: $blue !important;} // Primsjs class-name to Name.Class
+  .nc {color: $blue;} // Primsjs class-name to Name.Class
 }
 .language-css .highlight {
-  .nt {color: $purple;}
   .cp {color: $orchid; font-weight: bold;}
-  .k {color: $yellow;}
+  .n {color: $purple;}
+  .k, {color: $yellow;}
 }
 .language-php .highlight {
   .k, .kd, .kt {color: $green;}
   .n {color: $blue;}
 }
-.language-sass .highlight {
-  .s, .s1, .s2, .sb, .sx, .sr, .no {color: $lightblue;}
-  .k {color: $yellow;}
+.language-scss .highlight {
+  .s, .s1, .s2, .sb, .sx, .sr, .no  {color: $lightblue;}
+  .k, .ow {color: $yellow;}
   .nv, .si {color: $green;}
-  .ow, .o, .nt {color: $purple;}
+  .o, .nt {color: $purple;}
   .nn, {color: $orchid;}
-  .na {color: $blue;}
+  .na, .n, .nt {color: $blue !important;}
 }
 
 .language-markdown .highlight {
