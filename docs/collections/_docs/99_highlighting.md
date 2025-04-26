@@ -32,8 +32,9 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   'oksolar.light','one.dark','paraiso.dark','paraiso.light','pastie','perldoc',
   'rainbow_dash','rrt','sas','selenized.black','selenized.dark',
   'selenized.light','selenized.white','skeletor','solarized.dark',
-  'solarized.light','staroffice','stata.dark','stata.light','tango',
-  'thankful_eyes','trac','tulip','vim','vs','xcode','zenburn'].sort();
+  'solarized.light','stackoverflow.dark','stackoverflow.light','staroffice',
+  'stata.dark','stata.light','tango', 'thankful_eyes','trac','tulip','vim',
+  'vs','xcode','zenburn'].sort();
   
   styles.forEach(function(word) {
   	var row = document.createElement('a');

@@ -1,0 +1,329 @@
+---
+---
+
+/*!
+  Theme: StackOverflow Dark
+  Description: Dark theme as used on stackoverflow.com
+  Author: stackoverflow.com
+  Maintainer: @Hirse
+  Website: https://github.com/StackExchange/Stacks
+  License: MIT
+  Updated: 2021-05-15
+
+  Updated for @stackoverflow/stacks v0.64.0
+  Code Blocks: /blob/v0.64.0/lib/css/components/_stacks-code-blocks.less
+  Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
+ 
+ 
+ Adapted by Diego H <https://github.com/dieghernan/> for pygments
+ based in https://github.com/highlightjs/highlight.js/blob/main/src/styles/stackoverflow-light.css
+ 
+ BSD 3-Clause License
+
+Copyright (c) 2006, Ivan Sagalaev.
+All rights reserved.
+ 
+ */
+ 
+
+// Top level colors
+$foreground:  #ffffff; // Base color: usually on Settings > Foreground
+$background:  #1c1b1b; // Background color: usually on Settings > Background
+
+
+$comment: #999999; // hljs: comment
+$constant_character_escape: #b5bd68; // hljs: string
+$constant_language: #f08d49; // hljs: literal
+$constant_numeric: #f08d49; // hljs: number
+$constant_other: #f08d49; // hljs: title
+$entity_name: #f08d49; // hljs: title
+$entity_name_tag: #88aece; // hljs: selector-tag
+$entity_name_type: #f08d49; // hljs: selector-id
+$entity_other_attribute-name: $foreground ; // No mapping
+$invalid: #de7176; // No mapping -> deletion
+$keyword_control: #88aece; // hljs: keyword
+$keyword_operator: $foreground;  // hljs: operator
+$markup_bold: $foreground; // hljs: strong
+$markup_italic: $foreground; //hljs: emphasis
+$markup_heading: #88aece; // hljs: section
+$punctuation_definition: $foreground; // hljs: punctuation
+$storage_type: #88aece; // hljs: keyword
+$string: $constant_character_escape; // hljs: string
+$string_regexp: #b5bd68; // hljs: regexp
+$support: #88aece; // hljs: keyword
+$support_type: #c59bc1; // hljs: attribute
+$variable: #b5bd68; // hljs: variable
+
+/* Special mapping rouge - hljs */
+.highlight .nc {color: #88aece !important;} // hljs selector-class to Name.Class
+.language-html .highlight {
+  .na {color: #88aece;} // hljs attr: CSS specific
+  .nt {color: #f08d49;} // hljs name: CSS specific
+  .cp {color: #88aece; font-style: normal;} // hljs meta: CSS specific
+}
+.language-markdown .highlight {
+  .sb {color: #cccccc;} // hljs code: CSS specific
+}
+.language-yaml .highlight {
+  .na {color: #88aece;} // hljs attr: CSS specific
+}
+.language-json .highlight {
+  .nl {color: #88aece;} // hljs attr: CSS specific
+}
+
+
+// tmTheme scopes as SASS variables
+// Naming convention: scope_without_dots
+// See more in: https://macromates.com/manual/en/language_grammars
+
+// Comments
+$comment:                  $foreground !default; //Any comments
+$comment_block:            $comment !default; //Multi-line comments /* … */,<- … -->.
+$comment_line:             $comment !default; //Line comments
+$comment_line_number-sign: $comment_line !default; // # comment
+
+// Constants
+$constant_character_escape: $foreground !default; //Escape sequences.
+$constant_language:         $foreground !default; //Special constants like true, false,nil
+
+// Constant: Numbers
+$constant_numeric:          $foreground !default; //Any number
+$constant_numeric_float:    $constant_numeric !default; // Floating number
+$constant_numeric_integer:  $constant_numeric !default; //Integers
+
+// Other constants
+$constant_other:        $foreground !default; //Any other constants, e.g. colors in CSS.
+$constant_other_symbol: $constant_other !default; //
+
+// Entities: Part of the document, for example a chapter, class, function, or tag.
+$entity_name:                 $foreground !default; //Larger entity
+$entity_name_tag:             $entity_name !default; //Tag name.
+$entity_name_type:            $entity_name !default; //Type declaration or class.
+$entity_other_attribute-name: $foreground !default; //Name of an attribute (mainly in tags).
+
+// Invalid: Stuff that is invalid, illegal or deprecated
+// Mapped to errors in Pygments
+$invalid: $foreground !default;
+
+// Keywords
+$keyword_control:         $foreground !default; //Related to flow control: continue, while, return, etc.
+$keyword_control_import:  $keyword_control !default;
+$keyword_operator:        $foreground !default; //Operators can be textual (e.g. or) or be characters.
+
+// Markup: For markup languages and generally applies to larger subsets of the text
+$markup_bold:             $foreground !default; //Bold text.
+$markup_heading:          $foreground !default; //Section header.
+$markup_italic:           $foreground !default; //Italic text
+
+
+// Punctuation
+// Specific of SublimeText, see:
+// https://www.sublimetext.com/docs/scope_naming.html#alphabetical-reference
+$punctuation_definition: $foreground !default;
+
+// Storage: These are keywords in Pygments
+$storage_type: $foreground !default; //Type of something, class, function, int, var, etc.
+
+
+// Strings
+$string:                $foreground !default; //Strings
+$string_interpolated:   $string !default; //Strings which are "evaluated": `date`, $(pwd).
+$string_quoted:         $string !default; //Quoted strings
+$string_quoted_single:  $string_quoted !default; //Single quoted strings: 'foo'.
+$string_quoted_double:  $string_quoted !default; //Double quoted strings: "foo".
+$string_quoted_other:   $string_quoted !default; //Other types of quoting: $'shell', %s{...}.
+$string_regexp:         $string !default; //Regular expressions: /(\w+)/.
+
+// Support: Built-in things
+$support:           $foreground !default; //Things provided by a framework or library.
+$support_constant:  $support !default; //Constants (magic values) provided by the framework/library.
+$support_type:      $support !default; //Types provided by the framework/library,
+
+
+// Variable
+$variable:           $foreground !default; //Not all languages allow easy identification (and thus markup) of these.
+$variable_language:  $variable !default; //Reserved language variables like this,super,self, etc.
+$variable_other:     $variable !default; //Other variables
+
+// Not mapped Pygment classes, we don't provide special styles here
+// but can be easily added as:
+// .highlight .esc {color: myColor;}
+// Pygment css class -> Description
+// .esc -> Escape
+// .g   -> Generic (A generic, unstyled token. Normally not used)
+// .gd  -> Generic.Deleted (Marks the token value as deleted)
+// .gi  -> Generic.Inserted (Marks the token value as inserted)
+// .go  -> Generic.Output (Marks the token value as program output)
+// .gp  -> Generic.Prompt (Marks the token value as command prompt)
+// .hll -> High-lighted Line
+// .kr  -> Keyword.Reserved (For reserved keywords)
+// .l   -> Literal (For any literal if not further defined)
+// .ld  -> Literal.Date (for date literals)
+// .n   -> Name (For any name (variable names, function names, classes))
+// .nx  -> Name.Other (Other names. Normally unused.)
+// .x   -> Other (special token for data not matched by a parser (e.g. HTML markup in PHP code))
+// .sa  -> String.Affix (Token type for affixes)
+// .sc  -> String.Char (Token type for single characters (e.g. Java, C).)
+// .sd  -> String.Doc (Token type for documentation strings)
+// .w   -> Whitespace (for whitespace)
+
+
+
+// Styles
+
+/* Overall */
+ .highlight table td {padding: 5px;}
+ .highlight table pre {margin: 0;}
+ .highlight pre {background:$background; color:$foreground;}
+
+
+
+// Classes
+/* Comments */
+.highlight {
+  // Scope: comments
+  .c   {color:$comment;} //Comment
+  .cp  {color:$comment;} //Comment.Preproc
+  .cpf {color:$comment;} //Comment.PreprocFile
+
+  // Scope: comments.block
+  .cm  {color:$comment_block;} //Comment.Multiline
+
+  // Scope: comments.line
+  .c1  {color:$comment_line;} //Comment.Single
+  .cs  {color:$comment_line;} //Comment.Special
+
+  // Scope: comments.line.number-sign
+  .ch  {color:$comment_line_number-sign;} //Comment.Hashbang
+}
+
+/* Constants */
+.highlight {
+  // Scope: constant.character.escape
+  .se  {color:$constant_character_escape;} //String.Escape
+
+  // Scope: constant.language
+  .kc  {color:$constant_language;} //Keyword.Constant
+
+  // Scope: constant.other
+  .no  {color:$constant_other;} //Name.Constant
+  .ss  {color:$constant_other_symbol;} //String.Symbol
+}
+
+/* Numbers */
+.highlight {
+  // Scope: constant.numeric and children
+  .m   {color:$constant_numeric;} //Number
+  .mb  {color:$constant_numeric;} //Number.Bin
+  .mh  {color:$constant_numeric;} //Number.Hex
+  .mo  {color:$constant_numeric;} //Number.Oct
+  .mf  {color:$constant_numeric_float;} //Number.Float
+  .mi  {color:$constant_numeric_integer;} //Number.Integer
+  .il  {color:$constant_numeric_integer;} //Number.Integer.Long
+}
+
+/* Entities */
+.highlight {
+  // Scope: entity.name
+  .nc {color:$entity_name;} //Name.Class
+  .nd {color:$entity_name;} //Name.Decorator
+  .ne {color:$entity_name;} //Name.Entity
+  .nf {color:$entity_name;} //Name.Function
+  .py {color:$entity_name;} //Name.Property
+
+  .nt {color:$entity_name_tag;} //Name.Tag
+  .nn {color:$entity_name_type;} //Name.Namespace
+
+  // Scope: entity.other
+  .na {color:$entity_other_attribute-name;} //Name.Attribute
+}
+
+/* Invalid */
+.highlight {
+  // Scope: Invalid
+  .err {color:$invalid;} //Error
+  .gr  {color:$invalid;} //Generic.Error
+  .gt  {color:$invalid;} //Generic.Traceback
+  .ne  {color:$invalid;} //Name.Exception
+}
+
+/* Keywords */
+.highlight {
+  // Scope: keyword.control
+  .k  {color:$keyword_control;} //Keyword
+  .kn {color:$keyword_control_import;} //Keyword.Namespace
+
+  // Scope: keyword.operator
+  .o  {color:$keyword_operator;} //Operator
+  .ow {color:$keyword_operator;} //Operator.Word
+}
+
+/* Markup */
+// We add italics, etc. on css
+.highlight {
+  // Scope: Subclasses of markup
+  .gs  {color:$markup_bold; font-weight:bold;} //Generic.Strong
+  .gh  {color:$markup_heading;} //Generic.Heading
+  .gu  {color:$markup_heading;} //Generic.Subheading
+  .ge  {color:$markup_italic; font-style:italic;} //Generic.Emph
+  .ges {font-weight:bold; font-style:italic;} //Generic.EmphStrong
+}
+
+/* Punctuation */
+.highlight {
+  // Scope: punctuation.definition
+  .p  {color:$punctuation_definition;} //Punctuation
+  .pm {color:$punctuation_definition;} //Punctuation.Marker
+  .dl {color:$punctuation_definition;} //String.Delimiter
+  .sh {color:$punctuation_definition;} //String.Heredoc
+}
+
+/* Storage */
+.highlight {
+  // Scope: storage.type
+  .kd {color:$storage_type;} //Keyword.Declaration
+  .kt {color:$storage_type;} //Keyword.Type
+}
+
+/* String */
+.highlight {
+  // Scope: string
+  .s  {color:$string;} //String
+
+  // Scope: string.quoted
+  .sb {color:$string_quoted;} //String.Backtick
+  .s1 {color:$string_quoted_single;} //String.Single
+  .s2 {color:$string_quoted_double;} //String.Double
+  .sx {color:$string_quoted_other;} //String.Other
+
+  // Scope: string.interpolated
+  .si {color:$string_interpolated;} //String.Interpol
+
+  // Scope: string.regexp
+  .sr {color:$string_regexp;} //String.Regex
+}
+
+/* Support */
+.highlight {
+  // Scope: support
+  .nb {color:$support;} //Name.Builtin
+  .bp {color:$support;} //Name.Builtin.Pseudo
+
+  // Scope: support.constant
+  .fm {color:$support_constant;} //Name.Function.Magic
+  .vm {color:$support_constant;} //Name.Variable.Magic
+
+  .nl {color: $support_type}; //Name.Label
+}
+
+/* Variable */
+.highlight {
+  .vi {color:$variable;} //Name.Variable.Instance
+
+  .kp {color:$variable_language;} //Keyword.Pseudo
+
+  // Scope: variable.other
+  .nv {color:$variable_other;} // Name.Variable
+  .vc {color:$variable_other;} // Name.Variable.Class
+  .vg {color:$variable_other;} // Name.Variable.Global
+}

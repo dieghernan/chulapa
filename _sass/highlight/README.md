@@ -158,6 +158,10 @@ Some themes created by myself:
 -   `selenized.light`
 -   `selenized.white`
 -   `skeletor`
+-   `stackoverflow.light`
+-   `stackoverflow.dark`
+
+## 
 
 ## Dracula
 
