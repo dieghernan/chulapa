@@ -1,308 +1,174 @@
-/* selenized.black theme
- *
- * Based on https://github.com/jan-warchol/selenized
- *
- * @author Diego H <https://github.com/dieghernan/>
- */
-
-$bg_0: #181818;
-$bg_1: #252525;
-$bg_2: #3B3B3B;
-$dim_0: #777777;
-$fg_0: #B9B9B9;
-$fg_1: #DEDEDE;
-$red: #ED4A46;
-$green: #70B433;
-$yellow: #DBB32D;
-$blue: #368AEB;
-$magenta: #EB6EB7;
-$cyan: #3FC5B7;
-$orange: #E67F43;
-$violet: #A580E2;
-$br_red: #FF5E56;
-$br_green: #83C746;
-$br_yellow: #EFC541;
-$br_blue: #4F9CFE;
-$br_magenta: #FF81CA;
-$br_cyan: #56D8C9;
-$br_orange: #FA9153;
-$br_violet: #B891F5;
-
-
-
-$foreground: $fg_0; // Base color: usually on Settings > Foreground
-$background: $bg_0; // Background color: usually on Settings > Background
-$comment: $dim_0;
-$constant_character_escape: $red;
-$constant_language: $cyan;
-$constant_numeric: $cyan;
-$entity_name: $blue;
-$entity_other_attribute-name: $blue;
-$invalid: $br_red;
-$keyword_control: $green;
-$keyword_control_import: $orange;
-$keyword_operator: $green;
-$markup_heading: $br_yellow;
-$punctuation_definition: $fg_0;
-$storage_type: $green;
-$string: $cyan;
-$support: $blue;
-$support_type: $yellow;
-$variable: $fg_0;
-$variable_language: $red;
-$variable_other: $orange;
-
-// tmTheme scopes as SASS variables
-// Naming convention: scope_without_dots
-// See more in: https://macromates.com/manual/en/language_grammars
-
-// Comments
-$comment:                  $foreground !default; //Any comments
-$comment_block:            $comment !default; //Multi-line comments /* … */,<- … -->.
-$comment_line:             $comment !default; //Line comments
-$comment_line_number-sign: $comment_line !default; // # comment
-
-// Constants
-$constant_character_escape: $foreground !default; //Escape sequences.
-$constant_language:         $foreground !default; //Special constants like true, false,nil
-
-// Constant: Numbers 
-$constant_numeric:          $foreground !default; //Any number
-$constant_numeric_float:    $constant_numeric !default; // Floating number
-$constant_numeric_integer:  $constant_numeric !default; //Integers
-
-// Other constants
-$constant_other:        $foreground !default; //Any other constants, e.g. colors in CSS.
-$constant_other_symbol: $constant_other !default; // 
-
-// Entities: Part of the document, for example a chapter, class, function, or tag.
-$entity_name:                 $foreground !default; //Larger entity
-$entity_name_tag:             $entity_name !default; //Tag name.
-$entity_name_type:            $entity_name !default; //Type declaration or class.
-$entity_other_attribute-name: $foreground !default; //Name of an attribute (mainly in tags).
-
-// Invalid: Stuff that is invalid, illegal or deprecated
-// Mapped to errors in Pygments
-$invalid: $foreground !default;
-
-// Keywords
-$keyword_control:         $foreground !default; //Related to flow control: continue, while, return, etc.
-$keyword_control_import:  $keyword_control !default;
-$keyword_operator:        $foreground !default; //Operators can be textual (e.g. or) or be characters.
-
-// Markup: For markup languages and generally applies to larger subsets of the text
-$markup_bold:             $foreground !default; //Bold text.
-$markup_heading:          $foreground !default; //Section header.
-$markup_italic:           $foreground !default; //Italic text
-
-
-// Punctuation
-// Specific of SublimeText, see:
-// https://www.sublimetext.com/docs/scope_naming.html#alphabetical-reference
-$punctuation_definition: $foreground !default;
-
-// Storage: These are keywords in Pygments
-$storage_type: $foreground !default; //Type of something, class, function, int, var, etc.
-
-
-// Strings
-$string:                $foreground !default; //Strings
-$string_interpolated:   $string !default; //Strings which are "evaluated": `date`, $(pwd).
-$string_quoted:         $string !default; //Quoted strings
-$string_quoted_single:  $string_quoted !default; //Single quoted strings: 'foo'.
-$string_quoted_double:  $string_quoted !default; //Double quoted strings: "foo".
-$string_quoted_other:   $string_quoted !default; //Other types of quoting: $'shell', %s{...}.
-$string_regexp:         $string !default; //Regular expressions: /(\w+)/.
-
-// Support: Built-in things
-$support:           $foreground !default; //Things provided by a framework or library.
-$support_constant:  $support !default; //Constants (magic values) provided by the framework/library.
-$support_type:      $support !default; //Types provided by the framework/library,
-
-
-// Variable
-$variable:           $foreground !default; //Not all languages allow easy identification (and thus markup) of these.
-$variable_language:  $variable !default; //Reserved language variables like this,super,self, etc.
-$variable_other:     $variable !default; //Other variables, like $some_variables.
-
-// Not mapped Pygment classes, we don't provide special styles here
-// but can be easily added as:
-// .highlight .esc {color: myColor;}
-// Pygment css class -> Description
-// .esc -> Escape 
-// .g   -> Generic (A generic, unstyled token. Normally not used)
-// .gd  -> Generic.Deleted (Marks the token value as deleted)
-// .gi  -> Generic.Inserted (Marks the token value as inserted)
-// .go  -> Generic.Output (Marks the token value as program output)
-// .gp  -> Generic.Prompt (Marks the token value as command prompt)
-// .hll -> High-lighted Line
-// .kr  -> Keyword.Reserved (For reserved keywords)
-// .l   -> Literal (For any literal if not further defined)
-// .ld  -> Literal.Date (for date literals)
-// .n   -> Name (For any name (variable names, function names, classes))
-// .nx  -> Name.Other (Other names. Normally unused.)
-// .x   -> Other (special token for data not matched by a parser (e.g. HTML markup in PHP code))
-// .sa  -> String.Affix (Token type for affixes)
-// .sc  -> String.Char (Token type for single characters (e.g. Java, C).)
-// .sd  -> String.Doc (Token type for documentation strings)
-// .w   -> Whitespace (for whitespace)
-
-// Styles
-
+/* selenized.black theme Based on https://github.com/jan-warchol/selenized @author Diego H <https://github.com/dieghernan/> */
+/* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
+/* by Diego H <https://github.com/dieghernan/   */
 /* Overall */
- .highlight table td {padding: 5px;}
- .highlight table pre {margin: 0;}
- .highlight pre {background:$background; color:$foreground;}
+.highlight table td { padding: 5px; }
 
+.highlight table pre { margin: 0; }
 
+.highlight pre { background: #181818; color: #B9B9B9; }
 
-// Classes
 /* Comments */
-.highlight {
-  // Scope: comments
-  .c   {color:$comment; font-style: italic;} //Comment
-  .cp  {color:$comment; font-style: italic} //Comment.Preproc
-  .cpf {color:$comment; font-style: italic} //Comment.PreprocFile
-  
-  // Scope: comments.block
-  .cm  {color:$comment_block; font-style: italic;} //Comment.Multiline
-  
-  // Scope: comments.line
-  .c1  {color:$comment_line; font-style: italic;} //Comment.Single
-  .cs  {color:$comment_line; font-style: italic;} //Comment.Special
-  
-  // Scope: comments.line.number-sign
-  .ch  {color:$comment_line_number-sign; font-style: italic;} //Comment.Hashbang
-}
+.highlight .c { color: #777777; }
+
+.highlight .cp { color: #777777; }
+
+.highlight .cpf { color: #777777; }
+
+.highlight .cm { color: #777777; }
+
+.highlight .c1 { color: #777777; }
+
+.highlight .cs { color: #777777; }
+
+.highlight .ch { color: #777777; }
 
 /* Constants */
-.highlight {
-  // Scope: constant.character.escape
-  .se  {color:$constant_character_escape;} //String.Escape
-  
-  // Scope: constant.language
-  .kc  {color:$constant_language;} //Keyword.Constant
-  
-  // Scope: constant.ither
-  .no  {color:$constant_other;} //Name.Constant
-  .ss  {color:$constant_other_symbol;} //String.Symbol
-}
+.highlight .se { color: #ED4A46; }
+
+.highlight .kc { color: #3FC5B7; }
+
+.highlight .no { color: #B9B9B9; }
+
+.highlight .ss { color: #B9B9B9; }
 
 /* Numbers */
-.highlight {
-  // Scope: constant.numeric and children
-  .m   {color:$constant_numeric;} //Number
-  .mb  {color:$constant_numeric;} //Number.Bin
-  .mh  {color:$constant_numeric;} //Number.Hex
-  .mo  {color:$constant_numeric;} //Number.Oct
-  .mf  {color:$constant_numeric_float;} //Number.Float
-  .mi  {color:$constant_numeric_integer;} //Number.Integer
-  .il  {color:$constant_numeric_integer;} //Number.Integer.Long
-}
+.highlight .m { color: #3FC5B7; }
+
+.highlight .mb { color: #3FC5B7; }
+
+.highlight .mh { color: #3FC5B7; }
+
+.highlight .mo { color: #3FC5B7; }
+
+.highlight .mf { color: #3FC5B7; }
+
+.highlight .mi { color: #3FC5B7; }
+
+.highlight .il { color: #3FC5B7; }
 
 /* Entities */
-.highlight {
-  // Scope: entity.name
-  .nc {color:$entity_name;} //Name.Class
-  .nd {color:$entity_name;} //Name.Decorator
-  .ne {color:$entity_name;} //Name.Entity
-  .nf {color:$entity_name;} //Name.Function
-  .py {color:$entity_name;} //Name.Property
+.highlight .nc { color: #368AEB; }
 
-  .nt {color:$entity_name_tag;} //Name.Tag
-  .nn {color:$entity_name_type;} //Name.Namespace
-  
-  // Scope: entity.other
-  .na {color:$entity_other_attribute-name;} //Name.Attribute
-}
+.highlight .nd { color: #368AEB; }
+
+.highlight .ne { color: #368AEB; }
+
+.highlight .nf { color: #368AEB; }
+
+.highlight .py { color: #368AEB; }
+
+.highlight .nt { color: #368AEB; }
+
+.highlight .nn { color: #368AEB; }
+
+.highlight .na { color: #368AEB; }
+
+.language-yaml .highlight .kt { color: #368AEB; }
+
+.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nf, .language-scss .highlight .nd { color: #368AEB; }
+
+.language-css .highlight .n, .language-scss .highlight .n { color: #368AEB; }
+
+.language-html .highlight .na { color: #368AEB; }
 
 /* Invalid */
-.highlight {
-  // Scope: Invalid
-  .err {color:$invalid; font-weight: bold;} //Error
-  .gr  {color:$invalid; font-weight: bold;} //Generic.Error
-  .gt  {color:$invalid; font-weight: bold;} //Generic.Traceback
-  .ne  {color:$invalid; font-weight: bold;} //Name.Exception
-}
+.highlight .err { color: #FF5E56; }
+
+.highlight .gr { color: #FF5E56; }
+
+.highlight .gt { color: #FF5E56; }
+
+.highlight .ne { color: #FF5E56; }
 
 /* Keywords */
-.highlight {
-  // Scope: keyword.control
-  .k  {color:$keyword_control;} //Keyword
-  .kn {color:$keyword_control_import;} //Keyword.Namespace
-  
-  // Scope: keyword.operator
-  .o  {color:$keyword_operator;} //Operator
-  .ow {color:$keyword_operator;} //Operator.Word
-}
+.highlight .k { color: #70B433; }
+
+.highlight .kn { color: #E67F43; }
+
+.highlight .o { color: #70B433; }
+
+.highlight .ow { color: #70B433; }
+
+.language-markdown .highlight .sb { color: #70B433; }
+
+.language-css .highlight .k, .language-scss .highlight .k { color: #70B433; }
+
+.language-css .highlight .cp, .language-scss .highlight .cp { color: #70B433; font-weight: bold; font-style: normal; }
+
+.language-yaml .highlight .nt { color: #70B433; font-weight: bold; font-style: normal; }
+
+.language-yaml .highlight .na { color: #70B433; }
 
 /* Markup */
-// We add italics, etc. on css
-.highlight {
-  // Scope: Subclasses of markup
-  .gs  {color:$markup_bold; font-weight:bold;} //Generic.Strong
-  .gh  {color:$markup_heading;} //Generic.Heading
-  .gu  {color:$markup_heading;} //Generic.Subheading
-  .ge  {color:$markup_italic; font-style:italic;} //Generic.Emph
-  .ges {font-weight:bold; font-style:italic;} //Generic.EmphStrong
-}
+.highlight .gs { color: #B9B9B9; font-weight: bold; }
+
+.highlight .gh { color: #EFC541; }
+
+.highlight .gu { color: #EFC541; }
+
+.highlight .ge { color: #B9B9B9; font-style: italic; }
+
+.highlight .ges { font-weight: bold; font-style: italic; }
+
+/* Meta */
+.language-html .highlight .cp { color: #777777; font-style: normal; }
 
 /* Punctuation */
-.highlight {
-  // Scope: punctuation.definition
-  .p  {color:$punctuation_definition;} //Punctuation
-  .pm {color:$punctuation_definition;} //Punctuation.Marker
-  .dl {color:$punctuation_definition;} //String.Delimiter
-  .sh {color:$punctuation_definition;} //String.Heredoc
-}
+.highlight .p { color: #B9B9B9; }
+
+.highlight .pm { color: #B9B9B9; }
+
+.highlight .dl { color: #B9B9B9; }
+
+.highlight .sh { color: #B9B9B9; }
 
 /* Storage */
-.highlight {
-  // Scope: storage.type
-  .kd {color:$storage_type;} //Keyword.Declaration
-  .kt {color:$storage_type;} //Keyword.Type
-}
+.highlight .kd { color: #70B433; }
+
+.highlight .kt { color: #70B433; }
 
 /* String */
-.highlight {
-  // Scope: string
-  .s  {color:$string;} //String
-  
-  // Scope: string.quoted
-  .sb {color:$string_quoted;} //String.Backtick
-  .s1 {color:$string_quoted_single;} //String.Single
-  .s2 {color:$string_quoted_double;} //String.Double
-  .sx {color:$string_quoted_other;} //String.Other
-  
-  // Scope: string.interpolated
-  .si {color:$string_interpolated;} //String.Interpol
-  
-  // Scope: string.regexp
-  .sr {color:$string_regexp;} //String.Regex
-}
+.highlight .s { color: #3FC5B7; }
+
+.highlight .sb { color: #3FC5B7; }
+
+.highlight .s1 { color: #3FC5B7; }
+
+.highlight .s2 { color: #3FC5B7; }
+
+.highlight .sx { color: #3FC5B7; }
+
+.highlight .si { color: #3FC5B7; }
+
+.highlight .sr { color: #3FC5B7; }
+
+.language-html .highlight .s { color: #3FC5B7; }
 
 /* Support */
-.highlight {
-  // Scope: support
-  .nb {color:$support;} //Name.Builtin
-  .bp {color:$support;} //Name.Builtin.Pseudo
-  
-  // Scope: support.constant
-  .fm {color:$support_constant;} //Name.Function.Magic
-  .vm {color:$support_constant;} //Name.Variable.Magic
-  
-  .nl {color: $support_type}; //Name.Label
-}
+.highlight .nb { color: #368AEB; }
+
+.highlight .bp { color: #368AEB; }
+
+.highlight .fm { color: #368AEB; }
+
+.highlight .vm { color: #368AEB; }
+
+.highlight .nl { color: #DBB32D; }
+
+.language-css .highlight .nc, .language-css .highlight .nf, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nf, .language-scss .highlight .nn { color: #368AEB; }
 
 /* Variable */
-.highlight {
-  .vi {color:$variable;} //Name.Variable.Instance
-  
-  .kp {color:$variable_language;} //Keyword.Pseudo
-  
-  // Scope: variable.other
-  .nv {color:$variable_other;} // Name.Variable
-  .vc {color:$variable_other;} // Name.Variable.Class
-  .vg {color:$variable_other;} // Name.Variable.Global
-}
+.highlight .vi { color: #B9B9B9; }
 
+.highlight .kp { color: #ED4A46; }
+
+.highlight .nv { color: #E67F43; }
+
+.highlight .vc { color: #E67F43; }
+
+.highlight .vg { color: #E67F43; }
+
+.highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
+
+.highlight .err, .highlight .gr, .highlight .gt, .highlight .ne { font-weight: bold; }

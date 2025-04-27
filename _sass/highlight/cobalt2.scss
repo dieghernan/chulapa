@@ -1,342 +1,196 @@
-/* cobalt2 Theme for pygments/Jekyll
- *
- * Based on https://github.com/wesbos/cobalt2 tmTheme
- * Created by Wes Bos
- *
- * Adapted by Diego H <https://github.com/dieghernan/>
- */
- 
+/* cobalt2 Theme for pygments/Jekyll Based on https://github.com/wesbos/cobalt2 tmTheme Created by Wes Bos Adapted by Diego H <https://github.com/dieghernan/> */
+.highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
 
-// Top level colors
-$foreground:  #f8f8f2; // Base color: usually on Settings > Foreground
-$background:  #223545; // Background color: usually on Settings > Background
+.highlight .gh, .highlight .gu { background: #000; }
 
+.language-css .highlight .nb { color: #EDF080; }
 
-$comment: #0088FF; // Prismjs: comment
-$constant_character_escape: #3AD900; // Prismjs: string
-$constant_language: #FF628C; // Prismjs: boolean, keyword
-$constant_numeric: #FF628C; // Prismjs: number
-$constant_other: #3AD900; // Primsjs: builtin
-$entity_name: #ffc600; // Primsjs: function
-$entity_name_tag: #f92672; // Primsjs: tag
-$entity_name_type: #b6bcbd; // Primsjs: namespace
-$entity_other_attribute-name: #ffc600 ; // Primsjs: function
-$invalid: #f92672; // No mapping
-$keyword_control: #FF9D00; // Primsjs: keyword
-$keyword_operator: #FF9D00;  // Prismjs: operator
-$markup_bold: $foreground; // Prismjs: bold
-$markup_italic: $foreground; //Prismjs: italic
-$markup_heading: #FDC500; // Prismjs: title
-$punctuation_definition: #f8f8f2; // Prismjs: punctuation
-$storage_type: $keyword_control; // Prismjs: keyword
-$string: $constant_character_escape; // Prismjs: string
-$string_regexp: #fd971f; // Prismjs: regex
-$support_type: #f92672; // Prismjs: property
-$variable: #f8f8f2; // Prismjs: variable
+.language-css .highlight .m { color: #EDF080; }
 
-/* Special mapping rouge - Prismjs */
-.highlight .nc {color: $foreground !important;} // Primsjs class-name to Name.Class
-.highlight .si {color: $foreground !important;} // Primsjs class-name to Name.Class
-.highlight .sc{color: #3AD900;} //Primsjs: char to String.Char
-.highlight .nb{color: #FF9D00 !important;} //Primsjs: keyword
+.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd { color: #9EFFFF !important; }
 
+.language-css .highlight .nl { color: #9DF39F; }
 
-.language-css .highlight, .language-scss .highlight {
-  .nc {color: #9EFFFF !important;} 
-  .nf, .nt, .nn {color: #9EFFFF;} // Prismjs selector: CSS specific
-}
-.language-html .highlight {
-  .na, {color: #3AD900;} // Prismjs attr-name: CSS specific
-  .cp {color: #9EFFFF; font-style: normal;} // Prismjs doctype: CSS specific
-}
+.language-markdown .highlight .sb { color: #ffc600; }
 
-// Special scope of cobalt2
-.language-css .highlight {
-  color: #EDF080;
-  .kc, .m, .mb, .mh, .mo, .mf, .mi, .il {color:#EDF080;}
-  .nb {color:#EDF080 !important;}
-  .nl {color: #9DF39F;}
-  .nc, .nd, .ne, .py {color: #3AD900 !important;}
-  .n {color: #ffc600;}
-  .cp {color: #ffc600; font-weight: bold; font-style: normal;}
-}
+.language-yaml .highlight .nl, .language-yaml .highlight .nv { color: #fd971f; font-weight: bold; }
 
-.language-markdown .highlight {
-  .sb {color: #ffc600;}
-}
+.language-json .highlight .nl { color: #3AD900; }
 
-.language-json .highlight {
-  .nl {color: #3AD900;}
-}
+.language-scss .highlight pre { color: #E68885; }
 
-.language-yaml .highlight {
-  .nt, .nl, .nv {color: #ffc600; font-weight: bold;}
-}
+.language-scss .highlight .nc { color: #E68885 !important; }
 
-.language-scss .highlight {
-  color: #E68885;
-  .n, .k {color: #ffc600;}
-  .nc, .nd, .ne, .py, .nn, .nt {color: #3AD900 !important;}
-  .nl {color: #9DF39F;}
-  .nv, .si {color: #ccc !important;}
-}
+.language-scss .highlight .nl { color: #9DF39F; }
 
-.language-html .highlight {
-  .s {color: #ffc600;}
-}
+.language-scss .highlight .nv { color: #ccc; }
 
-// tmTheme scopes as SASS variables
-// Naming convention: scope_without_dots
-// See more in: https://macromates.com/manual/en/language_grammars
-
-// Comments
-$comment:                  $foreground !default; //Any comments
-$comment_block:            $comment !default; //Multi-line comments /* … */,<- … -->.
-$comment_line:             $comment !default; //Line comments
-$comment_line_number-sign: $comment_line !default; // # comment
-
-// Constants
-$constant_character_escape: $foreground !default; //Escape sequences.
-$constant_language:         $foreground !default; //Special constants like true, false,nil
-
-// Constant: Numbers
-$constant_numeric:          $foreground !default; //Any number
-$constant_numeric_float:    $constant_numeric !default; // Floating number
-$constant_numeric_integer:  $constant_numeric !default; //Integers
-
-// Other constants
-$constant_other:        $foreground !default; //Any other constants, e.g. colors in CSS.
-$constant_other_symbol: $constant_other !default; //
-
-// Entities: Part of the document, for example a chapter, class, function, or tag.
-$entity_name:                 $foreground !default; //Larger entity
-$entity_name_tag:             $entity_name !default; //Tag name.
-$entity_name_type:            $entity_name !default; //Type declaration or class.
-$entity_other_attribute-name: $foreground !default; //Name of an attribute (mainly in tags).
-
-// Invalid: Stuff that is invalid, illegal or deprecated
-// Mapped to errors in Pygments
-$invalid: $foreground !default;
-
-// Keywords
-$keyword_control:         $foreground !default; //Related to flow control: continue, while, return, etc.
-$keyword_control_import:  $keyword_control !default;
-$keyword_operator:        $foreground !default; //Operators can be textual (e.g. or) or be characters.
-
-// Markup: For markup languages and generally applies to larger subsets of the text
-$markup_bold:             $foreground !default; //Bold text.
-$markup_heading:          $foreground !default; //Section header.
-$markup_italic:           $foreground !default; //Italic text
-
-
-// Punctuation
-// Specific of SublimeText, see:
-// https://www.sublimetext.com/docs/scope_naming.html#alphabetical-reference
-$punctuation_definition: $foreground !default;
-
-// Storage: These are keywords in Pygments
-$storage_type: $foreground !default; //Type of something, class, function, int, var, etc.
-
-
-// Strings
-$string:                $foreground !default; //Strings
-$string_interpolated:   $string !default; //Strings which are "evaluated": `date`, $(pwd).
-$string_quoted:         $string !default; //Quoted strings
-$string_quoted_single:  $string_quoted !default; //Single quoted strings: 'foo'.
-$string_quoted_double:  $string_quoted !default; //Double quoted strings: "foo".
-$string_quoted_other:   $string_quoted !default; //Other types of quoting: $'shell', %s{...}.
-$string_regexp:         $string !default; //Regular expressions: /(\w+)/.
-
-// Support: Built-in things
-$support:           $foreground !default; //Things provided by a framework or library.
-$support_constant:  $support !default; //Constants (magic values) provided by the framework/library.
-$support_type:      $support !default; //Types provided by the framework/library,
-
-
-// Variable
-$variable:           $foreground !default; //Not all languages allow easy identification (and thus markup) of these.
-$variable_language:  $variable !default; //Reserved language variables like this,super,self, etc.
-$variable_other:     $variable !default; //Other variables
-
-// Not mapped Pygment classes, we don't provide special styles here
-// but can be easily added as:
-// .highlight .esc {color: myColor;}
-// Pygment css class -> Description
-// .esc -> Escape
-// .g   -> Generic (A generic, unstyled token. Normally not used)
-// .gd  -> Generic.Deleted (Marks the token value as deleted)
-// .gi  -> Generic.Inserted (Marks the token value as inserted)
-// .go  -> Generic.Output (Marks the token value as program output)
-// .gp  -> Generic.Prompt (Marks the token value as command prompt)
-// .hll -> High-lighted Line
-// .kr  -> Keyword.Reserved (For reserved keywords)
-// .l   -> Literal (For any literal if not further defined)
-// .ld  -> Literal.Date (for date literals)
-// .n   -> Name (For any name (variable names, function names, classes))
-// .nx  -> Name.Other (Other names. Normally unused.)
-// .x   -> Other (special token for data not matched by a parser (e.g. HTML markup in PHP code))
-// .sa  -> String.Affix (Token type for affixes)
-// .sc  -> String.Char (Token type for single characters (e.g. Java, C).)
-// .sd  -> String.Doc (Token type for documentation strings)
-// .w   -> Whitespace (for whitespace)
-
-
-
-// Styles
-
+/* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
+/* by Diego H <https://github.com/dieghernan/   */
 /* Overall */
- .highlight table td {padding: 5px;}
- .highlight table pre {margin: 0;}
- .highlight pre {background:$background; color:$foreground;}
+.highlight table td { padding: 5px; }
 
+.highlight table pre { margin: 0; }
 
+.highlight pre { background: #223545; color: #f8f8f2; }
 
-// Classes
 /* Comments */
-.highlight {
-  // Scope: comments
-  .c   {color:$comment; font-style:italic;} //Comment
-  .cp  {color:$comment; font-style:italic;} //Comment.Preproc
-  .cpf {color:$comment; font-style:italic;} //Comment.PreprocFile
+.highlight .c { color: #0088FF; }
 
-  // Scope: comments.block
-  .cm  {color:$comment_block; font-style:italic;} //Comment.Multiline
+.highlight .cp { color: #0088FF; }
 
-  // Scope: comments.line
-  .c1  {color:$comment_line; font-style:italic;} //Comment.Single
-  .cs  {color:$comment_line; font-style:italic;} //Comment.Special
+.highlight .cpf { color: #0088FF; }
 
-  // Scope: comments.line.number-sign
-  .ch  {color:$comment_line_number-sign; font-style:italic;} //Comment.Hashbang
-}
+.highlight .cm { color: #0088FF; }
+
+.highlight .c1 { color: #0088FF; }
+
+.highlight .cs { color: #0088FF; }
+
+.highlight .ch { color: #0088FF; }
 
 /* Constants */
-.highlight {
-  // Scope: constant.character.escape
-  .se  {color:$constant_character_escape;} //String.Escape
+.highlight .se { color: #3AD900; }
 
-  // Scope: constant.language
-  .kc  {color:$constant_language;} //Keyword.Constant
+.highlight .kc { color: #FF628C; }
 
-  // Scope: constant.other
-  .no  {color:$constant_other;} //Name.Constant
-  .ss  {color:$constant_other_symbol;} //String.Symbol
-}
+.highlight .no { color: #3AD900; }
+
+.highlight .ss { color: #3AD900; }
 
 /* Numbers */
-.highlight {
-  // Scope: constant.numeric and children
-  .m   {color:$constant_numeric;} //Number
-  .mb  {color:$constant_numeric;} //Number.Bin
-  .mh  {color:$constant_numeric;} //Number.Hex
-  .mo  {color:$constant_numeric;} //Number.Oct
-  .mf  {color:$constant_numeric_float;} //Number.Float
-  .mi  {color:$constant_numeric_integer;} //Number.Integer
-  .il  {color:$constant_numeric_integer;} //Number.Integer.Long
-}
+.highlight .m { color: #FF628C; }
+
+.highlight .mb { color: #FF628C; }
+
+.highlight .mh { color: #FF628C; }
+
+.highlight .mo { color: #FF628C; }
+
+.highlight .mf { color: #FF628C; }
+
+.highlight .mi { color: #FF628C; }
+
+.highlight .il { color: #FF628C; }
 
 /* Entities */
-.highlight {
-  // Scope: entity.name
-  .nc {color:$entity_name;} //Name.Class
-  .nd {color:$entity_name;} //Name.Decorator
-  .ne {color:$entity_name;} //Name.Entity
-  .nf {color:$entity_name;} //Name.Function
-  .py {color:$entity_name;} //Name.Property
+.highlight .nc { color: #ffc600; }
 
-  .nt {color:$entity_name_tag;} //Name.Tag
-  .nn {color:$entity_name_type;} //Name.Namespace
+.highlight .nd { color: #ffc600; }
 
-  // Scope: entity.other
-  .na {color:$entity_other_attribute-name;} //Name.Attribute
-}
+.highlight .ne { color: #ffc600; }
+
+.highlight .nf { color: #ffc600; }
+
+.highlight .py { color: #ffc600; }
+
+.highlight .nt { color: #f92672; }
+
+.highlight .nn { color: #b6bcbd; }
+
+.highlight .na { color: #ffc600; }
+
+.language-yaml .highlight .kt { color: #f92672; }
+
+.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nf, .language-scss .highlight .nd { color: #3AD900; }
+
+.language-css .highlight .n, .language-scss .highlight .n { color: #ffc600; }
+
+.language-html .highlight .na { color: #3AD900; }
 
 /* Invalid */
-.highlight {
-  // Scope: Invalid
-  .err {color:$invalid;} //Error
-  .gr  {color:$invalid;} //Generic.Error
-  .gt  {color:$invalid;} //Generic.Traceback
-  .ne  {color:$invalid;} //Name.Exception
-}
+.highlight .err { color: #f92672; }
+
+.highlight .gr { color: #f92672; }
+
+.highlight .gt { color: #f92672; }
+
+.highlight .ne { color: #f92672; }
 
 /* Keywords */
-.highlight {
-  // Scope: keyword.control
-  .k  {color:$keyword_control;} //Keyword
-  .kn {color:$keyword_control_import;} //Keyword.Namespace
+.highlight .k { color: #FF9D00; }
 
-  // Scope: keyword.operator
-  .o  {color:$keyword_operator;} //Operator
-  .ow {color:$keyword_operator;} //Operator.Word
-}
+.highlight .kn { color: #FF9D00; }
+
+.highlight .o { color: #FF9D00; }
+
+.highlight .ow { color: #FF9D00; }
+
+.language-markdown .highlight .sb { color: #FF9D00; }
+
+.language-css .highlight .k, .language-scss .highlight .k { color: #ffc600; }
+
+.language-css .highlight .cp, .language-scss .highlight .cp { color: #fd971f; font-weight: bold; font-style: normal; }
+
+.language-yaml .highlight .nt { color: #fd971f; font-weight: bold; font-style: normal; }
+
+.language-yaml .highlight .na { color: #ffc600; }
 
 /* Markup */
-// We add italics, etc. on css
-.highlight {
-  // Scope: Subclasses of markup
-  .gs  {color:$markup_bold; font-weight:bold;} //Generic.Strong
-  .gh  {color:$markup_heading; font-weight:bold; background:#000;} //Generic.Heading
-  .gu  {color:$markup_heading; font-weight:bold; background:#000;} //Generic.Subheading
-  .ge  {color:$markup_italic; font-style:italic;} //Generic.Emph
-  .ges {font-weight:bold; font-style:italic;} //Generic.EmphStrong
-}
+.highlight .gs { color: #f8f8f2; font-weight: bold; }
+
+.highlight .gh { color: #FDC500; }
+
+.highlight .gu { color: #FDC500; }
+
+.highlight .ge { color: #f8f8f2; font-style: italic; }
+
+.highlight .ges { font-weight: bold; font-style: italic; }
+
+/* Meta */
+.language-html .highlight .cp { color: #9EFFFF; font-style: normal; }
 
 /* Punctuation */
-.highlight {
-  // Scope: punctuation.definition
-  .p  {color:$punctuation_definition;} //Punctuation
-  .pm {color:$punctuation_definition;} //Punctuation.Marker
-  .dl {color:$punctuation_definition;} //String.Delimiter
-  .sh {color:$punctuation_definition;} //String.Heredoc
-}
+.highlight .p { color: #f8f8f2; }
+
+.highlight .pm { color: #f8f8f2; }
+
+.highlight .dl { color: #f8f8f2; }
+
+.highlight .sh { color: #f8f8f2; }
 
 /* Storage */
-.highlight {
-  // Scope: storage.type
-  .kd {color:$storage_type;} //Keyword.Declaration
-  .kt {color:$storage_type;} //Keyword.Type
-}
+.highlight .kd { color: #FF9D00; }
+
+.highlight .kt { color: #FF9D00; }
 
 /* String */
-.highlight {
-  // Scope: string
-  .s  {color:$string;} //String
+.highlight .s { color: #3AD900; }
 
-  // Scope: string.quoted
-  .sb {color:$string_quoted;} //String.Backtick
-  .s1 {color:$string_quoted_single;} //String.Single
-  .s2 {color:$string_quoted_double;} //String.Double
-  .sx {color:$string_quoted_other;} //String.Other
+.highlight .sb { color: #3AD900; }
 
-  // Scope: string.interpolated
-  .si {color:$string_interpolated;} //String.Interpol
+.highlight .s1 { color: #3AD900; }
 
-  // Scope: string.regexp
-  .sr {color:$string_regexp;} //String.Regex
-}
+.highlight .s2 { color: #3AD900; }
+
+.highlight .sx { color: #3AD900; }
+
+.highlight .si { color: #3AD900; }
+
+.highlight .sr { color: #fd971f; }
+
+.language-html .highlight .s { color: #ffc600; }
 
 /* Support */
-.highlight {
-  // Scope: support
-  .nb {color:$support;} //Name.Builtin
-  .bp {color:$support;} //Name.Builtin.Pseudo
+.highlight .nb { color: #f8f8f2; }
 
-  // Scope: support.constant
-  .fm {color:$support_constant;} //Name.Function.Magic
-  .vm {color:$support_constant;} //Name.Variable.Magic
+.highlight .bp { color: #f8f8f2; }
 
-  .nl {color: $support_type}; //Name.Label
-}
+.highlight .fm { color: #f8f8f2; }
+
+.highlight .vm { color: #f8f8f2; }
+
+.highlight .nl { color: #f92672; }
+
+.language-css .highlight .nc, .language-css .highlight .nf, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nf, .language-scss .highlight .nn { color: #3AD900; }
 
 /* Variable */
-.highlight {
-  .vi {color:$variable;} //Name.Variable.Instance
+.highlight .vi { color: #f8f8f2; }
 
-  .kp {color:$variable_language;} //Keyword.Pseudo
+.highlight .kp { color: #f8f8f2; }
 
-  // Scope: variable.other
-  .nv {color:$variable_other;} // Name.Variable
-  .vc {color:$variable_other;} // Name.Variable.Class
-  .vg {color:$variable_other;} // Name.Variable.Global
-}
+.highlight .nv { color: #f8f8f2; }
+
+.highlight .vc { color: #f8f8f2; }
+
+.highlight .vg { color: #f8f8f2; }
