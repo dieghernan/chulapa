@@ -1,4 +1,4 @@
-/* oksolar.dark theme Based on https://meat.io/oksolar Code licensed under the MIT license @author Diego H <https://github.com/dieghernan/> */
+/*  oksolar.dark theme author Diego H <https://github.com/dieghernan/> */
 /* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
 /* by Diego H <https://github.com/dieghernan/   */
 /* Overall */
@@ -66,18 +66,18 @@
 
 .language-yaml .highlight .kt { color: #2B90D8; }
 
-.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nf, .language-scss .highlight .nd { color: #2B90D8; }
+.language-css .highlight .nt, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nd { color: #819500; }
+
+.language-css .highlight .nf, .language-scss .highlight .nf { color: #819500; }
 
 .language-css .highlight .n, .language-scss .highlight .n { color: #2B90D8; }
 
-.language-html .highlight .na { color: #2B90D8; }
+.language-html .highlight .na { color: #819500; }
 
 /* Invalid */
 .highlight .err { color: #F23749; }
 
 .highlight .gr { color: #F23749; }
-
-.highlight .gt { color: #F23749; }
 
 .highlight .ne { color: #F23749; }
 
@@ -90,7 +90,7 @@
 
 .highlight .ow { color: #819500; }
 
-.language-markdown .highlight .sb { color: #819500; }
+.language-markdown .highlight .sb { color: #2B90D8; }
 
 .language-css .highlight .k, .language-scss .highlight .k { color: #819500; }
 
@@ -110,6 +110,8 @@
 .highlight .ge { color: #98A8A8; font-style: italic; }
 
 .highlight .ges { font-weight: bold; font-style: italic; }
+
+.highlight .gt { color: #98A8A8; }
 
 /* Meta */
 .language-html .highlight .cp { color: #657377; font-style: normal; }
@@ -156,7 +158,7 @@
 
 .highlight .nl { color: #AC8300; }
 
-.language-css .highlight .nc, .language-css .highlight .nf, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nf, .language-scss .highlight .nn { color: #2B90D8; }
+.language-css .highlight .nc, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nn { color: #2B90D8; }
 
 /* Variable */
 .highlight .vi { color: #98A8A8; }
@@ -168,7 +170,5 @@
 .highlight .vc { color: #D56500; }
 
 .highlight .vg { color: #D56500; }
-
-.highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
 
 .highlight .err, .highlight .gr, .highlight .gt, .highlight .ne { font-weight: bold; }

@@ -11,8 +11,6 @@
 
 .language-css .highlight .nl { color: #9DF39F; }
 
-.language-markdown .highlight .sb { color: #ffc600; }
-
 .language-yaml .highlight .nl, .language-yaml .highlight .nv { color: #fd971f; font-weight: bold; }
 
 .language-json .highlight .nl { color: #3AD900; }
@@ -92,7 +90,9 @@
 
 .language-yaml .highlight .kt { color: #f92672; }
 
-.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nf, .language-scss .highlight .nd { color: #3AD900; }
+.language-css .highlight .nt, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nd { color: #3AD900; }
+
+.language-css .highlight .nf, .language-scss .highlight .nf { color: #3AD900; }
 
 .language-css .highlight .n, .language-scss .highlight .n { color: #ffc600; }
 
@@ -102,8 +102,6 @@
 .highlight .err { color: #f92672; }
 
 .highlight .gr { color: #f92672; }
-
-.highlight .gt { color: #f92672; }
 
 .highlight .ne { color: #f92672; }
 
@@ -136,6 +134,8 @@
 .highlight .ge { color: #f8f8f2; font-style: italic; }
 
 .highlight .ges { font-weight: bold; font-style: italic; }
+
+.highlight .gt { color: #f8f8f2; }
 
 /* Meta */
 .language-html .highlight .cp { color: #9EFFFF; font-style: normal; }
@@ -182,7 +182,7 @@
 
 .highlight .nl { color: #f92672; }
 
-.language-css .highlight .nc, .language-css .highlight .nf, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nf, .language-scss .highlight .nn { color: #3AD900; }
+.language-css .highlight .nc, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nn { color: #3AD900; }
 
 /* Variable */
 .highlight .vi { color: #f8f8f2; }

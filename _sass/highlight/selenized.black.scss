@@ -1,4 +1,4 @@
-/* selenized.black theme Based on https://github.com/jan-warchol/selenized @author Diego H <https://github.com/dieghernan/> */
+/*  selenized.black theme author Diego H <https://github.com/dieghernan/> */
 /* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
 /* by Diego H <https://github.com/dieghernan/   */
 /* Overall */
@@ -66,18 +66,18 @@
 
 .language-yaml .highlight .kt { color: #368AEB; }
 
-.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nf, .language-scss .highlight .nd { color: #368AEB; }
+.language-css .highlight .nt, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nd { color: #70B433; }
+
+.language-css .highlight .nf, .language-scss .highlight .nf { color: #70B433; }
 
 .language-css .highlight .n, .language-scss .highlight .n { color: #368AEB; }
 
-.language-html .highlight .na { color: #368AEB; }
+.language-html .highlight .na { color: #70B433; }
 
 /* Invalid */
 .highlight .err { color: #FF5E56; }
 
 .highlight .gr { color: #FF5E56; }
-
-.highlight .gt { color: #FF5E56; }
 
 .highlight .ne { color: #FF5E56; }
 
@@ -90,7 +90,7 @@
 
 .highlight .ow { color: #70B433; }
 
-.language-markdown .highlight .sb { color: #70B433; }
+.language-markdown .highlight .sb { color: #368AEB; }
 
 .language-css .highlight .k, .language-scss .highlight .k { color: #70B433; }
 
@@ -110,6 +110,8 @@
 .highlight .ge { color: #B9B9B9; font-style: italic; }
 
 .highlight .ges { font-weight: bold; font-style: italic; }
+
+.highlight .gt { color: #B9B9B9; }
 
 /* Meta */
 .language-html .highlight .cp { color: #777777; font-style: normal; }
@@ -156,7 +158,7 @@
 
 .highlight .nl { color: #DBB32D; }
 
-.language-css .highlight .nc, .language-css .highlight .nf, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nf, .language-scss .highlight .nn { color: #368AEB; }
+.language-css .highlight .nc, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nn { color: #368AEB; }
 
 /* Variable */
 .highlight .vi { color: #B9B9B9; }
@@ -168,7 +170,5 @@
 .highlight .vc { color: #E67F43; }
 
 .highlight .vg { color: #E67F43; }
-
-.highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
 
 .highlight .err, .highlight .gr, .highlight .gt, .highlight .ne { font-weight: bold; }

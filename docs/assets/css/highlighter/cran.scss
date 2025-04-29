@@ -81,7 +81,9 @@ code { color: #333; background-color: #f7f7f7; }
 
 .language-yaml .highlight .kt { color: #06287e; }
 
-.language-css .highlight .nt, .language-css .highlight .nf, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nf, .language-scss .highlight .nd { color: #06287e; }
+.language-css .highlight .nt, .language-css .highlight .nd, .language-scss .highlight .nt, .language-scss .highlight .nd { color: #06287e; }
+
+.language-css .highlight .nf, .language-scss .highlight .nf { color: #7d9029; }
 
 .language-css .highlight .n, .language-scss .highlight .n { color: #7d9029; }
 
@@ -91,8 +93,6 @@ code { color: #333; background-color: #f7f7f7; }
 .highlight .err { color: #ff0000; }
 
 .highlight .gr { color: #ff0000; }
-
-.highlight .gt { color: #ff0000; }
 
 .highlight .ne { color: #ff0000; }
 
@@ -125,6 +125,8 @@ code { color: #333; background-color: #f7f7f7; }
 .highlight .ge { color: #333; font-style: italic; }
 
 .highlight .ges { font-weight: bold; font-style: italic; }
+
+.highlight .gt { color: #333; }
 
 /* Meta */
 .language-html .highlight .cp { color: #60a0b0; font-style: normal; }
@@ -171,7 +173,7 @@ code { color: #333; background-color: #f7f7f7; }
 
 .highlight .nl { color: #008000; }
 
-.language-css .highlight .nc, .language-css .highlight .nf, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nf, .language-scss .highlight .nn { color: #06287e; }
+.language-css .highlight .nc, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nn { color: #06287e; }
 
 /* Variable */
 .highlight .vi { color: #19177c; }
