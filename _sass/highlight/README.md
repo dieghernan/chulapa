@@ -153,6 +153,7 @@ Some themes created by myself:
 -   `cobalt2`
 -   `oksolar.dark`
 -   `oksolar.light`
+-   `panda`
 -   `selenized.black`
 -   `selenized.dark`
 -   `selenized.light`

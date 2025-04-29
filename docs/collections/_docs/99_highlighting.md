@@ -29,7 +29,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   'gruvbox.light','gruvbox','igor','igorpro','inkpot','lightbulb','lilypond',
   'lovelace','magritte','manni','material','molokai','monokai',
   'monokai.sublime','murphy','native','nord.darker','nord','oksolar.dark',
-  'oksolar.light','one.dark','paraiso.dark','paraiso.light','pastie','perldoc',
+  'oksolar.light','one.dark','panda', 'paraiso.dark','paraiso.light','pastie','perldoc',
   'rainbow_dash','rrt','sas','selenized.black','selenized.dark',
   'selenized.light','selenized.white','skeletor','solarized.dark',
   'solarized.light','stackoverflow.dark','stackoverflow.light','staroffice',

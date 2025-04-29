@@ -53,6 +53,7 @@
     -   `one.dark`
     -   `paraiso.dark`
     -   `paraiso.light`
+    -   `panda`
     -   `rainbow_dash`
     -   `rrt`
     -   `sas`
@@ -62,6 +63,8 @@
     -   `selenized.white`
     -   `solarized.dark`
     -   `solarized.light`
+    -   `stackoverflow.light`
+    -   `stackoverflow.dark`
     -   `staroffice`
     -   `stata.dark`
     -   `stata.light`
