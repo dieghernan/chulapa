@@ -1,14 +1,4 @@
 /* panda Theme Based on https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda v. 1.4.0 By siamak Adapted by Diego H <https://github.com/dieghernan/> */
-.highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
-
-.highlight .nn { font-style: italic; }
-
-.language-css .highlight .nn, .language-scss .highlight .nn { font-style: normal; }
-
-.language-html .highlight .nt { color: #FF2C6D; }
-
-.language-markdown .highlight .sb { font-style: italic; }
-
 /* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
 /* by Diego H <https://github.com/dieghernan/   */
 /* Overall */
@@ -58,7 +48,7 @@
 .highlight .il { color: #E6E6E6; }
 
 /* Entities */
-.highlight .nc { color: #6FC1FF; }
+.highlight .nc { color: #19F9D8; }
 
 .highlight .nd { color: #6FC1FF; }
 
@@ -180,5 +170,25 @@
 .highlight .vc { color: #FF9AC1; }
 
 .highlight .vg { color: #FF9AC1; }
+
+.highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
+
+.highlight .nn, .highlight .nc { font-style: italic; }
+
+.language-css .highlight .nn, .language-css .highlight .nc, .language-scss .highlight .nn, .language-scss .highlight .nc { font-style: normal; }
+
+.language-css .highlight .nc, .language-scss .highlight .nc { color: #FFB86C; }
+
+.language-css .highlight .nl, .language-scss .highlight .nl { color: #E6E6E6; }
+
+.language-css .highlight .n, .language-scss .highlight .n { color: #6FC1FF; }
+
+.language-css .highlight .m, .language-scss .highlight .m { color: #FFB86C; }
+
+.language-scss .highlight .n { color: #FFCC95; }
+
+.language-html .highlight .nt { color: #FF2C6D; }
+
+.language-markdown .highlight .sb { font-style: italic; }
 
 .language-yaml .highlight .na, .language-yaml .highlight .m { color: #FFCC95; }
