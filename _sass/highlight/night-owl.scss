@@ -1,30 +1,4 @@
 /* Night Owl Theme for pygments/Jekyll Based on https://github.com/sdras/night-owl-vscode-theme Copyright 2020, 2025, All rights reserved Code licensed under the MIT license @author Diego H <https://github.com/dieghernan/> */
-.highlight .na, .highlight .nf, .highlight .kc, .highlight .gt, .highlight .k, .highlight .kn, .highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
-
-.highlight .err, .highlight .gr, .highlight .ne { background-color: #ff2c83; }
-
-.language-css .highlight .nl, .language-scss .highlight .nl { color: #80CBC4; }
-
-.language-css .highlight .m, .language-scss .highlight .m { color: #FFEB95; }
-
-.language-css .highlight .nc, .language-scss .highlight .nc { color: #C5E478 !important; font-style: italic; }
-
-.language-css .highlight .nn, .language-scss .highlight .nn { color: #FAD430 !important; font-style: italic; }
-
-.language-scss .highlight .n { color: #80CBC4 !important; }
-
-.language-scss .highlight .nv { color: #C5E478; }
-
-.language-yaml .highlight .kt { color: #C792EA !important; }
-
-.language-yaml .highlight .na { color: #7FDBCA !important; font-style: normal; }
-
-.language-json .highlight .nl { color: #7FDBCA; }
-
-.language-json .highlight .mi { color: #F78C6C; }
-
-.language-json .highlight .s, .language-json .highlight .sb, .language-json .highlight .s1, .language-json .highlight .s2, .language-json .highlight .sx { color: #C789D6; }
-
 /* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
 /* by Diego H <https://github.com/dieghernan/   */
 /* Overall */
@@ -196,3 +170,31 @@
 .highlight .vc { color: #C5E478; }
 
 .highlight .vg { color: #C5E478; }
+
+.highlight .na, .highlight .nf, .highlight .kc, .highlight .gt, .highlight .k, .highlight .kn, .highlight .c, .highlight .cp, .highlight .cpf, .highlight .cm, .highlight .c1, .highlight .cs, .highlight .ch { font-style: italic; }
+
+.highlight .err, .highlight .gr, .highlight .ne { background-color: #ff2c83; }
+
+.language-css .highlight .nl, .language-scss .highlight .nl { color: #80CBC4; }
+
+.language-css .highlight .m, .language-scss .highlight .m { color: #FFEB95; }
+
+.language-css .highlight .nc, .language-scss .highlight .nc { color: #C5E478 !important; font-style: italic; }
+
+.language-css .highlight .nn, .language-scss .highlight .nn { color: #FAD430 !important; font-style: italic; }
+
+.language-css .highlight .p, .language-scss .highlight .p { color: #FAD430; }
+
+.language-scss .highlight .n { color: #80CBC4 !important; }
+
+.language-scss .highlight .nv { color: #C5E478; }
+
+.language-yaml .highlight .kt { color: #C792EA !important; }
+
+.language-yaml .highlight .na { color: #7FDBCA !important; font-style: normal; }
+
+.language-json .highlight .nl { color: #7FDBCA; }
+
+.language-json .highlight .mi { color: #F78C6C; }
+
+.language-json .highlight .s, .language-json .highlight .sb, .language-json .highlight .s1, .language-json .highlight .s2, .language-json .highlight .sx, .language-json .highlight .p { color: #C789D6; }
