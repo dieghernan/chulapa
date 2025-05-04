@@ -151,6 +151,7 @@ Some themes created by myself:
 
 -   `cran`
 -   `cobalt2`
+-   `night-owl`
 -   `oksolar.dark`
 -   `oksolar.light`
 -   `panda`
