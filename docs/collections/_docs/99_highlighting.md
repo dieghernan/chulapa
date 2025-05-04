@@ -28,7 +28,7 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   'friendly_grayscale','fruity','github.dark','github','gruvbox.dark',
   'gruvbox.light','gruvbox','igor','igorpro','inkpot','lightbulb','lilypond',
   'lovelace','magritte','manni','material','molokai','monokai',
-  'monokai.sublime','murphy','native','night-owl, 'nord.darker','nord','oksolar.dark',
+  'monokai.sublime','murphy','native','night_owl', 'nord.darker','nord','oksolar.dark',
   'oksolar.light','one.dark','panda', 'paraiso.dark','paraiso.light','pastie','perldoc',
   'rainbow_dash','rrt','sas','selenized.black','selenized.dark',
   'selenized.light','selenized.white','skeletor','solarized.dark',
