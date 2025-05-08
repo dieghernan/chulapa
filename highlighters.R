@@ -52,6 +52,7 @@ for (i in seq_len(length(sassf))) {
     message(f)
   }
 }
+
 for (i in seq_len(length(sassf))) {
   f <- sassf[i]
   enc <- guess_encoding(f)$encoding[1]

@@ -6,31 +6,33 @@
 
 .highlight table pre { margin: 0; }
 
-.highlight pre { background: #FBF7EF; color: #5B7279; }
+.highlight pre { background: #FBF7EF; color: #657377; }
+
+.highlight .hll { background-color: #5B7279; }
 
 /* Comments */
-.highlight .c { color: #657377; }
+.highlight .c { color: #8FAAAB; }
 
-.highlight .cp { color: #657377; }
+.highlight .cp { color: #8FAAAB; }
 
-.highlight .cpf { color: #657377; }
+.highlight .cpf { color: #8FAAAB; }
 
-.highlight .cm { color: #657377; }
+.highlight .cm { color: #8FAAAB; }
 
-.highlight .c1 { color: #657377; }
+.highlight .c1 { color: #8FAAAB; }
 
-.highlight .cs { color: #657377; }
+.highlight .cs { color: #8FAAAB; }
 
-.highlight .ch { color: #657377; }
+.highlight .ch { color: #8FAAAB; }
 
 /* Constants */
 .highlight .se { color: #F23749; }
 
 .highlight .kc { color: #259D94; }
 
-.highlight .no { color: #5B7279; }
+.highlight .no { color: #657377; }
 
-.highlight .ss { color: #5B7279; }
+.highlight .ss { color: #657377; }
 
 /* Numbers */
 .highlight .m { color: #259D94; }
@@ -101,29 +103,29 @@
 .language-yaml .highlight .na { color: #819500; }
 
 /* Markup */
-.highlight .gs { color: #5B7279; font-weight: bold; }
+.highlight .gs { color: #657377; font-weight: bold; }
 
 .highlight .gh { color: #AC8300; }
 
 .highlight .gu { color: #AC8300; }
 
-.highlight .ge { color: #5B7279; font-style: italic; }
+.highlight .ge { color: #657377; font-style: italic; }
 
 .highlight .ges { font-weight: bold; font-style: italic; }
 
-.highlight .gt { color: #5B7279; }
+.highlight .gt { color: #657377; }
 
 /* Meta */
-.language-html .highlight .cp { color: #657377; font-style: normal; }
+.language-html .highlight .cp { color: #8FAAAB; font-style: normal; }
 
 /* Punctuation */
-.highlight .p { color: #5B7279; }
+.highlight .p { color: #657377; }
 
-.highlight .pm { color: #5B7279; }
+.highlight .pm { color: #657377; }
 
-.highlight .dl { color: #5B7279; }
+.highlight .dl { color: #657377; }
 
-.highlight .sh { color: #5B7279; }
+.highlight .sh { color: #657377; }
 
 /* Storage */
 .highlight .kd { color: #819500; }
@@ -161,7 +163,7 @@
 .language-css .highlight .nc, .language-css .highlight .nn, .language-scss .highlight .nc, .language-scss .highlight .nn { color: #2B90D8; }
 
 /* Variable */
-.highlight .vi { color: #5B7279; }
+.highlight .vi { color: #657377; }
 
 .highlight .kp { color: #F23749; }
 
