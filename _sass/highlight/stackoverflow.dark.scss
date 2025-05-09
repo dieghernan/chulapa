@@ -1,8 +1,7 @@
 /*! Theme: StackOverflow Dark Description: Dark theme as used on stackoverflow.com Author: stackoverflow.com Maintainer: @Hirse Website: https://github.com/StackExchange/Stacks License: MIT Updated: 2021-05-15 Updated for @stackoverflow/stacks v0.64.0 Code Blocks: /blob/v0.64.0/lib/css/components/_stacks-code-blocks.less Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less Adapted by Diego H <https://github.com/dieghernan/> for pygments based in https://github.com/highlightjs/highlight.js/blob/main/src/styles/stackoverflow-dark.css BSD 3-Clause License Copyright (c) 2006, Ivan Sagalaev. All rights reserved. */
 .language-json .highlight .nl { color: #88aece; }
 
-/* SASS Template for converting tmThemes to Rouge / Pygments (css)     */
-/* by Diego H <https://github.com/dieghernan/   */
+/* Source: https://github.com/dieghernan/pretty-themes */
 /* Overall */
 .highlight table td { padding: 5px; }
 
