@@ -1,6 +1,6 @@
 {%- assign dateloc = include.date | downcase -%}
 {%- assign langlocale = include.lang | default: site.locale  | default: "en" | downcase | slice: 0,2 -%}
-{%- assign supported = "es,fr,de" | split: "," -%}
+{%- assign supported = "es,fr,de,it" | split: "," -%}
 
 {%- assign finallang = "en" -%}
 {%- for lang in supported -%}
@@ -30,6 +30,12 @@
     {%- assign days = 'montag,dienstag,mittwoch,donnerstag,freitag,samstag,sonntag' 
                       | split:',' -%}
     {%- assign months = 'januar,februar,märz,april,mai,juni,juli,august,september,oktober,november,dezember' 
+					  | split:',' -%}
+  {%- endif -%}
+  {%- if finallang == "it" -%}
+    {%- assign days = 'lunedì,martedì,mercoledì,giovedì,venerdì,sabato,domenica' 
+                      | split:',' -%}
+    {%- assign months = 'gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre' 
 					  | split:',' -%}
   {%- endif -%}
   
