@@ -558,7 +558,7 @@ Thanks to [@SCP-017](https://github.com/SCP-017) for the suggestion.
 
 Overall <span class="chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.
 
-When dealing with dates, I have designed a snippet that would try to translate months and weekdays to the language set on your `locale` variable on `_config`. As this moment, **english (default)**, french, spanish and german are supported.
+When dealing with dates, I have designed a snippet that would try to translate months and weekdays to the language set on your `locale` variable on `_config`. As this moment, **english (default)**, french, spanish, german and italian are supported.
 
 **Date formatting** in Liquid is quite flexible. You can have a look to the [Jekyll documents](https://jekyllrb.com/docs/liquid/filters/) and the [official Liquid page](https://shopify.github.io/liquid/filters/date/)
 {: .alert .alert-info .p-3 .mx-2}
@@ -580,7 +580,9 @@ Note that in the next examples you can skip the `lang` parameter, as by default 
 
 - In french: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
 
-- Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
+- In italian: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
+
+- Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="zh" %}
 
 ```
 {% endraw %}
@@ -598,7 +600,9 @@ Note that in the next examples you can skip the `lang` parameter, as by default 
 
 - In french: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
 
-- Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
+- In italian: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
+
+- Any other value in english: {% include snippets/datetranslate.html  date=formatdate lang="zh" %}
 
 
 

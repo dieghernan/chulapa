@@ -32,6 +32,12 @@
     {%- assign months = 'januar,februar,märz,april,mai,juni,juli,august,september,oktober,november,dezember' 
 					  | split:',' -%}
   {%- endif -%}
+  {%- if finallang == "it" -%}
+    {%- assign days = 'luned&igrave,marted&igrave,mercoled&igrave,gioved&igrave,venerd&igrave,sabato,domenica' 
+                      | split:',' -%}
+    {%- assign months = 'gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre' 
+					  | split:',' -%}
+  {%- endif -%}
   
   {%- for i in (0..11) -%}
     {%- assign sm = en-months[i] | slice: 0,3 -%}
