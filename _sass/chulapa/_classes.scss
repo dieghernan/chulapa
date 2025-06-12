@@ -372,13 +372,13 @@
   );
 
   a {
-    color: $footer-chulapa-hover-color;
+    color: $footer-chulapa-text-color;
     text-decoration: none;
 
     font-weight: $font-weight-bold;
 
     @include hover-focus() {
-      color: $footer-chulapa-text-color;
+      color: $footer-chulapa-hover-color;
     }
   }
 
@@ -830,7 +830,7 @@
     &:hover,
     &:active {
       background-position: 100%;
-      color: $navbar-chulapa-bg-color;
+      color: $navbar-chulapa-active-color;
       transform: translateX(map-get($spacers, 2));
     }
 
