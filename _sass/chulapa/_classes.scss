@@ -372,13 +372,13 @@
   );
 
   a {
-    color: $footer-chulapa-hover-color;
+    color: $footer-chulapa-link-color;
     text-decoration: none;
 
     font-weight: $font-weight-bold;
 
     @include hover-focus() {
-      color: $footer-chulapa-text-color;
+      color: $footer-chulapa-hover-color;
     }
   }
 

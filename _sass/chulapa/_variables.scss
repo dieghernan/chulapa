@@ -18,7 +18,8 @@ $navbar-chulapa-toggler-border-color: $navbar-chulapa-toggler-color !default;
 $footer-chulapa-bg-color: $navbar-chulapa-bg-color !default;
 $footer-chulapa-text-contrast: color-contrast($footer-chulapa-bg-color, $black, $white);
 $footer-chulapa-text-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 75%) !default;
-$footer-chulapa-hover-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 90%) !default;
+$footer-chulapa-link-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 90%) !default;
+$footer-chulapa-hover-color: mix($footer-chulapa-link-color, $footer-chulapa-bg-color, 80%) !default;
 $footer-chulapa-icon-color: $footer-chulapa-text-color !default;
 $footer-chulapa-icon-hover-color: mix($footer-chulapa-text-contrast, $footer-chulapa-bg-color, 50%) !default;
 
