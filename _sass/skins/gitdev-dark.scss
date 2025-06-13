@@ -34,8 +34,8 @@ $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 
 $footer-chulapa-bg-color: $body-bg !default;
 $footer-chulapa-text-color: $text-muted !default;
-$footer-chulapa-hover-color: #58a6ff !default;
-$footer-chulapa-icon-hover-color: mix($footer-chulapa-hover-color, $footer-chulapa-bg-color, 20%) !default;
+$footer-chulapa-link-color: #58a6ff !default;
+$footer-chulapa-icon-hover-color: mix($footer-chulapa-link-color, $footer-chulapa-bg-color, 20%) !default;
 
 // Misc
 // Blockquote
