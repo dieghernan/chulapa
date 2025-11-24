@@ -12,7 +12,7 @@ jobs:
     env:
       JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.1
