@@ -7,110 +7,98 @@
 > The theme is built on Bootstrap and integrates multiple tools for search, SEO,
 > customization, and content presentation.
 
-## Documentation
+## Keywords
+jekyll, github-pages, bootstrap, static-site, theme, blog, documentation, seo, responsive
 
-- [Read the Docs](https://dieghernan.github.io/chulapa/docs)
-- [Installation](https://dieghernan.github.io/chulapa/docs/01-install)
-- [Global Settings](https://dieghernan.github.io/chulapa/docs/02-config)
-- [Theming your site](https://dieghernan.github.io/chulapa/docs/03-theming)
-- [Layouts & Snippets](https://dieghernan.github.io/chulapa/docs/04-layouts)
-- [FAQs](https://dieghernan.github.io/chulapa/docs/05-faq)
-- [Markdown
-  cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet)
-- [Syntax
-  highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting)
-- [Variable
-  dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary)
+## Entry Points
+Documentation: https://dieghernan.github.io/chulapa/docs
+Installation: https://dieghernan.github.io/chulapa/docs/01-install
+Configuration: https://dieghernan.github.io/chulapa/docs/02-config
+Theming: https://dieghernan.github.io/chulapa/docs/03-theming
+Layouts: https://dieghernan.github.io/chulapa/docs/04-layouts
+FAQs: https://dieghernan.github.io/chulapa/docs/05-faq
+Markdown: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
+Syntax Highlighting: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
+Variables: https://dieghernan.github.io/chulapa/docs/variable-dictionary
 
-## Core Capabilities
-
-- Fully responsive design (Bootstrap-based)
+## Core Features
+- Responsive design (Bootstrap)
 - Multiple navbar layouts and UI components
-- Built-in support for:
-  - Math rendering (MathJax)
-  - Syntax highlighting (Pygments)
-  - Image galleries (Masonry)
-  - Embedded video (YouTube, Vimeo, etc.)
-- Internal search options:
-  - Algolia
-  - Lunr.js
-  - Fuse.js
-  - Simple-Jekyll-Search
-- SEO and social metadata:
-  - Open Graph
-  - Twitter/X Cards
-- Comments systems:
-  - Disqus
-  - Giscus
-- RSS and Atom feeds
-- Multi-author support with metadata
 - Tag, archive, and index layouts
+- Multi-author support
 
-## Installation Methods
+## Content & Rendering
+- Markdown-based content
+- Syntax highlighting (Pygments / Rouge)
+- Math rendering (MathJax)
+- Image galleries (Masonry)
+- Embedded video (YouTube, Vimeo)
+- Reading time and metadata
 
-1.  GitHub Template (recommended for new sites)
-2.  Remote theme:
-    - Add `remote_theme: dieghernan/chulapa` to `_config.yml`
-3.  Gem-based installation:
-    - Add `gem "chulapa-jekyll"` to Gemfile
-    - Set `theme: chulapa-jekyll`
+## Search Options
+- Algolia
+- Lunr.js
+- Fuse.js
+- Simple-Jekyll-Search
+
+## SEO & Metadata
+- Open Graph metadata
+- Twitter/X Cards
+- Structured data (JSON-LD)
+- RSS and Atom feeds
+
+## Comments
+- Disqus
+- Giscus
+
+## Installation
+1. GitHub Template (recommended)
+2. Remote theme:
+   - Add `remote_theme: dieghernan/chulapa` to `_config.yml`
+3. Gem-based:
+   - Add `gem "chulapa-jekyll"` to Gemfile
+   - Set `theme: chulapa-jekyll`
 
 ## Configuration
+Managed via `_config.yml`:
 
-Configuration is handled via `_config.yml`.
+- Site metadata: `title`, `description`, `locale`
+- SEO: `og_image`, `twitter_site`
+- Author: name, avatar, location, social links
+- Navigation: navbar and footer
+- Theming: skins and variables
+- Pagination: `paginator_maxnum`
 
-Key options:
-
-- Site metadata:
-  - `title`, `description`, `locale`
-- SEO:
-  - `og_image`, `twitter_site`
-- Author:
-  - name, avatar, location, social links
-- Navigation:
-  - navbar and footer customization
-- Theming:
-  - skins and variables
-- Pagination:
-  - `paginator_maxnum`
-
-## Theming and Customization
-
-- 40+ predefined skins (Bootswatch, custom themes)
+## Theming
+- 40+ predefined skins (Bootswatch-based)
 - Custom variables via `_config.yml`
-- Supports advanced styling overrides
-- Sandbox available for experimentation
+- CSS overrides supported
+- Sandbox for experimentation
 
-## Content Features
+## Key Files
+- `_config.yml` -- global configuration
+- `_posts/` -- blog content
+- `_layouts/` -- templates
+- `_includes/` -- reusable components
+- `assets/` -- CSS, JS, images
 
-- Blog posts and collections
-- Tag and category archives
-- Breadcrumb navigation
-- Reading time estimation
-- Structured data for search engines
-
-## Typical Use Cases
-
+## Use Cases
 - Personal blogs
 - Technical documentation
 - Data science portfolios
 - Open-source project sites
-- Collaborative/multi-author sites
+- Multi-author websites
 
-## Ecosystem and Extensions
-
+## Ecosystem & Extensions
 - Compatible with Jekyll plugins and Liquid templates
-- Supports GitHub Pages deployment workflows
-- Can be extended with custom layouts, includes, and assets
+- Supports GitHub Pages workflows
+- Extendable via layouts, includes, and assets
 
-## Limitations
-
-- Requires familiarity with Jekyll and YAML configuration
-- Advanced customization may require Liquid templating knowledge
+## Constraints
+- Requires Jekyll knowledge
+- YAML configuration required
+- Advanced customization uses Liquid templates
 - Some features depend on third-party services (e.g., Algolia, Disqus)
 
 ## Summary
-
-Chulapa is a highly customizable and production-ready Jekyll theme that balances
-ease of setup with extensive flexibility, making it suitable for a wide range of
-static websites.
+Flexible, production-ready Jekyll theme for GitHub Pages combining ease of setup with extensive customization.
