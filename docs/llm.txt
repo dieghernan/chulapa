@@ -1,0 +1,116 @@
+# Chulapa Jekyll Theme
+
+> Chulapa is a flexible, feature-rich Jekyll theme designed for GitHub Pages. It
+> enables users to quickly build responsive websites such as blogs, portfolios,
+> documentation sites, and project pages.
+>
+> The theme is built on Bootstrap and integrates multiple tools for search, SEO,
+> customization, and content presentation.
+
+## Documentation
+
+- [Read the Docs](https://dieghernan.github.io/chulapa/docs)
+- [Installation](https://dieghernan.github.io/chulapa/docs/01-install)
+- [Global Settings](https://dieghernan.github.io/chulapa/docs/02-config)
+- [Theming your site](https://dieghernan.github.io/chulapa/docs/03-theming)
+- [Layouts & Snippets](https://dieghernan.github.io/chulapa/docs/04-layouts)
+- [FAQs](https://dieghernan.github.io/chulapa/docs/05-faq)
+- [Markdown
+  cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet)
+- [Syntax
+  highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting)
+- [Variable
+  dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary)
+
+## Core Capabilities
+
+- Fully responsive design (Bootstrap-based)
+- Multiple navbar layouts and UI components
+- Built-in support for:
+  - Math rendering (MathJax)
+  - Syntax highlighting (Pygments)
+  - Image galleries (Masonry)
+  - Embedded video (YouTube, Vimeo, etc.)
+- Internal search options:
+  - Algolia
+  - Lunr.js
+  - Fuse.js
+  - Simple-Jekyll-Search
+- SEO and social metadata:
+  - Open Graph
+  - Twitter/X Cards
+- Comments systems:
+  - Disqus
+  - Giscus
+- RSS and Atom feeds
+- Multi-author support with metadata
+- Tag, archive, and index layouts
+
+## Installation Methods
+
+1.  GitHub Template (recommended for new sites)
+2.  Remote theme:
+    - Add `remote_theme: dieghernan/chulapa` to `_config.yml`
+3.  Gem-based installation:
+    - Add `gem "chulapa-jekyll"` to Gemfile
+    - Set `theme: chulapa-jekyll`
+
+## Configuration
+
+Configuration is handled via `_config.yml`.
+
+Key options:
+
+- Site metadata:
+  - `title`, `description`, `locale`
+- SEO:
+  - `og_image`, `twitter_site`
+- Author:
+  - name, avatar, location, social links
+- Navigation:
+  - navbar and footer customization
+- Theming:
+  - skins and variables
+- Pagination:
+  - `paginator_maxnum`
+
+## Theming and Customization
+
+- 40+ predefined skins (Bootswatch, custom themes)
+- Custom variables via `_config.yml`
+- Supports advanced styling overrides
+- Sandbox available for experimentation
+
+## Content Features
+
+- Blog posts and collections
+- Tag and category archives
+- Breadcrumb navigation
+- Reading time estimation
+- Structured data for search engines
+
+## Typical Use Cases
+
+- Personal blogs
+- Technical documentation
+- Data science portfolios
+- Open-source project sites
+- Collaborative/multi-author sites
+
+## Ecosystem and Extensions
+
+- Compatible with Jekyll plugins and Liquid templates
+- Supports GitHub Pages deployment workflows
+- Can be extended with custom layouts, includes, and assets
+
+## Limitations
+
+- Requires familiarity with Jekyll and YAML configuration
+- Advanced customization may require Liquid templating knowledge
+- Some features depend on third-party services (e.g., Algolia, Disqus)
+
+## Summary
+
+Chulapa is a highly customizable and production-ready Jekyll theme that balances
+ease of setup with extensive flexibility, making it suitable for a wide range of
+static websites.

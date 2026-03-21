@@ -2,7 +2,6 @@ github: [metadata]
 
 remote_theme: dieghernan/chulapa
 
-
 repository: dieghernan/chulapa
 url: "https://dieghernan.github.io"
 baseurl: "/chulapa"
@@ -18,131 +17,135 @@ author:
   avatar: ./assets/img/site/dieghernan-avatar.png
   location: Madrid, Spain
   links:
-    - url: https://github.com/dieghernan/
-      icon: "fab fa-github"
-      label: GitHub
-    - url: https://dieghernan.github.io/
-      icon: fas fa-blog
-      label: Blog
-    - url: https://stackoverflow.com/users/7877917/dieghernan
-      icon: "fab fa-stack-overflow"
-      label: StackOverflow
-gtag_id:  UA-139034853-5
+  - url: https://github.com/dieghernan/
+    icon: "fab fa-github"
+    label: GitHub
+  - url: https://dieghernan.github.io/
+    icon: fas fa-blog
+    label: Blog
+  - url: https://stackoverflow.com/users/7877917/dieghernan
+    icon: "fab fa-stack-overflow"
+    label: StackOverflow
+gtag_id: UA-139034853-5
 search:
   provider: algolia
   algolia_logo: true
 algolia:
-  application_id        : "KOIKA5PDQO"
-  index_name            : "chulapa"
-  search_only_api_key   : "7f1fe42bef3f03458cb3a911ebc7e0ac"
-  files_to_exclude:         #Optional
-    - _layouts/*.html
-    - _includes/*.html
-    - _pages/liquid*
-  extensions_to_index:      #Optional
-    - html
-    - md
-  searchableAttributes:     #Optional
-    - title
-    - headings
-    - unordered(content)
-    - unordered(subtitle)
-    - unordered(categories)
-    - unordered(collection)
-    - unordered(tags)
-  customRanking:            #Optional
-    - desc(include_on_search)
-    - desc(title)
-    - desc(content)
-    - desc(subtitle)
+  application_id: "KOIKA5PDQO"
+  index_name: "chulapa"
+  search_only_api_key: "7f1fe42bef3f03458cb3a911ebc7e0ac"
+  files_to_exclude:
+  #Optional
+  - _layouts/*.html
+  - _includes/*.html
+  - _pages/liquid*
+  extensions_to_index:
+  #Optional
+  - html
+  - md
+  searchableAttributes:
+  #Optional
+  - title
+  - headings
+  - unordered(content)
+  - unordered(subtitle)
+  - unordered(categories)
+  - unordered(collection)
+  - unordered(tags)
+  customRanking:
+  #Optional
+  - desc(include_on_search)
+  - desc(title)
+  - desc(content)
+  - desc(subtitle)
 comments:
   provider: giscus
   cusdis_app_id: "ba6333c9-c7b1-4578-a932-e9ee3e71f120"
-  website_id: "XaFqz82GQETRJnLi7verVsyBS" 
+  website_id: "XaFqz82GQETRJnLi7verVsyBS"
 
 google_cse_id: 002514516175957445995:tvgnhtemtbu
 
 # B. Navigation
 navbar:
-  style :  fab
+  style: fab
   brand:
-    title :  Home
+    title: Home
     img: "./assets/img/site/brand-white.png"
   nav:
   - title: Blog
     url: /blog/
   - title: Docs
     child:
-     - title: Read the Docs
-       url: /docs
-     - title: Installation
-       url: /docs/01-install
-     - title: Global Settings
-       url: /docs/02-config
-     - title: Theming your site
-       url: /docs/03-theming
-     - title: Layouts & Snippets
-       url: /docs/04-layouts
-     - title: FAQs
-       url: /docs/05-faq
-     - title: Markdown cheatsheet
-       url: /docs/markdown-cheatsheet
-     - title: Syntax highlighting
-       url: /docs/syntax-highlighting
-     - title: Variable dictionary
-       url: /docs/variable-dictionary
+    - title: Read the Docs
+      url: /docs
+    - title: Installation
+      url: /docs/01-install
+    - title: Global Settings
+      url: /docs/02-config
+    - title: Theming your site
+      url: /docs/03-theming
+    - title: Layouts & Snippets
+      url: /docs/04-layouts
+    - title: FAQs
+      url: /docs/05-faq
+    - title: Markdown cheatsheet
+      url: /docs/markdown-cheatsheet
+    - title: Syntax highlighting
+      url: /docs/syntax-highlighting
+    - title: Variable dictionary
+      url: /docs/variable-dictionary
   - title: Skins
     url: /skins
   - title: Demos
     child:
-     - title: Index
-       url: /demo
-     - title: Archive (all)
-       url: /demo/archive
-     - title: Tag Cloud (2 cols)
-       url: /demo/tags
-     - title: Category Cloud (single)
-       url: /demo/category
-     - title: Search Google CSE
-       url: /demo/search_google
-     - title: Search LUNR
-       url: /demo/search_lunr
-     - title: Search Fuse.js
-       url: /demo/search_fusejs
-     - title: Search Simple Jekyll Search
-       url: /demo/search_simple
-     - title: Classic Navbar
-       url: /demo/classic-navbar
+    - title: Index
+      url: /demo
+    - title: Archive (all)
+      url: /demo/archive
+    - title: Tag Cloud (2 cols)
+      url: /demo/tags
+    - title: Category Cloud (single)
+      url: /demo/category
+    - title: Search Google CSE
+      url: /demo/search_google
+    - title: Search LUNR
+      url: /demo/search_lunr
+    - title: Search Fuse.js
+      url: /demo/search_fusejs
+    - title: Search Simple Jekyll Search
+      url: /demo/search_simple
+    - title: Classic Navbar
+      url: /demo/classic-navbar
   - title: PageSpeed Results
-    url:  /pagespeed
+    url: /pagespeed
   - title: About
     child:
-      - title: License
-        url: /license
-      - title: Showcase
-        url: /showcase
-      - title: Contribute
-        url: /contribute
-      - title: Changelog
-        url: https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md
+    - title: License
+      url: /license
+    - title: Showcase
+      url: /showcase
+    - title: Contribute
+      url: /contribute
+    - title: Changelog
+      url: https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md
 footer:
   links:
-    - label: "RSS"
-      icon: "fa fa-rss"
-      url:  "./atom.xml"
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: https://github.com/dieghernan/
-    - label: "My blog"
-      icon: "fas fa-blog"
-      url: "https://dieghernan.github.io/"
+  - label: "RSS"
+    icon: "fa fa-rss"
+    url: "./atom.xml"
+  - label: "GitHub"
+    icon: "fab fa-github"
+    url: https://github.com/dieghernan/
+  - label: "My blog"
+    icon: "fas fa-blog"
+    url: "https://dieghernan.github.io/"
   copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
 
 # C. Theme Settings
 chulapa-skin:
-  highlight   : "vs"
-  skin        : navi
-  autothemer  :  true
+  highlight: "vs"
+  skin: navi
+  autothemer: true
 
 # D. Jekyll Defaults and collections: see https://jekyllrb.com/
 collections:
@@ -157,126 +160,127 @@ collections:
     permalink: /skins/:name
   posts:
     output: true
-    permalink : /blog/:year:month:day_:title
-collections_dir     : collections
-permalink           : /:year:month:day_:title
+    permalink: /blog/:year:month:day_:title
+collections_dir: collections
+permalink: /:year:month:day_:title
 paginate: 4
 paginate_path: "/blog/page:num/"
 paginator_maxnum: 3
 defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
-      header_type         : "base"
-      include_on_search   : false
-      cloudtag_url        : "/tags"
-      cloudcategory_url   : "/categories"
-      show_seo            : true
-  -
-    scope:
-      path: ""
-      type: "docs"
-    values:
-      header_type       : "hero"
-      show_sidetoc      : true
-      include_on_search : true
-      show_bottomnavs   : true
-      show_comments     : true
-      show_breadcrumb   : true
-      og_image: "/assets/img/site/banner-docs.png"
-      breadcrumb_list   :
-        - label: Home
-          url: /
-        - label: Docs
-          url: /docs
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      header_type       : "post"
-      include_on_search : true
-      include_on_feed   : true
-      show_date         : true
-      show_related      : true
-      show_bottomnavs   : true
-      show_sociallinks  : true
-      show_comments     : true
-      show_tags         : true
-      show_categories   : true
-      show_author       : true
-      show_breadcrumb   : true
-      breadcrumb_list   :
-        - label: Blog
-          url: /blog/
-  -
-    scope:
-      path: ""
-      type: "skins"
-    values:
-      header_type       : "splash"
-      cloudtag_url      : "/demo/tags"
-      og_image          : '/assets/img/site/banner-skins.png'
-      include_on_search : true
-      show_date         : true
-      show_sociallinks  : true
-      show_comments     : true
-      show_tags         : true
-      show_categories   : true
-      show_related      : true 
-      related_label     : '<p><i class="fa-solid fa-right-left"></i></p>'
-      show_random       : true 
-      random_label      : '<p><i class="fa-solid fa-shuffle"></i></p>'
-      show_bottomnavs   : true
-      show_author       : true
-      show_toc          : true
-      show_sidetoc      : true
-      show_breadcrumb   : true
-      show_seo          : false
-      breadcrumb_list   :
-        - label: Skins
-          url: /skins
-  -
-    scope:
-      path: ""
-      type: "demo"
-    values:
-      layout            : "default"
-      header_type       : "base"
-      cloudtag_url      : "/demo/tags"
-      og_image          : '/assets/img/site/banner-demos.png'
-      include_on_search : true
-      cloudcategory_url : "/demo/category"
-      show_breadcrumb   : true
-      breadcrumb_list   :
-        - label: Demo
-          url: /demo
-  -
-    scope:
-      path: "assets/img/gallery"
-    values:
-      image_col         : gallery
+
+- scope:
+    path: ""
+  values:
+    layout: "default"
+    header_type: "base"
+    include_on_search: false
+    cloudtag_url: "/tags"
+    cloudcategory_url: "/categories"
+    show_seo: true
+
+- scope:
+    path: ""
+    type: "docs"
+  values:
+    header_type: "hero"
+    show_sidetoc: true
+    include_on_search: true
+    show_bottomnavs: true
+    show_comments: true
+    show_breadcrumb: true
+    og_image: "/assets/img/site/banner-docs.png"
+    breadcrumb_list:
+    - label: Home
+      url: /
+    - label: Docs
+      url: /docs
+
+- scope:
+    path: ""
+    type: "posts"
+  values:
+    header_type: "post"
+    include_on_search: true
+    include_on_feed: true
+    show_date: true
+    show_related: true
+    show_bottomnavs: true
+    show_sociallinks: true
+    show_comments: true
+    show_tags: true
+    show_categories: true
+    show_author: true
+    show_breadcrumb: true
+    breadcrumb_list:
+    - label: Blog
+      url: /blog/
+
+- scope:
+    path: ""
+    type: "skins"
+  values:
+    header_type: "splash"
+    cloudtag_url: "/demo/tags"
+    og_image: '/assets/img/site/banner-skins.png'
+    include_on_search: true
+    show_date: true
+    show_sociallinks: true
+    show_comments: true
+    show_tags: true
+    show_categories: true
+    show_related: true
+    related_label: '<p><i class="fa-solid fa-right-left"></i></p>'
+    show_random: true
+    random_label: '<p><i class="fa-solid fa-shuffle"></i></p>'
+    show_bottomnavs: true
+    show_author: true
+    show_toc: true
+    show_sidetoc: true
+    show_breadcrumb: true
+    show_seo: false
+    breadcrumb_list:
+    - label: Skins
+      url: /skins
+
+- scope:
+    path: ""
+    type: "demo"
+  values:
+    layout: "default"
+    header_type: "base"
+    cloudtag_url: "/demo/tags"
+    og_image: '/assets/img/site/banner-demos.png'
+    include_on_search: true
+    cloudcategory_url: "/demo/category"
+    show_breadcrumb: true
+    breadcrumb_list:
+    - label: Demo
+      url: /demo
+
+- scope:
+    path: "assets/img/gallery"
+  values:
+    image_col: gallery
 
 # XX. Other settings - no need to modify
 compress_html:
   clippings: all
   blanklines: true
 plugins:
-  - jekyll-github-metadata
-  - jekyll-paginate
-  - jekyll-include-cache
-  - jekyll-sitemap
-  - jekyll-remote-theme
+- jekyll-github-metadata
+- jekyll-paginate
+- jekyll-include-cache
+- jekyll-sitemap
+- jekyll-remote-theme
 exclude:
-  - LICENSE
-  - README.md
-  - Gemfile
-  - vendor
-  - www_src
+- LICENSE
+- README.md
+- Gemfile
+- vendor
+- www_src
 include:
- - _pages
+- _pages
+- llm.txt
 markdown: kramdown
 highlighter: rouge
 lsi: false
@@ -298,11 +302,9 @@ sass:
   style: compressed
   quiet_deps: true
   silence_deprecations:
-    - import
-    - global-builtin
-    - color-functions
-    - mixed-decls
-    - abs-percent
-    - function-units
-    - color-functions
-
+  - import
+  - global-builtin
+  - color-functions
+  - mixed-decls
+  - abs-percent
+  - function-units
