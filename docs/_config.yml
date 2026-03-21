@@ -280,7 +280,7 @@ exclude:
 - www_src
 include:
 - _pages
-- llm.txt
+- llms.txt
 markdown: kramdown
 highlighter: rouge
 lsi: false
