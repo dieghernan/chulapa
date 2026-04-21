@@ -42,7 +42,7 @@ jobs:
           working-directory: 'docs' # Default directory of the site, change it to 'docs' if the site is hosted in (e.g.) 'docs' folder
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: |
