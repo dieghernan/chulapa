@@ -39,22 +39,27 @@
 {%- endfor %}
 {%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" %}
     <!--Google Structured Data-->
+    {%- if page.collection == "posts" -%}
+      {%- assign schema_type = "BlogPosting" -%}
+    {%- elsif strippedurl == "/" -%}
+      {%- assign schema_type = "WebSite" -%}
+    {%- else -%}
+      {%- assign schema_type = "WebPage" -%}
+    {%- endif -%}
     <script type="application/ld+json">
         {
       "@context": "https://schema.org",
-	  {% if page.collection == "posts" %}
-      "@type": "BlogPosting",
-	  {% else %}
-	  "@type": "Article",
-	  {% endif %}
+      "@type": "{{ schema_type }}",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "{{ canonical_url }}"
       },
       "headline": "{{ metatitle1 |  strip_html | strip }}",
       "image": "{{ ogimage }}",
-      "datePublished": "{{ page.date | default:  site.time | date_to_xmlschema }}",
-      "dateModified": "{{ page.last_modified_at | default: page.date | default:  site.time | date_to_xmlschema }}",
+      {%- if page.date -%},
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
+      {%- endif -%},
       "author": {
         "@type": "Person",
         "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
