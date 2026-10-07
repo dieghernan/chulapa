@@ -1,45 +1,59 @@
 <head>
-    <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.0.1.0001 -->
-    <!--  MIT License-->
-    <!-- Docs: https://dieghernan.github.io/chulapa -->
-    <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
-     <!-- Jekyll Version {{ jekyll.version }} -->
-    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
-{%- assign home_url = "index.html" | absolute_url | replace: "index.html", "" | uri_escape -%}
-{%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip  -%}
-{%- assign metatitle2 = site.title | default: site.github.repository_name | markdownify | strip_html | strip -%}
-{%- assign strippedurl = page.url | replace: "index.html", "" -%}
-{%- if strippedurl == "/" -%}
-    {%- assign metatitle1 = site.title | default: site.github.repository_name | strip  -%}
-    {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline | strip -%}
-{%- endif -%}
-{%- capture metatitle -%}{{ metatitle1 | strip_html | strip }} {{ site.title_separator | default: "|" }} {{ metatitle2 | strip_html | strip }}{%- endcapture -%}
-{%- assign mainname = site.title | default: site.github.repository_name  -%}
-{%- assign mainsub = site.subtitle | default: site.github.project_tagline -%}
-{%- capture sitename -%}{{ mainname | strip_html }} {{ site.title_separator | default: "|" }} {{ mainsub | strip_html }}{%- endcapture -%}
-{%- assign ogimage = page.og_image | default: page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
-{%- assign descfallback = page.content |
-                markdownify |  newline_to_br |
-                replace:"<br />", ",.," |
-                replace:"{{", ",.," |
-                replace:"{%", ",.," |
-                split: ",.," | first -%}
-{%- assign ogdesc = page.excerpt | default: descfallback | markdownify | strip_html | strip | escape_once  -%}
-{%- if page.subtitle -%}
-{%- assign ogdesc = page.subtitle | markdownify | strip_html |  append: " - " | append: ogdesc | strip_html | | strip_newlines | escape_once  -%}
-{%- endif -%}
-{%- assign links = page.author.links | default: site.author.links -%}
-{%- for item in links -%}
-  {%- if item.url contains "twitter.com/" -%}
-    {%- assign twitterauthor = item.url | split: "/" | last -%}
-    {%- break -%}
+  <meta charset="utf-8">
+  <!-- Chulapa Jekyll Theme - v2.0.1.0001 -->
+  <!--  MIT License-->
+  <!-- Docs: https://dieghernan.github.io/chulapa -->
+  <!-- Repo: https://github.com/dieghernan/chulapa -->
+  <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
+  <!-- Jekyll Version {{ jekyll.version }} -->
+  {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url
+  | uri_escape -%}
+  {%- assign home_url = "index.html" | absolute_url | replace: "index.html", ""
+  | uri_escape -%}
+  {%- assign metatitle1 = page.title | default: site.title | default:
+  site.github.repository_name | markdownify | strip_html | strip -%}
+  {%- assign metatitle2 = site.title | default: site.github.repository_name |
+  markdownify | strip_html | strip -%}
+  {%- assign strippedurl = page.url | replace: "index.html", "" -%}
+  {%- if strippedurl == "/" -%}
+  {%- assign metatitle1 = site.title | default: site.github.repository_name |
+  strip -%}
+  {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline |
+  strip -%}
   {%- endif -%}
-{%- endfor %}
-{%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" %}
-    <!--Google Structured Data-->
-    <script type="application/ld+json">
+  {%- capture metatitle -%}{{ metatitle1 | strip_html | strip }} {{
+  site.title_separator | default: "|" }} {{ metatitle2 | strip_html | strip
+  }}{%- endcapture -%}
+  {%- assign mainname = site.title | default: site.github.repository_name -%}
+  {%- assign mainsub = site.subtitle | default: site.github.project_tagline -%}
+  {%- capture sitename -%}{{ mainname | strip_html }} {{ site.title_separator |
+  default: "|" }} {{ mainsub | strip_html }}{%- endcapture -%}
+  {%- assign ogimage = page.og_image | default: page.header_img | default:
+  site.og_image | default: site.author.avatar | default:
+  site.github.owner_gravatar_url | absolute_url -%}
+  {%- assign descfallback = page.content |
+  markdownify | newline_to_br |
+  replace:"<br />", ",.," |
+  replace:"{{", ",.," |
+  replace:"{%", ",.," |
+  split: ",.," | first -%}
+  {%- assign ogdesc = page.excerpt | default: descfallback | markdownify |
+  strip_html | strip | escape_once -%}
+  {%- if page.subtitle -%}
+  {%- assign ogdesc = page.subtitle | markdownify | strip_html | append: " - " |
+  append: ogdesc | strip_html | | strip_newlines | escape_once -%}
+  {%- endif -%}
+  {%- assign links = page.author.links | default: site.author.links -%}
+  {%- for item in links -%}
+  {%- if item.url contains "twitter.com/" -%}
+  {%- assign twitterauthor = item.url | split: "/" | last -%}
+  {%- break -%}
+  {%- endif -%}
+  {%- endfor %}
+  {%- assign authorlink = links | where_exp: "item", "item.url contains 'http'"
+  %}
+  <!--Google Structured Data-->
+  <script type="application/ld+json">
         {
       "@context": "https://schema.org",
 	  {% if page.collection == "posts" %}
@@ -87,8 +101,8 @@
       }
     }
     </script>
-    {% if page.breadcrumb_list %}
-        <script type="application/ld+json">
+  {% if page.breadcrumb_list %}
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -111,8 +125,8 @@
       }]
     }
     </script>
-    {% else %}
-    <script type="application/ld+json">
+  {% else %}
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -128,20 +142,20 @@
       }]
     }
     </script>
-    {% endif  %}
+  {% endif %}
 
-    <script type="application/ld+json">
+  <script type="application/ld+json">
 		{
-	    "@context": "http://schema.org",
+	    "@context": "https://schema.org",
 	    "@type": "WebPage",
 	    "name": "{{ metatitle1 | strip_html }}",
 	    "description": "{{ ogdesc }}"
 	    }
 	</script>
-{%- assign sitelink = site.author.links |
-where_exp: "item", "item.url contains 'http'"
--%}
-<script type="application/ld+json">
+  {%- assign sitelink = site.author.links |
+  where_exp: "item", "item.url contains 'http'"
+  -%}
+  <script type="application/ld+json">
 {
   "@context" : "https://schema.org",
   "@type" : "Person",
@@ -166,11 +180,11 @@ where_exp: "item", "item.url contains 'http'"
   {% endif %}
 }
 </script>
-{% if page.author %}
-{%- assign pagelink = page.author.links |
-where_exp: "item", "item.url contains 'http'"
--%}
-<script type="application/ld+json">
+  {% if page.author %}
+  {%- assign pagelink = page.author.links |
+  where_exp: "item", "item.url contains 'http'"
+  -%}
+  <script type="application/ld+json">
 {
   "@context" : "https://schema.org",
   "@type" : "Person",
@@ -204,110 +218,130 @@ where_exp: "item", "item.url contains 'http'"
   {% endif %}
 }
 </script>
-{% endif %}
-    <title>{{ metatitle | strip_html }}</title>
-    <link rel="canonical" href="{{ canonical_url }}">
-    <!-- Atom feed -->
-    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" >
-    <!-- RSS 2.0 feed -->
-    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title }}" >
-    <!-- Meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" >
-    <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" >
-    <meta name="description" content="{{- ogdesc | truncate: 160 -}}">
-    <meta name="thumbnail" content="{{ ogimage }}" >
-    <meta name="robots" content="index, follow">
-    {%- assign: keyword =  site.github.public_repositories |
-                          where_exp:"item", "item.name == site.github.repository_name " |
-                          map: "topics" -%}
-    {% if keyword -%}
-    <meta name="keywords" content="{{- keyword - | join: ','}}">
-    {%- endif %}
-    {% if site.chulapa-skin.vars.primary -%}
-    <!-- Chrome, Firefox OS and Opera -->
-   <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
-   {%- endif %}
-    <!-- OpenGraph -->
-    <meta property="og:title" content="{{ metatitle | strip_html }}" >
-    <meta property="og:site_name" content="{{ sitename | strip_html }}" >
-    <meta property="og:url" content="{{ canonical_url }}" >
-    <meta property="og:type" content="website" >
-    <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
-    <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" >
-    <meta property="og:image" content="{{- ogimage -}}" >
-    <!-- Twitter/X Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    {%- if site.twitter_site %}
-    <meta name="twitter:site" content="@{{- site.twitter_site  -}}" >
-    {% endif -%}
-    {%- if twitterauthor %}
-    <meta name="twitter:creator" content="@{{- twitterauthor  -}}" >
-    {% endif -%}
+  {% endif %}
+  <title>{{ metatitle | strip_html }}</title>
+  <link rel="canonical" href="{{ canonical_url }}">
+  <!-- Atom feed -->
+  <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml"
+    rel="alternate" title="Atom feed {{ site.title }}">
+  <!-- RSS 2.0 feed -->
+  <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml"
+    rel="alternate" title="RSS 2.0 feed {{ site.title }}">
+  <!-- Meta tags -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author"
+    content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}">
+  <meta name="copyright"
+    content="{{ site.author.name | default: site.github.owner_name }}">
+  <meta name="description" content="{{- ogdesc | truncate: 160 -}}">
+  <meta name="thumbnail" content="{{ ogimage }}">
+  <meta name="robots" content="index, follow">
+  {%- assign: keyword = site.github.public_repositories |
+  where_exp:"item", "item.name == site.github.repository_name " |
+  map: "topics" -%}
+  {% if keyword -%}
+  <meta name="keywords" content="{{- keyword - | join: ','}}">
+  {%- endif %}
+  {% if site.chulapa-skin.vars.primary -%}
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
+  {%- endif %}
+  <!-- OpenGraph -->
+  <meta property="og:title" content="{{ metatitle | strip_html }}">
+  <meta property="og:site_name" content="{{ sitename | strip_html }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}">
+  <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}">
+  <meta property="og:image" content="{{- ogimage -}}">
+  <!-- Twitter/X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if site.twitter_site %}
+  <meta name="twitter:site" content="@{{- site.twitter_site  -}}">
+  {% endif -%}
+  {%- if twitterauthor %}
+  <meta name="twitter:creator" content="@{{- twitterauthor  -}}">
+  {% endif -%}
 
-    {%- include custom/custom_head_before_css.html -%}
+  {%- include custom/custom_head_before_css.html -%}
 
-    <!-- CSS -->
+  <!-- CSS -->
   {% if site.comments.provider == 'cactus' -%}
-   <!-- Cactus comments -->
-   <script src="https://latest.cactus.chat/cactus.js"></script>
-   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
-{%- endif %}
-    <!-- Preconnect with Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {% for font in site.googlefonts -%}
-      {% if font.url -%}
-    <link href="{{ font.url }}" rel="stylesheet">
-      {%- endif %}
-    {%- endfor %}
-    <!-- Fontawesome-->
-    <!-- v6 -->
-    {% assign fakit = site.fa5_kit_code | default: fa_kit_code %}
-    {% if fakit -%}
-    <script src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
-    {%- else -%}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ site.fa_version | default: 6 }}/css/all.min.css">
-    {%- endif %}
-    {% if site.fa_v4_support -%}
-    <!-- Compatibility with FontAwesome 4 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
-    {%- endif %}
-      <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/js/chulapa_script.js" as="script" >
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
-    <!-- Theme css (Bootstrap included) -->
-    <link rel="stylesheet" id="maincss" href="{{- "assets/css/main.css " | absolute_url -}}" >
-    <!-- Highlighter -->
-    <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" >
-    <!-- Custom css -->
-    <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" >
-      {% if page.mathjax -%}
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
+  <!-- Cactus comments -->
+  <script src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css"
+    type="text/css">
+  {%- endif %}
+  <!-- Preconnect with Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% for font in site.googlefonts -%}
+  {% if font.url -%}
+  <link href="{{ font.url }}" rel="stylesheet">
+  {%- endif %}
+  {%- endfor %}
+  <!-- Fontawesome-->
+  <!-- v6 -->
+  {% assign fakit = site.fa5_kit_code | default: fa_kit_code %}
+  {% if fakit -%}
+  <script src="https://kit.fontawesome.com/{{ fakit }}.js"
+    crossorigin="anonymous"></script>
+  {%- else -%}
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ site.fa_version | default: 6 }}/css/all.min.css">
+  {%- endif %}
+  {% if site.fa_v4_support -%}
+  <!-- Compatibility with FontAwesome 4 -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
+  {%- endif %}
+  <link rel="preload"
+    href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/js/chulapa_script.js"
+    as="script">
+  <link rel="preload"
+    href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf"
+    as="font" type="font/otf" crossorigin>
+  <!-- Theme css (Bootstrap included) -->
+  <link rel="stylesheet" id="maincss" href="{{- "
+    assets/css/main.css " | absolute_url -}}">
+  <!-- Highlighter -->
+  <link id="csshigh" rel="stylesheet" href="{{- "
+    assets/css/highlighter.css " | absolute_url -}}">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="{{- "
+    assets/css/custom.css " | absolute_url -}}">
+  {% if page.mathjax -%}
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
   {%- endif %}
 
-{%- if site.gtag_id %}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  {%- if site.gtag_id %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async
+    src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', '{{- site.gtag_id -}}');
-</script>
-{% endif -%}
-{%- if site.analytics_id %}
-<!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    gtag('config', '{{- site.gtag_id -}}');
+  </script>
+  {% endif -%}
+  {%- if site.analytics_id %}
+  <!-- Google Analytics -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', '{{- site.analytics_id -}}', 'auto');
-ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-{% endif -%}
-    {%- include custom/custom_head.html -%}
+    ga('create', '{{- site.analytics_id -}}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+  {% endif -%}
+  {%- include custom/custom_head.html -%}
 </head>
