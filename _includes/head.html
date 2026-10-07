@@ -34,7 +34,9 @@
 {%- assign ogdesc = ogdesc | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip | escape_once -%}
 {%- assign links = page.author.links | default: site.author.links -%}
 {%- for item in links -%}
-  {%- if item.url contains "twitter.com/" or item.url contains "x.com/" -%}
+  {%- assign author_url_parts = item.url | split: '/' -%}
+  {%- assign author_host = author_url_parts[2] | split: ':' | first | downcase -%}
+  {%- if author_host == "twitter.com" or author_host == "www.twitter.com" or author_host == "x.com" or author_host == "www.x.com" -%}
     {%- assign twitterauthor = item.url | split: "/" | last -%}
     {%- break -%}
   {%- endif -%}

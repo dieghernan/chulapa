@@ -31,6 +31,26 @@ Dir.mktmpdir("chulapa-head-") do |source|
     "page.md" => "title: Page\nsubtitle: A subtitle\nexcerpt: |\n  Words on\n  separate lines.",
     "plain.md" => "title: Plain\nexcerpt: |\n  Words on\n  separate lines.",
     "fallback.md" => "title: Fallback",
+    "www-twitter.md" => <<~YAML.chomp,
+      title: WWW Twitter
+      excerpt: Twitter profile
+      author:
+        name: Guest
+        links:
+          - url: https://www.twitter.com/guest
+    YAML
+    "unrelated.md" => <<~YAML.chomp,
+      title: Unrelated profiles
+      excerpt: No Twitter or X profile
+      author:
+        name: Other author
+        links:
+          - url: https://box.com/user
+          - url: https://example.com/x.com/other
+          - url: https://example.com/?profile=https://twitter.com/other
+          - url: https://notx.com/user
+          - url: https://evil.x.com/user
+    YAML
     "_posts/2024-01-02-example.md" => "title: Example post\nexcerpt: Post description",
     "guest.md" => <<~YAML.chomp,
       title: Guest
@@ -38,6 +58,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
       author:
         name: Guest
         links:
+          - url: https://box.com/user
           - url: https://twitter.com/guest
     YAML
     "custom-home.md" => <<~YAML.chomp,
@@ -63,7 +84,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
       "title" => "Example site",
       "subtitle" => "Example subtitle",
       "locale" => locale,
-      "author" => { "name" => "Author", "links" => [{ "url" => "https://x.com/author" }] },
+      "author" => { "name" => "Author", "links" => [{ "url" => "https://box.com/user" }, { "url" => "https://example.com/x.com/other" }, { "url" => locale ? "https://WWW.X.COM:443/author" : "https://x.com/author" }] },
       "defaults" => [{ "scope" => { "path" => "" }, "values" => { "layout" => "head" } }],
       "quiet" => true
     )
@@ -77,7 +98,14 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(blocks.all? { |block| block["@context"] == "https://schema.org" }, "Schema context changed")
       check(metadata(html, "og:locale") == (locale || "en-US").tr("-", "_"), "Incorrect OG locale")
       check(html.include?("<html lang=\"#{locale || 'en-US'}\">"), "HTML language changed")
-      check(metadata(html, "twitter:creator") == (path.end_with?("guest.html") ? "@guest" : "@author"), "Twitter/X creator missing")
+      expected_creator = if path.end_with?("guest.html", "www-twitter.html")
+                           "@guest"
+                         elsif path.end_with?("unrelated.html")
+                           nil
+                         else
+                           "@author"
+                         end
+      check(metadata(html, "twitter:creator") == expected_creator, "Incorrect Twitter/X creator")
       check(metadata(html, "og:type") == (path.end_with?("example.html") ? "article" : "website"), "Incorrect OG type")
     end
 
