@@ -59,7 +59,7 @@
       {%- if page.date -%}
       "datePublished": "{{ page.date | date_to_xmlschema }}",
       "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-      {%- endif -%}
+      {%- endif %}
       "author": {
         "@type": "Person",
         "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
