@@ -26,13 +26,17 @@
                 replace:"{{", ",.," |
                 replace:"{%", ",.," |
                 split: ",.," | first -%}
-{%- assign ogdesc = page.excerpt | default: descfallback | markdownify | strip_html | strip | escape_once  -%}
+{%- assign ogdesc = page.excerpt | default: descfallback | markdownify | strip_html | strip -%}
 {%- if page.subtitle -%}
-{%- assign ogdesc = page.subtitle | markdownify | strip_html |  append: " - " | append: ogdesc | strip_html | | strip_newlines | escape_once  -%}
+{%- assign metasubtitle = page.subtitle | markdownify | strip_html | strip -%}
+{%- assign ogdesc = metasubtitle | append: " - " | append: ogdesc -%}
 {%- endif -%}
+{%- assign ogdesc = ogdesc | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip | escape_once -%}
 {%- assign links = page.author.links | default: site.author.links -%}
 {%- for item in links -%}
-  {%- if item.url contains "twitter.com/" -%}
+  {%- assign author_url_parts = item.url | split: '/' -%}
+  {%- assign author_host = author_url_parts[2] | split: ':' | first | downcase -%}
+  {%- if author_host == "twitter.com" or author_host == "www.twitter.com" or author_host == "x.com" or author_host == "www.x.com" -%}
     {%- assign twitterauthor = item.url | split: "/" | last -%}
     {%- break -%}
   {%- endif -%}
@@ -116,7 +120,7 @@
       }]
     }
     </script>
-    {% else %}
+    {% elsif strippedurl != "/" %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -236,9 +240,9 @@ where_exp: "item", "item.url contains 'http'"
     <meta property="og:title" content="{{ metatitle | strip_html }}" >
     <meta property="og:site_name" content="{{ sitename | strip_html }}" >
     <meta property="og:url" content="{{ canonical_url }}" >
-    <meta property="og:type" content="website" >
+    <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}" >
     <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
-    <meta property="og:locale" content="{{- site.locale | default: 'en-US' -}}" >
+    <meta property="og:locale" content="{{- site.locale | default: 'en-US' | replace: '-', '_' -}}" >
     <meta property="og:image" content="{{- ogimage -}}" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
