@@ -131,14 +131,13 @@
     {% endif  %}
 
     <script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebPage",
-    "name": "{{ metatitle1 | strip_html }}",
-    "description": "{{ ogdesc }}"
-    }
-}
-</script>
+		{
+	    "@context": "http://schema.org",
+	    "@type": "WebPage",
+	    "name": "{{ metatitle1 | strip_html }}",
+	    "description": "{{ ogdesc }}"
+	    }
+	</script>
 {%- assign sitelink = site.author.links |
 where_exp: "item", "item.url contains 'http'"
 -%}
