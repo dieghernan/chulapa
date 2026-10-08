@@ -47,6 +47,7 @@ algolia:
   - _layouts/*.html
   - _includes/*.html
   - _pages/liquid*
+  - assets/widgets/music-scales.html
   extensions_to_index:
   #Optional
   - html
