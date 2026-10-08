@@ -12,10 +12,9 @@
         {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://dieghernan.github.io/chulapa/demo/06-guestauthor"
-      },
+      "@id": "https://dieghernan.github.io/chulapa/demo/06-guestauthor",
+      "name": "A guest author",
+      "description": "And with a new project - This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months…",
       "headline":"A guest author",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
       "datePublished": "2020-02-29T00:00:00+01:00",
@@ -47,28 +46,25 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id":"https://dieghernan.github.io/chulapa/demo/06-guestauthor#breadcrumb",
       "itemListElement": [
       {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/06-guestauthor#breadcrumb-1",
         "position": 1,
         "name":"Demo",
         "item":"https://dieghernan.github.io/chulapa/demo"
       },
     {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/06-guestauthor#breadcrumb-2",
         "position": 2,
-        "name":"A guest author"
+        "item": "https://dieghernan.github.io/chulapa/demo/06-guestauthor",
+        "name": "A guest author"
       }]
     }
     </script>
 <script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"name":"A guest author",
-	"description": "And with a new project - This page shows how a contributor could be added to your blog. In this case Octocat is telling us about its plans on the next months…"
-	}
-</script><script type="application/ld+json">
 {
   "@context" : "https://schema.org",
   "@type" : "Person",
@@ -216,12 +212,13 @@
 <div class="row my-1">
 <div class="col-lg-5 offset-lg-2 col small">
  <nav aria-label="breadcrumb">
-  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/demo/06-guestauthor#breadcrumb">
             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="https://dieghernan.github.io/chulapa/demo" itemprop="item"><span itemprop="name">Demo</span></a>
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/demo/06-guestauthor#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/demo" itemprop="item"><span itemprop="name">Demo</span></a>
          <meta itemprop="position" content="1" ></li>
       <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem">
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/demo/06-guestauthor#breadcrumb-2">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/demo/06-guestauthor">
         <span itemprop="name">A guest author</span>
        <meta itemprop="position" content="2" >
      </li>

@@ -12,10 +12,9 @@
         {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://dieghernan.github.io/chulapa/demo/12-related-random"
-      },
+      "@id": "https://dieghernan.github.io/chulapa/demo/12-related-random",
+      "name": "Related and Random",
+      "description": "This page shows the related and random snippet. See how both appeared on the bottom, although you may not use both card types at the same time",
       "headline":"Related and Random",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
       "datePublished": "2022-12-01T00:00:00+01:00",
@@ -45,28 +44,25 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id":"https://dieghernan.github.io/chulapa/demo/12-related-random#breadcrumb",
       "itemListElement": [
       {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/12-related-random#breadcrumb-1",
         "position": 1,
         "name":"Demo",
         "item":"https://dieghernan.github.io/chulapa/demo"
       },
     {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/12-related-random#breadcrumb-2",
         "position": 2,
-        "name":"Related and Random"
+        "item": "https://dieghernan.github.io/chulapa/demo/12-related-random",
+        "name": "Related and Random"
       }]
     }
     </script>
 <script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"name":"Related and Random",
-	"description": "This page shows the related and random snippet. See how both appeared on the bottom, although you may not use both card types at the same time"
-	}
-</script><script type="application/ld+json">
 {
   "@context" : "https://schema.org",
   "@type" : "Person",
@@ -192,12 +188,13 @@
 <div class="row my-1">
 <div class="col-lg-5 offset-lg-2 col small">
  <nav aria-label="breadcrumb">
-  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/demo/12-related-random#breadcrumb">
             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="https://dieghernan.github.io/chulapa/demo" itemprop="item"><span itemprop="name">Demo</span></a>
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/demo/12-related-random#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/demo" itemprop="item"><span itemprop="name">Demo</span></a>
          <meta itemprop="position" content="1" ></li>
       <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem">
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/demo/12-related-random#breadcrumb-2">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/demo/12-related-random">
         <span itemprop="name">Related and Random</span>
        <meta itemprop="position" content="2" >
      </li>
@@ -373,37 +370,18 @@ both card types at the same time</p>
              <nav class="card-group" aria-label="random -articles"><div class="card  border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/demo/06-guestauthor" class="chulapa-text-body-color">
-              A guest author
+            <a href="https://dieghernan.github.io/chulapa/demo/07-guestauthor-no-avatar" class="chulapa-text-body-color">
+              Guest author
             </a>
          </p>
            <p class="card-text">
-              <small>And with a new project</small>
+              <small>But no location or image</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
               <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2020-02-29T00:00:00+01:00">
-                february 29, 2020
-              </time>
-            </small>
-       </div>
-     </div>
-     <div class="card ml-sm-1 border chulapa-related">
-       <div class="card-body">
-         <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/demo/04-heroproject" class="chulapa-text-body-color">
-              Use MathJax
-            </a>
-         </p>
-           <p class="card-text">
-              <small>Project page with a hero header</small>
-           </p></div>
-       <div class="card-footer bg-transparent">
-            <small>
-              <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2020-02-03T00:00:00+01:00">
-                february 03, 2020
+              <time datetime="2020-03-01T00:00:00+01:00">
+                march 01, 2020
               </time>
             </small>
        </div>
@@ -421,6 +399,25 @@ both card types at the same time</p>
               <i class="far fa-calendar" aria-hidden="true"></i>
               <time datetime="2022-12-01T00:00:00+01:00">
                 december 01, 2022
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/demo/05-landinghero" class="chulapa-text-body-color">
+              Landing page
+            </a>
+         </p>
+           <p class="card-text">
+              <small>First impression is the last impression</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2020-01-04T00:00:00+01:00">
+                january 04, 2020
               </time>
             </small>
        </div>

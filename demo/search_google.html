@@ -12,10 +12,11 @@
         {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://dieghernan.github.io/chulapa/demo/search_google"
-      },
+      
+      "@id": "https://dieghernan.github.io/chulapa/demo/search_google",
+      "name": "Example Google Search",
+      "description": "\u003c!doctype html\u003e",
+      
       "headline":"Example Google Search",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png",
       
@@ -62,10 +63,12 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id":"https://dieghernan.github.io/chulapa/demo/search_google#breadcrumb",
       "itemListElement": [
     
       {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/search_google#breadcrumb-1",
         "position": 1,
         "name":"Home",
         "item":"https://dieghernan.github.io/chulapa/"
@@ -74,6 +77,7 @@
     
       {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/search_google#breadcrumb-2",
         "position": 2,
         "name":"Demo",
         "item":"https://dieghernan.github.io/chulapa/demo"
@@ -82,20 +86,15 @@
     
     {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/demo/search_google#breadcrumb-3",
         "position": 3,
-        "name":"Example Google Search"
+        "item": "https://dieghernan.github.io/chulapa/demo/search_google",
+        "name": "Example Google Search"
       }]
     }
     </script>
     
 <script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"name":"Example Google Search",
-	"description": "\u003c!doctype html\u003e"
-	}
-</script><script type="application/ld+json">
 {
   "@context" : "https://schema.org",
   "@type" : "Person",

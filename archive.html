@@ -12,10 +12,9 @@
         {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://dieghernan.github.io/chulapa/archive"
-      },
+      "@id": "https://dieghernan.github.io/chulapa/archive",
+      "name": "Archive",
+      "description": "Blog entries - News archive",
       "headline":"Archive",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png",
       "author": {
@@ -43,34 +42,32 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id":"https://dieghernan.github.io/chulapa/archive#breadcrumb",
       "itemListElement": [
       {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/archive#breadcrumb-1",
         "position": 1,
         "name":"Home",
         "item":"https://dieghernan.github.io/chulapa/"
       },
       {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/archive#breadcrumb-2",
         "position": 2,
         "name":"Blog",
         "item":"https://dieghernan.github.io/chulapa/blog/"
       },
     {
         "@type": "ListItem",
+        "@id":"https://dieghernan.github.io/chulapa/archive#breadcrumb-3",
         "position": 3,
-        "name":"Archive"
+        "item": "https://dieghernan.github.io/chulapa/archive",
+        "name": "Archive"
       }]
     }
     </script>
 <script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"name":"Archive",
-	"description": "Blog entries - News archive"
-	}
-</script><script type="application/ld+json">
 {
   "@context" : "https://schema.org",
   "@type" : "Person",
@@ -196,15 +193,16 @@
 <div class="row my-1">
 <div class="col-lg-8 offset-lg-2 col small">
  <nav aria-label="breadcrumb">
-  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/archive#breadcrumb">
             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="https://dieghernan.github.io/chulapa/" itemprop="item"><span itemprop="name">Home</span></a>
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/archive#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/" itemprop="item"><span itemprop="name">Home</span></a>
          <meta itemprop="position" content="1" ></li>
             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="https://dieghernan.github.io/chulapa/blog/" itemprop="item"><span itemprop="name">Blog</span></a>
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/archive#breadcrumb-2"><a href="https://dieghernan.github.io/chulapa/blog/" itemprop="item"><span itemprop="name">Blog</span></a>
          <meta itemprop="position" content="2" ></li>
       <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem">
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/archive#breadcrumb-3">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/archive">
         <span itemprop="name">Archive</span>
        <meta itemprop="position" content="3" >
      </li>
