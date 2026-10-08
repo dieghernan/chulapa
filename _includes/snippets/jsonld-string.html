@@ -1,0 +1,16 @@
+{%- comment -%}
+Serialize a string before decoding the HTML escapes retained by Markdown and
+escape_once. JSON Unicode escapes decode once without breaking quotes or
+allowing a literal </script> inside a JSON-LD script element.
+{%- endcomment -%}
+{%- assign jsonld_string = include.value | append: "" | jsonify -%}
+{%- unless include.decode_html == false -%}
+{%- assign jsonld_string = jsonld_string
+  | replace: '&amp;', '\u0026' | replace: '&#38;', '\u0026' | replace: '&#x26;', '\u0026' | replace: '&#X26;', '\u0026'
+  | replace: '&quot;', '\u0022' | replace: '&#34;', '\u0022' | replace: '&#x22;', '\u0022' | replace: '&#X22;', '\u0022'
+  | replace: '&apos;', '\u0027' | replace: '&#39;', '\u0027' | replace: '&#x27;', '\u0027' | replace: '&#X27;', '\u0027'
+  | replace: '&lt;', '\u003c' | replace: '&#60;', '\u003c' | replace: '&#x3c;', '\u003c' | replace: '&#x3C;', '\u003c' | replace: '&#X3c;', '\u003c' | replace: '&#X3C;', '\u003c'
+  | replace: '&gt;', '\u003e' | replace: '&#62;', '\u003e' | replace: '&#x3e;', '\u003e' | replace: '&#x3E;', '\u003e' | replace: '&#X3e;', '\u003e' | replace: '&#X3E;', '\u003e'
+-%}
+{%- endunless -%}
+{{- jsonld_string | replace: '<', '\u003c' | replace: '>', '\u003e' -}}
