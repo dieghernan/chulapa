@@ -16,8 +16,8 @@
       "description": "Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.",
       "headline":"Syntax highlighting demo",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T19:17:32+02:00",
-      "dateModified": "2026-10-08T19:17:32+02:00",
+      "datePublished": "2026-10-08T19:22:33+02:00",
+      "dateModified": "2026-10-08T19:22:33+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -247,7 +247,7 @@ into <code class="language-plaintext highlighter-rouge">chulapa-skin.highlight</
   	var row = document.createElement('a');
   	row.classList.add('dropdown-item');
   	row.href = 'javascript:void(0)';
-  	row.innerHTML = word;
+    row.textContent = word;
   	row.setAttribute("onclick", "reaplyStyles('" + word + "');");
   	document.getElementById('list').appendChild(row);
   });
@@ -258,9 +258,9 @@ into <code class="language-plaintext highlighter-rouge">chulapa-skin.highlight</
   		title = document.getElementById("config");
   		title.innerHTML = 'On your <code>_config.yml</code>';		
   		sel = document.getElementById("selected");  	
-  		sel.innerHTML = themename;
+      sel.textContent = themename;
   		btn = document.getElementById("dropdownMenuButton");  	
-  		btn.innerHTML = themename;
+      btn.textContent = themename;
       return true;
   }
 </script>
