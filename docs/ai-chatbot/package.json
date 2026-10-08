@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "test": "node --test worker.test.mjs render-answer.test.mjs"
+    "test": "npm run build && node --test worker.test.mjs render-answer.test.mjs widget.test.mjs"
   },
   "dependencies": {
     "dompurify": "3.4.16",

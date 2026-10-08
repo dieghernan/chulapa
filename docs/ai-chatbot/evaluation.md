@@ -35,9 +35,14 @@ The Workers Free allowance and absence of paid fallbacks remain the cost boundar
 
 ## Updating context
 
-The selective context expansion adds variables, Markdown and highlighting
-guidance. It has been built and unit-tested locally but not deployed. After
-deployment, check these additional questions:
+Physical iPhone screenshots showed automatic zoom and horizontal clipping when
+focusing the question field. The mobile input now uses 16 px text, and the panel
+tracks the visual viewport to fit above the keyboard. A repeat on the physical
+phone is needed to confirm the result; desktop viewport checks do not reproduce
+iOS keyboard behavior.
+
+The deployed selective context expansion adds variables, Markdown and highlighting
+guidance. These questions form the regression checklist:
 
 - How do I change navbar and footer colors? Show `_config.yml` examples.
 - How do I disable rounded Bootstrap buttons?
@@ -57,3 +62,28 @@ When public documentation changes:
 
 Jekyll builds and GitHub Pages deployments do not update the Worker context.
 Context updates are manual; no automatic RSS retrieval is configured.
+
+## Chat interaction improvements
+
+The question field explains that requests are independent. Opening on screens
+below 992 px focuses the close button instead of opening the keyboard. Mobile
+answers use 16 px text, code examples have copy buttons and long answers reveal
+their beginning unless the reader has scrolled elsewhere while waiting.
+
+Failed requests offer retry and a search link. Retry sends only the failed
+question without adding another question bubble. Recent history (up to 20
+messages), the draft and unfinished question are stored in sessionStorage for
+the current tab. They are never included in inference requests. Clear chat
+removes the saved messages and draft. Blocked storage does not prevent chat use.
+
+Widget tests cover focus, failure/retry, payload independence, safe restoration,
+copy and clearing. Real viewport checks cover layout and response scrolling;
+physical iPhone keyboard and VoiceOver checks remain pending.
+
+Live checks confirmed code copying, history and draft restoration across a reload
+and source navigation, mobile close-button focus, desktop input focus and keeping
+the reader's scroll position during inference. At 844 × 390 px the compact header
+leaves 162 px for messages. A broad navbar/footer question exhausted the output
+token limit and produced incomplete YAML; the Worker now rejects responses marked
+`finish_reason: length` with a request to ask a more specific question. The prompt
+also asks for fewer than 150 words and one small complete example.

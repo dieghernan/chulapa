@@ -63,3 +63,13 @@ test('serves only the widget without invoking inference', async () => {
   assert.match(await response.text(), /Ask AI/);
   assert.equal((await worker.fetch(new Request('https://demo.workers.dev/'), {})).status, 404);
 });
+
+test('does not present token-truncated code as a completed answer', async () => {
+  const env = environment(async () => ({ choices: [{ finish_reason: 'length',
+    message: { content: '```yaml\nfooter-chulapa-text-color:' } }] }));
+  const response = await worker.fetch(request('Give a full configuration'), env);
+  assert.equal(response.status, 503);
+  const body = await response.json();
+  assert.match(body.error, /more specific question/);
+  assert.equal(body.answer, undefined);
+});

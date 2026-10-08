@@ -313,11 +313,13 @@ For code syntax, use a fenced Markdown code block with its language identifier.
 The preview alone does not save configuration. The highlight style can override
 pre-chulapa-bg-color.
 
-## Unpublished development change
-As of October 8, 2026, local v2.1.1-dev work moves the TOC sidebar button upward
-below 992 px, reserving a 56 px button and a spacer underneath. This change is
-not yet merged or published. Do not describe it as behavior in v2.1.0 or suggest
-that visitors already receive it from the remote theme.
+## Development branch change
+Source: https://dieghernan.github.io/chulapa/docs/05-faq#know-which-version-of-the-theme-i-am-using
+As of October 8, 2026, v2.1.1-dev work merged into the default branch moves the
+TOC sidebar button upward below 992 px, reserving a 56 px button and a spacer
+underneath. It is available to sites using the updated default branch, including
+these docs, but is not included in the pinned v2.1.0 release or gem. Do not
+describe it as behavior in v2.1.0; sites must rebuild to receive updated CSS.
 
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml
