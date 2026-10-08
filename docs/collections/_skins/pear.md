@@ -12,18 +12,15 @@ og_image: ./assets/img/skinspreview/pear.png
 skin_author: dieghernan
 ---
 
-
-Developed by [dieghernan](https://github.com/dieghernan/), you can use it on your site. Just go to your `_config.yml` file and modify this lines
+Developed by [dieghernan](https://github.com/dieghernan/), you can use it on your site. Just go to your `_config.yml` file and modify these settings:
 
 ```yaml
-chulapa-skin: 
+chulapa-skin:
   skin       :  pear
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
 ```
-
-
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}
@@ -35,7 +32,4 @@ chulapa-skin:
 {% include components/tags.html-%}
 {% endif -%}
 
-
 {% include snippets/bootstrapdemo.html  %}
-
-

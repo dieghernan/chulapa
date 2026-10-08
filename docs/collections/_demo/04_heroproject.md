@@ -23,14 +23,12 @@ project_links:
       label: Example         
 ---
 
-This page shows the `hero` header with a project button. It also has enabled 
+This page shows the `hero` header with a project button. It also has enabled
 comments, mathjax and a modified date.
 
 Example of MathJax:
 
 $$\int_D ({\nabla\cdot} F)dV=\int_{\partial D} F\cdot ndS$$
-
-
 
 ```yaml
 ---

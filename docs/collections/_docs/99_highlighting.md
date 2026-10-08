@@ -1,7 +1,7 @@
 ---
 title: Syntax highlighting demo
 subtitle: Highlighters shipped with this theme.
-excerpt: | 
+excerpt: |
   This page is a demo of the different styles of
   syntax highlighting shipped by default with this
   theme. Just make your selection below.
@@ -9,13 +9,17 @@ permalink: /docs/syntax-highlighting
 show_toc: false
 ---
 
-This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.
+This page is a demo of the different styles of syntax highlighting shipped by
+default with this theme. Just make your selection below.
 
 <p id="count" class="lead mb-2"></p>
 
 <div class="dropdown my-4">
-  <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Theme</button>
-  <div id="list" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 30vh;overflow-y: auto;">
+  <button class="btn btn-sm btn-primary dropdown-toggle" type="button"
+id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+aria-expanded="false">Select Theme</button>
+  <div id="list" class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+style="max-height: 30vh;overflow-y: auto;">
   </div>
 </div>
 
@@ -66,13 +70,11 @@ This page is a demo of the different styles of syntax highlighting shipped by de
   
 </script>
 
-
-
 Demo of the different pieces of code for testing syntax highlighting.
 
 <div markdown="1">
 
-## Javascript
+## JavaScript
 
 ```javascript
 // Cross-browser xml parsing
@@ -323,9 +325,6 @@ p.#{$name} {
 
 ```
 
-
-
-
 ## Java
 
 ```java
@@ -548,7 +547,7 @@ namespace Abp.MemoryDb.Repositories
       <h1>Bootstrap 3</h1>
       <p class="lead">Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
       <p>
-        <a href="http://getbootstrap.com/bs-v3.0.0-rc1-dist.zip" class="btn btn-bs btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.0 RC1']);">Download Bootstrap</a>
+        <a href="https://github.com/twbs/bootstrap/releases/tag/v3.0.0-rc1" class="btn btn-bs btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.0 RC1']);">Download Bootstrap</a>
       </p>
     </div>
   </div>
@@ -811,9 +810,7 @@ class Spinach extends Vegetable {
 
 ```
 
-
 ## Markdown
-
 
 ```markdown
 
@@ -844,10 +841,10 @@ __An empty line
 
 is not allowed__
 
-[Prism](http://www.prismjs.com)
-[Prism](http://www.prismjs.com “Prism”)
+[Prism](https://prismjs.com/)
+[Prism](https://prismjs.com/ “Prism”)
 
-[prism link]: http://www.prismjs.com (Prism)
+[prism link]: https://prismjs.com/ (Prism)
 [Prism] [prism link]
 
 * This is
@@ -877,9 +874,7 @@ Inline code between backticks `Paragraph`
 
 ```
 
-
 ## YAML
-
 
 ```yaml
 
@@ -917,7 +912,6 @@ comments:
 
 
 ```
-
 
 ## JSON
 

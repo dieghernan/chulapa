@@ -13,9 +13,8 @@ show_author: true
 show_random: true
 ---
 
-This page shows the `post` header with the default author set on your `_config` file. It also shows the date on top of the content.
-
-
+This page shows the `post` header with the default author set on your
+`_config.yml` file. It also shows the date on top of the content.
 
 ```yaml
 ---

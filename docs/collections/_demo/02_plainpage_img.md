@@ -12,8 +12,8 @@ show_bottomnavs   : true
 
 This is how a plain page with an image would look like.
 
-An image is displayed on top of the header. Some other components are shown, as tags or social links.
-
+An image is displayed on top of the header. Some other components are shown, as
+tags or social links.
 
 ```yaml
 ---

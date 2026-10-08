@@ -2,7 +2,7 @@
 layout: default
 title: <span class="chulapa">Chulapa</span><small style="font-size:50%; color:#687864;"> skin</small>
 subtitle: Get lost in Madrid
-excerpt: Chulapa, get lost in Madrid developed by dieghernan.
+excerpt: <span class="chulapa">Chulapa</span>, get lost in Madrid developed by dieghernan.
 date: 2019-05-15
 last_modified_at: 2019-11-09
 tags: [skin, bootstrap, dieghernan, header-splash]
@@ -12,18 +12,15 @@ og_image: ./assets/img/skinspreview/chulapa.png
 skin_author: dieghernan
 ---
 
-
-Developed by [dieghernan](https://github.com/dieghernan/), you can use it on your site. Just go to your `_config.yml` file and modify this lines
+Developed by [dieghernan](https://github.com/dieghernan/), you can use it on your site. Just go to your `_config.yml` file and modify these settings:
 
 ```yaml
-chulapa-skin: 
+chulapa-skin:
   skin       :  chulapa
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
 ```
-
-
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}
@@ -35,7 +32,4 @@ chulapa-skin:
 {% include components/tags.html-%}
 {% endif -%}
 
-
 {% include snippets/bootstrapdemo.html  %}
-
-

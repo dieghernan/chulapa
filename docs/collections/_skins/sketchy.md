@@ -12,23 +12,18 @@ og_image: ./assets/img/skinspreview/sketchy.png
 skin_author: Bootswatch
 ---
 
-
-Developed by [Bootswatch](https://bootswatch.com/), you can use it on your site. Just go to your `_config.yml` file and modify this lines
+Developed by [Bootswatch](https://bootswatch.com/), you can use it on your site. Just go to your `_config.yml` file and modify these settings:
 
 ```yaml
-chulapa-skin: 
+chulapa-skin:
   skin       :  sketchy
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
 ```
 
-
-While `autothemer` does not override the skin, it may not be fully functional. You can modify the theme defaults via `vars`.
-
-
-
-
+While `autothemer` does not override the skin, it may not be fully functional.
+You can modify the theme defaults via `vars`.
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}

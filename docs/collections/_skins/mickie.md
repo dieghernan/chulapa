@@ -13,22 +13,18 @@ header_img: https://images.unsplash.com/photo-1495977958109-d0a07c767f0e?ixlib=r
 skin_author: Tophat Themes
 ---
 
-
-Developed by [Tophat Themes](https://themesguide.github.io/top-hat/dist/), you can use it on your site. Just go to your `_config.yml` file and modify this lines
+Developed by [Tophat Themes](https://themesguide.github.io/top-hat/dist/), you can use it on your site. Just go to your `_config.yml` file and modify these settings:
 
 ```yaml
-chulapa-skin: 
+chulapa-skin:
   skin       :  mickie
   autothemer  :  # Autotheming may not have any effect
   vars        :    
     ...
 ```
 
-
-While `autothemer` does not override the skin, it may not be fully functional. You can modify the theme defaults via `vars`.
-
-
-
+While `autothemer` does not override the skin, it may not be fully functional.
+You can modify the theme defaults via `vars`.
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}
@@ -39,6 +35,5 @@ While `autothemer` does not override the skin, it may not be fully functional. Y
 {% if page.show_tags -%}
 {% include components/tags.html-%}
 {% endif -%}
-
 
 {% include snippets/bootstrapdemo.html  %}

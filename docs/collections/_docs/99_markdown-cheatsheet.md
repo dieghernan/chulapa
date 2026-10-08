@@ -19,15 +19,13 @@ Markdown is a lightweight markup language that you can use to add formatting ele
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 ```
 
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-
 ```markdown
-[Link to another page](./another-page.html).
+[Link to another page](./01-install).
 ```
 
-[Link to another page](./another-page.html).
+[Link to another page](./01-install).
 
 ```markdown
 There should be whitespace between this paragraph
@@ -64,7 +62,6 @@ and this paragraph.
 ##### Header 5
 
 ###### Header 6
-
 
 ```markdown
 > This is a blockquote following a header.
@@ -74,8 +71,8 @@ and this paragraph.
 
 > This is a blockquote.
 >
-> When something is important enough, you do it even if the odds are not in your favor.
-
+> When something is important enough, you do it even if the odds are not in your
+favor.
 
 ~~~ markdown
 ```js
@@ -145,7 +142,7 @@ An a two-level ordered list:
 1.  This is an ordered list.
 2.  This is an ordered list.
     * Unordered sub-list.
-    * Unordered sub-list. 
+    * Unordered sub-list.
 12. Actual numbers don't matter, just that it's a numbet or not.
 4.  And another item.
 
@@ -170,19 +167,18 @@ And a task list:
 ```
 
 * This is an unordered list.
-* This is an unordered list.
-* This is an unordered list.
 
 An a two-level ordered list:
 
-1.  This is an ordered list.
-2.  This is an ordered list.
+1. This is an ordered list.
+2. This is an ordered list.
     * Unordered sub-list.
-    * Unordered sub-list. 
+    * Unordered sub-list.
 12. Actual numbers don't matter, just that it's a numbet or not.
-4.  And another item.
+4. And another item.
 
-    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces.
+    You can have properly indented paragraphs within list items. Notice the
+blank line above, and the leading spaces.
 
     # And a header
     
@@ -190,7 +186,7 @@ Unordered list can use asterisks:
 
 * Like this
 - Or minuses
-   -  Minus
+   - Minus
       1. One
       2. Two
          + Or pluses
@@ -216,7 +212,8 @@ To quickly turn a URL or email address into a link, enclose it in angle brackets
 
 ```
 
-To quickly turn a URL or email address into a link, enclose it in angle brackets.
+To quickly turn a URL or email address into a link, enclose it in angle
+brackets.
 
 <https://www.markdownguide.org>
 <fake@example.com>
@@ -264,11 +261,10 @@ A table
 
 | **id** | **name** | **age** | **gender** |
 |:-------|:--------:|--------:|:----------:|
-| Left   | Center   | Right   | M          |
-| 2      | Oliver   | 25      | M          |
-| 3      | Shayna   | 18      | F          |
-| 4      | Fechin   | 18      | M          |
-
+| Left | Center | Right | M |
+| 2 | Oliver | 25 | M |
+| 3 | Shayna | 18 | F |
+| 4 | Fechin | 18 | M |
 
 ```markdown
 There's a horizontal rule below this.
@@ -295,9 +291,8 @@ Another
 
 **Large image**
 
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
+![Branching](https://docs.github.com/assets/cb-53955/mw-1440/images/help/repository/branching.webp)
 ```
-
 
 **Small image**
 
@@ -306,7 +301,6 @@ Another
 **Large image**
 
 ![Branching](https://picsum.photos/id/36/1200/600.jpg)
-
 
 ### Definition lists can be used with HTML syntax.
 
@@ -323,7 +317,6 @@ Another
 </dl>
 ```
 
-
 <dl>
 <dt>Name</dt>
 <dd>Godzilla</dd>
@@ -335,20 +328,19 @@ Another
 <dd>Green</dd>
 </dl>
 
-
-
 ```
 Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
 ```
 
 ---
 
-
 ## What’s kramdown?
 
 **kramdown** supercharges Markdown with some interesting features.
 
-**kramdown** is the default Jekyll Markdown processor. When creating your site with Jekyll, you can use the standard Markdown syntax plus some specific **kramdown** syntax. Jekyll would render your Markdown/**kramdown** into HTML.
+**kramdown** is the default Jekyll Markdown processor. When creating your site
+with Jekyll, you can use the standard Markdown syntax plus some specific
+**kramdown** syntax. Jekyll would render your Markdown/**kramdown** into HTML.
 
 <https://kramdown.gettalong.org/quickref.html>
 
@@ -405,7 +397,6 @@ Second level header
 
 ###### H6 header
 
-
 ## Create a table of contents:
 
 On your `_config.yaml`, define the levels of your toc:
@@ -439,10 +430,10 @@ Add this to generate table
 
 ```
 
-* This line is needed, but won't appear. Replace '*' with '1' to create a numbered list.
+* This line is needed, but won't appear. Replace '*' with '1' to create a
+  numbered list.
 {:toc}
 
-
 ```markdown
 > A sample blockquote.
 >
@@ -469,7 +460,6 @@ and another term
 > ## Headers work too
 > This is the outer quote again.
 
-
 term
 : definition
 : another definition
@@ -477,7 +467,6 @@ term
 another term
 and another term
 : and a definition for the term
-
 
 ```markdown
 | Header1 | Header2 | Header3 |
@@ -495,15 +484,14 @@ and another term
 
 | Header1 | Header2 | Header3 |
 |:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
+| cell1 | cell2 | cell3 |
+| cell4 | cell5 | cell6 |
 |----
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
+| cell1 | cell2 | cell3 |
+| cell4 | cell5 | cell6 |
 |=====
-| Foot1   | Foot2   | Foot3
+| Foot1 | Foot2 | Foot3
 {: rules="groups"}
-
 
 ```markdown
 This is a paragraph
@@ -533,9 +521,8 @@ This is a paragraph … paragraph continues here.
 
 Extensions can also be used inline **see**!
 
-
 ```markdown
-A [link](http://kramdown.gettalong.org "hp")
+A [link](https://kramdown.gettalong.org "hp")
 to the homepage.
 
 A simple info alert **check it out!**
@@ -556,7 +543,7 @@ example.
 This is **Chulapa**{:.chulapa} *red*{: style="color: red"}.
 ```
 
-A [link](http://kramdown.gettalong.org "hp")
+A [link](https://kramdown.gettalong.org "hp")
 to the homepage.
 
 A simple info alert **check it out!**
@@ -566,7 +553,6 @@ This is a text with a
 footnote[^1].
 
 [^1]: And here is the definition.
-
 
 This is an HTML
 example.
@@ -586,9 +572,6 @@ which is continued here.
 
 <div markdown="1">This is the first part of a para,
 which is continued here.
--  List
--  List **bold**
+- List
+- List **bold**
 </div>
-
-
-

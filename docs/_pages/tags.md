@@ -3,7 +3,7 @@ layout: cloudtag
 title: Tags
 permalink: /tags
 include_collection: posts
-excerpt: Tags on Chulapa
+excerpt: Tags on <span class="chulapa">Chulapa</span>
 show_breadcrumb   : true
 breadcrumb_list :
   - label: Home

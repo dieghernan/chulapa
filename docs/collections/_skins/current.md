@@ -3,18 +3,15 @@ layout: default
 header_type       : "hero"
 header_img : "./assets/img/gallery/florian-wehde-WBGjg0DsO_g-unsplash.jpg"
 title: Current skin
-subtitle: Showing al the different Bootstrap components available
+subtitle: Showing all the different Bootstrap components available
 date: 2015-03-03
 last_modified_at: 2018-02-07
 tags: [skin, bootstrap, current-theme, header-hero, image]
 categories: [skins]
 ---
 
-
-This is a demo page showing the different components of Bootstrap and how they look on this site under the current configuration.
-
-
-
+This is a demo page showing the different components of Bootstrap and how they
+look on this site under the current configuration.
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}
@@ -25,6 +22,5 @@ This is a demo page showing the different components of Bootstrap and how they l
 {% if page.show_tags -%}
 {% include components/tags.html-%}
 {% endif -%}
-
 
 {% include snippets/bootstrapdemo.html  %}

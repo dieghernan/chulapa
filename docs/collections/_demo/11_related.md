@@ -13,9 +13,9 @@ show_bottomnavs   : true
 show_author: true
 ---
 
-This page shows the `related` snippet. See how related pages appeared on the bottom.
-
-
+This page enables the related cards with `show_related: true`. Related
+documents appear at the bottom, selected by shared tags and collection.
+See [the layout options]({{ "/docs/04-layouts#options" | relative_url }}).
 
 ```yaml
 ---

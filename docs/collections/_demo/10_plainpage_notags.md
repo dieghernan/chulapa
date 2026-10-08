@@ -9,7 +9,6 @@ show_bottomnavs   : true
 
 I don't have tags
 
-
 ```yaml
 ---
 title: Plain page with no tags

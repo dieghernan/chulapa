@@ -1,4 +1,4 @@
-## dev
+## Development
 
 ### Fixed
 
@@ -36,7 +36,7 @@
 -   Results with `lunr` and `fusejs` highlight matched terms like `algolia`.
 -   Full support for Markdown in titles and subtitles (previously only HTML
     tagging was supported).
--   New widget Random (`show_random`) and possibility of add labels to Random
+-   New widget Random (`show_random`) and the ability to add labels to Random
     and Related posts with `related_label` and `random_label`.
 -   New highlight styles:
     -   `abap`
@@ -87,8 +87,7 @@
 
 ### Changed
 
--   Fixed a strange bug in `cloudtag/cloudcategory`. If `id="demo"` the section
-    is not rendered, possibly due to a collision with a keyword.
+-   Fix missing sections in `cloudtag` and `cloudcategory` when a tag or category is named `demo`.
 -   `site.search.lunr_maxwords` deprecated (still working). Use
     `site.search.maxwords` instead.
 -   New option `site.search.show_attrib` to hide attribution of engine searches
@@ -102,7 +101,7 @@
 
 ## v2.0.1 - 2025-02-26
 
-# HOTFIX
+Hotfix release.
 
 ### Changed
 
@@ -157,15 +156,14 @@
 -   Improve font loading on skins.
 -   Improve Universal skin.
 -   Remove Clipboard.js dependency. Chulapa now uses a custom script.
--   FontAwesome Icons now present transitions on hover.
+-   Font Awesome Icons now present transitions on hover.
 -   YouTube videos are lazy-deferred by default.
 -   Improvements on pagination.
 -   Several adjustments on skins.
 
 ## v1.0.1 - 2022-11-25
 
-This version only affects the gem: - Remove dependencies to make it compatible
-with other Jekyll versions.
+This release updated the gem dependencies for compatibility with other Jekyll versions.
 
 ## v1.0.0 - 2022-11-24
 

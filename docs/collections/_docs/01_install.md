@@ -1,19 +1,19 @@
 ---
 title: Installation
 subtitle: How to use <span class="chulapa">Chulapa</span>
-excerpt: Install Chulapa on your Github repo
+excerpt: Install <span class="chulapa">Chulapa</span> on your Github repo
 show_toc: true
 ---
 
-<span class="chulapa">Chulapa</span> was developed in and for Github. There are
-three tested possible ways to use <span class="chulapa">Chulapa</span>:
+<span class="chulapa">Chulapa</span> was developed in and for GitHub. There are
+three ways to use <span class="chulapa">Chulapa</span>:
 
-## 1. Use our Github Template
+## 1. Use our GitHub template
 
 **Recommended if you are starting from scratch**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-Create a Github account, click [this link](https://github.com/dieghernan/chulapa-101/generate)
+Create a GitHub account, click [this link](https://github.com/dieghernan/chulapa-101/generate)
 and quickstart your site!
 
 ## 2. Remote theme method
@@ -31,13 +31,21 @@ You can use the `jekyll-remote-theme` method. Just follow these steps:
     ... more config options
     ```
 
-3. Remove other `remote_theme/theme` instances from your `_config.yml` file.
+3. Remove any other `remote_theme` entry and the `theme` entry from
+   `_config.yml`. Add `jekyll-remote-theme` and `jekyll-include-cache` to your
+   Gemfile and `_config.yml` plugins list, then run `bundle install`.
+   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its `include_cached` tags.
+
+An unpinned remote theme follows the repository default branch. To select a
+release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.0.1`.
+Development features may be available on the default branch before they are
+published in the gem.
 
 <div class="alert alert-warning p-3 mx-2" markdown="1">
 **Don't forget to deploy your site:**
 
-- On your Github repo, go to *Settings > Github Pages*.
-- Select *Source > Github Actions* and set the corresponding action. See an
+- On your GitHub repo, go to *Settings > Pages*.
+- Select *Source > GitHub Actions* and set the corresponding action. See an
   example in <https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml>
 </div>
 
@@ -56,7 +64,7 @@ Please read the rest of the docs for further adjustments.
 
 ## 3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i>
 
-With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`,
+With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`
 and `_sass` are stored in the theme's gem, hidden from your immediate view. This
 allows for easier installation and updating as you don't have to manage any of
 the theme files.
@@ -82,4 +90,9 @@ To install as a Gem-based theme:
     theme: chulapa-jekyll
     ```
 
-To update the theme, run `bundle update`.
+Enable `jekyll-include-cache` in your `_config.yml` plugins list. Remove any
+`remote_theme` entry when using the gem. To update only the theme and its
+dependencies, run `bundle update chulapa-jekyll`.
+
+To preview your site locally, run `bundle exec jekyll serve` from your site
+directory. Restart Jekyll after editing `_config.yml` to reload its settings.

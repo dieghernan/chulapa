@@ -11,8 +11,8 @@ breadcrumb_list:
     url: /demo
 ---
 
-This page shows the content sorted by date. Note that `include_missdates` is not set, so only collection contents with dates would be included.
-
+This page shows the content sorted by date. Note that `include_missdates` is not
+set, so only collection contents with dates would be included.
 
 ```
 ---

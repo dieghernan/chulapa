@@ -11,10 +11,9 @@ index_sort_asc: true
 index_items: 20
 ---
 
-<span class="chulapa">Chulapa</span> Jekyll Theme has an extensive documentation.
+Use these guides to install and configure the <span class="chulapa">Chulapa</span> Jekyll theme.
 
 Read the docs to start with <span class="chulapa">Chulapa</span>, or use
-the [Search](https://dieghernan.github.io/chulapa/search) of the site.
-
+the [search](https://dieghernan.github.io/chulapa/search) of the site.
 
 Have fun!

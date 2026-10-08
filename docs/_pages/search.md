@@ -1,8 +1,7 @@
 ---
 layout: search
 title: Search
-subtitle: 
+subtitle:
 permalink: /search.html
 include_on_search: false
 ---
-

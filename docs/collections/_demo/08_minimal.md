@@ -24,8 +24,9 @@ project_links:
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4 text-center te t-lg-left">Use any Bootstrap Template!</h2>
-          <p>Some examples on <a href="https://getbootstrap.com/docs/4.5/examples/">Bootstrap Documentation</a>, <a href="https://startbootstrap.com/">StartBootstrap</a> or  <a href="https://www.google.com/search?q=%22Bootstrap+Templates%22">just Google it!</a> </p>
+          <h2 class="display-4 text-center te t-lg-left">Use any Bootstrap
+Template!</h2>
+          <p>Some examples on <a href="https://getbootstrap.com/docs/4.5/examples/">Bootstrap Documentation</a>, <a href="https://startbootstrap.com/">StartBootstrap</a> or <a href="https://www.google.com/search?q=%22Bootstrap+Templates%22">just Google it!</a> </p>
         </div>
       </div>
     </div>
@@ -43,7 +44,8 @@ project_links:
       <div class="col-lg-6">
         <div class="p-5">
           <h2 class="display-4 text-center te t-lg-left">Just use HTML</h2>
-          <p>Markdown files support also <code>html</code> code. Just copy and paste</p>
+          <p>Markdown files support also <code>html</code> code. Just copy and
+paste</p>
         </div>
       </div>
     </div>

@@ -19,8 +19,6 @@ show_author       : true
 
 This page shows the `hero` header with an image with the `landingpage` layout.
 
-
-
 ```yaml
 ---
 layout: landingpage

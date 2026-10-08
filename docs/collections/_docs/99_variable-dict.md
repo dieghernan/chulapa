@@ -6,10 +6,13 @@ h_min: 2
 h_max: 3
 ---
 
-This page shows all the <span class="chulapa">Chulapa</span> variables that you can use for theming your site. Additionally, some useful variables from Bootstrap are already listed.
+This page lists selected <span class="chulapa">Chulapa</span> and Bootstrap variables for customizing
+your site. Set them under `chulapa-skin.vars` in `_config.yml`, without the
+SCSS `$` prefix or trailing semicolon. For the full set, see the
+[<span class="chulapa">Chulapa</span> variables source](https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss)
+and [Bootstrap variables source](https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss).
 
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
-
 
 | `vars` | Description |
 |:---|:---|
@@ -36,7 +39,7 @@ This page shows all the <span class="chulapa">Chulapa</span> variables that you 
 | `blockquote-chulapa-bg-color` | Blockquote background color |
 | `blockquote-chulapa-text-color` | Blockquote text color |
 | `footnote-chulapa-text-color` | Footnote/captions text color |
-| `pre-chulapa-bg-color` | Code block background color (may be overridden depending on your `highlight`  option) |
+| `pre-chulapa-bg-color` | Code block background color (may be overridden depending on your `highlight` option) |
 | `thead-chulapa-bg-color` | Table head background color |
 | `thead-chulapa-text-color` | Table head text color |
 | `pagination-chulapa-text-color` | Pagination text color |
@@ -46,7 +49,7 @@ This page shows all the <span class="chulapa">Chulapa</span> variables that you 
 
 ## Selected Bootstrap variables
 
-See full set of variables [here](https://raw.githubusercontent.com/dieghernan/chulapa/master/_sass/bootstrap/_variables.scss).
+See full set of variables [here](https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss).
 
 | `vars` | Description |
 |:---|:---|
@@ -59,7 +62,7 @@ See full set of variables [here](https://raw.githubusercontent.com/dieghernan/ch
 | `light` | Light color |
 | `dark` | Dark color |
 | `enable-rounded` | Set to `false` to have square buttons |
-| `enable-responsive-font-sizes` | Font sizes are responsive when set to `true`  |
+| `enable-responsive-font-sizes` | Font sizes are responsive when set to `true` |
 | `body-bg` | Body background color |
 | `body-color` | Body text color |
 | `link-color` | Link text color |
@@ -74,11 +77,11 @@ See full set of variables [here](https://raw.githubusercontent.com/dieghernan/ch
 
 The full [Bootstrap color map](https://getbootstrap.com/docs/4.5/getting-started/theming/#color) could be modified by using these variables:
 
+| Variable | Variable | Variable | Variable |
 |:---|:---|:---|:---|
-| `white` |  `gray-100` |  `gray-200` | `gray-300` | 
-| `gray-400` |  `gray-500` |  `gray-600` |  `gray-700` | 
-| `gray-800` |  `gray-900` |  `black` |  `blue` | 
-| `indigo` | `purple` |  `pink` |  `red` | 
-| `orange` | `yellow` |  `green` |  `teal` | 
-| `cyan` | 
-
+| `white` | `gray-100` | `gray-200` | `gray-300` |
+| `gray-400` | `gray-500` | `gray-600` | `gray-700` |
+| `gray-800` | `gray-900` | `black` | `blue` |
+| `indigo` | `purple` | `pink` | `red` |
+| `orange` | `yellow` | `green` | `teal` |
+| `cyan` | | | |

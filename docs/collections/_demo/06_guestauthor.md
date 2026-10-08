@@ -34,9 +34,8 @@ author:
       icon: "fab fa-linkedin"
       label: LinkedIn
 ---
-This page shows how a contributor could be added to your blog. In this case **Octocat** is telling us about its plans on the next months...
-
-
+This page shows how a contributor could be added to your blog. In this case
+**Octocat** is telling us about its plans on the next months...
 
 ```yaml
 ---

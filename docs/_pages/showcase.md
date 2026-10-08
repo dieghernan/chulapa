@@ -2,30 +2,62 @@
 layout: default
 title: Showcase
 subtitle: Some sites powered by <span class="chulapa">Chulapa</span>
-excerpt: Live implementations of Chulapa
+excerpt: Live implementations of <span class="chulapa">Chulapa</span>
 permalink: ./showcase
 show_comments: true
 ---
 
-**Do you have a great site created with this theme?** Leave a comment!
-{: .alert .alert-info .p-3 .mx-2 mb-3}
+**Have a site built with this theme?** Leave a comment to suggest it for the
+showcase.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-See below some live examples of <span class="chulapa">Chulapa</span>:
+Explore these live websites built with <span class="chulapa">Chulapa</span>:
 
-- **[My personal blog](https://dieghernan.github.io/)**, where you can find some things about what I do.
+<!-- Sites checked on 2026-10-08 against the published HTML, not just repository dependencies. -->
 
-- **[COVID19 en España](https://dieghernan.github.io/COVID19/)**, a dataviz project created with **RStudio** by [@dieghernan](https://github.com/dieghernan) (spanish). 
+- **[Stefano Travasci](https://stefanotravasci.it/)**: A personal website with a
+  portfolio, curriculum vitae, writings and publications.
 
-- **[leaflet-providersESP](https://dieghernan.github.io/leaflet-providersESP/)**, a plug-in for Leafletjs that contains configurations for various free WMS/WMTS tile providers of Spain. by [@dieghernan](https://github.com/dieghernan) (spanish). 
+- **[YSocial](https://y-not.social/)**: An open-source social media simulator
+  using AI agents, with documentation and resources for studying social
+  dynamics.
 
-- **[spain-munic-bot](https://dieghernan.github.io/spain-munic-bot/)**, a Twitter bot that creates maps of random municipalities of Spain by [@dieghernan](https://github.com/dieghernan).
+- **[MerkleTree Labs](https://merkletreelabs.com/)**: A project website focused
+  on post-quantum cryptography and open-source security tools.
 
-- **[Corona Atlas](https://corona-atlas.de/)**, an interactive map showing the international COVID-19 risk areas as designated by the German government, by [@rodrihgh](https://github.com/rodrihgh/) and [@dieghernan](https://github.com/dieghernan).
+- **[Metal Infestus](https://metalinfestus.com/)**: A metal music website with
+  an archive and contact information (Portuguese).
 
-- **[Dados de Laplace](https://dadosdelaplace.github.io/)**: Personal website of Javier Álvarez Liébana ([@dadosdelaplace](https://github.com/dadosdelaplace)).
+- **[M/S Vega](https://blogi.hinaaja.org/)**: A blog about restoring a historic
+  steel-hulled tugboat based in Helsinki (Finnish).
 
-- **[Thoughts on Microsoft 365 Security, Compliance and Identity](https://www.thijoubert.com/)** by Thibault Joubert.
+- **[Cheung x Surya](https://cheungsurya.ca/)**: A wedding website with the
+  couple's story, event details, schedules and FAQs.
 
-- **[localmap.jp](https://localmap.jp/)** 📍 LocalMap shows what happened in your local areas on Geolonia Maps. Organized by 高田馬場経済新聞, developed by YassLab Inc.
+- **[Thibault Joubert](https://www.thijoubert.com/)**: A blog about Microsoft
+  365 security, compliance and identity.
 
-- **[Celestial Data](https://dieghernan.github.io/celestial_data/)**, compilation of celestial data geojson objects by [@dieghernan](https://github.com/dieghernan).
+- **[One World](https://dieghernan.github.io/)**: Diego Hernangómez's personal
+  website covering R packages, maps and open-source projects.
+
+- **[COVID19 en España](https://dieghernan.github.io/COVID19/)**: A data
+  visualization project with maps of COVID-19 in Spain by
+  [@dieghernan](https://github.com/dieghernan) (Spanish).
+
+- **[leaflet-providersESP](https://dieghernan.github.io/leaflet-providersESP/)**:
+  A Leaflet plugin with configurations for Spanish WMS/WMTS tile providers by
+  [@dieghernan](https://github.com/dieghernan) (Spanish).
+
+- **[spain-munic-bot](https://dieghernan.github.io/spain-munic-bot/)**: A project
+  documenting a Twitter bot that maps random Spanish municipalities by
+  [@dieghernan](https://github.com/dieghernan).
+
+- **[Corona Atlas](https://dieghernan.github.io/corona-atlas.de/)**: An archived
+  multilingual project mapping COVID-19 risk areas designated by the German
+  government, by [@rodrihgh](https://github.com/rodrihgh/) and
+  [@dieghernan](https://github.com/dieghernan). The site remains available, but
+  the project is discontinued and its data is no longer updated.
+
+- **[Celestial Data](https://dieghernan.github.io/celestial_data/)**: A
+  collection of celestial object data in GeoJSON format by
+  [@dieghernan](https://github.com/dieghernan).

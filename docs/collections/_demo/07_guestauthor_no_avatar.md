@@ -33,9 +33,8 @@ project_links:
       icon: fab fa-github
       label: Example            
 ---
-This page shows how a contributor could be added to your blog, but without an avatar or location. **Octocat** is shy today.
-
-
+This page shows how a contributor could be added to your blog, but without an
+avatar or location. **Octocat** is shy today.
 
 ```yaml
 ---
