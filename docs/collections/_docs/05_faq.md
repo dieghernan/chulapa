@@ -34,12 +34,39 @@ You may want to have a look to this [cheatsheet](https://www.markdownguide.org/c
 Just create a file with `.md` extension and you are good to go!
 
 
-### ...add my own css and js dependencies?
+### ...add custom HTML, analytics, CSS or JavaScript to every page?
 
-There are three specific files you may use for this. If you don't have them available just create them on the specific path starting on your root:
-- `./includes/custom/custom_head.html`: This file would be included on your `<head>` tag. You may want to add anything as additional `css`, `js` or favicons there.
-- `./includes/custom/custom_bottomscripts.html`: If you need to include anything on the bottom of your `<body>` tag that's the place!.
-- `./assets/css/custom.scss`: Add your own `css` classes or modify existing ones there.
+Chulapa provides three HTML includes for adding your own snippets. Create or
+edit these files relative to the root of your site, keeping the leading
+underscore in `_includes`:
+
+- `_includes/custom/custom_head_before_css.html`: Insert HTML inside `<head>`,
+  before the theme's CSS stylesheet.
+- `_includes/custom/custom_head.html`: Insert HTML at the end of `<head>`,
+  after the theme's CSS stylesheet. Use this for analytics scripts, additional
+  stylesheets or favicons.
+- `_includes/custom/custom_bottomscripts.html`: Insert HTML at the end of
+  `<body>`, after the theme's JavaScript dependencies.
+
+Your site's files override the matching theme includes, including when using
+`remote_theme` or the gem-based theme. These snippets appear on pages using
+Chulapa's layouts, including `minimal` and `search`. You do not need to copy or
+modify the layouts.
+
+For example, if your analytics provider asks you to load a script in `<head>`,
+add its snippet to `_includes/custom/custom_head.html`:
+
+```html
+<!-- Replace this example with the snippet from your analytics provider. -->
+<script defer src="https://analytics.example.com/script.js"
+        data-site-id="YOUR_SITE_ID"></script>
+```
+
+Follow your provider's instructions when choosing the include and configuring
+the script. If the snippet belongs at the end of `<body>`, use
+`_includes/custom/custom_bottomscripts.html` instead.
+
+To add CSS rules or override existing ones, use `assets/css/custom.scss`.
 
 ### ...add favicons?
 
@@ -51,7 +78,7 @@ Just host your `favicon.ico` on the root of your directory.
 
 1. Go to [https://realfavicongenerator.net/](https://realfavicongenerator.net/) and follow the instructions. 
 2. When you are finished, on the **Favicon Generator Options** choose a custom path, as `https://myurl/assets/favicon/`.
-3. On your repo, copy the `html` code on your `./includes/custom/custom_head.html`
+3. In your repo, copy the HTML code into `_includes/custom/custom_head.html`.
 4. Also, download the icon package and host it on your repo on `./assets/favicon/`.
 5. Commit, relax and enjoy!
 
