@@ -2,8 +2,8 @@ var sT = document.getElementById("sidetoc");
 var btn = document.getElementById("demo");
 var body = document.getElementById("body");
 var main = document.getElementById("maincontent");
-var heads = main.querySelectorAll("h1, h2, h3, h4, h5 , h6");
-var els = main.querySelectorAll("pre");
+var heads = main ? main.querySelectorAll("h1, h2, h3, h4, h5 , h6") : [];
+var els = main ? main.querySelectorAll("pre") : [];
 
 // First load sidebar
 // Create hidden overlay
