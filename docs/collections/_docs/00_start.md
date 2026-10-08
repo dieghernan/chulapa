@@ -1,9 +1,52 @@
 ---
-title: Start with a small site
+title: Start a site with <span class="chulapa">Chulapa</span>
 subtitle: Choose an example and make it your own
-excerpt: Four complete starting points for a blog, technical blog, portfolio or project.
+excerpt: Create a personal blog from the Chulapa 101 template or explore four small site examples.
 show_toc: true
 ---
+
+## Start with the GitHub template
+
+For your first site, use [<span class="chulapa">Chulapa</span> 101](https://github.com/dieghernan/chulapa-101).
+It is an editable personal blog with publishing workflows already included.
+[Explore the live starter](https://dieghernan.github.io/chulapa-101/) before
+creating your repository.
+
+The template includes three sample posts, a local photograph with alternative
+text and credit, About, archives by year, category and tag, Fuse.js search and
+RSS. Its home page lists recent posts with pagination. It uses the predefined
+`gitdev` skin without color or CSS overrides.
+
+1. [Create your repository from the template](https://github.com/dieghernan/chulapa-101/generate).
+2. In **Settings > Pages**, choose **GitHub Actions** as the source.
+3. Edit `_config.yml`: set your title, description, author, `repository`
+   (`username/repository`) and `url` (`https://username.github.io`). Commit
+   your changes to `main` or `master` to trigger deployment.
+
+The workflow sets the deployment base path. You do not need a personal access
+token or a local Ruby installation. Check **Actions** for build progress and
+**Settings > Pages** for your website address.
+
+Edit `index.html` for the home page, `_pages/about.md` for About and `_posts/`
+for your stories. Images go in `assets/img/`. Navigation, author details,
+footer links and the skin are configured in `_config.yml`. Keep the home page
+named `index.html`: Jekyll's pagination plugin requires it. The default is five
+posts per page. The template is one ordinary site; it has no profile selector.
+
+Its `_config.yml` follows the theme's full configuration with commented options,
+including unused settings. Start with site details in section A; the rest of
+the blog is configured already. The template's collections and defaults are
+adapted to a personal blog rather than the theme's documentation site.
+Optional hooks are provided in `_includes/custom/` for head tags, scripts and
+Giscus, alongside `assets/css/custom.scss` for CSS or SCSS. They contain comments
+only; the predefined skin is unchanged until you add your own styles.
+The template README also maps additional extension points for favicons, your
+JavaScript, custom skins, page front matter and local layout or include overrides.
+
+See [the template README](https://github.com/dieghernan/chulapa-101#add-your-content)
+for editing, image credits and optional local preview.
+
+## Explore minimal examples
 
 Choose the example closest to your site. Each folder contains a Gemfile,
 `_config.yml`, a home page and sample content. They use existing Chulapa options;

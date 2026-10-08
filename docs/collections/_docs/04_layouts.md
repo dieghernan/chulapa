@@ -577,7 +577,7 @@ Optional arguments:
 
 See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
-**Note that** for `posts` you have a better option provided by [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). If you go for this option, copy [this file](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html) and use it on your site, according to your `paginate_path`. See a live demo on [chulapa-101](https://dieghernan.github.io/chulapa-101/blog/).
+For a paginated post index, use [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). The [chulapa-101 home page](https://dieghernan.github.io/chulapa-101/) uses this plugin; its [index.html](https://github.com/dieghernan/chulapa-101/blob/main/index.html) lists five posts per page with previous and next links. Keep the filename `index.html` and configure `paginate` and `paginate_path` in `_config.yml`. For a separate blog index, use [the documentation site's example](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html).
 {: .alert .alert-info .p-3 .mx-2}
 
 #### Search layout

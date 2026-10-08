@@ -69,8 +69,28 @@ The dictionary is a selection, not a complete list of supported Sass variables.
 
 ## Installation
 Source: https://dieghernan.github.io/chulapa/docs/01-install
-For a new site, create a repository from the chulapa-101 GitHub template, update
-_config.yml and replace the sample content. For an existing site, set
+For a new site, use https://github.com/dieghernan/chulapa-101/generate and enable
+Settings > Pages > GitHub Actions. The template is a personal blog with three
+sample posts, a local credited photograph, About, year/category/tag archives,
+Fuse.js search, RSS and the predefined gitdev skin without CSS overrides.
+Live preview: https://dieghernan.github.io/chulapa-101/
+Edit title, description, author, repository (username/repository) and url
+(https://username.github.io) in _config.yml, then commit to main or master.
+The existing Pages workflow supplies the base path; no personal token or local
+installation is needed. Content is at the site root: index.html, _posts/,
+_pages/ and assets/img/. Navigation and footer links stay in _config.yml. Its configuration follows
+the full theme sample with sections, comments and unused settings left empty;
+collections/defaults are adapted to the blog. Start with site details in section A.
+Optional comment-only hooks are included in _includes/custom/:
+custom_head_before_css.html, custom_head.html, custom_bottomscripts.html and
+giscus.html; assets/css/custom.scss is included with YAML front matter.
+They do not change the skin. Custom CSS loads after theme styles; keep the front
+matter. Giscus also needs comments.provider: giscus and show_comments: true.
+The home page uses jekyll-paginate with five posts per page and must remain
+index.html. This is one ordinary site, not a selector for four profiles.
+Fuse.js indexes posts and About; home, archives, search and 404 are excluded.
+Replace sample text, photo/alt text/credit and the About contact address.
+For an existing site, set
 remote_theme: dieghernan/chulapa in _config.yml. Remove conflicting theme entries.
 Add jekyll-remote-theme and jekyll-include-cache to the Gemfile and the plugins list
 in _config.yml, then run bundle install. Remote themes do not install runtime

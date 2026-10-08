@@ -16,6 +16,13 @@ as a starting point. Adapt its site details, collections and defaults to your
 site. Use `remote_theme: dieghernan/chulapa` for the default branch or append
 `@TAG` to pin an existing release.
 
+The template follows the theme's full configuration, including comments and
+unused options left empty. It configures a personal blog with the predefined
+Gitdev skin, navigation, Fuse.js search, post defaults and five posts per home
+page. Start with that file if you use chulapa-101; its collections and defaults
+are adapted to the blog. See [the starter guide](./00-start#start-with-the-github-template)
+for publishing and the content structure.
+
 **Restart Jekyll after changing configuration.** Edits to `_config.yml` are
 applied when the server restarts.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}

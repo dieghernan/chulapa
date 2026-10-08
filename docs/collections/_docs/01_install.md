@@ -20,8 +20,21 @@ publishing workflow, use the GitHub template below.
 
 Sign in to GitHub and
 [create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
-to get started. Update `_config.yml` with your site's details and replace the
-sample content with your own.
+to get an editable personal blog with three sample posts, About, year, category
+and tag archives, Fuse.js search, RSS and a paginated home page. It uses the
+predefined Gitdev skin and includes publishing workflows.
+
+Choose **GitHub Actions** in your repository's **Settings > Pages**. Edit
+`_config.yml` with your title, description, author, `repository`
+(`username/repository`) and `url` (`https://username.github.io`). Commit your
+changes to `main` or `master`; the Pages workflow supplies the deployment base
+path and publishes the site. No local installation or personal access token is
+required.
+
+[Preview chulapa-101](https://dieghernan.github.io/chulapa-101/) and follow
+[the start guide](./00-start#start-with-the-github-template) for the content
+structure and editing steps. Replace the sample text, image and contact address
+as you make the blog your own.
 
 ## 2. Remote theme method
 

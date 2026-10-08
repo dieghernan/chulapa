@@ -4,7 +4,7 @@
     "section": "installation",
     "doc": "01_install.md",
     "question": "How do I start a new Chulapa site on GitHub Pages?",
-    "expected": "Recommend chulapa-101 template, configuration and deployment."
+    "expected": "Recommend chulapa-101 as a personal blog template; create repository, enable Settings > Pages > GitHub Actions, set title/description/author/repository/url and commit to main or master. Workflow supplies base path; no local install or personal token required."
   },
   {
     "id": "installation-2",

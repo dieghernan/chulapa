@@ -34,6 +34,16 @@ Start with a small example, then add the features your site needs.
 
 ## Choose your starting point
 
+For your first site, use [chulapa-101](https://github.com/dieghernan/chulapa-101),
+the ready-to-publish personal blog template. It includes three sample posts,
+a local photograph, About, year, category and tag archives, Fuse.js search,
+RSS and a paginated home page, using the predefined Gitdev skin.
+[Explore the live starter](https://dieghernan.github.io/chulapa-101/).
+Create your repository, enable GitHub Pages with GitHub Actions and edit the
+site details and sample content. No local installation is required.
+
+For smaller examples of individual site types, explore the folders below:
+
 | Site | Complete example | Preview |
 | --- | --- | --- |
 | Personal blog | [A journal and recent-post index](examples/personal-blog) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-personal-blog) |
@@ -95,7 +105,11 @@ There are three ways to install <span class="chulapa">Chulapa</span>:
 
 Sign in to GitHub and
 [create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
-to get started.
+to get started with an editable personal blog. Choose **GitHub Actions** in
+your repository's **Settings > Pages**, then update the site details in
+`_config.yml` and replace the sample content. Follow the
+[starter's setup guide](https://github.com/dieghernan/chulapa-101#create-and-publish-your-site)
+for publishing and local preview.
 
 ### B. Remote theme method
 
