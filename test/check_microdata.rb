@@ -6,25 +6,30 @@ require "tmpdir"
 require "fileutils"
 require "uri"
 
+def microdata_value(node, document_url)
+  return { "type" => node["itemtype"], "properties" => properties(node, document_url) } if node["itemscope"]
+
+  case node.name
+  when "a", "area", "link"
+    URI.join(document_url, node["href"]).to_s
+  when "audio", "embed", "iframe", "img", "source", "track", "video"
+    URI.join(document_url, node["src"]).to_s
+  when "meta"
+    node["content"]
+  when "time"
+    node["datetime"] || node.text
+  else
+    node.text
+  end
+end
+
 # Extract direct properties using HTML microdata value rules and scope boundaries.
 def properties(item, document_url)
   result = Hash.new { |hash, key| hash[key] = [] }
   walk = lambda do |node|
     node.element_children.each do |child|
       if child["itemprop"]
-        value = if child["itemscope"]
-          { "type" => child["itemtype"], "properties" => properties(child, document_url) }
-        elsif %w[a area link].include?(child.name)
-          URI.join(document_url, child["href"]).to_s
-        elsif %w[audio embed iframe img source track video].include?(child.name)
-          URI.join(document_url, child["src"]).to_s
-        elsif child.name == "meta"
-          child["content"]
-        elsif child.name == "time"
-          child["datetime"] || child.text
-        else
-          child.text
-        end
+        value = microdata_value(child, document_url)
         child["itemprop"].split.each { |name| result[name] << value }
       end
       walk.call(child) unless child["itemscope"]
