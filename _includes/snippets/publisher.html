@@ -1,0 +1,25 @@
+{%- assign publisher_type = 'Organization' -%}
+{%- if site.publisher.type == 'Person' -%}
+  {%- assign publisher_type = 'Person' -%}
+{%- endif -%}
+{%- assign publisher_name = site.publisher.name | default: site.author.name | default: site.github.owner_name -%}
+{%- assign publisher_url = site.publisher.url | default: home_url | absolute_url -%}
+{
+  "@type": "{{ publisher_type }}",
+  "name": {% include snippets/jsonld-string.html value=publisher_name %},
+  "url": {% include snippets/jsonld-string.html value=publisher_url decode_html=false %}
+  {%- if publisher_type == 'Person' -%}
+    {%- assign publisher_image = site.publisher.image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
+  {%- else -%}
+    {%- assign publisher_logo = site.publisher.logo | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {% include snippets/jsonld-string.html value=publisher_logo decode_html=false %}
+    }
+    {%- assign publisher_image = site.publisher.image -%}
+  {%- endif -%}
+  {%- if publisher_image and publisher_image != empty -%}
+    {%- assign publisher_image = publisher_image | absolute_url -%},
+    "image": {% include snippets/jsonld-string.html value=publisher_image decode_html=false %}
+  {%- endif %}
+}

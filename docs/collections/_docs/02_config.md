@@ -57,6 +57,42 @@ author:
 **Your pages would look awesome on social networks**: You don't have to set anything, the theme already shipped this for you. Twitter Cards, LinkedIn Post Inspector, Facebook Validator, WhatsApp and some structured data! Every page shared would look awesome.
 {: .alert .alert-success .p-3 .mx-2 mb-3}
 
+#### Publisher
+
+Use the optional `publisher` settings in `_config.yml` to identify the publisher in JSON-LD structured data. The publisher is independent of the site author and guest authors. These settings work with both remote and gem themes without additional plugins.
+
+For an organization with its own logo:
+
+```yaml
+publisher:
+  type: Organization
+  name: Example organization
+  url: https://example.org/
+  logo: /assets/img/logo.png
+  image: /assets/img/organization.jpg
+```
+
+For a personal site:
+
+```yaml
+publisher:
+  type: Person
+  name: Jane Doe
+  image: /assets/img/jane.jpg
+```
+
+| Setting | Default and behavior |
+| --- | --- |
+| `type` | `Organization`. Use exactly `Organization` or `Person`; unsupported values fall back to `Organization`. |
+| `name` | Site `author.name`, then the GitHub owner name. |
+| `url` | Site home URL. An explicit publisher URL takes precedence. |
+| `logo` | For `Organization`, uses `og_image`, then `author.avatar`, then the GitHub avatar when omitted. Ignored for `Person`. |
+| `image` | For `Person`, uses `author.avatar`, then the GitHub avatar when omitted. Omitted if none is available. For `Organization`, included only when explicitly configured. |
+
+Relative publisher URLs, logos and images resolve using the site's `url` and `baseurl`. Absolute URLs remain unchanged. Missing or empty settings use the defaults above. Without publisher settings, the existing organization publisher and its logo fallbacks are preserved.
+
+Configuring a publisher does not change article authors, social metadata or author profiles. The separate site author profile is described as "Site author" when any publisher setting is supplied. A `Person` publisher uses `image` instead of `logo`, following [Schema.org](https://schema.org/publisher). These settings describe the publishing entity; they do not guarantee additional [Google rich results](https://developers.google.com/search/docs/appearance/structured-data/article).
+
 ### Fontawesome
 
 <span class="chulapa">Chulapa</span> has its own installation of Fontawesome 6, so you don't need to set anything. However, if you want to use your own kit, jump to your Fontawesome account and grab the kitcode. Implement this kitcode after `fa_kit_code:`.

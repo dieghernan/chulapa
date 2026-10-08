@@ -324,4 +324,37 @@ Dir.mktmpdir("chulapa-head-") do |source|
   check(blocks.any? { |block| block["@type"] == "BreadcrumbList" && block["itemListElement"].first["name"] == "Parent" }, "Explicit home breadcrumb removed")
 end
 
+Dir.mktmpdir("chulapa-publisher-") do |source|
+  FileUtils.cp_r(File.join(theme_root, "_includes"), source)
+  FileUtils.mkdir_p(File.join(source, "_layouts"))
+  File.write(File.join(source, "_layouts", "head.html"), "{% include head.html %}")
+  File.write(File.join(source, "index.md"), "---\nlayout: head\ntitle: Home\n---\n")
+  File.write(File.join(source, "guest.md"), "---\nlayout: head\ntitle: Guest\ndate: 2024-01-02\nauthor:\n  name: Guest writer\n---\n")
+  cases = [
+    ["legacy", nil, {}, { "@type" => "Organization", "name" => "Author", "url" => "https://example.com/subdir/", "logo" => { "@type" => "ImageObject", "url" => "https://example.com/subdir/banner.jpg" } }],
+    ["blank", { "type" => nil, "name" => "", "image" => "" }, {}, { "@type" => "Organization", "name" => "Author", "url" => "https://example.com/subdir/", "logo" => { "@type" => "ImageObject", "url" => "https://example.com/subdir/banner.jpg" } }],
+    ["organization", { "name" => 'Publisher "&" </script>', "url" => "/publisher/", "logo" => "/logo.png", "image" => "https://cdn.example.com/image.jpg?a=1&b=2" }, {}, { "@type" => "Organization", "name" => 'Publisher "&" </script>', "url" => "https://example.com/subdir/publisher/", "logo" => { "@type" => "ImageObject", "url" => "https://example.com/subdir/logo.png" }, "image" => "https://cdn.example.com/image.jpg?a=1&b=2" }],
+    ["person", { "type" => "Person", "name" => "Publisher", "url" => "https://publisher.example/", "image" => "/person.jpg", "logo" => "/ignored.png" }, {}, { "@type" => "Person", "name" => "Publisher", "url" => "https://publisher.example/", "image" => "https://example.com/subdir/person.jpg" }],
+    ["person avatar", { "type" => "Person", "image" => "" }, {}, { "@type" => "Person", "name" => "Author", "url" => "https://example.com/subdir/", "image" => "https://example.com/subdir/avatar.png" }],
+    ["person no image", { "type" => "Person" }, { "author" => { "name" => "Author" } }, { "@type" => "Person", "name" => "Author", "url" => "https://example.com/subdir/" }],
+    ["unsupported type", { "type" => "person" }, {}, { "@type" => "Organization", "name" => "Author", "url" => "https://example.com/subdir/", "logo" => { "@type" => "ImageObject", "url" => "https://example.com/subdir/banner.jpg" } }],
+    ["github fallbacks", { "type" => "Person" }, { "author" => {}, "github" => { "owner_name" => "GitHub owner", "owner_gravatar_url" => "https://github.example/avatar.png" } }, { "@type" => "Person", "name" => "GitHub owner", "url" => "https://example.com/subdir/", "image" => "https://github.example/avatar.png" }],
+    ["organization avatar", {}, { "og_image" => nil }, { "@type" => "Organization", "name" => "Author", "url" => "https://example.com/subdir/", "logo" => { "@type" => "ImageObject", "url" => "https://example.com/subdir/avatar.png" } }]
+  ]
+  cases.each do |label, publisher, overrides, expected|
+    config = Jekyll.configuration({ "source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => "/subdir", "title" => "Example", "author" => { "name" => "Author", "avatar" => "/avatar.png" }, "og_image" => "/banner.jpg", "publisher" => publisher, "quiet" => true }.merge(overrides))
+    Jekyll::Site.new(config).process
+    %w[index.html guest.html].each do |file|
+      html = File.read(File.join(config["destination"], file))
+      blocks = html.scan(/<script type="application\/ld\+json">(.*?)<\/script>/m).map { |block| JSON.parse(block.first) }
+      check(blocks.first["publisher"] == expected, "Publisher incorrect: #{label}, #{file}")
+      profile = blocks.find { |block| block["@type"] == "Person" }
+      configured = publisher && publisher.values.any? { |value| value && value != "" }
+      check(profile["description"] == (configured ? "Site author" : "Publisher"), "Site author role incorrect: #{label}")
+      check(blocks.first.dig("author", "name") == "Guest writer", "Publisher overwrote guest author: #{label}") if file == "guest.html"
+      check(metadata(html, "og:image") == "https://example.com/subdir/banner.jpg", "Publisher changed social image") unless overrides.key?("og_image")
+    end
+  end
+end
+
 puts "Head metadata checks passed."

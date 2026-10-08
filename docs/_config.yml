@@ -12,6 +12,14 @@ description: Template for creating free sites on Github Pages
 og_image: "./assets/img/site/banner.png"
 twitter_site: dhernangomez
 timezone: "Europe/Madrid"
+# Optional JSON-LD publisher, independent of article authors.
+publisher:
+  type: Person # Personal site demo; Organization is the default
+  name: # Defaults to author.name or GitHub owner name
+  url: # Defaults to the site home URL
+  logo: # Organization only; defaults to og_image, author.avatar or GitHub avatar
+  image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
+
 author:
   name: dieghernan
   avatar: ./assets/img/site/dieghernan-avatar.png

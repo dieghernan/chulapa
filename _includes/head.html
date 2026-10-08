@@ -132,15 +132,7 @@
          {% endfor %}
        {% endif %}
       },
-       "publisher": {
-        "@type": "Organization",
-        "name": {%- assign jsonld_value = site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
-        "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
-        "logo": {
-          "@type": "ImageObject",
-          "url": {%- assign jsonld_value = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
-        }
-      }
+       "publisher": {% include snippets/publisher.html %}
     }
     </script>
     {% if page.breadcrumb_list.size > 0 %}
@@ -221,7 +213,8 @@ where_exp: "item", "item.url contains 'http'"
     "name": {% include snippets/jsonld-string.html value=site.author.location %}
     },
   {% endif %}
-  "description": "Publisher",
+  {%- capture publisher_settings -%}{{ site.publisher.type }}{{ site.publisher.name }}{{ site.publisher.url }}{{ site.publisher.logo }}{{ site.publisher.image }}{%- endcapture -%}
+  "description": {% if publisher_settings != empty %}"Site author"{% else %}"Publisher"{% endif %},
   "name" : {%- assign jsonld_value = site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
   "url" : {%- assign jsonld_value = "/" | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
   {% if sitelink %}
