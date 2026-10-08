@@ -49,6 +49,22 @@ Google Fonts can be loaded with googlefonts URL entries, but loading a font does
 not apply it: set font-family-base or headings-font-family under chulapa-skin.vars.
 Rouge performs syntax highlighting; chulapa-skin.highlight selects its CSS style.
 
+## Available skins
+Source: https://dieghernan.github.io/chulapa/skins
+The visual skin catalog shows previews. Available named skins are:
+academia, butterfly, butterfly-dark, butterfly-dim, chulapa, cyborg, dark-bg,
+darkly, deeply, electro, flatly, focal, gitdev, gitdev-dark, graymor, hootstrap,
+journal, listen, lux, lymcha, materia, media, mickie, minco, minty, monotone,
+navi, pear, preptor, skeeblu, sketchy, slate, solar, sunset, towards, twitter,
+twitter-dim, twitter-lights-out, united, universal, wandoo, yeti.
+When asked which skins are available, give actual names from this list and link
+the visual catalog. For a short answer, give examples and explicitly say they
+are examples, not the complete list. Do not answer only with the number of skins
+or repeat installation instructions. Use a real skin name such as navi in YAML
+examples rather than an unspecified placeholder. Separate special options:
+auto selects the Autothemer; none selects no skin. The catalog's current preview
+is the documentation site's configuration, not a skin named current.
+
 ## Layouts
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 The default layout is for posts, standalone pages and collection documents.

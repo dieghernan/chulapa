@@ -14,6 +14,7 @@ from particular requests, not guarantees about every future model response.
 | Ask the author's favorite food | Acknowledges missing information rather than inventing personal details. |
 | Subscribe to RSS | Returns the public RSS URL. |
 | Ask whether context documents automatic RSS fetching | Does not claim that the assistant fetches the feed. |
+| What skins are available? | Returns actual names, the complete named-skin list and a link to the visual catalog after adding the inventory and an explicit availability instruction. |
 
 The renderer intentionally keeps external links such as RealFaviconGenerator
 as text; only public Chulapa source links are clickable. Liquid examples render
@@ -87,3 +88,11 @@ leaves 162 px for messages. A broad navbar/footer question exhausted the output
 token limit and produced incomplete YAML; the Worker now rejects responses marked
 `finish_reason: length` with a request to ask a more specific question. The prompt
 also asks for fewer than 150 words and one small complete example.
+
+Physical iPhone portrait screenshots confirmed opening without the keyboard and
+keeping the input visible when typing. Landscape with the keyboard showed the
+panel disappearing. Below 260 px of visual viewport height, the widget now uses
+a compact composer anchored to the visible viewport top, with input, send and
+close controls. Other content returns after the keyboard closes. A completed or
+failed request dismisses the focused input in compact mode so the result can be
+read. This landscape correction still needs a repeat on the physical phone.

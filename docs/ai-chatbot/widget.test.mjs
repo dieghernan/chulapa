@@ -7,13 +7,14 @@ const bundle = readFileSync(new URL('.build/widget.js', import.meta.url), 'utf8'
 const storageKey = 'chulapa-docs-chat:v1';
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
 
-function widget({ mobile = true, saved, fetch, blockedStorage = false } = {}) {
+function widget({ mobile = true, saved, fetch, blockedStorage = false, visualViewport } = {}) {
   const dom = new JSDOM('<body></body>', {
     url: 'https://dieghernan.github.io/chulapa/docs/05-faq',
     runScripts: 'dangerously', pretendToBeVisual: true
   });
   const { window } = dom;
   window.matchMedia = () => ({ matches: mobile });
+  if (visualViewport) Object.defineProperty(window, 'visualViewport', { value: visualViewport });
   window.fetch = fetch || (async () => ({ ok: true, json: async () => ({ answer: 'A documented answer.' }) }));
   if (saved) window.sessionStorage.setItem(storageKey, JSON.stringify(saved));
   if (blockedStorage) Object.defineProperty(window, 'sessionStorage', {
@@ -92,5 +93,21 @@ test('chat remains usable when session storage is unavailable', async () => {
   assert.equal(ui.get('send').disabled, false);
   ui.get('clear').click();
   assert.equal(ui.root.querySelectorAll('.message.user').length, 0);
+  ui.dom.window.close();
+});
+
+test('short keyboard viewport uses compact mode and restores the full chat on resize', () => {
+  const viewport = new EventTarget();
+  Object.assign(viewport, { height: 120, offsetTop: 90, scale: 1 });
+  const ui = widget({ visualViewport: viewport });
+  const host = ui.window.document.querySelector('div');
+  assert.equal(host.hasAttribute('data-compact'), true);
+  assert.equal(host.style.getPropertyValue('--chat-visible-top'), '90px');
+  viewport.height = 650;
+  viewport.dispatchEvent(new Event('resize'));
+  assert.equal(host.hasAttribute('data-compact'), false);
+  viewport.scale = 2;
+  viewport.dispatchEvent(new Event('resize'));
+  assert.equal(host.style.getPropertyValue('--chat-visible-top'), '');
   ui.dom.window.close();
 });

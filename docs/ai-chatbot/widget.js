@@ -43,6 +43,11 @@ import sparkles from './sparkles.svg';
     @media(max-width:991.98px){section{bottom:calc(1rem + var(--chat-keyboard-inset,0px));max-height:calc(var(--chat-visible-height,100dvh) - 2rem)}input,.message{font-size:16px}}
     @media(max-width:575px){section{height:auto}#log{max-height:calc(var(--chat-visible-height,100dvh) * .4)}header{padding:.65rem 1rem}.subtitle{display:none}}
     @media(max-height:500px){header{padding:.4rem 1rem}header>div{display:flex;align-items:center;gap:.75rem}h2{margin:0}.subtitle{display:none}#clear{margin:0}#hint{padding:.25rem 1rem}form{padding:.4rem 1rem}}
+    :host([data-compact]) section{top:calc(var(--chat-visible-top,0px) + 8px);bottom:auto;height:auto;max-height:calc(var(--chat-visible-height,100dvh) - 16px)}
+    :host([data-compact]) header,:host([data-compact]) footer{display:contents}
+    :host([data-compact]) header>div,:host([data-compact]) #log,:host([data-compact]) #hint,:host([data-compact]) small{display:none}
+    :host([data-compact]) #close{position:absolute;right:.5rem;top:.5rem}
+    :host([data-compact]) form{order:-1;padding:.5rem 3.5rem .5rem .5rem}
     @media(prefers-color-scheme:dark){:host{color:#eef3f5;--surface:#1d2b33;--muted:#bac7cf;--line:#36454e;--bubble:#2a3b45}a{color:#a8dae8}}
   </style>
   <button id="launch" aria-label="Ask AI" title="Ask Chulapa AI" aria-expanded="false" aria-controls="chat">${sparkles}</button>
@@ -93,9 +98,13 @@ import sparkles from './sparkles.svg';
       if (Math.abs(visibleViewport.scale - 1) > .01) {
         host.style.removeProperty('--chat-visible-height');
         host.style.removeProperty('--chat-keyboard-inset');
+        host.style.removeProperty('--chat-visible-top');
+        host.removeAttribute('data-compact');
         return;
       }
       host.style.setProperty('--chat-visible-height', `${visibleViewport.height}px`);
+      host.style.setProperty('--chat-visible-top', `${visibleViewport.offsetTop}px`);
+      host.toggleAttribute('data-compact', visibleViewport.height < 260);
       const inset = Math.max(0, window.innerHeight - visibleViewport.height - visibleViewport.offsetTop);
       host.style.setProperty('--chat-keyboard-inset', `${inset}px`);
     };
@@ -245,6 +254,7 @@ import sparkles from './sparkles.svg';
     } finally {
       clearTimeout(timeout); clearTimeout(waiting); busy = false;
       get('send').disabled = false; get('retry').disabled = false; get('clear').disabled = false;
+      if (host.hasAttribute('data-compact') && root.activeElement === get('question')) get('question').blur();
       save();
     }
   }
