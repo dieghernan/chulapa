@@ -222,27 +222,34 @@ If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with Chulapa's
 feeds. Changing its path to `/atom.xml` without removing Chulapa's Atom feed
 creates two pages with the same output path.
 
-For sites built locally or with a custom build workflow, you can remove
-Chulapa's feeds before plugins generate their output. Create
-`_plugins/disable_chulapa_feeds.rb` in your site with this content:
+For sites built locally or with a custom build workflow, you can replace
+Chulapa's Atom feed while keeping its RSS feed. Create
+`_plugins/disable_chulapa_atom_feed.rb` in your site with this content:
 
 ```ruby
 Jekyll::Hooks.register :site, :post_read do |site|
   site.pages.reject! do |page|
-    %w[assets/atom.xml assets/rss.xml].include?(page.relative_path.sub(%r{\A/}, ""))
+    page.relative_path.sub(%r{\A/}, "") == "assets/atom.xml"
   end
 end
 ```
 
-Keep `jekyll-feed` in your Gemfile and plugins list. To use `/atom.xml`, add
-this setting to `_config.yml`:
+This hook removes Chulapa's Atom page before plugins generate their output.
+Keep `jekyll-feed` in your Gemfile and plugins list, and configure it to
+generate the replacement at `/atom.xml` in `_config.yml`:
 
 ```yaml
 feed:
   path: /atom.xml
 ```
 
-Update any RSS links in your navbar or footer to use the feed you keep.
+The theme's page head advertises both `/atom.xml` and `/rss.xml`. This recipe
+keeps both URLs available: `jekyll-feed` generates Atom and Chulapa generates
+RSS. Keep `include_on_feed: true` for posts that should appear in the RSS feed.
+If you remove RSS as well, override `_includes/head.html` in your site to
+remove or replace its RSS alternate link, and update RSS links in your navbar
+or footer. Adding a link in `custom_head.html` does not remove the original.
+
 Custom plugins are not loaded by GitHub Pages' default safe build; use your own
 build workflow for this approach. Adding the theme's feed files to `exclude`
 alone does not remove them when they are supplied by a gem or remote theme.
