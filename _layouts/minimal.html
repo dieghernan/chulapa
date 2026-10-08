@@ -8,6 +8,11 @@ layout: compress
 	<body class="d-flex flex-column h-entry" id="body">
 	<a class="u-url d-none" href="{{ canonical_url }}">Invisible link to canonical for Microformats</a>
 	{% include_cached navbar.html pageurl=page.url %}
+	{% if page.show_header == true %}
+	  {% unless layout.header_in_content %}
+	    {% include components/headers.html headertype=page.header_type imghero=page.header_img projects=page.project_links %}
+	  {% endunless %}
+	{% endif %}
 			{{- content -}}
 	{%- include_cached footer.html show_comments=page.show_comments pageurl=page.url pageid=page.id pagetitle = page.title -%}
 	<!-- JS, Popper.js, and jQuery -->

@@ -258,12 +258,12 @@ The options available are the same as those described on the
 
 #### Minimal
 
-Minimal layout including only the navbar and the footer. Available options are:
+Minimal layout with the navbar, footer and an optional header. Available options are:
 `title`, `subtitle`, `date`, `last_modified_at`, `excerpt`, `mathjax`,
 `og_image`,
 `schema_image` (for posts), `robots`, `author`, `include_on_search`,
 `include_on_feed` and `show_comments`. Content is rendered directly between
-the navbar and footer; headers, author panels and tables of contents are not
+the navbar and footer; author panels and tables of contents are not
 added automatically.
 
 ```yaml
@@ -271,6 +271,27 @@ added automatically.
 layout: minimal
 ---
 ```
+
+##### Optional header
+
+Minimal pages remain headerless by default, even when `header_type` is set through global defaults. To reuse a theme header while keeping the content area unrestricted, set the Boolean `show_header: true`:
+
+```yaml
+---
+layout: minimal
+title: My wide page
+subtitle: Custom content with a theme header
+show_header: true
+header_type: hero
+header_img: /assets/img/banner.jpg
+---
+```
+
+Use the existing header types (`base`, `post`, `hero`, `image` or `splash`) and `project_links` options. A missing or unsupported `header_type`, including `none`, produces no header. Set `show_header: false` to disable the optional header on a minimal page, including when overriding front matter defaults. The option does not add a content container; your HTML controls the width and spacing. See the [minimal header demo]({{ '/demo/minimal-header' | absolute_url }}).
+
+`show_header` controls the optional header in `minimal` and custom layouts that inherit from it. The existing headers in `default` and `landingpage` retain their behavior and render only once. To hide those headers, keep using `header_type: none`.
+
+If a custom layout already includes its own header, add `header_in_content: true` to that layout's front matter before enabling `show_header`. This prevents the parent `minimal` layout from adding another header. Custom layouts without an existing header can use `show_header: true` directly.
 
 ### Specific purpose
 
