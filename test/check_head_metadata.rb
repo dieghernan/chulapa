@@ -122,9 +122,31 @@ Dir.mktmpdir("chulapa-head-") do |source|
     author["links"] = urls.map { |url| { "url" => url } } unless urls.nil?
     fixtures["creator-#{name}.md"] = "title: Creator #{name}\nauthor: #{author.to_json}"
   end
+  robots_cases = {
+    "robots-configured.md" => ["robots: 'noindex, follow'", "noindex, follow"],
+    "robots-empty.md" => ["robots: ''", "index, follow"],
+    "robots-null.md" => ["robots:", "index, follow"],
+    "robots-whitespace.md" => ["robots: '   '", "index, follow"],
+    "robots-escaped.md" => ["robots: #{%(noindex, \"quoted\" & <value>).to_json}", %(noindex, "quoted" & <value>)],
+    "robots-defaults/defaulted.md" => ["", "noindex, follow"],
+    "robots-defaults/overridden.md" => ["robots: 'index, nofollow'", "index, nofollow"],
+    "robots-defaults/empty-override.md" => ["robots: ''", "index, follow"],
+    "_posts/2024-01-03-robots-post.md" => ["robots: 'noindex, nofollow'", "noindex, nofollow"],
+    "_notes/robots-collection.md" => ["robots: 'noindex, follow'", "noindex, follow"],
+    "404.md" => ["", "index, follow"],
+    "search.md" => ["", "index, follow"],
+    "tags.md" => ["", "index, follow"],
+    "archives.md" => ["", "index, follow"]
+  }
+  robots_expected = {}
+  robots_cases.each do |path, (frontmatter, expected)|
+    fixtures[path] = "title: Robots fixture\n#{frontmatter}"
+    robots_expected[File.basename(path, ".md").sub(/\A\d{4}-\d{2}-\d{2}-/, "") + ".html"] = expected
+  end
   # The explicit home breadcrumb is exercised in a separate build below.
   fixtures.each do |path, frontmatter|
     next if path == "custom-home.md"
+    FileUtils.mkdir_p(File.dirname(File.join(source, path)))
     File.write(File.join(source, path), "---\n#{frontmatter}\n---\n\nFirst paragraph.\n\nSecond paragraph.\n")
   end
 
@@ -138,8 +160,12 @@ Dir.mktmpdir("chulapa-head-") do |source|
       "subtitle" => "Example subtitle",
       "locale" => locale,
       "twitter_site" => "site_account",
+      "collections" => { "notes" => { "output" => true } },
       "author" => { "name" => "Author", "links" => [{ "url" => "https://box.com/user" }, { "url" => "https://example.com/x.com/other" }, { "url" => locale ? "https://WWW.X.COM:443/author" : "https://x.com/author" }] },
-      "defaults" => [{ "scope" => { "path" => "" }, "values" => { "layout" => "head" } }],
+      "defaults" => [
+        { "scope" => { "path" => "" }, "values" => { "layout" => "head" } },
+        { "scope" => { "path" => "robots-defaults" }, "values" => { "robots" => "noindex, follow" } }
+      ],
       "quiet" => true
     )
     Jekyll::Site.new(config).process
@@ -147,6 +173,11 @@ Dir.mktmpdir("chulapa-head-") do |source|
     blocks_by_page = {}
     Dir.glob(File.join(destination, "**", "*.html")).each do |path|
       html = File.read(path)
+      check(html.scan(/<meta\s+name="robots"\s/).size == 1, "Expected one robots tag in #{path}")
+      check(metadata(html, "robots") == robots_expected.fetch(File.basename(path), "index, follow"), "Incorrect robots metadata in #{path}")
+      if File.basename(path) == "robots-escaped.html"
+        check(html.include?('content="noindex, &quot;quoted&quot; &amp; &lt;value&gt;"'), "Robots attribute was not escaped")
+      end
       blocks = html.scan(/<script type="application\/ld\+json">(.*?)<\/script>/m).map { |block| JSON.parse(block.first) }
       blocks_by_page[File.basename(path)] = blocks
       check(blocks.all? { |block| block["@context"] == "https://schema.org" }, "Schema context changed")
@@ -174,7 +205,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
           check((author["sameAs"] || []) == expected_urls.drop(1), "Author social links changed")
         end
       end
-      check(metadata(html, "og:type") == (path.end_with?("example.html") ? "article" : "website"), "Incorrect OG type")
+      check(metadata(html, "og:type") == (path.end_with?("example.html", "robots-post.html") ? "article" : "website"), "Incorrect OG type")
     end
 
     entities = blocks_by_page.fetch("entities.html")

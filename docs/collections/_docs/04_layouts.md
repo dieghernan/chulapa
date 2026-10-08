@@ -53,6 +53,27 @@ Additional options you can set on the front matter or via defaults:
 - `excerpt`: Brief description of the content. If not provided <span class="chulapa">Chulapa</span> would create it as the first paragraph of the content. Note that in the case of documents under `posts` Jekyll allows [additional options](https://jekyllrb.com/docs/posts/#post-excerpts).
 - `mathjax`: Would activate $$MathJax$$ on the page. 
 - `og_image`: OpenGraph image displayed on the web and social networks when sharing the page. This image would not be displayed on the page.
+- `robots`: Search crawler directives for the page, post or collection document. The default is `index, follow`; missing, empty or whitespace-only values use this default. For example, set this in a page's front matter:
+
+```yaml
+---
+title: My page
+robots: "noindex, follow"
+---
+```
+
+You can also set `robots` through front matter defaults in `_config.yml`:
+
+```yaml
+defaults:
+  - scope:
+      path: "private-pages"
+    values:
+      robots: "noindex, follow"
+```
+
+An explicit page value overrides these defaults. Crawlers must be able to access the page to read its robots metadata; blocking the page in `robots.txt` prevents them from reading `noindex`. This option controls only the HTML metadata and does not change HTTP status codes, `robots.txt` or sitemap entries. The theme does not automatically apply `noindex` to error pages, search pages, tags, archives or pagination. See [Google's robots metadata documentation](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
+
 - `header_type`: Choose between five different headers: `base`, `post`, `hero`,`image`, `splash` or no header otherwise.
 - `header_img`: Image to be displayed on the header. If `og_image` is not set, this would be also the image to be displayed when sharing the page.
 

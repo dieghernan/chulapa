@@ -260,7 +260,7 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name | escape_once }}" >
     <meta name="description" content="{{- ogdesc | truncate: 160 -}}">
     <meta name="thumbnail" content="{{ ogimage | escape_once }}" >
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="{{ page.robots | default: 'index, follow' | strip | default: 'index, follow' | escape }}">
     {%- assign: keyword =  site.github.public_repositories |
                           where_exp:"item", "item.name == site.github.repository_name " |
                           map: "topics" -%}
