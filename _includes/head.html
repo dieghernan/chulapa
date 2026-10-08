@@ -53,29 +53,29 @@
     <script type="application/ld+json">
         {
       "@context": "https://schema.org",
-      "@type": "{{ schema_type }}",
+      "@type": {{ schema_type | jsonify }},
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "{{ canonical_url }}"
+        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}
       },
-      "headline": "{{ metatitle1 |  strip_html | strip }}",
-      "image": "{{ ogimage }}",
+      "headline": {%- assign jsonld_value = metatitle1 |  strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+      "image": {% include snippets/jsonld-string.html value=ogimage decode_html=false %},
       {% if page.date %}
-      "datePublished": "{{ page.date | date_to_xmlschema }}",
-      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+      "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
       {% endif %}
       "author": {
         "@type": "Person",
-        "name": "{{ page.author.name | default: site.author.name | default: site.github.owner_name }}"
+        "name": {%- assign jsonld_value = page.author.name | default: site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %}
         {% if authorlink %}
           {% for item in authorlink %}
             {% if forloop.first %}
-        , "url": "{{ item.url }}"
+        , "url": {% include snippets/jsonld-string.html value=item.url decode_html=false %}
             {% else %}
               {% if forloop.index == 2 %}
         ,  "sameAs" : [
               {% endif %}
-             "{{ item.url }}"
+             {% include snippets/jsonld-string.html value=item.url decode_html=false %}
               {%- if forloop.last %}
             ]
               {% else %}
@@ -87,11 +87,11 @@
       },
        "publisher": {
         "@type": "Organization",
-        "name": "{{ site.author.name | default: site.github.owner_name }}",
-        "url": "{{ home_url }}",
+        "name": {%- assign jsonld_value = site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
         "logo": {
           "@type": "ImageObject",
-          "url": "{{ site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url }}"
+          "url": {%- assign jsonld_value = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
         }
       }
     }
@@ -106,8 +106,8 @@
       {
         "@type": "ListItem",
         "position": {{ forloop.index }},
-        "name": "{{ item.label | strip_html }}",
-        "item": "{{ item.url | absolute_url }}"
+        "name": {%- assign jsonld_value = item.label | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "item": {%- assign jsonld_value = item.url | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
       },
         {% if forloop.last %}
           {% assign loopplus1 = forloop.index | plus: 1 %}
@@ -116,7 +116,7 @@
     {
         "@type": "ListItem",
         "position": {{ loopplus1 }},
-        "name": "{{- page.title | markdownify | strip_html | strip -}}"
+        "name": {%- assign jsonld_value = page.title | markdownify | strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %}
       }]
     }
     </script>
@@ -128,12 +128,12 @@
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "{{ site.navbar.brand.title | default: site.title | default: site.github.repository_name | strip_html }}",
-        "item": "{{ "/" | absolute_url }}"
+        "name": {%- assign jsonld_value = site.navbar.brand.title | default: site.title | default: site.github.repository_name | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "item": {%- assign jsonld_value = "/" | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "{{- page.title | markdownify | strip_html | strip -}}"
+        "name": {%- assign jsonld_value = page.title | markdownify | strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %}
       }]
     }
     </script>
@@ -142,8 +142,8 @@
 	{
 	"@context": "https://schema.org",
 	"@type": "WebPage",
-	"name": "{{ metatitle1 | strip_html }}",
-	"description": "{{ ogdesc }}"
+	"name": {%- assign jsonld_value = metatitle1 | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+	"description": {% include snippets/jsonld-string.html value=ogdesc %}
 	}
 </script>
 {%- assign sitelink = site.author.links |
@@ -154,21 +154,21 @@ where_exp: "item", "item.url contains 'http'"
   "@context" : "https://schema.org",
   "@type" : "Person",
   {% if site.author.avatar %}
-  "image": "{{ site.author.avatar | absolute_url }}",
+  "image": {%- assign jsonld_value = site.author.avatar | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
   {% endif %}
   {% if site.author.location %}
   "homeLocation": {
     "@type": "Place",
-    "name": "{{ site.author.location }}"
+    "name": {% include snippets/jsonld-string.html value=site.author.location %}
     },
   {% endif %}
   "description": "Publisher",
-  "name" : "{{ site.author.name | default: site.github.owner_name }}",
-  "url" : "{{ "/" | absolute_url }}"
+  "name" : {%- assign jsonld_value = site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+  "url" : {%- assign jsonld_value = "/" | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
   {% if sitelink %}
   ,  "sameAs" : [
   {% for item in sitelink %}
-  "{{ item.url }}"{%- if forloop.last %}{% else %},{% endif %}
+  {% include snippets/jsonld-string.html value=item.url decode_html=false %}{%- if forloop.last %}{% else %},{% endif %}
   {% endfor %}
   ]
   {% endif %}
@@ -183,25 +183,25 @@ where_exp: "item", "item.url contains 'http'"
   "@context" : "https://schema.org",
   "@type" : "Person",
   {% if page.author.avatar %}
-  "image": "{{ page.author.avatar | absolute_url }}",
+  "image": {%- assign jsonld_value = page.author.avatar | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
   {% endif %}
   {% if page.author.location %}
   "homeLocation": {
     "@type": "Place",
-    "name": "{{ page.author.location }}"
+    "name": {% include snippets/jsonld-string.html value=page.author.location %}
     },
   {% endif %}
   "description": "Collaborator",
-  "name" : "{{ page.author.name  }}"
+  "name" : {% include snippets/jsonld-string.html value=page.author.name %}
   {% if pagelink %}
     {% for item in pagelink %}
       {% if forloop.first %}
-  , "url": "{{ item.url }}"
+  , "url": {% include snippets/jsonld-string.html value=item.url decode_html=false %}
       {% else %}
         {% if forloop.index == 2 %}
       ,  "sameAs" : [
         {% endif %}
-      "{{ item.url }}"
+      {% include snippets/jsonld-string.html value=item.url decode_html=false %}
         {%- if forloop.last %}
         ]
         {% else %}
@@ -221,10 +221,10 @@ where_exp: "item", "item.url contains 'http'"
     <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title }}" >
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name }}" >
-    <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name }}" >
+    <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name | escape_once }}" >
+    <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name | escape_once }}" >
     <meta name="description" content="{{- ogdesc | truncate: 160 -}}">
-    <meta name="thumbnail" content="{{ ogimage }}" >
+    <meta name="thumbnail" content="{{ ogimage | escape_once }}" >
     <meta name="robots" content="index, follow">
     {%- assign: keyword =  site.github.public_repositories |
                           where_exp:"item", "item.name == site.github.repository_name " |
@@ -237,13 +237,13 @@ where_exp: "item", "item.url contains 'http'"
    <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
    {%- endif %}
     <!-- OpenGraph -->
-    <meta property="og:title" content="{{ metatitle | strip_html }}" >
-    <meta property="og:site_name" content="{{ sitename | strip_html }}" >
+    <meta property="og:title" content="{{ metatitle | strip_html | escape_once }}" >
+    <meta property="og:site_name" content="{{ sitename | strip_html | escape_once }}" >
     <meta property="og:url" content="{{ canonical_url }}" >
     <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}" >
     <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
     <meta property="og:locale" content="{{- site.locale | default: 'en-US' | replace: '-', '_' -}}" >
-    <meta property="og:image" content="{{- ogimage -}}" >
+    <meta property="og:image" content="{{- ogimage | escape_once -}}" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
     {%- if site.twitter_site %}

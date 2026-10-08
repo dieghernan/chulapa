@@ -31,6 +31,24 @@ Dir.mktmpdir("chulapa-head-") do |source|
     "page.md" => "title: Page\nsubtitle: A subtitle\nexcerpt: |\n  Words on\n  separate lines.",
     "plain.md" => "title: Plain\nexcerpt: |\n  Words on\n  separate lines.",
     "fallback.md" => "title: Fallback",
+    "entities.md" => <<~YAML.chomp,
+      title: Country codes & organizations
+      subtitle: R & GIS
+      excerpt: Use &amp; &quot;quotes&quot; &apos;apostrophes&apos; &lt;maps&gt; &copy; &eacute;.
+      breadcrumb_list:
+        - label: Maps &amp; "data"
+          url: /maps/?a=1&b=2
+    YAML
+    "special-author.md" => <<~'YAML'.chomp,
+      title: Special author
+      excerpt: Safe metadata
+      author:
+        name: 'Guest "R & GIS" \ map </script>'
+        location: 'Madrid "Spain"'
+        links:
+          - url: https://twitter.com/guest
+          - url: https://example.com/?a=1&amp;b=2
+    YAML
     "www-twitter.md" => <<~YAML.chomp,
       title: WWW Twitter
       excerpt: Twitter profile
@@ -76,6 +94,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
     File.write(File.join(source, path), "---\n#{frontmatter}\n---\n\nFirst paragraph.\n\nSecond paragraph.\n")
   end
 
+  config = nil
   [nil, "es-MX"].each do |locale|
     config = Jekyll.configuration(
       "source" => source,
@@ -98,7 +117,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(blocks.all? { |block| block["@context"] == "https://schema.org" }, "Schema context changed")
       check(metadata(html, "og:locale") == (locale || "en-US").tr("-", "_"), "Incorrect OG locale")
       check(html.include?("<html lang=\"#{locale || 'en-US'}\">"), "HTML language changed")
-      expected_creator = if path.end_with?("guest.html", "www-twitter.html")
+      expected_creator = if path.end_with?("guest.html", "www-twitter.html", "special-author.html")
                            "@guest"
                          elsif path.end_with?("unrelated.html")
                            nil
@@ -108,6 +127,19 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(metadata(html, "twitter:creator") == expected_creator, "Incorrect Twitter/X creator")
       check(metadata(html, "og:type") == (path.end_with?("example.html") ? "article" : "website"), "Incorrect OG type")
     end
+
+    entities = blocks_by_page.fetch("entities.html")
+    check(entities.first["headline"] == "Country codes & organizations", "Headline retains HTML entities")
+    check(entities.find { |block| block["@type"] == "BreadcrumbList" }["itemListElement"].first["name"] == 'Maps & "data"', "Breadcrumb encoding incorrect")
+    expected_description = %(R & GIS - Use & "quotes" 'apostrophes' <maps> © é.)
+    check(entities.find { |block| block.key?("description") }["description"] == expected_description, "Description retains HTML entities")
+    check(metadata(File.read(File.join(destination, "entities.html")), "description") == expected_description, "HTML description changed")
+    special = blocks_by_page.fetch("special-author.html")
+    expected_name = 'Guest "R & GIS" \\ map </script>'
+    check(special.first["author"]["name"] == expected_name, "Author string serialization incorrect")
+    check(special.first["author"]["sameAs"] == ["https://example.com/?a=1&amp;b=2"], "Raw URL entity altered")
+    check(special.last["name"] == expected_name && special.last["homeLocation"]["name"] == 'Madrid "Spain"', "Person serialization incorrect")
+    check(metadata(File.read(File.join(destination, "special-author.html")), "author") == expected_name, "HTML author attribute broken")
 
     home = blocks_by_page.fetch("index.html")
     check(home.first["@type"] == "WebSite", "Home schema type changed")
@@ -124,6 +156,21 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(metadata(html, "og:description") == expected, "OG description differs in #{name}")
       check(blocks_by_page.fetch(name).find { |block| block.key?("description") }["description"] == expected, "Schema description differs in #{name}")
     end
+  end
+
+  values = {
+    "&amp; &quot; &apos; &lt; &gt;" => %(& " ' < >),
+    "&#38; &#34; &#39; &#60; &#62;" => %(& " ' < >),
+    "&#x26; &#x22; &#x27; &#x3C; &#x3E;" => %(& " ' < >),
+    "&amp;quot; &amp;amp;" => "&quot; &amp;",
+    %(Quotes " and backslash \\ and naïve </script>) => %(Quotes " and backslash \\ and naïve </script>)
+  }
+  values.each do |value, expected|
+    File.write(File.join(source, "string.json"), "---\nlayout: null\nvalue: #{value.to_json}\n---\n{% include snippets/jsonld-string.html value=page.value %}")
+    Jekyll::Site.new(config).process
+    output = File.read(File.join(config["destination"], "string.json"))
+    check(JSON.parse(output) == expected, "String include decoded incorrectly: #{value}")
+    check(!output.include?("</script>"), "Literal script end tag emitted")
   end
 
   File.delete(File.join(source, "index.md"))
