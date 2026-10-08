@@ -29,6 +29,7 @@ permalink: ./rss.xml
 		            where_exp: "item", "item.date != nil" | 
 		            sort: 'date' | reverse -%}
 		{%- for document in alldocs -%}
+{%- include snippets/canonical-url.html url=document.url -%}
 		{%- assign ogimage = document.og_image | default: document.header_img | 
 		            default: site.og_image |
 		                      absolute_url -%}
@@ -44,7 +45,7 @@ permalink: ./rss.xml
 				| markdownify }}</div>
 				]]>
 			</description>
-			<link>{{ document.url | absolute_url }}</link>
+			<link>{{ canonical_url | escape }}</link>
 			<category>{{ document.collection }}</category>
 		    {% if document.tags.size > 0 -%}
 		  	{%- assign tagrss = document.tags | join: ','  | split: ',' | sort | where_exp: "tag","tag != document.layout "   -%}

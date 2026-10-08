@@ -6,12 +6,12 @@
     <!-- Repo: https://github.com/dieghernan/chulapa -->
     <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
      <!-- Jekyll Version {{ jekyll.version }} -->
-    {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
-{%- assign home_url = "index.html" | absolute_url | replace: "index.html", "" | uri_escape -%}
+    {%- include snippets/canonical-url.html url=page.url -%}
+{%- assign home_url = '/' | absolute_url | uri_escape -%}
 {%- include snippets/breadcrumb-names.html -%}
 {%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name | markdownify | strip_html | strip -%}
-{%- assign strippedurl = page.url | replace: "index.html", "" -%}
+{%- assign strippedurl = canonical_path -%}
 {%- if strippedurl == "/" -%}
     {%- assign metatitle1 = site.title | default: site.github.repository_name | strip  -%}
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline | strip -%}
@@ -270,7 +270,7 @@ where_exp: "item", "item.url contains 'http'"
 </script>
 {% endif %}
     <title>{{ metatitle | strip_html }}</title>
-    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="canonical" href="{{ canonical_url | escape }}">
     <!-- Atom feed -->
     <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" >
     <!-- RSS 2.0 feed -->
@@ -279,7 +279,7 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name | escape_once }}" >
     <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name | escape_once }}" >
-    <meta name="description" content="{{- ogdesc | truncate: 160 -}}">
+    <meta name="description" content="{{- ogdesc -}}">
     <meta name="thumbnail" content="{{ ogimage | escape_once }}" >
     <meta name="robots" content="{{ page.robots | default: 'index, follow' | strip | default: 'index, follow' | escape }}">
     {%- assign: keyword =  site.github.public_repositories |
@@ -295,7 +295,7 @@ where_exp: "item", "item.url contains 'http'"
     <!-- OpenGraph -->
     <meta property="og:title" content="{{ metatitle | strip_html | escape_once }}" >
     <meta property="og:site_name" content="{{ sitename | strip_html | escape_once }}" >
-    <meta property="og:url" content="{{ canonical_url }}" >
+    <meta property="og:url" content="{{ canonical_url | escape }}" >
     <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}" >
     <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
     <meta property="og:locale" content="{{- site.locale | default: 'en-US' | replace: '-', '_' -}}" >

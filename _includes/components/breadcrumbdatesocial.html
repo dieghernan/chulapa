@@ -1,5 +1,5 @@
-{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
-{%- assign breadcrumb_page_url = page.url | replace: 'index.html', '' -%}
+{%- include snippets/canonical-url.html url=page.url -%}
+{%- assign breadcrumb_page_url = canonical_path -%}
 {%- include snippets/breadcrumb-names.html -%}
 {%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip_newlines }}  -%}
 {%- assign classbread = "col-lg-8" -%}

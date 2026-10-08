@@ -2,6 +2,8 @@
 
 ### Fixed
 
+-   Preserve filenames containing `index.html` in canonical URLs, breadcrumbs and feeds, and retain complete HTML meta descriptions to avoid splitting escaped entities ([#81](https://github.com/dieghernan/chulapa/issues/81)).
+
 -   Correct video microdata URLs before and after deferred playback, remove unscoped search and comment properties and load the deferred player script from the installed theme ([#72](https://github.com/dieghernan/chulapa/issues/72)).
 
 -   Consolidate page structured data, complete site name metadata and prevent empty breadcrumb names when the navbar brand contains only an icon ([#69](https://github.com/dieghernan/chulapa/issues/69)).

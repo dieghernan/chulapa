@@ -206,6 +206,22 @@ See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
 Even if you don't want to show the breadcrumb, you can still specify the paths. The theme generates breadcrumb JSON-LD independently of `show_breadcrumb`. Without a list, non-home pages use a home/current-page breadcrumb. Structured data does not guarantee rich results. More information [here](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) and test tool [here](https://search.google.com/test/rich-results).
 {: .alert .alert-info .p-3 .mx-2}
 
+##### SEO metadata
+
+The theme uses the page URL for its canonical link, Open Graph URL, structured
+data and breadcrumbs. A terminal `/index.html` becomes `/`; other filenames,
+including `/myindex.html`, are preserved. Paginated pages retain their own URL.
+The Atom and RSS entry links use the same normalization. This changes metadata
+only; it does not create redirects.
+
+The HTML meta description uses the excerpt or content fallback, prefixed by the
+subtitle when present. It retains the complete generated text instead of cutting
+it at 160 characters, which could split HTML entities. Keep excerpts concise and
+descriptive. Google may choose another snippet and truncate it to fit the device;
+there is no fixed meta description length limit. See
+[Google's snippet documentation](https://developers.google.com/search/docs/appearance/snippet).
+Open Graph descriptions retain their existing 20-word limit.
+
 ##### Article images
 
 For posts, use `schema_image` in front matter to identify images that represent
