@@ -2,6 +2,7 @@
 
 ### Fixed
 
+-   Consolidate page structured data, complete site name metadata and prevent empty breadcrumb names when the navbar brand contains only an icon ([#69](https://github.com/dieghernan/chulapa/issues/69)).
 -   Validate Twitter/X profile URLs before attributing pages to an author and avoid attributing guest pages to the site author's profile ([#66](https://github.com/dieghernan/chulapa/issues/66)).
 -   Prevent a JavaScript error on `minimal` pages without `maincontent` and load
     the script from the installed theme instead of the CDN ([#45](https://github.com/dieghernan/chulapa/issues/45)).

@@ -1,0 +1,5 @@
+{%- assign breadcrumb_site_name = site.title | strip_html | strip -%}
+{%- assign breadcrumb_repository_name = site.github.repository_name | strip_html | strip -%}
+{%- assign breadcrumb_site_name = breadcrumb_site_name | default: breadcrumb_repository_name | default: 'Home' -%}
+{%- assign breadcrumb_home_name = site.navbar.brand.title | strip_html | strip | default: breadcrumb_site_name -%}
+{%- assign breadcrumb_page_name = page.title | markdownify | strip_html | strip | default: breadcrumb_site_name -%}

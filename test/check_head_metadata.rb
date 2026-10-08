@@ -1,5 +1,6 @@
 # Run from the repository root with: bundle exec ruby test/check_head_metadata.rb
 require "jekyll"
+require "jekyll-include-cache"
 require "json"
 require "tmpdir"
 require "fileutils"
@@ -23,7 +24,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
   File.write(File.join(source, "_layouts", "head.html"), <<~LIQUID)
     <html lang="{{ site.locale | default: 'en-US' }}">
     {% include head.html %}
-    <body>{{ content }}</body></html>
+    <body>{% include components/breadcrumbdatesocial.html %}{{ content }}</body></html>
   LIQUID
 
   fixtures = {
@@ -143,6 +144,10 @@ Dir.mktmpdir("chulapa-head-") do |source|
     fixtures[path] = "title: Robots fixture\n#{frontmatter}"
     robots_expected[File.basename(path, ".md").sub(/\A\d{4}-\d{2}-\d{2}-/, "") + ".html"] = expected
   end
+  fixtures["custom-permalink.md"] = "title: Custom page\npermalink: /custom-location.html\ndate: 2024-02-03\nlast_modified_at: 2024-03-04"
+  fixtures["empty-breadcrumbs.md"] = "title: Empty breadcrumbs\nbreadcrumb_list: []"
+  fixtures["untitled.md"] = "excerpt: Untitled page"
+  fixtures["_notes/dated-note.md"] = "title: Dated note\ndate: 2024-04-05"
   # The explicit home breadcrumb is exercised in a separate build below.
   fixtures.each do |path, frontmatter|
     next if path == "custom-home.md"
@@ -156,6 +161,9 @@ Dir.mktmpdir("chulapa-head-") do |source|
       "source" => source,
       "destination" => File.join(source, "_site"),
       "url" => "https://example.com",
+      "baseurl" => locale ? "/subdir" : "",
+      "og_image" => "/images/cover.jpg",
+      "navbar" => { "brand" => { "title" => '<i class="fa-solid fa-fire"></i>' } },
       "title" => "Example site",
       "subtitle" => "Example subtitle",
       "locale" => locale,
@@ -163,7 +171,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
       "collections" => { "notes" => { "output" => true } },
       "author" => { "name" => "Author", "links" => [{ "url" => "https://box.com/user" }, { "url" => "https://example.com/x.com/other" }, { "url" => locale ? "https://WWW.X.COM:443/author" : "https://x.com/author" }] },
       "defaults" => [
-        { "scope" => { "path" => "" }, "values" => { "layout" => "head" } },
+        { "scope" => { "path" => "" }, "values" => { "layout" => "head", "show_breadcrumb" => true } },
         { "scope" => { "path" => "robots-defaults" }, "values" => { "robots" => "noindex, follow" } }
       ],
       "quiet" => true
@@ -180,6 +188,45 @@ Dir.mktmpdir("chulapa-head-") do |source|
       end
       blocks = html.scan(/<script type="application\/ld\+json">(.*?)<\/script>/m).map { |block| JSON.parse(block.first) }
       blocks_by_page[File.basename(path)] = blocks
+      canonical = CGI.unescapeHTML(html[/<link rel="canonical" href="([^"]+)"/, 1])
+      webpage = blocks.select { |block| block["@type"] == "WebPage" }
+      check(webpage.size == 1, "Expected one principal WebPage in #{path}")
+      check(webpage.first["@id"] == canonical, "WebPage identifier differs from canonical in #{path}")
+      check(webpage.first.key?("name") && webpage.first.key?("description"), "WebPage lost name or description in #{path}")
+      check(!webpage.first.key?("mainEntityOfPage"), "WebPage refers to itself in #{path}")
+      if blocks.first["@type"] == "WebPage"
+        check(%w[headline image author publisher].all? { |key| webpage.first.key?(key) }, "Consolidated WebPage lost properties in #{path}")
+        check(blocks.none? { |block| %w[BlogPosting WebSite].include?(block["@type"]) }, "Ordinary page reclassified in #{path}")
+      elsif blocks.first["@type"] == "BlogPosting"
+        check(blocks.first["@id"] == canonical + "#article", "Article identifier incorrect")
+        check(blocks.first.dig("mainEntityOfPage", "@id") == webpage.first["@id"], "Article not linked to its WebPage")
+      end
+      breadcrumb = blocks.find { |block| block["@type"] == "BreadcrumbList" }
+      microdata = html[/<ol[^>]*itemtype="https:\/\/schema.org\/BreadcrumbList"[^>]*>.*?<\/ol>/m]
+      if breadcrumb
+        items = breadcrumb.fetch("itemListElement")
+        check(items.size >= 2 && items.all? { |item| !item.fetch("name").strip.empty? }, "Breadcrumb has missing names or too few items in #{path}")
+        check(items.map { |item| item["position"] } == (1..items.size).to_a, "Breadcrumb positions incorrect")
+        check(items.map { |item| item["@id"] } == (1..items.size).map { |position| canonical + "#breadcrumb-#{position}" }, "Breadcrumb element identifiers incorrect")
+        check(items.last["item"] == canonical, "Current breadcrumb URL missing")
+        check(breadcrumb["@id"] == canonical + "#breadcrumb", "Breadcrumb identifier incorrect")
+        check(!microdata.nil?, "Microdata breadcrumb missing in #{path}")
+        check(CGI.unescapeHTML(microdata[/itemid="([^"]+)"/, 1]) == breadcrumb["@id"], "Breadcrumb identifiers disagree")
+        micro_items = microdata.scan(/<li\b.*?<\/li>/m).map do |li|
+          item = {
+            "@id" => CGI.unescapeHTML(li[/itemid="([^"]+)"/, 1]),
+            "name" => CGI.unescapeHTML(li[/<span itemprop="name">(.*?)<\/span>/m, 1]),
+            "position" => li[/itemprop="position" content="(\d+)"/, 1].to_i
+          }
+          url = li[/<a href="([^"]+)" itemprop="item"/, 1]
+          url ||= li[/<link itemprop="item" href="([^"]+)"/, 1]
+          item["item"] = CGI.unescapeHTML(url) if url
+          item
+        end
+        check(micro_items == items.map { |item| item.reject { |key, _| key == "@type" } }, "Breadcrumb formats disagree in #{path}")
+      else
+        check(microdata.nil?, "Unexpected microdata breadcrumb on home page")
+      end
       check(blocks.all? { |block| block["@context"] == "https://schema.org" }, "Schema context changed")
       check(metadata(html, "og:locale") == (locale || "en-US").tr("-", "_"), "Incorrect OG locale")
       check(html.include?("<html lang=\"#{locale || 'en-US'}\">"), "HTML language changed")
@@ -225,6 +272,21 @@ Dir.mktmpdir("chulapa-head-") do |source|
     check(home.first["@type"] == "WebSite", "Home schema type changed")
     check(home.none? { |block| block["@type"] == "BreadcrumbList" }, "Automatic home breadcrumb remains")
     check(!home.first.key?("datePublished"), "Home gained a publication date")
+    expected_home = "https://example.com#{locale ? '/subdir' : ''}/"
+    check(home.count { |block| block["@type"] == "WebSite" } == 1, "Duplicate WebSite on home page")
+    check(home.first["name"] == "Example site" && home.first["url"] == expected_home, "Required WebSite properties incorrect")
+    check(home.first["@id"] == expected_home + "#website", "WebSite identifier incorrect")
+    check(home.find { |block| block["@type"] == "WebPage" }.dig("isPartOf", "@id") == home.first["@id"], "Home page not linked to WebSite")
+    automatic = blocks_by_page.fetch("page.html").find { |block| block["@type"] == "BreadcrumbList" }
+    check(automatic["itemListElement"].first["name"] == "Example site", "Icon-only brand did not fall back to site title")
+    check(automatic["itemListElement"].first["item"] == expected_home, "Breadcrumb baseurl incorrect")
+    custom = blocks_by_page.fetch("custom-location.html").first
+    check(custom["@id"] == expected_home + "custom-location.html", "Custom permalink identifier incorrect")
+    check(custom["datePublished"].start_with?("2024-02-03") && custom["dateModified"].start_with?("2024-03-04"), "Page date metadata lost")
+    check(custom["image"] == expected_home + "images/cover.jpg", "Page image baseurl incorrect")
+    check(custom["publisher"]["name"] == "Author" && custom["author"]["name"] == "Author", "Page author or publisher changed")
+    note = blocks_by_page.fetch("dated-note.html").first
+    check(note["@type"] == "WebPage" && note["datePublished"].start_with?("2024-04-05"), "Collection reclassified or date lost")
     post = blocks_by_page.fetch("example.html").first
     check(post["@type"] == "BlogPosting" && post["datePublished"].start_with?("2024-01-02"), "Post schema or date changed")
     check(blocks_by_page.fetch("page.html").first["@type"] == "WebPage", "Page schema type changed")

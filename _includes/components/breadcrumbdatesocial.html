@@ -1,4 +1,6 @@
 {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
+{%- assign breadcrumb_page_url = page.url | replace: 'index.html', '' -%}
+{%- include snippets/breadcrumb-names.html -%}
 {%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip_newlines }}  -%}
 {%- assign classbread = "col-lg-8" -%}
 {%- if page.show_sociallinks -%}
@@ -8,30 +10,32 @@
 {% assign tagsize = page.tags | size %}
 <div class="row my-1">
 <div class="{{ classbread }} offset-lg-2 col small">
-  {% if page.show_breadcrumb %}
+  {% if page.show_breadcrumb and breadcrumb_page_url != '/' or page.show_breadcrumb and page.breadcrumb_list.size > 0 %}
   <nav aria-label="breadcrumb">
-   <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList">
-     {% if page.breadcrumb_list %}
+   <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="{{ canonical_url | append: '#breadcrumb' | escape }}">
+     {% if page.breadcrumb_list.size > 0 %}
        {% for item in page.breadcrumb_list %}
              <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="{{ item.url | absolute_url }}" itemprop="item"><span itemprop="name">{{ item.label }}</span></a>
+          itemtype="https://schema.org/ListItem" itemid="{{ canonical_url | append: '#breadcrumb-' | append: forloop.index | escape }}"><a href="{{ item.url | absolute_url | escape }}" itemprop="item"><span itemprop="name">{{ item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name | escape_once }}</span></a>
           <meta itemprop="position" content="{{ forloop.index }}" ></li>
           {% if forloop.last %}
           {% assign loopplus1 = forloop.index | plus: 1 %}
           {% endif %}
        {% endfor %}
        <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem">
-        <span itemprop="name">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</span>
+          itemtype="https://schema.org/ListItem" itemid="{{ canonical_url | append: '#breadcrumb-' | append: loopplus1 | escape }}">
+        <link itemprop="item" href="{{ canonical_url | escape }}">
+        <span itemprop="name">{{ breadcrumb_page_name | escape_once }}</span>
         <meta itemprop="position" content="{{ loopplus1 }}" >
       </li>
       {% else %}
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"><a href="{{ "/" | absolute_url }}" itemprop="item"><span itemprop="name">{{ site.navbar.brand.title | default: site.title | default: site.github.repository_name }}</span></a>
+          itemtype="https://schema.org/ListItem" itemid="{{ canonical_url | append: '#breadcrumb-1' | escape }}"><a href="{{ "/" | absolute_url | escape }}" itemprop="item"><span itemprop="name">{{ breadcrumb_home_name | escape_once }}</span></a>
           <meta itemprop="position" content="1" ></li>
     <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem">
-        <span itemprop="name">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</span>
+          itemtype="https://schema.org/ListItem" itemid="{{ canonical_url | append: '#breadcrumb-2' | escape }}">
+        <link itemprop="item" href="{{ canonical_url | escape }}">
+        <span itemprop="name">{{ breadcrumb_page_name | escape_once }}</span>
         <meta itemprop="position" content="2" >
       </li>
       {% endif %}
