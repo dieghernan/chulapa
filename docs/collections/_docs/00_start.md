@@ -53,6 +53,10 @@ Remote-theme downloads require network access.
 
 ## Publish and extend
 
+For a new site with a publishing workflow already included, start with the
+[chulapa-101 template](https://github.com/dieghernan/chulapa-101). Use the small
+examples above to explore layouts or copy their content into your site.
+
 Follow the [GitHub Actions deployment instructions](./01-install#2-remote-theme-method).
 Copying an example alone does not configure hosting. These folders do not
 include a deployment workflow.

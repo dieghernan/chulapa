@@ -285,6 +285,10 @@ provider as described below. The theme includes integrations for:
 
 Configure **giscus** using its setup instructions and paste the generated
 script into `_includes/custom/giscus.html` in your site repository.
+
+In development after v2.1.0, the Cactus script and stylesheet load only on
+pages with `show_comments: true`. Selecting the provider alone no longer loads
+these resources on every page.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 When setting up **Welcomments**, review any generated pull request before
@@ -299,6 +303,11 @@ by <span class="chulapa">Chulapa</span> rather than overwriting them.
 The navbar supports links and one level of child links. Choose a classic
 sticky-top navbar, `fab` for an animated floating action button or `dual` to
 switch from a floating button to a classic navbar at the configured breakpoint.
+
+In development after v2.1.0, the floating button works with Enter and Space.
+Opening it focuses the first menu link; Escape closes it and returns focus to
+the button. Closed floating-menu links are excluded from Tab navigation.
+The lateral TOC is a separate component and retains its existing Tab behavior.
 
 Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
 

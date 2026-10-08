@@ -95,6 +95,20 @@
     "section": "installation",
     "doc": "00_start.md",
     "question": "I want a portfolio with Chulapa. Is there a small starter, does it filter projects and does it deploy automatically?",
-    "expected": "examples/portfolio with projects collection and two sample projects; copy contents edit config; card index has no filtering; no deployment workflow follow installation or chulapa-101 template."
+    "expected": "examples/portfolio with projects collection and two sample projects; copy contents edit config; card index has no filtering; no deployment workflow; recommend chulapa-101 for a new site with publishing configured."
+  },
+  {
+    "id": "accessibility-1",
+    "section": "layouts",
+    "doc": "06_accessibility-performance.md",
+    "question": "Does the keyboard update make the lateral TOC a modal or remove its Tab navigation? Is Chulapa now WCAG certified?",
+    "expected": "Development after v2.1.0; floating navbar update is separate; lateral TOC retains open/close and Tab behavior without focus trap or modal role; no WCAG certification or guaranteed production score."
+  },
+  {
+    "id": "resources-1",
+    "section": "configuration",
+    "doc": "06_accessibility-performance.md",
+    "question": "With the development theme, where does the Chulapa font load from and does configuring Cactus load it on every page?",
+    "expected": "Font served from installed theme assets with baseurl in preload and CSS; Cactus script and stylesheet only when show_comments is true; Google Fonts and Font Awesome still external. Not in v2.1.0."
   }
 ]

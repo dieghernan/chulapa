@@ -393,7 +393,7 @@ where_exp: "item", "item.url contains 'http'"
     {%- include custom/custom_head_before_css.html -%}
 
     <!-- CSS -->
-  {% if site.comments.provider == 'cactus' -%}
+  {% if site.comments.provider == 'cactus' and page.show_comments -%}
    <!-- Cactus comments -->
    <script src="https://latest.cactus.chat/cactus.js"></script>
    <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
@@ -419,7 +419,7 @@ where_exp: "item", "item.url contains 'http'"
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
     {%- endif %}
       <link rel="preload" href="{{ '/assets/js/chulapa_script.js' | relative_url }}" as="script" >
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="{{ '/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
     <!-- Theme css (Bootstrap included) -->
     <link rel="stylesheet" id="maincss" href="{{- "assets/css/main.css " | absolute_url -}}" >
     <!-- Highlighter -->

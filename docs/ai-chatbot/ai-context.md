@@ -547,7 +547,26 @@ Pin a release tag for reproducibility; Mermaid is not in v2.1.0.
 Preview with bundle install then bundle exec jekyll serve --url
 http://localhost:4000 --baseurl "". Follow the installation guide for GitHub
 Actions hosting: example folders do not include deployment workflows. The
-chulapa-101 template is the alternative with a ready-made publishing workflow.
+chulapa-101 template is recommended for a new site with a ready-made publishing
+workflow; the small examples help explore layouts.
 Portfolio cards do not provide filtering. Project starter is a landing page,
 not a documentation sidebar. Starter demo paths are /demo/starter-personal-blog,
 /demo/starter-technical-blog, /demo/starter-portfolio and /demo/starter-project.
+
+## Accessibility and resource loading in development
+Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
+These improvements are development changes after v2.1.0, not in that gem or
+pinned remote theme. The first Tab stop skips the navbar. Floating navigation
+(fab and the floating part of dual) uses a button: Enter/Space opens it and
+focuses the first link; Escape closes it and returns focus to the button.
+Closed floating menu links do not receive Tab focus. The lateral TOC retains
+its existing open/close and Tab behavior, without a focus trap or modal role.
+Keyboard focus is visible; focused heading permalinks appear. Prose links
+are underlined and card image links use their article title as a name.
+Theme navigation/icon transitions respect prefers-reduced-motion.
+The Chulapa font is served from the installed theme assets, with baseurl in
+both CSS and preload, instead of jsDelivr. Google Fonts and Font Awesome still
+use external providers. Cactus JS/CSS loads only when show_comments is true.
+The review covers six skins and representative fixtures, not every skin,
+custom widget or production site. Do not claim WCAG certification, a guaranteed
+PageSpeed score or a measured Core Web Vitals improvement.

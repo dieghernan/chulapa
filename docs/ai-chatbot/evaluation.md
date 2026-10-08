@@ -148,3 +148,12 @@ result is saved in `evaluations/starters-2026-10-08.jsonl`. The reviewed answer
 correctly directs readers to copy the portfolio starter and edit `_config.yml`,
 explains that cards have no filtering and that starters have no deployment
 workflow, and links to the start guide and the `chulapa-101` template option.
+
+## Accessibility context review, October 8, 2026
+
+The local context now distinguishes floating-menu keyboard behavior from the
+lateral TOC's preserved Tab behavior, describes local font serving and Cactus
+resource gating, and recommends chulapa-101 for a new site with deployment.
+Focused cases `accessibility-1` and `resources-1` were added and `starter-1`
+was updated. All 17 local tests pass. Deployment and targeted live evaluation
+remain pending; the deployed Worker still uses the previous context.

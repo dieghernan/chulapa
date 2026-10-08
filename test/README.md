@@ -61,6 +61,32 @@ bundle exec ruby test/check_theme_installation.rb
 This also checks generated pagination, canonical URLs and sitemap entries in
 root and subdirectory deployments. It does not install the theme globally.
 
+## Accessibility browser checks
+
+Build isolated fixtures from the current theme:
+
+```powershell
+bundle exec ruby test/build_accessibility_fixtures.rb "$env:TEMP/chulapa-accessibility-site"
+```
+
+The builder checks font URLs, Cactus resource gating and card link names. The
+browser runner additionally requires Playwright and axe-core. Install them in
+a temporary directory so they are not theme dependencies:
+
+```powershell
+npm install --prefix "$env:TEMP/chulapa-browser-tools" --no-save --package-lock=false playwright axe-core
+$env:NODE_PATH = "$env:TEMP/chulapa-browser-tools/node_modules"
+node test/check_accessibility_browser.js "$env:TEMP/chulapa-accessibility-site"
+Remove-Item Env:NODE_PATH
+```
+
+The runner uses installed Microsoft Edge by default. Set
+`CHULAPA_BROWSER_CHANNEL=chrome` to use installed Chrome. It serves fixture
+files directly through Playwright; external font and Bootstrap resources still
+require network access. Results are written to `accessibility-results.json` in
+the fixture directory. Automated checks do not replace screen reader and
+real-content reviews. See [the review record](accessibility-review.md).
+
 ## Jekyll 3 compatibility
 
 Build the gem from the repository root, then run these commands in PowerShell:

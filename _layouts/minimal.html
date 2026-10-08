@@ -7,6 +7,7 @@ layout: compress
 	{%- include head.html -%}
 	{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 	<body {% if page.mermaid == true %}data-mermaid="true" {% endif %}class="d-flex flex-column h-entry" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
 	<a class="u-url d-none" href="{{ canonical_url | escape }}">Invisible link to canonical for Microformats</a>
 	{% include_cached navbar.html pageurl=page.url %}
 	{% if page.show_header == true %}
@@ -14,6 +15,7 @@ layout: compress
 	    {% include components/headers.html headertype=page.header_type imghero=page.header_img projects=page.project_links %}
 	  {% endunless %}
 	{% endif %}
+			<div id="chulapa-content" tabindex="-1"></div>
 			{{- content -}}
 	{%- include_cached footer.html show_comments=page.show_comments pageurl=page.url pageid=page.id pagetitle = page.title -%}
 	<!-- JS, Popper.js, and jQuery -->

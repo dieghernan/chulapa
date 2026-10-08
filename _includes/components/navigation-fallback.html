@@ -1,0 +1,20 @@
+<noscript>
+  <style>#navi-toggle { display: none !important; }</style>
+  <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="{{ site.navbar.brand.url | default: '/' | absolute_url }}">{{ site.navbar.brand.title }}</a>
+    <ul class="navbar-nav">
+      {% for item in site.navbar.nav %}
+        {% if item.child[0] %}
+          {% for entry in item.child %}
+          <li class="nav-item"><a class="nav-link" href="{{ entry.url | absolute_url }}">{{ entry.title }}</a></li>
+          {% endfor %}
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{{ item.url | absolute_url }}">{{ item.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if site.search.provider %}
+      <li class="nav-item"><a class="nav-link" href="{{ site.search.landing_page | default: '/search' | absolute_url }}">{{ site.search.label | default: 'Search' }}</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</noscript>

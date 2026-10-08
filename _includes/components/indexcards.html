@@ -3,13 +3,13 @@
 <div class="col-12 mb-2">
 <div class="card chulapa-border-card-index">
 	<div class="row g-0">
-		<a href="{{- post.url | absolute_url -}}" class="col-sm-1 chulapa-min-h-10 chulapa-card-img chulapa-overlay-img chulapa-gradient {% if post.header_img == nil or post.og_image -%} d-none d-sm-flex {% endif %} "
+		<a href="{{- post.url | absolute_url -}}" aria-label="{{ post.title | default: 'Read article' | strip_html | escape }}" class="col-sm-1 chulapa-min-h-10 chulapa-card-img chulapa-overlay-img chulapa-gradient {% if post.header_img == nil or post.og_image -%} d-none d-sm-flex {% endif %} "
 {% if post.header_img or post.og_image  -%} style="background-image: url('{{- post.og_image | default: post.header_img | absolute_url -}}')"{%-endif-%}>
 		</a>
 		<div class="col-sm">
 			<article class="card-body chulapa-links-hover-only">
-				<a href="{{- post.url | absolute_url -}}"><h5 class="card-title">{{- post.title  | default: "---" | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</h5></a>
-				{% if post.subtitle -%}<h6 class="card-subtitle mb-2 text-muted">{{- post.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</h6>{%- endif %}
+				<a href="{{- post.url | absolute_url -}}"><h2 class="h5 card-title">{{- post.title  | default: "---" | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</h2></a>
+				{% if post.subtitle -%}<p class="h6 card-subtitle mb-2 chulapa-text-body-color">{{- post.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p>{%- endif %}
 				
 {%- assign fallbackdesc = post.content | 
               markdownify |  newline_to_br | 

@@ -736,7 +736,7 @@
 
 //Navbar modern
 .navbar-chulapa-fab {
-  label {
+  button {
     line-height: unset;
   }
 
@@ -773,6 +773,8 @@
     z-index: 15000;
     opacity: 0;
     width: 0;
+    visibility: hidden;
+    overflow-y: auto;
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
@@ -871,13 +873,14 @@
     }
   }
 
-  &-button:checked ~ &-background {
+  &-button[aria-expanded="true"] ~ &-background {
     transform: scale(80);
   }
 
-  &-button:checked ~ &-nav {
+  &-button[aria-expanded="true"] ~ &-nav {
     opacity: 1;
     width: 100%;
+    visibility: visible;
 
     .navbar-nav {
       transform: translate(100vw, -50%);
@@ -913,16 +916,16 @@
     }
   }
 
-  &-button:checked + .navbar-toggler .navbar-toggler-icon {
+  &-button[aria-expanded="true"] .navbar-toggler-icon {
     background-color: transparent;
   }
 
-  &-button:checked + .navbar-toggler .navbar-toggler-icon::before {
+  &-button[aria-expanded="true"] .navbar-toggler-icon::before {
     top: 0;
     transform: rotate(135deg);
   }
 
-  &-button:checked + .navbar-toggler .navbar-toggler-icon::after {
+  &-button[aria-expanded="true"] .navbar-toggler-icon::after {
     top: 0;
     transform: rotate(-135deg);
   }
@@ -962,7 +965,8 @@ h6 {
     }
   }
 
-  &:hover .chulapa-header-link {
+  &:hover .chulapa-header-link,
+  .chulapa-header-link:focus {
     opacity: 1;
   }
 }
@@ -1058,7 +1062,6 @@ h6 {
   }
 
   &:focus {
-    outline: 0;
     text-shadow: none;
   }
 }
@@ -1280,4 +1283,44 @@ $wlc-text-color: color-contrast($footer-chulapa-bg-color, $black, $white);
 // For disqus recommendations
 #disqus_recommendations {
   width: 100%;
+}
+
+// Keep keyboard focus visible across skins and Bootstrap controls.
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 3px;
+}
+
+.chulapa-skip-link {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 21000;
+  padding: $spacer;
+  color: $body-color;
+  background: $body-bg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-chulapa-fab *,
+  .navbar-chulapa-fab *::before,
+  .navbar-chulapa-fab *::after,
+  .bs-canvas-anim,
+  .chulapa-header-link,
+  .fa, .far, .fas, .fab, .fa-solid, .fa-regular, .fa-brands {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+// Distinguish prose links without relying on color alone.
+.e-content p a:not(.btn):not(.nav-link):not(.chulapa-header-link),
+.e-content li:not(.list-group-item):not(.nav-item) > a:not(.btn):not(.nav-link) {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }

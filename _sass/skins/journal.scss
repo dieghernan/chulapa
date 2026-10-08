@@ -62,8 +62,11 @@ $pagination-hover-border-color:     $primary !default;
 $navbar-chulapa-bg-color: $white;
 $navbar-chulapa-hover-color: lighten($primary, 10%);
 $footer-chulapa-text-color: $black;
-$footer-chulapa-link-color: $navbar-chulapa-hover-color;
 $navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
+// Keep text links readable on the white body and footer backgrounds.
+$link-color: #b33935 !default;
+$footer-chulapa-link-color: #b33935 !default;
+
 // Import bootstrap
 @import "bootstrap/bootstrap";
 

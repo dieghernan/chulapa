@@ -42,6 +42,8 @@ Start with a small example, then add the features your site needs.
 | Project | [A landing page with source and setup links](examples/project) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-project) |
 
 Each example includes configuration, dependencies and editable content.
+For a new site with a publishing workflow, use
+[chulapa-101](https://github.com/dieghernan/chulapa-101).
 See [the start guide](https://dieghernan.github.io/chulapa/docs/00-start) for
 local preview and publishing. Examples follow the default branch; Mermaid
 requires development changes after v2.1.0.
@@ -77,6 +79,10 @@ A flexible theme for blogs, news sites, portfolios and personal sites. See the
 more.
 
 ## Installation
+
+See the [accessibility and performance guide](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance)
+for keyboard behavior, color checks and resource loading. These improvements
+are development changes after v2.1.0.
 
 See the sample
 [`_config.yml` file](https://github.com/dieghernan/chulapa/blob/main/_config.yml).

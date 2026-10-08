@@ -12,13 +12,13 @@
 
 
 {%- if site.navbar.style == "fab" -%}
+	{% include components/navigation-fallback.html %}
 	<div class="navbar-chulapa-fab">
-		<input type="checkbox" class="navbar-chulapa-fab-button d-none" id="navi-toggle">
-		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
-			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
-		</label>
-		<div class="navbar-chulapa-fab-background">&nbsp;</div>
-		<nav class="navbar-chulapa-fab-nav" aria-label="primary-navigation">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
 			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
 				<li class="nav-item">
 					<a class="nav-link px-3 navbar-brand mx-1 " href="{{ site.navbar.brand.url | default: "" | absolute_url }}">
@@ -61,13 +61,13 @@
 		</nav>
 	</div>
 {%- elsif site.navbar.style == "dual" -%}	
+	<div class="d-{{- disp -}}-none">{% include components/navigation-fallback.html %}</div>
 	<div class="navbar-chulapa-fab d-{{- disp -}}-none">
-		<input type="checkbox" class="navbar-chulapa-fab-button d-none" id="navi-toggle">
-		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
-			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
-		</label>
-		<div class="navbar-chulapa-fab-background">&nbsp;</div>
-		<nav class="navbar-chulapa-fab-nav" aria-label="alternative-navigation">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="alternative-navigation" aria-hidden="true" inert>
 			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
 				<li class="nav-item">
 					<a class="nav-link px-3 navbar-brand mx-1 " href="{{ site.navbar.brand.url | default: "" | absolute_url }}">

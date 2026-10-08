@@ -8,11 +8,17 @@
 
 ### Fixed
 
+-   Make floating navigation operable with keyboard input, reveal focused heading permalinks, name card image links and improve text link contrast in the Chulapa, Navi, Journal and Flatly skins.
+
 -   Header project links no longer announce themselves as disabled buttons to assistive technology.
 
 -   Code copy buttons wait for clipboard writes, report failures and no longer clear the clipboard before copying.
 
 ### Changed
+
+-   Add a skip link and visible keyboard focus, underline prose links and respect reduced-motion preferences without changing the lateral TOC's Tab behavior.
+
+-   Serve the Chulapa font from the installed theme and load Cactus resources only on pages with comments enabled.
 
 -   Raise the TOC sidebar button below the 992 px breakpoint, leaving room for a 56 px floating button and a spacer beneath it.
 

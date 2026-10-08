@@ -26,6 +26,25 @@ documented advice may require updating `docs/ai-chatbot/ai-context.md` even when
 the implementation is outside `docs/`. Keep chatbot code and evaluation assets
 under `docs/ai-chatbot/`; do not add them to the reusable theme.
 
+## Review accessibility and SEO when relevant
+
+Before completing a change, assess whether it affects accessibility or SEO.
+Review affected behavior whenever the change touches user-facing content,
+navigation, controls, layouts, styles, media, page URLs or metadata.
+
+- For accessibility, check semantics, accessible names, keyboard operation,
+  visible focus, contrast, responsive reflow and reduced-motion behavior as
+  relevant. Preserve intentional interactions, including the lateral TOC's
+  Tab navigation, unless the task explicitly changes them.
+- For SEO, check affected titles, descriptions, canonical URLs, indexing rules,
+  language metadata, social previews, structured data and internal links.
+- Use checks appropriate to the change. Inspect rendered pages for visual or
+  interaction changes; automated audits alone do not establish accessibility.
+  Validate generated HTML and URLs for metadata or routing changes.
+- Update related documentation and examples when behavior or advice changes.
+  Summarize what was checked and any material limitations. If neither area is
+  affected, no additional audit is needed.
+
 ## Keep agent instructions out of published sites
 
 Keep the root `AGENTS.md` excluded in `_config.yml` and `docs/AGENTS.md` excluded
