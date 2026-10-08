@@ -578,6 +578,14 @@ try loading another image using another option by using the `video_res` paramete
 Thanks to [@SCP-017](https://github.com/SCP-017) for the suggestion.
 
 
+#### Video structured data limitations
+
+The video snippets expose the known file or player URL in microdata. Deferred YouTube embeds also expose the preview URL before playback. The default `maxresdefault` preview may not exist for every video; use `video_res` to choose an available preview.
+
+The snippets do not infer the video's actual title, original upload date or duration from the containing page. They do not generate thumbnails for self-hosted videos or other providers. Video-specific metadata inputs are not available yet, so the current markup may be incomplete for Google's video features. Google requires `name`, `thumbnailUrl` and `uploadDate`; see the [video structured data requirements](https://developers.google.com/search/docs/appearance/structured-data/video).
+
+Correct microdata alone does not guarantee video indexing. Google also recommends loading the player without visitor interaction and using a page whose main purpose is watching the video. Deferred YouTube embeds wait for a click. For a dedicated video page, consider `nolazy="true"`, while still checking the metadata and [video indexing requirements](https://developers.google.com/search/docs/appearance/video).
+
 ### Localization of dates
 
 Overall <span class="chulapa">Chulapa</span> has been designed bearing in mind localization. For that reason, no fixed text are provided by the theme in any layout, and some options (as Search labels) could be modified via `_config`.
