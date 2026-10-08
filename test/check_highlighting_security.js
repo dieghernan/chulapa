@@ -5,7 +5,15 @@ const vm = require("node:vm");
 const test = require("node:test");
 
 function scriptFrom(file) {
-  return fs.readFileSync(file, "utf8").match(/<script>([\s\S]*?)<\/script>/)[1];
+  const source = fs.readFileSync(file, "utf8");
+  // These repository fixtures contain one script with literal delimiters.
+  const openingTag = "<script>";
+  const start = source.indexOf(openingTag);
+  assert.notEqual(start, -1, `${file}: missing script opening tag`);
+  const contentStart = start + openingTag.length;
+  const end = source.indexOf("</script>", contentStart);
+  assert.notEqual(end, -1, `${file}: missing script closing tag`);
+  return source.slice(contentStart, end);
 }
 
 const payload = '<img src=x onerror="alert(1)">';
