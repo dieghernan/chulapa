@@ -34,6 +34,14 @@ timezone                :     #"Europe/Madrid ,see https://jekyllrb.com/docs/con
 # SEO
 og_image                :     #default[author.avatar (see below)] or [github-avatar]
 twitter_site            :     #Avoid @
+# Optional JSON-LD publisher, independent of article authors.
+publisher:
+  type: # Organization (default) or Person; unsupported types use Organization
+  name: # Defaults to author.name or GitHub owner name
+  url: # Defaults to the site home URL
+  logo: # Organization only; defaults to og_image, author.avatar or GitHub avatar
+  image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
+
 author:
   name                  :     # Name Surname Company
   avatar                :     # Try a square file. Info: Your github avatar on https://github.com/[USERNAME].png
