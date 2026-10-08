@@ -106,7 +106,11 @@
       },
       {% endif %}
       "headline": {%- assign jsonld_value = metatitle1 |  strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+      {% if schema_type == 'BlogPosting' %}
+      {% include snippets/article-images.html %}
+      {% else %}
       "image": {% include snippets/jsonld-string.html value=ogimage decode_html=false %},
+      {% endif %}
       {% if page.date %}
       "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
       "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
