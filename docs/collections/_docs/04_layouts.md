@@ -53,6 +53,7 @@ Additional options you can set on the front matter or via defaults:
 - `excerpt`: Brief description of the content. If not provided <span class="chulapa">Chulapa</span> would create it as the first paragraph of the content. Note that in the case of documents under `posts` Jekyll allows [additional options](https://jekyllrb.com/docs/posts/#post-excerpts).
 - `mathjax`: Would activate $$MathJax$$ on the page. 
 - `og_image`: OpenGraph image displayed on the web and social networks when sharing the page. This image would not be displayed on the page.
+- `schema_image`: A representative image URL or list of image URLs for a post's `BlogPosting` JSON-LD. It overrides the article image without changing OpenGraph, Twitter cards or the visible header. See [Article images](#article-images).
 - `robots`: Search crawler directives for the page, post or collection document. The default is `index, follow`; missing, empty or whitespace-only values use this default. For example, set this in a page's front matter:
 
 ```yaml
@@ -166,7 +167,33 @@ See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
 Even if you don't want to show the breadcrumb, you can still specify the paths. That would create a valid data structure for Google Rich Results. More information [here](https://developers.google.com/search/docs/data-types/breadcrumb) and test tool [here](https://search.google.com/structured-data/testing-tool/).
 {: .alert .alert-info .p-3 .mx-2}
 
-#### Landing page
+##### Article images
+
+For posts, use `schema_image` in front matter to identify images that represent the article. A single URL or a YAML list is accepted. Relative URLs resolve using the site's `url` and `baseurl`; absolute URLs remain unchanged.
+
+```yaml
+---
+title: My article
+schema_image: /assets/img/article.jpg
+---
+```
+
+For several images, provide actual files appropriate for the article:
+
+```yaml
+schema_image:
+  - /assets/img/article-16x9.jpg
+  - /assets/img/article-4x3.jpg
+  - /assets/img/article-1x1.jpg
+```
+
+The theme emits the URLs as a JSON-LD `image` array. It does not create crops, check image dimensions or verify that the files exist. Google recommends relevant, crawlable images and multiple high-resolution aspect ratios when available; see the [article structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/article).
+
+The fallback order is `schema_image`, page `og_image`, then page `header_img`. Missing values, empty strings and empty lists use the next fallback. Whitespace-only URLs and blank entries in lists are omitted. If no article image is available, `image` is omitted from `BlogPosting`; the site banner, publisher logo and author avatar are not used as article illustrations. OpenGraph and Twitter cards retain their existing site-level image fallbacks.
+
+This option applies to posts rendered as `BlogPosting`, including values supplied through front matter defaults. Other pages keep their existing image metadata. The [Welcome post]({{ '/blog/20200515_welcome' | absolute_url }}) demonstrates an explicit `schema_image` using its existing header photograph.
+
+### Landing page
 
 This is a version of the `default` layout that uses your `primary` as the body color. You can fine-tune this color by using `hero-chulapa-bg-color`. 
 ```yaml

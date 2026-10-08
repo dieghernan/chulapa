@@ -1,0 +1,25 @@
+{%- assign article_images = page.schema_image | default: page.og_image | default: page.header_img -%}
+{%- assign article_images_json = article_images | jsonify | slice: 0, 1 -%}
+{%- capture article_image_values -%}
+  {%- if article_images_json == '[' -%}
+    {%- assign image_separator = '' -%}
+    {%- for image in article_images -%}
+      {%- assign article_image = image | strip -%}
+      {%- if article_image != empty -%}
+        {{- image_separator -}}
+        {%- assign article_image = article_image | absolute_url -%}
+        {%- include snippets/jsonld-string.html value=article_image decode_html=false -%}
+        {%- assign image_separator = ',' -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- elsif article_images -%}
+    {%- assign article_image = article_images | strip -%}
+    {%- if article_image != empty -%}
+      {%- assign article_image = article_image | absolute_url -%}
+      {%- include snippets/jsonld-string.html value=article_image decode_html=false -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- if article_image_values != empty -%}
+"image": [{{ article_image_values }}],
+{%- endif -%}

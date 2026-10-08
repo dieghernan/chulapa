@@ -11,6 +11,8 @@
 
 ### Added
 
+-   Set representative article images with `schema_image`, accepting a URL or list, and avoid using site banners or author avatars as fallback article illustrations ([#72](https://github.com/dieghernan/chulapa/issues/72)).
+
 -   Configure an independent JSON-LD publisher as `Organization` or `Person`, with dedicated name, URL, logo and image settings ([#68](https://github.com/dieghernan/chulapa/issues/68)).
 
 -   Configure robots metadata per page with the `robots` front matter option, preserving `index, follow` by default ([#67](https://github.com/dieghernan/chulapa/issues/67)).
