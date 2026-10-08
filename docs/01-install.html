@@ -1,7 +1,6 @@
-<!doctype html>
-<html lang="en-US"><head>
+<!doctype html><html lang="en-US"><head>
    <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.0.1.0001 -->
+    <!-- Chulapa Jekyll Theme - v2.1.0 -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -17,8 +16,8 @@
       "description": "How to use Chulapa - Install Chulapa on your GitHub repo",
       "headline":"Installation",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T12:55:01+02:00",
-      "dateModified": "2026-10-08T12:55:01+02:00",
+      "datePublished": "2026-10-08T14:41:05+02:00",
+      "dateModified": "2026-10-08T14:41:05+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -97,14 +96,13 @@
    <meta name="copyright" content="dieghernan" >
    <meta name="description" content="How to use Chulapa - Install Chulapa on your GitHub repo">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
-   <meta name="robots" content="index, follow"><meta name="keywords" content="">
+   <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
    <meta property="og:title" content="Installation | Chulapa" >
-   <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
+   <meta property="og:site_name" content="Chulapa" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/01-install" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="How to use Chulapa - Install Chulapa on your GitHub repo" >
-   <meta property="og:locale" content="en_US" >
+   <meta property="og:description" content="How to use Chulapa - Install Chulapa on your GitHub repo" ><meta property="og:locale" content="en_US">
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
@@ -129,12 +127,12 @@
     <!-- Custom css -->
   <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139034853-5"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-139034853-5');
+  gtag('config', 'G-Q654SQGBGS');
 </script>
 <!-- start custom head snippets -->
 <!-- https://realfavicongenerator.net/-->
@@ -225,17 +223,20 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-use-our-github-template">1. Use our GitHub template</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-remote-theme-method">2. Remote theme method</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
 			</nav>
-			 <p><span class="chulapa">Chulapa</span> was developed in and for GitHub. There are
+			 <p><span class="chulapa">Chulapa</span> is a Jekyll theme for GitHub Pages and other
+Jekyll sites. There are
 three ways to use <span class="chulapa">Chulapa</span>:</p>
 <h2 id="1-use-our-github-template">1. Use our GitHub template</h2>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are starting from scratch</strong></p>
-<p>Create a GitHub account, click <a href="https://github.com/dieghernan/chulapa-101/generate">this link</a>
-and quickstart your site!</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are starting from scratch.</strong></p>
+<p>Sign in to GitHub and
+<a href="https://github.com/dieghernan/chulapa-101/generate">create a repository from the template</a>
+to get started. Update <code class="language-plaintext highlighter-rouge">_config.yml</code> with your site’s details and replace the
+sample content with your own.</p>
 <h2 id="2-remote-theme-method">2. Remote theme method</h2>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are migrating a site.</strong></p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are migrating an existing site.</strong></p>
 <p>You can use the <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> method. Just follow these steps:</p>
 <ol>
- <li>Create a new GitHub repository or go to an existing one.</li>
+ <li>Create a new GitHub repository or open an existing one.</li>
  <li>
    <p>Add this line to your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa</span>
@@ -244,8 +245,12 @@ and quickstart your site!</p>
  </li>
  <li>Remove any other <code class="language-plaintext highlighter-rouge">remote_theme</code> entry and the <code class="language-plaintext highlighter-rouge">theme</code> entry from
 <code class="language-plaintext highlighter-rouge">_config.yml</code>. Add <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> and <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> to your
-Gemfile and <code class="language-plaintext highlighter-rouge">_config.yml</code> plugins list, then run <code class="language-plaintext highlighter-rouge">bundle install</code>.
-<span class="chulapa">Chulapa</span> requires <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> for its <code class="language-plaintext highlighter-rouge">include_cached</code> tags.</li>
+<code class="language-plaintext highlighter-rouge">Gemfile</code> and the <code class="language-plaintext highlighter-rouge">plugins</code> list in <code class="language-plaintext highlighter-rouge">_config.yml</code>, then run <code class="language-plaintext highlighter-rouge">bundle install</code>.
+<span class="chulapa">Chulapa</span> requires <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> for its
+<code class="language-plaintext highlighter-rouge">include_cached</code> tags. For local or custom builds, also install the runtime
+dependencies declared in the theme’s
+<a href="https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec">gemspec</a>.
+A remote theme does not install these dependencies for you.</li>
 </ol>
 <p>An unpinned remote theme follows the repository default branch. To select a
 release, append its tag, for example <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.0.1</code>.
@@ -259,23 +264,24 @@ published in the gem.</p>
 example in <a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml</a></li>
  </ul>
 </div>
-<p>By using <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code>, your repo will have remote access to the content
-of these folders:</p>
+<p>During the build, <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> downloads the selected theme and makes
+its files available to Jekyll, including these directories:</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">assets</code></li>
  <li><code class="language-plaintext highlighter-rouge">_layouts</code></li>
  <li><code class="language-plaintext highlighter-rouge">_includes</code></li>
  <li><code class="language-plaintext highlighter-rouge">_sass</code></li>
 </ul>
-<p>Note that making copies of theme files will prevent you from receiving any theme
-updates on those files.</p>
-<p>Please read the rest of the docs for further adjustments.</p>
+<p>Local files at the same paths override the corresponding theme files. You must
+merge updates to those files manually; other theme files continue to use the
+selected remote version.</p>
+<p>Continue with <a href="./02-config">global settings</a> to configure your site.</p>
 <h2 id="3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></h2>
-<p>With Gem-based themes, directories such as the <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>
-and <code class="language-plaintext highlighter-rouge">_sass</code> are stored in the theme’s gem, hidden from your immediate view. This
-allows for easier installation and updating as you don’t have to manage any of
-the theme files.</p>
-<p>To install as a Gem-based theme:</p>
+<p>With gem-based themes, directories such as <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>
+and <code class="language-plaintext highlighter-rouge">_sass</code> are stored in the theme’s gem rather than your site directory.
+This makes installation and updates easier because you do not have to manage
+the theme files directly.</p>
+<p>To install as a gem-based theme:</p>
 <ol>
  <li>
    <p>Add the following to your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
@@ -283,7 +289,7 @@ the theme files.</p>
 </code></pre></div>  </div>
  </li>
  <li>
-   <p>Fetch and update bundled gems by running the following <a href="https://bundler.io/">Bundler</a>
+   <p>Install the bundled gems by running the following <a href="https://bundler.io/">Bundler</a>
 command:</p>
    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bundle
 </code></pre></div>  </div>
@@ -294,7 +300,7 @@ command:</p>
 </code></pre></div>  </div>
  </li>
 </ol>
-<p>Enable <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> in your <code class="language-plaintext highlighter-rouge">_config.yml</code> plugins list. Remove any
+<p>Enable <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> in the <code class="language-plaintext highlighter-rouge">plugins</code> list in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Remove any
 <code class="language-plaintext highlighter-rouge">remote_theme</code> entry when using the gem. To update only the theme and its
 dependencies, run <code class="language-plaintext highlighter-rouge">bundle update chulapa-jekyll</code>.</p>
 <p>To preview your site locally, run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> from your site

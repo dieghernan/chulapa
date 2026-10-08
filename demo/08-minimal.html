@@ -1,7 +1,6 @@
-<!doctype html>
-<html lang="en-US"><head>
+<!doctype html><html lang="en-US"><head>
    <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.0.1.0001 -->
+    <!-- Chulapa Jekyll Theme - v2.1.0 -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -17,8 +16,8 @@
       "description": "A blank canvas for you - Use the minimal layout with HTML to unleash your creativity",
       "headline":"Layout minimal",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
-      "datePublished": "2026-10-08T12:55:01+02:00",
-      "dateModified": "2026-10-08T12:55:01+02:00",
+      "datePublished": "2026-10-08T14:41:05+02:00",
+      "dateModified": "2026-10-08T14:41:05+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -90,14 +89,13 @@
    <meta name="copyright" content="dieghernan" >
    <meta name="description" content="A blank canvas for you - Use the minimal layout with HTML to unleash your creativity">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
-   <meta name="robots" content="index, follow"><meta name="keywords" content="">
+   <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
    <meta property="og:title" content="Layout minimal | Chulapa" >
-   <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
+   <meta property="og:site_name" content="Chulapa" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/08-minimal" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="A blank canvas for you - Use the minimal layout with HTML to unleash your creativity" >
-   <meta property="og:locale" content="en_US" >
+   <meta property="og:description" content="A blank canvas for you - Use the minimal layout with HTML to unleash your creativity" ><meta property="og:locale" content="en_US">
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
@@ -122,12 +120,12 @@
     <!-- Custom css -->
   <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139034853-5"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-139034853-5');
+  gtag('config', 'G-Q654SQGBGS');
 </script>
 <!-- start custom head snippets -->
 <!-- https://realfavicongenerator.net/-->
@@ -174,7 +172,9 @@
 				</li></ul>
 		</nav>
 	</div>
-	<header class="d-flex align-items-center splash-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg')"><div class="container-lg">
+	<p class="alert alert-info p-3 mx-2 mb-3"><strong>This example inserts its header manually.</strong> Keep <code class="language-plaintext highlighter-rouge">show_header</code> disabled
+or remove the manual include before enabling the automatic minimal header.</p>
+<header class="d-flex align-items-center splash-chulapa-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)), url('https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg')"><div class="container-lg">
    <h1 class="p-name">Layout minimal</h1><hr class="my-3" />
    <p class="chulapa-subtitle p-summary">A blank canvas for you</p>
    <div class="btn-group-vertical btn-group-lg mt-5 text-center" role="group">
@@ -239,6 +239,9 @@ paste.</p>
 <div class="container-lg my-1">
  <div class="row">
    <div class="col-lg-8 offset-lg-2 col">
+     <h2 id="front-matter-for-this-demo">Front matter for this demo</h2>
+     <p>This page inserts the header and bottom navigation manually in its content.
+The front matter alone does not reproduce those HTML components.</p>
      <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">minimal</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s">Layout minimal</span>
@@ -254,7 +257,9 @@ paste.</p>
 <span class="nn">---</span>
 </code></pre></div>    </div>
    </div>
-</div><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
+</div>
+</div>
+<nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
  <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
    <li class="page-item text-left mr-0 ">
       <a class="page-link border-0 px-4" href="https://dieghernan.github.io/chulapa/demo/07-guestauthor-no-avatar" tabindex="-1">
@@ -282,7 +287,6 @@ paste.</p>
    </li>
  </ul>
 </nav>
-</div>
 <!-- Footer -->
  <footer class="footer-chulapa text-center mt-0 pt-3">
    <div class="container">

@@ -1,7 +1,6 @@
-<!doctype html>
-<html lang="en-US"><head>
+<!doctype html><html lang="en-US"><head>
    <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.0.1.0001 -->
+    <!-- Chulapa Jekyll Theme - v2.1.0 -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -17,8 +16,8 @@
       "description": "Learn how to set up your new site - Setting up your new site",
       "headline":"Global settings",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T12:55:01+02:00",
-      "dateModified": "2026-10-08T12:55:01+02:00",
+      "datePublished": "2026-10-08T14:41:05+02:00",
+      "dateModified": "2026-10-08T14:41:05+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -97,14 +96,13 @@
    <meta name="copyright" content="dieghernan" >
    <meta name="description" content="Learn how to set up your new site - Setting up your new site">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
-   <meta name="robots" content="index, follow"><meta name="keywords" content="">
+   <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
    <meta property="og:title" content="Global settings | Chulapa" >
-   <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
+   <meta property="og:site_name" content="Chulapa" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/02-config" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="Learn how to set up your new site - Setting up your new site" >
-   <meta property="og:locale" content="en_US" >
+   <meta property="og:description" content="Learn how to set up your new site - Setting up your new site" ><meta property="og:locale" content="en_US">
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
@@ -129,12 +127,12 @@
     <!-- Custom css -->
   <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139034853-5"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-139034853-5');
+  gtag('config', 'G-Q654SQGBGS');
 </script>
 <!-- start custom head snippets -->
 <!-- https://realfavicongenerator.net/-->
@@ -226,23 +224,40 @@
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#a-site-settingsseo">A. Site settings/SEO</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#seo">SEO</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#publisher">Publisher</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#font-awesome">Font Awesome</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#google-analytics">Google Analytics</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#search-engines">Search engines</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#comments">Comments</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#b-navigation">B. Navigation</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#navbar">Navbar</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#footer">Footer</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#theming"> C. Theming <span class="chulapa">Chulapa</span></a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#d-jekyll-defaults-and-collections">D. Jekyll defaults and collections</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#xx-other-settings">XX. Other settings</a></li></ul>
 			</nav>
 			 <p class="font-weight-light font-italic lead">TL;DR</p>
-<p>Learn how to modify your <code class="language-plaintext highlighter-rouge">_config.yml</code> file. If you are using the remote method and you didn’t fork the <a href="https://github.com/dieghernan/chulapa-101">chulapa-101 repo</a>, you can use <a href="https://github.com/dieghernan/chulapa/blob/main/_config.yml">this file</a> as a starting point. Add <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa</code> for the default branch or append <code class="language-plaintext highlighter-rouge">@TAG</code> to pin an existing release tag.</p>
+<p>Configure your site in <code class="language-plaintext highlighter-rouge">_config.yml</code>. If you use a remote theme without the
+<a href="https://github.com/dieghernan/chulapa-101">chulapa-101 template</a>, use the
+<a href="https://github.com/dieghernan/chulapa/blob/main/_config.yml">sample configuration</a>
+as a starting point. Adapt its site details, collections and defaults to your
+site. Use <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa</code> for the default branch or append
+<code class="language-plaintext highlighter-rouge">@TAG</code> to pin an existing release.</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Restart Jekyll after changing configuration.</strong> Edits to <code class="language-plaintext highlighter-rouge">_config.yml</code> are
+applied when the server restarts.</p>
 <p>For some variables, a default value is provided. This value is shown at the end
 of the explanation <strong>in bold</strong>.</p>
 <h2 id="a-site-settingsseo">A. Site settings/SEO</h2>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">locale</code>: Set the <code class="language-plaintext highlighter-rouge">lang</code> attribute on the <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> element. Use a language
 code or <code class="language-plaintext highlighter-rouge">language-TERRITORY</code>, such as <code class="language-plaintext highlighter-rouge">fr</code>, <code class="language-plaintext highlighter-rouge">en-GB</code>, <code class="language-plaintext highlighter-rouge">es-MX</code> or <code class="language-plaintext highlighter-rouge">pt-BR</code>.
+Pages can override this with <code class="language-plaintext highlighter-rouge">locale</code>. Set <code class="language-plaintext highlighter-rouge">og_locale</code> separately when a
+language-only or script-based tag needs a territory for social metadata.
+<code class="language-plaintext highlighter-rouge">og_locale_alternate</code> lists available translated locales; see
+<a href="./04-layouts#social-locales-and-articles">Social locales and articles</a>.
 <strong>Default value: en-US</strong>.</li>
- <li><code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">title_separator</code> and <code class="language-plaintext highlighter-rouge">subtitle</code>: Set several <code class="language-plaintext highlighter-rouge">&lt;meta&gt;</code> tags and
-define the browser tab title. <strong>repository_name | project_tagline</strong>.</li>
+ <li><code class="language-plaintext highlighter-rouge">title</code>: Site title, also used for social metadata. <strong>GitHub repository name</strong>.</li>
+ <li><code class="language-plaintext highlighter-rouge">subtitle</code>: Site tagline used in the home page browser title.
+<strong>GitHub project tagline</strong>.</li>
+ <li><code class="language-plaintext highlighter-rouge">title_separator</code>: Separator between the two parts of the browser title.
+The home page uses the site title and subtitle; other pages use the page
+title and site title. Page <code class="language-plaintext highlighter-rouge">seo_title</code> can override the complete title.
+<strong><code class="language-plaintext highlighter-rouge">|</code></strong>, with spaces added around it.</li>
  <li><code class="language-plaintext highlighter-rouge">description</code>: Brief site description for Jekyll and plugins. <span class="chulapa">Chulapa</span>’s page
-description metadata uses the page <code class="language-plaintext highlighter-rouge">excerpt</code> or a content fallback, with the
-page <code class="language-plaintext highlighter-rouge">subtitle</code> prepended when present.</li>
+metadata gives priority to page <code class="language-plaintext highlighter-rouge">description</code>, then <code class="language-plaintext highlighter-rouge">excerpt</code>, then the site
+description on the home page, then a content fallback. See
+<a href="./04-layouts#seo-metadata">SEO metadata</a> for subtitle handling.</li>
  <li><code class="language-plaintext highlighter-rouge">url</code> and <code class="language-plaintext highlighter-rouge">baseurl</code>: Set <code class="language-plaintext highlighter-rouge">url</code> to the site origin (for example <code class="language-plaintext highlighter-rouge">https://username.github.io</code>) and <code class="language-plaintext highlighter-rouge">baseurl</code> to its path prefix (<code class="language-plaintext highlighter-rouge">/repository</code> for a project site or an empty string for a root site). GitHub metadata can supply defaults on GitHub Pages; set these explicitly for local or custom builds so canonical links, feeds and image URLs resolve correctly. See <a href="https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/">Clearing Up Confusion Around baseurl – Again</a> by Parker Moore (Jekyll).</li>
- <li><code class="language-plaintext highlighter-rouge">repository</code>: Set as the slug of your repo on GitHub (e.g.
-<code class="language-plaintext highlighter-rouge">dieghernan/chulapa</code>). <strong>This value is unset and must be provided by the
-user</strong>.</li>
+ <li><code class="language-plaintext highlighter-rouge">repository</code>: GitHub repository slug (for example
+<code class="language-plaintext highlighter-rouge">dieghernan/chulapa</code>). Set this for GitHub metadata, especially when building
+outside GitHub Pages. <strong>Unset in the sample configuration</strong>.</li>
  <li><code class="language-plaintext highlighter-rouge">words_per_minute</code>: Used for computing the reading time of the page. <strong>200</strong>.</li>
  <li><code class="language-plaintext highlighter-rouge">timezone</code>: Used for setting the timezone of your dates and hours. See <a href="https://jekyllrb.com/docs/configuration/options">Jekyll Docs</a>.</li>
 </ul>
@@ -264,18 +279,20 @@ Twitter/X profile URL in <code class="language-plaintext highlighter-rouge">auth
 author’s links are considered for <code class="language-plaintext highlighter-rouge">twitter:creator</code>; the site author is not
 used as a fallback. Status, sharing and other non-profile URLs do not set a
 creator.</li>
- <li><code class="language-plaintext highlighter-rouge">author</code> of the site:
+ <li><code class="language-plaintext highlighter-rouge">author</code>: Default site author, used in profiles, metadata and the footer.
+Pages can supply their own <code class="language-plaintext highlighter-rouge">author</code> mapping.
    <ul>
-     <li><code class="language-plaintext highlighter-rouge">name</code> of the author, it will be injected on several parts of your site, as
-the footer or different <code class="language-plaintext highlighter-rouge">&lt;meta&gt;</code> tags. <strong>github username</strong> for metadata.</li>
-     <li><code class="language-plaintext highlighter-rouge">avatar</code>: The avatar of the author, should be a small square image
-preferably.</li>
-     <li><code class="language-plaintext highlighter-rouge">location</code>: As a nice touch, this would link to Google Maps 😉.</li>
-     <li><code class="language-plaintext highlighter-rouge">links</code>: A list of social links. You may set a URL and a <a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a> code for each social link. You can also include an email address on this list.</li>
+     <li><code class="language-plaintext highlighter-rouge">name</code>: Author name. <strong>GitHub owner name</strong>, when GitHub metadata is available.</li>
+     <li><code class="language-plaintext highlighter-rouge">avatar</code>: Avatar image URL or site-relative path; a small square image is
+recommended.</li>
+     <li><code class="language-plaintext highlighter-rouge">location</code>: Location text linked to a Google Maps search.</li>
+     <li><code class="language-plaintext highlighter-rouge">links</code>: Social links with <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">icon</code> and <code class="language-plaintext highlighter-rouge">label</code>. Use a
+<a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a> icon code and a
+descriptive label. For email links, supply the plain email address.</li>
    </ul>
  </li>
 </ul>
-<p>See below a full example for an <code class="language-plaintext highlighter-rouge">author</code>:</p>
+<p>Example site author:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">author</span><span class="pi">:</span>
   <span class="na">name                  </span><span class="pi">:</span>      <span class="s">Name Surname Company</span>
   <span class="na">avatar                </span><span class="pi">:</span>      <span class="s">https://github.com/devdhh.png</span>
@@ -291,7 +308,7 @@ preferably.</li>
       <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">personal</span><span class="nv"> </span><span class="s">email"</span>
       <span class="s">...</span>
 </code></pre></div></div>
-<p class="alert alert-success p-3 mx-2"><strong>Check your sharing metadata</strong>: <span class="chulapa">Chulapa</span> generates Open Graph and Twitter/X card
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Check your sharing metadata</strong>: <span class="chulapa">Chulapa</span> generates Open Graph and Twitter/X card
 tags automatically. Set accurate titles, excerpts and image URLs, then check the
 shared page with the relevant platform. Metadata does not guarantee a particular
 preview or search result.</p>
@@ -350,8 +367,10 @@ defaults above. Without publisher settings, the existing organization publisher
 and its logo fallbacks are preserved.</p>
 <p>Configuring a publisher does not change article authors, social metadata or author profiles. The separate site author profile is described as “Site author” when any publisher setting is supplied. A <code class="language-plaintext highlighter-rouge">Person</code> publisher uses <code class="language-plaintext highlighter-rouge">image</code> instead of <code class="language-plaintext highlighter-rouge">logo</code>, following <a href="https://schema.org/publisher">Schema.org</a>. These settings describe the publishing entity; they do not guarantee additional <a href="https://developers.google.com/search/docs/appearance/structured-data/article">Google rich results</a>.</p>
 <h3 id="font-awesome">Font Awesome</h3>
-<p><span class="chulapa">Chulapa</span> loads Font Awesome 6 by default. Set <code class="language-plaintext highlighter-rouge">fa_version: 5</code> to use version 5.
-To load a Font Awesome kit, the current implementation reads <code class="language-plaintext highlighter-rouge">fa_kit_code</code>.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><span class="chulapa">Chulapa</span> loads Font Awesome 6 by default. Set <code class="language-plaintext highlighter-rouge">fa_version: 5</code> to use version 5.
+Set <code class="language-plaintext highlighter-rouge">fa_kit_code</code> to load a Font Awesome kit instead of the hosted stylesheet.
+The legacy setting <code class="language-plaintext highlighter-rouge">fa5_kit_code</code> remains supported and takes precedence when
+both are set. Remove it when migrating to <code class="language-plaintext highlighter-rouge">fa_kit_code</code>.</p>
 <p>To enable v4 support, set <code class="language-plaintext highlighter-rouge">fa_v4_support: true</code>.</p>
 <h3 id="google-analytics">Google Analytics</h3>
 <ul>
@@ -359,12 +378,14 @@ To load a Font Awesome kit, the current implementation reads <code class="langua
 to load the Google tag.</li>
  <li><code class="language-plaintext highlighter-rouge">analytics_id</code>: Retained for legacy Universal Analytics snippets. Universal Analytics has been retired, so use <code class="language-plaintext highlighter-rouge">gtag_id</code> for new setups. See <a href="https://support.google.com/analytics/answer/10089681">Google’s migration guide</a>.</li>
 </ul>
-<p>Leave unused IDs empty. If both are set, the theme loads both snippets.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3">Leave unused IDs empty. If both are set, the theme loads both snippets.</p>
 <h3 id="search-engines">Search engines</h3>
 <p>Set <code class="language-plaintext highlighter-rouge">search.provider</code> and create a page using <code class="language-plaintext highlighter-rouge">layout: search</code>. Its <code class="language-plaintext highlighter-rouge">permalink</code>
 must match <code class="language-plaintext highlighter-rouge">search.landing_page</code>, which defaults to <code class="language-plaintext highlighter-rouge">/search</code>. Selecting a
-provider adds the navbar link but does not create the search page.
-The following engines are available:</p>
+provider adds the navbar link but does not create the search page.</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Create the search page separately.</strong> Setting <code class="language-plaintext highlighter-rouge">search.provider</code> alone adds a
+navbar link; it does not generate a page at <code class="language-plaintext highlighter-rouge">search.landing_page</code>.</p>
+<p>The following engines are available:</p>
 <ul>
  <li><a href="https://lunrjs.com/">Lunr.js</a></li>
  <li><a href="https://www.fusejs.io/">Fuse.js</a></li>
@@ -372,10 +393,10 @@ The following engines are available:</p>
  <li><a href="https://www.algolia.com/">Algolia</a></li>
  <li><a href="https://developers.google.com/custom-search">Google Custom Search</a></li>
 </ul>
-<p>While Lunr, Fuse.js and Simple-Jekyll-Search are fully integrated on the theme,
-for
-Algolia and Google CSE you may need to create an account and perform some
-additional steps.</p>
+<p>Lunr, Fuse.js and Simple-Jekyll-Search use an index generated during the site
+build. Set <code class="language-plaintext highlighter-rouge">include_on_search: false</code> on pages or in front matter defaults to
+exclude them from these indexes. Algolia requires a separately uploaded index;
+Google Custom Search requires a configured search engine.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">search</code>:
    <ul>
@@ -383,32 +404,42 @@ additional steps.</p>
 <code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code>.</li>
      <li><code class="language-plaintext highlighter-rouge">label</code>: Text to be displayed on the navbar when enabled. Useful for
 localization (i.e. you can set it as Búsqueda or Ricerca). <strong>Search</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">landing_page</code>: url of your search page, useful for localization.
+     <li><code class="language-plaintext highlighter-rouge">landing_page</code>: URL of your search page, useful for localization.
 <strong>“/search”</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">lunr_maxwords</code>: <strong>Deprecated</strong>, use <code class="language-plaintext highlighter-rouge">maxwords</code>. Remove the old setting when
 migrating: if both are set, <code class="language-plaintext highlighter-rouge">lunr_maxwords</code> takes precedence for Lunr.</li>
-     <li><code class="language-plaintext highlighter-rouge">maxwords</code>: <code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code>, <code class="language-plaintext highlighter-rouge">lunr</code> only, number of words to be
-included in the index. <strong>30</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">show_attrib</code>: Show attributions/logo on search engine <strong>true</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">algolia_logo</code>: Controls the Algolia logo alongside <code class="language-plaintext highlighter-rouge">show_attrib</code>. Check
+     <li><code class="language-plaintext highlighter-rouge">maxwords</code>: Maximum number of content words per indexed document for
+<code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code> and <code class="language-plaintext highlighter-rouge">lunr</code>. Other indexed fields are separate. <strong>30</strong>.
+Provider-specific <code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code> and <code class="language-plaintext highlighter-rouge">fusejs_maxwords</code> also take
+precedence over <code class="language-plaintext highlighter-rouge">maxwords</code> when set. Prefer <code class="language-plaintext highlighter-rouge">maxwords</code> for a shared limit.</li>
+     <li><code class="language-plaintext highlighter-rouge">show_attrib</code>: Show attribution for Lunr, Fuse.js and Simple-Jekyll-Search.
+Set the YAML boolean <code class="language-plaintext highlighter-rouge">false</code> to hide it. <strong>true</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">algolia_logo</code>: Independently controls the Algolia logo. <strong>Unset</strong>; the
+sample configurations explicitly set it to <code class="language-plaintext highlighter-rouge">true</code>. Check
 your Algolia plan’s attribution requirements before hiding it.</li>
    </ul>
  </li>
  <li><code class="language-plaintext highlighter-rouge">google_cse_id</code>: Your Google Custom Search id, available on <em>cse.google.com &gt;
 Your search engine &gt; Settings</em>.</li>
 </ul>
-<p>The <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> plugin is deprecated and no longer maintained by Algolia.
-Its archived documentation remains available in the upstream repository.
-Algolia is implemented via the <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> plugin <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/getting-started.md">(docs)</a>, and needs a <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">specific configuration syntax</a>, the minimum settings are:</p>
+<p class="alert alert-warning p-3 mx-2 mb-3">The <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> plugin is deprecated and no longer maintained by Algolia.
+Its archived documentation remains available in the upstream repository.</p>
+<p>The theme uses <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> to upload its search index. See the plugin’s
+<a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/getting-started.md">setup documentation</a>
+and <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">configuration reference</a>.
+The browser search requires these settings:</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">algolia</code>:
    <ul>
      <li><code class="language-plaintext highlighter-rouge">application_id</code>: App id on Algolia.</li>
      <li><code class="language-plaintext highlighter-rouge">index_name</code>: Name of the index to search.</li>
-     <li><code class="language-plaintext highlighter-rouge">search_only_api_key</code> : Your <strong>public</strong> key.</li>
+     <li><code class="language-plaintext highlighter-rouge">search_only_api_key</code>: Public search-only API key used in browser requests.</li>
    </ul>
  </li>
 </ul>
+<p class="alert alert-warning p-3 mx-2 mb-3">Index uploads require a separate indexing key supplied through the
+<code class="language-plaintext highlighter-rouge">ALGOLIA_API_KEY</code> environment variable. Keep that key in your build environment
+or GitHub Actions secrets; do not put it in the public configuration.</p>
 <p>Recommended additional options are:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">algolia</span><span class="pi">:</span>
   <span class="na">application_id</span><span class="pi">:</span> <span class="s">your id</span>
@@ -433,26 +464,28 @@ Algolia is implemented via the <code class="language-plaintext highlighter-rouge
 </code></pre></div></div>
 <p>If you are deploying your site with GitHub Pages, I recommend using this <a href="https://github.com/marketplace/actions/algolia-jekyll-action">GitHub Action</a> to create and update your Algolia index after every commit automatically.</p>
 <h3 id="comments">Comments</h3>
-<p>You can add a comment feature to a page. Currently the following services are
-supported:</p>
+<p>Set <code class="language-plaintext highlighter-rouge">comments.provider</code> and enable <code class="language-plaintext highlighter-rouge">show_comments: true</code> on pages or in front
+matter defaults for layouts that display comments. Configure the selected
+provider as described below. The theme includes integrations for:</p>
 <ul>
- <li><a href="https://disqus.com/">Disqus</a>, one of the most known comment providers for static sites,</li>
+ <li><a href="https://disqus.com/">Disqus</a>, a hosted comment system.</li>
  <li><a href="https://github.com/djyde/cusdis">Cusdis</a>, a lightweight comment system whose
 upstream project is deprecated and archived. The original hosted service is
 unavailable; check your own deployment before selecting this provider.</li>
- <li><a href="https://giscus.app/">giscus</a>, A comments system powered by <a href="https://docs.github.com/en/discussions">GitHub Discussions</a></li>
- <li><a href="https://cactus.chat/">Cactus</a>, a federated comment system for the web, based on the Matrix protocol</li>
+ <li><a href="https://giscus.app/">giscus</a>, powered by
+<a href="https://docs.github.com/en/discussions">GitHub Discussions</a>.</li>
+ <li><a href="https://cactus.chat/">Cactus</a>, a federated comment system based on Matrix.</li>
  <li>
-   <p><a href="https://welcomments.io/">Welcomments</a>, lightweight, fast, and SEO-friendly comment sections for your site</p>
+   <p><a href="https://welcomments.io/">Welcomments</a>, a comment integration using generated
+comment files.</p>
  </li>
  <li><code class="language-plaintext highlighter-rouge">comments</code>:
    <ul>
      <li><code class="language-plaintext highlighter-rouge">provider</code>: Use <code class="language-plaintext highlighter-rouge">disqus</code>, <code class="language-plaintext highlighter-rouge">cusdis</code>, <code class="language-plaintext highlighter-rouge">giscus</code>, <code class="language-plaintext highlighter-rouge">cactus</code> or <code class="language-plaintext highlighter-rouge">welcomments</code> to
 enable it.</li>
      <li><code class="language-plaintext highlighter-rouge">disqus_shortname</code>: Disqus only. Add your site id, on <code class="language-plaintext highlighter-rouge">https://DISQUS_SHORTNAME.disqus.com/admin/</code>.</li>
-     <li><code class="language-plaintext highlighter-rouge">cusdis_app_id</code>: Cusdis only, the app id of your service. On cusdis see
-<strong>Embed code</strong> and
-use <code class="language-plaintext highlighter-rouge">data-app-id="THIS_IS_THE_APP_ID"</code>.</li>
+     <li><code class="language-plaintext highlighter-rouge">cusdis_app_id</code>: Cusdis application ID, shown as <code class="language-plaintext highlighter-rouge">data-app-id</code> in its embed
+code.</li>
      <li><code class="language-plaintext highlighter-rouge">cusdis_host</code>: Cusdis only. If you are self-hosting Cusdis use this field.</li>
      <li><code class="language-plaintext highlighter-rouge">cactus_shortname</code>: Cactus only. The name you used to register this site
 with Cactus.</li>
@@ -460,30 +493,33 @@ with Cactus.</li>
    </ul>
  </li>
 </ul>
-<p>Configure <strong>giscus</strong> following their instructions and paste the resulting script
-on a file hosted on your GitHub repo with path <em>./_includes/custom/giscus.html</em>.</p>
-<p>When setting up <strong>Welcomments</strong>, you may receive a pull request on your site. My
-suggestion is that you ignore it (except for the <code class="language-plaintext highlighter-rouge">website_id</code>), since <span class="chulapa">Chulapa</span> has some customized templates that would be
-overridden by the files on the PR.</p>
+<p class="alert alert-info p-3 mx-2 mb-3">Configure <strong>giscus</strong> using its setup instructions and paste the generated
+script into <code class="language-plaintext highlighter-rouge">_includes/custom/giscus.html</code> in your site repository.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3">When setting up <strong>Welcomments</strong>, review any generated pull request before
+merging it. Use its <code class="language-plaintext highlighter-rouge">website_id</code>, but retain the customized templates supplied
+by <span class="chulapa">Chulapa</span> rather than overwriting them.</p>
 <h2 id="b-navigation">B. Navigation</h2>
 <h3 id="navbar">Navbar</h3>
-<p>Configure the navbar and footer of your site. This theme supports a two-level
-navigation structure, and features <strong>three different navbar styles</strong>: <code class="language-plaintext highlighter-rouge">fab</code>, as
-a floating action button with animation, a <strong>classic sticky-top navbar</strong> or
-<code class="language-plaintext highlighter-rouge">dual</code> that would display as <code class="language-plaintext highlighter-rouge">fab</code> on small devices and as a classic navbar on
-bigger devices.</p>
+<p>The navbar supports links and one level of child links. Choose a classic
+sticky-top navbar, <code class="language-plaintext highlighter-rouge">fab</code> for an animated floating action button or <code class="language-plaintext highlighter-rouge">dual</code> to
+switch from a floating button to a classic navbar at the configured breakpoint.</p>
 <p>Check this <a href="https://dieghernan.github.io/chulapa/demo/classic-navbar">live demo</a> of the classic navbar style.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">navbar</code>:
    <ul>
-     <li><code class="language-plaintext highlighter-rouge">style</code>: <code class="language-plaintext highlighter-rouge">fab</code> value would display your navbar as a <a href="https://material.io/components/buttons-floating-action-button">floating action button</a>. <code class="language-plaintext highlighter-rouge">dual</code> option also available. <strong>classic</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">expand</code>: Only affects the classical navbar. Defines on which devices the links of the navbar would expand. Values are <code class="language-plaintext highlighter-rouge">sm, md, lg, xl</code> for small, medium, large and extra-large devices, <code class="language-plaintext highlighter-rouge">always</code> or <code class="language-plaintext highlighter-rouge">never</code>. See <a href="https://getbootstrap.com/docs/4.5/layout/overview/">Bootstrap docs</a> on breakpoints to understand each value. <strong>md</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">style</code>: Use <code class="language-plaintext highlighter-rouge">fab</code> for a floating action button or <code class="language-plaintext highlighter-rouge">dual</code> to switch styles
+at a breakpoint. Omit the setting for the classic navbar. <strong>classic</strong>.</li>
+     <li><code class="language-plaintext highlighter-rouge">expand</code>: Breakpoint for expanding the classic navbar or switching the
+<code class="language-plaintext highlighter-rouge">dual</code> navbar from a floating button to a classic navbar. Use <code class="language-plaintext highlighter-rouge">sm</code>, <code class="language-plaintext highlighter-rouge">md</code>,
+<code class="language-plaintext highlighter-rouge">lg</code> or <code class="language-plaintext highlighter-rouge">xl</code>. For the classic navbar, <code class="language-plaintext highlighter-rouge">always</code> keeps links expanded and
+<code class="language-plaintext highlighter-rouge">never</code> keeps them collapsed. With <code class="language-plaintext highlighter-rouge">dual</code>, <code class="language-plaintext highlighter-rouge">always</code> switches at <code class="language-plaintext highlighter-rouge">sm</code> and
+<code class="language-plaintext highlighter-rouge">never</code> switches at <code class="language-plaintext highlighter-rouge">xl</code>. <strong>md</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">brand</code>:
        <ul>
          <li><code class="language-plaintext highlighter-rouge">title</code> : Text to be displayed as the title of your navbar.</li>
-         <li><code class="language-plaintext highlighter-rouge">img</code>: An icon (ideally 30px x 30 px) displayed together with the
+         <li><code class="language-plaintext highlighter-rouge">img</code>: An icon (ideally 30 × 30 px) displayed together with the
 <code class="language-plaintext highlighter-rouge">title</code>.</li>
-         <li><code class="language-plaintext highlighter-rouge">url</code>: The brand would link to this value. <strong>your root url</strong>.</li>
+         <li><code class="language-plaintext highlighter-rouge">url</code>: Destination of the brand link. <strong>Site root URL</strong>.</li>
        </ul>
      </li>
      <li><code class="language-plaintext highlighter-rouge">nav</code>: Links on your navbar. See the example to learn how to set one-level
@@ -519,10 +555,9 @@ and two-level links:</li>
        <ul>
          <li><code class="language-plaintext highlighter-rouge">label</code>: Label of your link.</li>
          <li><code class="language-plaintext highlighter-rouge">icon</code>: Font Awesome icon code.</li>
-         <li><code class="language-plaintext highlighter-rouge">url</code>: url of the link</li>
+         <li><code class="language-plaintext highlighter-rouge">url</code>: Link URL or plain email address.</li>
        </ul>
      </li>
-     <li>…</li>
    </ul>
  </li>
 </ul>
@@ -538,24 +573,33 @@ and two-level links:</li>
       <span class="na">icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fab</span><span class="nv"> </span><span class="s">fa-facebook"</span>
       <span class="na">url</span><span class="pi">:</span> <span class="s">https://www.facebook.com</span>
 </code></pre></div></div>
-<p>You can also customize the copyright on the footer:</p>
+<p>Use <code class="language-plaintext highlighter-rouge">footer.copyright</code> to supply custom text or HTML. When omitted, the footer
+shows the build year and site author name, falling back to the GitHub owner name:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">footer</span><span class="pi">:</span>
   <span class="na">copyright</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&amp;copy;</span><span class="nv"> </span><span class="s">2021</span><span class="nv"> </span><span class="s">&lt;span</span><span class="nv"> </span><span class="s">class='chulapa'&gt;Chulapa&lt;/span&gt;</span><span class="nv"> </span><span class="s">developers"</span>
 </code></pre></div></div>
 <h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
-<p>This is the core feature of <span class="chulapa">Chulapa</span>, please find
-the full reference <a href="./03-theming">here</a>, or just navigate to the next page.</p>
+<p>Configure fonts, skins, syntax highlighting and color overrides using
+<code class="language-plaintext highlighter-rouge">googlefonts</code> and <code class="language-plaintext highlighter-rouge">chulapa-skin</code>. See the <a href="./03-theming">theming reference</a>
+for the available settings in <span class="chulapa">Chulapa</span>.</p>
 <h2 id="d-jekyll-defaults-and-collections">D. Jekyll defaults and collections</h2>
-<p>Please refer to Jekyll Documentation on <a href="https://jekyllrb.com/docs/step-by-step/09-collections/">Collections</a>, <a href="https://jekyllrb.com/docs/pagination/#enable-pagination">Pagination</a> and <a href="https://jekyllrb.com/docs/configuration/front-matter-defaults/">Front Matter Defaults</a>, as this part would depend on the purpose and setup of your site.</p>
-<p>The only specific parameter of <span class="chulapa">Chulapa</span> on this
-section is:</p>
+<p>Configure collections, pagination and front matter defaults for your site. See
+the Jekyll documentation on
+<a href="https://jekyllrb.com/docs/step-by-step/09-collections/">collections</a>,
+<a href="https://jekyllrb.com/docs/pagination/#enable-pagination">pagination</a> and
+<a href="https://jekyllrb.com/docs/configuration/front-matter-defaults/">front matter defaults</a>.</p>
+<p>The pagination template in <span class="chulapa">Chulapa</span> also uses:</p>
 <ul>
- <li><code class="language-plaintext highlighter-rouge">paginator_maxnum</code>: This parameter would affect only if you are using the <a href="https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html"><span class="chulapa">Chulapa</span> template for pagination</a>. This parameter would define the maximum number of pagination elements to be shown. <strong>3</strong>.</li>
+ <li><code class="language-plaintext highlighter-rouge">paginator_maxnum</code>: Numbered page links in the pagination window when using
+the <a href="https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html">blog pagination template</a>.
+The template clamps the value to at least 2 and at most the total number of
+pages. First/last and previous/next controls are separate. <strong>3</strong>.</li>
 </ul>
 <p>See a sample defaults configuration <a href="https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults">here</a>.</p>
 <h2 id="xx-other-settings">XX. Other settings</h2>
-<p>Keep the required <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> plugin enabled. Adjust other Jekyll
-settings, plugins and exclusions to suit your site. The sample configuration
+<p class="alert alert-warning p-3 mx-2 mb-3">Keep the required <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> plugin enabled. Adjust other Jekyll
+settings, plugins and exclusions to suit your site.</p>
+<p>The sample configuration
 includes this repository’s demo collections and pagination settings; these are
 examples rather than requirements for every site.</p>
 </article>
