@@ -117,7 +117,7 @@
     <!-- v6 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
     <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/dieghernan/chulapa@master/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
     <!-- Theme css (Bootstrap included) -->
   <link rel="stylesheet" id="maincss" href="https://dieghernan.github.io/chulapa/assets/css/main.css" >
     <!-- Highlighter -->
@@ -149,14 +149,51 @@
 <!-- end custom head snippets -->
 </head>
 <body class="d-flex flex-column h-entry" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
 	<a class="u-url d-none" href="https://dieghernan.github.io/chulapa/demo/archive">Invisible link to canonical for Microformats</a>
+	<noscript>
+ <style>#navi-toggle { display: none !important; }</style>
+ <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="https://dieghernan.github.io/chulapa/">Home</a>
+   <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/blog/">Blog</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs">Read the Docs</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/01-install">Installation</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/02-config">Global Settings</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/03-theming">Theming your site</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/04-layouts">Layouts & Snippets</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/05-faq">FAQs</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/skins">Skins</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo">Index</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/mermaid">Mermaid diagrams</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/pagespeed">PageSpeed Results</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/license">License</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/showcase">Showcase</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/contribute">Contribute</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></li>
+     <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/search">Search</a></li>
+   </ul>
+ </nav>
+</noscript>
 	<div class="navbar-chulapa-fab">
-		<input type="checkbox" class="navbar-chulapa-fab-button d-none" id="navi-toggle">
-		<label for="navi-toggle" class="navbar-toggler p-1 m-0 text-center d-flex">
-			<span class="navbar-toggler-icon m-auto">&nbsp;</span>
-		</label>
-		<div class="navbar-chulapa-fab-background">&nbsp;</div>
-		<nav class="navbar-chulapa-fab-nav" aria-label="primary-navigation">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
 			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
 				<li class="nav-item">
 					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
@@ -177,7 +214,7 @@
 				</li></ul>
 		</nav>
 	</div>
-		<header class="text-center header-chulapa"><div class="container-lg mt-2">
+			<div id="chulapa-content" tabindex="-1"></div>	<header class="text-center header-chulapa"><div class="container-lg mt-2">
        <div class="row">
            <div class="col-lg-8 offset-lg-2">
            <h1 class="p-name">Archive</h1><p class="lead chulapa-subtitle p-summary">All the content of this site by date</p>
@@ -227,7 +264,7 @@ breadcrumb_list:
 </code></pre></div></div>
 <div class="row row-cols-1 row-cols-sm-2 pt-5 mx-n1" id="years"><div class="col-sm-6 chulapa-links-hover-only py-2">
 		<a href="#2026" class="d-flex justify-content-between align-items-center border-bottom ">
-2026 <span class="badge rounded-pill chulapa-pill-bg-primary">19</span>
+2026 <span class="badge rounded-pill chulapa-pill-bg-primary">20</span>
 		</a>
 	</div><div class="col-sm-6 chulapa-links-hover-only py-2">
 		<a href="#2025" class="d-flex justify-content-between align-items-center border-bottom ">
@@ -261,7 +298,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/variable-dictionary" class="chulapa-text-body-color">Variables dictionary</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/variable-dictionary" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -270,7 +307,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet" class="chulapa-text-body-color">Markdown cheatsheet</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -279,16 +316,25 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting" class="chulapa-text-body-color">Syntax highlighting demo</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
 	<div class="ml-2 my-1">
 		<div class="row g-0">
 			<article class="col">
+				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance" class="chulapa-text-body-color">Accessibility and performance</a></h6>
+				<p class="small mb-1">
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
+			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
+			</article><a href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
+	</div>
+	<div class="ml-2 my-1">
+		<div class="row g-0">
+			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/05-faq" class="chulapa-text-body-color">Frequently asked questions</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/05-faq" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -297,7 +343,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/04-layouts" class="chulapa-text-body-color">Layouts and snippets</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/04-layouts" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -306,7 +352,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/03-theming" class="chulapa-text-body-color">Theming <span class="chulapa">Chulapa</span></a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/03-theming" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -315,7 +361,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/02-config" class="chulapa-text-body-color">Global settings</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/02-config" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -324,7 +370,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/01-install" class="chulapa-text-body-color">Installation</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/01-install" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -333,7 +379,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/docs/00-start" class="chulapa-text-body-color">Start with a small site</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">docs</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/docs/00-start" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"></a></div>
 	</div>
@@ -342,7 +388,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/starter-technical-blog" class="chulapa-text-body-color">Engineering notes starter</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/starter-technical-blog" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -351,7 +397,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/starter-project" class="chulapa-text-body-color">My project starter</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/starter-project" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -360,7 +406,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/starter-portfolio" class="chulapa-text-body-color">My portfolio starter</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/starter-portfolio" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -369,7 +415,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/starter-personal-blog" class="chulapa-text-body-color">My journal starter</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/starter-personal-blog" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -378,7 +424,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/mermaid" class="chulapa-text-body-color">Mermaid diagrams</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/mermaid" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -387,7 +433,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/10-plainpage-notags" class="chulapa-text-body-color">Plain page with no tags</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/10-plainpage-notags" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -396,7 +442,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/09-image-header" class="chulapa-text-body-color">Image on header</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/09-image-header" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -405,7 +451,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/08-minimal" class="chulapa-text-body-color">Layout minimal</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/08-minimal" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -414,7 +460,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img" class="chulapa-text-body-color">Plain page with image</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
@@ -423,7 +469,7 @@ breadcrumb_list:
 			<article class="col">
 				<h6 class="my-2"><a href="https://dieghernan.github.io/chulapa/demo/01-plainpage" class="chulapa-text-body-color">Plain page</a></h6>
 				<p class="small mb-1">
-				  <time datetime="2026-10-08T20:26:24+02:00">thursday, 08</time>
+				  <time datetime="2026-10-08T21:02:16+02:00">thursday, 08</time>
 			  <span class="mx-1 my-1 badge chulapa-pill-bg-body">demo</span></p>
 			</article><a href="https://dieghernan.github.io/chulapa/demo/01-plainpage" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png')"></a></div>
 	</div>
