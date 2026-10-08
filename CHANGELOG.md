@@ -1,3 +1,9 @@
+## v2.1.1-dev
+
+### Changed
+
+-   Raise the TOC sidebar button below the 992 px breakpoint, leaving room for a 56 px floating button and a spacer beneath it.
+
 ## v2.1.0 - 2026-10-08
 
 ### Fixed

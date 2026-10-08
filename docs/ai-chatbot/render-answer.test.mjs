@@ -10,6 +10,19 @@ function render(text) {
   return dom.window.document.body;
 }
 
+test('styles brand mentions in prose without changing code, links or identifiers', () => {
+  const body = render('Chulapa supports **Chulapa** layouts and chulapa features. '
+    + "Chulapa's documentation covers chulapa-skin and MyChulapa.\n\n"
+    + '`Chulapa`\n\n```html\n<span>Chulapa</span>\n```\n\n'
+    + '[Chulapa](https://dieghernan.github.io/chulapa/docs/)');
+  assert.equal(body.querySelectorAll('span.chulapa').length, 4);
+  assert.equal(body.querySelector('strong span.chulapa').textContent, 'Chulapa');
+  assert.equal(body.querySelector('code span,a span'), null);
+  assert.equal(body.querySelector('pre code').textContent.trim(), '<span>Chulapa</span>');
+  assert.equal(body.querySelector('a').textContent, 'Chulapa');
+  assert.match(body.textContent, /chulapa-skin and MyChulapa/);
+});
+
 test('renders Markdown lists, emphasis, code and source links', () => {
   const body = render('**Video**\n\n1. Choose a provider.\n2. Add `video.html`.\n\n'
     + '```html\n<video controls src="/movie.mp4"></video>\n```\n\n'

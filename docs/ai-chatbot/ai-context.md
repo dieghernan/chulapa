@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed prototype snapshot, October 8, 2026. Sources are the public documentation
+Reviewed documentation snapshot, October 8, 2026. Sources are the public documentation
 files in docs/collections/_docs and docs/llms.txt. This is a compact selection,
 not the complete documentation. Unsupported details must be acknowledged.
 
@@ -249,12 +249,75 @@ existing snippets when adding new ones. Pages using minimal and search also
 include these hooks. Custom CSS belongs in assets/css/custom.scss with empty
 YAML front matter so Jekyll compiles it to custom.css.
 
-## Additional public entry points
-https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
-https://dieghernan.github.io/chulapa/docs/syntax-highlighting
-https://dieghernan.github.io/chulapa/docs/variable-dictionary
-These links are available, but detailed content for these pages is not included
-in this snapshot. Do not invent their variable definitions or examples.
+## Variables dictionary
+Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary
+These are Sass variables configured under chulapa-skin.vars in _config.yml,
+not page front matter options. Omit the SCSS $ prefix and trailing semicolon;
+restart Jekyll after changing them. Example:
+```yaml
+chulapa-skin:
+  vars:
+    primary: "#285d70"
+    navbar-chulapa-bg-color: "#182c38"
+    footer-chulapa-link-color: "#a8dae8"
+```
+Navbar colors: navbar-chulapa-bg-color (background), navbar-chulapa-text-color
+(text), navbar-chulapa-hover-color (hover), navbar-chulapa-active-color (active),
+navbar-chulapa-disabled-color (disabled), navbar-chulapa-brand-color (brand),
+navbar-chulapa-brand-hover-color (brand hover), navbar-chulapa-toggler-color
+(hamburger icon), navbar-chulapa-toggler-color-bg (icon background), and
+navbar-chulapa-toggler-border-color (toggler border).
+Footer colors: footer-chulapa-bg-color (background), footer-chulapa-text-color
+(text), footer-chulapa-link-color (links), footer-chulapa-hover-color (hover),
+footer-chulapa-icon-color and footer-chulapa-icon-hover-color (social icons).
+Hero and landing headers: hero-chulapa-bg-color, hero-chulapa-text-color,
+landingpage-chulapa-bg-color and landingpage-chulapa-text-color.
+Other variables: blockquote-chulapa-bg-color and blockquote-chulapa-text-color;
+footnote-chulapa-text-color for footnotes/captions; pre-chulapa-bg-color for code
+blocks (the highlight style can override it); thead-chulapa-bg-color and
+thead-chulapa-text-color for table headings; pagination-chulapa-text-color,
+pagination-chulapa-text-hover-color and pagination-chulapa-bg-hover-color;
+indexcards-chulapa-border-color for indexcategory cards.
+Selected Bootstrap overrides: primary, secondary, success, info, warning,
+danger, light, dark; body-bg, body-color, link-color; font-family-base,
+headings-font-family, font-size-base, headings-color; carousel-control-color
+and carousel-indicator-active-bg. enable-rounded: false disables Bootstrap
+rounding; enable-responsive-font-sizes: true enables responsive font sizes.
+The dictionary is a selection, not a complete list of supported Sass variables.
+
+## Markdown formatting
+Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
+Use **bold**, _italic_ and ~~strikethrough~~. Separate paragraphs with a blank
+line; headings use # through ######. Links use [label](URL), images use
+![alt text](URL), and blockquotes start with >. Lists use - for bullets or
+1. for numbered items. Inline code uses backticks; fenced code blocks use
+three backticks with a language identifier such as js, ruby, html or yaml.
+Use a pipe table with a heading separator row; colons in the separator control
+column alignment. The sample site uses kramdown with the GFM parser; some
+kramdown extensions require kramdown.input: Kramdown instead of GFM. Check
+generated output when changing parsers. For alerts, captions and footnotes,
+use the FAQ examples in this context.
+
+## Syntax highlighting styles
+Source: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
+The demo previews shipped highlighting styles in the browser. To make a choice
+permanent, copy its name into chulapa-skin.highlight in _config.yml and restart
+Jekyll. This changes code colors, not the site's skin or the code-block language.
+Examples of shipped style names: github, github.dark, dracula, monokai,
+solarized.dark, solarized.light, nord, one.dark and zenburn. Example:
+```yaml
+chulapa-skin:
+  highlight: github.dark
+```
+For code syntax, use a fenced Markdown code block with its language identifier.
+The preview alone does not save configuration. The highlight style can override
+pre-chulapa-bg-color.
+
+## Unpublished development change
+As of October 8, 2026, local v2.1.1-dev work moves the TOC sidebar button upward
+below 992 px, reserving a 56 px button and a spacer underneath. This change is
+not yet merged or published. Do not describe it as behavior in v2.1.0 or suggest
+that visitors already receive it from the remote theme.
 
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml

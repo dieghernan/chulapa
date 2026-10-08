@@ -22,6 +22,8 @@ It covers installation, theming, layouts, videos, galleries, carousels, tables o
 contents, mathematics, navigation, comments, search, feeds and SEO controls. All
 FAQ questions are represented in compact summaries, including favicons, icons,
 skin previews, YAML errors and replacing the Atom feed with jekyll-feed.
+It also summarizes selected Sass variables, Markdown syntax and highlighting
+style configuration. Unpublished development changes are explicitly marked.
 The context includes the public RSS URL as a link for visitors. Feed entries are
 not embedded or fetched automatically.
 
@@ -68,6 +70,8 @@ Marked and DOMPurify are bundled into the widget, so rendering needs no CDN.
 Formatting includes lists, code blocks and tables. Only links to the public
 Chulapa documentation site remain clickable; images and interactive HTML are
 removed. Visitor questions remain plain text.
+Brand mentions in answer prose use the site's `chulapa` class. Code, link text
+and identifiers such as `chulapa-skin` retain their original formatting.
 
 ## Evaluation
 
@@ -77,6 +81,8 @@ acknowledge missing facts and link to relevant original pages. Check six rapid
 questions, malformed and oversized requests, missing bindings and inference
 failure. Test narrow screens, keyboard navigation, Escape and long answers.
 Mock tests verify failure handling; only live inference can establish model quality.
+See `evaluation.md` for recorded live questions, rate-limit observations and the
+context update procedure.
 
 ## Initial live results
 
@@ -89,6 +95,8 @@ missing bindings, CORS and a denied rate-limit result.
 
 A live six-request burst returned six successful responses despite the configured
 five-per-minute limiter. Enforcement was therefore **not verified** in that test.
+The subsequent evaluation recorded a live HTTP 429 rejection. The cutoff is
+approximate rather than exactly the sixth request; see `evaluation.md`.
 Cloudflare documents approximate counters and limits local to each location;
 IP limits also affect visitors sharing an address. Investigate the observed burst
 behavior before treating this prototype's limiter as suitable for wider exposure.

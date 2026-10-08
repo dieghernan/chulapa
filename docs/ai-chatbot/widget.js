@@ -35,7 +35,7 @@ import { createAnswerRenderer } from './render-answer.mjs';
     footer{flex-shrink:0;border-top:1px solid var(--line)}small{display:block;color:var(--muted);font-size:.7rem;padding:0 1rem .75rem;line-height:1.45}
     form{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem}input{min-width:0;flex:1;padding:.7rem .8rem;border:1px solid #aab2b9;border-radius:.65rem;background:var(--surface);color:inherit}input::placeholder{color:var(--muted)}
     #send{width:2.75rem;height:2.75rem;flex-shrink:0;border-radius:.65rem;font-size:1.3rem}#status{padding:0 1rem;color:var(--muted);font-size:.8rem}#status:not(:empty){padding-bottom:.65rem}button:disabled{opacity:.6;cursor:wait}
-    @media(max-width:991.98px){#launch{top:50%;bottom:auto;transform:translateY(-50%)}}
+    @media(max-width:991.98px){#launch{left:var(--chat-right,1rem);right:auto;bottom:var(--chat-fab-bottom,1rem);transform:none}}
     @media(max-width:575px){section{height:auto}#log{max-height:40dvh}header{padding:.85rem 1rem}}
     @media(prefers-color-scheme:dark){:host{color:#eef3f5;--surface:#1d2b33;--muted:#bac7cf;--line:#36454e;--bubble:#2a3b45}a{color:#a8dae8}}
   </style>
@@ -69,6 +69,7 @@ import { createAnswerRenderer } from './render-answer.mjs';
       const style = getComputedStyle(fab);
       host.style.setProperty('--chat-right', style.right);
       host.style.setProperty('--chat-launch-size', style.width);
+      host.style.setProperty('--chat-fab-bottom', style.bottom);
     };
     window.addEventListener('resize', alignFab);
     alignFab();

@@ -27,9 +27,9 @@ in the `docs` collection. Other pages use the ordinary theme includes.
 
 Questions go to Cloudflare Workers AI. The widget includes a processing notice,
 source links and a link to the site's search with the configured `baseurl`.
-The launcher sits at the bottom right on desktop and halfway down the right edge
-below Bootstrap's 992 px breakpoint, clear of the FAB navbar and TOC sidebar
-controls. It shares the FAB's right margin and diameter. Opening either
+The launcher sits at the bottom right on desktop. Below Bootstrap's 992 px
+breakpoint it mirrors the FAB at the bottom left, sharing its margins and
+diameter. The theme positions the TOC sidebar control above it. Opening either
 navigation closes and hides the chat until both are closed.
 Each question is independent. The reviewed context and Worker source live in
 `ai-chatbot/`; context changes require rebuilding and redeploying that
