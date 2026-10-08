@@ -8,6 +8,7 @@
 
 ### Added
 
+-   Configure robots metadata per page with the `robots` front matter option, preserving `index, follow` by default ([#67](https://github.com/dieghernan/chulapa/issues/67)).
 -   New skins:
     -   `listen`
     -   `cyborg`
