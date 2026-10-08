@@ -139,3 +139,12 @@ separate YAML and Mermaid examples are complete and its source link is correct.
 Earlier runs incorrectly located source preservation on the CDN and nested
 Markdown fences; explicit context guidance corrected both in the final run.
 These checks consume Workers AI allowance; they do not change the Free plan.
+
+## Starter context deployment, October 8, 2026
+
+Deployed Worker version `140f5ab5-c855-4b49-b207-810f268f3c74` with the
+starter examples guidance. All 17 local chatbot tests pass. The targeted live
+result is saved in `evaluations/starters-2026-10-08.jsonl`. The reviewed answer
+correctly directs readers to copy the portfolio starter and edit `_config.yml`,
+explains that cards have no filtering and that starters have no deployment
+workflow, and links to the start guide and the `chulapa-101` template option.

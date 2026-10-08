@@ -2,9 +2,13 @@
 
 ### Added
 
+-   Provide complete personal blog, technical blog, portfolio and project starter examples with a start guide and YAML demos.
+
 -   Render Mermaid diagrams with `mermaid: true`, loading the library only on enabled pages containing diagrams and preserving source when rendering fails.
 
 ### Fixed
+
+-   Header project links no longer announce themselves as disabled buttons to assistive technology.
 
 -   Code copy buttons wait for clipboard writes, report failures and no longer clear the clipboard before copying.
 

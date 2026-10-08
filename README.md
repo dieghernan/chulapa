@@ -23,7 +23,28 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 
 # [<span class="chulapa">Chulapa</span>](https://dieghernan.github.io/chulapa/)
 
-### A flexible Jekyll theme for GitHub Pages
+### A flexible, visual Jekyll theme for blogs, portfolios and personal sites
+
+Choose from 40+ skins, customize colors from YAML and publish with GitHub Pages.
+Start with a small example, then add the features your site needs.
+
+[Get started](https://dieghernan.github.io/chulapa/docs/00-start) ·
+[Browse skins](https://dieghernan.github.io/chulapa/skins) ·
+[See real sites](https://dieghernan.github.io/chulapa/showcase)
+
+## Choose your starting point
+
+| Site | Complete example | Preview |
+| --- | --- | --- |
+| Personal blog | [A journal and recent-post index](examples/personal-blog) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-personal-blog) |
+| Technical blog | [Code, diagrams and equations](examples/technical-blog) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-technical-blog) |
+| Portfolio | [A projects collection and card index](examples/portfolio) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-portfolio) |
+| Project | [A landing page with source and setup links](examples/project) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-project) |
+
+Each example includes configuration, dependencies and editable content.
+See [the start guide](https://dieghernan.github.io/chulapa/docs/00-start) for
+local preview and publishing. Examples follow the default branch; Mermaid
+requires development changes after v2.1.0.
 
 ## Notable features
 

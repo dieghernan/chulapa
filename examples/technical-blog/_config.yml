@@ -1,0 +1,35 @@
+# Edit title, description, repository, url and baseurl before publishing.
+remote_theme: dieghernan/chulapa
+# The default branch includes development features. Append @TAG to pin a release.
+title: Engineering notes
+description: Code examples, diagrams and practical tutorials
+repository: username/site
+url: https://username.github.io
+baseurl: /site
+locale: en-US
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-sitemap
+exclude: [Gemfile, Gemfile.lock, README.md, vendor]
+kramdown:
+  input: GFM
+chulapa-skin:
+  skin: gitdev
+navbar:
+  brand:
+    title: Engineering notes
+  nav:
+    - title: Home
+      url: /
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default
+      header_type: post
+      include_on_feed: true
+      show_date: true

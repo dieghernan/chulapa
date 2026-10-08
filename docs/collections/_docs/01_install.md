@@ -9,6 +9,10 @@ show_toc: true
 Jekyll sites. There are
 three ways to use <span class="chulapa">Chulapa</span>:
 
+For a small site with editable sample content, choose a [blog, technical blog,
+portfolio or project example](./00-start). For a ready-made repository with a
+publishing workflow, use the GitHub template below.
+
 ## 1. Use our GitHub template
 
 **Recommended if you are starting from scratch.**

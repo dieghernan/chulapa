@@ -89,5 +89,12 @@
     "doc": "04_layouts.md",
     "question": "How do I enable Mermaid diagrams? Does this work with the v2.1.0 gem and what happens if the CDN fails?",
     "expected": "Development after v2.1.0 only; mermaid: true YAML boolean and fenced mermaid block; no extra plugin; CDN loads only enabled diagrams; source remains on failure."
+  },
+  {
+    "id": "starter-1",
+    "section": "installation",
+    "doc": "00_start.md",
+    "question": "I want a portfolio with Chulapa. Is there a small starter, does it filter projects and does it deploy automatically?",
+    "expected": "examples/portfolio with projects collection and two sample projects; copy contents edit config; card index has no filtering; no deployment workflow follow installation or chulapa-101 template."
   }
 ]

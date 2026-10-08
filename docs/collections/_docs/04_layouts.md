@@ -102,10 +102,9 @@ high-resolution image for `header_img` and a smaller sharing image for
 `og_image`.
 {: .alert .alert-info .p-3 .mx-2}
 
-- `project_links`: If you want to embed buttons as links on your header this
-  option would do it for you. Typical example could be a page on your site that
-  refers to an external project hosted on a different environment. An example of
-  use:
+- `project_links`: Add header navigation links styled as buttons, for example
+  links to a project's source code or documentation. Each entry accepts `url`,
+  `icon` and `label`. Example:
 
 ```yaml
 ---

@@ -260,6 +260,7 @@ exclude:
   - vendor
   - /docs # ignore Chulapa /docs
   - /test # ignore Chulapa /test
+  - /examples # starter source files are not published
   - github-metrics.svg
 
 include:

@@ -1,0 +1,37 @@
+# Edit title, description, repository, url and baseurl before publishing.
+remote_theme: dieghernan/chulapa
+# The default branch includes development features. Append @TAG to pin a release.
+title: My portfolio
+description: Selected projects and the work behind them
+repository: username/site
+url: https://username.github.io
+baseurl: /site
+locale: en-US
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-sitemap
+exclude: [Gemfile, Gemfile.lock, README.md, vendor]
+kramdown:
+  input: GFM
+chulapa-skin:
+  skin: lux
+navbar:
+  brand:
+    title: My portfolio
+  nav:
+    - title: Home
+      url: /
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: default
+      header_type: hero

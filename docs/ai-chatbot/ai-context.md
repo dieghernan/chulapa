@@ -484,7 +484,8 @@ authentication/access control at the hosting layer or not publishing the content
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 Use header_type: splash for a splash landing-page header; hero is a different
 header presentation. Supported header types are base, post, hero, image and splash.
-project_links is a list of header buttons with url, icon and label fields.
+project_links is a list of header navigation links styled as buttons, with url,
+icon and label fields.
 words_per_minute in _config.yml controls reading time (default 200).
 paginator_maxnum controls numbered pagination links (default 3), clamped to
 2 through the total page count; previous/next and first/last are separate controls.
@@ -531,3 +532,22 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#copying-code
 Copy code requires Clipboard API in HTTPS or localhost and browser permission.
 Development buttons await the write, report failure and do not clear the
 clipboard first. Rendered Mermaid diagrams do not receive copy buttons.
+
+
+## Starter examples
+Source: https://dieghernan.github.io/chulapa/docs/00-start
+Four complete starter folders are under examples/ in the repository:
+personal-blog (post and card index), technical-blog (code, Mermaid, MathJax and
+TOC), portfolio (projects collection and two project pages), project (landing
+page and source/setup buttons). Each has Gemfile, _config.yml, index.md and a
+README. Copy the contents of one folder to your own repository, update title,
+description, repository, url/baseurl and replace sample content and links.
+Examples use the default-branch remote theme with explicit Gemfile dependencies.
+Pin a release tag for reproducibility; Mermaid is not in v2.1.0.
+Preview with bundle install then bundle exec jekyll serve --url
+http://localhost:4000 --baseurl "". Follow the installation guide for GitHub
+Actions hosting: example folders do not include deployment workflows. The
+chulapa-101 template is the alternative with a ready-made publishing workflow.
+Portfolio cards do not provide filtering. Project starter is a landing page,
+not a documentation sidebar. Starter demo paths are /demo/starter-personal-blog,
+/demo/starter-technical-blog, /demo/starter-portfolio and /demo/starter-project.

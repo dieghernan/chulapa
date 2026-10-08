@@ -9,8 +9,8 @@ remote_theme: dieghernan/chulapa
 # A. Site settings/SEO
 # General site settings
 title: Chulapa
-subtitle: A full flexible Jekyll theme
-description: Template for creating free sites on GitHub Pages
+subtitle: A flexible, visual Jekyll theme
+description: A flexible, visual Jekyll theme for blogs, portfolios and personal sites.
 repository: dieghernan/chulapa
 url: "https://dieghernan.github.io"
 baseurl: "/chulapa"
@@ -111,6 +111,8 @@ navbar:
     child:
     - title: Read the Docs
       url: /docs
+    - title: Start here
+      url: /docs/00-start
     - title: Installation
       url: /docs/01-install
     - title: Global Settings

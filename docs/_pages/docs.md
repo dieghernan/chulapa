@@ -13,6 +13,9 @@ index_items: 20
 
 Use these guides to install and configure the <span class="chulapa">Chulapa</span> Jekyll theme.
 
+Start with [a small example](./docs/00-start), then use the guides below
+to configure your site.
+
 Read the docs to start with <span class="chulapa">Chulapa</span>, or use
 the [search](https://dieghernan.github.io/chulapa/search) of the site.
 

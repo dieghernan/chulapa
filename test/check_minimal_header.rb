@@ -43,6 +43,7 @@ Dir.mktmpdir("chulapa-minimal-header-") do |source|
       header = headers.first
       raise "Title missing: #{name}" unless header.at_css("h1").text == "A header"
       raise "Subtitle missing: #{name}" unless header.at_css(".chulapa-subtitle").text == "A subtitle"
+      raise "Project link incorrectly disabled: #{name}" if header.at_css("a")["aria-disabled"] == "true"
       raise "Project URL: #{name}" unless header.at_css("a")["href"] == "https://example.com#{baseurl}/project"
       raise "Image URL: #{name}" unless header.to_html.include?("https://example.com#{baseurl}/header.jpg")
       raise "Content position: #{name}" unless doc.to_html.index("<header") < doc.to_html.index('id="wide"')

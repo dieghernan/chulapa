@@ -1,8 +1,8 @@
 ---
 layout: landingpage
 title: '<span class="chulapa">Chulapa</span>'
-subtitle: A full flexible Jekyll theme for GitHub Pages
-excerpt: Jekyll template for fast creation of free site on GitHub Pages. Based on Bootstrap and shipped with lots of features
+subtitle: A flexible, visual theme for blogs, portfolios and personal sites
+excerpt: Choose a small starter site, explore 40+ skins and customize your Jekyll site from YAML.
 header_type: splash
 header_img: "https://images.unsplash.com/photo-1545290614-5ceedf604139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60"
 og_image: "./assets/img/site/banner.png"
@@ -11,7 +11,7 @@ show_sociallinks: false
 project_links:
     - url: https://github.com/dieghernan/chulapa
       icon: fab fa-github fa-lg
-      label: Follow
+      label: View source
 ---
 
 <div class="text-center">
@@ -20,25 +20,49 @@ project_links:
   <a href="https://github.com/dieghernan/chulapa/releases" class="btn btn-outline-primary font-weight-bold">{{ site.data.version.release }}</a>
 </div>
 <div class="text-center my-4">
-  <a class="btn btn-primary btn-lg my-3 text-secondary" href="{{ '/docs.html' | relative_url }}" role="button">Read the docs</a>
+  <p class="lead">Choose a starting point, add your content and make it your own.</p>
+  <a class="btn btn-primary btn-lg m-2" href="{{ '/docs/00-start' | relative_url }}">Start your site</a>
+  <a class="btn btn-outline-primary btn-lg m-2" href="{{ '/skins' | relative_url }}">Browse 40+ skins</a>
 </div>
+<section class="text-left my-5" aria-labelledby="starter-heading">
+  <h2 id="starter-heading" class="text-center">What would you like to build?</h2>
+  <div class="row">
+    {% assign starter_names = 'Personal blog,Technical blog,Portfolio,Project' | split: ',' %}
+    {% assign starter_paths = 'personal-blog,technical-blog,portfolio,project' | split: ',' %}
+    {% assign starter_descriptions = 'A journal with recent stories.|Code examples, diagrams and equations.|A collection of projects and the work behind them.|A landing page with source and setup links.' | split: '|' %}
+    {% for starter in starter_names %}
+    <div class="col-md-6 d-flex mb-3">
+      <article class="card w-100">
+        <div class="card-body">
+          <h3 class="h4">{{ starter }}</h3>
+          <p>{{ starter_descriptions[forloop.index0] }}</p>
+          {% assign starter_url = '/demo/starter-' | append: starter_paths[forloop.index0] %}
+          <a class="btn btn-outline-primary" href="{{ starter_url | relative_url }}">Explore the {{ starter | downcase }} example</a>
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="text-center">Each example includes configuration and editable content.
+    <a href="{{ '/showcase' | relative_url }}">See sites built with Chulapa</a>.</p>
+</section>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="
 background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/github.svg)">
  <p><i class="fas fa-rocket fa-3x"></i></p>
  <h2 class="font-weight-light py-3">Easy to install</h2>
- <p class="lead font-weight-light py-2">Create a fully responsive website hosted on GitHub in minutes - for free! Remote GitHub theme or gem-based method, you choose</p>
+ <p class="lead font-weight-light py-2">Start with an example or the GitHub template. Install as a remote theme or Ruby gem and follow the publishing guide.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img" style="background-repeat: repeat;
 background-size: auto;
 background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/banner.svg)">
  <p><i class="fas fa-code fa-3x"></i></p>
  <h2 class="font-weight-light  py-3">First-class features</h2>
- <p class="lead font-weight-light py-2">Font Awesome, comments, internal search, MathJax, Twitter Cards and Open Graph, three different navbars, video support and much more...</p>
+ <p class="lead font-weight-light py-2">Add search, comments, galleries, video and mathematical notation when your site needs them.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/bolt.svg)">
  <p><i class="fa-brands fa-searchengin fa-3x"></i></p>
- <h2 class="font-weight-light py-3">PageSpeed Ready</h2>
- <p class="lead font-weight-light py-2"><span class="font-weight-bold" >PageSpeed score +90</span> in SEO Performance, Accesibility and Best Practices</p>
+ <h2 class="font-weight-light py-3">Check your published site</h2>
+ <p class="lead font-weight-light py-2">Performance depends on your content, images and integrations. <a href="{{ "/pagespeed" | relative_url }}">See the recorded PageSpeed results</a> and measure your own site.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="
 background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/palette.svg)">
