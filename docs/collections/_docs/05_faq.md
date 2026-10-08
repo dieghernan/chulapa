@@ -202,3 +202,47 @@ Congratulations! You would have a quick preview of that page as it would be unde
 ### ...find an error on my _config file?
 
 [http://www.yamllint.com/](http://www.yamllint.com/)
+
+### ...use jekyll-feed instead of Chulapa's feeds?
+
+Chulapa generates `/atom.xml` and `/rss.xml`. A document appears in these feeds
+only when `include_on_feed: true` and a date are set. To include all posts, add
+this default to your `_config.yml`, preserving your other defaults:
+
+```yaml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      include_on_feed: true
+```
+
+If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with Chulapa's
+feeds. Changing its path to `/atom.xml` without removing Chulapa's Atom feed
+creates two pages with the same output path.
+
+For sites built locally or with a custom build workflow, you can remove
+Chulapa's feeds before plugins generate their output. Create
+`_plugins/disable_chulapa_feeds.rb` in your site with this content:
+
+```ruby
+Jekyll::Hooks.register :site, :post_read do |site|
+  site.pages.reject! do |page|
+    %w[assets/atom.xml assets/rss.xml].include?(page.relative_path.sub(%r{\A/}, ""))
+  end
+end
+```
+
+Keep `jekyll-feed` in your Gemfile and plugins list. To use `/atom.xml`, add
+this setting to `_config.yml`:
+
+```yaml
+feed:
+  path: /atom.xml
+```
+
+Update any RSS links in your navbar or footer to use the feed you keep.
+Custom plugins are not loaded by GitHub Pages' default safe build; use your own
+build workflow for this approach. Adding the theme's feed files to `exclude`
+alone does not remove them when they are supplied by a gem or remote theme.
