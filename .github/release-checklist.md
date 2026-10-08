@@ -1,7 +1,9 @@
 # Release 2.1.0
 
 Release preparation and validation, October 8, 2026. The candidate is built
-locally; no release tag, push or RubyGems publication has been made.
+locally. Commit `64b88f51b` was pushed to `main` and deployed successfully;
+GitHub release v2.1.0 is finalized on October 8, 2026. RubyGems publication
+remains pending and will be performed by the maintainer.
 
 ## Scope
 
@@ -65,15 +67,41 @@ appearance or identical cards across social platforms.
 
 ## Publication checklist
 
+- [x] Prepare the [GitHub release](https://github.com/dieghernan/chulapa/releases/tag/v2.1.0)
+  from the final release commit, with release notes, the built gem and its
+  SHA-256 file.
+
 - [x] Set the gem version and HTML theme marker to 2.1.0.
 - [x] Set both development version labels to v2.1.0.
-- [x] Keep latest release labels and pinned installation examples at v2.0.1
-  until the new release is actually published.
 - [x] Confirm `chulapa-101` uses `remote_theme: dieghernan/chulapa` without a
   pinned tag, so its configuration needs no version bump.
-- [ ] Commit and review all changes, including the new snippets and thumbnail.
-- [ ] Push the reviewed changes and validate the deployed documentation.
-- [ ] Check actual social previews for representative published pages.
-- [ ] Tag and publish v2.1.0, publish the gem and finalize the changelog date.
-- [ ] Update both latest release labels and pinned installation examples.
-- [ ] Recheck #72, #80 and #81 against the deployed results before closing them.
+- [x] Commit and review all changes, including the new snippets and thumbnail.
+- [x] Push the reviewed changes and validate the deployed documentation.
+- [x] Check simulated social previews for the published Welcome article with
+  OpenGraph.xyz; direct platform caches have not been tested.
+- [x] Tag and publish v2.1.0 on GitHub and finalize the changelog date.
+- [ ] Publish the gem on RubyGems (maintainer).
+- [x] Update both latest release labels and pinned installation examples.
+- [x] Recheck #72, #80 and #81 against the deployed results and close them with
+  implementation and validation comments.
+
+## Published validation in Chrome
+
+Validated October 8, 2026 after deployment of `64b88f51b`:
+
+- All four GitHub workflows completed successfully.
+- [Documentation URL in Google Rich Results Test](https://search.google.com/test/rich-results/result?id=MBjJxgJ6zRAatfZrMh0PEA): five valid videos and one valid breadcrumb.
+- Schema.org Validator fetched the documentation URL: 65 items, zero errors
+  and zero warnings, including five videos and 57 images.
+- [Welcome article URL in Google Rich Results Test](https://search.google.com/test/rich-results/result?id=GloMyQr4bJU98ft0wyPxMg): one valid article and one valid breadcrumb.
+- Both published MP4 files and all three YouTube examples played in Chrome;
+  the deferred players retained the five video metadata entities.
+- Canonical/Open Graph URLs agree on the checked documentation and article.
+  The article emits its publication date, tags and representative image.
+- The search page emits `noindex, follow`. The skins grid has 41 sibling
+  columns, no nested columns and no broken images in the checked state.
+- OpenGraph.xyz rendered Facebook and X previews with the article title and
+  photograph. Its inspector reported design recommendations: a 714x390 image
+  rather than 1200x630, a short title and no marketing text in the photograph.
+  These do not indicate missing or invalid metadata. Platform-specific caches
+  and actual social posts were not tested.

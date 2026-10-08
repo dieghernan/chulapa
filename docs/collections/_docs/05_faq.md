@@ -16,7 +16,7 @@ These answers and examples cover common tasks when using
 ### ...know which version of the theme I am using?
 
 For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
-`@v2.0.1` pins a release; an unpinned value uses the repository default branch
+`@v2.1.0` pins a release; an unpinned value uses the repository default branch
 and does not identify a fixed version. For a gem-based theme, check the
 `chulapa-jekyll` version in `Gemfile.lock`.
 

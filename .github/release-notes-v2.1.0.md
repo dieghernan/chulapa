@@ -1,4 +1,4 @@
-## v2.1.0 - 2026-10-08
+# Chulapa v2.1.0
 
 ### Fixed
 
@@ -115,95 +115,26 @@
 -   New option `site.search.show_attrib` to hide attribution of engine searches
     (not recommended but provided as a feature).
 
-#### Checklist
+## Compatibility and validation
 
--   [x] Set the gem and theme version to 2.1.0.
--   [x] Update the development version in the documentation.
--   [x] Confirm `chulapa-101` tracks the default branch without a pinned tag.
--   [x] Publish the GitHub release and update the latest release label in both version files.
--   [x] Validate the deployed video examples and simulated social previews.
--   [ ] Publish the gem on RubyGems.
+Existing embedding calls remain supported. Metadata descriptions are now retained without forced truncation, `og:site_name` uses the site title alone and article structured data no longer falls back to site banners or author portraits. Use `schema_image` for representative article images.
 
-## v2.0.1 - 2025-02-26
+Validated with Jekyll 3.10.0 and 4.4.1 on Ruby 3.4.11, including temporary installation of the built gem, complete documentation builds, pagination, metadata and browser playback checks. This is not a full Ruby/Jekyll version matrix.
 
-Hotfix release.
+The deployed documentation reports five valid videos and one breadcrumb in [Google Rich Results Test](https://search.google.com/test/rich-results/result?id=MBjJxgJ6zRAatfZrMh0PEA). Schema.org reports zero errors and warnings. The [Welcome article](https://search.google.com/test/rich-results/result?id=GloMyQr4bJU98ft0wyPxMg) has a valid article and breadcrumb. Validation does not guarantee search appearance.
 
-### Changed
+## Installation
 
--   Issue with `group_by` fixed with a pure Liquid approach (compatible with
-    Jekyll 3 & 4). This affects the `related` plugin and `cloudtag` and
-    `cloudcategory`. Now `cloudtag2` and `cloudcategory2` approaches are not
-    recommended anymore and will redirect to `cloudtag` and `cloudcategory`.
-    **Plugin `grouptag.rb` not required anymore**.
+Once published on RubyGems:
 
-## v2.0.0 - 2025-02-24
+```ruby
+gem "chulapa-jekyll", "~> 2.1.0"
+```
 
-### Added
+For a pinned remote theme after this release is published:
 
--   New versions of `cloudtag` and `cloudcategory` (`cloudtag2` and
-    `cloudcategory2`) layouts compatible with Jekyll \>= 4.1.0.
--   New skins:
-    -   `focal`
-    -   `media`
-    -   `electro`
-    -   `monotone`
-    -   `mickie`
-    -   `skeeblu`
-    -   `minco`
+```yaml
+remote_theme: dieghernan/chulapa@v2.1.0
+```
 
-### Changed
-
--   Twitter share button renamed to X. Also, the icon has been updated.
--   Share on Mastodon link replaced by Share on Bluesky.
--   Update `towards` skin.
-
-## v1.1.0 - 2023-12-13
-
-### Added
-
--   Add new "Share on Mastodon" button.
--   Add more comment providers:
-    -   Cactus
-    -   Cusdis
-    -   Welcomments
--   New skins:
-    -   `gitdev`
-    -   `gitdev-dark`
-    -   `towards`
--   New `related` component.
--   Add link to headings via JS.
--   Implement `show_sidetoc`.
--   Added support for
-    [microformats2](http://microformats.org/wiki/microformats2).
-
-### Changed
-
--   Improve font loading on skins.
--   Improve Universal skin.
--   Remove Clipboard.js dependency. Chulapa now uses a custom script.
--   Font Awesome Icons now present transitions on hover.
--   YouTube videos are lazy-deferred by default.
--   Improvements on pagination.
--   Several adjustments on skins.
-
-## v1.0.1 - 2022-11-25
-
-This release updated the gem dependencies for compatibility with other Jekyll versions.
-
-## v1.0.0 - 2022-11-24
-
-Public release with a Gem
-
-## v1.0.0-beta.1 - 2020-07-28
-
-Pre-release - first stable beta of the software
-
-### Added
-
--   First stable beta - Software is public
-
-## \### Changed
-
-## \### Removed
-
-## \### Fixed
+**Full changelog**: https://github.com/dieghernan/chulapa/compare/v2.0.1...v2.1.0

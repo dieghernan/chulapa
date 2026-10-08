@@ -98,7 +98,7 @@ method. Just follow these steps:
    A remote theme does not install these dependencies for you.
 
 An unpinned remote theme follows the repository default branch. To select a
-release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.0.1`.
+release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.1.0`.
 Development features may be available on the default branch before they are
 published in the gem.
 
