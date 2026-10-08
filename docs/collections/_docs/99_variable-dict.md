@@ -12,6 +12,24 @@ SCSS `$` prefix or trailing semicolon. For the full set, see the
 [<span class="chulapa">Chulapa</span> variables source](https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss)
 and [Bootstrap variables source](https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss).
 
+Quote hex colors in YAML so that `#` is not interpreted as a comment. Use
+Sass units for sizes, such as `"1.1rem"`, and lowercase `true` or `false` for
+boolean variables. For example:
+
+```yaml
+chulapa-skin:
+  vars:
+    primary: "#345678"
+    navbar-chulapa-hover-bg-color: "#234567"
+    chulapa-toc-bg: "#f5f5f5"
+    font-size-base: "1.1rem"
+    enable-rounded: false
+```
+
+Values in `vars` override the selected skin's variable assignments.
+Autothemer fills in variables that are still undefined. See
+[Theming Chulapa](./03-theming#variables) for the loading order and font setup.
+
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 
 | `vars` | Description |
@@ -19,17 +37,19 @@ and [Bootstrap variables source](https://github.com/dieghernan/chulapa/blob/main
 | `navbar-chulapa-bg-color` | Navbar background color |
 | `navbar-chulapa-text-color` | Navbar text color |
 | `navbar-chulapa-hover-color` | Navbar text color on hover |
+| `navbar-chulapa-hover-bg-color` | Navbar link background color on hover |
 | `navbar-chulapa-active-color` | Navbar text color for active item |
 | `navbar-chulapa-disabled-color` | Navbar text color for disabled item |
 | `navbar-chulapa-brand-color` | Navbar brand color |
 | `navbar-chulapa-brand-hover-color` | Navbar brand color on hover |
-| `navbar-chulapa-toggler-color` | Navbar color of the hamburger icon |
-| `navbar-chulapa-toggler-color-bg` | Navbar color of the hamburger icon background |
-| `navbar-chulapa-toggler-border-color` | Navbar color of the borders of the hamburger box |
+| `navbar-chulapa-toggler-color` | Stroke color of the default hamburger icon |
+| `navbar-chulapa-toggler-color-bg` | Background color of the navbar toggle button |
+| `navbar-chulapa-toggler-icon-bg` | Background image of the navbar toggle button, as a Sass `url(...)` expression; overrides the default hamburger icon |
+| `navbar-chulapa-toggler-border-color` | Border color of the navbar toggle button |
 | `footer-chulapa-bg-color` | Footer background color |
 | `footer-chulapa-text-color` | Footer text color |
 | `footer-chulapa-link-color` | Footer link color |
-| `footer-chulapa-hover-color` | Footer text color on hover |
+| `footer-chulapa-hover-color` | Footer link color on hover |
 | `footer-chulapa-icon-color` | Footer color of the social icons |
 | `footer-chulapa-icon-hover-color` | Footer color of the social icons on hover |
 | `hero-chulapa-bg-color` | Hero header background color |
@@ -46,6 +66,19 @@ and [Bootstrap variables source](https://github.com/dieghernan/chulapa/blob/main
 | `pagination-chulapa-text-hover-color` | Pagination text color on hover |
 | `pagination-chulapa-bg-hover-color` | Pagination background color on hover |
 | `indexcards-chulapa-border-color` | Border color of cards on `indexcategory` layout |
+| `chulapa-toc-bg` | Background color of the table of contents sidebar |
+
+Unless a skin or `vars` supplies a value, the navbar background uses
+`primary`, the footer and hero backgrounds use the navbar background and
+the landing page background uses the hero background. Many text colors are
+derived from these backgrounds. Explicit component colors supplied by a
+skin or `vars` keep their assigned values.
+
+The source also contains calculated helpers such as
+`navbar-chulapa-text-contrast`, `footer-chulapa-text-contrast`,
+`landingpage-card-bg` and `cactus-btn-text`. These are recalculated by the
+theme rather than exposed as overridable defaults. Use the component
+variables above or custom CSS to adjust the corresponding styles.
 
 **These are Sass variables, not page options.** Set them under
 `chulapa-skin.vars`, then restart Jekyll to rebuild the styles. For layout and
@@ -71,16 +104,26 @@ See the full set of variables [here](https://raw.githubusercontent.com/diegherna
 | `body-bg` | Body background color |
 | `body-color` | Body text color |
 | `link-color` | Link text color |
+| `link-hover-color` | Link text color on hover |
+| `text-muted` | Muted text color; also the default border color for index cards |
 | `font-family-base` | Main font family |
 | `headings-font-family` | Headings font family |
-| `font-size-base` | Base font size |
+| `font-family-monospace` | Font family for code and other monospace text |
+| `font-size-base` | Base font size, with a Sass unit such as `rem`; defaults to `1rem` |
+| `line-height-base` | Base line height as a unitless multiplier; defaults to `1.5` |
 | `headings-color` | Headings text color |
+| `border-radius` | Default border radius for Bootstrap components |
 | `carousel-control-color` | Color for carousel controls |
 | `carousel-indicator-active-bg` | Color for carousel indicators |
 
 ### Color map
 
 The [Bootstrap color palette](https://getbootstrap.com/docs/4.5/getting-started/theming/#color) can be customized using these Sass variables:
+
+These are palette values. Use semantic variables such as `primary`, `danger`
+or `body-bg` to assign colors to components. A skin may define semantic
+colors explicitly, so changing a palette value such as `blue` does not
+necessarily change that skin's `primary` color.
 
 | Variable | Variable | Variable | Variable |
 |:---|:---|:---|:---|
