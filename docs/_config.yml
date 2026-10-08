@@ -365,6 +365,5 @@ sass:
   - import
   - global-builtin
   - color-functions
-  - mixed-decls
   - abs-percent
   - function-units

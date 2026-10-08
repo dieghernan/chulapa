@@ -19,7 +19,9 @@ words_per_minute        :     #default[200]
 timezone                :     #"Europe/Madrid ,see https://jekyllrb.com/docs/configuration/options/ and https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # A.1. SEO
-# Optional og_locale and og_locale_alternate: docs/04-layouts#social-locales-and-articles.
+# Social locales: docs/04-layouts#social-locales-and-articles.
+og_locale:
+og_locale_alternate: []
 og_image                :     #default[author.avatar (see below)] or [github-avatar]
 twitter_site            :     #Avoid @
 author:
@@ -33,8 +35,13 @@ author:
 #      icon: # Another FontAwesome code
 
 # A.1.1. Publisher
-# Optional publisher settings use the default organization and author fallbacks.
-# See docs/02-config#publisher.
+# Optional JSON-LD publisher; blank fields use theme fallbacks.
+publisher:
+  type:
+  name:
+  url:
+  logo:
+  image:
 
 # A.2. Font Awesome
 fa_version: #default ["6"] Use 6 or 5
