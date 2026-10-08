@@ -1,0 +1,6 @@
+.build/
+.wrangler/
+node_modules/
+!package-lock.json
+generated-content.mjs
+dashboard-worker.mjs

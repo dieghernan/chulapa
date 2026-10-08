@@ -1,3 +1,13 @@
 <!-- start custom scripts to be placed at the bottom of the page -->
-
+{% if site.docs_chat.enabled and site.docs_chat.worker_url %}
+  {% if page.url == '/' or page.url == '/index.html' or page.collection == 'docs' or page.url == '/docs' or page.url == '/docs/' %}
+    <script defer
+            src="{{ site.docs_chat.worker_url | append: '/widget.js' | escape }}"
+            data-endpoint="{{ site.docs_chat.worker_url | append: '/api/chat' | escape }}"
+            data-position="right"
+            data-menu-toggle="navi-toggle"
+            data-sidebar-toggle="demo"
+            data-search="{{ site.search.landing_page | default: '/search' | relative_url }}"></script>
+  {% endif %}
+{% endif %}
 <!-- end custom bottom scripts -->
