@@ -121,6 +121,9 @@ author:
 **Note that** the page would be included on the feed if this option is set to `true` **and** there is a `date` set. Posts on Jekyll needs a date already present in the name of the file, but pages and collections don't, so set a `date` value for those. You have two feeds available: Atom feed at `https://yoururl/atom.xml` (preferred) and RSS 2.0 at `https://yoururl/rss.xml`.
 {: .alert .alert-warning .p-3 .mx-2}
 
+To enable feeds for all posts or use `jekyll-feed` instead, see the
+[feed configuration FAQ](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
+
 - `show_comments`: Activates comments on the page.
 - `show_breadcrumb`: Shows breadcrumb navigation on a page. Use with `breadcrumb_list`.
 - `breadcrumb_list`: A list with breadcrumbs. It is a good practice to set this on your defaults.
