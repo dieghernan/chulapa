@@ -6,9 +6,8 @@ layout: compress
 <html lang="{{ page_language | escape }}">
 	{%- include head.html -%}
 	{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
-	<body {% if page.mermaid == true %}data-mermaid="true" {% endif %}class="d-flex flex-column h-entry" id="body">
+	<body {% if page.mermaid == true %}data-mermaid="true" {% endif %}class="d-flex flex-column" id="body">
 	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
-	<a class="u-url d-none" href="{{ canonical_url | escape }}">Invisible link to canonical for Microformats</a>
 	{% include_cached navbar.html pageurl=page.url %}
 	{% if page.show_header == true %}
 	  {% unless layout.header_in_content %}

@@ -455,4 +455,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 {% endif -%}
     {%- include custom/custom_head.html -%}
+{% if site.navbar.style == 'fab' or site.navbar.style == 'dual' %}
+<noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+{% endif %}
 </head>

@@ -119,10 +119,15 @@ project_links:
 ---
 ```
 - `show_date`: This would display the date of the page and the last modified
-  date, if provided.
+  date, if provided. From v2.1.1, pages with `last_modified_at` retain both
+  `dt-published` and `dt-updated` in their Microformats2 markup.
 - `show_sociallinks`: Display sharing links for Facebook, Twitter/X, WhatsApp
   and LinkedIn.
 - `show_author`: Set it to `true` to display the author of the page. By default it would display the `author` set on your [global settings](https://dieghernan.github.io/chulapa/docs/02-config), but you can override it via the page front matter:
+
+  From v2.1.1, the author's `url` is also included in the Microformats2 `h-card`.
+  Relative profile paths use the site's `url` and `baseurl`. A page author does
+  not inherit the site author's profile URL.
 
 ```yaml
 ---
@@ -130,6 +135,7 @@ title: "Plain post 2"
 subtitle: "Example 2"
 author:
   name: Another name
+  url: /about/another-author/
   location: Santiago de Compostela
   avatar: https://github.com/devdieghernan.png
   links:
@@ -173,7 +179,10 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 - `related_label` and `random_label`: Text or HTML displayed before the related
-  and random cards, respectively.
+  and random cards, respectively. Custom HTML is rendered as supplied. Use
+  headings that fit the page hierarchy, such as `<h2 class="h5">Related
+  posts</h2>` for a separate section. The `h5` class controls its visual size
+  without skipping heading levels.
 
 - `show_bottomnavs`: Display previous and next navigation at the bottom of the
   page when Jekyll supplies `page.previous` and `page.next`. This does not
@@ -450,6 +459,10 @@ Shared metadata options such as `description`, `seo_title`, `og_title`,
 `include_on_feed` and `show_comments`. Content is rendered directly between
 the navbar and footer; author panels and tables of contents are not
 added automatically.
+Unlike `default` and `landingpage`, `minimal` does not automatically declare a
+Microformats2 `h-entry`. Custom content can provide its own `h-entry` wrapper,
+with `p-name`, `u-url` and `e-content` properties, without including the navbar
+or footer in the entry. This behavior starts in v2.1.1.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ```yaml

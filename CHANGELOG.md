@@ -8,6 +8,10 @@
 
 ### Fixed
 
+-   Give navbar dropdowns a valid named group role, move no-JavaScript navigation styles into the head and remove redundant void-element slashes, JavaScript types and the empty comments section warning from theme templates.
+
+-   Preserve publication dates on updated pages and author profile URLs in Microformats2, and stop declaring automatic entries for unrestricted minimal layouts ([#86](https://github.com/dieghernan/chulapa/issues/86)).
+
 -   Make floating navigation operable with keyboard input, reveal focused heading permalinks, name card image links and improve text link contrast in the Chulapa, Navi, Journal and Flatly skins.
 
 -   Header project links no longer announce themselves as disabled buttons to assistive technology.

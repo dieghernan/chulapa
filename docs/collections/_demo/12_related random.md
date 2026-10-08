@@ -7,8 +7,8 @@ date: 2022-12-01
 show_date         : true
 show_related  : true
 show_random  : true
-related_label: '<h4>There are related posts</h4>'
-random_label: '<h4>These are random, they will change on each build</h4>'
+related_label: '<h2 class="h4">There are related posts</h2>'
+random_label: '<h2 class="h4">These are random, they will change on each build</h2>'
 show_sociallinks  : true
 show_tags         : true
 show_categories   : true
@@ -32,8 +32,8 @@ date: 2022-12-01
 show_date         : true
 show_related  : true
 show_random  : true
-related_label: '<h4>There are related posts</h4>'
-random_label: '<h4>These are random, they will change on each build</h4>'
+related_label: '<h2 class="h4">There are related posts</h2>'
+random_label: '<h2 class="h4">These are random, they will change on each build</h2>'
 show_sociallinks  : true
 show_tags         : true
 show_categories   : true
