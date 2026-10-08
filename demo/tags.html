@@ -14,7 +14,7 @@
       "@type": "WebPage",
       "@id": "https://dieghernan.github.io/chulapa/demo/tags",
       "name": "Navigate the tags",
-      "description": "Tags from demo and skins collections - Here you can find the list of tags includes in the demo and skins collections.",
+      "description": "Tags from demo and skins collections - Here you can find the list of tags included in the demo and skins",
       "headline":"Navigate the tags",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png",
       "author": {
@@ -93,7 +93,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="author" content="dieghernan" >
    <meta name="copyright" content="dieghernan" >
-   <meta name="description" content="Tags from demo and skins collections - Here you can find the list of tags includes in the demo and skins collections.">
+   <meta name="description" content="Tags from demo and skins collections - Here you can find the list of tags included in the demo and skins">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" >
    <meta name="robots" content="index, follow"><meta name="keywords" content="">
     <!-- OpenGraph -->
@@ -101,7 +101,7 @@
    <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/tags" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="Tags from demo and skins collections - Here you can find the list of tags includes in the demo and..." >
+   <meta property="og:description" content="Tags from demo and skins collections - Here you can find the list of tags included in the demo and..." >
    <meta property="og:locale" content="en_US" >
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" >
     <!-- Twitter/X Cards -->
@@ -186,11 +186,11 @@
 		<div class="row pt-2">
 			<aside class="col-lg-2 mt-lg-3 small"></aside>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
-			 <!--Layout cloudtag2 deprecated. Migrate to layout: cloudtag -->
-<!--_plugins\grouptag.rb not needed any more, please delete --><p>Here you can find the list of tags includes in the <code class="language-plaintext highlighter-rouge">demo</code> and <code class="language-plaintext highlighter-rouge">skins</code> collections.</p>
+			<p>Here you can find the list of tags included in the <code class="language-plaintext highlighter-rouge">demo</code> and <code class="language-plaintext highlighter-rouge">skins</code>
+collections.</p>
 <p>Configuring a tag cloud is a two-step process:</p>
-<p><strong>1. Set the url were the tag cloud would be host on the page</strong></p>
-<p>This could be easily done on your <code class="language-plaintext highlighter-rouge">_config</code> file via <a href="https://jekyllrb.com/docs/configuration/front-matter-defaults/">defaults</a>. On this specific case:</p>
+<p><strong>1. Set the URL where the tag cloud will be hosted</strong></p>
+<p>This could be easily done on your <code class="language-plaintext highlighter-rouge">_config.yml</code> file via <a href="https://jekyllrb.com/docs/configuration/front-matter-defaults/">defaults</a>. On this specific case:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span>
     <span class="na">scope</span><span class="pi">:</span>
       <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
@@ -207,13 +207,14 @@
       <span class="na">header_type       </span><span class="pi">:</span> <span class="s2">"</span><span class="s">splash"</span>
       <span class="na">cloudtag_url        </span><span class="pi">:</span> <span class="s2">"</span><span class="s">/demo/tags"</span>
 </code></pre></div></div>
-<p>After this steps, the tags generated on each specific page of the collection would link to <code class="language-plaintext highlighter-rouge">demo/tags</code>.</p>
+<p>After these steps, the tags generated on each specific page of the collection
+would link to <code class="language-plaintext highlighter-rouge">demo/tags</code>.</p>
 <p><strong>2. Create the page and host it in that <code class="language-plaintext highlighter-rouge">url</code></strong></p>
 <p>The front matter of this page:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">cloudtag</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s">Navigate the tags</span>
-<span class="na">subtitle</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Tags</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">&lt;code&gt;demo&lt;/code&gt;</span><span class="nv"> </span><span class="s">collection</span><span class="nv"> </span><span class="s">only'</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Tags</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">&lt;code&gt;demo&lt;/code&gt;</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">&lt;code&gt;skins&lt;/code&gt;</span><span class="nv"> </span><span class="s">collections'</span>
 <span class="na">header_type</span><span class="pi">:</span> <span class="s">hero</span>
 <span class="na">permalink</span><span class="pi">:</span> <span class="s">/demo/tags</span>
 <span class="na">include_collection</span><span class="pi">:</span> <span class="s">demo,skins</span>
@@ -239,7 +240,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/08-minimal">Layout minimal</a></h6><p>A blank canvas for you</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -678,7 +679,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/08-minimal">Layout minimal</a></h6><p>A blank canvas for you</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -1097,7 +1098,7 @@
  </article>
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
-     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing al the different Bootstrap components available</p><div class="small">
+     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing all the different Bootstrap components available</p><div class="small">
         <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2015-03-03T00:00:00+01:00">march 03, 2015</time>
  <i class="fa fa-redo" aria-hidden="true"></i> | 
         <i class="far fa-clock" aria-hidden="true"></i> 9’<span class="ml-2 badge chulapa-pill-bg-body">skins</span></div>
@@ -1526,7 +1527,7 @@
  </article>
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
-     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing al the different Bootstrap components available</p><div class="small">
+     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing all the different Bootstrap components available</p><div class="small">
         <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2015-03-03T00:00:00+01:00">march 03, 2015</time>
  <i class="fa fa-redo" aria-hidden="true"></i> | 
         <i class="far fa-clock" aria-hidden="true"></i> 9’<span class="ml-2 badge chulapa-pill-bg-body">skins</span></div>
@@ -2092,7 +2093,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/09-image-header">Image on header</a></h6><p>Transparencies work better</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2102,7 +2103,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2112,7 +2113,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/01-plainpage">Plain page</a></h6><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2191,7 +2192,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/09-image-header">Image on header</a></h6><p>Transparencies work better</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2201,7 +2202,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/08-minimal">Layout minimal</a></h6><p>A blank canvas for you</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2211,7 +2212,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2260,7 +2261,7 @@
  </article>
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
-     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing al the different Bootstrap components available</p><div class="small">
+     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing all the different Bootstrap components available</p><div class="small">
         <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2015-03-03T00:00:00+01:00">march 03, 2015</time>
  <i class="fa fa-redo" aria-hidden="true"></i> | 
         <i class="far fa-clock" aria-hidden="true"></i> 9’<span class="ml-2 badge chulapa-pill-bg-body">skins</span></div>
@@ -2280,7 +2281,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2369,7 +2370,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2458,7 +2459,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2547,7 +2548,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2833,7 +2834,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/08-minimal">Layout minimal</a></h6><p>A blank canvas for you</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2872,7 +2873,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/02-plainpage-img">Plain page with image</a></h6><p>Expanding the layout</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -2882,7 +2883,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/01-plainpage">Plain page</a></h6><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -3008,7 +3009,7 @@
  </article>
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
-     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing al the different Bootstrap components available</p><div class="small">
+     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing all the different Bootstrap components available</p><div class="small">
         <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2015-03-03T00:00:00+01:00">march 03, 2015</time>
  <i class="fa fa-redo" aria-hidden="true"></i> | 
         <i class="far fa-clock" aria-hidden="true"></i> 9’<span class="ml-2 badge chulapa-pill-bg-body">skins</span></div>
@@ -3086,7 +3087,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/09-image-header">Image on header</a></h6><p>Transparencies work better</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -3105,7 +3106,7 @@
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
      <h6><a href="https://dieghernan.github.io/chulapa/demo/08-minimal">Layout minimal</a></h6><p>A blank canvas for you</p><div class="small">
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:06:34+02:00">october 08, 2026</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2026-10-08T11:42:14+02:00">october 08, 2026</time>
  | 
         <i class="far fa-clock" aria-hidden="true"></i> &lt; 1’<span class="ml-2 badge chulapa-pill-bg-body">demo</span></div>
    </div>
@@ -3218,7 +3219,7 @@
 </div>
  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
    <div class="col">
-     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing al the different Bootstrap components available</p><div class="small">
+     <h6><a href="https://dieghernan.github.io/chulapa/skins/current">Current skin</a></h6><p>Showing all the different Bootstrap components available</p><div class="small">
         <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="2015-03-03T00:00:00+01:00">march 03, 2015</time>
  <i class="fa fa-redo" aria-hidden="true"></i> | 
         <i class="far fa-clock" aria-hidden="true"></i> 9’<span class="ml-2 badge chulapa-pill-bg-body">skins</span></div>

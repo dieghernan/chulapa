@@ -14,7 +14,7 @@
       "@type": "WebPage",
       "@id": "https://dieghernan.github.io/chulapa/demo/12-related-random",
       "name": "Related and Random",
-      "description": "This page shows the related and random snippet. See how both appeared on the bottom, although you may not use both card types at the same time",
+      "description": "This page enables both related and random cards. You can use either or both. The random cards use the same candidate pool as the related cards and are selected when the site is built, rather than each time a visitor loads the page. Use related_label and random_label to add introductory text or HTML.",
       "headline":"Related and Random",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
       "datePublished": "2022-12-01T00:00:00+01:00",
@@ -88,7 +88,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="author" content="dieghernan" >
    <meta name="copyright" content="dieghernan" >
-   <meta name="description" content="This page shows the related and random snippet. See how both appeared on the bottom, although you may not use both card types at the same time">
+   <meta name="description" content="This page enables both related and random cards. You can use either or both. The random cards use the same candidate pool as the related cards and are select...">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
    <meta name="robots" content="index, follow"><meta name="keywords" content="">
     <!-- OpenGraph -->
@@ -96,7 +96,7 @@
    <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/12-related-random" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="This page shows the related and random snippet. See how both appeared on the bottom, although you may not use..." >
+   <meta property="og:description" content="This page enables both related and random cards. You can use either or both. The random cards use the same..." >
    <meta property="og:locale" content="en_US" >
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <!-- Twitter/X Cards -->
@@ -222,8 +222,10 @@
 				</div>
 </aside>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
-			<p>This page shows the <code class="language-plaintext highlighter-rouge">related</code> and <code class="language-plaintext highlighter-rouge">random</code> snippet. See how both appeared on the bottom, although you may not use
-both card types at the same time</p>
+			<p>This page enables both related and random cards. You can use either or both.
+The random cards use the same candidate pool as the related cards and are
+selected when the site is built, rather than each time a visitor loads the
+page. Use <code class="language-plaintext highlighter-rouge">related_label</code> and <code class="language-plaintext highlighter-rouge">random_label</code> to add introductory text or HTML.</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s">Related and Random</span>
 <span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">demo</span><span class="pi">]</span>
@@ -367,25 +369,6 @@ both card types at the same time</p>
              <nav class="card-group" aria-label="random -articles"><div class="card  border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/demo/07-guestauthor-no-avatar" class="chulapa-text-body-color">
-              Guest author
-            </a>
-         </p>
-           <p class="card-text">
-              <small>But no location or image</small>
-           </p></div>
-       <div class="card-footer bg-transparent">
-            <small>
-              <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2020-03-01T00:00:00+01:00">
-                march 01, 2020
-              </time>
-            </small>
-       </div>
-     </div>
-     <div class="card ml-sm-1 border chulapa-related">
-       <div class="card-body">
-         <p class="card-title chulapa-headingfont">
             <a href="https://dieghernan.github.io/chulapa/demo/04-heroproject" class="chulapa-text-body-color">
               Use MathJax
             </a>
@@ -405,18 +388,35 @@ both card types at the same time</p>
      <div class="card ml-sm-1 border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/demo/05-landinghero" class="chulapa-text-body-color">
-              Landing page
+            <a href="https://dieghernan.github.io/chulapa/demo/03-postheader" class="chulapa-text-body-color">
+              Post header
+            </a>
+         </p>
+         </div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2020-01-01T00:00:00+01:00">
+                january 01, 2020
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/demo/07-guestauthor-no-avatar" class="chulapa-text-body-color">
+              Guest author
             </a>
          </p>
            <p class="card-text">
-              <small>First impression is the last impression</small>
+              <small>But no location or image</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
               <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2020-01-04T00:00:00+01:00">
-                january 04, 2020
+              <time datetime="2020-03-01T00:00:00+01:00">
+                march 01, 2020
               </time>
             </small>
        </div>

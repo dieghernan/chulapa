@@ -17,8 +17,8 @@
       "description": "How to use Chulapa - Install Chulapa on your Github repo",
       "headline":"Installation",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T11:06:34+02:00",
-      "dateModified": "2026-10-08T11:06:34+02:00",
+      "datePublished": "2026-10-08T11:42:14+02:00",
+      "dateModified": "2026-10-08T11:42:14+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -217,17 +217,17 @@
 			</button>
 		</p>
 		<nav class="navbar-nav px-3 my-auto">		  <p class="mb-2" ><a class="nav-link font-weight-bold lead" href="#">Installation</a></p>		
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#1-use-our-github-template" class="nav-link">1. Use our Github Template</a></li><li class="nav-item nav d-block"><a href="#2-remote-theme-method" class="nav-link">2. Remote theme method</a></li><li class="nav-item nav d-block"><a href="#3-gem-based-method-" class="nav-link">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#1-use-our-github-template" class="nav-link">1. Use our GitHub template</a></li><li class="nav-item nav d-block"><a href="#2-remote-theme-method" class="nav-link">2. Remote theme method</a></li><li class="nav-item nav d-block"><a href="#3-gem-based-method-" class="nav-link">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
 		</nav>   
 	</div>
             <nav aria-label="table-of-contents">
-			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-use-our-github-template">1. Use our Github Template</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-remote-theme-method">2. Remote theme method</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-use-our-github-template">1. Use our GitHub template</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-remote-theme-method">2. Remote theme method</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
 			</nav>
-			 <p><span class="chulapa">Chulapa</span> was developed in and for Github. There are
-three tested possible ways to use <span class="chulapa">Chulapa</span>:</p>
-<h2 id="1-use-our-github-template">1. Use our Github Template</h2>
+			 <p><span class="chulapa">Chulapa</span> was developed in and for GitHub. There are
+three ways to use <span class="chulapa">Chulapa</span>:</p>
+<h2 id="1-use-our-github-template">1. Use our GitHub template</h2>
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are starting from scratch</strong></p>
-<p>Create a Github account, click <a href="https://github.com/dieghernan/chulapa-101/generate">this link</a>
+<p>Create a GitHub account, click <a href="https://github.com/dieghernan/chulapa-101/generate">this link</a>
 and quickstart your site!</p>
 <h2 id="2-remote-theme-method">2. Remote theme method</h2>
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are migrating a site.</strong></p>
@@ -240,13 +240,20 @@ and quickstart your site!</p>
  <span class="s">... more config options</span>
 </code></pre></div>  </div>
  </li>
- <li>Remove other <code class="language-plaintext highlighter-rouge">remote_theme/theme</code> instances from your <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</li>
+ <li>Remove any other <code class="language-plaintext highlighter-rouge">remote_theme</code> entry and the <code class="language-plaintext highlighter-rouge">theme</code> entry from
+<code class="language-plaintext highlighter-rouge">_config.yml</code>. Add <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> and <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> to your
+Gemfile and <code class="language-plaintext highlighter-rouge">_config.yml</code> plugins list, then run <code class="language-plaintext highlighter-rouge">bundle install</code>.
+<span class="chulapa">Chulapa</span> requires <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> for its <code class="language-plaintext highlighter-rouge">include_cached</code> tags.</li>
 </ol>
+<p>An unpinned remote theme follows the repository default branch. To select a
+release, append its tag, for example <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.0.1</code>.
+Development features may be available on the default branch before they are
+published in the gem.</p>
 <div class="alert alert-warning p-3 mx-2">
  <p><strong>Don’t forget to deploy your site:</strong></p>
  <ul>
-   <li>On your Github repo, go to <em>Settings &gt; Github Pages</em>.</li>
-   <li>Select <em>Source &gt; Github Actions</em> and set the corresponding action. See an
+   <li>On your GitHub repo, go to <em>Settings &gt; Pages</em>.</li>
+   <li>Select <em>Source &gt; GitHub Actions</em> and set the corresponding action. See an
 example in <a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml</a></li>
  </ul>
 </div>
@@ -262,7 +269,7 @@ of these folders:</p>
 updates on those files.</p>
 <p>Please read the rest of the docs for further adjustments.</p>
 <h2 id="3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></h2>
-<p>With Gem-based themes, directories such as the <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>,
+<p>With Gem-based themes, directories such as the <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>
 and <code class="language-plaintext highlighter-rouge">_sass</code> are stored in the theme’s gem, hidden from your immediate view. This
 allows for easier installation and updating as you don’t have to manage any of
 the theme files.</p>
@@ -285,7 +292,11 @@ command:</p>
 </code></pre></div>  </div>
  </li>
 </ol>
-<p>To update the theme, run <code class="language-plaintext highlighter-rouge">bundle update</code>.</p>
+<p>Enable <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> in your <code class="language-plaintext highlighter-rouge">_config.yml</code> plugins list. Remove any
+<code class="language-plaintext highlighter-rouge">remote_theme</code> entry when using the gem. To update only the theme and its
+dependencies, run <code class="language-plaintext highlighter-rouge">bundle update chulapa-jekyll</code>.</p>
+<p>To preview your site locally, run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> from your site
+directory. Restart Jekyll after editing <code class="language-plaintext highlighter-rouge">_config.yml</code> to reload its settings.</p>
 </article>
 		</div>
 	</main><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
