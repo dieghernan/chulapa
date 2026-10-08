@@ -62,6 +62,23 @@ Dir.mktmpdir("chulapa-microdata-") do |source|
     {% include welcomments/template.html element_id="comment-1" id="1" author_name="Guest" date_xml_schema="2024-01-02T10:00:00Z" formatted_date="January 2" message="A comment" %}
     {% include search/simplesearch.html %}
   LIQUID
+  File.write(File.join(source, "metadata.html"), <<~LIQUID)
+    ---
+    ---
+    {% assign video_name = 'A "video" & <story>' %}
+    {% capture details %}First line.
+    Second line & more.{% endcapture %}
+    {% include snippets/video.html provider="youtube" id="one" name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/youtube.html id="two" name="Second video" upload_date="2024-02-03T12:00:00Z" %}
+    {% include snippets/video.html provider="youtube" id="three" nolazy=true name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/video.html fileurl="/movie.mp4" name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/video.html provider="vimeo" id="123" name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/video.html provider="google-drive" id="456" name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/video.html provider="bilibili" id="BV789" name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/video.html provider="dailymotion" id="abc" name=video_name thumbnail_url="/thumb.jpg?a=1&b=2" upload_date="2024-01-02T10:00:00+01:00" description=details duration="PT1M30S" %}
+    {% include snippets/video.html fileurl="/empty.mp4" name=" " thumbnail_url=" " upload_date="" description=" " duration="" %}
+    {% include snippets/youtube.html id="blank" thumbnail_url=" " %}
+  LIQUID
   ["", "/subdir"].each do |baseurl|
     config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "quiet" => true)
     Jekyll::Site.new(config).process
@@ -90,6 +107,23 @@ Dir.mktmpdir("chulapa-microdata-") do |source|
     # Simulate the player's DOM replacement; persistent metadata must survive.
     videos[0].at_css('.ch_ytdefer').inner_html = '<iframe src="https://www.youtube.com/embed/first-video"></iframe>'
     check(properties(videos[0], "https://example.com/") == data[0], "Deferred URLs changed after player insertion")
+    metadata_doc = Nokogiri::HTML(File.read(File.join(config["destination"], "metadata.html")))
+    metadata_videos = metadata_doc.css('[itemscope][itemtype="https://schema.org/VideoObject"]')
+    metadata = metadata_videos.map { |video| properties(video, "https://example.com#{baseurl}/") }
+    check(metadata.size == 10, "Metadata fixture count changed")
+    [0, 2, 3, 4, 5, 6, 7].each do |index|
+      item = metadata[index]
+      check(item["name"] == ['A "video" & <story>'], "Escaped name lost: #{index}")
+      check(item["description"] == ["First line.\nSecond line & more."], "Multiline description lost: #{index}")
+      check(item["thumbnailUrl"] == ["https://example.com#{baseurl}/thumb.jpg?a=1&b=2"], "Thumbnail URL duplicated or altered: #{index}")
+      check(item["uploadDate"] == ["2024-01-02T10:00:00+01:00"] && item["duration"] == ["PT1M30S"], "Date or duration altered: #{index}")
+    end
+    check(metadata[1]["name"] == ["Second video"] && metadata[1]["uploadDate"] == ["2024-02-03T12:00:00Z"], "Direct YouTube metadata lost")
+    check(metadata[1]["thumbnailUrl"] == ["https://img.youtube.com/vi/two/maxresdefault.jpg"], "Default thumbnail changed")
+    check(metadata[8] == {"contentUrl" => ["https://example.com#{baseurl}/empty.mp4"]}, "Blank metadata emitted")
+    check(metadata[9]["thumbnailUrl"] == ["https://img.youtube.com/vi/blank/maxresdefault.jpg"], "Blank thumbnail suppresses YouTube fallback")
+    metadata_videos[0].at_css('.ch_ytdefer').inner_html = '<iframe src="https://www.youtube.com/embed/one"></iframe>'
+    check(properties(metadata_videos[0], "https://example.com/") == metadata[0], "Video metadata lost after player insertion")
   end
 end
 check(!File.read(File.join(root, "docs/_pages/demo_searchsimple.html")).include?('itemprop="headline"'), "Search demo has an unscoped headline")

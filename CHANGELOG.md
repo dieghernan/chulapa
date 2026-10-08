@@ -11,6 +11,8 @@
 
 ### Added
 
+-   Supply optional video titles, thumbnails, upload dates, descriptions and durations through the video snippets without changing existing playback ([#72](https://github.com/dieghernan/chulapa/issues/72)).
+
 -   Enable a theme header in the `minimal` layout with `show_header: true` while retaining unrestricted content width ([#78](https://github.com/dieghernan/chulapa/issues/78)).
 
 -   Set representative article images with `schema_image`, accepting a URL or list, and avoid using site banners or author avatars as fallback article illustrations ([#72](https://github.com/dieghernan/chulapa/issues/72)).

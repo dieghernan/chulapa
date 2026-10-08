@@ -708,6 +708,45 @@ parameter
 
 Thanks to @SCP-017 for the suggestion.
 
+#### Optional video metadata
+
+Both `snippets/video.html` and `snippets/youtube.html` accept these optional
+inputs for the embedded video's microdata:
+
+| Input | Property | Value |
+| --- | --- | --- |
+| `name` | `name` | The video's actual title. |
+| `thumbnail_url` | `thumbnailUrl` | A representative, accessible image URL. Relative URLs use the site's URL and `baseurl`. |
+| `upload_date` | `uploadDate` | The video's original publication date in ISO 8601 format, preferably with time and time zone. |
+| `description` | `description` | A description of the video. |
+| `duration` | `duration` | An ISO 8601 duration, such as `PT1M30S` for 90 seconds. |
+
+Pass metadata per include, so several videos on the same page can have different
+values. Missing, empty or whitespace-only inputs are omitted. Dates and durations
+are emitted as supplied; the snippets do not validate or infer them from the
+containing page. Existing calls continue to work.
+
+These illustrative examples use placeholder metadata. Replace every value with
+accurate information about your video before publishing:
+
+{% raw %}
+```liquid
+{% include snippets/video.html provider="youtube" id="YOUR_VIDEO_ID" nolazy=true
+   name="Your video's title" thumbnail_url="/assets/img/your-video.jpg"
+   upload_date="2024-01-02T10:00:00+01:00"
+   description="What your video shows." duration="PT1M30S" %}
+
+{% include snippets/video.html fileurl="/assets/mp4/your-video.mp4"
+   name="Your video's title" thumbnail_url="/assets/img/your-video.jpg"
+   upload_date="2024-01-02T10:00:00+01:00" %}
+```
+{% endraw %}
+
+The same inputs work with the other supported providers and with deferred
+YouTube embeds. Metadata stays outside the deferred player, so it is available
+before a click and remains after playback starts. `thumbnail_url` supplies
+structured data only; it does not change the player, its preview or its poster.
+
 #### Video structured data limitations
 
 The video snippets expose the known file or player URL in microdata. Deferred
@@ -715,7 +754,13 @@ YouTube embeds also expose the preview URL before playback. The default
 `maxresdefault` preview may not exist for every video; use `video_res` to choose
 an available preview.
 
-The snippets do not infer the video's actual title, original upload date or duration from the containing page. They do not generate thumbnails for self-hosted videos or other providers. Video-specific metadata inputs are not available yet, so the current markup may be incomplete for Google's video features. Google requires `name`, `thumbnailUrl` and `uploadDate`; see the [video structured data requirements](https://developers.google.com/search/docs/appearance/structured-data/video).
+An explicit `thumbnail_url` overrides the deferred YouTube thumbnail metadata.
+Without it, deferred YouTube embeds retain their existing preview URL; other
+embeds require an explicit thumbnail. The snippets do not generate images or
+fetch metadata from providers. Check that the image exists and represents the
+video. Google requires `name`, `thumbnailUrl` and `uploadDate`; missing values
+can leave the markup incomplete for Google's video features. See the
+[video structured data requirements](https://developers.google.com/search/docs/appearance/structured-data/video).
 
 Correct microdata alone does not guarantee video indexing. Google also recommends loading the player without visitor interaction and using a page whose main purpose is watching the video. Deferred YouTube embeds wait for a click. For a dedicated video page, consider `nolazy="true"`, while still checking the metadata and [video indexing requirements](https://developers.google.com/search/docs/appearance/video).
 

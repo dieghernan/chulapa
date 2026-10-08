@@ -1,5 +1,6 @@
 {%- if include.fileurl -%}
 <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+{% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
 <link itemprop="contentUrl" href="{{ include.fileurl | absolute_url | escape }}">
 <video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item u-video" controls >
   Your browser does not support the video tag.
@@ -10,11 +11,12 @@
   <!-- Thanks to Minimal Mistakes -->
   <!-- https://embedresponsively.com/ -->
   <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+{% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
       <iframe loading="lazy" title="Video from YouTube" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" allowfullscreen itemprop="embedUrl"></iframe>
     
   </div>
   {%- else -%}
-  {% include snippets/youtube.html id=include.id video_res = include.video_res %}
+  {% include snippets/youtube.html id=include.id video_res=include.video_res name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
   {%- endif %}
 
 {%- else -%}
@@ -23,6 +25,7 @@
 <!-- Thanks to Minimal Mistakes -->
 <!-- https://embedresponsively.com/ -->
   <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+{% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
   {%- if video_provider == "vimeo" -%}
     <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
   {%- elsif video_provider == "google-drive" -%}

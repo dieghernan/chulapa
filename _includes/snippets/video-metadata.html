@@ -1,0 +1,15 @@
+{%- assign metadata_keys = 'name,description,duration' | split: ',' -%}
+{%- for metadata_key in metadata_keys -%}
+  {%- assign metadata_value = include[metadata_key] | strip -%}
+  {%- if metadata_value != empty -%}
+<meta itemprop="{{ metadata_key }}" content="{{ metadata_value | escape }}">
+  {%- endif -%}
+{%- endfor -%}
+{%- assign metadata_date = include.upload_date | strip -%}
+{%- if metadata_date != empty -%}
+<meta itemprop="uploadDate" content="{{ metadata_date | escape }}">
+{%- endif -%}
+{%- assign metadata_thumbnail = include.thumbnail_url | strip -%}
+{%- if metadata_thumbnail != empty -%}
+<link itemprop="thumbnailUrl" href="{{ metadata_thumbnail | absolute_url | escape }}">
+{%- endif -%}
