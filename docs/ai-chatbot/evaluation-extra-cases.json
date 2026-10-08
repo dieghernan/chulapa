@@ -1,0 +1,58 @@
+[
+  {
+    "id": "seo-1",
+    "section": "seo",
+    "doc": "04_layouts.md",
+    "question": "How do I use a canonical URL for a republished article? Does it redirect visitors or change the sitemap?",
+    "expected": "canonical_url absoluteHTTP(S)/sitepath; no redirect; sitemap false excludesduplicate actualURL."
+  },
+  {
+    "id": "seo-2",
+    "section": "seo",
+    "doc": "04_layouts.md",
+    "question": "Can I set different browser, social and visible titles, and a separate meta description?",
+    "expected": "seo_title og_title title and description; page description takes precedence."
+  },
+  {
+    "id": "seo-3",
+    "section": "seo",
+    "doc": "04_layouts.md",
+    "question": "How do I set Open Graph language metadata for zh-Hant and translated versions?",
+    "expected": "locale zh-Hant og_locale zh_TW alternate list; no automatictranslations/hreflang."
+  },
+  {
+    "id": "seo-4",
+    "section": "seo",
+    "doc": "04_layouts.md",
+    "question": "Does schema_image crop images or change the visible header and sharing image?",
+    "expected": "URLorlist for BlogPosting; no crops/verification; independentog_image/header_img."
+  },
+  {
+    "id": "navigation-1",
+    "section": "navigation",
+    "doc": "04_layouts.md",
+    "question": "Why are related and random cards empty, and will random cards change on every reload?",
+    "expected": "tagcandidatepool2same3differenttagthreshold; <=3; buildtime notonreload."
+  },
+  {
+    "id": "navigation-2",
+    "section": "navigation",
+    "doc": "04_layouts.md",
+    "question": "How do I add breadcrumb links and a GitHub button in my page header?",
+    "expected": "show_breadcrumb breadcrumb_list labelurl; project_links urliconlabel."
+  },
+  {
+    "id": "navigation-3",
+    "section": "navigation",
+    "doc": "02_config.md",
+    "question": "How do I configure reading speed and the numbered blog pagination window?",
+    "expected": "words_per_minute default200 paginator_maxnum default3 clamp2..total notpaginationenabler."
+  },
+  {
+    "id": "layouts-7",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How does landingpage differ from default, and how do I hide its header?",
+    "expected": "layout landingpage sameoptions bg/textvars; header_type none."
+  }
+]

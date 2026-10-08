@@ -24,6 +24,11 @@ or custom builds. An unpinned remote theme follows the default branch. Append
 For a gem installation, add gem "chulapa-jekyll" to Gemfile, run bundle and set
 theme: chulapa-jekyll in _config.yml. Local files override corresponding theme
 files and need manual merging when the theme changes.
+Enable jekyll-include-cache in the gem theme's plugins list too, and remove any
+remote_theme entry. Update just the gem theme with bundle update chulapa-jekyll.
+Preview locally with bundle exec jekyll serve. An unknown include_cached tag
+usually means jekyll-include-cache is missing or not enabled; install it and
+add it to plugins, then restart the build.
 
 ## Global settings
 Source: https://dieghernan.github.io/chulapa/docs/02-config
@@ -35,6 +40,21 @@ The locale setting controls the HTML language; pages can override it. Site title
 subtitle, description, author, navbar and footer are configurable. Search options
 include Algolia, Lunr.js, Fuse.js and Simple-Jekyll-Search. The documentation site
 uses Algolia. Public search API keys are distinct from administrative credentials.
+
+## Publisher, analytics and icon configuration
+Source: https://dieghernan.github.io/chulapa/docs/02-config
+publisher identifies the JSON-LD publishing entity, independently of article
+authors and visible profiles. publisher.type is Organization (default) or Person;
+publisher.name and publisher.url identify it. Organization uses publisher.logo;
+Person uses publisher.image and ignores logo. Relative URLs respect url/baseurl.
+Changing publisher to Person does not change guest article authors or their
+visible profiles; configure the article author separately.
+Set gtag_id: G-XXXXXXXXXX for Google Analytics 4. analytics_id is for retired
+Universal Analytics. Leave unused IDs empty; setting both loads both snippets.
+Font Awesome defaults to version 6; fa_version: 5 chooses version 5.
+fa_kit_code loads a kit instead of the hosted stylesheet. Legacy fa5_kit_code
+takes precedence if both are present; remove it when migrating. fa_v4_support:
+true enables version-4 compatibility.
 
 ## Theming
 Source: https://dieghernan.github.io/chulapa/docs/03-theming
@@ -48,6 +68,16 @@ palette from primary; explicit skin colors and vars take precedence.
 Google Fonts can be loaded with googlefonts URL entries, but loading a font does
 not apply it: set font-family-base or headings-font-family under chulapa-skin.vars.
 Rouge performs syntax highlighting; chulapa-skin.highlight selects its CSS style.
+Enable the palette generator with chulapa-skin.autothemer: true and set a quoted
+hex primary color under vars. Loading order is skin, vars, autothemer, Bootstrap,
+then theme components. Custom skins go in _sass/skins/NAME.scss; set skin: NAME,
+use !default for customizable variables and do not import Bootstrap again.
+Put only SCSS variable assignments in that file, for example
+$primary: #285d70 !default;. The YAML chulapa-skin.skin: myskin belongs in
+_config.yml, never in _sass/skins/myskin.scss.
+The Codeply sandbox previews SCSS; translate assignments into vars without $ or
+semicolons, quote hex colors and keep the Bootstrap grid enabled. Themestr.app
+is not required. The docs link the sandbox from the theming page.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
@@ -85,6 +115,12 @@ load the player. Use nolazy=true to load the iframe without waiting for a click.
 Optional metadata inputs are name, thumbnail_url, upload_date, description and
 duration. Supply accurate metadata for each video; the snippet does not infer it.
 This feature embeds videos in website content, not uploads inside the chatbot.
+If the default YouTube maxresdefault preview is unavailable, choose video_res,
+for example video_res="hq2". thumbnail_url is structured metadata only: it does
+not change the visible preview, player or poster. Date/duration inputs use
+ISO 8601; snippets do not infer or validate them, crop images or fetch metadata.
+For a five-minute duration use duration="PT5M", not "00:05:00" or "5:00".
+For an upload date use upload_date="2026-10-08T12:00:00Z".
 
 ## Image galleries and carousels
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#masonry-gallery
@@ -97,6 +133,8 @@ pass it as external=that_variable. Optional parameters are index_sort (internal
 only, default modified_time), index_sort_asc, index_items (default 100) and random.
 random=true shuffles at build time; use the boolean false, not the string "false",
 to disable it. Random ordering overrides index_sort.
+For internal images sorted by filename, pass index_sort="basename",
+index_sort_asc=true and random=false to the include.
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel
 snippets/carousel.html uses the same image sources and ordering options.
 interval controls the time between slides in milliseconds (default 5000).
@@ -142,9 +180,16 @@ show_sociallinks enables sharing links. show_categories and show_tags display
 badges. show_breadcrumb works with breadcrumb_list entries containing label and
 url. show_bottomnavs uses page.previous and page.next when Jekyll supplies them;
 it does not generate navigation between arbitrary standalone pages.
+Set defaults in _config.yml as a list of scope/value mappings: scope.path: "",
+scope.type: posts and values.layout: default applies the layout to all posts.
+An explicit page front matter value overrides defaults. Use YAML false, not
+the quoted string "false", to disable components.
 show_related displays up to three tag-related collection documents: candidates
 need two shared tags in the same collection or three across collections.
 show_random selects up to three from this candidate pool at build time.
+Empty related/random panels can mean no documents meet those shared-tag
+thresholds. Disable the random panel with show_random: false in front matter.
+The gallery include's random parameter does not control the random article panel.
 
 ## Configuring site search
 Source: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
@@ -157,6 +202,13 @@ include_on_search: false excludes a page from these three indexes. search.maxwor
 limits content words per indexed document (default 30). Algolia uses a separately
 uploaded index; include_on_search affects ranking, not exclusion, so use
 algolia.files_to_exclude to exclude files. Google needs google_cse_id.
+Use search.show_attrib: false to hide attribution for the local providers.
+search.algolia_logo is separate; check the Algolia plan's requirements.
+lunr_maxwords is deprecated and overrides maxwords for Lunr if both are set;
+simplesearch_maxwords and fusejs_maxwords also override the shared maxwords.
+Algolia browser settings are application_id, index_name and search_only_api_key
+under algolia. Index uploads use the separate ALGOLIA_API_KEY environment
+variable; never publish that indexing key in _config.yml.
 
 ## Comments
 Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
@@ -175,6 +227,20 @@ uses the classic navbar; fab selects a floating action button and dual switches
 between floating and classic at a breakpoint. navbar.expand accepts sm, md, lg
 or xl (default md). navbar.brand has title, img and url. navbar.nav entries use
 title and url, or title with a child list of title/url entries.
+For dual navigation at lg with a submenu, use exactly child, not child_list:
+```yaml
+navbar:
+  style: dual
+  expand: lg
+  nav:
+    - title: Docs
+      child:
+        - title: Installation
+          url: /docs/01-install
+```
+Omitting style uses classic; fab and dual are both supported. For classic,
+expand: always/never means always expanded/collapsed; for dual those values
+select sm/xl respectively. No deeper submenu nesting is documented.
 Source: https://dieghernan.github.io/chulapa/docs/02-config#footer
 footer.links entries have label, icon (Font Awesome code) and url (or a plain
 email address). footer.copyright accepts custom text or HTML.
@@ -188,6 +254,29 @@ robots: "noindex, follow" sets HTML crawler directives. It does not make a page
 private, change robots.txt or remove sitemap entries. The default is index, follow.
 og_image controls the sharing image, separate from the visible header_img.
 schema_image overrides a post's BlogPosting image without changing sharing images.
+
+## Page metadata and article images
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
+canonical_url sets the original URL for republished content: an absolute HTTP(S)
+URL or a site-relative path starting with /. It changes metadata/feed links,
+not navigation or redirects. jekyll-sitemap still uses the actual URL; use
+sitemap: false on a duplicate. Pagination keeps each page's own canonical URL.
+seo_title replaces the complete browser/structured title; og_title replaces
+the social title; title remains the visible heading. Page description takes
+precedence over excerpt, then home-page site description, then content fallback.
+og_image_alt/width/height/type describe the sharing image; the theme does not
+inspect the file. Site image metadata is not inherited by page-specific images.
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
+locale controls HTML language. For zh-Hant use og_locale: zh_TW separately.
+og_locale_alternate is a list of real translated locales; it does not create
+translations or hreflang links. Page [] disables inherited alternates.
+og_type: article enables Open Graph article metadata on another collection;
+og_article_author and og_article_section override author URL and first category.
+Guest authors without profile URLs do not inherit the site's author URL.
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images
+schema_image accepts a URL or list for post BlogPosting JSON-LD, with fallback
+to page og_image then header_img. It does not crop/validate images and does not
+change the visible header or social image. Relative images use url/baseurl.
 
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/05-faq
@@ -237,6 +326,15 @@ Source: https://dieghernan.github.io/chulapa/docs/05-faq#use-jekyll-feed-instead
 To include every post in the theme feeds, add a front matter default with
 scope: { path: "", type: posts } and values: { include_on_feed: true }, preserving
 the other defaults. A date is also required.
+Complete YAML for _config.yml (merge with any existing defaults list):
+```yaml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      include_on_feed: true
+```
 jekyll-feed's default /feed.xml can coexist with Chulapa's /atom.xml and /rss.xml.
 Setting feed.path to /atom.xml without removing Chulapa's Atom page creates an
 output-path collision. For a local or custom build, a post_read site hook can
@@ -313,6 +411,16 @@ column alignment. The sample site uses kramdown with the GFM parser; some
 kramdown extensions require kramdown.input: Kramdown instead of GFM. Check
 generated output when changing parsers. For alerts, captions and footnotes,
 use the FAQ examples in this context.
+For a content TOC, add a list marker followed by {:toc}.
+Use two separate lines, exactly as in this Markdown example:
+```markdown
+* Placeholder
+{:toc}
+```
+Do not write - {:toc} on one line. The placeholder list item is replaced.
+kramdown.toc_levels: 2..6 controls its heading levels; {:.no_toc} excludes a
+heading. This is distinct
+from the theme's automatic show_toc/h_min/h_max settings.
 
 ## Syntax highlighting styles
 Source: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
@@ -336,6 +444,44 @@ TOC sidebar button upward below 992 px, reserving a 56 px button and a spacer
 underneath. It is available to sites using the updated default branch, including
 these docs, but is not included in the pinned v2.1.0 release or gem. Do not
 describe it as behavior in v2.1.0; sites must rebuild to receive updated CSS.
+
+## Localized dates
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dates
+locale sets the HTML language, not a complete interface translation. Date names
+can be translated with snippets/datetranslate.html: pass a Liquid-formatted
+English date string as date and optionally lang="es-ES". Example:
+{% assign formatted = page.date | date: "%A %d, %B %Y" %}
+{% include snippets/datetranslate.html date=formatted lang="es-ES" %}
+English, French, Spanish, German and Italian are supported; unsupported languages
+keep lowercased English names. Without lang it uses site.locale. Configurable
+labels include search.label, related_label and random_label; some UI labels
+remain English.
+
+## Additional navigation and community questions
+Public Jekyll output remains public. robots.txt, robots: noindex and sitemap:
+false do not restrict access or make a page private. Privacy requires actual
+authentication/access control at the hosting layer or not publishing the content.
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts
+Use header_type: splash for a splash landing-page header; hero is a different
+header presentation. Supported header types are base, post, hero, image and splash.
+project_links is a list of header buttons with url, icon and label fields.
+words_per_minute in _config.yml controls reading time (default 200).
+paginator_maxnum controls numbered pagination links (default 3), clamped to
+2 through the total page count; previous/next and first/last are separate controls.
+include_collection filters collection names, not categories. A music category
+does not become a collection named music. For custom category cards, use Liquid:
+{% assign music_posts = site.categories.music %}
+{% include_cached components/indexcards.html cacheddocs=music_posts cachedlimit=5 %}
+This is a custom content snippet, not a built-in category front-matter setting.
+Bootstrap 4 HTML can be used in Markdown, for example
+<button class="btn btn-primary">Example</button>. Markdown links can use
+{: .btn .btn-primary}; a complete example is
+[Docs](/docs/){: .btn .btn-primary}. [Docs] without (URL) is not a link.
+Alerts can use {: .alert .alert-info .p-3} on a paragraph.
+For missing theme includes, first run bundle install and bundle exec jekyll serve
+and verify theme/remote_theme and required plugins. An error alone does not
+establish a specific cause; ask for configuration and versions if it persists.
+Footer email links use a plain email address as url, without mailto:.
 
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml

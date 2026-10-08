@@ -21,13 +21,13 @@ import sparkles from './sparkles.svg';
     .sparkles{display:inline-block;width:1em;height:1em;vertical-align:-.1em}#launch .sparkles{width:1.65rem;height:1.65rem}
     :host([data-position="left"]) #launch{left:1rem;right:auto}
     :host([data-position="center"]) #launch{left:50%;right:auto;transform:translateX(-50%)}
-    section{position:fixed;bottom:1rem;right:var(--chat-right,1rem);z-index:21000;width:min(25rem,calc(100vw - 2 * var(--chat-right,1rem)));height:30rem;max-height:calc(100dvh - 2rem);background:var(--surface);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px #0003;display:flex;flex-direction:column;overflow:auto}
+    section{position:fixed;bottom:1rem;right:var(--chat-right,1rem);z-index:21000;width:min(25rem,calc(100vw - 2 * var(--chat-right,1rem)));height:30rem;max-height:calc(100dvh - 2rem);background:var(--surface);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px #0003;display:flex;flex-direction:column;overflow:hidden}
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line);flex-shrink:0}
     h2{font-size:1rem;margin:0 0 .25rem;font-weight:650}.subtitle{margin:0;color:var(--muted);font-size:.8rem}
     .chulapa{font-family:chulapa,sans-serif;font-weight:400;font-feature-settings:"liga","dlig";text-rendering:optimizeLegibility}
     #close{background:transparent;color:var(--muted);border-radius:.5rem;font-size:1.5rem;line-height:1;width:2.75rem;height:2.75rem;flex-shrink:0}#close:hover{background:var(--bubble)}
     #clear,.copy-code{background:transparent;color:var(--primary,#285d70);border:1px solid var(--line);border-radius:.4rem;padding:.4rem .6rem;font-size:.8rem;min-height:2.75rem}#clear{margin-top:.25rem}.copy-code{display:block;margin:.5rem 0}
-    #log{padding:1rem;overflow:auto;min-height:0;flex:1 1 auto;display:flex;flex-direction:column;gap:.75rem}
+    #log{padding:1rem;overflow:auto;min-height:0;flex:1 1 0;overscroll-behavior:contain;contain:paint;display:flex;flex-direction:column;gap:.75rem}
     .message{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:.7rem .85rem;border-radius:.85rem;background:var(--bubble);max-width:92%;align-self:flex-start;flex-shrink:0}
     .message.user{background:var(--primary,#285d70);color:#fff;align-self:flex-end;border-bottom-right-radius:.25rem}.message.assistant{border-bottom-left-radius:.25rem}
     .message.assistant{white-space:normal}.message p{margin:0 0 .65rem}.message p:last-child{margin-bottom:0}.message ul,.message ol{padding-left:1.3rem;margin:.5rem 0}.message li+li{margin-top:.25rem}
@@ -40,8 +40,9 @@ import sparkles from './sparkles.svg';
     form{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem}input{min-width:0;flex:1;padding:.7rem .8rem;border:1px solid #aab2b9;border-radius:.65rem;background:var(--surface);color:inherit}input::placeholder{color:var(--muted)}
     #send{width:2.75rem;height:2.75rem;flex-shrink:0;border-radius:.65rem;font-size:1.3rem}#status{padding:0 1rem;color:var(--muted);font-size:.8rem}#status:not(:empty){padding-bottom:.65rem}button:disabled{opacity:.6;cursor:wait}
     @media(max-width:991.98px){#launch{left:var(--chat-right,1rem);right:auto;bottom:var(--chat-fab-bottom,1rem);transform:none}}
-    @media(max-width:991.98px){section{bottom:calc(1rem + var(--chat-keyboard-inset,0px));max-height:calc(var(--chat-visible-height,100dvh) - 2rem)}input,.message{font-size:16px}}
-    @media(max-width:575px){section{height:auto}#log{max-height:calc(var(--chat-visible-height,100dvh) * .4)}header{padding:.65rem 1rem}.subtitle{display:none}}
+    .mobile-notice{display:none}
+    @media(max-width:991.98px){section{bottom:calc(1rem + var(--chat-keyboard-inset,0px));max-height:calc(var(--chat-visible-height,100dvh) - 2rem)}input,.message{font-size:16px}.desktop-notice{display:none}.mobile-notice{display:inline}}
+    @media(max-width:575px){section{height:auto}#log{flex-basis:auto;max-height:calc(var(--chat-visible-height,100dvh) * .4)}header{padding:.65rem 1rem}.subtitle{display:none}}
     @media(max-height:500px){header{padding:.4rem 1rem}header>div{display:flex;align-items:center;gap:.75rem}h2{margin:0}.subtitle{display:none}#clear{margin:0}#hint{padding:.25rem 1rem}form{padding:.4rem 1rem}}
     :host([data-compact]) section{top:calc(var(--chat-visible-top,0px) + 8px);bottom:auto;height:auto;max-height:calc(var(--chat-visible-height,100dvh) - 16px)}
     :host([data-compact]) header,:host([data-compact]) footer{display:contents}
@@ -59,7 +60,7 @@ import sparkles from './sparkles.svg';
     <footer>
       <p id="hint">Each question is independent. Include all the details.</p>
       <form><label class="sr-only" for="question">Your question</label><input id="question" aria-describedby="hint" placeholder="Ask a complete question..." maxlength="1000" required autocomplete="off"><button id="send" aria-label="Send question"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button></form>
-      <small>Cloudflare AI. Answers may be wrong. Recent history stays in this tab for this session. <a id="search">Search the docs</a></small>
+      <small><span class="desktop-notice">Cloudflare AI. Answers may be wrong. Recent history stays in this tab for this session. </span><span class="mobile-notice">Cloudflare AI · May be wrong · </span><a id="search" aria-label="Search the docs"><span class="desktop-notice">Search the docs</span><span class="mobile-notice">Docs</span></a></small>
     </footer>
   </section>`;
   document.body.append(host);

@@ -84,6 +84,13 @@ Mock tests verify failure handling; only live inference can establish model qual
 See `evaluation.md` for recorded live questions, rate-limit observations and the
 context update procedure.
 
+Run the documented and community question batches with
+`node evaluate-live.mjs RUN-NAME`. To repeat selected cases, append comma-separated
+case IDs as a second argument. The runner sends four questions per 75-second
+batch and saves full answers in `evaluations/RUN-NAME.jsonl`. These requests
+consume live Workers AI allowance. Criteria in the case files require human
+review; HTTP 200 alone is not a successful answer.
+
 ## Initial live results
 
 Deployed at https://chulapa-ai-prototype.dieghernan.workers.dev on October 8, 2026.

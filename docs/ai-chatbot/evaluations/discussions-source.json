@@ -1,0 +1,166 @@
+[
+  {
+    "number": 44,
+    "title": "Minimal layout and header",
+    "url": "https://github.com/dieghernan/chulapa/discussions/44",
+    "body": "Hi! 👋\r\n\r\nI've been creating quite a few highly customized pages, with a lot of HTML code in them. For this purpose, the `default` layout is too restrictive (I needed more horizontal space). So I used the `minimal` layout. However, this layout does not include the header. I ended up creating my own \"extensions\" of the `minimal` layout (I could have just pasted the code for the header in the pages, but this approach is more reusable).\r\n\r\nMy question is the following: since there is already an option to disable the header in any layout, wouldn't it be better if it was possible to include the header in the `minimal` layout too? This way, it could easily be included in the `minimal` layout (without having to find and copy-paste the code for the header) while still retaining the possibility of having no header.\r\n\r\nThanks!",
+    "answer": null,
+    "comments": {
+      "nodes": [
+        {
+          "body": "Hi @StefanoTrv, thanks for the suggestion!\n\nI agree that an optional header would be useful for custom pages that need the extra horizontal space of `minimal`. Your approach with a reusable layout extending `minimal` makes sense too.\n\nI've opened #78 to track this. The idea is to reuse the existing header styles while keeping minimal pages headerless by default. We also need to avoid duplicate headers in `default` and `landingpage`, since they inherit from `minimal`, and check compatibility with custom layouts like yours.\n\nThis is not implemented yet, but the proposal is now tracked in the issue.\r\n",
+          "author": {
+            "login": "dieghernan"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "number": 24,
+    "title": "Frequently Asked Questions | Chulapa",
+    "url": "https://github.com/dieghernan/chulapa/discussions/24",
+    "body": "# Frequently Asked Questions | Chulapa\n\nSome additional information you may find useful - Advices and FAQs\n\nhttps://dieghernan.github.io/chulapa/docs/05-faq\n\n<!-- sha1: 8472049a1a720b48f6a08b98bb3b56e2f67dc863 -->",
+    "answer": null,
+    "comments": {
+      "nodes": [
+        {
+          "body": "Cool tricks, do you know any more?",
+          "author": {
+            "login": "dieghernan"
+          }
+        },
+        {
+          "body": "Just came across this theme as I was browsing dark Jekyll themes. Is it possible to change the background of the code snippet to black? It's a bit weird that it's white in all the dark Chulapa themes.",
+          "author": {
+            "login": "PaleSkinnySwede"
+          }
+        },
+        {
+          "body": "Hi,\r\nthis is a nice theme. Thanks for making this available broadly.\r\n\r\n I am not sure if this is a chulapa-specific question, or a general jekyll question. I hope you can orient me in the right direction.\r\n\r\nI am trying to set up a page that shows posts for specific categories or tags. I am not managing to figure out how to tell a page \"show the blog posts that correspond to tag X or category Y\"\r\n\r\nTo illustrate my point, here are some specifics:\r\n\r\n I have modified the chulapa template and added a blog page that shows 3 blog posts: https://joanllobera.github.io/labreuvoir/blog/\r\n\r\nI would like to have a page that only shows the blog posts that correspond to the category \"music\", or which contain the tag \"musique\", whichever is simpler. It should be here: \r\nhttps://joanllobera.github.io/labreuvoir/music \r\n\r\nwhen defining this page, I have put the appropriate label in  \"include_collection\", but it does not seem to be working\r\n(see what I did here: https://github.com/joanllobera/labreuvoir/blob/main/_pages/music.md )\r\n\r\nI am wondering if someone can give me a pointer on how to filter based on content tags or based on content categories.\r\n\r\n\r\n",
+          "author": {
+            "login": "joanllobera"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "number": 49,
+    "title": "Installation | Chulapa",
+    "url": "https://github.com/dieghernan/chulapa/discussions/49",
+    "body": "# Installation | Chulapa\n\nHow to use Chulapa - Install Chulapa on your Github repo\n\nhttps://dieghernan.github.io/chulapa/docs/01-install\n\n<!-- sha1: 30d8b59584492a373f97a0ee46c91f8a0a8eeb79 -->",
+    "answer": null,
+    "comments": {
+      "nodes": [
+        {
+          "body": "i am trying to run this locally to facilitate development. \nI could generate the clone on my own github: https://github.com/joanllobera/chulapatest2\nI also managed to generate the gem bundle locally.\nThe bundle instruction seems to work.\n\nHowever, when I run `jekyll serve` it complains:\nLiquid Exception: Could not locate the included file 'components/navbeforeafter.html' in any of [\"/LOCALPATH/chulapatest2/_includes\"].\n\nWhat am I doing wrong?",
+          "author": {
+            "login": "joanllobera"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "title": "Global settings | Chulapa",
+    "url": "https://github.com/dieghernan/chulapa/discussions/6",
+    "body": "# Global settings | Chulapa\n\nLearn how to set up your new site - Setting up your new site\n\nhttps://dieghernan.github.io/chulapa/docs/02-config",
+    "answer": null,
+    "comments": {
+      "nodes": [
+        {
+          "body": "My first comment with giscus!",
+          "author": {
+            "login": "dieghernan"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "number": 31,
+    "title": "How can I create a heading Jumbotron in the Landing Page?",
+    "url": "https://github.com/dieghernan/chulapa/discussions/31",
+    "body": "Hey there, thanks for the awesome theme! I would like to know how can I create a Jumbotron-style header in the landing page, like the demo page: https://dieghernan.github.io/chulapa/\r\n\r\n<img width=\"1418\" alt=\"Screenshot 2023-09-23 at 18 58 17\" src=\"https://github.com/dieghernan/chulapa/assets/5947111/b1904949-280c-446e-a0d6-9b8a4e5809fc\">\r\n\r\nI tried to create this config in my index.markdown:\r\n\r\n```\r\ntitle: \"Ricardo Pramana Suranta\"\r\nsubtitle: \"An enthusiastic engineer.\"\r\nlayout: landingpage\r\nheader_type: hero\r\nheader_img: \"./assets/img/header/temple-of-beauty-header-medium.jpeg\"\r\n```\r\n\r\nBut all I got is a normal, landscape-esque header instead.\r\n\r\n<img width=\"1440\" alt=\"Screenshot 2023-09-23 at 19 00 13\" src=\"https://github.com/dieghernan/chulapa/assets/5947111/905b7348-f088-43d7-8514-6fd93792e548\">\r\n\r\nAny suggestions would be great since I'm inexperienced in using Jekyll. Thanks in advance! 🙏 ",
+    "answer": {
+      "body": "Nevermind, it turns out the `header_type` value should be `splash` instead of `hero`. Closing this discussion for the time being, thanks!\r\n\r\nHere's the result:\r\n\r\n<img width=\"1438\" alt=\"Screenshot 2023-09-23 at 21 42 03\" src=\"https://github.com/dieghernan/chulapa/assets/5947111/e1cf14fc-9d36-498e-9101-16c6acf725e2\">\r\n",
+      "author": {
+        "login": "edopelawi"
+      }
+    },
+    "comments": {
+      "nodes": [
+        {
+          "body": "Nevermind, it turns out the `header_type` value should be `splash` instead of `hero`. Closing this discussion for the time being, thanks!\r\n\r\nHere's the result:\r\n\r\n<img width=\"1438\" alt=\"Screenshot 2023-09-23 at 21 42 03\" src=\"https://github.com/dieghernan/chulapa/assets/5947111/e1cf14fc-9d36-498e-9101-16c6acf725e2\">\r\n",
+          "author": {
+            "login": "edopelawi"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "number": 28,
+    "title": "Cannot figure out cloudtag",
+    "url": "https://github.com/dieghernan/chulapa/discussions/28",
+    "body": "I'm playing around with vanilla version of chulapa (changed the skin etc. but nothing major), but the /tags page has issues for me. Seems there is never a tag.name assigned. If I add a print statement to the tag in cloudtag.html like this:\r\n\r\n<code>\r\n{% assign grouptag =  alldocs | map: 'tags' | join: ','  | split: ','  | group_by: tag | sort: 'size' | reverse %}\r\n{%- for tag in grouptag -%}\r\n{{ tag }}\r\n  {%- if forloop.first -%}\r\n    {%- assign sizemax = tag.size -%}\r\n  {%- elsif forloop.last -%}\r\n    {% assign mid = tag.size | plus: sizemax | divided_by: 2  %}\r\n  {%- endif -%}\r\n{%- endfor -%}\r\n</code>\r\n\r\nI get the following:\r\n\r\n<code>\r\n{\"name\"=>\"\", \"items\"=>[\"starter\", \"syntax\", \"kramdown\", \"starter\", \"syntax\", \"markdown\", \"skin\", \"bootstrap\", \"current-theme\", \"header-hero\", \"image\", \"demo\", \"landscape\", \"trips\", \"downtown\", \"project-links\", \"wikipedia\", \"image\", \"example\", \"demo\", \"layout\", \"guest-author\", \"image\", \"landscape\", \"trips\", \"downtown\", \"edinburgh\", \"kramdown\", \"bootstrap\", \"wikipedia\", \"demo\", \"image\", \"urban art\", \"street\", \"downtown\", \"image\", \"random\", \"manuscript\", \"markdown\", \"exciting-stuff\", \"wikipedia\", \"manuscript\", \"random\", \"diary\", \"school\", \"manuscript\", \"random\", \"exciting-stuff\", \"wikipedia\", \"pirates\", \"random\", \"wikipedia\", \"random\", \"exciting-stuff\"], \"size\"=>54}\r\n</code>\r\n\r\nThe rest of the page shows tags.size correctly, but nothing else obviously since tag.name is empty.\r\n\r\nSeems something goes wrong in the grouptag assignment but I cannot figure it out. Any ideas?",
+    "answer": {
+      "body": "For anyone stumbling over this - I posted a workaround in issue #29.",
+      "author": {
+        "login": "cargocultprogramming"
+      }
+    },
+    "comments": {
+      "nodes": [
+        {
+          "body": "Hi @cargocultprogramming thanks for reporting.\r\n\r\nIs there a way to have a look to the repo in which you are using chulapa? ",
+          "author": {
+            "login": "dieghernan"
+          }
+        },
+        {
+          "body": "It's quite a mess since I'm basically just playing around, but I've pushed it here (sans images): https://github.com/cargocultprogramming/friendly-octo",
+          "author": {
+            "login": "cargocultprogramming"
+          }
+        },
+        {
+          "body": "Hi:\r\n\r\n~It seems that actually you are not using the theme as a remote theme, but overriding the theme. That has not been tested and it is not the intended use ot the theme, so no clue what's going on.~\r\n\r\nAt this moment I am not sure of the root cause of the error and how to solve it (I already spend a couple of hours on it), sorry.\r\n\r\nEDIT\r\n\r\nOk, I checked and it may be an issue associated with Jekyll >= 4.0, in Jekyll >= 3.0 ~ < 4.0 the template works fine.\r\n\r\n",
+          "author": {
+            "login": "dieghernan"
+          }
+        },
+        {
+          "body": "And here we have it \r\n\r\nhttps://github.com/jekyll/jekyll/issues/8214",
+          "author": {
+            "login": "dieghernan"
+          }
+        },
+        {
+          "body": "@dieghernan appreciate the time you spent looking into this! Definitely the right approach for solving. The linked discussion contains the right pointers, though I first need to wrap my head around how to exactly implement this as filter.",
+          "author": {
+            "login": "cargocultprogramming"
+          }
+        },
+        {
+          "body": "For anyone stumbling over this - I posted a workaround in issue #29.",
+          "author": {
+            "login": "cargocultprogramming"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "title": "Welcome to chulapa Discussions!",
+    "url": "https://github.com/dieghernan/chulapa/discussions/5",
+    "body": "<!--\r\n    ✏️ Optional: Customize the content below to let your community know what you intend to use Discussions for.\r\n-->\r\n## 👋 Welcome!\r\n  We’re using Discussions as a place to connect with other members of our community. We hope that you:\r\n  * Ask questions you’re wondering about.\r\n  * Share ideas.\r\n  * Engage with other community members.\r\n  * Welcome others and are open-minded. Remember that this is a community we\r\n  build together 💪.\r\n\r\n  To get started, comment below with an introduction of yourself and tell us about what you do with this community.\r\n\r\n<!--\r\n  For the maintainers, here are some tips 💡 for getting started with Discussions. We'll leave these in Markdown comments for now, but feel free to take out the comments for all maintainers to see.\r\n\r\n  📢 **Announce to your community** that Discussions is available! Go ahead and send that tweet, post, or link it from the website to drive traffic here.\r\n\r\n  🔗 If you use issue templates, **link any relevant issue templates** such as questions and community conversations to Discussions. Declutter your issues by driving community content to where they belong in Discussions. If you need help, here's a [link to the documentation](https://docs.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser).\r\n\r\n  ➡️ You can **convert issues to discussions** either individually or bulk by labels. Looking at you, issues labeled “question” or “discussion”.\r\n-->\r\n",
+    "answer": null,
+    "comments": {
+      "nodes": []
+    }
+  }
+]

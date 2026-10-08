@@ -1,0 +1,338 @@
+[
+  {
+    "id": "installation-1",
+    "section": "installation",
+    "doc": "01_install.md",
+    "question": "How do I start a new Chulapa site on GitHub Pages?",
+    "expected": "Recommend chulapa-101 template, configuration and deployment."
+  },
+  {
+    "id": "installation-2",
+    "section": "installation",
+    "doc": "01_install.md",
+    "question": "How do I migrate an existing Jekyll site to Chulapa using remote_theme?",
+    "expected": "Remove conflicting theme; add remote-theme and include-cache to Gemfile/plugins."
+  },
+  {
+    "id": "installation-3",
+    "section": "installation",
+    "doc": "01_install.md",
+    "question": "Unknown tag include_cached appears during my local remote-theme build. What do I need?",
+    "expected": "Install and enable jekyll-include-cache; remote themes do not install dependencies."
+  },
+  {
+    "id": "installation-4",
+    "section": "installation",
+    "doc": "01_install.md",
+    "question": "How do I install and update only the gem-based Chulapa theme?",
+    "expected": "gem chulapa-jekyll; theme setting; include-cache; bundle update chulapa-jekyll."
+  },
+  {
+    "id": "installation-5",
+    "section": "installation",
+    "doc": "01_install.md",
+    "question": "Does remote_theme: dieghernan/chulapa select v2.1.0? How can I pin that version?",
+    "expected": "Unpinned default branch versus @v2.1.0; rebuild."
+  },
+  {
+    "id": "installation-6",
+    "section": "installation",
+    "doc": "01_install.md",
+    "question": "Will upgrading the remote theme overwrite my own _includes/head.html?",
+    "expected": "Local override remains; merge theme updates manually."
+  },
+  {
+    "id": "configuration-1",
+    "section": "configuration",
+    "doc": "02_config.md",
+    "question": "Mi sitio es https://ana.github.io/blog. ¿Qué pongo en url y baseurl?",
+    "expected": "url origin; baseurl /blog; Spanish reply."
+  },
+  {
+    "id": "configuration-2",
+    "section": "configuration",
+    "doc": "02_config.md",
+    "question": "Does locale: es translate the whole interface? How do I translate date names?",
+    "expected": "locale HTML language, not full translation; datetranslate details from layouts."
+  },
+  {
+    "id": "configuration-3",
+    "section": "configuration",
+    "doc": "02_config.md",
+    "question": "How do I configure a Person publisher? Does it change guest article authors?",
+    "expected": "publisher type Person name image; independent authors; logo ignored."
+  },
+  {
+    "id": "configuration-4",
+    "section": "configuration",
+    "doc": "02_config.md",
+    "question": "How do I enable Google Analytics 4? Should I set analytics_id too?",
+    "expected": "gtag_id G-; analytics_id legacy; leave unused empty; both loads both."
+  },
+  {
+    "id": "configuration-5",
+    "section": "configuration",
+    "doc": "02_config.md",
+    "question": "How do I use a Font Awesome kit? What if fa5_kit_code is already set?",
+    "expected": "fa_kit_code; legacy takes precedence; remove legacy; default FA6."
+  },
+  {
+    "id": "configuration-6",
+    "section": "configuration",
+    "doc": "02_config.md",
+    "question": "Show a minimal dual navbar configuration with a submenu and expansion at lg.",
+    "expected": "navbar.style dual expand lg; nav child list; one nesting level."
+  },
+  {
+    "id": "search-comments-1",
+    "section": "search-comments",
+    "doc": "02_config.md",
+    "question": "I set search.provider: lunr but /search is missing. Why?",
+    "expected": "Create layout search page with matching permalink."
+  },
+  {
+    "id": "search-comments-2",
+    "section": "search-comments",
+    "doc": "02_config.md",
+    "question": "Does include_on_search: false exclude pages from both Lunr and Algolia?",
+    "expected": "Yes local indices; Algolia ranking only; files_to_exclude."
+  },
+  {
+    "id": "search-comments-3",
+    "section": "search-comments",
+    "doc": "02_config.md",
+    "question": "Where should I put my Algolia indexing key and search key?",
+    "expected": "Public search_only_api_key versus private ALGOLIA_API_KEY env; no indexing secret inconfig."
+  },
+  {
+    "id": "search-comments-4",
+    "section": "search-comments",
+    "doc": "02_config.md",
+    "question": "How do I hide search attribution? Is lunr_maxwords still recommended?",
+    "expected": "show_attrib false; prefer maxwords; deprecated provider fields precedence; Algolia separatelogo."
+  },
+  {
+    "id": "search-comments-5",
+    "section": "search-comments",
+    "doc": "02_config.md",
+    "question": "How do I enable giscus comments on my posts?",
+    "expected": "comments.provider giscus; show_comments true; custom/giscus.html generatedembed."
+  },
+  {
+    "id": "search-comments-6",
+    "section": "search-comments",
+    "doc": "02_config.md",
+    "question": "How do I add an email link and custom copyright text to the footer?",
+    "expected": "footer.links label icon plainemailurl; footer.copyright."
+  },
+  {
+    "id": "theming-1",
+    "section": "theming",
+    "doc": "03_theming.md",
+    "question": "What skins are available?",
+    "expected": "Actual names and /skins visual catalog."
+  },
+  {
+    "id": "theming-2",
+    "section": "theming",
+    "doc": "03_theming.md",
+    "question": "How do I enable Autothemer using a purple primary color? Show YAML.",
+    "expected": "autothemer true; vars.primary quotedhex."
+  },
+  {
+    "id": "theming-3",
+    "section": "theming",
+    "doc": "03_theming.md",
+    "question": "Does Autothemer replace every color defined by my chosen skin?",
+    "expected": "No !default fills undefined; vars override skin."
+  },
+  {
+    "id": "theming-4",
+    "section": "theming",
+    "doc": "03_theming.md",
+    "question": "I loaded Rubik with googlefonts but the page font did not change. Why?",
+    "expected": "Apply font-family-base/headings-font-family undervars; rebuild."
+  },
+  {
+    "id": "theming-5",
+    "section": "theming",
+    "doc": "03_theming.md",
+    "question": "How do I add a custom skin named myskin? Should it import Bootstrap?",
+    "expected": "_sass/skins/myskin.scss; skinmyskin; !default variables; no secondBootstrapimport."
+  },
+  {
+    "id": "theming-6",
+    "section": "theming",
+    "doc": "03_theming.md",
+    "question": "How do I transfer a Codeply theme preview to my site? Is Themestr.app required?",
+    "expected": "PreviewSCSS translatevars no$semicolon quotedhex; Themestrnotrequired; don'tdisablegrid."
+  },
+  {
+    "id": "layouts-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I set the default layout for every post but override one page?",
+    "expected": "defaults scope typeposts values layoutdefault explicitfrontmatterwins booleanfalse."
+  },
+  {
+    "id": "layouts-2",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Can minimal show a hero header and an author panel?",
+    "expected": "show_header true header_typehero header_img; minimalnoauthorpanel."
+  },
+  {
+    "id": "layouts-3",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I add a sidebar TOC that includes h2 through h5?",
+    "expected": "show_sidetoc true h_min2 h_max5 headingsIDs."
+  },
+  {
+    "id": "layouts-4",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I archive only posts and demo, including documents without dates?",
+    "expected": "layoutarchive include_collection posts,demo no_ no spaces include_missdatestrue; no standalonepages."
+  },
+  {
+    "id": "layouts-5",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I create a tag cloud and link tags in my posts to it?",
+    "expected": "layoutcloudtag permalink /tags; cloudtag_url; show_tags; collectionrestriction."
+  },
+  {
+    "id": "layouts-6",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I show five newest posts as cards? Will show_bottomnavs also link arbitrary pages?",
+    "expected": "indexcategory index_sortdate descending index_items5; bottomnavusespreviousnext notarbitrary."
+  },
+  {
+    "id": "snippets-1",
+    "section": "snippets",
+    "doc": "04_layouts.md",
+    "question": "How do I embed a local MP4 video? Give the Liquid include.",
+    "expected": "snippets/video.html fileurl."
+  },
+  {
+    "id": "snippets-2",
+    "section": "snippets",
+    "doc": "04_layouts.md",
+    "question": "My YouTube preview is blank. How do I change its resolution or load the player immediately?",
+    "expected": "video_res versus nolazy true; no metadata thumbnailconfusion."
+  },
+  {
+    "id": "snippets-3",
+    "section": "snippets",
+    "doc": "04_layouts.md",
+    "question": "Does thumbnail_url change the video preview? Can Chulapa infer upload_date and duration?",
+    "expected": "Metadataonly no visualposter; no infer; ISO8601inputs."
+  },
+  {
+    "id": "snippets-4",
+    "section": "snippets",
+    "doc": "04_layouts.md",
+    "question": "How do I make an internal masonry gallery sorted by filename without shuffling?",
+    "expected": "defaultsimage_col internalgallery; index_sortbasename index_sort_asctrue randombooleanfalse."
+  },
+  {
+    "id": "snippets-5",
+    "section": "snippets",
+    "doc": "04_layouts.md",
+    "question": "How do I add an external-image carousel with controls and a 2-second interval?",
+    "expected": "assigncommaseparatedurls externalvariable interval2000 controlstrue indicatorstrue."
+  },
+  {
+    "id": "snippets-6",
+    "section": "snippets",
+    "doc": "04_layouts.md",
+    "question": "How do I enable mathematical formulas on a page?",
+    "expected": "mathjax true in frontmatter; example correct."
+  },
+  {
+    "id": "faq-1",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "How do I check my installed theme version, including local overrides?",
+    "expected": "remote suffix Gemfile.lock markerlimitations notexactunpinnedcommit."
+  },
+  {
+    "id": "faq-2",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "Where do I add analytics HTML before the theme CSS and JavaScript at the end of body?",
+    "expected": "custom_head_before_css.html versus custom_bottomscripts.html relative _includes."
+  },
+  {
+    "id": "faq-3",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "How do I configure favicons for a GitHub Pages project under /blog?",
+    "expected": "expliciticonlinks generated assets custom_head URLsrespectbaseurl."
+  },
+  {
+    "id": "faq-4",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "How do I add an info alert, an image caption and a footnote in Markdown?",
+    "expected": "kramdownalertattributes captionparagraph footnoterefdefinition."
+  },
+  {
+    "id": "faq-5",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "How do I render the Chulapa logo font with its ligatures in a heading?",
+    "expected": "classchulapa or font-family headings plusliga,dlig; preservebrandingcode."
+  },
+  {
+    "id": "faq-6",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "Can jekyll-feed replace /atom.xml without conflicting with Chulapa?",
+    "expected": "remove themeAtom post_readhook customworkflow notsafePages; keepRSS andheadlinkcaveat."
+  },
+  {
+    "id": "reference-edge-cases-1",
+    "section": "reference-edge-cases",
+    "doc": "99_markdown-cheatsheet.md",
+    "question": "How do I write a Markdown table with right-aligned numbers and a fenced YAML example?",
+    "expected": "pipetable alignment ---: fence yaml; compactcompleteexample."
+  },
+  {
+    "id": "reference-edge-cases-2",
+    "section": "reference-edge-cases",
+    "doc": "99_markdown-cheatsheet.md",
+    "question": "Does kramdown GFM support every Kramdown extension? How do I make a Markdown TOC?",
+    "expected": "Parserdistinction toc {:toc} Kramdownspecific needsverifieddocs."
+  },
+  {
+    "id": "reference-edge-cases-3",
+    "section": "reference-edge-cases",
+    "doc": "99_markdown-cheatsheet.md",
+    "question": "How do I disable rounded buttons and make headings use a different font?",
+    "expected": "enable-rounded false and headings-font-family undervars quotedlist."
+  },
+  {
+    "id": "reference-edge-cases-4",
+    "section": "reference-edge-cases",
+    "doc": "99_markdown-cheatsheet.md",
+    "question": "How do I change navbar, footer and code-block background colors?",
+    "expected": "correctvars; highlighting canoverridepre-chulapa-bg-color."
+  },
+  {
+    "id": "reference-edge-cases-5",
+    "section": "reference-edge-cases",
+    "doc": "99_markdown-cheatsheet.md",
+    "question": "Does choosing dracula in the syntax-highlighting demo save it to my site?",
+    "expected": "No preview; chulapa-skin.highlight dracula configrebuild."
+  },
+  {
+    "id": "reference-edge-cases-6",
+    "section": "reference-edge-cases",
+    "doc": "99_markdown-cheatsheet.md",
+    "question": "Can robots: noindex make a page private? Can you read my latest RSS post or add a shopping cart?",
+    "expected": "Noindexnotaccesscontrol; nofetchlatestRSS; unsupportedcart acknowledged."
+  }
+]

@@ -1,5 +1,18 @@
 # Live evaluation
 
+## Long-history scrolling
+
+Reproduced the secondary panel scrollbar in Chrome with 20 long restored
+messages: the outer panel measured 462 px high with 41,418 px of scrollable
+overflow. Clipping the message log's paint overflow and constraining its flex
+size leaves scrolling inside the log. After the fix the outer panel's client
+and scroll heights both measured 462 px; at a 390 × 780 mobile viewport both
+measured 572 px. The message history still scrolls, while header and form stay
+visible. Physical iPhone confirmation remains useful.
+
+See [the documentation and community batch review](evaluations/review-2026-10-08.md)
+for the expanded question set, raw answers and selective context changes.
+
 Checked against the deployed Worker on October 8, 2026. These are observations
 from particular requests, not guarantees about every future model response.
 
