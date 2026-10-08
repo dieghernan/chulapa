@@ -1,6 +1,7 @@
 {%- if include.fileurl -%}
-<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemprop="VideoObject" itemtype="https://schema.org/VideoObject">
-<video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item u-video" controls itemprop="contentUrl" >
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+<link itemprop="contentUrl" href="{{ include.fileurl | absolute_url | escape }}">
+<video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item u-video" controls >
   Your browser does not support the video tag.
 </video>
 </div>
@@ -8,7 +9,7 @@
   {%- if include.nolazy -%}
   <!-- Thanks to Minimal Mistakes -->
   <!-- https://embedresponsively.com/ -->
-  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemprop="VideoObject" itemtype="https://schema.org/VideoObject">
+  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
       <iframe loading="lazy" title="Video from YouTube" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" allowfullscreen itemprop="embedUrl"></iframe>
     
   </div>
@@ -21,7 +22,7 @@
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
 <!-- https://embedresponsively.com/ -->
-  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemprop="VideoObject" itemtype="https://schema.org/VideoObject">
+  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
   {%- if video_provider == "vimeo" -%}
     <iframe loading="lazy" title="Video from {{ video_provider }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
   {%- elsif video_provider == "google-drive" -%}

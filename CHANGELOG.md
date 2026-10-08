@@ -2,6 +2,8 @@
 
 ### Fixed
 
+-   Correct video microdata URLs before and after deferred playback, remove unscoped search and comment properties and load the deferred player script from the installed theme ([#72](https://github.com/dieghernan/chulapa/issues/72)).
+
 -   Consolidate page structured data, complete site name metadata and prevent empty breadcrumb names when the navbar brand contains only an icon ([#69](https://github.com/dieghernan/chulapa/issues/69)).
 -   Validate Twitter/X profile URLs before attributing pages to an author and avoid attributing guest pages to the site author's profile ([#66](https://github.com/dieghernan/chulapa/issues/66)).
 -   Prevent a JavaScript error on `minimal` pages without `maincontent` and load
