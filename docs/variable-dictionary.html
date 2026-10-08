@@ -16,8 +16,8 @@
       "description": "This page lists selected Chulapa and Bootstrap variables for customizing your site. Set them under chulapa-skin.vars in _config.yml, without the SCSS $ prefix or trailing semicolon. For the full set, see the Chulapa variables source and Bootstrap variables source.",
       "headline":"Variables dictionary",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T18:29:36+02:00",
-      "dateModified": "2026-10-08T18:29:36+02:00",
+      "datePublished": "2026-10-08T18:31:47+02:00",
+      "dateModified": "2026-10-08T18:31:47+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -227,6 +227,20 @@ your site. Set them under <code class="language-plaintext highlighter-rouge">chu
 SCSS <code class="language-plaintext highlighter-rouge">$</code> prefix or trailing semicolon. For the full set, see the
 <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss"><span class="chulapa">Chulapa</span> variables source</a>
 and <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss">Bootstrap variables source</a>.</p>
+<p>Quote hex colors in YAML so that <code class="language-plaintext highlighter-rouge">#</code> is not interpreted as a comment. Use
+Sass units for sizes, such as <code class="language-plaintext highlighter-rouge">"1.1rem"</code>, and lowercase <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code> for
+boolean variables. For example:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
+  <span class="na">vars</span><span class="pi">:</span>
+    <span class="na">primary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#345678"</span>
+    <span class="na">navbar-chulapa-hover-bg-color</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#234567"</span>
+    <span class="na">chulapa-toc-bg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#f5f5f5"</span>
+    <span class="na">font-size-base</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1rem"</span>
+    <span class="na">enable-rounded</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
+<p>Values in <code class="language-plaintext highlighter-rouge">vars</code> override the selected skin’s variable assignments.
+Autothemer fills in variables that are still undefined. See
+<a href="./03-theming#variables">Theming Chulapa</a> for the loading order and font setup.</p>
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 <table>
 <thead>
@@ -249,6 +263,10 @@ and <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_va
      <td style="text-align: left">Navbar text color on hover</td>
    </tr>
    <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">navbar-chulapa-hover-bg-color</code></td>
+     <td style="text-align: left">Navbar link background color on hover</td>
+   </tr>
+   <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">navbar-chulapa-active-color</code></td>
      <td style="text-align: left">Navbar text color for active item</td>
    </tr>
@@ -266,15 +284,19 @@ and <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_va
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">navbar-chulapa-toggler-color</code></td>
-     <td style="text-align: left">Navbar color of the hamburger icon</td>
+     <td style="text-align: left">Stroke color of the default hamburger icon</td>
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">navbar-chulapa-toggler-color-bg</code></td>
-     <td style="text-align: left">Navbar color of the hamburger icon background</td>
+     <td style="text-align: left">Background color of the navbar toggle button</td>
+   </tr>
+   <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">navbar-chulapa-toggler-icon-bg</code></td>
+     <td style="text-align: left">Background image of the navbar toggle button, as a Sass <code class="language-plaintext highlighter-rouge">url(...)</code> expression; overrides the default hamburger icon</td>
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">navbar-chulapa-toggler-border-color</code></td>
-     <td style="text-align: left">Navbar color of the borders of the hamburger box</td>
+     <td style="text-align: left">Border color of the navbar toggle button</td>
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">footer-chulapa-bg-color</code></td>
@@ -290,7 +312,7 @@ and <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_va
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">footer-chulapa-hover-color</code></td>
-     <td style="text-align: left">Footer text color on hover</td>
+     <td style="text-align: left">Footer link color on hover</td>
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">footer-chulapa-icon-color</code></td>
@@ -356,8 +378,22 @@ and <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_va
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">indexcards-chulapa-border-color</code></td>
      <td style="text-align: left">Border color of cards on <code class="language-plaintext highlighter-rouge">indexcategory</code> layout</td>
    </tr>
+   <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">chulapa-toc-bg</code></td>
+     <td style="text-align: left">Background color of the table of contents sidebar</td>
+   </tr>
  </tbody>
 </table>
+<p>Unless a skin or <code class="language-plaintext highlighter-rouge">vars</code> supplies a value, the navbar background uses
+<code class="language-plaintext highlighter-rouge">primary</code>, the footer and hero backgrounds use the navbar background and
+the landing page background uses the hero background. Many text colors are
+derived from these backgrounds. Explicit component colors supplied by a
+skin or <code class="language-plaintext highlighter-rouge">vars</code> keep their assigned values.</p>
+<p>The source also contains calculated helpers such as
+<code class="language-plaintext highlighter-rouge">navbar-chulapa-text-contrast</code>, <code class="language-plaintext highlighter-rouge">footer-chulapa-text-contrast</code>,
+<code class="language-plaintext highlighter-rouge">landingpage-card-bg</code> and <code class="language-plaintext highlighter-rouge">cactus-btn-text</code>. These are recalculated by the
+theme rather than exposed as overridable defaults. Use the component
+variables above or custom CSS to adjust the corresponding styles.</p>
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>These are Sass variables, not page options.</strong> Set them under
 <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code>, then restart Jekyll to rebuild the styles. For layout and
 front matter options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
@@ -424,6 +460,14 @@ front matter options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
      <td style="text-align: left">Link text color</td>
    </tr>
    <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">link-hover-color</code></td>
+     <td style="text-align: left">Link text color on hover</td>
+   </tr>
+   <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">text-muted</code></td>
+     <td style="text-align: left">Muted text color; also the default border color for index cards</td>
+   </tr>
+   <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">font-family-base</code></td>
      <td style="text-align: left">Main font family</td>
    </tr>
@@ -432,12 +476,24 @@ front matter options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
      <td style="text-align: left">Headings font family</td>
    </tr>
    <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">font-family-monospace</code></td>
+     <td style="text-align: left">Font family for code and other monospace text</td>
+   </tr>
+   <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">font-size-base</code></td>
-     <td style="text-align: left">Base font size</td>
+     <td style="text-align: left">Base font size, with a Sass unit such as <code class="language-plaintext highlighter-rouge">rem</code>; defaults to <code class="language-plaintext highlighter-rouge">1rem</code></td>
+   </tr>
+   <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">line-height-base</code></td>
+     <td style="text-align: left">Base line height as a unitless multiplier; defaults to <code class="language-plaintext highlighter-rouge">1.5</code></td>
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">headings-color</code></td>
      <td style="text-align: left">Headings text color</td>
+   </tr>
+   <tr>
+     <td style="text-align: left"><code class="language-plaintext highlighter-rouge">border-radius</code></td>
+     <td style="text-align: left">Default border radius for Bootstrap components</td>
    </tr>
    <tr>
      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">carousel-control-color</code></td>
@@ -451,6 +507,10 @@ front matter options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
 </table>
 <h3 id="color-map">Color map</h3>
 <p>The <a href="https://getbootstrap.com/docs/4.5/getting-started/theming/#color">Bootstrap color palette</a> can be customized using these Sass variables:</p>
+<p>These are palette values. Use semantic variables such as <code class="language-plaintext highlighter-rouge">primary</code>, <code class="language-plaintext highlighter-rouge">danger</code>
+or <code class="language-plaintext highlighter-rouge">body-bg</code> to assign colors to components. A skin may define semantic
+colors explicitly, so changing a palette value such as <code class="language-plaintext highlighter-rouge">blue</code> does not
+necessarily change that skin’s <code class="language-plaintext highlighter-rouge">primary</code> color.</p>
 <table>
 <thead>
    <tr>
