@@ -1,5 +1,10 @@
 ## dev
 
+### Fixed
+
+-   Prevent a JavaScript error on `minimal` pages without `maincontent` and load
+    the script from the installed theme instead of the CDN ([#45](https://github.com/dieghernan/chulapa/issues/45)).
+
 ### Added
 
 -   New skins:
