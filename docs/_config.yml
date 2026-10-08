@@ -122,6 +122,8 @@ navbar:
       url: /demo/search_fusejs
     - title: Search Simple Jekyll Search
       url: /demo/search_simple
+    - title: Minimal with header
+      url: /demo/minimal-header
     - title: Classic Navbar
       url: /demo/classic-navbar
   - title: PageSpeed Results
