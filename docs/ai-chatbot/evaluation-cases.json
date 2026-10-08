@@ -1,5 +1,12 @@
 [
   {
+    "id": "config-author-profile-1",
+    "section": "config",
+    "doc": "02_config.md",
+    "question": "Where do I configure my site author's profile URL? Can I use /about/ and will guest authors inherit it?",
+    "expected": "Use author.url in _config.yml, alongside name, avatar, location and links. It accepts a profile URL or site-relative path such as /about/; paths resolve with site url/baseurl. It supplies the default article:author URL for posts and, from v2.1.1, u-url in visible Microformats2 author cards. A page author does not inherit the site author's profile URL. Social links remain in author.links."
+  },
+  {
     "id": "layouts-label-headings-1",
     "section": "layouts",
     "doc": "04_layouts.md",

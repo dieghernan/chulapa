@@ -109,6 +109,11 @@ add it to plugins, then restart the build.
 ## Global settings
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Configure site settings in _config.yml and restart Jekyll after changing them.
+The site author mapping accepts name, url, avatar, location and links. Set
+author.url to a profile URL or site-relative path such as /about/; relative paths
+use the site's url and baseurl. It supplies the default article:author URL for
+posts and, from v2.1.1, u-url in visible Microformats2 author cards. A page author
+does not inherit the site author's profile URL. Social links use author.links.
 Set url to the origin, e.g. https://username.github.io, and baseurl to the path
 prefix, e.g. /repository, or an empty string for a root site. Explicit values help
 canonical links, feeds and images resolve correctly on local and custom builds.
