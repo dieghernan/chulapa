@@ -28,12 +28,13 @@ layout: default
 {% assign alldocs = alldocs | sort: 'date' | reverse %}
 {% assign alltags =  alldocs | map: 'categories' | join: ','  | split: ','  %}
 
-{%- assign single_tags =  alltags | uniq  -%}
+{%- assign tag_groups = alltags | group_by_exp: 'item', 'item' -%}
+{%- assign single_tags = tag_groups | map: 'name' -%}
 {% assign count_tags = '' | split: ',' %}
 {% assign n_tags = single_tags | size |  minus: 1 %}
 
 {%- for i in (0..n_tags) %}
-  {% assign count_this_tag = alltags | where_exp:"item", "item == single_tags[i]" | size %}
+  {% assign count_this_tag = tag_groups[i].size %}
   {% assign count_tags = count_tags | push: count_this_tag %}
 {%- endfor -%}
 
@@ -71,12 +72,12 @@ layout: default
   <div class="badge rounded-pill chulapa-pill-bg-secondary ml-2">{{ sorted_count_tags[i]}}</div>
 </div>
   {% for document in alldocs %}
+	{% if document.categories contains  sorted_tags[i] %}
   {% assign words = document.content | strip_html | number_of_words %}
   {% assign readtime = "< 1’" | escape_once  %}
   {% if words > words_per_minute %}
   {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
   {% endif %}
-	{% if document.categories contains  sorted_tags[i] %}
   <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
     <div class="col">
       <h6><a href="{{ document.url | absolute_url }}" class="p-name u-url">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>

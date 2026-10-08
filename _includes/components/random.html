@@ -14,12 +14,13 @@
 
   {%- assign this_col = all_docs | where_exp: "item", "item.collection == page.collection" | map: 'id' | join: ',' | split: ',' -%}
   {%- assign all_tags = related_docs | concat: this_col -%}
-  {%- assign unique_tags = all_tags | uniq -%}
+  {%- assign tag_groups = all_tags | group_by_exp: 'item', 'item' -%}
+  {%- assign unique_tags = tag_groups | map: 'name' -%}
   {% assign tag_counts = '' | split: ',' %}
   {% assign num_tags = unique_tags | size | minus: 1 %}
 
   {%- for i in (0..num_tags) -%}
-    {% assign tag_count = all_tags | where_exp: "item", "item == unique_tags[i]" | size %}
+    {% assign tag_count = tag_groups[i].items | size %}
     {% assign tag_counts = tag_counts | push: tag_count %}
   {%- endfor -%}
 

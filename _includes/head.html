@@ -34,18 +34,18 @@
 {%- if ogimage_source != empty -%}
   {%- assign ogimage = ogimage_source | absolute_url -%}
 {%- endif -%}
-{%- assign descfallback = page.content |
-                markdownify |  newline_to_br |
-                replace:"<br />", ",.," |
-                replace:"{{", ",.," |
-                replace:"{%", ",.," |
-                split: ",.," | first -%}
 {%- assign explicit_description = page.description | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
 {%- assign ogdesc = page.excerpt | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
 {%- if ogdesc == empty and strippedurl == '/' -%}
   {%- assign ogdesc = site.description | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
 {%- endif -%}
 {%- if ogdesc == empty -%}
+{%- assign descfallback = page.content |
+                markdownify |  newline_to_br |
+                replace:"<br />", ",.," |
+                replace:"{{", ",.," |
+                replace:"{%", ",.," |
+                split: ",.," | first -%}
   {%- assign ogdesc = descfallback | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
 {%- endif -%}
 {%- assign metasubtitle = page.subtitle | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
