@@ -155,5 +155,22 @@ The local context now distinguishes floating-menu keyboard behavior from the
 lateral TOC's preserved Tab behavior, describes local font serving and Cactus
 resource gating, and recommends chulapa-101 for a new site with deployment.
 Focused cases `accessibility-1` and `resources-1` were added and `starter-1`
-was updated. All 17 local tests pass. Deployment and targeted live evaluation
-remain pending; the deployed Worker still uses the previous context.
+was updated. All 17 local tests passed. Deployment and targeted live evaluation
+were pending at the time of this review; see the deployment recorded below.
+
+## Chulapa 101 template and accessibility deployment, October 8, 2026
+
+Deployed Worker version `76f6dc51-7442-4e40-83e3-5a48ddc04616` with the updated
+template, full configuration, customization hooks and accessibility context.
+All 17 local tests pass. Four focused live requests returned HTTP 200; full
+responses are saved in `evaluations/starter-template-2026-10-08.jsonl`.
+
+The installation answer correctly describes the template, Pages source,
+configuration and deployment. The starter answer identifies the personal blog,
+Fuse.js and archives and distinguishes it from a profile selector, but omits
+some requested editing paths, pagination and hooks. The accessibility answer
+preserves the lateral TOC's Tab behavior and does not claim certification, but
+omits the release caveat. The resource answer identifies local theme assets and
+conditional Cactus loading, but incorrectly locates font preload in CSS rather
+than the HTML head. These observations are response-quality limitations, not
+evidence that all live criteria passed.
