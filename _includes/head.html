@@ -43,6 +43,7 @@
 {%- for item in creator_links -%}
   {%- assign author_profile_url = item.url | split: '?' | first | split: '#' | first -%}
   {%- assign author_url_parts = author_profile_url | split: '/' -%}
+  {%- assign author_scheme = author_url_parts[0] | downcase -%}
   {%- assign author_host = author_url_parts[2] | split: ':' | first | downcase -%}
   {%- if author_host == "twitter.com" or author_host == "www.twitter.com" or author_host == "x.com" or author_host == "www.x.com" -%}
     {%- assign twitter_username = author_url_parts[3] -%}
@@ -51,7 +52,7 @@
     {%- assign twitter_profile_path = author_url_parts[0] | append: '//' | append: author_url_parts[2] | append: '/' | append: twitter_username -%}
     {%- assign twitter_profile_path_slash = twitter_profile_path | append: '/' -%}
     {%- assign twitter_profile_valid = false -%}
-    {%- if author_url_parts[0] == 'https:' or author_url_parts[0] == 'http:' -%}
+    {%- if author_scheme == 'https:' or author_scheme == 'http:' -%}
       {%- if author_profile_url == twitter_profile_path or author_profile_url == twitter_profile_path_slash -%}
         {%- if twitter_username_size > 0 and twitter_username_size <= 15 -%}
           {%- unless twitter_reserved_paths contains twitter_username_lower -%}

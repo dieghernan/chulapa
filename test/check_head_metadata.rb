@@ -90,6 +90,9 @@ Dir.mktmpdir("chulapa-head-") do |source|
   }
   creator_cases = {
     "query" => [["https://x.com/guest?lang=en"], "@guest"],
+    "uppercase-scheme" => [["HTTPS://x.com/guest"], "@guest"],
+    "mixed-case-scheme" => [["hTtPs://WWW.TWITTER.COM/Guest_12/?lang=en#bio"], "@Guest_12"],
+    "uppercase-http-scheme" => [["HTTP://www.x.com/guest"], "@guest"],
     "fragment" => [["https://twitter.com/guest#bio"], "@guest"],
     "trailing-only" => [["https://twitter.com/guest/"], "@guest"],
     "maximum-length" => [["http://x.com/abcdefghijklmno"], "@abcdefghijklmno"],
