@@ -3,10 +3,7 @@
 <script>
   $(document).ready(function() {
   	$('.dropdown-menu a').click(function() {
-  		$('#selected').html('<div class="highlight"><pre class="highlight"><code>' +
-  			'<span class="na">chulapa-skin</span><span class="pi">:</span> </br>' +
-  			'<span class="na">  highlight</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">' +
-  			$(this).text() + '"</span></code></pre></div>');
+      $('#selected').text('"' + $(this).text() + '"');
   		$('#config').html('On your <code>_config.yml</code>');
   
   	});
@@ -28,8 +25,8 @@
   function reaplyStyles(themename) {
   	removeAllSyntaxStyles();
   	addStyle(themename);
-  	label = document.getElementById("dropdownMenuButton");
-  	label.innerHTML = themename;
+    var label = document.getElementById("dropdownMenuButton");
+    label.textContent = themename;
   	return true;
   }
 </script>

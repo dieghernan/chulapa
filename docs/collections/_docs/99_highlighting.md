@@ -45,7 +45,7 @@ style="max-height: 30vh;overflow-y: auto;">
   	var row = document.createElement('a');
   	row.classList.add('dropdown-item');
   	row.href = 'javascript:void(0)';
-  	row.innerHTML = word;
+    row.textContent = word;
   	row.setAttribute("onclick", "reaplyStyles('" + word + "');");
   	document.getElementById('list').appendChild(row);
   });
@@ -60,9 +60,9 @@ style="max-height: 30vh;overflow-y: auto;">
   		title.innerHTML = 'On your <code>_config.yml</code>';		
   		
   		sel = document.getElementById("selected");  	
-  		sel.innerHTML = themename;
+      sel.textContent = themename;
   		btn = document.getElementById("dropdownMenuButton");  	
-  		btn.innerHTML = themename;
+      btn.textContent = themename;
   		
       return true;
   }

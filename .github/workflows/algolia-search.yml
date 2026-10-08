@@ -6,6 +6,9 @@ on:
   workflow_dispatch:
 
 name: algolia-search
+permissions:
+  contents: read
+
 jobs:
   algolia-search:
     runs-on: ubuntu-latest
