@@ -8,6 +8,7 @@
      <!-- Jekyll Version {{ jekyll.version }} -->
     {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
 {%- assign home_url = "index.html" | absolute_url | replace: "index.html", "" | uri_escape -%}
+{%- include snippets/breadcrumb-names.html -%}
 {%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name | markdownify | strip_html | strip -%}
 {%- assign strippedurl = page.url | replace: "index.html", "" -%}
@@ -89,10 +90,21 @@
         {
       "@context": "https://schema.org",
       "@type": {{ schema_type | jsonify }},
+      {% if schema_type == 'WebPage' %}
+      "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+      "name": {% include snippets/jsonld-string.html value=metatitle1 %},
+      "description": {% include snippets/jsonld-string.html value=ogdesc %},
+      {% elsif schema_type == 'WebSite' %}
+      "@id": {%- assign jsonld_value = home_url | append: '#website' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+      "name": {% include snippets/jsonld-string.html value=breadcrumb_site_name %},
+      "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
+      {% else %}
+      "@id": {%- assign jsonld_value = canonical_url | append: '#article' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}
       },
+      {% endif %}
       "headline": {%- assign jsonld_value = metatitle1 |  strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %},
       "image": {% include snippets/jsonld-string.html value=ogimage decode_html=false %},
       {% if page.date %}
@@ -131,17 +143,19 @@
       }
     }
     </script>
-    {% if page.breadcrumb_list %}
+    {% if page.breadcrumb_list.size > 0 %}
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
       "itemListElement": [
     {% for item in page.breadcrumb_list %}
       {
         "@type": "ListItem",
+        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: forloop.index -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
         "position": {{ forloop.index }},
-        "name": {%- assign jsonld_value = item.label | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "name": {%- assign jsonld_value = item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
         "item": {%- assign jsonld_value = item.url | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
       },
         {% if forloop.last %}
@@ -150,8 +164,10 @@
     {% endfor %}
     {
         "@type": "ListItem",
+        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: loopplus1 -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
         "position": {{ loopplus1 }},
-        "name": {%- assign jsonld_value = page.title | markdownify | strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %}
+        "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
       }]
     }
     </script>
@@ -160,27 +176,35 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
       "itemListElement": [{
         "@type": "ListItem",
+        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-1' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
         "position": 1,
-        "name": {%- assign jsonld_value = site.navbar.brand.title | default: site.title | default: site.github.repository_name | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_home_name %},
         "item": {%- assign jsonld_value = "/" | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
       },{
         "@type": "ListItem",
+        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-2' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
         "position": 2,
-        "name": {%- assign jsonld_value = page.title | markdownify | strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %}
+        "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
       }]
     }
     </script>
     {% endif  %}
+{% if schema_type != 'WebPage' %}
 <script type="application/ld+json">
 	{
 	"@context": "https://schema.org",
 	"@type": "WebPage",
+	"@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+	"isPartOf": {"@id": {%- assign jsonld_value = home_url | append: '#website' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
 	"name": {%- assign jsonld_value = metatitle1 | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
 	"description": {% include snippets/jsonld-string.html value=ogdesc %}
 	}
 </script>
+{% endif %}
 {%- assign sitelink = site.author.links |
 where_exp: "item", "item.url contains 'http'"
 -%}
