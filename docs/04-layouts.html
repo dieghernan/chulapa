@@ -17,8 +17,8 @@
       "description": "Add your content - Learn how to start adding your content to your new site",
       "headline":"Layouts and snippets",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T12:13:04+02:00",
-      "dateModified": "2026-10-08T12:13:04+02:00",
+      "datePublished": "2026-10-08T12:33:03+02:00",
+      "dateModified": "2026-10-08T12:33:03+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -259,6 +259,7 @@ components that you can enable via the front matter. To enable it:</p>
  <li><code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">subtitle</code>: Content-related.</li>
  <li><code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">last_modified_at</code>: Date of the page and last modification date. See <a href="https://jekyllrb.com/docs/variables/#page-variables">here</a> to learn the accepted format of dates.</li>
  <li><code class="language-plaintext highlighter-rouge">excerpt</code>: Brief description of the content. If not provided <span class="chulapa">Chulapa</span> would create it as the first paragraph of the content. Note that in the case of documents under <code class="language-plaintext highlighter-rouge">posts</code> Jekyll allows <a href="https://jekyllrb.com/docs/posts/#post-excerpts">additional options</a>.</li>
+ <li><code class="language-plaintext highlighter-rouge">description</code>: Explicit metadata description, independent of the visible subtitle and excerpt. See <a href="#seo-metadata">SEO metadata</a> for precedence.</li>
  <li><code class="language-plaintext highlighter-rouge">mathjax</code>: Would activate \(MathJax\) on the page.</li>
  <li><code class="language-plaintext highlighter-rouge">og_image</code>: Open Graph image displayed on the web and social networks when
 sharing the page. This image would not be displayed on the page.</li>
@@ -402,6 +403,71 @@ on your defaults.</li>
 </code></pre></div></div>
 <p>See an example <a href="https://dieghernan.github.io/chulapa/demo/archive">here</a>.</p>
 <p class="alert alert-info p-3 mx-2">Even if you don’t want to show the breadcrumb, you can still specify the paths. The theme generates breadcrumb JSON-LD independently of <code class="language-plaintext highlighter-rouge">show_breadcrumb</code>. Without a list, non-home pages use a home/current-page breadcrumb. Structured data does not guarantee rich results. More information <a href="https://developers.google.com/search/docs/appearance/structured-data/breadcrumb">here</a> and test tool <a href="https://search.google.com/test/rich-results">here</a>.</p>
+<h5 id="seo-metadata">SEO metadata</h5>
+<p>The theme uses the page URL for its canonical link, Open Graph URL, structured
+data and breadcrumbs. A terminal <code class="language-plaintext highlighter-rouge">/index.html</code> becomes <code class="language-plaintext highlighter-rouge">/</code>; other filenames,
+including <code class="language-plaintext highlighter-rouge">/myindex.html</code>, are preserved. Paginated pages retain their own URL.
+The Atom and RSS entry links use the same normalization. This changes metadata
+only; it does not create redirects.</p>
+<p>Use <code class="language-plaintext highlighter-rouge">description</code> in page front matter when you want to write the metadata text
+independently of the visible content:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My page</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s">A visible subtitle</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">A concise description for search and social previews.</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<p>Description precedence is:</p>
+<ol>
+ <li>A nonempty page <code class="language-plaintext highlighter-rouge">description</code>, used without a subtitle prefix.</li>
+ <li>The page <code class="language-plaintext highlighter-rouge">excerpt</code>.</li>
+ <li>On the home page only, the site’s <code class="language-plaintext highlighter-rouge">description</code>.</li>
+ <li>The existing content fallback.</li>
+</ol>
+<p>Whitespace-only values are treated as missing. For the excerpt or fallback path,
+the subtitle is prepended only if it is nonempty and its text is not already
+contained in the description, ignoring case. An empty description uses the
+subtitle alone, without an empty separator. Markdown and HTML are reduced to
+text, whitespace is normalized and values are escaped for metadata output.
+Front matter defaults can also supply <code class="language-plaintext highlighter-rouge">description</code>.</p>
+<p>HTML, Open Graph, Twitter/X and JSON-LD share this description. The complete
+generated text is retained, replacing the previous 160-character HTML limit and
+20-word Open Graph limit. Keep descriptions concise and descriptive. Google may
+choose another snippet and truncate it to fit the device; there is no fixed meta
+description length limit. See
+<a href="https://developers.google.com/search/docs/appearance/snippet">Google’s snippet documentation</a>.</p>
+<p>Search indexing settings are independent:</p>
+<table>
+<thead>
+   <tr>
+     <th>Setting</th>
+     <th>Effect</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">robots: "noindex, follow"</code></td>
+     <td>Asks external crawlers not to index the page. It does not remove sitemap entries.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">sitemap: false</code></td>
+     <td>Excludes the page from <code class="language-plaintext highlighter-rouge">jekyll-sitemap</code>. It does not prevent indexing by itself.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">include_on_search: false</code></td>
+     <td>Excludes the page from the supported internal search indexes. It does not control external indexing.</td>
+   </tr>
+ </tbody>
+</table>
+<p>For an auxiliary search page, you can use all three explicitly:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">robots</span><span class="pi">:</span> <span class="s2">"</span><span class="s">noindex,</span><span class="nv"> </span><span class="s">follow"</span>
+<span class="na">sitemap</span><span class="pi">:</span> <span class="kc">false</span>
+<span class="na">include_on_search</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
+<p>The documentation site’s search page uses these settings. Its categories page
+includes posts, demos and skins so it provides a working category index. Tags
+and the standalone music scales widget remain indexable. The theme does not
+automatically exclude pages based on their path or layout.</p>
 <h5 id="article-images">Article images</h5>
 <p>For posts, use <code class="language-plaintext highlighter-rouge">schema_image</code> in front matter to identify images that represent
 the article. A single URL or a YAML list is accepted. Relative URLs resolve
@@ -818,58 +884,58 @@ https://picsum.photos/seed/70/700/500,
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/apartment-buildings-against-sky-258181.jpg" alt="Carousel Item #1" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/paula-carrasco-R30nnrR8j_o-unsplash.jpg" alt="Carousel Item #2" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alex-vasey-Zy-W7KWEyFE-unsplash.jpg" alt="Carousel Item #2" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg" alt="Carousel Item #3" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/black-metal-post-with-sad-face-paint-3314301.jpg" alt="Carousel Item #4" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/quique-olivar-CRMjqDZwxS4-unsplash.jpg" alt="Carousel Item #4" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-manuel-viloria-martin-OEj-ETL9pMo-unsplash.jpg" alt="Carousel Item #5" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg" alt="Carousel Item #5" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg" alt="Carousel Item #6" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mindaugas-petrutis-RxEHnSDyH5I-unsplash.jpg" alt="Carousel Item #6" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/time-lapse-photography-of-city-during-night-time-4279199.jpg" alt="Carousel Item #7" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/paula-carrasco-R30nnrR8j_o-unsplash.jpg" alt="Carousel Item #7" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-antonio-gallego-vazquez-oTy2TfgAVAc-unsplash.jpg" alt="Carousel Item #8" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/yellow-and-beige-high-rise-building-3254729.jpg" alt="Carousel Item #8" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alvaro-bernal-nlimH6wxY_I-unsplash.jpg" alt="Carousel Item #9" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-manuel-viloria-martin-OEj-ETL9pMo-unsplash.jpg" alt="Carousel Item #9" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mindaugas-petrutis-RxEHnSDyH5I-unsplash.jpg" alt="Carousel Item #10" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-antonio-gallego-vazquez-oTy2TfgAVAc-unsplash.jpg" alt="Carousel Item #10" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alex-vasey-Zy-W7KWEyFE-unsplash.jpg" alt="Carousel Item #11" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/time-lapse-photography-of-city-during-night-time-4279199.jpg" alt="Carousel Item #11" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/quique-olivar-CRMjqDZwxS4-unsplash.jpg" alt="Carousel Item #12" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alvaro-bernal-nlimH6wxY_I-unsplash.jpg" alt="Carousel Item #12" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" alt="Carousel Item #13" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/florian-wehde-WBGjg0DsO_g-unsplash.jpg" alt="Carousel Item #13" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/florian-wehde-WBGjg0DsO_g-unsplash.jpg" alt="Carousel Item #14" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/leigh-cooper-ImiT5XEi3Wk-unsplash.jpg" alt="Carousel Item #14" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/tania-fernandez-zVdf2Hmrcxw-unsplash.jpg" alt="Carousel Item #15" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alberto-restifo-BS5kXq5jRL8-unsplash.jpg" alt="Carousel Item #16" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Carousel Item #16" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/leigh-cooper-ImiT5XEi3Wk-unsplash.jpg" alt="Carousel Item #17" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" alt="Carousel Item #17" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Carousel Item #18" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/black-metal-post-with-sad-face-paint-3314301.jpg" alt="Carousel Item #18" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/yellow-and-beige-high-rise-building-3254729.jpg" alt="Carousel Item #19" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alberto-restifo-BS5kXq5jRL8-unsplash.jpg" alt="Carousel Item #19" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" alt="Carousel Item #20" itemprop="contentUrl" />
