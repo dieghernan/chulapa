@@ -88,6 +88,32 @@ Dir.mktmpdir("chulapa-head-") do |source|
           url: /parent/
     YAML
   }
+  creator_cases = {
+    "query" => [["https://x.com/guest?lang=en"], "@guest"],
+    "fragment" => [["https://twitter.com/guest#bio"], "@guest"],
+    "trailing-only" => [["https://twitter.com/guest/"], "@guest"],
+    "maximum-length" => [["http://x.com/abcdefghijklmno"], "@abcdefghijklmno"],
+    "trailing" => [["https://www.x.com/Guest_12/?lang=en#bio"], "@Guest_12"],
+    "status" => [["https://x.com/guest/status/123"], nil],
+    "root" => [["https://x.com/"], nil],
+    "root-query" => [["https://x.com?lang=en"], nil],
+    "auxiliary" => [["https://x.com/HOME"], nil],
+    "intent" => [["https://twitter.com/intent/tweet"], nil],
+    "invalid-character" => [["https://x.com/guest-name"], nil],
+    "too-long" => [["https://x.com/abcdefghijklmnop"], nil],
+    "double-slash" => [["https://x.com/guest//"], nil],
+    "invalid-scheme" => [["ftp://x.com/guest"], nil],
+    "empty-url" => [[""], nil],
+    "later-valid" => [["https://x.com/home", "https://x.com/guest/status/123", "https://twitter.com/guest"], "@guest"],
+    "deceptive" => [["https://evil.x.com/guest", "https://x.com.evil.test/guest", "https://x.com@evil.test/guest"], nil],
+    "missing-links" => [nil, nil],
+    "empty-links" => [[], nil]
+  }
+  creator_cases.each do |name, (urls, _expected)|
+    author = { "name" => "Guest" }
+    author["links"] = urls.map { |url| { "url" => url } } unless urls.nil?
+    fixtures["creator-#{name}.md"] = "title: Creator #{name}\nauthor: #{author.to_json}"
+  end
   # The explicit home breadcrumb is exercised in a separate build below.
   fixtures.each do |path, frontmatter|
     next if path == "custom-home.md"
@@ -103,6 +129,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
       "title" => "Example site",
       "subtitle" => "Example subtitle",
       "locale" => locale,
+      "twitter_site" => "site_account",
       "author" => { "name" => "Author", "links" => [{ "url" => "https://box.com/user" }, { "url" => "https://example.com/x.com/other" }, { "url" => locale ? "https://WWW.X.COM:443/author" : "https://x.com/author" }] },
       "defaults" => [{ "scope" => { "path" => "" }, "values" => { "layout" => "head" } }],
       "quiet" => true
@@ -117,14 +144,28 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(blocks.all? { |block| block["@context"] == "https://schema.org" }, "Schema context changed")
       check(metadata(html, "og:locale") == (locale || "en-US").tr("-", "_"), "Incorrect OG locale")
       check(html.include?("<html lang=\"#{locale || 'en-US'}\">"), "HTML language changed")
-      expected_creator = if path.end_with?("guest.html", "www-twitter.html", "special-author.html")
+      creator_case = File.basename(path, ".html").delete_prefix("creator-")
+      expected_creator = if creator_cases.key?(creator_case)
+                           creator_cases.fetch(creator_case).last
+                         elsif path.end_with?("guest.html", "www-twitter.html", "special-author.html")
                            "@guest"
                          elsif path.end_with?("unrelated.html")
                            nil
                          else
                            "@author"
                          end
-      check(metadata(html, "twitter:creator") == expected_creator, "Incorrect Twitter/X creator")
+      check(metadata(html, "twitter:creator") == expected_creator, "Incorrect Twitter/X creator in #{File.basename(path)}")
+      check(metadata(html, "twitter:site") == "@site_account", "Twitter site attribution changed")
+      if creator_cases.key?(creator_case)
+        urls = creator_cases.fetch(creator_case).first
+        expected_urls = (urls || []).select { |url| url.include?("http") }
+        author = blocks.first.fetch("author")
+        check(author["name"] == "Guest", "Guest author changed")
+        if expected_urls.any?
+          check(author["url"] == expected_urls.first, "Author social URL changed")
+          check((author["sameAs"] || []) == expected_urls.drop(1), "Author social links changed")
+        end
+      end
       check(metadata(html, "og:type") == (path.end_with?("example.html") ? "article" : "website"), "Incorrect OG type")
     end
 

@@ -33,12 +33,43 @@
 {%- endif -%}
 {%- assign ogdesc = ogdesc | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip | escape_once -%}
 {%- assign links = page.author.links | default: site.author.links -%}
-{%- for item in links -%}
-  {%- assign author_url_parts = item.url | split: '/' -%}
+{%- assign creator_links = site.author.links -%}
+{%- if page.author -%}
+  {%- assign creator_links = page.author.links -%}
+{%- endif -%}
+{%- assign twitterauthor = nil -%}
+{%- assign twitter_reserved_paths = 'home,explore,search,notifications,messages,settings,i,intent,share,compose,login,logout,signup,about,privacy,tos,help,download,jobs,hashtag,lists,communities,premium,verified,account' | split: ',' -%}
+{%- assign twitter_username_chars = 'abcdefghijklmnopqrstuvwxyz0123456789_' -%}
+{%- for item in creator_links -%}
+  {%- assign author_profile_url = item.url | split: '?' | first | split: '#' | first -%}
+  {%- assign author_url_parts = author_profile_url | split: '/' -%}
   {%- assign author_host = author_url_parts[2] | split: ':' | first | downcase -%}
   {%- if author_host == "twitter.com" or author_host == "www.twitter.com" or author_host == "x.com" or author_host == "www.x.com" -%}
-    {%- assign twitterauthor = item.url | split: "/" | last -%}
-    {%- break -%}
+    {%- assign twitter_username = author_url_parts[3] -%}
+    {%- assign twitter_username_lower = twitter_username | downcase -%}
+    {%- assign twitter_username_size = twitter_username | size -%}
+    {%- assign twitter_profile_path = author_url_parts[0] | append: '//' | append: author_url_parts[2] | append: '/' | append: twitter_username -%}
+    {%- assign twitter_profile_path_slash = twitter_profile_path | append: '/' -%}
+    {%- assign twitter_profile_valid = false -%}
+    {%- if author_url_parts[0] == 'https:' or author_url_parts[0] == 'http:' -%}
+      {%- if author_profile_url == twitter_profile_path or author_profile_url == twitter_profile_path_slash -%}
+        {%- if twitter_username_size > 0 and twitter_username_size <= 15 -%}
+          {%- unless twitter_reserved_paths contains twitter_username_lower -%}
+            {%- assign twitter_profile_valid = true -%}
+            {%- assign twitter_characters = twitter_username_lower | split: '' -%}
+            {%- for character in twitter_characters -%}
+              {%- unless twitter_username_chars contains character -%}
+                {%- assign twitter_profile_valid = false -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if twitter_profile_valid -%}
+      {%- assign twitterauthor = twitter_username -%}
+      {%- break -%}
+    {%- endif -%}
   {%- endif -%}
 {%- endfor %}
 {%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" %}
