@@ -96,11 +96,12 @@
    <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/skins/preptor" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="A bright, hot pink theme in good taste. - Preptor, a bright, hot pink theme in good taste developed by..." >
+   <meta property="og:description" content="A bright, hot pink theme in good taste. - Preptor, a bright, hot pink theme in good taste developed by Tophat Themes." >
    <meta property="og:locale" content="en_US" >
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/skinspreview/preptor.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:description" content="A bright, hot pink theme in good taste. - Preptor, a bright, hot pink theme in good taste developed by Tophat Themes.">
    <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -250,12 +251,13 @@
 			 <p>Developed by <a href="https://themesguide.github.io/top-hat/dist/">Tophat Themes</a>, you can use it on your site. Just go to your <code class="language-plaintext highlighter-rouge">_config.yml</code> file and modify these settings:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
   <span class="na">skin       </span><span class="pi">:</span>  <span class="s">preptor</span>
-  <span class="na">autothemer  </span><span class="pi">:</span>  <span class="c1"># Autotheming may not have any effect</span>
+  <span class="na">autothemer  </span><span class="pi">:</span>  <span class="c1"># Set to true to derive undefined colors</span>
   <span class="na">vars        </span><span class="pi">:</span>    
     <span class="s">...</span>
 </code></pre></div></div>
-<p>While <code class="language-plaintext highlighter-rouge">autothemer</code> does not override the skin, it may not be fully functional.
-You can modify the theme defaults via <code class="language-plaintext highlighter-rouge">vars</code>.</p>
+<p>Autothemer fills in colors that the skin and <code class="language-plaintext highlighter-rouge">vars</code> have not defined. It does
+not override existing values, so its visible effect depends on the skin. Use
+<code class="language-plaintext highlighter-rouge">vars</code> to override specific colors. See the <a href="/chulapa/docs/03-theming#autothemer">autothemer guide</a>.</p>
 <nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
  <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
    <li class="page-item text-left mr-0 ">
@@ -1969,18 +1971,37 @@ You can modify the theme defaults via <code class="language-plaintext highlighte
              <nav class="card-group" aria-label="random -articles"><div class="card  border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/listen" class="chulapa-text-body-color">
-              Listen
+            <a href="https://dieghernan.github.io/chulapa/skins/universal" class="chulapa-text-body-color">
+              Universal
             </a>
          </p>
            <p class="card-text">
-              <small>A dark theme on spot</small>
+              <small>Clean &amp; Stylish</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
               <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-02-27T00:00:00+01:00">
-                february 27, 2025
+              <time datetime="2022-03-07T00:00:00+01:00">
+                march 07, 2022
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/skins/darkly" class="chulapa-text-body-color">
+              Darkly
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Flatly in night mode</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-22T00:00:00+01:00">
+                february 22, 2025
               </time>
             </small>
        </div>
@@ -2000,25 +2021,6 @@ You can modify the theme defaults via <code class="language-plaintext highlighte
               <i class="far fa-calendar" aria-hidden="true"></i>
               <time datetime="2020-03-07T00:00:00+01:00">
                 march 07, 2020
-              </time>
-            </small>
-       </div>
-     </div>
-     <div class="card ml-sm-1 border chulapa-related">
-       <div class="card-body">
-         <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/towards" class="chulapa-text-body-color">
-              Towards
-            </a>
-         </p>
-           <p class="card-text">
-              <small>Data Science is great</small>
-           </p></div>
-       <div class="card-footer bg-transparent">
-            <small>
-              <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2021-02-14T00:00:00+01:00">
-                february 14, 2021
               </time>
             </small>
        </div>

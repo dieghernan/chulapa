@@ -4,11 +4,11 @@
 		<title>Chulapa | A full flexible Jekyll theme</title>
 		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
 		<link>https://dieghernan.github.io/chulapa</link>
-		<description>Template for creating free sites on Github Pages</description>
+		<description>Template for creating free sites on GitHub Pages</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Thu, 08 Oct 2026 12:33:03 +0200</pubDate>
-		<lastBuildDate>Thu, 08 Oct 2026 12:33:03 +0200</lastBuildDate>
+		<pubDate>Thu, 08 Oct 2026 12:55:01 +0200</pubDate>
+		<lastBuildDate>Thu, 08 Oct 2026 12:55:01 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +16,7 @@
 			<title>Chulapa | A full flexible Jekyll theme</title>
 			<url>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</url>
 			<link>https://dieghernan.github.io/chulapa</link>
-			<description>Template for creating free sites on Github Pages</description>
+			<description>Template for creating free sites on GitHub Pages</description>
 		</image><item>
 			<title>Welcome</title>
 			<description>
@@ -44,10 +44,10 @@ available, since I didn’t find one that met all my requirements:</p>
 <h2 id="one-theme-a-thousand-looks">One theme, a thousand looks</h2>
 
 <p>Without prior knowledge of CSS, I taught myself about rules, specificities,
-flexboxes, etc. through implementing <strong>Bootstrap v4</strong> as the <code class="language-plaintext highlighter-rouge">css</code> base of <span class="chulapa">Chulapa</span>.</p>
+flexboxes, etc. through implementing <strong>Bootstrap v4</strong> as the CSS base of <span class="chulapa">Chulapa</span>.</p>
 
 <p>This is not the first theme with this implementation, but I found the way to
-configure it via <code class="language-plaintext highlighter-rouge">_config</code>, that allows any user to easily change the look of
+configure it via <code class="language-plaintext highlighter-rouge">_config.yml</code>, which allows any user to easily change the look of
 the site without needing to write CSS or SCSS. On top of that, implementing
 Bootstrap themes from third parties is fast and reliable.</p>
 

@@ -17,8 +17,8 @@
       "description": "Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.",
       "headline":"Syntax highlighting demo",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T12:33:03+02:00",
-      "dateModified": "2026-10-08T12:33:03+02:00",
+      "datePublished": "2026-10-08T12:55:01+02:00",
+      "dateModified": "2026-10-08T12:55:01+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -95,7 +95,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="author" content="dieghernan" >
    <meta name="copyright" content="dieghernan" >
-   <meta name="description" content="Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your...">
+   <meta name="description" content="Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
    <meta name="robots" content="index, follow"><meta name="keywords" content="">
     <!-- OpenGraph -->
@@ -103,11 +103,12 @@
    <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/syntax-highlighting" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by..." >
+   <meta property="og:description" content="Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below." >
    <meta property="og:locale" content="en_US" >
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:description" content="Highlighters shipped with this theme. - This page is a demo of the different styles of syntax highlighting shipped by default with this theme. Just make your selection below.">
    <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -252,7 +253,7 @@ default with this theme. Just make your selection below.</p>
   	row.setAttribute("onclick", "reaplyStyles('" + word + "');");
   	document.getElementById('list').appendChild(row);
   });
-  document.getElementById("count").innerHTML = "An overall of <span class='font-weight-bold'>" + styles.length + "</span> highlighting styles available";
+  document.getElementById("count").innerHTML = "A total of <span class='font-weight-bold'>" + styles.length + "</span> highlighting styles available";
   var csshigh = document.getElementById("csshigh");
   	function reaplyStyles(themename){
   		csshigh.href = 'https://dieghernan.github.io/chulapa/assets/css/highlighter/'+themename+'.css';
@@ -328,7 +329,6 @@ default with this theme. Just make your selection below.</p>
 <span class="nx">parser</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://example.com:3000/pathname/?search=test#hash</span><span class="dl">"</span><span class="p">;</span>
 <span class="nx">parser</span><span class="p">.</span><span class="nx">hostname</span><span class="p">;</span> <span class="c1">// =&gt; "example.com"</span>
 
-
 </code></pre></div></div>
  <h2 id="python">Python</h2>
  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
@@ -340,7 +340,6 @@ default with this theme. Just make your selection below.</p>
 <span class="kn">import</span> <span class="n">sublime_plugin</span>
 <span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
-
 <span class="k">class</span> <span class="nc">SublimeTasksBase</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="p">.</span><span class="n">TextCommand</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">edit</span><span class="p">):</span>
         <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">open_tasks_bullet</span><span class="sh">'</span><span class="p">)</span>
@@ -351,7 +350,6 @@ default with this theme. Just make your selection below.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">self</span><span class="p">.</span><span class="n">done_tag</span> <span class="o">=</span> <span class="sh">""</span>
         <span class="n">self</span><span class="p">.</span><span class="nf">runCommand</span><span class="p">(</span><span class="n">edit</span><span class="p">)</span>
-
 
 <span class="k">class</span> <span class="nc">NewCommand</span><span class="p">(</span><span class="n">SublimeTasksBase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">runCommand</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">edit</span><span class="p">):</span>
@@ -391,12 +389,9 @@ default with this theme. Just make your selection below.</p>
                     <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">clear</span><span class="p">()</span>
                     <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">add</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
 
-
-
 </code></pre></div></div>
  <h2 id="css">CSS</h2>
  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
 <span class="nt">body</span> <span class="p">{</span>
   <span class="nl">font-family</span><span class="p">:</span> <span class="n">arial</span><span class="p">;</span>
 <span class="p">}</span>
@@ -462,19 +457,15 @@ default with this theme. Just make your selection below.</p>
 
 <span class="k">@media</span> <span class="nb">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">100px</span><span class="p">)</span> <span class="p">{}</span>
 
-
 <span class="k">@main-color</span><span class="p">:</span> <span class="nx">red</span><span class="p">;</span>
 
 <span class="nc">.foo</span> <span class="p">{</span>
 	<span class="nl">background</span><span class="p">:</span> <span class="err">@</span><span class="n">main-color</span><span class="p">;</span>
 <span class="p">}</span>
 
-
-
 </code></pre></div></div>
  <h2 id="scss">SCSS</h2>
  <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
 <span class="k">@import</span> <span class="s2">"foo.scss"</span><span class="p">;</span>
 
 <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{}</span>
@@ -483,7 +474,6 @@ default with this theme. Just make your selection below.</p>
 <span class="p">}</span>
 
 <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">3</span> <span class="p">{}</span>
-
 
 <span class="k">@font-face</span> <span class="p">{</span>
 	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">"opensans"</span><span class="p">;</span>
@@ -499,11 +489,6 @@ default with this theme. Just make your selection below.</p>
 <span class="nt">p</span><span class="nc">.</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span> <span class="p">{</span>
     <span class="si">#{</span><span class="nv">$attr</span><span class="si">}</span><span class="nt">-color</span><span class="nd">:</span> <span class="nt">blue</span><span class="p">;</span>
 <span class="p">}</span>
-
-
-
-
-
 
 </code></pre></div></div>
  <h2 id="java">Java</h2>
@@ -586,10 +571,7 @@ default with this theme. Just make your selection below.</p>
         <span class="n">c</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
     <span class="o">}</span>
 
-
-
 <span class="o">}</span>
-
 
 </code></pre></div></div>
  <h2 id="c">C#</h2>
@@ -785,7 +767,6 @@ default with this theme. Just make your selection below.</p>
                           </span><span class="n">geom_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">geom_params</span><span class="p">,</span><span class="w"> </span><span class="n">stat_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat_params</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">))</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
-
   </span><span class="n">reparameterise</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">%||%</span><span class="w">
       </span><span class="n">params</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">%||%</span><span class="w"> </span><span class="p">(</span><span class="n">resolution</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span><span class="w">
@@ -809,7 +790,6 @@ default with this theme. Just make your selection below.</p>
       </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">.5</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
-
     </span><span class="c1"># Fill the bins: at a given x (or y), if count=3, make 3 entries at that x</span><span class="w">
     </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="p">[</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">count</span><span class="p">),</span><span class="w"> </span><span class="p">]</span><span class="w">
 
@@ -826,7 +806,6 @@ default with this theme. Just make your selection below.</p>
             </span><span class="n">xx</span><span class="o">$</span><span class="n">stackpos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackdots</span><span class="p">(</span><span class="n">xx</span><span class="o">$</span><span class="n">countidx</span><span class="p">)</span><span class="w">
             </span><span class="n">xx</span><span class="w">
           </span><span class="p">})</span><span class="w">
-
 
     </span><span class="c1"># Set the bounding boxes for the dots</span><span class="w">
     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"x"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -917,12 +896,9 @@ default with this theme. Just make your selection below.</p>
 
 <span class="nb">require</span> <span class="s1">'bundler/setup'</span> <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">])</span>
 
-
 </code></pre></div></div>
  <h2 id="php">PHP</h2>
  <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
-
 <span class="cp">&lt;?php</span>
 
 <span class="c1">// base class with member properties and methods</span>
@@ -1022,10 +998,9 @@ is not allowed__
 &gt; This is a quotation</span>
 <span class="gt">&gt;&gt; With another quotation inside</span>
 <span class="gt">&gt; _italic here_, __bold there__</span>
-<span class="gt">&gt; And a [link](http://example.com)</span><span class="sb">
+<span class="gt">&gt; And a [link](http://example.com)</span>
 
-
-</span>Inline code between backticks <span class="sb">`Paragraph`
+Inline code between backticks <span class="sb">`Paragraph`
 
     some_code(); /* Indented
     with four spaces */
@@ -1033,11 +1008,9 @@ is not allowed__
 	some_code(); /* Indented
 	with a tab */
 
-
 </span></code></pre></div></div>
  <h2 id="yaml">YAML</h2>
  <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
 <span class="nt">%YAML</span> <span class="m">1.2</span>
 <span class="nn">---</span> <span class="kt">!&lt;tag:clarkevans.com,2002:invoice&gt;</span>
 <span class="na">invoice</span><span class="pi">:</span> <span class="m">34843</span>
@@ -1068,7 +1041,6 @@ is not allowed__
 <span class="na">comments</span><span class="pi">:</span>
     <span class="s">Late afternoon is best.</span>
     <span class="s">Backup contact is Nancy</span>
-
 
 </code></pre></div></div>
  <h2 id="json">JSON</h2>
@@ -1139,8 +1111,6 @@ is not allowed__
   </span><span class="p">}</span><span class="w">
  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
-
 
 </span></code></pre></div></div>
 </div>

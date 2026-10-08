@@ -3,7 +3,7 @@
 	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-10-08T12:33:03+02:00</updated>
+	<updated>2026-10-08T12:55:01+02:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A full flexible Jekyll theme</title>
 	<subtitle>A full flexible Jekyll theme</subtitle>
@@ -46,10 +46,10 @@ available, since I didn’t find one that met all my requirements:&lt;/p&gt;
 &lt;h2 id=&quot;one-theme-a-thousand-looks&quot;&gt;One theme, a thousand looks&lt;/h2&gt;
 
 &lt;p&gt;Without prior knowledge of CSS, I taught myself about rules, specificities,
-flexboxes, etc. through implementing &lt;strong&gt;Bootstrap v4&lt;/strong&gt; as the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;css&lt;/code&gt; base of &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;.&lt;/p&gt;
+flexboxes, etc. through implementing &lt;strong&gt;Bootstrap v4&lt;/strong&gt; as the CSS base of &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;.&lt;/p&gt;
 
 &lt;p&gt;This is not the first theme with this implementation, but I found the way to
-configure it via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config&lt;/code&gt;, that allows any user to easily change the look of
+configure it via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;, which allows any user to easily change the look of
 the site without needing to write CSS or SCSS. On top of that, implementing
 Bootstrap themes from third parties is fast and reliable.&lt;/p&gt;
 

@@ -14,7 +14,7 @@
       "@type": "WebPage",
       "@id": "https://dieghernan.github.io/chulapa/skins/slate",
       "name": "Slate",
-      "description": "Shades of gunmetal gray - Slate, shades of gunmetal gray developed by Bootswatch.",
+      "description": "Slate, shades of gunmetal gray developed by Bootswatch.",
       "headline":"Slate",
       "image": "https://dieghernan.github.io/chulapa/assets/img/skinspreview/slate.png",
       "datePublished": "2025-02-26T00:00:00+01:00",
@@ -88,7 +88,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="author" content="dieghernan" >
    <meta name="copyright" content="dieghernan" >
-   <meta name="description" content="Shades of gunmetal gray - Slate, shades of gunmetal gray developed by Bootswatch.">
+   <meta name="description" content="Slate, shades of gunmetal gray developed by Bootswatch.">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/skinspreview/slate.png" >
    <meta name="robots" content="index, follow"><meta name="keywords" content="">
     <!-- OpenGraph -->
@@ -96,11 +96,12 @@
    <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/skins/slate" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="Shades of gunmetal gray - Slate, shades of gunmetal gray developed by Bootswatch." >
+   <meta property="og:description" content="Slate, shades of gunmetal gray developed by Bootswatch." >
    <meta property="og:locale" content="en_US" >
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/skinspreview/slate.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:description" content="Slate, shades of gunmetal gray developed by Bootswatch.">
    <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -250,12 +251,13 @@
 			 <p>Developed by <a href="https://bootswatch.com/">Bootswatch</a>, you can use it on your site. Just go to your <code class="language-plaintext highlighter-rouge">_config.yml</code> file and modify these settings:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
   <span class="na">skin       </span><span class="pi">:</span>  <span class="s">slate</span>
-  <span class="na">autothemer  </span><span class="pi">:</span>  <span class="c1"># Autotheming may not have any effect</span>
+  <span class="na">autothemer  </span><span class="pi">:</span>  <span class="c1"># Set to true to derive undefined colors</span>
   <span class="na">vars        </span><span class="pi">:</span>    
     <span class="s">...</span>
 </code></pre></div></div>
-<p>While <code class="language-plaintext highlighter-rouge">autothemer</code> does not override the skin, it may not be fully functional.
-You can modify the theme defaults via <code class="language-plaintext highlighter-rouge">vars</code>.</p>
+<p>Autothemer fills in colors that the skin and <code class="language-plaintext highlighter-rouge">vars</code> have not defined. It does
+not override existing values, so its visible effect depends on the skin. Use
+<code class="language-plaintext highlighter-rouge">vars</code> to override specific colors. See the <a href="/chulapa/docs/03-theming#autothemer">autothemer guide</a>.</p>
 <nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
  <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
    <li class="page-item text-left mr-0 ">
@@ -1971,6 +1973,25 @@ You can modify the theme defaults via <code class="language-plaintext highlighte
              <nav class="card-group" aria-label="random -articles"><div class="card  border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/skins/listen" class="chulapa-text-body-color">
+              Listen
+            </a>
+         </p>
+           <p class="card-text">
+              <small>A dark theme on spot</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-27T00:00:00+01:00">
+                february 27, 2025
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
             <a href="https://dieghernan.github.io/chulapa/skins/darkly" class="chulapa-text-body-color">
               Darkly
             </a>
@@ -1990,37 +2011,18 @@ You can modify the theme defaults via <code class="language-plaintext highlighte
      <div class="card ml-sm-1 border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/minty" class="chulapa-text-body-color">
-              Minty
+            <a href="https://dieghernan.github.io/chulapa/skins/focal" class="chulapa-text-body-color">
+              Focal
             </a>
          </p>
            <p class="card-text">
-              <small>A fresh feel</small>
+              <small>Stay focus</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
               <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2015-03-05T00:00:00+01:00">
-                march 05, 2015
-              </time>
-            </small>
-       </div>
-     </div>
-     <div class="card ml-sm-1 border chulapa-related">
-       <div class="card-body">
-         <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/gitdev-dark" class="chulapa-text-body-color">
-              GitDev Dark
-            </a>
-         </p>
-           <p class="card-text">
-              <small>I develop better in the shadows</small>
-           </p></div>
-       <div class="card-footer bg-transparent">
-            <small>
-              <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2022-03-20T00:00:00+01:00">
-                march 20, 2022
+              <time datetime="2025-02-20T00:00:00+01:00">
+                february 20, 2025
               </time>
             </small>
        </div>

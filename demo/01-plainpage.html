@@ -14,11 +14,11 @@
       "@type": "WebPage",
       "@id": "https://dieghernan.github.io/chulapa/demo/01-plainpage",
       "name": "Plain page",
-      "description": "This is how a plain page would look like. The layout and header type have been already set on the _config.yml file as defaults:",
+      "description": "This example shows a plain page. The layout and header type are set as defaults in _config.yml:",
       "headline":"Plain page",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
-      "datePublished": "2026-10-08T12:33:03+02:00",
-      "dateModified": "2026-10-08T12:33:03+02:00",
+      "datePublished": "2026-10-08T12:55:01+02:00",
+      "dateModified": "2026-10-08T12:55:01+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -88,7 +88,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="author" content="dieghernan" >
    <meta name="copyright" content="dieghernan" >
-   <meta name="description" content="This is how a plain page would look like. The layout and header type have been already set on the _config.yml file as defaults:">
+   <meta name="description" content="This example shows a plain page. The layout and header type are set as defaults in _config.yml:">
    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
    <meta name="robots" content="index, follow"><meta name="keywords" content="">
     <!-- OpenGraph -->
@@ -96,11 +96,12 @@
    <meta property="og:site_name" content="Chulapa | A full flexible Jekyll theme" >
    <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/01-plainpage" >
    <meta property="og:type" content="website" >
-   <meta property="og:description" content="This is how a plain page would look like. The layout and header type have been already set on the..." >
+   <meta property="og:description" content="This example shows a plain page. The layout and header type are set as defaults in _config.yml:" >
    <meta property="og:locale" content="en_US" >
    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <!-- Twitter/X Cards -->
    <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:description" content="This example shows a plain page. The layout and header type are set as defaults in _config.yml:">
    <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -186,8 +187,8 @@
 		<div class="row pt-2">
 			<aside class="col-lg-2 mt-lg-3 small"></aside>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
-			<p>This is how a plain page would look like. The layout and header type have been
-already set on the <code class="language-plaintext highlighter-rouge">_config.yml</code> file as defaults:</p>
+			<p>This example shows a plain page. The layout and header type are set as
+defaults in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span>
     <span class="na">scope</span><span class="pi">:</span>
       <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
@@ -196,17 +197,17 @@ already set on the <code class="language-plaintext highlighter-rouge">_config.ym
       <span class="na">layout</span><span class="pi">:</span> <span class="s2">"</span><span class="s">default"</span>
       <span class="na">header_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">base"</span>
 </code></pre></div></div>
-<p>That would be the default values for every page on the <code class="language-plaintext highlighter-rouge">demo</code> collection. The
-front matter of this page is</p>
+<p>These defaults apply to every page in the <code class="language-plaintext highlighter-rouge">demo</code> collection. The front matter
+of this page is:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s">Plain page</span>
 <span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">demo</span><span class="pi">]</span>
 <span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">layout-default</span><span class="pi">,</span><span class="nv">header-base</span><span class="pi">]</span>
 <span class="nn">---</span>
 </code></pre></div></div>
-<p>Given that no other option is enabled, although <code class="language-plaintext highlighter-rouge">tags</code> and <code class="language-plaintext highlighter-rouge">categories</code> are
-declared the badges would not show up. Note that those values would be still
-available for other uses, as cloud tag creation.</p>
+<p>The tag and category badges are hidden because their display options are not
+enabled. The declared <code class="language-plaintext highlighter-rouge">tags</code> and <code class="language-plaintext highlighter-rouge">categories</code> remain available for other uses,
+such as tag clouds.</p>
 </article>
 		</div>
 	</main><!-- Footer -->
