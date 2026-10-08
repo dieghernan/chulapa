@@ -15,7 +15,7 @@ show_comments     : true
 project_links:
     - url: https://github.com/
       icon: fab fa-github
-      label: Check it on Github
+      label: Check it on GitHub
 author:
   name: Octocat
   avatar: https://github.com/octocat.png
@@ -35,7 +35,7 @@ author:
       label: LinkedIn
 ---
 This page shows how a contributor could be added to your blog. In this case
-**Octocat** is telling us about its plans on the next months...
+**Octocat** is telling us about its plans for the next few months...
 
 ```yaml
 ---
@@ -55,7 +55,7 @@ show_author       : true
 project_links:
     - url: https://github.com/
       icon: fab fa-github
-      label: Check it on Github
+      label: Check it on GitHub
 author:
   name: Octocat
   avatar: https://github.com/octocat.png

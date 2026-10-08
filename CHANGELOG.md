@@ -2,6 +2,8 @@
 
 ### Fixed
 
+-   Correct documentation examples, PageSpeed footnote formatting and responsive heading alignment in the minimal layout demo, clarify skin attribution and autothemer behavior, and exclude the auxiliary music scales widget from indexing.
+
 -   Preserve filenames containing `index.html` in canonical URLs, breadcrumbs and feeds, and retain complete HTML meta descriptions to avoid splitting escaped entities ([#81](https://github.com/dieghernan/chulapa/issues/81)).
 
 -   Avoid repeated subtitles and empty separators in metadata descriptions, and provide a populated category index and explicit search indexing settings in the documentation site ([#81](https://github.com/dieghernan/chulapa/issues/81)).

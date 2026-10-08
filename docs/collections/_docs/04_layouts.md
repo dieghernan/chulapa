@@ -106,10 +106,10 @@ high-resolution image for `header_img` and a smaller sharing image for
 title: External project
 project_links:
     - url: https://github.com/XXX # url1
-      icon: fab fa-github         # Fontawesome icon code1
-      label: View on Github       # Label on button 1
+      icon: fab fa-github         # Font Awesome icon code1
+      label: View on GitHub       # Label on button 1
     - url: https://colab.research.google.com/XXX #url2
-      icon: fab fa-python   # Fontawesome icon code2
+      icon: fab fa-python   # Font Awesome icon code2
       label: Open in Colab  # Label on button 2
 ---
 ```
@@ -445,8 +445,8 @@ layout: indexcategory
 
 Optional arguments:
 - `include_collection`: see [Archive](#archive) layout.
-- `index_sort`: Sorting variable extracted from the front matter, as `title`,
-  `date` or any custom variable. **name of the file**.
+- `index_sort`: Front matter field used for sorting, such as `title`, `date`
+  or a custom field. Defaults to `name` (the file name).
 - `index_sort_asc`: Set it to `true` if you want to have the cards sorted in
   ascending order.
 - `index_items`: Limit the number of items to be displayed. **10**.
@@ -712,11 +712,9 @@ That snippet has been extended and you can also display videos loaded via `url`:
 
 {% include snippets/video.html fileurl="./assets/mp4/sample.mp4" %}
 
-
 **publicdomainmovie.net**
 
 {% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4" %}
-
 
 ```
 {% endraw %}

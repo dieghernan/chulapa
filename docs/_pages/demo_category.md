@@ -12,14 +12,14 @@ breadcrumb_list:
     url: /demo
 ---
 
-Here you can find the list of categories includes in the `demo` collection.
+Browse the categories included in the `demo` collection.
 
-See the [Cloud Tag demo](https://dieghernan.github.io/chulapa/demo/tags) as an example, configuration is quite similar but using `cloudcategory_url` instead of `cloudtag_url`.
+See the [Cloud tag demo](https://dieghernan.github.io/chulapa/demo/tags) for a similar configuration. Use `cloudcategory_url` instead of `cloudtag_url`.
 
 The front matter of this page:
 
 ```yaml
-layout: cloudcategory
+layout: cloudcategory2
 title: Navigate categories
 subtitle: 'Categories from <code>demo</code> collection only'
 header_type: hero

@@ -22,7 +22,7 @@ title: Post header
 categories: [demo]
 header_type: post
 tags: [layout-default,header-post, image, social-links, tags, categories, bottom-navs, author, date]
-date: 2020-02-03
+date: 2020-01-01
 show_date         : true
 show_sociallinks  : true
 show_tags         : true

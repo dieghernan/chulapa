@@ -1,7 +1,7 @@
 ---
 title: Installation
 subtitle: How to use <span class="chulapa">Chulapa</span>
-excerpt: Install <span class="chulapa">Chulapa</span> on your Github repo
+excerpt: Install <span class="chulapa">Chulapa</span> on your GitHub repo
 show_toc: true
 ---
 
