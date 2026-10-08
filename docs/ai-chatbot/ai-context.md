@@ -11,6 +11,62 @@ It supports blogs, portfolios, documentation and project sites. It uses Bootstra
 Features include search, SEO metadata, navbar layouts, multi-author content,
 syntax highlighting, MathJax, galleries and comments.
 
+## Variables dictionary
+Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary
+These are Sass variables configured under chulapa-skin.vars in _config.yml,
+not page front matter options. Omit the SCSS $ prefix and trailing semicolon;
+restart Jekyll after changing them. Example:
+```yaml
+chulapa-skin:
+  vars:
+    primary: "#285d70"
+    navbar-chulapa-bg-color: "#182c38"
+    footer-chulapa-link-color: "#a8dae8"
+```
+Navbar colors: navbar-chulapa-bg-color (background), navbar-chulapa-text-color
+(text), navbar-chulapa-hover-color (hover), navbar-chulapa-active-color (active),
+navbar-chulapa-hover-bg-color (link background on hover),
+navbar-chulapa-disabled-color (disabled), navbar-chulapa-brand-color (brand),
+navbar-chulapa-brand-hover-color (brand hover), navbar-chulapa-toggler-color
+(default hamburger stroke), navbar-chulapa-toggler-color-bg (toggle button
+background), navbar-chulapa-toggler-icon-bg (toggle button background image as
+a Sass url(...) expression, replacing the default icon) and
+navbar-chulapa-toggler-border-color (toggle button border).
+Footer colors: footer-chulapa-bg-color (background), footer-chulapa-text-color
+(text), footer-chulapa-link-color (links), footer-chulapa-hover-color (link hover),
+footer-chulapa-icon-color and footer-chulapa-icon-hover-color (social icons).
+Hero and landing headers: hero-chulapa-bg-color, hero-chulapa-text-color,
+landingpage-chulapa-bg-color and landingpage-chulapa-text-color.
+Other variables: blockquote-chulapa-bg-color and blockquote-chulapa-text-color;
+footnote-chulapa-text-color for footnotes/captions; pre-chulapa-bg-color for code
+blocks (the highlight style can override it); thead-chulapa-bg-color and
+thead-chulapa-text-color for table headings; pagination-chulapa-text-color,
+pagination-chulapa-text-hover-color and pagination-chulapa-bg-hover-color;
+indexcards-chulapa-border-color for indexcategory cards; chulapa-toc-bg for the
+table of contents sidebar background.
+Unless a skin or vars supplies a value, the navbar background uses primary,
+the footer and hero backgrounds use the navbar background and the landing
+page background uses the hero background. Many text colors are derived from
+these backgrounds. Explicit component colors from a skin or vars keep their
+assigned values. vars overrides skin variable assignments; autothemer fills
+undefined variables. Changing a palette value such as blue does not necessarily
+change a skin's explicitly assigned primary color. Prefer semantic variables
+such as primary, danger and body-bg when assigning colors to components.
+navbar-chulapa-text-contrast, footer-chulapa-text-contrast, landingpage-card-bg
+and cactus-btn-text are calculated helpers, not overridable defaults. The theme
+recalculates them; use component variables or custom CSS instead of vars.
+Quote hex colors in YAML so # is not treated as a comment. Sizes need Sass units,
+for example font-size-base: "1.1rem". Boolean variables use lowercase true/false.
+Selected Bootstrap overrides: primary, secondary, success, info, warning,
+danger, light, dark; body-bg, body-color, link-color, link-hover-color;
+text-muted (also the default index card border color); font-family-base,
+headings-font-family, font-family-monospace, font-size-base (default 1rem),
+line-height-base (unitless multiplier, default 1.5), headings-color;
+border-radius; carousel-control-color
+and carousel-indicator-active-bg. enable-rounded: false disables Bootstrap
+rounding; enable-responsive-font-sizes: true enables responsive font sizes.
+The dictionary is a selection, not a complete list of supported Sass variables.
+
 ## Installation
 Source: https://dieghernan.github.io/chulapa/docs/01-install
 For a new site, create a repository from the chulapa-101 GitHub template, update
@@ -362,42 +418,6 @@ Site files override these includes for both remote and gem themes. Keep other
 existing snippets when adding new ones. Pages using minimal and search also
 include these hooks. Custom CSS belongs in assets/css/custom.scss with empty
 YAML front matter so Jekyll compiles it to custom.css.
-
-## Variables dictionary
-Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary
-These are Sass variables configured under chulapa-skin.vars in _config.yml,
-not page front matter options. Omit the SCSS $ prefix and trailing semicolon;
-restart Jekyll after changing them. Example:
-```yaml
-chulapa-skin:
-  vars:
-    primary: "#285d70"
-    navbar-chulapa-bg-color: "#182c38"
-    footer-chulapa-link-color: "#a8dae8"
-```
-Navbar colors: navbar-chulapa-bg-color (background), navbar-chulapa-text-color
-(text), navbar-chulapa-hover-color (hover), navbar-chulapa-active-color (active),
-navbar-chulapa-disabled-color (disabled), navbar-chulapa-brand-color (brand),
-navbar-chulapa-brand-hover-color (brand hover), navbar-chulapa-toggler-color
-(hamburger icon), navbar-chulapa-toggler-color-bg (icon background), and
-navbar-chulapa-toggler-border-color (toggler border).
-Footer colors: footer-chulapa-bg-color (background), footer-chulapa-text-color
-(text), footer-chulapa-link-color (links), footer-chulapa-hover-color (hover),
-footer-chulapa-icon-color and footer-chulapa-icon-hover-color (social icons).
-Hero and landing headers: hero-chulapa-bg-color, hero-chulapa-text-color,
-landingpage-chulapa-bg-color and landingpage-chulapa-text-color.
-Other variables: blockquote-chulapa-bg-color and blockquote-chulapa-text-color;
-footnote-chulapa-text-color for footnotes/captions; pre-chulapa-bg-color for code
-blocks (the highlight style can override it); thead-chulapa-bg-color and
-thead-chulapa-text-color for table headings; pagination-chulapa-text-color,
-pagination-chulapa-text-hover-color and pagination-chulapa-bg-hover-color;
-indexcards-chulapa-border-color for indexcategory cards.
-Selected Bootstrap overrides: primary, secondary, success, info, warning,
-danger, light, dark; body-bg, body-color, link-color; font-family-base,
-headings-font-family, font-size-base, headings-color; carousel-control-color
-and carousel-indicator-active-bg. enable-rounded: false disables Bootstrap
-rounding; enable-responsive-font-sizes: true enables responsive font sizes.
-The dictionary is a selection, not a complete list of supported Sass variables.
 
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet

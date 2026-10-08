@@ -75,6 +75,9 @@ and identifiers such as `chulapa-skin` retain their original formatting.
 
 ## Evaluation
 
+AI and coding agents must follow [the docs maintenance instructions](../AGENTS.md)
+when documentation changes affect the chatbot's reviewed context.
+
 Check documented installation, skins and baseurl questions in English and Spanish.
 Ask about an undocumented feature and an unrelated topic. Check that answers
 acknowledge missing facts and link to relevant original pages. Check six rapid

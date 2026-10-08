@@ -326,6 +326,7 @@ plugins:
 
 # XX.3. Files to exclude or include
 exclude:
+- AGENTS.md
 - ai-chatbot
 - LICENSE
 - README.md

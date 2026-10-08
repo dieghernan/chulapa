@@ -54,5 +54,33 @@
     "doc": "04_layouts.md",
     "question": "How does landingpage differ from default, and how do I hide its header?",
     "expected": "layout landingpage sameoptions bg/textvars; header_type none."
+  },
+  {
+    "id": "variables-1",
+    "section": "variables",
+    "doc": "99_variable-dict.md",
+    "question": "How do I change the table of contents sidebar background and navbar link hover background?",
+    "expected": "chulapa-toc-bg and navbar-chulapa-hover-bg-color under chulapa-skin.vars; quoted hex colors; restart Jekyll."
+  },
+  {
+    "id": "variables-2",
+    "section": "variables",
+    "doc": "99_variable-dict.md",
+    "question": "Can I override landingpage-card-bg through vars, and does changing blue always change my skin's primary color?",
+    "expected": "landingpage-card-bg is recalculated, not an overridable default; use component variables or custom CSS; explicit primary does not follow blue."
+  },
+  {
+    "id": "variables-3",
+    "section": "variables",
+    "doc": "99_variable-dict.md",
+    "question": "Which variables change the hamburger stroke, toggle button background and custom toggle icon?",
+    "expected": "navbar-chulapa-toggler-color stroke, navbar-chulapa-toggler-color-bg button background, navbar-chulapa-toggler-icon-bg Sass url expression replaces icon."
+  },
+  {
+    "id": "variables-unsupported",
+    "section": "variables",
+    "doc": "99_variable-dict.md",
+    "question": "Which Chulapa variable sets the chatbot model temperature?",
+    "expected": "No documented Sass variable for model temperature; acknowledge missing context and do not invent a setting."
   }
 ]

@@ -77,6 +77,23 @@ When public documentation changes:
 Jekyll builds and GitHub Pages deployments do not update the Worker context.
 Context updates are manual; no automatic RSS retrieval is configured.
 
+## Variables dictionary update, October 8, 2026
+
+Updated the reviewed context to cover all 33 configurable Chulapa variables,
+including navbar hover backgrounds, custom toggle icons and the TOC sidebar
+background. Added sizing, Bootstrap overrides, color inheritance and calculated
+helper limitations. Moved the variables summary after the overview because
+the first live run overlooked facts when the summary appeared later.
+
+Built and deployed Worker version `d0becc8d-9be0-4e30-a3c8-6b4f0d5b244c`.
+All 17 local tests passed. Four new evaluation cases and the two live run logs
+are saved alongside the existing evaluations. The revised run answered all
+three supported questions correctly. One answer omitted `/docs/` from its
+dictionary source URL; source URL fidelity remains imperfect. The unsupported
+temperature question correctly acknowledged missing context in the first run;
+the revised run hit HTTP 429 and was not evaluated. The deployment did not
+change the model, bindings or rate limit configuration.
+
 ## Chat interaction improvements
 
 The question field explains that requests are independent. Opening on screens
