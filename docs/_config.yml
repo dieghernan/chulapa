@@ -84,6 +84,12 @@ algolia:
   - desc(content)
   - desc(subtitle)
 
+# Documentation assistant, separate from the theme configuration.
+# No trailing slash on worker_url. Loaded on the homepage, /docs and collection docs.
+docs_chat:
+  enabled: true
+  worker_url: "https://chulapa-ai-prototype.dieghernan.workers.dev"
+
 # A.5. Comments
 # giscus uses _includes/custom/giscus.html; other IDs support provider demos.
 comments:
@@ -320,6 +326,7 @@ plugins:
 
 # XX.3. Files to exclude or include
 exclude:
+- ai-chatbot
 - LICENSE
 - README.md
 - Gemfile
