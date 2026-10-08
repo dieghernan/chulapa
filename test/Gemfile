@@ -1,13 +1,32 @@
 source 'https://rubygems.org'
+gem "jekyll", "~> 4.4.1"
 
-gem "jekyll", "~> 4.0"
 
 # use local theme gem for testing
-gem "chulapa-jekyll", path: "../"
+gem "chulapa-jekyll", path: "../", glob: "chulapa-jekyll.gemspec"
 
-gem 'jekyll-github-metadata'
+group :jekyll_plugins do
+  gem 'jekyll-algolia', '~> 1.0'
+  gem 'jekyll-github-metadata'
+  gem 'jekyll-sitemap'
+  gem 'jekyll-include-cache'
+end
 
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
-gem "webrick"
+# Hard dependencies
+gem 'jekyll-paginate'
+gem 'jekyll-remote-theme'
+gem 'kramdown-parser-gfm'
+
+# Additional dependencies
 gem 'faraday-retry'
+gem "webrick"
+gem 'tzinfo-data'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'ostruct'
+gem 'fiddle'
 
+# Compatibility for Ruby 3.4+
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "logger"

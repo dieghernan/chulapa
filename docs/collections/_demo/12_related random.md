@@ -20,6 +20,7 @@ This page enables both related and random cards. You can use either or both.
 The random cards use the same candidate pool as the related cards and are
 selected when the site is built, rather than each time a visitor loads the
 page. Use `related_label` and `random_label` to add introductory text or HTML.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ```yaml
 ---

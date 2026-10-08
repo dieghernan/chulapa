@@ -1,47 +1,39 @@
-# Find errors on this file with http://www.yamllint.com/
+# Chulapa configuration
+# Sections follow https://dieghernan.github.io/chulapa/docs/02-config
+# Blank settings use theme defaults where available.
 
-# Chulapa docs: https://dieghernan.github.io/chulapa/docs/02-config
-
-# Leave this
+# Installation (see docs/01-install)
+# Keep GitHub metadata enabled.
 github: [metadata]
 
-# XX. Installing Chulapa
-
-# Choose between:
-# a. With remote theme
+# Choose one installation method.
+# Remote theme: append @TAG to pin an existing release.
 remote_theme: dieghernan/chulapa
 
-# b. With gem based method
+# Gem-based theme: remove remote_theme and add the gem to Gemfile.
 # theme: chulapa-jekyll
-# And at this to your Gemfile
-# gem install 'chulapa-jekyll'
+# Add gem "chulapa-jekyll" to Gemfile.
 
-
-# A. Site Settings /SEO options
-# Overall options for your site, would affect your site SEO
-# Default values are explained
+# A. Site settings/SEO
+# General site settings
 locale                  :     #default["en-US"] format language-TERRITORY , e.g fr, en-GB, es-MX, pt-BR
 title                   :     #default["repository_name"]
 title_separator         :     #default [" | "]
 subtitle                :     #default [your-repository-tagline]
 description             :     #default [your-repository-tagline]
-url                     :     #See baseurl - On Github Pages you may leave it blank - If you use CNAME use your domain
-baseurl                 :     #On Github Pages you may leave it blank. Have a look to: https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
+url                     :     # Site origin, e.g. https://username.github.io or your custom domain.
+baseurl                 :     # Path prefix: /repository for a project site, "" for a root site.
 repository              :     # Needs to be set (e.g. dieghernan/chulapa)
 words_per_minute        :     #default[200]
-timezone                :     #"Europe/Madrid ,see https://jekyllrb.com/docs/configuration/options/ and https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone                :     # e.g. Europe/Madrid. See https://jekyllrb.com/docs/configuration/options/
 
-# SEO
+# A.1. SEO
+# Social locales: docs/04-layouts#social-locales-and-articles.
+og_locale               :     # Optional language_TERRITORY for social metadata
+og_locale_alternate     : []  # Optional list of translated locales, e.g. [es_ES, fr_FR]
 og_image                :     #default[author.avatar (see below)] or [github-avatar]
 twitter_site            :     #Avoid @
-# Optional JSON-LD publisher, independent of article authors.
-publisher:
-  type: # Organization (default) or Person; unsupported types use Organization
-  name: # Defaults to author.name or GitHub owner name
-  url: # Defaults to the site home URL
-  logo: # Organization only; defaults to og_image, author.avatar or GitHub avatar
-  image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
-
+# Site author
 author:
   name                  :     # Name Surname Company
   avatar                :     # Try a square file. Info: Your github avatar on https://github.com/[USERNAME].png
@@ -54,16 +46,28 @@ author:
       icon: # Another FontAwesome code
       label: # Another label
 
+# A.1.1. Publisher
+# Optional JSON-LD publisher, independent of article authors.
+publisher:
+  type: # Organization (default) or Person; unsupported types use Organization
+  name: # Defaults to author.name or GitHub owner name
+  url: # Defaults to the site home URL
+  logo: # Organization only; defaults to og_image, author.avatar or GitHub avatar
+  image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
+
+# A.2. Font Awesome
 fa_version: #default ["6"] Use 6 or 5
 fa_kit_code: # Your FontAwesome kit code. If not provided a free hosted version (slower) will be loaded:  https://fontawesome.com/
 fa_v4_support: #Bool Add FontAwesome 4 support
-# Web tracking - Google services https://analytics.google.com/analytics/web/
-# gtag_id is the preferred option, see https://developers.google.com/analytics/devguides/collection/gtagjs/migration?hl=en
-# analytics provided for backwards compatibility
+# A.3. Google Analytics
+# gtag_id: Google Analytics 4 measurement ID, e.g. G-XXXXXXXXXX.
+# analytics_id: legacy Universal Analytics ID; use gtag_id for new setups.
+# Leave unused IDs empty. Setting both loads both snippets.
 gtag_id                 :
 analytics_id            :
 
-# Search providers
+# A.4. Search engines
+# Create a page with layout: search and a permalink matching landing_page.
 # Available free search engines:
 # - lunr https://lunrjs.com/
 # - algolia v4 https://www.algolia.com/ - needs further configuration
@@ -71,16 +75,15 @@ analytics_id            :
 # - simplesearch: https://github.com/christian-fei/Simple-Jekyll-Search 
 # - fusejs: https://fusejs.io/
 search:
-  provider              : algolia #Select a provider for enable search: lunr, algolia, google, simplesearch, fusejs
+  provider              : algolia # Enable search: lunr, algolia, google, simplesearch or fusejs.
   label                 :  #default ["Search"] Text on navbar when search is enabled
   landing_page          :  #default ["/search"] Link on navbar
   maxwords              :  #default [30] lunr simplesearch, fusejs only - May slow down your site build
   show_attrib           :   #default ["true"] Show attributions/logo on search engine
-  algolia_logo          :  true #Displays algolia logo. Should be set to true if you are on a community plan, otherwise false.
+  algolia_logo          :  true # Check your plan's attribution requirements before hiding the logo.
 
 google_cse_id: #Your cse id
-# This site uses jekyll-algolia plugin https://community.algolia.com/jekyll-algolia/
-# Recommended additional configuration provided, could be modified. Add your own parameters
+# Algolia indexing uses jekyll-algolia. Adapt these indexing options to your site.
 algolia:
   application_id        : #As per your Algolia account
   index_name            : #As per your Algolia account
@@ -107,20 +110,21 @@ algolia:
     - desc(content)
     - desc(subtitle)
 
+# A.5. Comments
+# Enable show_comments on pages that should display comments.
+# For giscus, place its script in _includes/custom/giscus.html.
 comments:
-  provider:         #Enable comments via Disqus, giscus, Cactus.chat, cusdis
+  provider:         # disqus, cusdis, giscus, cactus or welcomments
   disqus_shortname: #Your site id : check your address https://{{ disqus.shortname }}.disqus.com/admin/
   cactus_shortname: #Your site id as registered with Cactus.chat
   cusdis_app_id:    # Your cusdis app id
   cusdis_host:      # Optionally you can use your own host
   website_id:       # Welcomments id
 
-
-
 # B. Navigation
 # Configure your navbar and the footer of your site
 
-# Navbar:
+# B.1. Navbar
 #   "brand" options would be set on the left side of your navbar
 #   "nav" would be set on the right side. Two-level nav links available
 navbar:
@@ -129,7 +133,7 @@ navbar:
   brand:
     title   :  # Title in navbar
     url     :  # default["url/baseurl"]
-    img     :  # An small image, try 30x30px
+    img     :  # A small image, ideally 30x30px.
   nav:
   - title   : # Label
     url     : # url
@@ -140,20 +144,23 @@ navbar:
      - title: # Child label
        url  : # child url
 
-#Social links to be placed on your site footer
+# B.2. Footer
+# Social links displayed in the site footer.
 footer:
   links:
     - label : #Label
-      icon  : # Fontawesome 5 icon
+      icon  : # Font Awesome icon code.
       url   : # A link or email: https://twitter.com/jack, mail@example.com
   copyright: # default is © <year> <name>
 
-# C. Theme Settings
+# C. Theming Chulapa
+# Full reference: docs/03-theming.
+# C.1. Google Fonts
 # Google Fonts https://fonts.google.com/, add as many as you need
 googlefonts:
  # - url : # 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
 
-# Theme and colors
+# C.2. Skin, syntax highlighting and colors
 chulapa-skin:
   highlight     :  # default["default"]
   skin         :  # Optional predefined skins
@@ -161,15 +168,17 @@ chulapa-skin:
   vars          :
     primary     :   #default ["#007bff"] - Bootstrap blue
 
-# D. Jekyll Defaults and collections: see https://jekyllrb.com/
+# D. Jekyll defaults and collections
+# Demo collections and pagination below are examples for this repository.
 
+# D.1. Pagination
 # Blog pagination: on this site /blog/index.html. https://jekyllrb.com/docs/pagination/
 paginate: 4
 paginate_path: "/blog/page:num/"
 paginator_maxnum: 3  #default[3] Custom: max of number to be displayed on the paginator
 
-
-# Collections https://jekyllrb.com/docs/step-by-step/09-collections/
+# D.2. Collections and permalinks
+# https://jekyllrb.com/docs/step-by-step/09-collections/
 collections:
   demo:
     output: true
@@ -183,8 +192,9 @@ collections:
 collections_dir     : docs/collections
 permalink           : /:year:month:day_:title/
 
-
-# Defaults https://jekyllrb.com/docs/configuration/front-matter-defaults/
+# D.3. Front matter defaults
+# https://jekyllrb.com/docs/configuration/front-matter-defaults/
+# Theme page options: docs/04-layouts.
 defaults:
   -
     scope:
@@ -225,16 +235,15 @@ defaults:
       include_on_search : true
       include_on_feed   : true
 
-
-
-
-# XX. Other settings - no need to modify
-# HTML Compression
+# XX. Other settings
+# Adapt Jekyll settings to your site; keep jekyll-include-cache enabled.
+# XX.1. HTML compression
 # - https://jch.penibelst.de/
 compress_html:
   clippings: all
   blanklines: true
 
+# XX.2. Plugins
 plugins:
   - jekyll-github-metadata
   - jekyll-paginate
@@ -242,7 +251,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-remote-theme
 
-# Exclude these files from production site
+# XX.3. Files to exclude or include
 exclude:
   - LICENSE
   - README.md
@@ -255,14 +264,14 @@ exclude:
 include:
  - _pages
 
-# Conversion
+# XX.4. Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-# Markdown Processing
+# XX.5. Markdown processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -274,7 +283,7 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-# Sass/SCSS
+# XX.6. Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style

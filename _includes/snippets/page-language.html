@@ -1,0 +1,4 @@
+{%- assign page_language = page.locale | strip -%}
+{%- if page_language == empty -%}{%- assign page_language = site.locale | strip -%}{%- endif -%}
+{%- if page_language == empty -%}{%- assign page_language = 'en-US' -%}{%- endif -%}
+{%- assign page_language = page_language | replace: '_', '-' -%}

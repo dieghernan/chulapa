@@ -47,7 +47,7 @@ og_image: /assets/img/site/banner-blog.png
 	            <nav aria-label="Page navigation example" class="container-lg mt-4 chulapa-pagination text-center">
                 <ul class="col-md-8 offset-md-2 pagination justify-content-around ">
                     <li class="page-item {{ firstclass }} ">
-                        <a class="page-link border-0 px-3 px-sm-4" href="{{- site.paginate_path | relative_url | replace: '/page:num/', '' -}}" tabindex="-1">
+                        <a class="page-link border-0 px-3 px-sm-4" href="{{- site.paginate_path | relative_url | replace: '/page:num/', '/' -}}" tabindex="-1">
                             <i class="fa fa-step-backward" aria-hidden="true"></i><span class="sr-only">First</span>
                         </a>
                     </li>
@@ -61,7 +61,7 @@ og_image: /assets/img/site/banner-blog.png
                       {% for num in (init..end) -%}
                       
                         <li class="page-item {% if num== paginator.page %} active {%- endif -%}">
-                          <a class="page-link border-0 rounded-0" href="{%- if num == 1 -%}{{- site.paginate_path | relative_url | replace: '/page:num/', '' -}}
+                          <a class="page-link border-0 rounded-0" href="{%- if num == 1 -%}{{- site.paginate_path | relative_url | replace: '/page:num/', '/' -}}
                           {%- else  -%}{{- site.paginate_path | relative_url | replace: ':num', num -}}{%- endif -%}
                           ">{{- num -}}</a></li>
                       {%- endfor %}

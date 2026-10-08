@@ -12,6 +12,10 @@ project_links:
       label: Adapted from Start Bootstrap
 ---
 
+**This example inserts its header manually.** Keep `show_header` disabled
+or remove the manual include before enabling the automatic minimal header.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 {% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
 
 <section>
@@ -73,6 +77,12 @@ paste.</p>
 <div class="container-lg my-1">
   <div class="row">
     <div class="col-lg-8 offset-lg-2 col" markdown="1">
+
+## Front matter for this demo
+
+This page inserts the header and bottom navigation manually in its content.
+The front matter alone does not reproduce those HTML components.
+
 ```yaml
 ---
 layout: minimal
@@ -90,6 +100,8 @@ project_links:
 ```
 
   </div>
+</div>
+
 </div>
 
 {%- include components/navbeforeafter.html -%}

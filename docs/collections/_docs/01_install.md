@@ -5,25 +5,28 @@ excerpt: Install <span class="chulapa">Chulapa</span> on your GitHub repo
 show_toc: true
 ---
 
-<span class="chulapa">Chulapa</span> was developed in and for GitHub. There are
+<span class="chulapa">Chulapa</span> is a Jekyll theme for GitHub Pages and other
+Jekyll sites. There are
 three ways to use <span class="chulapa">Chulapa</span>:
 
 ## 1. Use our GitHub template
 
-**Recommended if you are starting from scratch**
+**Recommended if you are starting from scratch.**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-Create a GitHub account, click [this link](https://github.com/dieghernan/chulapa-101/generate)
-and quickstart your site!
+Sign in to GitHub and
+[create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
+to get started. Update `_config.yml` with your site's details and replace the
+sample content with your own.
 
 ## 2. Remote theme method
 
-**Recommended if you are migrating a site.**
+**Recommended if you are migrating an existing site.**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 You can use the `jekyll-remote-theme` method. Just follow these steps:
 
-1. Create a new GitHub repository or go to an existing one.
+1. Create a new GitHub repository or open an existing one.
 2. Add this line to your `_config.yml`:
 
     ```yaml
@@ -33,8 +36,12 @@ You can use the `jekyll-remote-theme` method. Just follow these steps:
 
 3. Remove any other `remote_theme` entry and the `theme` entry from
    `_config.yml`. Add `jekyll-remote-theme` and `jekyll-include-cache` to your
-   Gemfile and `_config.yml` plugins list, then run `bundle install`.
-   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its `include_cached` tags.
+   `Gemfile` and the `plugins` list in `_config.yml`, then run `bundle install`.
+   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its
+   `include_cached` tags. For local or custom builds, also install the runtime
+   dependencies declared in the theme's
+   [gemspec](https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec).
+   A remote theme does not install these dependencies for you.
 
 An unpinned remote theme follows the repository default branch. To select a
 release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.0.1`.
@@ -49,27 +56,28 @@ published in the gem.
   example in <https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml>
 </div>
 
-By using `jekyll-remote-theme`, your repo will have remote access to the content
-of these folders:
+During the build, `jekyll-remote-theme` downloads the selected theme and makes
+its files available to Jekyll, including these directories:
 
 - `assets`
 - `_layouts`
 - `_includes`
 - `_sass`
 
-Note that making copies of theme files will prevent you from receiving any theme
-updates on those files.
+Local files at the same paths override the corresponding theme files. You must
+merge updates to those files manually; other theme files continue to use the
+selected remote version.
 
-Please read the rest of the docs for further adjustments.
+Continue with [global settings](./02-config) to configure your site.
 
 ## 3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i>
 
-With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`
-and `_sass` are stored in the theme's gem, hidden from your immediate view. This
-allows for easier installation and updating as you don't have to manage any of
-the theme files.
+With gem-based themes, directories such as `assets`, `_layouts`, `_includes`
+and `_sass` are stored in the theme's gem rather than your site directory.
+This makes installation and updates easier because you do not have to manage
+the theme files directly.
 
-To install as a Gem-based theme:
+To install as a gem-based theme:
 
 1. Add the following to your `Gemfile`:
 
@@ -77,7 +85,7 @@ To install as a Gem-based theme:
     gem "chulapa-jekyll"
     ```
 
-2. Fetch and update bundled gems by running the following [Bundler](https://bundler.io/)
+2. Install the bundled gems by running the following [Bundler](https://bundler.io/)
    command:
 
     ```bash
@@ -90,7 +98,7 @@ To install as a Gem-based theme:
     theme: chulapa-jekyll
     ```
 
-Enable `jekyll-include-cache` in your `_config.yml` plugins list. Remove any
+Enable `jekyll-include-cache` in the `plugins` list in `_config.yml`. Remove any
 `remote_theme` entry when using the gem. To update only the theme and its
 dependencies, run `bundle update chulapa-jekyll`.
 

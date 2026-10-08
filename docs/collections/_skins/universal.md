@@ -16,7 +16,7 @@ skin_adapter: dieghernan
 
 <!-- FIXME: Restore the Bootstrapious attribution link when its site has a valid TLS certificate. -->
 
-The original design is by Bootstrapious. The Chulapa skin was adapted by
+The original design is by Bootstrapious. The <span class="chulapa">Chulapa</span> skin was adapted by
 [dieghernan](https://github.com/dieghernan/). To use it on your site, update
 these settings in `_config.yml`:
 
@@ -31,6 +31,7 @@ chulapa-skin:
 Autothemer fills in colors that the skin and `vars` have not defined. It does
 not override existing values, so its visible effect depends on the skin. Use
 `vars` to override specific colors. See the [autothemer guide]({{ "/docs/03-theming#autothemer" | relative_url }}).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}

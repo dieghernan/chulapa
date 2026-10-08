@@ -12,7 +12,7 @@ og_image: ./assets/img/skinspreview/pear.png
 skin_author: dieghernan
 ---
 
-Developed by [dieghernan](https://github.com/dieghernan/), you can use it on your site. Just go to your `_config.yml` file and modify these settings:
+Developed by [dieghernan](https://github.com/dieghernan/). To use this skin, update the following settings in `_config.yml`:
 
 ```yaml
 chulapa-skin:

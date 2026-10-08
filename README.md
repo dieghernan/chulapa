@@ -3,22 +3,22 @@ preview](https://dieghernan.github.io/chulapa/assets/img/site/banner.png "live p
 
 ![GitHub release (latest by
 date)](https://img.shields.io/github/v/release/dieghernan/chulapa)
-![Gem
-Version](https://img.shields.io/gem/v/chulapa-jekyll?color=success)
-![GitHub](https://img.shields.io/github/license/dieghernan/chulapa)
+[![Gem Version](https://badge.fury.io/rb/chulapa-jekyll.svg)](https://badge.fury.io/rb/chulapa-jekyll)
+![Gem Total Downloads](https://img.shields.io/gem/dt/chulapa-jekyll)
+![License](https://img.shields.io/github/license/dieghernan/chulapa)
 ![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.8.7-blue)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-4.5.0-blue)
 ![Font Awesome](https://img.shields.io/badge/fontawesome-6.x-blue)
 ![Algolia](https://img.shields.io/badge/algolia-4.x-blue)
-![lunr](https://img.shields.io/badge/lunr-2.x-blue)
-![fuse.js](https://img.shields.io/badge/fuse.js-7.x-blue)
-![mathjax](https://img.shields.io/badge/mathjax-3.x-blue)
-![GHpages](https://img.shields.io/badge/gh--pages-ready-succes)
-![google-analytics](https://img.shields.io/badge/google--analytics-ready-succes)
-![disqus](https://img.shields.io/badge/disqus-ready-succes) ![social
+![Lunr](https://img.shields.io/badge/lunr-2.x-blue)
+![Fuse.js](https://img.shields.io/badge/fuse.js-7.x-blue)
+![MathJax](https://img.shields.io/badge/mathjax-3.x-blue)
+![GitHub Pages](https://img.shields.io/badge/gh--pages-ready-succes)
+![Google Analytics](https://img.shields.io/badge/google--analytics-ready-succes)
+![Disqus](https://img.shields.io/badge/disqus-ready-succes) ![Social
 sharing](https://img.shields.io/badge/social--sharing-ready-succes)
-![seo](https://img.shields.io/badge/seo-ready-succes)
-![video](https://img.shields.io/badge/video--support-ok-succes)
+![SEO](https://img.shields.io/badge/seo-ready-succes)
+![Video support](https://img.shields.io/badge/video--support-ok-succes)
 [![ko-fi](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://ko-fi.com/dieghernan)
 
 # [<span class="chulapa">Chulapa</span>](https://dieghernan.github.io/chulapa/)
@@ -30,33 +30,34 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 - **Bootstrap 4** - Fully responsive
 - **Font Awesome 6** - v5 is also supported, with optional v4 shims
 - **3 different navbar styles**
-- **Atom and RSS 2.0** feed
+- **Atom and RSS 2.0** feeds
 - **Internal search** by Algolia, Lunr, Fuse.js, Simple-Jekyll-Search or Google
   Custom Search
 - **Comments** by Disqus, giscus, Cusdis, Cactus and Welcomments
 - **Masonry gallery**
-- **Video support** - self-hosted or from core providers: YouTube, Vimeo,
-    Dailymotion...
+- **Video support** - self-hosted videos or videos from providers such as
+  YouTube, Vimeo and Dailymotion
 - **Structured data** for better SEO
 - **Code highlighting** - Pygments-compatible styles for Rouge
 - **MathJax** support
 - **Google Analytics**
 - **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
-    WhatsApp
+  WhatsApp
 - **40+ preinstalled skins**
 - **Powerful look-and-feel customization** with a dedicated sandbox
 - **Archive, tag and category clouds and card index layouts**
 - **Breadcrumb navigation**
-- **Multiple authors** with location, picture and social links. Travel blogs
-    and collaborative sites welcome!
+- **Multiple authors** with locations, pictures and social links for travel
+  blogs and collaborative sites
 
-A great alternative for blogs, news, portfolios and personal sites. Want to know
-more? [Go to Docs](https://dieghernan.github.io/chulapa/docs/01-install).
+A flexible theme for blogs, news sites, portfolios and personal sites. See the
+[documentation](https://dieghernan.github.io/chulapa/docs/01-install) to learn
+more.
 
 ## Installation
 
-Sample `_config.yml` file
-[here](https://github.com/dieghernan/chulapa/blob/main/_config.yml).
+See the sample
+[`_config.yml` file](https://github.com/dieghernan/chulapa/blob/main/_config.yml).
 
 There are three ways to install <span class="chulapa">Chulapa</span>:
 
@@ -64,18 +65,18 @@ There are three ways to install <span class="chulapa">Chulapa</span>:
 
 **Recommended if you are starting from scratch.**
 
-Create a GitHub account, click [this
-link](https://github.com/dieghernan/chulapa-101/generate) and quickstart your
-site!
+Sign in to GitHub and
+[create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
+to get started.
 
 ### B. Remote theme method
 
-**Recommended if you are migrating a previous site.**
+**Recommended if you are migrating an existing site.**
 
 If you prefer not to use the template, you can use the `jekyll-remote-theme`
 method. Just follow these steps:
 
-1. Create a new GitHub repository or go to an existing one
+1. Create a new GitHub repository or open an existing one.
 
 2. Add this line to your `_config.yml`:
 
@@ -88,8 +89,13 @@ method. Just follow these steps:
 
 3. Remove any other `remote_theme` entry and the `theme` entry from
    `_config.yml`. Add `jekyll-remote-theme` and `jekyll-include-cache` to your
-   Gemfile and `_config.yml` plugins list, then run `bundle install`.
-   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its `include_cached` tags.
+   `Gemfile` and the `plugins` list in `_config.yml`, then run `bundle install`.
+   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its
+   `include_cached` tags.
+
+   For local or custom builds, also install the runtime dependencies listed in
+   the [gemspec](https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec).
+   A remote theme does not install these dependencies for you.
 
 An unpinned remote theme follows the repository default branch. To select a
 release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.0.1`.
@@ -98,12 +104,12 @@ published in the gem.
 
 ### C. Gem-based method 💎
 
-With Gem-based themes, directories such as the `assets`, `_layouts`,
-`_includes` and `_sass` are stored in the theme's gem, hidden from your
-immediate view. This allows for easier installation and updating as you don't
-have to manage any of the theme files.
+With gem-based themes, directories such as `assets`, `_layouts`, `_includes`
+and `_sass` are stored in the theme's gem rather than your site directory.
+This makes installation and updates easier because you do not have to manage
+the theme files directly.
 
-To install as a Gem-based theme:
+To install as a gem-based theme:
 
 1. Add the following to your `Gemfile`:
 
@@ -111,7 +117,7 @@ To install as a Gem-based theme:
     gem "chulapa-jekyll"
     ```
 
-2. Fetch and update bundled gems by running the following
+2. Install the bundled gems by running the following
     [Bundler](https://bundler.io/) command:
 
     ``` bash
@@ -124,7 +130,7 @@ To install as a Gem-based theme:
     theme: chulapa-jekyll
     ```
 
-Enable `jekyll-include-cache` in your `_config.yml` plugins list. Remove any
+Enable `jekyll-include-cache` in the `plugins` list in `_config.yml`. Remove any
 `remote_theme` entry when using the gem. To update only the theme and its
 dependencies, run `bundle update chulapa-jekyll`.
 
@@ -145,21 +151,21 @@ article images through `schema_image` and per-page crawler directives through
 
 ## Attributions
 
-**Chulapa** is a font owned by the City Council of Madrid designed and produced
-by Joancarles Casasín and Pablo Gámez on a previous design of Silvia Fernández
-Palomar licensed under [Creative Commons CC BY, Versión
+**Chulapa** is a font owned by the City Council of Madrid, designed and produced
+by Joancarles Casasín and Pablo Gámez based on an earlier design by Silvia
+Fernández Palomar and licensed under [Creative Commons CC BY, version
 4.0](https://creativecommons.org/licenses/by/4.0/). This theme incorporates a
-modification of this work in order to provide support to the English language.
+modification of this work to support the English language.
 
 Bootstrap v.4.5 is released under the [MIT
 license](https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE) and is copyright
 2020 Twitter.
 
-Font Awesome 6.x is free, open source, and GPL friendly -
+Font Awesome 6.x is free, open source and GPL-friendly. See its
 [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL
 OFL 1.1, Code: MIT License).
 
-This theme incorporates some pieces of code from [Minimal
+This theme incorporates code from [Minimal
 Mistakes](https://mmistakes.github.io/minimal-mistakes/), Copyright (c)
 2013-2020 [Michael Rose](https://mademistakes.com/) and contributors distributed
 under the terms of the [MIT
@@ -172,8 +178,8 @@ developed by [jwarby](https://github.com/jwarby/) distributed under the terms of
 Unlicense](https://github.com/jwarby/jekyll-pygments-themes/blob/master/UNLICENSE.txt).
 
 This theme incorporates [Ferpal
-Sans](https://ferpal.studio/work/ferpal-sans/) developed by Silvia
-Ferpal and is free for personal use.
+Sans](https://ferpal.studio/work/ferpal-sans/), developed by Silvia Ferpal.
+The font is free for personal use.
 
 This theme incorporates [Jekyll Pure Liquid Table of
 Contents](https://github.com/allejo/jekyll-toc), Copyright © 2017 [Vladimir

@@ -17,4 +17,21 @@ include_on_search: true
     <div class="col-md-4"><div class="card h-100"><div class="card-body"><h3 class="h5">Third column</h3><p>The columns stack on small screens.</p></div></div></div>
   </div>
   <p class="mt-4"><a href="{{ '/docs/04-layouts#optional-header' | absolute_url }}">Read the optional header documentation</a></p>
+
+<section class="container-lg py-4 text-left" aria-label="Demo front matter">
+  <h2 class="h4">Front matter for this demo</h2>
+  <p>This is the front matter used by this demo.</p>
+{% highlight yaml %}
+---
+layout: minimal
+title: Minimal layout with a header
+subtitle: A theme header with room for custom content
+permalink: /demo/minimal-header
+show_header: true
+header_type: hero
+header_img: /assets/img/site/chulapa-madrid.jpg
+include_on_search: true
+---
+{% endhighlight %}
+</section>
 </main>

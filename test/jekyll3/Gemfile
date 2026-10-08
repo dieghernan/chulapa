@@ -1,0 +1,19 @@
+source "https://rubygems.org"
+
+gem "jekyll", "~> 3.10.0"
+gem "jekyll-include-cache"
+gem "jekyll-sitemap"
+gem "jekyll-paginate"
+gem "jekyll-github-metadata"
+gem "kramdown-parser-gfm"
+gem "nokogiri"
+gem "faraday-retry"
+gem "webrick"
+gem "tzinfo-data"
+
+# Standard library gems required on Ruby 3.4.
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "logger"
+gem "ostruct"

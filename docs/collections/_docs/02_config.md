@@ -9,7 +9,16 @@ h_max: 5
 
 <p class="font-weight-light font-italic lead">TL;DR</p>
 
-Learn how to modify your `_config.yml` file. If you are using the remote method and you didn't fork the [chulapa-101 repo](https://github.com/dieghernan/chulapa-101), you can use [this file](https://github.com/dieghernan/chulapa/blob/main/_config.yml) as a starting point. Add `remote_theme: dieghernan/chulapa` for the default branch or append `@TAG` to pin an existing release tag.
+Configure your site in `_config.yml`. If you use a remote theme without the
+[chulapa-101 template](https://github.com/dieghernan/chulapa-101), use the
+[sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml)
+as a starting point. Adapt its site details, collections and defaults to your
+site. Use `remote_theme: dieghernan/chulapa` for the default branch or append
+`@TAG` to pin an existing release.
+
+**Restart Jekyll after changing configuration.** Edits to `_config.yml` are
+applied when the server restarts.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 For some variables, a default value is provided. This value is shown at the end
 of the explanation **in bold**.
@@ -18,16 +27,26 @@ of the explanation **in bold**.
 
 - `locale`: Set the `lang` attribute on the `<html>` element. Use a language
   code or `language-TERRITORY`, such as `fr`, `en-GB`, `es-MX` or `pt-BR`.
+  Pages can override this with `locale`. Set `og_locale` separately when a
+  language-only or script-based tag needs a territory for social metadata.
+  `og_locale_alternate` lists available translated locales; see
+  [Social locales and articles](./04-layouts#social-locales-and-articles).
   **Default value: en-US**.
-- `title`, `title_separator` and `subtitle`: Set several `<meta>` tags and
-  define the browser tab title. **repository_name \| project_tagline**.
+- `title`: Site title, also used for social metadata. **GitHub repository name**.
+- `subtitle`: Site tagline used in the home page browser title.
+  **GitHub project tagline**.
+- `title_separator`: Separator between the two parts of the browser title.
+  The home page uses the site title and subtitle; other pages use the page
+  title and site title. Page `seo_title` can override the complete title.
+  **`|`**, with spaces added around it.
 - `description`: Brief site description for Jekyll and plugins. <span class="chulapa">Chulapa</span>'s page
-  description metadata uses the page `excerpt` or a content fallback, with the
-  page `subtitle` prepended when present.
+  metadata gives priority to page `description`, then `excerpt`, then the site
+  description on the home page, then a content fallback. See
+  [SEO metadata](./04-layouts#seo-metadata) for subtitle handling.
 - `url` and `baseurl`: Set `url` to the site origin (for example `https://username.github.io`) and `baseurl` to its path prefix (`/repository` for a project site or an empty string for a root site). GitHub metadata can supply defaults on GitHub Pages; set these explicitly for local or custom builds so canonical links, feeds and image URLs resolve correctly. See [Clearing Up Confusion Around baseurl -- Again](https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/) by Parker Moore (Jekyll).
-- `repository`: Set as the slug of your repo on GitHub (e.g.
-  `dieghernan/chulapa`). **This value is unset and must be provided by the
-  user**.
+- `repository`: GitHub repository slug (for example
+  `dieghernan/chulapa`). Set this for GitHub metadata, especially when building
+  outside GitHub Pages. **Unset in the sample configuration**.
 - `words_per_minute`: Used for computing the reading time of the page. **200**.
 - `timezone`: Used for setting the timezone of your dates and hours. See [Jekyll Docs](https://jekyllrb.com/docs/configuration/options).
 
@@ -50,15 +69,17 @@ visible breadcrumbs are disabled.
   author's links are considered for `twitter:creator`; the site author is not
   used as a fallback. Status, sharing and other non-profile URLs do not set a
   creator.
-- `author` of the site:
-  - `name` of the author, it will be injected on several parts of your site, as
-    the footer or different `<meta>` tags. **github username** for metadata.
-  - `avatar`: The avatar of the author, should be a small square image
-    preferably.
-  - `location`: As a nice touch, this would link to Google Maps 😉.
-  - `links`: A list of social links. You may set a URL and a [Font Awesome](https://fontawesome.com/icons?d=gallery) code for each social link. You can also include an email address on this list.
+- `author`: Default site author, used in profiles, metadata and the footer.
+  Pages can supply their own `author` mapping.
+  - `name`: Author name. **GitHub owner name**, when GitHub metadata is available.
+  - `avatar`: Avatar image URL or site-relative path; a small square image is
+    recommended.
+  - `location`: Location text linked to a Google Maps search.
+  - `links`: Social links with `url`, `icon` and `label`. Use a
+    [Font Awesome](https://fontawesome.com/icons?d=gallery) icon code and a
+    descriptive label. For email links, supply the plain email address.
 
-See below a full example for an `author`:
+Example site author:
 
 ```yaml
 author:
@@ -81,7 +102,7 @@ author:
 tags automatically. Set accurate titles, excerpts and image URLs, then check the
 shared page with the relevant platform. Metadata does not guarantee a particular
 preview or search result.
-{: .alert .alert-success .p-3 .mx-2 mb-3}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Publisher
 
@@ -128,7 +149,10 @@ Configuring a publisher does not change article authors, social metadata or auth
 ### Font Awesome
 
 <span class="chulapa">Chulapa</span> loads Font Awesome 6 by default. Set `fa_version: 5` to use version 5.
-To load a Font Awesome kit, the current implementation reads `fa_kit_code`.
+Set `fa_kit_code` to load a Font Awesome kit instead of the hosted stylesheet.
+The legacy setting `fa5_kit_code` remains supported and takes precedence when
+both are set. Remove it when migrating to `fa_kit_code`.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 To enable v4 support, set `fa_v4_support: true`.
 
@@ -139,12 +163,18 @@ To enable v4 support, set `fa_v4_support: true`.
 - `analytics_id`: Retained for legacy Universal Analytics snippets. Universal Analytics has been retired, so use `gtag_id` for new setups. See [Google's migration guide](https://support.google.com/analytics/answer/10089681).
 
 Leave unused IDs empty. If both are set, the theme loads both snippets.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ### Search engines
 
 Set `search.provider` and create a page using `layout: search`. Its `permalink`
 must match `search.landing_page`, which defaults to `/search`. Selecting a
 provider adds the navbar link but does not create the search page.
+
+**Create the search page separately.** Setting `search.provider` alone adds a
+navbar link; it does not generate a page at `search.landing_page`.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 The following engines are available:
 
 - [Lunr.js](https://lunrjs.com/)
@@ -153,24 +183,28 @@ The following engines are available:
 - [Algolia](https://www.algolia.com/)
 - [Google Custom Search](https://developers.google.com/custom-search)
 
-While Lunr, Fuse.js and Simple-Jekyll-Search are fully integrated on the theme,
-for
-Algolia and Google CSE you may need to create an account and perform some
-additional steps.
+Lunr, Fuse.js and Simple-Jekyll-Search use an index generated during the site
+build. Set `include_on_search: false` on pages or in front matter defaults to
+exclude them from these indexes. Algolia requires a separately uploaded index;
+Google Custom Search requires a configured search engine.
 
 - `search`:
   - `provider`: Select a search provider: `lunr`, `algolia`, `google`,
     `simplesearch`, `fusejs`.
   - `label`: Text to be displayed on the navbar when enabled. Useful for
     localization (i.e. you can set it as Búsqueda or Ricerca). **Search**.
-  - `landing_page`: url of your search page, useful for localization.
+  - `landing_page`: URL of your search page, useful for localization.
     **"/search"**.
   - `lunr_maxwords`: **Deprecated**, use `maxwords`. Remove the old setting when
     migrating: if both are set, `lunr_maxwords` takes precedence for Lunr.
-  - `maxwords`: `simplesearch`, `fusejs`, `lunr` only, number of words to be
-    included in the index. **30**.
-  - `show_attrib`: Show attributions/logo on search engine **true**.
-  - `algolia_logo`: Controls the Algolia logo alongside `show_attrib`. Check
+  - `maxwords`: Maximum number of content words per indexed document for
+    `simplesearch`, `fusejs` and `lunr`. Other indexed fields are separate. **30**.
+    Provider-specific `simplesearch_maxwords` and `fusejs_maxwords` also take
+    precedence over `maxwords` when set. Prefer `maxwords` for a shared limit.
+  - `show_attrib`: Show attribution for Lunr, Fuse.js and Simple-Jekyll-Search.
+    Set the YAML boolean `false` to hide it. **true**.
+  - `algolia_logo`: Independently controls the Algolia logo. **Unset**; the
+    sample configurations explicitly set it to `true`. Check
     your Algolia plan's attribution requirements before hiding it.
 
 - `google_cse_id`: Your Google Custom Search id, available on _cse.google.com >
@@ -178,12 +212,22 @@ additional steps.
 
 The `jekyll-algolia` plugin is deprecated and no longer maintained by Algolia.
 Its archived documentation remains available in the upstream repository.
-Algolia is implemented via the `jekyll-algolia` plugin [(docs)](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/getting-started.md), and needs a [specific configuration syntax](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md), the minimum settings are:
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
+The theme uses `jekyll-algolia` to upload its search index. See the plugin's
+[setup documentation](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/getting-started.md)
+and [configuration reference](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md).
+The browser search requires these settings:
 
 - `algolia`:
   - `application_id`: App id on Algolia.
   - `index_name`: Name of the index to search.
-  - `search_only_api_key` : Your **public** key.
+  - `search_only_api_key`: Public search-only API key used in browser requests.
+
+Index uploads require a separate indexing key supplied through the
+`ALGOLIA_API_KEY` environment variable. Keep that key in your build environment
+or GitHub Actions secrets; do not put it in the public configuration.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 Recommended additional options are:
 
@@ -214,57 +258,63 @@ If you are deploying your site with GitHub Pages, I recommend using this [GitHub
 
 ### Comments
 
-You can add a comment feature to a page. Currently the following services are
-supported:
+Set `comments.provider` and enable `show_comments: true` on pages or in front
+matter defaults for layouts that display comments. Configure the selected
+provider as described below. The theme includes integrations for:
 
-- [Disqus](https://disqus.com/), one of the most known comment providers for static sites,
+- [Disqus](https://disqus.com/), a hosted comment system.
 - [Cusdis](https://github.com/djyde/cusdis), a lightweight comment system whose
   upstream project is deprecated and archived. The original hosted service is
   unavailable; check your own deployment before selecting this provider.
-- [giscus](https://giscus.app/), A comments system powered by [GitHub Discussions](https://docs.github.com/en/discussions)
-- [Cactus](https://cactus.chat/), a federated comment system for the web, based on the Matrix protocol
-- [Welcomments](https://welcomments.io/), lightweight, fast, and SEO-friendly comment sections for your site
+- [giscus](https://giscus.app/), powered by
+  [GitHub Discussions](https://docs.github.com/en/discussions).
+- [Cactus](https://cactus.chat/), a federated comment system based on Matrix.
+- [Welcomments](https://welcomments.io/), a comment integration using generated
+  comment files.
 
 - `comments`:
   - `provider`: Use `disqus`, `cusdis`, `giscus`, `cactus` or `welcomments` to
     enable it.
   - `disqus_shortname`: Disqus only. Add your site id, on `https://DISQUS_SHORTNAME.disqus.com/admin/`.
-  - `cusdis_app_id`: Cusdis only, the app id of your service. On cusdis see
-    **Embed code** and
-    use `data-app-id="THIS_IS_THE_APP_ID"`.
+  - `cusdis_app_id`: Cusdis application ID, shown as `data-app-id` in its embed
+    code.
   - `cusdis_host`: Cusdis only. If you are self-hosting Cusdis use this field.
   - `cactus_shortname`: Cactus only. The name you used to register this site
     with Cactus.
   - `website_id`: Welcomments site id.
 
-Configure **giscus** following their instructions and paste the resulting script
-on a file hosted on your GitHub repo with path _./\_includes/custom/giscus.html_.
+Configure **giscus** using its setup instructions and paste the generated
+script into `_includes/custom/giscus.html` in your site repository.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-When setting up **Welcomments**, you may receive a pull request on your site. My
-suggestion is that you ignore it (except for the `website_id`), since <span
-class="chulapa">Chulapa</span> has some customized templates that would be
-overridden by the files on the PR.
+When setting up **Welcomments**, review any generated pull request before
+merging it. Use its `website_id`, but retain the customized templates supplied
+by <span class="chulapa">Chulapa</span> rather than overwriting them.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ## B. Navigation
 
 ### Navbar
 
-Configure the navbar and footer of your site. This theme supports a two-level
-navigation structure, and features **three different navbar styles**: `fab`, as
-a floating action button with animation, a **classic sticky-top navbar** or
-`dual` that would display as `fab` on small devices and as a classic navbar on
-bigger devices.
+The navbar supports links and one level of child links. Choose a classic
+sticky-top navbar, `fab` for an animated floating action button or `dual` to
+switch from a floating button to a classic navbar at the configured breakpoint.
 
 Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
 
 - `navbar`:
-  - `style`: `fab` value would display your navbar as a [floating action button](https://material.io/components/buttons-floating-action-button). `dual` option also available. **classic**.
-  - `expand`: Only affects the classical navbar. Defines on which devices the links of the navbar would expand. Values are `sm, md, lg, xl` for small, medium, large and extra-large devices, `always` or `never`. See [Bootstrap docs](https://getbootstrap.com/docs/4.5/layout/overview/) on breakpoints to understand each value. **md**.
+  - `style`: Use `fab` for a floating action button or `dual` to switch styles
+    at a breakpoint. Omit the setting for the classic navbar. **classic**.
+  - `expand`: Breakpoint for expanding the classic navbar or switching the
+    `dual` navbar from a floating button to a classic navbar. Use `sm`, `md`,
+    `lg` or `xl`. For the classic navbar, `always` keeps links expanded and
+    `never` keeps them collapsed. With `dual`, `always` switches at `sm` and
+    `never` switches at `xl`. **md**.
   - `brand`:
     - `title` : Text to be displayed as the title of your navbar.
-    - `img`: An icon (ideally 30px x 30 px) displayed together with the
+    - `img`: An icon (ideally 30 × 30 px) displayed together with the
       `title`.
-    - `url`: The brand would link to this value. **your root url**.
+    - `url`: Destination of the brand link. **Site root URL**.
   - `nav`: Links on your navbar. See the example to learn how to set one-level
     and two-level links:
 
@@ -297,8 +347,7 @@ To set social links to be displayed on your footer, configure this section:
   - `links`:
     - `label`: Label of your link.
     - `icon`: Font Awesome icon code.
-    - `url`: url of the link
-  - ...
+    - `url`: Link URL or plain email address.
 
 ```yaml
 footer:
@@ -314,7 +363,8 @@ footer:
       url: https://www.facebook.com
 ```
 
-You can also customize the copyright on the footer:
+Use `footer.copyright` to supply custom text or HTML. When omitted, the footer
+shows the build year and site author name, falling back to the GitHub owner name:
 
 ```yaml
 footer:
@@ -323,23 +373,33 @@ footer:
 
 <h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
 
-This is the core feature of <span class="chulapa">Chulapa</span>, please find
-the full reference [here](./03-theming), or just navigate to the next page.
+Configure fonts, skins, syntax highlighting and color overrides using
+`googlefonts` and `chulapa-skin`. See the [theming reference](./03-theming)
+for the available settings in <span class="chulapa">Chulapa</span>.
 
 ## D. Jekyll defaults and collections
 
-Please refer to Jekyll Documentation on [Collections](https://jekyllrb.com/docs/step-by-step/09-collections/), [Pagination](https://jekyllrb.com/docs/pagination/#enable-pagination) and [Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/), as this part would depend on the purpose and setup of your site.
+Configure collections, pagination and front matter defaults for your site. See
+the Jekyll documentation on
+[collections](https://jekyllrb.com/docs/step-by-step/09-collections/),
+[pagination](https://jekyllrb.com/docs/pagination/#enable-pagination) and
+[front matter defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/).
 
-The only specific parameter of <span class="chulapa">Chulapa</span> on this
-section is:
+The pagination template in <span class="chulapa">Chulapa</span> also uses:
 
-- `paginator_maxnum`: This parameter would affect only if you are using the <a href="https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html"><span class="chulapa">Chulapa</span> template for pagination</a>. This parameter would define the maximum number of pagination elements to be shown. **3**.
+- `paginator_maxnum`: Numbered page links in the pagination window when using
+  the [blog pagination template](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html).
+  The template clamps the value to at least 2 and at most the total number of
+  pages. First/last and previous/next controls are separate. **3**.
 
 See a sample defaults configuration [here](https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults).
 
 ## XX. Other settings
 
 Keep the required `jekyll-include-cache` plugin enabled. Adjust other Jekyll
-settings, plugins and exclusions to suit your site. The sample configuration
+settings, plugins and exclusions to suit your site.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
+The sample configuration
 includes this repository's demo collections and pagination settings; these are
 examples rather than requirements for every site.

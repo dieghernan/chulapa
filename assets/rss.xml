@@ -29,7 +29,7 @@ permalink: ./rss.xml
 		            where_exp: "item", "item.date != nil" | 
 		            sort: 'date' | reverse -%}
 		{%- for document in alldocs -%}
-{%- include snippets/canonical-url.html url=document.url -%}
+{%- include snippets/canonical-url.html url=document.url canonical=document.canonical_url -%}
 		{%- assign ogimage = document.og_image | default: document.header_img | 
 		            default: site.og_image |
 		                      absolute_url -%}

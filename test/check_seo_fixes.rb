@@ -58,6 +58,18 @@ Dir.mktmpdir("chulapa-seo-") do |source|
     content = data.delete("fixture_content") || "Fallback content."
     File.write(File.join(source, "#{name}.md"), data.to_yaml + "---\n#{content}")
   end
+  canonical_cases = {
+    "absolute" => ["https://original.example/article/?a=1&b=2#section", "https://original.example/article/?a=1&b=2"],
+    "relative" => ["/original/", "/original/"],
+    "blank" => ["   ", nil],
+    "invalid" => ["javascript:alert(1)", nil],
+    "protocol-relative" => ["//other.example/article/", nil],
+    "relative-without-slash" => ["original/", nil]
+  }
+  canonical_cases.each do |name, (override, _)|
+    data = {"title" => "canonical-#{name}", "canonical_url" => override, "permalink" => "/canonical-#{name}.html", "sitemap" => false, "include_on_feed" => true, "show_breadcrumb" => true}
+    File.write(File.join(source, "_posts/2024-01-03-canonical-#{name}.md"), data.to_yaml + "---\nDuplicate fixture.")
+  end
   File.write(File.join(source, "excluded.md"), "---\nrobots: 'noindex, follow'\nsitemap: false\ninclude_on_search: false\n---\nSearch fixture.")
   File.write(File.join(source, "noindex.md"), "---\nrobots: noindex\n---\nNoindex fixture.")
   File.write(File.join(source, "internal-search.md"), "---\ninclude_on_search: false\n---\nInternal search fixture.")
@@ -96,6 +108,24 @@ Dir.mktmpdir("chulapa-seo-") do |source|
       check(entry.at_css("link")["href"] == expected && entry.at_css("id").text == expected && entry.at_css("content")["base"] == expected, "Atom URLs differ: #{name}")
       item = rss.css("item").find { |node| node.at_css("title").text == name }
       check(item.at_css("link").text == expected, "RSS URL differs: #{name}")
+    end
+    canonical_cases.each do |name, (_, target)|
+      original = "https://example.com#{baseurl}/canonical-#{name}.html"
+      expected = target.nil? ? original : (target.start_with?("https:") ? target : "https://example.com#{baseurl}#{target}")
+      doc = Nokogiri::HTML(File.read(File.join(config["destination"], "canonical-#{name}.html")))
+      check(doc.at_css('link[rel="canonical"]')["href"] == expected, "Canonical override: #{name}")
+      check(doc.at_css('meta[property="og:url"]')["content"] == expected, "OG override: #{name}")
+      check(doc.at_css('a.u-url')["href"] == expected, "Microformat override: #{name}")
+      check(!sitemap_urls.include?(original), "Duplicate in sitemap: #{name}")
+      blocks = doc.css('script[type="application/ld+json"]').map { |node| JSON.parse(node.text) }
+      check(blocks.find { |block| block["@type"] == "WebPage" }["@id"] == expected, "JSON-LD override: #{name}")
+      check(blocks.find { |block| block["@type"] == "BreadcrumbList" }["itemListElement"].last["item"] == expected, "Breadcrumb override: #{name}")
+      check(doc.css('link[itemprop="item"]').last["href"] == expected, "Microdata override: #{name}")
+      entry = atom.css("entry").find { |node| node.at_css("title").text == "canonical-#{name}" }
+      check(entry.at_css("link")["href"] == expected && entry.at_css("id").text == expected, "Atom override: #{name}")
+      check(entry.at_css("content")["base"] == original, "Atom relative content base changed: #{name}")
+      item = rss.css("item").find { |node| node.at_css("title").text == "canonical-#{name}" }
+      check(item.at_css("link").text == expected, "RSS override: #{name}")
     end
     descriptions.each do |name, (_, expected)|
       doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{name}.html")))

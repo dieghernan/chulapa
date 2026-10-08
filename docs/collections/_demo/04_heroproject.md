@@ -23,8 +23,9 @@ project_links:
       label: Example         
 ---
 
-This page shows the `hero` header with a project button. It also has enabled
-comments, mathjax and a modified date.
+This page shows a `hero` header with project buttons, MathJax and a modified
+date. Comments require the configured provider as well as `show_comments: true`.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Example of MathJax:
 

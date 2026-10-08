@@ -1,6 +1,6 @@
 ---
 layout: indexcategory
-title: '<span class="chulapa">Chulapa</span> Demos'
+title: '<span class="chulapa">Chulapa</span> demos'
 subtitle: All demos in one place
 header_type: "hero"
 header_img: "https://images.unsplash.com/photo-1545290614-5ceedf604139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60"
@@ -9,10 +9,10 @@ include_collection: demo
 og_image: /assets/img/site/banner-demos.png
 ---
 
-This is an example of how to create a index for a specific collection, in this
+This is an example of how to create an index for a specific collection, in this
 case `demo`.
 
-The front matter of this page is
+The following front matter selects the `demo` collection:
 
 ```yaml
 ---

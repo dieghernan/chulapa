@@ -9,15 +9,16 @@ permalink: /docs/syntax-highlighting
 show_toc: false
 ---
 
-This page is a demo of the different styles of syntax highlighting shipped by
-default with this theme. Just make your selection below.
+Select a highlighting style to preview it, then copy the displayed setting
+into `chulapa-skin.highlight` in `_config.yml`. Restart Jekyll to apply it.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 <p id="count" class="lead mb-2"></p>
 
 <div class="dropdown my-4">
   <button class="btn btn-sm btn-primary dropdown-toggle" type="button"
 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-aria-expanded="false">Select Theme</button>
+aria-expanded="false">Select style</button>
   <div id="list" class="dropdown-menu" aria-labelledby="dropdownMenuButton"
 style="max-height: 30vh;overflow-y: auto;">
   </div>

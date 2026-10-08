@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Legal stuff
-subtitle: License and Attributions
+title: License and attributions
+subtitle: Theme license and third-party credits
 permalink: ./license
 show_toc: true
 ---
@@ -30,17 +30,25 @@ SOFTWARE.**
 
 ## Attributions
 
-<span class="chulapa">Chulapa</span> is a font owned by the City Council of Madrid designed and produced by Joancarles Casasín y Pablo Gámez on a previous design of Silvia Fernández Palomar licensed under [Creative Commons CC BY, Versión 4.0](https://creativecommons.org/licenses/by/4.0/). This theme incorporates a modification of this work in order to provide support to the English language.
+<span class="chulapa">Chulapa</span> is a font owned by the City Council of
+Madrid, designed and produced by Joancarles Casasín and Pablo Gámez based on
+an earlier design by Silvia Fernández Palomar and licensed under
+[Creative Commons CC BY, version 4.0](https://creativecommons.org/licenses/by/4.0/).
+This theme incorporates a modification of this work to support the English
+language.
 
 Bootstrap v.4.5 is released under the [MIT license](https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE) and is copyright 2020 Twitter.
 
-Font Awesome Free is free, open source and GPL friendly - [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License).
+Font Awesome Free is free, open source and GPL-friendly. See its
+[license](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL
+OFL 1.1, Code: MIT License).
 
 This theme incorporates some pieces of code from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/), Copyright (c) 2013-2020 [Michael Rose](https://mademistakes.com/) and contributors distributed under the terms of the [MIT license](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE).
 
 This theme incorporates [Pygments CSS Themes](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html), developed by [jwarby](https://github.com/jwarby/) distributed under the terms of [The Unlicense](https://github.com/jwarby/jekyll-pygments-themes/blob/master/UNLICENSE.txt).
 
-This theme incorporates [Ferpal Sans](https://ferpal.studio/work/ferpal-sans/) developed by Silvia Ferpal and is free for personal use.
+This theme incorporates [Ferpal Sans](https://ferpal.studio/work/ferpal-sans/),
+developed by Silvia Ferpal. The font is free for personal use.
 
 This theme incorporates [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc), Copyright © 2017 [Vladimir "allejo" Jimenez](https://github.com/allejo) distributed under the terms of the [MIT license](https://github.com/allejo/jekyll-toc/blob/master/LICENSE.MIT.md).
 

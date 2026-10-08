@@ -7,7 +7,8 @@ show_categories   : true
 show_bottomnavs   : true
 ---
 
-I don't have tags
+This page enables tag and category badges but supplies neither tags nor
+categories. No badges are rendered.
 
 ```yaml
 ---

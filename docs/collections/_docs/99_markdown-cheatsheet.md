@@ -13,13 +13,18 @@ Markdown is a lightweight markup language that you can use to add formatting ele
 
 <https://www.markdownguide.org/basic-syntax/>
 
+**Examples use the sample configuration's GFM parser.** Some extensions in the
+kramdown reference require `kramdown.input: Kramdown` rather than `GFM`. Check
+the generated page when changing parsers.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 ## Markdown cheatsheet
 
 ```markdown
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Text can be **bold**, _italic_ or ~~strikethrough~~.
 ```
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Text can be **bold**, _italic_ or ~~strikethrough~~.
 
 ```markdown
 [Link to another page](./01-install).
@@ -76,7 +81,7 @@ favor.
 
 ~~~ markdown
 ```js
-// Javascript code with syntax highlighting.
+// JavaScript code with syntax highlighting.
 var fun = function lang(l) {
   dateformat.i18n = require('./lang/' + l)
   return true;
@@ -105,7 +110,7 @@ end
 ~~~
 
 ```js
-// Javascript code with syntax highlighting.
+// JavaScript code with syntax highlighting.
 var fun = function lang(l) {
   dateformat.i18n = require('./lang/' + l)
   return true;
@@ -291,7 +296,7 @@ Another
 
 **Large image**
 
-![Branching](https://docs.github.com/assets/cb-53955/mw-1440/images/help/repository/branching.webp)
+![Large sample photograph](https://picsum.photos/id/36/1200/600.jpg)
 ```
 
 **Small image**
@@ -300,7 +305,7 @@ Another
 
 **Large image**
 
-![Branching](https://picsum.photos/id/36/1200/600.jpg)
+![Large sample photograph](https://picsum.photos/id/36/1200/600.jpg)
 
 ### Definition lists can be used with HTML syntax.
 
@@ -336,11 +341,13 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 
 ## What’s kramdown?
 
-**kramdown** supercharges Markdown with some interesting features.
+**kramdown** converts Markdown to HTML and supports extensions such as
+attributes, footnotes and tables of contents.
 
 **kramdown** is the default Jekyll Markdown processor. When creating your site
 with Jekyll, you can use the standard Markdown syntax plus some specific
-**kramdown** syntax. Jekyll would render your Markdown/**kramdown** into HTML.
+**kramdown** syntax. Jekyll renders the result as HTML. Parser settings affect which extensions
+are available.
 
 <https://kramdown.gettalong.org/quickref.html>
 
@@ -397,9 +404,14 @@ Second level header
 
 ###### H6 header
 
-## Create a table of contents:
+## Create a table of contents
 
-On your `_config.yaml`, define the levels of your toc:
+**The theme TOC is configured separately.** Use `show_toc`, `h_min` and `h_max`
+for the layout's automatic TOC. The example below inserts a TOC into Markdown
+content using kramdown's `{:toc}` syntax.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+Set the heading levels for kramdown's table of contents in `_config.yml`:
 
 ```yaml
 kramdown:
@@ -420,7 +432,7 @@ Ignore specific headers:
 ### This header would be ignored on the toc.
 {:.no_toc}
 
-Add this to generate table
+Add this list marker to generate a table of contents:
 
 ```markdown
 
@@ -526,7 +538,7 @@ A [link](https://kramdown.gettalong.org "hp")
 to the homepage.
 
 A simple info alert **check it out!**
-{: #myid .alert .alert-info .p-3 .mx-2 mb-3}
+{: #myid .alert .alert-info .p-3 .mx-2 .mb-3}
 
 This is a text with a
 footnote[^1].
@@ -547,7 +559,7 @@ A [link](https://kramdown.gettalong.org "hp")
 to the homepage.
 
 A simple info alert **check it out!**
-{: #myid .alert .alert-info .p-3 .mx-2 mb-3}
+{: #myid .alert .alert-info .p-3 .mx-2 .mb-3}
 
 This is a text with a
 footnote[^1].

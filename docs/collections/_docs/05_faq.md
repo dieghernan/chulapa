@@ -8,8 +8,8 @@ redirect_from:
   - /docs/05-tips-n-tricks
 ---
 
-Additionally, there are some tips when using <span
-class="chulapa">Chulapa</span>, as well as code samples.
+These answers and examples cover common tasks when using
+<span class="chulapa">Chulapa</span>.
 
 ## How do I...
 
@@ -20,8 +20,8 @@ For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
 and does not identify a fixed version. For a gem-based theme, check the
 `chulapa-jekyll` version in `Gemfile.lock`.
 
-You can also check the version on any page of your site, just watch the source
-code and look for this tag on top of your page:
+For pages using the theme's head include, view the HTML source and look for
+this comment near the beginning:
 
 ```html
 
@@ -29,11 +29,19 @@ code and look for this tag on top of your page:
 
 ```
 
+**The HTML comment is a theme version marker.** It does not identify the exact
+commit of an unpinned remote theme or any local overrides. Use a pinned tag or
+`Gemfile.lock` to identify the selected release.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 ### ...start with Markdown?
 
 [We've got you covered](./markdown-cheatsheet).
 
-You may want to see this [cheatsheet](https://www.markdownguide.org/cheat-sheet/) and the [kramdown](https://kramdown.gettalong.org/quickref.html) reference, that is the default Markdown renderer for [Jekyll](https://jekyllrb.com/docs/configuration/markdown/).
+See the [Markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) and
+[kramdown reference](https://kramdown.gettalong.org/quickref.html). The sample
+configuration uses kramdown with its GFM parser; accepted syntax depends on
+your Markdown configuration.
 
 Create a file with a `.md` extension and YAML front matter so Jekyll processes
 it. Set a layout in its front matter or through `_config.yml` defaults.
@@ -71,21 +79,26 @@ the script. If the snippet belongs at the end of `<body>`, use
 `_includes/custom/custom_bottomscripts.html` instead.
 
 To add CSS rules or override existing ones, use `assets/css/custom.scss`.
+Keep its empty YAML front matter so Jekyll compiles it into `custom.css`.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### ...add favicons?
 
-#### A. The easy way
+#### A. Domain-root icon
 
-Just host your `favicon.ico` on the root of your directory.
+Place `favicon.ico` at your domain root for browsers that request it
+automatically. For a GitHub Pages project site under a path such as
+`/repository`, add an explicit icon link using the method below.
 
-#### B. The pro way
+#### B. Explicit icon links
 
 1. Go to [https://realfavicongenerator.net/](https://realfavicongenerator.net/) and follow the instructions.
-2. When you are finished, on the **Favicon Generator Options** choose a custom path, as `https://myurl/assets/favicon/`.
+2. Configure the generated icon URLs to match their final location, including
+   `baseurl` for a project site.
 3. In your repo, copy the HTML code into `_includes/custom/custom_head.html`.
 4. Also, download the icon package and host it on your repo on
    `./assets/favicon/`.
-5. Commit, relax and enjoy!
+5. Build the site and check that the generated icon URLs resolve.
 
 ### ...add an alert box?
 
@@ -115,8 +128,7 @@ A simple info alert with html <strong>check it out!</strong>
 
 ### ...add a caption?
 
-You can do it by using `html`, but in case you want to stick with
-Markdown/kramdown:
+Add a paragraph with the `caption` class after the image:
 
 ```
 
@@ -175,9 +187,10 @@ h1,h2,h3,h4,h5,h6 {
 
 Then your headings would display as <span class="chulapa lead">Chulapa</span>!
 
-As you would notice, on the docs the font is used on the word <span
-class="chulapa">Chulapa</span>. There is a special `css` class named `chulapa`
-on this theme that enables that behavior:
+The documentation uses the `chulapa` CSS class to apply the font and its
+ligatures. For an inline name, use
+`<span class="chulapa">Chulapa</span>`. Apply the class to a paragraph to style
+its entire text:
 
 ```html
 Cool! I would like to use it. I love Madrid indeed! There is nothing quite like a relaxing cup of café con leche in Plaza Mayor or a romantic dinner in El Madrid de los Austrias, the oldest part of Madrid.
@@ -201,7 +214,7 @@ Madrid de los Austrias, the oldest part of Madrid.
 ### ...have a quick preview of a page of my site with any skin?
 
 1. On Google Chrome, go to your desired page.
-2. Right click and *Inspect*
+2. Right-click and select *Inspect*.
 3. On the Panel, go to the *Elements* window and locate the `<head>` tag.
 4. Click on *Edit as HTML*, and just before `</head>`, paste this:
 
@@ -209,12 +222,20 @@ Madrid de los Austrias, the oldest part of Madrid.
   <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/skins/[NAME OF SKIN].css">
 ```
 
-Congratulations! You would have a quick preview of that page as it would be
-under the [NAME OF SKIN] desired.
+Replace `[NAME OF SKIN]` with an available preview stylesheet name. This is a
+temporary browser preview and is lost on reload; it does not update your site
+configuration. To apply a skin permanently, set `chulapa-skin.skin` and rebuild.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-### ...find an error in my _config.yml file?
+### ...find an error in my `_config.yml` file?
 
-[http://www.yamllint.com/](http://www.yamllint.com/)
+Use [YAML Lint](http://www.yamllint.com/) to check YAML syntax, or inspect the
+error reported by `bundle exec jekyll build`.
+
+**Valid YAML does not guarantee valid theme settings.** A syntax checker cannot
+verify option names, provider IDs or whether a selected skin exists. Compare
+those settings with [Global settings](./02-config) and the build output.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### ...use jekyll-feed instead of <span class="chulapa">Chulapa</span>'s feeds?
 
@@ -266,3 +287,4 @@ or footer. Adding a link in `custom_head.html` does not remove the original.
 Custom plugins are not loaded by GitHub Pages' default safe build; use your own
 build workflow for this approach. Adding the theme's feed files to `exclude`
 alone does not remove them when they are supplied by a gem or remote theme.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}

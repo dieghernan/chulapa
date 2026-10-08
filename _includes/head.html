@@ -1,12 +1,12 @@
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.0.1.0001 -->
+    <!-- Chulapa Jekyll Theme - v2.1.0 -->
     <!--  MIT License-->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
     <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
      <!-- Jekyll Version {{ jekyll.version }} -->
-    {%- include snippets/canonical-url.html url=page.url -%}
+    {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign home_url = '/' | absolute_url | uri_escape -%}
 {%- include snippets/breadcrumb-names.html -%}
 {%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip  -%}
@@ -16,11 +16,24 @@
     {%- assign metatitle1 = site.title | default: site.github.repository_name | strip  -%}
     {%- assign metatitle2 = site.subtitle | default: site.github.project_tagline | strip -%}
 {%- endif -%}
-{%- capture metatitle -%}{{ metatitle1 | strip_html | strip }} {{ site.title_separator | default: "|" }} {{ metatitle2 | strip_html | strip }}{%- endcapture -%}
+{%- assign metatitle1 = metatitle1 | strip_html | strip -%}
+{%- assign metatitle2 = metatitle2 | strip_html | strip -%}
+{%- capture metatitle -%}{{ metatitle1 }}{%- if metatitle1 != empty and metatitle2 != empty %} {{ site.title_separator | default: "|" }} {% endif -%}{{ metatitle2 }}{%- endcapture -%}
+{%- assign seo_title = page.seo_title | markdownify | strip_html | strip -%}
+{%- if seo_title != empty -%}
+  {%- assign metatitle = seo_title -%}
+  {%- assign metatitle1 = seo_title -%}
+{%- endif -%}
+{%- assign social_title = page.og_title | markdownify | strip_html | strip -%}
+{%- if social_title == empty -%}{%- assign social_title = metatitle -%}{%- endif -%}
 {%- assign mainname = site.title | default: site.github.repository_name  -%}
-{%- assign mainsub = site.subtitle | default: site.github.project_tagline -%}
-{%- capture sitename -%}{{ mainname | strip_html }} {{ site.title_separator | default: "|" }} {{ mainsub | strip_html }}{%- endcapture -%}
-{%- assign ogimage = page.og_image | default: page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | absolute_url -%}
+{%- assign sitename = mainname | markdownify | strip_html | strip -%}
+{%- assign page_image_source = page.og_image | default: page.header_img | strip -%}
+{%- assign ogimage_source = page.og_image | default: page.header_img | default: site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url | strip -%}
+{%- assign ogimage = nil -%}
+{%- if ogimage_source != empty -%}
+  {%- assign ogimage = ogimage_source | absolute_url -%}
+{%- endif -%}
 {%- assign descfallback = page.content |
                 markdownify |  newline_to_br |
                 replace:"<br />", ",.," |
@@ -286,7 +299,7 @@ where_exp: "item", "item.url contains 'http'"
 }
 </script>
 {% endif %}
-    <title>{{ metatitle | strip_html }}</title>
+    <title>{{ metatitle | escape_once }}</title>
     <link rel="canonical" href="{{ canonical_url | escape }}">
     <!-- Atom feed -->
     <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" >
@@ -297,26 +310,76 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name | escape_once }}" >
     <meta name="copyright" content="{{ site.author.name | default: site.github.owner_name | escape_once }}" >
     <meta name="description" content="{{- ogdesc -}}">
-    <meta name="thumbnail" content="{{ ogimage | escape_once }}" >
+    {% if ogimage %}<meta name="thumbnail" content="{{ ogimage | escape_once }}" >{% endif %}
     <meta name="robots" content="{{ page.robots | default: 'index, follow' | strip | default: 'index, follow' | escape }}">
-    {%- assign: keyword =  site.github.public_repositories |
-                          where_exp:"item", "item.name == site.github.repository_name " |
-                          map: "topics" -%}
-    {% if keyword -%}
-    <meta name="keywords" content="{{- keyword - | join: ','}}">
-    {%- endif %}
     {% if site.chulapa-skin.vars.primary -%}
     <!-- Chrome, Firefox OS and Opera -->
    <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
    {%- endif %}
     <!-- OpenGraph -->
-    <meta property="og:title" content="{{ metatitle | strip_html | escape_once }}" >
+    <meta property="og:title" content="{{ social_title | escape_once }}" >
     <meta property="og:site_name" content="{{ sitename | strip_html | escape_once }}" >
     <meta property="og:url" content="{{ canonical_url | escape }}" >
-    <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}" >
+    {%- assign og_type = page.og_type | strip -%}
+    {%- if og_type == empty -%}
+      {%- if page.collection == 'posts' -%}{%- assign og_type = 'article' -%}
+      {%- else -%}{%- assign og_type = 'website' -%}{%- endif -%}
+    {%- endif %}
+    <meta property="og:type" content="{{ og_type | escape }}" >
+    {% if og_type == 'article' %}
+      {% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema | escape }}">{% endif %}
+      {% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema | escape }}">{% endif %}
+      {%- assign article_author = page.og_article_author | strip -%}
+      {%- if article_author == empty -%}
+        {%- if page.author -%}{%- assign article_author = page.author.url | strip -%}
+        {%- else -%}{%- assign article_author = site.author.url | strip -%}{%- endif -%}
+      {%- endif -%}
+      {% if article_author != empty %}<meta property="article:author" content="{{ article_author | absolute_url | escape }}">{% endif %}
+      {%- assign article_section = page.og_article_section | strip -%}
+      {%- if article_section == empty -%}{%- assign article_section = page.categories | first | strip -%}{%- endif -%}
+      {% if article_section != empty %}<meta property="article:section" content="{{ article_section | escape }}">{% endif %}
+      {% for article_tag in page.tags %}
+        {%- assign article_tag_text = article_tag | strip -%}
+        {% if article_tag_text != empty %}<meta property="article:tag" content="{{ article_tag_text | escape }}">{% endif %}
+      {% endfor %}
+    {% endif %}
     <meta property="og:description" content="{{ ogdesc }}" >
-    <meta property="og:locale" content="{{- site.locale | default: 'en-US' | replace: '-', '_' -}}" >
+    {%- include snippets/page-language.html -%}
+    {%- assign og_locale_input = page.og_locale | strip -%}
+    {%- assign explicit_page_language = page.locale | strip -%}
+    {%- if og_locale_input == empty and explicit_page_language != empty -%}{%- assign og_locale_input = page_language -%}{%- endif -%}
+    {%- if og_locale_input == empty -%}{%- assign og_locale_input = site.og_locale | strip -%}{%- endif -%}
+    {%- if og_locale_input == empty -%}{%- assign og_locale_input = page_language -%}{%- endif -%}
+    {%- include snippets/og-locale.html locale=og_locale_input -%}
+    {%- assign primary_og_locale = normalized_og_locale -%}
+    {% if primary_og_locale %}<meta property="og:locale" content="{{ primary_og_locale }}">{% endif %}
+    {%- assign alternate_locales = site.og_locale_alternate -%}
+    {%- if page.og_locale_alternate != nil -%}{%- assign alternate_locales = page.og_locale_alternate -%}{%- endif -%}
+    {%- assign emitted_locales = ',' | append: primary_og_locale | append: ',' -%}
+    {% for alternate_locale in alternate_locales %}
+      {%- include snippets/og-locale.html locale=alternate_locale -%}
+      {%- assign locale_token = ',' | append: normalized_og_locale | append: ',' -%}
+      {%- if normalized_og_locale -%}
+        {%- unless emitted_locales contains locale_token %}
+    <meta property="og:locale:alternate" content="{{ normalized_og_locale }}">
+          {%- assign emitted_locales = emitted_locales | append: locale_token -%}
+        {% endunless -%}
+      {%- endif -%}
+    {% endfor %}
+    {% if ogimage %}
     <meta property="og:image" content="{{- ogimage | escape_once -}}" >
+    {%- assign image_fields = 'alt,width,height,type' | split: ',' -%}
+    {%- for field in image_fields -%}
+      {%- assign field_key = 'og_image_' | append: field -%}
+      {%- assign image_value = page[field_key] | strip -%}
+      {%- if image_value == empty and page_image_source == empty and ogimage_source == site.og_image -%}
+        {%- assign image_value = site[field_key] | strip -%}
+      {%- endif -%}
+      {%- if image_value != empty %}
+    <meta property="og:image:{{ field }}" content="{{ image_value | escape_once }}" >
+      {%- endif -%}
+    {%- endfor %}
+    {% endif %}
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="{{ ogdesc }}">
@@ -345,7 +408,7 @@ where_exp: "item", "item.url contains 'http'"
     {%- endfor %}
     <!-- Fontawesome-->
     <!-- v6 -->
-    {% assign fakit = site.fa5_kit_code | default: fa_kit_code %}
+    {% assign fakit = site.fa5_kit_code | default: site.fa_kit_code %}
     {% if fakit -%}
     <script src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
     {%- else -%}

@@ -32,7 +32,7 @@ permalink: ./atom.xml
 							where_exp: "item", "item.date != nil" | 
 							sort: 'date' | reverse -%}
 	{%- for document in alldocs  -%}
-{%- include snippets/canonical-url.html url=document.url -%}
+{%- include snippets/canonical-url.html url=document.url canonical=document.canonical_url -%}
 	{%- assign entryimg =  document.og_image | default: document.header_img | absolute_url -%}
 	{%- assign words = document.content | strip_html | number_of_words -%}   	
 		{%- assign minutes = words | divided_by: wpm | ceil | at_least: 1 -%}
@@ -42,7 +42,7 @@ permalink: ./atom.xml
 		<published>{{ document.date | date_to_xmlschema }}</published>
 		<updated>{{ document.last_modified_at | default: document.date | date_to_xmlschema }}</updated>
 		<id>{{ canonical_url | escape }}</id>
-		<content type="html" xml:base="{{ canonical_url | escape }}">
+		<content type="html" xml:base="{{ canonical_path | absolute_url | uri_escape | escape }}">
 		{% if document.subtitle %}
 		
 		{%- assign thesub = document.subtitle | markdownify -%}

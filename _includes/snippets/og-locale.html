@@ -1,0 +1,19 @@
+{%- assign normalized_og_locale = nil -%}
+{%- assign locale_parts = include.locale | strip | replace: '-', '_' | split: '_' -%}
+{%- assign language_size = locale_parts[0] | size -%}
+{%- assign territory_size = locale_parts[1] | size -%}
+{%- if locale_parts.size == 2 and territory_size == 2 -%}
+  {%- if language_size == 2 or language_size == 3 -%}
+    {%- assign locale_letters = locale_parts | join: '' | downcase | split: '' -%}
+    {%- assign locale_valid = true -%}
+    {%- assign alphabet = 'abcdefghijklmnopqrstuvwxyz' -%}
+    {%- for letter in locale_letters -%}
+      {%- unless alphabet contains letter -%}{%- assign locale_valid = false -%}{%- endunless -%}
+    {%- endfor -%}
+    {%- if locale_valid -%}
+      {%- assign locale_language = locale_parts[0] | downcase -%}
+      {%- assign locale_territory = locale_parts[1] | upcase -%}
+      {%- assign normalized_og_locale = locale_language | append: '_' | append: locale_territory -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

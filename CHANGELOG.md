@@ -1,6 +1,10 @@
-## Development
+## v2.1.0 (unreleased)
 
 ### Fixed
+
+-   `fa_kit_code` now loads the configured Font Awesome kit. The legacy `fa5_kit_code` setting remains supported and retains precedence when both are set.
+
+-   Omit empty title separators, use the site title alone for `og:site_name` and remove obsolete `meta keywords` ([#80](https://github.com/dieghernan/chulapa/issues/80), [#81](https://github.com/dieghernan/chulapa/issues/81)).
 
 -   Correct documentation examples, PageSpeed footnote formatting and responsive heading alignment in the minimal layout demo, clarify skin attribution and autothemer behavior, and exclude the auxiliary music scales widget from indexing.
 
@@ -16,6 +20,12 @@
     the script from the installed theme instead of the CDN ([#45](https://github.com/dieghernan/chulapa/issues/45)).
 
 ### Added
+
+-   Set a page-level `canonical_url` shared by HTML, Open Graph, structured data, breadcrumbs and feeds ([#81](https://github.com/dieghernan/chulapa/issues/81)).
+
+-   Override page language and Open Graph locales, list alternate locales and emit article dates, author profile URLs, sections and tags, including articles in other collections with `og_type` ([#80](https://github.com/dieghernan/chulapa/issues/80)).
+
+-   Configure independent metadata titles with `seo_title` and `og_title`, and optional social image alt text, dimensions and MIME type ([#80](https://github.com/dieghernan/chulapa/issues/80), [#81](https://github.com/dieghernan/chulapa/issues/81)).
 
 -   Override page metadata with `description`, shared by HTML, Open Graph, Twitter/X and JSON-LD without forced truncation ([#81](https://github.com/dieghernan/chulapa/issues/81)).
 
@@ -107,9 +117,11 @@
 
 #### Checklist
 
--   [ ] Bump version on `head`
--   [ ] Bump version on docs
--   [ ] Bump version on `chulapa-101` remote theme
+-   [x] Set the gem and theme version to 2.1.0.
+-   [x] Update the development version in the documentation.
+-   [x] Confirm `chulapa-101` tracks the default branch without a pinned tag.
+-   [ ] Publish the release and update the latest release label in both version files.
+-   [ ] Validate the deployed video examples and social previews.
 
 ## v2.0.1 - 2025-02-26
 

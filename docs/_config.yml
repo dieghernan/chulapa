@@ -1,25 +1,26 @@
+# Chulapa documentation and demo site
+# Sections follow https://dieghernan.github.io/chulapa/docs/02-config
+
+# Installation
 github: [metadata]
 
 remote_theme: dieghernan/chulapa
 
-repository: dieghernan/chulapa
-url: "https://dieghernan.github.io"
-baseurl: "/chulapa"
-
+# A. Site settings/SEO
+# General site settings
 title: Chulapa
 subtitle: A full flexible Jekyll theme
 description: Template for creating free sites on GitHub Pages
+repository: dieghernan/chulapa
+url: "https://dieghernan.github.io"
+baseurl: "/chulapa"
+timezone: "Europe/Madrid"
+
+# A.1. SEO
+# Optional social locales: docs/04-layouts#social-locales-and-articles.
 og_image: "./assets/img/site/banner.png"
 twitter_site: dhernangomez
-timezone: "Europe/Madrid"
-# Optional JSON-LD publisher, independent of article authors.
-publisher:
-  type: Person # Personal site demo; Organization is the default
-  name: # Defaults to author.name or GitHub owner name
-  url: # Defaults to the site home URL
-  logo: # Organization only; defaults to og_image, author.avatar or GitHub avatar
-  image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
-
+# Site author
 author:
   name: dieghernan
   avatar: ./assets/img/site/dieghernan-avatar.png
@@ -34,26 +35,42 @@ author:
   - url: https://stackoverflow.com/users/7877917/dieghernan
     icon: "fab fa-stack-overflow"
     label: StackOverflow
-gtag_id: UA-139034853-5
+# A.1.1. Publisher
+# Optional JSON-LD publisher, independent of article authors.
+publisher:
+  type: Person # Personal site demo; Organization is the default
+  name: # Defaults to author.name or GitHub owner name
+  url: # Defaults to the site home URL
+  logo: # Organization only; defaults to og_image, author.avatar or GitHub avatar
+  image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
+
+# A.2. Font Awesome
+# Omitted settings use Font Awesome 6 without a kit or v4 support.
+
+# A.3. Google Analytics
+gtag_id: G-Q654SQGBGS
+
+# A.4. Search engines
+# Algolia is the main search provider; Google CSE is used by the demo page.
 search:
   provider: algolia
   algolia_logo: true
+google_cse_id: 002514516175957445995:tvgnhtemtbu
+
+# Algolia indexing options; search_only_api_key is a public search key.
 algolia:
   application_id: "KOIKA5PDQO"
   index_name: "chulapa"
   search_only_api_key: "7f1fe42bef3f03458cb3a911ebc7e0ac"
   files_to_exclude:
-  #Optional
   - _layouts/*.html
   - _includes/*.html
   - _pages/liquid*
   - assets/widgets/music-scales.html
   extensions_to_index:
-  #Optional
   - html
   - md
   searchableAttributes:
-  #Optional
   - title
   - headings
   - unordered(content)
@@ -62,19 +79,20 @@ algolia:
   - unordered(collection)
   - unordered(tags)
   customRanking:
-  #Optional
   - desc(include_on_search)
   - desc(title)
   - desc(content)
   - desc(subtitle)
+
+# A.5. Comments
+# giscus uses _includes/custom/giscus.html; other IDs support provider demos.
 comments:
   provider: giscus
   cusdis_app_id: "ba6333c9-c7b1-4578-a932-e9ee3e71f120"
   website_id: "XaFqz82GQETRJnLi7verVsyBS"
 
-google_cse_id: 002514516175957445995:tvgnhtemtbu
-
 # B. Navigation
+# B.1. Navbar
 navbar:
   style: fab
   brand:
@@ -139,6 +157,8 @@ navbar:
       url: /contribute
     - title: Changelog
       url: https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md
+
+# B.2. Footer
 footer:
   links:
   - label: "RSS"
@@ -152,13 +172,23 @@ footer:
     url: "https://dieghernan.github.io/"
   copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
 
-# C. Theme Settings
+# C. Theming Chulapa
+# Full reference: docs/03-theming.
+# C.2. Skin, syntax highlighting and colors
 chulapa-skin:
   highlight: "vs"
   skin: navi
   autothemer: true
 
-# D. Jekyll Defaults and collections: see https://jekyllrb.com/
+# D. Jekyll defaults and collections
+# These collections and defaults configure the documentation and demo site.
+
+# D.1. Pagination
+paginate: 4
+paginate_path: "/blog/page:num/"
+paginator_maxnum: 3
+
+# D.2. Collections and permalinks
 collections:
   demo:
     output: true
@@ -174,9 +204,8 @@ collections:
     permalink: /blog/:year:month:day_:title
 collections_dir: collections
 permalink: /:year:month:day_:title
-paginate: 4
-paginate_path: "/blog/page:num/"
-paginator_maxnum: 3
+# D.3. Front matter defaults
+# Theme page options: docs/04-layouts.
 defaults:
 
 - scope:
@@ -274,16 +303,22 @@ defaults:
   values:
     image_col: gallery
 
-# XX. Other settings - no need to modify
+# XX. Other settings
+# Adapt these settings to the documentation site; keep jekyll-include-cache enabled.
+# XX.1. HTML compression
 compress_html:
   clippings: all
   blanklines: true
+
+# XX.2. Plugins
 plugins:
 - jekyll-github-metadata
 - jekyll-paginate
 - jekyll-include-cache
 - jekyll-sitemap
 - jekyll-remote-theme
+
+# XX.3. Files to exclude or include
 exclude:
 - LICENSE
 - README.md
@@ -293,11 +328,15 @@ exclude:
 include:
 - _pages
 - llms.txt
+
+# XX.4. Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+
+# XX.5. Markdown processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -309,6 +348,7 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+# XX.6. Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed

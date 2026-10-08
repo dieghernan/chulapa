@@ -12,7 +12,7 @@ og_image: ./assets/img/skinspreview/focal.png
 skin_author: dieghernan
 ---
 
-Developed by [dieghernan](https://github.com/dieghernan/), you can use it on your site. Just go to your `_config.yml` file and modify these settings:
+Developed by [dieghernan](https://github.com/dieghernan/). To use this skin, update the following settings in `_config.yml`:
 
 ```yaml
 chulapa-skin:
@@ -25,6 +25,7 @@ chulapa-skin:
 Autothemer fills in colors that the skin and `vars` have not defined. It does
 not override existing values, so its visible effect depends on the skin. Use
 `vars` to override specific colors. See the [autothemer guide]({{ "/docs/03-theming#autothemer" | relative_url }}).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}

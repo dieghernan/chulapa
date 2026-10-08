@@ -47,9 +47,14 @@ and [Bootstrap variables source](https://github.com/dieghernan/chulapa/blob/main
 | `pagination-chulapa-bg-hover-color` | Pagination background color on hover |
 | `indexcards-chulapa-border-color` | Border color of cards on `indexcategory` layout |
 
+**These are Sass variables, not page options.** Set them under
+`chulapa-skin.vars`, then restart Jekyll to rebuild the styles. For layout and
+front matter options, see [Layouts and snippets](./04-layouts).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 ## Selected Bootstrap variables
 
-See full set of variables [here](https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss).
+See the full set of variables [here](https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss).
 
 | `vars` | Description |
 |:---|:---|
@@ -61,7 +66,7 @@ See full set of variables [here](https://raw.githubusercontent.com/dieghernan/ch
 | `danger` | Danger color |
 | `light` | Light color |
 | `dark` | Dark color |
-| `enable-rounded` | Set to `false` to have square buttons |
+| `enable-rounded` | Set to `false` to disable Bootstrap rounding for buttons and other components |
 | `enable-responsive-font-sizes` | Font sizes are responsive when set to `true` |
 | `body-bg` | Body background color |
 | `body-color` | Body text color |
@@ -75,7 +80,7 @@ See full set of variables [here](https://raw.githubusercontent.com/dieghernan/ch
 
 ### Color map
 
-The full [Bootstrap color map](https://getbootstrap.com/docs/4.5/getting-started/theming/#color) could be modified by using these variables:
+The [Bootstrap color palette](https://getbootstrap.com/docs/4.5/getting-started/theming/#color) can be customized using these Sass variables:
 
 | Variable | Variable | Variable | Variable |
 |:---|:---|:---|:---|

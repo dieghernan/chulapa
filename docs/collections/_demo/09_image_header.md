@@ -13,7 +13,8 @@ show_author: true
 ---
 
 This page shows the `image` header. It is recommended to use a `.png` file with
-transparent background. Large images are also recommended.
+a transparent background to blend into the header. Choose dimensions suitable
+for the displayed image; transparency is optional.
 
 ```yaml
 ---

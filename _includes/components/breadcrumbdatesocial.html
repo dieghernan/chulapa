@@ -1,4 +1,4 @@
-{%- include snippets/canonical-url.html url=page.url -%}
+{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign breadcrumb_page_url = canonical_path -%}
 {%- include snippets/breadcrumb-names.html -%}
 {%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip_newlines }}  -%}

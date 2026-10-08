@@ -63,18 +63,34 @@ header_type: "base"
 	<main class="container-lg pb-3 flex-fill">
 	<div class="row pt-2">
 	  <article class="col-lg-8 offset-lg-2 mt-3">
-	
+
 		<p>This is an example that shows how the classic navbar would look on this theme.</p>
-		
+
 				<p class="h-100"> Sticky behaviour</p>
-		
+
 		</article>
 		</div>
-	</main>
-			
-			
-			
-			
+
+<section class="container-lg py-4 text-left" aria-label="Demo front matter">
+  <h2 class="h4">Front matter for this demo</h2>
+  <p>This is the front matter used by this demo. The classic navbar is written in this page's HTML. For a standard layout, omit <code>navbar.style</code> in <code>_config.yml</code> to use the classic navbar.</p>
+{% highlight yaml %}
+---
+layout: compress
+title: Demo navbar
+subtitle: See how the classic navbar looks
+excerpt: See how the classic navbar looks
+permalink: "demo/classic-navbar"
+include_on_search: false
+header_type: "base"
+---
+{% endhighlight %}
+</section>
+</main>
+
+
+
+
 	{%- include_cached footer.html show_comments=page.show_comments -%}
 	<!-- JS, Popper.js, and jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

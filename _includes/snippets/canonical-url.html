@@ -5,3 +5,13 @@
   {%- assign canonical_path = canonical_path | slice: 0, canonical_path_size -%}
 {%- endif -%}
 {%- assign canonical_url = canonical_path | absolute_url | uri_escape -%}
+{%- assign canonical_override = include.canonical | strip | split: '#' | first | strip -%}
+{%- assign canonical_scheme = canonical_override | slice: 0, 8 | downcase -%}
+{%- assign canonical_http = canonical_override | slice: 0, 7 | downcase -%}
+{%- assign canonical_prefix = canonical_override | slice: 0, 1 -%}
+{%- assign canonical_double_slash = canonical_override | slice: 0, 2 -%}
+{%- if canonical_scheme == 'https://' or canonical_http == 'http://' -%}
+  {%- assign canonical_url = canonical_override | uri_escape -%}
+{%- elsif canonical_prefix == '/' and canonical_double_slash != '//' -%}
+  {%- assign canonical_url = canonical_override | absolute_url | uri_escape -%}
+{%- endif -%}
