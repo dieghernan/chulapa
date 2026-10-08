@@ -4,9 +4,9 @@ layout: compress
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
 	{%- include head.html -%}
-	{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url | uri_escape -%}
+	{%- include snippets/canonical-url.html url=page.url -%}
 	<body class="d-flex flex-column h-entry" id="body">
-	<a class="u-url d-none" href="{{ canonical_url }}">Invisible link to canonical for Microformats</a>
+	<a class="u-url d-none" href="{{ canonical_url | escape }}">Invisible link to canonical for Microformats</a>
 	{% include_cached navbar.html pageurl=page.url %}
 	{% if page.show_header == true %}
 	  {% unless layout.header_in_content %}

@@ -2,12 +2,12 @@
 layout: cloudcategory
 title: Categories
 permalink: /categories
-include_collection: posts
+include_collection: posts,demo,skins
 excerpt: Categories on <span class="chulapa">Chulapa</span>
 show_breadcrumb   : true
 breadcrumb_list :
   - label: Home
     url: /
-  - label: Blog
-    url: /blog/
 ---
+
+Browse categories used in posts, layout demos and skins.

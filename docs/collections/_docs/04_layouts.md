@@ -54,6 +54,7 @@ Additional options you can set on the front matter or via defaults:
 - `title`, `subtitle`: Content-related.
 - `date`, `last_modified_at`: Date of the page and last modification date. See [here](https://jekyllrb.com/docs/variables/#page-variables) to learn the accepted format of dates.
 - `excerpt`: Brief description of the content. If not provided <span class="chulapa">Chulapa</span> would create it as the first paragraph of the content. Note that in the case of documents under `posts` Jekyll allows [additional options](https://jekyllrb.com/docs/posts/#post-excerpts).
+- `description`: Explicit metadata description, independent of the visible subtitle and excerpt. See [SEO metadata](#seo-metadata) for precedence.
 - `mathjax`: Would activate $$MathJax$$ on the page.
 - `og_image`: Open Graph image displayed on the web and social networks when
   sharing the page. This image would not be displayed on the page.
@@ -205,6 +206,67 @@ See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
 
 Even if you don't want to show the breadcrumb, you can still specify the paths. The theme generates breadcrumb JSON-LD independently of `show_breadcrumb`. Without a list, non-home pages use a home/current-page breadcrumb. Structured data does not guarantee rich results. More information [here](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) and test tool [here](https://search.google.com/test/rich-results).
 {: .alert .alert-info .p-3 .mx-2}
+
+##### SEO metadata
+
+The theme uses the page URL for its canonical link, Open Graph URL, structured
+data and breadcrumbs. A terminal `/index.html` becomes `/`; other filenames,
+including `/myindex.html`, are preserved. Paginated pages retain their own URL.
+The Atom and RSS entry links use the same normalization. This changes metadata
+only; it does not create redirects.
+
+Use `description` in page front matter when you want to write the metadata text
+independently of the visible content:
+
+```yaml
+---
+title: My page
+subtitle: A visible subtitle
+description: A concise description for search and social previews.
+---
+```
+
+Description precedence is:
+
+1. A nonempty page `description`, used without a subtitle prefix.
+2. The page `excerpt`.
+3. On the home page only, the site's `description`.
+4. The existing content fallback.
+
+Whitespace-only values are treated as missing. For the excerpt or fallback path,
+the subtitle is prepended only if it is nonempty and its text is not already
+contained in the description, ignoring case. An empty description uses the
+subtitle alone, without an empty separator. Markdown and HTML are reduced to
+text, whitespace is normalized and values are escaped for metadata output.
+Front matter defaults can also supply `description`.
+
+HTML, Open Graph, Twitter/X and JSON-LD share this description. The complete
+generated text is retained, replacing the previous 160-character HTML limit and
+20-word Open Graph limit. Keep descriptions concise and descriptive. Google may
+choose another snippet and truncate it to fit the device; there is no fixed meta
+description length limit. See
+[Google's snippet documentation](https://developers.google.com/search/docs/appearance/snippet).
+
+Search indexing settings are independent:
+
+| Setting | Effect |
+| --- | --- |
+| `robots: "noindex, follow"` | Asks external crawlers not to index the page. It does not remove sitemap entries. |
+| `sitemap: false` | Excludes the page from `jekyll-sitemap`. It does not prevent indexing by itself. |
+| `include_on_search: false` | Excludes the page from the supported internal search indexes. It does not control external indexing. |
+
+For an auxiliary search page, you can use all three explicitly:
+
+```yaml
+robots: "noindex, follow"
+sitemap: false
+include_on_search: false
+```
+
+The documentation site's search page uses these settings. Its categories page
+includes posts, demos and skins so it provides a working category index. Tags
+and the standalone music scales widget remain indexable. The theme does not
+automatically exclude pages based on their path or layout.
 
 ##### Article images
 
