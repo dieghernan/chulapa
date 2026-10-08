@@ -109,6 +109,11 @@ add it to plugins, then restart the build.
 ## Global settings
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Configure site settings in _config.yml and restart Jekyll after changing them.
+The site author mapping accepts name, url, avatar, location and links. Set
+author.url to a profile URL or site-relative path such as /about/; relative paths
+use the site's url and baseurl. It supplies the default article:author URL for
+posts and, from v2.1.1, u-url in visible Microformats2 author cards. A page author
+does not inherit the site author's profile URL. Social links use author.links.
 Set url to the origin, e.g. https://username.github.io, and baseurl to the path
 prefix, e.g. /repository, or an empty string for a root site. Explicit values help
 canonical links, feeds and images resolve correctly on local and custom builds.
@@ -236,6 +241,12 @@ layout: minimal renders content directly between the navbar and footer. It is
 headerless by default. To add a header, set show_header: true and a supported
 header_type: base, post, hero, image or splash. header_img sets its image.
 For default and landingpage, header_type: none hides the header.
+From v2.1.1, minimal does not automatically declare a Microformats2 h-entry;
+custom content can supply its own h-entry wrapper with p-name, u-url and e-content.
+Default and landingpage retain automatic entry markup. Visible author cards
+include the selected author's url as u-url, resolving relative paths with url
+and baseurl, without inheriting a site profile URL for guest authors. With
+show_date enabled, updated pages retain dt-published alongside dt-updated.
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#archive
 layout: archive creates a chronological archive of collection documents.
 include_collection accepts names without underscores, such as posts,demo,
@@ -494,7 +505,10 @@ English date string as date and optionally lang="es-ES". Example:
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
 English, French, Spanish, German and Italian are supported; unsupported languages
 keep lowercased English names. Without lang it uses site.locale. Configurable
-labels include search.label, related_label and random_label; some UI labels
+labels include search.label, related_label and random_label. Related/random
+labels render supplied HTML unchanged; use headings matching the page hierarchy,
+such as <h2 class="h5">Related posts</h2>, to set visual size without skipping
+heading levels. Some UI labels
 remain English.
 
 ## Additional navigation and community questions

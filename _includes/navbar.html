@@ -38,7 +38,7 @@
 						{%- endif -%}
 					{%- endfor -%}
 					<a class="nav-link dropdown-toggle px-3 py-1 {% if containteractive == true %} active font-weight-bold {% endif %}" href="#" id="{{- item.title | strip | replace: " ", "-" -}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}}</a>
-					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
 					{%- for entry in item.child -%}
 						<a class="dropdown-item nav-link d-block px-3 small {% if entry.url == thispageurl %} active font-weight-bold {% endif %}" href="{{ entry.url | absolute_url }}">{{ entry.title }} {% if entry.url == thispageurl %}<span class="sr-only">(current)</span>{% endif %}</a>
 					{%- endfor -%}
@@ -87,7 +87,7 @@
 						{%- endif -%}
 					{%- endfor -%}
 					<a class="nav-link dropdown-toggle px-3 py-1 {% if containteractive == true %} active font-weight-bold {% endif %}" href="#" id="{{- item.title | strip | replace: " ", "-" -}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}}</a>
-					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
 					{%- for entry in item.child -%}
 						<a class="dropdown-item nav-link d-block px-3 small {% if entry.url == thispageurl %} active font-weight-bold {% endif %}" href="{{ entry.url | absolute_url }}">{{ entry.title }} {% if entry.url == thispageurl %}<span class="sr-only">(current)</span>{% endif %}</a>
 					{%- endfor -%}
@@ -128,7 +128,7 @@
 						{% endif %}
 					{%- endfor -%}
 						<a class="nav-link text-uppercase font-weight-light dropdown-toggle {% if containteractive == true %} active font-weight-bold{%- endif -%}" href="#" id="{{- item.title | strip | replace: ' ', '-' -}}2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}} </a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}2">
+						<div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}2">
 						{%- for entry in item.child -%}
 							<a class="dropdown-item text-uppercase font-weight-light {% if entry.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- entry.url | absolute_url -}}">{{- entry.title -}} {%- if entry.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
 						{%- endfor -%}
@@ -177,7 +177,7 @@
 						{% endif %}
 					{%- endfor -%}
 						<a class="nav-link dropdown-toggle {% if containteractive == true %} active font-weight-bold{%- endif -%}" href="#" id="{{- item.title | strip | replace: ' ', '-' -}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{- item.title -}} </a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
+						<div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="{{- item.title | strip | replace: ' ', '-' -}}">
 						{%- for entry in item.child -%}
 							<a class="dropdown-item {% if entry.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- entry.url | absolute_url -}}">{{- entry.title -}} {%- if entry.url == thispageurl -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
 						{%- endfor -%}

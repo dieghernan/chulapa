@@ -1,5 +1,26 @@
 [
   {
+    "id": "config-author-profile-1",
+    "section": "config",
+    "doc": "02_config.md",
+    "question": "Where do I configure my site author's profile URL? Can I use /about/ and will guest authors inherit it?",
+    "expected": "Use author.url in _config.yml, alongside name, avatar, location and links. It accepts a profile URL or site-relative path such as /about/; paths resolve with site url/baseurl. It supplies the default article:author URL for posts and, from v2.1.1, u-url in visible Microformats2 author cards. A page author does not inherit the site author's profile URL. Social links remain in author.links."
+  },
+  {
+    "id": "layouts-label-headings-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "W3C says my Related posts h5 skips heading levels. Does Chulapa choose that heading? How can I keep small text?",
+    "expected": "related_label and random_label render the user's HTML unchanged. Choose a heading matching the page hierarchy, such as h2 for a separate section, and use class h5 for its visual size. No new configuration option is needed."
+  },
+  {
+    "id": "layouts-microformats-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "In v2.1.1, does minimal create a Microformats entry? How do updated dates and guest author URLs work?",
+    "expected": "Minimal does not declare an automatic h-entry; custom content can supply its own wrapper with p-name, u-url and e-content. Default and landingpage retain automatic entry markup. With show_date enabled, updated pages retain dt-published and dt-updated. Visible h-card uses the selected author.url, resolves relative paths with url/baseurl and does not inherit a site profile URL for a guest."
+  },
+  {
     "id": "installation-1",
     "section": "installation",
     "doc": "01_install.md",

@@ -26,7 +26,7 @@
     <h3 id="welcomments__comment-count-title" class="welcomments__comments-title">No comments yet!</h3>
   {%- endif -%}
 
-  <section id="welcomments__comment-container" class="welcomments__comment-container">
+  <div id="welcomments__comment-container" class="welcomments__comment-container">
     {%- if all_comments.size > 0 -%}
       {%- assign parent_comments = all_comments | where_exp: "c", "c.replying_to == nil" | sort: 'id' -%}
 
@@ -40,7 +40,7 @@
           website_id           = include.website_id -%}
       {%- endfor -%}
     {%- endif -%}
-  </section>
+  </div>
 
   {%- include welcomments/comment_form.html
     api_url    = api_url
@@ -51,7 +51,7 @@
   Contains some basic comment section styling, so that you can get started quickly
   without having to come up with your own CSS if you don't want to.
                                                                                -->
-<link rel="stylesheet" href="{{'/assets/css/welcomments.css' | absolute_url }}" />
+<link rel="stylesheet" href="{{'/assets/css/welcomments.css' | absolute_url }}" >
 
 <!--
   Includes the optional Welcomments Javascript file. It enhances the user experience
@@ -66,7 +66,7 @@
   and your comment form works just fine but is a bit less interactive! :-)
                                                                                -->
 <script defer id="welcomments__script" src="https://cdn.welcomments.io/welcomments.js" ></script>
-<script type="text/javascript">
+<script>
   welcomments = {
     apiUrl: "{{ api_url }}",
 

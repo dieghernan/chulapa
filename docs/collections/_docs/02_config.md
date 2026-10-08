@@ -79,6 +79,11 @@ visible breadcrumbs are disabled.
 - `author`: Default site author, used in profiles, metadata and the footer.
   Pages can supply their own `author` mapping.
   - `name`: Author name. **GitHub owner name**, when GitHub metadata is available.
+  - `url`: Optional author profile URL or site-relative path, such as `/about/`.
+    Relative paths use the site's `url` and `baseurl`. This field supplies the
+    default `article:author` URL for posts and, from v2.1.1, a `u-url` in visible
+    Microformats2 author cards. A page author does not inherit the site author's
+    profile URL. Social links remain configured separately under `links`.
   - `avatar`: Avatar image URL or site-relative path; a small square image is
     recommended.
   - `location`: Location text linked to a Google Maps search.
@@ -91,6 +96,7 @@ Example site author:
 ```yaml
 author:
   name                  :      Name Surname Company
+  url                   :      /about/
   avatar                :      https://github.com/devdhh.png
   location              :      New York, US
   links:
