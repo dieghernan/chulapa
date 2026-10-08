@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 	<channel>
-		<title>Chulapa | A full flexible Jekyll theme</title>
+		<title>Chulapa | A flexible, visual Jekyll theme</title>
 		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
 		<link>https://dieghernan.github.io/chulapa</link>
-		<description>Template for creating free sites on GitHub Pages</description>
+		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Thu, 08 Oct 2026 19:47:52 +0200</pubDate>
-		<lastBuildDate>Thu, 08 Oct 2026 19:47:52 +0200</lastBuildDate>
+		<pubDate>Thu, 08 Oct 2026 20:26:24 +0200</pubDate>
+		<lastBuildDate>Thu, 08 Oct 2026 20:26:24 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
 		<image>
-			<title>Chulapa | A full flexible Jekyll theme</title>
+			<title>Chulapa | A flexible, visual Jekyll theme</title>
 			<url>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</url>
 			<link>https://dieghernan.github.io/chulapa</link>
-			<description>Template for creating free sites on GitHub Pages</description>
+			<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		</image><item>
 			<title>Welcome</title>
 			<description>
