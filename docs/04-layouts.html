@@ -17,8 +17,8 @@
       "description": "Add your content - Learn how to start adding your content to your new site",
       "headline":"Layouts and snippets",
       "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-      "datePublished": "2026-10-08T11:42:14+02:00",
-      "dateModified": "2026-10-08T11:42:14+02:00",
+      "datePublished": "2026-10-08T11:56:45+02:00",
+      "dateModified": "2026-10-08T11:56:45+02:00",
       "author": {
         "@type": "Person",
         "name":"dieghernan"
@@ -171,7 +171,7 @@
 				</li><li class="nav-item my-0 py-1">
 					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
 				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="Demos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
-					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
 				</li><li class="nav-item my-0 py-1">
 					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/pagespeed">PageSpeed Results</a>
 				</li><li class="nav-item dropdown my-0 py-1"><a class="nav-link dropdown-toggle px-3 py-1 " href="#" id="About" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
@@ -180,7 +180,8 @@
 					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
 				</li></ul>
 		</nav>
-	</div>	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
+	</div>
+		<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
    <h1 class="p-name">Layouts and snippets</h1><hr class="my-3">
    <p class="chulapa-subtitle p-summary">Add your content</p>
  </div>
@@ -438,17 +439,31 @@ to the navbar background color. Set <code class="language-plaintext highlighter-
 <p>The options available are the same as those described on the
 <a href="#default"><code class="language-plaintext highlighter-rouge">default</code></a> layout.</p>
 <h4 id="minimal">Minimal</h4>
-<p>Minimal layout including only the navbar and the footer. Available options are:
+<p>Minimal layout with the navbar, footer and an optional header. Available options are:
 <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">subtitle</code>, <code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">last_modified_at</code>, <code class="language-plaintext highlighter-rouge">excerpt</code>, <code class="language-plaintext highlighter-rouge">mathjax</code>,
 <code class="language-plaintext highlighter-rouge">og_image</code>,
 <code class="language-plaintext highlighter-rouge">schema_image</code> (for posts), <code class="language-plaintext highlighter-rouge">robots</code>, <code class="language-plaintext highlighter-rouge">author</code>, <code class="language-plaintext highlighter-rouge">include_on_search</code>,
 <code class="language-plaintext highlighter-rouge">include_on_feed</code> and <code class="language-plaintext highlighter-rouge">show_comments</code>. Content is rendered directly between
-the navbar and footer; headers, author panels and tables of contents are not
+the navbar and footer; author panels and tables of contents are not
 added automatically.</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">minimal</span>
 <span class="nn">---</span>
 </code></pre></div></div>
+<h5 id="optional-header">Optional header</h5>
+<p>Minimal pages remain headerless by default, even when <code class="language-plaintext highlighter-rouge">header_type</code> is set through global defaults. To reuse a theme header while keeping the content area unrestricted, set the Boolean <code class="language-plaintext highlighter-rouge">show_header: true</code>:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">minimal</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My wide page</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s">Custom content with a theme header</span>
+<span class="na">show_header</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">header_type</span><span class="pi">:</span> <span class="s">hero</span>
+<span class="na">header_img</span><span class="pi">:</span> <span class="s">/assets/img/banner.jpg</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<p>Use the existing header types (<code class="language-plaintext highlighter-rouge">base</code>, <code class="language-plaintext highlighter-rouge">post</code>, <code class="language-plaintext highlighter-rouge">hero</code>, <code class="language-plaintext highlighter-rouge">image</code> or <code class="language-plaintext highlighter-rouge">splash</code>) and <code class="language-plaintext highlighter-rouge">project_links</code> options. A missing or unsupported <code class="language-plaintext highlighter-rouge">header_type</code>, including <code class="language-plaintext highlighter-rouge">none</code>, produces no header. Set <code class="language-plaintext highlighter-rouge">show_header: false</code> to disable the optional header on a minimal page, including when overriding front matter defaults. The option does not add a content container; your HTML controls the width and spacing. See the <a href="https://dieghernan.github.io/chulapa/demo/minimal-header">minimal header demo</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">show_header</code> controls the optional header in <code class="language-plaintext highlighter-rouge">minimal</code> and custom layouts that inherit from it. The existing headers in <code class="language-plaintext highlighter-rouge">default</code> and <code class="language-plaintext highlighter-rouge">landingpage</code> retain their behavior and render only once. To hide those headers, keep using <code class="language-plaintext highlighter-rouge">header_type: none</code>.</p>
+<p>If a custom layout already includes its own header, add <code class="language-plaintext highlighter-rouge">header_in_content: true</code> to that layout’s front matter before enabling <code class="language-plaintext highlighter-rouge">show_header</code>. This prevents the parent <code class="language-plaintext highlighter-rouge">minimal</code> layout from adding another header. Custom layouts without an existing header can use <code class="language-plaintext highlighter-rouge">show_header: true</code> directly.</p>
 <h3 id="specific-purpose">Specific purpose</h3>
 <p>All these layouts are meant to be used for specific purposes rather than for
 overall content. These layouts are linked to the <code class="language-plaintext highlighter-rouge">default</code> layout, so all the
@@ -800,61 +815,61 @@ https://picsum.photos/seed/70/700/500,
 	 </ol>	
  <div class="carousel-inner">
        <div class="carousel-item active" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" alt="Carousel Item #1" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/quique-olivar-CRMjqDZwxS4-unsplash.jpg" alt="Carousel Item #1" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-antonio-gallego-vazquez-oTy2TfgAVAc-unsplash.jpg" alt="Carousel Item #2" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/tania-fernandez-zVdf2Hmrcxw-unsplash.jpg" alt="Carousel Item #2" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/florian-wehde-WBGjg0DsO_g-unsplash.jpg" alt="Carousel Item #3" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alex-vasey-Zy-W7KWEyFE-unsplash.jpg" alt="Carousel Item #4" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Carousel Item #4" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-manuel-viloria-martin-OEj-ETL9pMo-unsplash.jpg" alt="Carousel Item #5" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/paula-carrasco-R30nnrR8j_o-unsplash.jpg" alt="Carousel Item #5" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alberto-restifo-BS5kXq5jRL8-unsplash.jpg" alt="Carousel Item #6" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/paula-carrasco-R30nnrR8j_o-unsplash.jpg" alt="Carousel Item #7" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alvaro-bernal-nlimH6wxY_I-unsplash.jpg" alt="Carousel Item #7" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/black-metal-post-with-sad-face-paint-3314301.jpg" alt="Carousel Item #8" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" alt="Carousel Item #8" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alvaro-bernal-nlimH6wxY_I-unsplash.jpg" alt="Carousel Item #9" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/time-lapse-photography-of-city-during-night-time-4279199.jpg" alt="Carousel Item #9" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg" alt="Carousel Item #10" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/yellow-and-beige-high-rise-building-3254729.jpg" alt="Carousel Item #11" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-manuel-viloria-martin-OEj-ETL9pMo-unsplash.jpg" alt="Carousel Item #11" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/apartment-buildings-against-sky-258181.jpg" alt="Carousel Item #12" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alex-vasey-Zy-W7KWEyFE-unsplash.jpg" alt="Carousel Item #12" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/quique-olivar-CRMjqDZwxS4-unsplash.jpg" alt="Carousel Item #13" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/leigh-cooper-ImiT5XEi3Wk-unsplash.jpg" alt="Carousel Item #13" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/leigh-cooper-ImiT5XEi3Wk-unsplash.jpg" alt="Carousel Item #14" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/yellow-and-beige-high-rise-building-3254729.jpg" alt="Carousel Item #14" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/tania-fernandez-zVdf2Hmrcxw-unsplash.jpg" alt="Carousel Item #15" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/black-metal-post-with-sad-face-paint-3314301.jpg" alt="Carousel Item #15" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/time-lapse-photography-of-city-during-night-time-4279199.jpg" alt="Carousel Item #16" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-antonio-gallego-vazquez-oTy2TfgAVAc-unsplash.jpg" alt="Carousel Item #16" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg" alt="Carousel Item #17" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Carousel Item #18" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/apartment-buildings-against-sky-258181.jpg" alt="Carousel Item #18" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" alt="Carousel Item #19" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" alt="Carousel Item #19" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mindaugas-petrutis-RxEHnSDyH5I-unsplash.jpg" alt="Carousel Item #20" itemprop="contentUrl" />
