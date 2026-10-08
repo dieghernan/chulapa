@@ -39,7 +39,8 @@ bundle exec ruby test/check_article_metadata.rb
 bundle exec ruby test/check_article_images.rb
 bundle exec ruby test/check_microdata.rb
 bundle exec ruby test/check_video_examples.rb
-node test/check_chulapa_script.js
+node --test test/check_chulapa_script.js test/check_mermaid.mjs
+bundle exec ruby test/check_mermaid.rb
 ```
 
 The Ruby checks build temporary fixtures or inspect theme sources to verify

@@ -126,3 +126,16 @@ a compact composer anchored to the visible viewport top, with input, send and
 close controls. Other content returns after the keyboard closes. A completed or
 failed request dismisses the focused input in compact mode so the result can be
 read. This landscape correction still needs a repeat on the physical phone.
+
+
+## Mermaid context deployment, October 8, 2026
+
+Deployed Worker version `013cd5dc-f707-4eda-91b1-bd62664bb974` with the
+Mermaid and clipboard development guidance. All 17 local chatbot tests pass.
+Targeted live results are saved in `evaluations/mermaid-final-2026-10-08.jsonl`.
+The final answer correctly explains `mermaid: true`, the exclusion from v2.1.0,
+and preservation of source text in the visitor's page if the CDN fails. Its
+separate YAML and Mermaid examples are complete and its source link is correct.
+Earlier runs incorrectly located source preservation on the CDN and nested
+Markdown fences; explicit context guidance corrected both in the final run.
+These checks consume Workers AI allowance; they do not change the Free plan.

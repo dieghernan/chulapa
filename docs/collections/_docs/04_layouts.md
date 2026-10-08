@@ -3,6 +3,7 @@ title: "Layouts and snippets"
 subtitle: Add your content
 excerpt: Learn how to start adding your content to your new site
 mathjax: true
+mermaid: true
 show_toc: true
 h_max: 4
 ---
@@ -59,6 +60,8 @@ Additional options you can set on the front matter or via defaults:
 - `excerpt`: Brief description of the content. If not provided <span class="chulapa">Chulapa</span> would create it as the first paragraph of the content. Note that in the case of documents under `posts` Jekyll allows [additional options](https://jekyllrb.com/docs/posts/#post-excerpts).
 - `description`: Explicit metadata description, independent of the visible subtitle and excerpt. See [SEO metadata](#seo-metadata) for precedence.
 - `mathjax`: Set to `true` to load MathJax for mathematical notation.
+- `mermaid`: Set to `true` to render Mermaid diagrams. Disabled by default; see
+  [Mermaid diagrams](#mermaid-diagrams).
 - `og_image`: Open Graph image displayed on the web and social networks when
   sharing the page. This image would not be displayed on the page.
 - `schema_image`: A representative image URL or list of image URLs for a post's
@@ -442,7 +445,7 @@ The options are the same as those for the [`default`](#default) layout.
 The `minimal` layout includes the navbar, footer and an optional header.
 Shared metadata options such as `description`, `seo_title`, `og_title`,
 `canonical_url` and `locale` remain available, along with:
-`title`, `subtitle`, `date`, `last_modified_at`, `excerpt`, `mathjax`,
+`title`, `subtitle`, `date`, `last_modified_at`, `excerpt`, `mathjax`, `mermaid`,
 `og_image`,
 `schema_image` (for posts), `robots`, `author`, `include_on_search`,
 `include_on_feed` and `show_comments`. Content is rendered directly between
@@ -1066,3 +1069,58 @@ your locale will be used.
 
 **Contribute** via PR and help us expand this feature.
 {: .alert .alert-info .p-3 .mx-2}
+
+
+### Mermaid diagrams
+
+See the [Mermaid demo](../demo/mermaid) for flowchart and sequence examples.
+
+Available in the development version after v2.1.0. Use the updated default
+branch or a later release containing this feature; the v2.1.0 gem does not
+include it.
+
+Set `mermaid: true` (a YAML boolean) in page front matter or front matter
+defaults, then use a fenced `mermaid` code block:
+
+````markdown
+---
+layout: default
+title: A diagram
+mermaid: true
+---
+
+```mermaid
+flowchart LR
+  accTitle: Publishing workflow
+  accDescr: Write content, build the site and publish it.
+  A[Write] --> B[Build] --> C[Publish]
+```
+````
+
+```mermaid
+flowchart LR
+  accTitle: Publishing workflow
+  accDescr: Write content, build the site and publish it.
+  A[Write] --> B[Build] --> C[Publish]
+```
+
+The option works with layouts based on `minimal`, including `default` and
+`landingpage`. The `search` layout does not display page content. Mermaid 12.1.0 loads from jsDelivr only on
+enabled pages containing diagrams. It requires a modern browser supporting
+JavaScript modules and ES2024 (Safari 17.4 or later). No additional Jekyll plugin
+is required. Diagrams use Mermaid's strict security mode, which disables
+click actions and encodes HTML labels. Add `accTitle` and `accDescr` to describe
+diagrams for assistive technology, and provide a prose explanation for complex
+content. Wide diagrams can scroll horizontally. If JavaScript, the CDN or a
+diagram fails, its source remains visible. Without `mermaid: true`, fenced
+blocks remain ordinary code. Native `<pre class="mermaid">` blocks are also
+supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.html).
+
+### Copying code
+
+Code blocks have a copy button. Copying requires the browser Clipboard API
+and a secure context, such as HTTPS or localhost. In the development version
+after v2.1.0, the button reports success only after the write completes and
+reports failure when permission is denied or the API is unavailable. It does
+not clear the existing clipboard before copying. Enabled Mermaid diagrams do
+not receive code copy buttons.

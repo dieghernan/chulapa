@@ -508,3 +508,26 @@ Source: https://dieghernan.github.io/chulapa/rss.xml
 Use this link when a visitor asks where to subscribe to Chulapa's RSS feed.
 The feed's contents are not included in this context. The assistant does not
 fetch URLs, so do not claim to have read its entries or know its latest posts.
+
+
+## Mermaid and clipboard (development version after v2.1.0)
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#mermaid-diagrams
+Demo: https://dieghernan.github.io/chulapa/demo/mermaid
+When showing a Mermaid setup, show the YAML front matter in one yaml code
+block and the diagram in a separate mermaid code block. Do not nest triple
+backtick fences inside another triple-backtick block.
+Mermaid is disabled by default. Set mermaid: true as a YAML boolean in page
+front matter or front matter defaults and use a fenced mermaid code block.
+Works with minimal-derived layouts, without a Jekyll plugin. The search layout
+does not display page content.
+Mermaid 12.1.0 loads from jsDelivr only on enabled pages with diagrams and needs
+modern ES2024/module-capable browsers (Safari 17.4+). Strict mode disables click
+handlers and encodes HTML labels. Use accTitle and accDescr for accessibility.
+If the CDN request fails or diagram rendering fails, the original diagram code
+stays visible in the visitor's page as plain text. It is not stored on the CDN.
+The CDN serves only the Mermaid JavaScript library. Wide diagrams scroll.
+This feature is not in the v2.1.0 gem or pinned v2.1.0 remote theme.
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#copying-code
+Copy code requires Clipboard API in HTTPS or localhost and browser permission.
+Development buttons await the write, report failure and do not clear the
+clipboard first. Rendered Mermaid diagrams do not receive copy buttons.

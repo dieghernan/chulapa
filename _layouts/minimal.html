@@ -6,7 +6,7 @@ layout: compress
 <html lang="{{ page_language | escape }}">
 	{%- include head.html -%}
 	{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
-	<body class="d-flex flex-column h-entry" id="body">
+	<body {% if page.mermaid == true %}data-mermaid="true" {% endif %}class="d-flex flex-column h-entry" id="body">
 	<a class="u-url d-none" href="{{ canonical_url | escape }}">Invisible link to canonical for Microformats</a>
 	{% include_cached navbar.html pageurl=page.url %}
 	{% if page.show_header == true %}
@@ -21,6 +21,9 @@ layout: compress
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<script src="{{ '/assets/js/chulapa_script.js' | relative_url }}"></script>
+	{% if page.mermaid == true %}
+	<script type="module" src="{{ "/assets/js/chulapa_mermaid.js" | relative_url }}"></script>
+	{% endif %}
 	{% include custom/custom_bottomscripts.html %}
 	</body>
 </html>

@@ -82,5 +82,12 @@
     "doc": "99_variable-dict.md",
     "question": "Which Chulapa variable sets the chatbot model temperature?",
     "expected": "No documented Sass variable for model temperature; acknowledge missing context and do not invent a setting."
+  },
+  {
+    "id": "mermaid-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I enable Mermaid diagrams? Does this work with the v2.1.0 gem and what happens if the CDN fails?",
+    "expected": "Development after v2.1.0 only; mermaid: true YAML boolean and fenced mermaid block; no extra plugin; CDN loads only enabled diagrams; source remains on failure."
   }
 ]

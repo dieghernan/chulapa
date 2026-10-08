@@ -40,6 +40,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 - **Structured data** for better SEO
 - **Code highlighting** - Pygments-compatible styles for Rouge
 - **MathJax** support
+- **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/mermaid)** - optional per-page rendering (development version after v2.1.0)
 - **Google Analytics**
 - **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
   WhatsApp

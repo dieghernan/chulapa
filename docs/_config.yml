@@ -147,6 +147,8 @@ navbar:
       url: /demo/search_fusejs
     - title: Search Simple Jekyll Search
       url: /demo/search_simple
+    - title: Mermaid diagrams
+      url: /demo/mermaid
     - title: Minimal with header
       url: /demo/minimal-header
     - title: Classic Navbar
