@@ -4,6 +4,8 @@
 
 -   Preserve filenames containing `index.html` in canonical URLs, breadcrumbs and feeds, and retain complete HTML meta descriptions to avoid splitting escaped entities ([#81](https://github.com/dieghernan/chulapa/issues/81)).
 
+-   Avoid repeated subtitles and empty separators in metadata descriptions, and provide a populated category index and explicit search indexing settings in the documentation site ([#81](https://github.com/dieghernan/chulapa/issues/81)).
+
 -   Correct video microdata URLs before and after deferred playback, remove unscoped search and comment properties and load the deferred player script from the installed theme ([#72](https://github.com/dieghernan/chulapa/issues/72)).
 
 -   Consolidate page structured data, complete site name metadata and prevent empty breadcrumb names when the navbar brand contains only an icon ([#69](https://github.com/dieghernan/chulapa/issues/69)).
@@ -12,6 +14,8 @@
     the script from the installed theme instead of the CDN ([#45](https://github.com/dieghernan/chulapa/issues/45)).
 
 ### Added
+
+-   Override page metadata with `description`, shared by HTML, Open Graph, Twitter/X and JSON-LD without forced truncation ([#81](https://github.com/dieghernan/chulapa/issues/81)).
 
 -   Supply optional video titles, thumbnails, upload dates, descriptions and durations through the video snippets without changing existing playback ([#72](https://github.com/dieghernan/chulapa/issues/72)).
 

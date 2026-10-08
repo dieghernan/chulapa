@@ -30,6 +30,16 @@ descriptions = {
   "escaped-text" => ['A &quot;quote&quot; &lt;map&gt; &#39;note&#39; &amp; &copy; é.', 'A "quote" <map> \'note\' & © é.'],
   "empty" => ["", "Fallback content."]
 }
+description_cases = {
+  "explicit" => [{"description" => 'An explicit &quot;description&quot; &amp; more.', "excerpt" => "Ignored excerpt", "subtitle" => "Ignored subtitle"}, 'An explicit "description" & more.'],
+  "blank-explicit" => [{"description" => " \n ", "excerpt" => "An excerpt", "subtitle" => "A subtitle"}, "A subtitle - An excerpt"],
+  "repeated-subtitle" => [{"subtitle" => "Read, write, learn, share", "excerpt" => "Media, read, write, learn, share developed by dieghernan."}, "Media, read, write, learn, share developed by dieghernan."],
+  "identical-subtitle" => [{"subtitle" => "A subtitle", "excerpt" => "A subtitle"}, "A subtitle"],
+  "subtitle-only" => [{"subtitle" => "A subtitle", "fixture_content" => ""}, "A subtitle"],
+  "blank-components" => [{"subtitle" => " ", "excerpt" => " ", "fixture_content" => ""}, ""],
+  "blank-excerpt" => [{"description" => " ", "excerpt" => " "}, "Fallback content."],
+  "long-explicit" => [{"description" => "A complete description " + "with useful detail " * 15}, "A complete description " + ("with useful detail " * 15).strip]
+}
 Dir.mktmpdir("chulapa-seo-") do |source|
   %w[_includes _layouts].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
   FileUtils.mkdir_p(File.join(source, "_posts"))
@@ -43,14 +53,25 @@ Dir.mktmpdir("chulapa-seo-") do |source|
     data = {"title" => name, "excerpt" => excerpt}
     File.write(File.join(source, "#{name}.md"), data.to_yaml + "---\nFallback content.")
   end
+  description_cases.each do |name, (values, _)|
+    data = {"title" => name}.merge(values)
+    content = data.delete("fixture_content") || "Fallback content."
+    File.write(File.join(source, "#{name}.md"), data.to_yaml + "---\n#{content}")
+  end
+  File.write(File.join(source, "excluded.md"), "---\nrobots: 'noindex, follow'\nsitemap: false\ninclude_on_search: false\n---\nSearch fixture.")
+  File.write(File.join(source, "noindex.md"), "---\nrobots: noindex\n---\nNoindex fixture.")
+  File.write(File.join(source, "internal-search.md"), "---\ninclude_on_search: false\n---\nInternal search fixture.")
   ["", "/subdir"].each do |baseurl|
-    config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "title" => "Site", "author" => {"name" => "Author"}, "og_image" => "/image.jpg", "defaults" => [{"scope" => {"path" => ""}, "values" => {"layout" => "default"}}], "quiet" => true)
+    config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "title" => "Site", "description" => "Home summary", "author" => {"name" => "Author"}, "og_image" => "/image.jpg", "defaults" => [{"scope" => {"path" => ""}, "values" => {"layout" => "default"}}], "quiet" => true)
     site = Jekyll::Site.new(config)
     site.process
     sitemap = Nokogiri::XML(File.read(File.join(config["destination"], "sitemap.xml"))).remove_namespaces!
     sitemap_urls = sitemap.css("loc").map(&:text)
     atom = Nokogiri::XML(File.read(File.join(config["destination"], "atom.xml"))).remove_namespaces!
     rss = Nokogiri::XML(File.read(File.join(config["destination"], "rss.xml"))).remove_namespaces!
+    check(!sitemap_urls.include?("https://example.com#{baseurl}/excluded.html"), "Explicit sitemap exclusion ignored")
+    check(sitemap_urls.include?("https://example.com#{baseurl}/noindex.html"), "Noindex unexpectedly removes sitemap entry")
+    check(sitemap_urls.include?("https://example.com#{baseurl}/internal-search.html"), "Internal search exclusion unexpectedly changes sitemap")
     paths.each do |name, (_, normalized)|
       expected = "https://example.com#{baseurl}#{normalized}"
       page = site.pages.find { |item| item.data["title"] == name } || site.posts.docs.find { |item| item.data["title"] == name }
@@ -63,6 +84,7 @@ Dir.mktmpdir("chulapa-seo-") do |source|
       check(blocks.find { |block| block["@type"] == "WebPage" }["@id"] == expected, "WebPage URL differs: #{name}")
       if name == "home"
         check(blocks.find { |block| block["@type"] == "WebSite" }["url"] == expected, "WebSite home URL differs")
+        check(doc.at_css('meta[name="description"]')["content"] == "Home summary", "Home site description fallback lost")
         next
       end
       article = blocks.find { |block| block["@type"] == "BlogPosting" }
@@ -78,6 +100,14 @@ Dir.mktmpdir("chulapa-seo-") do |source|
     descriptions.each do |name, (_, expected)|
       doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{name}.html")))
       check(doc.at_css('meta[name="description"]')["content"] == expected, "Description truncated or escaped incorrectly: #{name}")
+    end
+    description_cases.each do |name, (_, expected)|
+      doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{name}.html")))
+      check(doc.at_css('meta[name="description"]')["content"] == expected, "Description precedence incorrect: #{name}")
+      check(doc.at_css('meta[property="og:description"]')["content"] == expected, "Open Graph description differs: #{name}")
+      check(doc.at_css('meta[name="twitter:description"]')["content"] == expected, "Twitter description differs: #{name}")
+      webpage = doc.css('script[type="application/ld+json"]').map { |node| JSON.parse(node.text) }.find { |item| item["@type"] == "WebPage" }
+      check(webpage["description"] == expected, "JSON-LD description differs: #{name}")
     end
   end
 end

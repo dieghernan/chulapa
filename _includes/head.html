@@ -27,10 +27,27 @@
                 replace:"{{", ",.," |
                 replace:"{%", ",.," |
                 split: ",.," | first -%}
-{%- assign ogdesc = page.excerpt | default: descfallback | markdownify | strip_html | strip -%}
-{%- if page.subtitle -%}
-{%- assign metasubtitle = page.subtitle | markdownify | strip_html | strip -%}
-{%- assign ogdesc = metasubtitle | append: " - " | append: ogdesc -%}
+{%- assign explicit_description = page.description | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
+{%- assign ogdesc = page.excerpt | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
+{%- if ogdesc == empty and strippedurl == '/' -%}
+  {%- assign ogdesc = site.description | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
+{%- endif -%}
+{%- if ogdesc == empty -%}
+  {%- assign ogdesc = descfallback | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
+{%- endif -%}
+{%- assign metasubtitle = page.subtitle | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
+{%- if explicit_description != empty -%}
+  {%- assign ogdesc = explicit_description -%}
+{%- elsif metasubtitle != empty -%}
+  {%- assign description_lower = ogdesc | downcase -%}
+  {%- assign subtitle_lower = metasubtitle | downcase -%}
+  {%- if ogdesc == empty -%}
+    {%- assign ogdesc = metasubtitle -%}
+  {%- else -%}
+    {%- unless description_lower contains subtitle_lower -%}
+      {%- assign ogdesc = metasubtitle | append: ' - ' | append: ogdesc -%}
+    {%- endunless -%}
+  {%- endif -%}
 {%- endif -%}
 {%- assign ogdesc = ogdesc | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip | escape_once -%}
 {%- assign links = page.author.links | default: site.author.links -%}
@@ -297,11 +314,12 @@ where_exp: "item", "item.url contains 'http'"
     <meta property="og:site_name" content="{{ sitename | strip_html | escape_once }}" >
     <meta property="og:url" content="{{ canonical_url | escape }}" >
     <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}" >
-    <meta property="og:description" content="{{ ogdesc | truncatewords: 20 }}" >
+    <meta property="og:description" content="{{ ogdesc }}" >
     <meta property="og:locale" content="{{- site.locale | default: 'en-US' | replace: '-', '_' -}}" >
     <meta property="og:image" content="{{- ogimage | escape_once -}}" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="{{ ogdesc }}">
     {%- if site.twitter_site %}
     <meta name="twitter:site" content="@{{- site.twitter_site  -}}" >
     {% endif -%}
