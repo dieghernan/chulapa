@@ -8,7 +8,7 @@ baseurl: "/chulapa"
 
 title: Chulapa
 subtitle: A full flexible Jekyll theme
-description: Template for creating free sites on Github Pages
+description: Template for creating free sites on GitHub Pages
 og_image: "./assets/img/site/banner.png"
 twitter_site: dhernangomez
 timezone: "Europe/Madrid"

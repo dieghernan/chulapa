@@ -48,7 +48,7 @@ style="max-height: 30vh;overflow-y: auto;">
   	row.setAttribute("onclick", "reaplyStyles('" + word + "');");
   	document.getElementById('list').appendChild(row);
   });
-  document.getElementById("count").innerHTML = "An overall of <span class='font-weight-bold'>" + styles.length + "</span> highlighting styles available";
+  document.getElementById("count").innerHTML = "A total of <span class='font-weight-bold'>" + styles.length + "</span> highlighting styles available";
   
   var csshigh = document.getElementById("csshigh");
   	function reaplyStyles(themename){
@@ -65,9 +65,7 @@ style="max-height: 30vh;overflow-y: auto;">
   		
       return true;
   }
-  
-  
-  
+
 </script>
 
 Demo of the different pieces of code for testing syntax highlighting.
@@ -137,7 +135,6 @@ var parser = document.createElement('a');
 parser.href = "http://example.com:3000/pathname/?search=test#hash";
 parser.hostname; // => "example.com"
 
-
 ```
   
 ## Python
@@ -152,7 +149,6 @@ import sublime
 import sublime_plugin
 from datetime import datetime
 
-
 class SublimeTasksBase(sublime_plugin.TextCommand):
     def run(self, edit):
         self.open_tasks_bullet = self.view.settings().get('open_tasks_bullet')
@@ -163,7 +159,6 @@ class SublimeTasksBase(sublime_plugin.TextCommand):
         else:
             self.done_tag = ""
         self.runCommand(edit)
-
 
 class NewCommand(SublimeTasksBase):
     def runCommand(self, edit):
@@ -203,14 +198,11 @@ class NewCommand(SublimeTasksBase):
                     self.view.sel().clear()
                     self.view.sel().add(pt)
 
-
-
 ```
 
 ## CSS
 
 ```css
-
 
 body {
   font-family: arial;
@@ -277,21 +269,17 @@ p { color: red !important; }
 
 @media screen and (min-width: 100px) {}
 
-
 @main-color: red;
 
 .foo {
 	background: @main-color;
 }
 
-
-
 ```
 
 ## SCSS
 
 ```scss
-
 
 @import "foo.scss";
 
@@ -301,7 +289,6 @@ p { color: red !important; }
 }
 
 @for $i from 1 through 3 {}
-
 
 @font-face {
 	font-family: "opensans";
@@ -317,11 +304,6 @@ $width: 5em;
 p.#{$name} {
     #{$attr}-color: blue;
 }
-
-
-
-
-
 
 ```
 
@@ -407,10 +389,7 @@ public class Life {
         c < world[0].length;
     }
 
-
-
 }
-
 
 ```
 
@@ -615,7 +594,6 @@ GeomDotplot <- proto(Geom, {
                           geom_params = geom_params, stat_params = stat_params, ...))
   }
 
-
   reparameterise <- function(., df, params) {
     df$width <- df$width %||%
       params$width %||% (resolution(df$x, FALSE) * 0.9)
@@ -639,7 +617,6 @@ GeomDotplot <- proto(Geom, {
       stackaxismax <- .5
     }
 
-
     # Fill the bins: at a given x (or y), if count=3, make 3 entries at that x
     df <- df[rep(1:nrow(df), df$count), ]
 
@@ -656,7 +633,6 @@ GeomDotplot <- proto(Geom, {
             xx$stackpos <- stackdots(xx$countidx)
             xx
           })
-
 
     # Set the bounding boxes for the dots
     if (is.null(params$binaxis) || params$binaxis == "x") {
@@ -750,13 +726,10 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
-
 ```
 ## PHP
 
 ```php
-
-
 
 <?php
 
@@ -862,7 +835,6 @@ is not allowed__
 > _italic here_, __bold there__
 > And a [link](http://example.com)
 
-
 Inline code between backticks `Paragraph`
 
     some_code(); /* Indented
@@ -871,13 +843,11 @@ Inline code between backticks `Paragraph`
 	some_code(); /* Indented
 	with a tab */
 
-
 ```
 
 ## YAML
 
 ```yaml
-
 
 %YAML 1.2
 --- !<tag:clarkevans.com,2002:invoice>
@@ -909,7 +879,6 @@ total: 4443.52
 comments:
     Late afternoon is best.
     Backup contact is Nancy
-
 
 ```
 
@@ -983,8 +952,6 @@ comments:
   }
  }
 }
-
-
 
 ```
 

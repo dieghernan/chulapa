@@ -5,8 +5,8 @@ tags: [layout-default,header-base]
 show_breadcrumb: false
 ---
 
-This is how a plain page would look like. The layout and header type have been
-already set on the `_config.yml` file as defaults:
+This example shows a plain page. The layout and header type are set as
+defaults in `_config.yml`:
 
 ```yaml
   -
@@ -18,8 +18,8 @@ already set on the `_config.yml` file as defaults:
       header_type: "base"
 ```
 
-That would be the default values for every page on the `demo` collection. The
-front matter of this page is
+These defaults apply to every page in the `demo` collection. The front matter
+of this page is:
 
 ```yaml
 ---
@@ -29,6 +29,6 @@ tags: [layout-default,header-base]
 ---
 ```
 
-Given that no other option is enabled, although `tags` and `categories` are
-declared the badges would not show up. Note that those values would be still
-available for other uses, as cloud tag creation.
+The tag and category badges are hidden because their display options are not
+enabled. The declared `tags` and `categories` remain available for other uses,
+such as tag clouds.

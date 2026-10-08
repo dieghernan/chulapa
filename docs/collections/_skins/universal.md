@@ -10,23 +10,27 @@ tags: [skin, bootstrap, dieghernan, header-splash,image]
 categories: [skins]
 skin: universal
 og_image: ./assets/img/skinspreview/universal.png
-skin_author: dieghernan
+skin_author: Bootstrapious
+skin_adapter: dieghernan
 ---
 
 <!-- FIXME: Restore the Bootstrapious attribution link when its site has a valid TLS certificate. -->
 
-Developed by Bootstrapious, you can use it on your site. Just go to your `_config.yml` file and modify these settings:
+The original design is by Bootstrapious. The Chulapa skin was adapted by
+[dieghernan](https://github.com/dieghernan/). To use it on your site, update
+these settings in `_config.yml`:
 
 ```yaml
 chulapa-skin:
   skin       :  {{ page.skin }}
-  autothemer  :  # Autotheming may not have any effect
+  autothemer  :  # Set to true to derive undefined colors
   vars        :    
     ...
 ```
 
-While `autothemer` does not override the skin, it may not be fully functional.
-You can modify the theme defaults via `vars`.
+Autothemer fills in colors that the skin and `vars` have not defined. It does
+not override existing values, so its visible effect depends on the skin. Use
+`vars` to override specific colors. See the [autothemer guide]({{ "/docs/03-theming#autothemer" | relative_url }}).
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}

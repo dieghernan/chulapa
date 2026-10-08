@@ -10,10 +10,10 @@ show_categories   : true
 show_bottomnavs   : true
 ---
 
-This is how a plain page with an image would look like.
+This example shows a plain page with an image.
 
-An image is displayed on top of the header. Some other components are shown, as
-tags or social links.
+An image appears above the header. Other components are also shown, such as
+tags and social links.
 
 ```yaml
 ---

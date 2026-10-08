@@ -137,13 +137,13 @@ end
 * This is an unordered list.
 * This is an unordered list.
 
-An a two-level ordered list:
+A two-level ordered list:
 
 1.  This is an ordered list.
 2.  This is an ordered list.
     * Unordered sub-list.
     * Unordered sub-list.
-12. Actual numbers don't matter, just that it's a numbet or not.
+12. The starting number matters; subsequent items are numbered automatically.
 4.  And another item.
 
     You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces.
@@ -168,13 +168,13 @@ And a task list:
 
 * This is an unordered list.
 
-An a two-level ordered list:
+A two-level ordered list:
 
 1. This is an ordered list.
 2. This is an ordered list.
     * Unordered sub-list.
     * Unordered sub-list.
-12. Actual numbers don't matter, just that it's a numbet or not.
+12. The starting number matters; subsequent items are numbered automatically.
 4. And another item.
 
     You can have properly indented paragraphs within list items. Notice the

@@ -17,13 +17,14 @@ Developed by [Tophat Themes](https://themesguide.github.io/top-hat/dist/), you c
 ```yaml
 chulapa-skin:
   skin       :  skeeblu
-  autothemer  :  # Autotheming may not have any effect
+  autothemer  :  # Set to true to derive undefined colors
   vars        :    
     ...
 ```
 
-While `autothemer` does not override the skin, it may not be fully functional.
-You can modify the theme defaults via `vars`.
+Autothemer fills in colors that the skin and `vars` have not defined. It does
+not override existing values, so its visible effect depends on the skin. Use
+`vars` to override specific colors. See the [autothemer guide]({{ "/docs/03-theming#autothemer" | relative_url }}).
 
 {% if page.show_bottomnavs -%}
 {% include components/navbeforeafter.html -%}

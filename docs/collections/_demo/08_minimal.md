@@ -2,7 +2,7 @@
 layout: minimal
 title: Layout minimal
 subtitle: A blank canvas for you
-excerpt: Use the layout minimal with html to unleash your creativity
+excerpt: Use the minimal layout with HTML to unleash your creativity
 categories: [demo,layout]
 header_type: splash
 header_img: /assets/img/gallery/city-spain-dense-17658.jpg
@@ -24,7 +24,7 @@ project_links:
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4 text-center te t-lg-left">Use any Bootstrap
+          <h2 class="display-4 text-center text-lg-left">Use any Bootstrap
 Template!</h2>
           <p>Some examples on <a href="https://getbootstrap.com/docs/4.5/examples/">Bootstrap Documentation</a>, <a href="https://startbootstrap.com/">StartBootstrap</a> or <a href="https://www.google.com/search?q=%22Bootstrap+Templates%22">just Google it!</a> </p>
         </div>
@@ -43,9 +43,9 @@ Template!</h2>
       </div>
       <div class="col-lg-6">
         <div class="p-5">
-          <h2 class="display-4 text-center te t-lg-left">Just use HTML</h2>
-          <p>Markdown files support also <code>html</code> code. Just copy and
-paste</p>
+          <h2 class="display-4 text-center text-lg-left">Just use HTML</h2>
+          <p>Markdown files also support HTML code. Just copy and
+paste.</p>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ paste</p>
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4 text-center te t-lg-left">Let there be rock!</h2>
+          <h2 class="display-4 text-center text-lg-left">Let there be rock!</h2>
           <p><span class="chulapa">Chulapa</span> and Bootstrap FTW!</p>
         </div>
       </div>
@@ -78,7 +78,7 @@ paste</p>
 layout: minimal
 title: Layout minimal
 subtitle: A blank canvas for you
-excerpt: Use the layout minimal with html to unleash your creativity
+excerpt: Use the minimal layout with HTML to unleash your creativity
 categories: [demo,layout]
 header_type: splash
 header_img: /assets/img/gallery/city-spain-dense-17658.jpg
