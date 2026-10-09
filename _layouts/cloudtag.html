@@ -1,5 +1,6 @@
 ---
 layout: default
+chulapa_microformats_feed: true
 ---
 
 {{- content -}}
@@ -70,7 +71,7 @@ layout: default
 {% for  i in (0..n_tags) %}
 <section id="{{- sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="py-3 chulapa-cloudtag">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
-  <h5 class="my-0"><i class="fa fa-tag mr-1" aria-hidden="true"></i>{{- sorted_tags[i]-}} </h5>
+  <h2 class="h5 my-0"><i class="fa fa-tag mr-1" aria-hidden="true"></i>{{- sorted_tags[i]-}} </h2>
   <div class="badge rounded-pill chulapa-pill-bg-primary ml-2">{{sorted_count_tags[i]}}</div>
 </div>
   {% for document in alldocs %}
@@ -80,19 +81,19 @@ layout: default
   {% if words > words_per_minute %}
   {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
   {% endif %}
-  <article class="chulapa-links-hover-only my-1 mb-4 row g-0">
+  <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
     <div class="col">
-      <h6><a href="{{ document.url | absolute_url }}">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>
-      {%- if document.subtitle -%}<p>{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
+      <h3 class="h6"><a href="{{ document.url | absolute_url }}" class="p-name u-url">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h3>
+      {%- if document.subtitle -%}<p class="p-summary">{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
       <div class="small">
         {% if document.date %}
         {% assign dateformat = document.date | date: "%B %d, %Y" %}
-        <i class="far fa-calendar" aria-hidden="true"></i> <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+        <i class="far fa-calendar" aria-hidden="true"></i> <time class="dt-published" datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
 {% if document.last_modified_at %} <i class="fa fa-redo" aria-hidden="true"></i>{% endif %} | 
         {% endif %}
         <i class="far fa-clock" aria-hidden="true"></i> {{ readtime }} 
         {%- if showcol -%}
-        <span class="ml-2 badge chulapa-pill-bg-body">{{ document.collection }}</span>
+        <span class="ml-2 badge chulapa-pill-bg-body p-category">{{ document.collection }}</span>
         {%- endif -%}
       </div>
     </div>

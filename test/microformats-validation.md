@@ -87,3 +87,49 @@ The mobile dual navigation opens with Enter, and neither the 375 px nor
 
 These changes are local; the published geobounds article and its site-specific
 configuration have not been changed or redeployed.
+
+## Feed validation
+
+Validation performed on 2026-10-09 for the development h-feed implementation.
+`bundle exec ruby test/check_microformats_feeds.rb` passed 12 fixtures with
+root and subdirectory URLs, covering the six built-in list layouts, a derived
+archive layout, standalone and undated simple lists, an empty feed and two
+pagination pages. Existing entry and SEO checks also passed.
+
+The complete archive, indexcategory, cloudtag, cloudcategory and two pagination
+HTML documents were submitted to both hosted parsers above for root and
+subdirectory URLs (12 pages). Both extracted the feed title and canonical URL,
+and agreed on entry titles, URLs and publication dates after normalizing
+timezone offsets. Cloud groups intentionally repeat matching entries.
+
+All six complete root documents returned zero messages from W3C Nu. List
+heading levels now follow the document hierarchy while Bootstrap size classes
+preserve their visual sizes. Feed content uses a div instead of an article;
+the pagination results container likewise uses a div instead of an unnamed
+section. Entry and feed classes add no styles or controls.
+
+Archive, cloud and card views were inspected at 375 and 1280 px using the
+existing compiled theme stylesheet. Headings retain their sizes and no
+horizontal overflow occurs. Canonical and author metadata remain unchanged;
+feeds exclude site navigation and footers. Chatbot tests passed (17 tests);
+updated context has not been deployed.
+
+## Nested layout follow-up
+
+PR #88 review identified that two custom wrappers above a list layout caused
+the page to become h-entry instead of h-feed. The new nested-archive fixture
+reproduced this failure before the fix. Built-in list layouts now carry an
+internal chulapa_microformats_feed marker that Jekyll merges through layout
+inheritance. This internal YAML metadata is necessary because the merged
+layout.layout value retains the outer wrapper name, hiding deeper ancestors;
+no site or page configuration setting is introduced. It avoids a custom
+plugin and preserves compatibility with normal Jekyll layout rendering.
+
+Feed checks now cover 16 fixtures at root and subdirectory URLs, including two
+custom wrappers above each of archive, indexcategory, cloudtag and
+cloudcategory. Existing entry checks remain unchanged and pass.
+
+Both hosted parsers agreed on feed identity and entry metadata for the eight
+nested-layout pages at root and subdirectory URLs. The four complete root
+documents returned zero messages from W3C Nu. SEO, cloud grouping and all
+17 chatbot tests passed. The updated chatbot context has not been deployed.

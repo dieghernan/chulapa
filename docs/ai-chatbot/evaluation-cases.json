@@ -1,5 +1,19 @@
 [
   {
+    "id": "layouts-microformats-nested-feed-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "My page uses custom2, which inherits custom1, which inherits archive. Will it still be h-feed? Do I need a YAML flag in my page?",
+    "expected": "From v2.1.1 custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
+  },
+  {
+    "id": "layouts-microformats-feed-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Which Chulapa list layouts provide h-feed? Do I need new YAML options or does including indexcards automatically create a feed?",
+    "expected": "From v2.1.1 archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
+  },
+  {
     "id": "config-author-profile-1",
     "section": "config",
     "doc": "02_config.md",

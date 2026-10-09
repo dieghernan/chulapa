@@ -652,6 +652,25 @@ can simply add this line to your page:
 
 {% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
 
+### Microformats in lists
+
+From v2.1.1, `archive`, `indexcategory`, `cloudtag` and `cloudcategory`
+(including the deprecated `cloudtag2` and `cloudcategory2` aliases) declare an
+`h-feed` instead of a page-level `h-entry`. The feed uses the page heading as
+`p-name`, its canonical URL as `u-url` and the visible author card as `p-author`,
+when enabled. Each listed document is an `h-entry` with its title, URL and
+publication date when available. Cloud lists repeat entries when documents
+belong to multiple groups.
+
+Custom layouts that inherit from these list layouts retain `h-feed` through
+multiple levels of layout inheritance, without additional page configuration.
+
+The `indexcards` and `simplelist` components also mark individual entries;
+`indexcards` includes the displayed excerpt as `p-summary`. The pagination
+example in `docs/blog/index.html` wraps each page of results in its own `h-feed`.
+Custom pages using these components need their own feed wrapper if desired.
+No additional YAML settings are required.
+
 ### A note on defaults
 
 [Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) is a great way to avoid repeating yourself. You can inject fixed front matters to any file, collection or even static files all at once. A potential Front Matter Defaults configuration is proposed below:

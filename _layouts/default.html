@@ -2,7 +2,11 @@
 layout: minimal
 header_in_content: true
 ---
-<div class="h-entry d-flex flex-column flex-fill">
+{%- assign is_feed = false -%}
+{%- if layout.chulapa_microformats_feed == true -%}
+  {%- assign is_feed = true -%}
+{%- endif -%}
+<div class="{% if is_feed %}h-feed{% else %}h-entry{% endif %} d-flex flex-column flex-fill">
     {% include snippets/microformats-url.html %}
 	{% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
 	<main class="container-lg pb-3 flex-fill">
@@ -15,7 +19,7 @@ header_in_content: true
 			  {% include components/author.html %}
 			  {%- endif -%}
 			</aside>
-			<article id="maincontent" class="col-lg-8 mt-3 e-content">
+			<{% if is_feed %}div{% else %}article{% endif %} id="maincontent" class="col-lg-8 mt-3{% unless is_feed %} e-content{% endunless %}">
 			{% if page.show_sidetoc %}
 			
 			{% include components/sidetoc.html %}
@@ -29,7 +33,7 @@ header_in_content: true
 			 </nav>
 			  {% endif %}
 			{{- content -}}
-			</article>
+			</{% if is_feed %}div{% else %}article{% endif %}>
 		</div>
 	</main>
 	{%- if page.show_bottomnavs -%}

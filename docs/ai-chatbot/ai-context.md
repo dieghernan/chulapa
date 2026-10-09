@@ -604,3 +604,15 @@ use external providers. Cactus JS/CSS loads only when show_comments is true.
 The review covers six skins and representative fixtures, not every skin,
 custom widget or production site. Do not claim WCAG certification, a guaranteed
 PageSpeed score or a measured Core Web Vitals improvement.
+
+From v2.1.1, archive, indexcategory, cloudtag and cloudcategory (including
+cloudtag2/cloudcategory2 aliases) use h-feed instead of a page-level h-entry.
+Custom layouts inheriting from these list layouts retain h-feed through
+multiple levels of layout inheritance without additional page configuration.
+The page heading and canonical URL name and identify the feed; visible author
+cards provide p-author. Listed documents are h-entry objects with title, URL
+and available publication date. Cloud groups may repeat documents. indexcards
+and simplelist mark individual entries; indexcards exposes its excerpt as
+p-summary. The docs/blog/index.html pagination example wraps each results page
+in h-feed. Custom component users supply their own feed wrapper. No new YAML
+options are needed. These changes are in development and do not alter layout.

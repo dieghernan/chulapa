@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Mark archive, category and tag indexes and the pagination example as Microformats2 feeds with structured entries, without additional configuration.
+
 -   Provide complete personal blog, technical blog, portfolio and project starter examples with a start guide and YAML demos.
 
 -   Render Mermaid diagrams with `mermaid: true`, loading the library only on enabled pages containing diagrams and preserving source when rendering fails.

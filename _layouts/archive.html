@@ -1,5 +1,6 @@
 ---
 layout: default
+chulapa_microformats_feed: true
 ---
 
 {{- content -}}
@@ -49,21 +50,21 @@ layout: default
 	{%- for month in postsInMonth  -%}
 	{%- assign dateformat = month.name -%}
 	{% if dateformat %}
-	  <h5 class="font-weight-light">{% include_cached snippets/datetranslate.html  date=dateformat %}</h5>
+	  <h3 class="h5 font-weight-light">{% include_cached snippets/datetranslate.html  date=dateformat %}</h3>
 	{% endif %}
   	{%- for document in month.items -%}
 	<div class="ml-2 my-1">
 		<div class="row g-0">
-			<article class="col">
-				<h6 class="my-2"><a href="{{- document.url | absolute_url -}}" class="chulapa-text-body-color">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>
+			<article class="col h-entry">
+				<h4 class="h6 my-2"><a href="{{- document.url | absolute_url -}}" class="chulapa-text-body-color p-name u-url">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h4>
 				<p class="small mb-1">
 				{% if document.date %}
 				{% assign dateformat = document.date | date: "%A, %d" %}
-				  <time datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+				  <time class="dt-published" datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
 				  {% if document.last_modified_at %} <i class="fa fa-redo fa-sm" aria-hidden="true"></i>{% endif %}
 			  {% endif %}
 			  {%- if showcol -%}
-			    <span class="mx-1 my-1 badge chulapa-pill-bg-body">{{ document.collection }}</span>
+			    <span class="mx-1 my-1 badge chulapa-pill-bg-body p-category">{{ document.collection }}</span>
         {%- endif -%}
         </p>
 			</article>

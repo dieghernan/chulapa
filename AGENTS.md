@@ -1,5 +1,15 @@
 # Instructions for AI and coding agents
 
+## Avoid unnecessary YAML options
+
+As a general rule, theme changes must not introduce new YAML options in
+templates, layout front matter or configuration files. Reuse existing data,
+settings and conventions whenever possible. Add a YAML option only when it is
+strictly necessary, and explicitly justify why existing mechanisms cannot
+support the required behavior. This applies to internal template metadata as
+well as user-facing settings. Convenience, speculative flexibility or personal
+preference alone is not sufficient justification.
+
 ## Check user-facing changes against the documentation
 
 Before completing a change to the reusable Chulapa theme, check whether it

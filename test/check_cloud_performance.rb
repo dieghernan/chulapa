@@ -35,7 +35,7 @@ site = Jekyll::Site.new(Jekyll.configuration("source" => root, "quiet" => true, 
     raise "Unexpected word counting: #{layout}" unless calls.size == (collection ? 3 : 4)
     raise "Unused content counted" if calls.include?("unused")
     raise "Missing reading time" unless sections.map(&:text).join.include?("2’")
-    raise "Wrong article order" unless sections.find { |s| s["id"] == "beta" }.css("h6 a").map(&:text) == %w[Short Long]
+    raise "Wrong article order" unless sections.find { |s| s["id"] == "beta" }.css(".h6 a").map(&:text) == %w[Short Long]
   end
 end
 puts "Cloud ordering, counts, reading time and collection checks passed."

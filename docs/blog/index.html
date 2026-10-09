@@ -6,14 +6,17 @@ excerpt: Latest news
 og_image: /assets/img/site/banner-blog.png
 ---
 <!-- Chulapa template for pagination -->
+<div class="h-feed d-flex flex-column flex-fill">
+{% include snippets/microformats-url.html %}
 {%- include components/headers.html headertype= page.header_type imghero=page.header_img -%}
 <main class="container-lg pb-3 flex-fill">
   <div class="row pt-2 mt-3">
-    <section class="col-md-8 offset-md-2">
+    <div class="col-md-8 offset-md-2">
     {% include_cached components/indexcards.html cacheddocs=paginator.posts  cachedlimit=site.paginate %}
-    </section>
+    </div>
   </div>
 </main>
+</div>
 {%- assign max_per_page = site.paginator_maxnum | 
                          default: 3 | at_least: 2 | 
                          at_most : paginator.total_pages -%}
