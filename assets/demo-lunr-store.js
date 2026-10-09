@@ -29,7 +29,7 @@ var store = [{
       "date": "2020-05-15",
       "tags": ["news","bootstrap","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20200515_welcome",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
     },{
     "title": "Ask <span class=\"chulapa\">Chulapa</span>",
     "subtitle": "A new way to explore the documentation",
@@ -39,7 +39,7 @@ var store = [{
       "date": "2026-10-09",
       "tags": ["news","ai"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
     },{
     "title": "<span class=\"chulapa\">Chulapa</span> v2.1.0: more control over your site",
     "subtitle": "New looks, more search options and better metadata",
@@ -49,7 +49,7 @@ var store = [{
       "date": "2026-10-09",
       "tags": ["news","release","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
     },{
     "title": "Plain page",
     "subtitle": "",
