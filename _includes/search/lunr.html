@@ -5,15 +5,7 @@
 {% endif %}
 
 {% if show_attrib %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
-  
-    .lunr{
-    font-family: 'Heebo', sans-serif;
-    background-color: black;
-    color: white;
-    }
-    </style>
+<link rel="stylesheet" href="{{ '/assets/css/search-lunr.css' | relative_url }}">
 {% endif %}
 
 <form class="input-group">

@@ -5,23 +5,7 @@
 {% endif %}
 
 {% if show_attrib %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
-    
-    .fuse {
-        font-family: "Source Sans 3", serif;
-        font-weight: 400;
-        }
-      
-    .fuse-logo {
-        color: #9b59b6;
-        font-weight: bolder;
-        --fa-animation-iteration-count:1;
-        --fa-animation-duration: 0.5s;
-        --fa-animation-delay: 0.5s;
-        }
-        
-</style>
+<link rel="stylesheet" href="{{ '/assets/css/search-fusejs.css' | relative_url }}">
 
 {% endif %}
 

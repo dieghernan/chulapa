@@ -1,10 +1,10 @@
 ---
 layout: compress
 ---
-<!doctype html>
 {%- include snippets/page-language.html -%}
+<!doctype html>
 <html lang="{{ page_language | escape }}">
-	{%- include head.html -%}
+	{% include head.html %}
 	{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 	<body {% if page.mermaid == true %}data-mermaid="true" {% endif %}class="d-flex flex-column" id="body">
 	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>

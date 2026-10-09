@@ -1,5 +1,12 @@
 [
   {
+    "id": "layouts-head-formatting-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Can I keep the generated head readable with indentation? Do I need a new YAML setting? What happens to my custom head snippets?",
+    "expected": "From v2.1.1 the theme emits separate document opening and head lines with consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true, already in configuration examples, preserves head indentation while removing blank lines and clipping the body. No new setting is needed. Other compression modes follow existing site settings. Custom includes retain their own formatting; avoid Liquid trims across HTML boundaries."
+  },
+  {
     "id": "layouts-microformats-nested-feed-1",
     "section": "layouts",
     "doc": "04_layouts.md",

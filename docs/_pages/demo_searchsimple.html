@@ -11,7 +11,7 @@ breadcrumb_list:
 ---
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
-	{%- include head.html -%}
+{% include head.html %}
 	<body class="d-flex flex-column">
 	{% include_cached navbar.html pageurl=page.url %}
 <header class="text-center header-chulapa"><div class="container-lg pt-4">
@@ -26,7 +26,7 @@ breadcrumb_list:
     <div class="row">
         <div class="col-lg-8 offset-lg-2 my-auto text-center">
           <form class="input-group">
-            <label class="sr-only" for="search"> Search </label>
+            <label class="sr-only" for="search-input"> Search </label>
             <input type="search" id="search-input" class="form-control rounded-right" placeholder="{{ site.search.label | default: "Search" }}...">
         </form>
         <p class="text-right small mt-1"> Powered by <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></p>

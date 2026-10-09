@@ -10,6 +10,8 @@
 
 ### Fixed
 
+-   Associate Google and simple search labels with their input and load Lunr/Fuse attribution styles from stylesheets rather than body style blocks.
+
 -   Give navbar dropdowns a valid named group role, move no-JavaScript navigation styles into the head and remove redundant void-element slashes, JavaScript types and the empty comments section warning from theme templates.
 
 -   Preserve publication dates on updated pages and author profile URLs in Microformats2, and stop declaring automatic entries for unrestricted minimal layouts ([#86](https://github.com/dieghernan/chulapa/issues/86)).
@@ -21,6 +23,8 @@
 -   Code copy buttons wait for clipboard writes, report failures and no longer clear the clipboard before copying.
 
 ### Changed
+
+-   Format generated head HTML and JSON-LD consistently and preserve head indentation when blank-line compression is enabled.
 
 -   Add a skip link and visible keyboard focus, underline prose links and respect reduced-motion preferences without changing the lateral TOC's Tab behavior.
 
