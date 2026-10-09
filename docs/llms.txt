@@ -1,104 +1,37 @@
-# Chulapa Jekyll Theme
+# Chulapa Jekyll theme
 
-> Chulapa is a flexible, feature-rich Jekyll theme designed for GitHub Pages. It
-> enables users to quickly build responsive websites such as blogs, portfolios,
-> documentation sites, and project pages.
->
-> The theme is built on Bootstrap and integrates multiple tools for search, SEO,
-> customization, and content presentation.
+> Chulapa is a responsive Jekyll theme for blogs, portfolios, documentation and project sites. It uses Bootstrap and supports GitHub Pages and other Jekyll hosts.
 
-## Keywords
-jekyll, github-pages, bootstrap, static-site, theme, blog, documentation, seo, responsive
+The documentation is the source of truth for installation, configuration, layouts and supported integrations. Configure the site in `_config.yml` and use page front matter or Jekyll defaults for page options. Extend the theme through existing layouts, includes and assets.
 
-## Entry Points
-Documentation: https://dieghernan.github.io/chulapa/docs
-Installation: https://dieghernan.github.io/chulapa/docs/01-install
-Configuration: https://dieghernan.github.io/chulapa/docs/02-config
-Theming: https://dieghernan.github.io/chulapa/docs/03-theming
-Layouts: https://dieghernan.github.io/chulapa/docs/04-layouts
-FAQs: https://dieghernan.github.io/chulapa/docs/05-faq
-Markdown: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
-Syntax Highlighting: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
-Variables: https://dieghernan.github.io/chulapa/docs/variable-dictionary
+The documentation also covers development changes after v2.1.0. Mermaid diagrams and the accessibility and resource-loading improvements are not included in the v2.1.0 gem or pinned remote theme. Check each page's version caveats and the theme version used by the site before applying its advice. Some integrations require third-party services, and accessibility depends on the site's content, skin and customizations as well as the theme.
 
-## Core Features
-- Responsive design (Bootstrap)
-- Multiple navbar layouts and UI components
-- Tag, archive, and index layouts
-- Multi-author support
+## Getting started
 
-## Content & Rendering
-- Markdown-based content
-- Syntax highlighting (Pygments / Rouge)
-- Math rendering (MathJax)
-- Image galleries (Masonry)
-- Embedded video (YouTube, Vimeo)
-- Reading time and metadata
+- [Documentation overview](https://dieghernan.github.io/chulapa/docs): Main documentation index.
+- [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): The Chulapa 101 personal-blog template and minimal blog, technical-blog, portfolio and project examples.
+- [Installation](https://dieghernan.github.io/chulapa/docs/01-install): GitHub template, remote-theme and gem-based installation, dependencies and deployment guidance.
+- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Site metadata, navigation, search, comments, collections and Jekyll defaults.
 
-## Search Options
-- Algolia
-- Lunr.js
-- Fuse.js
-- Simple-Jekyll-Search
+## Theme and content reference
 
-## SEO & Metadata
-- Open Graph metadata
-- Twitter/X Cards
-- Structured data (JSON-LD)
-- RSS and Atom feeds
+- [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Layouts, page options, headers, TOCs, galleries, media, MathJax and Mermaid diagrams.
+- [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
+- [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
+- [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Rendered examples for supported code languages.
 
-## Comments
-- Disqus
-- Giscus
+## Troubleshooting and site checks
 
-## Installation
-1. GitHub Template (recommended)
-2. Remote theme:
-   - Add `remote_theme: dieghernan/chulapa` to `_config.yml`
-3. Gem-based:
-   - Add `gem "chulapa-jekyll"` to Gemfile
-   - Set `theme: chulapa-jekyll`
+- [Frequently asked questions](https://dieghernan.github.io/chulapa/docs/05-faq): Common setup and customization questions.
+- [Accessibility and performance](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance): Keyboard navigation, visible focus, reduced motion, contrast and resource-loading advice, with development-version caveats.
 
-## Configuration
-Managed via `_config.yml`:
+## Optional
 
-- Site metadata: `title`, `description`, `locale`
-- SEO: `og_image`, `twitter_site`
-- Author: name, avatar, location, social links
-- Navigation: navbar and footer
-- Theming: skins and variables
-- Pagination: `paginator_maxnum`
-
-## Theming
-- 40+ predefined skins (Bootswatch-based)
-- Custom variables via `_config.yml`
-- CSS overrides supported
-- Sandbox for experimentation
-
-## Key Files
-- `_config.yml` -- global configuration
-- `_posts/` -- blog content
-- `_layouts/` -- templates
-- `_includes/` -- reusable components
-- `assets/` -- CSS, JS, images
-
-## Use Cases
-- Personal blogs
-- Technical documentation
-- Data science portfolios
-- Open-source project sites
-- Multi-author websites
-
-## Ecosystem & Extensions
-- Compatible with Jekyll plugins and Liquid templates
-- Supports GitHub Pages workflows
-- Extendable via layouts, includes, and assets
-
-## Constraints
-- Requires Jekyll knowledge
-- YAML configuration required
-- Advanced customization uses Liquid templates
-- Some features depend on third-party services (e.g., Algolia, Disqus)
-
-## Summary
-Flexible, production-ready Jekyll theme for GitHub Pages combining ease of setup with extensive customization.
+- [Chulapa v2.1.0 overview](https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0): Released features, configuration examples and upgrade steps, with a separately labeled development preview.
+- [Demos](https://dieghernan.github.io/chulapa/demo): Working examples of layouts and integrations.
+- [Skins](https://dieghernan.github.io/chulapa/skins): Skin previews and available choices.
+- [Chulapa 101](https://github.com/dieghernan/chulapa-101): Editable personal-blog template with GitHub Pages publishing workflows.
+- [Minimal example sources](https://github.com/dieghernan/chulapa/tree/main/examples): Source files for the four starter examples.
+- [Documentation sources](https://github.com/dieghernan/chulapa/tree/main/docs/collections/_docs): Markdown sources for the documentation pages.
+- [Theme source](https://github.com/dieghernan/chulapa): Theme implementation and development history.

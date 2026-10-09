@@ -1,5 +1,30 @@
 # Instructions for AI and coding agents
 
+## Format the theme name in rendered documentation
+
+When rendered documentation refers to the theme by name, use
+`<span class="chulapa">Chulapa</span>` so it receives the theme's brand styling.
+Apply this to visible prose, headings and front matter that renders as HTML,
+including titles, subtitles and excerpts. Follow the examples in
+`collections/_docs/01_install.md`.
+
+Keep plain-text metadata, accessible names and image alt text as plain text.
+Do not add spans inside code blocks, inline code, URLs, file paths or identifiers
+such as `chulapa-skin`. Preserve the spelling required by configuration and code.
+
+## Keep the LLM guide aligned with the docs
+
+When adding documentation in this directory, assess whether the new page should
+be included in `llms.txt`. Prioritize installation, configuration, supported
+features, troubleshooting and guidance that helps readers use the theme.
+
+- Add useful pages with a concise description and their public documentation URL.
+  Keep the guide selective rather than listing every page or copying its content.
+- When documentation is moved, removed or materially changed, review affected
+  links, descriptions and version caveats in `llms.txt`.
+- State in the task summary whether the guide was updated. If a new page does
+  not need an entry, briefly explain why.
+
 ## Keep the chatbot context aligned with the docs
 
 When changing documentation, configuration examples, supported options, layouts,
