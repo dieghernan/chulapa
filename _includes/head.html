@@ -306,20 +306,30 @@ where_exp: "item", "item.url contains 'http'"
     {% endif %}
     <meta property="og:type" content="{{ og_type | escape }}" >
     {% if og_type == 'article' %}
-      {% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema | escape }}">{% endif %}
-      {% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema | escape }}">{% endif %}
+      {% if page.date %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema | escape }}">
+      {% endif %}
+      {% if page.last_modified_at %}
+    <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema | escape }}">
+      {% endif %}
       {% assign article_author = page.og_article_author | strip %}
       {% if article_author == empty %}
         {% if page.author %}{% assign article_author = page.author.url | strip %}
         {% else %}{% assign article_author = site.author.url | strip %}{% endif %}
       {% endif %}
-      {% if article_author != empty %}<meta property="article:author" content="{{ article_author | absolute_url | escape }}">{% endif %}
+      {% if article_author != empty %}
+    <meta property="article:author" content="{{ article_author | absolute_url | escape }}">
+      {% endif %}
       {% assign article_section = page.og_article_section | strip %}
       {% if article_section == empty %}{% assign article_section = page.categories | first | strip %}{% endif %}
-      {% if article_section != empty %}<meta property="article:section" content="{{ article_section | escape }}">{% endif %}
+      {% if article_section != empty %}
+    <meta property="article:section" content="{{ article_section | escape }}">
+      {% endif %}
       {% for article_tag in page.tags %}
         {% assign article_tag_text = article_tag | strip %}
-        {% if article_tag_text != empty %}<meta property="article:tag" content="{{ article_tag_text | escape }}">{% endif %}
+        {% if article_tag_text != empty %}
+    <meta property="article:tag" content="{{ article_tag_text | escape }}">
+        {% endif %}
       {% endfor %}
     {% endif %}
     <meta property="og:description" content="{{ ogdesc }}" >
