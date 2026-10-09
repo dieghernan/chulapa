@@ -39,7 +39,7 @@ var store = [{
       "date": "2026-10-09",
       "tags": ["news","ai"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot",
-      "img": null
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg"
     },{
     "title": "<span class=\"chulapa\">Chulapa</span> v2.1.0: more control over your site",
     "subtitle": "New looks, more search options and better metadata",
@@ -49,7 +49,7 @@ var store = [{
       "date": "2026-10-09",
       "tags": ["news","release","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0",
-      "img": null
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg"
     },{
     "title": "Plain page",
     "subtitle": "",

@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Fri, 09 Oct 2026 13:15:27 +0200</pubDate>
-		<lastBuildDate>Fri, 09 Oct 2026 13:15:27 +0200</lastBuildDate>
+		<pubDate>Fri, 09 Oct 2026 14:05:18 +0200</pubDate>
+		<lastBuildDate>Fri, 09 Oct 2026 14:05:18 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -223,8 +223,8 @@ you build. Share your site or feedback in
 			<link>https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</link>
 			<category>posts</category>
 		    <category>jekyll</category><category>news</category><category>release</category><media:title type="html"><![CDATA[<span class="chulapa">Chulapa</span> v2.1.0: more control over your site ]]></media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" medium="image"/>
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg" medium="image"/>
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
 		</item><item>
 			<title>Ask Chulapa</title>
@@ -260,8 +260,8 @@ answer testing and the mobile interface, on my blog:
 			<link>https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</link>
 			<category>posts</category>
 		    <category>ai</category><category>news</category><media:title type="html"><![CDATA[Ask <span class="chulapa">Chulapa</span> ]]></media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" medium="image"/>
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg" medium="image"/>
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
 		</item><item>
 			<title>Welcome</title>

@@ -41,7 +41,7 @@
       "date": "2026-10-09",
       "tags": "news, ai",
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot",
-      "img": ": none; display: none;"
+      "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg')"
     } ,
   {
       "title": "Chulapa v2.1.0: more control over your site",
@@ -52,7 +52,7 @@
       "date": "2026-10-09",
       "tags": "news, release, jekyll",
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0",
-      "img": ": none; display: none;"
+      "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid.jpg')"
     } ,
   {
       "title": "Plain page",
