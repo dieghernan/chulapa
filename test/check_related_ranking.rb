@@ -1,6 +1,7 @@
 # Run from test: bundle exec ruby check_related_ranking.rb
 require "jekyll"
 require "json"
+require "nokogiri"
 
 root = File.expand_path("..", __dir__)
 site = Jekyll::Site.new(Jekyll.configuration("source" => root, "quiet" => true, "plugins" => [], "theme" => nil, "remote_theme" => nil))
@@ -22,7 +23,7 @@ documents = [
       {"site" => {"documents" => documents}, "page" => {"url" => "/self", "tags" => tags, "collection" => "posts"}},
       filters: [Jekyll::Filters], registers: {site: site}
     )
-    ids = JSON.parse(output.sub(/<!--.*?-->/m, "").strip)
+    ids = JSON.parse(Nokogiri::HTML.fragment(output).text.strip)
     expected = tags == %w[x y z] ? %w[best newer older other] : []
     raise "#{component}: expected #{expected}, got #{ids}" unless ids == expected
   end
