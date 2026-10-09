@@ -2,7 +2,8 @@
 
 This assistant implements issue #74 as a documentation-site extension. It
 serves an embeddable widget from one Cloudflare Worker. The site's
-custom include loads it on the homepage, documentation index and guides, controlled by
+custom include loads it on the homepage, documentation index, guides and the
+Ask Chulapa announcement post, controlled by
 `docs_chat` in `docs/_config.yml`. There are no API keys in the browser.
 
 ## Build and test

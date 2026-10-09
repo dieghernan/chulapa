@@ -1,6 +1,6 @@
 <!-- start custom scripts to be placed at the bottom of the page -->
 {% if site.docs_chat.enabled and site.docs_chat.worker_url %}
-  {% if page.url == '/' or page.url == '/index.html' or page.collection == 'docs' or page.url == '/docs' or page.url == '/docs/' %}
+  {% if page.url == '/' or page.url == '/index.html' or page.collection == 'docs' or page.url == '/docs' or page.url == '/docs/' or page.url == '/blog/20261009_building-a-documentation-chatbot' %}
     <script defer
             src="{{ site.docs_chat.worker_url | append: '/widget.js' | escape }}"
             data-endpoint="{{ site.docs_chat.worker_url | append: '/api/chat' | escape }}"

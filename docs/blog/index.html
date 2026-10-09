@@ -3,7 +3,8 @@ layout: minimal
 title: '<span class="chulapa">Chulapa</span> blog'
 subtitle: 'News and updates'
 excerpt: Latest news
-og_image: /assets/img/site/banner-blog.png
+header_img: "./assets/img/site/chulapa-madrid-hd.webp"
+schema_image: "/assets/img/site/chulapa-madrid-hd.webp"
 ---
 <!-- Chulapa template for pagination -->
 <div class="h-feed d-flex flex-column flex-fill">
@@ -17,10 +18,10 @@ og_image: /assets/img/site/banner-blog.png
   </div>
 </main>
 </div>
-{%- assign max_per_page = site.paginator_maxnum | 
-                         default: 3 | at_least: 2 | 
+{%- assign max_per_page = site.paginator_maxnum |
+                         default: 3 | at_least: 2 |
                          at_most : paginator.total_pages -%}
-                         
+
 {%- assign prelast = paginator.total_pages | minus: 1 -%}
 
 {%- if paginator.page < max_per_page -%}
@@ -62,7 +63,7 @@ og_image: /assets/img/site/banner-blog.png
                     <li class="d-flex flex-grow-1">
                     <ul class="list-unstyled d-flex flex-grow-1 justify-content-center chulapa-pagination-inner">
                       {% for num in (init..end) -%}
-                      
+
                         <li class="page-item {% if num== paginator.page %} active {%- endif -%}">
                           <a class="page-link border-0 rounded-0" href="{%- if num == 1 -%}{{- site.paginate_path | relative_url | replace: '/page:num/', '/' -}}
                           {%- else  -%}{{- site.paginate_path | relative_url | replace: ':num', num -}}{%- endif -%}
