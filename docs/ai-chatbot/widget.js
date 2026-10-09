@@ -39,7 +39,7 @@ import sparkles from './sparkles.svg';
     #hint{margin:0;padding:.65rem 1rem;font-size:.8rem;color:var(--muted)}#recovery{padding:0 1rem .65rem;font-size:.85rem}#retry{padding:.5rem .75rem;border-radius:.4rem;min-height:2.75rem;margin-right:.5rem}
     form{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem}input{min-width:0;flex:1;padding:.7rem .8rem;border:1px solid #aab2b9;border-radius:.65rem;background:var(--surface);color:inherit}input::placeholder{color:var(--muted)}
     #send{width:2.75rem;height:2.75rem;flex-shrink:0;border-radius:.65rem;font-size:1.3rem}#status{padding:0 1rem;color:var(--muted);font-size:.8rem}#status:not(:empty){padding-bottom:.65rem}button:disabled{opacity:.6;cursor:wait}
-    @media(max-width:991.98px){#launch{left:var(--chat-right,1rem);right:auto;bottom:var(--chat-fab-bottom,1rem);transform:none}}
+    @media(max-width:991.98px){#launch{left:auto;right:var(--chat-right,1rem);bottom:var(--chat-stacked-bottom,1rem);transform:none}}
     .mobile-notice{display:none}
     @media(max-width:991.98px){section{bottom:calc(1rem + var(--chat-keyboard-inset,0px));max-height:calc(var(--chat-visible-height,100dvh) - 2rem)}input,.message{font-size:16px}.desktop-notice{display:none}.mobile-notice{display:inline}}
     @media(max-width:575px){section{height:auto}#log{flex-basis:auto;max-height:calc(var(--chat-visible-height,100dvh) * .4)}header{padding:.65rem 1rem}.subtitle{display:none}}
@@ -131,20 +131,20 @@ import sparkles from './sparkles.svg';
   get('close').onclick = close;
   const menu = document.getElementById(script.dataset.menuToggle || '');
   const sidebar = document.getElementById(script.dataset.sidebarToggle || '');
-  const fab = menu?.labels?.[0];
+  const fab = menu?.labels?.[0] || (menu?.matches('button') ? menu : null);
   if (fab) {
     const alignFab = () => {
       const style = getComputedStyle(fab);
       host.style.setProperty('--chat-right', style.right);
       host.style.setProperty('--chat-launch-size', style.width);
-      host.style.setProperty('--chat-fab-bottom', style.bottom);
+      host.style.setProperty('--chat-stacked-bottom', `calc(${style.bottom} + ${style.height} + 1rem)`);
     };
     window.addEventListener('resize', alignFab);
     alignFab();
   }
   if (menu || sidebar) {
     const syncMenu = () => {
-      const navigationOpen = Boolean(menu?.checked || sidebar?.getAttribute('aria-expanded') === 'true');
+      const navigationOpen = Boolean(menu?.checked || menu?.getAttribute('aria-expanded') === 'true' || sidebar?.getAttribute('aria-expanded') === 'true');
       host.hidden = navigationOpen;
       if (navigationOpen) {
         get('chat').hidden = true; get('launch').hidden = false;
@@ -152,6 +152,9 @@ import sparkles from './sparkles.svg';
       }
     };
     menu?.addEventListener('change', syncMenu);
+    if (menu) new MutationObserver(syncMenu).observe(menu, {
+      attributes: true, attributeFilter: ['aria-expanded']
+    });
     if (sidebar) new MutationObserver(syncMenu).observe(sidebar, {
       attributes: true, attributeFilter: ['aria-expanded']
     });

@@ -488,14 +488,6 @@ For code syntax, use a fenced Markdown code block with its language identifier.
 The preview alone does not save configuration. The highlight style can override
 pre-chulapa-bg-color.
 
-## Development branch change
-Source: https://dieghernan.github.io/chulapa/docs/05-faq#know-which-version-of-the-theme-i-am-using
-As of October 8, 2026, v2.1.1-dev work merged into the default branch moves the
-TOC sidebar button upward below 992 px, reserving a 56 px button and a spacer
-underneath. It is available to sites using the updated default branch, including
-these docs, but is not included in the pinned v2.1.0 release or gem. Do not
-describe it as behavior in v2.1.0; sites must rebuild to receive updated CSS.
-
 ## Localized dates
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dates
 locale sets the HTML language, not a complete interface translation. Date names
