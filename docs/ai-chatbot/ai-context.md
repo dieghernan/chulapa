@@ -607,6 +607,8 @@ PageSpeed score or a measured Core Web Vitals improvement.
 
 From v2.1.1, archive, indexcategory, cloudtag and cloudcategory (including
 cloudtag2/cloudcategory2 aliases) use h-feed instead of a page-level h-entry.
+Custom layouts inheriting from these list layouts retain h-feed through
+multiple levels of layout inheritance without additional page configuration.
 The page heading and canonical URL name and identify the feed; visible author
 cards provide p-author. Listed documents are h-entry objects with title, URL
 and available publication date. Cloud groups may repeat documents. indexcards

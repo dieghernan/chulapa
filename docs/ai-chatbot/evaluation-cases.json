@@ -1,5 +1,12 @@
 [
   {
+    "id": "layouts-microformats-nested-feed-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "My page uses custom2, which inherits custom1, which inherits archive. Will it still be h-feed? Do I need a YAML flag in my page?",
+    "expected": "From v2.1.1 custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
+  },
+  {
     "id": "layouts-microformats-feed-1",
     "section": "layouts",
     "doc": "04_layouts.md",

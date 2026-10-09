@@ -662,6 +662,9 @@ when enabled. Each listed document is an `h-entry` with its title, URL and
 publication date when available. Cloud lists repeat entries when documents
 belong to multiple groups.
 
+Custom layouts that inherit from these list layouts retain `h-feed` through
+multiple levels of layout inheritance, without additional page configuration.
+
 The `indexcards` and `simplelist` components also mark individual entries;
 `indexcards` includes the displayed excerpt as `p-summary`. The pagination
 example in `docs/blog/index.html` wraps each page of results in its own `h-feed`.

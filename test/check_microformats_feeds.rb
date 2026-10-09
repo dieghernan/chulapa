@@ -8,10 +8,14 @@ require "tmpdir"
 require "fileutils"
 
 root = File.expand_path("..", __dir__)
-layouts = %w[archive indexcategory cloudtag cloudcategory cloudtag2 cloudcategory2 derived-feed]
+layouts = %w[archive indexcategory cloudtag cloudcategory cloudtag2 cloudcategory2 derived-feed nested-archive nested-indexcategory nested-cloudtag nested-cloudcategory]
 Dir.mktmpdir("chulapa-feeds-") do |source|
   %w[_layouts _includes].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
   File.write(File.join(source, "_layouts/derived-feed.html"), "---\nlayout: archive\n---\n{{ content }}")
+  %w[archive indexcategory cloudtag cloudcategory].each do |base|
+    File.write(File.join(source, "_layouts/wrapper-#{base}.html"), "---\nlayout: #{base}\n---\n{{ content }}")
+    File.write(File.join(source, "_layouts/nested-#{base}.html"), "---\nlayout: wrapper-#{base}\n---\n{{ content }}")
+  end
   FileUtils.mkdir_p(File.join(source, "_posts"))
   FileUtils.mkdir_p(File.join(source, "blog"))
   FileUtils.cp(File.join(root, "docs/blog/index.html"), File.join(source, "blog/index.html"))
@@ -33,7 +37,7 @@ Dir.mktmpdir("chulapa-feeds-") do |source|
       raise "Feed count: #{layout}" unless feeds.size == 1
       feed = feeds.first
       entries = feed.css(".h-entry")
-      expected_count = layout.start_with?("cloud") ? 3 : 2
+      expected_count = layout.include?("cloud") ? 3 : 2
       raise "Entry count: #{layout}" unless entries.size == expected_count && doc.css(".h-entry").size == expected_count
       raise "Feed title: #{layout}" unless feed.at_css("header .p-name").text.strip == "Feed title"
       raise "Feed URL: #{layout}" unless feed.at_xpath("./a[contains(@class, 'u-url')]")["href"] == "https://example.com#{baseurl}/#{layout}.html"
@@ -44,7 +48,7 @@ Dir.mktmpdir("chulapa-feeds-") do |source|
         raise "Entry title contamination: #{layout}" unless ["First entry", "Second entry"].include?(name)
         raise "Entry URL: #{layout}: #{entry.at_css(".u-url")["href"]}" unless entry.at_css(".u-url")["href"].start_with?("https://example.com#{baseurl}/2024/")
         raise "Entry date: #{layout}" unless entry.at_css(".dt-published")["datetime"].start_with?("2024-")
-        if layout == "indexcategory"
+        if %w[indexcategory nested-indexcategory].include?(layout)
           raise "Missing card summary" unless entry.at_css(".p-summary").text.include?("summary.")
           raise "Card dates outside entry" unless entry.at_css(".card-footer .dt-published")
         end
@@ -77,4 +81,4 @@ Dir.mktmpdir("chulapa-feeds-") do |source|
     end
   end
 end
-puts "Microformats feed checks passed (12 fixtures, root and subdirectory URLs)."
+puts "Microformats feed checks passed (16 fixtures, root and subdirectory URLs)."

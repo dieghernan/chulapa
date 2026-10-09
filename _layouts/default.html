@@ -2,9 +2,8 @@
 layout: minimal
 header_in_content: true
 ---
-{%- assign feed_layouts = 'archive,indexcategory,cloudtag,cloudcategory,cloudtag2,cloudcategory2' | split: ',' -%}
 {%- assign is_feed = false -%}
-{%- if feed_layouts contains page.layout or feed_layouts contains layout.layout -%}
+{%- if layout.chulapa_microformats_feed == true -%}
   {%- assign is_feed = true -%}
 {%- endif -%}
 <div class="{% if is_feed %}h-feed{% else %}h-entry{% endif %} d-flex flex-column flex-fill">

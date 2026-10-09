@@ -113,3 +113,23 @@ existing compiled theme stylesheet. Headings retain their sizes and no
 horizontal overflow occurs. Canonical and author metadata remain unchanged;
 feeds exclude site navigation and footers. Chatbot tests passed (17 tests);
 updated context has not been deployed.
+
+## Nested layout follow-up
+
+PR #88 review identified that two custom wrappers above a list layout caused
+the page to become h-entry instead of h-feed. The new nested-archive fixture
+reproduced this failure before the fix. Built-in list layouts now carry an
+internal chulapa_microformats_feed marker that Jekyll merges through layout
+inheritance. This internal YAML metadata is necessary because the merged
+layout.layout value retains the outer wrapper name, hiding deeper ancestors;
+no site or page configuration setting is introduced. It avoids a custom
+plugin and preserves compatibility with normal Jekyll layout rendering.
+
+Feed checks now cover 16 fixtures at root and subdirectory URLs, including two
+custom wrappers above each of archive, indexcategory, cloudtag and
+cloudcategory. Existing entry checks remain unchanged and pass.
+
+Both hosted parsers agreed on feed identity and entry metadata for the eight
+nested-layout pages at root and subdirectory URLs. The four complete root
+documents returned zero messages from W3C Nu. SEO, cloud grouping and all
+17 chatbot tests passed. The updated chatbot context has not been deployed.
