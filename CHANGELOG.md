@@ -26,8 +26,6 @@
 
 -   Serve the Chulapa font from the installed theme and load Cactus resources only on pages with comments enabled.
 
--   Raise the TOC sidebar button below the 992 px breakpoint, leaving room for a 56 px floating button and a spacer beneath it.
-
 ## v2.1.0 - 2026-10-08
 
 ### Fixed

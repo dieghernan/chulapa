@@ -75,6 +75,10 @@ and identifiers such as `chulapa-skin` retain their original formatting.
 
 ## Evaluation
 
+Below the 992 px breakpoint, the chatbot launcher sits above the navbar FAB
+with a 1rem gap. Its size and right margin follow the FAB's computed styles.
+Opening either navigation panel still hides the chatbot controls.
+
 AI and coding agents must follow [the docs maintenance instructions](../AGENTS.md)
 when documentation changes affect the chatbot's reviewed context.
 

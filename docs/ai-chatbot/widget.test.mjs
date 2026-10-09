@@ -7,8 +7,8 @@ const bundle = readFileSync(new URL('.build/widget.js', import.meta.url), 'utf8'
 const storageKey = 'chulapa-docs-chat:v1';
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
 
-function widget({ mobile = true, saved, fetch, blockedStorage = false, visualViewport } = {}) {
-  const dom = new JSDOM('<body></body>', {
+function widget({ mobile = true, saved, fetch, blockedStorage = false, visualViewport, fab = '' } = {}) {
+  const dom = new JSDOM(`<body>${fab}</body>`, {
     url: 'https://dieghernan.github.io/chulapa/docs/05-faq',
     runScripts: 'dangerously', pretendToBeVisual: true
   });
@@ -22,11 +22,32 @@ function widget({ mobile = true, saved, fetch, blockedStorage = false, visualVie
   });
   const script = window.document.createElement('script');
   script.dataset.endpoint = 'https://demo.workers.dev/api/chat';
+  if (fab) script.dataset.menuToggle = 'menu';
   script.textContent = bundle;
   window.document.body.append(script);
   const root = window.document.querySelector('div').shadowRoot;
   return { dom, window, root, get: id => root.getElementById(id) };
 }
+
+test('aligns with button and legacy label FABs and tracks navigation state', async () => {
+  for (const fab of [
+    '<button id="menu" aria-expanded="false" style="right:24px;bottom:50px;width:56px;height:56px"></button>',
+    '<input id="menu" type="checkbox"><label for="menu" style="right:24px;bottom:50px;width:56px;height:56px"></label>'
+  ]) {
+    const ui = widget({ fab });
+    const host = ui.root.host;
+    assert.equal(host.style.getPropertyValue('--chat-right'), '24px');
+    assert.equal(host.style.getPropertyValue('--chat-stacked-bottom'), 'calc(50px + 56px + 1rem)');
+    const menu = ui.window.document.getElementById('menu');
+    menu.setAttribute('aria-expanded', 'true');
+    await tick();
+    assert.equal(host.hidden, true);
+    menu.setAttribute('aria-expanded', 'false');
+    await tick();
+    assert.equal(host.hidden, false);
+    ui.dom.window.close();
+  }
+});
 
 test('mobile opening avoids the keyboard; desktop opening focuses the question', () => {
   for (const mobile of [true, false]) {

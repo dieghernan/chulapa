@@ -1040,9 +1040,6 @@ h6 {
 
 .chulapa-btn-sidebar {
   bottom: 1.05 * map-get($spacers, 5);
-  @include media-breakpoint-down(md) {
-    bottom: calc(#{1.05 * map-get($spacers, 5)} + 56px + #{map-get($spacers, 3)});
-  }
   left: 0;
   margin-left: -400px;
   opacity: 0.4;

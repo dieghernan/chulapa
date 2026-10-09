@@ -1,5 +1,17 @@
 # Live evaluation
 
+## Launcher above the FAB, October 9, 2026
+
+Below 992 px, the launcher is stacked above the navbar FAB with a 1rem gap,
+using its computed height, size and right margin. Chrome checks at 390 and
+991 px confirmed matching 56 px button widths and matching right margins;
+at 992 px the existing desktop placement remains active. No answer-context
+update is needed because this changes only the docs widget's launcher position.
+The published navbar now uses a button rather than the former checkbox label.
+The widget supports both and observes aria-expanded on the button. A live
+600 px viewport check confirmed equal 56 px widths, matching right margins
+and a 16 px vertical gap. Opening the real navbar hides the chatbot launcher.
+
 ## Long-history scrolling
 
 Reproduced the secondary panel scrollbar in Chrome with 20 long restored
@@ -62,7 +74,7 @@ guidance. These questions form the regression checklist:
 - How do I disable rounded Bootstrap buttons?
 - How do I write a numbered list and a fenced YAML block?
 - Does selecting a highlighting style in the demo save it to my site?
-- Is the raised TOC button already available in v2.1.0?
+- Does the TOC sidebar button retain its v2.1.0 position on narrow screens?
 
 When public documentation changes:
 
