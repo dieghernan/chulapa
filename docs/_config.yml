@@ -251,6 +251,8 @@ defaults:
     type: "posts"
   values:
     header_type: "post"
+    header_img : "./assets/img/site/chulapa-madrid.jpg"
+    schema_image: /assets/img/site/chulapa-madrid.jpg
     include_on_search: true
     include_on_feed: true
     show_date: true
