@@ -10,3 +10,13 @@ Validated on 2026-10-09 for the development version.
 No CSS, controls or interactions changed. SEO validation focused on unchanged metadata and valid structured data. Existing compression settings are respected; readable blank-line compression now preserves head indentation while still clipping the body. Custom head includes retain their own whitespace. No YAML option was added.
 
 The documentation, development changelog and chatbot context describe the new output formatting. The updated chatbot context has not been deployed.
+
+## Search layout follow-up
+
+The PR review identified that the standalone search layout still joined its
+document opening through Liquid trims. Adding the search fixture reproduced
+the failure before the correction. Language calculation now precedes the
+doctype and the head include preserves surrounding newlines. The five
+formatting fixtures pass; the complete search page returned zero messages
+from W3C Nu. This completes the documented behavior without adding settings
+or changing search controls or metadata.
