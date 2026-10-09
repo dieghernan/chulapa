@@ -9,7 +9,7 @@ header_type: "base"
 ---
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
-	{%- include head.html -%}
+{% include head.html %}
 	<body class="d-flex flex-column">
 {%- assign thispageurl = page.url | replace: ".html", ""  -%}
 <nav class="navbar navbar-expand-md sticky-top navbar-chulapa">

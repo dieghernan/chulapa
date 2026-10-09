@@ -10,8 +10,8 @@ include_on_search: false
 ---
 <!doctype html>
 <html lang="{{- site.locale | default: 'en-US' -}}">
-	{%- include head.html -%}
-
+{% capture widget_head %}{% include head.html %}{% endcapture %}
+{% capture widget_styles %}
 <style>
 audio,
 canvas,
@@ -34,6 +34,10 @@ template {
   display: none;
 }
 </style>
+</head>{% endcapture %}
+{{ widget_head | replace: "</head>", widget_styles }}
+
+
 <body style="background-color: transparent">
   <div class="
       cell border-box-sizing code_cell rendered" style="display: none">
