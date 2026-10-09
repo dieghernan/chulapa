@@ -6,7 +6,8 @@ source = File.read(File.join(root, "_layouts/compress.html")).sub(/\A---.*?---\s
 fixtures = [
   ["<div>one</div>\n\n \t\r\n<p>two  words</p>\n", "<div>one</div>\n<p>two  words</p>\n"],
   ["<pre class='code'>  a\n\n b\t</pre>\n\n<p>x</p>", "<pre class='code'>  a\n\n b\t</pre>\n<p>x</p>\n"],
-  ["<div>\0</div>\n\0\n", "<div>\0</div>\n\0\n"]
+  ["<div>\0</div>\n\0\n", "<div>\0</div>\n\0\n"],
+  ["<head>\n    <meta charset='utf-8'>\n    <link href='style.css'>\n</head>\n <div>x</div>", "<head>\n    <meta charset='utf-8'>\n    <link href='style.css'>\n</head>\n<div>x</div>\n"]
 ]
 fixtures.each do |content, expected|
   output = Liquid::Template.parse(source).render!(

@@ -616,3 +616,11 @@ and simplelist mark individual entries; indexcards exposes its excerpt as
 p-summary. The docs/blog/index.html pagination example wraps each results page
 in h-feed. Custom component users supply their own feed wrapper. No new YAML
 options are needed. These changes are in development and do not alter layout.
+
+From v2.1.1, generated document openings and head tags use separate lines and
+consistent indentation. With the existing compress_html.blanklines: true
+setting (already in theme configuration examples), compression removes blank
+lines and preserves head indentation while clipping the body. Full compression
+and disabled compression still follow existing site settings. No new option
+is needed. Custom head includes retain their own formatting; Liquid -%} can
+remove newlines between emitted tags, so avoid trimming across HTML boundaries.

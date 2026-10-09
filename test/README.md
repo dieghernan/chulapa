@@ -33,6 +33,7 @@ Run the checks from the repository root after `bundle install`:
 bundle exec ruby test/check_microformats_feeds.rb
 bundle exec ruby test/check_seo_fixes.rb
 bundle exec ruby test/check_head_metadata.rb
+bundle exec ruby test/check_head_formatting.rb
 bundle exec ruby test/check_fontawesome_kit.rb
 bundle exec ruby test/check_skins_grid.rb
 bundle exec ruby test/check_social_metadata.rb

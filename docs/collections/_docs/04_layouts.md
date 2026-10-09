@@ -671,6 +671,21 @@ example in `docs/blog/index.html` wraps each page of results in its own `h-feed`
 Custom pages using these components need their own feed wrapper if desired.
 No additional YAML settings are required.
 
+### Generated head formatting
+
+From v2.1.1, the theme separates the document opening and head tags onto
+individual lines and consistently indents its HTML and JSON-LD. With the
+existing `compress_html.blanklines: true` setting, compression removes blank
+lines and preserves head indentation while continuing to clip the body.
+The theme's configuration examples already use this setting; no new option is
+required. Explicit full compression or disabled compression still follows the
+site's existing `compress_html` settings.
+
+Custom head includes retain their own formatting. When writing them, avoid
+using Liquid whitespace control across emitted HTML boundaries: `-%}` can
+remove a newline and join adjacent tags. See
+[Liquid whitespace control](https://shopify.github.io/liquid/basics/whitespace/).
+
 ### A note on defaults
 
 [Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) is a great way to avoid repeating yourself. You can inject fixed front matters to any file, collection or even static files all at once. A potential Front Matter Defaults configuration is proposed below:

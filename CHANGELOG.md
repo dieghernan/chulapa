@@ -22,6 +22,8 @@
 
 ### Changed
 
+-   Format generated head HTML and JSON-LD consistently and preserve head indentation when blank-line compression is enabled.
+
 -   Add a skip link and visible keyboard focus, underline prose links and respect reduced-motion preferences without changing the lateral TOC's Tab behavior.
 
 -   Serve the Chulapa font from the installed theme and load Cactus resources only on pages with comments enabled.

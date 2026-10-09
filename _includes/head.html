@@ -1,11 +1,3 @@
-<head>
-    <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.1.0 -->
-    <!--  MIT License-->
-    <!-- Docs: https://dieghernan.github.io/chulapa -->
-    <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
-     <!-- Jekyll Version {{ jekyll.version }} -->
     {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign home_url = '/' | absolute_url | uri_escape -%}
 {%- include snippets/breadcrumb-names.html -%}
@@ -115,189 +107,176 @@
 {%- else -%}
   {%- assign schema_type = "WebPage" -%}
 {%- endif %}
-    <!--Google Structured Data-->
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - v2.1.0 -->
+    <!-- MIT License -->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build {{ site.time | date: "%Y-%m-%d" }} -->
+    <!-- Jekyll Version {{ jekyll.version }} -->
+    <!-- Google structured data -->
     <script type="application/ld+json">
-        {
-      "@context": "https://schema.org",
-      "@type": {{ schema_type | jsonify }},
+      {
+        "@context": "https://schema.org",
+        "@type": {{ schema_type | jsonify }},
       {% if schema_type == 'WebPage' %}
-      "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
-      "name": {% include snippets/jsonld-string.html value=metatitle1 %},
-      "description": {% include snippets/jsonld-string.html value=ogdesc %},
+        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=metatitle1 %},
+        "description": {% include snippets/jsonld-string.html value=ogdesc %},
       {% elsif schema_type == 'WebSite' %}
-      "@id": {%- assign jsonld_value = home_url | append: '#website' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-      "name": {% include snippets/jsonld-string.html value=breadcrumb_site_name %},
-      "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
+        "@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_site_name %},
+        "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
       {% else %}
-      "@id": {%- assign jsonld_value = canonical_url | append: '#article' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}
-      },
+        "@id": {% assign jsonld_value = canonical_url | append: '#article' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}
+        },
       {% endif %}
-      "headline": {%- assign jsonld_value = metatitle1 |  strip_html | strip -%}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "headline": {% assign jsonld_value = metatitle1 |  strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
       {% if schema_type == 'BlogPosting' %}
-      {% include snippets/article-images.html %}
+        {% include snippets/article-images.html %}
       {% else %}
-      "image": {% include snippets/jsonld-string.html value=ogimage decode_html=false %},
+        "image": {% include snippets/jsonld-string.html value=ogimage decode_html=false %},
       {% endif %}
       {% if page.date %}
-      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
-      "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+        "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+        "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
       {% endif %}
-      "author": {
-        "@type": "Person",
-        "name": {%- assign jsonld_value = page.author.name | default: site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %}
-        {% if authorlink %}
-          {% for item in authorlink %}
-            {% if forloop.first %}
-        , "url": {% include snippets/jsonld-string.html value=item.url decode_html=false %}
-            {% else %}
-              {% if forloop.index == 2 %}
-        ,  "sameAs" : [
-              {% endif %}
-             {% include snippets/jsonld-string.html value=item.url decode_html=false %}
-              {%- if forloop.last %}
-            ]
-              {% else %}
-            ,
-              {% endif %}
-           {% endif %}
-         {% endfor %}
-       {% endif %}
-      },
-       "publisher": {% include snippets/publisher.html %}
-    }
+        "author": {
+          "@type": "Person",
+          "name": {% assign jsonld_value = page.author.name | default: site.author.name | default: site.github.owner_name %}{% include snippets/jsonld-string.html value=jsonld_value %}{% if authorlink.size > 0 %},
+          "url": {% include snippets/jsonld-string.html value=authorlink.first.url decode_html=false %}{% if authorlink.size > 1 %},
+          "sameAs": [
+          {% for item in authorlink offset:1 %}
+            {% include snippets/jsonld-string.html value=item.url decode_html=false %}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+          ]{% endif %}{% endif %}
+        },
+        "publisher": {% include snippets/publisher.html %}
+      }
     </script>
     {% if page.breadcrumb_list.size > 0 %}
-        <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-      "itemListElement": [
-    {% for item in page.breadcrumb_list %}
+    <script type="application/ld+json">
       {
-        "@type": "ListItem",
-        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: forloop.index -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-        "position": {{ forloop.index }},
-        "name": {%- assign jsonld_value = item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
-        "item": {%- assign jsonld_value = item.url | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
-      },
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "itemListElement": [
+    {% for item in page.breadcrumb_list %}
+          {
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: forloop.index %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": {{ forloop.index }},
+            "name": {% assign jsonld_value = item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name %}{% include snippets/jsonld-string.html value=jsonld_value %},
+            "item": {% assign jsonld_value = item.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+          },
         {% if forloop.last %}
           {% assign loopplus1 = forloop.index | plus: 1 %}
         {% endif %}
     {% endfor %}
-    {
-        "@type": "ListItem",
-        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: loopplus1 -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-        "position": {{ loopplus1 }},
-        "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
-        "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
-      }]
-    }
+          {
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: loopplus1 %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": {{ loopplus1 }},
+            "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+            "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
+          }
+        ]
+      }
     </script>
     {% elsif strippedurl != "/" %}
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-      "itemListElement": [{
-        "@type": "ListItem",
-        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-1' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-        "position": 1,
-        "name": {% include snippets/jsonld-string.html value=breadcrumb_home_name %},
-        "item": {%- assign jsonld_value = "/" | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
-      },{
-        "@type": "ListItem",
-        "@id": {%- assign jsonld_value = canonical_url | append: '#breadcrumb-2' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
-        "position": 2,
-        "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
-        "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
-      }]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "itemListElement": [{
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-1' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": 1,
+            "name": {% include snippets/jsonld-string.html value=breadcrumb_home_name %},
+            "item": {% assign jsonld_value = "/" | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+          },{
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-2' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": 2,
+            "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+            "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
+          }
+        ]
+      }
     </script>
     {% endif  %}
 {% if schema_type != 'WebPage' %}
-<script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
-	"isPartOf": {"@id": {%- assign jsonld_value = home_url | append: '#website' -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
-	"name": {%- assign jsonld_value = metatitle1 | strip_html -%}{% include snippets/jsonld-string.html value=jsonld_value %},
-	"description": {% include snippets/jsonld-string.html value=ogdesc %}
-	}
-</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        "name": {% assign jsonld_value = metatitle1 | strip_html %}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "description": {% include snippets/jsonld-string.html value=ogdesc %}
+      }
+    </script>
 {% endif %}
-{%- assign sitelink = site.author.links |
+{% assign sitelink = site.author.links |
 where_exp: "item", "item.url contains 'http'"
--%}
-<script type="application/ld+json">
-{
-  "@context" : "https://schema.org",
-  "@type" : "Person",
+%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
   {% if site.author.avatar %}
-  "image": {%- assign jsonld_value = site.author.avatar | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "image": {% assign jsonld_value = site.author.avatar | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
   {% endif %}
   {% if site.author.location %}
-  "homeLocation": {
-    "@type": "Place",
-    "name": {% include snippets/jsonld-string.html value=site.author.location %}
-    },
+        "homeLocation": {
+          "@type": "Place",
+          "name": {% include snippets/jsonld-string.html value=site.author.location %}
+        },
   {% endif %}
-  {%- capture publisher_settings -%}{{ site.publisher.type }}{{ site.publisher.name }}{{ site.publisher.url }}{{ site.publisher.logo }}{{ site.publisher.image }}{%- endcapture -%}
-  "description": {% if publisher_settings != empty %}"Site author"{% else %}"Publisher"{% endif %},
-  "name" : {%- assign jsonld_value = site.author.name | default: site.github.owner_name -%}{% include snippets/jsonld-string.html value=jsonld_value %},
-  "url" : {%- assign jsonld_value = "/" | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
-  {% if sitelink %}
-  ,  "sameAs" : [
+  {% capture publisher_settings %}{{ site.publisher.type }}{{ site.publisher.name }}{{ site.publisher.url }}{{ site.publisher.logo }}{{ site.publisher.image }}{% endcapture %}
+        "description": {% if publisher_settings != empty %}"Site author"{% else %}"Publisher"{% endif %},
+        "name": {% assign jsonld_value = site.author.name | default: site.github.owner_name %}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "url": {% assign jsonld_value = "/" | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}{% if sitelink %},
+        "sameAs": [
   {% for item in sitelink %}
-  {% include snippets/jsonld-string.html value=item.url decode_html=false %}{%- if forloop.last %}{% else %},{% endif %}
+          {% include snippets/jsonld-string.html value=item.url decode_html=false %}{% if forloop.last %}{% else %},{% endif %}
   {% endfor %}
-  ]
+        ]
   {% endif %}
-}
-</script>
+      }
+    </script>
 {% if page.author %}
-{%- assign pagelink = page.author.links |
+{% assign pagelink = page.author.links |
 where_exp: "item", "item.url contains 'http'"
--%}
-<script type="application/ld+json">
-{
-  "@context" : "https://schema.org",
-  "@type" : "Person",
+%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
   {% if page.author.avatar %}
-  "image": {%- assign jsonld_value = page.author.avatar | absolute_url -%}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "image": {% assign jsonld_value = page.author.avatar | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
   {% endif %}
   {% if page.author.location %}
-  "homeLocation": {
-    "@type": "Place",
-    "name": {% include snippets/jsonld-string.html value=page.author.location %}
-    },
+        "homeLocation": {
+          "@type": "Place",
+          "name": {% include snippets/jsonld-string.html value=page.author.location %}
+        },
   {% endif %}
-  "description": "Collaborator",
-  "name" : {% include snippets/jsonld-string.html value=page.author.name %}
-  {% if pagelink %}
-    {% for item in pagelink %}
-      {% if forloop.first %}
-  , "url": {% include snippets/jsonld-string.html value=item.url decode_html=false %}
-      {% else %}
-        {% if forloop.index == 2 %}
-      ,  "sameAs" : [
-        {% endif %}
-      {% include snippets/jsonld-string.html value=item.url decode_html=false %}
-        {%- if forloop.last %}
-        ]
-        {% else %}
-        ,
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-}
-</script>
+        "description": "Collaborator",
+        "name": {% include snippets/jsonld-string.html value=page.author.name %}{% if pagelink.size > 0 %},
+        "url": {% include snippets/jsonld-string.html value=pagelink.first.url decode_html=false %}{% if pagelink.size > 1 %},
+        "sameAs": [
+        {% for item in pagelink offset:1 %}
+          {% include snippets/jsonld-string.html value=item.url decode_html=false %}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        ]{% endif %}{% endif %}
+      }
+    </script>
 {% endif %}
     <title>{{ metatitle | escape_once }}</title>
     <link rel="canonical" href="{{ canonical_url | escape }}">
@@ -312,113 +291,113 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="description" content="{{- ogdesc -}}">
     {% if ogimage %}<meta name="thumbnail" content="{{ ogimage | escape_once }}" >{% endif %}
     <meta name="robots" content="{{ page.robots | default: 'index, follow' | strip | default: 'index, follow' | escape }}">
-    {% if site.chulapa-skin.vars.primary -%}
+    {% if site.chulapa-skin.vars.primary %}
     <!-- Chrome, Firefox OS and Opera -->
-   <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
-   {%- endif %}
+    <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
+   {% endif %}
     <!-- OpenGraph -->
     <meta property="og:title" content="{{ social_title | escape_once }}" >
     <meta property="og:site_name" content="{{ sitename | strip_html | escape_once }}" >
     <meta property="og:url" content="{{ canonical_url | escape }}" >
-    {%- assign og_type = page.og_type | strip -%}
-    {%- if og_type == empty -%}
-      {%- if page.collection == 'posts' -%}{%- assign og_type = 'article' -%}
-      {%- else -%}{%- assign og_type = 'website' -%}{%- endif -%}
-    {%- endif %}
+    {% assign og_type = page.og_type | strip %}
+    {% if og_type == empty %}
+      {% if page.collection == 'posts' %}{% assign og_type = 'article' %}
+      {% else %}{% assign og_type = 'website' %}{% endif %}
+    {% endif %}
     <meta property="og:type" content="{{ og_type | escape }}" >
     {% if og_type == 'article' %}
       {% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema | escape }}">{% endif %}
       {% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema | escape }}">{% endif %}
-      {%- assign article_author = page.og_article_author | strip -%}
-      {%- if article_author == empty -%}
-        {%- if page.author -%}{%- assign article_author = page.author.url | strip -%}
-        {%- else -%}{%- assign article_author = site.author.url | strip -%}{%- endif -%}
-      {%- endif -%}
+      {% assign article_author = page.og_article_author | strip %}
+      {% if article_author == empty %}
+        {% if page.author %}{% assign article_author = page.author.url | strip %}
+        {% else %}{% assign article_author = site.author.url | strip %}{% endif %}
+      {% endif %}
       {% if article_author != empty %}<meta property="article:author" content="{{ article_author | absolute_url | escape }}">{% endif %}
-      {%- assign article_section = page.og_article_section | strip -%}
-      {%- if article_section == empty -%}{%- assign article_section = page.categories | first | strip -%}{%- endif -%}
+      {% assign article_section = page.og_article_section | strip %}
+      {% if article_section == empty %}{% assign article_section = page.categories | first | strip %}{% endif %}
       {% if article_section != empty %}<meta property="article:section" content="{{ article_section | escape }}">{% endif %}
       {% for article_tag in page.tags %}
-        {%- assign article_tag_text = article_tag | strip -%}
+        {% assign article_tag_text = article_tag | strip %}
         {% if article_tag_text != empty %}<meta property="article:tag" content="{{ article_tag_text | escape }}">{% endif %}
       {% endfor %}
     {% endif %}
     <meta property="og:description" content="{{ ogdesc }}" >
-    {%- include snippets/page-language.html -%}
-    {%- assign og_locale_input = page.og_locale | strip -%}
-    {%- assign explicit_page_language = page.locale | strip -%}
-    {%- if og_locale_input == empty and explicit_page_language != empty -%}{%- assign og_locale_input = page_language -%}{%- endif -%}
-    {%- if og_locale_input == empty -%}{%- assign og_locale_input = site.og_locale | strip -%}{%- endif -%}
-    {%- if og_locale_input == empty -%}{%- assign og_locale_input = page_language -%}{%- endif -%}
-    {%- include snippets/og-locale.html locale=og_locale_input -%}
-    {%- assign primary_og_locale = normalized_og_locale -%}
+    {% include snippets/page-language.html %}
+    {% assign og_locale_input = page.og_locale | strip %}
+    {% assign explicit_page_language = page.locale | strip %}
+    {% if og_locale_input == empty and explicit_page_language != empty %}{% assign og_locale_input = page_language %}{% endif %}
+    {% if og_locale_input == empty %}{% assign og_locale_input = site.og_locale | strip %}{% endif %}
+    {% if og_locale_input == empty %}{% assign og_locale_input = page_language %}{% endif %}
+    {% include snippets/og-locale.html locale=og_locale_input %}
+    {% assign primary_og_locale = normalized_og_locale %}
     {% if primary_og_locale %}<meta property="og:locale" content="{{ primary_og_locale }}">{% endif %}
-    {%- assign alternate_locales = site.og_locale_alternate -%}
-    {%- if page.og_locale_alternate != nil -%}{%- assign alternate_locales = page.og_locale_alternate -%}{%- endif -%}
-    {%- assign emitted_locales = ',' | append: primary_og_locale | append: ',' -%}
+    {% assign alternate_locales = site.og_locale_alternate %}
+    {% if page.og_locale_alternate != nil %}{% assign alternate_locales = page.og_locale_alternate %}{% endif %}
+    {% assign emitted_locales = ',' | append: primary_og_locale | append: ',' %}
     {% for alternate_locale in alternate_locales %}
-      {%- include snippets/og-locale.html locale=alternate_locale -%}
-      {%- assign locale_token = ',' | append: normalized_og_locale | append: ',' -%}
-      {%- if normalized_og_locale -%}
-        {%- unless emitted_locales contains locale_token %}
+      {% include snippets/og-locale.html locale=alternate_locale %}
+      {% assign locale_token = ',' | append: normalized_og_locale | append: ',' %}
+      {% if normalized_og_locale %}
+        {% unless emitted_locales contains locale_token %}
     <meta property="og:locale:alternate" content="{{ normalized_og_locale }}">
-          {%- assign emitted_locales = emitted_locales | append: locale_token -%}
-        {% endunless -%}
-      {%- endif -%}
+          {% assign emitted_locales = emitted_locales | append: locale_token %}
+        {% endunless %}
+      {% endif %}
     {% endfor %}
     {% if ogimage %}
     <meta property="og:image" content="{{- ogimage | escape_once -}}" >
-    {%- assign image_fields = 'alt,width,height,type' | split: ',' -%}
-    {%- for field in image_fields -%}
-      {%- assign field_key = 'og_image_' | append: field -%}
-      {%- assign image_value = page[field_key] | strip -%}
-      {%- if image_value == empty and page_image_source == empty and ogimage_source == site.og_image -%}
-        {%- assign image_value = site[field_key] | strip -%}
-      {%- endif -%}
-      {%- if image_value != empty %}
+    {% assign image_fields = 'alt,width,height,type' | split: ',' %}
+    {% for field in image_fields %}
+      {% assign field_key = 'og_image_' | append: field %}
+      {% assign image_value = page[field_key] | strip %}
+      {% if image_value == empty and page_image_source == empty and ogimage_source == site.og_image %}
+        {% assign image_value = site[field_key] | strip %}
+      {% endif %}
+      {% if image_value != empty %}
     <meta property="og:image:{{ field }}" content="{{ image_value | escape_once }}" >
-      {%- endif -%}
-    {%- endfor %}
+      {% endif %}
+    {% endfor %}
     {% endif %}
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="{{ ogdesc }}">
-    {%- if site.twitter_site %}
+    {% if site.twitter_site %}
     <meta name="twitter:site" content="@{{- site.twitter_site  -}}" >
-    {% endif -%}
-    {%- if twitterauthor %}
+    {% endif %}
+    {% if twitterauthor %}
     <meta name="twitter:creator" content="@{{- twitterauthor  -}}" >
-    {% endif -%}
+    {% endif %}
 
-    {%- include custom/custom_head_before_css.html -%}
+    {% include custom/custom_head_before_css.html %}
 
     <!-- CSS -->
-  {% if site.comments.provider == 'cactus' and page.show_comments -%}
-   <!-- Cactus comments -->
-   <script src="https://latest.cactus.chat/cactus.js"></script>
-   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
-{%- endif %}
+  {% if site.comments.provider == 'cactus' and page.show_comments %}
+    <!-- Cactus comments -->
+    <script src="https://latest.cactus.chat/cactus.js"></script>
+    <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+{% endif %}
     <!-- Preconnect with Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {% for font in site.googlefonts -%}
-      {% if font.url -%}
+    {% for font in site.googlefonts %}
+      {% if font.url %}
     <link href="{{ font.url }}" rel="stylesheet">
-      {%- endif %}
-    {%- endfor %}
+      {% endif %}
+    {% endfor %}
     <!-- Fontawesome-->
     <!-- v6 -->
     {% assign fakit = site.fa5_kit_code | default: site.fa_kit_code %}
-    {% if fakit -%}
+    {% if fakit %}
     <script src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
-    {%- else -%}
+    {% else %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ site.fa_version | default: 6 }}/css/all.min.css">
-    {%- endif %}
-    {% if site.fa_v4_support -%}
+    {% endif %}
+    {% if site.fa_v4_support %}
     <!-- Compatibility with FontAwesome 4 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
-    {%- endif %}
-      <link rel="preload" href="{{ '/assets/js/chulapa_script.js' | relative_url }}" as="script" >
+    {% endif %}
+    <link rel="preload" href="{{ '/assets/js/chulapa_script.js' | relative_url }}" as="script" >
     <link rel="preload" href="{{ '/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
     <!-- Theme css (Bootstrap included) -->
     <link rel="stylesheet" id="maincss" href="{{- "assets/css/main.css " | absolute_url -}}" >
@@ -426,36 +405,36 @@ where_exp: "item", "item.url contains 'http'"
     <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" >
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" >
-      {% if page.mathjax -%}
+      {% if page.mathjax %}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
-  {%- endif %}
+  {% endif %}
 
-{%- if site.gtag_id %}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+{% if site.gtag_id %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{- site.gtag_id -}}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', '{{- site.gtag_id -}}');
-</script>
-{% endif -%}
-{%- if site.analytics_id %}
-<!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      gtag('config', '{{- site.gtag_id -}}');
+    </script>
+{% endif %}
+{% if site.analytics_id %}
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', '{{- site.analytics_id -}}', 'auto');
-ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-{% endif -%}
-    {%- include custom/custom_head.html -%}
+    ga('create', '{{- site.analytics_id -}}', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+{% endif %}
+    {% include custom/custom_head.html %}
 {% if site.navbar.style == 'fab' or site.navbar.style == 'dual' %}
-<noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+    <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
 {% endif %}
 </head>
