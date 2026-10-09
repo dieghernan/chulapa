@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Fri, 09 Oct 2026 12:00:31 +0200</pubDate>
-		<lastBuildDate>Fri, 09 Oct 2026 12:00:31 +0200</lastBuildDate>
+		<pubDate>Fri, 09 Oct 2026 13:15:27 +0200</pubDate>
+		<lastBuildDate>Fri, 09 Oct 2026 13:15:27 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -18,6 +18,252 @@
 			<link>https://dieghernan.github.io/chulapa</link>
 			<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		</image><item>
+			<title>Chulapa v2.1.0: more control over your site</title>
+			<description>
+				<![CDATA[	
+ 				<h3>New looks, more search options and better metadata</h3>
+    		<p>5 min.</p>
+				<div><p><a href="https://github.com/dieghernan/chulapa/releases/tag/v2.1.0"><span class="chulapa">Chulapa</span> v2.1.0</a>
+is here. This release gives you more control over how your site looks, how
+readers find its content and how pages appear when shared.</p>
+
+<p>When I first built <span class="chulapa">Chulapa</span>, I wanted a theme I
+could use for different sites while giving each one its own look. The idea is
+still the same. You can choose a skin, change a few settings in <code class="language-plaintext highlighter-rouge">_config.yml</code>
+and make the site your own. This release adds more ways to do that, along with
+some useful fixes behind the scenes.</p>
+
+<p>Here are the changes I would start exploring.</p>
+
+<h2 id="give-each-page-the-right-introduction">Give each page the right introduction</h2>
+
+<p>A page title has several jobs. It introduces the content on the page, appears
+in the browser tab and helps describe a link when someone shares it. You may
+want different wording for each of those places.</p>
+
+<p>In v2.1.0, <code class="language-plaintext highlighter-rouge">seo_title</code> and <code class="language-plaintext highlighter-rouge">og_title</code> let you set the metadata titles separately
+from the visible heading. The new <code class="language-plaintext highlighter-rouge">description</code> option also gives you an
+explicit metadata description, independent of the subtitle and excerpt:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">notes"</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">weekend</span><span class="nv"> </span><span class="s">exploring</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">mountains"</span>
+<span class="na">seo_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mountain</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">notes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">My</span><span class="nv"> </span><span class="s">travel</span><span class="nv"> </span><span class="s">blog"</span>
+<span class="na">og_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">weekend</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">mountains"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Routes,</span><span class="nv"> </span><span class="s">observations</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">practical</span><span class="nv"> </span><span class="s">notes</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">mountain</span><span class="nv"> </span><span class="s">weekend."</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>The theme shares that description across HTML, Open Graph, Twitter/X cards
+and JSON-LD, without forcing it into a fixed character limit. You can keep
+the introduction on the page conversational and write a separate description
+for people encountering its link elsewhere.</p>
+
+<p>There is more control over the rest of the metadata, too. <code class="language-plaintext highlighter-rouge">canonical_url</code>
+provides a consistent preferred URL across the page’s metadata, breadcrumbs
+and feeds. Page language and Open Graph locales can be configured separately,
+and translated locales can be listed. Article metadata includes publication
+and modification dates, authors, sections and tags where supplied.</p>
+
+<p>For sites with several contributors, the JSON-LD <code class="language-plaintext highlighter-rouge">publisher</code> can now be
+configured independently of the author. Sharing images can have explicit
+alternative text, dimensions and a MIME type, while <code class="language-plaintext highlighter-rouge">schema_image</code> identifies
+representative article images for structured data.</p>
+
+<p>These settings help describe your content accurately. They do not guarantee
+a particular search result or social preview, so check a few real pages after
+updating. The <a href="/chulapa/docs/04-layouts#seo-metadata">metadata reference</a>
+and <a href="/chulapa/docs/02-config">global settings</a> explain the options
+and their defaults.</p>
+
+<h2 id="one-theme-more-looks">One theme, more looks</h2>
+
+<p>This release adds 13 skins, including <code class="language-plaintext highlighter-rouge">listen</code>, <code class="language-plaintext highlighter-rouge">navi</code>, <code class="language-plaintext highlighter-rouge">cyborg</code>, <code class="language-plaintext highlighter-rouge">darkly</code>,
+<code class="language-plaintext highlighter-rouge">slate</code>, <code class="language-plaintext highlighter-rouge">solar</code> and the <code class="language-plaintext highlighter-rouge">butterfly</code> variants. There are also more code
+highlighting styles, including <code class="language-plaintext highlighter-rouge">github.dark</code>, <code class="language-plaintext highlighter-rouge">nord</code>, <code class="language-plaintext highlighter-rouge">one.dark</code> and
+<code class="language-plaintext highlighter-rouge">stackoverflow.light</code>.</p>
+
+<p>The configuration stays familiar. For example, to combine the Navi skin with
+Nord code highlighting:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
+  <span class="na">skin</span><span class="pi">:</span> <span class="s">navi</span>
+  <span class="na">highlight</span><span class="pi">:</span> <span class="s">nord</span>
+</code></pre></div></div>
+
+<p>Browse the <a href="/chulapa/skins">skin previews</a> and
+<a href="/chulapa/docs/syntax-highlighting">syntax highlighting examples</a>
+to compare them with your own content. Skin names are case-sensitive: use the
+filename without its <code class="language-plaintext highlighter-rouge">.scss</code> extension.</p>
+
+<p>Titles and subtitles now support Markdown as well as HTML. A little emphasis
+or an inline code name can be written using the same syntax as the rest of
+your post.</p>
+
+<h2 id="give-readers-another-way-to-find-your-content">Give readers another way to find your content</h2>
+
+<p><span class="chulapa">Chulapa</span> now supports <strong>Fuse.js</strong> and
+<strong>Simple-Jekyll-Search</strong>, alongside the
+existing search providers. Both use an index generated during the Jekyll
+build, so they are useful options for a static site.</p>
+
+<p>To select Fuse.js in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">search</span><span class="pi">:</span>
+  <span class="na">provider</span><span class="pi">:</span> <span class="s">fusejs</span>
+  <span class="na">maxwords</span><span class="pi">:</span> <span class="m">30</span>
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">provider: simplesearch</code> to select Simple-Jekyll-Search. The <code class="language-plaintext highlighter-rouge">maxwords</code>
+setting controls how much page content is included in these indexes; it is
+not a limit on the number of results. Pages can be excluded with
+<code class="language-plaintext highlighter-rouge">include_on_search: false</code>.</p>
+
+<p>The provider needs a separate page using <code class="language-plaintext highlighter-rouge">layout: search</code>, with a permalink
+matching <code class="language-plaintext highlighter-rouge">search.landing_page</code> (by default, <code class="language-plaintext highlighter-rouge">/search</code>). Changing the provider
+does not create that page for you.</p>
+
+<p>Fuse.js and Lunr results now highlight matching terms, helping readers see why
+a page appeared. When updating an older Lunr configuration, replace
+<code class="language-plaintext highlighter-rouge">search.lunr_maxwords</code> with <code class="language-plaintext highlighter-rouge">search.maxwords</code>. The old option still works and
+takes precedence if both are present, so remove it when migrating.</p>
+
+<p>See the <a href="/chulapa/docs/02-config#search-engines">search configuration</a>
+for provider-specific settings and setup.</p>
+
+<h2 id="make-room-for-different-kinds-of-pages">Make room for different kinds of pages</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">minimal</code> layout is useful when you want to control your own content width
+and structure. In v2.1.0, it can also reuse a theme header:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">minimal</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">project</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">my</span><span class="nv"> </span><span class="s">own"</span>
+<span class="na">show_header</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">header_type</span><span class="pi">:</span> <span class="s">base</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>The header is optional, and the layout stays headerless by default. Enabling
+it does not add a content container: your markup still controls the page’s
+width and spacing. Try the <a href="/chulapa/demo/minimal-header">minimal header demo</a>
+for an example.</p>
+
+<p>At the end of an article, <code class="language-plaintext highlighter-rouge">show_random</code> adds another way to discover content,
+and <code class="language-plaintext highlighter-rouge">related_label</code> and <code class="language-plaintext highlighter-rouge">random_label</code> let you customize the introductions to
+those cards. Random selection happens at build time, using the same tag-based
+candidate pool as related content; it does not select a new set on each visit.</p>
+
+<p>The <a href="/chulapa/docs/04-layouts">layouts reference</a> covers those
+options and the other components you can enable on a page.</p>
+
+<h2 id="a-few-important-fixes-behind-the-scenes">A few important fixes behind the scenes</h2>
+
+<p>Some of the most useful changes are the ones you should barely notice.
+Canonical URLs, breadcrumbs and feeds now preserve filenames containing
+<code class="language-plaintext highlighter-rouge">index.html</code>. Metadata avoids repeated subtitles and empty title separators,
+and guest pages no longer inherit the site author’s Twitter/X attribution.</p>
+
+<p>Video structured data now uses the correct URLs before and after deferred
+playback. Video snippets also accept optional titles, thumbnails, dates,
+descriptions and durations. The main theme script and deferred video player
+load from the installed theme, and <code class="language-plaintext highlighter-rouge">minimal</code> pages without a <code class="language-plaintext highlighter-rouge">maincontent</code>
+element no longer trigger the previous JavaScript error.</p>
+
+<p>Font Awesome’s <code class="language-plaintext highlighter-rouge">fa_kit_code</code> setting now loads the configured kit. If you still
+have <code class="language-plaintext highlighter-rouge">fa5_kit_code</code>, it remains supported and takes precedence when both keys
+are present. Check that combination if a kit change seems to have no effect.</p>
+
+<p>You can find the full list, including the new skins and highlighting styles,
+in the <a href="https://github.com/dieghernan/chulapa/releases/tag/v2.1.0">v2.1.0 release notes</a>.</p>
+
+<h2 id="try-v210-on-your-site">Try v2.1.0 on your site</h2>
+
+<p>For a remote-theme installation, pin the release in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.1.0</span>
+</code></pre></div></div>
+
+<p>For a gem-based installation, set the version constraint in your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"chulapa-jekyll"</span><span class="p">,</span> <span class="s2">"~&gt; 2.1.0"</span>
+</code></pre></div></div>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle update chulapa-jekyll</code> and rebuild your site. Version 2.1.0
+is <a href="https://rubygems.org/gems/chulapa-jekyll/versions/2.1.0">available on RubyGems</a>.
+The <a href="/chulapa/docs/01-install">installation guide</a> covers the
+required plugins and deployment steps for each method.</p>
+
+<p>Preview a post, a standalone page and your search results before deploying.
+If you use custom layouts or includes, check them alongside the theme’s
+examples. For metadata changes, inspect the generated titles, descriptions
+and canonical URLs on a few representative pages.</p>
+
+<p>The release was checked with Jekyll 3.10.0 and 4.4.1. That is useful coverage,
+but your own content, plugins and overrides still deserve a preview.</p>
+
+<h2 id="a-sneak-peek-at-whats-next">A sneak peek at what’s next</h2>
+
+<p>There is already more work on the development branch: optional <strong>Mermaid
+diagrams</strong> for technical content, <strong>keyboard navigation and visible-focus
+improvements</strong>, and <strong>four small starter examples</strong> for blogs, portfolios and
+project pages.</p>
+
+<p>These changes are <strong>not part of v2.1.0</strong>. They are a preview of the next stage,
+with no release date promised here. If you try the development branch, keep
+its version caveats in mind; the pinned release above gives you v2.1.0.</p>
+
+<p>If you give <span class="chulapa">Chulapa</span> a go, I would love to see what
+you build. Share your site or feedback in
+<a href="https://github.com/dieghernan/chulapa/discussions">GitHub Discussions</a>.</p>
+</div>
+				]]>
+			</description>
+			<link>https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</link>
+			<category>posts</category>
+		    <category>jekyll</category><category>news</category><category>release</category><media:title type="html"><![CDATA[<span class="chulapa">Chulapa</span> v2.1.0: more control over your site ]]></media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" medium="image"/>
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
+		</item><item>
+			<title>Ask Chulapa</title>
+			<description>
+				<![CDATA[	
+ 				<h3>A new way to explore the documentation</h3>
+    		<p>1 min.</p>
+				<div><p>The <span class="chulapa">Chulapa</span> documentation now has an AI assistant.
+You can open it from the sparkle button on the homepage or documentation pages
+and ask about installation, skins, configuration, layouts and other documented
+features.</p>
+
+<p>Try a specific question such as “How do I change my site’s skin?” or “How do I
+add a local video?” The assistant can provide short explanations, code examples
+and links to the relevant documentation. Each question is independent, so include
+the details it needs rather than relying on an earlier message.</p>
+
+<p>The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
+Questions are sent to Cloudflare for processing. Answers can contain mistakes;
+check the linked documentation, especially before changing your configuration.
+Site search remains available when you want to explore the original pages.</p>
+
+<p>This is an addition to the documentation site. It is not bundled with the
+reusable theme and does not require an AI account to use
+<span class="chulapa">Chulapa</span> on your own site.</p>
+
+<p>I wrote a more personal account of the development, including context selection,
+answer testing and the mobile interface, on my blog:
+<a href="https://dieghernan.github.io/202610_building-a-documentation-chatbot/">Building a documentation chatbot for <span class="chulapa">Chulapa</span></a>.</p>
+</div>
+				]]>
+			</description>
+			<link>https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</link>
+			<category>posts</category>
+		    <category>ai</category><category>news</category><media:title type="html"><![CDATA[Ask <span class="chulapa">Chulapa</span> ]]></media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" medium="image"/>
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/banner.png" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
+		</item><item>
 			<title>Welcome</title>
 			<description>
 				<![CDATA[	
