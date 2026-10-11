@@ -42,7 +42,8 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
           {"site" => {"title" => "Feed site", "author" => {"name" => "Author"}, "documents" => [{"title" => "No date", "include_on_feed" => true, "date" => nil}]}, "page" => {"url" => "/#{feed}.xml"}},
           filters: [Jekyll::Filters], registers: {site: site}
         )
-        empty = Nokogiri::XML(html).remove_namespaces!
+        empty = Nokogiri::XML(html) { |options| options.strict }.remove_namespaces!
+        raise "#{feed}: missing feed root" unless empty.root.name == (feed == "atom" ? "feed" : "rss")
         raise "#{feed}: document without a date entered the feed" unless empty.css(feed == "atom" ? "entry" : "item").empty?
       end
     end

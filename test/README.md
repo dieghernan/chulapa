@@ -75,9 +75,13 @@ and push to `main`, using both Jekyll 3 and 4, plus the JavaScript tests on Node
 different filename, title, date and numeric orders. It checks ascending and
 descending settings, default/explicit/zero limits, collection selection, empty
 results, cached gallery variants and root/subdirectory URLs. Random selections
-are checked for membership and uniqueness without requiring a particular draw.
+are checked for membership, uniqueness and full-pool sampling without requiring
+a particular draw. Inherited configuration and explicit `false` page overrides
+are checked, as are carousel indicators, control targets and intervals.
 It also verifies archive/cloud date order, tag/category counts, repeated
-collections and empty results using real Jekyll documents.
+collections and empty results using real Jekyll documents. Tag and category
+fixtures deliberately use different labels, counts and memberships so one field
+cannot accidentally substitute for the other.
 The JavaScript checks cover floating navigation state, Escape, focus restoration,
 dropdown interaction and responsive closure, alongside clipboard, Mermaid and
 highlighting regressions. These state checks do not replace browser layout or
