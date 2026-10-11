@@ -2,9 +2,9 @@
   {% assign sort =  include.index_sort | default: 'modified_time' %}
   {%- assign bricks = site.static_files | where: "image_col", include.internal -%}
   {% if include.index_sort_asc %}
-    {%- assign bricks = bricks | sort: "{{sort}}" | map: "path" -%}
+    {%- assign bricks = bricks | sort: sort | map: "path" -%}
   {% else %}
-    {%- assign bricks = bricks | sort: "{{sort}}" | reverse | map: "path" -%}
+    {%- assign bricks = bricks | sort: sort | reverse | map: "path" -%}
   {% endif %}
 {%- elsif include.external -%}
   {%- assign bricks = include.external | strip_newlines | replace: " " , "" |split: ","  -%}
