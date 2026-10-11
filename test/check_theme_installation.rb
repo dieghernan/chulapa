@@ -61,6 +61,13 @@ Dir.mktmpdir("chulapa-install-") do |work|
   docs_config = Jekyll.configuration("config" => File.join(docs_source, "_config.yml"), "source" => docs_source, "destination" => File.join(work, "docs-output"), "remote_theme" => nil, "theme" => "chulapa-jekyll", "quiet" => true)
   docs_config["plugins"] = docs_config["plugins"].reject { |plugin| plugin == "jekyll-remote-theme" }
   Jekyll::Site.new(docs_config).process
+  mermaid_path = File.join(docs_config["destination"], "demo/13-mermaid.html")
+  raise "Mermaid demo destination missing" unless File.file?(mermaid_path)
+  redirect = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "demo/mermaid.html")))
+  target = "#{docs_config['url']}#{docs_config['baseurl']}/demo/13-mermaid"
+  raise "Mermaid redirect canonical incorrect" unless redirect.at_css('link[rel="canonical"]')&.[]("href") == target
+  raise "Mermaid redirect refresh incorrect" unless redirect.at_css('meta[http-equiv="refresh"]')&.[]("content")&.include?(target)
+  raise "Mermaid redirect fallback missing" unless redirect.at_css("a")&.[]("href") == target
   docs_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/04-layouts.html")))
   videos = docs_page.css('[itemscope][itemtype="https://schema.org/VideoObject"]')
   raise "Documentation videos missing" unless videos.size == 5
