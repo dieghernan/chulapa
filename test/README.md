@@ -27,6 +27,18 @@ needed.
 
 ## Regression checks
 
+Run all self-contained Ruby checks (each in an isolated process):
+
+```sh
+cd test
+bundle exec ruby run_regressions.rb
+```
+
+The runner discovers `check_*.rb` automatically. Packaging is a separate check
+because it requires a freshly built gem and an installation-only bundle.
+See [closed issue regression coverage](closed-issue-regressions.md) for the
+mapping from reported bugs to focused checks.
+
 Run the checks from the repository root after `bundle install`:
 
 ```sh
@@ -43,16 +55,33 @@ bundle exec ruby test/check_microdata.rb
 bundle exec ruby test/check_related_ranking.rb
 bundle exec ruby test/check_cloud_performance.rb
 bundle exec ruby test/check_index_order.rb
+bundle exec ruby test/check_liquid_indexes.rb
+bundle exec ruby test/check_skin_variables.rb
+bundle exec ruby test/check_feed_selection.rb
 bundle exec ruby test/check_liquid_fallbacks.rb
 bundle exec ruby test/check_compress_html.rb
 bundle exec ruby test/check_video_examples.rb
-node --test test/check_chulapa_script.js test/check_mermaid.mjs
+node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_highlighting_security.js
 bundle exec ruby test/check_mermaid.rb
 ```
 
 The Ruby checks build temporary fixtures or inspect theme sources to verify
 metadata and video examples. The JavaScript check exercises the theme script.
 They do not require deployment of the demo site.
+
+The theme regression workflow runs all self-contained Ruby checks on every PR
+and push to `main`, using both Jekyll 3 and 4, plus the JavaScript tests on Node 22.
+`check_liquid_indexes.rb` builds real collections and static files with deliberately
+different filename, title, date and numeric orders. It checks ascending and
+descending settings, default/explicit/zero limits, collection selection, empty
+results, cached gallery variants and root/subdirectory URLs. Random selections
+are checked for membership and uniqueness without requiring a particular draw.
+It also verifies archive/cloud date order, tag/category counts, repeated
+collections and empty results using real Jekyll documents.
+The JavaScript checks cover floating navigation state, Escape, focus restoration,
+dropdown interaction and responsive closure, alongside clipboard, Mermaid and
+highlighting regressions. These state checks do not replace browser layout or
+screen reader audits.
 
 To check packaging, install the built gem in a temporary directory and build
 the test site and complete documentation site from that installation:
