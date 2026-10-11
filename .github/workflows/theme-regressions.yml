@@ -37,3 +37,49 @@ jobs:
           node-version: '22'
       - name: Check theme JavaScript and highlighting
         run: node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_highlighting_security.js
+
+  installation:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        gemfile: [test/installation/Gemfile, test/jekyll3/Gemfile]
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - name: Package the current theme
+        run: gem build chulapa-jekyll.gemspec
+      - name: Verify installed gem, pagination, sitemap and documentation
+        working-directory: test
+        run: bundle exec ruby check_theme_installation.rb
+
+  browser:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/test/Gemfile
+      NODE_PATH: ${{ github.workspace }}/test/browser/node_modules
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: test/browser/package-lock.json
+      - name: Install isolated browser tools
+        run: |
+          npm ci --prefix test/browser
+          test/browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Build actual theme fixtures
+        working-directory: test
+        run: bundle exec ruby build_accessibility_fixtures.rb "$RUNNER_TEMP/chulapa-navigation"
+      - name: Check keyboard navigation and responsive state in Chromium
+        run: node test/check_navigation_browser.js "$RUNNER_TEMP/chulapa-navigation"

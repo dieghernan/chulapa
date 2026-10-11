@@ -20,10 +20,12 @@ behavior checked, rather than treating a successful site build as coverage.
 | [#39](https://github.com/dieghernan/chulapa/issues/39) — Empty Atom feed (configuration) | [check_feed_selection.rb](check_feed_selection.rb) | Atom/RSS inclusion is opt-in; post defaults work, explicit opt-out wins, dates order entries, genuinely absent Liquid dates are excluded, content and baseurl are retained. Jekyll may derive a collection date from file metadata; an omitted YAML date is not necessarily a nil document date. |
 
 The theme regression workflow runs these self-contained tests automatically.
-[check_theme_installation.rb](check_theme_installation.rb) remains a separate
-packaging/install check: build a fresh gem and use an installation-only bundle
-as described in [README.md](README.md). A local theme path dependency cannot
-verify that a fixture used the installed gem.
+[check_theme_installation.rb](check_theme_installation.rb) runs in separate CI
+jobs on both Jekyll versions with a freshly built gem and installation-only
+bundles. A local theme path dependency cannot verify that a fixture used the
+installed gem. [check_navigation_browser.js](check_navigation_browser.js) also
+checks actual keyboard/focus/resize behavior in Chromium. See [README.md](README.md)
+for local commands and the broader accessibility review.
 
 Compiled CSS assertions check variable wiring; JavaScript assertions check
 interaction state. They do not establish visual contrast, responsive layout,

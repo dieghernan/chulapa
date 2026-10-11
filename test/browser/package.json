@@ -1,0 +1,11 @@
+{
+  "name": "chulapa-browser-regressions",
+  "private": true,
+  "description": "Test-only browser tools and exact copies of the theme's CDN scripts",
+  "dependencies": {
+    "bootstrap": "4.5.0",
+    "jquery": "3.5.1",
+    "playwright": "1.62.1",
+    "popper.js": "1.16.0"
+  }
+}
