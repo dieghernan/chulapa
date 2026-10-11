@@ -1,0 +1,16 @@
+source "https://rubygems.org"
+
+# Deliberately omit the local theme dependency: the check installs the built gem.
+gem "jekyll", "~> 4.4.1"
+gem "jekyll-include-cache"
+gem "jekyll-sitemap"
+gem "jekyll-paginate"
+gem "jekyll-github-metadata"
+gem "kramdown-parser-gfm"
+gem "nokogiri"
+gem "faraday-retry"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "logger"
+gem "ostruct"

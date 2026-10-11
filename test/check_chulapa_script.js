@@ -66,6 +66,90 @@ test("maincontent retains heading permalinks and code copy buttons", () => {
   assert.equal(typeof pre.children[0].onclick, "function");
 });
 
+function floatingNavigation() {
+  const handlers = { button: {}, menu: {}, window: {} };
+  const button = element("button");
+  const menu = element("nav");
+  const link = element("a");
+  const document = {
+    activeElement: null,
+    getElementById(id) { return { "navi-toggle": button, "navi-menu": menu }[id] || null; },
+    createElement: element
+  };
+  button.setAttribute("aria-expanded", "false");
+  button.focus = () => { document.activeElement = button; };
+  link.focus = () => { document.activeElement = link; };
+  menu.querySelector = () => link;
+  menu.contains = target => target === link;
+  button.getClientRects = () => [1];
+  button.addEventListener = (name, handler) => { handlers.button[name] = handler; };
+  menu.addEventListener = (name, handler) => { handlers.menu[name] = handler; };
+  vm.runInNewContext(script, {
+    document,
+    window: { addEventListener(name, handler) { handlers.window[name] = handler; } },
+    setTimeout(callback) { callback(); },
+    $(value) { if (typeof value === "function") value(); return { tooltip() {} }; }
+  });
+  return { handlers, button, menu, link, document };
+}
+
+test("floating navigation opens, focuses its first link and closes on another click", () => {
+  const { handlers, button, menu, link, document } = floatingNavigation();
+  handlers.button.click();
+  assert.equal(button.attributes["aria-expanded"], "true");
+  assert.equal(menu.attributes["aria-hidden"], "false");
+  assert.equal(menu.inert, false);
+  assert.equal(document.activeElement, link);
+  handlers.button.click();
+  assert.equal(button.attributes["aria-expanded"], "false");
+  assert.equal(menu.attributes["aria-hidden"], "true");
+  assert.equal(menu.inert, true);
+  assert.equal(document.activeElement, button);
+});
+
+for (const target of ["button", "menu"]) {
+  test(`Escape on the floating ${target} closes navigation and restores focus`, () => {
+    const { handlers, button, menu, document } = floatingNavigation();
+    handlers.button.click();
+    const prevented = [];
+    handlers[target].keydown({ key: "Escape", preventDefault() { prevented.push("default"); }, stopPropagation() { prevented.push("propagation"); } });
+    assert.equal(menu.inert, true);
+    assert.equal(button.attributes["aria-expanded"], "false");
+    assert.equal(document.activeElement, button);
+    if (target === "menu") assert.deepEqual(prevented, ["default", "propagation"]);
+  });
+}
+
+test("dropdown clicks and internal focus keep the menu open; leaving closes without stealing focus", () => {
+  const { handlers, button, menu, link, document } = floatingNavigation();
+  handlers.button.click();
+  handlers.menu.click({ target: { closest() { return { hasAttribute() { return true; } }; } } });
+  handlers.menu.focusout();
+  assert.equal(menu.inert, false);
+  assert.equal(document.activeElement, link);
+  const outside = element("input");
+  document.activeElement = outside;
+  handlers.menu.focusout();
+  assert.equal(menu.inert, true);
+  assert.equal(button.attributes["aria-expanded"], "false");
+  assert.equal(document.activeElement, outside);
+});
+
+test("ordinary navigation links close the menu, and a hidden toggle clears the open state", () => {
+  const { handlers, button, menu, document } = floatingNavigation();
+  handlers.button.click();
+  handlers.menu.click({ target: { closest() { return { hasAttribute() { return false; } }; } } });
+  assert.equal(menu.inert, true);
+  assert.equal(document.activeElement, button);
+  handlers.button.click();
+  button.getClientRects = () => [];
+  const outside = element("input");
+  document.activeElement = outside;
+  handlers.window.resize();
+  assert.equal(menu.inert, true);
+  assert.equal(document.activeElement, outside);
+});
+
 function clipboardContext(writeText) {
   const button = element("button");
   const calls = [];

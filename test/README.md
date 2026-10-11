@@ -27,6 +27,18 @@ needed.
 
 ## Regression checks
 
+Run all self-contained Ruby checks (each in an isolated process):
+
+```sh
+cd test
+bundle exec ruby run_regressions.rb
+```
+
+The runner discovers `check_*.rb` automatically. Packaging is a separate CI job
+because it requires a freshly built gem and an installation-only bundle.
+See [closed issue regression coverage](closed-issue-regressions.md) for the
+mapping from reported bugs to focused checks.
+
 Run the checks from the repository root after `bundle install`:
 
 ```sh
@@ -43,10 +55,13 @@ bundle exec ruby test/check_microdata.rb
 bundle exec ruby test/check_related_ranking.rb
 bundle exec ruby test/check_cloud_performance.rb
 bundle exec ruby test/check_index_order.rb
+bundle exec ruby test/check_liquid_indexes.rb
+bundle exec ruby test/check_skin_variables.rb
+bundle exec ruby test/check_feed_selection.rb
 bundle exec ruby test/check_liquid_fallbacks.rb
 bundle exec ruby test/check_compress_html.rb
 bundle exec ruby test/check_video_examples.rb
-node --test test/check_chulapa_script.js test/check_mermaid.mjs
+node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_highlighting_security.js
 bundle exec ruby test/check_mermaid.rb
 ```
 
@@ -54,16 +69,67 @@ The Ruby checks build temporary fixtures or inspect theme sources to verify
 metadata and video examples. The JavaScript check exercises the theme script.
 They do not require deployment of the demo site.
 
+The theme regression workflow runs all self-contained Ruby checks on every PR
+and push to `main`, using both Jekyll 3 and 4, plus the JavaScript tests on Node 22.
+Separate jobs install the built gem on both Jekyll versions and exercise real
+keyboard navigation in Chromium. The skin-variable check covers two palettes
+on `none`, Navi and GitDev Dark, with autothemer enabled and disabled. It verifies
+both explicit overrides and an unset palette color that autothemer must derive.
+`check_liquid_indexes.rb` builds real collections and static files with deliberately
+different filename, title, date and numeric orders. It checks ascending and
+descending settings, default/explicit/zero limits, collection selection, empty
+results, cached gallery variants and root/subdirectory URLs. Random selections
+are checked for membership, uniqueness and full-pool sampling without requiring
+a particular draw. Inherited configuration and explicit `false` page overrides
+are checked, as are carousel indicators, control targets and intervals.
+It also verifies archive/cloud date order, tag/category counts, repeated
+collections and empty results using real Jekyll documents. Tag and category
+fixtures deliberately use different labels, counts and memberships so one field
+cannot accidentally substitute for the other.
+The JavaScript checks cover floating navigation state, Escape, focus restoration,
+dropdown interaction and responsive closure, alongside clipboard, Mermaid and
+highlighting regressions. These state checks do not replace browser layout or
+screen reader audits.
+
 To check packaging, install the built gem in a temporary directory and build
 the test site and complete documentation site from that installation:
 
 ```sh
 gem build chulapa-jekyll.gemspec
-bundle exec ruby test/check_theme_installation.rb
+BUNDLE_GEMFILE=test/installation/Gemfile bundle install
+cd test
+BUNDLE_GEMFILE=installation/Gemfile bundle exec ruby check_theme_installation.rb
 ```
 
 This also checks generated pagination, canonical URLs and sitemap entries in
 root and subdirectory deployments. It does not install the theme globally.
+The installation Gemfile intentionally omits the local theme dependency; use
+`jekyll3/Gemfile` instead to check the installed gem with Jekyll 3.
+
+## Browser navigation regressions
+
+From the repository root, install the isolated test tools and build fixtures:
+
+```sh
+npm ci --prefix test/browser
+test/browser/node_modules/.bin/playwright install chromium
+cd test
+bundle exec ruby build_accessibility_fixtures.rb /tmp/chulapa-navigation
+cd ..
+NODE_PATH="$PWD/test/browser/node_modules" node test/check_navigation_browser.js /tmp/chulapa-navigation
+```
+
+The runner uses Playwright's Chromium by default. Set
+`CHULAPA_BROWSER_EXECUTABLE` to use a system browser. CI installs Chromium and
+its OS dependencies with `playwright install --with-deps chromium`.
+
+These checks cover mobile/desktop FAB navigation, skip-link focus, Tab, Escape,
+focus leaving the menu, the sidebar's existing Tab behavior, dual-navbar resize
+and classic-navbar keyboard controls. They serve actual generated HTML/CSS/JS
+locally and fulfill the theme's jQuery, Popper and Bootstrap requests from pinned
+npm copies, verifying the template's SRI hashes. Fonts, icons and other external
+services are blocked; no CDN access is needed during the browser run. This is
+separate from the broader axe/visual review below.
 
 ## Accessibility browser checks
 
