@@ -27,6 +27,9 @@
   {%- assign ogimage = ogimage_source | absolute_url -%}
 {%- endif -%}
 {%- assign explicit_description = page.description | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
+{%- if explicit_description != empty -%}
+  {%- assign ogdesc = explicit_description -%}
+{%- else -%}
 {%- assign ogdesc = page.excerpt | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
 {%- if ogdesc == empty and strippedurl == '/' -%}
   {%- assign ogdesc = site.description | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
@@ -41,9 +44,7 @@
   {%- assign ogdesc = descfallback | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
 {%- endif -%}
 {%- assign metasubtitle = page.subtitle | markdownify | strip_html | split: ' ' | join: ' ' | strip -%}
-{%- if explicit_description != empty -%}
-  {%- assign ogdesc = explicit_description -%}
-{%- elsif metasubtitle != empty -%}
+{%- if metasubtitle != empty -%}
   {%- assign description_lower = ogdesc | downcase -%}
   {%- assign subtitle_lower = metasubtitle | downcase -%}
   {%- if ogdesc == empty -%}
@@ -53,6 +54,7 @@
       {%- assign ogdesc = metasubtitle | append: ' - ' | append: ogdesc -%}
     {%- endunless -%}
   {%- endif -%}
+{%- endif -%}
 {%- endif -%}
 {%- assign ogdesc = ogdesc | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip | escape_once -%}
 {%- assign links = page.author.links | default: site.author.links -%}

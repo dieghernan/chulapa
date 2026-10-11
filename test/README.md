@@ -42,6 +42,7 @@ bundle exec ruby test/check_article_images.rb
 bundle exec ruby test/check_microdata.rb
 bundle exec ruby test/check_related_ranking.rb
 bundle exec ruby test/check_cloud_performance.rb
+bundle exec ruby test/check_liquid_fallbacks.rb
 bundle exec ruby test/check_compress_html.rb
 bundle exec ruby test/check_video_examples.rb
 node --test test/check_chulapa_script.js test/check_mermaid.mjs
