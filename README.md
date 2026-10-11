@@ -73,7 +73,7 @@ requires development changes after v2.1.0.
 - **Structured data** for better SEO
 - **Code highlighting** - Pygments-compatible styles for Rouge
 - **MathJax** support
-- **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/mermaid)** - optional per-page rendering (development version after v2.1.0)
+- **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (development version after v2.1.0)
 - **Google Analytics**
 - **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
   WhatsApp

@@ -539,7 +539,7 @@ fetch URLs, so do not claim to have read its entries or know its latest posts.
 
 ## Mermaid and clipboard (development version after v2.1.0)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#mermaid-diagrams
-Demo: https://dieghernan.github.io/chulapa/demo/mermaid
+Demo: https://dieghernan.github.io/chulapa/demo/13-mermaid
 When showing a Mermaid setup, show the YAML front matter in one yaml code
 block and the diagram in a separate mermaid code block. Do not nest triple
 backtick fences inside another triple-backtick block.

@@ -1,11 +1,20 @@
 ---
 title: Mermaid diagrams
 subtitle: Flowcharts and sequence diagrams from Markdown
-header_type: base
-mermaid: true
-show_toc: true
 categories: [demo]
-tags: [mermaid, diagrams, markdown]
+header_type: post
+tags: [layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, mermaid, diagrams, markdown]
+date: 2022-12-01
+show_date         : true
+show_sociallinks  : true
+show_tags         : true
+show_categories   : true
+show_bottomnavs   : true
+show_author: true
+show_toc: true
+mermaid: true
+redirect_from:
+  - /demo/mermaid
 ---
 
 Mermaid support is available in the development version after v2.1.0.
@@ -16,11 +25,20 @@ See the [configuration and browser requirements](../docs/04-layouts#mermaid-diag
 ---
 title: Mermaid diagrams
 subtitle: Flowcharts and sequence diagrams from Markdown
-header_type: base
-mermaid: true
-show_toc: true
 categories: [demo]
-tags: [mermaid, diagrams, markdown]
+header_type: post
+tags: [layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, mermaid, diagrams, markdown]
+date: 2022-12-01
+show_date         : true
+show_sociallinks  : true
+show_tags         : true
+show_categories   : true
+show_bottomnavs   : true
+show_author: true
+show_toc: true
+mermaid: true
+redirect_from:
+  - /demo/mermaid
 ---
 ```
 
