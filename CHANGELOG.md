@@ -10,6 +10,8 @@
 
 ### Fixed
 
+-   Respect the selected `index_sort` field in collection card indexes, internal masonry galleries and carousels; show all current demos in ascending filename order on the demo index.
+
 -   Associate Google and simple search labels with their input and load Lunr/Fuse attribution styles from stylesheets rather than body style blocks.
 
 -   Give navbar dropdowns a valid named group role, move no-JavaScript navigation styles into the head and remove redundant void-element slashes, JavaScript types and the empty comments section warning from theme templates.
