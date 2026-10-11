@@ -263,7 +263,7 @@
 </aside>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
             <nav aria-label="table-of-contents">
-			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#flowchart">Flowchart</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#sequence-diagram">Sequence diagram</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#write-your-own">Write your own</a></li></ul>
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#publishing-the-documentation">Publishing the documentation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#rendering-mermaid-in-a-chulapa-page">Rendering Mermaid in a <span class="chulapa">Chulapa</span> page</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#write-your-own">Write your own</a></li></ul>
 			</nav>
 			 <p>Mermaid support is available in the development version after v2.1.0.
 Set <code class="language-plaintext highlighter-rouge">mermaid: true</code> in page front matter and write a fenced <code class="language-plaintext highlighter-rouge">mermaid</code> block.
@@ -287,40 +287,77 @@ See the <a href="../docs/04-layouts#mermaid-diagrams">configuration and browser 
   <span class="pi">-</span> <span class="s">/demo/mermaid</span>
 <span class="nn">---</span>
 </code></pre></div></div>
-<h2 id="flowchart">Flowchart</h2>
-<p>Content passes through writing, building and publishing, in that order.</p><pre><code class="language-mermaid">flowchart LR
-  accTitle: Publishing workflow
-  accDescr: Write content, build the site and publish it.
-  A[Write] --&gt; B[Build] --&gt; C[Publish]
+<h2 id="publishing-the-documentation">Publishing the documentation</h2>
+<p>A push to <code class="language-plaintext highlighter-rouge">main</code> starts this repository’s GitHub Pages workflow. It installs
+Ruby dependencies from <code class="language-plaintext highlighter-rouge">docs/Gemfile</code>, builds the documentation with Jekyll,
+uploads the generated site and deploys it to Pages. The workflow can also run
+on its schedule or be started manually.</p><pre><code class="language-mermaid">flowchart TD
+  accTitle: Publishing the Chulapa documentation
+  accDescr: A push to main, a scheduled run or a manual trigger starts GitHub Actions. The build job checks out the repository, installs Ruby dependencies, configures Pages, builds the documentation and uploads the site. The deployment job publishes the artifact to GitHub Pages.
+  Push[Push to main] --&gt; Build
+  Schedule[Scheduled run] --&gt; Build
+  Manual[Manual trigger] --&gt; Build
+  subgraph Build[Build job]
+    Checkout[Check out repository] --&gt; Ruby[Set up Ruby and install docs/Gemfile]
+    Ruby --&gt; Pages[Configure GitHub Pages]
+    Pages --&gt; Jekyll[Build docs with Jekyll and the Pages baseurl]
+    Jekyll --&gt; Artifact[Upload docs/_site artifact]
+  end
+  Artifact --&gt; Deploy[Deploy job: publish to GitHub Pages]
+  Deploy --&gt; Site[Chulapa documentation website]
 </code></pre>
-<h2 id="sequence-diagram">Sequence diagram</h2>
-<p>The browser requests a page from the static host, then requests Mermaid from
-the CDN to render its diagrams locally.</p><pre><code class="language-mermaid">sequenceDiagram
-  accTitle: Loading a diagram
-  accDescr: The browser loads the page, fetches Mermaid and renders a diagram.
+<h2 id="rendering-mermaid-in-a-chulapa-page">Rendering Mermaid in a <span class="chulapa">Chulapa</span> page</h2>
+<p>With <code class="language-plaintext highlighter-rouge">mermaid: true</code>, <span class="chulapa">Chulapa</span> includes its Mermaid
+module. That module only loads Mermaid from jsDelivr when it finds diagram
+blocks. Each successful render replaces its code block with a diagram; if
+loading or rendering fails, the source stays visible. These steps run in the
+visitor’s browser after Jekyll has generated the page.</p><pre><code class="language-mermaid">sequenceDiagram
+  accTitle: Rendering Mermaid in Chulapa
+  accDescr: The browser loads an enabled page and the Chulapa Mermaid module. When diagram blocks exist, the module imports Mermaid from jsDelivr and renders each block. Successful diagrams replace their source, while failed diagrams keep their source visible.
   participant Browser
-  participant Host
-  participant CDN
-  Browser-&gt;&gt;Host: Request page
-  Host--&gt;&gt;Browser: HTML and diagram source
-  Browser-&gt;&gt;CDN: Request Mermaid
-  CDN--&gt;&gt;Browser: JavaScript module
-  Browser-&gt;&gt;Browser: Render diagram
+  participant Pages as GitHub Pages
+  participant Module as Chulapa Mermaid module
+  participant CDN as jsDelivr
+  Browser-&gt;&gt;Pages: Request the Mermaid demo
+  Pages--&gt;&gt;Browser: HTML with diagram source and module script
+  Browser-&gt;&gt;Pages: Request chulapa_mermaid.js
+  Pages--&gt;&gt;Browser: JavaScript module
+  Browser-&gt;&gt;Module: Run module
+  opt Mermaid blocks exist
+    Module-&gt;&gt;CDN: Import Mermaid 12.1.0
+    alt Library loads
+      CDN--&gt;&gt;Module: Mermaid library
+      loop Each diagram block
+        Module-&gt;&gt;Module: Render SVG
+        alt Diagram renders
+          Module-&gt;&gt;Browser: Replace code block with accessible diagram
+        else Invalid diagram
+          Module-&gt;&gt;Browser: Keep source code visible
+        end
+      end
+    else Library cannot load
+      Module-&gt;&gt;Browser: Keep source code visible
+    end
+  end
 </code></pre>
 <h2 id="write-your-own">Write your own</h2>
 <p>Copy this complete page example. The outer Markdown block remains ordinary
 code and has a copy button; rendered diagrams do not have copy buttons.</p>
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">My diagram</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">How Chulapa builds a page</span>
 <span class="na">mermaid</span><span class="pi">:</span> <span class="kc">true</span>
 <span class="nn">---</span>
 
 <span class="p">```</span><span class="nl">mermaid
 </span><span class="sb">flowchart TD
-  accTitle: A simple workflow
-  accDescr: Start, perform a task and finish.
-  A[Start] --&gt; B[Task] --&gt; C[Finish]</span>
+  accTitle: Building a Chulapa page
+  accDescr: Jekyll applies configuration defaults and page front matter, converts Markdown to HTML, renders Chulapa layouts and includes, and writes the static page.
+  Config[_config.yml defaults] --&gt; Page[Page settings]
+  Front[Page front matter] --&gt; Page
+  Page --&gt; Markdown[Convert Markdown to HTML]
+  Markdown --&gt; Layout[Render Chulapa layouts and includes]
+  Layout --&gt; Output[Write static HTML page]</span>
 <span class="p">```</span>
 </code></pre></div></div>
 <p>If Mermaid cannot load or the diagram syntax is invalid, the source stays
