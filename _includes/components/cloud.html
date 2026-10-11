@@ -1,0 +1,82 @@
+{%- if include.field == 'categories' -%}
+  {%- assign cloud_color = 'secondary' -%}
+  {%- assign cloud_icon = 'far fa-folder-open' -%}
+  {%- assign cloud_kind = 'category' -%}
+{%- else -%}
+  {%- assign cloud_color = 'primary' -%}
+  {%- assign cloud_icon = 'fa fa-tag' -%}
+  {%- assign cloud_kind = 'tag' -%}
+{%- endif -%}
+{% assign alldocs = alldocs | sort: 'date' | reverse %}
+{% assign alltags =  alldocs | map: include.field | join: ','  | split: ','  %}
+
+{%- assign tag_groups = alltags | group_by_exp: 'item', 'item' -%}
+{%- assign single_tags = tag_groups | map: 'name' -%}
+{%- assign count_tags = tag_groups | map: 'size' -%}
+{%- assign n_tags = single_tags | size | minus: 1 -%}
+{%- assign frequencies = count_tags | uniq | sort | reverse -%}
+{% assign sorted_tags = '' | split: ',' %}
+{% assign sorted_count_tags = '' | split: ',' %}
+
+{% for i in frequencies %}
+  {% for j in (0..n_tags) %}
+    {% if count_tags[j] == i %}
+     {% assign sorted_tags = sorted_tags | push: single_tags[j] %}
+     {% assign sorted_count_tags = sorted_count_tags | push: i %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{%- assign sizemax = sorted_count_tags | first -%}
+{% assign mid = sorted_count_tags | last | plus: sizemax | divided_by: 2  %}
+
+<div class="row g-0 pt-5" id="{{ include.field }}">
+<div class="col">
+	{%- for i in (0..n_tags)-%}
+	<a href="#{{- sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="btn btn-{{ cloud_color }} m-1" role="button" style="font-size: min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="{{ cloud_icon }} mr-2" aria-hidden="true"></i>{{- sorted_tags[i] -}}<span class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{ sorted_count_tags[i]}}</span></a>
+	{%- endfor -%}
+	</div>
+</div>
+
+{% assign words_per_minute = site.words_per_minute | default: 200 %}
+{% for  i in (0..n_tags) %}
+<section id="{{- sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="py-3 chulapa-cloud{{ cloud_kind }}">
+<div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
+  <h2 class="h5 my-0"><i class="{{ cloud_icon }} mr-1" aria-hidden="true"></i>{{- sorted_tags[i]-}} </h2>
+  <div class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{sorted_count_tags[i]}}</div>
+</div>
+  {% for document in alldocs %}
+	{% if document[include.field] contains sorted_tags[i] %}
+  {% assign words = document.content | strip_html | number_of_words %}
+  {% assign readtime = "< 1’" | escape_once  %}
+  {% if words > words_per_minute %}
+  {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
+  {% endif %}
+  <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
+    <div class="col">
+      <h3 class="h6"><a href="{{ document.url | absolute_url }}" class="p-name u-url">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h3>
+      {%- if document.subtitle -%}<p class="p-summary">{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
+      <div class="small">
+        {% if document.date %}
+        {% assign dateformat = document.date | date: "%B %d, %Y" %}
+        <i class="far fa-calendar" aria-hidden="true"></i> <time class="dt-published" datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+{% if document.last_modified_at %} <i class="fa fa-redo" aria-hidden="true"></i>{% endif %} |
+        {% endif %}
+        <i class="far fa-clock" aria-hidden="true"></i> {{ readtime }}
+        {%- if showcol -%}
+        <span class="ml-2 badge chulapa-pill-bg-body p-category">{{ document.collection }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+    {% if document.header_img or document.og_image %}
+    <a href="{{ document.url | absolute_url }}" class="col-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ document.og_image | default: document.header_img | absolute_url }}')">
+    </a>
+    {% endif %}
+  </article>
+  {% endif %}
+  {% endfor %}
+  <div class="text-right">
+      <a href="#{{ include.field }}" class="btn btn-lg border-0 chulapa-text-body-color"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i><span class="sr-only">Top</span></a>
+  </div>
+</section>
+{% endfor %}

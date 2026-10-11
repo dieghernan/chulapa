@@ -1,0 +1,17 @@
+{%- if page.include_collection -%}
+  {%- assign cols = page.include_collection | split: ',' -%}
+  {%- for col in cols -%}
+    {%- assign docloop = site.documents | where_exp: 'item', 'item.collection == col' -%}
+    {%- if forloop.first -%}
+      {%- assign alldocs = docloop -%}
+      {%- assign showcol = false -%}
+    {%- else -%}
+      {%- assign alldocs = alldocs | concat: docloop -%}
+      {%- assign showcol = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign alldocs = site.documents -%}
+  {%- assign showcol = true -%}
+{%- endif -%}
+{%- include {{ include.renderer }} field=include.field -%}
