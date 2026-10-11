@@ -1119,7 +1119,7 @@ your locale will be used.
 
 ### Mermaid diagrams
 
-See the [Mermaid demo](../demo/mermaid) for flowchart and sequence examples.
+See the [Mermaid demo](../demo/13-mermaid) for flowchart and sequence examples.
 
 Available in the development version after v2.1.0. Use the updated default
 branch or a later release containing this feature; the v2.1.0 gem does not

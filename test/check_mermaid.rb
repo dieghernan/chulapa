@@ -9,7 +9,7 @@ Dir.mktmpdir("chulapa-mermaid-") do |source|
   %w[_layouts _includes _sass assets].each do |dir|
     FileUtils.cp_r(File.join(root, dir), source)
   end
-  FileUtils.cp(File.join(root, "docs/collections/_demo/mermaid.md"), File.join(source, "demo.md"))
+  FileUtils.cp(File.join(root, "docs/collections/_demo/13_mermaid.md"), File.join(source, "demo.md"))
   %w[default minimal landingpage].each do |layout|
     [true, false].each do |enabled|
       File.write(File.join(source, "#{layout}-#{enabled}.md"), <<~PAGE)
