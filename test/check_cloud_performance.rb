@@ -21,7 +21,13 @@ site = Jekyll::Site.new(Jekyll.configuration("source" => root, "quiet" => true, 
     {"url" => "/untagged", "title" => "Untagged", "collection" => "posts", "date" => "2024-04-01", field => [], "content" => "unused"}
   ]
   source = File.read(File.join(root, "_layouts/#{layout}.html")).sub(/\A---.*?---\s*/m, "")
-  [nil, "posts"].each do |collection|
+  [
+    [nil, %w[alpha beta], %w[2 2], 4, %w[Short Long]],
+    ["posts", %w[beta alpha], %w[2 1], 3, %w[Short Long]],
+    ["demo,posts", %w[alpha beta], %w[2 2], 4, %w[Short Long]],
+    ["posts,posts", %w[beta alpha], %w[4 2], 6, %w[Short Short Long Long]],
+    ["missing", [], [], 0, []]
+  ].each do |collection, expected, counts, word_calls, beta_titles|
     calls = []
     html = Liquid::Template.parse(source).render!(
       {"site" => {"documents" => documents, "url" => "https://example.com", "words_per_minute" => 200}, "page" => {"include_collection" => collection}},
@@ -29,13 +35,16 @@ site = Jekyll::Site.new(Jekyll.configuration("source" => root, "quiet" => true, 
     )
     doc = Nokogiri::HTML(html)
     sections = doc.css("section")
-    expected = collection ? %w[beta alpha] : %w[alpha beta]
     raise "Wrong order: #{layout}" unless sections.map { |s| s["id"] } == expected
-    raise "Wrong counts: #{layout}" unless sections.map { |s| s.at_css(".d-flex .badge").text.strip } == (collection ? %w[2 1] : %w[2 2])
-    raise "Unexpected word counting: #{layout}" unless calls.size == (collection ? 3 : 4)
+    raise "Wrong counts: #{layout}" unless sections.map { |s| s.at_css(".d-flex .badge").text.strip } == counts
+    raise "Unexpected word counting: #{layout}" unless calls.size == word_calls
     raise "Unused content counted" if calls.include?("unused")
-    raise "Missing reading time" unless sections.map(&:text).join.include?("2’")
-    raise "Wrong article order" unless sections.find { |s| s["id"] == "beta" }.css(".h6 a").map(&:text) == %w[Short Long]
+    raise "Missing reading time" unless sections.empty? || sections.map(&:text).join.include?("2’")
+    beta = sections.find { |section| section["id"] == "beta" }
+    raise "Wrong article order" unless (beta ? beta.css(".h6 a").map(&:text) : []) == beta_titles
+    badges = doc.css(".p-category")
+    hide_badges = %w[posts missing].include?(collection)
+    raise "Collection badge visibility changed" unless badges.empty? == hide_badges
   end
 end
 puts "Cloud ordering, counts, reading time and collection checks passed."

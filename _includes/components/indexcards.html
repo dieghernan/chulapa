@@ -11,13 +11,16 @@
 				<a class="u-url" href="{{- post.url | absolute_url -}}"><h2 class="h5 card-title p-name">{{- post.title  | default: "---" | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</h2></a>
 				{% if post.subtitle -%}<p class="h6 card-subtitle mb-2 chulapa-text-body-color">{{- post.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p>{%- endif %}
 				
-{%- assign fallbackdesc = post.content | 
+{%- assign card_excerpt = post.excerpt -%}
+{%- unless card_excerpt and card_excerpt != empty -%}
+{%- assign card_excerpt = post.content |
               markdownify |  newline_to_br | 
               replace:"<br />", ",.," | 
               replace:"{{", ",.," | 
               replace:"{%", ",.," | 
               split: ",.," | first -%}
-				<div class="card-text p-summary">{{- post.excerpt | default: fallbackdesc | strip_html |
+{%- endunless -%}
+				<div class="card-text p-summary">{{- card_excerpt | strip_html |
               escape_once -}}
 				</div>
 			</article>

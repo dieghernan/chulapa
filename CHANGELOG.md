@@ -24,6 +24,8 @@
 
 ### Changed
 
+-   Share Liquid collection, cloud and recommendation rendering, iterate only existing frequencies and sort each recommendation score group once. Equal-score documents with the same date may appear in a different order; settings, eligibility and date priority are unchanged.
+
 -   Format generated head HTML and JSON-LD consistently and preserve head indentation when blank-line compression is enabled.
 
 -   Add a skip link and visible keyboard focus, underline prose links and respect reduced-motion preferences without changing the lateral TOC's Tab behavior.
