@@ -42,34 +42,67 @@ redirect_from:
 ---
 ```
 
-## Flowchart
+## Publishing the documentation
 
-Content passes through writing, building and publishing, in that order.
+A push to `main` starts this repository's GitHub Pages workflow. It installs
+Ruby dependencies from `docs/Gemfile`, builds the documentation with Jekyll,
+uploads the generated site and deploys it to Pages. The workflow can also run
+on its schedule or be started manually.
 
 ```mermaid
-flowchart LR
-  accTitle: Publishing workflow
-  accDescr: Write content, build the site and publish it.
-  A[Write] --> B[Build] --> C[Publish]
+flowchart TD
+  accTitle: Publishing the Chulapa documentation
+  accDescr: A push to main, a scheduled run or a manual trigger starts GitHub Actions. The build job checks out the repository, installs Ruby dependencies, configures Pages, builds the documentation and uploads the site. The deployment job publishes the artifact to GitHub Pages.
+  Push[Push to main] --> Build
+  Schedule[Scheduled run] --> Build
+  Manual[Manual trigger] --> Build
+  subgraph Build[Build job]
+    Checkout[Check out repository] --> Ruby[Set up Ruby and install docs/Gemfile]
+    Ruby --> Pages[Configure GitHub Pages]
+    Pages --> Jekyll[Build docs with Jekyll and the Pages baseurl]
+    Jekyll --> Artifact[Upload docs/_site artifact]
+  end
+  Artifact --> Deploy[Deploy job: publish to GitHub Pages]
+  Deploy --> Site[Chulapa documentation website]
 ```
 
-## Sequence diagram
+## Rendering Mermaid in a <span class="chulapa">Chulapa</span> page
 
-The browser requests a page from the static host, then requests Mermaid from
-the CDN to render its diagrams locally.
+With `mermaid: true`, <span class="chulapa">Chulapa</span> includes its Mermaid
+module. That module only loads Mermaid from jsDelivr when it finds diagram
+blocks. Each successful render replaces its code block with a diagram; if
+loading or rendering fails, the source stays visible. These steps run in the
+visitor's browser after Jekyll has generated the page.
 
 ```mermaid
 sequenceDiagram
-  accTitle: Loading a diagram
-  accDescr: The browser loads the page, fetches Mermaid and renders a diagram.
+  accTitle: Rendering Mermaid in Chulapa
+  accDescr: The browser loads an enabled page and the Chulapa Mermaid module. When diagram blocks exist, the module imports Mermaid from jsDelivr and renders each block. Successful diagrams replace their source, while failed diagrams keep their source visible.
   participant Browser
-  participant Host
-  participant CDN
-  Browser->>Host: Request page
-  Host-->>Browser: HTML and diagram source
-  Browser->>CDN: Request Mermaid
-  CDN-->>Browser: JavaScript module
-  Browser->>Browser: Render diagram
+  participant Pages as GitHub Pages
+  participant Module as Chulapa Mermaid module
+  participant CDN as jsDelivr
+  Browser->>Pages: Request the Mermaid demo
+  Pages-->>Browser: HTML with diagram source and module script
+  Browser->>Pages: Request chulapa_mermaid.js
+  Pages-->>Browser: JavaScript module
+  Browser->>Module: Run module
+  opt Mermaid blocks exist
+    Module->>CDN: Import Mermaid 12.1.0
+    alt Library loads
+      CDN-->>Module: Mermaid library
+      loop Each diagram block
+        Module->>Module: Render SVG
+        alt Diagram renders
+          Module->>Browser: Replace code block with accessible diagram
+        else Invalid diagram
+          Module->>Browser: Keep source code visible
+        end
+      end
+    else Library cannot load
+      Module->>Browser: Keep source code visible
+    end
+  end
 ```
 
 ## Write your own
@@ -80,15 +113,19 @@ code and has a copy button; rendered diagrams do not have copy buttons.
 ````markdown
 ---
 layout: default
-title: My diagram
+title: How Chulapa builds a page
 mermaid: true
 ---
 
 ```mermaid
 flowchart TD
-  accTitle: A simple workflow
-  accDescr: Start, perform a task and finish.
-  A[Start] --> B[Task] --> C[Finish]
+  accTitle: Building a Chulapa page
+  accDescr: Jekyll applies configuration defaults and page front matter, converts Markdown to HTML, renders Chulapa layouts and includes, and writes the static page.
+  Config[_config.yml defaults] --> Page[Page settings]
+  Front[Page front matter] --> Page
+  Page --> Markdown[Convert Markdown to HTML]
+  Markdown --> Layout[Render Chulapa layouts and includes]
+  Layout --> Output[Write static HTML page]
 ```
 ````
 
