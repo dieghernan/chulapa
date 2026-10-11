@@ -329,6 +329,7 @@ plugins:
 - jekyll-include-cache
 - jekyll-sitemap
 - jekyll-remote-theme
+- jekyll-redirect-from
 
 # XX.3. Files to exclude or include
 exclude:

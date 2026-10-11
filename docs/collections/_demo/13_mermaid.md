@@ -13,6 +13,8 @@ show_bottomnavs   : true
 show_author: true
 show_toc: true
 mermaid: true
+redirect_from:
+  - /demo/mermaid
 ---
 
 Mermaid support is available in the development version after v2.1.0.
@@ -35,6 +37,8 @@ show_bottomnavs   : true
 show_author: true
 show_toc: true
 mermaid: true
+redirect_from:
+  - /demo/mermaid
 ---
 ```
 
