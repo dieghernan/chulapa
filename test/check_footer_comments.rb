@@ -36,4 +36,14 @@ selectors.each do |provider, selector|
     end
   end
 end
+
+JekyllIncludeCache.reset
+values = {"url" => "https://example.com", "comments" => {"provider" => "cusdis", "cusdis_app_id" => "test"}}
+%w[original edited].each do |revision|
+  page = {"show_comments" => true, "url" => "/same-page", "id" => "#{revision}-id", "title" => "#{revision} title"}
+  html = Nokogiri::HTML.fragment(template.render!({"site" => values, "page" => page}, filters: [Jekyll::Filters], registers: {site: site}))
+  thread = html.at_css("#cusdis_thread")
+  raise "Footer ID stayed cached for the same URL" unless thread["data-page-id"] == "#{revision}-id"
+  raise "Footer title stayed cached for the same URL" unless thread["data-page-title"] == "#{revision} title"
+end
 puts "Cached footer preserves Disqus, Cusdis, Cactus and Welcomments page inputs and comment gating."

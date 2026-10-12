@@ -99,6 +99,10 @@ Disqus, Cusdis, Cactus and Welcomments templates with distinct page inputs and
 disabled comments; the cache fixture covers a custom Giscus include.
 Recommendation checks cover empty and singleton pools with hashes and real
 Jekyll documents, and avoid requiring a particular order for equal-date ties.
+They also exclude cross-collection candidates with only two shared tags. Cache
+checks vary the reading speed for the same document within one render and change
+comment IDs and titles while retaining the same page URL, so incomplete cache
+keys cannot hide behind distinct documents, URLs or build resets.
 The JavaScript checks cover floating navigation state, Escape, focus restoration,
 dropdown interaction and responsive closure, alongside clipboard, Mermaid and
 highlighting regressions. These state checks do not replace browser layout or

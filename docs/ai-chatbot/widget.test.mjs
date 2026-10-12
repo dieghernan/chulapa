@@ -49,6 +49,45 @@ test('aligns with button and legacy label FABs and tracks navigation state', asy
   }
 });
 
+test('blocks duplicate submissions and preserves a new draft during an in-flight request', async () => {
+  let complete;
+  let requests = 0;
+  const pending = new Promise(resolve => { complete = resolve; });
+  const ui = widget({ fetch: () => { requests++; return pending; } });
+  try {
+    ui.get('launch').click();
+    const submit = () => ui.root.querySelector('form').dispatchEvent(new ui.window.Event('submit', { cancelable: true }));
+    ui.get('question').value = 'First question';
+    submit();
+    assert.equal(ui.get('send').disabled, true);
+    assert.equal(ui.get('clear').disabled, true);
+    ui.get('question').value = 'Next question draft';
+    submit();
+    assert.equal(requests, 1);
+    assert.equal(ui.root.querySelectorAll('.message.user').length, 1);
+    complete({ ok: true, json: async () => ({ answer: 'Completed answer.' }) });
+    await tick();
+    assert.equal(ui.get('question').value, 'Next question draft');
+    assert.equal(ui.get('send').disabled, false);
+    assert.equal(ui.get('clear').disabled, false);
+    assert.match(ui.get('log').textContent, /Completed answer/);
+  } finally { ui.dom.window.close(); }
+});
+
+test('reports clipboard failure without claiming the code was copied', async () => {
+  const ui = widget({ saved: { history: [{ label: 'Chulapa', text: '```yaml\nshow_random: true\n```' }] } });
+  try {
+    Object.defineProperty(ui.window.navigator, 'clipboard', { value: {
+      writeText: async () => { throw new Error('Clipboard permission denied'); }
+    } });
+    ui.root.querySelector('.copy-code').click();
+    await tick();
+    assert.equal(ui.root.querySelector('.copy-code').textContent, 'Copy unavailable');
+    assert.match(ui.get('status').textContent, /Select the code and copy it manually/);
+    assert.equal(ui.root.querySelector('pre code').textContent.trim(), 'show_random: true');
+  } finally { ui.dom.window.close(); }
+});
+
 test('mobile opening avoids the keyboard; desktop opening focuses the question', () => {
   for (const mobile of [true, false]) {
     const ui = widget({ mobile });

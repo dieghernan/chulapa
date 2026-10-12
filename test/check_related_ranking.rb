@@ -15,6 +15,7 @@ documents = [
   {"id" => "older", "url" => "/older", "tags" => %w[x y], "collection" => "posts", "date" => "2024-01-01"},
   {"id" => "newer", "url" => "/newer", "tags" => %w[x y], "collection" => "posts", "date" => "2024-02-01"},
   {"id" => "below", "url" => "/below", "tags" => %w[x], "collection" => "posts", "date" => "2024-03-01"},
+  {"id" => "other-below", "url" => "/other-below", "tags" => %w[x y], "collection" => "demo", "date" => "2025-01-01"},
   {"id" => "other", "url" => "/other", "tags" => %w[x y z], "collection" => "demo", "date" => "2023-01-01"}
 ]
 

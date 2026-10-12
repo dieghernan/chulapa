@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed documentation snapshot, October 8, 2026. Sources are the public documentation
+Reviewed documentation snapshot, October 12, 2026. Sources are the public documentation
 files in docs/collections/_docs and docs/llms.txt. This is a compact selection,
 not the complete documentation. Unsupported details must be acknowledged.
 

@@ -15,6 +15,13 @@ npm run build
 npm test
 ```
 
+The theme regression workflow also runs `npm test` on pull requests and pushes
+to `main`, without deploying or invoking live AI. The tests cover Worker routes,
+streamed UTF-8 and input limits, CORS, binding and rate-limiter failures, sanitized
+Markdown and links, duplicate submissions, drafts and clipboard failures. A
+bundle check compares the deployed artifact's context with `ai-context.md` to
+catch stale or incomplete generated content.
+
 Review `ai-context.md` against the public documentation before deployment.
 Regenerate the bundle after changing the context, widget or Worker. Deployments
 do not automatically synchronize with Jekyll builds. The selected context is

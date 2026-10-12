@@ -90,6 +90,13 @@ Dir.mktmpdir("chulapa-cache-") do |source|
     raise "Edited document subtitle stayed cached" unless updated.css(".p-summary em").map(&:text) == %w[updated updated]
     updated_readtime = baseurl.empty? ? "4’" : "8’"
     raise "Edited document reading time stayed cached" unless updated.css(".small").all? { |small| small.text.include?(updated_readtime) }
+    # The same document can be reused with a different speed without a rebuild.
+    JekyllIncludeCache.reset
+    variants = Liquid::Template.parse('{% include_cached components/cloud-entry.html document=document showcol=false words_per_minute=200 %}{% include_cached components/cloud-entry.html document=document showcol=false words_per_minute=100 %}')
+    entry = site.collections["entries"].docs.first.to_liquid
+    html = variants.render!({"site" => site.site_payload["site"], "document" => entry}, filters: [Jekyll::Filters], registers: {site: site})
+    small = Nokogiri::HTML.fragment(html).css(".h-entry .small")
+    raise "Reading-speed cache key omitted the setting" unless small.size == 2 && small[0].text.include?("4’") && small[1].text.include?("8’")
     File.write(entry_path, original)
   end
 end
