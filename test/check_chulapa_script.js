@@ -10,11 +10,16 @@ const script = fs.readFileSync(
 );
 
 function element(tagName) {
+  const classes = new Set();
   return {
     tagName,
     children: [],
     attributes: {},
-    classList: { add() {}, remove() {}, contains() { return false; } },
+    classList: {
+      add(...names) { names.forEach(name => classes.add(name)); },
+      remove(...names) { names.forEach(name => classes.delete(name)); },
+      contains(name) { return classes.has(name); }
+    },
     getAttribute(name) { return this.attributes[name]; },
     removeAttribute(name) { delete this.attributes[name]; },
     closest() { return null; },
@@ -25,11 +30,13 @@ function element(tagName) {
   };
 }
 
-function run(main) {
+function run(main, body = null) {
   let tooltipCalls = 0;
+  const logs = [];
   const context = {
+    console: { log(message) { logs.push(message); } },
     document: {
-      getElementById(id) { return id === "maincontent" ? main : null; },
+      getElementById(id) { return { maincontent: main, body }[id] || null; },
       createElement: element
     },
     $(value) {
@@ -38,15 +45,15 @@ function run(main) {
     }
   };
   vm.runInNewContext(script, context);
-  assert.equal(tooltipCalls, 1);
+  return { tooltipCalls, logs };
 }
 
 test("minimal page without maincontent still initializes tooltips", () => {
-  run(null);
+  assert.equal(run(null).tooltipCalls, 1);
 });
 
 test("empty maincontent still initializes tooltips", () => {
-  run({ querySelectorAll() { return []; } });
+  assert.equal(run({ querySelectorAll() { return []; } }).tooltipCalls, 1);
 });
 
 test("maincontent retains heading permalinks and code copy buttons", () => {
@@ -55,15 +62,56 @@ test("maincontent retains heading permalinks and code copy buttons", () => {
   const code = element("code");
   const pre = element("pre");
   pre.firstChild = code;
-  run({
+  const result = run({
     querySelectorAll(selector) { return selector === "pre" ? [pre] : [heading]; }
   });
+  assert.equal(result.tooltipCalls, 1);
   assert.equal(heading.children[0].href, "#example");
   assert.equal(heading.children[0].children[0].innerHTML, "Permalink");
   assert.equal(code.attributes.id, "clipboard_code0");
   assert.equal(pre.children[0].id, "clipboard_btn0");
   assert.equal(pre.children[0].attributes["aria-label"], "Copy code to clipboard");
   assert.equal(typeof pre.children[0].onclick, "function");
+});
+
+test("headings without IDs and preformatted text without code remain unchanged", () => {
+  const heading = element("h2");
+  heading.innerHTML = "Heading without ID";
+  const pre = element("pre");
+  pre.innerHTML = "Plain preformatted text";
+  const result = run({ querySelectorAll(selector) { return selector === "pre" ? [pre] : [heading]; } });
+  assert.deepEqual(heading.children, []);
+  assert.deepEqual(pre.children, []);
+  assert.equal(result.tooltipCalls, 1);
+});
+
+for (const marker of ["native", "wrapper", "code"]) {
+  for (const enabled of [true, false]) {
+    test(`${marker} Mermaid block ${enabled ? "is preserved for rendering" : "receives a copy button when disabled"}`, () => {
+      const body = element("body");
+      body.setAttribute("data-mermaid", String(enabled));
+      const pre = element("pre");
+      const code = element("code");
+      pre.firstChild = code;
+      if (marker === "native") pre.classList.add("mermaid");
+      if (marker === "wrapper") pre.closest = selector => selector === ".language-mermaid" ? {} : null;
+      if (marker === "code") code.classList.add("language-mermaid");
+      run({ querySelectorAll(selector) { return selector === "pre" ? [pre] : []; } }, body);
+      assert.equal(pre.children.length, enabled ? 0 : 1);
+      assert.equal(code.children.length, enabled ? 0 : 1);
+      assert.equal(code.getAttribute("id"), enabled ? undefined : "clipboard_code0");
+    });
+  }
+}
+
+test("highlighted blocks keep their code untouched and get distinct copy targets", () => {
+  const blocks = [element("pre"), element("pre")];
+  const codes = [element("code"), element("code")];
+  blocks.forEach((pre, index) => { pre.classList.add("highlight"); pre.firstChild = codes[index]; });
+  run({ querySelectorAll(selector) { return selector === "pre" ? blocks : []; } });
+  assert.deepEqual(codes.map(code => code.children), [[], []]);
+  assert.deepEqual(codes.map(code => code.getAttribute("id")), ["clipboard_code0", "clipboard_code1"]);
+  assert.deepEqual(blocks.map(pre => pre.children[0].id), ["clipboard_btn0", "clipboard_btn1"]);
 });
 
 function floatingNavigation() {
@@ -152,10 +200,13 @@ test("ordinary navigation links close the menu, and a hidden toggle clears the o
 
 function clipboardContext(writeText) {
   const button = element("button");
+  button.classList.add("text-muted");
+  button.setAttribute("aria-label", "Copy code to clipboard");
   const calls = [];
+  const timers = [];
   const trigger = {
     tooltip() { return this; },
-    attr(name, value) { calls.push(value); return this; }
+    attr(name, value) { calls.push(value); button.setAttribute(name, value); return this; }
   };
   const context = {
     document: {
@@ -168,10 +219,31 @@ function clipboardContext(writeText) {
     },
     navigator: { clipboard: writeText ? { writeText } : undefined },
     $(value) { if (typeof value === "function") value(); return trigger; },
-    setTimeout() {}
+    setTimeout(callback, delay) { timers.push({ callback, delay }); }
   };
   vm.runInNewContext(script, context);
-  return { context, button, calls };
+  return { context, button, calls, timers };
+}
+
+for (const [name, write, message, style] of [
+  ["success", async () => {}, "Copied!", "text-success"],
+  ["failure", async () => { throw new Error("denied"); }, "Unable to copy code", "text-danger"]
+]) {
+  test(`copy ${name} announces the result and restores its accessible label and style`, async () => {
+    const { context, button, timers } = clipboardContext(write);
+    await context.ch_copy_cliboard(0)();
+    assert.equal(button.getAttribute("aria-label"), message);
+    assert.equal(button.getAttribute("data-original-title"), message);
+    assert.equal(button.classList.contains(style), true);
+    assert.equal(button.classList.contains("text-muted"), false);
+    assert.deepEqual(timers.map(timer => timer.delay), [1000, 1000]);
+    timers.forEach(timer => timer.callback());
+    await Promise.resolve();
+    assert.equal(button.getAttribute("aria-label"), "Copy code to clipboard");
+    assert.equal(button.getAttribute("data-original-title"), undefined);
+    assert.equal(button.classList.contains(style), false);
+    assert.equal(button.classList.contains("text-muted"), true);
+  });
 }
 
 test("copy waits for one clipboard write before reporting success", async () => {

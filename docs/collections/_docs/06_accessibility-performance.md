@@ -27,6 +27,10 @@ The lateral TOC remains independent. Its open and close controls and navigation
 through entries with Tab keep their existing behavior. It does not trap focus
 or act as a modal dialog.
 
+The lateral TOC is named **Sidebar table of contents** and the footer link
+navigation is named **Footer links** so assistive technology can distinguish
+them from the primary navbar.
+
 Keyboard focus has a visible outline. Heading permalinks appear when focused,
 as well as on hover. Card image links use the article title as their accessible
 name. Theme navigation and icon transitions respect the browser's
@@ -61,7 +65,9 @@ it consistent with the installed theme. Google Fonts and Font Awesome still
 use their configured external providers.
 
 With Cactus configured, its script and stylesheet load only on pages with
-`show_comments: true`. MathJax and Mermaid remain opt-in per page; Mermaid
+`show_comments: true`. Its comments container also closes before the fixed
+footer content so the browser does not need to repair the document structure.
+MathJax and Mermaid remain opt-in per page; Mermaid
 loads its library only when an enabled page contains diagrams.
 
 Resize large images before publishing, include dimensions where possible and

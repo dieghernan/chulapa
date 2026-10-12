@@ -18,6 +18,10 @@
 
 -   Give navbar dropdowns a valid named group role, move no-JavaScript navigation styles into the head and remove redundant void-element slashes, JavaScript types and the empty comments section warning from theme templates.
 
+-   Name the lateral table of contents and footer link navigation for assistive technology, using a native navigation element for footer links.
+
+-   Close the Cactus comments container correctly so browsers do not need to repair the footer structure.
+
 -   Preserve publication dates on updated pages and author profile URLs in Microformats2, and stop declaring automatic entries for unrestricted minimal layouts ([#86](https://github.com/dieghernan/chulapa/issues/86)).
 
 -   Make floating navigation operable with keyboard input, reveal focused heading permalinks, name card image links and improve text link contrast in the Chulapa, Navi, Journal and Flatly skins.
@@ -32,7 +36,7 @@
 
 -   Share Liquid collection, cloud and recommendation rendering, iterate only existing frequencies and sort each recommendation score group once. Equal-score documents with the same date may appear in a different order; settings, eligibility and date priority are unchanged.
 
--   Format generated head HTML and JSON-LD consistently and preserve head indentation when blank-line compression is enabled.
+-   Format generated head HTML, JSON-LD and fixed footer content consistently and preserve head and footer indentation when blank-line compression is enabled.
 
 -   Add a skip link and visible keyboard focus, underline prose links and respect reduced-motion preferences without changing the lateral TOC's Tab behavior.
 

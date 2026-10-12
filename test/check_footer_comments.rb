@@ -13,7 +13,8 @@ selectors.each do |provider, selector|
   [false, true].each do |enabled|
     %w[first second].each do |name|
       page = {"show_comments" => enabled, "url" => "/#{name}_page", "id" => "id-#{name}", "title" => "Title #{name}", "slug" => name}
-      html = Nokogiri::HTML.fragment(template.render!({"site" => values, "page" => page}, filters: [Jekyll::Filters], registers: {site: site}))
+      html = Nokogiri::HTML5.fragment(template.render!({"site" => values, "page" => page}, filters: [Jekyll::Filters], registers: {site: site}), max_errors: 100)
+      raise "#{provider}: invalid footer HTML5: #{html.errors.join("\n")}" unless html.errors.empty?
       raise "#{provider}: disabled comments leaked from cache" unless html.css(selector).size == (enabled ? 1 : 0)
       raise "#{provider}: fixed footer content disappeared" unless html.at_css(".mt-2.mb-3").text == "Shared copyright"
       next unless enabled

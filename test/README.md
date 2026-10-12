@@ -38,6 +38,8 @@ The runner discovers `check_*.rb` automatically. Packaging is a separate CI job
 because it requires a freshly built gem and an installation-only bundle.
 See [closed issue regression coverage](closed-issue-regressions.md) for the
 mapping from reported bugs to focused checks.
+See the [test coverage review](testing-review.md) for strengthened checks and
+remaining priorities.
 
 Run the checks from the repository root after `bundle install`:
 
@@ -46,6 +48,7 @@ bundle exec ruby test/check_microformats_feeds.rb
 bundle exec ruby test/check_seo_fixes.rb
 bundle exec ruby test/check_head_metadata.rb
 bundle exec ruby test/check_head_formatting.rb
+bundle exec ruby test/check_html_semantics.rb
 bundle exec ruby test/check_fontawesome_kit.rb
 bundle exec ruby test/check_skins_grid.rb
 bundle exec ruby test/check_social_metadata.rb
@@ -108,6 +111,14 @@ dropdown interaction and responsive closure, alongside clipboard, Mermaid and
 highlighting regressions. These state checks do not replace browser layout or
 screen reader audits.
 
+`check_html_semantics.rb` inspects complete generated documents with an HTML5
+parser rather than relying on an HTML4 parser's repaired tree. It covers seven
+content layouts and search with five providers or no provider, three navbar styles and
+root/subdirectory URLs. Checks include parser errors, main landmarks, page
+headings, named navigation, unique IDs, resolved ARIA references, image alt
+attributes, generated head/footer indentation and preserved code whitespace.
+This is a focused regression check, not a complete HTML conformance validator.
+
 To check packaging, install the built gem in a temporary directory and build
 the test site and complete documentation site from that installation:
 
@@ -156,13 +167,16 @@ The runner uses Playwright's Chromium by default. Set
 `CHULAPA_BROWSER_EXECUTABLE` to use a system browser. CI installs Chromium and
 its OS dependencies with `playwright install --with-deps chromium`.
 
-These checks cover mobile/desktop FAB navigation, skip-link focus, Tab, Escape,
-focus leaving the menu, the sidebar's existing Tab behavior, dual-navbar resize
+These checks cover six skins at 320, 390 and 1280 px, FAB navigation, skip-link
+focus, Tab, Escape, keyboard dropdown interaction, focus leaving the menu,
+the sidebar's existing Tab behavior, dual-navbar resize
 and classic-navbar keyboard controls. They serve actual generated HTML/CSS/JS
 locally and fulfill the theme's jQuery, Popper and Bootstrap requests from pinned
 npm copies, verifying the template's SRI hashes. Fonts, icons and other external
 services are blocked; no CDN access is needed during the browser run. This is
 separate from the broader axe/visual review below.
+The same CI runner also verifies visible fallback links and keyboard navigation
+without JavaScript or CDN access for all six FAB skins and mobile dual navigation.
 
 ## Accessibility browser checks
 
@@ -172,7 +186,8 @@ Build isolated fixtures from the current theme:
 bundle exec ruby test/build_accessibility_fixtures.rb "$env:TEMP/chulapa-accessibility-site"
 ```
 
-The builder checks font URLs, Cactus resource gating and card link names. The
+The builder checks font URLs, Cactus resource gating, generated comments HTML5
+and card link names. The
 browser runner additionally requires Playwright and axe-core. Install them in
 a temporary directory so they are not theme dependencies:
 
