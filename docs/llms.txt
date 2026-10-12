@@ -16,7 +16,7 @@ The documentation also covers development changes after v2.1.0. Mermaid diagrams
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
-- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Layouts, page options, headers, TOCs, galleries, media, MathJax and Mermaid diagrams.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Layout inheritance, shared components, include caching, page options, headers, TOCs, galleries, media, MathJax and Mermaid diagrams.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
 - [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Rendered examples for supported code languages.

@@ -39,6 +39,15 @@
 </div>
 
 {% assign words_per_minute = site.words_per_minute | default: 200 %}
+{%- assign cloud_entries = '' | split: ',' -%}
+{%- for document in alldocs -%}
+  {%- capture cloud_entry -%}
+    {%- if document[include.field] and document[include.field] != empty -%}
+      {% include_cached components/cloud-entry.html document=document showcol=showcol words_per_minute=words_per_minute %}
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- assign cloud_entries = cloud_entries | push: cloud_entry -%}
+{%- endfor -%}
 {% for  i in (0..n_tags) %}
 <section id="{{- sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="py-3 chulapa-cloud{{ cloud_kind }}">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
@@ -47,32 +56,7 @@
 </div>
   {% for document in alldocs %}
 	{% if document[include.field] contains sorted_tags[i] %}
-  {% assign words = document.content | strip_html | number_of_words %}
-  {% assign readtime = "< 1’" | escape_once  %}
-  {% if words > words_per_minute %}
-  {% assign readtime = words | divided_by:words_per_minute | append: "’" %}
-  {% endif %}
-  <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
-    <div class="col">
-      <h3 class="h6"><a href="{{ document.url | absolute_url }}" class="p-name u-url">{{ document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h3>
-      {%- if document.subtitle -%}<p class="p-summary">{{- document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
-      <div class="small">
-        {% if document.date %}
-        {% assign dateformat = document.date | date: "%B %d, %Y" %}
-        <i class="far fa-calendar" aria-hidden="true"></i> <time class="dt-published" datetime="{{- document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
-{% if document.last_modified_at %} <i class="fa fa-redo" aria-hidden="true"></i>{% endif %} |
-        {% endif %}
-        <i class="far fa-clock" aria-hidden="true"></i> {{ readtime }}
-        {%- if showcol -%}
-        <span class="ml-2 badge chulapa-pill-bg-body p-category">{{ document.collection }}</span>
-        {%- endif -%}
-      </div>
-    </div>
-    {% if document.header_img or document.og_image %}
-    <a href="{{ document.url | absolute_url }}" class="col-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ document.og_image | default: document.header_img | absolute_url }}')">
-    </a>
-    {% endif %}
-  </article>
+  {{ cloud_entries[forloop.index0] }}
   {% endif %}
   {% endfor %}
   <div class="text-right">

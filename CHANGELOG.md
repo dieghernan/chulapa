@@ -10,6 +10,8 @@
 
 ### Fixed
 
+-   Keep the single eligible document in random recommendations instead of rendering empty cards.
+
 -   Respect the selected `index_sort` field in collection card indexes, internal masonry galleries and carousels; show all current demos in ascending filename order on the demo index.
 
 -   Associate Google and simple search labels with their input and load Lunr/Fuse attribution styles from stylesheets rather than body style blocks.
@@ -25,6 +27,8 @@
 -   Code copy buttons wait for clipboard writes, report failures and no longer clear the clipboard before copying.
 
 ### Changed
+
+-   Reuse fixed footer content and cloud entry rendering with the existing include cache, avoiding repeated Markdown conversion and reading-time calculation across labels and indexes without new settings.
 
 -   Share Liquid collection, cloud and recommendation rendering, iterate only existing frequencies and sort each recommendation score group once. Equal-score documents with the same date may appear in a different order; settings, eligibility and date priority are unchanged.
 

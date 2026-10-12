@@ -22,12 +22,13 @@ site = Jekyll::Site.new(Jekyll.configuration("source" => root, "quiet" => true, 
   ]
   source = File.read(File.join(root, "_layouts/#{layout}.html")).sub(/\A---.*?---\s*/m, "")
   [
-    [nil, %w[alpha beta], %w[2 2], 4, %w[Short Long]],
-    ["posts", %w[beta alpha], %w[2 1], 3, %w[Short Long]],
-    ["demo,posts", %w[alpha beta], %w[2 2], 4, %w[Short Long]],
-    ["posts,posts", %w[beta alpha], %w[4 2], 6, %w[Short Short Long Long]],
+    [nil, %w[alpha beta], %w[2 2], 3, %w[Short Long]],
+    ["posts", %w[beta alpha], %w[2 1], 2, %w[Short Long]],
+    ["demo,posts", %w[alpha beta], %w[2 2], 3, %w[Short Long]],
+    ["posts,posts", %w[beta alpha], %w[4 2], 2, %w[Short Short Long Long]],
     ["missing", [], [], 0, []]
   ].each do |collection, expected, counts, word_calls, beta_titles|
+    JekyllIncludeCache.reset
     calls = []
     html = Liquid::Template.parse(source).render!(
       {"site" => {"documents" => documents, "url" => "https://example.com", "words_per_minute" => 200}, "page" => {"include_collection" => collection}},

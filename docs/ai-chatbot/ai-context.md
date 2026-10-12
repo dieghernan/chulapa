@@ -274,6 +274,8 @@ the quoted string "false", to disable components.
 show_related displays up to three tag-related collection documents: candidates
 need two shared tags in the same collection or three across collections.
 show_random selects up to three from this candidate pool at build time.
+The v2.1.1 development version fixes a singleton pool rendering empty cards;
+one eligible candidate renders as one card.
 Empty related/random panels can mean no documents meet those shared-tag
 thresholds. Disable the random panel with show_random: false in front matter.
 The gallery include's random parameter does not control the random article panel.
@@ -449,6 +451,19 @@ Site files override these includes for both remote and gem themes. Keep other
 existing snippets when adding new ones. Pages using minimal and search also
 include these hooks. Custom CSS belongs in assets/css/custom.scss with empty
 YAML front matter so Jekyll compiles it to custom.css.
+
+## Layout structure and include caching
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
+In the v2.1.1 development version, compress wraps minimal, which wraps default
+or landingpage. Archive, cloudtag, cloudcategory and indexcategory inherit default;
+search is standalone. Collection indexes share components/collection-documents;
+related and random panels share components/recommendations. These are internal
+renderers, not new configuration options.
+The required jekyll-include-cache plugin also caches fixed footer content and
+cloud entries in this development version. Comments remain in footer.html with
+page-specific inputs. Cached includes must receive every page-dependent input
+as a parameter. Use ordinary include for helpers that assign caller variables
+(canonical URL, page language) and for custom hooks that read page context.
 
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet

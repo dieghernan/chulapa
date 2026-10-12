@@ -172,7 +172,8 @@ id="aa">My heading</h1>`) don't forget to include the `id`.
 
 - `show_random`: Display up to three randomly selected documents from the same
   candidate pool as `show_related`. Selection happens at build time, so the
-  cards do not change on every page load.
+  cards do not change on every page load. In the v2.1.1 development version, a
+  pool with one eligible document renders that document instead of empty cards.
 
 **Related and random cards require tags.** Both components use collection
 documents and the tag-based candidate pool; they do not select arbitrary pages.
@@ -607,37 +608,98 @@ does not create the page.
 ### Layout structure and components
 
 A technical note about the layout structure of <span
-class="chulapa">Chulapa</span>.
+class="chulapa">Chulapa</span>. These diagrams describe the v2.1.1 development
+version; the shared renderers below are internal implementation details. On
+narrow screens, scroll the diagrams horizontally to keep their labels readable.
 
-```
-# Layout structure
-#All purposes
-compress   #http://jch.penibelst.de/
-   |
-   ├── minimal   <──├ head
-                    ├ navbar
-          ├──────>  ├ PAGE CONTENT
-          |         ├ footer   <── components/disqus    
-          |         └ custom_bottomscripts
-          |
-          └── default    <──├ components/headers
-            /landingpage    ├ components/breadcrumbdatesocial
-                            ├ components/author
-                            ├ components/toc
-         ├────────────>     ├ PAGE CONTENT
-         |                  ├ components/navbeforeafter
-         |                  ├ components/categories
-         |                  └ components/tags
-         |                
-#Specific purpose
-# default layout only
-         |
-         └──├ archive
-            ├ cloudcategory
-            ├ cloudtag
-            └ indexcategory <- components/indexcards
+#### Layout inheritance
 
+Arrows run from the outer layout to the layout it wraps. Dashed arrows mark
+legacy aliases. The `search` layout renders its own document separately.
+
+```mermaid
+%%{init: {"flowchart": {"useMaxWidth": false}}}%%
+flowchart LR
+  accTitle: Layout inheritance
+  accDescr: Compress wraps minimal. Minimal wraps default or landingpage. Default wraps archive, cloudcategory, cloudtag and indexcategory. Cloud layouts have deprecated aliases. Search is standalone.
+  compress[compress] --> minimal[minimal]
+  minimal --> default[default]
+  minimal --> landingpage[landingpage]
+  default --> archive[archive]
+  default --> cloudcategory[cloudcategory]
+  default --> cloudtag[cloudtag]
+  default --> indexcategory[indexcategory]
+  cloudcategory -.-> cloudcategory2[cloudcategory2]
+  cloudtag -.-> cloudtag2[cloudtag2]
+  search[search: standalone]
 ```
+
+#### Page components
+
+Both `minimal` and `search` include the shared document shell. `default` and
+`landingpage` supply the content inside `minimal`: headers, breadcrumbs, author
+panels, tables of contents, page content, bottom navigation, categories, tags
+and optional recommendation panels.
+
+Arrows below indicate include calls. The custom head and bottom-script hooks
+remain available in both document shells.
+
+```mermaid
+%%{init: {"flowchart": {"useMaxWidth": false}}}%%
+flowchart LR
+  accTitle: Shared page includes
+  accDescr: Minimal and search include head, navbar, footer and custom bottom scripts. Head includes two custom hooks. Navbar includes fallback navigation. Footer includes the selected comment provider and cached fixed content. Related and random panels share the recommendations renderer.
+  shell[minimal / search] --> head[head.html]
+  shell --> navbar[navbar.html]
+  shell --> footer[footer.html]
+  shell --> bottom[custom/<br/>custom_bottomscripts]
+  head --> customhead[custom/<br/>custom_head_before_css<br/>custom_head]
+  navbar --> fallback[components/<br/>navigation-fallback]
+  footer --> comments[Selected comment provider<br/>or custom/giscus]
+  footer --> fixed[components/<br/>footer-content<br/>cached]
+  panels[components/<br/>related / random] --> recommendations[components/<br/>recommendations]
+```
+
+#### Collection index components
+
+Collection layouts select documents through one shared include. The renderer
+then formats the archive, cloud or card index; tag and category clouds share
+cached entry markup.
+
+```mermaid
+%%{init: {"flowchart": {"useMaxWidth": false}}}%%
+flowchart LR
+  accTitle: Collection index includes
+  accDescr: Archive, cloudcategory, cloudtag and indexcategory call collection-documents. It dispatches to archive-documents, cloud or indexcategory-documents. Cloud reuses cached cloud-entry markup; indexcategory-documents uses cached indexcards.
+  archive[archive] --> selection[components/collection-documents]
+  cloudcategory[cloudcategory] --> selection
+  cloudtag[cloudtag] --> selection
+  indexcategory[indexcategory] --> selection
+  selection --> archivebody[components/archive-documents]
+  selection --> cloud[components/cloud<br/>tags or categories]
+  selection --> index[components/indexcategory-documents]
+  cloud --> entry[components/cloud-entry<br/>cached]
+  index --> cards[components/indexcards<br/>cached]
+```
+
+Optional components render according to the existing page settings. The
+`collection-documents` include selects documents once per index, then passes
+them to the appropriate renderer. Related and random panels share a renderer
+while keeping their existing ranking and sampling behavior.
+
+The required `jekyll-include-cache` plugin caches the navbar, card indexes and
+translated dates. In the v2.1.1 development version, it also reuses the fixed
+footer content across pages and cloud entries across tag and category indexes.
+Cloud entries vary by document, collection badge visibility and reading-speed
+setting. Comment providers remain in `footer.html`, with the existing page
+parameters and custom Giscus include.
+
+When adding cached includes, pass every page-dependent input explicitly as an
+include parameter. An include that assigns variables for its caller, such as
+the canonical URL or page-language helper, must use ordinary `include`: a cache
+hit returns rendered output without repeating those assignments. Keep includes
+that use page context, such as custom head and bottom scripts, uncached unless
+all their inputs are accounted for.
 
 `components` are designed as bricks that build up your page. The options
 described above would activate the components on your page, but they can also be
