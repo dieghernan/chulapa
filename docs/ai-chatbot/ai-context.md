@@ -608,6 +608,8 @@ Theme navigation/icon transitions respect prefers-reduced-motion.
 The Chulapa font is served from the installed theme assets, with baseurl in
 both CSS and preload, instead of jsDelivr. Google Fonts and Font Awesome still
 use external providers. Cactus JS/CSS loads only when show_comments is true.
+Its comments container closes before the fixed footer content without requiring
+browser repairs to the document structure.
 The review covers six skins and representative fixtures, not every skin,
 custom widget or production site. Do not claim WCAG certification, a guaranteed
 PageSpeed score or a measured Core Web Vitals improvement.
@@ -627,7 +629,10 @@ options are needed. These changes are in development and do not alter layout.
 From v2.1.1, generated document openings and head tags use separate lines and
 consistent indentation. With the existing compress_html.blanklines: true
 setting (already in theme configuration examples), compression removes blank
-lines and preserves head indentation while clipping the body. Full compression
+lines and preserves head and theme footer indentation while clipping the rest
+of the body. Fixed footer content uses two spaces per nesting level. Full compression
 and disabled compression still follow existing site settings. No new option
-is needed. Custom head includes retain their own formatting; Liquid -%} can
+is needed. Custom head includes and embedded comment integrations retain their
+own formatting. The lateral TOC is named "Sidebar table of contents" and footer
+link navigation is named "Footer links" for assistive technology. Liquid -%} can
 remove newlines between emitted tags, so avoid trimming across HTML boundaries.

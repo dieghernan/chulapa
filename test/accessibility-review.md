@@ -54,10 +54,12 @@ and subdirectory URLs, and the complete documentation build passes. All 17
 local chatbot tests pass with the updated guidance. The new context has not
 been deployed or evaluated live in this task.
 
-The broader best-practice scan identifies repeated unnamed navigation landmarks
-when both the lateral TOC and footer navigation are present. This is recorded
-for a future semantics-only review; the sidebar interaction was deliberately
-preserved. Axe also marks some contrast checks incomplete. Background imagery,
+The broader best-practice scan identified repeated unnamed navigation landmarks
+when both the lateral TOC and footer navigation were present. The October 12
+semantics review names both landmarks and uses a native `nav` for footer links;
+the sidebar interaction remains unchanged. Generated HTML5 regression checks
+cover navigation names across the standard layouts and search providers.
+Axe also marks some contrast checks incomplete. Background imagery,
 custom content and integrations need manual checks beyond these fixtures.
 
 Resource changes are established from generated HTML and asset URLs, not from

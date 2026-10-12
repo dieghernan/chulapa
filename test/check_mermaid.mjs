@@ -63,7 +63,8 @@ test("renders multiple diagrams with distinct IDs and strict mode", async () => 
   }
 });
 
-test("bad syntax preserves source and does not stop later diagrams", async () => {
+test("bad syntax preserves source and does not stop later diagrams", async t => {
+  const warnings = t.mock.method(console, "warn", () => {});
   const root = fixture(["invalid", "valid"]);
   await renderDiagrams(root, async () => ({ default: {
     initialize() {},
@@ -72,10 +73,51 @@ test("bad syntax preserves source and does not stop later diagrams", async () =>
   } }));
   assert.equal(root.blocks[0].replacement, undefined);
   assert.equal(root.blocks[1].replacement.innerHTML, "<svg></svg>");
+  assert.equal(warnings.mock.calls.length, 1);
 });
 
-test("failed CDN request preserves all diagram sources", async () => {
-  const root = fixture(["flowchart LR\nA-->B"]);
+test("failed CDN request preserves all diagram sources", async t => {
+  const warnings = t.mock.method(console, "warn", () => {});
+  const root = fixture(["flowchart LR\nA-->B", "flowchart TD\nC-->D"]);
   await renderDiagrams(root, async () => { throw new Error("offline"); });
+  assert.deepEqual(root.blocks.map(block => block.replacement), [undefined, undefined]);
+  assert.equal(warnings.mock.calls.length, 1);
+});
+
+test("render failure preserves the failed source and still renders the next diagram", async t => {
+  t.mock.method(console, "warn", () => {});
+  const root = fixture(["first diagram", "second diagram"]);
+  const rendered = [];
+  await renderDiagrams(root, async () => ({ default: {
+    initialize() {},
+    async parse() {},
+    async render(id, text) {
+      rendered.push(text);
+      if (text === "first diagram") throw new Error("render failed");
+      return { svg: "<svg>second diagram</svg>" };
+    }
+  } }));
+  assert.deepEqual(rendered, ["first diagram", "second diagram"]);
+  assert.equal(root.blocks[0].textContent, "first diagram");
   assert.equal(root.blocks[0].replacement, undefined);
+  assert.equal(root.blocks[1].replacement.innerHTML, "<svg>second diagram</svg>");
+});
+
+test("waits for fonts before measuring and rendering diagrams", async () => {
+  const root = fixture(["flowchart LR\nA-->B"]);
+  let ready;
+  root.fonts = { ready: new Promise(resolve => { ready = resolve; }) };
+  const calls = [];
+  const rendering = renderDiagrams(root, async () => ({ default: {
+    initialize() { calls.push("initialize"); },
+    async parse() { calls.push("parse"); },
+    async render() { calls.push("render"); return { svg: "<svg></svg>" }; }
+  } }));
+  await Promise.resolve();
+  assert.deepEqual(calls, []);
+  assert.equal(root.blocks[0].replacement, undefined);
+  ready();
+  await rendering;
+  assert.deepEqual(calls, ["initialize", "parse", "render"]);
+  assert.equal(root.blocks[0].replacement.innerHTML, "<svg></svg>");
 });

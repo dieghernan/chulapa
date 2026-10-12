@@ -7,12 +7,16 @@ const bundle = readFileSync(new URL('.build/widget.js', import.meta.url), 'utf8'
 const storageKey = 'chulapa-docs-chat:v1';
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
 
-function widget({ mobile = true, saved, fetch, blockedStorage = false, visualViewport, fab = '' } = {}) {
+function widget({ mobile = true, saved, fetch, blockedStorage = false, visualViewport, fab = '', timers } = {}) {
   const dom = new JSDOM(`<body>${fab}</body>`, {
     url: 'https://dieghernan.github.io/chulapa/docs/05-faq',
     runScripts: 'dangerously', pretendToBeVisual: true
   });
   const { window } = dom;
+  if (timers) {
+    window.setTimeout = (callback, delay) => { timers.set(delay, callback); return delay; };
+    window.clearTimeout = id => timers.delete(id);
+  }
   window.matchMedia = () => ({ matches: mobile });
   if (visualViewport) Object.defineProperty(window, 'visualViewport', { value: visualViewport });
   window.fetch = fetch || (async () => ({ ok: true, json: async () => ({ answer: 'A documented answer.' }) }));
@@ -171,3 +175,62 @@ test('short keyboard viewport uses compact mode and restores the full chat on re
   assert.equal(host.style.getPropertyValue('--chat-visible-top'), '');
   ui.dom.window.close();
 });
+
+test('request timeout aborts inference, preserves recovery and re-enables controls', async () => {
+  const timers = new Map();
+  let signal;
+  const ui = widget({ timers, fetch: (_, options) => {
+    signal = options.signal;
+    return new Promise((_, reject) => signal.addEventListener('abort', () => {
+      reject(new DOMException('Aborted', 'AbortError'));
+    }, { once: true }));
+  } });
+  try {
+    ui.get('launch').click();
+    ui.get('question').value = 'How do I configure the navbar?';
+    ui.root.querySelector('form').dispatchEvent(new ui.window.Event('submit', { cancelable: true }));
+    timers.get(10000)();
+    assert.equal(ui.get('status').textContent, 'Still working on your answer…');
+    assert.equal(signal.aborted, false);
+    assert.equal(ui.get('send').disabled, true);
+    timers.get(45000)();
+    await tick();
+    assert.equal(signal.aborted, true);
+    assert.match(ui.get('status').textContent, /request timed out/);
+    assert.equal(ui.get('recovery').hidden, false);
+    assert.equal(ui.get('send').disabled, false);
+    assert.equal(ui.get('retry').disabled, false);
+    assert.equal(ui.get('clear').disabled, false);
+    assert.equal(ui.root.querySelectorAll('.message.user').length, 1);
+    assert.equal(ui.root.querySelectorAll('.message.assistant').length, 1, 'Only the initial greeting should remain');
+    assert.equal(JSON.parse(ui.window.sessionStorage.getItem(storageKey)).failedQuestion, 'How do I configure the navbar?');
+    assert.equal(timers.size, 0, 'Request timers must be cleared after timeout');
+  } finally { ui.dom.window.close(); }
+});
+
+for (const failure of ['network', 'invalid JSON', 'missing answer']) {
+  test(`${failure} failure leaves the question retryable without an assistant bubble`, async () => {
+    let ui;
+    const timers = new Map();
+    ui = widget({ timers, fetch: async () => {
+      if (failure === 'network') throw new ui.window.TypeError('Failed to fetch');
+      if (failure === 'invalid JSON') return { ok: true, json: async () => { throw new SyntaxError('Invalid JSON'); } };
+      return { ok: true, json: async () => ({}) };
+    } });
+    try {
+      ui.get('question').value = 'How do I add a gallery?';
+      ui.root.querySelector('form').dispatchEvent(new ui.window.Event('submit', { cancelable: true }));
+      await tick();
+      const expected = failure === 'network' ? /Could not connect/ : failure === 'invalid JSON' ? /Invalid JSON/ : /AI is unavailable/;
+      assert.match(ui.get('status').textContent, expected);
+      assert.equal(ui.get('recovery').hidden, false);
+      assert.equal(ui.get('send').disabled, false);
+      assert.equal(ui.get('retry').disabled, false);
+      assert.equal(ui.get('clear').disabled, false);
+      assert.equal(ui.root.querySelectorAll('.message.user').length, 1);
+      assert.equal(ui.root.querySelectorAll('.message.assistant').length, 1, 'Only the initial greeting should remain');
+      assert.equal(JSON.parse(ui.window.sessionStorage.getItem(storageKey)).failedQuestion, 'How do I add a gallery?');
+      assert.equal(timers.size, 0, 'Request timers must be cleared after failure');
+    } finally { ui.dom.window.close(); }
+  });
+}

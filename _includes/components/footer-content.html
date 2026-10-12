@@ -165,43 +165,38 @@
     {%- assign name = 'Sunset' - %}
   {%- assign author = 'Tophat' - %}
   {%- assign url = 'https://themesguide.github.io/top-hat/dist/' - %}  {%- else -%}
-  {%- endif -%}
+  {%- endif %}
     <div class="container">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
-          {%- if site.footer.links -%}
-          <div role="navigation" class="d-flex flex-wrap justify-content-center">
-            {%- for social in site.footer.links  -%}
-            {%- assign urlslice = social.url | slice: 0,4 -%}
-            {%- if urlslice == "http" -%}
-             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
-            {%- elsif social.url contains "@" -%}
+          {% if site.footer.links %}
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            {% for social in site.footer.links %}
+            {% assign urlslice = social.url | slice: 0,4 %}
+            {% if urlslice == "http" %}
+            <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
+            {% elsif social.url contains "@" %}
             <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | uri_escape }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
-            {%- else -%}
-             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
-            {%- endif -%}
+            {% else %}
+            <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
+            {% endif %}
               <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="{{ social.icon }} fa-stack-1x fa-inverse"></i>
-              </span><span class="sr-only">{{ social.label }}</span>
+              </span>
+              <span class="sr-only">{{ social.label }}</span>
             </a>
-            {%- endfor -%}
-          </div>
-          {%- endif -%}
-          <p class="mt-2 mb-3">
-          {%- if site.footer.copyright -%}
-
-            {{ site.footer.copyright }}
-
-          {%- else -%}
-
-            &copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}
-
-           {%- endif -%}
-            </p>
-          <!-- Do not remove this in order to give  attributions -->
+            {% endfor %}
+          </nav>
+          {% endif %}
+          {% if site.footer.copyright %}
+          <p class="mt-2 mb-3">{{ site.footer.copyright }}</p>
+          {% else %}
+          <p class="mt-2 mb-3">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.github.owner_name }}</p>
+          {% endif %}
+          <!-- Do not remove this in order to give attributions -->
           <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a>{%- if name -%}<br><b>{{- name -}}</b> skin by <a href="{{ url }}">{{ author }}</a>{%- endif -%}</p>
-          <!-- End  attributions -->
+          <!-- End attributions -->
         </div>
       </div>
-  </div>
+    </div>

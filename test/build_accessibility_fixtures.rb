@@ -43,6 +43,8 @@ fixtures.each do |name, skin, navigation|
     raise "Font CSS and preload differ: #{name}" unless css.include?(font)
     raise "Cactus loaded on disabled page: #{name}" if article.to_html.include?("latest.cactus.chat")
     enabled = File.read(File.join(output, name, "comments-on.html"))
+    comments_doc = Nokogiri::HTML5.parse(enabled, max_errors: 100)
+    raise "Invalid comments HTML5: #{name}: #{comments_doc.errors.join("\n")}" unless comments_doc.errors.empty?
     raise "Cactus missing on enabled page: #{name}" unless enabled.include?("latest.cactus.chat/cactus.js") && enabled.include?("latest.cactus.chat/style.css")
     cards = Nokogiri::HTML(File.read(File.join(output, name, "cards.html")))
     raise "Card image link lacks name: #{name}" unless cards.at_css(".chulapa-card-img")["aria-label"] == "Example project"

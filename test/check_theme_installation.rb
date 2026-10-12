@@ -24,17 +24,19 @@ Dir.mktmpdir("chulapa-install-") do |work|
   source = File.join(work, "site")
   FileUtils.mkdir_p(File.join(source, "blog"))
   FileUtils.mkdir_p(File.join(source, "_posts"))
-  File.write(File.join(source, "index.md"), "---\nlayout: minimal\nlocale: es-MX\nog_title: Social title\n---\nGem site")
+  File.write(File.join(source, "index.md"), "---\nlayout: minimal\nlocale: es-MX\nog_title: Social title\nshow_comments: true\n---\nGem site")
   FileUtils.cp(File.join(root, "docs/blog/index.html"), File.join(source, "blog/index.html"))
   5.times do |n|
     File.write(File.join(source, "_posts/2024-01-0#{n + 1}-post.md"), "---\nlayout: default\ntitle: Post #{n}\ninclude_on_feed: true\n---\nPost content.")
   end
   ["", "/subdir"].each do |baseurl|
-    config = Jekyll.configuration("source" => source, "destination" => File.join(work, "output"), "theme" => "chulapa-jekyll", "url" => "https://example.com", "baseurl" => baseurl, "title" => "Installed theme", "paginate" => 2, "paginate_path" => "/blog/page:num/", "plugins" => ["jekyll-include-cache", "jekyll-paginate", "jekyll-sitemap"], "quiet" => true)
+    config = Jekyll.configuration("source" => source, "destination" => File.join(work, "output"), "theme" => "chulapa-jekyll", "url" => "https://example.com", "baseurl" => baseurl, "title" => "Installed theme", "paginate" => 2, "paginate_path" => "/blog/page:num/", "plugins" => ["jekyll-include-cache", "jekyll-paginate", "jekyll-sitemap"], "comments" => {"provider" => "cactus", "cactus_shortname" => "installation-fixture"}, "quiet" => true)
     site = Jekyll::Site.new(config)
     raise "Build did not use the installed gem" unless File.realpath(site.theme.root) == File.realpath(installed.full_gem_path)
     site.process
-    html = Nokogiri::HTML(File.read(File.join(config["destination"], "index.html")))
+    html = Nokogiri::HTML5.parse(File.read(File.join(config["destination"], "index.html")), max_errors: 100)
+    raise "Installed Cactus footer has invalid HTML5: #{html.errors.join("\n")}" unless html.errors.empty?
+    raise "Installed Cactus comments are missing" unless html.at_css("footer #comment-section")
     raise "Installed locale snippet failed" unless html.at_css("html")["lang"] == "es-MX"
     raise "Installed social title failed" unless html.at_css('meta[property="og:title"]')["content"] == "Social title"
     raise "Installed theme assets missing" unless File.exist?(File.join(config["destination"], "assets/js/ch_ytdefer/ch_ytdefer.js"))

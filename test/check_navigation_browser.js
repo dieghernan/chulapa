@@ -19,7 +19,7 @@ async function main() {
     ...(process.env.CHULAPA_BROWSER_EXECUTABLE ? { executablePath: process.env.CHULAPA_BROWSER_EXECUTABLE } : {})
   });
   const context = await browser.newContext({ reducedMotion: "reduce" });
-  await context.route("**/*", route => {
+  const serveFixture = route => {
     const url = new URL(route.request().url());
     if (dependencies.has(url.href)) {
       return route.fulfill({ path: dependencies.get(url.href), contentType: "application/javascript", headers: { "access-control-allow-origin": "*" } });
@@ -31,7 +31,8 @@ async function main() {
     }
     // Fonts, icons and optional external services are not needed to test navigation.
     return route.abort();
-  });
+  };
+  await context.route("**/*", serveFixture);
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -50,10 +51,14 @@ async function main() {
     assert.equal(await page.locator("#navi-menu").evaluate(menu => menu.inert && menu.getAttribute("aria-hidden") === "true"), true);
   };
   try {
-    for (const skin of ["chulapa", "navi", "gitdev"]) {
-      for (const width of [390, 1280]) {
+    for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly"]) {
+      for (const width of [320, 390, 1280]) {
         await page.setViewportSize({ width, height: 844 });
         await load(skin);
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${skin}: page overflow at ${width}`);
+        await closed();
+        assert.equal(await page.getByRole("navigation", { name: "Footer links", exact: true }).count(), 1);
+        assert.equal(await page.locator("footer .chulapa-footer-brand").isVisible(), true);
         await page.keyboard.press("Tab");
         assert.equal(await page.locator(".chulapa-skip-link").evaluate(link => link === document.activeElement), true);
         await page.keyboard.press("Enter");
@@ -72,6 +77,17 @@ async function main() {
         await page.locator(".chulapa-skip-link").focus();
         await closed();
         assert.equal(await page.locator(".chulapa-skip-link").evaluate(link => link === document.activeElement), true, "Leaving the menu must not steal focus");
+        await toggle.click();
+        const dropdown = page.locator('#navi-menu [data-toggle="dropdown"]');
+        await dropdown.focus();
+        await page.keyboard.press("Enter");
+        assert.equal(await dropdown.getAttribute("aria-expanded"), "true", `${skin}: dropdown did not open at ${width}`);
+        assert.equal(await toggle.getAttribute("aria-expanded"), "true", "Opening a dropdown must keep floating navigation open");
+        await page.keyboard.press("ArrowDown");
+        assert.equal(await page.locator("#navi-menu .dropdown-item").first().evaluate(link => link === document.activeElement), true);
+        await page.keyboard.press("Escape");
+        await closed();
+        assert.equal(await toggle.evaluate(button => button === document.activeElement), true);
         await page.locator("#demo").click();
         await page.keyboard.press("Tab");
         assert.equal(await page.locator("#sideBar button").evaluate(button => button === document.activeElement), true);
@@ -82,7 +98,7 @@ async function main() {
         await page.keyboard.press("Enter");
         assert.equal(await page.locator("#demo").getAttribute("aria-expanded"), "false");
       }
-      console.log(`Passed ${skin}: mobile/desktop keyboard navigation and sidebar Tab behavior`);
+      console.log(`Passed ${skin}: 320/390/1280px reflow, keyboard dropdowns and sidebar Tab behavior`);
     }
     await page.setViewportSize({ width: 390, height: 844 });
     await load("navi-dual");
@@ -102,6 +118,27 @@ async function main() {
     await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "false");
     assert.deepEqual(errors, [], "Unexpected JavaScript errors in generated pages");
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
+    const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
+    try {
+      await noScripts.route("**/*", serveFixture);
+      const fallback = await noScripts.newPage();
+      for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "navi-dual"]) {
+        await fallback.goto(`http://localhost:8767/${skin}/article.html`);
+        assert.equal(await fallback.locator("#navi-toggle").isVisible(), false, `${skin}: JavaScript-only control must be hidden`);
+        const links = fallback.locator("noscript nav a");
+        assert.equal(await links.count(), 3, `${skin}: missing brand, home or dropdown child in fallback`);
+        for (const link of await links.all()) {
+          assert.equal(await link.isVisible(), true, `${skin}: fallback link is hidden`);
+          assert.equal(await link.getAttribute("href"), `http://localhost:8767/${skin}/article.html`);
+        }
+        await links.last().focus();
+        await Promise.all([fallback.waitForEvent("load"), fallback.keyboard.press("Enter")]);
+        assert.equal(fallback.url(), `http://localhost:8767/${skin}/article.html`);
+      }
+    } finally {
+      await noScripts.close();
+    }
+    console.log("Passed all FAB skins and mobile dual navigation without JavaScript or CDN access");
   } finally {
     await browser.close();
   }

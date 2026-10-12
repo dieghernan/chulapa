@@ -20,3 +20,16 @@ fixtures.each do |content, expected|
   raise "Ignored compression changed content" unless ignored == content + "\n"
 end
 puts "HTML compression whitespace and preformatted content checks passed."
+
+footer = "  <footer class=\"footer-chulapa text-center\">\n    <div class=\"container\">\n\n      <p>Two  words and <span>inline text</span>.</p>\n    </div>\n  </footer>"
+content = "  <main>\n    <p>Body text.</p>\n  </main>\n#{footer}\n"
+readable = Liquid::Template.parse(source).render!({"content" => content, "site" => {"compress_html" => {"blanklines" => true, "clippings" => "all"}}})
+expected = " <main>\n   <p>Body text.</p>\n </main>\n#{footer.sub("\n\n", "\n")}\n"
+raise "Footer indentation lost or body clipping changed: #{readable.inspect}" unless readable == expected
+[nil, [], %w[div p]].each do |clippings|
+  output = Liquid::Template.parse(source).render!({"content" => content, "site" => {"compress_html" => {"blanklines" => true, "clippings" => clippings}}})
+  raise "Footer indentation changed with clippings=#{clippings.inspect}" unless output.include?(footer.sub("\n\n", "\n"))
+end
+compact = Liquid::Template.parse(source).render!({"content" => content, "site" => {"compress_html" => {"clippings" => "all"}}})
+raise "Full compression unexpectedly preserves indentation" if compact.include?("\n    <div")
+puts "Readable footer indentation and explicit full compression passed."
