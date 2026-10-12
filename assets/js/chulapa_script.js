@@ -120,7 +120,7 @@ heads.forEach(function (currentValue) {
   var headingOrder = Array.from(heads);
   var groups = ["toc", "sidetoc", "markdown-toc"].map(function (id) {
     var toc = document.getElementById(id);
-    return toc ? Array.from(toc.querySelectorAll('a[href^="#"]')).map(function (link) {
+    return toc ? Array.from(toc.querySelectorAll('li > a:first-child[href^="#"]')).map(function (link) {
       var heading;
       var fragment = link.getAttribute("href").slice(1);
       try {

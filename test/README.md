@@ -237,3 +237,7 @@ underline and preserved focus. JavaScript unit checks cover encoded IDs, broken
 links, literal percent signs in IDs, differently filtered TOCs, collapsed headings,
 resize/reflow and coalesced scroll events. Browser checks expand and collapse a
 real details element containing a heading with a literal percent sign in its ID.
+
+Browser TOC checks also retain an authored fragment link inside a heading label
+and verify that it never receives current-location state alongside the item
+representing the target section.

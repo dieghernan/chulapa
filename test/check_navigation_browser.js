@@ -112,6 +112,13 @@ async function main() {
         };
         await scrollToHeading("first-section");
         await scrollToHeading("second-section");
+        const copiedLinks = page.locator('#toc a, #sidetoc a').filter({hasText: /^jump to second$/});
+        assert.equal(await copiedLinks.count(), 2, "Fixture must retain the heading label's authored link in both theme TOCs");
+        for (const copied of await copiedLinks.all()) {
+          assert.equal(await copied.getAttribute("aria-current"), null, "A link copied from heading content is not the TOC item's section link");
+          assert.equal(await copied.evaluate(link => link.classList.contains("chulapa-toc-active")), false);
+        }
+
         await scrollToHeading("first-section");
         const activeStyle = await page.locator('#toc a[aria-current="location"]').evaluate(link => getComputedStyle(link).textDecorationLine);
         assert.ok(activeStyle.includes("underline"), `${skin}: active TOC styling missing`);

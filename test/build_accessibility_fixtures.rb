@@ -23,7 +23,7 @@ fixtures.each do |name, skin, navigation|
       "footer" => {"links" => [{"url" => "https://github.com/dieghernan/chulapa", "label" => "GitHub", "icon" => "fab fa-github"}]},
       "collections" => {"projects" => {"output" => true}}
     }
-    content = "## First section\n\nA paragraph with a [descriptive link](https://example.com).\n\n```ruby\nputs 'Hello'\n```\n\n## Second section\n\n" + "Text for scrolling.\n\n" * 40
+    content = "## First section [jump to second](#second-section) {#first-section}\n\nA paragraph with a [descriptive link](https://example.com).\n\n```ruby\nputs 'Hello'\n```\n\n## Second section\n\n" + "Text for scrolling.\n\n" * 40
     {"article" => "default", "landing" => "landingpage", "minimal" => "minimal", "cards" => "default", "comments-on" => "default"}.each do |page, layout|
       data = {"title" => page.capitalize, "layout" => layout, "header_type" => "hero", "show_header" => true,
         "show_sidetoc" => page == "article", "show_toc" => %w[article landing].include?(page), "show_comments" => page == "comments-on",
