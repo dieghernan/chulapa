@@ -51,7 +51,7 @@ async function main() {
     assert.equal(await page.locator("#navi-menu").evaluate(menu => menu.inert && menu.getAttribute("aria-hidden") === "true"), true);
   };
   try {
-    for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly"]) {
+    for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "sketchy"]) {
       for (const width of [320, 390, 1280]) {
         await page.setViewportSize({ width, height: 844 });
         await load(skin);
@@ -120,8 +120,10 @@ async function main() {
         }
 
         await scrollToHeading("first-section");
-        const activeStyle = await page.locator('#toc a[aria-current="location"]').evaluate(link => getComputedStyle(link).textDecorationLine);
-        assert.ok(activeStyle.includes("underline"), `${skin}: active TOC styling missing`);
+        for (const toc of ["toc", "sidetoc", "markdown-toc"]) {
+          const activeStyle = await page.locator(`#${toc} a[aria-current="location"]`).evaluate(link => getComputedStyle(link).textDecorationLine);
+          assert.ok(activeStyle.includes("underline"), `${skin}: active ${toc} styling missing`);
+        }
         await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
         await page.waitForFunction(() => ["toc", "sidetoc", "markdown-toc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
         assert.equal(await page.locator('#toc a[href="#progress-100%"], #sidetoc a[href="#progress-100%"] ').count(), 2, "Authored HTML heading must appear in both theme TOCs");
@@ -159,7 +161,7 @@ async function main() {
     try {
       await noScripts.route("**/*", serveFixture);
       const fallback = await noScripts.newPage();
-      for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "navi-dual"]) {
+      for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "sketchy", "navi-dual"]) {
         await fallback.goto(`http://localhost:8767/${skin}/article.html`);
         assert.equal(await fallback.locator("#navi-toggle").isVisible(), false, `${skin}: JavaScript-only control must be hidden`);
         const links = fallback.locator("noscript nav a");

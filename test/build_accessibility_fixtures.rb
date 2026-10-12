@@ -6,7 +6,7 @@ require "nokogiri"
 
 root = File.expand_path("..", __dir__)
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, "chulapa-accessibility-site")))
-skins = %w[chulapa navi journal gitdev lux flatly]
+skins = %w[chulapa navi journal gitdev lux flatly sketchy]
 fixtures = skins.map { |skin| [skin, skin, "fab"] } + [["navi-dual", "navi", "dual"], ["navi-classic", "navi", "classic"]]
 fixtures.each do |name, skin, navigation|
   Dir.mktmpdir("chulapa-accessibility-source-") do |source|

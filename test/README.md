@@ -167,7 +167,7 @@ The runner uses Playwright's Chromium by default. Set
 `CHULAPA_BROWSER_EXECUTABLE` to use a system browser. CI installs Chromium and
 its OS dependencies with `playwright install --with-deps chromium`.
 
-These checks cover six skins at 320, 390 and 1280 px, FAB navigation, skip-link
+These checks cover seven skins at 320, 390 and 1280 px, FAB navigation, skip-link
 focus, Tab, Escape, keyboard dropdown interaction, focus leaving the menu,
 the sidebar's existing Tab behavior, dual-navbar resize
 and classic-navbar keyboard controls. They serve actual generated HTML/CSS/JS
@@ -176,7 +176,7 @@ npm copies, verifying the template's SRI hashes. Fonts, icons and other external
 services are blocked; no CDN access is needed during the browser run. This is
 separate from the broader axe/visual review below.
 The same CI runner also verifies visible fallback links and keyboard navigation
-without JavaScript or CDN access for all six FAB skins and mobile dual navigation.
+without JavaScript or CDN access for all seven FAB skins and mobile dual navigation.
 
 ## Accessibility browser checks
 
@@ -231,7 +231,7 @@ The compatibility bundle deliberately excludes the local theme dependency so
 the installation check can select the temporary installed gem.
 
 The navigation browser checks also cover synchronized active sections in the
-in-page, sidebar and kramdown TOCs on six skins at 320, 390 and 1280 px. They
+in-page, sidebar and kramdown TOCs on seven skins at 320, 390 and 1280 px. They
 verify scrolling in both directions, the short final section, the active
 underline and preserved focus. JavaScript unit checks cover encoded IDs, broken
 links, literal percent signs in IDs, differently filtered TOCs, collapsed headings,
@@ -241,3 +241,6 @@ real details element containing a heading with a literal percent sign in its ID.
 Browser TOC checks also retain an authored fragment link inside a heading label
 and verify that it never receives current-location state alongside the item
 representing the target section.
+
+The browser matrix includes Sketchy and checks the computed active underline
+in all three TOCs, including sidebar links with skin-specific decoration rules.
