@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Highlight the current section in in-page, sidebar and kramdown tables of contents while scrolling, with accessible current-location links and unchanged keyboard navigation.
+
 -   Mark archive, category and tag indexes and the pagination example as Microformats2 feeds with structured entries, without additional configuration.
 
 -   Provide complete personal blog, technical blog, portfolio and project starter examples with a start guide and YAML demos.

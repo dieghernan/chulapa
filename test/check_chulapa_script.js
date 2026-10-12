@@ -274,3 +274,152 @@ for (const [name, write] of [
     assert.deepEqual(calls, ["Unable to copy code"]);
   });
 }
+
+function readingPosition(lastId = "last") {
+  const first = element("h2");
+  first.id = "café";
+  first.top = 400;
+  const excluded = element("h5");
+  excluded.id = "excluded";
+  excluded.top = 600;
+  const last = element("h2");
+  last.id = lastId;
+  last.top = 900;
+  const headings = [first, excluded, last];
+  headings.forEach(heading => {
+    heading.getBoundingClientRect = () => ({ top: heading.top });
+    heading.getClientRects = () => heading.hidden ? [] : [{ top: heading.top }];
+  });
+  const link = href => { const node = element("a"); node.setAttribute("href", href); return node; };
+  const invalid = link("#%ZZ");
+  const missing = link("#missing");
+  const inline = [link("#" + lastId), invalid, link("#caf%C3%A9"), missing];
+  const markdown = [link("#caf%C3%A9"), link("#excluded"), link("#" + lastId)];
+  const main = { querySelectorAll(selector) { return selector === "pre" ? [] : headings; } };
+  const nodes = { maincontent: main, toc: {querySelectorAll: () => inline}, "markdown-toc": {querySelectorAll: () => markdown} };
+  headings.forEach(heading => { nodes[heading.id] = heading; });
+  const frames = [];
+  const listeners = {};
+  let resized;
+  let mutated;
+  const context = {
+    console: { log() {} },
+    document: { getElementById: id => nodes[id] || null, createElement: element, documentElement: {scrollHeight: 3000} },
+    window: {
+      innerHeight: 800, scrollY: 0,
+      getComputedStyle: heading => ({visibility: heading.visibility || "visible"}),
+      addEventListener(type, callback) { listeners[type] = callback; },
+      requestAnimationFrame(callback) { frames.push(callback); },
+      MutationObserver: function(callback) { mutated = callback; this.observe = () => {}; },
+      ResizeObserver: function(callback) { resized = callback; this.observe = node => assert.equal(node, main); }
+    },
+    $() { return {tooltip() {}}; }
+  };
+  vm.runInNewContext(script, context);
+  return {headings, inline, markdown, invalid, missing, frames, listeners, context, resized, mutated,
+    flush() { while (frames.length) frames.shift()(); },
+    active(links) { return links.filter(link => link.getAttribute("aria-current") === "location").map(link => link.getAttribute("href")); }
+  };
+}
+
+test("TOCs follow document order, decode IDs and ignore broken anchors", () => {
+  const fixture = readingPosition();
+  assert.deepEqual(fixture.active(fixture.inline), []);
+  fixture.headings[0].top = -200;
+  fixture.headings[1].top = 80;
+  fixture.listeners.scroll();
+  fixture.listeners.scroll();
+  assert.equal(fixture.frames.length, 1, "Scroll events are coalesced into one frame");
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"], "Excluded heading keeps its parent section current");
+  assert.deepEqual(fixture.active(fixture.markdown), ["#excluded"], "Each TOC follows its own heading selection");
+  assert.equal(fixture.invalid.getAttribute("aria-current"), undefined);
+  assert.equal(fixture.missing.getAttribute("aria-current"), undefined);
+  fixture.headings[2].top = 80;
+  fixture.listeners.hashchange();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
+  assert.equal(fixture.inline[0].classList.contains("chulapa-toc-active"), true);
+});
+
+test("TOCs update on reflow, viewport resize and restored scroll position", () => {
+  const fixture = readingPosition();
+  fixture.headings[0].top = 80;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  fixture.context.window.innerHeight = 200; // Reading line moves from 120 to 50px.
+  fixture.listeners.resize();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), []);
+  fixture.context.window.scrollY = 2800;
+  fixture.listeners.load();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"], "Short final section is current at the bottom");
+});
+
+for (const id of ["progress-100%", "literal%20escape"]) {
+  test(`TOCs preserve authored literal fragment ${id}`, () => {
+    const fixture = readingPosition(id);
+    fixture.headings[2].top = 80;
+    fixture.listeners.scroll();
+    fixture.flush();
+    assert.deepEqual(fixture.active(fixture.inline), ["#" + id]);
+    assert.deepEqual(fixture.active(fixture.markdown), ["#" + id]);
+  });
+}
+
+test("TOCs skip collapsed headings and track them again when expanded", () => {
+  const fixture = readingPosition();
+  fixture.headings[0].top = 80;
+  fixture.headings[2].top = 0; // display:none reports a zero bounding rectangle.
+  fixture.headings[2].hidden = true;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  fixture.context.window.scrollY = 2200;
+  fixture.listeners.scroll();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"], "The final hidden heading must not win at the bottom");
+  fixture.headings[2].hidden = false;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
+  fixture.headings[2].hidden = true;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+});
+
+for (const mode of ["checkVisibility", "closedDetailsFallback", "hiddenStyleFallback"]) {
+  test(`TOCs exclude non-rendered headings with rectangles: ${mode}`, () => {
+    const fixture = readingPosition();
+    fixture.headings[0].top = 80;
+    const last = fixture.headings[2];
+    last.top = 0;
+    if (mode === "checkVisibility") last.checkVisibility = () => false;
+    if (mode === "closedDetailsFallback") last.closest = () => ({querySelector: () => ({contains: () => false})});
+    if (mode === "hiddenStyleFallback") last.visibility = "hidden";
+    fixture.resized();
+    fixture.flush();
+    assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  });
+}
+
+test("visibility mutations update TOCs without resize and ignore their own styles", () => {
+  const fixture = readingPosition();
+  fixture.headings[0].top = 80;
+  const container = {contains: heading => fixture.headings.includes(heading)};
+  fixture.mutated([{target: container}]);
+  fixture.mutated([{target: container}]);
+  assert.equal(fixture.frames.length, 1);
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  fixture.headings[0].visibility = "hidden";
+  fixture.headings[2].top = 80;
+  fixture.mutated([{target: container}]);
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
+  fixture.mutated([{target: {contains: () => false}}]);
+  assert.equal(fixture.frames.length, 0, "TOC link styling and unrelated controls must not retrigger tracking");
+});

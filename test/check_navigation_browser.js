@@ -51,7 +51,7 @@ async function main() {
     assert.equal(await page.locator("#navi-menu").evaluate(menu => menu.inert && menu.getAttribute("aria-hidden") === "true"), true);
   };
   try {
-    for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly"]) {
+    for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "sketchy"]) {
       for (const width of [320, 390, 1280]) {
         await page.setViewportSize({ width, height: 844 });
         await load(skin);
@@ -97,8 +97,64 @@ async function main() {
         assert.equal(await page.locator("#sideBar button").evaluate(button => button === document.activeElement), true);
         await page.keyboard.press("Enter");
         assert.equal(await page.locator("#demo").getAttribute("aria-expanded"), "false");
+        // The three TOCs agree on reading position without moving keyboard focus.
+        await page.locator(".chulapa-skip-link").focus();
+        const scrollToHeading = async id => {
+          await page.evaluate(id => {
+            const heading = document.getElementById(id);
+            window.scrollTo(0, heading.getBoundingClientRect().top + scrollY - 80);
+          }, id);
+          await page.waitForFunction(id => ["toc", "sidetoc", "markdown-toc"].every(toc => {
+            const links = document.querySelectorAll(`#${toc} a[aria-current="location"]`);
+            return links.length === 1 && links[0].getAttribute("href") === "#" + id && links[0].classList.contains("chulapa-toc-active");
+          }), id);
+          assert.equal(await page.locator(".chulapa-skip-link").evaluate(link => link === document.activeElement), true, "TOC tracking must not move focus");
+        };
+        await scrollToHeading("first-section");
+        await scrollToHeading("second-section");
+        const copiedLinks = page.locator('#toc a, #sidetoc a').filter({hasText: /^jump to second$/});
+        assert.equal(await copiedLinks.count(), 2, "Fixture must retain the heading label's authored link in both theme TOCs");
+        for (const copied of await copiedLinks.all()) {
+          assert.equal(await copied.getAttribute("aria-current"), null, "A link copied from heading content is not the TOC item's section link");
+          assert.equal(await copied.evaluate(link => link.classList.contains("chulapa-toc-active")), false);
+        }
+
+        await scrollToHeading("first-section");
+        for (const toc of ["toc", "sidetoc", "markdown-toc"]) {
+          const activeStyle = await page.locator(`#${toc} a[aria-current="location"]`).evaluate(link => getComputedStyle(link).textDecorationLine);
+          assert.ok(activeStyle.includes("underline"), `${skin}: active ${toc} styling missing`);
+        }
+        // Equal-height panels can change visibility without scroll or main resize.
+        await page.evaluate(() => { const h = document.getElementById("panel-a-title"); window.scrollTo(0, h.getBoundingClientRect().top + scrollY - 80); });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-a-title"));
+        const beforeSwitch = await page.evaluate(() => ({scrollY, height: document.getElementById("maincontent").getBoundingClientRect().height}));
+        await page.evaluate(() => { document.getElementById("panel-a").style.visibility = "hidden"; document.getElementById("panel-b").style.visibility = "visible"; });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-b-title"));
+        assert.deepEqual(await page.evaluate(() => ({scrollY, height: document.getElementById("maincontent").getBoundingClientRect().height})), beforeSwitch, "Panel switch must not rely on scrolling or resizing");
+        await page.evaluate(() => {
+          document.getElementById("panel-a").style.visibility = "visible";
+          document.getElementById("panel-b").style.visibility = "visible";
+          document.getElementById("panel-b").classList.remove("active");
+        });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-a-title"));
+        await page.evaluate(() => { document.getElementById("panel-a").classList.remove("active"); document.getElementById("panel-b").classList.add("active"); });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-b-title"));
+        assert.deepEqual(await page.evaluate(() => ({scrollY, height: document.getElementById("maincontent").getBoundingClientRect().height})), beforeSwitch, "Equal-height Bootstrap panes must update without resize");
+
+        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.waitForFunction(() => ["toc", "sidetoc", "markdown-toc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
+        assert.equal(await page.locator('#toc a[href="#progress-100%"], #sidetoc a[href="#progress-100%"] ').count(), 2, "Authored HTML heading must appear in both theme TOCs");
+        await page.evaluate(() => { document.getElementById("extra-details").open = true; });
+        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#progress-100%"));
+        await page.evaluate(() => { document.getElementById("extra-details").open = false; });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
+
+        await page.evaluate(() => window.scrollTo(0, 0));
+        await page.waitForFunction(() => !document.querySelector('#toc a[aria-current], #sidetoc a[aria-current], #markdown-toc a[aria-current]'));
+
       }
-      console.log(`Passed ${skin}: 320/390/1280px reflow, keyboard dropdowns and sidebar Tab behavior`);
+      console.log(`Passed ${skin}: 320/390/1280px reflow, keyboard dropdowns, sidebar Tab behavior and three synchronized TOCs`);
     }
     await page.setViewportSize({ width: 390, height: 844 });
     await load("navi-dual");
@@ -122,7 +178,7 @@ async function main() {
     try {
       await noScripts.route("**/*", serveFixture);
       const fallback = await noScripts.newPage();
-      for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "navi-dual"]) {
+      for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "sketchy", "navi-dual"]) {
         await fallback.goto(`http://localhost:8767/${skin}/article.html`);
         assert.equal(await fallback.locator("#navi-toggle").isVisible(), false, `${skin}: JavaScript-only control must be hidden`);
         const links = fallback.locator("noscript nav a");
@@ -134,6 +190,10 @@ async function main() {
         await links.last().focus();
         await Promise.all([fallback.waitForEvent("load"), fallback.keyboard.press("Enter")]);
         assert.equal(fallback.url(), `http://localhost:8767/${skin}/article.html`);
+        assert.equal(await fallback.locator('#toc a[aria-current], #markdown-toc a[aria-current]').count(), 0);
+        await fallback.locator("#toc a").first().focus();
+        await fallback.keyboard.press("Enter");
+        await fallback.waitForURL(`http://localhost:8767/${skin}/article.html#first-section`);
       }
     } finally {
       await noScripts.close();

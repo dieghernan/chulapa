@@ -6,7 +6,7 @@ require "nokogiri"
 
 root = File.expand_path("..", __dir__)
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, "chulapa-accessibility-site")))
-skins = %w[chulapa navi journal gitdev lux flatly]
+skins = %w[chulapa navi journal gitdev lux flatly sketchy]
 fixtures = skins.map { |skin| [skin, skin, "fab"] } + [["navi-dual", "navi", "dual"], ["navi-classic", "navi", "classic"]]
 fixtures.each do |name, skin, navigation|
   Dir.mktmpdir("chulapa-accessibility-source-") do |source|
@@ -23,12 +23,19 @@ fixtures.each do |name, skin, navigation|
       "footer" => {"links" => [{"url" => "https://github.com/dieghernan/chulapa", "label" => "GitHub", "icon" => "fab fa-github"}]},
       "collections" => {"projects" => {"output" => true}}
     }
-    content = "## First section\n\nA paragraph with a [descriptive link](https://example.com).\n\n```ruby\nputs 'Hello'\n```\n\n## Second section\n\n" + "Text for scrolling.\n\n" * 40
+    content = "## First section [jump to second](#second-section) {#first-section}\n\nA paragraph with a [descriptive link](https://example.com).\n\n```ruby\nputs 'Hello'\n```\n\n## Second section\n\n" + "Text for scrolling.\n\n" * 40
     {"article" => "default", "landing" => "landingpage", "minimal" => "minimal", "cards" => "default", "comments-on" => "default"}.each do |page, layout|
       data = {"title" => page.capitalize, "layout" => layout, "header_type" => "hero", "show_header" => true,
-        "show_sidetoc" => page == "article", "show_toc" => page == "landing", "show_comments" => page == "comments-on",
+        "show_sidetoc" => page == "article", "show_toc" => %w[article landing].include?(page), "show_comments" => page == "comments-on",
         "project_links" => [{"url" => "/article.html", "label" => "Read article"}]}
       body = page == "cards" ? "{% include components/indexcards.html cacheddocs=site.projects cachedlimit=2 %}" : content
+      if page == "article"
+        body = "* TOC\n{:toc}\n\n" + body
+        body += '<div id="visibility-panels" class="tab-content" style="height:160px;position:relative"><div id="panel-a" class="tab-pane active" style="position:absolute;inset:0"><h2 id="panel-a-title">Panel A</h2><p>First panel.</p></div><div id="panel-b" class="tab-pane active" style="position:absolute;inset:0;visibility:hidden"><h2 id="panel-b-title">Panel B</h2><p>Second panel.</p></div></div>'
+        body += "\n\n" + "Text after the panels.\n\n" * 25
+        body += "\n\n### Last subsection\n\nEnd of article.\n"
+        body += '<details id="extra-details"><summary>Optional section</summary><h2 id="progress-100%">Progress 100%</h2><p>Extra reading.</p></details>'
+      end
       body = '<main id="maincontent"><h1>Minimal content</h1>' + body + "</main>" if page == "minimal"
       File.write(File.join(source, page + ".md"), data.to_yaml + "---\n" + body)
     end

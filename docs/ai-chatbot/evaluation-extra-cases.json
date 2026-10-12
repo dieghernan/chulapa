@@ -117,5 +117,11 @@
     "doc": "06_accessibility-performance.md",
     "question": "With the development theme, where does the Chulapa font load from and does configuring Cactus load it on every page?",
     "expected": "Font served from installed theme assets with baseurl in preload and CSS; Cactus script and stylesheet only when show_comments is true; Google Fonts and Font Awesome still external. Not in v2.1.0."
+  },
+  {
+    "id": "toc-active-section",
+    "question": "How do I highlight the current section in the sidebar table of contents? Does this change keyboard focus or need another YAML setting?",
+    "expected": "Development after v2.1.0: automatic highlighting for show_toc, show_sidetoc and kramdown TOCs with JavaScript and aria-current location. No additional YAML setting; only included, rendered headings (skip closed or hidden containers); sidebar Tab order and keyboard focus unchanged. Anchor links work without JavaScript.",
+    "doc": "04_layouts.md"
   }
 ]

@@ -558,6 +558,14 @@
   }
 }
 
+#toc a.chulapa-toc-active,
+#sidetoc a.chulapa-toc-active,
+#markdown-toc a.chulapa-toc-active {
+  text-decoration: underline !important;
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.2em;
+}
+
 .chulapa-toc-reset {
   border: 0;
   ul {
