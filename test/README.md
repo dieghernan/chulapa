@@ -125,6 +125,9 @@ The installation Gemfile intentionally omits the local theme dependency; use
 
 ## Liquid build benchmark
 
+See the [personal site validation](personal-site-validation.md) for a comparison
+using a real site with its customized homepage, local layout and custom includes.
+
 From `test`, run `bundle exec ruby benchmark_liquid_build.rb`. Optional theme
 directory arguments compare multiple checkouts with the same generated fixture.
 The fixture has 100 documents with 20 tags and three categories each, plus 100
