@@ -18,8 +18,8 @@
         "description": "The basic syntax of your page - A demo page checking Markdown",
         "headline": "Markdown cheatsheet",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-12T13:04:48+02:00",
-        "dateModified": "2026-10-12T13:04:48+02:00",
+        "datePublished": "2026-10-12T17:06:04+02:00",
+        "dateModified": "2026-10-12T17:06:04+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -257,7 +257,8 @@
 				<i class="fa-solid fa-times"></i><span class="sr-only">Close Sidebar</span>
 			</button>
 		</p>
-		<nav class="navbar-nav px-3 my-auto">		  <p class="mb-2" ><a class="nav-link font-weight-bold lead" href="#">Markdown cheatsheet</a></p>		
+		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
+		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Markdown cheatsheet</a></p>
 			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#whats-markdown" class="nav-link">What’s Markdown?</a></li><li class="nav-item nav d-block"><a href="#markdown-cheatsheet" class="nav-link">Markdown cheatsheet</a></li><li class="nav-item nav d-block"><a href="#header-2" class="nav-link">Header 2</a><ul><li class="nav-item nav d-block"><a href="#header-3" class="nav-link">Header 3</a></li><li class="nav-item nav d-block"><a href="#definition-lists-can-be-used-with-html-syntax" class="nav-link">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li></ul></li><li class="nav-item nav d-block"><a href="#whats-kramdown" class="nav-link">What’s kramdown?</a></li><li class="nav-item nav d-block"><a href="#second-level-header" class="nav-link">Second level header</a></li><li class="nav-item nav d-block"><a href="#h2-header" class="nav-link">H2 header</a><ul><li class="nav-item nav d-block"><a href="#h3-header" class="nav-link">H3 header</a></li></ul></li><li class="nav-item nav d-block"><a href="#create-a-table-of-contents" class="nav-link">Create a table of contents</a></li><li class="nav-item nav d-block"><a href="#headers-work-too" class="nav-link">Headers work too</a></li></ul>
 		</nav>   
 	</div>
@@ -862,11 +863,11 @@ which is continued here.</p>
 </nav>
 </div>
   <!-- Footer -->
- <footer class="footer-chulapa text-center mt-0 pt-3">
-   <div class="container">
-         <div class="row">
-           <div class="col-lg-8 offset-lg-2">
-         <!-- Include the script from  https://giscus.app/ -->
+  <footer class="footer-chulapa text-center mt-0 pt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <!-- Include the script from  https://giscus.app/ -->
 <script src="https://giscus.app/client.js"
         data-repo="dieghernan/chulapa"
         data-repo-id="MDEwOlJlcG9zaXRvcnkyNTQ0NjMyOTg="
@@ -882,32 +883,44 @@ which is continued here.</p>
         crossorigin="anonymous"
         async>
 </script>
-           </div>
+            </div>
+          </div>
         </div>
-      </div>
-   <div class="container">
-     <div class="row">
-       <div class="col-xl-10 offset-xl-1"><div role="navigation" class="d-flex flex-wrap justify-content-center"><a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead"><span class="fa-stack fa-lg" aria-hidden="true">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            <a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-              </span><span class="sr-only">RSS</span>
-            </a><a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead"><span class="fa-stack fa-lg" aria-hidden="true">
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+            <a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-              </span><span class="sr-only">GitHub</span>
-            </a><a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead"><span class="fa-stack fa-lg" aria-hidden="true">
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
-              </span><span class="sr-only">My blog</span>
-            </a></div><p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
-          <!-- Do not remove this in order to give  attributions -->
-         <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
-          <!-- End  attributions -->
-       </div>
-     </div>
- </div>
-</footer>
-<!-- Footer -->
+              </span>
+              <span class="sr-only">My blog</span>
+            </a>
+          </nav>
+          <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
+          <!-- Do not remove this in order to give attributions -->
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <!-- End attributions -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
 <!-- JS, Popper.js, and jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
