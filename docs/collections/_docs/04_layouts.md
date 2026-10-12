@@ -608,79 +608,55 @@ does not create the page.
 ### Layout structure and components
 
 A technical note about the layout structure of <span
-class="chulapa">Chulapa</span>. These diagrams describe the v2.1.1 development
-version; the shared renderers below are internal implementation details. On
-narrow screens, scroll the diagrams horizontally to keep their labels readable.
+class="chulapa">Chulapa</span>. This overview describes the v2.1.1 development
+version. On narrow screens, scroll the code block horizontally.
 
-#### Layout inheritance
+```text
+# Layout structure
+# General purpose
+compress   # https://jch.penibelst.de/
+   |
+   └── minimal   <──┬ head
+                    ├ navbar
+                    ├ components/headers (optional)
+          ┌──────>  ├ PAGE CONTENT
+          |         ├ footer <── comments + footer-content
+          |         └ custom/custom_bottomscripts
+          |
+          └── default    <──┬ components/headers
+            /landingpage    ├ components/breadcrumbdatesocial
+                            ├ components/author
+                            ├ components/sidetoc / components/toc
+         ┌────────────>     ├ PAGE CONTENT
+         |                  ├ components/navbeforeafter
+         |                  ├ components/categories
+         |                  ├ components/tags
+         |                  └ components/related / components/random
+         |
+# Specific purpose
+# Default layout only
+         |
+         └──┬ archive
+            ├ cloudcategory
+            ├ cloudtag
+            └ indexcategory
 
-Arrows run from the outer layout to the layout it wraps. Dashed arrows mark
-legacy aliases. The `search` layout renders its own document separately.
-
-```mermaid
-%%{init: {"flowchart": {"useMaxWidth": false}}}%%
-flowchart LR
-  accTitle: Layout inheritance
-  accDescr: Compress wraps minimal. Minimal wraps default or landingpage. Default wraps archive, cloudcategory, cloudtag and indexcategory. Cloud layouts have deprecated aliases. Search is standalone.
-  compress[compress] --> minimal[minimal]
-  minimal --> default[default]
-  minimal --> landingpage[landingpage]
-  default --> archive[archive]
-  default --> cloudcategory[cloudcategory]
-  default --> cloudtag[cloudtag]
-  default --> indexcategory[indexcategory]
-  cloudcategory -.-> cloudcategory2[cloudcategory2]
-  cloudtag -.-> cloudtag2[cloudtag2]
-  search[search: standalone]
+# Shared collection index includes
+components/collection-documents
+   ├── components/archive-documents       # archive
+   ├── components/cloud                   # cloudcategory / cloudtag
+   |      └── components/cloud-entry      # cached
+   └── components/indexcategory-documents  # indexcategory
+          └── components/indexcards       # cached
 ```
 
-#### Page components
-
-Both `minimal` and `search` include the shared document shell. `default` and
-`landingpage` supply the content inside `minimal`: headers, breadcrumbs, author
-panels, tables of contents, page content, bottom navigation, categories, tags
-and optional recommendation panels.
-
-Arrows below indicate include calls. The custom head and bottom-script hooks
-remain available in both document shells.
-
-```mermaid
-%%{init: {"flowchart": {"useMaxWidth": false}}}%%
-flowchart LR
-  accTitle: Shared page includes
-  accDescr: Minimal and search include head, navbar, footer and custom bottom scripts. Head includes two custom hooks. Navbar includes fallback navigation. Footer includes the selected comment provider and cached fixed content. Related and random panels share the recommendations renderer.
-  shell[minimal / search] --> head[head.html]
-  shell --> navbar[navbar.html]
-  shell --> footer[footer.html]
-  shell --> bottom[custom/<br/>custom_bottomscripts]
-  head --> customhead[custom/<br/>custom_head_before_css<br/>custom_head]
-  navbar --> fallback[components/<br/>navigation-fallback]
-  footer --> comments[Selected comment provider<br/>or custom/giscus]
-  footer --> fixed[components/<br/>footer-content<br/>cached]
-  panels[components/<br/>related / random] --> recommendations[components/<br/>recommendations]
-```
-
-#### Collection index components
-
-Collection layouts select documents through one shared include. The renderer
-then formats the archive, cloud or card index; tag and category clouds share
-cached entry markup.
-
-```mermaid
-%%{init: {"flowchart": {"useMaxWidth": false}}}%%
-flowchart LR
-  accTitle: Collection index includes
-  accDescr: Archive, cloudcategory, cloudtag and indexcategory call collection-documents. It dispatches to archive-documents, cloud or indexcategory-documents. Cloud reuses cached cloud-entry markup; indexcategory-documents uses cached indexcards.
-  archive[archive] --> selection[components/collection-documents]
-  cloudcategory[cloudcategory] --> selection
-  cloudtag[cloudtag] --> selection
-  indexcategory[indexcategory] --> selection
-  selection --> archivebody[components/archive-documents]
-  selection --> cloud[components/cloud<br/>tags or categories]
-  selection --> index[components/indexcategory-documents]
-  cloud --> entry[components/cloud-entry<br/>cached]
-  index --> cards[components/indexcards<br/>cached]
-```
+The `search` layout renders a separate document with its own search content,
+head, navbar, footer and custom hooks. The custom head and bottom-script hooks
+remain available in both document shells. Footer comments use the selected
+provider or `custom/giscus`, while fixed footer content uses
+`components/footer-content`. Related and random panels share
+`components/recommendations`. The deprecated `cloudcategory2` and `cloudtag2`
+layouts inherit `cloudcategory` and `cloudtag`, respectively.
 
 Optional components render according to the existing page settings. The
 `collection-documents` include selects documents once per index, then passes
