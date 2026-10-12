@@ -37,7 +37,9 @@
   {% endfor %}
 
   {%- if include.mode == 'random' -%}
-    {%- assign sorted_docs = sorted_docs | sample: sorted_docs.size -%}
+    {%- if sorted_docs.size > 1 -%}
+      {%- assign sorted_docs = sorted_docs | sample: sorted_docs.size -%}
+    {%- endif -%}
   {%- endif -%}
   {%- if sorted_docs -%}
     {% for document in sorted_docs limit: 3 %}

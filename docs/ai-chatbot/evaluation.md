@@ -186,3 +186,30 @@ omits the release caveat. The resource answer identifies local theme assets and
 conditional Cactus loading, but incorrectly locates font preload in CSS rather
 than the HTML head. These observations are response-quality limitations, not
 evidence that all live criteria passed.
+
+## Include caching and layout context deployment, October 12, 2026
+
+Deployed Worker version `f2ee896b-b989-47b9-a2f1-8900d1c3a90c` with the reviewed
+layout inheritance, include-cache guidance and singleton recommendation fix.
+The context identifies these changes as part of the v2.1.1 development version.
+The AI binding and five-requests-per-minute rate limiter remain configured.
+
+All 29 local tests pass. Coverage now includes streamed UTF-8, byte and question
+boundaries, early request rejection, partial bindings, rate-limiter failures,
+CORS error responses, bundle/context consistency, source-link tricks, GFM
+tables, in-flight duplicate submissions and clipboard failures. CI now runs
+these tests without deploying or consuming live inference allowance.
+
+Two targeted live requests returned HTTP 200. Full responses are saved in
+`evaluations/liquid-cache-2026-10-12.jsonl` and were reviewed for content:
+
+- `layouts-random-singleton-1` correctly explains the one-card result, development
+  version caveat and shared-tag thresholds, and links to the documented options.
+- `layouts-include-cache-1` rejects a blanket replacement of includes, requires
+  explicit page-dependent inputs, preserves ordinary includes for assignment
+  helpers and custom hooks, and describes layout inheritance and shared
+  renderers with the correct source link. It omits the fixed-footer/cloud-entry
+  cache details and comment-input isolation included in the broader criteria.
+
+These checks validate the principal answers in the two targeted cases; they do
+not establish that every evaluation criterion or the full question corpus passes.

@@ -54,6 +54,8 @@ bundle exec ruby test/check_article_images.rb
 bundle exec ruby test/check_microdata.rb
 bundle exec ruby test/check_related_ranking.rb
 bundle exec ruby test/check_cloud_performance.rb
+bundle exec ruby test/check_include_cache.rb
+bundle exec ruby test/check_footer_comments.rb
 bundle exec ruby test/check_index_order.rb
 bundle exec ruby test/check_liquid_indexes.rb
 bundle exec ruby test/check_skin_variables.rb
@@ -86,6 +88,21 @@ It also verifies archive/cloud date order, tag/category counts, repeated
 collections and empty results using real Jekyll documents. Tag and category
 fixtures deliberately use different labels, counts and memberships so one field
 cannot accidentally substitute for the other.
+`check_include_cache.rb` verifies that cloud entries reuse Markdown and reading
+time work across labels and fields, while retaining collection badge variants.
+It also checks that fixed footer content renders once per build, comments stay
+specific to each page and a subsequent site build refreshes URLs, skin credits
+and copyright.
+The cache checks also rebuild the same site after document edits and cover
+locale and reading-speed changes. `check_footer_comments.rb` exercises real
+Disqus, Cusdis, Cactus and Welcomments templates with distinct page inputs and
+disabled comments; the cache fixture covers a custom Giscus include.
+Recommendation checks cover empty and singleton pools with hashes and real
+Jekyll documents, and avoid requiring a particular order for equal-date ties.
+They also exclude cross-collection candidates with only two shared tags. Cache
+checks vary the reading speed for the same document within one render and change
+comment IDs and titles while retaining the same page URL, so incomplete cache
+keys cannot hide behind distinct documents, URLs or build resets.
 The JavaScript checks cover floating navigation state, Escape, focus restoration,
 dropdown interaction and responsive closure, alongside clipboard, Mermaid and
 highlighting regressions. These state checks do not replace browser layout or
@@ -105,6 +122,22 @@ This also checks generated pagination, canonical URLs and sitemap entries in
 root and subdirectory deployments. It does not install the theme globally.
 The installation Gemfile intentionally omits the local theme dependency; use
 `jekyll3/Gemfile` instead to check the installed gem with Jekyll 3.
+
+## Liquid build benchmark
+
+See the [personal site validation](personal-site-validation.md) for a comparison
+using a real site with its customized homepage, local layout and custom includes.
+
+From `test`, run `bundle exec ruby benchmark_liquid_build.rb`. Optional theme
+directory arguments compare multiple checkouts with the same generated fixture.
+The fixture has 100 documents with 20 tags and three categories each, plus 100
+footer pages. Each theme gets a warm-up build and three measured complete builds;
+the script reports individual times and their median. Include caches are cleared
+by the plugin at every build, so warm-up does not preserve rendered includes.
+This targets repeated index entries; it is not a prediction for every site.
+On this Windows/Ruby 3.4 setup with Jekyll 4.4.1, a local comparison against
+`c3cab02bf` measured medians of 2.23 s before and 1.03 s after the cache changes.
+Build times depend on the machine, content and integrations.
 
 ## Browser navigation regressions
 

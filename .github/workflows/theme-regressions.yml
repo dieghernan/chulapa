@@ -38,6 +38,22 @@ jobs:
       - name: Check theme JavaScript and highlighting
         run: node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_highlighting_security.js
 
+  chatbot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: docs/ai-chatbot/package-lock.json
+      - name: Install chatbot test dependencies
+        working-directory: docs/ai-chatbot
+        run: npm ci
+      - name: Check Worker, deployment bundle, answer rendering and widget
+        working-directory: docs/ai-chatbot
+        run: npm test
+
   installation:
     runs-on: ubuntu-latest
     strategy:

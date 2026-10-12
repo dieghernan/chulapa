@@ -1,0 +1,26 @@
+  {% assign words = include.document.content | strip_html | number_of_words %}
+  {% assign readtime = "< 1’" | escape_once  %}
+  {% if words > include.words_per_minute %}
+  {% assign readtime = words | divided_by:include.words_per_minute | append: "’" %}
+  {% endif %}
+  <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
+    <div class="col">
+      <h3 class="h6"><a href="{{ include.document.url | absolute_url }}" class="p-name u-url">{{ include.document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h3>
+      {%- if include.document.subtitle -%}<p class="p-summary">{{- include.document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
+      <div class="small">
+        {% if include.document.date %}
+        {% assign dateformat = include.document.date | date: "%B %d, %Y" %}
+        <i class="far fa-calendar" aria-hidden="true"></i> <time class="dt-published" datetime="{{- include.document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+{% if include.document.last_modified_at %} <i class="fa fa-redo" aria-hidden="true"></i>{% endif %} |
+        {% endif %}
+        <i class="far fa-clock" aria-hidden="true"></i> {{ readtime }}
+        {%- if include.showcol -%}
+        <span class="ml-2 badge chulapa-pill-bg-body p-category">{{ include.document.collection }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+    {% if include.document.header_img or include.document.og_image %}
+    <a href="{{ include.document.url | absolute_url }}" class="col-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ include.document.og_image | default: include.document.header_img | absolute_url }}')">
+    </a>
+    {% endif %}
+  </article>

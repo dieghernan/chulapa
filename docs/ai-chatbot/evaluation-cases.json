@@ -1,5 +1,19 @@
 [
   {
+    "id": "layouts-random-singleton-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "My random article panel has only one eligible document. Should it show three empty cards?",
+    "expected": "No. In the v2.1.1 development version the singleton sampling bug is fixed: one eligible document renders one card. show_random selects up to three from the existing tag-based pool at build time; eligibility thresholds and settings are unchanged. No new YAML option and no claim the fix is already in v2.1.0."
+  },
+  {
+    "id": "layouts-include-cache-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Can I replace every include with include_cached to speed up builds? How are the layout components organized in the v2.1.1 development version?",
+    "expected": "No blanket replacement. Pass all page-dependent inputs as include parameters; keep helpers that assign caller variables and custom hooks reading page context uncached. compress wraps minimal, then default or landingpage; archive/cloud/index layouts inherit default, search is standalone. Collection indexes share collection-documents and related/random share recommendations. Development caching reuses fixed footer content and cloud entries; comments keep page-specific inputs. No new configuration settings or claim this is released in v2.1.0."
+  },
+  {
     "id": "layouts-head-formatting-1",
     "section": "layouts",
     "doc": "04_layouts.md",

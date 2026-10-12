@@ -54,3 +54,26 @@ test('keeps only allowed documentation links and preserves their text', () => {
   assert.match(body.textContent, /Unsafe/);
   assert.match(body.textContent, /Outside/);
 });
+
+test('rejects credential, protocol and normalized path tricks in source links', () => {
+  const body = render('[Credentials](https://visitor@dieghernan.github.io/chulapa/docs/) '
+    + '[HTTP](http://dieghernan.github.io/chulapa/docs/) '
+    + '[Traversal](https://dieghernan.github.io/chulapa/%2e%2e/other/) '
+    + '[Prefix](https://dieghernan.github.io/chulapa-copy/docs/) '
+    + '[Valid](https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components)');
+  assert.deepEqual([...body.querySelectorAll('a[href]')].map(link => link.textContent), ['Valid']);
+  for (const label of ['Credentials', 'HTTP', 'Traversal', 'Prefix']) {
+    assert.ok(body.textContent.includes(label), `Rejected link lost its text: ${label}`);
+  }
+});
+
+test('preserves GFM table structure and literal Liquid examples after sanitizing', () => {
+  const body = render('| Option | Value |\n| --- | --- |\n| `show_random` | true |\n\n'
+    + '```liquid\n{% include_cached components/indexcards.html cacheddocs=site.posts %}\n```\n\n'
+    + '<p data-private="secret" aria-label="override">Chulapa docs</p>');
+  assert.deepEqual([...body.querySelectorAll('thead th')].map(cell => cell.textContent), ['Option', 'Value']);
+  assert.deepEqual([...body.querySelectorAll('tbody td')].map(cell => cell.textContent), ['show_random', 'true']);
+  assert.equal(body.querySelector('pre code').textContent.trim(), '{% include_cached components/indexcards.html cacheddocs=site.posts %}');
+  assert.equal(body.querySelector('[data-private],[aria-label]'), null);
+  assert.equal(body.querySelector('span.chulapa').textContent, 'Chulapa');
+});
