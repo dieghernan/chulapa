@@ -26,9 +26,10 @@ fixtures.each do |name, skin, navigation|
     content = "## First section\n\nA paragraph with a [descriptive link](https://example.com).\n\n```ruby\nputs 'Hello'\n```\n\n## Second section\n\n" + "Text for scrolling.\n\n" * 40
     {"article" => "default", "landing" => "landingpage", "minimal" => "minimal", "cards" => "default", "comments-on" => "default"}.each do |page, layout|
       data = {"title" => page.capitalize, "layout" => layout, "header_type" => "hero", "show_header" => true,
-        "show_sidetoc" => page == "article", "show_toc" => page == "landing", "show_comments" => page == "comments-on",
+        "show_sidetoc" => page == "article", "show_toc" => %w[article landing].include?(page), "show_comments" => page == "comments-on",
         "project_links" => [{"url" => "/article.html", "label" => "Read article"}]}
       body = page == "cards" ? "{% include components/indexcards.html cacheddocs=site.projects cachedlimit=2 %}" : content
+      body = "* TOC\n{:toc}\n\n" + body + "\n### Last subsection\n\nEnd of article.\n" if page == "article"
       body = '<main id="maincontent"><h1>Minimal content</h1>' + body + "</main>" if page == "minimal"
       File.write(File.join(source, page + ".md"), data.to_yaml + "---\n" + body)
     end

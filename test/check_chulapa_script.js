@@ -274,3 +274,80 @@ for (const [name, write] of [
     assert.deepEqual(calls, ["Unable to copy code"]);
   });
 }
+
+function readingPosition() {
+  const first = element("h2");
+  first.id = "café";
+  first.top = 400;
+  const excluded = element("h5");
+  excluded.id = "excluded";
+  excluded.top = 600;
+  const last = element("h2");
+  last.id = "last";
+  last.top = 900;
+  const headings = [first, excluded, last];
+  headings.forEach(heading => { heading.getBoundingClientRect = () => ({ top: heading.top }); });
+  const link = href => { const node = element("a"); node.setAttribute("href", href); return node; };
+  const invalid = link("#%ZZ");
+  const missing = link("#missing");
+  const inline = [link("#last"), invalid, link("#caf%C3%A9"), missing];
+  const markdown = [link("#caf%C3%A9"), link("#excluded"), link("#last")];
+  const main = { querySelectorAll(selector) { return selector === "pre" ? [] : headings; } };
+  const nodes = { maincontent: main, toc: {querySelectorAll: () => inline}, "markdown-toc": {querySelectorAll: () => markdown} };
+  headings.forEach(heading => { nodes[heading.id] = heading; });
+  const frames = [];
+  const listeners = {};
+  let resized;
+  const context = {
+    console: { log() {} },
+    document: { getElementById: id => nodes[id] || null, createElement: element, documentElement: {scrollHeight: 3000} },
+    window: {
+      innerHeight: 800, scrollY: 0,
+      addEventListener(type, callback) { listeners[type] = callback; },
+      requestAnimationFrame(callback) { frames.push(callback); },
+      ResizeObserver: function(callback) { resized = callback; this.observe = node => assert.equal(node, main); }
+    },
+    $() { return {tooltip() {}}; }
+  };
+  vm.runInNewContext(script, context);
+  return {headings, inline, markdown, invalid, missing, frames, listeners, context, resized,
+    flush() { while (frames.length) frames.shift()(); },
+    active(links) { return links.filter(link => link.getAttribute("aria-current") === "location").map(link => link.getAttribute("href")); }
+  };
+}
+
+test("TOCs follow document order, decode IDs and ignore broken anchors", () => {
+  const fixture = readingPosition();
+  assert.deepEqual(fixture.active(fixture.inline), []);
+  fixture.headings[0].top = -200;
+  fixture.headings[1].top = 80;
+  fixture.listeners.scroll();
+  fixture.listeners.scroll();
+  assert.equal(fixture.frames.length, 1, "Scroll events are coalesced into one frame");
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"], "Excluded heading keeps its parent section current");
+  assert.deepEqual(fixture.active(fixture.markdown), ["#excluded"], "Each TOC follows its own heading selection");
+  assert.equal(fixture.invalid.getAttribute("aria-current"), undefined);
+  assert.equal(fixture.missing.getAttribute("aria-current"), undefined);
+  fixture.headings[2].top = 80;
+  fixture.listeners.hashchange();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
+  assert.equal(fixture.inline[0].classList.contains("chulapa-toc-active"), true);
+});
+
+test("TOCs update on reflow, viewport resize and restored scroll position", () => {
+  const fixture = readingPosition();
+  fixture.headings[0].top = 80;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  fixture.context.window.innerHeight = 200; // Reading line moves from 120 to 50px.
+  fixture.listeners.resize();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), []);
+  fixture.context.window.scrollY = 2800;
+  fixture.listeners.load();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"], "Short final section is current at the bottom");
+});

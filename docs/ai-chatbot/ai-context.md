@@ -231,6 +231,11 @@ Only headings with IDs appear; kramdown generates IDs for Markdown headings.
 Supply IDs yourself for HTML headings. These components are available in the
 default layout; minimal does not add author panels or tables of contents.
 
+Development after v2.1.0: in-page, sidebar and kramdown TOCs automatically
+highlight the current included section while scrolling and mark its link with
+aria-current="location". JavaScript is required for highlighting, not for anchor
+links. No extra YAML setting; keyboard focus and sidebar Tab order stay unchanged.
+
 ## More layouts and content navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
 layout: landingpage has the default layout's options with dedicated background

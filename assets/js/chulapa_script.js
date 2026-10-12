@@ -114,6 +114,68 @@ heads.forEach(function (currentValue) {
   }
 });
 
+// Track the reading position without changing focus or anchor navigation.
+(function () {
+  if (!main) return;
+  var headingOrder = Array.from(heads);
+  var groups = ["toc", "sidetoc", "markdown-toc"].map(function (id) {
+    var toc = document.getElementById(id);
+    return toc ? Array.from(toc.querySelectorAll('a[href^="#"]')).map(function (link) {
+      var heading;
+      try {
+        heading = document.getElementById(decodeURIComponent(link.getAttribute("href").slice(1)));
+      } catch (error) {
+        return null;
+      }
+      return heading && headingOrder.includes(heading) ? { link: link, heading: heading } : null;
+    }).filter(Boolean).sort(function (a, b) {
+      return headingOrder.indexOf(a.heading) - headingOrder.indexOf(b.heading);
+    }) : [];
+  }).filter(function (links) { return links.length; });
+  if (!groups.length) return;
+  var pending = false;
+  var current = new Map();
+  function update() {
+    pending = false;
+    var readingLine = Math.min(120, window.innerHeight / 4);
+    var atBottom = window.scrollY > 0 &&
+      window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    groups.forEach(function (links) {
+      // Heading order comes from the document, including differently nested TOCs.
+      var active = null;
+      links.forEach(function (entry) {
+        if (entry.heading.getBoundingClientRect().top <= readingLine || atBottom) {
+          active = entry.heading;
+        }
+      });
+      if (current.get(links) === active) return;
+      current.set(links, active);
+      links.forEach(function (entry) {
+        if (entry.heading === active) {
+          entry.link.classList.add("chulapa-toc-active");
+          entry.link.setAttribute("aria-current", "location");
+        } else {
+          entry.link.classList.remove("chulapa-toc-active");
+          entry.link.removeAttribute("aria-current");
+        }
+      });
+    });
+  }
+  function schedule() {
+    if (!pending) {
+      pending = true;
+      window.requestAnimationFrame(update);
+    }
+  }
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  window.addEventListener("hashchange", schedule);
+  window.addEventListener("load", schedule);
+  // Images, diagrams and web fonts can move headings after the initial render.
+  if (window.ResizeObserver) new window.ResizeObserver(schedule).observe(main);
+  update();
+})();
+
 // Copy Clipboard
 // Insert buttons
 

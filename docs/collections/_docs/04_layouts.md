@@ -156,6 +156,14 @@ author:
 		<i class="fa-solid fa-plus"></i><span class="sr-only">Example button</span>
 	</button> on the left side of your page, click it to expand the sidebar table of contents. See the implementation on the [Current skin](https://dieghernan.github.io/chulapa/skins/current).
 
+In the development version after v2.1.0, the in-page TOC, sidebar TOC and
+kramdown's `{:toc}` highlight the current section as you scroll, with
+`aria-current="location"` on its link. Each TOC tracks only its included headings.
+The indicator follows the last heading that has passed the reading line near
+the top of the viewport; reaching the bottom selects the last section.
+This requires JavaScript; anchor links still work without it. It does not move
+keyboard focus or change the sidebar's Tab order, and needs no extra YAML setting.
+
 **Table of contents requires heading IDs.** Only headings with an `id` are displayed. If you are
 including headers via markdown (`### Title`) you don't have to worry, as
 **kramdown** would do it for you. However if you are using `html` (`<h1

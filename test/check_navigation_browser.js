@@ -97,8 +97,31 @@ async function main() {
         assert.equal(await page.locator("#sideBar button").evaluate(button => button === document.activeElement), true);
         await page.keyboard.press("Enter");
         assert.equal(await page.locator("#demo").getAttribute("aria-expanded"), "false");
+        // The three TOCs agree on reading position without moving keyboard focus.
+        await page.locator(".chulapa-skip-link").focus();
+        const scrollToHeading = async id => {
+          await page.evaluate(id => {
+            const heading = document.getElementById(id);
+            window.scrollTo(0, heading.getBoundingClientRect().top + scrollY - 80);
+          }, id);
+          await page.waitForFunction(id => ["toc", "sidetoc", "markdown-toc"].every(toc => {
+            const links = document.querySelectorAll(`#${toc} a[aria-current="location"]`);
+            return links.length === 1 && links[0].getAttribute("href") === "#" + id && links[0].classList.contains("chulapa-toc-active");
+          }), id);
+          assert.equal(await page.locator(".chulapa-skip-link").evaluate(link => link === document.activeElement), true, "TOC tracking must not move focus");
+        };
+        await scrollToHeading("first-section");
+        await scrollToHeading("second-section");
+        await scrollToHeading("first-section");
+        const activeStyle = await page.locator('#toc a[aria-current="location"]').evaluate(link => getComputedStyle(link).textDecorationLine);
+        assert.ok(activeStyle.includes("underline"), `${skin}: active TOC styling missing`);
+        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.waitForFunction(() => ["toc", "sidetoc", "markdown-toc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
+        await page.evaluate(() => window.scrollTo(0, 0));
+        await page.waitForFunction(() => !document.querySelector('#toc a[aria-current], #sidetoc a[aria-current], #markdown-toc a[aria-current]'));
+
       }
-      console.log(`Passed ${skin}: 320/390/1280px reflow, keyboard dropdowns and sidebar Tab behavior`);
+      console.log(`Passed ${skin}: 320/390/1280px reflow, keyboard dropdowns, sidebar Tab behavior and three synchronized TOCs`);
     }
     await page.setViewportSize({ width: 390, height: 844 });
     await load("navi-dual");
@@ -134,6 +157,10 @@ async function main() {
         await links.last().focus();
         await Promise.all([fallback.waitForEvent("load"), fallback.keyboard.press("Enter")]);
         assert.equal(fallback.url(), `http://localhost:8767/${skin}/article.html`);
+        assert.equal(await fallback.locator('#toc a[aria-current], #markdown-toc a[aria-current]').count(), 0);
+        await fallback.locator("#toc a").first().focus();
+        await fallback.keyboard.press("Enter");
+        await fallback.waitForURL(`http://localhost:8767/${skin}/article.html#first-section`);
       }
     } finally {
       await noScripts.close();
