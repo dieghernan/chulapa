@@ -158,7 +158,8 @@ author:
 
 In the development version after v2.1.0, the in-page TOC, sidebar TOC and
 kramdown's `{:toc}` highlight the current section as you scroll, with
-`aria-current="location"` on its link. Each TOC tracks only its included headings.
+`aria-current="location"` on its link. Each TOC tracks only its included, rendered headings; headings inside closed or
+hidden containers are skipped until shown.
 The indicator follows the last heading that has passed the reading line near
 the top of the viewport; reaching the bottom selects the last section.
 This requires JavaScript; anchor links still work without it. It does not move

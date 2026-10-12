@@ -29,7 +29,10 @@ fixtures.each do |name, skin, navigation|
         "show_sidetoc" => page == "article", "show_toc" => %w[article landing].include?(page), "show_comments" => page == "comments-on",
         "project_links" => [{"url" => "/article.html", "label" => "Read article"}]}
       body = page == "cards" ? "{% include components/indexcards.html cacheddocs=site.projects cachedlimit=2 %}" : content
-      body = "* TOC\n{:toc}\n\n" + body + "\n### Last subsection\n\nEnd of article.\n" if page == "article"
+      if page == "article"
+        body = "* TOC\n{:toc}\n\n" + body + "\n### Last subsection\n\nEnd of article.\n"
+        body += '<details id="extra-details"><summary>Optional section</summary><h2 id="progress-100%">Progress 100%</h2><p>Extra reading.</p></details>'
+      end
       body = '<main id="maincontent"><h1>Minimal content</h1>' + body + "</main>" if page == "minimal"
       File.write(File.join(source, page + ".md"), data.to_yaml + "---\n" + body)
     end

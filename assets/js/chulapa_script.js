@@ -122,11 +122,13 @@ heads.forEach(function (currentValue) {
     var toc = document.getElementById(id);
     return toc ? Array.from(toc.querySelectorAll('a[href^="#"]')).map(function (link) {
       var heading;
+      var fragment = link.getAttribute("href").slice(1);
       try {
-        heading = document.getElementById(decodeURIComponent(link.getAttribute("href").slice(1)));
+        heading = document.getElementById(decodeURIComponent(fragment));
       } catch (error) {
-        return null;
+        // Authored IDs can contain a literal percent sign, not a URI escape.
       }
+      heading = heading || document.getElementById(fragment);
       return heading && headingOrder.includes(heading) ? { link: link, heading: heading } : null;
     }).filter(Boolean).sort(function (a, b) {
       return headingOrder.indexOf(a.heading) - headingOrder.indexOf(b.heading);
@@ -135,6 +137,18 @@ heads.forEach(function (currentValue) {
   if (!groups.length) return;
   var pending = false;
   var current = new Map();
+  function isRendered(heading) {
+    if (!heading.getClientRects().length) return false;
+    if (heading.checkVisibility) return heading.checkVisibility({ visibilityProperty: true });
+    // Closed details can still report rectangles in some browsers.
+    var closed = heading.closest("details:not([open])");
+    if (closed) {
+      var summary = closed.querySelector("summary");
+      if (!summary || !summary.contains(heading)) return false;
+    }
+    var visibility = window.getComputedStyle(heading).visibility;
+    return visibility !== "hidden" && visibility !== "collapse";
+  }
   function update() {
     pending = false;
     var readingLine = Math.min(120, window.innerHeight / 4);
@@ -144,7 +158,8 @@ heads.forEach(function (currentValue) {
       // Heading order comes from the document, including differently nested TOCs.
       var active = null;
       links.forEach(function (entry) {
-        if (entry.heading.getBoundingClientRect().top <= readingLine || atBottom) {
+        if (isRendered(entry.heading) &&
+            (entry.heading.getBoundingClientRect().top <= readingLine || atBottom)) {
           active = entry.heading;
         }
       });

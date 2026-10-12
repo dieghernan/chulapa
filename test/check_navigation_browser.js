@@ -117,6 +117,13 @@ async function main() {
         assert.ok(activeStyle.includes("underline"), `${skin}: active TOC styling missing`);
         await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
         await page.waitForFunction(() => ["toc", "sidetoc", "markdown-toc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
+        assert.equal(await page.locator('#toc a[href="#progress-100%"], #sidetoc a[href="#progress-100%"] ').count(), 2, "Authored HTML heading must appear in both theme TOCs");
+        await page.evaluate(() => { document.getElementById("extra-details").open = true; });
+        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#progress-100%"));
+        await page.evaluate(() => { document.getElementById("extra-details").open = false; });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
+
         await page.evaluate(() => window.scrollTo(0, 0));
         await page.waitForFunction(() => !document.querySelector('#toc a[aria-current], #sidetoc a[aria-current], #markdown-toc a[aria-current]'));
 

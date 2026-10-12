@@ -275,7 +275,7 @@ for (const [name, write] of [
   });
 }
 
-function readingPosition() {
+function readingPosition(lastId = "last") {
   const first = element("h2");
   first.id = "café";
   first.top = 400;
@@ -283,15 +283,18 @@ function readingPosition() {
   excluded.id = "excluded";
   excluded.top = 600;
   const last = element("h2");
-  last.id = "last";
+  last.id = lastId;
   last.top = 900;
   const headings = [first, excluded, last];
-  headings.forEach(heading => { heading.getBoundingClientRect = () => ({ top: heading.top }); });
+  headings.forEach(heading => {
+    heading.getBoundingClientRect = () => ({ top: heading.top });
+    heading.getClientRects = () => heading.hidden ? [] : [{ top: heading.top }];
+  });
   const link = href => { const node = element("a"); node.setAttribute("href", href); return node; };
   const invalid = link("#%ZZ");
   const missing = link("#missing");
-  const inline = [link("#last"), invalid, link("#caf%C3%A9"), missing];
-  const markdown = [link("#caf%C3%A9"), link("#excluded"), link("#last")];
+  const inline = [link("#" + lastId), invalid, link("#caf%C3%A9"), missing];
+  const markdown = [link("#caf%C3%A9"), link("#excluded"), link("#" + lastId)];
   const main = { querySelectorAll(selector) { return selector === "pre" ? [] : headings; } };
   const nodes = { maincontent: main, toc: {querySelectorAll: () => inline}, "markdown-toc": {querySelectorAll: () => markdown} };
   headings.forEach(heading => { nodes[heading.id] = heading; });
@@ -303,6 +306,7 @@ function readingPosition() {
     document: { getElementById: id => nodes[id] || null, createElement: element, documentElement: {scrollHeight: 3000} },
     window: {
       innerHeight: 800, scrollY: 0,
+      getComputedStyle: heading => ({visibility: heading.visibility || "visible"}),
       addEventListener(type, callback) { listeners[type] = callback; },
       requestAnimationFrame(callback) { frames.push(callback); },
       ResizeObserver: function(callback) { resized = callback; this.observe = node => assert.equal(node, main); }
@@ -351,3 +355,51 @@ test("TOCs update on reflow, viewport resize and restored scroll position", () =
   fixture.flush();
   assert.deepEqual(fixture.active(fixture.inline), ["#last"], "Short final section is current at the bottom");
 });
+
+for (const id of ["progress-100%", "literal%20escape"]) {
+  test(`TOCs preserve authored literal fragment ${id}`, () => {
+    const fixture = readingPosition(id);
+    fixture.headings[2].top = 80;
+    fixture.listeners.scroll();
+    fixture.flush();
+    assert.deepEqual(fixture.active(fixture.inline), ["#" + id]);
+    assert.deepEqual(fixture.active(fixture.markdown), ["#" + id]);
+  });
+}
+
+test("TOCs skip collapsed headings and track them again when expanded", () => {
+  const fixture = readingPosition();
+  fixture.headings[0].top = 80;
+  fixture.headings[2].top = 0; // display:none reports a zero bounding rectangle.
+  fixture.headings[2].hidden = true;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  fixture.context.window.scrollY = 2200;
+  fixture.listeners.scroll();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"], "The final hidden heading must not win at the bottom");
+  fixture.headings[2].hidden = false;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
+  fixture.headings[2].hidden = true;
+  fixture.resized();
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+});
+
+for (const mode of ["checkVisibility", "closedDetailsFallback", "hiddenStyleFallback"]) {
+  test(`TOCs exclude non-rendered headings with rectangles: ${mode}`, () => {
+    const fixture = readingPosition();
+    fixture.headings[0].top = 80;
+    const last = fixture.headings[2];
+    last.top = 0;
+    if (mode === "checkVisibility") last.checkVisibility = () => false;
+    if (mode === "closedDetailsFallback") last.closest = () => ({querySelector: () => ({contains: () => false})});
+    if (mode === "hiddenStyleFallback") last.visibility = "hidden";
+    fixture.resized();
+    fixture.flush();
+    assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  });
+}

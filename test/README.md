@@ -234,4 +234,6 @@ The navigation browser checks also cover synchronized active sections in the
 in-page, sidebar and kramdown TOCs on six skins at 320, 390 and 1280 px. They
 verify scrolling in both directions, the short final section, the active
 underline and preserved focus. JavaScript unit checks cover encoded IDs, broken
-links, differently filtered TOCs, resize/reflow and coalesced scroll events.
+links, literal percent signs in IDs, differently filtered TOCs, collapsed headings,
+resize/reflow and coalesced scroll events. Browser checks expand and collapse a
+real details element containing a heading with a literal percent sign in its ID.
