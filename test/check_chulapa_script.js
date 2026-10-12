@@ -301,6 +301,7 @@ function readingPosition(lastId = "last") {
   const frames = [];
   const listeners = {};
   let resized;
+  let mutated;
   const context = {
     console: { log() {} },
     document: { getElementById: id => nodes[id] || null, createElement: element, documentElement: {scrollHeight: 3000} },
@@ -309,12 +310,13 @@ function readingPosition(lastId = "last") {
       getComputedStyle: heading => ({visibility: heading.visibility || "visible"}),
       addEventListener(type, callback) { listeners[type] = callback; },
       requestAnimationFrame(callback) { frames.push(callback); },
+      MutationObserver: function(callback) { mutated = callback; this.observe = () => {}; },
       ResizeObserver: function(callback) { resized = callback; this.observe = node => assert.equal(node, main); }
     },
     $() { return {tooltip() {}}; }
   };
   vm.runInNewContext(script, context);
-  return {headings, inline, markdown, invalid, missing, frames, listeners, context, resized,
+  return {headings, inline, markdown, invalid, missing, frames, listeners, context, resized, mutated,
     flush() { while (frames.length) frames.shift()(); },
     active(links) { return links.filter(link => link.getAttribute("aria-current") === "location").map(link => link.getAttribute("href")); }
   };
@@ -403,3 +405,21 @@ for (const mode of ["checkVisibility", "closedDetailsFallback", "hiddenStyleFall
     assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
   });
 }
+
+test("visibility mutations update TOCs without resize and ignore their own styles", () => {
+  const fixture = readingPosition();
+  fixture.headings[0].top = 80;
+  const container = {contains: heading => fixture.headings.includes(heading)};
+  fixture.mutated([{target: container}]);
+  fixture.mutated([{target: container}]);
+  assert.equal(fixture.frames.length, 1);
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#caf%C3%A9"]);
+  fixture.headings[0].visibility = "hidden";
+  fixture.headings[2].top = 80;
+  fixture.mutated([{target: container}]);
+  fixture.flush();
+  assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
+  fixture.mutated([{target: {contains: () => false}}]);
+  assert.equal(fixture.frames.length, 0, "TOC link styling and unrelated controls must not retrigger tracking");
+});

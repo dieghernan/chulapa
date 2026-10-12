@@ -30,7 +30,10 @@ fixtures.each do |name, skin, navigation|
         "project_links" => [{"url" => "/article.html", "label" => "Read article"}]}
       body = page == "cards" ? "{% include components/indexcards.html cacheddocs=site.projects cachedlimit=2 %}" : content
       if page == "article"
-        body = "* TOC\n{:toc}\n\n" + body + "\n### Last subsection\n\nEnd of article.\n"
+        body = "* TOC\n{:toc}\n\n" + body
+        body += '<div id="visibility-panels" class="tab-content" style="height:160px;position:relative"><div id="panel-a" class="tab-pane active" style="position:absolute;inset:0"><h2 id="panel-a-title">Panel A</h2><p>First panel.</p></div><div id="panel-b" class="tab-pane active" style="position:absolute;inset:0;visibility:hidden"><h2 id="panel-b-title">Panel B</h2><p>Second panel.</p></div></div>'
+        body += "\n\n" + "Text after the panels.\n\n" * 25
+        body += "\n\n### Last subsection\n\nEnd of article.\n"
         body += '<details id="extra-details"><summary>Optional section</summary><h2 id="progress-100%">Progress 100%</h2><p>Extra reading.</p></details>'
       end
       body = '<main id="maincontent"><h1>Minimal content</h1>' + body + "</main>" if page == "minimal"

@@ -124,6 +124,23 @@ async function main() {
           const activeStyle = await page.locator(`#${toc} a[aria-current="location"]`).evaluate(link => getComputedStyle(link).textDecorationLine);
           assert.ok(activeStyle.includes("underline"), `${skin}: active ${toc} styling missing`);
         }
+        // Equal-height panels can change visibility without scroll or main resize.
+        await page.evaluate(() => { const h = document.getElementById("panel-a-title"); window.scrollTo(0, h.getBoundingClientRect().top + scrollY - 80); });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-a-title"));
+        const beforeSwitch = await page.evaluate(() => ({scrollY, height: document.getElementById("maincontent").getBoundingClientRect().height}));
+        await page.evaluate(() => { document.getElementById("panel-a").style.visibility = "hidden"; document.getElementById("panel-b").style.visibility = "visible"; });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-b-title"));
+        assert.deepEqual(await page.evaluate(() => ({scrollY, height: document.getElementById("maincontent").getBoundingClientRect().height})), beforeSwitch, "Panel switch must not rely on scrolling or resizing");
+        await page.evaluate(() => {
+          document.getElementById("panel-a").style.visibility = "visible";
+          document.getElementById("panel-b").style.visibility = "visible";
+          document.getElementById("panel-b").classList.remove("active");
+        });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-a-title"));
+        await page.evaluate(() => { document.getElementById("panel-a").classList.remove("active"); document.getElementById("panel-b").classList.add("active"); });
+        await page.waitForFunction(() => ["toc", "sidetoc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#panel-b-title"));
+        assert.deepEqual(await page.evaluate(() => ({scrollY, height: document.getElementById("maincontent").getBoundingClientRect().height})), beforeSwitch, "Equal-height Bootstrap panes must update without resize");
+
         await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
         await page.waitForFunction(() => ["toc", "sidetoc", "markdown-toc"].every(toc => document.querySelector(`#${toc} a[aria-current="location"]`)?.getAttribute("href") === "#last-subsection"));
         assert.equal(await page.locator('#toc a[href="#progress-100%"], #sidetoc a[href="#progress-100%"] ').count(), 2, "Authored HTML heading must appear in both theme TOCs");

@@ -188,6 +188,17 @@ heads.forEach(function (currentValue) {
   window.addEventListener("load", schedule);
   // Images, diagrams and web fonts can move headings after the initial render.
   if (window.ResizeObserver) new window.ResizeObserver(schedule).observe(main);
+  if (window.MutationObserver) {
+    new window.MutationObserver(function (records) {
+      // Ignore TOC link styling and unrelated controls to avoid observer loops.
+      if (records.some(function (record) {
+        return headingOrder.some(function (heading) { return record.target.contains(heading); });
+      })) schedule();
+    }).observe(document.documentElement, {
+      subtree: true,
+      attributes: true
+    });
+  }
   update();
 })();
 

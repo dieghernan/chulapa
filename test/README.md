@@ -244,3 +244,7 @@ representing the target section.
 
 The browser matrix includes Sketchy and checks the computed active underline
 in all three TOCs, including sidebar links with skin-specific decoration rules.
+
+TOC tracking also follows visibility/style changes and Bootstrap tab classes in
+equal-height panes without relying on scroll or resize. Unit tests verify that
+TOC styling and unrelated mutations do not cause observer feedback loops.
