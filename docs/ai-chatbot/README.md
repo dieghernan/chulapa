@@ -35,6 +35,21 @@ style configuration. Unpublished development changes are explicitly marked.
 The context includes the public RSS URL as a link for visitors. Feed entries are
 not embedded or fetched automatically.
 
+## Automatic deployment
+
+The `Deploy chatbot` workflow deploys the Worker on pushes to `main` that
+change `docs/ai-chatbot/` or the workflow itself. It installs dependencies and
+runs `npm test`, which rebuilds the context and widget, before deploying with
+Wrangler. Failed tests prevent deployment. It can also be run manually from
+GitHub Actions. Pull requests do not deploy.
+
+Configure repository Actions secrets `CLOUDFLARE_API_TOKEN` (Cloudflare account
+permission **Workers Scripts: Edit**) and `CLOUDFLARE_ACCOUNT_ID` for the account
+hosting the existing Worker. Deployment uses `wrangler.jsonc`, including the AI
+and rate-limiter bindings, and does not invoke live AI. Jekyll deployment remains
+separate; documentation changes outside this directory require reviewing and
+updating `ai-context.md` to update the chatbot's knowledge.
+
 ## Cloudflare setup
 
 Keep the account on **Workers Free**. As checked on October 8, 2026, Workers AI
