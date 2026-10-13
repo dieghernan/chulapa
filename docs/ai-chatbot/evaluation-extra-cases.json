@@ -123,5 +123,11 @@
     "question": "How do I highlight the current section in the sidebar table of contents? Does this change keyboard focus or need another YAML setting?",
     "expected": "Development after v2.1.0: automatic highlighting for show_toc, show_sidetoc and kramdown TOCs with JavaScript and aria-current location. No additional YAML setting; only included, rendered headings (skip closed or hidden containers); sidebar Tab order and keyboard focus unchanged. Anchor links work without JavaScript.",
     "doc": "04_layouts.md"
+  },
+  {
+    "id": "photoswipe-gallery",
+    "doc": "04_layouts.md",
+    "question": "How do I enable a PhotoSwipe lightbox on a masonry gallery? Is there a page YAML option or Jekyll plugin, and does this work in v2.1.0?",
+    "expected": "Development after v2.1.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel."
   }
 ]

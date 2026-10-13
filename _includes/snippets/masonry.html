@@ -14,11 +14,13 @@
   {% if include.random %}
     {%- assign bricks = bricks | sample: bricks.size -%}
   {%- endif -%}
-<div class="chulapa-masonry mx-2 mt-2">
+<div class="chulapa-masonry mx-2 mt-2"{% if include.photoswipe == true %} data-photoswipe-gallery="masonry"{% endif %}>
   {%- for brick in bricks limit: end -%}
   <div itemscope itemtype="https://schema.org/ImageObject">
+{% if include.photoswipe == true %}<a class="chulapa-photoswipe-item d-block" href="{{ brick | absolute_url | escape }}" aria-label="View image {{ forloop.index }}">{% endif %}
   <img loading="lazy" class="chulapa-masonry-brick" src="{{- brick | absolute_url -}}" 
   alt="Masonry Item #{{- forloop.index -}}" itemprop="contentUrl" >
+{% if include.photoswipe == true %}</a>{% endif %}
   </div>
   {%- endfor -%}
 </div>

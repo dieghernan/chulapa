@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '22'
       - name: Check theme JavaScript and highlighting
-        run: node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_highlighting_security.js
+        run: node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_photoswipe.mjs test/check_highlighting_security.js
 
   chatbot:
     runs-on: ubuntu-latest
@@ -96,6 +96,10 @@ jobs:
           test/browser/node_modules/.bin/playwright install --with-deps chromium
       - name: Build actual theme fixtures
         working-directory: test
-        run: bundle exec ruby build_accessibility_fixtures.rb "$RUNNER_TEMP/chulapa-navigation"
+        run: |
+          bundle exec ruby build_accessibility_fixtures.rb "$RUNNER_TEMP/chulapa-navigation"
+          bundle exec ruby check_photoswipe.rb "$RUNNER_TEMP/chulapa-photoswipe"
       - name: Check keyboard navigation and responsive state in Chromium
-        run: node test/check_navigation_browser.js "$RUNNER_TEMP/chulapa-navigation"
+        run: |
+          node test/check_navigation_browser.js "$RUNNER_TEMP/chulapa-navigation"
+          node test/check_photoswipe_browser.js "$RUNNER_TEMP/chulapa-photoswipe"

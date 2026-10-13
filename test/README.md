@@ -248,3 +248,12 @@ in all three TOCs, including sidebar links with skin-specific decoration rules.
 TOC tracking also follows visibility/style changes and Bootstrap tab classes in
 equal-height panes without relying on scroll or resize. Unit tests verify that
 TOC styling and unrelated mutations do not cause observer feedback loops.
+
+PhotoSwipe regression coverage uses `check_photoswipe.rb` on Jekyll 3 and 4 for
+opt-in include caching, supported layouts, original image links and subdirectory
+URLs. `check_photoswipe.mjs` covers lazy loading, isolated groups, dimensions,
+modified clicks, asset failure and carousel transitions. The browser job builds
+those fixtures and runs `check_photoswipe_browser.js` with the pinned PhotoSwipe
+package from `test/browser`: real keyboard/zoom/focus behavior, offscreen image
+dimensions, carousel stability, touch swipe, root/subdirectory routing and
+original-image fallback with JavaScript disabled or either CDN asset unavailable.

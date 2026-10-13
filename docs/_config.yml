@@ -151,6 +151,8 @@ navbar:
       url: /demo/search_simple
     - title: Mermaid diagrams
       url: /demo/13-mermaid
+    - title: PhotoSwipe
+      url: /demo/14-photoswipe
     - title: Minimal with header
       url: /demo/minimal-header
     - title: Classic Navbar
