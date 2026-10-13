@@ -146,6 +146,12 @@ const server = http.createServer((request, response) => {
     assert.equal(await page.locator('iframe').getAttribute('title'), 'First video');
     await page.locator('.ch_ytdefer').first().dispatchEvent('click');
     assert.equal(await page.locator('iframe').count(), 1);
+    // A legacy/custom override may still supply a whitespace-only data-title.
+    await page.locator('.ch_ytdefer').nth(1).evaluate(container => container.setAttribute('data-title', ' \n\t '));
+    await page.locator('.ch_ytdefer_btn').nth(1).focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('.ch_ytdefer').nth(1).locator('iframe').getAttribute('title'), 'YouTube video');
+    assert.equal(await page.locator('iframe').count(), 2);
     assert.deepEqual(errors, []);
     // The legacy clipboard entry point must reuse existing buttons and handle code outside main.
     await page.evaluate(() => { const pre = document.createElement('pre'); pre.innerHTML = '<code>outside main</code>'; document.body.append(pre); });

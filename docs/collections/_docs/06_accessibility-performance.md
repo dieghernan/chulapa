@@ -101,7 +101,8 @@ Long headings can wrap within their container when text is enlarged. Regression
 checks cover 320 CSS pixel reflow (equivalent to 400% zoom on a 1280px-wide
 viewport) and 200% text enlargement; also check your actual content and browser
 zoom settings. Video players and play buttons use the existing `name` parameter
-to distinguish their content. Gallery snippets still generate generic image
+to distinguish their content. Names are trimmed; omitted, empty or whitespace-only
+values use the generic player name. Gallery snippets still generate generic image
 alternatives: supply descriptive `alt` text in custom image markup when the
 image conveys information, and provide captions or transcripts for media where
 needed. The template cannot derive those descriptions from an image URL.

@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Trim video names before applying accessible-label fallbacks, including whitespace-only values supplied by Liquid captures or legacy deferred-player markup.
+
 -   Initialize carousels and react to reduced-motion preference changes when browsers expose only the legacy media-query listener API.
 
 -   Initialize cached carousels rendered directly by custom layouts, sharing their deferred controller module, and derive thumbnail link names from rendered Markdown titles.

@@ -693,6 +693,8 @@ Long headings wrap when text is enlarged. Browser regressions cover 320 CSS pixe
 reflow (400% zoom equivalent on a 1280px viewport) and 200% text enlargement,
 not every site's content or actual screen-reader behavior. Video players and
 play buttons use the existing name parameter; provide the actual video title.
+Names are trimmed; omitted, empty or whitespace-only values use generic player
+names rather than blank accessible labels.
 Gallery snippets still generate generic image alternatives. Descriptive alt
 text requires author-supplied custom image markup; captions/transcripts require
 author content. Do not invent a new gallery alt, captions or transcript option.
