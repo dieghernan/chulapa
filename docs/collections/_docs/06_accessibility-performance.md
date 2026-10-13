@@ -87,7 +87,8 @@ work with Enter and Space. Dropdown buttons keep the menu typography
 and decorative borders chosen by the skin.
 
 Carousels with more than one image and a positive `interval` expose a
-pause/start button when Bootstrap is available. Automatic cycling starts paused
+play/pause icon button with an accessible action name when Bootstrap is available.
+A plain symbol remains if Font Awesome fails to load. Automatic cycling starts paused
 with `prefers-reduced-motion: reduce`, stops when keyboard focus enters the
 slides or navigation controls, and resumes only through an explicit start.
 Hover temporarily pauses it on devices that support hover. Slide indicators are

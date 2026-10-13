@@ -267,6 +267,10 @@ TOC tracking also follows visibility/style changes and Bootstrap tab classes in
 equal-height panes without relying on scroll or resize. Unit tests verify that
 TOC styling and unrelated mutations do not cause observer feedback loops.
 
+Carousel browser checks also cover Font Awesome play/pause icons, clicks on the
+icon itself, accessible action names and visible fallback symbols when icon CSS
+or fonts fail. Font Awesome assets are served from the pinned test dependency.
+
 PhotoSwipe regression coverage uses `check_photoswipe.rb` on Jekyll 3 and 4 for
 opt-in include caching, supported layouts, original image links and subdirectory
 URLs. `check_photoswipe.mjs` covers lazy loading, isolated groups, dimensions,

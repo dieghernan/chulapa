@@ -16,7 +16,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
-- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Complete post, page and image examples; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, followed by advanced layout, script and caching reference.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Complete post, page and image examples; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with practical guidance for custom layouts and local overrides.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
 - [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Rendered examples for supported code languages.

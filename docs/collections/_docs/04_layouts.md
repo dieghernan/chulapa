@@ -106,18 +106,13 @@ gem only provides the features included in that version.
 
 #### Default
 
-Use the `default` layout for posts, standalone pages and collection documents.
-Enable its optional components through page front matter or defaults. To use
-this layout:
+Use `default` for articles and ordinary pages. Add this to the settings block
+at the top of the file:
 
 ```yaml
-
-# On a specific page
-
 ---
 layout: default
 ---
-
 ```
 
 You can avoid typing this on each page by setting this layout as the default layout for all the pages via `_config.yml` and [front matter defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/):
@@ -486,55 +481,29 @@ does not create the page.
 
 ### A note on defaults
 
-[Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) is a great way to avoid repeating yourself. You can inject fixed front matters to any file, collection or even static files all at once. A potential Front Matter Defaults configuration is proposed below:
+Defaults let you apply the same settings to all posts. Add this entry under
+`defaults` in `_config.yml`, keeping the entries already there:
 
 ```yaml
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
+      type: posts
     values:
-      layout: "default"
-      header_type         : "base"
-      include_on_search   : false
-      cloudtag_url        : "/tags"
-      cloudcategory_url   : "/categories"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      header_type       : "post"
-      include_on_search : true
-      include_on_feed   : true
-      show_date         : true
-      show_bottomnavs   : true
-      show_sociallinks  : true
-      show_comments     : true
-      show_tags         : true
-      show_categories   : true
-      show_author       : true
-      show_toc          : false
-  -
-    scope:
-      path: ""
-      type: "YOUR COLLECTION NAME"
-    values:
-      header_type       : "hero"
-      include_on_search : true
-      show_bottomnavs   : true
-      show_tags         : true
+      layout: default
+      header_type: post
+      show_date: true
 ```
 
-Defaults apply values to matching pages and documents. An explicit value in a
-page's front matter overrides its defaults. Use YAML booleans such as `false`
-to disable components; the quoted string `"false"` is truthy in Liquid.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+A setting in an individual post overrides its default. Use `true` and `false`
+without quotes for switches such as `show_date`. See
+[Jekyll's defaults guide](https://jekyllrb.com/docs/configuration/front-matter-defaults/)
+for other content types.
 
 ## B. Snippets
 
-Snippets are reusable Liquid includes for content such as images, videos and
-formatted dates.
+Copy these snippets into a post or page to add galleries, videos or formatted
+dates. Replace the example filenames and values with your own.
 
 ### Masonry gallery
 
@@ -548,11 +517,7 @@ images:
 {% assign externalgallery = "
 https://picsum.photos/seed/10/600/1200,
 https://picsum.photos/seed/20/800/500,
-https://picsum.photos/seed/30/900/1200,
-https://picsum.photos/seed/40/900/1300,
-https://picsum.photos/seed/50/750/325,
-https://picsum.photos/seed/60/600,
-https://picsum.photos/seed/70/700/500" %}
+https://picsum.photos/seed/30/900/1200" %}
 
 {% include_cached snippets/masonry.html external=externalgallery %}
 ```
@@ -563,15 +528,12 @@ This produces the following gallery:
 {% assign externalgallery = "
 https://picsum.photos/seed/10/600/1200,
 https://picsum.photos/seed/20/800/500,
-https://picsum.photos/seed/30/900/1200,
-https://picsum.photos/seed/40/900/1300,
-https://picsum.photos/seed/50/750/325,
-https://picsum.photos/seed/60/600,
-https://picsum.photos/seed/70/700/500" %}
+https://picsum.photos/seed/30/900/1200" %}
 
 {% include_cached snippets/masonry.html external=externalgallery %}
 
-To use it with internal images, first set a [front matter on your desired path](https://jekyllrb.com/docs/static-files/#add-front-matter-to-static-files). As an example, these docs have an internal gallery on `./assets/img/gallery`:
+For your own photographs, upload them to `assets/img/gallery/`. Add this entry
+under your existing `defaults` in `_config.yml` to name the gallery:
 
 ```yaml
   -
@@ -609,31 +571,6 @@ There are four optional parameters that you can use for controlling the output:
 
 {% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
 
-If you need further control of your output, you can just pass your internal
-gallery as external:
-
-{% raw %}
-```
-{% assign externalgallery = "
-./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
-https://picsum.photos/seed/70/700/500,
-./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg,
-./assets/img/gallery/city-spain-dense-17658.jpg,
-./assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" %}
-
-{% include_cached snippets/masonry.html external=externalgallery %}
-```
-{% endraw %}
-
-{% assign externalgallery = "
-./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
-https://picsum.photos/seed/70/700/500,
-./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg,
-./assets/img/gallery/city-spain-dense-17658.jpg,
-./assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" %}
-
-{% include_cached snippets/masonry.html external=externalgallery %}
-
 ### Bootstrap carousel
 
 The carousel uses the same image sources and ordering options as the masonry
@@ -645,7 +582,9 @@ gallery, with three additional parameters:
 
 - `controls`: Show previous and next controls. **false**.
 
-In v2.1.1-dev, a slideshow with more than one image has a pause/start button.
+In v2.1.1-dev, a slideshow with more than one image has a play/pause icon button.
+Its accessible name describes the action, and a simple symbol remains if Font
+Awesome is unavailable.
 Set `interval=0` for manual navigation. Slideshows start paused when a visitor
 prefers reduced motion, and pause when someone uses the keyboard controls.
 The controls work with Enter and Space. Hovering temporarily pauses the slideshow.
@@ -690,19 +629,14 @@ default; add it only to the galleries where you want a viewer.
 Both uploaded image collections and external image lists work. Each gallery
 opens its own sequence. The viewer loads when someone opens an image.
 
-The viewer provides zoom, touch gestures, arrow-key navigation, a focus trap and
-Escape to close. Focus returns to the triggering image link. Reduced-motion
-preferences disable the opening and zoom animations. A carousel keeps its slide
-in place while its viewer is open. Without JavaScript, or if the library,
-stylesheet or initial image cannot load, the link opens the original image.
-Modified clicks keep normal browser behavior. The module works with `default`,
-`minimal` and `landingpage`; the `search` layout does not render these galleries.
+Visitors can zoom, swipe or use arrow keys, and press Escape to close the
+viewer. It returns keyboard focus to the image and respects reduced-motion
+preferences. If the viewer cannot load, the link opens the original image.
 
 Try the [PhotoSwipe demo]({{ "/demo/14-photoswipe" | relative_url }}).
-Site content security policies must permit the PhotoSwipe modules and stylesheet
-from `https://cdn.jsdelivr.net`. External images also depend on their own host.
-Existing image alt text and ImageObject metadata are preserved; supply meaningful
-alt text when authoring images outside these gallery snippets.
+If you configure a Content Security Policy, allow its scripts and styles from
+`https://cdn.jsdelivr.net`. Provide descriptive alternative text when adding
+your own image markup; gallery snippets use generic image descriptions.
 
 ### Video support
 
@@ -716,21 +650,8 @@ with the code after `v=` in the video's YouTube address and give it a clear name
 {% endraw %}
 
 Other supported providers are `vimeo`, `dailymotion`, `google-drive` and
-`bilibili`. You can also use `fileurl` for a video file. The examples below
-include optional descriptions and search metadata; these are not required
-just to display the player. See [Optional video metadata](#optional-video-metadata)
-when you want to supply them.
-
-{% raw %}
-```
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
-```
-{% endraw %}
+`bilibili`. You can also use `fileurl` for a video file. For optional search descriptions and thumbnails, see
+[Optional video metadata](#optional-video-metadata).
 
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
    name="Menorca - Isla Bonita"
@@ -746,20 +667,12 @@ You can also display videos loaded through `fileurl`:
 **Hosted on this repo**
 
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4"
-   name="Aerial lagoon sample"
-   thumbnail_url="/assets/mp4/sample-thumbnail.jpg"
-   upload_date="2021-08-20T15:24:34+02:00"
-   description="Aerial footage of a turquoise lagoon surrounded by limestone cliffs."
-   duration="PT48.064S" %}
+   name="Aerial lagoon sample" %}
 
 **publicdomainmovie.net**
 
 {% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4"
-   name="Betty Boop and Grampy"
-   thumbnail_url="https://archive.org/services/img/bb_and_grampy"
-   upload_date="2005-03-18T12:20:09Z"
-   description="A 1935 Betty Boop cartoon by Max Fleischer, available in the public domain."
-   duration="PT6M58.59S" %}
+   name="Betty Boop and Grampy" %}
 
 ```
 {% endraw %}
@@ -800,11 +713,7 @@ Set `nolazy=true` to load the YouTube iframe without waiting for a click:
 {% raw %}
 ```
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+   name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
 
@@ -826,11 +735,7 @@ parameter
 {% raw %}
 ```
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hq2"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+   name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
 
@@ -841,20 +746,18 @@ parameter
    description="Exploring Menorca with a Mavic Pro drone in 2019."
    duration="PT2M52S" %}
 
-Thanks to @SCP-017 for the suggestion.
-
 #### Optional video metadata
 
 Both `snippets/video.html` and `snippets/youtube.html` accept these optional
 inputs for the embedded video's microdata:
 
-| Input | Property | Value |
-| --- | --- | --- |
-| `name` | `name` | The video's actual title. |
-| `thumbnail_url` | `thumbnailUrl` | A representative, accessible image URL. Relative URLs use the site's URL and `baseurl`. |
-| `upload_date` | `uploadDate` | The video's original publication date in ISO 8601 format, preferably with time and time zone. |
-| `description` | `description` | A description of the video. |
-| `duration` | `duration` | An ISO 8601 duration, such as `PT1M30S` for 90 seconds. |
+| Input | What to supply |
+| --- | --- |
+| `name` | The video's actual title. |
+| `thumbnail_url` | A representative, accessible image URL. Relative URLs use the site's URL and `baseurl`. |
+| `upload_date` | The video's original publication date in ISO 8601 format, preferably with time and time zone. |
+| `description` | A description of the video. |
+| `duration` | An ISO 8601 duration, such as `PT1M30S` for 90 seconds. |
 
 Pass metadata per include, so several videos on the same page can have different
 values. Missing, empty or whitespace-only inputs are omitted. Dates and durations
@@ -885,21 +788,14 @@ structured data only; it does not change the player, its preview or its poster.
 
 #### Video structured data limitations
 
-The video snippets expose the known file or player URL in microdata. Deferred
-YouTube embeds also expose the preview URL before playback. The default
-`maxresdefault` preview may not exist for every video; use `video_res` to choose
-an available preview.
+Video descriptions can help search engines understand your content, but do
+not guarantee indexing. Supply an accurate `name`, `thumbnail_url` and
+`upload_date`; the theme does not fetch them from the video provider.
+Check that your thumbnail image exists.
 
-An explicit `thumbnail_url` overrides the deferred YouTube thumbnail metadata.
-Without it, deferred YouTube embeds retain their existing preview URL; other
-embeds require an explicit thumbnail. The snippets do not generate images or
-fetch metadata from providers. Check that the image exists and represents the
-video. Google requires `name`, `thumbnailUrl` and `uploadDate`; missing values
-can leave the markup incomplete for Google's video features. See the
-[video structured data requirements](https://developers.google.com/search/docs/appearance/structured-data/video).
-
-**Correct microdata alone does not guarantee video indexing.** Google also recommends loading the player without visitor interaction and using a page whose main purpose is watching the video. Deferred YouTube embeds wait for a click. For a dedicated video page, consider `nolazy="true"`, while still checking the metadata and [video indexing requirements](https://developers.google.com/search/docs/appearance/video).
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+For a page dedicated to watching a video, consider `nolazy=true` so the player
+loads without a click. See [Google's video requirements](https://developers.google.com/search/docs/appearance/structured-data/video)
+for the remaining conditions.
 
 ### Localization of dates
 
@@ -1023,11 +919,8 @@ metadata or instructions for republished content.
 
 ### SEO metadata
 
-The theme uses the page URL for its canonical link, Open Graph URL, structured
-data and breadcrumbs. A terminal `/index.html` becomes `/`; other filenames,
-including `/myindex.html`, are preserved. Paginated pages retain their own URL.
-The Atom and RSS entry links use the same normalization. This changes metadata
-only; it does not create redirects.
+The theme creates sharing and search metadata automatically from each page's
+address. Ordinary pages do not need a custom canonical URL.
 
 Set page `canonical_url` to identify the original version of duplicated or
 republished content. Use an absolute HTTP(S) URL or a site-relative path starting
@@ -1040,8 +933,8 @@ canonical_url: https://example.com/original-article/
 sitemap: false
 ```
 
-HTML, Open Graph, JSON-LD, breadcrumbs, microformats and feed entry links share
-the override. It does not create a redirect or change the page's actual URL.
+This identifies the original article to search engines and sharing services.
+It does not redirect visitors or change your page's address.
 `jekyll-sitemap` uses the actual page URL and does not apply this override: set
 `sitemap: false` on the duplicate, and retain the original page in its own
 sitemap. Do not point every paginated page at page one; each page in a sequence
@@ -1050,10 +943,7 @@ should retain its own canonical URL. See
 
 Use `seo_title` to replace the complete browser and structured-data title without
 changing the visible heading. Use `og_title` to replace the social
-title; it defaults to the generated browser title. Whitespace-only
-values use the normal fallback. Separators appear only between nonempty title
-components. `og:site_name` contains the site title alone, without its subtitle.
-The theme no longer emits `meta keywords`.
+title; it defaults to the generated browser title. Leave these settings empty to use the normal titles.
 
 Optional `og_image_alt`, `og_image_width`, `og_image_height` and `og_image_type`
 fields describe the selected social image. Width and height are pixels; type is
@@ -1277,13 +1167,6 @@ custom head and bottom-script hooks available. See the
 and [component sources](https://github.com/dieghernan/chulapa/tree/main/_includes/components)
 when replacing a specific part.
 
-When adding cached includes, pass every page-dependent input explicitly as an
-include parameter. An include that assigns variables for its caller, such as
-the canonical URL or page-language helper, must use ordinary `include`: a cache
-hit returns rendered output without repeating those assignments. Keep includes
-that use page context, such as custom head and bottom scripts, uncached unless
-all their inputs are accounted for.
-
 To display up to two post cards inside a custom page, add this line to its
 content:
 
@@ -1301,28 +1184,19 @@ The built-in layouts already load the scripts needed for menus, search and
 content features. Use `_includes/custom/custom_bottomscripts.html` to add your
 own scripts without copying a theme layout.
 
-**If you maintain a custom layout or search page:** review your local copies
-when upgrading to v2.1.1-dev. A layout inheriting from `minimal` or `search`
-already has the shared scripts. An independent layout can use
-`components/scripts.html` once, with `theme=true` if it needs the theme's
-content features.
-
-For a custom Lunr or Fuse.js search page, use the complete
-[Lunr example](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
-or [Fuse.js example](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html).
-Keep their script order: `chulapa_search.js`, the search library and data,
-then the search adapter. The standard `search` layout does this for you.
+**If you have copied a layout or search page into your site, review it when
+updating the theme.** Your copy takes precedence and will not receive updates
+automatically. For working search-page examples, see
+[Lunr](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
+or [Fuse.js](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html).
 
 ### Microformats in lists
 
-Article lists include machine-readable information about their entries
-automatically. No extra settings are needed. If you write your own list layout,
-use the [theme's list layouts](https://github.com/dieghernan/chulapa/tree/main/_layouts)
-as a reference for preserving that information.
+Article lists automatically include information for other services to read.
+No extra configuration is needed.
 
 ### Generated head and footer formatting
 
-No formatting changes are needed to publish or customize your site.
-If you inspect generated HTML, v2.1.1-dev keeps the head and theme footer
-readable with the existing `compress_html.blanklines: true` setting.
-Custom snippets keep their own formatting.
+No formatting changes are needed to publish your site. Use the
+[custom includes](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+to add your own head tags or scripts without editing the theme's layouts.

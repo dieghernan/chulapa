@@ -36,7 +36,7 @@
       {%- endfor -%}
   </ol>	
  {% endif %}
-  <button type="button" class="chulapa-carousel-toggle" hidden>Pause slideshow</button>
+  <button type="button" class="chulapa-carousel-toggle" aria-label="Pause slideshow" hidden><span class="chulapa-carousel-symbol" aria-hidden="true"><i class="fa fas fa-pause"></i><span class="chulapa-carousel-fallback">Ⅱ</span></span></button>
   <div class="carousel-inner" aria-live="polite" aria-atomic="false">
   {%- for brick in bricks limit: end -%}
     {% if forloop.first == true %}

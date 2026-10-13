@@ -703,7 +703,8 @@ instructions with aria-describedby and uses a paragraph for configuration
 warnings. These changes add no YAML settings and do not certify a site as WCAG
 compliant; custom content and integrations still need their own checks.
 In v2.1.1-dev, carousels with more than one slide and a positive interval have a
-pause/start button when Bootstrap is available. interval=0 disables cycling and
+play/pause icon button when Bootstrap is available. Its accessible name describes
+the action; a plain symbol remains if Font Awesome is unavailable. interval=0 disables cycling and
 hides that button. Reduced motion starts paused; keyboard or pointer interaction
 with slides/navigation stops cycling until explicit start. Hover temporarily
 pauses on hover-capable devices. Enabling reduced motion stops a running
