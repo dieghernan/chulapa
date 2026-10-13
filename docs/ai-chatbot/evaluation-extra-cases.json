@@ -129,5 +129,11 @@
     "doc": "04_layouts.md",
     "question": "How do I enable a PhotoSwipe lightbox on a masonry gallery? Is there a page YAML option or Jekyll plugin, and does this work in v2.1.0?",
     "expected": "Development after v2.1.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel."
+  },
+  {
+    "id": "goatcounter-analytics",
+    "doc": "02_config.md",
+    "question": "How do I add GoatCounter to Chulapa? Does setting it replace Google Analytics and track localhost development?",
+    "expected": "Development after v2.1.0: goatcounter is the complete public HTTPS /count endpoint, hosted or self-hosted. Create site in GoatCounter separately; no API key/plugin. Official async gc.zgo.at/count.js only in JEKYLL_ENV=production; default disabled, development excluded and upstream ignores localhost. Google unchanged; clear gtag_id and analytics_id to use only GoatCounter. No live counter widget/custom events. Not in v2.1.0."
   }
 ]

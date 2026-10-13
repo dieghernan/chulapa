@@ -47,8 +47,9 @@ publisher:
 # A.2. Font Awesome
 # Omitted settings use Font Awesome 6 without a kit or v4 support.
 
-# A.3. Google Analytics
+# A.3. Analytics
 gtag_id: G-Q654SQGBGS
+goatcounter: https://dieghernan.goatcounter.com/count
 
 # A.4. Search engines
 # Algolia is the main search provider; Google CSE is used by the demo page.

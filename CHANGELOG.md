@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Support opt-in GoatCounter analytics with a public HTTPS endpoint, loaded asynchronously only for production builds.
+
 -   Add opt-in PhotoSwipe image viewers to masonry galleries and carousels with lazy loading, keyboard and touch controls, reduced-motion support and original-image fallbacks.
 
 -   Highlight the current section in in-page, sidebar and kramdown tables of contents while scrolling, with accessible current-location links and unchanged keyboard navigation.
