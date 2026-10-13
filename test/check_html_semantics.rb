@@ -77,6 +77,9 @@ Dir.mktmpdir("chulapa-html-semantics-") do |source|
             end
           end
           if %w[default landingpage].include?(name)
+            raise "Closed sidebar remains accessible: #{context}" unless document.at_css("#sideBar[inert][aria-hidden='true']")
+          end
+          if %w[default landingpage].include?(name)
             raise "Empty author landmark: #{context}" unless document.css("aside").empty?
           elsif name == "author"
             raise "Author landmark removed: #{context}" unless document.at_css("aside .h-card")

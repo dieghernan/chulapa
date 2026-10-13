@@ -93,7 +93,12 @@ async function main() {
         await page.keyboard.press("Escape");
         await closed();
         assert.equal(await toggle.evaluate(button => button === document.activeElement), true);
+        assert.equal(await page.locator('#sideBar').evaluate(sidebar => sidebar.inert && sidebar.getAttribute('aria-hidden') === 'true'), true);
+        await page.locator('#sideBar button').evaluate(button => button.focus());
+        assert.equal(await page.locator('#sideBar').evaluate(sidebar => sidebar.contains(document.activeElement)), false, 'Closed sidebar must not receive focus');
         await page.locator("#demo").click();
+        const sidebarBounds = await page.locator('#demo').boundingBox();
+        assert.ok(sidebarBounds.width >= 24 && sidebarBounds.height >= 24, 'Sidebar trigger must be a usable touch target');
         await page.keyboard.press("Tab");
         assert.equal(await page.locator("#sideBar button").evaluate(button => button === document.activeElement), true);
         await page.keyboard.press("Tab");
@@ -102,6 +107,12 @@ async function main() {
         assert.equal(await page.locator("#sideBar button").evaluate(button => button === document.activeElement), true);
         await page.keyboard.press("Enter");
         assert.equal(await page.locator("#demo").getAttribute("aria-expanded"), "false");
+        assert.equal(await page.locator('#demo').evaluate(button => button === document.activeElement), true, 'Closing sidebar must restore focus');
+        await page.locator('#demo').click();
+        await page.keyboard.press('Tab');
+        await page.keyboard.press('Escape');
+        assert.equal(await page.locator('#sideBar').evaluate(sidebar => sidebar.inert && sidebar.getAttribute('aria-hidden') === 'true'), true);
+        assert.equal(await page.locator('#demo').evaluate(button => button === document.activeElement), true, 'Escape must close sidebar and restore focus');
         // The three TOCs agree on reading position without moving keyboard focus.
         await page.locator(".chulapa-skip-link").focus();
         const scrollToHeading = async id => {
@@ -161,6 +172,15 @@ async function main() {
       }
       console.log(`Passed ${skin}: 320/390/1280px reflow, keyboard dropdowns, sidebar Tab behavior and three synchronized TOCs`);
     }
+    // 320 CSS pixels represents reflow at 400% zoom on a 1280px display.
+    await page.setViewportSize({ width: 320, height: 844 });
+    await load('chulapa');
+    await page.addStyleTag({content: 'html { font-size: 200% !important; }'});
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, '200% text must reflow at 320 CSS px');
+    await page.locator('#demo').click();
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#demo').getAttribute('aria-expanded'), 'false');
     await page.setViewportSize({ width: 390, height: 844 });
     await load("navi-dual");
     await page.locator("#navi-toggle").click();

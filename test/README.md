@@ -38,10 +38,15 @@ The HTML semantics check covers labelled comment fields, named collection
 thumbnail links, current navbar destinations, search landmarks and statuses,
 list headings and conditional author landmarks. Browser checks additionally
 exercise native dropdown/carousel buttons with Enter and Space, dynamic search
-headings, result-count updates and clearing.
+headings, result-count updates and clearing. They also cover closed-sidebar
+focus exclusion and Escape, 200% text at 320 CSS pixels, carousel pause/start
+and preference changes, indicator keyboard access/targets and video names.
 
 The runner discovers `check_*.rb` automatically. Packaging is a separate CI job
 because it requires a freshly built gem and an installation-only bundle.
+`check_pwa_assets.rb` renders the documentation head and verifies its manifest
+and locally published PNG icons against configured HTTPS/baseurl URLs and
+actual dimensions; this does not certify installability or offline support.
 See [closed issue regression coverage](closed-issue-regressions.md) for the
 mapping from reported bugs to focused checks.
 See the [test coverage review](testing-review.md) for strengthened checks and

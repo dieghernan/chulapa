@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Keep closed lateral TOCs outside the focus order, support Escape with focus restoration, and enlarge their controls. Provide carousel pause/start controls and accessible indicators, respect reduced-motion preferences and keyboard interaction, identify video players by name and wrap long headings when text is enlarged.
+
 -   Improve list and search heading structure, name collection thumbnail links, announce local search result counts, label the Welcomments comment field and avoid empty author landmarks. Mark current navbar destinations and use native buttons for dropdowns and carousel controls while preserving their appearance.
 
 -   Keep custom search demos and the Lunr-enabled 404 page functional with the shared search helper and one copy of common JavaScript dependencies.

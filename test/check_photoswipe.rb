@@ -17,6 +17,7 @@ Dir.mktmpdir('chulapa-photoswipe-') do |source|
     <section id="masonry-on">{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true photoswipe=true %}</section>
     <section id="masonry-off">{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true %}</section>
     <section id="carousel-on">{% include_cached snippets/carousel.html internal="gallery" index_sort="basename" index_sort_asc=true photoswipe=true interval=1000 controls=true indicators=true %}</section>
+    <section id="carousel-static">{% include_cached snippets/carousel.html internal="gallery" index_sort="basename" index_sort_asc=true controls=true indicators=true interval=0 %}</section>
     <section id="external">{% include_cached snippets/masonry.html external="#{gallery}" photoswipe=true %}</section>
   LIQUID
   %w[default minimal landingpage].each do |layout|
@@ -41,6 +42,7 @@ Dir.mktmpdir('chulapa-photoswipe-') do |source|
         raise 'Image metadata or accessible names missing' unless anchors.all? { |a| a['aria-label'] && a.at_css('img[itemprop="contentUrl"][alt]') }
       end
       raise 'Cache leaked opt-in into default gallery' unless doc.css('#masonry-off a').empty?
+      raise 'Carousel controller missing or duplicated' unless doc.css('script[src$="chulapa_carousel.js"]').size == 1
       raise 'External galleries missing' unless doc.css('#external a.chulapa-photoswipe-item').size == 3
     end
     disabled = Nokogiri::HTML(File.read(File.join(config['destination'], 'disabled.html')))

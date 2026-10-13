@@ -137,6 +137,8 @@ const server = http.createServer((request, response) => {
     assert.equal(await page.locator('.btn-chulapa-copy-code').getAttribute('aria-label'), 'Copied!');
     assert.equal(await page.locator('iframe').count(), 0);
     assert.ok(!external.some(url => url.includes('player_api') || url.includes('iframe_api')));
+    assert.equal(await page.locator('.ch_ytdefer_btn').first().getAttribute('aria-label'), 'Play First video');
+    assert.equal(await page.locator('.ch_ytdefer_btn').nth(1).getAttribute('aria-label'), 'Play Second video');
     await page.locator('.ch_ytdefer_btn').first().focus();
     await page.keyboard.press('Enter');
     await page.waitForSelector('iframe');

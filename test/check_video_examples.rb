@@ -24,6 +24,12 @@ Dir.mktmpdir("chulapa-video-examples-") do |source|
         raise "Missing #{field} in video example" if value.nil? || value.empty?
       end
     end
+    videos.each do |video|
+      name = video.at_css('[itemprop="name"]')["content"]
+      player = video.at_css('iframe, video, .ch_ytdefer_btn')
+      label = player && (player["title"] || player["aria-label"])
+      raise "Video player does not use its supplied name" unless label && label.include?(name)
+    end
     if ENV["CHULAPA_VIDEO_VALIDATION_OUTPUT"] && baseurl == "/subdir"
       markup = videos.map do |video|
         '<div itemscope itemtype="https://schema.org/VideoObject">' + video.css('[itemprop]').map(&:to_html).join + '</div>'

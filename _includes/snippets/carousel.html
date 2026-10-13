@@ -24,24 +24,25 @@
     {% assign id = id | times: 7 %}
   {% endif %}
   {% assign id = "Carousel" | append: id %}
-<div id="{{ id }}" class="carousel slide" data-ride="carousel" data-interval="{{- interval -}}"{% if include.photoswipe == true %} data-photoswipe-gallery="carousel"{% endif %}>
+<div id="{{ id }}" class="carousel slide" data-chulapa-carousel="true" role="region" aria-roledescription="carousel" aria-label="Images" data-interval="{{- interval -}}"{% if include.photoswipe == true %} data-photoswipe-gallery="carousel"{% endif %}>
   {% if include.indicators %}
   <ol class="carousel-indicators">
       {%- for brick in bricks limit: end -%}
 	  {% if forloop.first == true %}
-	  <li data-target="#{{ id }}" data-slide-to="{{ forloop.index0 }}" class="active"></li>
+	  <li class="active"><button type="button" data-target="#{{ id }}" data-slide-to="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}" aria-current="true"></button></li>
 	  {% else %}
-	  <li data-target="#{{ id }}" data-slide-to="{{ forloop.index0 }}"></li>
+	  <li><button type="button" data-target="#{{ id }}" data-slide-to="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"></button></li>
 	  {% endif %}
       {%- endfor -%}
   </ol>	
  {% endif %}
-  <div class="carousel-inner">
+  <button type="button" class="chulapa-carousel-toggle" hidden>Pause slideshow</button>
+  <div class="carousel-inner" aria-live="polite" aria-atomic="false">
   {%- for brick in bricks limit: end -%}
     {% if forloop.first == true %}
-        <div class="carousel-item active" itemscope itemtype="https://schema.org/ImageObject">
+        <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="Image {{ forloop.index }} of {{ forloop.length }}" itemscope itemtype="https://schema.org/ImageObject">
     {% else %}
-        <div class="carousel-item" itemscope itemtype="https://schema.org/ImageObject">
+        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image {{ forloop.index }} of {{ forloop.length }}" itemscope itemtype="https://schema.org/ImageObject">
     {% endif %}
 {% if include.photoswipe == true %}<a class="chulapa-photoswipe-item d-block" href="{{ brick | absolute_url | escape }}" aria-label="View image {{ forloop.index }}">{% endif %}
 	<img class="d-block mw-100 chulapa-carousel" src="{{- brick | absolute_url -}}" alt="Carousel Item #{{- forloop.index -}}" itemprop="contentUrl" >

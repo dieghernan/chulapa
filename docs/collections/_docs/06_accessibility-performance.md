@@ -23,9 +23,12 @@ and returns focus to its button. Closed menu links do not receive Tab focus.
 Following a menu link closes the menu. With `dual`, switching to the desktop
 navbar also closes the floating menu.
 
-The lateral TOC remains independent. Its open and close controls and navigation
-through entries with Tab keep their existing behavior. It does not trap focus
-or act as a modal dialog.
+The lateral TOC remains independent. Its closed panel is marked `inert` and
+hidden from assistive technology so offscreen controls cannot receive focus.
+Opening preserves the existing Tab order through its close button and links;
+Escape from the panel or its trigger closes it and returns focus to the trigger.
+Closing with its button or overlay also returns focus. It does not trap focus
+or act as a modal dialog. The open and close buttons provide 44px minimum targets.
 
 In-page, sidebar and kramdown TOCs highlight the current section and mark its
 link with `aria-current="location"`. This needs JavaScript and does not move
@@ -73,6 +76,14 @@ Dropdown triggers and carousel previous/next controls are native buttons that
 support Enter and Space. With author display disabled, the layouts keep the
 spacing column without creating an empty complementary landmark.
 
+Carousels with more than one image and a positive `interval` expose a
+pause/start button when Bootstrap is available. Automatic cycling starts paused
+with `prefers-reduced-motion: reduce`, stops when keyboard focus enters the
+slides or navigation controls, and resumes only through an explicit start.
+Hover temporarily pauses it on devices that support hover. Slide indicators are
+named buttons with 24px minimum targets and identify the current slide.
+See [Bootstrap carousel](./04-layouts#bootstrap-carousel) for the full behavior.
+
 Lunr, Fuse.js, Simple-Jekyll-Search and Google search forms expose a search
 landmark. Lunr and Fuse.js announce the rendered result count through a polite
 status region without moving focus; clearing the input clears that status.
@@ -84,6 +95,31 @@ Use descriptive links, meaningful image alternatives and a logical heading
 structure. For Mermaid diagrams, supply `accTitle` and `accDescr`. Test your
 own pages with keyboard navigation, zoom and a screen reader, including search,
 comments and any custom widgets.
+
+Long headings can wrap within their container when text is enlarged. Regression
+checks cover 320 CSS pixel reflow (equivalent to 400% zoom on a 1280px-wide
+viewport) and 200% text enlargement; also check your actual content and browser
+zoom settings. Video players and play buttons use the existing `name` parameter
+to distinguish their content. Gallery snippets still generate generic image
+alternatives: supply descriptive `alt` text in custom image markup when the
+image conveys information, and provide captions or transcripts for media where
+needed. The template cannot derive those descriptions from an image URL.
+
+## PWA and offline behavior
+
+The reusable theme does not register a service worker or provide an offline
+cache. The documentation site has a favicon manifest with `display: standalone`
+and 192px/384px icons, but it currently has no explicit `start_url`, `scope` or
+512px icon. That manifest alone does not establish installability across
+browsers or offline functionality.
+
+PWA support requires a site-specific review of manifest URLs, icons, HTTPS,
+start URL and scope, especially for project sites using `baseurl`. If you add a
+service worker through custom code, review updates, stale caches and an offline
+fallback. External libraries, comments, videos, analytics and the documentation
+chatbot have network dependencies; the chatbot's AI endpoint requires a live
+connection. Test the actual deployed site and browser before claiming those
+features work offline. There is no built-in PWA YAML option.
 
 ## Resource loading
 

@@ -7,3 +7,6 @@
 {% if include.theme %}
 	<script src="{{ '/assets/js/chulapa_script.js' | relative_url }}"></script>
 {% endif %}
+{% if content contains 'data-chulapa-carousel="true"' %}
+<script src="{{ '/assets/js/chulapa_carousel.js' | relative_url }}"></script>
+{% endif %}
