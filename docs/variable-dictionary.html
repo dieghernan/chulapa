@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-13 -->
+    <!-- Page build 2026-10-14 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/variable-dictionary",
         "name": "Variables dictionary",
-        "description": "This page lists selected Chulapa and Bootstrap variables for customizing your site. Set them under chulapa-skin.vars in _config.yml, without the SCSS $ prefix or trailing semicolon. For the full set, see the Chulapa variables source and Bootstrap variables source.",
+        "description": "Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as \u00221.1rem\u0022. Use true or false without quotes for switches:",
         "headline": "Variables dictionary",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T23:59:56+02:00",
-        "dateModified": "2026-10-13T23:59:56+02:00",
+        "datePublished": "2026-10-14T01:17:40+02:00",
+        "dateModified": "2026-10-14T01:17:40+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -96,7 +96,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="This page lists selected Chulapa and Bootstrap variables for customizing your site. Set them under chulapa-skin.vars in _config.yml, without the SCSS $ prefix or trailing semicolon. For the full set, see the Chulapa variables source and Bootstrap variables source.">
+    <meta name="description" content="Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as &quot;1.1rem&quot;. Use true or false without quotes for switches:">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -104,12 +104,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/variable-dictionary" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="This page lists selected Chulapa and Bootstrap variables for customizing your site. Set them under chulapa-skin.vars in _config.yml, without the SCSS $ prefix or trailing semicolon. For the full set, see the Chulapa variables source and Bootstrap variables source." >
+    <meta property="og:description" content="Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as &quot;1.1rem&quot;. Use true or false without quotes for switches:" >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="This page lists selected Chulapa and Bootstrap variables for customizing your site. Set them under chulapa-skin.vars in _config.yml, without the SCSS $ prefix or trailing semicolon. For the full set, see the Chulapa variables source and Bootstrap variables source.">
+    <meta name="twitter:description" content="Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as &quot;1.1rem&quot;. Use true or false without quotes for switches:">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -266,14 +266,10 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#theming"><span class="chulapa">Chulapa</span>-specific variables</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#selected-bootstrap-variables">Selected Bootstrap variables</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#color-map">Color map</a></li></ul></li></ul>
 			</nav>
-			 <p>This page lists selected <span class="chulapa">Chulapa</span> and Bootstrap variables for customizing
-your site. Set them under <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>, without the
-SCSS <code class="language-plaintext highlighter-rouge">$</code> prefix or trailing semicolon. For the full set, see the
-<a href="https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss"><span class="chulapa">Chulapa</span> variables source</a>
-and <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss">Bootstrap variables source</a>.</p>
-<p>Quote hex colors in YAML so that <code class="language-plaintext highlighter-rouge">#</code> is not interpreted as a comment. Use
-Sass units for sizes, such as <code class="language-plaintext highlighter-rouge">"1.1rem"</code>, and lowercase <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code> for
-boolean variables. For example:</p>
+			 <p>Use these settings to change colors, text sizes and other details of your
+chosen skin. Add them under <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>, keeping your
+existing settings. Quote colors beginning with <code class="language-plaintext highlighter-rouge">#</code> and sizes such as <code class="language-plaintext highlighter-rouge">"1.1rem"</code>.
+Use <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code> without quotes for switches:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
   <span class="na">vars</span><span class="pi">:</span>
     <span class="na">primary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#345678"</span>
@@ -284,7 +280,7 @@ boolean variables. For example:</p>
 </code></pre></div></div>
 <p>Values in <code class="language-plaintext highlighter-rouge">vars</code> override the selected skin’s variable assignments.
 Autothemer fills in variables that are still undefined. See
-<a href="./03-theming#variables">Theming Chulapa</a> for variable precedence and font setup.</p>
+<a href="./03-theming#variables">Theming <span class="chulapa">Chulapa</span></a> for variable precedence and font setup.</p>
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 <table>
 <thead>
@@ -433,14 +429,15 @@ Autothemer fills in variables that are still undefined. See
 the landing page background uses the hero background. Many text colors are
 derived from these backgrounds. Explicit component colors supplied by a
 skin or <code class="language-plaintext highlighter-rouge">vars</code> keep their assigned values.</p>
-<p>The source also contains calculated helpers such as
-<code class="language-plaintext highlighter-rouge">navbar-chulapa-text-contrast</code>, <code class="language-plaintext highlighter-rouge">footer-chulapa-text-contrast</code>,
-<code class="language-plaintext highlighter-rouge">landingpage-card-bg</code> and <code class="language-plaintext highlighter-rouge">cactus-btn-text</code>. These are recalculated by the
-theme rather than exposed as overridable defaults. Use the component
-variables above or custom CSS to adjust the corresponding styles.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>These are Sass variables, not page options.</strong> Set them under
-<code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code>, then restart Jekyll to rebuild the styles. For layout and
-front matter options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Some values cannot be overridden through <code class="language-plaintext highlighter-rouge">vars</code>.</strong> Helpers such as
+<code class="language-plaintext highlighter-rouge">landingpage-card-bg</code> and <code class="language-plaintext highlighter-rouge">cactus-btn-text</code> are calculated by the theme;
+adding them to <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> has no effect. Use the options in the table
+or <a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom CSS</a>
+instead. The <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss">complete <span class="chulapa">Chulapa</span> variable reference</a>
+includes these calculated values.</p>
+<p>Set these values in <code class="language-plaintext highlighter-rouge">_config.yml</code>, not in an article’s settings block. Save
+and publish to see the change; restart Jekyll if you preview locally.
+For page options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
 <h2 id="selected-bootstrap-variables">Selected Bootstrap variables</h2>
 <p>See the full set of variables <a href="https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss">here</a>.</p>
 <table>

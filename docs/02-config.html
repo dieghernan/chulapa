@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-13 -->
+    <!-- Page build 2026-10-14 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -18,8 +18,8 @@
         "description": "Learn how to set up your new site - Setting up your new site",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T23:59:56+02:00",
-        "dateModified": "2026-10-13T23:59:56+02:00",
+        "datePublished": "2026-10-14T01:17:40+02:00",
+        "dateModified": "2026-10-14T01:17:40+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -526,17 +526,14 @@ shared page with the relevant platform. Metadata does not guarantee a particular
 preview or search result.</li>
 </ul>
 <h4 id="publisher">Publisher</h4>
-<p>Use the optional <code class="language-plaintext highlighter-rouge">publisher</code> settings in <code class="language-plaintext highlighter-rouge">_config.yml</code> to identify the publisher
-in JSON-LD structured data. The publisher is independent of the site author and
-guest authors. These settings work with both remote and gem themes without
-additional plugins.</p>
+<p>Use <code class="language-plaintext highlighter-rouge">publisher</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code> to identify who publishes your site to search
+engines. Choose <code class="language-plaintext highlighter-rouge">Person</code> for a personal blog or <code class="language-plaintext highlighter-rouge">Organization</code> for a company
+or association. This does not change the authors shown on articles.</p>
 <p>For an organization with its own logo:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">publisher</span><span class="pi">:</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">Organization</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">Example organization</span>
-  <span class="na">url</span><span class="pi">:</span> <span class="s">https://example.org/</span>
   <span class="na">logo</span><span class="pi">:</span> <span class="s">/assets/img/logo.png</span>
-  <span class="na">image</span><span class="pi">:</span> <span class="s">/assets/img/organization.jpg</span>
 </code></pre></div></div>
 <p>For a personal site:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">publisher</span><span class="pi">:</span>
@@ -548,50 +545,49 @@ additional plugins.</p>
 <thead>
    <tr>
      <th>Setting</th>
-     <th>Default and behavior</th>
+     <th>What to enter</th>
    </tr>
  </thead>
  <tbody>
    <tr>
      <td><code class="language-plaintext highlighter-rouge">type</code></td>
-     <td><code class="language-plaintext highlighter-rouge">Organization</code>. Use exactly <code class="language-plaintext highlighter-rouge">Organization</code> or <code class="language-plaintext highlighter-rouge">Person</code>; unsupported values fall back to <code class="language-plaintext highlighter-rouge">Organization</code>.</td>
+     <td>Exactly <code class="language-plaintext highlighter-rouge">Person</code> or <code class="language-plaintext highlighter-rouge">Organization</code>. Default: <code class="language-plaintext highlighter-rouge">Organization</code>; unsupported values also use it.</td>
    </tr>
    <tr>
      <td><code class="language-plaintext highlighter-rouge">name</code></td>
-     <td>Site <code class="language-plaintext highlighter-rouge">author.name</code>, then the GitHub owner name.</td>
+     <td>Publisher name. Defaults to the site author or GitHub owner name.</td>
    </tr>
    <tr>
      <td><code class="language-plaintext highlighter-rouge">url</code></td>
-     <td>Site home URL. An explicit publisher URL takes precedence.</td>
+     <td>Optional publisher website. Defaults to your site’s home page.</td>
    </tr>
    <tr>
      <td><code class="language-plaintext highlighter-rouge">logo</code></td>
-     <td>For <code class="language-plaintext highlighter-rouge">Organization</code>, uses <code class="language-plaintext highlighter-rouge">og_image</code>, then <code class="language-plaintext highlighter-rouge">author.avatar</code>, then the GitHub avatar when omitted. Ignored for <code class="language-plaintext highlighter-rouge">Person</code>.</td>
+     <td>Organization logo; ignored for <code class="language-plaintext highlighter-rouge">Person</code>. If omitted, uses the site’s sharing image or avatar.</td>
    </tr>
    <tr>
      <td><code class="language-plaintext highlighter-rouge">image</code></td>
-     <td>For <code class="language-plaintext highlighter-rouge">Person</code>, uses <code class="language-plaintext highlighter-rouge">author.avatar</code>, then the GitHub avatar when omitted. Omitted if none is available. For <code class="language-plaintext highlighter-rouge">Organization</code>, included only when explicitly configured.</td>
+     <td>Person’s photograph; defaults to the site author or GitHub avatar. Optional for an organization.</td>
    </tr>
  </tbody>
 </table>
-<p>Relative publisher URLs, logos and images resolve using the site’s <code class="language-plaintext highlighter-rouge">url</code> and
-<code class="language-plaintext highlighter-rouge">baseurl</code>. Absolute URLs remain unchanged. Missing or empty settings use the
-defaults above. Without publisher settings, the existing organization publisher
-and its logo fallbacks are preserved.</p>
-<p>Configuring a publisher does not change article authors, social metadata or author profiles. The separate site author profile is described as “Site author” when any publisher setting is supplied. A <code class="language-plaintext highlighter-rouge">Person</code> publisher uses <code class="language-plaintext highlighter-rouge">image</code> instead of <code class="language-plaintext highlighter-rouge">logo</code>, following <a href="https://schema.org/publisher">Schema.org</a>. These settings describe the publishing entity; they do not guarantee additional <a href="https://developers.google.com/search/docs/appearance/structured-data/article">Google rich results</a>.</p>
+<p>Use a path such as <code class="language-plaintext highlighter-rouge">/assets/img/logo.png</code> for an uploaded image, or a complete
+URL for an external one. No extra plugin is needed. These settings help describe
+your site; they do not guarantee a special appearance in search results.</p>
 <h3 id="font-awesome">Font Awesome</h3>
-<p class="alert alert-warning p-3 mx-2 mb-3"><span class="chulapa">Chulapa</span> loads Font Awesome 6 by default. Set <code class="language-plaintext highlighter-rouge">fa_version: 5</code> to use version 5.
-Set <code class="language-plaintext highlighter-rouge">fa_kit_code</code> to load a Font Awesome kit instead of the hosted stylesheet.
-The legacy setting <code class="language-plaintext highlighter-rouge">fa5_kit_code</code> remains supported and takes precedence when
-both are set. Remove it when migrating to <code class="language-plaintext highlighter-rouge">fa_kit_code</code>.</p>
-<p>To enable v4 support, set <code class="language-plaintext highlighter-rouge">fa_v4_support: true</code>.</p>
+<p>Icons are available by default through Font Awesome 6. Use an icon from its
+<a href="https://fontawesome.com/icons">catalogue</a> in your menu or footer settings.
+To use your own Font Awesome kit, set <code class="language-plaintext highlighter-rouge">fa_kit_code</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+<p>For older icons, <code class="language-plaintext highlighter-rouge">fa_version: 5</code> selects version 5 and <code class="language-plaintext highlighter-rouge">fa_v4_support: true</code>
+enables version 4 compatibility. When updating an old configuration, replace
+<code class="language-plaintext highlighter-rouge">fa5_kit_code</code> with <code class="language-plaintext highlighter-rouge">fa_kit_code</code>; the old setting takes precedence if both exist.</p>
 <h3 id="google-analytics">Google Analytics</h3>
-<ul>
- <li><code class="language-plaintext highlighter-rouge">gtag_id</code>: Set your Google Analytics 4 measurement ID, such as <code class="language-plaintext highlighter-rouge">G-XXXXXXXXXX</code>,
-to load the Google tag.</li>
- <li><code class="language-plaintext highlighter-rouge">analytics_id</code>: Retained for legacy Universal Analytics snippets. Universal Analytics has been retired, so use <code class="language-plaintext highlighter-rouge">gtag_id</code> for new setups. See <a href="https://support.google.com/analytics/answer/10089681">Google’s migration guide</a>.</li>
-</ul>
-<p class="alert alert-warning p-3 mx-2 mb-3">Leave unused IDs empty. If both are set, the theme loads both snippets.</p>
+<p>Get your Google Analytics 4 measurement ID and set it in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">gtag_id</span><span class="pi">:</span> <span class="s">G-XXXXXXXXXX</span>
+</code></pre></div></div>
+<p>Replace the example with your own ID. Leave it empty if you do not want Google
+Analytics. The older <code class="language-plaintext highlighter-rouge">analytics_id</code> setting is for retired Universal Analytics;
+leave it empty for new setups. Setting both IDs loads both snippets.</p>
 <h3 id="goatcounter-analytics">GoatCounter analytics</h3>
 <p><strong>Available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0; not in the v2.1.0 release.</strong></p>
 <p><a href="https://www.goatcounter.com/">GoatCounter</a> counts visits without cookies.
@@ -638,8 +634,6 @@ below and add a search page. For example, create <code class="language-plaintext
 <p>Set <code class="language-plaintext highlighter-rouge">search.provider</code> and create a page using <code class="language-plaintext highlighter-rouge">layout: search</code>. Its <code class="language-plaintext highlighter-rouge">permalink</code>
 must match <code class="language-plaintext highlighter-rouge">search.landing_page</code>, which defaults to <code class="language-plaintext highlighter-rouge">/search</code>. Selecting a
 provider adds the navbar link but does not create the search page.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Create the search page separately.</strong> Setting <code class="language-plaintext highlighter-rouge">search.provider</code> alone adds a
-navbar link; it does not generate a page at <code class="language-plaintext highlighter-rouge">search.landing_page</code>.</p>
 <p>The following engines are available:</p>
 <ul>
  <li><a href="https://lunrjs.com/">Lunr.js</a></li>
@@ -661,12 +655,8 @@ Google Custom Search requires a configured search engine.</p>
 localization (i.e. you can set it as Búsqueda or Ricerca). <strong>Search</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">landing_page</code>: URL of your search page, useful for localization.
 <strong>“/search”</strong>.</li>
-     <li><code class="language-plaintext highlighter-rouge">lunr_maxwords</code>: <strong>Deprecated</strong>, use <code class="language-plaintext highlighter-rouge">maxwords</code>. Remove the old setting when
-migrating: if both are set, <code class="language-plaintext highlighter-rouge">lunr_maxwords</code> takes precedence for Lunr.</li>
      <li><code class="language-plaintext highlighter-rouge">maxwords</code>: Maximum number of content words per indexed document for
-<code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code> and <code class="language-plaintext highlighter-rouge">lunr</code>. Other indexed fields are separate. <strong>30</strong>.
-Provider-specific <code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code> and <code class="language-plaintext highlighter-rouge">fusejs_maxwords</code> also take
-precedence over <code class="language-plaintext highlighter-rouge">maxwords</code> when set. Prefer <code class="language-plaintext highlighter-rouge">maxwords</code> for a shared limit.</li>
+<code class="language-plaintext highlighter-rouge">simplesearch</code>, <code class="language-plaintext highlighter-rouge">fusejs</code> and <code class="language-plaintext highlighter-rouge">lunr</code>. Other indexed fields are separate. <strong>30</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">show_attrib</code>: Show attribution for Lunr, Fuse.js and Simple-Jekyll-Search.
 Set the YAML boolean <code class="language-plaintext highlighter-rouge">false</code> to hide it. <strong>true</strong>.</li>
      <li><code class="language-plaintext highlighter-rouge">algolia_logo</code>: Independently controls the Algolia logo. <strong>Unset</strong>; the
@@ -695,29 +685,17 @@ The browser search requires these settings:</p>
 <p class="alert alert-warning p-3 mx-2 mb-3">Index uploads require a separate indexing key supplied through the
 <code class="language-plaintext highlighter-rouge">ALGOLIA_API_KEY</code> environment variable. Keep that key in your build environment
 or GitHub Actions secrets; do not put it in the public configuration.</p>
-<p>Recommended additional options are:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">algolia</span><span class="pi">:</span>
-  <span class="na">application_id</span><span class="pi">:</span> <span class="s">your id</span>
-  <span class="na">index_name</span><span class="pi">:</span> <span class="s">your name</span>
-  <span class="na">search_only_api_key</span><span class="pi">:</span> <span class="s">your apikey</span>
-  <span class="na">extensions_to_index</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">html</span>
-    <span class="pi">-</span> <span class="s">md</span>
-  <span class="na">searchableAttributes</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">title</span>
-    <span class="pi">-</span> <span class="s">headings</span>
-    <span class="pi">-</span> <span class="s">unordered(content)</span>
-    <span class="pi">-</span> <span class="s">unordered(subtitle)</span>
-    <span class="pi">-</span> <span class="s">unordered(categories)</span>
-    <span class="pi">-</span> <span class="s">unordered(collection)</span>
-    <span class="pi">-</span> <span class="s">unordered(tags)</span>
-  <span class="na">customRanking</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">desc(include_on_search)</span>
-    <span class="pi">-</span> <span class="s">desc(title)</span>
-    <span class="pi">-</span> <span class="s">desc(content)</span>
-    <span class="pi">-</span> <span class="s">desc(subtitle)</span>
-</code></pre></div></div>
-<p>If you are deploying your site with GitHub Pages, I recommend using this <a href="https://github.com/marketplace/actions/algolia-jekyll-action">GitHub Action</a> to create and update your Algolia index after every commit automatically.</p>
+<p>Additional Algolia indexing options in the sample configuration are
+<code class="language-plaintext highlighter-rouge">files_to_exclude</code> (omit files), <code class="language-plaintext highlighter-rouge">extensions_to_index</code> (file types),
+<code class="language-plaintext highlighter-rouge">searchableAttributes</code> (searchable fields) and <code class="language-plaintext highlighter-rouge">customRanking</code> (ranking rules).
+They belong under <code class="language-plaintext highlighter-rouge">algolia</code>; they do not affect the local search providers.</p>
+<p>For a complete starting configuration, see the
+<a href="https://github.com/dieghernan/chulapa/blob/main/_config.yml">Algolia settings in the sample configuration</a>
+and adapt them to your account. Automate index uploads with your publishing
+workflow; see the <a href="https://github.com/marketplace/actions/algolia-jekyll-action">Algolia Jekyll action</a>.</p>
+<p>If you are updating an older setup, remove <code class="language-plaintext highlighter-rouge">lunr_maxwords</code>,
+<code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code> or <code class="language-plaintext highlighter-rouge">fusejs_maxwords</code> to use the shared <code class="language-plaintext highlighter-rouge">maxwords</code> setting.
+Those older settings take precedence when present.</p>
 <p>With the local search providers, visitors can search while typing or press
 Enter. Clearing the field clears the results.</p>
 <h3 id="comments">Comments</h3>
@@ -788,6 +766,171 @@ settings, plugins and exclusions to suit your site.</p>
 <p>The sample configuration
 includes this repository’s demo collections and pagination settings; these are
 examples rather than requirements for every site.</p>
+<p>The following settings belong to Jekyll or its plugins. Keep the starter’s
+values unless you need to change how files are built or published.</p>
+<table>
+<thead>
+   <tr>
+     <th>Setting</th>
+     <th>Use</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">github</code></td>
+     <td>Keep <code class="language-plaintext highlighter-rouge">[metadata]</code> in the sample setup to supply GitHub repository details.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">theme</code>, <code class="language-plaintext highlighter-rouge">remote_theme</code></td>
+     <td>Choose the gem or remote installation method; see <a href="./01-install">Installation</a>.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">plugins</code></td>
+     <td>Enabled build plugins, including the required <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code>.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">include</code>, <code class="language-plaintext highlighter-rouge">exclude</code></td>
+     <td>Files or folders to explicitly publish or omit; <code class="language-plaintext highlighter-rouge">include: [_pages]</code> enables the starter’s pages folder.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">collections</code></td>
+     <td>Content groups; use <code class="language-plaintext highlighter-rouge">output: true</code> and a <code class="language-plaintext highlighter-rouge">permalink</code> pattern to publish their documents.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">collections_dir</code></td>
+     <td>Parent folder for collections; an empty value keeps them at the site root.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">defaults</code></td>
+     <td>Shared settings: <code class="language-plaintext highlighter-rouge">scope.path</code> and optional <code class="language-plaintext highlighter-rouge">scope.type</code> select files; <code class="language-plaintext highlighter-rouge">values</code> supplies their options.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">permalink</code></td>
+     <td>Default address pattern for posts; individual pages can set their own address.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">paginate</code>, <code class="language-plaintext highlighter-rouge">paginate_path</code></td>
+     <td>Posts per page and address pattern for a paginated blog index.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">markdown</code>, <code class="language-plaintext highlighter-rouge">highlighter</code></td>
+     <td>Content converters; the sample uses <code class="language-plaintext highlighter-rouge">kramdown</code> and <code class="language-plaintext highlighter-rouge">rouge</code>.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">excerpt_separator</code></td>
+     <td>Text marking the end of a post excerpt; the sample uses a blank line (<code class="language-plaintext highlighter-rouge">"\n\n"</code>).</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
+     <td>Jekyll’s optional related-post calculation; the sample disables it. It does not configure the theme’s tag-based related cards.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">incremental</code></td>
+     <td>Rebuild only changed files during development; the sample disables it.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">kramdown</code></td>
+     <td>Markdown behavior, detailed below.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">sass</code></td>
+     <td>Stylesheet build settings, detailed below.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">compress_html</code></td>
+     <td>Optional HTML compression, detailed below.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Under <code class="language-plaintext highlighter-rouge">kramdown</code>, the sample settings are:</p>
+<table>
+<thead>
+   <tr>
+     <th>Option</th>
+     <th>Use</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">input</code></td>
+     <td>Markdown dialect (<code class="language-plaintext highlighter-rouge">GFM</code> in the sample).</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">hard_wrap</code></td>
+     <td>Whether ordinary line breaks become visible breaks.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">auto_ids</code></td>
+     <td>Automatically name headings for links and tables of contents.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">footnote_nr</code>, <code class="language-plaintext highlighter-rouge">footnote_backlink</code></td>
+     <td>First footnote number and the return-link symbol.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">entity_output</code></td>
+     <td>How special characters are written in generated HTML.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">toc_levels</code></td>
+     <td>Heading levels included by kramdown’s own table of contents.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">smart_quotes</code></td>
+     <td>Opening and closing quote characters.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">enable_coderay</code></td>
+     <td>Legacy code-highlighter integration; disabled in the sample.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Under <code class="language-plaintext highlighter-rouge">sass</code>, <code class="language-plaintext highlighter-rouge">sass_dir</code> names the source folder, <code class="language-plaintext highlighter-rouge">style</code> controls CSS output,
+<code class="language-plaintext highlighter-rouge">quiet_deps</code> suppresses dependency warnings and <code class="language-plaintext highlighter-rouge">silence_deprecations</code> lists
+warning types to suppress. The last two depend on the installed Sass converter;
+they do not fix deprecated stylesheet code.</p>
+<p>Under <code class="language-plaintext highlighter-rouge">compress_html</code>, the sample uses <code class="language-plaintext highlighter-rouge">clippings: all</code> and <code class="language-plaintext highlighter-rouge">blanklines: true</code>.
+Other options are optional; leaving them unset disables the corresponding step:</p>
+<table>
+<thead>
+   <tr>
+     <th>Option</th>
+     <th>Use</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">clippings</code></td>
+     <td>Trim spaces around selected HTML elements; use a list or <code class="language-plaintext highlighter-rouge">all</code>.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">blanklines</code></td>
+     <td>Remove empty lines while retaining line breaks; otherwise whitespace is collapsed.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">comments</code></td>
+     <td>Remove HTML comments (<code class="language-plaintext highlighter-rouge">all</code>) or comments between a pair of supplied markers.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">endings</code></td>
+     <td>Omit selected optional closing tags; use a list or <code class="language-plaintext highlighter-rouge">all</code>.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">startings</code></td>
+     <td>Omit selected optional opening tags; supply a list.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">ignore.envs</code></td>
+     <td>Skip compression in listed environments, or use <code class="language-plaintext highlighter-rouge">all</code> to skip it everywhere.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">profile</code></td>
+     <td>Display compression statistics; leave disabled on a published site.</td>
+   </tr>
+ </tbody>
+</table>
+<p>See <a href="https://jekyllrb.com/docs/configuration/options/">Jekyll’s configuration reference</a>
+and the <a href="https://jch.penibelst.de/">compression guide</a> for accepted values.</p>
 </article>
 		</div>
 	</main><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">

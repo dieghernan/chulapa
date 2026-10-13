@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-13 -->
+    <!-- Page build 2026-10-14 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -18,8 +18,8 @@
         "description": "Some additional information you may find useful - Advice and FAQs",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T23:59:56+02:00",
-        "dateModified": "2026-10-13T23:59:56+02:00",
+        "datePublished": "2026-10-14T01:17:40+02:00",
+        "dateModified": "2026-10-14T01:17:40+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -359,20 +359,14 @@ automatically. For a GitHub Pages project site under a path such as
  <li>Build the site and check that the generated icon URLs resolve.</li>
 </ol>
 <h3 id="add-an-alert-box">…add an alert box?</h3>
-<p><strong>Short answer: <a href="https://getbootstrap.com/docs/4.5/components/alerts/">Bootstrap</a> + <a href="https://kramdown.gettalong.org/quickref.html#block-attributes">kramdown</a></strong>. This theme uses <a href="https://kramdown.gettalong.org/quickref.html">kramdown</a> to parse your Markdown files, meaning that you would get all the benefits of Markdown plus some additional interesting options.</p>
-<p>Coming back to the question, you can use this approach:</p>
+<p>Copy this into your article to display an information box:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A simple info alert **check it out!**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 </code></pre></div></div>
 <p class="alert alert-info p-3 mx-2 mb-3">A simple info alert <strong>check it out!</strong></p>
-<p>You can use <code class="language-plaintext highlighter-rouge">html</code> but it will take a little more code:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="alert alert-info p-3 mx-2 mb-3"&gt;
-A simple info alert with html &lt;strong&gt;check it out!&lt;/strong&gt;
-&lt;/p&gt;
-</code></pre></div></div>
-<p class="alert alert-info p-3 mx-2 mb-3">
-A simple info alert with html <strong>check it out!</strong>
-</p>
+<p>Use <code class="language-plaintext highlighter-rouge">alert-warning</code> instead of <code class="language-plaintext highlighter-rouge">alert-info</code> for a warning. Keep boxes short
+and reserve warnings for something the reader needs to avoid or fix.
+See <a href="https://getbootstrap.com/docs/4.5/components/alerts/">more alert styles</a>.</p>
 <h3 id="add-a-caption">…add a caption?</h3>
 <p>Add a paragraph with the <code class="language-plaintext highlighter-rouge">caption</code> class after the image:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
@@ -398,7 +392,7 @@ for any other font, since it is already installed. On your <code class="language
     headings-font-family: "chulapa, sans-serif"
 </code></pre></div></div>
 <p>This enables the font for headings. Without discretionary ligatures, the
-text appears as <span class="lead font-weight-bold" style="font-family: chulapa,sans-serif">Chulapa</span>.</p>
+text appears as <span class="chulapa lead font-weight-bold" style="font-feature-settings: 'liga', 'dlig' 0;">Chulapa</span>.</p>
 <p>To enable its distinctive ligatures, add these rules to
 <code class="language-plaintext highlighter-rouge">assets/css/custom.scss</code>:</p>
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span><span class="o">,</span><span class="nt">h3</span><span class="o">,</span><span class="nt">h4</span><span class="o">,</span><span class="nt">h5</span><span class="o">,</span><span class="nt">h6</span> <span class="p">{</span>
@@ -428,23 +422,17 @@ Madrid de los Austrias, the oldest part of Madrid.</p>
 </code></pre></div></div>
 <p><i class="fas fa-exclamation-circle"></i> You just insert the html code</p>
 <h3 id="have-a-quick-preview-of-a-page-of-my-site-with-any-skin">…have a quick preview of a page of my site with any skin?</h3>
-<ol>
- <li>On Google Chrome, go to your desired page.</li>
- <li>Right-click and select <em>Inspect</em>.</li>
- <li>On the Panel, go to the <em>Elements</em> window and locate the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> tag.</li>
- <li>Click on <em>Edit as HTML</em>, and just before <code class="language-plaintext highlighter-rouge">&lt;/head&gt;</code>, paste this:</li>
-</ol>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://dieghernan.github.io/chulapa/assets/css/skins/[NAME OF SKIN].css"</span><span class="nt">&gt;</span>
-</code></pre></div></div>
-<p class="alert alert-info p-3 mx-2 mb-3">Replace <code class="language-plaintext highlighter-rouge">[NAME OF SKIN]</code> with an available preview stylesheet name. This is a
-temporary browser preview and is lost on reload; it does not update your site
-configuration. To apply a skin permanently, set <code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code> and rebuild.</p>
+<p>Open the <a href="../skins">skin previews</a> to compare designs. To try one on your own
+site, change <code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>, save and publish. Follow
+<a href="./00-start#6-choose-a-design">Choose a design</a>.
+Changing a preview on this documentation site does not change your own site.</p>
 <h3 id="find-an-error-in-my-_configyml-file">…find an error in my <code class="language-plaintext highlighter-rouge">_config.yml</code> file?</h3>
-<p>Use <a href="http://www.yamllint.com/">YAML Lint</a> to check YAML syntax, or inspect the
-error reported by <code class="language-plaintext highlighter-rouge">bundle exec jekyll build</code>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Valid YAML does not guarantee valid theme settings.</strong> A syntax checker cannot
-verify option names, provider IDs or whether a selected skin exists. Compare
-those settings with <a href="./02-config">Global settings</a> and the build output.</p>
+<p>Open the failed publishing run in <strong>Actions</strong> and read its error. Check your
+last edit for indentation, missing quotes or duplicate sections. A
+<a href="https://www.yamllint.com/">YAML checker</a> can help find formatting mistakes.
+For local preview, run <code class="language-plaintext highlighter-rouge">bundle exec jekyll build</code> to see the error.</p>
+<p>A formatting check cannot verify skin names or provider IDs. Compare those
+values with <a href="./02-config">Global settings</a> before trying again.</p>
 <h3 id="know-which-version-of-the-theme-i-am-using">…know which version of the theme I am using?</h3>
 <p>For a remote theme, check <code class="language-plaintext highlighter-rouge">remote_theme</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. A suffix such as
 <code class="language-plaintext highlighter-rouge">@v2.1.0</code> pins a release; an unpinned value uses the repository default branch
@@ -470,33 +458,13 @@ this default to your <code class="language-plaintext highlighter-rouge">_config.
     <span class="na">values</span><span class="pi">:</span>
       <span class="na">include_on_feed</span><span class="pi">:</span> <span class="kc">true</span>
 </code></pre></div></div>
-<p>If you prefer <code class="language-plaintext highlighter-rouge">jekyll-feed</code>, its default <code class="language-plaintext highlighter-rouge">/feed.xml</code> can coexist with <span class="chulapa">Chulapa</span>’s
+<p class="alert alert-warning p-3 mx-2 mb-3">If you prefer <code class="language-plaintext highlighter-rouge">jekyll-feed</code>, its default <code class="language-plaintext highlighter-rouge">/feed.xml</code> can coexist with <span class="chulapa">Chulapa</span>’s
 feeds. Changing its path to <code class="language-plaintext highlighter-rouge">/atom.xml</code> without removing <span class="chulapa">Chulapa</span>’s Atom feed
 creates two pages with the same output path.</p>
-<p>For sites built locally or with a custom build workflow, you can replace
-<span class="chulapa">Chulapa</span>’s Atom feed while keeping its RSS feed. Create
-<code class="language-plaintext highlighter-rouge">_plugins/disable_chulapa_atom_feed.rb</code> in your site with this content:</p>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Jekyll</span><span class="o">::</span><span class="no">Hooks</span><span class="p">.</span><span class="nf">register</span> <span class="ss">:site</span><span class="p">,</span> <span class="ss">:post_read</span> <span class="k">do</span> <span class="o">|</span><span class="n">site</span><span class="o">|</span>
-  <span class="n">site</span><span class="p">.</span><span class="nf">pages</span><span class="p">.</span><span class="nf">reject!</span> <span class="k">do</span> <span class="o">|</span><span class="n">page</span><span class="o">|</span>
-    <span class="n">page</span><span class="p">.</span><span class="nf">relative_path</span><span class="p">.</span><span class="nf">sub</span><span class="p">(</span><span class="sr">%r{</span><span class="se">\A</span><span class="sr">/}</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"assets/atom.xml"</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div></div>
-<p>This hook removes <span class="chulapa">Chulapa</span>’s Atom page before plugins generate their output.
-Keep <code class="language-plaintext highlighter-rouge">jekyll-feed</code> in your Gemfile and plugins list, and configure it to
-generate the replacement at <code class="language-plaintext highlighter-rouge">/atom.xml</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">feed</span><span class="pi">:</span>
-  <span class="na">path</span><span class="pi">:</span> <span class="s">/atom.xml</span>
-</code></pre></div></div>
-<p>The theme’s page head advertises both <code class="language-plaintext highlighter-rouge">/atom.xml</code> and <code class="language-plaintext highlighter-rouge">/rss.xml</code>. This recipe
-keeps both URLs available: <code class="language-plaintext highlighter-rouge">jekyll-feed</code> generates Atom and <span class="chulapa">Chulapa</span> generates
-RSS. Keep <code class="language-plaintext highlighter-rouge">include_on_feed: true</code> for posts that should appear in the RSS feed.
-If you remove RSS as well, override <code class="language-plaintext highlighter-rouge">_includes/head.html</code> in your site to
-remove or replace its RSS alternate link, and update RSS links in your navbar
-or footer. Adding a link in <code class="language-plaintext highlighter-rouge">custom_head.html</code> does not remove the original.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3">Custom plugins are not loaded by GitHub Pages’ default safe build; use your own
-build workflow for this approach. Adding the theme’s feed files to <code class="language-plaintext highlighter-rouge">exclude</code>
-alone does not remove them when they are supplied by a gem or remote theme.</p>
+<p>For most sites, keep the built-in feeds and link to <code class="language-plaintext highlighter-rouge">/atom.xml</code> or <code class="language-plaintext highlighter-rouge">/rss.xml</code>
+from your footer. If you need <code class="language-plaintext highlighter-rouge">jekyll-feed</code>, follow its
+<a href="https://github.com/jekyll/jekyll-feed#installation">setup guide</a> and keep its
+separate <code class="language-plaintext highlighter-rouge">/feed.xml</code> address to avoid conflicting with the theme’s feeds.</p>
 <div class="footnotes" role="doc-endnotes">
  <ol>
    <li id="fn:1">
