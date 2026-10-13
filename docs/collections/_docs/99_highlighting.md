@@ -11,6 +11,8 @@ show_toc: false
 
 Select a highlighting style to preview it, then copy the displayed setting
 into `chulapa-skin.highlight` in `_config.yml`. Restart Jekyll to apply it.
+
+Changing this preview does not save the style on your own website.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 <p id="count" class="lead mb-2"></p>

@@ -53,7 +53,9 @@ break publishing, expose a secret or cause conflicting output. Keep notices
 short and actionable. Use `{: .alert .alert-info .p-3 .mx-2 .mb-3}` (or
 `alert-warning`) for one paragraph; use an HTML container with the same classes
 and `markdown="1"` only when the notice needs several paragraphs or a list.
-Do not add alerts merely to emphasize technical background.
+Separate each notice from the preceding paragraph or list with a blank line;
+place its attribute line immediately after the notice text. Do not add alerts
+merely to emphasize technical background.
 
 ## Keep the LLM guide aligned with the docs
 

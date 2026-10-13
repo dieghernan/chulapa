@@ -440,7 +440,8 @@ change the visible header or social image. Relative images use url/baseurl.
 
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/05-faq
-In Markdown, add {: .alert .alert-info .p-3 .mx-2 .mb-3} on the line after a
+Start an alert in its own paragraph, separated from any preceding paragraph
+or list by a blank line. In Markdown, add {: .alert .alert-info .p-3 .mx-2 .mb-3} on the line after a
 paragraph to style it as a Bootstrap information alert with kramdown.
 For an image caption, place a paragraph after the image followed by {: .caption}.
 For footnotes, reference [^1] in text and define [^1]: Footnote text elsewhere.

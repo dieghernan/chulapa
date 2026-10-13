@@ -24,7 +24,9 @@ project_links:
 ---
 
 This page shows a `hero` header with project buttons, MathJax and a modified
-date. Comments require the configured provider as well as `show_comments: true`.
+date.
+
+Comments require the configured provider as well as `show_comments: true`.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Example of MathJax:

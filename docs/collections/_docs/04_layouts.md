@@ -336,6 +336,7 @@ Shared metadata options such as `description`, `seo_title`, `og_title`,
 `include_on_feed` and `show_comments`. Content is rendered directly between
 the navbar and footer; author panels and tables of contents are not
 added automatically.
+
 Unlike `default` and `landingpage`, `minimal` does not automatically declare a
 Microformats2 `h-entry`. Custom content can provide its own `h-entry` wrapper,
 with `p-name`, `u-url` and `e-content` properties, without including the navbar
@@ -848,7 +849,6 @@ English month and weekday names and uses the first two characters of `lang` or
 `site.locale`. Unsupported languages retain English names in lowercase.
 
 **Date formatting** in Liquid is quite flexible. You can see the [Jekyll documents](https://jekyllrb.com/docs/liquid/filters/) and the [official Liquid page](https://shopify.github.io/liquid/filters/date/)
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Note that in the next examples you can skip the `lang` parameter, as by default
 your locale will be used.
@@ -891,7 +891,6 @@ your locale will be used.
 - Any other value in English: {% include snippets/datetranslate.html date=formatdate lang="zh" %}
 
 **Contribute** via PR and help us expand this feature.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 
 ### Mermaid diagrams

@@ -9,7 +9,6 @@ show_comments: true
 
 **Have a site built with this theme?** Leave a comment to suggest it for the
 showcase.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Explore these live websites built with <span class="chulapa">Chulapa</span>:
 

@@ -29,6 +29,7 @@ chulapa-skin:
 
 Keep any other entries under `chulapa-skin`. Save your changes, wait for
 publishing and refresh the site. Try `gitdev`, `lux` or `flatly` for other looks.
+
 Use the exact lowercase name shown by the preview: an unknown name prevents
 the site from building.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}

@@ -283,7 +283,9 @@ defaults:
 ```
 
 If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with <span class="chulapa">Chulapa</span>'s
-feeds. Changing its path to `/atom.xml` without removing <span class="chulapa">Chulapa</span>'s Atom feed
+feeds.
+
+Changing its path to `/atom.xml` without removing <span class="chulapa">Chulapa</span>'s Atom feed
 creates two pages with the same output path.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
