@@ -11,6 +11,16 @@ section = docs.split("### Video support", 2).last.split("### Localization", 2).f
 Dir.mktmpdir("chulapa-video-examples-") do |source|
   FileUtils.cp_r(File.join(root, "_includes"), source)
   File.write(File.join(source, "index.md"), "---\n---\n#{section}")
+  names = {"missing" => "", "empty" => "name=''", "false" => "name=false", "spaces" => "name='   '", "captured" => "name=blank_name", "padded" => "name='  Camera & tour  '", "quotes" => %q{name='Camera "tour"'}}
+  providers = {"local" => "fileurl='/movie.mp4'", "youtube" => "provider='youtube' id='example' nolazy=true", "deferred" => "provider='youtube' id='example'", "direct" => "id='example'", "vimeo" => "provider='vimeo' id='example'", "drive" => "provider='google-drive' id='example'", "bilibili" => "provider='bilibili' id='example'", "dailymotion" => "provider='dailymotion' id='example'"}
+  body = "{% capture blank_name %} \n\t {% endcapture %}"
+  providers.each do |provider, parameters|
+    names.each do |name, argument|
+      snippet = provider == "direct" ? "youtube" : "video"
+      body += "<section id='#{provider}-#{name}'>{% include snippets/#{snippet}.html #{parameters} #{argument} %}</section>"
+    end
+  end
+  File.write(File.join(source, "names.html"), "---\n---\n" + body)
   ["", "/subdir"].each do |baseurl|
     config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "quiet" => true)
     Jekyll::Site.new(config).process
@@ -22,6 +32,27 @@ Dir.mktmpdir("chulapa-video-examples-") do |source|
         node = video.at_css("[itemprop='#{field}']")
         value = node && (node["content"] || node["href"])
         raise "Missing #{field} in video example" if value.nil? || value.empty?
+      end
+    end
+    videos.each do |video|
+      name = video.at_css('[itemprop="name"]')["content"]
+      player = video.at_css('iframe, video, .ch_ytdefer_btn')
+      label = player && (player["title"] || player["aria-label"])
+      raise "Video player does not use its supplied name" unless label && label.include?(name)
+    end
+    named = Nokogiri::HTML5(File.read(File.join(config["destination"], "names.html")))
+    fallbacks = {"local" => "Video", "youtube" => "Video from YouTube", "deferred" => "YouTube video", "direct" => "YouTube video", "vimeo" => "Video: vimeo", "drive" => "Video: google-drive", "bilibili" => "Video: bilibili", "dailymotion" => "Video: dailymotion"}
+    providers.each_key do |provider|
+      names.each_key do |name|
+        video = named.at_css("##{provider}-#{name}")
+        expected = name == "padded" ? "Camera & tour" : name == "quotes" ? 'Camera "tour"' : fallbacks.fetch(provider)
+        expected = "Video: #{expected}" if %w[vimeo drive bilibili dailymotion].include?(provider) && %w[padded quotes].include?(name)
+        player = video.at_css("iframe, video, .ch_ytdefer")
+        label = player["title"] || player["aria-label"] || player["data-title"]
+        raise "Video name fallback/escaping failed: #{provider}/#{name}: #{label.inspect}" unless label == expected
+        if %w[deferred direct].include?(provider)
+          raise "Play button does not name the video" unless video.at_css("button")["aria-label"] == "Play #{expected}"
+        end
       end
     end
     if ENV["CHULAPA_VIDEO_VALIDATION_OUTPUT"] && baseurl == "/subdir"

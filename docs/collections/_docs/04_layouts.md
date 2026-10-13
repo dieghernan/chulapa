@@ -956,6 +956,28 @@ gallery, with three additional parameters:
 
 - `controls`: Show previous and next controls. **false**.
 
+In v2.1.1-dev, automatic carousels with more than one image show a pause/start
+button. `interval=0` disables automatic cycling and hides this button. Reduced
+motion preferences start the slideshow paused; visitors can explicitly start
+it. Keyboard interaction with slides, indicators or previous/next controls
+pauses it until an explicit start. Hover pauses temporarily on devices with
+hover support, and enabling reduced motion while it runs stops it without
+automatically restarting when the preference is changed back.
+Live preference changes also work with browsers that expose the older
+media-query listener API.
+
+Indicators are named buttons supporting Enter and Space and mark the current
+slide. The slide container uses `aria-live="polite"` while automatic cycling is
+stopped, and `aria-live="off"` while it runs. The controller requires Bootstrap and
+loads locally as `assets/js/chulapa_carousel.js` only on pages containing a
+carousel. Each carousel include declares the controller as a deferred ES module;
+multiple includes share one fetch and execution per document. This also works
+when a custom layout renders cached carousel includes directly, rather than
+receiving them through `content`. Custom HTML shells still need the Bootstrap
+dependencies, for example through `components/scripts.html` before the end of
+`body`; standard layouts handle this automatically. Without those dependencies,
+automatic motion stays disabled. These changes require no additional YAML settings.
+
 You can control the color of the indicators through your `_config.yml` file:
 
 ```yaml

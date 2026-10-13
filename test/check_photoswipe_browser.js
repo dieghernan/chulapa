@@ -5,6 +5,14 @@ const {chromium} = require('playwright');
 const directory = path.resolve(process.argv[2]);
 const pswp = path.dirname(require.resolve('photoswipe'));
 const cdn = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
+function contrast(color, background) {
+ const luminance = value => {
+  const rgb = value.match(/[\d.]+/g).slice(0,3).map(v=>Number(v)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);
+  return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;
+ };
+ const values=[luminance(color),luminance(background)].sort((a,b)=>a-b);
+ return (values[1]+.05)/(values[0]+.05);
+}
 const dependencies = new Map([
   ['https://code.jquery.com/jquery-3.5.1.slim.min.js',require.resolve('jquery/dist/jquery.slim.min.js')],
   ['https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',require.resolve('popper.js/dist/umd/popper.min.js')],
@@ -57,13 +65,49 @@ async function main() {
 
    await page.keyboard.press('Escape');await dialog.waitFor({state:'detached'});await page.waitForFunction(()=>document.activeElement===document.querySelector('#masonry-on a'));
    const carousel=page.locator('#carousel-on .carousel');
+   assert.equal(await carousel.locator('.chulapa-carousel-toggle').textContent(), 'Start slideshow');
+   assert.equal(await carousel.locator('.carousel-inner').getAttribute('aria-live'), 'polite');
+   const ids=await page.locator('[id]').evaluateAll(nodes=>nodes.map(n=>n.id));
+   assert.equal(new Set(ids).size,ids.length,'Cached carousels must have unique live IDs');
+   assert.equal(await page.locator('#carousel-static .chulapa-carousel-toggle').isVisible(),false,'interval=0 does not need an autoplay toggle');
+   const pauseAppearance=await carousel.locator('.chulapa-carousel-toggle').evaluate(button=>{const s=getComputedStyle(button);return {color:s.color,background:s.backgroundColor};});
+   assert.ok(contrast(pauseAppearance.color,pauseAppearance.background)>=4.5,'Slideshow control text must have adequate contrast');
+   for(const control of await carousel.locator('.carousel-indicators button, .chulapa-carousel-toggle').all()) {
+    const bounds=await control.boundingBox();assert.ok(bounds.width>=24 && bounds.height>=24,'Carousel targets must be at least 24 CSS pixels');
+   }
+   const thirdIndicator=carousel.locator('.carousel-indicators button').nth(2);
+   await thirdIndicator.focus();await page.keyboard.press('Space');
+   await page.waitForFunction(()=>document.querySelector('#carousel-on .carousel-indicators button[aria-current="true"]')?.getAttribute('data-slide-to')==='2');
+   assert.equal(await carousel.locator('.carousel-item.active').getAttribute('aria-roledescription'),'slide');
+   assert.equal(await carousel.locator('.carousel-item:not(.active)').first().evaluate(slide=>getComputedStyle(slide).display),'none');
+   await carousel.locator('.carousel-indicators button').first().focus();await page.keyboard.press('Enter');
+   await page.waitForFunction(()=>document.querySelector('#carousel-on .carousel-indicators button[aria-current="true"]')?.getAttribute('data-slide-to')==='0');
+   await page.keyboard.press('Space');
+   assert.equal(await page.evaluate(()=>Boolean(window.jQuery(document.querySelector('#carousel-on .carousel')).data('bs.carousel')._interval)),false,'Selecting the current indicator must not restart reduced-motion playback');
    await page.evaluate(()=>{const c=document.querySelector('#carousel-on .carousel');window.jQuery(c).carousel('pause');});
+   await page.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
+   const nextControl=carousel.locator('.carousel-control-next');
+   assert.equal(await nextControl.evaluate(node=>node.tagName),'BUTTON');
+   const firstSlide=await carousel.locator('.carousel-item.active a').getAttribute('href');
+   await nextControl.focus();await page.keyboard.press('Space');
+   await page.waitForFunction(href=>document.querySelector('#carousel-on .carousel-item.active a')?.getAttribute('href')!==href,firstSlide);
+   await page.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
+   const secondSlide=await carousel.locator('.carousel-item.active a').getAttribute('href');
+   await carousel.locator('.carousel-control-prev').focus();await page.keyboard.press('Enter');
+   await page.waitForFunction(href=>document.querySelector('#carousel-on .carousel-item.active a')?.getAttribute('href')!==href,secondSlide);
    await page.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
    const carouselTrigger=await carousel.locator('.carousel-item.active a').elementHandle();
    const slideBefore=await carouselTrigger.getAttribute('href');await carouselTrigger.focus();
-   // Start a real transition immediately before the keyboard activation.
-   await page.evaluate(()=>window.jQuery(document.querySelector('#carousel-on .carousel')).carousel('next'));
+   // First verify real keyboard activation from a stable carousel slide.
    await page.keyboard.press('Enter');await dialog.waitFor();
+   await page.keyboard.press('Escape');await dialog.waitFor({state:'detached'});
+   await page.waitForFunction(href=>document.activeElement?.href===href,`http://localhost:8768${baseurl}/images/${slideBefore.split('/').pop()}`);
+   // Start a transition and activate its original link in the same task. This
+   // also exercises the race deterministically when reduced-motion duration is 0.
+   await carouselTrigger.evaluate(trigger=>{
+    window.jQuery(trigger.closest('.carousel')).carousel('next');trigger.click();
+   });
+   await dialog.waitFor();
    await page.evaluate(()=>window.jQuery(document.querySelector('#carousel-on .carousel')).carousel('cycle'));
    const frozenSlide = await carousel.locator('.carousel-item.active a').getAttribute('href');
    assert.match(await page.locator('.pswp__counter').innerText(),/\/ 3/,'Gallery sequences must remain isolated');
@@ -76,6 +120,84 @@ async function main() {
    assert.deepEqual(errors,[],'Unexpected gallery JavaScript errors');
    await context.close();console.log(`PhotoSwipe passed ${baseurl||'root'} ${width}px: lazy loading, keyboard, zoom, dimensions, isolated galleries and carousel focus`);
   }
+  // Controllers declared inside cached custom layouts must not depend on content.
+  for(const baseurl of ['', '/subdir']) for(const name of ['a','b']) {
+   const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+   await context.route('**/*',r=>route(r));const page=await context.newPage();
+   const requests=[];page.on('request',request=>{if(request.url().endsWith('/chulapa_carousel.js')) requests.push(request.url());});
+   await page.goto(`http://localhost:8768${baseurl}/layout-carousel-${name}.html`);
+   await page.waitForFunction(()=>[...document.querySelectorAll('.carousel')].every(c=>c.dataset.chulapaCarouselReady==='true'));
+   assert.equal(requests.length,1,'Repeated ES modules must share one controller fetch');
+   assert.equal(await page.locator('.chulapa-carousel-toggle:visible').count(),2);
+   assert.equal(await page.locator('script[src$="chulapa_script.js"]').count(),0,'Custom shell does not load the content script');
+   assert.equal(await page.evaluate(()=>[...document.querySelectorAll('.carousel')].every(c=>Boolean(window.jQuery(c).data('bs.carousel')._interval))),true);
+   const first=page.locator('.carousel').first();
+   const before=await first.locator('.carousel-item.active').getAttribute('aria-label');
+   await page.waitForFunction(label=>document.querySelector('.carousel .carousel-item.active').getAttribute('aria-label')!==label,before);
+   await first.locator('.chulapa-carousel-toggle').focus();await page.keyboard.press('Enter');
+   assert.equal(await page.evaluate(()=>Boolean(window.jQuery(document.querySelector('.carousel')).data('bs.carousel')._interval)),false);
+   assert.equal(await page.evaluate(()=>Boolean(window.jQuery(document.querySelectorAll('.carousel')[1]).data('bs.carousel')._interval)),true,'Pausing one cached carousel must not pause the other');
+   await context.close();
+  }
+  console.log('Cached layout-owned carousels passed: root/subdirectory URLs, shared module fetch, cycling and independent pause');
+  // Exercise automatic motion with the user's normal-motion preference.
+  const motion=await browser.newContext({viewport:{width:1280,height:844},reducedMotion:'no-preference'});
+  await motion.route('**/*',r=>route(r));const motionPage=await motion.newPage();
+  await motionPage.goto('http://localhost:8768/default.html');
+  await motionPage.addScriptTag({url:'http://localhost:8768/assets/js/chulapa_carousel.js'});
+  const motionCarousel=motionPage.locator('#carousel-on .carousel');
+  const toggle=motionCarousel.locator('.chulapa-carousel-toggle');
+  const isCycling=()=>motionPage.evaluate(()=>Boolean(window.jQuery(document.querySelector('#carousel-on .carousel')).data('bs.carousel')._interval));
+  assert.equal(await isCycling(),true,'Normal preference keeps existing automatic cycling');
+  assert.equal(await motionCarousel.locator('.carousel-inner').getAttribute('aria-live'),'off');
+  const starting=await motionCarousel.locator('.carousel-item.active a').getAttribute('href');
+  await motionPage.waitForFunction(href=>document.querySelector('#carousel-on .carousel-item.active a')?.getAttribute('href')!==href,starting);
+  await toggle.focus();await motionPage.keyboard.press('Space');
+  assert.equal(await isCycling(),false,'Pause must stop the timer');
+  assert.equal(await toggle.textContent(),'Start slideshow');
+  await motionPage.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
+  const stopped=await motionCarousel.locator('.carousel-item.active a').getAttribute('href');
+  await motionPage.waitForTimeout(1200);
+  assert.equal(await motionCarousel.locator('.carousel-item.active a').getAttribute('href'),stopped,'Paused slides must remain still');
+  await motionPage.keyboard.press('Enter');assert.equal(await isCycling(),true,'Start must resume cycling');
+  await motionCarousel.locator('.carousel-inner').hover();assert.equal(await isCycling(),false,'Hover pauses cycling');
+  await motionPage.mouse.move(0,0);assert.equal(await isCycling(),true,'Leaving hover resumes unless explicitly paused');
+  await motionCarousel.locator('.carousel-indicators button').first().focus();assert.equal(await isCycling(),false,'Keyboard interaction stops cycling');
+  await motionPage.keyboard.press('Enter');
+  assert.equal(await isCycling(),false,'Indicator activation must keep keyboard-paused cycling stopped');
+  await motionPage.locator('#masonry-on a').first().focus();assert.equal(await isCycling(),false,'Leaving focus must not silently restart');
+  await toggle.focus();await motionPage.keyboard.press('Enter');assert.equal(await isCycling(),true);
+  await motionPage.emulateMedia({reducedMotion:'reduce'});
+  await motionPage.waitForFunction(()=>!window.jQuery(document.querySelector('#carousel-on .carousel')).data('bs.carousel')._interval);
+  await motionPage.emulateMedia({reducedMotion:'no-preference'});assert.equal(await isCycling(),false,'Changing preference back must not silently restart');
+  await motion.close();console.log('Carousel motion, pause/start, hover, keyboard focus and preference changes passed');
+  // Model browsers whose MediaQueryList has addListener but no addEventListener.
+  const legacy=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+  await legacy.addInitScript(()=>{
+   const nativeMatchMedia=window.matchMedia.bind(window);
+   window.legacyListenerCalls=0;
+   window.matchMedia=query=>{
+    const media=nativeMatchMedia(query);
+    return {get matches(){return media.matches;},media:media.media,
+     addListener(listener){window.legacyListenerCalls++;media.addListener(listener);},
+     removeListener(listener){media.removeListener(listener);}};
+   };
+  });
+  await legacy.route('**/*',r=>route(r));const legacyPage=await legacy.newPage();
+  const legacyErrors=[];legacyPage.on('pageerror',error=>legacyErrors.push(error.message));
+  await legacyPage.goto('http://localhost:8768/layout-carousel-a.html');
+  const allCycling=()=>legacyPage.evaluate(()=>[...document.querySelectorAll('.carousel')].every(c=>Boolean(window.jQuery(c).data('bs.carousel')._interval)));
+  assert.equal(await allCycling(),true,'Legacy listeners must not abort initialization of any carousel');
+  assert.equal(await legacyPage.evaluate(()=>window.legacyListenerCalls),2);
+  assert.equal(await legacyPage.locator('.carousel-inner[aria-live="off"]').count(),2);
+  await legacyPage.emulateMedia({reducedMotion:'reduce'});
+  await legacyPage.waitForFunction(()=>[...document.querySelectorAll('.carousel')].every(c=>!window.jQuery(c).data('bs.carousel')._interval));
+  assert.equal(await legacyPage.locator('.carousel-inner[aria-live="polite"]').count(),2);
+  assert.equal(await legacyPage.getByRole('button',{name:'Start slideshow',exact:true}).count(),2);
+  await legacyPage.emulateMedia({reducedMotion:'no-preference'});
+  assert.equal(await allCycling(),false,'Legacy preference reset must not silently resume playback');
+  assert.deepEqual(legacyErrors,[]);
+  await legacy.close();console.log('Legacy MediaQueryList listeners passed: multiple carousels, initial cycling/live state and reduced-motion changes');
   const touch=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
   await touch.route('**/*',r=>route(r));const touchPage=await touch.newPage();
   await touchPage.goto('http://localhost:8768/default.html');await touchPage.locator('#masonry-on a').first().tap();

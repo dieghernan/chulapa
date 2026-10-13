@@ -5,14 +5,14 @@
       {% for item in site.navbar.nav %}
         {% if item.child[0] %}
           {% for entry in item.child %}
-          <li class="nav-item"><a class="nav-link" href="{{ entry.url | absolute_url }}">{{ entry.title }}</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ entry.url | absolute_url }}"{% if entry.url == thispageurl or entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
           {% endfor %}
         {% else %}
-        <li class="nav-item"><a class="nav-link" href="{{ item.url | absolute_url }}">{{ item.title }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ item.url | absolute_url }}"{% if item.url == thispageurl or item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
         {% endif %}
       {% endfor %}
       {% if site.search.provider %}
-      <li class="nav-item"><a class="nav-link" href="{{ site.search.landing_page | default: '/search' | absolute_url }}">{{ site.search.label | default: 'Search' }}</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ site.search.landing_page | default: '/search' | absolute_url }}"{% assign fallback_search_url = site.search.landing_page | default: '/search' %}{% if fallback_search_url == thispageurl or fallback_search_url == page.url %} aria-current="page"{% endif %}>{{ site.search.label | default: 'Search' }}</a></li>
       {% endif %}
     </ul>
   </nav>

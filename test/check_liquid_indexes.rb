@@ -135,14 +135,16 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
       if snippet == "carousel"
         raise "Carousel options unexpectedly enabled by default" unless sections.css(".carousel-indicators, .carousel-control-prev, .carousel-control-next").empty?
         carousel = document.at_css(".carousel-options .carousel")
+        raise "Uncontrolled automatic ride enabled" if carousel.key?("data-ride")
+        raise "Pause control missing" unless carousel.at_css("button.chulapa-carousel-toggle[type=button][hidden]")
         raise "Carousel interval ignored" unless carousel["data-interval"] == "1234"
         slides = carousel.css(".carousel-item")
-        indicators = carousel.css(".carousel-indicators li")
+        indicators = carousel.css(".carousel-indicators button")
         raise "Carousel indicators do not match limited slides" unless slides.size == 2 && indicators.map { |indicator| indicator["data-slide-to"] } == %w[0 1]
-        raise "Carousel active slide mismatch" unless slides.select { |slide| slide["class"].split.include?("active") } == [slides.first] && indicators.select { |indicator| indicator["class"].to_s.split.include?("active") } == [indicators.first]
+        raise "Carousel active slide mismatch" unless slides.select { |slide| slide["class"].split.include?("active") } == [slides.first] && indicators.select { |indicator| indicator["aria-current"] == "true" } == [indicators.first]
         raise "Carousel indicator targets broken" unless indicators.all? { |indicator| indicator["data-target"] == "##{carousel['id']}" }
         controls = carousel.css(".carousel-control-prev, .carousel-control-next")
-        raise "Carousel controls broken" unless controls.size == 2 && controls.all? { |control| control["href"] == "##{carousel['id']}" }
+        raise "Carousel controls broken" unless controls.size == 2 && controls.all? { |control| control.name == "button" && control["type"] == "button" && control["data-target"] == "##{carousel['id']}" }
       end
     end
     expected_sample = [%w[/assets/gallery/a.svg /assets/gallery/b.svg /assets/gallery/c.svg], 3]

@@ -159,5 +159,30 @@
     "doc": "2026-10-09-building-a-documentation-chatbot.md",
     "question": "The documentation chat shows my old messages after reloading. Does the AI remember them when I ask a follow-up question?",
     "expected": "Displayed messages/draft can be restored from sessionStorage in the current tab. Each request sends only the current question; displayed history is not model conversation context. Include needed details in each question. Clear chat resets the saved messages/draft. This assistant is a docs-site extension, not bundled in the theme."
+  },
+  {
+    "id": "semantic-html-accessibility",
+    "section": "Accessibility",
+    "question": "En la versión de desarrollo, ¿qué mejoras semánticas tiene Chulapa para lectores de pantalla y teclado? ¿Tengo que activar algo en YAML?",
+    "expected": "v2.1.1-dev changes after v2.1.0: logical list/search headings, named thumbnail links, current-page navbar destinations, native dropdown/carousel buttons supporting Enter/Space, search landmarks and polite Lunr/Fuse result-count announcements, labelled Welcomments comment field and no empty author aside when disabled. No new YAML settings and no WCAG certification. Link accessibility/performance guide. Do not claim announcements for Google, Algolia or Simple-Jekyll-Search.",
+    "doc": "06_accessibility-performance.md"
+  },
+  {
+    "id": "carousel-accessibility-motion",
+    "doc": "04_layouts.md",
+    "question": "¿El carrusel respeta el movimiento reducido? ¿Cómo lo pauso y uso los indicadores con teclado? ¿Necesito YAML nuevo?",
+    "expected": "v2.1.1-dev after v2.1.0: positive interval and more than one slide show pause/start button with Bootstrap; interval=0 disables cycling and hides button. Reduced motion starts paused; keyboard/pointer interaction pauses until explicit start, hover pauses temporarily on hover-capable devices. Preference change to reduce stops rotation and change back does not restart. Indicators are named native buttons with current state and Enter/Space. New local controller loaded by standard layouts. No new YAML. Link carousel and accessibility guide. Carousel include owns its deferred ES module; repeated/cached includes share one fetch/execution, including custom layout-owned carousels. Custom shells still supply Bootstrap via components/scripts.html before closing body."
+  },
+  {
+    "id": "sidebar-accessibility-focus",
+    "doc": "06_accessibility-performance.md",
+    "question": "Con el TOC lateral cerrado, ¿sus enlaces siguen entrando en Tab? ¿Escape funciona? ¿Atrapa el foco al abrirse?",
+    "expected": "v2.1.1-dev: closed sidebar is inert and aria-hidden, so offscreen controls are outside focus order. Open sidebar keeps existing Tab order through close button and links. Escape from panel/trigger closes and returns focus to trigger; button/overlay close also restores focus. It is not modal and does not trap focus. No new YAML option. Link accessibility guide."
+  },
+  {
+    "id": "pwa-offline-status",
+    "doc": "06_accessibility-performance.md",
+    "question": "¿Chulapa ya es una PWA? ¿Hay una opción YAML para usarla offline, incluido el chatbot?",
+    "expected": "Reusable theme has no built-in service worker, offline cache or PWA YAML option. Docs favicon manifest has standalone display and 192/384 icons but no explicit start_url/scope or 512 icon; manifest alone does not establish cross-browser installability or offline support. PWA customization requires site-specific manifest/HTTPS/baseurl/icon and caching/update/fallback review. External dependencies and live AI require connectivity; do not claim offline chatbot. Link PWA/offline section of accessibility guide."
   }
 ]

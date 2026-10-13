@@ -14,7 +14,7 @@ root = File.expand_path("..", __dir__)
 version = Gem::Specification.load(File.join(root, "chulapa-jekyll.gemspec")).version
 package_path = File.join(root, "chulapa-jekyll-#{version}.gem")
 package = Gem::Package.new(package_path)
-%w[_includes/snippets/og-locale.html _includes/snippets/page-language.html _includes/snippets/canonical-url.html _includes/snippets/video-metadata.html assets/js/ch_ytdefer/ch_ytdefer.js assets/atom.xml assets/rss.xml assets/js/chulapa_photoswipe.js assets/js/chulapa_search.js assets/js/chulapa_navigation.js _includes/components/scripts.html].each do |path|
+%w[_includes/snippets/og-locale.html _includes/snippets/page-language.html _includes/snippets/canonical-url.html _includes/snippets/video-metadata.html assets/js/ch_ytdefer/ch_ytdefer.js assets/atom.xml assets/rss.xml assets/js/chulapa_photoswipe.js assets/js/chulapa_search.js assets/js/chulapa_navigation.js assets/js/chulapa_carousel.js _includes/components/scripts.html].each do |path|
   raise "Missing packaged file: #{path}" unless package.spec.files.include?(path)
 end
 Dir.mktmpdir("chulapa-install-") do |work|

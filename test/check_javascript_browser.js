@@ -48,9 +48,13 @@ const server = http.createServer((request, response) => {
       await page.waitForFunction(() => document.getElementById('navi-menu').contains(document.activeElement), null, {timeout: 5000});
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('#navi-toggle').getAttribute('aria-expanded'), 'false');
+      await page.waitForFunction(() => getComputedStyle(document.getElementById('navi-menu')).visibility === 'hidden');
       await page.fill('#search', 'alpha');
       await page.waitForSelector('#results article');
       assert.ok(await page.locator('#results span.bg-warning').count());
+      assert.equal(await page.locator('#results article h2.h5').count(), await page.locator('#results article').count());
+      assert.equal(await page.locator('#resultscount').getAttribute('role'), 'status');
+      assert.match(await page.locator('#resultscount').textContent(), /^\d+ results? found$/);
       assert.equal(await page.locator('#results .col-4 a').first().getAttribute('aria-label'), 'Alpha article 0');
       for (const width of [320, 390, 1280]) {
         await page.setViewportSize({width, height: 844});
@@ -66,6 +70,12 @@ const server = http.createServer((request, response) => {
       await page.fill('#search', '');
       await page.waitForTimeout(200);
       assert.equal(await page.locator('#results').textContent(), '');
+      assert.equal(await page.locator('#resultscount').textContent(), '');
+      await page.fill('#search', 'zzzzzzzzzzzzzzzzzzzz');
+      await page.press('#search', 'Enter');
+      assert.equal(await page.locator('#resultscount').textContent(), '0 results found');
+      assert.equal(await page.locator('#results p.h6').textContent(), 'No results found');
+      assert.equal(await page.locator('#results h1, #results h2, #results h3, #results h4, #results h5, #results h6').count(), 0);
       assert.deepEqual(errors, []);
       // Exercise the same shared code with the readable entry point as well.
       await page.route(`**/${engine}-search.min.js`, route => route.fulfill({contentType: 'text/javascript', body: fs.readFileSync(path.join(root, `assets/js/${engine}/${engine}-search.js`), 'utf8').replace(/^---[\s\S]*?---\s*/, '')}));
@@ -73,6 +83,20 @@ const server = http.createServer((request, response) => {
       await page.fill('#search', 'alpha');
       await page.waitForSelector('#results article');
       assert.ok(await page.locator('#results span.bg-warning').count());
+      // Validate the optional simple-search template using its captured SDK options.
+      await page.addInitScript(() => { window.SimpleJekyllSearch = options => { window.simpleSearchOptions = options; }; });
+      await page.goto(`http://127.0.0.1:8770${prefix}/simple-search.html`);
+      await page.evaluate(() => {
+        document.getElementById('results-container').innerHTML = window.simpleSearchOptions.searchResultTemplate
+          .replaceAll('{url}', '/example.html').replaceAll('{title}', 'Example title')
+          .replaceAll('{excerpt}', 'Example excerpt').replaceAll('{img}', ':url(/preview.svg)');
+      });
+      assert.equal(await page.getByRole('search').count(), 1);
+      assert.equal(await page.locator('#results-container article h2.h5').textContent(), 'Example title');
+      const previewLink = page.locator('#results-container .col-4 > a');
+      assert.equal(await previewLink.count(), 1);
+      assert.equal(await previewLink.textContent(), 'Example title');
+      assert.equal(await previewLink.locator('.chulapa-overlay-img').count(), 1);
       // Copy the maintained documentation pages, not synthetic substitutes.
       for (const demo of ['lunr', 'fusejs']) {
         await page.goto(`http://127.0.0.1:8770${prefix}/demo/search_${demo}.html`);
@@ -113,6 +137,8 @@ const server = http.createServer((request, response) => {
     assert.equal(await page.locator('.btn-chulapa-copy-code').getAttribute('aria-label'), 'Copied!');
     assert.equal(await page.locator('iframe').count(), 0);
     assert.ok(!external.some(url => url.includes('player_api') || url.includes('iframe_api')));
+    assert.equal(await page.locator('.ch_ytdefer_btn').first().getAttribute('aria-label'), 'Play First video');
+    assert.equal(await page.locator('.ch_ytdefer_btn').nth(1).getAttribute('aria-label'), 'Play Second video');
     await page.locator('.ch_ytdefer_btn').first().focus();
     await page.keyboard.press('Enter');
     await page.waitForSelector('iframe');
@@ -120,6 +146,12 @@ const server = http.createServer((request, response) => {
     assert.equal(await page.locator('iframe').getAttribute('title'), 'First video');
     await page.locator('.ch_ytdefer').first().dispatchEvent('click');
     assert.equal(await page.locator('iframe').count(), 1);
+    // A legacy/custom override may still supply a whitespace-only data-title.
+    await page.locator('.ch_ytdefer').nth(1).evaluate(container => container.setAttribute('data-title', ' \n\t '));
+    await page.locator('.ch_ytdefer_btn').nth(1).focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('.ch_ytdefer').nth(1).locator('iframe').getAttribute('title'), 'YouTube video');
+    assert.equal(await page.locator('iframe').count(), 2);
     assert.deepEqual(errors, []);
     // The legacy clipboard entry point must reuse existing buttons and handle code outside main.
     await page.evaluate(() => { const pre = document.createElement('pre'); pre.innerHTML = '<code>outside main</code>'; document.body.append(pre); });

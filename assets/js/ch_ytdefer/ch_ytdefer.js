@@ -12,7 +12,7 @@
         var frame = document.createElement('iframe');
         frame.className = 'embed-responsive-item';
         frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(video) + '?autoplay=1';
-        frame.title = container.getAttribute('data-title') || 'YouTube video';
+        frame.title = (container.getAttribute('data-title') || '').trim() || 'YouTube video';
         frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
         frame.allowFullscreen = true;
         frame.style.border = '0';

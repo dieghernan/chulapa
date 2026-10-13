@@ -29,17 +29,17 @@ window.ChulapaSearch = (function () {
   function renderEntries(container, entries) {
     const fragment = document.createDocumentFragment();
     if (!entries.length) {
-      const empty = document.createElement("h6");
-      empty.className = "text-center";
+      const empty = document.createElement("p");
+      empty.className = "h6 text-center";
       empty.textContent = "No results found";
       fragment.append(empty);
     }
     for (const item of entries) {
       const article = document.createElement("article");
       article.className = "my-2 text-left";
-      article.innerHTML = `<div class="row"><div class="col"><h5 class="chulapa-links-hover-only" itemprop="headline"><a rel="permalink"></a></h5></div></div>
+      article.innerHTML = `<div class="row"><div class="col"><h2 class="h5 chulapa-links-hover-only" itemprop="headline"><a rel="permalink"></a></h2></div></div>
         <div class="row mt-2"><div class="col"><p></p></div></div><hr>`;
-      const title = article.querySelector("h5 a");
+      const title = article.querySelector("h2 a");
       title.href = item.url;
       title.innerHTML = item.title;
       article.querySelector("p").innerHTML = item.excerpt.trim();
@@ -61,19 +61,28 @@ window.ChulapaSearch = (function () {
       fragment.append(article);
     }
     container.replaceChildren(fragment);
+    const status = document.getElementById("resultscount");
+    if (status) status.textContent = `${entries.length} ${entries.length === 1 ? "result" : "results"} found`;
   }
 
   function bindInput(input, render) {
     let timer;
+    function update() {
+      if (!input.value) {
+        const status = document.getElementById("resultscount");
+        if (status) status.textContent = "";
+      }
+      render();
+    }
     input.addEventListener("input", () => {
       clearTimeout(timer);
-      if (!input.value) render();
-      else timer = setTimeout(render, 150);
+      if (!input.value) update();
+      else timer = setTimeout(update, 150);
     });
     if (input.form) input.form.addEventListener("submit", event => {
       event.preventDefault();
       clearTimeout(timer);
-      render();
+      update();
     });
   }
   return {highlight, renderEntries, bindInput};

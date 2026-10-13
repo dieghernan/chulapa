@@ -36,9 +36,10 @@ documented advice may require updating `docs/ai-chatbot/ai-context.md` even when
 the implementation is outside `docs/`. Keep chatbot code and evaluation assets
 under `docs/ai-chatbot/`; do not add them to the reusable theme.
 
-## Review accessibility and SEO when relevant
+## Review accessibility, SEO and PWA compatibility
 
-Before completing a change, assess whether it affects accessibility or SEO.
+Before completing a change, assess whether it affects accessibility, SEO or
+existing PWA behavior.
 Review affected behavior whenever the change touches user-facing content,
 navigation, controls, layouts, styles, media, page URLs or metadata.
 
@@ -48,12 +49,22 @@ navigation, controls, layouts, styles, media, page URLs or metadata.
   Tab navigation, unless the task explicitly changes them.
 - For SEO, check affected titles, descriptions, canonical URLs, indexing rules,
   language metadata, social previews, structured data and internal links.
+- For PWA compatibility, identify whether the affected site actually has a
+  manifest and service worker. Check relevant manifest links, identity, start
+  URL, scope, display mode, icon files and dimensions, HTTPS and `baseurl`
+  routing. If a service worker exists, review registration scope, update and
+  cache invalidation behavior, offline fallbacks and network-dependent features
+  such as search, comments, video and the chatbot. Exercise affected behavior
+  in a browser when feasible. A favicon manifest alone does not establish
+  installability or offline support; report missing capabilities and untested
+  live behavior rather than claiming PWA readiness. Do not add a service worker
+  or a caching strategy solely to satisfy the review checklist.
 - Use checks appropriate to the change. Inspect rendered pages for visual or
   interaction changes; automated audits alone do not establish accessibility.
   Validate generated HTML and URLs for metadata or routing changes.
 - Update related documentation and examples when behavior or advice changes.
-  Summarize what was checked and any material limitations. If neither area is
-  affected, no additional audit is needed.
+  Summarize accessibility, SEO and PWA findings and any material limitations.
+  If a change affects none of these areas, no additional audit is needed.
 
 ## Keep agent instructions out of published sites
 

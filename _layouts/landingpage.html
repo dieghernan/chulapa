@@ -13,11 +13,11 @@ header_in_content: true
 	  {%- include components/breadcrumbdatesocial.html -%}
 	  {% endif %}
 		<div class="row pt-2">
-			<aside class="col-lg-2 mt-lg-3 small">
+			<{% if page.show_author %}aside{% else %}div{% endif %} class="col-lg-2 mt-lg-3 small">
 			  {%- if page.show_author -%}
 			  {% include components/author.html %}
 			  {%- endif -%}
-			</aside>
+			</{% if page.show_author %}aside{% else %}div{% endif %}>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
 			
 			{% if page.show_sidetoc %}

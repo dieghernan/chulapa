@@ -648,11 +648,66 @@ These improvements are development changes after v2.1.0, not in that gem or
 pinned remote theme. The first Tab stop skips the navbar. Floating navigation
 (fab and the floating part of dual) uses a button: Enter/Space opens it and
 focuses the first link; Escape closes it and returns focus to the button.
-Closed floating menu links do not receive Tab focus. The lateral TOC retains
-its existing open/close and Tab behavior, without a focus trap or modal role.
+Closed floating menu links do not receive Tab focus. The lateral TOC keeps its
+existing open/close and Tab order without a focus trap or modal role. In
+v2.1.1-dev, its closed panel uses inert and aria-hidden so offscreen controls
+cannot receive focus. Escape from its trigger or panel closes it and restores
+focus to the trigger; button/overlay closing also restores focus. Its open/close
+controls have 44px minimum targets.
 Keyboard focus is visible; focused heading permalinks appear. Prose links
 are underlined and card image links use their article title as a name.
 Theme navigation/icon transitions respect prefers-reduced-motion.
+In v2.1.1-dev, collection lists and local search results use h2 headings with
+their previous visual sizes; tag/category groups use h2 then h3, and archives
+use h2 for years, h3 for months and h4 for entries. List thumbnail links use the
+article title as an accessible name. Navbar destination links mark the current
+page with aria-current="page"; dropdown triggers and carousel previous/next
+controls are native buttons supporting Enter/Space. With show_author disabled,
+default and landingpage keep a spacing column without an empty aside.
+Lunr, Fuse.js, Simple-Jekyll-Search and Google forms expose a search landmark.
+Lunr/Fuse announce the rendered result count with a polite status region without
+moving focus, clear the status when the query is cleared, and use a paragraph
+for no results. Welcomments labels its comment field, links its Markdown
+instructions with aria-describedby and uses a paragraph for configuration
+warnings. These changes add no YAML settings and do not certify a site as WCAG
+compliant; custom content and integrations still need their own checks.
+In v2.1.1-dev, carousels with more than one slide and a positive interval have a
+pause/start button when Bootstrap is available. interval=0 disables cycling and
+hides that button. Reduced motion starts paused; keyboard or pointer interaction
+with slides/navigation stops cycling until explicit start. Hover temporarily
+pauses on hover-capable devices. Enabling reduced motion stops a running
+slideshow; changing the preference back does not silently restart it. Live
+preference changes support both modern and legacy media-query listener APIs. Visitors
+can explicitly start even with reduced motion. Indicators are named native
+buttons (24px minimum targets), mark the current slide and support Enter/Space.
+The slide container uses aria-live=polite while stopped and off while running.
+The local assets/js/chulapa_carousel.js controller loads only on pages containing
+carousels. The carousel include declares it as a deferred ES module, shared
+across repeated/cached includes (one fetch/execution per document), including
+carousels rendered directly inside custom layouts. Custom shells still need
+Bootstrap, e.g. components/scripts.html before closing body; standard layouts
+already provide it.
+No new YAML options are needed. Without the dependencies, automatic motion stays
+disabled. Source: https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel
+Long headings wrap when text is enlarged. Browser regressions cover 320 CSS pixel
+reflow (400% zoom equivalent on a 1280px viewport) and 200% text enlargement,
+not every site's content or actual screen-reader behavior. Video players and
+play buttons use the existing name parameter; provide the actual video title.
+Names are trimmed; omitted, empty or whitespace-only values use generic player
+names rather than blank accessible labels.
+Gallery snippets still generate generic image alternatives. Descriptive alt
+text requires author-supplied custom image markup; captions/transcripts require
+author content. Do not invent a new gallery alt, captions or transcript option.
+PWA status: the reusable theme does not register a service worker or provide an
+offline cache. The docs site has a favicon manifest (display=standalone,
+192px/384px icons), but currently no explicit start_url, scope or 512px icon.
+A manifest alone does not establish cross-browser installability or offline
+support. There is no built-in PWA YAML option. Site-specific customization
+requires reviewing manifest links, HTTPS, baseurl, identity/start URL/scope,
+icons and service-worker cache updates/offline fallbacks if one is added.
+External libraries, comments, video and the chatbot have network dependencies;
+the AI endpoint requires a live connection. Do not claim an offline chatbot.
+Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance#pwa-and-offline-behavior
 The Chulapa font is served from the installed theme assets, with baseurl in
 both CSS and preload, instead of jsDelivr. Google Fonts and Font Awesome still
 use external providers. Cactus JS/CSS loads only when show_comments is true.

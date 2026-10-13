@@ -17,6 +17,15 @@ if (sT) {
   iDiv.setAttribute("id", "sideBarOverlay");
   iDiv.setAttribute("onclick", "closeSideBar()");
   body.prepend(iDiv);
+  function closeSidebarOnEscape(event) {
+    if (event.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+      event.preventDefault();
+      event.stopPropagation();
+      closeSideBar();
+    }
+  }
+  btn.addEventListener("keydown", closeSidebarOnEscape);
+  document.getElementById("sideBar").addEventListener("keydown", closeSidebarOnEscape);
 } else if (btn) {
   // ToC was requested but no toc produced
   // Clean up DOM
@@ -26,6 +35,9 @@ if (sT) {
 }
 
 function openSideBar() {
+  var sidebar = document.getElementById("sideBar");
+  sidebar.inert = false;
+  sidebar.setAttribute("aria-hidden", "false");
   btn.removeAttribute("style");
   btn.setAttribute("aria-expanded", "true");
   document.getElementById("sideBarOverlay")
@@ -35,6 +47,11 @@ function openSideBar() {
 }
 
 function closeSideBar() {
+  var sidebar = document.getElementById("sideBar");
+  // Return focus before hiding its previous target from assistive technology.
+  btn.focus();
+  sidebar.inert = true;
+  sidebar.setAttribute("aria-hidden", "true");
   document.getElementById("sideBar")
     .removeAttribute("style");
   document.getElementById("sideBarOverlay")
