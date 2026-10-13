@@ -171,6 +171,33 @@ async function main() {
   await motionPage.waitForFunction(()=>!window.jQuery(document.querySelector('#carousel-on .carousel')).data('bs.carousel')._interval);
   await motionPage.emulateMedia({reducedMotion:'no-preference'});assert.equal(await isCycling(),false,'Changing preference back must not silently restart');
   await motion.close();console.log('Carousel motion, pause/start, hover, keyboard focus and preference changes passed');
+  // Model browsers whose MediaQueryList has addListener but no addEventListener.
+  const legacy=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+  await legacy.addInitScript(()=>{
+   const nativeMatchMedia=window.matchMedia.bind(window);
+   window.legacyListenerCalls=0;
+   window.matchMedia=query=>{
+    const media=nativeMatchMedia(query);
+    return {get matches(){return media.matches;},media:media.media,
+     addListener(listener){window.legacyListenerCalls++;media.addListener(listener);},
+     removeListener(listener){media.removeListener(listener);}};
+   };
+  });
+  await legacy.route('**/*',r=>route(r));const legacyPage=await legacy.newPage();
+  const legacyErrors=[];legacyPage.on('pageerror',error=>legacyErrors.push(error.message));
+  await legacyPage.goto('http://localhost:8768/layout-carousel-a.html');
+  const allCycling=()=>legacyPage.evaluate(()=>[...document.querySelectorAll('.carousel')].every(c=>Boolean(window.jQuery(c).data('bs.carousel')._interval)));
+  assert.equal(await allCycling(),true,'Legacy listeners must not abort initialization of any carousel');
+  assert.equal(await legacyPage.evaluate(()=>window.legacyListenerCalls),2);
+  assert.equal(await legacyPage.locator('.carousel-inner[aria-live="off"]').count(),2);
+  await legacyPage.emulateMedia({reducedMotion:'reduce'});
+  await legacyPage.waitForFunction(()=>[...document.querySelectorAll('.carousel')].every(c=>!window.jQuery(c).data('bs.carousel')._interval));
+  assert.equal(await legacyPage.locator('.carousel-inner[aria-live="polite"]').count(),2);
+  assert.equal(await legacyPage.getByRole('button',{name:'Start slideshow',exact:true}).count(),2);
+  await legacyPage.emulateMedia({reducedMotion:'no-preference'});
+  assert.equal(await allCycling(),false,'Legacy preference reset must not silently resume playback');
+  assert.deepEqual(legacyErrors,[]);
+  await legacy.close();console.log('Legacy MediaQueryList listeners passed: multiple carousels, initial cycling/live state and reduced-motion changes');
   const touch=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
   await touch.route('**/*',r=>route(r));const touchPage=await touch.newPage();
   await touchPage.goto('http://localhost:8768/default.html');await touchPage.locator('#masonry-on a').first().tap();

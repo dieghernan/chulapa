@@ -61,9 +61,11 @@
       }, true);
       carousel.addEventListener('mouseenter', () => { if (hoverEnabled) { hovered = true; updateMotion(); } });
       carousel.addEventListener('mouseleave', () => { if (hoverEnabled) { hovered = false; updateMotion(); } });
-      reduced.addEventListener('change', event => {
+      function preferenceChanged(event) {
         if (event.matches) { paused = true; updateMotion(); }
-      });
+      }
+      if (typeof reduced.addEventListener === 'function') reduced.addEventListener('change', preferenceChanged);
+      else if (typeof reduced.addListener === 'function') reduced.addListener(preferenceChanged);
       widget.on('slid.bs.carousel', updateSlides);
       updateSlides();
       updateMotion();

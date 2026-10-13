@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Initialize carousels and react to reduced-motion preference changes when browsers expose only the legacy media-query listener API.
+
 -   Initialize cached carousels rendered directly by custom layouts, sharing their deferred controller module, and derive thumbnail link names from rendered Markdown titles.
 
 -   Keep closed lateral TOCs outside the focus order, support Escape with focus restoration, and enlarge their controls. Provide carousel pause/start controls and accessible indicators, respect reduced-motion preferences and keyboard interaction, identify video players by name and wrap long headings when text is enlarged.

@@ -676,7 +676,8 @@ pause/start button when Bootstrap is available. interval=0 disables cycling and
 hides that button. Reduced motion starts paused; keyboard or pointer interaction
 with slides/navigation stops cycling until explicit start. Hover temporarily
 pauses on hover-capable devices. Enabling reduced motion stops a running
-slideshow; changing the preference back does not silently restart it. Visitors
+slideshow; changing the preference back does not silently restart it. Live
+preference changes support both modern and legacy media-query listener APIs. Visitors
 can explicitly start even with reduced motion. Indicators are named native
 buttons (24px minimum targets), mark the current slide and support Enter/Space.
 The slide container uses aria-live=polite while stopped and off while running.

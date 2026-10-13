@@ -963,6 +963,8 @@ it. Keyboard interaction with slides, indicators or previous/next controls
 pauses it until an explicit start. Hover pauses temporarily on devices with
 hover support, and enabling reduced motion while it runs stops it without
 automatically restarting when the preference is changed back.
+Live preference changes also work with browsers that expose the older
+media-query listener API.
 
 Indicators are named buttons supporting Enter and Space and mark the current
 slide. The slide container uses `aria-live="polite"` while automatic cycling is
