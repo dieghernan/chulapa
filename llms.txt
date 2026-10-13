@@ -4,7 +4,7 @@
 
 The documentation is the source of truth for installation, configuration, layouts and supported integrations. Configure the site in `_config.yml` and use page front matter or Jekyll defaults for page options. Extend the theme through existing layouts, includes and assets.
 
-The documentation also covers development changes after v2.1.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter analytics and the accessibility and resource-loading improvements are not included in the v2.1.0 gem or pinned remote theme. Check each page's version caveats and the theme version used by the site before applying its advice. Some integrations require third-party services, and accessibility depends on the site's content, skin and customizations as well as the theme.
+The documentation also covers v2.1.1-dev changes available on main after v2.1.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter analytics and the accessibility and resource-loading improvements are not included in the v2.1.0 gem or pinned remote theme. Check each page's version caveats and the theme version used by the site before applying its advice. Some integrations require third-party services, and accessibility depends on the site's content, skin and customizations as well as the theme.
 
 ## Getting started
 
@@ -16,7 +16,7 @@ The documentation also covers development changes after v2.1.0. Mermaid diagrams
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
-- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Layout inheritance, shared components, include caching, page options, headers, TOCs, galleries, media, MathJax, Mermaid diagrams and opt-in PhotoSwipe lightboxes.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Layout inheritance, shared components, include caching, page options, headers, TOCs with active-section indicators, collection ordering, galleries, media, MathJax, Mermaid diagrams and opt-in PhotoSwipe lightboxes.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
 - [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Rendered examples for supported code languages.

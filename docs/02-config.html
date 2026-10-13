@@ -18,8 +18,8 @@
         "description": "Learn how to set up your new site - Setting up your new site",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T07:11:41+02:00",
-        "dateModified": "2026-10-13T07:11:41+02:00",
+        "datePublished": "2026-10-13T08:10:54+02:00",
+        "dateModified": "2026-10-13T08:10:54+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -335,7 +335,7 @@ Pages can supply their own <code class="language-plaintext highlighter-rouge">au
      <li><code class="language-plaintext highlighter-rouge">name</code>: Author name. <strong>GitHub owner name</strong>, when GitHub metadata is available.</li>
      <li><code class="language-plaintext highlighter-rouge">url</code>: Optional author profile URL or site-relative path, such as <code class="language-plaintext highlighter-rouge">/about/</code>.
 Relative paths use the site’s <code class="language-plaintext highlighter-rouge">url</code> and <code class="language-plaintext highlighter-rouge">baseurl</code>. This field supplies the
-default <code class="language-plaintext highlighter-rouge">article:author</code> URL for posts and, from v2.1.1, a <code class="language-plaintext highlighter-rouge">u-url</code> in visible
+default <code class="language-plaintext highlighter-rouge">article:author</code> URL for posts and, in v2.1.1-dev (available on <code class="language-plaintext highlighter-rouge">main</code>, not in v2.1.0), a <code class="language-plaintext highlighter-rouge">u-url</code> in visible
 Microformats2 author cards. A page author does not inherit the site author’s
 profile URL. Social links remain configured separately under <code class="language-plaintext highlighter-rouge">links</code>.</li>
      <li><code class="language-plaintext highlighter-rouge">avatar</code>: Avatar image URL or site-relative path; a small square image is
@@ -454,8 +454,11 @@ HTTPS URL, or when Jekyll is not building in <code class="language-plaintext hig
 </code></pre></div></div>
 <p>The standard documentation deployment already uses that environment. Analytics
 are added to pages using the shared head, including the search layout. Root and
-subdirectory sites use the same external endpoint; the tracker reads the
-browser’s page path, including <code class="language-plaintext highlighter-rouge">baseurl</code>. The upstream tracker also ignores
+subdirectory sites use the same external endpoint. GoatCounter prefers the path
+from a canonical URL on the same domain (<code class="language-plaintext highlighter-rouge">www</code> and non-<code class="language-plaintext highlighter-rouge">www</code> are equivalent);
+otherwise it uses the browser’s page path. Cross-domain canonical URLs are ignored.
+<span class="chulapa">Chulapa</span> already generates canonical links, including
+<code class="language-plaintext highlighter-rouge">baseurl</code>, so no extra canonical tag is needed. The upstream tracker also ignores
 localhost by default. Configure your site’s security policy to allow the script
 host and requests to your counting endpoint. Blocking or failing to load the
 tracker does not prevent the site’s content from loading.</p>
