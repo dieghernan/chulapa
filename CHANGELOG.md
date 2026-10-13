@@ -16,6 +16,16 @@
 
 ### Fixed
 
+-   Keep custom search demos and the Lunr-enabled 404 page functional with the shared search helper and one copy of common JavaScript dependencies.
+
+-   Initialize floating navigation on search pages without loading the content script, and retain initial menu focus while visibility animates.
+
+-   Keep code copying and accessible feedback available without jQuery or Bootstrap, reuse the maintained implementation for the legacy clipboard asset, and avoid accidental heading and code globals.
+
+-   Correct two-character search highlighting, validate Cusdis resize messages against the comment iframe, and retain a baseurl-aware home link when 404 suggestions cannot read a usable sitemap.
+
+-   Insert deferred YouTube players on activation without a player API race, prevent duplicate players and provide a no-JavaScript video link.
+
 -   Keep the single eligible document in random recommendations instead of rendering empty cards.
 
 -   Respect the selected `index_sort` field in collection card indexes, internal masonry galleries and carousels; show all current demos in ascending filename order on the demo index.
@@ -37,6 +47,10 @@
 -   Code copy buttons wait for clipboard writes, report failures and no longer clear the clipboard before copying.
 
 ### Changed
+
+-   Reuse the Lunr index, share local search result rendering, debounce typing while searching immediately on Enter, and batch result insertion without changing providers or ranking.
+
+-   Share script dependencies across document layouts, avoid unused theme-script preloads on search pages, reuse TOC heading measurements and coalesce chatbot scroll persistence.
 
 -   Reuse fixed footer content and cloud entry rendering with the existing include cache, avoiding repeated Markdown conversion and reading-time calculation across labels and indexes without new settings.
 

@@ -234,3 +234,23 @@ for (const failure of ['network', 'invalid JSON', 'missing answer']) {
     } finally { ui.dom.window.close(); }
   });
 }
+
+
+test('scroll persistence is coalesced and flushed when leaving the page', () => {
+  const timers = new Map();
+  const ui = widget({timers});
+  try {
+    ui.get('log').scrollTop = 12;
+    ui.get('log').dispatchEvent(new ui.window.Event('scroll'));
+    ui.get('log').scrollTop = 24;
+    ui.get('log').dispatchEvent(new ui.window.Event('scroll'));
+    assert.equal(timers.size, 1);
+    assert.equal(ui.window.sessionStorage.getItem(storageKey), null);
+    timers.get(150)();
+    assert.equal(JSON.parse(ui.window.sessionStorage.getItem(storageKey)).scroll, 24);
+    ui.get('log').scrollTop = 48;
+    ui.get('log').dispatchEvent(new ui.window.Event('scroll'));
+    ui.window.dispatchEvent(new ui.window.Event('pagehide'));
+    assert.equal(JSON.parse(ui.window.sessionStorage.getItem(storageKey)).scroll, 48);
+  } finally { ui.dom.window.close(); }
+});

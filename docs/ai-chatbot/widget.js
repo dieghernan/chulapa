@@ -91,7 +91,12 @@ import sparkles from './sparkles.svg';
     } catch { /* Continue without persistence if storage is blocked or full. */ }
   };
   get('question').addEventListener('input', save);
-  get('log').addEventListener('scroll', save);
+  let scrollSave;
+  get('log').addEventListener('scroll', () => {
+    clearTimeout(scrollSave);
+    scrollSave = setTimeout(save, 150);
+  });
+  window.addEventListener('pagehide', save);
   const visibleViewport = window.visualViewport;
   if (visibleViewport) {
     const fitViewport = () => {

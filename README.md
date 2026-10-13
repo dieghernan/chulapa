@@ -181,6 +181,10 @@ dependencies, run `bundle update chulapa-jekyll`.
 To preview your site locally, run `bundle exec jekyll serve` from your site
 directory. Restart Jekyll after editing `_config.yml` to reload its settings.
 
+Local layouts, includes and assets override the installed theme. Review these
+files together when upgrading; v2.1.1-dev introduces shared search and navigation
+scripts. See [JavaScript assets and local overrides](https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides).
+
 ## Configuration and layouts
 
 See the [documentation](https://dieghernan.github.io/chulapa/docs/01-install)

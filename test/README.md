@@ -263,3 +263,28 @@ original-image fallback with JavaScript disabled or either CDN asset unavailable
 `check_goatcounter.rb` validates production-only opt-in, disabled defaults, hosted
 and self-hosted endpoint escaping, shared layouts (including search), unchanged
 Google tags and root/subdirectory configurations without sending analytics.
+
+
+## JavaScript integration regressions
+
+After installing `test/browser` dependencies, build and check the isolated sites:
+
+```sh
+cd test
+bundle exec ruby build_javascript_fixtures.rb /tmp/chulapa-javascript
+cd ..
+NODE_PATH="$PWD/test/browser/node_modules" node test/check_javascript_browser.js /tmp/chulapa-javascript
+```
+
+The browser job runs these checks with pinned offline Lunr and Fuse.js libraries.
+They exercise readable and minified entry points on actual Jekyll-built search
+pages at root and subdirectory URLs, index reuse, immediate Enter/clear behavior,
+two-character highlights, HTML/entity preservation and floating navigation on search pages. Additional checks cover
+native copying without CDN dependencies, the legacy clipboard entry point,
+keyboard YouTube activation without a player API, repeated activation, Cusdis
+message-source/height validation and empty/unavailable sitemap fallbacks.
+The fixture builder also copies the actual documentation's custom Lunr/Fuse
+pages and 404. Checks verify helper-before-adapter ordering, one copy of common
+JavaScript dependencies, functional search regardless of the site's selected
+provider and FAB operation on these custom documents.
+No live video playback, analytics or comment service requests are required.

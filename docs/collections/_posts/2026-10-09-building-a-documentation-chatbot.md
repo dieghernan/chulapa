@@ -17,6 +17,11 @@ add a local video?” The assistant can provide short explanations, code example
 and links to the relevant documentation. Each question is independent, so include
 the details it needs rather than relying on an earlier message.
 
+Recent messages and the draft stay in the current tab's `sessionStorage` so
+reloading a page can restore the interface. Clear chat resets those messages and
+the draft. This displayed history is not sent as conversation context: each
+request contains only the current question.
+
 The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
 Questions are sent to Cloudflare for processing. Answers can contain mistakes;
 check the linked documentation, especially before changing your configuration.

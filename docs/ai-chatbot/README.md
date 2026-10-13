@@ -19,7 +19,7 @@ The theme regression workflow also runs `npm test` on pull requests and pushes
 to `main`, without deploying or invoking live AI. The tests cover Worker routes,
 streamed UTF-8 and input limits, CORS, binding and rate-limiter failures, sanitized
 Markdown and links, duplicate submissions, drafts and clipboard failures. A
-bundle check compares the deployed artifact's context with `ai-context.md` to
+bundle check compares the generated Worker bundle's context with `ai-context.md` to
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
@@ -88,7 +88,12 @@ the widget's source-link policy before deployment. This prototype currently
 answers about Chulapa and permits documentation URLs under its public site.
 No chat code is loaded until the script is explicitly added. The widget uses a
 Shadow DOM, sanitized Markdown responses, keyboard controls and an external-processing
-notice. It does not store conversation history; every question is independent.
+notice. Recent messages, the draft, retry question, scroll position and open
+state are saved in `sessionStorage` for the current tab's browser session.
+Scroll updates are grouped with a 150 ms delay and saved immediately when leaving
+the page. Clear chat resets the saved messages and draft; blocked storage does
+not prevent the widget from working. Each request sends only the current question,
+so displayed history is not conversation context for the model.
 Marked and DOMPurify are bundled into the widget, so rendering needs no CDN.
 Formatting includes lists, code blocks and tables. Only links to the public
 Chulapa documentation site remain clickable; images and interactive HTML are

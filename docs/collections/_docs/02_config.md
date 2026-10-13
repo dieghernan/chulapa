@@ -310,6 +310,12 @@ algolia:
 
 If you are deploying your site with GitHub Pages, I recommend using this [GitHub Action](https://github.com/marketplace/actions/algolia-jekyll-action) to create and update your Algolia index after every commit automatically.
 
+In v2.1.1-dev, Lunr builds its index once per search page and reuses it for later
+queries. Lunr and Fuse.js share result rendering and highlighting, including
+two-character matches. Input is grouped with a 150 ms delay while typing;
+Enter searches immediately without reloading the page, and clearing the field
+clears results immediately. No new configuration is needed.
+
 ### Comments
 
 Set `comments.provider` and enable `show_comments: true` on pages or in front
@@ -345,6 +351,10 @@ pages with `show_comments: true`. Selecting the provider alone no longer loads
 these resources on every page.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
+In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
+iframe and requires a finite, nonnegative numeric height. Existing provider
+settings are unchanged.
+
 When setting up **Welcomments**, review any generated pull request before
 merging it. Use its `website_id`, but retain the customized templates supplied
 by <span class="chulapa">Chulapa</span> rather than overwriting them.
@@ -361,7 +371,9 @@ switch from a floating button to a classic navbar at the configured breakpoint.
 In development after v2.1.0, the floating button works with Enter and Space.
 Opening it focuses the first menu link; Escape closes it and returns focus to
 the button. Closed floating-menu links are excluded from Tab navigation.
-The lateral TOC is a separate component and retains its existing Tab behavior.
+The floating menu also works on search pages. If its visibility animates, initial
+focus waits for the menu transition; moving focus or closing the menu cancels
+that pending focus move. The lateral TOC retains its existing Tab behavior.
 
 Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
 

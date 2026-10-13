@@ -657,6 +657,7 @@ compress   # https://jch.penibelst.de/
                     ├ components/headers (optional)
           ┌──────>  ├ PAGE CONTENT
           |         ├ footer <── comments + footer-content
+          |         ├ components/scripts
           |         └ custom/custom_bottomscripts
           |
           └── default    <──┬ components/headers
@@ -725,6 +726,37 @@ can simply add this line to your page:
 {% endraw %}
 
 {% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
+
+### JavaScript assets and local overrides
+
+In v2.1.1-dev, `minimal` and `search` share `components/scripts.html` for
+jQuery, Popper and Bootstrap. The include also loads `chulapa_navigation.js`
+for `fab` and `dual` navigation. `minimal` adds `chulapa_script.js` for content
+features; the standalone `search` shell uses the navigation script without it.
+
+Custom document shells that render the theme navbar should use
+`components/scripts.html` once; pass `theme=true` if the shell also needs
+content features from `chulapa_script.js`. Layouts inheriting from `minimal` or `search`
+already receive these dependencies. Keep custom additions in
+`custom/custom_bottomscripts.html`.
+
+Lunr and Fuse.js adapters, including their minified assets, require
+`assets/js/chulapa_search.js` before initialization. The standard `search`
+layout handles this. If you embed a search widget directly in a custom page,
+load the shared helper, provider library and generated store before the adapter:
+
+{% raw %}
+```liquid
+<script src="{{ '/assets/js/chulapa_search.js' | relative_url }}"></script>
+<!-- Load the provider library and generated store before its search adapter. -->
+```
+{% endraw %}
+
+Local layouts, includes and assets override the installed theme. When upgrading,
+review them together: copied search pages need the shared helper, and copied
+navigation shells need the navigation script. The [Lunr demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
+and [Fuse.js demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html)
+show complete custom search documents with these dependencies.
 
 ### Microformats in lists
 
@@ -1061,7 +1093,12 @@ does not guarantee playback.
 
 YouTube embeds use deferred loading by default: the page initially displays
 a preview image and loads the player when the visitor clicks it. This reduces
-the initial player load. See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
+the initial player load. In v2.1.1-dev, the player is inserted directly on
+activation, without downloading the YouTube player API beforehand. Keyboard
+activation works, repeated clicks retain one player, and a no-JavaScript link
+opens the video on YouTube. The player requests autoplay, which remains subject
+to browser policy. Sites with a content security policy must allow frames from
+`https://www.youtube-nocookie.com`. See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
 
 Set `nolazy=true` to load the YouTube iframe without waiting for a click:
 
@@ -1280,5 +1317,8 @@ supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.h
 Code blocks have a copy button. Copying requires the browser Clipboard API
 and a secure context, such as HTTPS or localhost. In v2.1.1-dev, the button reports success only after the write completes and
 reports failure when permission is denied or the API is unavailable. It does
-not clear the existing clipboard before copying. Enabled Mermaid diagrams do
+not clear the existing clipboard before copying. Copying and its accessible
+feedback also work when jQuery or Bootstrap tooltips are unavailable. The legacy
+`assets/js/clipboard/chulapa_clipboard.js` entry point delegates to the maintained
+implementation and preserves code copying outside the usual content wrapper. Enabled Mermaid diagrams do
 not receive code copy buttons.

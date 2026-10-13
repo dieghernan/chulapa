@@ -141,5 +141,23 @@
     "doc": "04_layouts.md",
     "question": "How do I list a collection as cards in ascending filename order? Is that the default, and do gallery files use the same field?",
     "expected": "Use layout: indexcategory, include_collection with the desired collection, index_sort: name and index_sort_asc: true. Default field name and default descending order; index_items defaults to 10 and limits after sorting. Internal masonry/carousel static files use index_sort=\"basename\" and index_sort_asc=true, not the document name field."
+  },
+  {
+    "id": "javascript-resource-fallbacks",
+    "doc": "04_layouts.md",
+    "question": "Does deferred YouTube load the player API before I click? If the jQuery CDN fails, can I still copy code? Does pressing Enter in Lunr search reload the page? Does floating navigation work on the search layout?",
+    "expected": "v2.1.1-dev on main, not v2.1.0: deferred YouTube inserts a youtube-nocookie iframe on activation without loading player API beforehand; requests autoplay subject to browser policy; noscript link available. Native copying and accessible feedback work without jQuery/Bootstrap, graphical tooltips require them. Lunr index reused; input debounced 150ms, Enter immediately searches without reload. Floating navigation works on search pages using a shared navigation script."
+  },
+  {
+    "id": "custom-search-script-dependencies",
+    "doc": "04_layouts.md",
+    "question": "I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?",
+    "expected": "v2.1.1-dev: direct readable/minified Lunr and Fuse adapters require assets/js/chulapa_search.js before initialization, plus their provider library and generated store before the adapter. Standard search layout handles dependencies. Update local overrides together. Custom document shells should include components/scripts.html once for Bootstrap dependencies and chulapa_navigation.js for fab/dual; layouts inheriting minimal/search already handle it. No new YAML options. Link JavaScript assets and local overrides and complete demo sources."
+  },
+  {
+    "id": "assistant-session-history",
+    "doc": "2026-10-09-building-a-documentation-chatbot.md",
+    "question": "The documentation chat shows my old messages after reloading. Does the AI remember them when I ask a follow-up question?",
+    "expected": "Displayed messages/draft can be restored from sessionStorage in the current tab. Each request sends only the current question; displayed history is not model conversation context. Include needed details in each question. Clear chat resets the saved messages/draft. This assistant is a docs-site extension, not bundled in the theme."
   }
 ]

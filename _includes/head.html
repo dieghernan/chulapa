@@ -409,7 +409,9 @@ where_exp: "item", "item.url contains 'http'"
     <!-- Compatibility with FontAwesome 4 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/v4-shims.min.css">
     {% endif %}
+    {% if include.theme_script %}
     <link rel="preload" href="{{ '/assets/js/chulapa_script.js' | relative_url }}" as="script" >
+    {% endif %}
     <link rel="preload" href="{{ '/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
     <!-- Theme css (Bootstrap included) -->
     <link rel="stylesheet" id="maincss" href="{{- "assets/css/main.css " | absolute_url -}}" >
