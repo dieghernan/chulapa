@@ -917,6 +917,42 @@ Example carousel:
 
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
 
+### PhotoSwipe lightbox
+
+In the development version after v2.1.0, add `photoswipe=true` to a masonry or
+carousel include to open its images in a PhotoSwipe viewer. The option is a
+Liquid boolean include parameter, not a page YAML setting. It is disabled by
+default, so existing galleries keep their behavior. The flag is part of the
+`include_cached` key, allowing enabled and disabled galleries on the same page.
+
+{% raw %}
+```liquid
+{% include_cached snippets/masonry.html internal="gallery" photoswipe=true %}
+{% include_cached snippets/carousel.html internal="gallery" photoswipe=true controls=true interval=0 %}
+```
+{% endraw %}
+
+Internal image collections and external URL lists both work. Each include has
+its own image sequence. PhotoSwipe 5.4.4 JavaScript and CSS load from jsDelivr
+only when an image is opened; enabled pages load a small local initialization
+module. Image dimensions are discovered in the browser without a Jekyll plugin.
+Offscreen images are measured as the viewer loads them rather than downloading
+an entire gallery before opening it.
+
+The viewer provides zoom, touch gestures, arrow-key navigation, a focus trap and
+Escape to close. Focus returns to the triggering image link. Reduced-motion
+preferences disable the opening and zoom animations. A carousel keeps its slide
+in place while its viewer is open. Without JavaScript, or if the library,
+stylesheet or initial image cannot load, the link opens the original image.
+Modified clicks keep normal browser behavior. The module works with `default`,
+`minimal` and `landingpage`; the `search` layout does not render these galleries.
+
+Try the [PhotoSwipe demo]({{ "/demo/14-photoswipe" | relative_url }}).
+Site content security policies must permit the PhotoSwipe modules and stylesheet
+from `https://cdn.jsdelivr.net`. External images also depend on their own host.
+Existing image alt text and ImageObject metadata are preserved; supply meaningful
+alt text when authoring images outside these gallery snippets.
+
 ### Video support
 
 This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#responsive-video-embed), so you may want to check its docs. Providers available are `youtube`, `vimeo`, `dailymotion`, videos hosted on Google Drive (`google-drive`) and `bilibili`.

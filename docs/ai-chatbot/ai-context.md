@@ -222,6 +222,23 @@ interval controls the time between slides in milliseconds (default 5000).
 controls and indicators are false by default. Example:
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 controls=true indicators=true %}
 
+## PhotoSwipe galleries (development after v2.1.0)
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#photoswipe-lightbox
+Demo: https://dieghernan.github.io/chulapa/demo/14-photoswipe
+Enable per gallery with the Liquid boolean include parameter photoswipe=true:
+{% include_cached snippets/masonry.html internal="gallery" photoswipe=true %}
+{% include_cached snippets/carousel.html internal="gallery" photoswipe=true controls=true interval=0 %}
+No page YAML option or additional Jekyll plugin. Default disabled; internal and
+external galleries supported; each gallery has its own sequence. Include caching
+keeps enabled and disabled variants separate. The module supports default,
+minimal and landingpage layouts. Search does not render gallery content.
+PhotoSwipe 5.4.4 CSS and JavaScript load from jsDelivr on the first image opening.
+Dimensions are discovered in the browser; offscreen images load on demand.
+Supports touch, zoom, arrow keys and Escape, traps focus while open and restores
+it to the triggering image. Respects reduced motion; carousel stays still while
+open. Without JavaScript or if assets fail, links open the original image.
+Not included in the v2.1.0 released gem or a theme pinned to that tag.
+
 ## Mathematical notation and tables of contents
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Set mathjax: true in page front matter to load MathJax for mathematical notation.

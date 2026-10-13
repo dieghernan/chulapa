@@ -25,6 +25,9 @@ layout: compress
 	{% if page.mermaid == true %}
 	<script type="module" src="{{ "/assets/js/chulapa_mermaid.js" | relative_url }}"></script>
 	{% endif %}
+	{% if content contains 'data-photoswipe-gallery="' %}
+	<script type="module" src="{{ '/assets/js/chulapa_photoswipe.js' | relative_url }}"></script>
+	{% endif %}
 	{% include custom/custom_bottomscripts.html %}
 	</body>
 </html>
