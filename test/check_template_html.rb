@@ -29,6 +29,7 @@ Dir.mktmpdir("chulapa-template-html-") do |source|
       raise "Dropdown role: #{style}" unless group["role"] == "group"
       trigger = doc.at_css("[id='#{group['aria-labelledby']}']")
       raise "Dropdown name: #{style}" unless trigger && trigger.text.strip == "Archives"
+      raise "Dropdown is not a native button: #{style}" unless trigger.name == "button" && trigger["type"] == "button" && !trigger.key?("href")
       raise "Dropdown controls: #{style}" unless trigger["data-toggle"] == "dropdown" && trigger["aria-expanded"] == "false"
       raise "Child link: #{style}" unless group.at_css("a")["href"] == "https://example.com/posts/"
     end

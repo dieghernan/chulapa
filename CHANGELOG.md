@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Improve list and search heading structure, name collection thumbnail links, announce local search result counts, label the Welcomments comment field and avoid empty author landmarks. Mark current navbar destinations and use native buttons for dropdowns and carousel controls while preserving their appearance.
+
 -   Keep custom search demos and the Lunr-enabled 404 page functional with the shared search helper and one copy of common JavaScript dependencies.
 
 -   Initialize floating navigation on search pages without loading the content script, and retain initial menu focus while visibility animates.

@@ -62,6 +62,24 @@ contrast, so check the rendered site after overriding them.
 Card index titles use level-two headings with their previous visual size.
 Their subtitles use paragraph semantics and body text color for readability.
 
+Collection lists and local search results also use level-two headings while
+retaining their previous visual sizes. Tag and category groups use level-two
+headings followed by level-three article titles; archives use year, month and
+article headings at levels two, three and four. Thumbnail links in these lists
+use the article title as their accessible name.
+
+Navbar destination links identify the current page with `aria-current="page"`.
+Dropdown triggers and carousel previous/next controls are native buttons that
+support Enter and Space. With author display disabled, the layouts keep the
+spacing column without creating an empty complementary landmark.
+
+Lunr, Fuse.js, Simple-Jekyll-Search and Google search forms expose a search
+landmark. Lunr and Fuse.js announce the rendered result count through a polite
+status region without moving focus; clearing the input clears that status.
+The no-results message is a paragraph rather than a heading. Welcomments has
+an explicit comment-field label and associates its formatting instructions
+with the field; its configuration warning does not add another page heading.
+
 Use descriptive links, meaningful image alternatives and a logical heading
 structure. For Mermaid diagrams, supply `accTitle` and `accDescr`. Test your
 own pages with keyboard navigation, zoom and a screen reader, including search,

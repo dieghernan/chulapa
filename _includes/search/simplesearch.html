@@ -4,7 +4,7 @@
 	{% assign show_attrib = true %}
 {% endif %}
 
-<form class="input-group">
+<form role="search" class="input-group">
     <label class="sr-only" for="search-input"> Search </label>
     <input type="search" id="search-input" class="form-control rounded-right" placeholder="{{ site.search.label | default: "Search" }}...">
 </form>
@@ -23,15 +23,15 @@
     searchResultTemplate:   '<article class="my-2 text-left">' 	+
                     '<div class="row">'	+
                     '<div class="col">' +
-                    '<h5 class="chulapa-links-hover-only">' +
+                    '<h2 class="h5 chulapa-links-hover-only">' +
                     '<a href="{url}" rel="permalink">{title}</a>' +
-                    '</h5>' +
+                    '</h2>' +
                     '</div>'		+
 					'<div class="col-4 col-md-3">' +
-					'<a href="{url}" rel="permalink">' +
+					'<a href="{url}" rel="permalink"><span class="sr-only">{title}</span>' +
 					'<div class="rounded-lg chulapa-overlay-img chulapa-min-h-10"'+
 					'style="background-image{img}" ></div>' +
-					'</div></a>' +
+					'</a></div>' +
                     '</div>' +		
                     '<div class="row mt-2">' +
                     '<div class="col">' +

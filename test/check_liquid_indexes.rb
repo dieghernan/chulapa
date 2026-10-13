@@ -142,7 +142,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
         raise "Carousel active slide mismatch" unless slides.select { |slide| slide["class"].split.include?("active") } == [slides.first] && indicators.select { |indicator| indicator["class"].to_s.split.include?("active") } == [indicators.first]
         raise "Carousel indicator targets broken" unless indicators.all? { |indicator| indicator["data-target"] == "##{carousel['id']}" }
         controls = carousel.css(".carousel-control-prev, .carousel-control-next")
-        raise "Carousel controls broken" unless controls.size == 2 && controls.all? { |control| control["href"] == "##{carousel['id']}" }
+        raise "Carousel controls broken" unless controls.size == 2 && controls.all? { |control| control.name == "button" && control["type"] == "button" && control["data-target"] == "##{carousel['id']}" }
       end
     end
     expected_sample = [%w[/assets/gallery/a.svg /assets/gallery/b.svg /assets/gallery/c.svg], 3]

@@ -159,5 +159,12 @@
     "doc": "2026-10-09-building-a-documentation-chatbot.md",
     "question": "The documentation chat shows my old messages after reloading. Does the AI remember them when I ask a follow-up question?",
     "expected": "Displayed messages/draft can be restored from sessionStorage in the current tab. Each request sends only the current question; displayed history is not model conversation context. Include needed details in each question. Clear chat resets the saved messages/draft. This assistant is a docs-site extension, not bundled in the theme."
+  },
+  {
+    "id": "semantic-html-accessibility",
+    "section": "Accessibility",
+    "question": "En la versión de desarrollo, ¿qué mejoras semánticas tiene Chulapa para lectores de pantalla y teclado? ¿Tengo que activar algo en YAML?",
+    "expected": "v2.1.1-dev changes after v2.1.0: logical list/search headings, named thumbnail links, current-page navbar destinations, native dropdown/carousel buttons supporting Enter/Space, search landmarks and polite Lunr/Fuse result-count announcements, labelled Welcomments comment field and no empty author aside when disabled. No new YAML settings and no WCAG certification. Link accessibility/performance guide. Do not claim announcements for Google, Algolia or Simple-Jekyll-Search.",
+    "doc": "06_accessibility-performance.md"
   }
 ]

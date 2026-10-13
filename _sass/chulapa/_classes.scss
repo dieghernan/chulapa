@@ -825,7 +825,8 @@
     color: $navbar-chulapa-text-color;
 
     &:link,
-    &:visited {
+    &:visited,
+    &.dropdown-toggle {
       display: inline-block;
       background-image: linear-gradient(
         120deg,
@@ -1335,4 +1336,20 @@ textarea:focus-visible,
 .e-content li:not(.list-group-item):not(.nav-item) > a:not(.btn):not(.nav-link) {
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+// Native action buttons retain the appearance of navigation links and controls.
+.navbar-chulapa button.nav-link,
+.navbar-chulapa-fab button.nav-link {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  text-align: inherit;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }

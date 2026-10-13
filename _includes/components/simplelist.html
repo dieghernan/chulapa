@@ -3,7 +3,7 @@
    <div class="ml-2 my-1">
        <div class="row g-0">
            <article class="col h-entry">
-               <h6 class="my-2"><a href="{{- post.url | absolute_url -}}" class="chulapa-text-body-color p-name u-url">{{ post.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h6>
+               <h2 class="h6 my-2"><a href="{{- post.url | absolute_url -}}" class="chulapa-text-body-color p-name u-url">{{ post.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h2>
                <p class="small mb-1">
                {% if post.date %}
                {% assign dateformat = post.date | date: "%A, %d, %B %Y" %}
@@ -14,7 +14,7 @@
        </p>
            </article>
            {%- if post.header_img  or post.og_image  -%}
-           <a href="{{- post.url | absolute_url -}}" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ post.og_image | default: post.header_img | absolute_url }}')"></a>
+           <a href="{{- post.url | absolute_url -}}" aria-label="{{ post.title | default: 'Read article' | strip_html | escape }}" class="col-2 ml-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ post.og_image | default: post.header_img | absolute_url }}')"></a>
            {%- endif -%}
        </div>
        {% unless forloop.last -%}

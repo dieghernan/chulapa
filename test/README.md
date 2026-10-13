@@ -34,6 +34,12 @@ cd test
 bundle exec ruby run_regressions.rb
 ```
 
+The HTML semantics check covers labelled comment fields, named collection
+thumbnail links, current navbar destinations, search landmarks and statuses,
+list headings and conditional author landmarks. Browser checks additionally
+exercise native dropdown/carousel buttons with Enter and Space, dynamic search
+headings, result-count updates and clearing.
+
 The runner discovers `check_*.rb` automatically. Packaging is a separate CI job
 because it requires a freshly built gem and an installation-only bundle.
 See [closed issue regression coverage](closed-issue-regressions.md) for the

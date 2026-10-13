@@ -79,10 +79,15 @@ async function main() {
         assert.equal(await page.locator(".chulapa-skip-link").evaluate(link => link === document.activeElement), true, "Leaving the menu must not steal focus");
         await toggle.click();
         const dropdown = page.locator('#navi-menu [data-toggle="dropdown"]');
+        assert.equal(await dropdown.evaluate(node => node.tagName), "BUTTON");
         await dropdown.focus();
         await page.keyboard.press("Enter");
         assert.equal(await dropdown.getAttribute("aria-expanded"), "true", `${skin}: dropdown did not open at ${width}`);
         assert.equal(await toggle.getAttribute("aria-expanded"), "true", "Opening a dropdown must keep floating navigation open");
+        await page.keyboard.press("Space");
+        assert.equal(await dropdown.getAttribute("aria-expanded"), "false", "Space closes the native dropdown");
+        await page.keyboard.press("Space");
+        assert.equal(await dropdown.getAttribute("aria-expanded"), "true", "Space opens the native dropdown");
         await page.keyboard.press("ArrowDown");
         assert.equal(await page.locator("#navi-menu .dropdown-item").first().evaluate(link => link === document.activeElement), true);
         await page.keyboard.press("Escape");

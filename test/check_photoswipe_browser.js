@@ -59,6 +59,16 @@ async function main() {
    const carousel=page.locator('#carousel-on .carousel');
    await page.evaluate(()=>{const c=document.querySelector('#carousel-on .carousel');window.jQuery(c).carousel('pause');});
    await page.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
+   const nextControl=carousel.locator('.carousel-control-next');
+   assert.equal(await nextControl.evaluate(node=>node.tagName),'BUTTON');
+   const firstSlide=await carousel.locator('.carousel-item.active a').getAttribute('href');
+   await nextControl.focus();await page.keyboard.press('Space');
+   await page.waitForFunction(href=>document.querySelector('#carousel-on .carousel-item.active a')?.getAttribute('href')!==href,firstSlide);
+   await page.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
+   const secondSlide=await carousel.locator('.carousel-item.active a').getAttribute('href');
+   await carousel.locator('.carousel-control-prev').focus();await page.keyboard.press('Enter');
+   await page.waitForFunction(href=>document.querySelector('#carousel-on .carousel-item.active a')?.getAttribute('href')!==href,secondSlide);
+   await page.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
    const carouselTrigger=await carousel.locator('.carousel-item.active a').elementHandle();
    const slideBefore=await carouselTrigger.getAttribute('href');await carouselTrigger.focus();
    // Start a real transition immediately before the keyboard activation.

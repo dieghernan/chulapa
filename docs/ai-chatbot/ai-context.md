@@ -653,6 +653,20 @@ its existing open/close and Tab behavior, without a focus trap or modal role.
 Keyboard focus is visible; focused heading permalinks appear. Prose links
 are underlined and card image links use their article title as a name.
 Theme navigation/icon transitions respect prefers-reduced-motion.
+In v2.1.1-dev, collection lists and local search results use h2 headings with
+their previous visual sizes; tag/category groups use h2 then h3, and archives
+use h2 for years, h3 for months and h4 for entries. List thumbnail links use the
+article title as an accessible name. Navbar destination links mark the current
+page with aria-current="page"; dropdown triggers and carousel previous/next
+controls are native buttons supporting Enter/Space. With show_author disabled,
+default and landingpage keep a spacing column without an empty aside.
+Lunr, Fuse.js, Simple-Jekyll-Search and Google forms expose a search landmark.
+Lunr/Fuse announce the rendered result count with a polite status region without
+moving focus, clear the status when the query is cleared, and use a paragraph
+for no results. Welcomments labels its comment field, links its Markdown
+instructions with aria-describedby and uses a paragraph for configuration
+warnings. These changes add no YAML settings and do not certify a site as WCAG
+compliant; custom content and integrations still need their own checks.
 The Chulapa font is served from the installed theme assets, with baseurl in
 both CSS and preload, instead of jsDelivr. Google Fonts and Font Awesome still
 use external providers. Cactus JS/CSS loads only when show_comments is true.

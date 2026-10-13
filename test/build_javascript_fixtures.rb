@@ -24,6 +24,7 @@ output = File.expand_path(ARGV.fetch(0))
       end
       File.write(File.join(source, "_layouts/custom-search.html"), "---\nlayout: search\n---\n")
       File.write(File.join(source, "inherited-search.md"), "---\nlayout: custom-search\ntitle: Inherited search\n---\n")
+      File.write(File.join(source, "simple-search.html"), "---\nlayout: minimal\ntitle: Simple search\nheader_type: base\nshow_header: true\n---\n<main>{% include search/simplesearch.html %}</main>")
       File.write(File.join(source, "search.md"), "---\nlayout: search\ntitle: Search\n---\n")
       File.write(File.join(source, "video.md"), "---\nlayout: default\ntitle: Video\n---\n{% include snippets/youtube.html id='first-video' name='First video' %}\n{% include snippets/youtube.html id='second-video' name='Second video' %}\n\n```ruby\nputs 'hello'\n```\n")
       FileUtils.cp(File.join(root, "docs/_pages/404.md"), source)
