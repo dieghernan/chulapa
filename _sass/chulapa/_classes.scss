@@ -1339,12 +1339,16 @@ textarea:focus-visible,
 }
 
 // Native action buttons retain the appearance of navigation links and controls.
-.navbar-chulapa button.nav-link,
-.navbar-chulapa-fab button.nav-link {
+// Override the button reset, but remain less specific than even a plain .nav-link.
+:where(.navbar-chulapa, .navbar-chulapa-fab) button:where(.nav-link) {
   border: 0;
   border-radius: 0;
   background-color: transparent;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-shadow: inherit;
   text-align: inherit;
+  text-transform: inherit;
 }
 
 .carousel-control-prev,
@@ -1372,6 +1376,7 @@ textarea:focus-visible,
   right: .5rem;
   z-index: 3;
   min-height: 44px;
+  min-width: 44px;
   padding: .5rem .75rem;
   border: 1px solid #fff;
   border-radius: .25rem;
@@ -1391,3 +1396,8 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 .chulapa-btn-sidebar,
 .bs-canvas .close { min-width: 44px; min-height: 44px; }
 .chulapa-carousel-toggle { max-width: calc(100% - 1rem); overflow-wrap: anywhere; }
+
+.chulapa-carousel-symbol i { display: none; }
+.chulapa-carousel-symbol.has-icon-font i { display: inline-block; }
+.chulapa-carousel-symbol.has-icon-font .chulapa-carousel-fallback,
+.chulapa-carousel-symbol svg + .chulapa-carousel-fallback { display: none; }

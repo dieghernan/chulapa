@@ -220,8 +220,8 @@
     "id": "theming-6",
     "section": "theming",
     "doc": "03_theming.md",
-    "question": "How do I transfer a Codeply theme preview to my site? Is Themestr.app required?",
-    "expected": "PreviewSCSS translatevars no$semicolon quotedhex; Themestrnotrequired; don'tdisablegrid."
+    "question": "How do I transfer a Codeply theme preview to my site?",
+    "expected": "PreviewSCSS translatevars no$semicolon quotedhex; don'tdisablegrid."
   },
   {
     "id": "layouts-1",
@@ -347,7 +347,7 @@
     "section": "faq",
     "doc": "05_faq.md",
     "question": "Can jekyll-feed replace /atom.xml without conflicting with Chulapa?",
-    "expected": "remove themeAtom post_readhook customworkflow notsafePages; keepRSS andheadlinkcaveat."
+    "expected": "Pointing jekyll-feed at /atom.xml conflicts with the built-in Atom feed. Recommend keeping theme feeds or using the plugin default /feed.xml with its setup guide. Do not invent a disable-feed YAML setting or claim the FAQ provides a replacement Ruby recipe."
   },
   {
     "id": "reference-edge-cases-1",

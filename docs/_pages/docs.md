@@ -11,12 +11,12 @@ index_sort_asc: true
 index_items: 20
 ---
 
-Use these guides to install and configure the <span class="chulapa">Chulapa</span> Jekyll theme.
+New to websites? [Start here](./docs/00-start) to publish a blog, edit an
+article and add a photograph using GitHub in your browser.
 
-Start with [a small example](./docs/00-start), then use the guides below
-to configure your site.
+Already using Jekyll? Use the guides below as a reference for installation,
+configuration, layouts and customization. Each guide starts with common tasks
+and keeps more detailed options further down the page.
 
-Read the docs to start with <span class="chulapa">Chulapa</span>, or use
-the [search](https://dieghernan.github.io/chulapa/search) of the site.
-
-Have fun!
+Use [search](https://dieghernan.github.io/chulapa/search) to find a setting or
+ask the documentation chatbot a specific question.

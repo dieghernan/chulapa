@@ -16,6 +16,10 @@
 
 ### Fixed
 
+-   Use Font Awesome play/pause icons for carousel motion controls, preserving accessible action names and visible symbols when icon assets are unavailable.
+
+-   Preserve skin-defined navbar typography, capitalization, text shadows and borders on native dropdown buttons, allowing direct custom `.nav-link` rules to override their defaults.
+
 -   Trim video names before applying accessible-label fallbacks, including whitespace-only values supplied by Liquid captures or legacy deferred-player markup.
 
 -   Initialize carousels and react to reduced-motion preference changes when browsers expose only the legacy media-query listener API.

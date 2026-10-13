@@ -8,6 +8,9 @@ root = File.expand_path("..", __dir__)
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, "chulapa-accessibility-site")))
 skins = %w[chulapa navi journal gitdev lux flatly sketchy]
 fixtures = skins.map { |skin| [skin, skin, "fab"] } + [["navi-dual", "navi", "dual"], ["navi-classic", "navi", "classic"]]
+%w[gitdev gitdev-dark focal lux journal sketchy universal slate yeti].each do |skin|
+  %w[classic fab dual].each { |navigation| fixtures << ["#{skin}-#{navigation}", skin, navigation] }
+end
 fixtures.each do |name, skin, navigation|
   Dir.mktmpdir("chulapa-accessibility-source-") do |source|
     %w[_layouts _includes _sass assets].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }

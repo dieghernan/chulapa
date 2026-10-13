@@ -15,52 +15,88 @@ beyond those variables.
 into CSS during the build.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
+## Skins
+
+A skin is a ready-made design with coordinated colors and fonts.
+Choose one from the [skin previews]({{ './skins' | absolute_url }}), then
+open `_config.yml` and change the existing `chulapa-skin.skin` entry:
+
+
+```yaml
+chulapa-skin:
+  skin: journal
+```
+
+Keep any other entries under `chulapa-skin`. Save your changes, wait for
+publishing and refresh the site. Try `gitdev`, `lux` or `flatly` for other looks.
+Use the exact lowercase name shown by the preview: an unknown name prevents
+the site from building.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
+## Change one color
+
+To adjust a skin rather than replace it, add or edit `vars` in the same
+`chulapa-skin` section. This example chooses a skin and changes its main color:
+
+```yaml
+chulapa-skin:
+  skin: journal
+  vars:
+    primary: "#285d70"
+```
+
+Keep the quotes around colors beginning with `#`. Check text and link contrast
+after publishing; a color change can affect more than one part of the page.
+See the [variable dictionary](./variable-dictionary) for menu and footer colors.
+
 ## Load Google Fonts
 
-You can easily load new fonts via [Google Fonts](https://fonts.google.com/) like this:
+This is optional: each skin already includes a font choice. To use a different
+font, choose it at [Google Fonts](https://fonts.google.com/) and add its stylesheet
+URL under `googlefonts` in `_config.yml`. Then apply it to text and headings:
+
 
 ```yaml
 googlefonts:
- - url: https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&display=swap
- - url: #Another url
+  - url: "https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&display=swap"
+
+chulapa-skin:
+  skin: journal
+  vars:
+    font-family-base: "Rubik, sans-serif"
+    headings-font-family: "Raleway, sans-serif"
 ```
 
-For another font provider, use either of these methods:
+Merge these entries with your existing settings rather than creating a second
+`chulapa-skin` section. After publishing, your text should use Rubik and your
+headings Raleway.
 
-1. Create or edit `_includes/custom/custom_head.html` to add the provider's
-   stylesheet or other HTML inside `<head>`.
-2. Create or edit `assets/css/custom.scss` to import fonts and add CSS rules.
-   Include the empty YAML front matter required for Jekyll to compile SCSS.
-
-**Loading a font does not apply it.** Set `font-family-base` or
-`headings-font-family` under `chulapa-skin.vars` to use it. See
-[Variables](#variables).
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+For another provider, add its font stylesheet to
+`_includes/custom/custom_head.html` following the provider's instructions.
+Then set `font-family-base` and/or `headings-font-family` as in the example
+above: loading a font alone does not apply it. See
+[custom HTML and styles](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+for other ways to add fonts.
 
 ## Code highlighting
 
-Jekyll uses Rouge to highlight code. <span class="chulapa">Chulapa</span> provides Pygments-compatible CSS styles; choose one from the [live demo](https://dieghernan.github.io/chulapa/docs/syntax-highlighting). The default style is `default`.
+Choose how code blocks look from the
+[style previews](https://dieghernan.github.io/chulapa/docs/syntax-highlighting).
+In `_config.yml`, change or add `highlight` under your existing `chulapa-skin`
+section, keeping your other settings:
 
 ```yaml
 chulapa-skin:
-  highlight   : "ZENBURN" #or any other name, default is 'DEFAULT' style
+  highlight: zenburn
 ```
 
-## Skins
-
-This theme includes 40+ skins from [Tophat Themes](https://themesguide.github.io/top-hat/dist/), [Bootswatch](https://bootswatch.com/) and others. Take a look at the [skin previews]({{'./skins' | absolute_url }}). To select one for your site:
-
-```yaml
-chulapa-skin:
-  skin   : #name of the skin
-```
-
-Use the exact skin filename without `.scss`; skin names are case-sensitive
-on case-sensitive file systems. Use `vars` to override individual settings.
-An unknown skin name causes the Sass import to fail.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+The default style is `default`. Save, publish and check a page containing a
+code block to see the change.
 
 ## Autothemer
+
+**Optional, for more control over colors.** You can keep the skin unchanged
+if you do not need a generated palette.
 
 Autothemer derives a color palette from `primary`, including colors for
 warnings and errors. Explicit colors from the skin or `chulapa-skin.vars`
@@ -84,6 +120,9 @@ chulapa-skin:
 
 ## Variables
 
+**Advanced reference.** Sass is the styling language used by the theme. You
+can set its supported variables through YAML without editing the theme itself.
+
 <span class="chulapa">Chulapa</span> exposes Bootstrap and theme Sass variables
 through `chulapa-skin.vars` in `_config.yml`. These variables control many
 visual properties; use custom CSS for rules that have no corresponding
@@ -100,7 +139,7 @@ In SCSS:
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 $body-bg: #000;
-$body-color: #111;
+$body-color: #eee;
 $font-family-base: Montserrat;
 
 ```
@@ -114,20 +153,21 @@ googlefonts:
 chulapa-skin:
   vars        :
     body-bg: "#000"
-    body-color: "#111"
+    body-color: "#eee"
     font-family-base: "Montserrat"
 ```
 
-The loading order is skin, `chulapa-skin.vars`, autothemer, Bootstrap and
-<span class="chulapa">Chulapa</span> component styles. Use `vars` to override a skin's font, primary color
-or other variables; autothemer fills in values that are still undefined.
+Values in `vars` override the skin's variables. Autothemer fills in values
+that neither the skin nor `vars` sets.
 
 **Quote Sass values in YAML**, especially hex colors such as `"#007bff"`
 and font lists such as `"Lato, serif"`. Values are inserted as Sass expressions.
 Keep boolean switches such as `autothemer: true` as YAML booleans.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-On top of the default [Bootstrap variables](https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss) (500+!) this theme has specific variables that make the customization of specific components easier. See the `vars` dictionary [here]({{ "./docs/variable-dictionary" | absolute_url }}).
+For commonly used settings, see the [variable dictionary](./variable-dictionary).
+Experienced users can also consult the full
+[Bootstrap variable list](https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss).
 
 The critical variable for `autothemer` is `primary`, so you can create a full
 theme just playing with those two options. By default, `primary` is set to
@@ -214,13 +254,6 @@ translating assignments, quote hex colors and leave a space after `:`.
 Autothemer is already installed in the **ply**. To activate it,
 uncomment the lines between `/* Start autothemer */` and `/* End autothemer */`
 on the **CSS** window.
-
-## Themestr.app
-
-Themestr.app was a tool for generating Bootstrap themes. Its original site
-is not required for this workflow. Use the
-[Codeply sandbox](https://www.codeply.com/p/qhEml875ge) to preview SCSS changes
-and translate them into `_config.yml` variables as described above.
 
 **Keep the theme's Bootstrap import and grid enabled.** Do not add another
 `@import "bootstrap";` to your skin. Setting `$enable-grid-classes: false`

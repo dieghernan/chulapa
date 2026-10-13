@@ -106,6 +106,37 @@ Preview locally with bundle exec jekyll serve. An unknown include_cached tag
 usually means jekyll-include-cache is missing or not enabled; install it and
 add it to plugins, then restart the build.
 
+## Basic editing and publishing
+Sources: https://dieghernan.github.io/chulapa/docs/00-start
+https://dieghernan.github.io/chulapa/docs/04-layouts
+https://dieghernan.github.io/chulapa/docs/05-faq
+On GitHub, open a file in the Code tab, use the pencil button and save with
+Commit changes on the publishing branch. Check Actions for publishing progress
+and Settings > Pages for the website address. For a new post, use Add file >
+Create new file and name it _posts/YYYY-MM-DD-title.md with a real non-future
+date. Start with this complete example:
+```markdown
+---
+layout: default
+header_type: post
+title: "My first post"
+---
+My story begins here.
+```
+The personal-blog starter lists posts on its home page. Other setups need an
+index or link. A standalone page can use _pages/contact.md in the starter,
+or contact.md at the root of a site without its _pages setup; set layout:
+default, header_type: base, title: Contact and permalink: /contact/ between
+--- lines, then add /contact/ to navbar.nav. The link does not create the page.
+Upload photographs through Add file > Upload files into assets/img/ and save,
+then insert a repository-safe Markdown image in the content:
+```liquid
+![Describe the photograph]({{ '/assets/img/river.jpg' | relative_url }})
+```
+Replace the filename and alternative text. Match filename case. If changes
+are missing, check the saved branch, Actions errors, the published website
+address and post dates before suggesting configuration changes.
+
 ## Global settings
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Configure site settings in _config.yml and restart Jekyll after changing them.
@@ -175,8 +206,8 @@ Put only SCSS variable assignments in that file, for example
 $primary: #285d70 !default;. The YAML chulapa-skin.skin: myskin belongs in
 _config.yml, never in _sass/skins/myskin.scss.
 The Codeply sandbox previews SCSS; translate assignments into vars without $ or
-semicolons, quote hex colors and keep the Bootstrap grid enabled. Themestr.app
-is not required. The docs link the sandbox from the theming page.
+semicolons, quote hex colors and keep the Bootstrap grid enabled.
+The docs link the sandbox from the theming page.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
@@ -440,11 +471,9 @@ Insert Font Awesome icons as HTML within Markdown, for example:
 
 ## FAQ: Previewing skins and diagnosing YAML
 Source: https://dieghernan.github.io/chulapa/docs/05-faq
-For a temporary skin preview in Chrome, inspect the page, edit the head element
-as HTML and append a stylesheet link to
-https://dieghernan.github.io/chulapa/assets/css/skins/[NAME OF SKIN].css
-using an available skin filename. This preview disappears on reload and does not
-change configuration. Set chulapa-skin.skin and rebuild for a permanent change.
+Compare designs in the skin previews at https://dieghernan.github.io/chulapa/skins.
+To try a skin on your own site, set chulapa-skin.skin in _config.yml and publish.
+Changing a preview on the documentation site does not change your own site.
 To find _config.yml syntax errors, use a YAML syntax checker such as YAML Lint
 or inspect the error from bundle exec jekyll build. Valid YAML does not guarantee
 valid theme option names, provider IDs or existing skins; check global settings
@@ -466,16 +495,11 @@ defaults:
 ```
 jekyll-feed's default /feed.xml can coexist with Chulapa's /atom.xml and /rss.xml.
 Setting feed.path to /atom.xml without removing Chulapa's Atom page creates an
-output-path collision. For a local or custom build, a post_read site hook can
-remove the page whose relative_path, after stripping its leading slash, is
-assets/atom.xml. The FAQ provides the full Ruby hook. Keep jekyll-feed in the
-Gemfile and plugins list and set feed.path: /atom.xml to produce the replacement.
-This keeps Chulapa's RSS feed; include_on_feed still controls RSS inclusion.
-Custom plugins do not run in GitHub Pages' default safe build; use your own build
-workflow. Excluding the theme feed files alone does not remove feeds supplied by
-a gem or remote theme. The theme head advertises Atom and RSS. If RSS is removed,
-override _includes/head.html to update its alternate link and update navbar or
-footer links; adding a custom_head.html link does not remove the existing link.
+output-path collision. For most sites, keep the built-in feeds and link to
+/atom.xml or /rss.xml. If using jekyll-feed, keep its separate /feed.xml URL and
+follow the plugin's setup guide. The FAQ no longer provides a Ruby recipe for
+replacing the theme feeds; do not describe that recipe as a documented quick
+setup or invent a YAML switch to disable them.
 
 ## Custom code and version checks
 Source: https://dieghernan.github.io/chulapa/docs/05-faq
@@ -672,7 +696,8 @@ instructions with aria-describedby and uses a paragraph for configuration
 warnings. These changes add no YAML settings and do not certify a site as WCAG
 compliant; custom content and integrations still need their own checks.
 In v2.1.1-dev, carousels with more than one slide and a positive interval have a
-pause/start button when Bootstrap is available. interval=0 disables cycling and
+play/pause icon button when Bootstrap is available. Its accessible name describes
+the action; a plain symbol remains if Font Awesome is unavailable. interval=0 disables cycling and
 hides that button. Reduced motion starts paused; keyboard or pointer interaction
 with slides/navigation stops cycling until explicit start. Hover temporarily
 pauses on hover-capable devices. Enabling reduced motion stops a running
@@ -770,3 +795,21 @@ theme. Recent messages and drafts are stored in sessionStorage for the current
 tab's browser session and can be restored on reload. Clear chat resets them.
 Only the current question is sent in each request; displayed history is not
 conversation context. Visitors must include necessary details in each question.
+
+## Complete option and snippet reference
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#xx-other-settings
+https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets
+The configuration guide covers Jekyll include/exclude, collections_dir,
+permalink, defaults, pagination, excerpt_separator, kramdown, Sass and
+compress_html settings. These are existing Jekyll/plugin settings, not new
+Chulapa YAML options. Normal users should keep the starter's values.
+The layouts guide lists every content snippet and its include parameters.
+Gallery sources are internal (image_col group) or external (comma-separated
+addresses); internal takes precedence if both are supplied. video.html uses
+fileurl before provider/id; a provider is required for hosted videos. The
+direct youtube.html snippet is always deferred and has no nolazy parameter;
+use video.html provider="youtube" nolazy=true for immediate loading.
+bootstrapdemo.html has no parameters and is the skin-preview component sampler.
+Metadata helpers have a separate inventory for custom-layout authors; ordinary
+posts do not need to call them. Use unquoted include booleans, including
+photoswipe=true; strings such as "false" can enable other snippet features.

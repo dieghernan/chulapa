@@ -5,96 +5,72 @@ excerpt: Install <span class="chulapa">Chulapa</span> on your GitHub repo
 show_toc: true
 ---
 
-<span class="chulapa">Chulapa</span> is a Jekyll theme for GitHub Pages and other
-Jekyll sites. There are
-three ways to use <span class="chulapa">Chulapa</span>:
-
-For a small site with editable sample content, choose a [blog, technical blog,
-portfolio or project example](./00-start). For a ready-made repository with a
-publishing workflow, use the GitHub template below.
+For a new site, use the <span class="chulapa">Chulapa</span> template to publish
+from your browser. Use the other methods to add the theme to an existing Jekyll site.
 
 ## 1. Use our GitHub template
 
-**Recommended if you are starting from scratch.**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+**Recommended for your first website.**
 
-Sign in to GitHub and
-[create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
-to get an editable personal blog with three sample posts, About, year, category
-and tag archives, Fuse.js search, RSS and a paginated home page. It uses the
-predefined Gitdev skin and includes publishing workflows.
+[Follow the start guide](./00-start#start-with-the-github-template) to create
+and publish a blog in your browser, edit a post and add a photograph.
+You only need a GitHub account. The template includes sample articles,
+an About page, search and a ready-made design.
 
-Choose **GitHub Actions** in your repository's **Settings > Pages**. Edit
-`_config.yml` with your title, description, author, `repository`
-(`username/repository`) and `url` (`https://username.github.io`). Commit your
-changes to `main` or `master`; the Pages workflow supplies the deployment base
-path and publishes the site. No local installation or personal access token is
-required.
-
-[Preview chulapa-101](https://dieghernan.github.io/chulapa-101/) and follow
-[the start guide](./00-start#start-with-the-github-template) for the content
-structure and editing steps. Replace the sample text, image and contact address
-as you make the blog your own.
+[Preview the template](https://dieghernan.github.io/chulapa-101/)
+before you begin.
 
 ## 2. Remote theme method
 
 **Recommended if you are migrating an existing site.**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-You can use the `jekyll-remote-theme` method. Just follow these steps:
+This method downloads the theme when your site is built. It assumes you already
+have a Jekyll site with a `_config.yml` and `Gemfile` (the file listing its Ruby
+dependencies). Back up your site before switching themes.
 
 1. Create a new GitHub repository or open an existing one.
 2. Add this line to your `_config.yml`:
 
     ```yaml
     remote_theme: dieghernan/chulapa
-    ... more config options
     ```
 
 3. Remove any other `remote_theme` entry and the `theme` entry from
    `_config.yml`. Add `jekyll-remote-theme` and `jekyll-include-cache` to your
    `Gemfile` and the `plugins` list in `_config.yml`, then run `bundle install`.
-   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its
-   `include_cached` tags. For local or custom builds, also install the runtime
-   dependencies declared in the theme's
-   [gemspec](https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec).
-   A remote theme does not install these dependencies for you.
+   For a complete example, use the
+   [personal-blog Gemfile](https://github.com/dieghernan/chulapa/blob/main/examples/personal-blog/Gemfile)
+   as a reference and merge its dependencies with your existing file.
+   Keep any plugins your site already uses; the remote theme does not install
+   dependencies for you.
 
-An unpinned remote theme follows the repository default branch. To select a
-release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.1.0`.
-Development features may be available on the default branch before they are
-published in the gem.
+**Choose your version.** Without a version tag, the remote theme receives
+development updates. Use `remote_theme: dieghernan/chulapa@v2.1.0` to keep
+that release. Features marked v2.1.1-dev are not included in v2.1.0.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-<div class="alert alert-warning p-3 mx-2" markdown="1">
-**Don't forget to deploy your site:**
+**Publish your site:**
 
-- On your GitHub repo, go to *Settings > Pages*.
-- Select *Source > GitHub Actions* and set the corresponding action. See an
-  example in <https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml>
-</div>
+- In your GitHub repository, open **Settings > Pages** and choose
+  **GitHub Actions** as the source.
+- Add a publishing workflow under `.github/workflows/`. Use the
+  [template workflow](https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml)
+  as a starting point and check that its build settings match your site.
+- Save your changes, check the publishing run in **Actions**, then open the
+  website address shown in **Settings > Pages**.
 
-During the build, `jekyll-remote-theme` downloads the selected theme and makes
-its files available to Jekyll, including these directories:
+You do not need to copy the theme's files into your site.
 
-- `assets`
-- `_layouts`
-- `_includes`
-- `_sass`
-
-Local files at the same paths override the corresponding theme files. You must
-merge updates to those files manually; other theme files continue to use the
-selected remote version.
+**Check your custom files when updating.** Local layouts, includes and assets
+with the same paths as theme files take precedence. Theme updates will not
+replace those copies, so review them to receive the corresponding improvements.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 Continue with [global settings](./02-config) to configure your site.
 
 ## 3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i>
 
-With gem-based themes, directories such as `assets`, `_layouts`, `_includes`
-and `_sass` are stored in the theme's gem rather than your site directory.
-This makes installation and updates easier because you do not have to manage
-the theme files directly.
-
-To install as a gem-based theme:
+To install the theme in your existing Jekyll site:
 
 1. Add the following to your `Gemfile`:
 
@@ -122,8 +98,7 @@ dependencies, run `bundle update chulapa-jekyll`.
 To preview your site locally, run `bundle exec jekyll serve` from your site
 directory. Restart Jekyll after editing `_config.yml` to reload its settings.
 
-
-Local layouts, includes and assets continue to override the theme after an
-update. Review those files together when adopting v2.1.1-dev, especially copied
-search pages and navbar scripts. See [JavaScript assets and local overrides](./04-layouts#javascript-assets-and-local-overrides)
-for the shared search helper and navigation dependencies.
+**Check your custom files when updating.** Your local layouts, includes and
+assets still take precedence after a theme update. Review any copied files; see
+[local overrides](./04-layouts#javascript-assets-and-local-overrides) for upgrade guidance.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}

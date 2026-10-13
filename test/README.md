@@ -243,6 +243,12 @@ fixture source. Running from the repository root can select the wrong layouts.
 The compatibility bundle deliberately excludes the local theme dependency so
 the installation check can select the temporary installed gem.
 
+The navigation browser checks compare native dropdown typography, capitalization,
+text shadows and borders with equivalent navbar links on nine skins, including
+Gitdev, Lux, Universal, Sketchy and Slate, in classic, floating and dual menus
+at 320, 390 and 1280 px. Direct custom `.nav-link` rules, including selectors
+without a navbar prefix, must override the default button inheritance.
+
 The navigation browser checks also cover synchronized active sections in the
 in-page, sidebar and kramdown TOCs on seven skins at 320, 390 and 1280 px. They
 verify scrolling in both directions, the short final section, the active
@@ -261,6 +267,10 @@ in all three TOCs, including sidebar links with skin-specific decoration rules.
 TOC tracking also follows visibility/style changes and Bootstrap tab classes in
 equal-height panes without relying on scroll or resize. Unit tests verify that
 TOC styling and unrelated mutations do not cause observer feedback loops.
+
+Carousel browser checks also cover Font Awesome play/pause icons, clicks on the
+icon itself, accessible action names and visible fallback symbols when icon CSS
+or fonts fail. Font Awesome assets are served from the pinned test dependency.
 
 PhotoSwipe regression coverage uses `check_photoswipe.rb` on Jekyll 3 and 4 for
 opt-in include caching, supported layouts, original image links and subdirectory

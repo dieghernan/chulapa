@@ -1,58 +1,133 @@
 ---
 title: Start a site with <span class="chulapa">Chulapa</span>
-subtitle: Choose an example and make it your own
-excerpt: Create a personal blog from the Chulapa 101 template or explore four small site examples.
+subtitle: Publish your first site, then make it your own
+excerpt: Create a blog, edit your first post and add a photograph using GitHub in your browser.
 show_toc: true
 ---
 
 ## Start with the GitHub template
 
-For your first site, use [<span class="chulapa">Chulapa</span> 101](https://github.com/dieghernan/chulapa-101).
-It is an editable personal blog with publishing workflows already included.
-[Explore the live starter](https://dieghernan.github.io/chulapa-101/) before
-creating your repository.
+You only need a free [GitHub account](https://github.com/signup) and your browser.
+The [<span class="chulapa">Chulapa</span> 101 template](https://github.com/dieghernan/chulapa-101)
+includes a blog, sample articles, an About page and search.
+[Preview it](https://dieghernan.github.io/chulapa-101/), then follow these steps.
 
-The template includes three sample posts, a local photograph with alternative
-text and credit, About, archives by year, category and tag, Fuse.js search and
-RSS. Its home page lists recent posts with pagination. It uses the predefined
-`gitdev` skin without color or CSS overrides.
+### 1. Create your site
 
-1. [Create your repository from the template](https://github.com/dieghernan/chulapa-101/generate).
-2. In **Settings > Pages**, choose **GitHub Actions** as the source.
-3. Edit `_config.yml`: set your title, description, author, `repository`
-   (`username/repository`) and `url` (`https://username.github.io`). Commit
-   your changes to `main` or `master` to trigger deployment.
+1. Sign in to GitHub and [open the template](https://github.com/dieghernan/chulapa-101/generate).
+2. Choose a **Repository name**, for example `my-blog`, and create a public
+   repository. A repository is the folder containing your site's files on GitHub.
+3. In your new repository, open **Settings > Pages**. Under **Build and
+   deployment**, choose **GitHub Actions** as the source.
 
-The workflow sets the deployment base path. You do not need a personal access
-token or a local Ruby installation. Check **Actions** for build progress and
-**Settings > Pages** for your website address.
+### 2. Change the name and author
 
-Edit `index.html` for the home page, `_pages/about.md` for About and `_posts/`
-for your stories. Images go in `assets/img/`. Navigation, author details,
-footer links and the skin are configured in `_config.yml`. Keep the home page
-named `index.html`: Jekyll's pagination plugin requires it. The default is five
-posts per page. The template is one ordinary site; it has no profile selector.
+In **Code**, open `_config.yml` and click the pencil button. Replace these
+existing values with your own details; do not add duplicate entries.
+For GitHub user `ana` and repository `my-blog`:
 
-Its `_config.yml` follows the theme's full configuration with commented options,
-including unused settings. Start with site details in section A; the rest of
-the blog is configured already. The template's collections and defaults are
-adapted to a personal blog rather than the theme's documentation site.
-Optional hooks are provided in `_includes/custom/` for head tags, scripts and
-Giscus, alongside `assets/css/custom.scss` for CSS or SCSS. They contain comments
-only; the predefined skin is unchanged until you add your own styles.
-The template README also maps additional extension points for favicons, your
-JavaScript, custom skins, page front matter and local layout or include overrides.
+```yaml
+title: "Ana's blog"
+description: "Stories and photographs from my travels"
+repository: ana/my-blog
+url: "https://ana.github.io"
+```
 
-See [the template README](https://github.com/dieghernan/chulapa-101#add-your-content)
-for editing, image credits and optional local preview.
+Use your own username and repository name. Find the existing `author` section
+and change `name` to your name. Keep the indentation of the other entries:
+
+```yaml
+author:
+  name: "Ana"
+```
+
+Click **Commit changes** to save to the default branch (`main` or `master`).
+This starts publishing automatically. Leave the other settings, including
+`baseurl`, unchanged for now; the template sets the website path for you.
+
+### 3. Open your published website
+
+In **Actions**, wait for the latest publishing run to succeed. Open the website
+address in **Settings > Pages**: your blog should show its new name.
+If publishing fails, open the failed run and check its error; see
+[troubleshooting](./05-faq#why-can-i-not-see-my-changes).
+
+### 4. Write your first post
+
+In **Code**, open a sample article in `_posts/` and click the pencil button.
+Change `title` in the settings between the `---` lines, keeping the other
+settings. Replace the text below that block with your story:
+
+```markdown
+This is my first story.
+
+## A place I visited
+
+I enjoyed **walking by the river**.
+
+[Read more about the place](https://example.org/)
+```
+
+Save with **Commit changes**. After publishing finishes, refresh your website
+and open the edited article. For a new article rather than an edited sample,
+see [Create a post](./04-layouts#create-a-post).
+
+Also edit `_pages/about.md` to introduce yourself and replace the sample
+contact details. Keep the home page filename `index.html`.
+
+### 5. Add a photograph
+
+1. In your repository, open `assets/img/`, choose **Add file > Upload files**,
+   and upload a photograph named, for example, `river.jpg`. Save the upload.
+2. Edit your post and add the following where you want the image to appear.
+   Change the description to describe your photograph:
+
+{% raw %}
+```liquid
+![A riverside path beneath green trees]({{ '/assets/img/river.jpg' | relative_url }})
+```
+{% endraw %}
+
+3. Save the post, wait for publishing and check that the photograph appears.
+
+Keep the `relative_url` part so the image address works on your site. Describe
+the photograph for readers who cannot see it, and add a credit if required.
+
+### 6. Choose a design
+
+You can keep the current design or choose one from the [skin previews](../skins).
+A skin is a ready-made combination of colors and fonts.
+In `_config.yml`, find `chulapa-skin` and change its existing `skin` value:
+
+```yaml
+chulapa-skin:
+  skin: journal
+```
+
+Keep any other entries in that section. Save, wait for publishing and refresh
+your website to see the new design. See [personalization](./03-theming) for
+more choices.
+
+## What to do next
+
+Your site is now ready for your own content. Replace the remaining sample
+articles, images and contact links before sharing it.
+
+- [Global settings](./02-config): change site details, menu and footer links.
+- [Layouts and snippets](./04-layouts): add posts, pages, galleries and videos.
+- [Theming](./03-theming): choose colors and fonts.
+- [Frequently asked questions](./05-faq): solve common editing and publishing problems.
+
+For optional local preview and further customization of this template, see
+[its README](https://github.com/dieghernan/chulapa-101#add-your-content).
 
 ## Explore minimal examples
 
-Choose the example closest to your site. Each folder contains a Gemfile,
-`_config.yml`, a home page and sample content. They use existing Chulapa options;
-you can add search, comments and other features later.
+**Optional, if you already use Jekyll.** These examples include configuration
+and sample content, but no publishing workflow. For a first site, use the
+template above.
 
-## Choose a starting point
+### Choose a starting point
 
 | Site | What you get | Preview | Files |
 | --- | --- | --- | --- |
@@ -61,12 +136,10 @@ you can add search, comments and other features later.
 | Portfolio | A projects collection, card index and two project pages | [Portfolio demo](../demo/starter-portfolio) | [Copy the files](https://github.com/dieghernan/chulapa/tree/main/examples/portfolio) |
 | Project | A landing page with source and getting-started buttons | [Project demo](../demo/starter-project) | [Copy the files](https://github.com/dieghernan/chulapa/tree/main/examples/project) |
 
-These examples follow the theme's default branch. Mermaid is available in the
-development version after v2.1.0 and is not in the v2.1.0 gem or pinned release.
-For reproducible theme updates, append an existing release tag to `remote_theme`.
-See [installation](./01-install) for release and gem options.
+These examples use the development version. Mermaid is not included in v2.1.0.
+See [installation](./01-install) to choose a fixed release.
 
-## Make it your own
+### Make it your own
 
 1. Copy the **contents** of one example folder into your own site repository.
    Keep `_posts` or `_projects` at the site root, alongside `_config.yml`.
@@ -74,14 +147,9 @@ See [installation](./01-install) for release and gem options.
    and `baseurl` to `/repository` for a project site or `""` for a root site.
 3. Replace the sample content and placeholder links. A blog post goes in
    `_posts/YYYY-MM-DD-title.md`; a portfolio project goes in `_projects/`.
-4. Choose a [skin](./03-theming) or keep the example's preset. The presets are
-   `journal`, `gitdev`, `lux` and `flatly`, respectively.
+4. Keep the example's design or [choose another skin](./03-theming).
 
-You do not need to copy theme layouts, includes or assets. The remote theme
-supplies them during the build. The Gemfile includes the dependencies needed
-for a local build.
-
-## Preview locally
+### Preview locally
 
 Install Ruby and Bundler, then run these commands from your copied site:
 
@@ -90,21 +158,12 @@ bundle install
 bundle exec jekyll serve --url http://localhost:4000 --baseurl ""
 ```
 
-Open <http://localhost:4000>. The local URL options leave your publication
-settings unchanged. Restart the server after changing `_config.yml`.
-Remote-theme downloads require network access.
+Open <http://localhost:4000>. You need an internet connection for the theme
+download. Restart the server after editing `_config.yml`.
 
-## Publish and extend
+### Publish and extend
 
-For a new site with a publishing workflow already included, start with the
-[chulapa-101 template](https://github.com/dieghernan/chulapa-101). Use the small
-examples above to explore layouts or copy their content into your site.
-
-Follow the [GitHub Actions deployment instructions](./01-install#2-remote-theme-method).
-Copying an example alone does not configure hosting. These folders do not
-include a deployment workflow.
-
-Once your content is in place, add [search and comments](./02-config), explore
-[layouts and snippets](./04-layouts) or see [sites using Chulapa](../showcase).
-The portfolio example uses a collection index; it does not include filtering.
-The project example is a landing page; it does not add a documentation sidebar.
+To publish a minimal example, follow the
+[GitHub Actions instructions](./01-install#2-remote-theme-method); copying its
+files does not publish it. Filtering and documentation sidebars require extra
+customization. For inspiration, see [sites using <span class="chulapa">Chulapa</span>](../showcase).

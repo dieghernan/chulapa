@@ -11,28 +11,51 @@ redirect_from:
 These answers and examples cover common tasks when using
 <span class="chulapa">Chulapa</span>.
 
+## Editing and publishing
+
+### How do I change my site's name or author?
+
+Open `_config.yml` in your GitHub repository and click the pencil button.
+Change the existing `title` and `author.name`, then save with **Commit changes**.
+Wait for publishing in **Actions** and refresh your website.
+See [site settings](./02-config#start-with-your-site-details) for an example.
+
+### How do I add a new article or page?
+
+For an article, create `_posts/YYYY-MM-DD-title.md` with a real date and the
+settings block at the top. For a standalone page, use `_pages/` in the starter
+and add its address to your menu. Follow the complete examples in
+[Create a post](./04-layouts#create-a-post) and [Create a page](./04-layouts#create-a-page).
+
+### Why can I not see my changes?
+
+1. Check that you saved the file with **Commit changes** to your site's
+   publishing branch (`main` or `master` in the starter).
+2. Open **Actions** and wait for the publishing run to finish. If it failed,
+   open the run and check its error before changing other settings.
+3. Open the website address shown in **Settings > Pages**, then refresh it.
+4. If only a new post is missing, check its `YYYY-MM-DD-title.md` filename and
+   date. A future-dated post is not published by the normal Jekyll build.
+
+For local preview, restart Jekyll after changing `_config.yml`.
+
+### Why is my photograph missing?
+
+Check that the file was uploaded and saved, and that its filename matches the
+link exactly, including uppercase and lowercase letters. Use the image example
+in [Add an image](./04-layouts#add-an-image), which handles repository paths.
+After publishing, check the article again rather than the GitHub file preview.
+
+### How do I change the colors or design?
+
+Choose a skin from the previews, then change the existing `chulapa-skin.skin`
+entry in `_config.yml`. See [Skins](./03-theming#skins). Changing a preview in
+your browser does not save the design to your own website.
+
 ## How do I...
 
-### ...know which version of the theme I am using?
-
-For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
-`@v2.1.0` pins a release; an unpinned value uses the repository default branch
-and does not identify a fixed version. For a gem-based theme, check the
-`chulapa-jekyll` version in `Gemfile.lock`.
-
-For pages using the theme's head include, view the HTML source and look for
-this comment near the beginning:
-
-```html
-
-<!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
-
-```
-
-**The HTML comment is a theme version marker.** It does not identify the exact
-commit of an unpinned remote theme or any local overrides. Use a pinned tag or
-`Gemfile.lock` to identify the selected release.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+The answers below cover formatting, optional integrations and advanced
+customization. Skip to the task you need.
 
 ### ...start with Markdown?
 
@@ -43,8 +66,8 @@ See the [Markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) and
 configuration uses kramdown with its GFM parser; accepted syntax depends on
 your Markdown configuration.
 
-Create a file with a `.md` extension and YAML front matter so Jekyll processes
-it. Set a layout in its front matter or through `_config.yml` defaults.
+For a complete file with its settings block and text, see
+[Create a post](./04-layouts#create-a-post).
 
 ### ...add custom HTML, analytics, CSS or JavaScript to every page?
 
@@ -107,9 +130,7 @@ automatically. For a GitHub Pages project site under a path such as
 
 ### ...add an alert box?
 
-**Short answer: [Bootstrap](https://getbootstrap.com/docs/4.5/components/alerts/) + [kramdown](https://kramdown.gettalong.org/quickref.html#block-attributes)**. This theme uses [kramdown](https://kramdown.gettalong.org/quickref.html) to parse your Markdown files, meaning that you would get all the benefits of Markdown plus some additional interesting options.
-
-Coming back to the question, you can use this approach:
+Copy this into your article to display an information box:
 
 ```
 A simple info alert **check it out!**
@@ -119,17 +140,9 @@ A simple info alert **check it out!**
 A simple info alert **check it out!**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-You can use `html` but it will take a little more code:
-
-```
-<p class="alert alert-info p-3 mx-2 mb-3">
-A simple info alert with html <strong>check it out!</strong>
-</p>
-```
-
-<p class="alert alert-info p-3 mx-2 mb-3">
-A simple info alert with html <strong>check it out!</strong>
-</p>
+Use `alert-warning` instead of `alert-info` for a warning. Keep boxes short
+and reserve warnings for something the reader needs to avoid or fix.
+See [more alert styles](https://getbootstrap.com/docs/4.5/components/alerts/).
 
 ### ...add a caption?
 
@@ -173,7 +186,7 @@ chulapa-skin:
 ```
 
 This enables the font for headings. Without discretionary ligatures, the
-text appears as <span class="lead font-weight-bold" style="font-family: chulapa,sans-serif">Chulapa</span>.
+text appears as <span class="chulapa lead font-weight-bold" style="font-feature-settings: 'liga', 'dlig' 0;">Chulapa</span>.
 
 To enable its distinctive ligatures, add these rules to
 `assets/css/custom.scss`:
@@ -218,28 +231,40 @@ Madrid de los Austrias, the oldest part of Madrid.
 
 ### ...have a quick preview of a page of my site with any skin?
 
-1. On Google Chrome, go to your desired page.
-2. Right-click and select *Inspect*.
-3. On the Panel, go to the *Elements* window and locate the `<head>` tag.
-4. Click on *Edit as HTML*, and just before `</head>`, paste this:
-
-```html
-  <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/skins/[NAME OF SKIN].css">
-```
-
-Replace `[NAME OF SKIN]` with an available preview stylesheet name. This is a
-temporary browser preview and is lost on reload; it does not update your site
-configuration. To apply a skin permanently, set `chulapa-skin.skin` and rebuild.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Open the [skin previews](../skins) to compare designs. To try one on your own
+site, change `chulapa-skin.skin` in `_config.yml`, save and publish. Follow
+[Choose a design](./00-start#6-choose-a-design).
+Changing a preview on this documentation site does not change your own site.
 
 ### ...find an error in my `_config.yml` file?
 
-Use [YAML Lint](http://www.yamllint.com/) to check YAML syntax, or inspect the
-error reported by `bundle exec jekyll build`.
+Open the failed publishing run in **Actions** and read its error. Check your
+last edit for indentation, missing quotes or duplicate sections. A
+[YAML checker](https://www.yamllint.com/) can help find formatting mistakes.
+For local preview, run `bundle exec jekyll build` to see the error.
 
-**Valid YAML does not guarantee valid theme settings.** A syntax checker cannot
-verify option names, provider IDs or whether a selected skin exists. Compare
-those settings with [Global settings](./02-config) and the build output.
+A formatting check cannot verify skin names or provider IDs. Compare those
+values with [Global settings](./02-config) before trying again.
+
+### ...know which version of the theme I am using?
+
+For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
+`@v2.1.0` pins a release; an unpinned value uses the repository default branch
+and does not identify a fixed version. For a gem-based theme, check the
+`chulapa-jekyll` version in `Gemfile.lock`.
+
+For pages using the theme's head include, view the HTML source and look for
+this comment near the beginning:
+
+```html
+
+<!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
+
+```
+
+**The HTML comment is a theme version marker.** It does not identify the exact
+commit of an unpinned remote theme or any local overrides. Use a pinned tag or
+`Gemfile.lock` to identify the selected release.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### ...use jekyll-feed instead of <span class="chulapa">Chulapa</span>'s feeds?
@@ -260,36 +285,9 @@ defaults:
 If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with <span class="chulapa">Chulapa</span>'s
 feeds. Changing its path to `/atom.xml` without removing <span class="chulapa">Chulapa</span>'s Atom feed
 creates two pages with the same output path.
-
-For sites built locally or with a custom build workflow, you can replace
-<span class="chulapa">Chulapa</span>'s Atom feed while keeping its RSS feed. Create
-`_plugins/disable_chulapa_atom_feed.rb` in your site with this content:
-
-```ruby
-Jekyll::Hooks.register :site, :post_read do |site|
-  site.pages.reject! do |page|
-    page.relative_path.sub(%r{\A/}, "") == "assets/atom.xml"
-  end
-end
-```
-
-This hook removes <span class="chulapa">Chulapa</span>'s Atom page before plugins generate their output.
-Keep `jekyll-feed` in your Gemfile and plugins list, and configure it to
-generate the replacement at `/atom.xml` in `_config.yml`:
-
-```yaml
-feed:
-  path: /atom.xml
-```
-
-The theme's page head advertises both `/atom.xml` and `/rss.xml`. This recipe
-keeps both URLs available: `jekyll-feed` generates Atom and <span class="chulapa">Chulapa</span> generates
-RSS. Keep `include_on_feed: true` for posts that should appear in the RSS feed.
-If you remove RSS as well, override `_includes/head.html` in your site to
-remove or replace its RSS alternate link, and update RSS links in your navbar
-or footer. Adding a link in `custom_head.html` does not remove the original.
-
-Custom plugins are not loaded by GitHub Pages' default safe build; use your own
-build workflow for this approach. Adding the theme's feed files to `exclude`
-alone does not remove them when they are supplied by a gem or remote theme.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
+For most sites, keep the built-in feeds and link to `/atom.xml` or `/rss.xml`
+from your footer. If you need `jekyll-feed`, follow its
+[setup guide](https://github.com/jekyll/jekyll-feed#installation) and keep its
+separate `/feed.xml` address to avoid conflicting with the theme's feeds.

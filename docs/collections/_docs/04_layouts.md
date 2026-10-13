@@ -8,14 +8,86 @@ show_toc: true
 h_max: 4
 ---
 
-After configuring your site and choosing its appearance, create content using
-the layouts and reusable snippets described below.
+Use this page to write an article, add a standalone page or include media.
+Start with the examples below; the [layout reference](#a-layouts) lists more
+options when you need them. A **layout** is a page design. **Front matter** is
+the settings block between `---` lines at the top of a content file.
 
-This guide assumes familiarity with [Markdown](https://markdown-it.github.io/)
-and [Jekyll](https://jekyllrb.com/docs/). It focuses on the layouts and snippets
-included in <span class="chulapa">Chulapa</span>.
+## Create a post
 
-See the [demos](https://dieghernan.github.io/chulapa/demo) for rendered examples.
+In your repository's **Code** tab, choose **Add file > Create new file**.
+Name it `_posts/YYYY-MM-DD-my-first-post.md`, replacing `YYYY-MM-DD` with a
+real date, such as `2026-10-13`. The date must not be in the future if you want
+the post to appear immediately. Paste this complete example:
+
+```markdown
+---
+layout: default
+header_type: post
+title: "My first post"
+show_date: true
+---
+
+Welcome to my blog!
+
+## A place I visited
+
+This is where my story begins. I can write **bold text** or add
+[a link](https://example.org/).
+```
+
+The first block chooses the design and title; the text below is your article.
+Use `##` for sections inside the article: the layout already displays its
+main title. Keep the opening and closing `---` lines.
+Save with **Commit changes**, wait for publishing in **Actions**, then open
+your website. The personal-blog starter lists the new post on its home page.
+Other sites need a post index or a link to the article.
+
+You can also edit a sample post and preserve its existing settings.
+See the [Markdown cheatsheet](./markdown-cheatsheet) for lists, tables and code.
+
+## Create a page
+
+A page such as About does not need a date in its filename. In the starter,
+edit `_pages/about.md`, or create `_pages/contact.md` with this content:
+
+```markdown
+---
+layout: default
+header_type: base
+title: "Contact"
+permalink: /contact/
+---
+
+You can email me at [hello@example.org](mailto:hello@example.org).
+```
+
+Replace the sample address. `permalink` sets the page's website address.
+Save and add `/contact/` to [your menu](./02-config#navbar) so visitors can find it.
+For sites without the starter's `_pages` setup, place `contact.md` beside
+`_config.yml` instead.
+
+## Add an image
+
+Upload your file to `assets/img/`, then add this to the text of a post or page:
+
+{% raw %}
+```liquid
+![A riverside path beneath green trees]({{ '/assets/img/river.jpg' | relative_url }})
+```
+{% endraw %}
+
+Replace the filename and describe your own photograph. Keep the `relative_url`
+filter so the address also works for a site published under a repository path.
+For several images, see [Masonry gallery](#masonry-gallery) or
+[Bootstrap carousel](#bootstrap-carousel). For video, see [Video support](#video-support).
+
+## Choose a layout or an optional feature
+
+The `default` layout works for ordinary articles and pages. Use
+[Minimal](#minimal) for a simpler page or [Landing page](#landing-page) for a
+prominent introduction. The reference below covers page options, indexes,
+galleries and custom layouts; you do not need to configure them all.
 
 Features marked **v2.1.1-dev** are available on `main`, but are not included in
 v2.1.0. An unpinned remote theme follows `main`; a pinned release or installed
@@ -34,18 +106,13 @@ gem only provides the features included in that version.
 
 #### Default
 
-Use the `default` layout for posts, standalone pages and collection documents.
-Enable its optional components through page front matter or defaults. To use
-this layout:
+Use `default` for articles and ordinary pages. Add this to the settings block
+at the top of the file:
 
 ```yaml
-
-# On a specific page
-
 ---
 layout: default
 ---
-
 ```
 
 You can avoid typing this on each page by setting this layout as the default layout for all the pages via `_config.yml` and [front matter defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/):
@@ -65,6 +132,24 @@ defaults:
 
 Additional options you can set on the front matter or via defaults:
 
+Jekyll also accepts these settings in the same front matter block:
+
+| Setting | Use |
+| --- | --- |
+| `layout` | Choose a layout from this guide. |
+| `permalink` | Set a page's address, such as `/contact/`. |
+| `published` | Set `false` to omit a page or post from the normal build; this does not protect private files. |
+| `slug` | Set the slug used by a post's address pattern. |
+| `categories`, `tags` | Group articles and provide the labels used by badges and related cards. |
+| `excerpt_separator` | Override the site's post excerpt boundary. |
+| `sitemap` | Set `false` to exclude the page from `jekyll-sitemap`. |
+| `locale` | Override the site language for this page. |
+
+Component switches such as `show_date`, `show_author`, `show_toc`,
+`show_comments` and `show_breadcrumb` are off when unset, unless your site's
+`defaults` enables them. `show_header` is a separate opt-in for `minimal`;
+see [Optional header](#optional-header).
+
 - `title`, `subtitle`: Visible heading and subtitle for supported header types;
   also used when generating metadata.
 - `date`, `last_modified_at`: Date of the page and last modification date. See [here](https://jekyllrb.com/docs/variables/#page-variables) to learn the accepted format of dates.
@@ -79,28 +164,8 @@ Additional options you can set on the front matter or via defaults:
   `BlogPosting` JSON-LD. It overrides the article image without changing Open
   Graph, Twitter cards or the visible header. See [Article
   images](#article-images).
-- `robots`: Search crawler directives for the page, post or collection document.
-  The default is `index, follow`; missing, empty or whitespace-only values use
-  this default. For example, set this in a page's front matter:
-
-```yaml
----
-title: My page
-robots: "noindex, follow"
----
-```
-
-You can also set `robots` through front matter defaults in `_config.yml`:
-
-```yaml
-defaults:
-  - scope:
-      path: "private-pages"
-    values:
-      robots: "noindex, follow"
-```
-
-An explicit page value overrides these defaults. Crawlers must be able to access the page to read its robots metadata; blocking the page in `robots.txt` prevents them from reading `noindex`. This option controls only the HTML metadata and does not change HTTP status codes, `robots.txt` or sitemap entries. The theme does not automatically apply `noindex` to error pages, search pages, tags, archives or pagination. See [Google's robots metadata documentation](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
+- `robots`: Search engine instructions, such as `"noindex, follow"`. This does
+  not make a page private; see [Search crawler directives](#search-crawler-directives).
 
 - `header_type`: Choose `base`, `post`, `hero`, `image` or `splash`. Leave it
   unset or use an unrecognized value for no header.
@@ -111,7 +176,7 @@ An explicit page value overrides these defaults. Crawlers must be able to access
 accessible image URL and check the resulting preview. You can use a
 high-resolution image for `header_img` and a smaller sharing image for
 `og_image`.
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 - `project_links`: Add header navigation links styled as buttons, for example
   links to a project's source code or documentation. Each entry accepts `url`,
@@ -129,16 +194,14 @@ project_links:
       label: Open in Colab  # Label on button 2
 ---
 ```
-- `show_date`: This would display the date of the page and the last modified
-  date, if provided. In v2.1.1-dev, pages with `last_modified_at` retain both
-  `dt-published` and `dt-updated` in their Microformats2 markup.
+- `show_date`: Display the publication date and the last modified date,
+  if provided.
 - `show_sociallinks`: Display sharing links for Facebook, Twitter/X, WhatsApp
   and LinkedIn.
 - `show_author`: Set it to `true` to display the author of the page. By default it would display the `author` set on your [global settings](https://dieghernan.github.io/chulapa/docs/02-config), but you can override it via the page front matter:
 
-  In v2.1.1-dev, the author's `url` is also included in the Microformats2 `h-card`.
-  Relative profile paths use the site's `url` and `baseurl`. A page author does
-  not inherit the site author's profile URL.
+  For a guest author, set their own profile URL; it does not inherit the site
+  author's URL.
 
 ```yaml
 ---
@@ -180,7 +243,7 @@ keyboard focus or change the sidebar's Tab order, and needs no extra YAML settin
 including headers via markdown (`### Title`) you don't have to worry, as
 **kramdown** would do it for you. However if you are using `html` (`<h1
 id="aa">My heading</h1>`) don't forget to include the `id`.
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 - `h_min` and `h_max`: Minimum and maximum heading level to be included in the
   table of contents. **min: 2, max: 4**.
@@ -219,7 +282,7 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
   theme's Atom and RSS feeds, provided it has a date.
 
 **Note that** the page would be included on the feed if this option is set to `true` **and** there is a `date` set. Posts in Jekyll need a date already present in the name of the file, but pages and collections don't, so set a `date` value for those. You have two feeds available: Atom feed at `https://yoururl/atom.xml` (preferred) and RSS 2.0 at `https://yoururl/rss.xml`.
-{: .alert .alert-warning .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 To enable feeds for all posts or use `jekyll-feed` instead, see the
 [feed configuration FAQ](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
@@ -246,214 +309,7 @@ breadcrumb_list:
 See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
 
 Even if you don't want to show the breadcrumb, you can still specify the paths. The theme generates breadcrumb JSON-LD independently of `show_breadcrumb`. Without a list, non-home pages use a home/current-page breadcrumb. Structured data does not guarantee rich results. More information [here](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) and test tool [here](https://search.google.com/test/rich-results).
-{: .alert .alert-info .p-3 .mx-2}
-
-##### SEO metadata
-
-The theme uses the page URL for its canonical link, Open Graph URL, structured
-data and breadcrumbs. A terminal `/index.html` becomes `/`; other filenames,
-including `/myindex.html`, are preserved. Paginated pages retain their own URL.
-The Atom and RSS entry links use the same normalization. This changes metadata
-only; it does not create redirects.
-
-Set page `canonical_url` to identify the original version of duplicated or
-republished content. Use an absolute HTTP(S) URL or a site-relative path starting
-with `/`. Site-relative values use `url` and `baseurl`. Blank values, unsupported
-schemes and protocol-relative URLs fall back to the page's own URL. Fragments
-are removed. The page path still controls its home-page classification.
-
-```yaml
-canonical_url: https://example.com/original-article/
-sitemap: false
-```
-
-HTML, Open Graph, JSON-LD, breadcrumbs, microformats and feed entry links share
-the override. It does not create a redirect or change the page's actual URL.
-`jekyll-sitemap` uses the actual page URL and does not apply this override: set
-`sitemap: false` on the duplicate, and retain the original page in its own
-sitemap. Do not point every paginated page at page one; each page in a sequence
-should retain its own canonical URL. See
-[Google's canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
-
-Use `seo_title` to replace the complete browser and structured-data title without
-changing the visible heading. Use `og_title` to replace the social
-title; it defaults to the generated browser title. Whitespace-only
-values use the normal fallback. Separators appear only between nonempty title
-components. `og:site_name` contains the site title alone, without its subtitle.
-The theme no longer emits `meta keywords`.
-
-Optional `og_image_alt`, `og_image_width`, `og_image_height` and `og_image_type`
-fields describe the selected social image. Width and height are pixels; type is
-a MIME type such as `image/jpeg`. Alt text describes the image's contents.
-
-```yaml
-seo_title: A custom browser title
-og_title: A custom social title
-og_image: /assets/img/article.jpg
-og_image_alt: A street in Madrid
-og_image_width: 1200
-og_image_height: 630
-og_image_type: image/jpeg
-```
-
-The image fallback order remains page `og_image`, page `header_img`, site
-`og_image`, site author avatar, then GitHub avatar. If no image is available,
-image and thumbnail tags are omitted. Page image metadata applies to the
-selected image. Site image metadata is used only when the site `og_image` is
-selected and neither page image field is set; it is never inherited by a page
-image or avatar. Supply accurate metadata for the selected image; the theme
-does not inspect image files. These options also support front matter defaults.
-See the [Open Graph protocol](https://ogp.me/) for image properties.
-
-##### Social locales and articles
-
-Set page `locale` to override the HTML language in both the minimal and search
-layouts. Other built-in layouts inherit the minimal layout. Use a language tag
-such as `fr`, `es-MX` or `zh-Hant`. Underscores are converted to hyphens for HTML.
-
-Open Graph uses `language_TERRITORY`. The precedence is page `og_locale`, page
-`locale`, site `og_locale`, then site `locale` (default `en-US`). Hyphens are
-accepted and values are normalized, for example `es-mx` becomes `es_MX`.
-Language-only or script-based values do not identify a territory, so the theme
-omits `og:locale` for them. Supply `og_locale` explicitly when needed:
-
-```yaml
-locale: zh-Hant
-og_locale: zh_TW
-og_locale_alternate:
-  - en_GB
-  - es_ES
-```
-
-`og_locale_alternate` is an optional list on the page or site. A page list
-replaces the site list; `[]` disables inherited alternates. Entries must contain
-a two- or three-letter language and a two-letter territory. Invalid shapes,
-duplicates and the primary locale are omitted. Codes are not checked against an
-ISO registry. Only list locales in which the page is actually available; these
-tags do not create translations or `hreflang` links.
-
-Posts use `og:type: article`; other pages use `website`. Set `og_type: article`
-for an article in another collection, or `og_type: website` to suppress article
-metadata on a post. This changes Open Graph only; JSON-LD retains its existing
-page classification.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
-
-For `article`, the theme emits these properties when values are available:
-
-| Property | Source |
-| --- | --- |
-| `article:published_time` | Page `date`, including the date in a post filename. |
-| `article:modified_time` | Page `last_modified_at`; no modification date is invented. |
-| `article:author` | `og_article_author`, then page `author.url`, or site `author.url` when no page author is set. |
-| `article:section` | `og_article_section`, then the first page category. |
-| `article:tag` | One tag per nonempty entry in page `tags`. |
-
-Dates use Jekyll's ISO 8601 output. Author URLs may be absolute or site-relative;
-relative paths use `url` and `baseurl`. A guest author without a profile URL does
-not inherit the site author's URL. Use a profile page that identifies the author.
-
-```yaml
-og_type: article
-og_article_author: /about/guest/
-og_article_section: Mapping
-date: 2024-02-03T12:00:00Z
-last_modified_at: 2024-03-04T13:00:00Z
-tags:
-  - maps
-  - open data
-```
-
-The generated tags precede custom head hooks. Configure these fields instead of
-adding duplicate properties in a hook. See the [Open Graph protocol](https://ogp.me/).
-
-Use `description` in page front matter when you want to write the metadata text
-independently of the visible content:
-
-```yaml
----
-title: My page
-subtitle: A visible subtitle
-description: A concise description for search and social previews.
----
-```
-
-Description precedence is:
-
-1. A nonempty page `description`, used without a subtitle prefix.
-2. The page `excerpt`.
-3. On the home page only, the site's `description`.
-4. The existing content fallback.
-
-Whitespace-only values are treated as missing. For the excerpt or fallback path,
-the subtitle is prepended only if it is nonempty and its text is not already
-contained in the description, ignoring case. An empty description uses the
-subtitle alone, without an empty separator. Markdown and HTML are reduced to
-text, whitespace is normalized and values are escaped for metadata output.
-Front matter defaults can also supply `description`.
-
-HTML, Open Graph, Twitter/X and JSON-LD share this description. The complete
-generated text is retained, replacing the previous 160-character HTML limit and
-20-word Open Graph limit. Keep descriptions concise and descriptive. Google may
-choose another snippet and truncate it to fit the device; there is no fixed meta
-description length limit. See
-[Google's snippet documentation](https://developers.google.com/search/docs/appearance/snippet).
-
-Search indexing settings are independent:
-
-| Setting | Effect |
-| --- | --- |
-| `robots: "noindex, follow"` | Asks external crawlers not to index the page. It does not remove sitemap entries. |
-| `sitemap: false` | Excludes the page from `jekyll-sitemap`. It does not prevent indexing by itself. |
-| `include_on_search: false` | Excludes the page from the supported internal search indexes. It does not control external indexing; Algolia exclusions are configured separately. |
-
-For an auxiliary search page, you can use all three explicitly:
-
-```yaml
-robots: "noindex, follow"
-sitemap: false
-include_on_search: false
-```
-
-The documentation site's search page uses these settings. Its categories page
-includes posts, demos and skins so it provides a working category index. Tags remain indexable. The standalone music scales widget opts out of
-external indexing and the sitemap; Algolia excludes it separately. The theme does not
-automatically exclude pages based on their path or layout.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
-##### Article images
-
-For posts, use `schema_image` in front matter to identify images that represent
-the article. A single URL or a YAML list is accepted. Relative URLs resolve
-using the site's `url` and `baseurl`; absolute URLs remain unchanged.
-
-```yaml
----
-title: My article
-schema_image: /assets/img/article.jpg
----
-```
-
-For several images, provide actual files appropriate for the article:
-
-```yaml
-schema_image:
-  - /assets/img/article-16x9.jpg
-  - /assets/img/article-4x3.jpg
-  - /assets/img/article-1x1.jpg
-```
-
-The theme emits the URLs as a JSON-LD `image` array. It does not create crops, check image dimensions or verify that the files exist. Google recommends relevant, crawlable images and multiple high-resolution aspect ratios when available; see the [article structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/article).
-
-The fallback order is `schema_image`, page `og_image`, then page `header_img`.
-Missing values, empty strings and empty lists use the next fallback.
-Whitespace-only URLs and blank entries in lists are omitted after selection; a
-whitespace-only value or a nonempty list containing only blanks therefore omits
-`image` rather than trying the next fallback. If no article image is available,
-`image` is omitted from `BlogPosting`; the site banner, publisher logo and
-author avatar are not used as article illustrations. Open Graph and Twitter
-cards retain their existing site-level image fallbacks.
-
-This option applies to posts rendered as `BlogPosting`, including values supplied through front matter defaults. Other pages keep their existing image metadata. The [Welcome post]({{ '/blog/20200515_welcome' | absolute_url }}) demonstrates an explicit `schema_image` using its existing header photograph.
 
 ### Landing page
 
@@ -628,7 +484,7 @@ they contain static files rather than collection documents.
 See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
 For a paginated post index, use [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). The [chulapa-101 home page](https://dieghernan.github.io/chulapa-101/) uses this plugin; its [index.html](https://github.com/dieghernan/chulapa-101/blob/main/index.html) lists five posts per page with previous and next links. Keep the filename `index.html` and configure `paginate` and `paginate_path` in `_config.yml`. For a separate blog index, use [the documentation site's example](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html).
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Search layout
 
@@ -641,211 +497,49 @@ Set the page's `permalink` to match `search.landing_page` in `_config.yml`
 does not create the page.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-### Layout structure and components
-
-A technical note about the layout structure of <span
-class="chulapa">Chulapa</span>. This overview describes the v2.1.1-dev
-version. On narrow screens, scroll the code block horizontally.
-
-```text
-# Layout structure
-# General purpose
-compress   # https://jch.penibelst.de/
-   |
-   └── minimal   <──┬ head
-                    ├ navbar
-                    ├ components/headers (optional)
-          ┌──────>  ├ PAGE CONTENT
-          |         ├ footer <── comments + footer-content
-          |         ├ components/scripts
-          |         └ custom/custom_bottomscripts
-          |
-          └── default    <──┬ components/headers
-            /landingpage    ├ components/breadcrumbdatesocial
-                            ├ components/author
-                            ├ components/sidetoc / components/toc
-         ┌────────────>     ├ PAGE CONTENT
-         |                  ├ components/navbeforeafter
-         |                  ├ components/categories
-         |                  ├ components/tags
-         |                  └ components/related / components/random
-         |
-# Specific purpose
-# Default layout only
-         |
-         └──┬ archive
-            ├ cloudcategory
-            ├ cloudtag
-            └ indexcategory
-
-# Shared collection index includes
-components/collection-documents
-   ├── components/archive-documents       # archive
-   ├── components/cloud                   # cloudcategory / cloudtag
-   |      └── components/cloud-entry      # cached
-   └── components/indexcategory-documents  # indexcategory
-          └── components/indexcards       # cached
-```
-
-The `search` layout renders a separate document with its own search content,
-head, navbar, footer and custom hooks. The custom head and bottom-script hooks
-remain available in both document shells. Footer comments use the selected
-provider or `custom/giscus`, while fixed footer content uses
-`components/footer-content`. Related and random panels share
-`components/recommendations`. The deprecated `cloudcategory2` and `cloudtag2`
-layouts inherit `cloudcategory` and `cloudtag`, respectively.
-
-Optional components render according to the existing page settings. The
-`collection-documents` include selects documents once per index, then passes
-them to the appropriate renderer. Related and random panels share a renderer
-while keeping their existing ranking and sampling behavior.
-
-The required `jekyll-include-cache` plugin caches the navbar, card indexes and
-translated dates. In v2.1.1-dev, it also reuses the fixed
-footer content across pages and cloud entries across tag and category indexes.
-Cloud entries vary by document, collection badge visibility and reading-speed
-setting. Comment providers remain in `footer.html`, with the existing page
-parameters and custom Giscus include.
-
-When adding cached includes, pass every page-dependent input explicitly as an
-include parameter. An include that assigns variables for its caller, such as
-the canonical URL or page-language helper, must use ordinary `include`: a cache
-hit returns rendered output without repeating those assignments. Keep includes
-that use page context, such as custom head and bottom scripts, uncached unless
-all their inputs are accounted for.
-
-`components` are designed as bricks that build up your page. The options
-described above would activate the components on your page, but they can also be
-used on a standalone basis. For example, to include an index of two posts you
-can simply add this line to your page:
-
-{% raw %}
-```
-{% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
-```
-{% endraw %}
-
-{% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
-
-### JavaScript assets and local overrides
-
-In v2.1.1-dev, `minimal` and `search` share `components/scripts.html` for
-jQuery, Popper and Bootstrap. The include also loads `chulapa_navigation.js`
-for `fab` and `dual` navigation. `minimal` adds `chulapa_script.js` for content
-features; the standalone `search` shell uses the navigation script without it.
-
-Custom document shells that render the theme navbar should use
-`components/scripts.html` once; pass `theme=true` if the shell also needs
-content features from `chulapa_script.js`. Layouts inheriting from `minimal` or `search`
-already receive these dependencies. Keep custom additions in
-`custom/custom_bottomscripts.html`.
-
-Lunr and Fuse.js adapters, including their minified assets, require
-`assets/js/chulapa_search.js` before initialization. The standard `search`
-layout handles this. If you embed a search widget directly in a custom page,
-load the shared helper, provider library and generated store before the adapter:
-
-{% raw %}
-```liquid
-<script src="{{ '/assets/js/chulapa_search.js' | relative_url }}"></script>
-<!-- Load the provider library and generated store before its search adapter. -->
-```
-{% endraw %}
-
-Local layouts, includes and assets override the installed theme. When upgrading,
-review them together: copied search pages need the shared helper, and copied
-navigation shells need the navigation script. The [Lunr demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
-and [Fuse.js demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html)
-show complete custom search documents with these dependencies.
-
-### Microformats in lists
-
-In v2.1.1-dev, `archive`, `indexcategory`, `cloudtag` and `cloudcategory`
-(including the deprecated `cloudtag2` and `cloudcategory2` aliases) declare an
-`h-feed` instead of a page-level `h-entry`. The feed uses the page heading as
-`p-name`, its canonical URL as `u-url` and the visible author card as `p-author`,
-when enabled. Each listed document is an `h-entry` with its title, URL and
-publication date when available. Cloud lists repeat entries when documents
-belong to multiple groups.
-
-Custom layouts that inherit from these list layouts retain `h-feed` through
-multiple levels of layout inheritance, without additional page configuration.
-
-The `indexcards` and `simplelist` components also mark individual entries;
-`indexcards` includes the displayed excerpt as `p-summary`. The pagination
-example in `docs/blog/index.html` wraps each page of results in its own `h-feed`.
-Custom pages using these components need their own feed wrapper if desired.
-No additional YAML settings are required.
-
-### Generated head and footer formatting
-
-In v2.1.1-dev, the theme separates the document opening and head tags onto
-individual lines and consistently indents its HTML and JSON-LD. With the
-existing `compress_html.blanklines: true` setting, compression removes blank
-lines and preserves head and theme footer indentation while continuing to clip
-the rest of the body. The theme footer uses two spaces per nesting level for
-its fixed content, including social links, copyright and skin attribution.
-The theme's configuration examples already use this setting; no new option is
-required. Explicit full compression or disabled compression still follows the
-site's existing `compress_html` settings.
-
-Custom head includes and embedded comment integrations retain their own
-formatting. When writing custom includes, avoid
-using Liquid whitespace control across emitted HTML boundaries: `-%}` can
-remove a newline and join adjacent tags. See
-[Liquid whitespace control](https://shopify.github.io/liquid/basics/whitespace/).
-
 ### A note on defaults
 
-[Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) is a great way to avoid repeating yourself. You can inject fixed front matters to any file, collection or even static files all at once. A potential Front Matter Defaults configuration is proposed below:
+Defaults let you apply the same settings to all posts. Add this entry under
+`defaults` in `_config.yml`, keeping the entries already there:
 
 ```yaml
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
+      type: posts
     values:
-      layout: "default"
-      header_type         : "base"
-      include_on_search   : false
-      cloudtag_url        : "/tags"
-      cloudcategory_url   : "/categories"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      header_type       : "post"
-      include_on_search : true
-      include_on_feed   : true
-      show_date         : true
-      show_bottomnavs   : true
-      show_sociallinks  : true
-      show_comments     : true
-      show_tags         : true
-      show_categories   : true
-      show_author       : true
-      show_toc          : false
-  -
-    scope:
-      path: ""
-      type: "YOUR COLLECTION NAME"
-    values:
-      header_type       : "hero"
-      include_on_search : true
-      show_bottomnavs   : true
-      show_tags         : true
+      layout: default
+      header_type: post
+      show_date: true
 ```
 
-Defaults apply values to matching pages and documents. An explicit value in a
-page's front matter overrides its defaults. Use YAML booleans such as `false`
-to disable components; the quoted string `"false"` is truthy in Liquid.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+A setting in an individual post overrides its default. Use `true` and `false`
+without quotes for switches such as `show_date`. See
+[Jekyll's defaults guide](https://jekyllrb.com/docs/configuration/front-matter-defaults/)
+for other content types.
 
 ## B. Snippets
 
-Snippets are reusable Liquid includes for content such as images, videos and
-formatted dates.
+Copy these snippets into a post or page to add galleries, videos or formatted
+dates. Replace the example filenames and values with your own.
+
+
+For a quick reference, these are the content snippets and their parameters.
+Parameters belong in the include call, not in page YAML:
+
+| Snippet | Parameters and defaults |
+| --- | --- |
+| `snippets/masonry.html` | `internal`: image group named by `image_col`; or `external`: comma-separated image addresses. `index_sort`: `modified_time` for internal images; `index_sort_asc`: `false`; `index_items`: `100`; `random`: `false`; `photoswipe`: `false`. Internal images take precedence if both sources are supplied. |
+| `snippets/carousel.html` | All masonry parameters, plus `interval`: `5000` milliseconds (`0` stops automatic cycling), `controls`: `false`, and `indicators`: `false`. |
+| `snippets/video.html` | Use `fileurl` for a video file, or `provider` and `id` for a supported service. `name` identifies the player. YouTube accepts `nolazy` (off by default) and `video_res` (`maxresdefault`). Optional metadata: `thumbnail_url`, `upload_date`, `description`, `duration`. `fileurl` takes precedence over a provider. |
+| `snippets/youtube.html` | A direct deferred YouTube player: required `id`; optional `name`, `video_res` (`maxresdefault`), `thumbnail_url`, `upload_date`, `description`, `duration`. To disable deferred loading, use `video.html` with `provider="youtube" nolazy=true`. |
+| `snippets/datetranslate.html` | Required `date`: an English formatted date string. Optional `lang`: language code; defaults to site `locale`, then English. Supported translations: Spanish, French, German and Italian; other languages retain English names. |
+| `snippets/bootstrapdemo.html` | No parameters. Displays the full component sampler used by the skin previews; ordinary articles do not need it. |
+
+**Use unquoted booleans in snippets.** Write `controls=true` or `random=false`.
+Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
+`photoswipe=true`. These are include parameters, not new configuration options.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ### Masonry gallery
 
@@ -859,11 +553,7 @@ images:
 {% assign externalgallery = "
 https://picsum.photos/seed/10/600/1200,
 https://picsum.photos/seed/20/800/500,
-https://picsum.photos/seed/30/900/1200,
-https://picsum.photos/seed/40/900/1300,
-https://picsum.photos/seed/50/750/325,
-https://picsum.photos/seed/60/600,
-https://picsum.photos/seed/70/700/500" %}
+https://picsum.photos/seed/30/900/1200" %}
 
 {% include_cached snippets/masonry.html external=externalgallery %}
 ```
@@ -874,15 +564,12 @@ This produces the following gallery:
 {% assign externalgallery = "
 https://picsum.photos/seed/10/600/1200,
 https://picsum.photos/seed/20/800/500,
-https://picsum.photos/seed/30/900/1200,
-https://picsum.photos/seed/40/900/1300,
-https://picsum.photos/seed/50/750/325,
-https://picsum.photos/seed/60/600,
-https://picsum.photos/seed/70/700/500" %}
+https://picsum.photos/seed/30/900/1200" %}
 
 {% include_cached snippets/masonry.html external=externalgallery %}
 
-To use it with internal images, first set a [front matter on your desired path](https://jekyllrb.com/docs/static-files/#add-front-matter-to-static-files). As an example, these docs have an internal gallery on `./assets/img/gallery`:
+For your own photographs, upload them to `assets/img/gallery/`. Add this entry
+under your existing `defaults` in `_config.yml` to name the gallery:
 
 ```yaml
   -
@@ -914,36 +601,11 @@ There are four optional parameters that you can use for controlling the output:
 
 {% raw %}
 ```
-{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=5 %}
 ```
 {% endraw %}
 
-{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
-
-If you need further control of your output, you can just pass your internal
-gallery as external:
-
-{% raw %}
-```
-{% assign externalgallery = "
-./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
-https://picsum.photos/seed/70/700/500,
-./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg,
-./assets/img/gallery/city-spain-dense-17658.jpg,
-./assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" %}
-
-{% include_cached snippets/masonry.html external=externalgallery %}
-```
-{% endraw %}
-
-{% assign externalgallery = "
-./assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg,
-https://picsum.photos/seed/70/700/500,
-./assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg,
-./assets/img/gallery/city-spain-dense-17658.jpg,
-./assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" %}
-
-{% include_cached snippets/masonry.html external=externalgallery %}
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=5 %}
 
 ### Bootstrap carousel
 
@@ -956,27 +618,15 @@ gallery, with three additional parameters:
 
 - `controls`: Show previous and next controls. **false**.
 
-In v2.1.1-dev, automatic carousels with more than one image show a pause/start
-button. `interval=0` disables automatic cycling and hides this button. Reduced
-motion preferences start the slideshow paused; visitors can explicitly start
-it. Keyboard interaction with slides, indicators or previous/next controls
-pauses it until an explicit start. Hover pauses temporarily on devices with
-hover support, and enabling reduced motion while it runs stops it without
-automatically restarting when the preference is changed back.
-Live preference changes also work with browsers that expose the older
-media-query listener API.
+In v2.1.1-dev, a slideshow with more than one image has a play/pause icon button.
+Its accessible name describes the action, and a simple symbol remains if Font
+Awesome is unavailable.
+Set `interval=0` for manual navigation. Slideshows start paused when a visitor
+prefers reduced motion, and pause when someone uses the keyboard controls.
+The controls work with Enter and Space. Hovering temporarily pauses the slideshow.
 
-Indicators are named buttons supporting Enter and Space and mark the current
-slide. The slide container uses `aria-live="polite"` while automatic cycling is
-stopped, and `aria-live="off"` while it runs. The controller requires Bootstrap and
-loads locally as `assets/js/chulapa_carousel.js` only on pages containing a
-carousel. Each carousel include declares the controller as a deferred ES module;
-multiple includes share one fetch and execution per document. This also works
-when a custom layout renders cached carousel includes directly, rather than
-receiving them through `content`. Custom HTML shells still need the Bootstrap
-dependencies, for example through `components/scripts.html` before the end of
-`body`; standard layouts handle this automatically. Without those dependencies,
-automatic motion stays disabled. These changes require no additional YAML settings.
+If you use a custom layout instead of a theme layout, keep its Bootstrap
+scripts enabled for slideshow controls and automatic cycling.
 
 You can control the color of the indicators through your `_config.yml` file:
 
@@ -992,19 +642,18 @@ Example carousel:
 
 {% raw %}
 ```
-{% include_cached snippets/carousel.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
+{% include_cached snippets/carousel.html internal="gallery" interval=2000 random=true controls=true indicators=true %}
 ```
 {% endraw %}
 
-{% include_cached snippets/carousel.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
+{% include_cached snippets/carousel.html internal="gallery" interval=2000 random=true controls=true indicators=true %}
 
 ### PhotoSwipe lightbox
 
 In v2.1.1-dev, add `photoswipe=true` to a masonry or
 carousel include to open its images in a PhotoSwipe viewer. The option is a
 Liquid boolean include parameter, not a page YAML setting. It is disabled by
-default, so existing galleries keep their behavior. The flag is part of the
-`include_cached` key, allowing enabled and disabled galleries on the same page.
+default; add it only to the galleries where you want a viewer.
 
 {% raw %}
 ```liquid
@@ -1013,55 +662,39 @@ default, so existing galleries keep their behavior. The flag is part of the
 ```
 {% endraw %}
 
-Internal image collections and external URL lists both work. Each include has
-its own image sequence. PhotoSwipe 5.4.4 JavaScript and CSS load from jsDelivr
-only when an image is opened; enabled pages load a small local initialization
-module. Image dimensions are discovered in the browser without a Jekyll plugin.
-Offscreen images are measured as the viewer loads them rather than downloading
-an entire gallery before opening it.
+Both uploaded image collections and external image lists work. Each gallery
+opens its own sequence. The viewer loads when someone opens an image.
 
-The viewer provides zoom, touch gestures, arrow-key navigation, a focus trap and
-Escape to close. Focus returns to the triggering image link. Reduced-motion
-preferences disable the opening and zoom animations. A carousel keeps its slide
-in place while its viewer is open. Without JavaScript, or if the library,
-stylesheet or initial image cannot load, the link opens the original image.
-Modified clicks keep normal browser behavior. The module works with `default`,
-`minimal` and `landingpage`; the `search` layout does not render these galleries.
+Visitors can zoom, swipe or use arrow keys, and press Escape to close the
+viewer. It returns keyboard focus to the image and respects reduced-motion
+preferences. If the viewer cannot load, the link opens the original image.
 
 Try the [PhotoSwipe demo]({{ "/demo/14-photoswipe" | relative_url }}).
-Site content security policies must permit the PhotoSwipe modules and stylesheet
-from `https://cdn.jsdelivr.net`. External images also depend on their own host.
-Existing image alt text and ImageObject metadata are preserved; supply meaningful
-alt text when authoring images outside these gallery snippets.
+If you configure a Content Security Policy, allow its scripts and styles from
+`https://cdn.jsdelivr.net`. Provide descriptive alternative text when adding
+your own image markup; gallery snippets use generic image descriptions.
 
 ### Video support
 
-This snippet has been taken from [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#responsive-video-embed), so you may want to check its docs. Providers available are `youtube`, `vimeo`, `dailymotion`, videos hosted on Google Drive (`google-drive`) and `bilibili`.
+To embed a YouTube video, add this line to a post or page. Replace the `id`
+with the code after `v=` in the video's YouTube address and give it a clear name:
 
 {% raw %}
-```
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+```liquid
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
 
+Other supported providers are `vimeo`, `dailymotion`, `google-drive` and
+`bilibili`. You can also use `fileurl` for a video file. For optional search descriptions and thumbnails, see
+[Optional video metadata](#optional-video-metadata).
+
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
    name="Menorca - Isla Bonita"
    thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
    upload_date="2019-07-27T12:44:00-07:00"
    description="Exploring Menorca with a Mavic Pro drone in 2019."
    duration="PT2M52S" %}
-
-The examples supply all five optional metadata inputs. The YouTube title,
-upload date and duration come from its watch page. The local sample's date is
-the repository publication date of the current file, and its thumbnail is a
-frame extracted from that file. The [Internet Archive item](https://archive.org/details/bb_and_grampy)
-provides the cartoon's online upload date and duration; its original film
-release was in 1935.
 
 You can also display videos loaded through `fileurl`:
 
@@ -1070,20 +703,12 @@ You can also display videos loaded through `fileurl`:
 **Hosted on this repo**
 
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4"
-   name="Aerial lagoon sample"
-   thumbnail_url="/assets/mp4/sample-thumbnail.jpg"
-   upload_date="2021-08-20T15:24:34+02:00"
-   description="Aerial footage of a turquoise lagoon surrounded by limestone cliffs."
-   duration="PT48.064S" %}
+   name="Aerial lagoon sample" %}
 
 **publicdomainmovie.net**
 
 {% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4"
-   name="Betty Boop and Grampy"
-   thumbnail_url="https://archive.org/services/img/bb_and_grampy"
-   upload_date="2005-03-18T12:20:09Z"
-   description="A 1935 Betty Boop cartoon by Max Fleischer, available in the public domain."
-   duration="PT6M58.59S" %}
+   name="Betty Boop and Grampy" %}
 
 ```
 {% endraw %}
@@ -1109,33 +734,26 @@ You can also display videos loaded through `fileurl`:
 For `fileurl`, use a browser-supported format such as MP4, Ogg or WebM.
 Playback also depends on the codec and browser; a supported extension alone
 does not guarantee playback.
-{: .alert .alert-warning .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Deferred (lazy) loading of YouTube videos
 
-YouTube embeds use deferred loading by default: the page initially displays
-a preview image and loads the player when the visitor clicks it. This reduces
-the initial player load. In v2.1.1-dev, the player is inserted directly on
-activation, without downloading the YouTube player API beforehand. Keyboard
-activation works, repeated clicks retain one player, and a no-JavaScript link
-opens the video on YouTube. The player requests autoplay, which remains subject
-to browser policy. Sites with a content security policy must allow frames from
-`https://www.youtube-nocookie.com`. See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
+By default, YouTube videos show a preview and load the player when a visitor
+activates it. This helps pages load faster. If JavaScript is unavailable, the
+link opens the video on YouTube. Automatic playback depends on browser policy.
+For sites with a Content Security Policy, allow frames from
+`https://www.youtube-nocookie.com`.
 
 Set `nolazy=true` to load the YouTube iframe without waiting for a click:
 
 {% raw %}
 ```
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy=true
+   name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
 
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true"
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy=true
    name="Menorca - Isla Bonita"
    thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
    upload_date="2019-07-27T12:44:00-07:00"
@@ -1153,11 +771,7 @@ parameter
 {% raw %}
 ```
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hq2"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+   name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
 
@@ -1168,20 +782,18 @@ parameter
    description="Exploring Menorca with a Mavic Pro drone in 2019."
    duration="PT2M52S" %}
 
-Thanks to @SCP-017 for the suggestion.
-
 #### Optional video metadata
 
 Both `snippets/video.html` and `snippets/youtube.html` accept these optional
 inputs for the embedded video's microdata:
 
-| Input | Property | Value |
-| --- | --- | --- |
-| `name` | `name` | The video's actual title. |
-| `thumbnail_url` | `thumbnailUrl` | A representative, accessible image URL. Relative URLs use the site's URL and `baseurl`. |
-| `upload_date` | `uploadDate` | The video's original publication date in ISO 8601 format, preferably with time and time zone. |
-| `description` | `description` | A description of the video. |
-| `duration` | `duration` | An ISO 8601 duration, such as `PT1M30S` for 90 seconds. |
+| Input | What to supply |
+| --- | --- |
+| `name` | The video's actual title. |
+| `thumbnail_url` | A representative, accessible image URL. Relative URLs use the site's URL and `baseurl`. |
+| `upload_date` | The video's original publication date in ISO 8601 format, preferably with time and time zone. |
+| `description` | A description of the video. |
+| `duration` | An ISO 8601 duration, such as `PT1M30S` for 90 seconds. |
 
 Pass metadata per include, so several videos on the same page can have different
 values. Missing, empty or whitespace-only inputs are omitted. Dates and durations
@@ -1212,21 +824,14 @@ structured data only; it does not change the player, its preview or its poster.
 
 #### Video structured data limitations
 
-The video snippets expose the known file or player URL in microdata. Deferred
-YouTube embeds also expose the preview URL before playback. The default
-`maxresdefault` preview may not exist for every video; use `video_res` to choose
-an available preview.
+Video descriptions can help search engines understand your content, but do
+not guarantee indexing. Supply an accurate `name`, `thumbnail_url` and
+`upload_date`; the theme does not fetch them from the video provider.
+Check that your thumbnail image exists.
 
-An explicit `thumbnail_url` overrides the deferred YouTube thumbnail metadata.
-Without it, deferred YouTube embeds retain their existing preview URL; other
-embeds require an explicit thumbnail. The snippets do not generate images or
-fetch metadata from providers. Check that the image exists and represents the
-video. Google requires `name`, `thumbnailUrl` and `uploadDate`; missing values
-can leave the markup incomplete for Google's video features. See the
-[video structured data requirements](https://developers.google.com/search/docs/appearance/structured-data/video).
-
-**Correct microdata alone does not guarantee video indexing.** Google also recommends loading the player without visitor interaction and using a page whose main purpose is watching the video. Deferred YouTube embeds wait for a click. For a dedicated video page, consider `nolazy="true"`, while still checking the metadata and [video indexing requirements](https://developers.google.com/search/docs/appearance/video).
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+For a page dedicated to watching a video, consider `nolazy=true` so the player
+loads without a click. See [Google's video requirements](https://developers.google.com/search/docs/appearance/structured-data/video)
+for the remaining conditions.
 
 ### Localization of dates
 
@@ -1243,7 +848,7 @@ English month and weekday names and uses the first two characters of `lang` or
 `site.locale`. Unsupported languages retain English names in lowercase.
 
 **Date formatting** in Liquid is quite flexible. You can see the [Jekyll documents](https://jekyllrb.com/docs/liquid/filters/) and the [official Liquid page](https://shopify.github.io/liquid/filters/date/)
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Note that in the next examples you can skip the `lang` parameter, as by default
 your locale will be used.
@@ -1286,7 +891,7 @@ your locale will be used.
 - Any other value in English: {% include snippets/datetranslate.html date=formatdate lang="zh" %}
 
 **Contribute** via PR and help us expand this feature.
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 
 ### Mermaid diagrams
@@ -1336,11 +941,319 @@ supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.h
 
 ### Copying code
 
-Code blocks have a copy button. Copying requires the browser Clipboard API
-and a secure context, such as HTTPS or localhost. In v2.1.1-dev, the button reports success only after the write completes and
-reports failure when permission is denied or the API is unavailable. It does
-not clear the existing clipboard before copying. Copying and its accessible
-feedback also work when jQuery or Bootstrap tooltips are unavailable. The legacy
-`assets/js/clipboard/chulapa_clipboard.js` entry point delegates to the maintained
-implementation and preserves code copying outside the usual content wrapper. Enabled Mermaid diagrams do
-not receive code copy buttons.
+Code blocks have a copy button. Use HTTPS on your published website so the
+browser can copy text. If copying fails or permission is denied, visitors can
+still select and copy the code themselves. In v2.1.1-dev, the button confirms
+success or reports failure. Rendered Mermaid diagrams have no code copy button.
+
+## Advanced page settings
+
+These settings change how search engines and sharing services describe a page.
+They are optional: start with accurate titles, descriptions and photographs.
+Use the reference below if you need different sharing titles, translated
+metadata or instructions for republished content.
+
+### SEO metadata
+
+The theme creates sharing and search metadata automatically from each page's
+address. Ordinary pages do not need a custom canonical URL.
+
+Set page `canonical_url` to identify the original version of duplicated or
+republished content. Use an absolute HTTP(S) URL or a site-relative path starting
+with `/`. Site-relative values use `url` and `baseurl`. Blank values, unsupported
+schemes and protocol-relative URLs fall back to the page's own URL. Fragments
+are removed. The page path still controls its home-page classification.
+
+```yaml
+canonical_url: https://example.com/original-article/
+sitemap: false
+```
+
+This identifies the original article to search engines and sharing services.
+It does not redirect visitors or change your page's address.
+`jekyll-sitemap` uses the actual page URL and does not apply this override: set
+`sitemap: false` on the duplicate, and retain the original page in its own
+sitemap. Do not point every paginated page at page one; each page in a sequence
+should retain its own canonical URL. See
+[Google's canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
+
+Use `seo_title` to replace the complete browser and structured-data title without
+changing the visible heading. Use `og_title` to replace the social
+title; it defaults to the generated browser title. Leave these settings empty to use the normal titles.
+
+Optional `og_image_alt`, `og_image_width`, `og_image_height` and `og_image_type`
+fields describe the selected social image. Width and height are pixels; type is
+a MIME type such as `image/jpeg`. Alt text describes the image's contents.
+
+```yaml
+seo_title: A custom browser title
+og_title: A custom social title
+og_image: /assets/img/article.jpg
+og_image_alt: A street in Madrid
+og_image_width: 1200
+og_image_height: 630
+og_image_type: image/jpeg
+```
+
+The image fallback order remains page `og_image`, page `header_img`, site
+`og_image`, site author avatar, then GitHub avatar. If no image is available,
+image and thumbnail tags are omitted. Page image metadata applies to the
+selected image. Site image metadata is used only when the site `og_image` is
+selected and neither page image field is set; it is never inherited by a page
+image or avatar. Supply accurate metadata for the selected image; the theme
+does not inspect image files. These options also support front matter defaults.
+See the [Open Graph protocol](https://ogp.me/) for image properties.
+
+### Social locales and articles
+
+Set page `locale` to override the HTML language in both the minimal and search
+layouts. Other built-in layouts inherit the minimal layout. Use a language tag
+such as `fr`, `es-MX` or `zh-Hant`. Underscores are converted to hyphens for HTML.
+
+Open Graph uses `language_TERRITORY`. The precedence is page `og_locale`, page
+`locale`, site `og_locale`, then site `locale` (default `en-US`). Hyphens are
+accepted and values are normalized, for example `es-mx` becomes `es_MX`.
+Language-only or script-based values do not identify a territory, so the theme
+omits `og:locale` for them. Supply `og_locale` explicitly when needed:
+
+```yaml
+locale: zh-Hant
+og_locale: zh_TW
+og_locale_alternate:
+  - en_GB
+  - es_ES
+```
+
+`og_locale_alternate` is an optional list on the page or site. A page list
+replaces the site list; `[]` disables inherited alternates. Entries must contain
+a two- or three-letter language and a two-letter territory. Invalid shapes,
+duplicates and the primary locale are omitted. Codes are not checked against an
+ISO registry. Only list locales in which the page is actually available; these
+tags do not create translations or `hreflang` links.
+
+Posts use `og:type: article`; other pages use `website`. Set `og_type: article`
+for an article in another collection, or `og_type: website` to suppress article
+metadata on a post. This changes Open Graph only; JSON-LD retains its existing
+page classification.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+For `article`, the theme emits these properties when values are available:
+
+| Property | Source |
+| --- | --- |
+| `article:published_time` | Page `date`, including the date in a post filename. |
+| `article:modified_time` | Page `last_modified_at`; no modification date is invented. |
+| `article:author` | `og_article_author`, then page `author.url`, or site `author.url` when no page author is set. |
+| `article:section` | `og_article_section`, then the first page category. |
+| `article:tag` | One tag per nonempty entry in page `tags`. |
+
+Dates use Jekyll's ISO 8601 output. Author URLs may be absolute or site-relative;
+relative paths use `url` and `baseurl`. A guest author without a profile URL does
+not inherit the site author's URL. Use a profile page that identifies the author.
+
+```yaml
+og_type: article
+og_article_author: /about/guest/
+og_article_section: Mapping
+date: 2024-02-03T12:00:00Z
+last_modified_at: 2024-03-04T13:00:00Z
+tags:
+  - maps
+  - open data
+```
+
+The generated tags precede custom head hooks. Configure these fields instead of
+adding duplicate properties in a hook. See the [Open Graph protocol](https://ogp.me/).
+
+Use `description` in page front matter when you want to write the metadata text
+independently of the visible content:
+
+```yaml
+---
+title: My page
+subtitle: A visible subtitle
+description: A concise description for search and social previews.
+---
+```
+
+Description precedence is:
+
+1. A nonempty page `description`, used without a subtitle prefix.
+2. The page `excerpt`.
+3. On the home page only, the site's `description`.
+4. The existing content fallback.
+
+Whitespace-only values are treated as missing. For the excerpt or fallback path,
+the subtitle is prepended only if it is nonempty and its text is not already
+contained in the description, ignoring case. An empty description uses the
+subtitle alone, without an empty separator. Markdown and HTML are reduced to
+text, whitespace is normalized and values are escaped for metadata output.
+Front matter defaults can also supply `description`.
+
+HTML, Open Graph, Twitter/X and JSON-LD share this description. The complete
+generated text is retained, replacing the previous 160-character HTML limit and
+20-word Open Graph limit. Keep descriptions concise and descriptive. Google may
+choose another snippet and truncate it to fit the device; there is no fixed meta
+description length limit. See
+[Google's snippet documentation](https://developers.google.com/search/docs/appearance/snippet).
+
+Search indexing settings are independent:
+
+| Setting | Effect |
+| --- | --- |
+| `robots: "noindex, follow"` | Asks external crawlers not to index the page. It does not remove sitemap entries. |
+| `sitemap: false` | Excludes the page from `jekyll-sitemap`. It does not prevent indexing by itself. |
+| `include_on_search: false` | Excludes the page from the supported internal search indexes. It does not control external indexing; Algolia exclusions are configured separately. |
+
+For an auxiliary search page, you can use all three explicitly:
+
+```yaml
+robots: "noindex, follow"
+sitemap: false
+include_on_search: false
+```
+
+The documentation site's search page uses these settings. Its categories page
+includes posts, demos and skins so it provides a working category index. Tags remain indexable. The standalone music scales widget opts out of
+external indexing and the sitemap; Algolia excludes it separately. The theme does not
+automatically exclude pages based on their path or layout.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+### Article images
+
+For posts, use `schema_image` in front matter to identify images that represent
+the article. A single URL or a YAML list is accepted. Relative URLs resolve
+using the site's `url` and `baseurl`; absolute URLs remain unchanged.
+
+```yaml
+---
+title: My article
+schema_image: /assets/img/article.jpg
+---
+```
+
+For several images, provide actual files appropriate for the article:
+
+```yaml
+schema_image:
+  - /assets/img/article-16x9.jpg
+  - /assets/img/article-4x3.jpg
+  - /assets/img/article-1x1.jpg
+```
+
+The theme emits the URLs as a JSON-LD `image` array. It does not create crops, check image dimensions or verify that the files exist. Google recommends relevant, crawlable images and multiple high-resolution aspect ratios when available; see the [article structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/article).
+
+The fallback order is `schema_image`, page `og_image`, then page `header_img`.
+Missing values, empty strings and empty lists use the next fallback.
+Whitespace-only URLs and blank entries in lists are omitted after selection; a
+whitespace-only value or a nonempty list containing only blanks therefore omits
+`image` rather than trying the next fallback. If no article image is available,
+`image` is omitted from `BlogPosting`; the site banner, publisher logo and
+author avatar are not used as article illustrations. Open Graph and Twitter
+cards retain their existing site-level image fallbacks.
+
+This option applies to posts rendered as `BlogPosting`, including values supplied through front matter defaults. Other pages keep their existing image metadata. The [Welcome post]({{ '/blog/20200515_welcome' | absolute_url }}) demonstrates an explicit `schema_image` using its existing header photograph.
+
+## Search crawler directives
+
+Use `robots` when you need page-specific indexing instructions. This is
+optional; ordinary pages use `index, follow`.
+
+`robots` applies to pages, posts and collection documents.
+The default is `index, follow`; missing or empty values use this default.
+For example, set this in a page's front matter:
+
+```yaml
+---
+title: My page
+robots: "noindex, follow"
+---
+```
+
+You can also set `robots` through front matter defaults in `_config.yml`:
+
+```yaml
+defaults:
+  - scope:
+      path: "private-pages"
+    values:
+      robots: "noindex, follow"
+```
+
+An explicit page value overrides these defaults. Crawlers must be able to access the page to read its robots metadata; blocking the page in `robots.txt` prevents them from reading `noindex`. This option controls only the HTML metadata and does not change HTTP status codes, `robots.txt` or sitemap entries. The theme does not automatically apply `noindex` to error pages, search pages, tags, archives or pagination. See [Google's robots metadata documentation](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
+
+## Advanced customization reference
+
+These sections are for readers creating their own layouts, embedding search
+or maintaining local overrides. Standard posts and pages already receive the
+theme's scripts and metadata; no changes to these files are needed for the
+examples at the start of this guide.
+
+### Layout structure and components
+
+For small additions such as scripts or extra head tags, use the
+[custom includes](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+instead of copying a complete layout.
+
+For a custom page design, start from `minimal`. `default` and `landingpage`
+add the article components; archive, tag, category and card-index layouts build
+on `default`. The `search` layout is a separate search page. Both keep the
+custom head and bottom-script hooks available. See the
+[layout sources](https://github.com/dieghernan/chulapa/tree/main/_layouts)
+and [component sources](https://github.com/dieghernan/chulapa/tree/main/_includes/components)
+when replacing a specific part.
+
+To display up to two post cards inside a custom page, add this line to its
+content:
+
+{% raw %}
+```
+{% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
+```
+{% endraw %}
+
+See the [card index demo](../demo) for the resulting layout.
+
+### JavaScript assets and local overrides
+
+The built-in layouts already load the scripts needed for menus, search and
+content features. Use `_includes/custom/custom_bottomscripts.html` to add your
+own scripts without copying a theme layout.
+
+**If you have copied a layout or search page into your site, review it when
+updating the theme.** Your copy takes precedence and will not receive updates
+automatically. For working search-page examples, see
+[Lunr](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
+or [Fuse.js](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html).
+
+### Microformats in lists
+
+Article lists automatically include information for other services to read.
+No extra configuration is needed.
+
+### Generated head and footer formatting
+
+No formatting changes are needed to publish your site. Use the
+[custom includes](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+to add your own head tags or scripts without editing the theme's layouts.
+
+
+The remaining snippets support the theme's metadata. Standard layouts already
+use them; configure the corresponding page or site options instead of adding
+these helpers to article content. This inventory is for custom-layout authors:
+
+| Helper | Inputs | Purpose |
+| --- | --- | --- |
+| `snippets/canonical-url.html` | `url`, optional `canonical` | Prepares the canonical address; page `canonical_url` supplies the override. |
+| `snippets/page-language.html` | No include parameters; page/site `locale` | Prepares the page language. |
+| `snippets/og-locale.html` | `locale` | Prepares a valid social-sharing locale. |
+| `snippets/publisher.html` | No include parameters; site `publisher` and author settings | Supplies publisher metadata. |
+| `snippets/article-images.html` | No include parameters; page `schema_image`, `og_image`, `header_img` | Supplies article image metadata. |
+| `snippets/breadcrumb-names.html` | No include parameters; site/page titles and navbar brand | Prepares breadcrumb labels. |
+| `snippets/microformats-url.html` | No include parameters; page `url`, `canonical_url` | Supplies the article's canonical link for machine-readable lists. |
+| `snippets/jsonld-string.html` | `value`; `decode_html` defaults to `true` | Safely outputs a metadata string; pass `false` to preserve literal HTML entities. |
+| `snippets/video-metadata.html` | `name`, `thumbnail_url`, `upload_date`, `description`, `duration` | Supplies the optional video metadata described above. |
+
+Helpers that prepare values for their caller need ordinary `include`, not
+`include_cached`. For complete working usage, consult the
+[theme's snippet sources](https://github.com/dieghernan/chulapa/tree/main/_includes/snippets).

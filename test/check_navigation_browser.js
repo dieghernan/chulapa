@@ -198,6 +198,45 @@ async function main() {
     await page.keyboard.press("Space");
     await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "false");
     assert.deepEqual(errors, [], "Unexpected JavaScript errors in generated pages");
+    for (const skin of ["gitdev", "gitdev-dark", "focal", "lux", "journal", "sketchy", "universal", "slate", "yeti"]) {
+      for (const mode of ["classic", "fab", "dual"]) {
+        for (const width of [320, 390, 1280]) {
+          await page.setViewportSize({ width, height: 844 });
+          await load(`${skin}-${mode}`);
+          await page.addStyleTag({ content: "* { transition: none !important; animation: none !important; }" });
+          const differences = await page.locator('button.nav-link.dropdown-toggle').evaluateAll(buttons => buttons.flatMap(button => {
+            // Compare with the link this native action replaced, preserving all classes and state.
+            const link = document.createElement("a");
+            for (const attribute of button.attributes) link.setAttribute(attribute.name, attribute.value);
+            link.removeAttribute("type");
+            link.setAttribute("href", "#");
+            link.setAttribute("role", "button");
+            link.textContent = button.textContent;
+            button.after(link);
+            const actual = getComputedStyle(button);
+            const expected = getComputedStyle(link);
+            const properties = ["fontFamily", "fontSize", "fontWeight", "letterSpacing", "textTransform", "textShadow",
+              "borderRadius", "borderLeftWidth", "borderRightWidth", "color", "backgroundColor", "paddingLeft", "paddingRight"];
+            const differences = properties.filter(property => actual[property] !== expected[property])
+              .map(property => `${button.id}: ${property} ${actual[property]} != ${expected[property]}`);
+            link.remove();
+            return differences;
+          }));
+          assert.deepEqual(differences, [], `${skin}/${mode}: dropdown style differs from links at ${width}px`);
+        }
+      }
+    }
+    for (const selector of ['.navbar-chulapa .nav-link, .navbar-chulapa-fab .nav-link', '.nav-link']) {
+      await load("gitdev-fab");
+      await page.addStyleTag({content: `${selector} { text-transform: uppercase; font-weight: 500; letter-spacing: 2px; }`});
+      const customized = await page.locator('#navi-menu button.nav-link').evaluate(button => {
+        button.classList.remove('active', 'font-weight-bold');
+        const style = getComputedStyle(button);
+        return {weight: style.fontWeight, transform: style.textTransform, spacing: style.letterSpacing};
+      });
+      assert.deepEqual(customized, {weight:'500', transform:'uppercase', spacing:'2px'}, `${selector} must override inherited button defaults`);
+    }
+    console.log("Passed native dropdown typography and borders on nine skins, all navbar modes and 320/390/1280px");
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
     const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
     try {

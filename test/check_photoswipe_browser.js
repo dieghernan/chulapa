@@ -65,8 +65,11 @@ async function main() {
 
    await page.keyboard.press('Escape');await dialog.waitFor({state:'detached'});await page.waitForFunction(()=>document.activeElement===document.querySelector('#masonry-on a'));
    const carousel=page.locator('#carousel-on .carousel');
-   assert.equal(await carousel.locator('.chulapa-carousel-toggle').textContent(), 'Start slideshow');
+   assert.equal(await carousel.locator('.chulapa-carousel-toggle').getAttribute('aria-label'), 'Start slideshow');
    assert.equal(await carousel.locator('.carousel-inner').getAttribute('aria-live'), 'polite');
+   assert.equal(await carousel.locator('.chulapa-carousel-symbol').getAttribute('aria-hidden'), 'true');
+   assert.equal(await carousel.locator('.chulapa-carousel-fallback').isVisible(), true, 'Play symbol must survive a blocked Font Awesome CDN');
+   assert.equal(await carousel.locator('.chulapa-carousel-fallback').textContent(), '▶');
    const ids=await page.locator('[id]').evaluateAll(nodes=>nodes.map(n=>n.id));
    assert.equal(new Set(ids).size,ids.length,'Cached carousels must have unique live IDs');
    assert.equal(await page.locator('#carousel-static .chulapa-carousel-toggle').isVisible(),false,'interval=0 does not need an autoplay toggle');
@@ -152,9 +155,15 @@ async function main() {
   assert.equal(await motionCarousel.locator('.carousel-inner').getAttribute('aria-live'),'off');
   const starting=await motionCarousel.locator('.carousel-item.active a').getAttribute('href');
   await motionPage.waitForFunction(href=>document.querySelector('#carousel-on .carousel-item.active a')?.getAttribute('href')!==href,starting);
+  await toggle.locator('.chulapa-carousel-fallback').click();
+  assert.equal(await isCycling(),false,'Clicking the pause symbol must stop cycling');
+  assert.equal(await toggle.getAttribute('aria-label'),'Start slideshow');
+  await toggle.locator('.chulapa-carousel-fallback').click();
+  await motionPage.mouse.move(0,0);
+  assert.equal(await isCycling(),true,'Clicking the play symbol must resume cycling after leaving hover');
   await toggle.focus();await motionPage.keyboard.press('Space');
   assert.equal(await isCycling(),false,'Pause must stop the timer');
-  assert.equal(await toggle.textContent(),'Start slideshow');
+  assert.equal(await toggle.getAttribute('aria-label'),'Start slideshow');
   await motionPage.waitForFunction(()=>!document.querySelector('#carousel-on .carousel-item-next, #carousel-on .carousel-item-prev'));
   const stopped=await motionCarousel.locator('.carousel-item.active a').getAttribute('href');
   await motionPage.waitForTimeout(1200);
@@ -171,6 +180,37 @@ async function main() {
   await motionPage.waitForFunction(()=>!window.jQuery(document.querySelector('#carousel-on .carousel')).data('bs.carousel')._interval);
   await motionPage.emulateMedia({reducedMotion:'no-preference'});assert.equal(await isCycling(),false,'Changing preference back must not silently restart');
   await motion.close();console.log('Carousel motion, pause/start, hover, keyboard focus and preference changes passed');
+  const iconPackage=path.dirname(require.resolve('@fortawesome/fontawesome-free/package.json'));
+  for (const failFont of [false,true]) {
+   const icons=await browser.newContext({reducedMotion:'reduce'});
+   await icons.route('**/*',r=>{
+    const url=r.request().url();const prefix='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/';
+    if(url.startsWith(prefix)) {
+     if(failFont && url.includes('/webfonts/')) return r.abort();
+     return r.fulfill({path:path.join(iconPackage,url.slice(prefix.length)),headers:{'access-control-allow-origin':'*'}});
+    }
+    return route(r);
+   });
+   const iconPage=await icons.newPage();await iconPage.goto('http://localhost:8768/default.html');
+   const button=iconPage.locator('#carousel-on .chulapa-carousel-toggle');
+   await iconPage.waitForFunction(()=>document.querySelector('#carousel-on .carousel').dataset.chulapaCarouselReady==='true');
+   await iconPage.evaluate(()=>document.fonts.ready);
+   if(failFont) {
+    assert.equal(await button.locator('.chulapa-carousel-fallback').isVisible(),true,'A failed icon font must retain the play symbol');
+   } else {
+    await button.locator('.has-icon-font').waitFor();
+    assert.equal(await button.locator('.chulapa-carousel-fallback').isVisible(),false,'Loaded Font Awesome must replace the symbol');
+    assert.equal(await button.locator('i.fa-play').isVisible(),true);
+    await button.locator('i').click();
+    assert.equal(await button.getAttribute('aria-label'),'Pause slideshow');
+    assert.equal(await button.locator('i.fa-pause').isVisible(),true);
+    await button.locator('i').click();
+    assert.equal(await button.getAttribute('aria-label'),'Start slideshow');
+    assert.equal(await iconPage.evaluate(()=>Boolean(window.jQuery(document.querySelector('#carousel-on .carousel')).data('bs.carousel')._interval)),false);
+   }
+   await icons.close();
+  }
+  console.log('Font Awesome icon clicks, accessible action names and failed-font fallback passed');
   // Model browsers whose MediaQueryList has addListener but no addEventListener.
   const legacy=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
   await legacy.addInitScript(()=>{
