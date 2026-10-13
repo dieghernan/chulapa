@@ -3,7 +3,7 @@
 	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-10-13T18:48:37+02:00</updated>
+	<updated>2026-10-13T18:50:53+02:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A flexible, visual Jekyll theme</title>
 	<subtitle>A flexible, visual Jekyll theme</subtitle>
@@ -254,6 +254,11 @@ features.&lt;/p&gt;
 add a local video?” The assistant can provide short explanations, code examples
 and links to the relevant documentation. Each question is independent, so include
 the details it needs rather than relying on an earlier message.&lt;/p&gt;
+
+&lt;p&gt;Recent messages and the draft stay in the current tab’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sessionStorage&lt;/code&gt; so
+reloading a page can restore the interface. Clear chat resets those messages and
+the draft. This displayed history is not sent as conversation context: each
+request contains only the current question.&lt;/p&gt;
 
 &lt;p&gt;The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
 Questions are sent to Cloudflare for processing. Answers can contain mistakes;

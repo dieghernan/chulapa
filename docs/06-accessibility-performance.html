@@ -18,8 +18,8 @@
         "description": "Check your site’s navigation, colors and resources - Keyboard behavior, reduced motion and practical loading advice.",
         "headline": "Accessibility and performance",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T18:48:37+02:00",
-        "dateModified": "2026-10-13T18:48:37+02:00",
+        "datePublished": "2026-10-13T18:50:53+02:00",
+        "dateModified": "2026-10-13T18:50:53+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -300,7 +300,7 @@ as well as on hover. Card image links use the article title as their accessible
 name. Theme navigation and icon transitions respect the browser’s
 <code class="language-plaintext highlighter-rouge">prefers-reduced-motion</code> preference.</p>
 <p>If JavaScript is disabled, floating navigation has a static link fallback.
-The floating-menu controls also work if the jQuery CDN request fails; components
+The floating-menu controls also work on search pages and if the jQuery CDN request fails; components
 that depend on Bootstrap JavaScript still require its dependencies.</p>
 <h2 id="colors-and-content">Colors and content</h2>
 <p>Prose links in paragraphs and lists are underlined so color is not their only
@@ -332,6 +332,10 @@ loading the entire gallery before opening it.</p>
 <p>GoatCounter loads its official asynchronous script only when a public HTTPS
 endpoint is configured and <code class="language-plaintext highlighter-rouge">JEKYLL_ENV=production</code>. It is independent of Google
 Analytics: configuring both loads both trackers. See <a href="./02-config#goatcounter-analytics">analytics settings</a>.</p>
+<p>In v2.1.1-dev, deferred YouTube players load on activation without requesting
+the player API at page load. Lunr reuses its index, and local search engines
+batch input while typing. The TOCs share heading measurements within each update.
+Native code copying remains available if the tooltip dependencies fail.</p>
 <p>Resize large images before publishing, include dimensions where possible and
 avoid enabling integrations that your site does not use. Measure representative
 pages with your real content and hosting. Local checks cannot establish a
@@ -434,9 +438,10 @@ for results, remaining checks and reproduction commands.</p>
   </footer>
   <!-- Footer -->
 <!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
 	<script src="/chulapa/assets/js/chulapa_script.js"></script>
 	<!-- start custom scripts to be placed at the bottom of the page -->
     <script defer

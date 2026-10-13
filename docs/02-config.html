@@ -18,8 +18,8 @@
         "description": "Learn how to set up your new site - Setting up your new site",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T18:48:37+02:00",
-        "dateModified": "2026-10-13T18:48:37+02:00",
+        "datePublished": "2026-10-13T18:50:53+02:00",
+        "dateModified": "2026-10-13T18:50:53+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -550,6 +550,11 @@ or GitHub Actions secrets; do not put it in the public configuration.</p>
     <span class="pi">-</span> <span class="s">desc(subtitle)</span>
 </code></pre></div></div>
 <p>If you are deploying your site with GitHub Pages, I recommend using this <a href="https://github.com/marketplace/actions/algolia-jekyll-action">GitHub Action</a> to create and update your Algolia index after every commit automatically.</p>
+<p>In v2.1.1-dev, Lunr builds its index once per search page and reuses it for later
+queries. Lunr and Fuse.js share result rendering and highlighting, including
+two-character matches. Input is grouped with a 150 ms delay while typing;
+Enter searches immediately without reloading the page, and clearing the field
+clears results immediately. No new configuration is needed.</p>
 <h3 id="comments">Comments</h3>
 <p>Set <code class="language-plaintext highlighter-rouge">comments.provider</code> and enable <code class="language-plaintext highlighter-rouge">show_comments: true</code> on pages or in front
 matter defaults for layouts that display comments. Configure the selected
@@ -585,6 +590,9 @@ script into <code class="language-plaintext highlighter-rouge">_includes/custom/
 <p class="alert alert-info p-3 mx-2 mb-3">In development after v2.1.0, the Cactus script and stylesheet load only on
 pages with <code class="language-plaintext highlighter-rouge">show_comments: true</code>. Selecting the provider alone no longer loads
 these resources on every page.</p>
+<p>In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
+iframe and requires a finite, nonnegative numeric height. Existing provider
+settings are unchanged.</p>
 <p class="alert alert-warning p-3 mx-2 mb-3">When setting up <strong>Welcomments</strong>, review any generated pull request before
 merging it. Use its <code class="language-plaintext highlighter-rouge">website_id</code>, but retain the customized templates supplied
 by <span class="chulapa">Chulapa</span> rather than overwriting them.</p>
@@ -596,7 +604,9 @@ switch from a floating button to a classic navbar at the configured breakpoint.<
 <p>In development after v2.1.0, the floating button works with Enter and Space.
 Opening it focuses the first menu link; Escape closes it and returns focus to
 the button. Closed floating-menu links are excluded from Tab navigation.
-The lateral TOC is a separate component and retains its existing Tab behavior.</p>
+The floating menu also works on search pages. If its visibility animates, initial
+focus waits for the menu transition; moving focus or closing the menu cancels
+that pending focus move. The lateral TOC retains its existing Tab behavior.</p>
 <p>Check this <a href="https://dieghernan.github.io/chulapa/demo/classic-navbar">live demo</a> of the classic navbar style.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">navbar</code>:
@@ -787,9 +797,10 @@ examples rather than requirements for every site.</p>
   </footer>
   <!-- Footer -->
 <!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
 	<script src="/chulapa/assets/js/chulapa_script.js"></script>
 	<!-- start custom scripts to be placed at the bottom of the page -->
     <script defer

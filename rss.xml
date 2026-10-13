@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Tue, 13 Oct 2026 18:48:37 +0200</pubDate>
-		<lastBuildDate>Tue, 13 Oct 2026 18:48:37 +0200</lastBuildDate>
+		<pubDate>Tue, 13 Oct 2026 18:50:53 +0200</pubDate>
+		<lastBuildDate>Tue, 13 Oct 2026 18:50:53 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -241,6 +241,11 @@ features.</p>
 add a local video?” The assistant can provide short explanations, code examples
 and links to the relevant documentation. Each question is independent, so include
 the details it needs rather than relying on an earlier message.</p>
+
+<p>Recent messages and the draft stay in the current tab’s <code class="language-plaintext highlighter-rouge">sessionStorage</code> so
+reloading a page can restore the interface. Clear chat resets those messages and
+the draft. This displayed history is not sent as conversation context: each
+request contains only the current question.</p>
 
 <p>The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
 Questions are sent to Cloudflare for processing. Answers can contain mistakes;

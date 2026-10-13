@@ -13,59 +13,52 @@ let sitemap = "https://dieghernan.github.io/chulapa/sitemap.xml"
 // Single levestein dist https://stackoverflow.com/questions/18516942
 // Later implemented as js-levenshtein
 const levenshteinDistance = (s, t) => {
-    if (!s.length) return t.length;
-    if (!t.length) return s.length;
-    const arr = [];
-    for (let i = 0; i <= t.length; i++) {
-        arr[i] = [i];
+    let previous = Array.from({length: s.length + 1}, (_, i) => i);
+    for (let i = 1; i <= t.length; i++) {
+        const current = [i];
         for (let j = 1; j <= s.length; j++) {
-            arr[i][j] =
-                i === 0 ?
-                j :
-                Math.min(
-                    arr[i - 1][j] + 1,
-                    arr[i][j - 1] + 1,
-                    arr[i - 1][j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1)
-                );
+            current[j] = Math.min(previous[j] + 1, current[j - 1] + 1,
+                previous[j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1));
         }
+        previous = current;
     }
-    return arr[t.length][s.length];
+    return previous[s.length];
 };
 // Iterator to get closest match
 const closest = (str, urls) => {
-    var arrayLength = urls.length;
-    var closest = []; // store their names within a local array
-    // Iterate over the distance
-    for (var i = 0; i < arrayLength; i++) {
-        closest.push(levenshteinDistance(str, urls[i]));
+    let best, distance = Infinity;
+    for (const url of urls) {
+        const candidate = levenshteinDistance(str, url);
+        if (candidate < distance) { best = url; distance = candidate; }
     }
-    let min = closest[0];
-    let url = urls[0];
-    for (var i = 0; i < arrayLength; i++) {
-        if (closest[i] > 0) {
-            if (closest[i] < min) {
-                min = closest[i];
-                url = urls[i];
-            }
-        }
-    }
-    return url;
+    return best;
 };
 // END A: Function definition...
 //  https://ben.balter.com/2022/06/30/helpful-404s-for-jekyll-and-github-pages/
 const div = document.getElementById('four-oh-four-suggestion');
 if (div) {
     const xhr = new XMLHttpRequest();
+    function showLink(url) {
+        const link = document.createElement('a');
+        link.className = 'alert-link font-weight-bolder';
+        link.href = url;
+        link.textContent = url.replace(homeUrl, '') || '/';
+        div.replaceChildren(link);
+    }
+    function fallback() { showLink(homeUrl + '/'); }
     xhr.onload = () => {
-        if (xhr.status === 200) {
-            const xml = xhr.responseXML;
-            const urls = Array.from(xml.querySelectorAll('urlset > url > loc')).map((el) => el.textContent);
-            const relurl = new URL(closest(currentUrl, urls));
-            div.innerHTML = `<a class="alert-link font-weight-bolder" href="${relurl.href}">${relurl.href.replace(homeUrl, "")}</a>`;
-        } else {
-            div.innerHTML = '<a href="/">/</a>';
-        }
+        if (xhr.status !== 200 || !xhr.responseXML) { fallback(); return; }
+        const urls = Array.from(xhr.responseXML.querySelectorAll('urlset > url > loc'))
+          .map(el => el.textContent).filter(url => {
+              try { return new URL(url).origin === new URL(homeUrl).origin; }
+              catch { return false; }
+          });
+        const match = closest(currentUrl, urls);
+        if (match) showLink(match); else fallback();
     };
+    xhr.onerror = fallback;
+    xhr.ontimeout = fallback;
+    xhr.timeout = 10000;
     xhr.open('GET', `${sitemap}`);
     xhr.send();
 }
