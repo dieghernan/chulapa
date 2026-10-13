@@ -133,7 +133,13 @@
   {
     "id": "goatcounter-analytics",
     "doc": "02_config.md",
-    "question": "How do I add GoatCounter to Chulapa? Does setting it replace Google Analytics and track localhost development?",
-    "expected": "Development after v2.1.0: goatcounter is the complete public HTTPS /count endpoint, hosted or self-hosted. Create site in GoatCounter separately; no API key/plugin. Official async gc.zgo.at/count.js only in JEKYLL_ENV=production; default disabled, development excluded and upstream ignores localhost. Google unchanged; clear gtag_id and analytics_id to use only GoatCounter. No live counter widget/custom events. Not in v2.1.0."
+    "question": "How do I add GoatCounter to Chulapa? Does setting it replace Google Analytics and track localhost development? Does it use canonical URLs, and should I also insert the tracker in a custom hook?",
+    "expected": "Development after v2.1.0: goatcounter is the complete public HTTPS /count endpoint, hosted or self-hosted. Create site in GoatCounter separately; no API key/plugin. Official async gc.zgo.at/count.js only in JEKYLL_ENV=production; default disabled, development excluded and upstream ignores localhost. Google unchanged; clear gtag_id and analytics_id to use only GoatCounter. No live counter widget/custom events. Not in v2.1.0. Prefers the path from a same-domain canonical URL (www equivalent); otherwise browser path. Ignores cross-domain canonicals. Chulapa provides canonical links including baseurl; no extra tag or duplicate tracker in custom hooks needed."
+  },
+  {
+    "id": "collection-filename-order",
+    "doc": "04_layouts.md",
+    "question": "How do I list a collection as cards in ascending filename order? Is that the default, and do gallery files use the same field?",
+    "expected": "Use layout: indexcategory, include_collection with the desired collection, index_sort: name and index_sort_asc: true. Default field name and default descending order; index_items defaults to 10 and limits after sorting. Internal masonry/carousel static files use index_sort=\"basename\" and index_sort_asc=true, not the document name field."
   }
 ]

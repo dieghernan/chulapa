@@ -17,6 +17,17 @@ included in <span class="chulapa">Chulapa</span>.
 
 See the [demos](https://dieghernan.github.io/chulapa/demo) for rendered examples.
 
+Features marked **v2.1.1-dev** are available on `main`, but are not included in
+v2.1.0. An unpinned remote theme follows `main`; a pinned release or installed
+gem only provides the features included in that version.
+
+| Recent feature | How to enable it | Availability |
+| --- | --- | --- |
+| [Mermaid diagrams](#mermaid-diagrams) | Page front matter: `mermaid: true`, plus Mermaid code blocks | v2.1.1-dev |
+| [PhotoSwipe galleries](#photoswipe-lightbox) | Liquid include parameter: `photoswipe=true` | v2.1.1-dev |
+| [Active TOC section](#options) | Automatic with an in-page, sidebar or kramdown TOC and JavaScript | v2.1.1-dev |
+| [GoatCounter analytics](./02-config#goatcounter-analytics) | Site setting: `goatcounter`, plus a production build | v2.1.1-dev |
+
 ## A. Layouts
 
 ### General purpose
@@ -119,13 +130,13 @@ project_links:
 ---
 ```
 - `show_date`: This would display the date of the page and the last modified
-  date, if provided. From v2.1.1, pages with `last_modified_at` retain both
+  date, if provided. In v2.1.1-dev, pages with `last_modified_at` retain both
   `dt-published` and `dt-updated` in their Microformats2 markup.
 - `show_sociallinks`: Display sharing links for Facebook, Twitter/X, WhatsApp
   and LinkedIn.
 - `show_author`: Set it to `true` to display the author of the page. By default it would display the `author` set on your [global settings](https://dieghernan.github.io/chulapa/docs/02-config), but you can override it via the page front matter:
 
-  From v2.1.1, the author's `url` is also included in the Microformats2 `h-card`.
+  In v2.1.1-dev, the author's `url` is also included in the Microformats2 `h-card`.
   Relative profile paths use the site's `url` and `baseurl`. A page author does
   not inherit the site author's profile URL.
 
@@ -156,7 +167,7 @@ author:
 		<i class="fa-solid fa-plus"></i><span class="sr-only">Example button</span>
 	</button> on the left side of your page, click it to expand the sidebar table of contents. See the implementation on the [Current skin](https://dieghernan.github.io/chulapa/skins/current).
 
-In the development version after v2.1.0, the in-page TOC, sidebar TOC and
+In v2.1.1-dev, the in-page TOC, sidebar TOC and
 kramdown's `{:toc}` highlight the current section as you scroll, with
 `aria-current="location"` on its link. Each TOC tracks only its included, rendered headings; headings inside closed or
 hidden containers are skipped until shown.
@@ -181,7 +192,7 @@ id="aa">My heading</h1>`) don't forget to include the `id`.
 
 - `show_random`: Display up to three randomly selected documents from the same
   candidate pool as `show_related`. Selection happens at build time, so the
-  cards do not change on every page load. In the v2.1.1 development version, a
+  cards do not change on every page load. In v2.1.1-dev, a
   pool with one eligible document renders that document instead of empty cards.
 
 **Related and random cards require tags.** Both components use collection
@@ -472,7 +483,7 @@ added automatically.
 Unlike `default` and `landingpage`, `minimal` does not automatically declare a
 Microformats2 `h-entry`. Custom content can provide its own `h-entry` wrapper,
 with `p-name`, `u-url` and `e-content` properties, without including the navbar
-or footer in the entry. This behavior starts in v2.1.1.
+or footer in the entry. This behavior is available in v2.1.1-dev.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ```yaml
@@ -595,8 +606,24 @@ Optional arguments:
 - `index_sort`: Front matter field used for sorting, such as `title`, `date`
   or a custom field. Defaults to `name` (the file name).
 - `index_sort_asc`: Set it to `true` if you want to have the cards sorted in
-  ascending order.
+  ascending order. The default order is descending.
 - `index_items`: Limit the number of items to be displayed. **10**.
+
+To list collection documents by filename in ascending order, as on the demo index:
+
+```yaml
+---
+layout: indexcategory
+include_collection: demo
+index_sort: name
+index_sort_asc: true
+index_items: 100
+---
+```
+
+Sorting uses the selected field rather than the displayed title; the item limit
+is applied after sorting. Galleries use `basename` for filename order because
+they contain static files rather than collection documents.
 
 See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
@@ -617,7 +644,7 @@ does not create the page.
 ### Layout structure and components
 
 A technical note about the layout structure of <span
-class="chulapa">Chulapa</span>. This overview describes the v2.1.1 development
+class="chulapa">Chulapa</span>. This overview describes the v2.1.1-dev
 version. On narrow screens, scroll the code block horizontally.
 
 ```text
@@ -673,7 +700,7 @@ them to the appropriate renderer. Related and random panels share a renderer
 while keeping their existing ranking and sampling behavior.
 
 The required `jekyll-include-cache` plugin caches the navbar, card indexes and
-translated dates. In the v2.1.1 development version, it also reuses the fixed
+translated dates. In v2.1.1-dev, it also reuses the fixed
 footer content across pages and cloud entries across tag and category indexes.
 Cloud entries vary by document, collection badge visibility and reading-speed
 setting. Comment providers remain in `footer.html`, with the existing page
@@ -701,7 +728,7 @@ can simply add this line to your page:
 
 ### Microformats in lists
 
-From v2.1.1, `archive`, `indexcategory`, `cloudtag` and `cloudcategory`
+In v2.1.1-dev, `archive`, `indexcategory`, `cloudtag` and `cloudcategory`
 (including the deprecated `cloudtag2` and `cloudcategory2` aliases) declare an
 `h-feed` instead of a page-level `h-entry`. The feed uses the page heading as
 `p-name`, its canonical URL as `u-url` and the visible author card as `p-author`,
@@ -720,7 +747,7 @@ No additional YAML settings are required.
 
 ### Generated head and footer formatting
 
-From v2.1.1, the theme separates the document opening and head tags onto
+In v2.1.1-dev, the theme separates the document opening and head tags onto
 individual lines and consistently indents its HTML and JSON-LD. With the
 existing `compress_html.blanklines: true` setting, compression removes blank
 lines and preserves head and theme footer indentation while continuing to clip
@@ -919,7 +946,7 @@ Example carousel:
 
 ### PhotoSwipe lightbox
 
-In the development version after v2.1.0, add `photoswipe=true` to a masonry or
+In v2.1.1-dev, add `photoswipe=true` to a masonry or
 carousel include to open its images in a PhotoSwipe viewer. The option is a
 Liquid boolean include parameter, not a page YAML setting. It is disabled by
 default, so existing galleries keep their behavior. The flag is part of the
@@ -1207,7 +1234,7 @@ your locale will be used.
 
 See the [Mermaid demo](../demo/13-mermaid) for flowchart and sequence examples.
 
-Available in the development version after v2.1.0. Use the updated default
+Available in v2.1.1-dev on `main`, not in v2.1.0. Use the updated default
 branch or a later release containing this feature; the v2.1.0 gem does not
 include it.
 
@@ -1251,8 +1278,7 @@ supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.h
 ### Copying code
 
 Code blocks have a copy button. Copying requires the browser Clipboard API
-and a secure context, such as HTTPS or localhost. In the development version
-after v2.1.0, the button reports success only after the write completes and
+and a secure context, such as HTTPS or localhost. In v2.1.1-dev, the button reports success only after the write completes and
 reports failure when permission is denied or the API is unavailable. It does
 not clear the existing clipboard before copying. Enabled Mermaid diagrams do
 not receive code copy buttons.

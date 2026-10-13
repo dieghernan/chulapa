@@ -66,8 +66,10 @@ bundle exec ruby test/check_feed_selection.rb
 bundle exec ruby test/check_liquid_fallbacks.rb
 bundle exec ruby test/check_compress_html.rb
 bundle exec ruby test/check_video_examples.rb
-node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_highlighting_security.js
+node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_photoswipe.mjs test/check_highlighting_security.js
 bundle exec ruby test/check_mermaid.rb
+bundle exec ruby test/check_photoswipe.rb
+bundle exec ruby test/check_goatcounter.rb
 ```
 
 The Ruby checks build temporary fixtures or inspect theme sources to verify

@@ -27,6 +27,17 @@ The lateral TOC remains independent. Its open and close controls and navigation
 through entries with Tab keep their existing behavior. It does not trap focus
 or act as a modal dialog.
 
+In-page, sidebar and kramdown TOCs highlight the current section and mark its
+link with `aria-current="location"`. This needs JavaScript and does not move
+keyboard focus. Hidden headings are skipped until shown; ordinary anchor links
+still work without JavaScript.
+
+PhotoSwipe galleries support arrow keys, zoom, Escape and focus containment;
+closing the viewer returns focus to the image link. Reduced-motion preferences
+disable opening and zoom animations. Original image links remain usable without
+JavaScript or when viewer assets fail to load. See [PhotoSwipe lightboxes](./04-layouts#photoswipe-lightbox)
+for setup and limitations.
+
 The lateral TOC is named **Sidebar table of contents** and the footer link
 navigation is named **Footer links** so assistive technology can distinguish
 them from the primary navbar.
@@ -69,6 +80,15 @@ With Cactus configured, its script and stylesheet load only on pages with
 footer content so the browser does not need to repair the document structure.
 MathJax and Mermaid remain opt-in per page; Mermaid
 loads its library only when an enabled page contains diagrams.
+
+PhotoSwipe-enabled galleries load a small local module with the page; the
+PhotoSwipe JavaScript and stylesheet load from jsDelivr only when an image is
+opened. Offscreen images are measured as the viewer loads them, rather than
+loading the entire gallery before opening it.
+
+GoatCounter loads its official asynchronous script only when a public HTTPS
+endpoint is configured and `JEKYLL_ENV=production`. It is independent of Google
+Analytics: configuring both loads both trackers. See [analytics settings](./02-config#goatcounter-analytics).
 
 Resize large images before publishing, include dimensions where possible and
 avoid enabling integrations that your site does not use. Measure representative

@@ -18,21 +18,21 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Can I keep the generated head and footer readable with indentation? Do I need a new YAML setting? What happens to my custom snippets and the body?",
-    "expected": "From v2.1.1 the theme emits separate document opening and head lines with consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true, already in configuration examples, preserves head and theme footer indentation while removing blank lines and clipping the rest of the body. Fixed footer content uses two spaces per nesting level. No new setting is needed. Other compression modes follow existing site settings. Custom head includes and embedded comment integrations retain their own formatting; avoid Liquid trims across HTML boundaries. These are development changes, not already released in v2.1.0."
+    "expected": "In v2.1.1-dev (main, not released v2.1.0) the theme emits separate document opening and head lines with consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true, already in configuration examples, preserves head and theme footer indentation while removing blank lines and clipping the rest of the body. Fixed footer content uses two spaces per nesting level. No new setting is needed. Other compression modes follow existing site settings. Custom head includes and embedded comment integrations retain their own formatting; avoid Liquid trims across HTML boundaries. These are development changes, not already released in v2.1.0."
   },
   {
     "id": "layouts-microformats-nested-feed-1",
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "My page uses custom2, which inherits custom1, which inherits archive. Will it still be h-feed? Do I need a YAML flag in my page?",
-    "expected": "From v2.1.1 custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
+    "expected": "In v2.1.1-dev (main, not released v2.1.0) custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
   },
   {
     "id": "layouts-microformats-feed-1",
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Which Chulapa list layouts provide h-feed? Do I need new YAML options or does including indexcards automatically create a feed?",
-    "expected": "From v2.1.1 archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
+    "expected": "In v2.1.1-dev (main, not released v2.1.0) archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
   },
   {
     "id": "config-author-profile-1",
