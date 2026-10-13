@@ -243,8 +243,10 @@ fixture source. Running from the repository root can select the wrong layouts.
 The compatibility bundle deliberately excludes the local theme dependency so
 the installation check can select the temporary installed gem.
 
-The navigation browser checks verify that native Lux dropdown buttons retain
-the same uppercase text as navbar links at 320, 390 and 1280 px.
+The navigation browser checks compare native dropdown typography, capitalization,
+text shadows and borders with equivalent navbar links on nine skins, including
+Gitdev, Lux, Universal, Sketchy and Slate, in classic, floating and dual menus
+at 320, 390 and 1280 px.
 
 The navigation browser checks also cover synchronized active sections in the
 in-page, sidebar and kramdown TOCs on seven skins at 320, 390 and 1280 px. They

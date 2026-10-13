@@ -206,8 +206,8 @@ Put only SCSS variable assignments in that file, for example
 $primary: #285d70 !default;. The YAML chulapa-skin.skin: myskin belongs in
 _config.yml, never in _sass/skins/myskin.scss.
 The Codeply sandbox previews SCSS; translate assignments into vars without $ or
-semicolons, quote hex colors and keep the Bootstrap grid enabled. Themestr.app
-is not required. The docs link the sandbox from the theming page.
+semicolons, quote hex colors and keep the Bootstrap grid enabled.
+The docs link the sandbox from the theming page.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins

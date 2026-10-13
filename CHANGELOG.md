@@ -16,7 +16,7 @@
 
 ### Fixed
 
--   Preserve skin-defined navbar capitalization on native dropdown buttons.
+-   Preserve skin-defined navbar typography, capitalization, text shadows and borders on native dropdown buttons.
 
 -   Trim video names before applying accessible-label fallbacks, including whitespace-only values supplied by Liquid captures or legacy deferred-player markup.
 

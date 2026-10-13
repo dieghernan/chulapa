@@ -198,18 +198,35 @@ async function main() {
     await page.keyboard.press("Space");
     await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "false");
     assert.deepEqual(errors, [], "Unexpected JavaScript errors in generated pages");
-    for (const width of [320, 390, 1280]) {
-      await page.setViewportSize({ width, height: 844 });
-      await load("lux-classic");
-      const styles = await page.locator('.navbar-chulapa button.nav-link.dropdown-toggle').evaluate(button => ({
-        transform: getComputedStyle(button).textTransform,
-        parentTransform: getComputedStyle(button.closest("nav")).textTransform,
-        linkTransform: getComputedStyle(button.closest("nav").querySelector("a.nav-link")).textTransform
-      }));
-      assert.equal(styles.parentTransform, "uppercase");
-      assert.equal(styles.transform, styles.linkTransform, `Lux dropdown casing differs from links at ${width}px`);
+    for (const skin of ["gitdev", "gitdev-dark", "focal", "lux", "journal", "sketchy", "universal", "slate", "yeti"]) {
+      for (const mode of ["classic", "fab", "dual"]) {
+        for (const width of [320, 390, 1280]) {
+          await page.setViewportSize({ width, height: 844 });
+          await load(`${skin}-${mode}`);
+          await page.addStyleTag({ content: "* { transition: none !important; animation: none !important; }" });
+          const differences = await page.locator('button.nav-link.dropdown-toggle').evaluateAll(buttons => buttons.flatMap(button => {
+            // Compare with the link this native action replaced, preserving all classes and state.
+            const link = document.createElement("a");
+            for (const attribute of button.attributes) link.setAttribute(attribute.name, attribute.value);
+            link.removeAttribute("type");
+            link.setAttribute("href", "#");
+            link.setAttribute("role", "button");
+            link.textContent = button.textContent;
+            button.after(link);
+            const actual = getComputedStyle(button);
+            const expected = getComputedStyle(link);
+            const properties = ["fontFamily", "fontSize", "fontWeight", "letterSpacing", "textTransform", "textShadow",
+              "borderRadius", "borderLeftWidth", "borderRightWidth", "color", "backgroundColor", "paddingLeft", "paddingRight"];
+            const differences = properties.filter(property => actual[property] !== expected[property])
+              .map(property => `${button.id}: ${property} ${actual[property]} != ${expected[property]}`);
+            link.remove();
+            return differences;
+          }));
+          assert.deepEqual(differences, [], `${skin}/${mode}: dropdown style differs from links at ${width}px`);
+        }
+      }
     }
-    console.log("Passed Lux uppercase dropdowns at 320/390/1280px");
+    console.log("Passed native dropdown typography and borders on nine skins, all navbar modes and 320/390/1280px");
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
     const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
     try {

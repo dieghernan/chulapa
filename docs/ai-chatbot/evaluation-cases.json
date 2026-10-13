@@ -220,8 +220,8 @@
     "id": "theming-6",
     "section": "theming",
     "doc": "03_theming.md",
-    "question": "How do I transfer a Codeply theme preview to my site? Is Themestr.app required?",
-    "expected": "PreviewSCSS translatevars no$semicolon quotedhex; Themestrnotrequired; don'tdisablegrid."
+    "question": "How do I transfer a Codeply theme preview to my site?",
+    "expected": "PreviewSCSS translatevars no$semicolon quotedhex; don'tdisablegrid."
   },
   {
     "id": "layouts-1",

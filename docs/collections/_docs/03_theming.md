@@ -71,26 +71,27 @@ Merge these entries with your existing settings rather than creating a second
 `chulapa-skin` section. After publishing, your text should use Rubik and your
 headings Raleway.
 
-For another font provider, use either of these methods:
-
-1. Create or edit `_includes/custom/custom_head.html` to add the provider's
-   stylesheet or other HTML inside `<head>`.
-2. Create or edit `assets/css/custom.scss` to import fonts and add CSS rules.
-   Include the empty YAML front matter required for Jekyll to compile SCSS.
-
-**Loading a font does not apply it.** Set `font-family-base` or
-`headings-font-family` under `chulapa-skin.vars` to use it. See
-[Variables](#variables).
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+For another provider, add its font stylesheet to
+`_includes/custom/custom_head.html` following the provider's instructions.
+Then set `font-family-base` and/or `headings-font-family` as in the example
+above: loading a font alone does not apply it. See
+[custom HTML and styles](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+for other ways to add fonts.
 
 ## Code highlighting
 
-Jekyll uses Rouge to highlight code. <span class="chulapa">Chulapa</span> provides Pygments-compatible CSS styles; choose one from the [live demo](https://dieghernan.github.io/chulapa/docs/syntax-highlighting). The default style is `default`.
+Choose how code blocks look from the
+[style previews](https://dieghernan.github.io/chulapa/docs/syntax-highlighting).
+In `_config.yml`, change or add `highlight` under your existing `chulapa-skin`
+section, keeping your other settings:
 
 ```yaml
 chulapa-skin:
   highlight: zenburn
 ```
+
+The default style is `default`. Save, publish and check a page containing a
+code block to see the change.
 
 ## Autothemer
 
@@ -253,13 +254,6 @@ translating assignments, quote hex colors and leave a space after `:`.
 Autothemer is already installed in the **ply**. To activate it,
 uncomment the lines between `/* Start autothemer */` and `/* End autothemer */`
 on the **CSS** window.
-
-## Themestr.app
-
-Themestr.app was a tool for generating Bootstrap themes. Its original site
-is not required for this workflow. Use the
-[Codeply sandbox](https://www.codeply.com/p/qhEml875ge) to preview SCSS changes
-and translate them into `_config.yml` variables as described above.
 
 **Keep the theme's Bootstrap import and grid enabled.** Do not add another
 `@import "bootstrap";` to your skin. Setting `$enable-grid-classes: false`
