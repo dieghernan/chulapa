@@ -22,8 +22,8 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 Choose from 40+ skins, customize colors from YAML and publish with GitHub Pages.
 Start with the ready-to-publish blog template, then add the features you need.
 
-[Get started](https://dieghernan.github.io/chulapa/docs/00-start) ·
-[Browse skins](https://dieghernan.github.io/chulapa/skins) ·
+[Get started](https://dieghernan.github.io/chulapa/docs/00-start) Â·
+[Browse skins](https://dieghernan.github.io/chulapa/skins) Â·
 [See real sites](https://dieghernan.github.io/chulapa/showcase)
 
 ## Choose your starting point
