@@ -1,59 +1,11 @@
-// Floating navigation uses a keyboard-operable button; the lateral TOC is independent.
-var navigationButton = document.getElementById("navi-toggle");
-var navigationMenu = document.getElementById("navi-menu");
-if (navigationButton && navigationMenu) {
-  function setFloatingNavigation(open, returnFocus) {
-    navigationButton.setAttribute("aria-expanded", String(open));
-    navigationMenu.setAttribute("aria-hidden", String(!open));
-    navigationMenu.inert = !open;
-    if (open) {
-      navigationMenu.querySelector("a, button").focus();
-    } else if (returnFocus) {
-      navigationButton.focus();
-    }
-  }
-  navigationButton.addEventListener("click", function () {
-    setFloatingNavigation(navigationButton.getAttribute("aria-expanded") !== "true", true);
-  });
-  navigationMenu.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      event.stopPropagation();
-      setFloatingNavigation(false, true);
-    }
-  });
-  navigationButton.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      setFloatingNavigation(false, true);
-    }
-  });
-  navigationMenu.addEventListener("click", function (event) {
-    var link = event.target.closest("a");
-    if (link && !link.hasAttribute("data-toggle")) {
-      setFloatingNavigation(false, true);
-    }
-  });
-  navigationMenu.addEventListener("focusout", function () {
-    setTimeout(function () {
-      if (!navigationMenu.contains(document.activeElement) &&
-          document.activeElement !== navigationButton) {
-        setFloatingNavigation(false, false);
-      }
-    }, 0);
-  });
-  window.addEventListener("resize", function () {
-    if (navigationButton.getClientRects().length === 0) {
-      setFloatingNavigation(false, false);
-    }
-  });
-}
-
+// The legacy entry point loads only clipboard behavior from this maintained asset.
+var clipboardOnly = document.currentScript && document.currentScript.getAttribute("data-clipboard-only") === "true";
+if (!clipboardOnly) {
 var sT = document.getElementById("sidetoc");
 var btn = document.getElementById("demo");
 var body = document.getElementById("body");
 var main = document.getElementById("maincontent");
 var heads = main ? main.querySelectorAll("h1, h2, h3, h4, h5 , h6") : [];
-var els = main ? main.querySelectorAll("pre") : [];
 
 // First load sidebar
 // Create hidden overlay
@@ -93,12 +45,12 @@ function closeSideBar() {
 
 // Put anchors on headings
 heads.forEach(function (currentValue) {
-  thish = currentValue;
-  id = thish.id;
+  var thish = currentValue;
+  var id = thish.id;
   if (id) {
-    anchor = document.createElement("a");
-    sp = document.createElement("span");
-    ic = document.createElement("i");
+    var anchor = document.createElement("a");
+    var sp = document.createElement("span");
+    var ic = document.createElement("i");
     anchor.classList.add("chulapa-header-link", "ml-2",
       "chulapaDateSocial");
     anchor.href = "#" + id;
@@ -154,12 +106,20 @@ heads.forEach(function (currentValue) {
     var readingLine = Math.min(120, window.innerHeight / 4);
     var atBottom = window.scrollY > 0 &&
       window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    var positions = new Map();
+    groups.forEach(function (links) {
+      links.forEach(function (entry) {
+        if (!positions.has(entry.heading)) {
+          positions.set(entry.heading, isRendered(entry.heading) ? entry.heading.getBoundingClientRect().top : null);
+        }
+      });
+    });
     groups.forEach(function (links) {
       // Heading order comes from the document, including differently nested TOCs.
       var active = null;
       links.forEach(function (entry) {
-        if (isRendered(entry.heading) &&
-            (entry.heading.getBoundingClientRect().top <= readingLine || atBottom)) {
+        var top = positions.get(entry.heading);
+        if (top !== null && (top <= readingLine || atBottom)) {
           active = entry.heading;
         }
       });
@@ -202,62 +162,80 @@ heads.forEach(function (currentValue) {
   update();
 })();
 
+}
+
 // Copy Clipboard
 // Insert buttons
 
-els.forEach(function (currentValue, currentIndex) {
-  preBlock = currentValue;
-  i = currentIndex;
-  // Select first child
-  codeBlock = preBlock.querySelector("code");
-  if (body && body.getAttribute("data-mermaid") === "true" &&
-      (preBlock.classList.contains("mermaid") || preBlock.closest(".language-mermaid") ||
-       (codeBlock && codeBlock.classList.contains("language-mermaid")))) {
-    return;
-  }
-  // If first child is code
-  if (codeBlock) {
-    // Add br is no native
-    hashigh = preBlock.classList.contains("highlight");
-    if (hashigh === false){
-      preBlock.classList.add("highlight");
-      brk = document.createElement("br");
-      codeBlock.prepend(brk);
+function ch_clipboard_setup(root) {
+  if (!root) return;
+  var clipboardBody = document.getElementById("body");
+  root.querySelectorAll("pre").forEach(function (currentValue, currentIndex) {
+    var preBlock = currentValue;
+    var existingCopy = preBlock.querySelector(".btn-chulapa-copy-code");
+    if (existingCopy && existingCopy.classList.contains("btn-chulapa-copy-code")) return;
+    var i = currentIndex;
+    while (document.getElementById("clipboard_btn" + i)) i++;
+    // Select first child
+    var codeBlock = preBlock.querySelector("code");
+    if (clipboardBody && clipboardBody.getAttribute("data-mermaid") === "true" &&
+        (preBlock.classList.contains("mermaid") || preBlock.closest(".language-mermaid") ||
+         (codeBlock && codeBlock.classList.contains("language-mermaid")))) {
+      return;
     }
-    // Add id to code block
-    codeBlock.setAttribute("id", "clipboard_code" + i);
-    // Create button
-    copybtn = document.createElement("button");
-    copybtn.classList.add("btn", "text-muted", "btn-sm",
-      "btn-chulapa-copy-code");
-    copybtn.innerHTML = "<i class='far fa-copy'></i>";
-    copybtn.id = "clipboard_btn" + i;
-    copybtn.type = "button";
-    copybtn.setAttribute("data-toggle", "tooltip");
-    copybtn.setAttribute("data-placement", "left");
-    copybtn.setAttribute("aria-label", "Copy code to clipboard");
-    //Function to copy to clipboard
-    copybtn.onclick = ch_copy_cliboard(i);
-    preBlock.prepend(copybtn);
-  } else {
-    console.log("No code block for\n" + preBlock.innerHTML);
-  }
+    // If first child is code
+    if (codeBlock) {
+      // Add br is no native
+      var hashigh = preBlock.classList.contains("highlight");
+      if (hashigh === false){
+        preBlock.classList.add("highlight");
+        var brk = document.createElement("br");
+        codeBlock.prepend(brk);
+      }
+      // Add id to code block
+      codeBlock.setAttribute("id", "clipboard_code" + i);
+      // Create button
+      var copybtn = document.createElement("button");
+      copybtn.classList.add("btn", "text-muted", "btn-sm",
+        "btn-chulapa-copy-code");
+      copybtn.innerHTML = "<i class='far fa-copy'></i>";
+      copybtn.id = "clipboard_btn" + i;
+      copybtn.type = "button";
+      copybtn.setAttribute("data-toggle", "tooltip");
+      copybtn.setAttribute("data-placement", "left");
+      copybtn.setAttribute("aria-label", "Copy code to clipboard");
+      //Function to copy to clipboard
+      copybtn.onclick = ch_copy_cliboard(i);
+      preBlock.prepend(copybtn);
+    } else {
+      console.log("No code block for\n" + preBlock.innerHTML);
+    }
 
+  });
+
+}
+ch_clipboard_setup(main);
+
+// Copying remains available if the optional tooltip dependencies fail to load.
+function tooltipTrigger(button) {
+  if (typeof $ !== "function") return null;
+  var trigger = $(button);
+  return trigger && typeof trigger.tooltip === "function" ? trigger : null;
+}
+if (typeof $ === "function") $(function () {
+  var trigger = tooltipTrigger("[data-toggle='tooltip']");
+  if (trigger) trigger.tooltip();
 });
 
-// Initialize Bootstrap tooltip
-$(function () {
-  $("[data-toggle='tooltip']")
-    .tooltip();
-})
-
 function showTooltip(thisbtn, message) {
+  if (!thisbtn) return;
   thisbtn.tooltip("hide")
     .attr("data-original-title", message)
     .tooltip("show");
 }
 
 function hideTooltip(thisbtn) {
+  if (!thisbtn) return;
   setTimeout(function () {
     thisbtn.tooltip("hide");
   }, 1000);
@@ -282,7 +260,8 @@ function ch_copy_cliboard(i) {
   return async function () {
     const code = document.getElementById("clipboard_code" + i).textContent;
     const button = document.getElementById("clipboard_btn" + i);
-    const trigger = $(button);
+    if (!button || button.disabled) return;
+    const trigger = tooltipTrigger(button);
     let style = "text-success";
     let tooltip = "Copied!";
     button.disabled = true;

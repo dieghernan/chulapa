@@ -4,7 +4,7 @@ layout: compress
 {%- include snippets/page-language.html -%}
 <!doctype html>
 <html lang="{{ page_language | escape }}">
-	{% include head.html %}
+	{% include head.html theme_script=true %}
 	{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 	<body {% if page.mermaid == true %}data-mermaid="true" {% endif %}class="d-flex flex-column" id="body">
 	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
@@ -18,10 +18,7 @@ layout: compress
 			{{- content -}}
 	{%- include_cached footer.html show_comments=page.show_comments pageurl=page.url pageid=page.id pagetitle = page.title -%}
 	<!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	<script src="{{ '/assets/js/chulapa_script.js' | relative_url }}"></script>
+	{% include components/scripts.html theme=true %}
 	{% if page.mermaid == true %}
 	<script type="module" src="{{ "/assets/js/chulapa_mermaid.js" | relative_url }}"></script>
 	{% endif %}

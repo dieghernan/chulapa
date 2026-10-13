@@ -48,7 +48,7 @@ name. Theme navigation and icon transitions respect the browser's
 `prefers-reduced-motion` preference.
 
 If JavaScript is disabled, floating navigation has a static link fallback.
-The floating-menu controls also work if the jQuery CDN request fails; components
+The floating-menu controls also work on search pages and if the jQuery CDN request fails; components
 that depend on Bootstrap JavaScript still require its dependencies.
 
 ## Colors and content
@@ -89,6 +89,11 @@ loading the entire gallery before opening it.
 GoatCounter loads its official asynchronous script only when a public HTTPS
 endpoint is configured and `JEKYLL_ENV=production`. It is independent of Google
 Analytics: configuring both loads both trackers. See [analytics settings](./02-config#goatcounter-analytics).
+
+In v2.1.1-dev, deferred YouTube players load on activation without requesting
+the player API at page load. Lunr reuses its index, and local search engines
+batch input while typing. The TOCs share heading measurements within each update.
+Native code copying remains available if the tooltip dependencies fail.
 
 Resize large images before publishing, include dimensions where possible and
 avoid enabling integrations that your site does not use. Measure representative

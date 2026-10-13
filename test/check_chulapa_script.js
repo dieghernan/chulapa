@@ -5,7 +5,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 const test = require("node:test");
 
-const script = fs.readFileSync(
+const script = fs.readFileSync(path.join(__dirname, "../assets/js/chulapa_navigation.js"), "utf8") + "\n" + fs.readFileSync(
   path.join(__dirname, "../assets/js/chulapa_script.js"), "utf8"
 );
 
@@ -116,6 +116,7 @@ test("highlighted blocks keep their code untouched and get distinct copy targets
 
 function floatingNavigation() {
   const handlers = { button: {}, menu: {}, window: {} };
+  const frames = [];
   const button = element("button");
   const menu = element("nav");
   const link = element("a");
@@ -132,13 +133,14 @@ function floatingNavigation() {
   button.getClientRects = () => [1];
   button.addEventListener = (name, handler) => { handlers.button[name] = handler; };
   menu.addEventListener = (name, handler) => { handlers.menu[name] = handler; };
+  menu.removeEventListener = (name, handler) => { if (handlers.menu[name] === handler) delete handlers.menu[name]; };
   vm.runInNewContext(script, {
     document,
-    window: { addEventListener(name, handler) { handlers.window[name] = handler; } },
+    window: { addEventListener(name, handler) { handlers.window[name] = handler; }, requestAnimationFrame(callback) { frames.push(callback); } },
     setTimeout(callback) { callback(); },
     $(value) { if (typeof value === "function") value(); return { tooltip() {} }; }
   });
-  return { handlers, button, menu, link, document };
+  return { handlers, button, menu, link, document, frames };
 }
 
 test("floating navigation opens, focuses its first link and closes on another click", () => {
@@ -422,4 +424,64 @@ test("visibility mutations update TOCs without resize and ignore their own style
   assert.deepEqual(fixture.active(fixture.inline), ["#last"]);
   fixture.mutated([{target: {contains: () => false}}]);
   assert.equal(fixture.frames.length, 0, "TOC link styling and unrelated controls must not retrigger tracking");
+});
+
+
+test("native copying and accessible feedback work without jQuery or Bootstrap", async () => {
+  for (const remove of ["jquery", "tooltip"]) {
+    const writes = [];
+    const {context, button, timers} = clipboardContext(async text => writes.push(text));
+    if (remove === "jquery") delete context.$;
+    else context.$ = () => ({});
+    await context.ch_copy_cliboard(0)();
+    assert.deepEqual(writes, ["a < b & c\n"]);
+    assert.equal(button.getAttribute("aria-label"), "Copied!");
+    timers.forEach(timer => timer.callback());
+    await Promise.resolve();
+    assert.equal(button.getAttribute("aria-label"), "Copy code to clipboard");
+  }
+});
+
+test("TOCs measure shared headings once per animation frame", () => {
+  const fixture = readingPosition();
+  const counts = [0, 0, 0];
+  fixture.headings.forEach((heading, index) => {
+    heading.getBoundingClientRect = () => { counts[index]++; return {top: heading.top}; };
+  });
+  fixture.listeners.scroll(); fixture.flush();
+  assert.deepEqual(counts, [1, 1, 1]);
+});
+
+test("initialization works without jQuery and does not create accidental globals", () => {
+  const context = {document: {getElementById() { return null; }, createElement: element}};
+  vm.runInNewContext(script, context);
+  for (const name of ["id", "thish", "anchor", "preBlock", "codeBlock", "copybtn"]) {
+    assert.equal(context[name], undefined);
+  }
+});
+
+
+test("animated navigation waits for visibility without stealing focus after closure or another focus move", () => {
+  const fixture = floatingNavigation();
+  fixture.button.focus();
+  fixture.link.focus = () => {};
+  fixture.handlers.button.click();
+  fixture.link.focus = () => { fixture.document.activeElement = fixture.link; };
+  fixture.handlers.menu.transitionend({target: fixture.link});
+  assert.equal(fixture.document.activeElement, fixture.button, "Child transitions do not finish menu visibility");
+  fixture.handlers.menu.transitionend({target: fixture.menu});
+  assert.equal(fixture.document.activeElement, fixture.link);
+  for (const cancel of ["close", "move"]) {
+    const other = floatingNavigation();
+    other.button.focus();
+    other.link.focus = () => {};
+    other.handlers.button.click();
+    const pending = other.handlers.menu.transitionend;
+    other.link.focus = () => { other.document.activeElement = other.link; };
+    const outside = element("input");
+    if (cancel === "close") other.handlers.button.click();
+    else other.document.activeElement = outside;
+    pending({target: other.menu});
+    assert.equal(other.document.activeElement, cancel === "close" ? other.button : outside);
+  }
 });

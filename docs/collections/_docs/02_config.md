@@ -310,6 +310,12 @@ algolia:
 
 If you are deploying your site with GitHub Pages, I recommend using this [GitHub Action](https://github.com/marketplace/actions/algolia-jekyll-action) to create and update your Algolia index after every commit automatically.
 
+In v2.1.1-dev, Lunr builds its index once per search page and reuses it for later
+queries. Lunr and Fuse.js share result rendering and highlighting, including
+two-character matches. Input is grouped with a 150 ms delay while typing;
+Enter searches immediately without reloading the page, and clearing the field
+clears results immediately. No new configuration is needed.
+
 ### Comments
 
 Set `comments.provider` and enable `show_comments: true` on pages or in front

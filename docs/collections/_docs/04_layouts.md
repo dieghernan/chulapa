@@ -1061,7 +1061,12 @@ does not guarantee playback.
 
 YouTube embeds use deferred loading by default: the page initially displays
 a preview image and loads the player when the visitor clicks it. This reduces
-the initial player load. See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
+the initial player load. In v2.1.1-dev, the player is inserted directly on
+activation, without downloading the YouTube player API beforehand. Keyboard
+activation works, repeated clicks retain one player, and a no-JavaScript link
+opens the video on YouTube. The player requests autoplay, which remains subject
+to browser policy. Sites with a content security policy must allow frames from
+`https://www.youtube-nocookie.com`. See also [chulapa/issues/11](https://github.com/dieghernan/chulapa/issues/11).
 
 Set `nolazy=true` to load the YouTube iframe without waiting for a click:
 
@@ -1280,5 +1285,8 @@ supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.h
 Code blocks have a copy button. Copying requires the browser Clipboard API
 and a secure context, such as HTTPS or localhost. In v2.1.1-dev, the button reports success only after the write completes and
 reports failure when permission is denied or the API is unavailable. It does
-not clear the existing clipboard before copying. Enabled Mermaid diagrams do
+not clear the existing clipboard before copying. Copying and its accessible
+feedback also work when jQuery or Bootstrap tooltips are unavailable. The legacy
+`assets/js/clipboard/chulapa_clipboard.js` entry point delegates to the maintained
+implementation and preserves code copying outside the usual content wrapper. Enabled Mermaid diagrams do
 not receive code copy buttons.

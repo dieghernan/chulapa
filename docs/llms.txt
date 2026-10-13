@@ -11,7 +11,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Documentation overview](https://dieghernan.github.io/chulapa/docs): Main documentation index.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): The Chulapa 101 personal-blog template and minimal blog, technical-blog, portfolio and project examples.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): GitHub template, remote-theme and gem-based installation, dependencies and deployment guidance.
-- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Site metadata, navigation, search, comments, analytics (Google and development GoatCounter), collections and Jekyll defaults.
+- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Site metadata, navigation, search, comments, analytics (Google and development GoatCounter), local search behavior, collections and Jekyll defaults.
 
 ## Theme and content reference
 

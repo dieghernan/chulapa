@@ -676,3 +676,25 @@ is needed. Custom head includes and embedded comment integrations retain their
 own formatting. The lateral TOC is named "Sidebar table of contents" and footer
 link navigation is named "Footer links" for assistive technology. Liquid -%} can
 remove newlines between emitted tags, so avoid trimming across HTML boundaries.
+
+
+## JavaScript maintenance (v2.1.1-dev, main only)
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
+https://dieghernan.github.io/chulapa/docs/04-layouts#deferred-lazy-loading-of-youtube-videos
+https://dieghernan.github.io/chulapa/docs/04-layouts#copying-code
+Lunr builds its index once per search page. Lunr and Fuse.js share rendering
+and highlighting, including two-character matches. Typing uses a 150 ms debounce;
+Enter runs a search immediately without reloading and clearing input clears results.
+No new YAML settings are needed. Search ranking and configured providers remain.
+Deferred YouTube inserts a youtube-nocookie.com iframe when activated rather than
+loading the player API at page load. Keyboard activation and repeated clicks work;
+a noscript link opens the original video. Autoplay is requested but browser policy
+may block it. Existing nolazy behavior remains available.
+Native code copying and accessible feedback do not require jQuery/Bootstrap;
+only graphical tooltips do. The legacy clipboard asset delegates to the maintained
+implementation, keeps existing buttons and handles code outside maincontent.
+Floating navigation also works on search pages without loading the content script.
+TOCs reuse heading measurements within each update. Cusdis accepts resize messages
+only from its iframe with finite nonnegative numeric heights. The helpful 404
+falls back to a baseurl-aware home link when the sitemap is empty or unavailable.
+These changes are not in released v2.1.0.
