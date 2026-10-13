@@ -132,6 +132,24 @@ defaults:
 
 Additional options you can set on the front matter or via defaults:
 
+Jekyll also accepts these settings in the same front matter block:
+
+| Setting | Use |
+| --- | --- |
+| `layout` | Choose a layout from this guide. |
+| `permalink` | Set a page's address, such as `/contact/`. |
+| `published` | Set `false` to omit a page or post from the normal build; this does not protect private files. |
+| `slug` | Set the slug used by a post's address pattern. |
+| `categories`, `tags` | Group articles and provide the labels used by badges and related cards. |
+| `excerpt_separator` | Override the site's post excerpt boundary. |
+| `sitemap` | Set `false` to exclude the page from `jekyll-sitemap`. |
+| `locale` | Override the site language for this page. |
+
+Component switches such as `show_date`, `show_author`, `show_toc`,
+`show_comments` and `show_breadcrumb` are off when unset, unless your site's
+`defaults` enables them. `show_header` is a separate opt-in for `minimal`;
+see [Optional header](#optional-header).
+
 - `title`, `subtitle`: Visible heading and subtitle for supported header types;
   also used when generating metadata.
 - `date`, `last_modified_at`: Date of the page and last modification date. See [here](https://jekyllrb.com/docs/variables/#page-variables) to learn the accepted format of dates.
@@ -158,7 +176,7 @@ Additional options you can set on the front matter or via defaults:
 accessible image URL and check the resulting preview. You can use a
 high-resolution image for `header_img` and a smaller sharing image for
 `og_image`.
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 - `project_links`: Add header navigation links styled as buttons, for example
   links to a project's source code or documentation. Each entry accepts `url`,
@@ -225,7 +243,7 @@ keyboard focus or change the sidebar's Tab order, and needs no extra YAML settin
 including headers via markdown (`### Title`) you don't have to worry, as
 **kramdown** would do it for you. However if you are using `html` (`<h1
 id="aa">My heading</h1>`) don't forget to include the `id`.
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 - `h_min` and `h_max`: Minimum and maximum heading level to be included in the
   table of contents. **min: 2, max: 4**.
@@ -264,7 +282,7 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
   theme's Atom and RSS feeds, provided it has a date.
 
 **Note that** the page would be included on the feed if this option is set to `true` **and** there is a `date` set. Posts in Jekyll need a date already present in the name of the file, but pages and collections don't, so set a `date` value for those. You have two feeds available: Atom feed at `https://yoururl/atom.xml` (preferred) and RSS 2.0 at `https://yoururl/rss.xml`.
-{: .alert .alert-warning .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 To enable feeds for all posts or use `jekyll-feed` instead, see the
 [feed configuration FAQ](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
@@ -291,7 +309,7 @@ breadcrumb_list:
 See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
 
 Even if you don't want to show the breadcrumb, you can still specify the paths. The theme generates breadcrumb JSON-LD independently of `show_breadcrumb`. Without a list, non-home pages use a home/current-page breadcrumb. Structured data does not guarantee rich results. More information [here](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) and test tool [here](https://search.google.com/test/rich-results).
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### Landing page
 
@@ -466,7 +484,7 @@ they contain static files rather than collection documents.
 See a working example [here](https://dieghernan.github.io/chulapa/demo).
 
 For a paginated post index, use [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). The [chulapa-101 home page](https://dieghernan.github.io/chulapa-101/) uses this plugin; its [index.html](https://github.com/dieghernan/chulapa-101/blob/main/index.html) lists five posts per page with previous and next links. Keep the filename `index.html` and configure `paginate` and `paginate_path` in `_config.yml`. For a separate blog index, use [the documentation site's example](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html).
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Search layout
 
@@ -504,6 +522,24 @@ for other content types.
 
 Copy these snippets into a post or page to add galleries, videos or formatted
 dates. Replace the example filenames and values with your own.
+
+
+For a quick reference, these are the content snippets and their parameters.
+Parameters belong in the include call, not in page YAML:
+
+| Snippet | Parameters and defaults |
+| --- | --- |
+| `snippets/masonry.html` | `internal`: image group named by `image_col`; or `external`: comma-separated image addresses. `index_sort`: `modified_time` for internal images; `index_sort_asc`: `false`; `index_items`: `100`; `random`: `false`; `photoswipe`: `false`. Internal images take precedence if both sources are supplied. |
+| `snippets/carousel.html` | All masonry parameters, plus `interval`: `5000` milliseconds (`0` stops automatic cycling), `controls`: `false`, and `indicators`: `false`. |
+| `snippets/video.html` | Use `fileurl` for a video file, or `provider` and `id` for a supported service. `name` identifies the player. YouTube accepts `nolazy` (off by default) and `video_res` (`maxresdefault`). Optional metadata: `thumbnail_url`, `upload_date`, `description`, `duration`. `fileurl` takes precedence over a provider. |
+| `snippets/youtube.html` | A direct deferred YouTube player: required `id`; optional `name`, `video_res` (`maxresdefault`), `thumbnail_url`, `upload_date`, `description`, `duration`. To disable deferred loading, use `video.html` with `provider="youtube" nolazy=true`. |
+| `snippets/datetranslate.html` | Required `date`: an English formatted date string. Optional `lang`: language code; defaults to site `locale`, then English. Supported translations: Spanish, French, German and Italian; other languages retain English names. |
+| `snippets/bootstrapdemo.html` | No parameters. Displays the full component sampler used by the skin previews; ordinary articles do not need it. |
+
+**Use unquoted booleans in snippets.** Write `controls=true` or `random=false`.
+Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
+`photoswipe=true`. These are include parameters, not new configuration options.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ### Masonry gallery
 
@@ -565,11 +601,11 @@ There are four optional parameters that you can use for controlling the output:
 
 {% raw %}
 ```
-{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=5 %}
 ```
 {% endraw %}
 
-{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc="true" index_items=5 %}
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=5 %}
 
 ### Bootstrap carousel
 
@@ -606,11 +642,11 @@ Example carousel:
 
 {% raw %}
 ```
-{% include_cached snippets/carousel.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
+{% include_cached snippets/carousel.html internal="gallery" interval=2000 random=true controls=true indicators=true %}
 ```
 {% endraw %}
 
-{% include_cached snippets/carousel.html internal="gallery" interval=2000 random="true" controls="true" indicators="true" %}
+{% include_cached snippets/carousel.html internal="gallery" interval=2000 random=true controls=true indicators=true %}
 
 ### PhotoSwipe lightbox
 
@@ -698,7 +734,7 @@ You can also display videos loaded through `fileurl`:
 For `fileurl`, use a browser-supported format such as MP4, Ogg or WebM.
 Playback also depends on the codec and browser; a supported extension alone
 does not guarantee playback.
-{: .alert .alert-warning .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Deferred (lazy) loading of YouTube videos
 
@@ -712,12 +748,12 @@ Set `nolazy=true` to load the YouTube iframe without waiting for a click:
 
 {% raw %}
 ```
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true"
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy=true
    name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
 
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy="true"
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy=true
    name="Menorca - Isla Bonita"
    thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
    upload_date="2019-07-27T12:44:00-07:00"
@@ -812,7 +848,7 @@ English month and weekday names and uses the first two characters of `lang` or
 `site.locale`. Unsupported languages retain English names in lowercase.
 
 **Date formatting** in Liquid is quite flexible. You can see the [Jekyll documents](https://jekyllrb.com/docs/liquid/filters/) and the [official Liquid page](https://shopify.github.io/liquid/filters/date/)
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Note that in the next examples you can skip the `lang` parameter, as by default
 your locale will be used.
@@ -855,7 +891,7 @@ your locale will be used.
 - Any other value in English: {% include snippets/datetranslate.html date=formatdate lang="zh" %}
 
 **Contribute** via PR and help us expand this feature.
-{: .alert .alert-info .p-3 .mx-2}
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 
 ### Mermaid diagrams
@@ -1176,7 +1212,7 @@ content:
 ```
 {% endraw %}
 
-{% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
+See the [card index demo](../demo) for the resulting layout.
 
 ### JavaScript assets and local overrides
 
@@ -1200,3 +1236,24 @@ No extra configuration is needed.
 No formatting changes are needed to publish your site. Use the
 [custom includes](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
 to add your own head tags or scripts without editing the theme's layouts.
+
+
+The remaining snippets support the theme's metadata. Standard layouts already
+use them; configure the corresponding page or site options instead of adding
+these helpers to article content. This inventory is for custom-layout authors:
+
+| Helper | Inputs | Purpose |
+| --- | --- | --- |
+| `snippets/canonical-url.html` | `url`, optional `canonical` | Prepares the canonical address; page `canonical_url` supplies the override. |
+| `snippets/page-language.html` | No include parameters; page/site `locale` | Prepares the page language. |
+| `snippets/og-locale.html` | `locale` | Prepares a valid social-sharing locale. |
+| `snippets/publisher.html` | No include parameters; site `publisher` and author settings | Supplies publisher metadata. |
+| `snippets/article-images.html` | No include parameters; page `schema_image`, `og_image`, `header_img` | Supplies article image metadata. |
+| `snippets/breadcrumb-names.html` | No include parameters; site/page titles and navbar brand | Prepares breadcrumb labels. |
+| `snippets/microformats-url.html` | No include parameters; page `url`, `canonical_url` | Supplies the article's canonical link for machine-readable lists. |
+| `snippets/jsonld-string.html` | `value`; `decode_html` defaults to `true` | Safely outputs a metadata string; pass `false` to preserve literal HTML entities. |
+| `snippets/video-metadata.html` | `name`, `thumbnail_url`, `upload_date`, `description`, `duration` | Supplies the optional video metadata described above. |
+
+Helpers that prepare values for their caller need ordinary `include`, not
+`include_cached`. For complete working usage, consult the
+[theme's snippet sources](https://github.com/dieghernan/chulapa/tree/main/_includes/snippets).

@@ -409,6 +409,11 @@ Index uploads require a separate indexing key supplied through the
 or GitHub Actions secrets; do not put it in the public configuration.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
+Additional Algolia indexing options in the sample configuration are
+`files_to_exclude` (omit files), `extensions_to_index` (file types),
+`searchableAttributes` (searchable fields) and `customRanking` (ranking rules).
+They belong under `algolia`; they do not affect the local search providers.
+
 For a complete starting configuration, see the
 [Algolia settings in the sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml)
 and adapt them to your account. Automate index uploads with your publishing
@@ -500,3 +505,60 @@ settings, plugins and exclusions to suit your site.
 The sample configuration
 includes this repository's demo collections and pagination settings; these are
 examples rather than requirements for every site.
+
+
+The following settings belong to Jekyll or its plugins. Keep the starter's
+values unless you need to change how files are built or published.
+
+| Setting | Use |
+| --- | --- |
+| `github` | Keep `[metadata]` in the sample setup to supply GitHub repository details. |
+| `theme`, `remote_theme` | Choose the gem or remote installation method; see [Installation](./01-install). |
+| `plugins` | Enabled build plugins, including the required `jekyll-include-cache`. |
+| `include`, `exclude` | Files or folders to explicitly publish or omit; `include: [_pages]` enables the starter's pages folder. |
+| `collections` | Content groups; use `output: true` and a `permalink` pattern to publish their documents. |
+| `collections_dir` | Parent folder for collections; an empty value keeps them at the site root. |
+| `defaults` | Shared settings: `scope.path` and optional `scope.type` select files; `values` supplies their options. |
+| `permalink` | Default address pattern for posts; individual pages can set their own address. |
+| `paginate`, `paginate_path` | Posts per page and address pattern for a paginated blog index. |
+| `markdown`, `highlighter` | Content converters; the sample uses `kramdown` and `rouge`. |
+| `excerpt_separator` | Text marking the end of a post excerpt; the sample uses a blank line (`"\n\n"`). |
+| `lsi` | Jekyll's optional related-post calculation; the sample disables it. It does not configure the theme's tag-based related cards. |
+| `incremental` | Rebuild only changed files during development; the sample disables it. |
+| `kramdown` | Markdown behavior, detailed below. |
+| `sass` | Stylesheet build settings, detailed below. |
+| `compress_html` | Optional HTML compression, detailed below. |
+
+Under `kramdown`, the sample settings are:
+
+| Option | Use |
+| --- | --- |
+| `input` | Markdown dialect (`GFM` in the sample). |
+| `hard_wrap` | Whether ordinary line breaks become visible breaks. |
+| `auto_ids` | Automatically name headings for links and tables of contents. |
+| `footnote_nr`, `footnote_backlink` | First footnote number and the return-link symbol. |
+| `entity_output` | How special characters are written in generated HTML. |
+| `toc_levels` | Heading levels included by kramdown's own table of contents. |
+| `smart_quotes` | Opening and closing quote characters. |
+| `enable_coderay` | Legacy code-highlighter integration; disabled in the sample. |
+
+Under `sass`, `sass_dir` names the source folder, `style` controls CSS output,
+`quiet_deps` suppresses dependency warnings and `silence_deprecations` lists
+warning types to suppress. The last two depend on the installed Sass converter;
+they do not fix deprecated stylesheet code.
+
+Under `compress_html`, the sample uses `clippings: all` and `blanklines: true`.
+Other options are optional; leaving them unset disables the corresponding step:
+
+| Option | Use |
+| --- | --- |
+| `clippings` | Trim spaces around selected HTML elements; use a list or `all`. |
+| `blanklines` | Remove empty lines while retaining line breaks; otherwise whitespace is collapsed. |
+| `comments` | Remove HTML comments (`all`) or comments between a pair of supplied markers. |
+| `endings` | Omit selected optional closing tags; use a list or `all`. |
+| `startings` | Omit selected optional opening tags; supply a list. |
+| `ignore.envs` | Skip compression in listed environments, or use `all` to skip it everywhere. |
+| `profile` | Display compression statistics; leave disabled on a published site. |
+
+See [Jekyll's configuration reference](https://jekyllrb.com/docs/configuration/options/)
+and the [compression guide](https://jch.penibelst.de/) for accepted values.

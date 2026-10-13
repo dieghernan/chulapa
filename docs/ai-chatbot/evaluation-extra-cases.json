@@ -205,5 +205,12 @@
     "doc": "05_faq.md",
     "question": "I changed my title in GitHub but my website still shows the old name. What should I check first?",
     "expected": "Save with Commit changes on publishing branch; inspect Actions and wait for success or read error; open address in Settings > Pages and refresh. No need to install Ruby or rewrite theme internals. Restart Jekyll only if previewing locally."
+  },
+  {
+    "id": "snippet-parameter-reference",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Can I put photoswipe in page YAML, use nolazy with snippets/youtube.html, or omit provider when embedding a video?",
+    "expected": "PhotoSwipe is an unquoted include boolean photoswipe=true on masonry/carousel, not page YAML. Direct youtube.html is always deferred; nolazy is supported by video.html with provider=\"youtube\". Hosted video.html needs provider and id; fileurl takes precedence for a local file. Link snippet reference and video instructions; no invented settings."
   }
 ]

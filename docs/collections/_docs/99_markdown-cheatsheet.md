@@ -415,7 +415,6 @@ Set the heading levels for kramdown's table of contents in `_config.yml`:
 
 ```yaml
 kramdown:
-  ...
   toc_levels: 2..6
 
 ```
@@ -571,7 +570,7 @@ example.
 
 *[HTML]: Hyper Text Markup Language
 
-This is **Chulapa**{:.chulapa} *red*{: style="color: red"}.
+This is <span class="chulapa">Chulapa</span> *red*{: style="color: red"}.
 
 ```markdown
 <div markdown="1">This is the first part of a para,

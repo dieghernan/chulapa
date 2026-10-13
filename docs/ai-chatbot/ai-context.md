@@ -795,3 +795,21 @@ theme. Recent messages and drafts are stored in sessionStorage for the current
 tab's browser session and can be restored on reload. Clear chat resets them.
 Only the current question is sent in each request; displayed history is not
 conversation context. Visitors must include necessary details in each question.
+
+## Complete option and snippet reference
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#xx-other-settings
+https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets
+The configuration guide covers Jekyll include/exclude, collections_dir,
+permalink, defaults, pagination, excerpt_separator, kramdown, Sass and
+compress_html settings. These are existing Jekyll/plugin settings, not new
+Chulapa YAML options. Normal users should keep the starter's values.
+The layouts guide lists every content snippet and its include parameters.
+Gallery sources are internal (image_col group) or external (comma-separated
+addresses); internal takes precedence if both are supplied. video.html uses
+fileurl before provider/id; a provider is required for hosted videos. The
+direct youtube.html snippet is always deferred and has no nolazy parameter;
+use video.html provider="youtube" nolazy=true for immediate loading.
+bootstrapdemo.html has no parameters and is the skin-preview component sampler.
+Metadata helpers have a separate inventory for custom-layout authors; ordinary
+posts do not need to call them. Use unquoted include booleans, including
+photoswipe=true; strings such as "false" can enable other snippet features.

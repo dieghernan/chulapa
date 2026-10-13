@@ -186,7 +186,7 @@ chulapa-skin:
 ```
 
 This enables the font for headings. Without discretionary ligatures, the
-text appears as <span class="lead font-weight-bold" style="font-family: chulapa,sans-serif">Chulapa</span>.
+text appears as <span class="chulapa lead font-weight-bold" style="font-feature-settings: 'liga', 'dlig' 0;">Chulapa</span>.
 
 To enable its distinctive ligatures, add these rules to
 `assets/css/custom.scss`:
@@ -285,6 +285,7 @@ defaults:
 If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with <span class="chulapa">Chulapa</span>'s
 feeds. Changing its path to `/atom.xml` without removing <span class="chulapa">Chulapa</span>'s Atom feed
 creates two pages with the same output path.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 For most sites, keep the built-in feeds and link to `/atom.xml` or `/rss.xml`
 from your footer. If you need `jekyll-feed`, follow its

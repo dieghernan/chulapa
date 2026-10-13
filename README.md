@@ -138,7 +138,7 @@ need them.
 
 ## Attributions
 
-**Chulapa** is a font owned by the City Council of Madrid, designed and produced
+**<span class="chulapa">Chulapa</span>** is a font owned by the City Council of Madrid, designed and produced
 by Joancarles Casasín and Pablo Gámez based on an earlier design by Silvia
 Fernández Palomar and licensed under [Creative Commons CC BY, version
 4.0](https://creativecommons.org/licenses/by/4.0/). This theme incorporates a

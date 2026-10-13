@@ -11,12 +11,12 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Documentation overview](https://dieghernan.github.io/chulapa/docs): Main documentation index.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-based first-site walkthrough: publish the Chulapa 101 blog, edit content, upload an image and choose a skin; optional minimal examples for experienced users.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): GitHub template, remote-theme and gem-based installation, dependencies, local overrides and deployment guidance.
-- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Essential site details and menu editing first; metadata, search, comments, analytics (Google and development GoatCounter), collections and Jekyll defaults as reference.
+- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Essential site details and menu editing first; metadata, search, comments, analytics (Google and development GoatCounter), collections, Jekyll build settings and HTML compression as reference.
 
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
-- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Complete post, page and image examples; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with practical guidance for custom layouts and local overrides.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Complete post, page and image examples; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with complete snippet parameters, a theme-managed helper inventory and practical guidance for local overrides.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
 - [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Rendered examples for supported code languages.

@@ -69,6 +69,7 @@ layouts or widgets, also check their headings, labels and keyboard controls.
 The theme does not provide offline support or a setting to enable it.
 A favicon or web app manifest alone does not make the site work offline or
 guarantee that visitors can install it as an app.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 Adding those capabilities requires a separate setup for your own site and
 hosting. Comments, embedded videos and the documentation chatbot need an

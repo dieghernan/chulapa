@@ -166,4 +166,4 @@ download. Restart the server after editing `_config.yml`.
 To publish a minimal example, follow the
 [GitHub Actions instructions](./01-install#2-remote-theme-method); copying its
 files does not publish it. Filtering and documentation sidebars require extra
-customization. For inspiration, see [sites using Chulapa](../showcase).
+customization. For inspiration, see [sites using <span class="chulapa">Chulapa</span>](../showcase).

@@ -45,6 +45,16 @@ Keep plain-text metadata, accessible names and image alt text as plain text.
 Do not add spans inside code blocks, inline code, URLs, file paths or identifiers
 such as `chulapa-skin`. Preserve the spelling required by configuration and code.
 
+## Use alerts consistently
+
+Use ordinary prose for routine steps and recommendations. Use `alert-info`
+for a useful clarification, and `alert-warning` for a concrete mistake that can
+break publishing, expose a secret or cause conflicting output. Keep notices
+short and actionable. Use `{: .alert .alert-info .p-3 .mx-2 .mb-3}` (or
+`alert-warning`) for one paragraph; use an HTML container with the same classes
+and `markdown="1"` only when the notice needs several paragraphs or a list.
+Do not add alerts merely to emphasize technical background.
+
 ## Keep the LLM guide aligned with the docs
 
 When adding documentation in this directory, assess whether the new page should
