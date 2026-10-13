@@ -25,7 +25,6 @@ before you begin.
 ## 2. Remote theme method
 
 **Recommended if you are migrating an existing site.**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 This method downloads the theme when your site is built. It assumes you already
 have a Jekyll site with a `_config.yml` and `Gemfile` (the file listing its Ruby
@@ -47,23 +46,27 @@ dependencies). Back up your site before switching themes.
    [gemspec](https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec).
    A remote theme does not install these dependencies for you.
 
-An unpinned remote theme follows the repository default branch. To select a
-release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.1.0`.
-Development features may be available on the default branch before they are
-published in the gem.
+**Choose your version.** Without a version tag, the remote theme receives
+development updates. Use `remote_theme: dieghernan/chulapa@v2.1.0` to keep
+that release. Features marked v2.1.1-dev are not included in v2.1.0.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-<div class="alert alert-warning p-3 mx-2" markdown="1">
-**Don't forget to deploy your site:**
+**Publish your site:**
 
-- On your GitHub repo, go to *Settings > Pages*.
-- Select *Source > GitHub Actions* and set the corresponding action. See an
-  example in <https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml>
-</div>
+- In your GitHub repository, open **Settings > Pages** and choose
+  **GitHub Actions** as the source.
+- Add a publishing workflow under `.github/workflows/`. Use the
+  [template workflow](https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml)
+  as a starting point and check that its build settings match your site.
+- Save your changes, check the publishing run in **Actions**, then open the
+  website address shown in **Settings > Pages**.
 
-You do not need to copy the theme's files into your site. If you have local
-layouts, includes or assets with the same paths as theme files, your copies
-take precedence. Review those customizations when upgrading; theme updates
-will not replace them.
+You do not need to copy the theme's files into your site.
+
+**Check your custom files when updating.** Local layouts, includes and assets
+with the same paths as theme files take precedence. Theme updates will not
+replace those copies, so review them to receive the corresponding improvements.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 Continue with [global settings](./02-config) to configure your site.
 
@@ -102,8 +105,7 @@ dependencies, run `bundle update chulapa-jekyll`.
 To preview your site locally, run `bundle exec jekyll serve` from your site
 directory. Restart Jekyll after editing `_config.yml` to reload its settings.
 
-
-Local layouts, includes and assets continue to override the theme after an
-update. Review those files together when adopting v2.1.1-dev, especially copied
-search pages and navbar scripts. See [JavaScript assets and local overrides](./04-layouts#javascript-assets-and-local-overrides)
-for the shared search helper and navigation dependencies.
+**Check your custom files when updating.** Your local layouts, includes and
+assets still take precedence after a theme update. Review any copied files; see
+[local overrides](./04-layouts#javascript-assets-and-local-overrides) for upgrade guidance.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
