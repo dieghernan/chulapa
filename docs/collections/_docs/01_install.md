@@ -5,10 +5,8 @@ excerpt: Install <span class="chulapa">Chulapa</span> on your GitHub repo
 show_toc: true
 ---
 
-<span class="chulapa">Chulapa</span> gives your Jekyll website its design.
-If this is your first site, use the template: it already includes the files
-and automatic publishing you need. The other methods are for an existing
-Jekyll site or for readers comfortable installing tools on their computer.
+For a new site, use the <span class="chulapa">Chulapa</span> template to publish
+from your browser. Use the other methods to add the theme to an existing Jekyll site.
 
 ## 1. Use our GitHub template
 
@@ -40,11 +38,11 @@ dependencies). Back up your site before switching themes.
 3. Remove any other `remote_theme` entry and the `theme` entry from
    `_config.yml`. Add `jekyll-remote-theme` and `jekyll-include-cache` to your
    `Gemfile` and the `plugins` list in `_config.yml`, then run `bundle install`.
-   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its
-   `include_cached` tags. For local or custom builds, also install the runtime
-   dependencies declared in the theme's
-   [gemspec](https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec).
-   A remote theme does not install these dependencies for you.
+   For a complete example, use the
+   [personal-blog Gemfile](https://github.com/dieghernan/chulapa/blob/main/examples/personal-blog/Gemfile)
+   as a reference and merge its dependencies with your existing file.
+   Keep any plugins your site already uses; the remote theme does not install
+   dependencies for you.
 
 **Choose your version.** Without a version tag, the remote theme receives
 development updates. Use `remote_theme: dieghernan/chulapa@v2.1.0` to keep
@@ -72,12 +70,7 @@ Continue with [global settings](./02-config) to configure your site.
 
 ## 3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i>
 
-With gem-based themes, directories such as `assets`, `_layouts`, `_includes`
-and `_sass` are stored in the theme's gem rather than your site directory.
-This makes installation and updates easier because you do not have to manage
-the theme files directly.
-
-To install as a gem-based theme:
+To install the theme in your existing Jekyll site:
 
 1. Add the following to your `Gemfile`:
 
