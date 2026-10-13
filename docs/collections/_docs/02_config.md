@@ -235,6 +235,7 @@ visible breadcrumbs are disabled.
   author's links are considered for `twitter:creator`; the site author is not
   used as a fallback. Status, sharing and other non-profile URLs do not set a
   creator.
+
 **Check your sharing metadata**: <span class="chulapa">Chulapa</span> generates Open Graph and Twitter/X card
 tags automatically. Set accurate titles, excerpts and image URLs, then check the
 shared page with the relevant platform. Metadata does not guarantee a particular
