@@ -1,5 +1,38 @@
 # Instructions for AI and coding agents
 
+## Write for beginners and experienced users
+
+The main audience includes readers with little or no knowledge of Jekyll,
+GitHub or websites. Keep the current documentation pages and public URLs;
+put the short first-site walkthrough in `collections/_docs/00_start.md`.
+
+- Start each guide with a useful task and the simplest supported path. State
+  prerequisites, where to edit, what to change and how to check the result.
+- Explain unfamiliar terms on first use. Prefer user-visible outcomes to
+  implementation descriptions. Do not require readers to learn Ruby, Liquid,
+  YAML or CSS before completing a task that can be done in the browser.
+- Put common tasks before optional integrations and advanced reference.
+  Preserve supported settings, defaults, compatibility limits and actionable
+  customization or upgrade guidance for experienced readers. Use clear
+  headings and direct links so they can find those answers without a tutorial.
+- Omit internal architecture, refactoring and rendering details unless they
+  help a reader configure, troubleshoot, extend or upgrade their own site.
+  Moving an internal explanation to an advanced section is not sufficient:
+  retain only actionable guidance and link to complete source examples when
+  the implementation itself is the useful reference.
+- Provide small complete examples with the destination file stated. Tell
+  readers whether to replace existing values or add a new section, and preserve
+  unrelated settings. Use valid copyable code without placeholder ellipses.
+- Keep version caveats next to the affected feature. Preserve existing heading
+  anchors when rearranging sections, including links used by the chatbot.
+- Review each guide as a novice: can a reader follow it without guessing the
+  next action, and distinguish required steps from optional choices? Also check
+  that advanced questions still have precise answers in the reference.
+- Review chatbot coverage for both everyday tasks and advanced configuration.
+  Editorial reordering alone does not justify changing its selective context.
+  Update context only for missing or changed actionable facts or source links,
+  explaining the reason; do not copy the beginner walkthrough wholesale.
+
 ## Format the theme name in rendered documentation
 
 When rendered documentation refers to the theme by name, use

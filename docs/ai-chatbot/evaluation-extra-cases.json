@@ -184,5 +184,26 @@
     "doc": "06_accessibility-performance.md",
     "question": "¿Chulapa ya es una PWA? ¿Hay una opción YAML para usarla offline, incluido el chatbot?",
     "expected": "Reusable theme has no built-in service worker, offline cache or PWA YAML option. Docs favicon manifest has standalone display and 192/384 icons but no explicit start_url/scope or 512 icon; manifest alone does not establish cross-browser installability or offline support. PWA customization requires site-specific manifest/HTTPS/baseurl/icon and caching/update/fallback review. External dependencies and live AI require connectivity; do not claim offline chatbot. Link PWA/offline section of accessibility guide."
+  },
+  {
+    "id": "beginner-post-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "I have never used Jekyll. How do I add my first blog post using only GitHub in the browser?",
+    "expected": "Explain Code > Add file > Create new file; _posts/YYYY-MM-DD-title.md with a real non-future date; one complete example with --- front matter, layout default, header_type post, title and body. Commit changes to publishing branch, wait for Actions, open published website. Starter lists posts; do not require terminal, Ruby installation or copying theme layouts."
+  },
+  {
+    "id": "beginner-image-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "My blog is at https://ana.github.io/my-blog. How do I upload a photograph and put it in a post?",
+    "expected": "Upload and commit assets/img/river.jpg using GitHub Add file > Upload files. Complete Markdown image with descriptive alt text and Liquid relative_url filter for /assets/img/river.jpg, no hardcoded domain or lost repository prefix. Save post, wait for publishing; check filename case if missing."
+  },
+  {
+    "id": "beginner-publishing-1",
+    "section": "faq",
+    "doc": "05_faq.md",
+    "question": "I changed my title in GitHub but my website still shows the old name. What should I check first?",
+    "expected": "Save with Commit changes on publishing branch; inspect Actions and wait for success or read error; open address in Settings > Pages and refresh. No need to install Ruby or rewrite theme internals. Restart Jekyll only if previewing locally."
   }
 ]

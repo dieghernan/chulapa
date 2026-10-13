@@ -7,55 +7,214 @@ h_min: 2
 h_max: 5
 ---
 
-<p class="font-weight-light font-italic lead">TL;DR</p>
+All site-wide settings live in `_config.yml`. If you used the
+[template](./00-start), most are already set up: start with your name, site
+address and menu. Search, comments and visitor statistics are optional.
 
-Configure your site in `_config.yml`. If you use a remote theme without the
-[chulapa-101 template](https://github.com/dieghernan/chulapa-101), use the
-[sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml)
-as a starting point. Adapt its site details, collections and defaults to your
-site. Use `remote_theme: dieghernan/chulapa` for the default branch or append
-`@TAG` to pin an existing release.
+On GitHub, open `_config.yml` in the **Code** tab, click the pencil button,
+change the existing values and save with **Commit changes**. Wait for the
+publishing run in **Actions**, then refresh your website. If you preview on
+your computer, restart Jekyll after editing this file.
 
-The template follows the theme's full configuration, including comments and
-unused options left empty. It configures a personal blog with the predefined
-Gitdev skin, navigation, Fuse.js search, post defaults and five posts per home
-page. Start with that file if you use chulapa-101; its collections and defaults
-are adapted to the blog. See [the starter guide](./00-start#start-with-the-github-template)
-for publishing and the content structure.
+Keep indentation as it is: spaces group related settings in YAML, the format
+used by this file. Avoid duplicate sections. The examples below show what to
+edit, not extra copies to paste at the end of your configuration.
 
-**Restart Jekyll after changing configuration.** Edits to `_config.yml` are
-applied when the server restarts.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+## Start with your site details
 
-For some variables, a default value is provided. This value is shown at the end
-of the explanation **in bold**.
+For a user named `ana` and a repository named `my-blog`, update these entries:
+
+```yaml
+title: "Ana's blog"
+description: "Travel stories and photographs"
+locale: en-GB
+repository: ana/my-blog
+url: "https://ana.github.io"
+```
+
+Set `locale` to your content's language, such as `es` for Spanish. Find
+`author.name` and replace the sample author name too. You can leave the other
+author details until you have your own photo and links.
+
+With the template's publishing setup, the site's path is set automatically.
+For another setup, use `baseurl: "/my-blog"` for that repository's website,
+or `baseurl: ""` for a site at the domain root. Keep `url` as the domain,
+without the repository name.
+
+Next, [edit the menu](#navbar) or [footer links](#footer).
+The reference below explains additional settings and their defaults.
 
 ## A. Site settings/SEO
 
-- `locale`: Set the `lang` attribute on the `<html>` element. Use a language
-  code or `language-TERRITORY`, such as `fr`, `en-GB`, `es-MX` or `pt-BR`.
-  Pages can override this with `locale`. Set `og_locale` separately when a
-  language-only or script-based tag needs a territory for social metadata.
-  `og_locale_alternate` lists available translated locales; see
-  [Social locales and articles](./04-layouts#social-locales-and-articles).
-  **Default value: en-US**.
-- `title`: Site title, also used for social metadata. **GitHub repository name**.
-- `subtitle`: Site tagline used in the home page browser title.
-  **GitHub project tagline**.
-- `title_separator`: Separator between the two parts of the browser title.
-  The home page uses the site title and subtitle; other pages use the page
-  title and site title. Page `seo_title` can override the complete title.
-  **`|`**, with spaces added around it.
-- `description`: Brief site description for Jekyll and plugins. <span class="chulapa">Chulapa</span>'s page
-  metadata gives priority to page `description`, then `excerpt`, then the site
-  description on the home page, then a content fallback. See
-  [SEO metadata](./04-layouts#seo-metadata) for subtitle handling.
-- `url` and `baseurl`: Set `url` to the site origin (for example `https://username.github.io`) and `baseurl` to its path prefix (`/repository` for a project site or an empty string for a root site). GitHub metadata can supply defaults on GitHub Pages; set these explicitly for local or custom builds so canonical links, feeds and image URLs resolve correctly. See [Clearing Up Confusion Around baseurl -- Again](https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/) by Parker Moore (Jekyll).
-- `repository`: GitHub repository slug (for example
-  `dieghernan/chulapa`). Set this for GitHub metadata, especially when building
-  outside GitHub Pages. **Unset in the sample configuration**.
-- `words_per_minute`: Used for computing the reading time of the page. **200**.
-- `timezone`: Used for setting the timezone of your dates and hours. See [Jekyll Docs](https://jekyllrb.com/docs/configuration/options).
+These are the main site details. Advanced search and sharing settings appear
+under [Optional features and metadata](#optional-features-and-metadata).
+
+| Setting | What to enter | Default |
+| --- | --- | --- |
+| `title` | Your site's name | GitHub repository name |
+| `subtitle` | A short tagline, used in the home page browser title | GitHub project tagline |
+| `description` | A brief description of your site | Used as home page metadata when no page description or excerpt is set |
+| `locale` | Content language, such as `en-GB`, `es` or `pt-BR` | `en-US` |
+| `url` | Domain, such as `https://ana.github.io` | GitHub metadata can supply it on GitHub Pages |
+| `baseurl` | Website path, such as `/my-blog`, or `""` at the domain root | Supplied by the starter's publishing setup |
+| `repository` | GitHub username and repository, such as `ana/my-blog` | Unset in the theme's sample configuration |
+| `title_separator` | Separator in browser titles | `|`, with spaces around it |
+| `words_per_minute` | Reading speed for the estimated reading time | `200` |
+| `timezone` | Your time zone; see [Jekyll's options](https://jekyllrb.com/docs/configuration/options) | Jekyll's configured time zone |
+
+Pages can override `locale`. For social locale settings, page description
+fallbacks and `seo_title` overrides, see [SEO metadata](./04-layouts#seo-metadata)
+and [Social locales and articles](./04-layouts#social-locales-and-articles).
+For custom builds, set `url`, `baseurl` and `repository` explicitly so page,
+image and feed addresses resolve correctly.
+
+### Site author
+
+Change your name first. Add a photo and profile links when you have them.
+Edit the existing `author` section; keep any details you want to retain.
+
+- `author`: Your name and profile details, shown where author information is enabled.
+  Pages can supply their own `author` mapping.
+  - `name`: Author name. **GitHub owner name**, when GitHub metadata is available.
+  - `url`: Optional author profile URL or site-relative path, such as `/about/`.
+    Use `/about/` to link to your own About page. For guest authors and
+    advanced metadata rules, see [page author options](./04-layouts#options).
+  - `avatar`: Avatar image URL or site-relative path; a small square image is
+    recommended.
+  - `location`: Location text linked to a Google Maps search.
+  - `links`: Social links with `url`, `icon` and `label`. Use a
+    [Font Awesome](https://fontawesome.com/icons?d=gallery) icon code and a
+    descriptive label. For email links, supply the plain email address.
+
+Example site author:
+
+```yaml
+author:
+  name: "Ana"
+  url: /about/
+  avatar: /assets/img/ana.jpg
+  location: "Madrid, Spain"
+  links:
+    - url: https://x.com/jack
+      icon: "fab fa-twitter"
+      label: "My personal Twitter/X"
+    - url: https://www.facebook.com
+      icon: "fab fa-facebook"
+    - url: hello@example.org
+      icon: far fa-envelope
+      label: "My personal email"
+```
+
+## B. Navigation
+
+### Navbar
+
+The navbar is your site's menu. In the existing `navbar.nav` section, change
+link titles and destinations. For example, this menu links to the home page
+and an existing About page:
+
+```yaml
+navbar:
+  nav:
+    - title: Home
+      url: /
+    - title: About
+      url: /about/
+```
+
+Keep any existing `brand`, `style` and `expand` entries. A menu link does not
+create a page: its `url` must match a page you have already added. Save and
+check that each link opens the intended page.
+
+The navbar supports links and one level of child links. Choose a classic
+sticky-top navbar, `fab` for an animated floating action button or `dual` to
+switch from a floating button to a classic navbar at the configured breakpoint.
+
+For keyboard behavior of the development floating menu, see
+[Keyboard navigation](./06-accessibility-performance#keyboard-navigation).
+
+Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
+
+- `navbar`:
+  - `style`: Use `fab` for a floating action button or `dual` to switch styles
+    at a breakpoint. Omit the setting for the classic navbar. **classic**.
+  - `expand`: Breakpoint for expanding the classic navbar or switching the
+    `dual` navbar from a floating button to a classic navbar. Use `sm`, `md`,
+    `lg` or `xl`. For the classic navbar, `always` keeps links expanded and
+    `never` keeps them collapsed. With `dual`, `always` switches at `sm` and
+    `never` switches at `xl`. **md**.
+  - `brand`:
+    - `title` : Text to be displayed as the title of your navbar.
+    - `img`: An icon (ideally 30 × 30 px) displayed together with the
+      `title`.
+    - `url`: Destination of the brand link. **Site root URL**.
+  - `nav`: Links on your navbar. See the example to learn how to set one-level
+    and two-level links:
+
+```yaml
+navbar:
+  style :  fab
+  brand:
+    title :  Home
+    img: "./assets/img/site/brand-clear.png"
+    url: /someurl
+  nav:
+  - title: One-level link #Label
+    url: /url1/  #url
+  - title: Two-level link #Label
+    child:
+    - title: Second level first item
+      url: /url2-1
+    - title: Second level second item
+      url: /url2-2
+  - title: One-level link #Label
+    url: /url1/  #url
+```
+
+### Footer
+
+To set social links to be displayed on your footer, configure this section:
+
+- `footer`:
+  - `links`:
+    - `label`: Label of your link.
+    - `icon`: Font Awesome icon code.
+    - `url`: Link URL or plain email address.
+
+```yaml
+footer:
+  links:
+    - label: "RSS"
+      icon: "fa fa-rss"
+      url: "./atom.xml"
+    - label: "Twitter"
+      icon: "fab fa-twitter"
+      url: https://twitter.com/
+    - label: "Facebook"
+      icon: "fab fa-facebook"
+      url: https://www.facebook.com
+```
+
+Use `footer.copyright` to supply custom text or HTML. When omitted, the footer
+shows the build year and site author name, falling back to the GitHub owner name:
+
+```yaml
+footer:
+  copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
+```
+
+<h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
+
+Configure fonts, skins, syntax highlighting and color overrides using
+`googlefonts` and `chulapa-skin`. See the [theming reference](./03-theming)
+for the available settings in <span class="chulapa">Chulapa</span>.
+
+## Optional features and metadata
+
+Add these features when you need them. SEO (search engine optimization) and
+social metadata describe your pages to search engines and sharing services;
+they do not change your article text. Existing defaults are a reasonable
+starting point for a personal blog.
 
 ### SEO
 
@@ -76,41 +235,6 @@ visible breadcrumbs are disabled.
   author's links are considered for `twitter:creator`; the site author is not
   used as a fallback. Status, sharing and other non-profile URLs do not set a
   creator.
-- `author`: Default site author, used in profiles, metadata and the footer.
-  Pages can supply their own `author` mapping.
-  - `name`: Author name. **GitHub owner name**, when GitHub metadata is available.
-  - `url`: Optional author profile URL or site-relative path, such as `/about/`.
-    Relative paths use the site's `url` and `baseurl`. This field supplies the
-    default `article:author` URL for posts and, in v2.1.1-dev (available on `main`, not in v2.1.0), a `u-url` in visible
-    Microformats2 author cards. A page author does not inherit the site author's
-    profile URL. Social links remain configured separately under `links`.
-  - `avatar`: Avatar image URL or site-relative path; a small square image is
-    recommended.
-  - `location`: Location text linked to a Google Maps search.
-  - `links`: Social links with `url`, `icon` and `label`. Use a
-    [Font Awesome](https://fontawesome.com/icons?d=gallery) icon code and a
-    descriptive label. For email links, supply the plain email address.
-
-Example site author:
-
-```yaml
-author:
-  name                  :      Name Surname Company
-  url                   :      /about/
-  avatar                :      https://github.com/devdhh.png
-  location              :      New York, US
-  links:
-    - url: https://x.com/jack
-      icon: "fab fa-twitter"
-      label: "My personal Twitter/X"
-    - url: https://www.facebook.com
-      icon: "fab fa-facebook"
-    - url: fake@email
-      icon: far fa-envelope
-      label: "My personal email"
-      ...
-```
-
 **Check your sharing metadata**: <span class="chulapa">Chulapa</span> generates Open Graph and Twitter/X card
 tags automatically. Set accurate titles, excerpts and image URLs, then check the
 shared page with the relevant platform. Metadata does not guarantee a particular
@@ -180,46 +304,59 @@ Leave unused IDs empty. If both are set, the theme loads both snippets.
 
 ### GoatCounter analytics
 
-Available in the development version after v2.1.0. [GoatCounter](https://www.goatcounter.com/)
-is an alternative for visitor statistics without cookies, available as a hosted
-service or self-hosted application. Create your site in GoatCounter first, then
-set its public HTTPS counting endpoint in `_config.yml`:
+**Available on `main` after v2.1.0; not in the v2.1.0 release.**
+
+[GoatCounter](https://www.goatcounter.com/) counts visits without cookies.
+Create an account and a site there, then add its counting address to
+`_config.yml`. Replace `YOUR-CODE` with your site's GoatCounter code:
 
 ```yaml
 goatcounter: "https://YOUR-CODE.goatcounter.com/count"
 ```
 
-Use the complete URL, including `/count`, rather than just the site code. A
-self-hosted endpoint works too, for example `https://stats.example.org/count`.
-The theme loads the official asynchronous script from `https://gc.zgo.at/count.js`
-with your endpoint in `data-goatcounter`. No API key or Jekyll plugin is needed.
-The script reports page views; this integration does not add visitor-count
-widgets or custom events.
+Keep `https://` and `/count` in the address. Save, publish your website and
+visit a page. Check your GoatCounter dashboard for the visit; it may take a
+little time to appear. No API key or extra Jekyll plugin is needed.
 
-Tracking is disabled when the setting is absent or empty, when it is not an
-HTTPS URL, or when Jekyll is not building in `production`. For a production build:
+Visits are counted only on a production build, not during normal local preview.
+Leave `goatcounter` empty to disable it. If you want GoatCounter instead of
+Google Analytics, also leave `gtag_id` and `analytics_id` empty; otherwise both
+services will count visits.
 
-```sh
-JEKYLL_ENV=production bundle exec jekyll build
-```
+#### Custom hosting and troubleshooting
 
-The standard documentation deployment already uses that environment. Analytics
-are added to pages using the shared head, including the search layout. Root and
-subdirectory sites use the same external endpoint. GoatCounter prefers the path
-from a canonical URL on the same domain (`www` and non-`www` are equivalent);
-otherwise it uses the browser's page path. Cross-domain canonical URLs are ignored.
-<span class="chulapa">Chulapa</span> already generates canonical links, including
-`baseurl`, so no extra canonical tag is needed. The upstream tracker also ignores
-localhost by default. Configure your site's security policy to allow the script
-host and requests to your counting endpoint. Blocking or failing to load the
-tracker does not prevent the site's content from loading.
+- For your own publishing setup, enable Jekyll's production environment:
 
-GoatCounter is independent of the Google settings. To use it as your only
-analytics provider, leave `gtag_id` and `analytics_id` empty. If you configure
-both services, both scripts load; adding GoatCounter does not remove Google.
-See the [official source and setup guidance](https://github.com/arp242/goatcounter).
+  ```sh
+  JEKYLL_ENV=production bundle exec jekyll build
+  ```
+
+- Self-hosted GoatCounter works too: use its complete HTTPS counting address,
+  for example `https://stats.example.org/count`. Non-HTTPS values disable tracking.
+- If your site uses a Content Security Policy, allow the script from
+  `https://gc.zgo.at/count.js` and requests to your counting address.
+- Localhost and browser blockers can prevent counting. A blocked tracker does
+  not stop your website from displaying.
+- This integration counts page views; it does not add a visible visit counter
+  or configure custom events.
+
+For tracker-specific behavior and additional setup, see the
+[GoatCounter documentation](https://www.goatcounter.com/help/).
 
 ### Search engines
+
+This section adds search **within your website**, not Google indexing.
+The personal-blog starter already has search enabled; keep its settings unless
+you want another provider. For an existing site without search, choose a provider
+below and add a search page. For example, create `search.md` at the site root:
+
+```yaml
+---
+layout: search
+title: Search
+permalink: /search
+---
+```
 
 Set `search.provider` and create a page using `layout: search`. Its `permalink`
 must match `search.landing_page`, which defaults to `/search`. Selecting a
@@ -310,13 +447,15 @@ algolia:
 
 If you are deploying your site with GitHub Pages, I recommend using this [GitHub Action](https://github.com/marketplace/actions/algolia-jekyll-action) to create and update your Algolia index after every commit automatically.
 
-In v2.1.1-dev, Lunr builds its index once per search page and reuses it for later
-queries. Lunr and Fuse.js share result rendering and highlighting, including
-two-character matches. Input is grouped with a 150 ms delay while typing;
-Enter searches immediately without reloading the page, and clearing the field
-clears results immediately. No new configuration is needed.
+With the local search providers, visitors can search while typing or press
+Enter. Clearing the field clears the results.
 
 ### Comments
+
+Comments are optional and require an account with a supported provider.
+Choose one below, then configure its site identifier and enable
+`show_comments: true` on the pages where you want comments. The theme cannot
+create the provider account for you.
 
 Set `comments.provider` and enable `show_comments: true` on pages or in front
 matter defaults for layouts that display comments. Configure the selected
@@ -360,99 +499,11 @@ merging it. Use its `website_id`, but retain the customized templates supplied
 by <span class="chulapa">Chulapa</span> rather than overwriting them.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
-## B. Navigation
-
-### Navbar
-
-The navbar supports links and one level of child links. Choose a classic
-sticky-top navbar, `fab` for an animated floating action button or `dual` to
-switch from a floating button to a classic navbar at the configured breakpoint.
-
-In development after v2.1.0, the floating button works with Enter and Space.
-Opening it focuses the first menu link; Escape closes it and returns focus to
-the button. Closed floating-menu links are excluded from Tab navigation.
-The floating menu also works on search pages. If its visibility animates, initial
-focus waits for the menu transition; moving focus or closing the menu cancels
-that pending focus move. The lateral TOC retains its existing Tab behavior.
-
-Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
-
-- `navbar`:
-  - `style`: Use `fab` for a floating action button or `dual` to switch styles
-    at a breakpoint. Omit the setting for the classic navbar. **classic**.
-  - `expand`: Breakpoint for expanding the classic navbar or switching the
-    `dual` navbar from a floating button to a classic navbar. Use `sm`, `md`,
-    `lg` or `xl`. For the classic navbar, `always` keeps links expanded and
-    `never` keeps them collapsed. With `dual`, `always` switches at `sm` and
-    `never` switches at `xl`. **md**.
-  - `brand`:
-    - `title` : Text to be displayed as the title of your navbar.
-    - `img`: An icon (ideally 30 × 30 px) displayed together with the
-      `title`.
-    - `url`: Destination of the brand link. **Site root URL**.
-  - `nav`: Links on your navbar. See the example to learn how to set one-level
-    and two-level links:
-
-```yaml
-navbar:
-  style :  fab
-  brand:
-    title :  Home
-    img: "./assets/img/site/brand-clear.png"
-    url: /someurl
-  nav:
-  - title: One-level link #Label
-    url: /url1/  #url
-  - title: Two-level link #Label
-    child:
-    - title: Second level first item
-      url: /url2-1
-    - title: Second level second item
-      url: /url2-2
-  - title: One-level link #Label
-    url: /url1/  #url
-     ... more levels
-```
-
-### Footer
-
-To set social links to be displayed on your footer, configure this section:
-
-- `footer`:
-  - `links`:
-    - `label`: Label of your link.
-    - `icon`: Font Awesome icon code.
-    - `url`: Link URL or plain email address.
-
-```yaml
-footer:
-  links:
-    - label: "RSS"
-      icon: "fa fa-rss"
-      url: "./atom.xml"
-    - label: "Twitter"
-      icon: "fab fa-twitter"
-      url: https://twitter.com/
-    - label: "Facebook"
-      icon: "fab fa-facebook"
-      url: https://www.facebook.com
-```
-
-Use `footer.copyright` to supply custom text or HTML. When omitted, the footer
-shows the build year and site author name, falling back to the GitHub owner name:
-
-```yaml
-footer:
-  copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
-```
-
-<h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
-
-Configure fonts, skins, syntax highlighting and color overrides using
-`googlefonts` and `chulapa-skin`. See the [theming reference](./03-theming)
-for the available settings in <span class="chulapa">Chulapa</span>.
-
 ## D. Jekyll defaults and collections
+
+**Advanced configuration.** A collection groups content such as portfolio
+projects; defaults apply shared page settings without repeating them in each
+file. The starter already configures these for a blog.
 
 Configure collections, pagination and front matter defaults for your site. See
 the Jekyll documentation on

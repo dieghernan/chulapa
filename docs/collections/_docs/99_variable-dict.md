@@ -28,7 +28,7 @@ chulapa-skin:
 
 Values in `vars` override the selected skin's variable assignments.
 Autothemer fills in variables that are still undefined. See
-[Theming Chulapa](./03-theming#variables) for the loading order and font setup.
+[Theming Chulapa](./03-theming#variables) for variable precedence and font setup.
 
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 

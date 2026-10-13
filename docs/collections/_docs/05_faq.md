@@ -11,28 +11,51 @@ redirect_from:
 These answers and examples cover common tasks when using
 <span class="chulapa">Chulapa</span>.
 
+## Editing and publishing
+
+### How do I change my site's name or author?
+
+Open `_config.yml` in your GitHub repository and click the pencil button.
+Change the existing `title` and `author.name`, then save with **Commit changes**.
+Wait for publishing in **Actions** and refresh your website.
+See [site settings](./02-config#start-with-your-site-details) for an example.
+
+### How do I add a new article or page?
+
+For an article, create `_posts/YYYY-MM-DD-title.md` with a real date and the
+settings block at the top. For a standalone page, use `_pages/` in the starter
+and add its address to your menu. Follow the complete examples in
+[Create a post](./04-layouts#create-a-post) and [Create a page](./04-layouts#create-a-page).
+
+### Why can I not see my changes?
+
+1. Check that you saved the file with **Commit changes** to your site's
+   publishing branch (`main` or `master` in the starter).
+2. Open **Actions** and wait for the publishing run to finish. If it failed,
+   open the run and check its error before changing other settings.
+3. Open the website address shown in **Settings > Pages**, then refresh it.
+4. If only a new post is missing, check its `YYYY-MM-DD-title.md` filename and
+   date. A future-dated post is not published by the normal Jekyll build.
+
+For local preview, restart Jekyll after changing `_config.yml`.
+
+### Why is my photograph missing?
+
+Check that the file was uploaded and saved, and that its filename matches the
+link exactly, including uppercase and lowercase letters. Use the image example
+in [Add an image](./04-layouts#add-an-image), which handles repository paths.
+After publishing, check the article again rather than the GitHub file preview.
+
+### How do I change the colors or design?
+
+Choose a skin from the previews, then change the existing `chulapa-skin.skin`
+entry in `_config.yml`. See [Skins](./03-theming#skins). Changing a preview in
+your browser does not save the design to your own website.
+
 ## How do I...
 
-### ...know which version of the theme I am using?
-
-For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
-`@v2.1.0` pins a release; an unpinned value uses the repository default branch
-and does not identify a fixed version. For a gem-based theme, check the
-`chulapa-jekyll` version in `Gemfile.lock`.
-
-For pages using the theme's head include, view the HTML source and look for
-this comment near the beginning:
-
-```html
-
-<!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
-
-```
-
-**The HTML comment is a theme version marker.** It does not identify the exact
-commit of an unpinned remote theme or any local overrides. Use a pinned tag or
-`Gemfile.lock` to identify the selected release.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+The answers below cover formatting, optional integrations and advanced
+customization. Skip to the task you need.
 
 ### ...start with Markdown?
 
@@ -43,8 +66,8 @@ See the [Markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) and
 configuration uses kramdown with its GFM parser; accepted syntax depends on
 your Markdown configuration.
 
-Create a file with a `.md` extension and YAML front matter so Jekyll processes
-it. Set a layout in its front matter or through `_config.yml` defaults.
+For a complete file with its settings block and text, see
+[Create a post](./04-layouts#create-a-post).
 
 ### ...add custom HTML, analytics, CSS or JavaScript to every page?
 
@@ -240,6 +263,27 @@ error reported by `bundle exec jekyll build`.
 **Valid YAML does not guarantee valid theme settings.** A syntax checker cannot
 verify option names, provider IDs or whether a selected skin exists. Compare
 those settings with [Global settings](./02-config) and the build output.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+### ...know which version of the theme I am using?
+
+For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
+`@v2.1.0` pins a release; an unpinned value uses the repository default branch
+and does not identify a fixed version. For a gem-based theme, check the
+`chulapa-jekyll` version in `Gemfile.lock`.
+
+For pages using the theme's head include, view the HTML source and look for
+this comment near the beginning:
+
+```html
+
+<!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
+
+```
+
+**The HTML comment is a theme version marker.** It does not identify the exact
+commit of an unpinned remote theme or any local overrides. Use a pinned tag or
+`Gemfile.lock` to identify the selected release.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### ...use jekyll-feed instead of <span class="chulapa">Chulapa</span>'s feeds?

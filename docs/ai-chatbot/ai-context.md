@@ -106,6 +106,37 @@ Preview locally with bundle exec jekyll serve. An unknown include_cached tag
 usually means jekyll-include-cache is missing or not enabled; install it and
 add it to plugins, then restart the build.
 
+## Basic editing and publishing
+Sources: https://dieghernan.github.io/chulapa/docs/00-start
+https://dieghernan.github.io/chulapa/docs/04-layouts
+https://dieghernan.github.io/chulapa/docs/05-faq
+On GitHub, open a file in the Code tab, use the pencil button and save with
+Commit changes on the publishing branch. Check Actions for publishing progress
+and Settings > Pages for the website address. For a new post, use Add file >
+Create new file and name it _posts/YYYY-MM-DD-title.md with a real non-future
+date. Start with this complete example:
+```markdown
+---
+layout: default
+header_type: post
+title: "My first post"
+---
+My story begins here.
+```
+The personal-blog starter lists posts on its home page. Other setups need an
+index or link. A standalone page can use _pages/contact.md in the starter,
+or contact.md at the root of a site without its _pages setup; set layout:
+default, header_type: base, title: Contact and permalink: /contact/ between
+--- lines, then add /contact/ to navbar.nav. The link does not create the page.
+Upload photographs through Add file > Upload files into assets/img/ and save,
+then insert a repository-safe Markdown image in the content:
+```liquid
+![Describe the photograph]({{ '/assets/img/river.jpg' | relative_url }})
+```
+Replace the filename and alternative text. Match filename case. If changes
+are missing, check the saved branch, Actions errors, the published website
+address and post dates before suggesting configuration changes.
+
 ## Global settings
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Configure site settings in _config.yml and restart Jekyll after changing them.

@@ -6,10 +6,27 @@ show_toc: true
 permalink: /docs/06-accessibility-performance
 ---
 
-The improvements on this page are development changes after v2.1.0. They are
-not included in the v2.1.0 gem or pinned remote theme. A theme review does not
-establish that every site using it meets WCAG: content, skins, custom colors
-and integrations need their own checks.
+Make sure visitors can read and use your site on a phone, with a keyboard and
+with enlarged text. Start with your own content and the checks below.
+
+## Check your own pages
+
+- Use Tab to move through links and controls. You should see which one has
+  focus; Enter should open links, and menu buttons should also work with Space.
+- Check the home page, an article and search on a narrow screen. Enlarge text
+  and confirm that it remains readable and controls stay reachable.
+- Describe informative photographs with image alternative text. Use meaningful
+  link text, such as “View my portfolio”, instead of “Click here”.
+- Use headings in order, starting article sections with `##` below the page title.
+- Check that text and links remain readable after changing colors or skins.
+- Resize large photographs before uploading, and enable only integrations you
+  use. Check loading on your published website with your actual content.
+
+The reference below explains the theme's keyboard behavior and optional
+features. Improvements described here are development changes after v2.1.0,
+not part of the v2.1.0 gem or pinned remote theme. WCAG is the Web Content
+Accessibility Guidelines; the theme's checks alone do not establish that your
+whole site meets them. Your content, colors and integrations need review too.
 
 ## Keyboard navigation
 
@@ -23,16 +40,15 @@ and returns focus to its button. Closed menu links do not receive Tab focus.
 Following a menu link closes the menu. With `dual`, switching to the desktop
 navbar also closes the floating menu.
 
-The lateral TOC remains independent. Its closed panel is marked `inert` and
-hidden from assistive technology so offscreen controls cannot receive focus.
+The sidebar table of contents has its own controls. When closed, its links
+are hidden from screen readers and keyboard navigation.
 Opening preserves the existing Tab order through its close button and links;
 Escape from the panel or its trigger closes it and returns focus to the trigger.
 Closing with its button or overlay also returns focus. It does not trap focus
 or act as a modal dialog. The open and close buttons provide 44px minimum targets.
 
-In-page, sidebar and kramdown TOCs highlight the current section and mark its
-link with `aria-current="location"`. This needs JavaScript and does not move
-keyboard focus. Hidden headings are skipped until shown; ordinary anchor links
+The table of contents highlights the section you are reading. This needs
+JavaScript and does not move keyboard focus. Hidden headings are skipped until shown; ordinary anchor links
 still work without JavaScript.
 
 PhotoSwipe galleries support arrow keys, zoom, Escape and focus containment;
@@ -62,20 +78,12 @@ Text link colors have been darkened in the `chulapa`, `navi`, `journal` and
 `flatly` skins. Custom `chulapa-skin.vars` values can change the resulting
 contrast, so check the rendered site after overriding them.
 
-Card index titles use level-two headings with their previous visual size.
-Their subtitles use paragraph semantics and body text color for readability.
+The standard article lists and search results use a heading hierarchy and
+name thumbnail links after their articles. Keep a logical heading order in
+your own content and custom layouts.
 
-Collection lists and local search results also use level-two headings while
-retaining their previous visual sizes. Tag and category groups use level-two
-headings followed by level-three article titles; archives use year, month and
-article headings at levels two, three and four. Thumbnail links in these lists
-use the rendered article title as their accessible name, with Markdown formatting
-removed and encoded characters preserved.
-
-Navbar destination links identify the current page with `aria-current="page"`.
-Dropdown triggers and carousel previous/next controls are native buttons that
-support Enter and Space. With author display disabled, the layouts keep the
-spacing column without creating an empty complementary landmark.
+The menu identifies the current page. Dropdown menus and carousel controls
+work with Enter and Space.
 
 Carousels with more than one image and a positive `interval` expose a
 pause/start button when Bootstrap is available. Automatic cycling starts paused
@@ -125,31 +133,24 @@ features work offline. There is no built-in PWA YAML option.
 
 ## Resource loading
 
-The Chulapa font is served from the installed theme's
-`assets/fonts/Chulapa/Chulapa-Bold_vmod.otf`. Its preload and CSS URL include
-the site's `baseurl`. This avoids a separate CDN request for that font and keeps
-it consistent with the installed theme. Google Fonts and Font Awesome still
-use their configured external providers.
+The theme includes its own <span class="chulapa">Chulapa</span> font. Optional
+Google Fonts and Font Awesome use external providers, so consider those
+requests when choosing additional fonts and icons.
 
 With Cactus configured, its script and stylesheet load only on pages with
-`show_comments: true`. Its comments container also closes before the fixed
-footer content so the browser does not need to repair the document structure.
-MathJax and Mermaid remain opt-in per page; Mermaid
+`show_comments: true`. MathJax and Mermaid remain opt-in per page; Mermaid
 loads its library only when an enabled page contains diagrams.
 
-PhotoSwipe-enabled galleries load a small local module with the page; the
-PhotoSwipe JavaScript and stylesheet load from jsDelivr only when an image is
-opened. Offscreen images are measured as the viewer loads them, rather than
-loading the entire gallery before opening it.
+PhotoSwipe loads its viewer when someone opens an image. It does not need to
+download the whole gallery first.
 
 GoatCounter loads its official asynchronous script only when a public HTTPS
 endpoint is configured and `JEKYLL_ENV=production`. It is independent of Google
 Analytics: configuring both loads both trackers. See [analytics settings](./02-config#goatcounter-analytics).
 
-In v2.1.1-dev, deferred YouTube players load on activation without requesting
-the player API at page load. Lunr reuses its index, and local search engines
-batch input while typing. The TOCs share heading measurements within each update.
-Native code copying remains available if the tooltip dependencies fail.
+In v2.1.1-dev, deferred YouTube players load when a visitor activates them.
+Use [deferred loading](./04-layouts#deferred-lazy-loading-of-youtube-videos)
+if video players are slowing the initial page load.
 
 Resize large images before publishing, include dimensions where possible and
 avoid enabling integrations that your site does not use. Measure representative

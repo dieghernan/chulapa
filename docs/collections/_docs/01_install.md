@@ -5,50 +5,37 @@ excerpt: Install <span class="chulapa">Chulapa</span> on your GitHub repo
 show_toc: true
 ---
 
-<span class="chulapa">Chulapa</span> is a Jekyll theme for GitHub Pages and other
-Jekyll sites. There are
-three ways to use <span class="chulapa">Chulapa</span>:
-
-For a small site with editable sample content, choose a [blog, technical blog,
-portfolio or project example](./00-start). For a ready-made repository with a
-publishing workflow, use the GitHub template below.
+<span class="chulapa">Chulapa</span> gives your Jekyll website its design.
+If this is your first site, use the template: it already includes the files
+and automatic publishing you need. The other methods are for an existing
+Jekyll site or for readers comfortable installing tools on their computer.
 
 ## 1. Use our GitHub template
 
-**Recommended if you are starting from scratch.**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+**Recommended for your first website.**
 
-Sign in to GitHub and
-[create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
-to get an editable personal blog with three sample posts, About, year, category
-and tag archives, Fuse.js search, RSS and a paginated home page. It uses the
-predefined Gitdev skin and includes publishing workflows.
+[Follow the start guide](./00-start#start-with-the-github-template) to create
+and publish a blog in your browser, edit a post and add a photograph.
+You only need a GitHub account. The template includes sample articles,
+an About page, search and a ready-made design.
 
-Choose **GitHub Actions** in your repository's **Settings > Pages**. Edit
-`_config.yml` with your title, description, author, `repository`
-(`username/repository`) and `url` (`https://username.github.io`). Commit your
-changes to `main` or `master`; the Pages workflow supplies the deployment base
-path and publishes the site. No local installation or personal access token is
-required.
-
-[Preview chulapa-101](https://dieghernan.github.io/chulapa-101/) and follow
-[the start guide](./00-start#start-with-the-github-template) for the content
-structure and editing steps. Replace the sample text, image and contact address
-as you make the blog your own.
+[Preview the template](https://dieghernan.github.io/chulapa-101/)
+before you begin.
 
 ## 2. Remote theme method
 
 **Recommended if you are migrating an existing site.**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-You can use the `jekyll-remote-theme` method. Just follow these steps:
+This method downloads the theme when your site is built. It assumes you already
+have a Jekyll site with a `_config.yml` and `Gemfile` (the file listing its Ruby
+dependencies). Back up your site before switching themes.
 
 1. Create a new GitHub repository or open an existing one.
 2. Add this line to your `_config.yml`:
 
     ```yaml
     remote_theme: dieghernan/chulapa
-    ... more config options
     ```
 
 3. Remove any other `remote_theme` entry and the `theme` entry from
@@ -73,17 +60,10 @@ published in the gem.
   example in <https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml>
 </div>
 
-During the build, `jekyll-remote-theme` downloads the selected theme and makes
-its files available to Jekyll, including these directories:
-
-- `assets`
-- `_layouts`
-- `_includes`
-- `_sass`
-
-Local files at the same paths override the corresponding theme files. You must
-merge updates to those files manually; other theme files continue to use the
-selected remote version.
+You do not need to copy the theme's files into your site. If you have local
+layouts, includes or assets with the same paths as theme files, your copies
+take precedence. Review those customizations when upgrading; theme updates
+will not replace them.
 
 Continue with [global settings](./02-config) to configure your site.
 
