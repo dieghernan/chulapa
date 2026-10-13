@@ -18,8 +18,8 @@
         "description": "How to use Chulapa - Install Chulapa on your GitHub repo",
         "headline": "Installation",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-13T23:16:42+02:00",
-        "dateModified": "2026-10-13T23:16:42+02:00",
+        "datePublished": "2026-10-13T23:59:56+02:00",
+        "dateModified": "2026-10-13T23:59:56+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -267,79 +267,57 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-use-our-github-template">1. Use our GitHub template</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-remote-theme-method">2. Remote theme method</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></a></li></ul>
 			</nav>
-			 <p><span class="chulapa">Chulapa</span> is a Jekyll theme for GitHub Pages and other
-Jekyll sites. There are
-three ways to use <span class="chulapa">Chulapa</span>:</p>
-<p>For a small site with editable sample content, choose a <a href="./00-start">blog, technical blog,
-portfolio or project example</a>. For a ready-made repository with a
-publishing workflow, use the GitHub template below.</p>
+			 <p>For a new site, use the <span class="chulapa">Chulapa</span> template to publish
+from your browser. Use the other methods to add the theme to an existing Jekyll site.</p>
 <h2 id="1-use-our-github-template">1. Use our GitHub template</h2>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are starting from scratch.</strong></p>
-<p>Sign in to GitHub and
-<a href="https://github.com/dieghernan/chulapa-101/generate">create a repository from the template</a>
-to get an editable personal blog with three sample posts, About, year, category
-and tag archives, Fuse.js search, RSS and a paginated home page. It uses the
-predefined Gitdev skin and includes publishing workflows.</p>
-<p>Choose <strong>GitHub Actions</strong> in your repository’s <strong>Settings &gt; Pages</strong>. Edit
-<code class="language-plaintext highlighter-rouge">_config.yml</code> with your title, description, author, <code class="language-plaintext highlighter-rouge">repository</code>
-(<code class="language-plaintext highlighter-rouge">username/repository</code>) and <code class="language-plaintext highlighter-rouge">url</code> (<code class="language-plaintext highlighter-rouge">https://username.github.io</code>). Commit your
-changes to <code class="language-plaintext highlighter-rouge">main</code> or <code class="language-plaintext highlighter-rouge">master</code>; the Pages workflow supplies the deployment base
-path and publishes the site. No local installation or personal access token is
-required.</p>
-<p><a href="https://dieghernan.github.io/chulapa-101/">Preview chulapa-101</a> and follow
-<a href="./00-start#start-with-the-github-template">the start guide</a> for the content
-structure and editing steps. Replace the sample text, image and contact address
-as you make the blog your own.</p>
+<p><strong>Recommended for your first website.</strong></p>
+<p><a href="./00-start#start-with-the-github-template">Follow the start guide</a> to create
+and publish a blog in your browser, edit a post and add a photograph.
+You only need a GitHub account. The template includes sample articles,
+an About page, search and a ready-made design.</p>
+<p><a href="https://dieghernan.github.io/chulapa-101/">Preview the template</a>
+before you begin.</p>
 <h2 id="2-remote-theme-method">2. Remote theme method</h2>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Recommended if you are migrating an existing site.</strong></p>
-<p>You can use the <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> method. Just follow these steps:</p>
+<p><strong>Recommended if you are migrating an existing site.</strong></p>
+<p>This method downloads the theme when your site is built. It assumes you already
+have a Jekyll site with a <code class="language-plaintext highlighter-rouge">_config.yml</code> and <code class="language-plaintext highlighter-rouge">Gemfile</code> (the file listing its Ruby
+dependencies). Back up your site before switching themes.</p>
 <ol>
  <li>Create a new GitHub repository or open an existing one.</li>
  <li>
    <p>Add this line to your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa</span>
- <span class="s">... more config options</span>
 </code></pre></div>  </div>
  </li>
  <li>Remove any other <code class="language-plaintext highlighter-rouge">remote_theme</code> entry and the <code class="language-plaintext highlighter-rouge">theme</code> entry from
 <code class="language-plaintext highlighter-rouge">_config.yml</code>. Add <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> and <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> to your
 <code class="language-plaintext highlighter-rouge">Gemfile</code> and the <code class="language-plaintext highlighter-rouge">plugins</code> list in <code class="language-plaintext highlighter-rouge">_config.yml</code>, then run <code class="language-plaintext highlighter-rouge">bundle install</code>.
-<span class="chulapa">Chulapa</span> requires <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> for its
-<code class="language-plaintext highlighter-rouge">include_cached</code> tags. For local or custom builds, also install the runtime
-dependencies declared in the theme’s
-<a href="https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec">gemspec</a>.
-A remote theme does not install these dependencies for you.</li>
+For a complete example, use the
+<a href="https://github.com/dieghernan/chulapa/blob/main/examples/personal-blog/Gemfile">personal-blog Gemfile</a>
+as a reference and merge its dependencies with your existing file.
+Keep any plugins your site already uses; the remote theme does not install
+dependencies for you.</li>
 </ol>
-<p>An unpinned remote theme follows the repository default branch. To select a
-release, append its tag, for example <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.1.0</code>.
-Development features may be available on the default branch before they are
-published in the gem.</p>
-<div class="alert alert-warning p-3 mx-2">
- <p><strong>Don’t forget to deploy your site:</strong></p>
- <ul>
-   <li>On your GitHub repo, go to <em>Settings &gt; Pages</em>.</li>
-   <li>Select <em>Source &gt; GitHub Actions</em> and set the corresponding action. See an
-example in <a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml</a></li>
- </ul>
-</div>
-<p>During the build, <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> downloads the selected theme and makes
-its files available to Jekyll, including these directories:</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Choose your version.</strong> Without a version tag, the remote theme receives
+development updates. Use <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.1.0</code> to keep
+that release. Features marked v2.1.1-dev are not included in v2.1.0.</p>
+<p><strong>Publish your site:</strong></p>
 <ul>
- <li><code class="language-plaintext highlighter-rouge">assets</code></li>
- <li><code class="language-plaintext highlighter-rouge">_layouts</code></li>
- <li><code class="language-plaintext highlighter-rouge">_includes</code></li>
- <li><code class="language-plaintext highlighter-rouge">_sass</code></li>
+ <li>In your GitHub repository, open <strong>Settings &gt; Pages</strong> and choose
+<strong>GitHub Actions</strong> as the source.</li>
+ <li>Add a publishing workflow under <code class="language-plaintext highlighter-rouge">.github/workflows/</code>. Use the
+<a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">template workflow</a>
+as a starting point and check that its build settings match your site.</li>
+ <li>Save your changes, check the publishing run in <strong>Actions</strong>, then open the
+website address shown in <strong>Settings &gt; Pages</strong>.</li>
 </ul>
-<p>Local files at the same paths override the corresponding theme files. You must
-merge updates to those files manually; other theme files continue to use the
-selected remote version.</p>
+<p>You do not need to copy the theme’s files into your site.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Check your custom files when updating.</strong> Local layouts, includes and assets
+with the same paths as theme files take precedence. Theme updates will not
+replace those copies, so review them to receive the corresponding improvements.</p>
 <p>Continue with <a href="./02-config">global settings</a> to configure your site.</p>
 <h2 id="3-gem-based-method-">3. Gem-based method <i class="fa-solid fa-gem fa-xs"></i></h2>
-<p>With gem-based themes, directories such as <code class="language-plaintext highlighter-rouge">assets</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>
-and <code class="language-plaintext highlighter-rouge">_sass</code> are stored in the theme’s gem rather than your site directory.
-This makes installation and updates easier because you do not have to manage
-the theme files directly.</p>
-<p>To install as a gem-based theme:</p>
+<p>To install the theme in your existing Jekyll site:</p>
 <ol>
  <li>
    <p>Add the following to your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
@@ -363,10 +341,9 @@ command:</p>
 dependencies, run <code class="language-plaintext highlighter-rouge">bundle update chulapa-jekyll</code>.</p>
 <p>To preview your site locally, run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> from your site
 directory. Restart Jekyll after editing <code class="language-plaintext highlighter-rouge">_config.yml</code> to reload its settings.</p>
-<p>Local layouts, includes and assets continue to override the theme after an
-update. Review those files together when adopting v2.1.1-dev, especially copied
-search pages and navbar scripts. See <a href="./04-layouts#javascript-assets-and-local-overrides">JavaScript assets and local overrides</a>
-for the shared search helper and navigation dependencies.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Check your custom files when updating.</strong> Your local layouts, includes and
+assets still take precedence after a theme update. Review any copied files; see
+<a href="./04-layouts#javascript-assets-and-local-overrides">local overrides</a> for upgrade guidance.</p>
 </article>
 		</div>
 	</main><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
