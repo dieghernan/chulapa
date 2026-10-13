@@ -60,12 +60,15 @@ publisher:
 fa_version: #default ["6"] Use 6 or 5
 fa_kit_code: # Your FontAwesome kit code. If not provided a free hosted version (slower) will be loaded:  https://fontawesome.com/
 fa_v4_support: #Bool Add FontAwesome 4 support
-# A.3. Google Analytics
+# A.3. Analytics
 # gtag_id: Google Analytics 4 measurement ID, e.g. G-XXXXXXXXXX.
 # analytics_id: legacy Universal Analytics ID; use gtag_id for new setups.
 # Leave unused IDs empty. Setting both loads both snippets.
 gtag_id                 :
 analytics_id            :
+# Optional GoatCounter public HTTPS /count endpoint; production builds only.
+# Hosted: https://YOUR-CODE.goatcounter.com/count; self-hosted URLs work too.
+goatcounter             :
 
 # A.4. Search engines
 # Create a page with layout: search and a permalink matching landing_page.

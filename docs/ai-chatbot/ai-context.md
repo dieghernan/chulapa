@@ -137,6 +137,20 @@ fa_kit_code loads a kit instead of the hosted stylesheet. Legacy fa5_kit_code
 takes precedence if both are present; remove it when migrating. fa_v4_support:
 true enables version-4 compatibility.
 
+## GoatCounter analytics (development after v2.1.0)
+Source: https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics
+Set goatcounter to the complete public HTTPS counting URL, not just a site code:
+goatcounter: "https://YOUR-CODE.goatcounter.com/count"
+A self-hosted HTTPS endpoint such as https://stats.example.org/count also works.
+Create the GoatCounter site separately; no API key or Jekyll plugin is required.
+The official async https://gc.zgo.at/count.js loads only with an HTTPS endpoint
+and JEKYLL_ENV=production. Missing/empty settings and development builds do not
+load it. Shared head covers normal layouts and search; baseurl stays in the
+browser page path and is not added to the external counting URL. Upstream ignores
+localhost by default. No visitor-count widget or custom event tracking is added.
+Google settings remain independent: clear gtag_id and analytics_id to use only
+GoatCounter, or both services will load if configured. Not in released v2.1.0.
+
 ## Theming
 Source: https://dieghernan.github.io/chulapa/docs/03-theming
 Use chulapa-skin.skin in _config.yml to select a built-in skin. Skin names match

@@ -178,6 +178,44 @@ To enable v4 support, set `fa_v4_support: true`.
 Leave unused IDs empty. If both are set, the theme loads both snippets.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
+### GoatCounter analytics
+
+Available in the development version after v2.1.0. [GoatCounter](https://www.goatcounter.com/)
+is an alternative for visitor statistics without cookies, available as a hosted
+service or self-hosted application. Create your site in GoatCounter first, then
+set its public HTTPS counting endpoint in `_config.yml`:
+
+```yaml
+goatcounter: "https://YOUR-CODE.goatcounter.com/count"
+```
+
+Use the complete URL, including `/count`, rather than just the site code. A
+self-hosted endpoint works too, for example `https://stats.example.org/count`.
+The theme loads the official asynchronous script from `https://gc.zgo.at/count.js`
+with your endpoint in `data-goatcounter`. No API key or Jekyll plugin is needed.
+The script reports page views; this integration does not add visitor-count
+widgets or custom events.
+
+Tracking is disabled when the setting is absent or empty, when it is not an
+HTTPS URL, or when Jekyll is not building in `production`. For a production build:
+
+```sh
+JEKYLL_ENV=production bundle exec jekyll build
+```
+
+The standard documentation deployment already uses that environment. Analytics
+are added to pages using the shared head, including the search layout. Root and
+subdirectory sites use the same external endpoint; the tracker reads the
+browser's page path, including `baseurl`. The upstream tracker also ignores
+localhost by default. Configure your site's security policy to allow the script
+host and requests to your counting endpoint. Blocking or failing to load the
+tracker does not prevent the site's content from loading.
+
+GoatCounter is independent of the Google settings. To use it as your only
+analytics provider, leave `gtag_id` and `analytics_id` empty. If you configure
+both services, both scripts load; adding GoatCounter does not remove Google.
+See the [official source and setup guidance](https://github.com/arp242/goatcounter).
+
 ### Search engines
 
 Set `search.provider` and create a page using `layout: search`. Its `permalink`

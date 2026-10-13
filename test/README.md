@@ -257,3 +257,7 @@ those fixtures and runs `check_photoswipe_browser.js` with the pinned PhotoSwipe
 package from `test/browser`: real keyboard/zoom/focus behavior, offscreen image
 dimensions, carousel stability, touch swipe, root/subdirectory routing and
 original-image fallback with JavaScript disabled or either CDN asset unavailable.
+
+`check_goatcounter.rb` validates production-only opt-in, disabled defaults, hosted
+and self-hosted endpoint escaping, shared layouts (including search), unchanged
+Google tags and root/subdirectory configurations without sending analytics.
