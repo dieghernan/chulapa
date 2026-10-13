@@ -69,7 +69,8 @@ Collection lists and local search results also use level-two headings while
 retaining their previous visual sizes. Tag and category groups use level-two
 headings followed by level-three article titles; archives use year, month and
 article headings at levels two, three and four. Thumbnail links in these lists
-use the article title as their accessible name.
+use the rendered article title as their accessible name, with Markdown formatting
+removed and encoded characters preserved.
 
 Navbar destination links identify the current page with `aria-current="page"`.
 Dropdown triggers and carousel previous/next controls are native buttons that

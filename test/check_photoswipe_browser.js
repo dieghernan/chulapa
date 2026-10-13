@@ -120,6 +120,26 @@ async function main() {
    assert.deepEqual(errors,[],'Unexpected gallery JavaScript errors');
    await context.close();console.log(`PhotoSwipe passed ${baseurl||'root'} ${width}px: lazy loading, keyboard, zoom, dimensions, isolated galleries and carousel focus`);
   }
+  // Controllers declared inside cached custom layouts must not depend on content.
+  for(const baseurl of ['', '/subdir']) for(const name of ['a','b']) {
+   const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+   await context.route('**/*',r=>route(r));const page=await context.newPage();
+   const requests=[];page.on('request',request=>{if(request.url().endsWith('/chulapa_carousel.js')) requests.push(request.url());});
+   await page.goto(`http://localhost:8768${baseurl}/layout-carousel-${name}.html`);
+   await page.waitForFunction(()=>[...document.querySelectorAll('.carousel')].every(c=>c.dataset.chulapaCarouselReady==='true'));
+   assert.equal(requests.length,1,'Repeated ES modules must share one controller fetch');
+   assert.equal(await page.locator('.chulapa-carousel-toggle:visible').count(),2);
+   assert.equal(await page.locator('script[src$="chulapa_script.js"]').count(),0,'Custom shell does not load the content script');
+   assert.equal(await page.evaluate(()=>[...document.querySelectorAll('.carousel')].every(c=>Boolean(window.jQuery(c).data('bs.carousel')._interval))),true);
+   const first=page.locator('.carousel').first();
+   const before=await first.locator('.carousel-item.active').getAttribute('aria-label');
+   await page.waitForFunction(label=>document.querySelector('.carousel .carousel-item.active').getAttribute('aria-label')!==label,before);
+   await first.locator('.chulapa-carousel-toggle').focus();await page.keyboard.press('Enter');
+   assert.equal(await page.evaluate(()=>Boolean(window.jQuery(document.querySelector('.carousel')).data('bs.carousel')._interval)),false);
+   assert.equal(await page.evaluate(()=>Boolean(window.jQuery(document.querySelectorAll('.carousel')[1]).data('bs.carousel')._interval)),true,'Pausing one cached carousel must not pause the other');
+   await context.close();
+  }
+  console.log('Cached layout-owned carousels passed: root/subdirectory URLs, shared module fetch, cycling and independent pause');
   // Exercise automatic motion with the user's normal-motion preference.
   const motion=await browser.newContext({viewport:{width:1280,height:844},reducedMotion:'no-preference'});
   await motion.route('**/*',r=>route(r));const motionPage=await motion.newPage();

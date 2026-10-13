@@ -968,10 +968,13 @@ Indicators are named buttons supporting Enter and Space and mark the current
 slide. The slide container uses `aria-live="polite"` while automatic cycling is
 stopped, and `aria-live="off"` while it runs. The controller requires Bootstrap and
 loads locally as `assets/js/chulapa_carousel.js` only on pages containing a
-carousel. Without those scripts, automatic motion stays disabled. Custom HTML
-shells must include `components/scripts.html` after their carousel markup or
-load the controller after the Bootstrap dependencies; standard layouts handle
-this automatically. These changes require no additional YAML settings.
+carousel. Each carousel include declares the controller as a deferred ES module;
+multiple includes share one fetch and execution per document. This also works
+when a custom layout renders cached carousel includes directly, rather than
+receiving them through `content`. Custom HTML shells still need the Bootstrap
+dependencies, for example through `components/scripts.html` before the end of
+`body`; standard layouts handle this automatically. Without those dependencies,
+automatic motion stays disabled. These changes require no additional YAML settings.
 
 You can control the color of the indicators through your `_config.yml` file:
 

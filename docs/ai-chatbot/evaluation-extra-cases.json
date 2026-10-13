@@ -171,7 +171,7 @@
     "id": "carousel-accessibility-motion",
     "doc": "04_layouts.md",
     "question": "¿El carrusel respeta el movimiento reducido? ¿Cómo lo pauso y uso los indicadores con teclado? ¿Necesito YAML nuevo?",
-    "expected": "v2.1.1-dev after v2.1.0: positive interval and more than one slide show pause/start button with Bootstrap; interval=0 disables cycling and hides button. Reduced motion starts paused; keyboard/pointer interaction pauses until explicit start, hover pauses temporarily on hover-capable devices. Preference change to reduce stops rotation and change back does not restart. Indicators are named native buttons with current state and Enter/Space. New local controller loaded by standard layouts. No new YAML. Link carousel and accessibility guide."
+    "expected": "v2.1.1-dev after v2.1.0: positive interval and more than one slide show pause/start button with Bootstrap; interval=0 disables cycling and hides button. Reduced motion starts paused; keyboard/pointer interaction pauses until explicit start, hover pauses temporarily on hover-capable devices. Preference change to reduce stops rotation and change back does not restart. Indicators are named native buttons with current state and Enter/Space. New local controller loaded by standard layouts. No new YAML. Link carousel and accessibility guide. Carousel include owns its deferred ES module; repeated/cached includes share one fetch/execution, including custom layout-owned carousels. Custom shells still supply Bootstrap via components/scripts.html before closing body."
   },
   {
     "id": "sidebar-accessibility-focus",

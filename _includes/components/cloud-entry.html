@@ -20,7 +20,7 @@
       </div>
     </div>
     {% if include.document.header_img or include.document.og_image %}
-    <a href="{{ include.document.url | absolute_url }}" aria-label="{{ include.document.title | default: 'Read article' | strip_html | escape }}" class="col-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ include.document.og_image | default: include.document.header_img | absolute_url }}')">
+    <a href="{{ include.document.url | absolute_url }}" aria-label="{{ include.document.title | default: 'Read article' | markdownify | strip_html | strip | escape_once }}" class="col-2 btn chulapa-overlay-img chulapa-gradient" style="background-image: url('{{ include.document.og_image | default: include.document.header_img | absolute_url }}')">
     </a>
     {% endif %}
   </article>

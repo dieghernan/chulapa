@@ -681,8 +681,11 @@ can explicitly start even with reduced motion. Indicators are named native
 buttons (24px minimum targets), mark the current slide and support Enter/Space.
 The slide container uses aria-live=polite while stopped and off while running.
 The local assets/js/chulapa_carousel.js controller loads only on pages containing
-carousels. Standard layouts load it; custom shells must include
-components/scripts.html after carousel markup or load it after Bootstrap.
+carousels. The carousel include declares it as a deferred ES module, shared
+across repeated/cached includes (one fetch/execution per document), including
+carousels rendered directly inside custom layouts. Custom shells still need
+Bootstrap, e.g. components/scripts.html before closing body; standard layouts
+already provide it.
 No new YAML options are needed. Without the dependencies, automatic motion stays
 disabled. Source: https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel
 Long headings wrap when text is enlarged. Browser regressions cover 320 CSS pixel

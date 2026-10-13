@@ -9,7 +9,7 @@ root = File.expand_path("..", __dir__)
 Dir.mktmpdir("chulapa-html-semantics-") do |source|
   %w[_layouts _includes].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
   FileUtils.mkdir_p(File.join(source, "_posts"))
-  File.write(File.join(source, "_posts/2024-01-01-entry.md"), "---\ntitle: Entry\nlayout: default\nog_image: /preview.svg\ntags: [guide]\ncategories: [reference]\n---\n## Entry content\n\nA paragraph.")
+  File.write(File.join(source, "_posts/2024-01-01-entry.md"), "---\ntitle: '**Entry** & _notes_'\nlayout: default\nog_image: /preview.svg\ntags: [guide]\ncategories: [reference]\n---\n## Entry content\n\nA paragraph.")
   fixtures = %w[default landingpage archive cloudtag cloudcategory indexcategory].to_h do |layout|
     [layout, {"layout" => layout, "include_collection" => "posts", "show_sidetoc" => %w[default landingpage].include?(layout), "show_toc" => true}]
   end
@@ -85,7 +85,8 @@ Dir.mktmpdir("chulapa-html-semantics-") do |source|
             raise "Author landmark removed: #{context}" unless document.at_css("aside .h-card")
           end
           document.css("a.chulapa-overlay-img").each do |link|
-            raise "Unnamed thumbnail: #{context}" unless link["aria-label"] == "Entry"
+            heading = document.css("h2, h3, h4").find { |node| node.at_css("a")&.[]("href") == link["href"] || node.parent["href"] == link["href"] }
+            raise "Thumbnail name differs from rendered Markdown title: #{context}" unless heading && link["aria-label"] == heading.text.strip && link["aria-label"] == "Entry & notes"
           end
           raise "Simple-list heading level: #{context}" if name == "simplelist" && !document.at_css("article h2.h6")
           document.css("[data-toggle='dropdown']").each do |trigger|

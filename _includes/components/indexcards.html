@@ -3,7 +3,7 @@
 <div class="col-12 mb-2">
 <div class="card chulapa-border-card-index h-entry">
 	<div class="row g-0">
-		<a href="{{- post.url | absolute_url -}}" aria-label="{{ post.title | default: 'Read article' | strip_html | escape }}" class="col-sm-1 chulapa-min-h-10 chulapa-card-img chulapa-overlay-img chulapa-gradient {% if post.header_img == nil or post.og_image -%} d-none d-sm-flex {% endif %} "
+		<a href="{{- post.url | absolute_url -}}" aria-label="{{ post.title | default: 'Read article' | markdownify | strip_html | strip | escape_once }}" class="col-sm-1 chulapa-min-h-10 chulapa-card-img chulapa-overlay-img chulapa-gradient {% if post.header_img == nil or post.og_image -%} d-none d-sm-flex {% endif %} "
 {% if post.header_img or post.og_image  -%} style="background-image: url('{{- post.og_image | default: post.header_img | absolute_url -}}')"{%-endif-%}>
 		</a>
 		<div class="col-sm">
