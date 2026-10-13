@@ -69,6 +69,14 @@ the landing page background uses the hero background. Many text colors are
 derived from these backgrounds. Explicit component colors supplied by a
 skin or `vars` keep their assigned values.
 
+**Some values cannot be overridden through `vars`.** Helpers such as
+`landingpage-card-bg` and `cactus-btn-text` are calculated by the theme;
+adding them to `chulapa-skin.vars` has no effect. Use the options in the table
+or [custom CSS](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+instead. The [complete <span class="chulapa">Chulapa</span> variable reference](https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss)
+includes these calculated values.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Set these values in `_config.yml`, not in an article's settings block. Save
 and publish to see the change; restart Jekyll if you preview locally.
 For page options, see [Layouts and snippets](./04-layouts).
