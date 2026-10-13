@@ -49,7 +49,7 @@ publisher:
 
 # A.3. Analytics
 gtag_id: G-Q654SQGBGS
-goatcounter: https://dieghernan.goatcounter.com/count
+goatcounter: https://chulapa.goatcounter.com/count
 
 # A.4. Search engines
 # Algolia is the main search provider; Google CSE is used by the demo page.
