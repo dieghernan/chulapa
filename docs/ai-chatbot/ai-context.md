@@ -471,11 +471,9 @@ Insert Font Awesome icons as HTML within Markdown, for example:
 
 ## FAQ: Previewing skins and diagnosing YAML
 Source: https://dieghernan.github.io/chulapa/docs/05-faq
-For a temporary skin preview in Chrome, inspect the page, edit the head element
-as HTML and append a stylesheet link to
-https://dieghernan.github.io/chulapa/assets/css/skins/[NAME OF SKIN].css
-using an available skin filename. This preview disappears on reload and does not
-change configuration. Set chulapa-skin.skin and rebuild for a permanent change.
+Compare designs in the skin previews at https://dieghernan.github.io/chulapa/skins.
+To try a skin on your own site, set chulapa-skin.skin in _config.yml and publish.
+Changing a preview on the documentation site does not change your own site.
 To find _config.yml syntax errors, use a YAML syntax checker such as YAML Lint
 or inspect the error from bundle exec jekyll build. Valid YAML does not guarantee
 valid theme option names, provider IDs or existing skins; check global settings
@@ -497,16 +495,11 @@ defaults:
 ```
 jekyll-feed's default /feed.xml can coexist with Chulapa's /atom.xml and /rss.xml.
 Setting feed.path to /atom.xml without removing Chulapa's Atom page creates an
-output-path collision. For a local or custom build, a post_read site hook can
-remove the page whose relative_path, after stripping its leading slash, is
-assets/atom.xml. The FAQ provides the full Ruby hook. Keep jekyll-feed in the
-Gemfile and plugins list and set feed.path: /atom.xml to produce the replacement.
-This keeps Chulapa's RSS feed; include_on_feed still controls RSS inclusion.
-Custom plugins do not run in GitHub Pages' default safe build; use your own build
-workflow. Excluding the theme feed files alone does not remove feeds supplied by
-a gem or remote theme. The theme head advertises Atom and RSS. If RSS is removed,
-override _includes/head.html to update its alternate link and update navbar or
-footer links; adding a custom_head.html link does not remove the existing link.
+output-path collision. For most sites, keep the built-in feeds and link to
+/atom.xml or /rss.xml. If using jekyll-feed, keep its separate /feed.xml URL and
+follow the plugin's setup guide. The FAQ no longer provides a Ruby recipe for
+replacing the theme feeds; do not describe that recipe as a documented quick
+setup or invent a YAML switch to disable them.
 
 ## Custom code and version checks
 Source: https://dieghernan.github.io/chulapa/docs/05-faq

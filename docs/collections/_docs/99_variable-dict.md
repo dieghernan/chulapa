@@ -6,15 +6,10 @@ h_min: 2
 h_max: 3
 ---
 
-This page lists selected <span class="chulapa">Chulapa</span> and Bootstrap variables for customizing
-your site. Set them under `chulapa-skin.vars` in `_config.yml`, without the
-SCSS `$` prefix or trailing semicolon. For the full set, see the
-[<span class="chulapa">Chulapa</span> variables source](https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss)
-and [Bootstrap variables source](https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss).
-
-Quote hex colors in YAML so that `#` is not interpreted as a comment. Use
-Sass units for sizes, such as `"1.1rem"`, and lowercase `true` or `false` for
-boolean variables. For example:
+Use these settings to change colors, text sizes and other details of your
+chosen skin. Add them under `chulapa-skin.vars` in `_config.yml`, keeping your
+existing settings. Quote colors beginning with `#` and sizes such as `"1.1rem"`.
+Use `true` or `false` without quotes for switches:
 
 ```yaml
 chulapa-skin:
@@ -74,16 +69,9 @@ the landing page background uses the hero background. Many text colors are
 derived from these backgrounds. Explicit component colors supplied by a
 skin or `vars` keep their assigned values.
 
-The source also contains calculated helpers such as
-`navbar-chulapa-text-contrast`, `footer-chulapa-text-contrast`,
-`landingpage-card-bg` and `cactus-btn-text`. These are recalculated by the
-theme rather than exposed as overridable defaults. Use the component
-variables above or custom CSS to adjust the corresponding styles.
-
-**These are Sass variables, not page options.** Set them under
-`chulapa-skin.vars`, then restart Jekyll to rebuild the styles. For layout and
-front matter options, see [Layouts and snippets](./04-layouts).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Set these values in `_config.yml`, not in an article's settings block. Save
+and publish to see the change; restart Jekyll if you preview locally.
+For page options, see [Layouts and snippets](./04-layouts).
 
 ## Selected Bootstrap variables
 

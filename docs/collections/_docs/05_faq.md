@@ -130,9 +130,7 @@ automatically. For a GitHub Pages project site under a path such as
 
 ### ...add an alert box?
 
-**Short answer: [Bootstrap](https://getbootstrap.com/docs/4.5/components/alerts/) + [kramdown](https://kramdown.gettalong.org/quickref.html#block-attributes)**. This theme uses [kramdown](https://kramdown.gettalong.org/quickref.html) to parse your Markdown files, meaning that you would get all the benefits of Markdown plus some additional interesting options.
-
-Coming back to the question, you can use this approach:
+Copy this into your article to display an information box:
 
 ```
 A simple info alert **check it out!**
@@ -142,17 +140,9 @@ A simple info alert **check it out!**
 A simple info alert **check it out!**
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-You can use `html` but it will take a little more code:
-
-```
-<p class="alert alert-info p-3 mx-2 mb-3">
-A simple info alert with html <strong>check it out!</strong>
-</p>
-```
-
-<p class="alert alert-info p-3 mx-2 mb-3">
-A simple info alert with html <strong>check it out!</strong>
-</p>
+Use `alert-warning` instead of `alert-info` for a warning. Keep boxes short
+and reserve warnings for something the reader needs to avoid or fix.
+See [more alert styles](https://getbootstrap.com/docs/4.5/components/alerts/).
 
 ### ...add a caption?
 
@@ -241,29 +231,20 @@ Madrid de los Austrias, the oldest part of Madrid.
 
 ### ...have a quick preview of a page of my site with any skin?
 
-1. On Google Chrome, go to your desired page.
-2. Right-click and select *Inspect*.
-3. On the Panel, go to the *Elements* window and locate the `<head>` tag.
-4. Click on *Edit as HTML*, and just before `</head>`, paste this:
-
-```html
-  <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/skins/[NAME OF SKIN].css">
-```
-
-Replace `[NAME OF SKIN]` with an available preview stylesheet name. This is a
-temporary browser preview and is lost on reload; it does not update your site
-configuration. To apply a skin permanently, set `chulapa-skin.skin` and rebuild.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Open the [skin previews](../skins) to compare designs. To try one on your own
+site, change `chulapa-skin.skin` in `_config.yml`, save and publish. Follow
+[Choose a design](./00-start#6-choose-a-design).
+Changing a preview on this documentation site does not change your own site.
 
 ### ...find an error in my `_config.yml` file?
 
-Use [YAML Lint](http://www.yamllint.com/) to check YAML syntax, or inspect the
-error reported by `bundle exec jekyll build`.
+Open the failed publishing run in **Actions** and read its error. Check your
+last edit for indentation, missing quotes or duplicate sections. A
+[YAML checker](https://www.yamllint.com/) can help find formatting mistakes.
+For local preview, run `bundle exec jekyll build` to see the error.
 
-**Valid YAML does not guarantee valid theme settings.** A syntax checker cannot
-verify option names, provider IDs or whether a selected skin exists. Compare
-those settings with [Global settings](./02-config) and the build output.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+A formatting check cannot verify skin names or provider IDs. Compare those
+values with [Global settings](./02-config) before trying again.
 
 ### ...know which version of the theme I am using?
 
@@ -305,35 +286,7 @@ If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with <span clas
 feeds. Changing its path to `/atom.xml` without removing <span class="chulapa">Chulapa</span>'s Atom feed
 creates two pages with the same output path.
 
-For sites built locally or with a custom build workflow, you can replace
-<span class="chulapa">Chulapa</span>'s Atom feed while keeping its RSS feed. Create
-`_plugins/disable_chulapa_atom_feed.rb` in your site with this content:
-
-```ruby
-Jekyll::Hooks.register :site, :post_read do |site|
-  site.pages.reject! do |page|
-    page.relative_path.sub(%r{\A/}, "") == "assets/atom.xml"
-  end
-end
-```
-
-This hook removes <span class="chulapa">Chulapa</span>'s Atom page before plugins generate their output.
-Keep `jekyll-feed` in your Gemfile and plugins list, and configure it to
-generate the replacement at `/atom.xml` in `_config.yml`:
-
-```yaml
-feed:
-  path: /atom.xml
-```
-
-The theme's page head advertises both `/atom.xml` and `/rss.xml`. This recipe
-keeps both URLs available: `jekyll-feed` generates Atom and <span class="chulapa">Chulapa</span> generates
-RSS. Keep `include_on_feed: true` for posts that should appear in the RSS feed.
-If you remove RSS as well, override `_includes/head.html` in your site to
-remove or replace its RSS alternate link, and update RSS links in your navbar
-or footer. Adding a link in `custom_head.html` does not remove the original.
-
-Custom plugins are not loaded by GitHub Pages' default safe build; use your own
-build workflow for this approach. Adding the theme's feed files to `exclude`
-alone does not remove them when they are supplied by a gem or remote theme.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+For most sites, keep the built-in feeds and link to `/atom.xml` or `/rss.xml`
+from your footer. If you need `jekyll-feed`, follow its
+[setup guide](https://github.com/jekyll/jekyll-feed#installation) and keep its
+separate `/feed.xml` address to avoid conflicting with the theme's feeds.

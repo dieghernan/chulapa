@@ -23,8 +23,8 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 ## Troubleshooting and site checks
 
-- [Frequently asked questions](https://dieghernan.github.io/chulapa/docs/05-faq): Common setup and customization questions.
-- [Accessibility and performance](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance): Semantic headings, named links, search announcements, keyboard navigation, carousel pause controls, visible focus, reduced motion, contrast, PWA/offline limitations and resource-loading advice, with development-version caveats.
+- [Frequently asked questions](https://dieghernan.github.io/chulapa/docs/05-faq): Browser editing and publishing, formatting, favicons, skin previews, troubleshooting and built-in feeds.
+- [Accessibility and performance](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance): Practical checks for keyboard navigation, mobile screens, readable colors, accessible media and loading speed; offline limitations and development-version caveats.
 
 ## Optional
 

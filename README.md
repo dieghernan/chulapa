@@ -7,12 +7,6 @@ date)](https://img.shields.io/github/v/release/dieghernan/chulapa)
 ![Gem Total Downloads](https://img.shields.io/gem/dt/chulapa-jekyll)
 ![License](https://img.shields.io/github/license/dieghernan/chulapa)
 ![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.8.7-blue)
-![Bootstrap](https://img.shields.io/badge/bootstrap-4.5.0-blue)
-![Font Awesome](https://img.shields.io/badge/fontawesome-6.x-blue)
-![Algolia](https://img.shields.io/badge/algolia-4.x-blue)
-![Lunr](https://img.shields.io/badge/lunr-2.x-blue)
-![Fuse.js](https://img.shields.io/badge/fuse.js-7.x-blue)
-![MathJax](https://img.shields.io/badge/mathjax-3.x-blue)
 ![GitHub Pages](https://img.shields.io/badge/gh--pages-ready-succes)
 ![Google Analytics](https://img.shields.io/badge/google--analytics-ready-succes)
 ![Disqus](https://img.shields.io/badge/disqus-ready-succes) ![Social
@@ -26,7 +20,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 ### A flexible, visual Jekyll theme for blogs, portfolios and personal sites
 
 Choose from 40+ skins, customize colors from YAML and publish with GitHub Pages.
-Start with a small example, then add the features your site needs.
+Start with the ready-to-publish blog template, then add the features you need.
 
 [Get started](https://dieghernan.github.io/chulapa/docs/00-start) ·
 [Browse skins](https://dieghernan.github.io/chulapa/skins) ·
@@ -60,8 +54,8 @@ requires development changes after v2.1.0.
 
 ## Notable features
 
-- **Bootstrap 4** - Fully responsive
-- **Font Awesome 6** - v5 is also supported, with optional v4 shims
+- **Responsive design** for phones, tablets and desktops
+- **Icons** for menus, links and content
 - **3 different navbar styles**
 - **Atom and RSS 2.0** feeds
 - **Internal search** by Algolia, Lunr, Fuse.js, Simple-Jekyll-Search or Google
@@ -70,9 +64,9 @@ requires development changes after v2.1.0.
 - **Masonry gallery**
 - **Video support** - self-hosted videos or videos from providers such as
   YouTube, Vimeo and Dailymotion
-- **Structured data** for better SEO
-- **Code highlighting** - Pygments-compatible styles for Rouge
-- **MathJax** support
+- **Search and sharing metadata** generated from your content
+- **Styles for code blocks**
+- **Mathematical notation** with MathJax
 - **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (development version after v2.1.0)
 - **[PhotoSwipe galleries](https://dieghernan.github.io/chulapa/demo/14-photoswipe)** - opt-in lightboxes for masonry and carousels (v2.1.1-dev, available on `main`; not in v2.1.0)
 - **Active TOC sections** - current-section indicators while scrolling (v2.1.1-dev, available on `main`; not in v2.1.0)
@@ -117,81 +111,26 @@ for publishing and local preview.
 
 **Recommended if you are migrating an existing site.**
 
-If you prefer not to use the template, you can use the `jekyll-remote-theme`
-method. Just follow these steps:
-
-1. Create a new GitHub repository or open an existing one.
-
-2. Add this line to your `_config.yml`:
-
-    ``` yaml
-
-    remote_theme: dieghernan/chulapa
-
-    ... more config options
-    ```
-
-3. Remove any other `remote_theme` entry and the `theme` entry from
-   `_config.yml`. Add `jekyll-remote-theme` and `jekyll-include-cache` to your
-   `Gemfile` and the `plugins` list in `_config.yml`, then run `bundle install`.
-   <span class="chulapa">Chulapa</span> requires `jekyll-include-cache` for its
-   `include_cached` tags.
-
-   For local or custom builds, also install the runtime dependencies listed in
-   the [gemspec](https://github.com/dieghernan/chulapa/blob/main/chulapa-jekyll.gemspec).
-   A remote theme does not install these dependencies for you.
-
-An unpinned remote theme follows the repository default branch. To select a
-release, append its tag, for example `remote_theme: dieghernan/chulapa@v2.1.0`.
-Development features may be available on the default branch before they are
-published in the gem.
+For an existing Jekyll site, set `remote_theme: dieghernan/chulapa` and follow
+[the remote-theme instructions](https://dieghernan.github.io/chulapa/docs/01-install#2-remote-theme-method)
+for dependencies and publishing. Without a version tag, this uses development
+updates; append `@v2.1.0` to stay on that release.
 
 ### C. Gem-based method ðŸ’Ž
 
-With gem-based themes, directories such as `assets`, `_layouts`, `_includes`
-and `_sass` are stored in the theme's gem rather than your site directory.
-This makes installation and updates easier because you do not have to manage
-the theme files directly.
+Add `gem "chulapa-jekyll"` to your Gemfile and set `theme: chulapa-jekyll` in
+`_config.yml`. Follow [the gem installation steps](https://dieghernan.github.io/chulapa/docs/01-install#3-gem-based-method-)
+for required plugins, local preview and updates.
 
-To install as a gem-based theme:
-
-1. Add the following to your `Gemfile`:
-
-    ``` ruby
-    gem "chulapa-jekyll"
-    ```
-
-2. Install the bundled gems by running the following
-    [Bundler](https://bundler.io/) command:
-
-    ``` bash
-    bundle
-    ```
-
-3. Set the `theme` in your project's Jekyll `_config.yml` file:
-
-    ``` yaml
-    theme: chulapa-jekyll
-    ```
-
-Enable `jekyll-include-cache` in the `plugins` list in `_config.yml`. Remove any
-`remote_theme` entry when using the gem. To update only the theme and its
-dependencies, run `bundle update chulapa-jekyll`.
-
-To preview your site locally, run `bundle exec jekyll serve` from your site
-directory. Restart Jekyll after editing `_config.yml` to reload its settings.
-
-Local layouts, includes and assets override the installed theme. Review these
-files together when upgrading; v2.1.1-dev introduces shared search and navigation
-scripts. See [JavaScript assets and local overrides](https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides).
+If you have customized theme files in your site, review those copies when
+updating: they take precedence over the installed theme.
 
 ## Configuration and layouts
 
 See the [documentation](https://dieghernan.github.io/chulapa/docs/01-install)
 for installation, configuration, layouts, search, comments and customization.
-Structured data options include an independent `publisher`, representative
-article images through `schema_image` and per-page crawler directives through
-`robots`.
+Start with your site details and content. Add optional integrations when you
+need them.
 
 ## License
 
