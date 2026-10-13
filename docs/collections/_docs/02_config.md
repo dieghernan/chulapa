@@ -81,7 +81,7 @@ visible breadcrumbs are disabled.
   - `name`: Author name. **GitHub owner name**, when GitHub metadata is available.
   - `url`: Optional author profile URL or site-relative path, such as `/about/`.
     Relative paths use the site's `url` and `baseurl`. This field supplies the
-    default `article:author` URL for posts and, from v2.1.1, a `u-url` in visible
+    default `article:author` URL for posts and, in v2.1.1-dev (available on `main`, not in v2.1.0), a `u-url` in visible
     Microformats2 author cards. A page author does not inherit the site author's
     profile URL. Social links remain configured separately under `links`.
   - `avatar`: Avatar image URL or site-relative path; a small square image is
@@ -205,8 +205,11 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 The standard documentation deployment already uses that environment. Analytics
 are added to pages using the shared head, including the search layout. Root and
-subdirectory sites use the same external endpoint; the tracker reads the
-browser's page path, including `baseurl`. The upstream tracker also ignores
+subdirectory sites use the same external endpoint. GoatCounter prefers the path
+from a canonical URL on the same domain (`www` and non-`www` are equivalent);
+otherwise it uses the browser's page path. Cross-domain canonical URLs are ignored.
+<span class="chulapa">Chulapa</span> already generates canonical links, including
+`baseurl`, so no extra canonical tag is needed. The upstream tracker also ignores
 localhost by default. Configure your site's security policy to allow the script
 host and requests to your counting endpoint. Blocking or failing to load the
 tracker does not prevent the site's content from loading.

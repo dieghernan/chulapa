@@ -65,6 +65,11 @@ Your site's files override the matching theme includes, including when using
 <span class="chulapa">Chulapa</span>'s layouts, including `minimal` and `search`. You do not need to copy or
 modify the layouts.
 
+For Google Analytics or GoatCounter, use the [built-in analytics settings](./02-config#google-analytics)
+instead of adding a second copy of their scripts here. GoatCounter is available
+in v2.1.1-dev on `main`, not in v2.1.0. Custom hooks remain useful for other
+providers or scripts that the theme does not supply.
+
 For example, if your analytics provider asks you to load a script in `<head>`,
 add its snippet to `_includes/custom/custom_head.html`:
 

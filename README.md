@@ -74,7 +74,9 @@ requires development changes after v2.1.0.
 - **Code highlighting** - Pygments-compatible styles for Rouge
 - **MathJax** support
 - **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (development version after v2.1.0)
-- **Google Analytics**
+- **[PhotoSwipe galleries](https://dieghernan.github.io/chulapa/demo/14-photoswipe)** - opt-in lightboxes for masonry and carousels (v2.1.1-dev, available on `main`; not in v2.1.0)
+- **Active TOC sections** - current-section indicators while scrolling (v2.1.1-dev, available on `main`; not in v2.1.0)
+- **Google Analytics** and **[GoatCounter](https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics)** - GoatCounter is optional and production-only (v2.1.1-dev, available on `main`; not in v2.1.0)
 - **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
   WhatsApp
 - **40+ preinstalled skins**

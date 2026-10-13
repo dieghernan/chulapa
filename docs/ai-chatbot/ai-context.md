@@ -145,8 +145,12 @@ A self-hosted HTTPS endpoint such as https://stats.example.org/count also works.
 Create the GoatCounter site separately; no API key or Jekyll plugin is required.
 The official async https://gc.zgo.at/count.js loads only with an HTTPS endpoint
 and JEKYLL_ENV=production. Missing/empty settings and development builds do not
-load it. Shared head covers normal layouts and search; baseurl stays in the
-browser page path and is not added to the external counting URL. Upstream ignores
+load it. Shared head covers normal layouts and search. GoatCounter prefers the
+path from a same-domain canonical URL (www and non-www are equivalent), otherwise
+uses the browser path and ignores cross-domain canonicals. Chulapa already
+provides canonical links including baseurl; no extra canonical tag is needed.
+baseurl is not added to the external counting URL. Use the built-in analytics
+settings instead of inserting duplicate tracker scripts in custom hooks. Upstream ignores
 localhost by default. No visitor-count widget or custom event tracking is added.
 Google settings remain independent: clear gtag_id and analytics_id to use only
 GoatCounter, or both services will load if configured. Not in released v2.1.0.
@@ -277,7 +281,7 @@ layout: minimal renders content directly between the navbar and footer. It is
 headerless by default. To add a header, set show_header: true and a supported
 header_type: base, post, hero, image or splash. header_img sets its image.
 For default and landingpage, header_type: none hides the header.
-From v2.1.1, minimal does not automatically declare a Microformats2 h-entry;
+In v2.1.1-dev (available on main, not in v2.1.0), minimal does not automatically declare a Microformats2 h-entry;
 custom content can supply its own h-entry wrapper with p-name, u-url and e-content.
 Default and landingpage retain automatic entry markup. Visible author cards
 include the selected author's url as u-url, resolving relative paths with url
@@ -294,7 +298,7 @@ cloud page with its permalink and set cloudtag_url or cloudcategory_url on the
 content pages or in defaults. include_collection can restrict the collection.
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
 layout: indexcategory displays collection documents as cards. index_sort chooses
-a front matter field (default name), index_sort_asc: true makes sorting ascending
+a front matter field (default name), sorting is descending by default; index_sort_asc: true makes sorting ascending
 and index_items limits the number of items (default 10).
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 show_author: true displays the author; page author metadata can override the
@@ -650,7 +654,7 @@ The review covers six skins and representative fixtures, not every skin,
 custom widget or production site. Do not claim WCAG certification, a guaranteed
 PageSpeed score or a measured Core Web Vitals improvement.
 
-From v2.1.1, archive, indexcategory, cloudtag and cloudcategory (including
+In v2.1.1-dev (available on main, not in v2.1.0), archive, indexcategory, cloudtag and cloudcategory (including
 cloudtag2/cloudcategory2 aliases) use h-feed instead of a page-level h-entry.
 Custom layouts inheriting from these list layouts retain h-feed through
 multiple levels of layout inheritance without additional page configuration.
@@ -662,7 +666,7 @@ p-summary. The docs/blog/index.html pagination example wraps each results page
 in h-feed. Custom component users supply their own feed wrapper. No new YAML
 options are needed. These changes are in development and do not alter layout.
 
-From v2.1.1, generated document openings and head tags use separate lines and
+In v2.1.1-dev (available on main, not in v2.1.0), generated document openings and head tags use separate lines and
 consistent indentation. With the existing compress_html.blanklines: true
 setting (already in theme configuration examples), compression removes blank
 lines and preserves head and theme footer indentation while clipping the rest
