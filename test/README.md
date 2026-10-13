@@ -246,7 +246,8 @@ the installation check can select the temporary installed gem.
 The navigation browser checks compare native dropdown typography, capitalization,
 text shadows and borders with equivalent navbar links on nine skins, including
 Gitdev, Lux, Universal, Sketchy and Slate, in classic, floating and dual menus
-at 320, 390 and 1280 px.
+at 320, 390 and 1280 px. Direct custom `.nav-link` rules, including selectors
+without a navbar prefix, must override the default button inheritance.
 
 The navigation browser checks also cover synchronized active sections in the
 in-page, sidebar and kramdown TOCs on seven skins at 320, 390 and 1280 px. They

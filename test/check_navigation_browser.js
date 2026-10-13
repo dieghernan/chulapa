@@ -226,14 +226,16 @@ async function main() {
         }
       }
     }
-    await load("gitdev-fab");
-    await page.addStyleTag({content: ".navbar-chulapa .nav-link, .navbar-chulapa-fab .nav-link { text-transform: uppercase; font-weight: 500; letter-spacing: 2px; }"});
-    const customized = await page.locator('#navi-menu button.nav-link').evaluate(button => {
-      button.classList.remove('active', 'font-weight-bold');
-      const style = getComputedStyle(button);
-      return {weight: style.fontWeight, transform: style.textTransform, spacing: style.letterSpacing};
-    });
-    assert.deepEqual(customized, {weight:'500', transform:'uppercase', spacing:'2px'}, 'Direct custom nav-link styles must override inherited button defaults');
+    for (const selector of ['.navbar-chulapa .nav-link, .navbar-chulapa-fab .nav-link', '.nav-link']) {
+      await load("gitdev-fab");
+      await page.addStyleTag({content: `${selector} { text-transform: uppercase; font-weight: 500; letter-spacing: 2px; }`});
+      const customized = await page.locator('#navi-menu button.nav-link').evaluate(button => {
+        button.classList.remove('active', 'font-weight-bold');
+        const style = getComputedStyle(button);
+        return {weight: style.fontWeight, transform: style.textTransform, spacing: style.letterSpacing};
+      });
+      assert.deepEqual(customized, {weight:'500', transform:'uppercase', spacing:'2px'}, `${selector} must override inherited button defaults`);
+    }
     console.log("Passed native dropdown typography and borders on nine skins, all navbar modes and 320/390/1280px");
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
     const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
