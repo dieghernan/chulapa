@@ -657,6 +657,7 @@ compress   # https://jch.penibelst.de/
                     ├ components/headers (optional)
           ┌──────>  ├ PAGE CONTENT
           |         ├ footer <── comments + footer-content
+          |         ├ components/scripts
           |         └ custom/custom_bottomscripts
           |
           └── default    <──┬ components/headers
@@ -725,6 +726,37 @@ can simply add this line to your page:
 {% endraw %}
 
 {% include_cached components/indexcards.html cacheddocs=site.posts  cachedlimit=2 %}
+
+### JavaScript assets and local overrides
+
+In v2.1.1-dev, `minimal` and `search` share `components/scripts.html` for
+jQuery, Popper and Bootstrap. The include also loads `chulapa_navigation.js`
+for `fab` and `dual` navigation. `minimal` adds `chulapa_script.js` for content
+features; the standalone `search` shell uses the navigation script without it.
+
+Custom document shells that render the theme navbar should use
+`components/scripts.html` once; pass `theme=true` if the shell also needs
+content features from `chulapa_script.js`. Layouts inheriting from `minimal` or `search`
+already receive these dependencies. Keep custom additions in
+`custom/custom_bottomscripts.html`.
+
+Lunr and Fuse.js adapters, including their minified assets, require
+`assets/js/chulapa_search.js` before initialization. The standard `search`
+layout handles this. If you embed a search widget directly in a custom page,
+load the shared helper, provider library and generated store before the adapter:
+
+{% raw %}
+```liquid
+<script src="{{ '/assets/js/chulapa_search.js' | relative_url }}"></script>
+<!-- Load the provider library and generated store before its search adapter. -->
+```
+{% endraw %}
+
+Local layouts, includes and assets override the installed theme. When upgrading,
+review them together: copied search pages need the shared helper, and copied
+navigation shells need the navigation script. The [Lunr demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
+and [Fuse.js demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html)
+show complete custom search documents with these dependencies.
 
 ### Microformats in lists
 

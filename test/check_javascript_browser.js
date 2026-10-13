@@ -10,6 +10,7 @@ const scripts = new Map([
   ['https://code.jquery.com/jquery-3.5.1.slim.min.js', require.resolve('jquery/dist/jquery.slim.min.js')],
   ['https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', require.resolve('popper.js/dist/umd/popper.min.js')],
   ['https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', require.resolve('bootstrap/dist/js/bootstrap.min.js')],
+  ['https://unpkg.com/lunr/lunr.js', require.resolve('lunr/lunr.js')],
   ['https://unpkg.com/lunr/lunr.min.js', require.resolve('lunr/lunr.min.js')],
   ['https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js', path.join(path.dirname(require.resolve('fuse.js')), 'fuse.min.js')]
 ]);
@@ -72,6 +73,26 @@ const server = http.createServer((request, response) => {
       await page.fill('#search', 'alpha');
       await page.waitForSelector('#results article');
       assert.ok(await page.locator('#results span.bg-warning').count());
+      // Copy the maintained documentation pages, not synthetic substitutes.
+      for (const demo of ['lunr', 'fusejs']) {
+        await page.goto(`http://127.0.0.1:8770${prefix}/demo/search_${demo}.html`);
+        await page.fill('#search', 'alpha');
+        await page.press('#search', 'Enter');
+        await page.waitForSelector('#results article');
+        assert.ok((await page.locator('#results').textContent()).includes('Alpha article 0'));
+        await page.click('#navi-toggle');
+        assert.equal(await page.locator('#navi-toggle').getAttribute('aria-expanded'), 'true');
+        await page.keyboard.press('Escape');
+        assert.deepEqual(errors, [], `Documentation demo ${demo}, site provider ${engine}`);
+      }
+      if (engine === 'lunr') {
+        await page.goto(`http://127.0.0.1:8770${prefix}/404.html`);
+        await page.fill('#search', 'alpha');
+        await page.press('#search', 'Enter');
+        await page.waitForSelector('#results article');
+        assert.ok((await page.locator('#results').textContent()).includes('Alpha article 0'));
+        assert.deepEqual(errors, [], 'Lunr-enabled documentation 404');
+      }
       await page.close();
     }
     current = path.join(fixtureRoot, 'root-fusejs');

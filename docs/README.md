@@ -31,7 +31,9 @@ The launcher sits at the bottom right on desktop. Below Bootstrap's 992 px
 breakpoint it mirrors the FAB at the bottom left, sharing its margins and
 diameter. The theme positions the TOC sidebar control above it. Opening either
 navigation closes and hides the chat until both are closed.
-Each question is independent. The reviewed context and Worker source live in
+Recent messages and interface state are kept in the current tab's
+`sessionStorage`; Clear chat resets the messages and draft. Each question is
+independent: the request sends only the current question. The reviewed context and Worker source live in
 `ai-chatbot/`; context changes require rebuilding and redeploying that
 Worker separately from the Jekyll site. This integration is specific to this
 documentation site and is not a theme feature.

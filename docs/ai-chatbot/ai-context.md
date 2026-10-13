@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed documentation snapshot, October 12, 2026. Sources are the public documentation
+Reviewed documentation snapshot, October 13, 2026. Sources are the public documentation
 files in docs/collections/_docs and docs/llms.txt. This is a compact selection,
 not the complete documentation. Unsupported details must be acknowledged.
 
@@ -499,6 +499,14 @@ or landingpage. Archive, cloudtag, cloudcategory and indexcategory inherit defau
 search is standalone. Collection indexes share components/collection-documents;
 related and random panels share components/recommendations. These are internal
 renderers, not new configuration options.
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
+In v2.1.1-dev, minimal/search share components/scripts.html for jQuery, Popper,
+Bootstrap and fab/dual chulapa_navigation.js. minimal also loads chulapa_script.js
+for content. Custom shells should load common dependencies once; inherited
+layouts already handle them. Direct Lunr/Fuse adapters (readable or minified)
+require assets/js/chulapa_search.js, the provider library and generated store
+before the adapter. Review local layout/include/asset overrides together when
+upgrading; standard layouts handle the dependency order.
 The required jekyll-include-cache plugin also caches fixed footer content and
 cloud entries in this development version. Comments remain in footer.html with
 page-specific inputs. Cached includes must receive every page-dependent input
@@ -698,3 +706,12 @@ TOCs reuse heading measurements within each update. Cusdis accepts resize messag
 only from its iframe with finite nonnegative numeric heights. The helpful 404
 falls back to a baseurl-aware home link when the sitemap is empty or unavailable.
 These changes are not in released v2.1.0.
+
+
+## Documentation assistant session state
+Source: https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot
+The assistant is a documentation-site extension, not bundled with the reusable
+theme. Recent messages and drafts are stored in sessionStorage for the current
+tab's browser session and can be restored on reload. Clear chat resets them.
+Only the current question is sent in each request; displayed history is not
+conversation context. Visitors must include necessary details in each question.

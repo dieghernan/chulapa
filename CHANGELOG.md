@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Keep custom search demos and the Lunr-enabled 404 page functional with the shared search helper and one copy of common JavaScript dependencies.
+
 -   Initialize floating navigation on search pages without loading the content script, and retain initial menu focus while visibility animates.
 
 -   Keep code copying and accessible feedback available without jQuery or Bootstrap, reuse the maintained implementation for the legacy clipboard asset, and avoid accidental heading and code globals.
