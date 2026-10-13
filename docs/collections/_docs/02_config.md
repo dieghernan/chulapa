@@ -243,10 +243,9 @@ preview or search result.
 
 #### Publisher
 
-Use the optional `publisher` settings in `_config.yml` to identify the publisher
-in JSON-LD structured data. The publisher is independent of the site author and
-guest authors. These settings work with both remote and gem themes without
-additional plugins.
+Use `publisher` in `_config.yml` to identify who publishes your site to search
+engines. Choose `Person` for a personal blog or `Organization` for a company
+or association. This does not change the authors shown on articles.
 
 For an organization with its own logo:
 
@@ -254,9 +253,7 @@ For an organization with its own logo:
 publisher:
   type: Organization
   name: Example organization
-  url: https://example.org/
   logo: /assets/img/logo.png
-  image: /assets/img/organization.jpg
 ```
 
 For a personal site:
@@ -268,39 +265,39 @@ publisher:
   image: /assets/img/jane.jpg
 ```
 
-| Setting | Default and behavior                                                                                                                                                 |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`  | `Organization`. Use exactly `Organization` or `Person`; unsupported values fall back to `Organization`.                                                              |
-| `name`  | Site `author.name`, then the GitHub owner name.                                                                                                                      |
-| `url`   | Site home URL. An explicit publisher URL takes precedence.                                                                                                           |
-| `logo`  | For `Organization`, uses `og_image`, then `author.avatar`, then the GitHub avatar when omitted. Ignored for `Person`.                                                |
-| `image` | For `Person`, uses `author.avatar`, then the GitHub avatar when omitted. Omitted if none is available. For `Organization`, included only when explicitly configured. |
+| Setting | What to enter |
+| --- | --- |
+| `type` | Exactly `Person` or `Organization`. Default: `Organization`; unsupported values also use it. |
+| `name` | Publisher name. Defaults to the site author or GitHub owner name. |
+| `url` | Optional publisher website. Defaults to your site's home page. |
+| `logo` | Organization logo; ignored for `Person`. If omitted, uses the site's sharing image or avatar. |
+| `image` | Person's photograph; defaults to the site author or GitHub avatar. Optional for an organization. |
 
-Relative publisher URLs, logos and images resolve using the site's `url` and
-`baseurl`. Absolute URLs remain unchanged. Missing or empty settings use the
-defaults above. Without publisher settings, the existing organization publisher
-and its logo fallbacks are preserved.
-
-Configuring a publisher does not change article authors, social metadata or author profiles. The separate site author profile is described as "Site author" when any publisher setting is supplied. A `Person` publisher uses `image` instead of `logo`, following [Schema.org](https://schema.org/publisher). These settings describe the publishing entity; they do not guarantee additional [Google rich results](https://developers.google.com/search/docs/appearance/structured-data/article).
+Use a path such as `/assets/img/logo.png` for an uploaded image, or a complete
+URL for an external one. No extra plugin is needed. These settings help describe
+your site; they do not guarantee a special appearance in search results.
 
 ### Font Awesome
 
-<span class="chulapa">Chulapa</span> loads Font Awesome 6 by default. Set `fa_version: 5` to use version 5.
-Set `fa_kit_code` to load a Font Awesome kit instead of the hosted stylesheet.
-The legacy setting `fa5_kit_code` remains supported and takes precedence when
-both are set. Remove it when migrating to `fa_kit_code`.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+Icons are available by default through Font Awesome 6. Use an icon from its
+[catalogue](https://fontawesome.com/icons) in your menu or footer settings.
+To use your own Font Awesome kit, set `fa_kit_code` in `_config.yml`.
 
-To enable v4 support, set `fa_v4_support: true`.
+For older icons, `fa_version: 5` selects version 5 and `fa_v4_support: true`
+enables version 4 compatibility. When updating an old configuration, replace
+`fa5_kit_code` with `fa_kit_code`; the old setting takes precedence if both exist.
 
 ### Google Analytics
 
-- `gtag_id`: Set your Google Analytics 4 measurement ID, such as `G-XXXXXXXXXX`,
-  to load the Google tag.
-- `analytics_id`: Retained for legacy Universal Analytics snippets. Universal Analytics has been retired, so use `gtag_id` for new setups. See [Google's migration guide](https://support.google.com/analytics/answer/10089681).
+Get your Google Analytics 4 measurement ID and set it in `_config.yml`:
 
-Leave unused IDs empty. If both are set, the theme loads both snippets.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+```yaml
+gtag_id: G-XXXXXXXXXX
+```
+
+Replace the example with your own ID. Leave it empty if you do not want Google
+Analytics. The older `analytics_id` setting is for retired Universal Analytics;
+leave it empty for new setups. Setting both IDs loads both snippets.
 
 ### GoatCounter analytics
 
@@ -362,10 +359,6 @@ Set `search.provider` and create a page using `layout: search`. Its `permalink`
 must match `search.landing_page`, which defaults to `/search`. Selecting a
 provider adds the navbar link but does not create the search page.
 
-**Create the search page separately.** Setting `search.provider` alone adds a
-navbar link; it does not generate a page at `search.landing_page`.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
 The following engines are available:
 
 - [Lunr.js](https://lunrjs.com/)
@@ -386,12 +379,8 @@ Google Custom Search requires a configured search engine.
     localization (i.e. you can set it as Búsqueda or Ricerca). **Search**.
   - `landing_page`: URL of your search page, useful for localization.
     **"/search"**.
-  - `lunr_maxwords`: **Deprecated**, use `maxwords`. Remove the old setting when
-    migrating: if both are set, `lunr_maxwords` takes precedence for Lunr.
   - `maxwords`: Maximum number of content words per indexed document for
     `simplesearch`, `fusejs` and `lunr`. Other indexed fields are separate. **30**.
-    Provider-specific `simplesearch_maxwords` and `fusejs_maxwords` also take
-    precedence over `maxwords` when set. Prefer `maxwords` for a shared limit.
   - `show_attrib`: Show attribution for Lunr, Fuse.js and Simple-Jekyll-Search.
     Set the YAML boolean `false` to hide it. **true**.
   - `algolia_logo`: Independently controls the Algolia logo. **Unset**; the
@@ -420,32 +409,14 @@ Index uploads require a separate indexing key supplied through the
 or GitHub Actions secrets; do not put it in the public configuration.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
-Recommended additional options are:
+For a complete starting configuration, see the
+[Algolia settings in the sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml)
+and adapt them to your account. Automate index uploads with your publishing
+workflow; see the [Algolia Jekyll action](https://github.com/marketplace/actions/algolia-jekyll-action).
 
-```yaml
-algolia:
-  application_id: your id
-  index_name: your name
-  search_only_api_key: your apikey
-  extensions_to_index:
-    - html
-    - md
-  searchableAttributes:
-    - title
-    - headings
-    - unordered(content)
-    - unordered(subtitle)
-    - unordered(categories)
-    - unordered(collection)
-    - unordered(tags)
-  customRanking:
-    - desc(include_on_search)
-    - desc(title)
-    - desc(content)
-    - desc(subtitle)
-```
-
-If you are deploying your site with GitHub Pages, I recommend using this [GitHub Action](https://github.com/marketplace/actions/algolia-jekyll-action) to create and update your Algolia index after every commit automatically.
+If you are updating an older setup, remove `lunr_maxwords`,
+`simplesearch_maxwords` or `fusejs_maxwords` to use the shared `maxwords` setting.
+Those older settings take precedence when present.
 
 With the local search providers, visitors can search while typing or press
 Enter. Clearing the field clears the results.

@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Preserve skin-defined navbar capitalization on native dropdown buttons.
+
 -   Trim video names before applying accessible-label fallbacks, including whitespace-only values supplied by Liquid captures or legacy deferred-player markup.
 
 -   Initialize carousels and react to reduced-motion preference changes when browsers expose only the legacy media-query listener API.

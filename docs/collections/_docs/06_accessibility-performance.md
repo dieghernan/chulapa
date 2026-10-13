@@ -83,7 +83,8 @@ name thumbnail links after their articles. Keep a logical heading order in
 your own content and custom layouts.
 
 The menu identifies the current page. Dropdown menus and carousel controls
-work with Enter and Space.
+work with Enter and Space. Dropdown buttons keep the menu capitalization
+chosen by the skin.
 
 Carousels with more than one image and a positive `interval` expose a
 pause/start button when Bootstrap is available. Automatic cycling starts paused
