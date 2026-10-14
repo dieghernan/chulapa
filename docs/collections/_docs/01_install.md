@@ -5,6 +5,12 @@ excerpt: Install <span class="chulapa">Chulapa</span> on your GitHub repo
 show_toc: true
 ---
 
+**Getting started:** use the [GitHub template](#1-use-our-github-template).
+**Advanced reference:** choose the [remote theme](#2-remote-theme-method) or
+[gem installation](#3-gem-based-method-). Switching themes? Follow the
+[migration guide and checklist](./07-migration).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 For a new site, use the <span class="chulapa">Chulapa</span> template to publish
 from your browser. Use the other methods to add the theme to an existing Jekyll site.
 

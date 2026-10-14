@@ -106,6 +106,29 @@ Preview locally with bundle exec jekyll serve. An unknown include_cached tag
 usually means jekyll-include-cache is missing or not enabled; install it and
 add it to plugins, then restart the build.
 
+## Migrating an existing Jekyll site
+Source: https://dieghernan.github.io/chulapa/docs/07-migration
+Use a migration branch/backup, record important URLs, preserve url/baseurl,
+permalink and domain settings. Pin remote_theme: dieghernan/chulapa@v2.1.0;
+remove old theme/remote_theme conflicts, install and enable jekyll-remote-theme
+and jekyll-include-cache. Review local layouts/includes/assets before switching:
+corresponding local files override theme files. Review page front matter and
+_config.yml defaults; explicit page layouts override defaults. Common post/page
+layouts become default with header_type post/base respectively. Other themes'
+option names are not automatically translated. Rebuild navbar/footer and check
+search page/provider, existing comment threads and analytics duplicates. Keep
+jekyll-feed at /feed.xml if needed to preserve subscribers' existing URL; do not
+collide with built-in /atom.xml or /rss.xml. The guide has a twelve-point
+checklist, concrete GitHub Actions setup steps and six troubleshooting answers.
+Adapt author to a mapping (author.name) and select chulapa-skin.skin by its exact
+preview name. Keep useful local customizations and adapt them; prefer supported
+custom hooks over copied complete layouts. A complete Fuse.js search example
+sets search.provider: fusejs and search.landing_page: /search, with a search.md
+page using layout: search and permalink: /search. Preserve the old search path
+by matching both settings. Development-only Mermaid,
+PhotoSwipe and GoatCounter are not in pinned v2.1.0. Preview, publish and verify
+old URLs, mobile/keyboard use and metadata.
+
 ## Basic editing and publishing
 Sources: https://dieghernan.github.io/chulapa/docs/00-start
 https://dieghernan.github.io/chulapa/docs/04-layouts

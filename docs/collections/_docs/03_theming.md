@@ -6,6 +6,11 @@ h_min: 2
 h_max: 5
 ---
 
+**Getting started:** choose a [skin](#skins) or [change one color](#change-one-color).
+**Advanced reference:** use [Autothemer](#autothemer) and [variables](#variables)
+for more control.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 <span class="chulapa">Chulapa</span> lets you customize colors, fonts, spacing, borders and buttons. Use predefined skins or set individual variables to give each site its own appearance.
 
 Set built-in theme variables in `_config.yml`. Use custom CSS for changes

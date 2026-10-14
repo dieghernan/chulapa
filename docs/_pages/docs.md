@@ -14,6 +14,8 @@ index_items: 20
 New to websites? [Start here](./docs/00-start) to publish a blog, edit an
 article and add a photograph using GitHub in your browser.
 
+Moving an existing site? Use the [migration guide and checklist](./docs/07-migration).
+
 Already using Jekyll? Use the guides below as a reference for installation,
 configuration, layouts and customization. Each guide starts with common tasks
 and keeps more detailed options further down the page.

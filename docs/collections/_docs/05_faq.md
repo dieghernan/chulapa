@@ -8,10 +8,22 @@ redirect_from:
   - /docs/05-tips-n-tricks
 ---
 
+**Getting started:** use [editing and publishing answers](#editing-and-publishing).
+**Advanced reference:** find [custom code](#add-custom-html-analytics-css-or-javascript-to-every-page),
+[version checks](#know-which-version-of-the-theme-i-am-using) and
+[feed compatibility](#use-jekyll-feed-instead-of-chulapas-feeds).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 These answers and examples cover common tasks when using
 <span class="chulapa">Chulapa</span>.
 
 ## Editing and publishing
+
+### How do I switch from another Jekyll theme?
+
+Follow the [migration guide and checklist](./07-migration) to adapt your
+configuration, layouts and integrations. If the build or design is unexpected,
+check the [common migration problems](./07-migration#common-migration-problems).
 
 ### How do I change my site's name or author?
 

@@ -7,9 +7,18 @@ h_min: 2
 h_max: 5
 ---
 
+**Getting started:** edit your [site details](#start-with-your-site-details)
+and [menu](#navbar). **Advanced reference:** jump to
+[optional integrations and metadata](#optional-features-and-metadata) or
+[Jekyll defaults and collections](#d-jekyll-defaults-and-collections).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 All site-wide settings live in `_config.yml`. If you used the
 [template](./00-start), most are already set up: start with your name, site
 address and menu. Search, comments and visitor statistics are optional.
+
+Switching themes? Use the [migration configuration examples](./07-migration#4-reconnect-navigation-and-integrations)
+to translate your existing settings before adding optional features.
 
 On GitHub, open `_config.yml` in the **Code** tab, click the pencil button,
 change the existing values and save with **Commit changes**. Wait for the
