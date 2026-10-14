@@ -1,57 +1,25 @@
 ---
 title: Global settings
-subtitle: Learn how to set up your new site
-excerpt: Setting up your new site
+subtitle: Site-wide options, defaults and integration settings
+excerpt: Reference for site identity, navigation, integrations and Jekyll settings.
 show_toc: true
 h_min: 2
 h_max: 5
 ---
 
-**Getting started:** edit your [site details](#start-with-your-site-details)
-and [menu](./10-edit-menu). **Advanced reference:** jump to
-[optional integrations and metadata](#optional-features-and-metadata) or
-[Jekyll defaults and collections](#d-jekyll-defaults-and-collections).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+For editing procedures, use [Change your site's name and author](./14-site-details),
+[Add or change a menu link](./10-edit-menu) or [Edit footer links](./11-edit-footer).
+The sections below describe site-wide options, defaults and integration settings.
 
-All site-wide settings live in `_config.yml`. If you used the
-[template](./00-start), most are already set up: start with your name, site
-address and menu. Search, comments and visitor statistics are optional.
-
-Switching themes? Use the [migration configuration examples](./07-migration#4-reconnect-navigation-and-integrations)
-to translate your existing settings before adding optional features.
-
-On GitHub, open `_config.yml` in the **Code** tab, click the pencil button,
-change the existing values and save with **Commit changes**. Wait for the
-publishing run in **Actions**, then refresh your website. If you preview on
-your computer, restart Jekyll after editing this file.
-
-Keep indentation as it is: spaces group related settings in YAML, the format
-used by this file. Avoid duplicate sections. The examples below show what to
-edit, not extra copies to paste at the end of your configuration.
+Switching themes? Follow the [migration guide](./07-migration). For a new site,
+start with [the browser tutorial](./00-start).
 
 ## Start with your site details
 
-For a user named `ana` and a repository named `my-blog`, update these entries:
-
-```yaml
-title: "Ana's blog"
-description: "Travel stories and photographs"
-locale: en-GB
-repository: ana/my-blog
-url: "https://ana.github.io"
-```
-
-Set `locale` to your content's language, such as `es` for Spanish. Find
-`author.name` and replace the sample author name too. You can leave the other
-author details until you have your own photo and links.
-
-With the template's publishing setup, the site's path is set automatically.
-For another setup, use `baseurl: "/my-blog"` for that repository's website,
-or `baseurl: ""` for a site at the domain root. Keep `url` as the domain,
-without the repository name.
-
-Next, [edit the menu](./10-edit-menu) or [footer links](./11-edit-footer).
-The reference below explains additional settings and their defaults.
+Site identity uses `title`, `description`, `locale`, `repository`, `url`, `baseurl`
+and the `author` mapping. The [site-details how-to](./14-site-details) covers editing;
+the tables below list the fields and defaults. `url` is the domain without the
+repository path; `baseurl` is that path, or `""` for a domain-root site.
 
 ## A. Site settings/SEO
 
@@ -79,8 +47,8 @@ image and feed addresses resolve correctly.
 
 ### Site author
 
-Change your name first. Add a photo and profile links when you have them.
-Edit the existing `author` section; keep any details you want to retain.
+`author` supplies the site-level name, profile and social links.
+The [site-details how-to](./14-site-details) covers changing the name.
 
 - `author`: Your name and profile details, shown where author information is enabled.
   Pages can supply their own `author` mapping.

@@ -20,7 +20,8 @@ Already using Jekyll? Use the guides below as a reference for installation,
 configuration, layouts and customization. The [starter catalog](./docs/08-starter-examples) lists small example sites;
 [the setup guide](./docs/09-run-starter) covers their local preview and publication.
 
-For a published site, [edit menu links](./docs/10-edit-menu) or
+For a published site, [change its name and author](./docs/14-site-details),
+[edit menu links](./docs/10-edit-menu) or
 [footer links](./docs/11-edit-footer) without reading the full configuration reference. Add
 [Fuse.js search](./docs/12-fusejs-search) or [giscus comments](./docs/13-giscus-comments)
 when you need them.

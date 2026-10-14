@@ -161,8 +161,15 @@ are missing, check the saved branch, Actions errors, the published website
 address and post dates before suggesting configuration changes.
 
 ## Global settings
-Source: https://dieghernan.github.io/chulapa/docs/02-config
+Sources: https://dieghernan.github.io/chulapa/docs/02-config
+https://dieghernan.github.io/chulapa/docs/14-site-details
 Configure site settings in _config.yml and restart Jekyll after changing them.
+For a name/author edit, change existing title, description and author.name while
+preserving other settings and url/baseurl/repository/permalinks. The Chulapa 101
+home-page heading has a separate title in index.html; edit that existing file
+without renaming it. Publish and check the browser title and visible heading.
+Page-specific authors and custom footer copyright are not rewritten by changing
+site author.name. Description metadata is distinct from visible page prose.
 The site author mapping accepts name, url, avatar, location and links. Set
 author.url to a profile URL or site-relative path such as /about/; relative paths
 use the site's url and baseurl. It supplies the default article:author URL for

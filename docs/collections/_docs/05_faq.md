@@ -27,10 +27,9 @@ check the [common migration problems](./07-migration#common-migration-problems).
 
 ### How do I change my site's name or author?
 
-Open `_config.yml` in your GitHub repository and click the pencil button.
-Change the existing `title` and `author.name`, then save with **Commit changes**.
-Wait for publishing in **Actions** and refresh your website.
-See [site settings](./02-config#start-with-your-site-details) for an example.
+Follow [Change your site's name and author](./14-site-details) to edit the existing
+settings, match the home-page heading and verify publication. The complete
+[field reference](./02-config#a-site-settingsseo) remains available for option lookup.
 
 ### How do I add a new article or page?
 

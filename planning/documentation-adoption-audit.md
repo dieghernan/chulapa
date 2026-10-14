@@ -15,8 +15,10 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#107](https://github.com/dieghernan/chulapa/pull/107) — audit and packaging guard | Merged | Established the strict framework and baseline inventory; excluded internal material from the gem. |
 | [#108](https://github.com/dieghernan/chulapa/pull/108) — first publication | Merged and deployed | Focused the browser tutorial; extracted starter Reference and How-To pages; preserved legacy heading targets. Retargeted chatbot sources and gated Worker deployment on successful Pages publication for the same commit. |
 | [#109](https://github.com/dieghernan/chulapa/pull/109) — menu and footer tasks | Merged and deployed | Extracted two How-To guides, kept configuration reference anchors, and updated chatbot sources/evaluation cases. This is a partial separation, not a claim that Global settings is pure Reference. |
-| [#110](https://github.com/dieghernan/chulapa/pull/110) — search and comments | In review; not deployed | This delivery extracts Fuse.js setup and giscus-on-one-post How-To guides, preserving provider reference fields and updating chatbot source/evaluation coverage. Other providers remain in the reference; their procedures are not claimed as extracted. |
+| [#110](https://github.com/dieghernan/chulapa/pull/110) — search and comments | Merged and deployed | Extracted Fuse.js setup and giscus-on-one-post How-To guides, preserving provider reference fields and updating chatbot source/evaluation coverage. Other providers remain in the reference; their procedures are not claimed as extracted. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
+
+| Site identity task — next delivery | Prepared; not deployed | Extracts editing site name, description and author into a How-To, with a separate home-page heading check. Preserves reference anchors and adds ordered Docs navigation and chatbot coverage. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented

@@ -140,6 +140,8 @@ navbar:
       url: /docs/12-fusejs-search
     - title: Enable giscus comments
       url: /docs/13-giscus-comments
+    - title: Change site details
+      url: /docs/14-site-details
     - title: Markdown cheatsheet
       url: /docs/markdown-cheatsheet
     - title: Syntax highlighting
