@@ -22,7 +22,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 Choose from 40+ skins, customize colors from YAML and publish with GitHub Pages.
 Start with the ready-to-publish blog template, then add the features you need.
 
-[Get started](https://dieghernan.github.io/chulapa/docs/00-start) ·
+[Publish your first site](https://dieghernan.github.io/chulapa/docs/00-start) ·
 [Browse skins](https://dieghernan.github.io/chulapa/skins) ·
 [See real sites](https://dieghernan.github.io/chulapa/showcase)
 
@@ -49,7 +49,9 @@ Each example includes configuration, dependencies and editable content.
 For a new site with a publishing workflow, use
 [chulapa-101](https://github.com/dieghernan/chulapa-101).
 See [the start guide](https://dieghernan.github.io/chulapa/docs/00-start) for
-local preview and publishing. Examples follow the default branch; Mermaid
+browser publication. For copied minimal examples, use
+[the setup guide](https://dieghernan.github.io/chulapa/docs/09-run-starter).
+Examples follow the default branch; Mermaid
 requires development changes after v2.1.0.
 
 ## Notable features

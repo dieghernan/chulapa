@@ -19,7 +19,7 @@ from your browser. Use the other methods to add the theme to an existing Jekyll 
 **Recommended for your first website.**
 
 [Follow the start guide](./00-start#start-with-the-github-template) to create
-and publish a blog in your browser, edit a post and add a photograph.
+and publish a blog in your browser, change its title and edit a sample article.
 You only need a GitHub account. The template includes sample articles,
 an About page, search and a ready-made design.
 

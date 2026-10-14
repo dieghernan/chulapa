@@ -128,6 +128,10 @@ navbar:
       url: /docs/06-accessibility-performance
     - title: Migrating from another theme
       url: /docs/07-migration
+    - title: Starter examples reference
+      url: /docs/08-starter-examples
+    - title: Run a starter example
+      url: /docs/09-run-starter
     - title: Markdown cheatsheet
       url: /docs/markdown-cheatsheet
     - title: Syntax highlighting
