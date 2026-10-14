@@ -198,7 +198,7 @@ async function main() {
     await page.keyboard.press("Space");
     await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "false");
     assert.deepEqual(errors, [], "Unexpected JavaScript errors in generated pages");
-    for (const skin of ["gitdev", "gitdev-dark", "focal", "lux", "journal", "sketchy", "universal", "slate", "yeti"]) {
+    for (const skin of ["chulapa", "gitdev", "gitdev-dark", "focal", "lux", "journal", "sketchy", "universal", "slate", "yeti"]) {
       for (const mode of ["classic", "fab", "dual"]) {
         for (const width of [320, 390, 1280]) {
           await page.setViewportSize({ width, height: 844 });
@@ -236,7 +236,7 @@ async function main() {
       });
       assert.deepEqual(customized, {weight:'500', transform:'uppercase', spacing:'2px'}, `${selector} must override inherited button defaults`);
     }
-    console.log("Passed native dropdown typography and borders on nine skins, all navbar modes and 320/390/1280px");
+    console.log("Passed native dropdown typography and borders on ten skins, all navbar modes and 320/390/1280px");
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
     const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
     try {

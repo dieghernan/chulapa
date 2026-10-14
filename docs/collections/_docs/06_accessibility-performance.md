@@ -30,7 +30,8 @@ with the Web Content Accessibility Guidelines (WCAG).
 
 The first Tab stop, **Skip to content**, bypasses the menu. Open the floating
 menu with Enter or Space; Escape closes it and returns focus to its button.
-Following a link also closes it.
+Following a link also closes it. Dropdown buttons use the same font as the
+surrounding menu links.
 
 Open the sidebar table of contents, then Tab through its close button and
 links. Escape closes the panel and returns focus. The table of contents

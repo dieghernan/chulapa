@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Keep Chulapa skin dropdown navigation buttons in the same font as menu links, excluding them from the general heading-font button rule.
+
 -   Use Font Awesome play/pause icons for carousel motion controls, preserving accessible action names and visible symbols when icon assets are unavailable.
 
 -   Preserve skin-defined navbar typography, capitalization, text shadows and borders on native dropdown buttons, allowing direct custom `.nav-link` rules to override their defaults.
