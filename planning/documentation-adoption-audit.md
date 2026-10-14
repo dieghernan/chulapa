@@ -19,7 +19,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#111](https://github.com/dieghernan/chulapa/pull/111) — site identity task | Merged and deployed | Extracts editing site name, description and author into a How-To, with a separate home-page heading check. Preserves reference anchors and adds ordered Docs navigation and chatbot coverage. |
 | [#112](https://github.com/dieghernan/chulapa/pull/112) — documentation navigation | Merged and deployed | Replaces the long Docs dropdown with six entry points and organizes the index by Diátaxis intent. Existing mixed pages still require extraction; public destinations are preserved. |
 | [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | Merged and deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
-| [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | In review; not deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
+| [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | Merged and deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
+| Analytics tasks — current delivery | Prepared; not deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -34,14 +35,14 @@ answer verification remains distinct from passing tests or a successful deployme
 
 ## Current adoption review
 
-Reviewed against `main` after #113, 14 October 2026. This is a qualitative
+Reviewed against `main` after #114, 14 October 2026. This is a qualitative
 implementation review, not a new set of purity scores or a usability study.
 The inventory and diagnosis below remain the historical baseline after #106.
 
 | Area | Current result | Remaining design defect or gap |
 | --- | --- | --- |
 | Tutorials | #108 focused the first-site browser tutorial on publication and moved the starter catalog/setup elsewhere. | A second guided exercise and observed completion data are still missing. |
-| How-To Guides | Separate guides cover starter setup, menu/footer links, Fuse.js, giscus and site identity. | Content creation and several integration procedures remain embedded in reference pages. |
+| How-To Guides | Separate guides cover starter setup, menu/footer links, Fuse.js, giscus, site identity and post/page/image creation. | Several integration and appearance procedures remain embedded in reference pages. |
 | Reference | The starter catalog is separate; extracted tasks link back to the existing option catalogs. | Global settings, Layouts, Theming and Installation still mix reader intentions. They are not marked complete. |
 | Explanation | #112 added a short publishing explanation to the documentation directory. | Standalone explanations of publishing, skins/overrides and metadata remain proposed, not delivered. |
 | Navigation | #112 shortened the Docs dropdown and grouped the directory by the four Diátaxis intentions. | Grouping the directory does not transform the mixed pages it links to. Filename-ordered previous/next navigation was disabled for Docs by #113; independent tasks no longer imply a course sequence. |
@@ -63,11 +64,12 @@ did not add a new navigation API or implement such a series.
 
 ### Next priorities, not yet merged
 
-1. Current delivery: extract creating a post, creating a page and adding an image
-   from Layouts into focused How-To Guides, preserving old heading targets.
-   These guides and their chatbot updates are pending review and deployment.
-2. Continue extracting integration procedures from Global settings and retain
-   exact option/default/version facts in Reference.
+1. Current delivery: extract GoatCounter and GA4 configuration into separate
+   How-To Guides while preserving reference fields and anchors. These changes
+   and their chatbot updates are pending review and deployment.
+2. Continue extracting the remaining integration procedures from Global settings
+   and media procedures from Layouts; retain exact option/default/version facts
+   in Reference.
 3. Separate installation methods and appearance tasks from their reference and
    conceptual material. Add Explanation pages only for reader decisions that
    need context, not internal implementation detail.

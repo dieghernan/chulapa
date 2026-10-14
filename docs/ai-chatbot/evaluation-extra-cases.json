@@ -275,5 +275,19 @@
     "doc": "17_add-image.md",
     "question": "How do I upload and show a photograph in an existing post on a site under /my-blog?",
     "expected": "Upload assets/img file, Markdown descriptive alt plus Liquid relative_url below front matter, no manual baseurl, exact case/extension; commit upload and content to publishing branch, wait Actions, check website not GitHub preview and narrow screen."
+  },
+  {
+    "id": "analytics-goat-setup-1",
+    "section": "analytics",
+    "doc": "18_goatcounter.md",
+    "question": "How do I enable only GoatCounter for a published site under /my-blog? I am pinned to v2.1.0.",
+    "expected": "Not in v2.1.0; main after release required. Full HTTPS count URL with no blog baseurl, no API key; clear gtag_id/analytics_id and duplicate custom snippet; commit Actions production build, published visit/dashboard, blockers/CSP checks."
+  },
+  {
+    "id": "analytics-ga4-setup-1",
+    "section": "analytics",
+    "doc": "19_google-analytics.md",
+    "question": "I have a GA4 stream. How do I connect my blog, avoid duplicates and check it? Does local preview count?",
+    "expected": "G- measurement ID as existing gtag_id, clear legacy analytics_id and goatcounter for Google-only; no duplicate custom script; publish/check Realtime in matching property. Not production gated, also loads local preview. Blockers/custom consent can prevent requests."
   }
 ]
