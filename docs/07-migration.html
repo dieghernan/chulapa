@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - v2.1.0 -->
+    <!-- MIT License -->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build 2026-10-14 -->
+    <!-- Jekyll Version 4.4.1 -->
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://dieghernan.github.io/chulapa/docs/07-migration",
+        "name": "Migrating from another Jekyll theme",
+        "description": "Keep your content and URLs while switching themes - Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist.",
+        "headline": "Migrating from another Jekyll theme",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
+        "datePublished": "2026-10-14T07:45:49+02:00",
+        "dateModified": "2026-10-14T07:45:49+02:00",
+        "author": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://github.com/dieghernan/",
+          "sameAs": [
+            "https://dieghernan.github.io/",
+            "https://stackoverflow.com/users/7877917/dieghernan"
+          ]
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://dieghernan.github.io/chulapa/",
+          "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb-1",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dieghernan.github.io/chulapa/"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb-2",
+            "position": 2,
+            "name": "Docs",
+            "item": "https://dieghernan.github.io/chulapa/docs"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb-3",
+            "position": 3,
+            "item": "https://dieghernan.github.io/chulapa/docs/07-migration",
+            "name": "Migrating from another Jekyll theme"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Madrid, Spain"
+        },
+        "description": "Site author",
+        "name": "dieghernan",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "sameAs": [
+          "https://github.com/dieghernan/",
+          "https://dieghernan.github.io/",
+          "https://stackoverflow.com/users/7877917/dieghernan"
+        ]
+      }
+    </script>
+    <title>Migrating from another Jekyll theme | Chulapa</title>
+    <link rel="canonical" href="https://dieghernan.github.io/chulapa/docs/07-migration">
+    <!-- Atom feed -->
+    <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
+    <!-- RSS 2.0 feed -->
+    <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" >
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="dieghernan" >
+    <meta name="copyright" content="dieghernan" >
+    <meta name="description" content="Keep your content and URLs while switching themes - Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist.">
+    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <meta name="robots" content="index, follow">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Migrating from another Jekyll theme | Chulapa" >
+    <meta property="og:site_name" content="Chulapa" >
+    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/07-migration" >
+    <meta property="og:type" content="website" >
+    <meta property="og:description" content="Keep your content and URLs while switching themes - Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist." >
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <!-- Twitter/X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Keep your content and URLs while switching themes - Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist.">
+    <meta name="twitter:site" content="@dhernangomez" >
+    <!-- start custom head snippets -->
+<!-- this script is inserted before the css stylesheet -->
+<!-- end custom head snippets -->
+    <!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontawesome-->
+    <!-- v6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+    <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
+    <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+    <!-- Theme css (Bootstrap included) -->
+    <link rel="stylesheet" id="maincss" href="https://dieghernan.github.io/chulapa/assets/css/main.css" >
+    <!-- Highlighter -->
+    <link id="csshigh" rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/highlighter.css" >
+    <!-- Custom css -->
+    <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q654SQGBGS');
+    </script>
+    <script data-goatcounter="https://chulapa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <!-- start custom head snippets -->
+    <!-- https://realfavicongenerator.net/-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+    <link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+    <link rel="llms" href="https://dieghernan.github.io/chulapa/llms.txt">
+    <meta name="apple-mobile-web-app-title" content="Chulapa">
+    <meta name="application-name" content="Chulapa">
+    <meta name="msapplication-TileColor" content="#efebdd">
+    <meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#efebdd">
+    <!-- end custom head snippets -->
+    <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+</head>
+<body class="d-flex flex-column" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
+	<noscript>
+ <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="https://dieghernan.github.io/chulapa/">Home</a>
+   <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/blog/">Blog</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs">Read the Docs</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/01-install">Installation</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/02-config">Global Settings</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/03-theming">Theming your site</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/04-layouts">Layouts & Snippets</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/05-faq">FAQs</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance">Accessibility and performance</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/07-migration" aria-current="page">Migrating from another theme</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/skins">Skins</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo">Index</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/pagespeed">PageSpeed Results</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/license">License</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/showcase">Showcase</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/contribute">Contribute</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></li>
+     <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/search">Search</a></li>
+   </ul>
+ </nav>
+</noscript>
+	<div class="navbar-chulapa-fab">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1  active font-weight-bold " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Read the Docs </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/01-install">Installation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Global Settings </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Theming your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/04-layouts">Layouts & Snippets </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-faq">FAQs </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance">Accessibility and performance </a><a class="dropdown-item nav-link d-block px-3 small  active font-weight-bold " href="https://dieghernan.github.io/chulapa/docs/07-migration" aria-current="page">Migrating from another theme <span class="sr-only">(current)</span></a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/pagespeed">PageSpeed Results</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="About" data-toggle="dropdown" aria-expanded="false">About</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="About"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/license">License </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/showcase">Showcase </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/contribute">Contribute </a><a class="dropdown-item nav-link d-block px-3 small " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
+				</li></ul>
+		</nav>
+	</div>
+			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
+    <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/07-migration">Invisible link to canonical for Microformats</a>
+	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
+   <h1 class="p-name">Migrating from another Jekyll theme</h1><hr class="my-3">
+   <p class="chulapa-subtitle p-summary">Keep your content and URLs while switching themes</p>
+ </div>
+</header>
+	<main class="container-lg pb-3 flex-fill">
+<div class="row my-1">
+<div class="col-lg-8 offset-lg-2 col small">
+ <nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/" itemprop="item"><span itemprop="name">Home</span></a>
+         <meta itemprop="position" content="1" ></li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb-2"><a href="https://dieghernan.github.io/chulapa/docs" itemprop="item"><span itemprop="name">Docs</span></a>
+         <meta itemprop="position" content="2" ></li>
+      <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/07-migration#breadcrumb-3">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/docs/07-migration">
+        <span itemprop="name">Migrating from another Jekyll theme</span>
+       <meta itemprop="position" content="3" >
+     </li>
+ </ol>
+ </nav>
+ </div></div>
+		<div class="row pt-2">
+			<div class="col-lg-2 mt-lg-3 small"></div>
+			<article id="maincontent" class="col-lg-8 mt-3 e-content">
+	<button type="button" class="btn btn-primary btn-sm rounded-right position-fixed chulapa-btn-sidebar bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" id='demo' onclick="openSideBar()" aria-label="Open Sidebar" aria-expanded="false" aria-controls="sideBar">
+		<i class="fa-solid fa-plus"></i><span class="sr-only">Open Sidebar</span>
+	</button>
+	<div class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed navbar-chulapa h-100" id='sideBar' aria-hidden="true" inert>
+		<p class="pt-2 pb-1 px-3">
+			<button type="button" class="navbar-text close chulapa-btn-nofocus chulapa-fa-static" aria-label="Close" onclick="closeSideBar()">
+				<i class="fa-solid fa-times"></i><span class="sr-only">Close Sidebar</span>
+			</button>
+		</p>
+		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
+		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Migrating from another Jekyll theme</a></p>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#1-prepare-your-site" class="nav-link">1. Prepare your site</a></li><li class="nav-item nav d-block"><a href="#2-switch-to-a-pinned-remote-theme" class="nav-link">2. Switch to a pinned remote theme</a></li><li class="nav-item nav d-block"><a href="#3-adapt-layouts-and-front-matter" class="nav-link">3. Adapt layouts and front matter</a></li><li class="nav-item nav d-block"><a href="#4-reconnect-navigation-and-integrations" class="nav-link">4. Reconnect navigation and integrations</a></li><li class="nav-item nav d-block"><a href="#5-preview-then-publish" class="nav-link">5. Preview, then publish</a></li><li class="nav-item nav d-block"><a href="#common-migration-problems" class="nav-link">Common migration problems</a></li><li class="nav-item nav d-block"><a href="#migration-checklist" class="nav-link">Migration checklist</a></li></ul>
+		</nav>   
+	</div>
+            <nav aria-label="table-of-contents">
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-prepare-your-site">1. Prepare your site</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-adapt-layouts-and-front-matter">3. Adapt layouts and front matter</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#4-reconnect-navigation-and-integrations">4. Reconnect navigation and integrations</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#5-preview-then-publish">5. Preview, then publish</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#common-migration-problems">Common migration problems</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#migration-checklist">Migration checklist</a></li></ul>
+			</nav>
+			 <p>Keep your posts, pages and images. This guide assumes your site already builds
+with Jekyll and has a <code class="language-plaintext highlighter-rouge">_config.yml</code> and <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Before switching themes:</strong> save a backup or create a migration branch. Theme-specific
+settings and layouts are not converted automatically; check the preview before publishing.</p>
+<p><strong>Getting started:</strong> follow steps 1–5, then use the <a href="#migration-checklist">migration checklist</a>.
+<strong>Advanced reference:</strong> use the <a href="#3-adapt-layouts-and-front-matter">front matter mapping</a> and
+linked settings to translate your existing configuration.</p>
+<h2 id="1-prepare-your-site">1. Prepare your site</h2>
+<p>Create a migration branch or backup. Record your home page, a post, a page,
+search and feed URLs so you can check them after switching themes.
+Keep your existing <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">baseurl</code>, <code class="language-plaintext highlighter-rouge">permalink</code> and custom domain settings
+unless you intend to change your public addresses.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Check local overrides first.</strong> Files in <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code> and <code class="language-plaintext highlighter-rouge">assets</code>
+with the same paths as theme files take precedence. Old copies can hide the new
+design or keep loading old scripts. Review them individually; move obsolete
+theme copies outside the site source, preserving your own content and customizations.</p>
+<p>Keep useful custom layouts and includes, then adapt their parent layouts, include
+paths and CSS to the new theme. For site-wide additions, prefer the supported
+<a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom hooks</a>
+over copying a complete theme layout.</p>
+<h2 id="2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</h2>
+<p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>, remove the old <code class="language-plaintext highlighter-rouge">theme</code> and replace any existing <code class="language-plaintext highlighter-rouge">remote_theme</code>:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.1.0</span>
+</code></pre></div></div>
+<p>Add these entries to your existing <code class="language-plaintext highlighter-rouge">plugins</code> list, keeping unrelated plugins:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-remote-theme</span>
+  <span class="pi">-</span> <span class="s">jekyll-include-cache</span>
+</code></pre></div></div>
+<p>In your <code class="language-plaintext highlighter-rouge">Gemfile</code>, add these dependencies if missing:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"jekyll-remote-theme"</span>
+<span class="n">gem</span> <span class="s2">"jekyll-include-cache"</span>
+</code></pre></div></div>
+<p>Remove the old theme gem if nothing else uses it. Keep Jekyll and dependencies
+needed by your content or publishing workflow. The
+<a href="https://github.com/dieghernan/chulapa/blob/main/examples/personal-blog/Gemfile">personal-blog Gemfile</a>
+provides a dependency reference; merge it with your file rather than replacing it.
+Run <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
+<p class="alert alert-info p-3 mx-2 mb-3">Pinning <code class="language-plaintext highlighter-rouge">@v2.1.0</code> keeps the migration on a released version. Omitting the tag
+follows development updates. Features documented as v2.1.1-dev, including
+Mermaid, PhotoSwipe and GoatCounter, are not in v2.1.0.</p>
+<p><span id="3-adapt-front-matter"></span></p>
+<h2 id="3-adapt-layouts-and-front-matter">3. Adapt layouts and front matter</h2>
+<p>Review <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults as well as the settings between <code class="language-plaintext highlighter-rouge">---</code> lines in
+posts and pages. Explicit page values override defaults: an old <code class="language-plaintext highlighter-rouge">layout: post</code>
+will still need changing even if you set a new post default.</p>
+<p>Names vary between themes; these are common patterns to review, not automatic conversions:</p>
+<table>
+<thead>
+   <tr>
+     <th>Existing setting or purpose</th>
+     <th>Use with <span class="chulapa">Chulapa</span></th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">layout: post</code> for an article</td>
+     <td><code class="language-plaintext highlighter-rouge">layout: default</code> with <code class="language-plaintext highlighter-rouge">header_type: post</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">layout: page</code> for a regular page</td>
+     <td><code class="language-plaintext highlighter-rouge">layout: default</code> with <code class="language-plaintext highlighter-rouge">header_type: base</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">image</code> or <code class="language-plaintext highlighter-rouge">cover</code> for a header photograph</td>
+     <td><code class="language-plaintext highlighter-rouge">header_img</code>; choose an appropriate <code class="language-plaintext highlighter-rouge">header_type</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">toc: true</code> for a table of contents</td>
+     <td><code class="language-plaintext highlighter-rouge">show_toc: true</code>; see the <a href="./04-layouts#options">TOC example</a></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">comments: true</code> on a page</td>
+     <td><code class="language-plaintext highlighter-rouge">show_comments: true</code>, plus a configured site provider</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">search: false</code> to exclude a page from the local index</td>
+     <td><code class="language-plaintext highlighter-rouge">include_on_search: false</code></td>
+   </tr>
+   <tr>
+     <td>Include a dated document in the built-in feeds</td>
+     <td><code class="language-plaintext highlighter-rouge">include_on_feed: true</code></td>
+   </tr>
+ </tbody>
+</table>
+<p>Keep standard fields such as <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">categories</code>, <code class="language-plaintext highlighter-rouge">tags</code> and intended
+<code class="language-plaintext highlighter-rouge">permalink</code> values. Check old theme-specific includes and CSS classes in the
+content; translate or replace them using the <a href="./04-layouts#a-layouts">layout and snippet reference</a>.
+See <a href="/chulapa/demo">live demos</a> to choose a suitable layout.</p>
+<p>For example, replace the old layout and header settings in an existing post’s
+front matter with these values, preserving its title, date and other content:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">header_type</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">show_date</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">include_on_feed</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+<h2 id="4-reconnect-navigation-and-integrations">4. Reconnect navigation and integrations</h2>
+<p><strong>Rebuild navbar and footer links manually:</strong> links from your previous theme
+are not imported automatically. Re-enter them in <code class="language-plaintext highlighter-rouge">navbar.nav</code> and <code class="language-plaintext highlighter-rouge">footer.links</code>,
+then open every destination in the preview.</p>
+<p>Edit existing sections in <code class="language-plaintext highlighter-rouge">_config.yml</code>; settings from the previous theme are
+not translated automatically. Remove obsolete theme-specific settings once you
+have translated them; keep unrelated Jekyll settings and plugins.</p>
+<p>Start by adapting your author details and choosing a skin. For example, merge
+these sections into <code class="language-plaintext highlighter-rouge">_config.yml</code>, replacing the sample name with your own:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">author</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ana"</span>
+<span class="na">chulapa-skin</span><span class="pi">:</span>
+  <span class="na">skin</span><span class="pi">:</span> <span class="s">journal</span>
+</code></pre></div></div>
+<p>If your old <code class="language-plaintext highlighter-rouge">author</code> was a plain string, replace it with the mapping above.
+Keep or translate any profile details using the <a href="./02-config#site-author">author reference</a>.
+Use an exact name from the <a href="/chulapa/skins">skin previews</a>;
+see <a href="./03-theming#skins">theming</a> for fonts and color overrides.</p>
+<table>
+<thead>
+   <tr>
+     <th>Feature</th>
+     <th>What to change and check</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>Navbar</td>
+     <td>Rebuild links under <code class="language-plaintext highlighter-rouge">navbar.nav</code> with <code class="language-plaintext highlighter-rouge">title</code> and <code class="language-plaintext highlighter-rouge">url</code>; use <code class="language-plaintext highlighter-rouge">child</code> for one level of dropdown links. Check every destination. <a href="./02-config#navbar">Navbar examples</a>.</td>
+   </tr>
+   <tr>
+     <td>Footer</td>
+     <td>Rebuild social and feed links to <code class="language-plaintext highlighter-rouge">footer.links</code> using <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">icon</code> and <code class="language-plaintext highlighter-rouge">url</code>. Set <code class="language-plaintext highlighter-rouge">footer.copyright</code> if needed. <a href="./02-config#footer">Footer settings</a>.</td>
+   </tr>
+   <tr>
+     <td>Search</td>
+     <td>Choose <code class="language-plaintext highlighter-rouge">search.provider</code>. Create a page with <code class="language-plaintext highlighter-rouge">layout: search</code> and a <code class="language-plaintext highlighter-rouge">permalink</code> matching <code class="language-plaintext highlighter-rouge">search.landing_page</code> (default <code class="language-plaintext highlighter-rouge">/search</code>). A provider setting alone does not create the page. <a href="./02-config#search-engines">Search setup</a>.</td>
+   </tr>
+   <tr>
+     <td>Comments</td>
+     <td>Set <code class="language-plaintext highlighter-rouge">comments.provider</code>, its required identifiers and <code class="language-plaintext highlighter-rouge">show_comments: true</code> on eligible pages or post defaults. Retain the provider’s existing discussion identifiers and verify an old thread; changing themes does not migrate comments between services. <a href="./02-config#comments">Provider setup</a>.</td>
+   </tr>
+   <tr>
+     <td>Feeds</td>
+     <td>Built-in <code class="language-plaintext highlighter-rouge">/atom.xml</code> and <code class="language-plaintext highlighter-rouge">/rss.xml</code> include dated documents with <code class="language-plaintext highlighter-rouge">include_on_feed: true</code>. Keep <code class="language-plaintext highlighter-rouge">jekyll-feed</code> if you need an existing <code class="language-plaintext highlighter-rouge">/feed.xml</code> URL; its default output can coexist. Avoid two generators writing the same path. <a href="./05-faq#use-jekyll-feed-instead-of-chulapas-feeds">Feed guidance</a>.</td>
+   </tr>
+   <tr>
+     <td>Analytics</td>
+     <td>For Google Analytics 4, set <code class="language-plaintext highlighter-rouge">gtag_id</code> to your existing measurement ID. Remove duplicate tracking snippets from local includes. GoatCounter requires development after v2.1.0. <a href="./02-config#google-analytics">Analytics settings</a>.</td>
+   </tr>
+ </tbody>
+</table>
+<p>For a simple local search, merge this into <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">search</span><span class="pi">:</span>
+  <span class="na">provider</span><span class="pi">:</span> <span class="s">fusejs</span>
+  <span class="na">landing_page</span><span class="pi">:</span> <span class="s">/search</span>
+</code></pre></div></div>
+<p>Create <code class="language-plaintext highlighter-rouge">search.md</code> at the site root, or adapt your existing search page:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">search</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Search</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/search</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<p>Keep the old search URL if it is already in use, setting both <code class="language-plaintext highlighter-rouge">permalink</code> and
+<code class="language-plaintext highlighter-rouge">search.landing_page</code> to that path.</p>
+<h2 id="5-preview-then-publish">5. Preview, then publish</h2>
+<p>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>. Restart it after changing <code class="language-plaintext highlighter-rouge">_config.yml</code>.
+Check representative pages against the URLs you recorded, including images
+and links when your site uses a <code class="language-plaintext highlighter-rouge">baseurl</code>. Review titles, descriptions and
+canonical URLs in the generated HTML.</p>
+<p>Keep an existing publishing workflow if it installs the new dependencies and
+builds your site successfully. If you need GitHub Actions publishing:</p>
+<ol>
+ <li>In your repository, open <strong>Settings &gt; Pages</strong> and select <strong>GitHub Actions</strong>.</li>
+ <li>Add a workflow under <code class="language-plaintext highlighter-rouge">.github/workflows/</code>, using the
+<a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">template workflow</a>
+as a starting point. Adapt its branch and build settings to your repository.</li>
+ <li>Keep the <code class="language-plaintext highlighter-rouge">@v2.1.0</code> pin in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Merge the migration when the preview
+is ready, then check the publishing run in <strong>Actions</strong>.</li>
+ <li>Open the address in <strong>Settings &gt; Pages</strong> and repeat the checklist’s live checks.
+Analytics may load only in production; verify it there.</li>
+</ol>
+<h2 id="common-migration-problems">Common migration problems</h2>
+<table>
+<thead>
+   <tr>
+     <th>Problem</th>
+     <th>What to check or change</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>The old design is still visible</td>
+     <td>Review local <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code> and matching assets. Move obsolete theme copies outside the source; adapt useful customizations rather than deleting all custom files. Rebuild and refresh.</td>
+   </tr>
+   <tr>
+     <td>Jekyll reports an unknown <code class="language-plaintext highlighter-rouge">include_cached</code> tag</td>
+     <td>Install <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code>, enable it under <code class="language-plaintext highlighter-rouge">plugins</code>, run <code class="language-plaintext highlighter-rouge">bundle install</code> and restart Jekyll.</td>
+   </tr>
+   <tr>
+     <td>A layout is missing, or an old include fails</td>
+     <td>Check explicit page front matter and configuration defaults for old layout names. Translate theme-specific includes; use <code class="language-plaintext highlighter-rouge">layout: default</code> for ordinary posts and pages.</td>
+   </tr>
+   <tr>
+     <td>CSS or images return 404</td>
+     <td>Check <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">baseurl</code> and asset paths. Keep <code class="language-plaintext highlighter-rouge">url</code> as the domain and use <code class="language-plaintext highlighter-rouge">baseurl</code> for the site subpath. See <a href="./02-config#a-site-settingsseo">site settings</a>.</td>
+   </tr>
+   <tr>
+     <td>Search opens a missing page or returns no results</td>
+     <td>Check <code class="language-plaintext highlighter-rouge">search.provider</code>, create the search page and match its permalink to <code class="language-plaintext highlighter-rouge">search.landing_page</code>. Check <code class="language-plaintext highlighter-rouge">include_on_search</code>; Algolia also needs its uploaded index.</td>
+   </tr>
+   <tr>
+     <td>Readers’ feed URL stops working, or posts are missing</td>
+     <td>Preserve the existing feed URL. Keep <code class="language-plaintext highlighter-rouge">jekyll-feed</code> for <code class="language-plaintext highlighter-rouge">/feed.xml</code> if needed; built-in feeds require dates and <code class="language-plaintext highlighter-rouge">include_on_feed: true</code>. Avoid duplicate output paths.</td>
+   </tr>
+ </tbody>
+</table>
+<h2 id="migration-checklist">Migration checklist</h2>
+<ul class="task-list">
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Save a backup or migration branch and record important URLs.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Review local layouts, includes and assets for old theme overrides.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.1.0</code>; remove conflicting theme settings.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Install and enable both remote-theme and include-cache plugins.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Translate layouts and front matter, including <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Replace old theme-specific includes and classes used in content.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Adapt author details and skin; rebuild navbar/footer links and check destinations.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Test search and an existing comment thread, if enabled.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Open the feed URLs used by your readers and check recent posts.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Check analytics configuration and remove duplicate tracking snippets.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Preview on mobile and with a keyboard; verify images, URLs and metadata.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Publish, check the build result and repeat the key checks on the live site.</li>
+</ul>
+</article>
+		</div>
+	</main><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
+ <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
+   <li class="page-item text-left mr-0 ">
+      <a class="page-link border-0 px-4" href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance" tabindex="-1">
+	  <i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sr-only">Previous</span>
+	  </a>
+   </li>
+   <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-md-inline ">
+     <p class="page-link chulapa-label">Accessibility and performance</p>
+   </li>
+   <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-sm-inline d-md-none ">
+     <p class="page-link chulapa-label">Accessibility ...</p>
+   </li>
+	 <li class="page-item disabled mx-auto invisible">
+	  <p class="page-link">|</p>
+	 </li>	
+	 <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-sm-inline d-md-none ">
+	   <p class="page-link chulapa-label">Syntax highlig...</p>
+	 </li>
+	 <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-md-inline ">
+	   <p class="page-link chulapa-label">Syntax highlighting demo</p>
+	 </li>
+   <li class="page-item text-right ml-0 ">
+      <a class="page-link border-0 px-4" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">
+	  <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span></a>
+   </li>
+ </ul>
+</nav>
+</div>
+  <!-- Footer -->
+  <footer class="footer-chulapa text-center mt-0 pt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <!-- Include the script from  https://giscus.app/ -->
+<script src="https://giscus.app/client.js"
+        data-repo="dieghernan/chulapa"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTQ0NjMyOTg="
+        data-category="General"
+        data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyOTI0OTg2"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_high_contrast"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            <a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+            <a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">My blog</span>
+            </a>
+          </nav>
+          <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
+          <!-- Do not remove this in order to give attributions -->
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <!-- End attributions -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
+<!-- JS, Popper.js, and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
+	<script src="/chulapa/assets/js/chulapa_script.js"></script>
+	<!-- start custom scripts to be placed at the bottom of the page -->
+    <script defer
+            src="https://chulapa-ai-prototype.dieghernan.workers.dev/widget.js"
+            data-endpoint="https://chulapa-ai-prototype.dieghernan.workers.dev/api/chat"
+            data-position="right"
+            data-menu-toggle="navi-toggle"
+            data-sidebar-toggle="demo"
+            data-search="/chulapa/search"></script>
+<!-- end custom bottom scripts -->
+	</body>
+</html>
