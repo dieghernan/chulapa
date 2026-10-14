@@ -115,9 +115,9 @@ in `_pages/about.md`. Keep the home page filename `index.html`.
 
 Choose a next task when you need it:
 
-- [Add a photograph](./04-layouts#add-an-image).
+- [Add a photograph](./17-add-image).
 - [Choose a design](./03-theming#skins).
-- [Create a page](./04-layouts#create-a-page).
+- [Create a page](./16-create-page).
 
 <details markdown="1">
 <summary>Links from earlier versions of this guide</summary>
@@ -125,7 +125,7 @@ Choose a next task when you need it:
 These destinations preserve links to tasks that used to follow the tutorial.
 They are not additional steps needed to publish your first site.
 
-- <span id="5-add-a-photograph"></span>[Add a photograph](./04-layouts#add-an-image).
+- <span id="5-add-a-photograph"></span>[Add a photograph](./17-add-image).
 - <span id="6-choose-a-design"></span>[Choose a design](./03-theming#skins).
 - <span id="explore-minimal-examples"></span>[Explore minimal examples](./08-starter-examples).
 - <span id="choose-a-starting-point"></span>[Choose a starting point](./08-starter-examples).

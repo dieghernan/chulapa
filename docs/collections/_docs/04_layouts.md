@@ -1,96 +1,34 @@
 ---
 title: "Layouts and snippets"
-subtitle: Add your content
-excerpt: Learn how to start adding your content to your new site
+subtitle: Layout, snippet and page-option reference
+excerpt: Look up layouts, snippets and page settings, with links to content-editing guides.
 mathjax: true
 mermaid: true
 show_toc: true
 h_max: 4
 ---
 
-**Getting started:** [create a post](#create-a-post), [page](#create-a-page)
-or [add an image](#add-an-image). **Advanced reference:** jump to
-[layouts](#a-layouts), [snippets](#b-snippets), [page settings](#advanced-page-settings)
-or [customization](#advanced-customization-reference).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
-Use this page to write an article, add a standalone page or include media.
-Start with the examples below; the [layout reference](#a-layouts) lists more
-options when you need them. A **layout** is a page design. **Front matter** is
+Use this page to look up a layout, snippet or page setting. For everyday editing,
+use [Create a post](./15-create-post), [Create a page](./16-create-page) or
+[Add an image](./17-add-image). A **layout** is a page design; **front matter** is
 the settings block between `---` lines at the top of a content file.
 
-Moving existing posts or pages? Start with the
-[migration front matter mapping](./07-migration#3-adapt-layouts-and-front-matter)
-to replace layout names and options from your previous theme.
+Moving existing posts or pages? Use the
+[migration front matter mapping](./07-migration#3-adapt-layouts-and-front-matter).
 
 ## Create a post
 
-In your repository's **Code** tab, choose **Add file > Create new file**.
-Name it `_posts/YYYY-MM-DD-my-first-post.md`, replacing `YYYY-MM-DD` with a
-real date, such as `2026-10-13`. The date must not be in the future if you want
-the post to appear immediately. Paste this complete example:
-
-```markdown
----
-layout: default
-header_type: post
-title: "My first post"
-show_date: true
----
-
-Welcome to my blog!
-
-## A place I visited
-
-This is where my story begins. I can write **bold text** or add
-[a link](https://example.org/).
-```
-
-The first block chooses the design and title; the text below is your article.
-Use `##` for sections inside the article: the layout already displays its
-main title. Keep the opening and closing `---` lines.
-Save with **Commit changes**, wait for publishing in **Actions**, then open
-your website. The personal-blog starter lists the new post on its home page.
-Other sites need a post index or a link to the article.
-
-You can also edit a sample post and preserve its existing settings.
-See the [Markdown cheatsheet](./markdown-cheatsheet) for lists, tables and code.
+Follow [Create and publish a post](./15-create-post) for the complete editing and
+publication steps.
 
 ## Create a page
 
-A page such as About does not need a date in its filename. In the starter,
-edit `_pages/about.md`, or create `_pages/contact.md` with this content:
-
-```markdown
----
-layout: default
-header_type: base
-title: "Contact"
-permalink: /contact/
----
-
-You can email me at [hello@example.org](mailto:hello@example.org).
-```
-
-Replace the sample address. `permalink` sets the page's website address.
-Save and add `/contact/` to [your menu](./10-edit-menu) so visitors can find it.
-For sites without the starter's `_pages` setup, place `contact.md` beside
-`_config.yml` instead.
+Follow [Create a page and link it from the menu](./16-create-page).
 
 ## Add an image
 
-Upload your file to `assets/img/`, then add this to the text of a post or page:
-
-{% raw %}
-```liquid
-![A riverside path beneath green trees]({{ '/assets/img/river.jpg' | relative_url }})
-```
-{% endraw %}
-
-Replace the filename and describe your own photograph. Keep the `relative_url`
-filter so the address also works for a site published under a repository path.
-For several images, see [Masonry gallery](#masonry-gallery) or
-[Bootstrap carousel](#bootstrap-carousel). For video, see [Video support](#video-support).
+Follow [Add an image to a post or page](./17-add-image). Gallery, carousel and
+video parameters remain in the reference below.
 
 ## Choose a layout or an optional feature
 

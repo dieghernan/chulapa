@@ -6,7 +6,7 @@ show_toc: false
 ---
 
 Use this guide when your site is already published and you have a page to link to.
-If the page does not exist yet, [create it first](./04-layouts#create-a-page).
+If the page does not exist yet, [create it first](./16-create-page).
 A menu entry does not create a page.
 
 ## Edit the link

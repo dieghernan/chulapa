@@ -18,7 +18,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#110](https://github.com/dieghernan/chulapa/pull/110) — search and comments | Merged and deployed | Extracted Fuse.js setup and giscus-on-one-post How-To guides, preserving provider reference fields and updating chatbot source/evaluation coverage. Other providers remain in the reference; their procedures are not claimed as extracted. |
 | [#111](https://github.com/dieghernan/chulapa/pull/111) — site identity task | Merged and deployed | Extracts editing site name, description and author into a How-To, with a separate home-page heading check. Preserves reference anchors and adds ordered Docs navigation and chatbot coverage. |
 | [#112](https://github.com/dieghernan/chulapa/pull/112) — documentation navigation | Merged and deployed | Replaces the long Docs dropdown with six entry points and organizes the index by Diátaxis intent. Existing mixed pages still require extraction; public destinations are preserved. |
-| [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | In review; not deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
+| [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | Merged and deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
+| [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | In review; not deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -33,7 +34,7 @@ answer verification remains distinct from passing tests or a successful deployme
 
 ## Current adoption review
 
-Reviewed against `main` after #112, 14 October 2026. This is a qualitative
+Reviewed against `main` after #113, 14 October 2026. This is a qualitative
 implementation review, not a new set of purity scores or a usability study.
 The inventory and diagnosis below remain the historical baseline after #106.
 
@@ -43,12 +44,12 @@ The inventory and diagnosis below remain the historical baseline after #106.
 | How-To Guides | Separate guides cover starter setup, menu/footer links, Fuse.js, giscus and site identity. | Content creation and several integration procedures remain embedded in reference pages. |
 | Reference | The starter catalog is separate; extracted tasks link back to the existing option catalogs. | Global settings, Layouts, Theming and Installation still mix reader intentions. They are not marked complete. |
 | Explanation | #112 added a short publishing explanation to the documentation directory. | Standalone explanations of publishing, skins/overrides and metadata remain proposed, not delivered. |
-| Navigation | #112 shortened the Docs dropdown and grouped the directory by the four Diátaxis intentions. | Grouping the directory does not transform the mixed pages it links to. Filename-based previous/next links still impose an unrelated sequence until the current delivery merges. |
+| Navigation | #112 shortened the Docs dropdown and grouped the directory by the four Diátaxis intentions. | Grouping the directory does not transform the mixed pages it links to. Filename-ordered previous/next navigation was disabled for Docs by #113; independent tasks no longer imply a course sequence. |
 | Chatbot | Task sources and focused evaluation cases accompany the extracted guides; deployment waits for the matching Pages publication. | Passing unit tests and deployment do not establish live answer accuracy. Navigation-only changes need no new context facts or evaluation cases. |
 
 ### Reading-path policy
 
-The current delivery disables `show_bottomnavs` in the documentation site's
+PR #113 disabled `show_bottomnavs` in the documentation site's
 `docs` collection defaults. It does not change the reusable theme's defaults,
 post/demo navigation, page URLs or the supported option.
 
@@ -57,13 +58,14 @@ Independent How-To Guides and Reference pages are not chapters in a course.
 Use the documentation directory, existing Docs breadcrumb, search and relevant
 in-content links to choose the next task. Do not restore a collection-wide
 filename sequence merely because its names can be reordered. A future tutorial
-series needs an intentional path, separately scoped and reviewed; this delivery
-does not add a new navigation API or implement such a series.
+series needs an intentional path, separately scoped and reviewed; #113
+did not add a new navigation API or implement such a series.
 
-### Next priorities, not yet implemented
+### Next priorities, not yet merged
 
-1. Extract creating a post, creating a page and adding an image from Layouts into
-   focused How-To Guides, preserving old heading targets.
+1. Current delivery: extract creating a post, creating a page and adding an image
+   from Layouts into focused How-To Guides, preserving old heading targets.
+   These guides and their chatbot updates are pending review and deployment.
 2. Continue extracting integration procedures from Global settings and retain
    exact option/default/version facts in Reference.
 3. Separate installation methods and appearance tasks from their reference and

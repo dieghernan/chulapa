@@ -131,7 +131,9 @@ old URLs, mobile/keyboard use and metadata.
 
 ## Basic editing and publishing
 Sources: https://dieghernan.github.io/chulapa/docs/00-start
-https://dieghernan.github.io/chulapa/docs/04-layouts
+https://dieghernan.github.io/chulapa/docs/15-create-post
+https://dieghernan.github.io/chulapa/docs/16-create-page
+https://dieghernan.github.io/chulapa/docs/17-add-image
 https://dieghernan.github.io/chulapa/docs/05-faq
 On GitHub, open a file in the Code tab, use the pencil button and save with
 Commit changes on the publishing branch. Check Actions for publishing progress
@@ -143,20 +145,29 @@ date. Start with this complete example:
 layout: default
 header_type: post
 title: "My first post"
+show_date: true
 ---
 My story begins here.
 ```
-The personal-blog starter lists posts on its home page. Other setups need an
-index or link. A standalone page can use _pages/contact.md in the starter,
+The layout supplies the main heading; use ## for sections inside the article.
+Post URLs follow the site permalink, not the _posts source path. Chulapa 101
+and the personal-blog starter list posts on the home page. Other setups need
+an index or link. A standalone page can use _pages/contact.md in the starter,
 or contact.md at the root of a site without its _pages setup; set layout:
 default, header_type: base, title: Contact and permalink: /contact/ between
---- lines, then add /contact/ to navbar.nav. The link does not create the page.
+--- lines. Avoid duplicate output paths and preserve existing settings when
+editing a page. Add /contact/ to the existing navbar.nav without baseurl; the
+theme adds it. The link does not create the page, and creating a file does not
+add it to the menu.
 Upload photographs through Add file > Upload files into assets/img/ and save,
 then insert a repository-safe Markdown image in the content:
 ```liquid
 ![Describe the photograph]({{ '/assets/img/river.jpg' | relative_url }})
 ```
-Replace the filename and alternative text. Match filename case. If changes
+Replace the filename and alternative text. Match filename case and extension,
+and do not manually prepend baseurl. Keep images below the front matter. Commit
+both uploads and content edits on the publishing branch and check the published
+article on a narrow screen; GitHub source preview is not the final website. If changes
 are missing, check the saved branch, Actions errors, the published website
 address and post dates before suggesting configuration changes.
 

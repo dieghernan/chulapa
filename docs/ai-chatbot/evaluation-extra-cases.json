@@ -254,5 +254,26 @@
     "doc": "14_site-details.md",
     "question": "I want to rename my Chulapa 101 blog and change my author name without changing any URLs. Where do I edit?",
     "expected": "Edit existing title, description and author.name in _config.yml preserving other author fields and site url/baseurl/repository/permalinks. For the visible home heading edit existing index.html title as well; do not rename or duplicate it. Commit to publishing branch, wait for Actions, check browser title and home heading. Page author overrides and custom footer copyright are not automatically rewritten. Cite the site-details how-to and reference as appropriate."
+  },
+  {
+    "id": "content-post-1",
+    "section": "content",
+    "doc": "15_create-post.md",
+    "question": "I have a published Chulapa 101 blog. How do I add a new article and find it online?",
+    "expected": "Create _posts/YYYY-MM-DD-title.md non-future date, front matter default/post/title, ## body, commit publishing branch, Actions success, homepage listing; permalink determines public URL, not source path."
+  },
+  {
+    "id": "content-page-1",
+    "section": "content",
+    "doc": "16_create-page.md",
+    "question": "How do I create a Contact page on Chulapa 101 at /my-blog and add it to the menu?",
+    "expected": "_pages/contact.md with default/base/title/permalink /contact/; preserve existing files/settings, no duplicate output; add navbar /contact/ without baseurl, commit/publish, follow menu; file does not add menu entry. Root contact.md for sites without _pages include."
+  },
+  {
+    "id": "content-image-1",
+    "section": "content",
+    "doc": "17_add-image.md",
+    "question": "How do I upload and show a photograph in an existing post on a site under /my-blog?",
+    "expected": "Upload assets/img file, Markdown descriptive alt plus Liquid relative_url below front matter, no manual baseurl, exact case/extension; commit upload and content to publishing branch, wait Actions, check website not GitHub preview and narrow screen."
   }
 ]
