@@ -20,7 +20,7 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#112](https://github.com/dieghernan/chulapa/pull/112) — documentation navigation | Merged and deployed | Replaces the long Docs dropdown with six entry points and organizes the index by Diátaxis intent. Existing mixed pages still require extraction; public destinations are preserved. |
 | [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | Merged and deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
 | [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | Merged and deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
-| Analytics tasks — current delivery | Prepared; not deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
+| [#115](https://github.com/dieghernan/chulapa/pull/115) — analytics tasks | In review; not deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
