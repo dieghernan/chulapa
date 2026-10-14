@@ -33,7 +33,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 ## Theme and content reference
 
-- [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
+- [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Appearance fields, defaults, accepted values and constraints, with links to separate tasks and a precedence explanation.
 - [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Links to post, page and image task guides; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with complete snippet parameters, a theme-managed helper inventory and practical guidance for local overrides.
 - [Starter examples reference](https://dieghernan.github.io/chulapa/docs/08-starter-examples): Four minimal Jekyll source examples, live previews, contents and limitations; no deployment workflow.
 - [Run a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter): Copy, configure, preview and publish a minimal example for existing Jekyll users.
@@ -55,3 +55,13 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Minimal example sources](https://github.com/dieghernan/chulapa/tree/main/examples): Source files for the four starter examples.
 - [Documentation sources](https://github.com/dieghernan/chulapa/tree/main/docs/collections/_docs): Markdown sources for the documentation pages.
 - [Theme source](https://github.com/dieghernan/chulapa): Theme implementation and development history.
+
+## Appearance tasks and explanation
+
+- [Choose a skin](https://dieghernan.github.io/chulapa/docs/22-choose-skin): Apply a named skin while preserving existing overrides.
+- [Change a color](https://dieghernan.github.io/chulapa/docs/23-change-color): Edit one supported variable and check component contrast.
+- [Change fonts](https://dieghernan.github.io/chulapa/docs/24-change-fonts): Load a stylesheet and apply body/heading families.
+- [Code highlighting](https://dieghernan.github.io/chulapa/docs/25-code-highlighting): Apply a highlighting stylesheet and check code blocks.
+- [Appearance precedence](https://dieghernan.github.io/chulapa/docs/26-appearance-precedence): Explain skins, vars, generated defaults and local overrides.
+- [Enable Autothemer](https://dieghernan.github.io/chulapa/docs/27-autothemer): Generate undefined colors while retaining assigned values.
+- [Adapt a Sass skin](https://dieghernan.github.io/chulapa/docs/28-custom-skin): Preview and translate Sass assignments, or use a local skin; retain Bootstrap/grid constraints.

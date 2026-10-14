@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/03-theming",
         "name": "Theming Chulapa",
-        "description": "Customize colors, fonts and components - Getting started: choose a skin or change one color. Advanced reference: use Autothemer and variables for more control.",
+        "description": "Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact.",
         "headline": "Theming Chulapa",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-14T17:57:51+02:00",
-        "dateModified": "2026-10-14T17:57:51+02:00",
+        "datePublished": "2026-10-14T17:59:03+02:00",
+        "dateModified": "2026-10-14T17:59:03+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -96,7 +96,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Customize colors, fonts and components - Getting started: choose a skin or change one color. Advanced reference: use Autothemer and variables for more control.">
+    <meta name="description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -104,12 +104,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/03-theming" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Customize colors, fonts and components - Getting started: choose a skin or change one color. Advanced reference: use Autothemer and variables for more control." >
+    <meta property="og:description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Customize colors, fonts and components - Getting started: choose a skin or change one color. Advanced reference: use Autothemer and variables for more control.">
+    <meta name="twitter:description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -220,7 +220,7 @@
     <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/03-theming">Invisible link to canonical for Microformats</a>
 	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
    <h1 class="p-name">Theming <span class="chulapa">Chulapa</span></h1><hr class="my-3">
-   <p class="chulapa-subtitle p-summary">Customize colors, fonts and components</p>
+   <p class="chulapa-subtitle p-summary">Appearance settings reference</p>
  </div>
 </header>
 	<main class="container-lg pb-3 flex-fill">
@@ -263,190 +263,115 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#skins">Skins</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#change-one-color">Change one color</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#load-google-fonts">Load Google Fonts</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#code-highlighting">Code highlighting</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#autothemer">Autothemer</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#variables">Variables</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#tool"><span class="chulapa">Chulapa</span> theming tool</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#step-by-step-example">Step-by-step example</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-on-the-tool">1. On the tool</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#step-2">2. On your<code> _config.yml</code></a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#using-autothemer-on-codeply">Using autothemer on Codeply</a></li></ul></li></ul>
 			</nav>
-			 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Getting started:</strong> choose a <a href="#skins">skin</a> or <a href="#change-one-color">change one color</a>.
-<strong>Advanced reference:</strong> use <a href="#autothemer">Autothemer</a> and <a href="#variables">variables</a>
-for more control.</p>
-<p><span class="chulapa">Chulapa</span> lets you customize colors, fonts, spacing, borders and buttons. Use predefined skins or set individual variables to give each site its own appearance.</p>
-<p>Set built-in theme variables in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Use custom CSS for changes
-beyond those variables.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Restart Jekyll after editing <code class="language-plaintext highlighter-rouge">_config.yml</code>.</strong> Theme variables are compiled
-into CSS during the build.</p>
+			 <p>This page lists appearance settings. For a task, use <a href="./22-choose-skin">Choose a skin</a>,
+<a href="./23-change-color">Change a color</a>, <a href="./24-change-fonts">Change fonts</a> or
+<a href="./25-code-highlighting">Change code highlighting</a>. For relationships between
+settings, read <a href="./26-appearance-precedence">How skins and overrides interact</a>.</p>
+<p>Settings belong in <code class="language-plaintext highlighter-rouge">_config.yml</code> and compile into CSS during the build. Local
+preview needs a Jekyll restart after configuration changes.</p>
 <h2 id="skins">Skins</h2>
-<p>A skin is a ready-made design with coordinated colors and fonts.
-Choose one from the <a href="https://dieghernan.github.io/chulapa/skins">skin previews</a>, then
-open <code class="language-plaintext highlighter-rouge">_config.yml</code> and change the existing <code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code> entry:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">skin</span><span class="pi">:</span> <span class="s">journal</span>
-</code></pre></div></div>
-<p>Keep any other entries under <code class="language-plaintext highlighter-rouge">chulapa-skin</code>. Save your changes, wait for
-publishing and refresh the site. Try <code class="language-plaintext highlighter-rouge">gitdev</code>, <code class="language-plaintext highlighter-rouge">lux</code> or <code class="language-plaintext highlighter-rouge">flatly</code> for other looks.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3">Use the exact lowercase name shown by the preview: an unknown name prevents
-the site from building.</p>
+<table>
+<thead>
+   <tr>
+     <th>Field</th>
+     <th>Values / default</th>
+     <th>Constraint</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code></td>
+     <td>Exact skin filename without <code class="language-plaintext highlighter-rouge">.scss</code>; default <code class="language-plaintext highlighter-rouge">none</code>. Examples: <code class="language-plaintext highlighter-rouge">journal</code>, <code class="language-plaintext highlighter-rouge">gitdev</code>, <code class="language-plaintext highlighter-rouge">lux</code>, <code class="language-plaintext highlighter-rouge">flatly</code>.</td>
+     <td>Names are case-sensitive on case-sensitive filesystems; unknown names fail the Sass import.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">skin: none</code></td>
+     <td>No predefined skin assignments.</td>
+     <td>Bootstrap/theme defaults and explicit <code class="language-plaintext highlighter-rouge">vars</code> still apply.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">skin: auto</code></td>
+     <td>Loads the generated palette as the selected skin.</td>
+     <td>Independent of the optional later <code class="language-plaintext highlighter-rouge">autothemer</code> step.</td>
+   </tr>
+ </tbody>
+</table>
+<p>The <a href="../skins">skin catalog</a> provides the named previews. Its current-site
+preview is not a skin named <code class="language-plaintext highlighter-rouge">current</code>. Procedure: <a href="./22-choose-skin">Choose a skin</a>.</p>
 <h2 id="change-one-color">Change one color</h2>
-<p>To adjust a skin rather than replace it, add or edit <code class="language-plaintext highlighter-rouge">vars</code> in the same
-<code class="language-plaintext highlighter-rouge">chulapa-skin</code> section. This example chooses a skin and changes its main color:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">skin</span><span class="pi">:</span> <span class="s">journal</span>
-  <span class="na">vars</span><span class="pi">:</span>
-    <span class="na">primary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#285d70"</span>
-</code></pre></div></div>
-<p>Keep the quotes around colors beginning with <code class="language-plaintext highlighter-rouge">#</code>. Check text and link contrast
-after publishing; a color change can affect more than one part of the page.
-See the <a href="./variable-dictionary">variable dictionary</a> for menu and footer colors.</p>
+<p>Procedure: <a href="./23-change-color">Change a color</a>. Component names and constraints
+are in <a href="#variables">Variables</a> and the <a href="./variable-dictionary">variable dictionary</a>.</p>
 <h2 id="load-google-fonts">Load Google Fonts</h2>
-<p>This is optional: each skin already includes a font choice. To use a different
-font, choose it at <a href="https://fonts.google.com/">Google Fonts</a> and add its stylesheet
-URL under <code class="language-plaintext highlighter-rouge">googlefonts</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Then apply it to text and headings:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">googlefonts</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://fonts.googleapis.com/css2?family=Raleway&amp;family=Rubik&amp;display=swap"</span>
-
-<span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">skin</span><span class="pi">:</span> <span class="s">journal</span>
-  <span class="na">vars</span><span class="pi">:</span>
-    <span class="na">font-family-base</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Rubik,</span><span class="nv"> </span><span class="s">sans-serif"</span>
-    <span class="na">headings-font-family</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Raleway,</span><span class="nv"> </span><span class="s">sans-serif"</span>
-</code></pre></div></div>
-<p>Merge these entries with your existing settings rather than creating a second
-<code class="language-plaintext highlighter-rouge">chulapa-skin</code> section. After publishing, your text should use Rubik and your
-headings Raleway.</p>
-<p>For another provider, add its font stylesheet to
-<code class="language-plaintext highlighter-rouge">_includes/custom/custom_head.html</code> following the provider’s instructions.
-Then set <code class="language-plaintext highlighter-rouge">font-family-base</code> and/or <code class="language-plaintext highlighter-rouge">headings-font-family</code> as in the example
-above: loading a font alone does not apply it. See
-<a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom HTML and styles</a>
-for other ways to add fonts.</p>
+<table>
+<thead>
+   <tr>
+     <th>Field</th>
+     <th>Value / effect</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">googlefonts</code></td>
+     <td>List of mappings with a <code class="language-plaintext highlighter-rouge">url</code> for each font stylesheet; no additional fonts when absent.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">chulapa-skin.vars.font-family-base</code></td>
+     <td>Body font-family expression, including fallback families.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">chulapa-skin.vars.headings-font-family</code></td>
+     <td>Heading font-family expression.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Loading a stylesheet does not apply its families. Other font providers use the
+existing custom-head hook. Procedure: <a href="./24-change-fonts">Change fonts</a>.</p>
 <h2 id="code-highlighting">Code highlighting</h2>
-<p>Choose how code blocks look from the
-<a href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">style previews</a>.
-In <code class="language-plaintext highlighter-rouge">_config.yml</code>, change or add <code class="language-plaintext highlighter-rouge">highlight</code> under your existing <code class="language-plaintext highlighter-rouge">chulapa-skin</code>
-section, keeping your other settings:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">highlight</span><span class="pi">:</span> <span class="s">zenburn</span>
-</code></pre></div></div>
-<p>The default style is <code class="language-plaintext highlighter-rouge">default</code>. Save, publish and check a page containing a
-code block to see the change.</p>
+<p><code class="language-plaintext highlighter-rouge">chulapa-skin.highlight</code> selects a highlighting stylesheet; its default is
+<code class="language-plaintext highlighter-rouge">default</code>. The setting selects appearance, while Rouge performs syntax
+highlighting. <a href="./syntax-highlighting">Style specimens</a> show the available styles.
+Procedure: <a href="./25-code-highlighting">Change code highlighting</a>.</p>
 <h2 id="autothemer">Autothemer</h2>
-<p><strong>Optional, for more control over colors.</strong> You can keep the skin unchanged
-if you do not need a generated palette.</p>
-<p>Autothemer derives a color palette from <code class="language-plaintext highlighter-rouge">primary</code>, including colors for
-warnings and errors. Explicit colors from the skin or <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code>
-take precedence over its defaults.</p>
-<p>You can combine autothemer with a skin. Its SCSS variables use <code class="language-plaintext highlighter-rouge">!default</code>,
-so values already defined by the skin or <code class="language-plaintext highlighter-rouge">vars</code> remain in effect.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>A skin can limit the visible effect of autothemer.</strong> Use <code class="language-plaintext highlighter-rouge">vars</code> to change
-colors the skin already defines. Autothemer fills undefined values; it does
-not replace an existing palette.</p>
-<p>To enable autothemer:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">autothemer  </span><span class="pi">:</span>  <span class="kc">true</span> <span class="c1">#omit to disable this option</span>
-
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">chulapa-skin.autothemer</code> enables the palette-generation step after skin and
+<code class="language-plaintext highlighter-rouge">vars</code> when set to the YAML boolean <code class="language-plaintext highlighter-rouge">true</code>; omit it or use <code class="language-plaintext highlighter-rouge">false</code> to disable
+that step. It is independent of <code class="language-plaintext highlighter-rouge">skin: auto</code>. Its default primary color is
+Bootstrap 4’s <code class="language-plaintext highlighter-rouge">#007bff</code> when not already assigned.</p>
+<p>Existing skin and <code class="language-plaintext highlighter-rouge">vars</code> assignments remain in effect. Procedure:
+<a href="./27-autothemer">Enable Autothemer</a>. Rationale:
+<a href="./26-appearance-precedence">How skins and overrides interact</a>.</p>
 <h2 id="variables">Variables</h2>
-<p><strong>Advanced reference.</strong> Sass is the styling language used by the theme. You
-can set its supported variables through YAML without editing the theme itself.</p>
-<p><span class="chulapa">Chulapa</span> exposes Bootstrap and theme Sass variables
-through <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. These variables control many
-visual properties; use custom CSS for rules that have no corresponding
-variable. See the
-<a href="https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults">Bootstrap 4 theming reference</a>.</p>
-<p>To translate Sass assignments into <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code>, omit the leading <code class="language-plaintext highlighter-rouge">$</code>
-and trailing <code class="language-plaintext highlighter-rouge">;</code> from each variable. The following examples set the body
-background, text color and font:</p>
-<p>In SCSS:</p>
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="sx">url("https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap")</span><span class="p">;</span>
-
-<span class="nv">$body-bg</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
-<span class="nv">$body-color</span><span class="p">:</span> <span class="mh">#eee</span><span class="p">;</span>
-<span class="nv">$font-family-base</span><span class="p">:</span> <span class="n">Montserrat</span><span class="p">;</span>
-
-</code></pre></div></div>
-<p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">googlefonts</span><span class="pi">:</span>
- <span class="pi">-</span> <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"</span>
-
-<span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">vars        </span><span class="pi">:</span>
+<p><code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> is a mapping of supported Bootstrap/theme Sass variable names
+to Sass expressions. Names omit the leading <code class="language-plaintext highlighter-rouge">$</code> and trailing <code class="language-plaintext highlighter-rouge">;</code>. Hex colors,
+font lists and sizes are quoted strings; switches such as <code class="language-plaintext highlighter-rouge">enable-rounded</code> are
+YAML booleans. For example:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
+  <span class="na">vars</span><span class="pi">:</span>
     <span class="na">body-bg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#000"</span>
     <span class="na">body-color</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#eee"</span>
     <span class="na">font-family-base</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Montserrat"</span>
 </code></pre></div></div>
-<p>Values in <code class="language-plaintext highlighter-rouge">vars</code> override the skin’s variables. Autothemer fills in values
-that neither the skin nor <code class="language-plaintext highlighter-rouge">vars</code> sets.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Quote Sass values in YAML</strong>, especially hex colors such as <code class="language-plaintext highlighter-rouge">"#007bff"</code>
-and font lists such as <code class="language-plaintext highlighter-rouge">"Lato, serif"</code>. Values are inserted as Sass expressions.
-Keep boolean switches such as <code class="language-plaintext highlighter-rouge">autothemer: true</code> as YAML booleans.</p>
-<p>For commonly used settings, see the <a href="./variable-dictionary">variable dictionary</a>.
-Experienced users can also consult the full
-<a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss">Bootstrap variable list</a>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3">The critical variable for <code class="language-plaintext highlighter-rouge">autothemer</code> is <code class="language-plaintext highlighter-rouge">primary</code>, so you can create a full
-theme just playing with those two options. By default, <code class="language-plaintext highlighter-rouge">primary</code> is set to
-Bootstrap default primary color (<span style="color:#007bff;">#007bff</span> in
-v4.x).</p>
+<p>The corresponding Sass assignments are <code class="language-plaintext highlighter-rouge">$body-bg: #000;</code>, <code class="language-plaintext highlighter-rouge">$body-color: #eee;</code>
+and <code class="language-plaintext highlighter-rouge">$font-family-base: Montserrat;</code>. A font stylesheet is a separate input;
+<a href="./24-change-fonts">the fonts guide</a> includes a complete loading/application example.</p>
+<p>The <a href="./variable-dictionary">variable dictionary</a> lists common inputs;
+<a href="https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss">Bootstrap’s variable source</a>
+contains the full Bootstrap definitions. See also the
+<a href="https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults">Bootstrap 4 theming reference</a>. Calculated helpers such as
+<code class="language-plaintext highlighter-rouge">landingpage-card-bg</code> and <code class="language-plaintext highlighter-rouge">cactus-btn-text</code> are not overridable through <code class="language-plaintext highlighter-rouge">vars</code>.
+Custom CSS handles rules without exposed variables; see
+<a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom HTML and styles</a>.</p>
 <h2 id="tool"><span class="chulapa">Chulapa</span> theming tool</h2>
-<p>An online sandbox is available for previewing theme changes. The drawback is
-that you have to work with SASS/SCSS and translate it to your <code class="language-plaintext highlighter-rouge">_config.yml</code>, but
-as explained before, the conversion is not complicated.</p>
-<div class="text-center my-4">
-  <a class="btn btn-lg btn-primary mx-1" href="https://www.codeply.com/p/qhEml875ge" role="button">Go to the Codeply sandbox</a>
-</div>
-<p>The sandbox example includes <strong>INDEX</strong> and <strong>CLASSICNAVBARDEMO</strong> sections in
-the <strong>HTML</strong> panel for comparing navbar styles.</p>
+<p>Procedure and <a href="https://www.codeply.com/p/qhEml875ge">Codeply sandbox</a> details:
+<a href="./28-custom-skin">Adapt a Sass skin</a>. The following legacy headings preserve
+links to the moved example.</p>
 <h3 id="step-by-step-example">Step-by-step example</h3>
-<p>Let’s say we want to implement the <a href="https://themesguide.github.io/top-hat/dist/sunset/">Sunset theme</a> by TopHat on our site. Having a look to the <code class="language-plaintext highlighter-rouge">theme.scss</code>, it looks like this:</p>
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*! Tophat `Sunset` Bootstrap 4.3.1 theme */</span>
-<span class="k">@import</span> <span class="sx">url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700)</span><span class="p">;</span>
-<span class="nv">$headings-font-family</span><span class="p">:</span><span class="n">Voltaire</span><span class="p">;</span>
-
-<span class="c1">// Do not disable Bootstrap grid classes in the sandbox.</span>
-<span class="nv">$primary</span><span class="p">:</span> <span class="mh">#2F414A</span><span class="p">;</span>
-<span class="nv">$secondary</span><span class="p">:</span> <span class="mh">#F47B53</span><span class="p">;</span>
-<span class="nv">$success</span><span class="p">:</span> <span class="mh">#420084</span><span class="p">;</span>
-<span class="nv">$danger</span><span class="p">:</span> <span class="mh">#f2460d</span><span class="p">;</span>
-<span class="nv">$info</span><span class="p">:</span> <span class="mh">#7ebcfa</span><span class="p">;</span>
-<span class="nv">$warning</span><span class="p">:</span> <span class="mh">#ff9933</span><span class="p">;</span>
-<span class="nv">$light</span><span class="p">:</span> <span class="mh">#eef0f2</span><span class="p">;</span>
-<span class="nv">$dark</span><span class="p">:</span> <span class="mh">#000633</span><span class="p">;</span>
-<span class="c1">// Do not add a second Bootstrap import in the sandbox.</span>
-
-<span class="c1">// Add custom Sass rules here.</span>
-
-</code></pre></div></div>
+<p><a href="./28-custom-skin#step-by-step-example">Sunset assignment example</a>.</p>
 <h4 id="1-on-the-tool">1. On the tool</h4>
-<ol>
- <li>Open the sandbox and paste the font import and variable assignments above
-its existing imports in the <strong>CSS</strong> panel.</li>
- <li>Run the sandbox to preview Markdown and Bootstrap components.</li>
- <li>Modify until you are happy with your configuration.</li>
-</ol>
+<p><a href="./28-custom-skin#1-on-the-tool">Preview the assignments</a>.</p>
 <h4 id="step-2">2. On your<code> _config.yml</code></h4>
-<p>Translate that code as follows:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">googlefonts</span><span class="pi">:</span>
- <span class="pi">-</span> <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700"</span>
-
-<span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">vars  </span><span class="pi">:</span>
-    <span class="na">primary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#2F414A"</span>
-    <span class="na">secondary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#F47B53"</span>
-    <span class="na">success</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#420084"</span>
-    <span class="na">danger</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#f2460d"</span>
-    <span class="na">info</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#7ebcfa"</span>
-    <span class="na">warning</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#ff9933"</span>
-    <span class="na">light</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#eef0f2"</span>
-    <span class="na">dark</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#000633"</span>
-    <span class="na">headings-font-family</span><span class="pi">:</span> <span class="s">Voltaire</span>
-</code></pre></div></div>
-<p>Sunset is already included: set <code class="language-plaintext highlighter-rouge">chulapa-skin.skin: sunset</code> to use the complete
-skin. The example above reproduces its palette and heading font through
-<code class="language-plaintext highlighter-rouge">vars</code>; it does not copy all of the skin’s CSS rules. Remove <code class="language-plaintext highlighter-rouge">$</code> and <code class="language-plaintext highlighter-rouge">;</code> when
-translating assignments, quote hex colors and leave a space after <code class="language-plaintext highlighter-rouge">:</code>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Alternatively</strong>, save your SCSS variables in <code class="language-plaintext highlighter-rouge">_sass/skins/THEMENAME.scss</code>, then set <code class="language-plaintext highlighter-rouge">skin: THEMENAME</code> inside <code class="language-plaintext highlighter-rouge">chulapa-skin</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Use <code class="language-plaintext highlighter-rouge">!default</code> for customizable skin variables. Autothemer fills undefined colors; omit a color from your skin if you want autothemer to derive it. Do not add a Bootstrap import: the theme imports Bootstrap after loading the skin. See the <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/skins/sunset.scss">Sunset skin source</a>. To contribute a skin, open a pull request.</p>
+<p><a href="./28-custom-skin#step-2">Apply the translated settings</a>.</p>
 <h3 id="using-autothemer-on-codeply">Using autothemer on Codeply</h3>
-<p>Autothemer is already installed in the <strong>ply</strong>. To activate it,
-uncomment the lines between <code class="language-plaintext highlighter-rouge">/* Start autothemer */</code> and <code class="language-plaintext highlighter-rouge">/* End autothemer */</code>
-on the <strong>CSS</strong> window.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Keep the theme’s Bootstrap import and grid enabled.</strong> Do not add another
-<code class="language-plaintext highlighter-rouge">@import "bootstrap";</code> to your skin. Setting <code class="language-plaintext highlighter-rouge">$enable-grid-classes: false</code>
-removes grid classes used by the theme and breaks its layouts.</p>
+<p><a href="./28-custom-skin#using-autothemer-on-codeply">Sandbox Autothemer and Bootstrap/grid constraints</a>.</p>
 </article>
 		</div>
 	</main></div>

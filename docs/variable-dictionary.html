@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/variable-dictionary",
         "name": "Variables dictionary",
-        "description": "Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as \u00221.1rem\u0022. Use true or false without quotes for switches:",
+        "description": "These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:",
         "headline": "Variables dictionary",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-14T17:57:51+02:00",
-        "dateModified": "2026-10-14T17:57:51+02:00",
+        "datePublished": "2026-10-14T17:59:03+02:00",
+        "dateModified": "2026-10-14T17:59:03+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -96,7 +96,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as &quot;1.1rem&quot;. Use true or false without quotes for switches:">
+    <meta name="description" content="These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -104,12 +104,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/variable-dictionary" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as &quot;1.1rem&quot;. Use true or false without quotes for switches:" >
+    <meta property="og:description" content="These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:" >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Use these settings to change colors, text sizes and other details of your chosen skin. Add them under chulapa-skin.vars in _config.yml, keeping your existing settings. Quote colors beginning with # and sizes such as &quot;1.1rem&quot;. Use true or false without quotes for switches:">
+    <meta name="twitter:description" content="These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -262,10 +262,9 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#theming"><span class="chulapa">Chulapa</span>-specific variables</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#selected-bootstrap-variables">Selected Bootstrap variables</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#color-map">Color map</a></li></ul></li></ul>
 			</nav>
-			 <p>Use these settings to change colors, text sizes and other details of your
-chosen skin. Add them under <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>, keeping your
-existing settings. Quote colors beginning with <code class="language-plaintext highlighter-rouge">#</code> and sizes such as <code class="language-plaintext highlighter-rouge">"1.1rem"</code>.
-Use <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code> without quotes for switches:</p>
+			 <p>These are selected variables accepted by <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>,
+not page front matter. Hex colors and Sass expressions such as sizes/font lists
+are quoted strings; switches are YAML booleans. Example mapping syntax:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
   <span class="na">vars</span><span class="pi">:</span>
     <span class="na">primary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#345678"</span>
@@ -276,7 +275,8 @@ Use <code class="language-plaintext highlighter-rouge">true</code> or <code clas
 </code></pre></div></div>
 <p>Values in <code class="language-plaintext highlighter-rouge">vars</code> override the selected skin’s variable assignments.
 Autothemer fills in variables that are still undefined. See
-<a href="./03-theming#variables">Theming <span class="chulapa">Chulapa</span></a> for variable precedence and font setup.</p>
+<a href="./26-appearance-precedence">How skins and overrides interact</a> for precedence;
+<a href="./24-change-fonts">Change fonts</a> provides the setup procedure.</p>
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 <table>
 <thead>
@@ -431,9 +431,8 @@ adding them to <code class="language-plaintext highlighter-rouge">chulapa-skin.v
 or <a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom CSS</a>
 instead. The <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss">complete <span class="chulapa">Chulapa</span> variable reference</a>
 includes these calculated values.</p>
-<p>Set these values in <code class="language-plaintext highlighter-rouge">_config.yml</code>, not in an article’s settings block. Save
-and publish to see the change; restart Jekyll if you preview locally.
-For page options, see <a href="./04-layouts">Layouts and snippets</a>.</p>
+<p>These inputs belong to site configuration, not article settings. Procedure:
+<a href="./23-change-color">Change a color</a>. Page options: <a href="./04-layouts">Layouts and snippets</a>.</p>
 <h2 id="selected-bootstrap-variables">Selected Bootstrap variables</h2>
 <p>See the full set of variables <a href="https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss">here</a>.</p>
 <table>
