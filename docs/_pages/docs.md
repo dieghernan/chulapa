@@ -34,6 +34,7 @@ search and comments are optional.
 - [Run and publish a starter example](./docs/09-run-starter): for readers who already use Jekyll.
 - [Enable Fuse.js search](./docs/12-fusejs-search).
 - [Enable giscus comments on a post](./docs/13-giscus-comments).
+- [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Troubleshoot editing and publishing](./docs/05-faq#editing-and-publishing).
 - [Install on an existing Jekyll site](./docs/01-install#2-remote-theme-method): use a remote theme or the gem.

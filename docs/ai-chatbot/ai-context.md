@@ -202,14 +202,26 @@ publisher.name and publisher.url identify it. Organization uses publisher.logo;
 Person uses publisher.image and ignores logo. Relative URLs respect url/baseurl.
 Changing publisher to Person does not change guest article authors or their
 visible profiles; configure the article author separately.
-Set gtag_id: G-XXXXXXXXXX for Google Analytics 4. analytics_id is for retired
-Universal Analytics. Leave unused IDs empty; setting both loads both snippets.
 Font Awesome defaults to version 6; fa_version: 5 chooses version 5.
 fa_kit_code loads a kit instead of the hosted stylesheet. Legacy fa5_kit_code
 takes precedence if both are present; remove it when migrating. fa_v4_support:
 true enables version-4 compatibility.
 
+## Google Analytics 4
+Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
+Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
+Use the Measurement ID from the existing GA4 property's web data stream, starting
+G-, as gtag_id in _config.yml. analytics_id is for retired Universal Analytics;
+leave it empty. Both IDs independently load snippets. The Google tag is not
+production-gated and also loads in local preview when configured. Do not add a
+duplicate script through custom includes. Preserve unrelated config; commit to
+the publishing branch, wait for Actions and check the published site against the
+matching property's Realtime report. Browser blockers or custom consent controls
+may block requests. Clear goatcounter for Google-only tracking; clear gtag_id to
+disable GA4. Changing one provider does not disable another.
+
 ## GoatCounter analytics (development after v2.1.0)
+Source: https://dieghernan.github.io/chulapa/docs/18-goatcounter
 Source: https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics
 Set goatcounter to the complete public HTTPS counting URL, not just a site code:
 goatcounter: "https://YOUR-CODE.goatcounter.com/count"
@@ -225,7 +237,11 @@ baseurl is not added to the external counting URL. Use the built-in analytics
 settings instead of inserting duplicate tracker scripts in custom hooks. Upstream ignores
 localhost by default. No visitor-count widget or custom event tracking is added.
 Google settings remain independent: clear gtag_id and analytics_id to use only
-GoatCounter, or both services will load if configured. Not in released v2.1.0.
+GoatCounter, or both services will load if configured. Commit the counting URL
+on the publishing branch, wait for Actions and check a visit on the published
+site against the GoatCounter dashboard; allow reporting time. Check production
+environment, endpoint, browser blockers and CSP if no visit appears. Not in
+released v2.1.0.
 
 ## Theming
 Source: https://dieghernan.github.io/chulapa/docs/03-theming

@@ -254,56 +254,39 @@ enables version 4 compatibility. When updating an old configuration, replace
 
 ### Google Analytics
 
-Get your Google Analytics 4 measurement ID and set it in `_config.yml`:
+Setup: [Enable Google Analytics 4](./19-google-analytics).
 
-```yaml
-gtag_id: G-XXXXXXXXXX
-```
+| Setting | Value and behavior |
+| --- | --- |
+| `gtag_id` | GA4 measurement ID, such as `G-XXXXXXXXXX`. Omit it or leave its YAML value blank to disable its snippet. Loads when configured, including local preview. |
+| `analytics_id` | Legacy Universal Analytics ID, for the retired service. Leave empty for new setups. Independent of `gtag_id`; both configured values load both snippets. |
 
-Replace the example with your own ID. Leave it empty if you do not want Google
-Analytics. The older `analytics_id` setting is for retired Universal Analytics;
-leave it empty for new setups. Setting both IDs loads both snippets.
+Google Analytics and GoatCounter are independent. Setting either does not disable
+the other. Custom copies of a tracker are not removed automatically.
 
 ### GoatCounter analytics
 
 **Available on `main` after v2.1.0; not in the v2.1.0 release.**
 
-[GoatCounter](https://www.goatcounter.com/) counts visits without cookies.
-Create an account and a site there, then add its counting address to
-`_config.yml`. Replace `YOUR-CODE` with your site's GoatCounter code:
+Setup: [Enable GoatCounter analytics](./18-goatcounter).
 
-```yaml
-goatcounter: "https://YOUR-CODE.goatcounter.com/count"
-```
+| Setting | Value and behavior |
+| --- | --- |
+| `goatcounter` | Complete HTTPS counting address, such as `https://YOUR-CODE.goatcounter.com/count` or a self-hosted `https://stats.example.org/count`. Empty or non-HTTPS values disable it. |
 
-Keep `https://` and `/count` in the address. Save, publish your website and
-visit a page. Check your GoatCounter dashboard for the visit; it may take a
-little time to appear. No API key or extra Jekyll plugin is needed.
-
-Visits are counted only on a production build, not during normal local preview.
-Leave `goatcounter` empty to disable it. If you want GoatCounter instead of
-Google Analytics, also leave `gtag_id` and `analytics_id` empty; otherwise both
-services will count visits.
+The script is `https://gc.zgo.at/count.js` and loads only when
+`JEKYLL_ENV=production`. No API key or extra Jekyll plugin is required.
+The counting address is external; the site's `baseurl` is not added to it.
+This counts page views without cookies, a visible counter or custom-event configuration.
+It does not disable the Google snippets.
 
 #### Custom hosting and troubleshooting
 
-- For your own publishing setup, enable Jekyll's production environment:
-
-  ```sh
-  JEKYLL_ENV=production bundle exec jekyll build
-  ```
-
-- Self-hosted GoatCounter works too: use its complete HTTPS counting address,
-  for example `https://stats.example.org/count`. Non-HTTPS values disable tracking.
-- If your site uses a Content Security Policy, allow the script from
-  `https://gc.zgo.at/count.js` and requests to your counting address.
-- Localhost and browser blockers can prevent counting. A blocked tracker does
-  not stop your website from displaying.
-- This integration counts page views; it does not add a visible visit counter
-  or configure custom events.
-
-For tracker-specific behavior and additional setup, see the
-[GoatCounter documentation](https://www.goatcounter.com/help/).
+See [production builds and verification](./18-goatcounter#publish-and-check)
+and [missing visits](./18-goatcounter#if-no-visit-appears) for environment,
+Content Security Policy and browser-blocker checks. The
+[GoatCounter documentation](https://www.goatcounter.com/help/) covers the
+service's own behavior.
 
 ### Search engines
 
