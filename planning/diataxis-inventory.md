@@ -8,7 +8,9 @@ See [Implementation tracking](documentation-adoption-audit.md#implementation-tra
 for merged work, the open delivery and the next proposed scope. The
 [current adoption review](documentation-adoption-audit.md#current-adoption-review)
 records remaining mixtures and the reading-path policy. Baseline scores
-are intentionally unchanged.
+are intentionally unchanged. For new scores on the 28 core/entry surfaces, see
+the [post-#117 reassessment](diataxis-reassessment-2026-10-14.md). Its narrower scope
+does not re-rate the remaining historical entries.
 
 The inventory covers tracked authored Markdown documentation, including hidden
 `.github` release records, issue templates and agent policies, demos, skins, README files, developer records,
