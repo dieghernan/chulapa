@@ -36,7 +36,8 @@ search and comments are optional.
 - [Edit footer links](./docs/11-edit-footer).
 - [Migrate from another theme](./docs/07-migration).
 - [Run and publish a starter example](./docs/09-run-starter): for readers who already use Jekyll.
-- [Enable Fuse.js search](./docs/12-fusejs-search).
+- Enable local search with [Fuse.js](./docs/12-fusejs-search), [Lunr.js](./docs/34-lunr-search) or [Simple-Jekyll-Search](./docs/35-simplesearch-search).
+- Connect [Google Custom Search](./docs/36-google-search) or [Algolia and its index upload](./docs/37-algolia-search).
 - [Enable giscus comments on a post](./docs/13-giscus-comments).
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
