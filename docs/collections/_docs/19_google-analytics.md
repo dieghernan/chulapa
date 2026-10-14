@@ -2,6 +2,9 @@
 title: Enable Google Analytics 4
 subtitle: Connect a published site to an existing GA4 web stream
 excerpt: Set a measurement ID, publish and check the integration without adding a duplicate script.
+tags: [docs, analytics]
+show_related: true
+related_label: "<h2>Related documentation</h2>"
 ---
 
 Use this guide when your site is published and you have a Google Analytics 4

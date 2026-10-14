@@ -2,6 +2,9 @@
 title: Enable GoatCounter analytics
 subtitle: Count visits on an existing published site
 excerpt: Configure a GoatCounter counting address, publish in production and check a visit.
+tags: [docs, analytics]
+show_related: true
+related_label: "<h2>Related documentation</h2>"
 ---
 
 Use this guide when your site is already published and you have created a site
