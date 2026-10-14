@@ -25,6 +25,9 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Create a page](https://dieghernan.github.io/chulapa/docs/16-create-page): Create a standalone page, preserve its address and add a menu link.
 - [Add an image](https://dieghernan.github.io/chulapa/docs/17-add-image): Upload an image, use relative_url and check the published result.
 
+- [Enable GoatCounter](https://dieghernan.github.io/chulapa/docs/18-goatcounter): Configure the HTTPS counting endpoint, production build and visit checks; requires main after v2.1.0.
+- [Enable Google Analytics 4](https://dieghernan.github.io/chulapa/docs/19-google-analytics): Configure a measurement ID, avoid duplicate snippets and verify reporting.
+
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.

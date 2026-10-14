@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-14T16:42:37+02:00",
-        "dateModified": "2026-10-14T16:42:37+02:00",
+        "datePublished": "2026-10-14T16:50:18+02:00",
+        "dateModified": "2026-10-14T16:50:18+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -551,44 +551,55 @@ To use your own Font Awesome kit, set <code class="language-plaintext highlighte
 enables version 4 compatibility. When updating an old configuration, replace
 <code class="language-plaintext highlighter-rouge">fa5_kit_code</code> with <code class="language-plaintext highlighter-rouge">fa_kit_code</code>; the old setting takes precedence if both exist.</p>
 <h3 id="google-analytics">Google Analytics</h3>
-<p>Get your Google Analytics 4 measurement ID and set it in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">gtag_id</span><span class="pi">:</span> <span class="s">G-XXXXXXXXXX</span>
-</code></pre></div></div>
-<p>Replace the example with your own ID. Leave it empty if you do not want Google
-Analytics. The older <code class="language-plaintext highlighter-rouge">analytics_id</code> setting is for retired Universal Analytics;
-leave it empty for new setups. Setting both IDs loads both snippets.</p>
+<p>Setup: <a href="./19-google-analytics">Enable Google Analytics 4</a>.</p>
+<table>
+<thead>
+   <tr>
+     <th>Setting</th>
+     <th>Value and behavior</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">gtag_id</code></td>
+     <td>GA4 measurement ID, such as <code class="language-plaintext highlighter-rouge">G-XXXXXXXXXX</code>. Omit it or leave its YAML value blank to disable its snippet. Loads when configured, including local preview.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">analytics_id</code></td>
+     <td>Legacy Universal Analytics ID, for the retired service. Leave empty for new setups. Independent of <code class="language-plaintext highlighter-rouge">gtag_id</code>; both configured values load both snippets.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Google Analytics and GoatCounter are independent. Setting either does not disable
+the other. Custom copies of a tracker are not removed automatically.</p>
 <h3 id="goatcounter-analytics">GoatCounter analytics</h3>
 <p><strong>Available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0; not in the v2.1.0 release.</strong></p>
-<p><a href="https://www.goatcounter.com/">GoatCounter</a> counts visits without cookies.
-Create an account and a site there, then add its counting address to
-<code class="language-plaintext highlighter-rouge">_config.yml</code>. Replace <code class="language-plaintext highlighter-rouge">YOUR-CODE</code> with your site’s GoatCounter code:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">goatcounter</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://YOUR-CODE.goatcounter.com/count"</span>
-</code></pre></div></div>
-<p>Keep <code class="language-plaintext highlighter-rouge">https://</code> and <code class="language-plaintext highlighter-rouge">/count</code> in the address. Save, publish your website and
-visit a page. Check your GoatCounter dashboard for the visit; it may take a
-little time to appear. No API key or extra Jekyll plugin is needed.</p>
-<p>Visits are counted only on a production build, not during normal local preview.
-Leave <code class="language-plaintext highlighter-rouge">goatcounter</code> empty to disable it. If you want GoatCounter instead of
-Google Analytics, also leave <code class="language-plaintext highlighter-rouge">gtag_id</code> and <code class="language-plaintext highlighter-rouge">analytics_id</code> empty; otherwise both
-services will count visits.</p>
+<p>Setup: <a href="./18-goatcounter">Enable GoatCounter analytics</a>.</p>
+<table>
+<thead>
+   <tr>
+     <th>Setting</th>
+     <th>Value and behavior</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">goatcounter</code></td>
+     <td>Complete HTTPS counting address, such as <code class="language-plaintext highlighter-rouge">https://YOUR-CODE.goatcounter.com/count</code> or a self-hosted <code class="language-plaintext highlighter-rouge">https://stats.example.org/count</code>. Empty or non-HTTPS values disable it.</td>
+   </tr>
+ </tbody>
+</table>
+<p>The script is <code class="language-plaintext highlighter-rouge">https://gc.zgo.at/count.js</code> and loads only when
+<code class="language-plaintext highlighter-rouge">JEKYLL_ENV=production</code>. No API key or extra Jekyll plugin is required.
+The counting address is external; the site’s <code class="language-plaintext highlighter-rouge">baseurl</code> is not added to it.
+This counts page views without cookies, a visible counter or custom-event configuration.
+It does not disable the Google snippets.</p>
 <h4 id="custom-hosting-and-troubleshooting">Custom hosting and troubleshooting</h4>
-<ul>
- <li>
-   <p>For your own publishing setup, enable Jekyll’s production environment:</p>
-   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>jekyll build
-</code></pre></div>  </div>
- </li>
- <li>Self-hosted GoatCounter works too: use its complete HTTPS counting address,
-for example <code class="language-plaintext highlighter-rouge">https://stats.example.org/count</code>. Non-HTTPS values disable tracking.</li>
- <li>If your site uses a Content Security Policy, allow the script from
-<code class="language-plaintext highlighter-rouge">https://gc.zgo.at/count.js</code> and requests to your counting address.</li>
- <li>Localhost and browser blockers can prevent counting. A blocked tracker does
-not stop your website from displaying.</li>
- <li>This integration counts page views; it does not add a visible visit counter
-or configure custom events.</li>
-</ul>
-<p>For tracker-specific behavior and additional setup, see the
-<a href="https://www.goatcounter.com/help/">GoatCounter documentation</a>.</p>
+<p>See <a href="./18-goatcounter#publish-and-check">production builds and verification</a>
+and <a href="./18-goatcounter#if-no-visit-appears">missing visits</a> for environment,
+Content Security Policy and browser-blocker checks. The
+<a href="https://www.goatcounter.com/help/">GoatCounter documentation</a> covers the
+service’s own behavior.</p>
 <h3 id="search-engines">Search engines</h3>
 <p><code class="language-plaintext highlighter-rouge">search</code> configures search within the site, independently of external search-engine
 indexing. The personal-blog template includes Fuse.js search. Setup instructions
