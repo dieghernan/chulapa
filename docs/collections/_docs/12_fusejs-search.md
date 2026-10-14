@@ -37,9 +37,13 @@ API key or extra Jekyll plugin is needed for Fuse.js.
    `search.landing_page`. For a site under `/my-blog`, use `/search` in both
    settings; the theme adds the site's `baseurl`.
 3. Save your changes on the publishing branch. Wait for **Actions** to finish,
-   then open your published website and follow its Search menu link.
+   then open the search address directly. For a site at
+   `https://ana.github.io/my-blog`, open `https://ana.github.io/my-blog/search`
+   (or your chosen landing path).
 
-Selecting a provider adds the navbar link but does not create the search page.
+Selecting a provider does not create the search page. The classic navbar and
+the desktop form of `dual` show a Search link only when `navbar.nav` is configured.
+If that link is absent, use the direct address above or [configure your menu](./10-edit-menu).
 The `search` layout supplies its own interface; extra page-body text is not displayed.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 

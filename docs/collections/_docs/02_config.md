@@ -344,7 +344,9 @@ indexing. The personal-blog template includes Fuse.js search. Setup instructions
 are in [Enable Fuse.js search](./12-fusejs-search).
 
 A search page uses `layout: search`; its `permalink` matches `search.landing_page`
-(default `/search`). A provider supplies the navbar link, not the page itself.
+(default `/search`). A provider does not create the page. In the classic navbar
+and the desktop form of `dual`, the Search link also requires `navbar.nav`.
+The search page remains reachable directly without that menu link.
 
 The following engines are available:
 

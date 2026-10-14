@@ -380,6 +380,9 @@ https://dieghernan.github.io/chulapa/docs/12-fusejs-search
 Set search.provider to lunr, fusejs, simplesearch, algolia or google. Also create
 a page with layout: search and a permalink matching search.landing_page
 (default /search). Configuring the provider does not create this page.
+In classic navigation and desktop dual navigation, the Search menu link also
+requires navbar.nav. If it is absent, open the landing page directly, including
+the actual site baseurl in the browser address, or configure navbar.nav.
 For Fuse.js use search: { provider: fusejs, landing_page: /search } and a page
 with layout: search, title: Search and permalink: /search. Reuse an existing
 search page and path instead of creating duplicate output. The Chulapa 101
