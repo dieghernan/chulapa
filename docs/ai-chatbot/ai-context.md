@@ -404,7 +404,8 @@ cusdis_app_id and, for self-hosting, cusdis_host; its original hosted service is
 unavailable and the upstream project is archived.
 
 ## Navbar and footer
-Source: https://dieghernan.github.io/chulapa/docs/02-config#navbar
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
+https://dieghernan.github.io/chulapa/docs/10-edit-menu
 The navbar supports links and one level of child links. Omitting navbar.style
 uses the classic navbar; fab selects a floating action button and dual switches
 between floating and classic at a breakpoint. navbar.expand accepts sm, md, lg
@@ -424,9 +425,14 @@ navbar:
 Omitting style uses classic; fab and dual are both supported. For classic,
 expand: always/never means always expanded/collapsed; for dual those values
 select sm/xl respectively. No deeper submenu nesting is documented.
-Source: https://dieghernan.github.io/chulapa/docs/02-config#footer
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#footer
+https://dieghernan.github.io/chulapa/docs/11-edit-footer
 footer.links entries have label, icon (Font Awesome code) and url (or a plain
-email address). footer.copyright accepts custom text or HTML.
+email address, without mailto:). footer.copyright accepts custom text or HTML.
+To edit links, merge changes into existing navbar.nav/footer.links; preserve other
+links, navbar brand/style/expand and footer copyright. A menu link does not create
+a page. Use site-relative paths without repeating baseurl; publish and verify the
+actual destinations.
 
 ## Feeds and SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options

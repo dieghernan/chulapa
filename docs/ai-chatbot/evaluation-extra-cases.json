@@ -212,5 +212,19 @@
     "doc": "04_layouts.md",
     "question": "Can I put photoswipe in page YAML, use nolazy with snippets/youtube.html, or omit provider when embedding a video?",
     "expected": "PhotoSwipe is an unquoted include boolean photoswipe=true on masonry/carousel, not page YAML. Direct youtube.html is always deferred; nolazy is supported by video.html with provider=\"youtube\". Hosted video.html needs provider and id; fileurl takes precedence for a local file. Link snippet reference and video instructions; no invented settings."
+  },
+  {
+    "id": "navigation-edit-existing-1",
+    "section": "configuration",
+    "doc": "10_edit-menu.md",
+    "question": "My site is https://ana.github.io/my-blog and I want to add an existing /contact/ page to the menu. Do I replace navbar or include /my-blog in the link?",
+    "expected": "Edit existing navbar.nav in _config.yml, adding or modifying a title/url entry with url: /contact/, not /my-blog/contact/. Preserve other links and navbar brand/style/expand; do not duplicate navbar. The page must already exist; the link does not create it. Commit to publishing branch, wait for Actions and check the published menu including narrow screens. Cite the menu how-to, with navbar reference for advanced options."
+  },
+  {
+    "id": "footer-edit-existing-1",
+    "section": "configuration",
+    "doc": "11_edit-footer.md",
+    "question": "How do I update the footer email and keep my other links and copyright?",
+    "expected": "Edit existing footer.links entries in _config.yml with label, icon and a plain email address as url, without mailto:. Preserve other links and copyright; no second footer section. Commit, wait for publication, test the contact link. Reference the footer links how-to and retain the full footer reference for copyright details."
   }
 ]
