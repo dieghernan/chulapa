@@ -17,8 +17,8 @@ whether they are learning, doing, looking something up or understanding a design
 
 The proposed architecture has exactly four documentation destinations:
 **Tutorials, How-To Guides, Reference and Explanation**. Experience levels are
-secondary audience labels, not an alternative hierarchy. Contributors need the
-same four intentions, with different prerequisites and subjects.
+secondary audience labels, not an alternative hierarchy. Contributor documentation is a supporting inventory only,
+not the target of this user-facing transformation. Its own reorganization is deferred.
 
 Preserve technical depth, option names, defaults, version limitations and existing
 URLs/anchors. Preserve their destinations, not the mixed pages as a permanent design.
@@ -26,6 +26,12 @@ Move content into pages with one purpose; turn legacy addresses into compatibili
 entry points only after checking the migration of their links and anchors.
 
 ## Scope, evidence and scoring method
+
+**Primary scope:** documentation that helps site owners publish, write, configure,
+customize and troubleshoot Chulapa. The contributor, release, automation and test
+records in the companion inventory are supporting evidence, not additional work
+required before improving the user journey. Do not add their material to the user
+navbar or the chatbot solely because it appears in the audit.
 
 Sources: the current [documentation index](../docs/_pages/docs.md),
 [homepage](../docs/index.html), [README](../README.md), the eleven documentation
@@ -135,7 +141,7 @@ illustrate facts, while a tutorial controls a learning sequence.
 | Layouts: R + T + H + E | A single page cannot simultaneously teach an initial edit and exhaustively describe every layout/snippet. | Faces unfamiliar front matter/SEO options immediately after a simple example. | Long navigation and duplicated facts obscure constraints. | Split all four intentions; keep old anchors mapped to their replacements. |
 | FAQ: H + R + E | A question-shaped heading does not make a parameter list a how-to. | Cannot distinguish urgent recovery from advanced customization. | Unclear canonical source for hook/version facts. | Keep an H troubleshooting directory; move reference facts and explanations out. |
 | Migration: H + R + E | A comparison catalog interrupts the action sequence. | Stops migration to interpret potentially irrelevant mappings. | No stable field-mapping lookup independent of the procedure. | Keep H sequence/checklist; move mappings to R, rationale to E. |
-| Developer READMEs: H + R + E | Build instructions, design, deployment configuration and results are interleaved. | New contributors cannot identify their minimum first change. | Historical outcomes can be mistaken for current guarantees. | Separate contributor tutorial, task runbooks, configuration R, design E and dated records. |
+| Supporting scope only — developer READMEs: H + R + E | Build instructions, design, deployment configuration and results are interleaved. | New contributors cannot identify their minimum first change. | Historical outcomes can be mistaken for current guarantees. | Separate contributor tutorial, task runbooks, configuration R, design E and dated records. |
 
 A good table, warning or code example can be factually right and misplaced. The
 previous approach of adding “Getting started / Advanced reference” links is a
@@ -242,7 +248,6 @@ Documentation
 ├── Tutorials
 │   ├── Publish your first site from your browser [first-time author]
 │   ├── Create a short photo story [first-time author; controlled second exercise]
-│   └── Make your first documentation contribution [contributor]
 ├── How-To Guides
 │   ├── Content
 │   │   ├── Edit an existing article
@@ -271,12 +276,6 @@ Documentation
 │   │   ├── Configure a collection or paginated index [separate tasks]
 │   │   ├── Add a gallery, video, TOC, formula or diagram [separate tasks]
 │   │   └── Add custom CSS, head tags or scripts [separate tasks]
-│   └── Contributor tasks
-│       ├── Run regression/browser checks
-│       ├── Build documentation against local theme changes
-│       ├── Update chatbot context and evaluate answers
-│       ├── Deploy the documentation chatbot
-│       └── Submit a bug report or patch
 ├── Reference
 │   ├── Compatibility, releases and runtime dependencies
 │   ├── Site configuration: every supported field and default
@@ -288,9 +287,8 @@ Documentation
 │   ├── Migration field mappings
 │   ├── Markdown and kramdown syntax
 │   ├── Starter, skin and rendered example catalogs
-│   ├── Custom hooks and contributor commands
-│   ├── Chatbot configuration and evaluation schema
-│   └── Changelog, licenses and dated validation records
+│   ├── Custom hooks
+│   └── Changelog and licenses
 └── Explanation
     ├── How GitHub, Pages, Jekyll and Chulapa fit together
     ├── What happens between saving and publishing
@@ -299,8 +297,6 @@ Documentation
     ├── Organizing posts, pages and collections
     ├── How search, comments and feeds differ
     ├── Metadata and search visibility: roles and limitations
-    ├── Theme/layout architecture for contributors
-    ├── Documentation chatbot architecture and boundaries
     └── Performance, resource loading and offline limitations
 ```
 
@@ -350,7 +346,7 @@ coherent first tutorial, then task/reference separation, then maintenance.
 | Layouts | T first-content exercise, H media/customization, R layouts/snippets/front matter, E architecture. | Merge duplicate gallery/diagram setup text into canonical H; keep runnable specimens in R. | Maintain /04-layouts anchors; create explicit parameter/reference destinations. | 3–4 days |
 | Theming + variable dictionary + skins | H appearance tasks, R identifiers/variables/specimens, E color-generation model. | One R definition per variable; no copying full settings lists into skin H guides. | Keep preview URLs; replace setup prose with H links. | 1–2 days |
 | FAQ + Migration | H symptom/migration procedures; R mappings/hooks; E version/override reasoning. | Merge repeated troubleshooting answers with the relevant H guide. | Preserve old questions/anchors as links; keep migration checklist in its H. | 1–2 days |
-| Accessibility + contributor docs | H checks/runbooks, R constraints/results, E resource/design reasoning. | One current contributor runbook per task; keep dated evidence separate. | Historical results remain dated R, not current how-tos. | 1–2 days |
+| Accessibility and performance | H site checks, R constraints, E resource/offline reasoning. | One current user checklist; keep test records in the supporting inventory. | Historical results remain outside the user learning path. | 1 day |
 
 Preserve safety constraints, prerequisites and version caveats with the relevant
 procedure. Do not merge a tutorial and a how-to merely because both create a post:
@@ -363,7 +359,7 @@ one teaches through a supplied scenario; the other helps an existing author do w
 | Novice tutorials and expert lookup tests | Splitting could improve purity without improving real use. | 1–2 days | Comparable tasks show where people succeed, struggle or need help. |
 | Templates and content review gates per quadrant | Mixed pages return as features are added. | 1 day | PR checklist names type, reader intent, prerequisites, excluded material and canonical links. |
 | Reference completeness and link checks | Extraction loses defaults, anchors or version warnings. | 1–2 days | Option/snippet inventory reconciled, old fragments checked and examples built. |
-| Contributor learning path | Contribution page does not currently take a novice contributor through a first patch. | 1–2 days | Controlled documentation change and existing checks complete on a fresh checkout. |
+| Contributor documentation reorganization — deferred | Separate audience, outside this user-documentation roadmap. | Not estimated here | A separately scoped task, not a dependency of user-facing improvements. |
 | Aggregate analytics and query taxonomy | Teams prioritize by anecdotes alone. | 1–2 days | Clearly defined, privacy-aware measures with documented observation limits. |
 | Release maintenance workflow | Starter, guides and chatbot drift independently. | 0.5 day initially; per release thereafter | Named owner reviews each tutorial and affected H/R/E pages; context updates are deployed only when authorized. |
 
@@ -384,8 +380,8 @@ and should be extracted, not rewritten into a second competing source.
 | Migration field mappings | R | Translate known legacy patterns without interrupting the migration procedure. | Mapping table → scope/assumptions → unsupported automatic conversions → field-reference links. |
 | From saved files to a public website | E | Explain the system to curious beginners after first success. | GitHub/files → commit → build/publish → public URL → waiting and visibility. No numbered setup procedure. |
 | How skins and overrides interact | E | Explain customization choices to intermediate users. | Skin versus layout → variables → precedence → local copies → upgrade trade-offs. |
-| Make your first documentation contribution | T | Teach new contributors a bounded successful change. | Supplied typo scenario → checkout/setup → one edit → local docs check → commit/PR exercise → expected result. Validate commands before authoring. |
-| Chatbot architecture and limitations | E | Explain the documentation-site extension to contributors. | Browser/Worker boundaries → selective context → independent questions → external dependencies → evaluation rationale. Keep build/deploy instructions in H. |
+| Make your first documentation contribution — deferred | T | Separate contributor scope; not required for user adoption. | Validate and plan in a separate contributor-documentation task. |
+| Chatbot architecture and limitations — deferred | E | Maintainer material, separate from the user documentation. | Keep the current operational sources; do not add architecture to the user learning path or chatbot context. |
 
 Do not label existing demos as tutorials simply because they show a result. A demo
 is an illustrative R artifact unless it actually guides a learning sequence.
@@ -411,11 +407,10 @@ strict separation, not another overlapping guide.
 
 ### Measurement plan and proposed thresholds
 
-1. Baseline pilot: five first-time users, two experienced Jekyll users and two
-   contributors. This is exploratory, not a statistically representative conversion estimate.
+1. Baseline pilot: five first-time users and two experienced Jekyll users. This is exploratory, not a statistically representative conversion estimate.
 2. Repeat comparable tasks with new participants after the first split. Pilot goal:
    at least four of five novices finish the tutorial unaided; experts still find
-   exact defaults and contributors still identify the correct checks. These are
+   exact defaults. Contributor testing belongs to a separate project. These are
    proposed acceptance goals, not claims about current performance.
 3. Publish a time claim only after a larger timed sample supports it under stated
    conditions. If GitHub waiting time breaks five minutes, change the claim rather
@@ -429,6 +424,91 @@ aggregate reports before adding tracking; never sum both as unique users. Propos
 implemented features. Cross-domain progress is not available merely because a
 page-view counter exists. Do not send repository content, credentials, draft posts
 or full questions to analytics. Start usability work without waiting for instrumentation.
+
+## Chatbot continuity: a release requirement for every user-documentation split
+
+The chatbot is a user-facing entry point into the documentation. A cleaner page
+architecture must not make its instructions less complete or its citations unusable.
+Diátaxis constrains public document intent; it does **not** require four chatbots,
+four runtime contexts, or splitting a useful answer into disconnected fragments.
+
+### Verified current behavior
+
+- [build.mjs](../docs/ai-chatbot/build.mjs) embeds the manually maintained
+  [ai-context.md](../docs/ai-chatbot/ai-context.md) into generated Worker content.
+  The assistant does not crawl updated guides to discover new content or URLs.
+- The [Worker prompt](../docs/ai-chatbot/worker.mjs) requires source URLs to be
+  copied exactly from context, without invented or appended anchors. Moving a
+  fact or heading therefore requires reviewing the corresponding context citation.
+- [deploy-chatbot.yml](../.github/workflows/deploy-chatbot.yml) runs on main pushes
+  touching `docs/ai-chatbot/**` or the workflow itself, and supports manual dispatch.
+  It runs `npm test` before deployment. Changing only documentation pages does not
+  update the assistant's knowledge.
+- Pages and chatbot deployment are separate workflows, with no Pages-completion
+  dependency in the current chatbot workflow. Merging both changes together can
+  expose new chatbot citations before their destination pages are live.
+- Unit tests and bundled-context equality checks establish build/runtime properties;
+  they do not establish answer quality or that a generated citation reaches the
+  intended new section. These need focused checks and reviewed answers.
+
+### Preserve facts, change source structure deliberately
+
+| Documentation change | Context treatment | Required verification |
+| --- | --- | --- |
+| Copy edit or new navigation grouping; facts and source destinations unchanged | Do not rewrite or enlarge the context by default. Record that it was reviewed. | Existing citations still reach the same supported advice. |
+| Extract a task/reference while keeping the old page and advice temporarily | Keep the current context until new pages are live; then change source pointers selectively. | Both the old compatibility destination and the new canonical one work. |
+| Rename a heading or retire an old source fragment | Preserve an alias/compatibility entry and update exact source URLs after publication. | Resolve the complete path plus fragment, not merely HTTP 200. |
+| Correct a setting, default, prerequisite or version constraint | Update the affected fact/example and its evaluation case together. | New answer is correct; previously supported adjacent questions still work. |
+| Split a long source into four Diátaxis destinations | Keep the selective factual summary, linking task questions to H, first steps to T, exact options to R, and reasons to E. | No lost prerequisites, defaults, version caveats or complete example. No wholesale copying of four pages. |
+
+For each extraction, maintain a change ledger: old URL/fragment → new destination,
+reader task, retained facts, affected `Source:` lines, affected evaluation IDs,
+publication status and rollback destination. Inspect existing cases in
+`evaluation-cases.json`, `evaluation-extra-cases.json` and
+`evaluation-community-cases.json` rather than assuming source
+filenames are the only dependencies. Keep context concise; audit source coverage
+and bundled context size when changing it, without imposing an invented model limit.
+
+### Safe rollout with the current workflows
+
+1. **Publish additive destinations first.** Build the split documentation while
+   retaining existing pages, anchors and advice as temporary compatibility material.
+   This deliberately mixed transition is migration debt, not a pure final design.
+   Do not change context citations to unpublished URLs in this first release.
+2. **Verify the Pages deployment.** Check the actual deployed destination, relevant
+   heading, content and version caveat. A preview URL does not prove the production
+   URL that the chatbot will cite is ready.
+3. **Update the context in a subsequent release.** Change only affected facts,
+   examples and exact citations; retain the information needed for a complete
+   practical answer even when the public sources now belong to separate quadrants.
+   Run `npm test` in `docs/ai-chatbot` and inspect context/bundle consistency.
+4. **Review focused answers.** Use the existing evaluation tools/cases for affected
+   questions within authorized live-evaluation scope. Compare factual accuracy,
+   runnable code, prerequisites, version caveats and citations with the baseline.
+   A successful HTTP response or passing unit tests is not sufficient.
+5. **Confirm Worker deployment and compatibility.** Verify the main-push chatbot
+   run and sampled deployed answers. Then retire duplicated legacy prose only
+   when both documentation and context point to stable replacements. Keep old
+   external links/fragment entry points discoverable.
+
+Representative questions: first browser publication; image paths with `baseurl`;
+page creation plus menu link; search provider plus required search page; comments
+provider plus per-page opt-in; migration feeds/overrides; pinned v2.1.0 versus main;
+exact layout/snippet parameters; and why a customization overrides the theme.
+Use existing evaluation cases where available and add only missing focused cases.
+
+**Release gate:** no missing factual coverage, no unsupported feature/version claim,
+no broken or misleading source fragment, and no regression in the reviewed affected
+answers. Assign an owner to the source/context ledger before extraction begins.
+If the gate fails, retain the old source/context and fix the new destinations.
+If a deployed context regresses, restore the last reviewed context through the
+normal tested deployment path; keep its cited documentation available. Do not roll
+back already-correct theme behavior merely to repair an editorial change.
+
+No workflow, context, evaluation case or deployed chatbot is changed by this audit
+PR. The two-release sequence is achievable with today's workflows; adding a formal
+Pages-dependent deployment gate would be a separate implementation, not an existing
+capability. The extra release/verification cost is part of each extraction task.
 
 ## Editorial acceptance and implementation boundaries
 

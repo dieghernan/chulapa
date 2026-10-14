@@ -3,7 +3,8 @@
 Companion to the [strict transformation plan](documentation-adoption-audit.md).
 Baseline: `main` after PR #106, 14 October 2026. Language: English.
 
-All authored Markdown documentation, demos, skins, README files, developer records,
+The inventory covers tracked authored Markdown documentation, including hidden
+`.github` release records, issue templates and agent policies, demos, skins, README files, developer records,
 the homepage, six HTML demo pages and `llms.txt` are represented individually below.
 Source paths link to the actual files. Public paths are route patterns from front
 matter/configuration; the deployment prefix `/chulapa` is omitted. Blog records use
@@ -20,16 +21,14 @@ extraction decisions. Internal policies and legal/operational surfaces are bound
 Reference records; they do not become beginner lessons.
 
 
-Inventory total: **128 source documents/surfaces**.
+Inventory total: **136 source documents/surfaces** (112 primary; 24 supporting).
+
+## Primary inventory: user-facing documentation and examples
 
 | Source / page | URL or section | Dominant type | Secondary types | Purity | Evidence / action |
 | --- | --- | --- | --- | --- | --- |
-| [AGENTS.md](../AGENTS.md) | Repository source | Reference | — | 10/10 | Internal normative instructions, not a learner guide. |
 | [CHANGELOG.md](../CHANGELOG.md) | Repository source | Reference | — | 10/10 | Dated change record; retain historical/version scope. |
 | [README.md](../README.md) | Repository source | Explanation | How-To Guides; Reference | 4/10 | Orientation mixes setup procedures and feature catalogs; route to quadrants. |
-| [_sass/highlight/README.md](../_sass/highlight/README.md) | Repository source | Reference | How-To Guides | 6/10 | Theme/source catalog mixes shell generation and non-Jekyll application procedures. |
-| [docs/AGENTS.md](../docs/AGENTS.md) | Repository source | Reference | — | 10/10 | Internal editorial/publishing requirements; preserve policy constraints during transformation. |
-| [docs/README.md](../docs/README.md) | Repository source | How-To Guides | Explanation; Reference | 6/10 | Local preview steps mix site/assistant architecture and configuration facts. |
 | [docs/_pages/404.md](../docs/_pages/404.md) | /404.html | Reference | — | 10/10 | Navigation/service surface or rendered list specimen; no learning contract. Its score is structural, not a usability rating. |
 | [docs/_pages/archive.md](../docs/_pages/archive.md) | /archive | Reference | — | 10/10 | Navigation/service surface or rendered list specimen; no learning contract. Its score is structural, not a usability rating. |
 | [docs/_pages/categories.md](../docs/_pages/categories.md) | /categories | Reference | — | 10/10 | Navigation/service surface or rendered list specimen; no learning contract. Its score is structural, not a usability rating. |
@@ -51,11 +50,6 @@ Inventory total: **128 source documents/surfaces**.
 | [docs/_pages/showcase.md](../docs/_pages/showcase.md) | /showcase | Reference | How-To Guides | 9/10 | Site catalog includes submission instructions. |
 | [docs/_pages/skins.md](../docs/_pages/skins.md) | /skins | Reference | How-To Guides | 9/10 | Skin directory includes a selection/application prompt. |
 | [docs/_pages/tags.md](../docs/_pages/tags.md) | /tags | Reference | — | 10/10 | Navigation/service surface or rendered list specimen; no learning contract. Its score is structural, not a usability rating. |
-| [docs/ai-chatbot/README.md](../docs/ai-chatbot/README.md) | Repository source | How-To Guides | Reference; Explanation | 3/10 | Build/deploy/embed/evaluate procedures mix configuration, architecture and results. |
-| [docs/ai-chatbot/ai-context.md](../docs/ai-chatbot/ai-context.md) | Repository source | Reference | How-To Guides; Explanation | 3/10 | Machine-consumed mixed summary, not a public guide; organize source pointers by intention when upstream sources split. |
-| [docs/ai-chatbot/evaluation.md](../docs/ai-chatbot/evaluation.md) | Repository source | Reference | How-To Guides; Explanation | 5/10 | Historical observations mix reproduction/update instructions and design reasoning. |
-| [docs/ai-chatbot/evaluations/docs-accessibility-2026-10-13.md](../docs/ai-chatbot/evaluations/docs-accessibility-2026-10-13.md) | Repository source | Reference | Explanation | 8/10 | Dated evaluation findings with interpretation; preserve as an evidence record. |
-| [docs/ai-chatbot/evaluations/review-2026-10-08.md](../docs/ai-chatbot/evaluations/review-2026-10-08.md) | Repository source | Reference | Explanation | 8/10 | Dated evaluation findings with interpretation; preserve as an evidence record. |
 | [docs/collections/_demo/01_plainpage.md](../docs/collections/_demo/01_plainpage.md) | /demo/01-plainpage | Reference | Explanation | 8/10 | Visual/front-matter specimen includes behavioral explanation; move substantive reasoning to Explanation. |
 | [docs/collections/_demo/02_plainpage_img.md](../docs/collections/_demo/02_plainpage_img.md) | /demo/02-plainpage-img | Reference | Explanation | 8/10 | Visual/front-matter specimen includes behavioral explanation; move substantive reasoning to Explanation. |
 | [docs/collections/_demo/03_postheader.md](../docs/collections/_demo/03_postheader.md) | /demo/03-postheader | Reference | Explanation | 8/10 | Visual/front-matter specimen includes behavioral explanation; move substantive reasoning to Explanation. |
@@ -145,6 +139,32 @@ Inventory total: **128 source documents/surfaces**.
 | [examples/technical-blog/README.md](../examples/technical-blog/README.md) | Repository source | How-To Guides | Reference | 7/10 | Copy/run/publish procedure mixes structural/configuration facts; extract catalog facts. |
 | [examples/technical-blog/_posts/2026-01-01-first-post.md](../examples/technical-blog/_posts/2026-01-01-first-post.md) | Repository source | Reference | — | 10/10 | Runnable content specimen, not an authored tutorial; do not direct first-time users here as a complete publishing path. |
 | [examples/technical-blog/index.md](../examples/technical-blog/index.md) | Repository source | Reference | — | 10/10 | Runnable content specimen, not an authored tutorial; do not direct first-time users here as a complete publishing path. |
+
+## Supporting inventory: maintainer, release, policy and test records
+
+These records complete repository coverage. Their restructuring is deferred; they
+are not prerequisites for the user-documentation transformation and should not be
+added to the chatbot context simply because they appear here.
+
+| Source / page | URL or section | Dominant type | Secondary types | Purity | Evidence / action |
+| --- | --- | --- | --- | --- | --- |
+| [.github/ISSUE_TEMPLATE/AOB.md](../.github/ISSUE_TEMPLATE/AOB.md) | Repository source | Reference | — | 10/10 | Issue submission form/schema; supporting contribution interface, not a learning document. |
+| [.github/ISSUE_TEMPLATE/bug_report.md](../.github/ISSUE_TEMPLATE/bug_report.md) | Repository source | Reference | — | 10/10 | Issue submission form/schema; supporting contribution interface, not a learning document. |
+| [.github/ISSUE_TEMPLATE/documentation.md](../.github/ISSUE_TEMPLATE/documentation.md) | Repository source | Reference | — | 10/10 | Issue submission form/schema; supporting contribution interface, not a learning document. |
+| [.github/ISSUE_TEMPLATE/feature_request.md](../.github/ISSUE_TEMPLATE/feature_request.md) | Repository source | Reference | — | 10/10 | Issue submission form/schema; supporting contribution interface, not a learning document. |
+| [.github/ISSUE_TEMPLATE/new_skin.md](../.github/ISSUE_TEMPLATE/new_skin.md) | Repository source | Reference | — | 10/10 | Issue submission form/schema; supporting contribution interface, not a learning document. |
+| [.github/release-checklist.md](../.github/release-checklist.md) | Repository source | Reference | How-To Guides; Explanation | 6/10 | Dated release validation mixes actionable release procedures and rationale; supporting maintainer scope. |
+| [.github/release-notes-v2.1.0.md](../.github/release-notes-v2.1.0.md) | Repository source | Reference | How-To Guides | 8/10 | Release facts include an installation procedure; preserve as a historical release record. |
+| [.github/skills/html-style/SKILL.md](../.github/skills/html-style/SKILL.md) | Repository source | Reference | — | 10/10 | Internal normative agent/style policy; supporting scope, not a user guide. |
+| [AGENTS.md](../AGENTS.md) | Repository source | Reference | — | 10/10 | Internal normative instructions, not a learner guide. |
+| [_sass/highlight/README.md](../_sass/highlight/README.md) | Repository source | Reference | How-To Guides | 6/10 | Theme/source catalog mixes shell generation and non-Jekyll application procedures. |
+| [docs/AGENTS.md](../docs/AGENTS.md) | Repository source | Reference | — | 10/10 | Internal editorial/publishing requirements; preserve policy constraints during transformation. |
+| [docs/README.md](../docs/README.md) | Repository source | How-To Guides | Explanation; Reference | 6/10 | Local preview steps mix site/assistant architecture and configuration facts. |
+| [docs/ai-chatbot/README.md](../docs/ai-chatbot/README.md) | Repository source | How-To Guides | Reference; Explanation | 3/10 | Build/deploy/embed/evaluate procedures mix configuration, architecture and results. |
+| [docs/ai-chatbot/ai-context.md](../docs/ai-chatbot/ai-context.md) | Repository source | Reference | How-To Guides; Explanation | 3/10 | Machine-consumed mixed summary, not a public guide; organize source pointers by intention when upstream sources split. |
+| [docs/ai-chatbot/evaluation.md](../docs/ai-chatbot/evaluation.md) | Repository source | Reference | How-To Guides; Explanation | 5/10 | Historical observations mix reproduction/update instructions and design reasoning. |
+| [docs/ai-chatbot/evaluations/docs-accessibility-2026-10-13.md](../docs/ai-chatbot/evaluations/docs-accessibility-2026-10-13.md) | Repository source | Reference | Explanation | 8/10 | Dated evaluation findings with interpretation; preserve as an evidence record. |
+| [docs/ai-chatbot/evaluations/review-2026-10-08.md](../docs/ai-chatbot/evaluations/review-2026-10-08.md) | Repository source | Reference | Explanation | 8/10 | Dated evaluation findings with interpretation; preserve as an evidence record. |
 | [test/README.md](../test/README.md) | Repository source | How-To Guides | Reference; Explanation | 4/10 | Many runbooks share command/coverage catalogs and test-design discussion. |
 | [test/accessibility-review.md](../test/accessibility-review.md) | Repository source | Reference | How-To Guides; Explanation | 6/10 | Dated findings and limits mix reproduction procedures and rationale; extract reusable runbooks. |
 | [test/closed-issue-regressions.md](../test/closed-issue-regressions.md) | Repository source | Reference | — | 10/10 | Issue-to-check coverage matrix; retain issue/version/date scope. |
@@ -152,7 +172,6 @@ Inventory total: **128 source documents/surfaces**.
 | [test/microformats-validation.md](../test/microformats-validation.md) | Repository source | Reference | How-To Guides; Explanation | 6/10 | Dated findings and limits mix reproduction procedures and rationale; extract reusable runbooks. |
 | [test/personal-site-validation.md](../test/personal-site-validation.md) | Repository source | Reference | Explanation | 8/10 | Dated assessment/results with interpretation; do not turn historical evidence into a current guarantee. |
 | [test/testing-review.md](../test/testing-review.md) | Repository source | Reference | Explanation | 8/10 | Dated assessment/results with interpretation; do not turn historical evidence into a current guarantee. |
-
 ## Exclusions: fixture content and generated artifacts
 
 The following test-site Markdown files are synthetic or sample fixture content,
