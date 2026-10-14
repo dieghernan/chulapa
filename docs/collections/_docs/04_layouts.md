@@ -513,6 +513,11 @@ Setup: [Add a photo gallery](./29-add-gallery).
 | `random` | `false` | Boolean `true` shuffles at build time, overriding the sort order. |
 | `photoswipe` | `false` | Boolean `true` enables the optional viewer; see [PhotoSwipe](#photoswipe-lightbox). |
 
+**Version constraint:** applying the selected `index_sort` field to internal
+galleries and carousels is fixed in v2.1.1-dev on `main`. It does not work
+correctly in v2.1.0; the filename-order guides require the fix.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 External-source specimen:
 
 {% raw %}
@@ -667,6 +672,13 @@ Content Security Policy.
 ```
 {% endraw %}
 
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy=true
+   name="Menorca - Isla Bonita"
+   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
+   upload_date="2019-07-27T12:44:00-07:00"
+   description="Exploring Menorca with a Mavic Pro drone in 2019."
+   duration="PT2M52S" %}
+
 `video_res` defaults to `maxresdefault`; some videos lack that preview. A value
 such as `hqdefault` selects a different [YouTube preview variant](https://stackoverflow.com/a/2068371/7877917).
 This changes the displayed preview, unlike `thumbnail_url` (metadata only).
@@ -676,6 +688,13 @@ This changes the displayed preview, unlike `thumbnail_url` (metadata only).
 {% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" video_res="hqdefault" %}
 ```
 {% endraw %}
+
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hqdefault"
+   name="Menorca - Isla Bonita"
+   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
+   upload_date="2019-07-27T12:44:00-07:00"
+   description="Exploring Menorca with a Mavic Pro drone in 2019."
+   duration="PT2M52S" %}
 
 #### Optional video metadata
 

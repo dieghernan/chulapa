@@ -9,7 +9,18 @@ Have the YouTube video's address and title ready.
 ## Add the player
 
 In the body of your post or page, insert the following line. Replace the `id`
-with the code after `v=` in the video's YouTube address and `name` with its title:
+with the video identifier and `name` with its title. The identifier is the same
+in these common address formats:
+
+| YouTube address | Value for `id` |
+| --- | --- |
+| `https://www.youtube.com/watch?v=1hXYuWTWVww` | `1hXYuWTWVww` |
+| `https://youtu.be/1hXYuWTWVww?si=example` | `1hXYuWTWVww` |
+| `https://www.youtube.com/shorts/1hXYuWTWVww` | `1hXYuWTWVww` |
+
+For a watch address use the value after `v=`; for Share or Shorts addresses use
+the final path segment. Leave out query parameters such as `si` or `t`, and any
+`#` fragment. For example:
 
 {% raw %}
 ```liquid
