@@ -142,6 +142,9 @@ cd test
 BUNDLE_GEMFILE=installation/Gemfile bundle exec ruby check_theme_installation.rb
 ```
 
+The built artifact is checked for leaked planning, documentation, test, example,
+automation and agent-instruction files.
+
 This also checks generated pagination, canonical URLs and sitemap entries in
 root and subdirectory deployments. It does not install the theme globally.
 The installation Gemfile intentionally omits the local theme dependency; use
