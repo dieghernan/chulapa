@@ -20,7 +20,7 @@ options when you need them. A **layout** is a page design. **Front matter** is
 the settings block between `---` lines at the top of a content file.
 
 Moving existing posts or pages? Start with the
-[migration front matter mapping](./07-migration#3-adapt-front-matter)
+[migration front matter mapping](./07-migration#3-adapt-layouts-and-front-matter)
 to replace layout names and options from your previous theme.
 
 ## Create a post

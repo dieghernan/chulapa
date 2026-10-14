@@ -8,10 +8,13 @@ show_toc: true
 Keep your posts, pages and images. This guide assumes your site already builds
 with Jekyll and has a `_config.yml` and `Gemfile`.
 
+**Before switching themes:** save a backup or create a migration branch. Theme-specific
+settings and layouts are not converted automatically; check the preview before publishing.
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
 **Getting started:** follow steps 1–5, then use the [migration checklist](#migration-checklist).
-**Advanced reference:** use the [front matter mapping](#3-adapt-front-matter) and
+**Advanced reference:** use the [front matter mapping](#3-adapt-layouts-and-front-matter) and
 linked settings to translate your existing configuration.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## 1. Prepare your site
 
@@ -65,7 +68,9 @@ follows development updates. Features documented as v2.1.1-dev, including
 Mermaid, PhotoSwipe and GoatCounter, are not in v2.1.0.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-## 3. Adapt front matter
+<span id="3-adapt-front-matter"></span>
+
+## 3. Adapt layouts and front matter
 
 Review `_config.yml` defaults as well as the settings between `---` lines in
 posts and pages. Explicit page values override defaults: an old `layout: post`
@@ -100,6 +105,10 @@ include_on_feed: true
 
 ## 4. Reconnect navigation and integrations
 
+**Rebuild navbar and footer links manually:** links from your previous theme
+are not imported automatically. Re-enter them in `navbar.nav` and `footer.links`,
+then open every destination in the preview.
+
 Edit existing sections in `_config.yml`; settings from the previous theme are
 not translated automatically. Remove obsolete theme-specific settings once you
 have translated them; keep unrelated Jekyll settings and plugins.
@@ -122,7 +131,7 @@ see [theming](./03-theming#skins) for fonts and color overrides.
 | Feature | What to change and check |
 | --- | --- |
 | Navbar | Rebuild links under `navbar.nav` with `title` and `url`; use `child` for one level of dropdown links. Check every destination. [Navbar examples](./02-config#navbar). |
-| Footer | Move social and feed links to `footer.links` using `label`, `icon` and `url`. Set `footer.copyright` if needed. [Footer settings](./02-config#footer). |
+| Footer | Rebuild social and feed links to `footer.links` using `label`, `icon` and `url`. Set `footer.copyright` if needed. [Footer settings](./02-config#footer). |
 | Search | Choose `search.provider`. Create a page with `layout: search` and a `permalink` matching `search.landing_page` (default `/search`). A provider setting alone does not create the page. [Search setup](./02-config#search-engines). |
 | Comments | Set `comments.provider`, its required identifiers and `show_comments: true` on eligible pages or post defaults. Retain the provider's existing discussion identifiers and verify an old thread; changing themes does not migrate comments between services. [Provider setup](./02-config#comments). |
 | Feeds | Built-in `/atom.xml` and `/rss.xml` include dated documents with `include_on_feed: true`. Keep `jekyll-feed` if you need an existing `/feed.xml` URL; its default output can coexist. Avoid two generators writing the same path. [Feed guidance](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds). |
