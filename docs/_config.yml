@@ -110,44 +110,18 @@ navbar:
     url: /blog/
   - title: Docs
     child:
-    - title: Read the Docs
+    - title: Documentation
       url: /docs
     - title: Start here
       url: /docs/00-start
-    - title: Installation
-      url: /docs/01-install
-    - title: Global Settings
-      url: /docs/02-config
-    - title: Theming your site
-      url: /docs/03-theming
-    - title: Layouts & Snippets
-      url: /docs/04-layouts
-    - title: FAQs
-      url: /docs/05-faq
-    - title: Accessibility and performance
-      url: /docs/06-accessibility-performance
     - title: Migrating from another theme
       url: /docs/07-migration
-    - title: Starter examples reference
-      url: /docs/08-starter-examples
-    - title: Run a starter example
-      url: /docs/09-run-starter
-    - title: Edit menu links
-      url: /docs/10-edit-menu
-    - title: Edit footer links
-      url: /docs/11-edit-footer
-    - title: Enable Fuse.js search
-      url: /docs/12-fusejs-search
-    - title: Enable giscus comments
-      url: /docs/13-giscus-comments
-    - title: Change site details
-      url: /docs/14-site-details
-    - title: Markdown cheatsheet
-      url: /docs/markdown-cheatsheet
-    - title: Syntax highlighting
-      url: /docs/syntax-highlighting
-    - title: Variable dictionary
-      url: /docs/variable-dictionary
+    - title: Configuration reference
+      url: /docs/02-config
+    - title: Customize your site
+      url: /docs/03-theming
+    - title: Troubleshooting
+      url: /docs/05-faq
   - title: Skins
     url: /skins
   - title: Demos
