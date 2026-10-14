@@ -672,7 +672,8 @@ clipboard first. Rendered Mermaid diagrams do not receive copy buttons.
 
 
 ## Starter examples
-Source: https://dieghernan.github.io/chulapa/docs/00-start
+Sources: https://dieghernan.github.io/chulapa/docs/08-starter-examples
+https://dieghernan.github.io/chulapa/docs/09-run-starter
 Four complete starter folders are under examples/ in the repository:
 personal-blog (post and card index), technical-blog (code, Mermaid, MathJax and
 TOC), portfolio (projects collection and two project pages), project (landing

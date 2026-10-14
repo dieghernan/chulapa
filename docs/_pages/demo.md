@@ -12,7 +12,7 @@ index_items: 100
 og_image: /assets/img/site/banner-demos.png
 ---
 
-[Choose a starter example](./docs/00-start) to see a blog, technical blog,
+[Choose a starter example](./docs/08-starter-examples) to see a blog, technical blog,
 portfolio or project configuration. Each starter demo shows its YAML header.
 
 This is an example of how to create an index for a specific collection, in this

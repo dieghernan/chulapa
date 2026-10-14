@@ -13,7 +13,7 @@ tags: [starter, technical-blog]
 ---
 
 [Get the complete example](https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog)
-or follow the [start guide](../docs/00-start).
+or follow the [starter setup guide](../docs/09-run-starter).
 Copy the example's files into your own repository and replace the sample content.
 The complete example includes a Gemfile and configuration; this demo displays
 its home-page source.
