@@ -3,6 +3,8 @@ title: Add or change a menu link
 subtitle: Make an existing page reachable from your navbar
 excerpt: Edit a menu label or destination without replacing your site's other navigation settings.
 show_toc: false
+tags: [docs, navigation]
+show_related: true
 ---
 
 Use this guide when your site is already published and you have a page to link to.

@@ -2,6 +2,8 @@
 title: Create and publish a post
 subtitle: Add an article to an existing site
 excerpt: Create a dated Markdown post, publish it and check that readers can find it.
+tags: [docs, content]
+show_related: true
 ---
 
 Use this guide when your site is already published. For a first website, follow

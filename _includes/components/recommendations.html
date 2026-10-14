@@ -70,6 +70,7 @@
             </p>
           {%- endif -%}
         </div>
+        {% unless document.show_date == false %}
         <div class="card-footer bg-transparent">
           {% if document.date %}
             {% assign date_format = document.date | date: "%B %d, %Y" %}
@@ -83,6 +84,7 @@
             <small>-</small>
           {% endif %}
         </div>
+        {% endunless %}
       </div>
       {%- if forloop.last -%}
               </nav>

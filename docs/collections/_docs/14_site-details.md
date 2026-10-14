@@ -3,6 +3,8 @@ title: Change your site's name and author
 subtitle: Update the identity of an already published site
 excerpt: Edit your site title, description and author without changing its public address or other configuration.
 show_toc: false
+tags: [docs, navigation]
+show_related: true
 ---
 
 Use this guide when your site is already published and you want to replace its

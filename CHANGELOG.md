@@ -16,6 +16,9 @@
 
 ### Fixed
 
+- Related and random cards respect a candidate's `show_date: false`, allowing
+  undated documentation to hide Jekyll's fallback build date.
+
 -   Keep Chulapa skin dropdown navigation buttons in the same font as menu links, excluding them from the general heading-font button rule.
 
 -   Use Font Awesome play/pause icons for carousel motion controls, preserving accessible action names and visible symbols when icon assets are unavailable.

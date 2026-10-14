@@ -230,6 +230,8 @@ defaults:
   values:
     header_type: "hero"
     show_sidetoc: true
+    show_date: false
+    related_label: "<h2>Related documentation</h2>"
     include_on_search: true
     # Independent tasks and references do not form a filename-ordered course.
     show_bottomnavs: false

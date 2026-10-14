@@ -2,6 +2,8 @@
 title: Add an image to a post or page
 subtitle: Upload a photograph and display it in your content
 excerpt: Upload an image, use a repository-safe path and check the published result.
+tags: [docs, content]
+show_related: true
 ---
 
 Use this guide when you already have a post or page to edit in a published site.
