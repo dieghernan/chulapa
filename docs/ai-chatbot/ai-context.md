@@ -250,28 +250,58 @@ site against the GoatCounter dashboard; allow reporting time. Check production
 environment, endpoint, browser blockers and CSP if no visit appears. Not in
 released v2.1.0.
 
-## Theming
+## Appearance reference
 Source: https://dieghernan.github.io/chulapa/docs/03-theming
-Use chulapa-skin.skin in _config.yml to select a built-in skin. Skin names match
-the filename without .scss and are case-sensitive on case-sensitive filesystems.
-An unknown skin causes the Sass import to fail. There are more than 40 skins.
-Set individual overrides under chulapa-skin.vars. Theme variables compile into
-CSS during the build; restart Jekyll after configuration changes. Custom CSS goes
-in assets/css/custom.scss with empty YAML front matter. Autothemer derives a
-palette from primary; explicit skin colors and vars take precedence.
-Google Fonts can be loaded with googlefonts URL entries, but loading a font does
-not apply it: set font-family-base or headings-font-family under chulapa-skin.vars.
-Rouge performs syntax highlighting; chulapa-skin.highlight selects its CSS style.
-Enable the palette generator with chulapa-skin.autothemer: true and set a quoted
-hex primary color under vars. Loading order is skin, vars, autothemer, Bootstrap,
-then theme components. Custom skins go in _sass/skins/NAME.scss; set skin: NAME,
-use !default for customizable variables and do not import Bootstrap again.
-Put only SCSS variable assignments in that file, for example
-$primary: #285d70 !default;. The YAML chulapa-skin.skin: myskin belongs in
-_config.yml, never in _sass/skins/myskin.scss.
+Skin names match the filename without .scss and are case-sensitive on
+case-sensitive filesystems. An unknown name causes the Sass import to fail.
+There are more than 40 named skins; the visual catalog below lists them.
+chulapa-skin.skin defaults to none; auto loads the generated palette as a skin.
+chulapa-skin.highlight defaults to default; Rouge performs syntax highlighting.
+vars is a mapping of supported Sass names/expressions without $ or semicolons.
+
+## Changing skins and colors
+Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
+Source: https://dieghernan.github.io/chulapa/docs/23-change-color
+For a published site, edit the existing chulapa-skin.skin or vars entries in
+_config.yml, preserving other settings and avoiding duplicate sections. A real
+skin example is journal; a color override is vars.primary: "#285d70". Keep hex
+colors quoted. Save to the publishing branch, wait for Actions and check the
+published home/article, including menu and contrast on a narrow screen. Theme
+variables compile into CSS; restart local Jekyll after config changes. A preview
+selection does not save the design to the user's site.
+
+## Changing fonts and highlighting
+Source: https://dieghernan.github.io/chulapa/docs/24-change-fonts
+Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
+Load font stylesheets through googlefonts URL entries and apply families using
+font-family-base and/or headings-font-family under chulapa-skin.vars. Loading a
+font alone does not apply it. Other providers can use _includes/custom/custom_head.html.
+Use quoted family lists with fallbacks. chulapa-skin.highlight: zenburn selects
+a code style, not ordinary article typography. Check the published body/headings
+or a language-labelled fenced code block after rebuilding; a demo selection does
+not save site settings. External font availability is separate from CSS build.
+
+## Palette precedence and custom skins
+Source: https://dieghernan.github.io/chulapa/docs/26-appearance-precedence
+Source: https://dieghernan.github.io/chulapa/docs/27-autothemer
+Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
+The load order is skin, vars, autothemer, Bootstrap, then theme components.
+vars overrides skin variable assignments. Autothemer derives undefined colors
+from primary; explicit skin colors and vars remain in effect. Enable the later
+step with chulapa-skin.autothemer: true and a quoted primary color. Using skin:
+none allows generation without predefined skin assignments; keeping a named
+skin preserves its explicit palette. Omitting autothemer or setting false only
+disables the later step; skin: auto independently loads the generator.
+Custom CSS in assets/css/custom.scss (empty YAML front matter) loads after theme
+styles; CSS specificity still matters. Local copies override matching theme files
+and need review during updates. Custom skins go in _sass/skins/NAME.scss; set
+skin: NAME in _config.yml, use !default for customizable skin variables and do
+not import Bootstrap again. Sass files contain SCSS, not YAML. A small example
+assignment is $primary: #285d70 !default;.
 The Codeply sandbox previews SCSS; translate assignments into vars without $ or
-semicolons, quote hex colors and keep the Bootstrap grid enabled.
-The docs link the sandbox from the theming page.
+semicolons, quote hex colors and keep the Bootstrap grid enabled. Its example
+includes INDEX/CLASSICNAVBARDEMO HTML panels and optional Autothemer CSS markers.
+The Sunset example translates palette/font assignments, not all of the skin CSS.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
