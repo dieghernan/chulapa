@@ -3,7 +3,7 @@
 	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-10-14T17:41:21+02:00</updated>
+	<updated>2026-10-14T17:57:51+02:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A flexible, visual Jekyll theme</title>
 	<subtitle>A flexible, visual Jekyll theme</subtitle>
@@ -259,6 +259,10 @@ the details it needs rather than relying on an earlier message.&lt;/p&gt;
 reloading a page can restore the interface. Clear chat resets those messages and
 the draft. This displayed history is not sent as conversation context: each
 request contains only the current question.&lt;/p&gt;
+
+&lt;p&gt;Following a link from the assistant in the same tab closes its panel so you can
+read the destination. Reopening it restores your messages and draft. Opening a
+link in a new tab leaves the original panel open.&lt;/p&gt;
 
 &lt;p&gt;The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
 Questions are sent to Cloudflare for processing. Answers can contain mistakes;

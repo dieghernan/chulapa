@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Wed, 14 Oct 2026 17:41:21 +0200</pubDate>
-		<lastBuildDate>Wed, 14 Oct 2026 17:41:21 +0200</lastBuildDate>
+		<pubDate>Wed, 14 Oct 2026 17:57:51 +0200</pubDate>
+		<lastBuildDate>Wed, 14 Oct 2026 17:57:51 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -246,6 +246,10 @@ the details it needs rather than relying on an earlier message.</p>
 reloading a page can restore the interface. Clear chat resets those messages and
 the draft. This displayed history is not sent as conversation context: each
 request contains only the current question.</p>
+
+<p>Following a link from the assistant in the same tab closes its panel so you can
+read the destination. Reopening it restores your messages and draft. Opening a
+link in a new tab leaves the original panel open.</p>
 
 <p>The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
 Questions are sent to Cloudflare for processing. Answers can contain mistakes;
