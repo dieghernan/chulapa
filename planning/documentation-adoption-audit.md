@@ -25,6 +25,7 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#117](https://github.com/dieghernan/chulapa/pull/117) — installation methods | Merged and deployed | Makes Installation a short method directory; extracts remote-theme and gem setup into independent How-To Guides while preserving legacy anchors and updating chatbot sources/cases. |
 | [#118](https://github.com/dieghernan/chulapa/pull/118) — dated reassessment | Merged; internal planning only | Re-scores 28 merged user-facing surfaces after #117 using the original rubric; preserves baseline scores and revises the active implementation order. |
 | [#120](https://github.com/dieghernan/chulapa/pull/120) — appearance separation | Merged; Pages published; Worker deployment blocked at Pages wait | Extracts six appearance tasks and one precedence Explanation; preserves legacy anchors and Sunset/Codeply guidance and updates reference, task links and chatbot sources/cases. |
+| [#121](https://github.com/dieghernan/chulapa/pull/121) — context compaction | In review; not deployed | Reduces selective context by 29%, preserves source URLs and adds a reviewed byte budget. Live answer and latency comparison remains blocked by endpoint access. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
