@@ -65,3 +65,11 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Appearance precedence](https://dieghernan.github.io/chulapa/docs/26-appearance-precedence): Explain skins, vars, generated defaults and local overrides.
 - [Enable Autothemer](https://dieghernan.github.io/chulapa/docs/27-autothemer): Generate undefined colors while retaining assigned values.
 - [Adapt a Sass skin](https://dieghernan.github.io/chulapa/docs/28-custom-skin): Preview and translate Sass assignments, or use a local skin; retain Bootstrap/grid constraints.
+
+## Media tasks
+
+- [Add a photo gallery](https://dieghernan.github.io/chulapa/docs/29-add-gallery): Group uploaded images and display them in filename order.
+- [Add a manual slideshow](https://dieghernan.github.io/chulapa/docs/30-add-carousel): Reuse an image group with keyboard-operable carousel controls.
+- [Enable PhotoSwipe](https://dieghernan.github.io/chulapa/docs/31-photoswipe): Enable a viewer on an existing gallery; requires main after v2.1.0.
+- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Add a named YouTube player and verify preview and playback.
+- [Add a Mermaid diagram](https://dieghernan.github.io/chulapa/docs/33-add-diagram): Enable page rendering and add an accessible flowchart; requires main after v2.1.0.

@@ -26,7 +26,9 @@ search and comments are optional.
 
 - [Change your site's name and author](./docs/14-site-details).
 - [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
-- [Add an image](./docs/17-add-image).
+- [Add an image](./docs/17-add-image) or [a photo gallery](./docs/29-add-gallery).
+- [Add a manual slideshow](./docs/30-add-carousel) or [enable PhotoSwipe](./docs/31-photoswipe).
+- [Embed a video](./docs/32-embed-video) or [add a Mermaid diagram](./docs/33-add-diagram).
 - [Choose a skin](./docs/22-choose-skin) or [change one color](./docs/23-change-color).
 - [Change fonts](./docs/24-change-fonts) or [code highlighting](./docs/25-code-highlighting).
 - [Enable Autothemer](./docs/27-autothemer) or [adapt a Sass skin](./docs/28-custom-skin).
