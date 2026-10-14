@@ -3,13 +3,23 @@ require "jekyll-include-cache"
 require "fileutils"
 require "tmpdir"
 require "nokogiri"
+require "json"
 
 root = File.expand_path("..", __dir__)
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, "chulapa-accessibility-site")))
 skins = %w[chulapa navi journal gitdev lux flatly sketchy]
 fixtures = skins.map { |skin| [skin, skin, "fab"] } + [["navi-dual", "navi", "dual"], ["navi-classic", "navi", "classic"]]
-%w[chulapa gitdev gitdev-dark focal lux journal sketchy universal slate yeti].each do |skin|
-  %w[classic fab dual].each { |navigation| fixtures << ["#{skin}-#{navigation}", skin, navigation] }
+# Use the published catalog so new skins automatically receive navbar coverage.
+navbar_skins = Dir[File.join(root, "docs/collections/_skins/*.md")].filter_map do |file|
+  File.read(file).match(/^skin:\s*([\w-]+)\s*$/)&.captures&.first
+end.concat(%w[auto none]).uniq.sort
+raise "Empty skin catalog" if navbar_skins.empty?
+FileUtils.mkdir_p(output)
+File.write(File.join(output, "navbar-skins.json"), navbar_skins.to_json)
+navbar_skins.each do |skin|
+  # The Navi preview uses an alias to avoid replacing the current site navbar.
+  theme_skin = skin == "navi_current" ? "navi" : skin
+  %w[classic fab dual].each { |navigation| fixtures << ["#{skin}-#{navigation}", theme_skin, navigation] }
 end
 fixtures.each do |name, skin, navigation|
   Dir.mktmpdir("chulapa-accessibility-source-") do |source|

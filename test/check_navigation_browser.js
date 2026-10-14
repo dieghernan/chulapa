@@ -198,13 +198,17 @@ async function main() {
     await page.keyboard.press("Space");
     await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "false");
     assert.deepEqual(errors, [], "Unexpected JavaScript errors in generated pages");
-    for (const skin of ["chulapa", "gitdev", "gitdev-dark", "focal", "lux", "journal", "sketchy", "universal", "slate", "yeti"]) {
+    const navbarSkins = JSON.parse(fs.readFileSync(path.join(directory, "navbar-skins.json"), "utf8"));
+    assert.ok(navbarSkins.length > 0, "Skin catalog must not be empty");
+    for (const skin of navbarSkins) {
       for (const mode of ["classic", "fab", "dual"]) {
         for (const width of [320, 390, 1280]) {
           await page.setViewportSize({ width, height: 844 });
           await load(`${skin}-${mode}`);
           await page.addStyleTag({ content: "* { transition: none !important; animation: none !important; }" });
-          const differences = await page.locator('button.nav-link.dropdown-toggle').evaluateAll(buttons => buttons.flatMap(button => {
+          const dropdowns = page.locator('button.nav-link.dropdown-toggle');
+          assert.ok(await dropdowns.count() > 0, `${skin}/${mode}: missing dropdown fixture`);
+          const differences = await dropdowns.evaluateAll(buttons => buttons.flatMap(button => {
             // Compare with the link this native action replaced, preserving all classes and state.
             const link = document.createElement("a");
             for (const attribute of button.attributes) link.setAttribute(attribute.name, attribute.value);
@@ -215,7 +219,7 @@ async function main() {
             button.after(link);
             const actual = getComputedStyle(button);
             const expected = getComputedStyle(link);
-            const properties = ["fontFamily", "fontSize", "fontWeight", "letterSpacing", "textTransform", "textShadow",
+            const properties = ["fontFamily", "fontSize", "fontWeight", "fontStyle", "letterSpacing", "textTransform", "textShadow",
               "borderRadius", "borderLeftWidth", "borderRightWidth", "color", "backgroundColor", "paddingLeft", "paddingRight"];
             const differences = properties.filter(property => actual[property] !== expected[property])
               .map(property => `${button.id}: ${property} ${actual[property]} != ${expected[property]}`);
@@ -236,7 +240,7 @@ async function main() {
       });
       assert.deepEqual(customized, {weight:'500', transform:'uppercase', spacing:'2px'}, `${selector} must override inherited button defaults`);
     }
-    console.log("Passed native dropdown typography and borders on ten skins, all navbar modes and 320/390/1280px");
+    console.log(`Passed native dropdown typography and borders on all ${navbarSkins.length} skin configurations, all navbar modes and 320/390/1280px`);
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
     const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
     try {
