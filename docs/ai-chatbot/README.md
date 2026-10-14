@@ -94,6 +94,9 @@ No chat code is loaded until the script is explicitly added. The widget uses a
 Shadow DOM, sanitized Markdown responses, keyboard controls and an external-processing
 notice. Recent messages, the draft, retry question, scroll position and open
 state are saved in `sessionStorage` for the current tab's browser session.
+Following a widget link in the same tab collapses the panel before navigation,
+so it does not cover the destination. History and draft remain available when
+reopened; modified/new-tab activations leave the current panel open.
 Scroll updates are grouped with a 150 ms delay and saved immediately when leaving
 the page. Clear chat resets the saved messages and draft; blocked storage does
 not prevent the widget from working. Each request sends only the current question,

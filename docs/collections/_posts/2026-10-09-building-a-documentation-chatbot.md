@@ -22,6 +22,10 @@ reloading a page can restore the interface. Clear chat resets those messages and
 the draft. This displayed history is not sent as conversation context: each
 request contains only the current question.
 
+Following a link from the assistant in the same tab closes its panel so you can
+read the destination. Reopening it restores your messages and draft. Opening a
+link in a new tab leaves the original panel open.
+
 The assistant uses Cloudflare Workers AI with a reviewed summary of the docs.
 Questions are sent to Cloudflare for processing. Answers can contain mistakes;
 check the linked documentation, especially before changing your configuration.

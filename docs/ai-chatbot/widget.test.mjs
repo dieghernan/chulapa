@@ -254,3 +254,70 @@ test('scroll persistence is coalesced and flushed when leaving the page', () => 
     assert.equal(JSON.parse(ui.window.sessionStorage.getItem(storageKey)).scroll, 48);
   } finally { ui.dom.window.close(); }
 });
+
+
+test('following answer sources collapses the next page while preserving history and draft', () => {
+  const original = { open: true, draft: 'Next question', history: [
+    { label: 'Chulapa', text: '[**Theming**](https://dieghernan.github.io/chulapa/docs/03-theming#skins)' }
+  ] };
+  const ui = widget({ saved: original });
+  try {
+    // Stop JSDOM navigation after the widget's listener; the widget must not cancel it.
+    let canceledByWidget;
+    ui.root.addEventListener('click', event => {
+      canceledByWidget = event.defaultPrevented; event.preventDefault();
+    });
+    ui.get('log').querySelector('a strong').dispatchEvent(new ui.window.MouseEvent('click', {
+      bubbles: true, cancelable: true, button: 0
+    }));
+    assert.equal(canceledByWidget, false);
+    assert.equal(ui.get('chat').hidden, true);
+    assert.equal(ui.get('launch').getAttribute('aria-expanded'), 'false');
+    ui.window.dispatchEvent(new ui.window.Event('pagehide'));
+    const saved = JSON.parse(ui.window.sessionStorage.getItem(storageKey));
+    assert.equal(saved.open, false);
+    assert.equal(saved.draft, original.draft);
+    assert.deepEqual(saved.history, original.history);
+    const next = widget({ saved });
+    try {
+      assert.equal(next.get('chat').hidden, true);
+      next.get('launch').click();
+      assert.equal(next.get('question').value, original.draft);
+      assert.match(next.get('log').textContent, /Theming/);
+    } finally { next.dom.window.close(); }
+  } finally { ui.dom.window.close(); }
+});
+
+test('new-tab, modified and canceled source activations keep the current chat open', () => {
+  for (const mode of ['ctrlKey', 'metaKey', 'shiftKey', 'altKey', 'middle', 'blank', 'download', 'canceled']) {
+    const ui = widget({ saved: { open: true, history: [
+      { label: 'Chulapa', text: '[Docs](https://dieghernan.github.io/chulapa/docs)' }
+    ] } });
+    try {
+      const link = ui.get('log').querySelector('a');
+      if (mode === 'blank') link.target = '_blank';
+      if (mode === 'download') link.download = 'docs.html';
+      if (mode === 'canceled') link.addEventListener('click', event => event.preventDefault());
+      ui.root.addEventListener('click', event => event.preventDefault());
+      link.dispatchEvent(new ui.window.MouseEvent('click', {
+        bubbles: true, cancelable: true, button: mode === 'middle' ? 1 : 0,
+        [mode]: true
+      }));
+      assert.equal(ui.get('chat').hidden, false, mode);
+      assert.equal(JSON.parse(ui.window.sessionStorage.getItem(storageKey)).open, true, mode);
+    } finally { ui.dom.window.close(); }
+  }
+});
+
+test('widget search links collapse the chat even when session storage is blocked', () => {
+  for (const id of ['search', 'error-search']) {
+    const ui = widget({ blockedStorage: true });
+    try {
+      ui.get('launch').click();
+      ui.root.addEventListener('click', event => event.preventDefault());
+      ui.get(id).dispatchEvent(new ui.window.MouseEvent('click', { bubbles: true, cancelable: true }));
+      assert.equal(ui.get('chat').hidden, true);
+      assert.equal(ui.get('launch').getAttribute('aria-expanded'), 'false');
+    } finally { ui.dom.window.close(); }
+  }
+});

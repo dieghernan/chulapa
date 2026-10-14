@@ -880,7 +880,9 @@ These changes are not in released v2.1.0.
 Source: https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot
 The assistant is a documentation-site extension, not bundled with the reusable
 theme. Recent messages and drafts are stored in sessionStorage for the current
-tab's browser session and can be restored on reload. Clear chat resets them.
+tab's browser session and can be restored on reload. Following a widget link
+in the same tab closes the panel while retaining history/draft for reopening;
+modified/new-tab activations keep the original panel open. Clear chat resets them.
 Only the current question is sent in each request; displayed history is not
 conversation context. Visitors must include necessary details in each question.
 
