@@ -4,6 +4,30 @@ Date: 14 October 2026. Baseline: `main` after PR #106.
 Status: strategic audit and proposed implementation, not a rewrite of the public documentation.
 Language: English.
 
+## Implementation tracking
+
+Updated: 14 October 2026. The diagnosis and inventory below describe the baseline
+after PR #106, not a continuously rescored view of the current documentation.
+Completed work is recorded here without rewriting that historical assessment.
+
+| Delivery | Status | Result and remaining boundary |
+| --- | --- | --- |
+| [#107](https://github.com/dieghernan/chulapa/pull/107) — audit and packaging guard | Merged | Established the strict framework and baseline inventory; excluded internal material from the gem. |
+| [#108](https://github.com/dieghernan/chulapa/pull/108) — first publication | Merged and deployed | Focused the browser tutorial; extracted starter Reference and How-To pages; preserved legacy heading targets. Retargeted chatbot sources and gated Worker deployment on successful Pages publication for the same commit. |
+| [#109](https://github.com/dieghernan/chulapa/pull/109) — menu and footer tasks | In review; not deployed | Extracts two How-To guides, keeps configuration reference anchors, and updates chatbot sources/evaluation cases. This is a partial separation, not a claim that Global settings is pure Reference. |
+| Search and comments | Next proposed delivery; not started | Extract task guides from Global settings while preserving exact provider settings, defaults, version constraints and corresponding chatbot coverage. Scope each guide to a concrete outcome. |
+| Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
+
+For every subsequent delivery, record its PR, merge/deployment status, affected
+source links and remaining mixed content. Do not mark an open PR as implemented
+or rescore all pages after a small extraction. Reassess purity against the same
+rubric when a page's full transformation is ready for review.
+
+The deployment-order safeguard is now implemented by #108; the later rollout
+section describes the original proposal. Its two-release sequence remains an
+alternative when a change cannot use the exact-commit Pages gate. Live chatbot
+answer verification remains distinct from passing tests or a successful deployment.
+
 ## Executive diagnosis
 
 Chulapa already has the information needed to publish a site, configure integrations
