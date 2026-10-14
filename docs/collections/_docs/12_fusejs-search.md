@@ -58,5 +58,8 @@ settings above. If a document is absent from results, check its date, publishing
 status and any `include_on_search: false` in its front matter or defaults. Content
 changes enter the search index during the next site build; republish after edits.
 
-For other providers and exact field defaults, use the [search reference](./02-config#search-engines).
+To switch providers, use [Lunr.js](./34-lunr-search),
+[Simple-Jekyll-Search](./35-simplesearch-search),
+[Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
+For exact field defaults, use the [search reference](./02-config#search-engines).
 For a working interface, see the [Fuse.js demo](../demo/search_fusejs).

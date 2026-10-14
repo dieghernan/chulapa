@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: main after PR #120, 14 October 2026. Selective facts from public
+Reviewed snapshot: search-provider guide extraction, 14 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -204,9 +204,13 @@ show_related: up to 3 collection documents, >=2 shared tags same collection or >
 ## Configuring site search
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/12-fusejs-search
+https://dieghernan.github.io/chulapa/docs/34-lunr-search
+https://dieghernan.github.io/chulapa/docs/35-simplesearch-search
+https://dieghernan.github.io/chulapa/docs/36-google-search
+https://dieghernan.github.io/chulapa/docs/37-algolia-search
 search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search link also needs navbar.nav; otherwise visit landing path including actual baseurl or add navbar links.
 Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
-Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Browser fields algolia.application_id, index_name, search_only_api_key; indexing secret ALGOLIA_API_KEY belongs in environment/secrets, never public config. Docs site uses Algolia. Google needs google_cse_id.
+Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Browser fields algolia.application_id, index_name, search_only_api_key; indexing secret ALGOLIA_API_KEY belongs in environment/secrets, never public config. Docs site uses Algolia. jekyll-algolia is deprecated/unmaintained; install in Gemfile plugin group and upload via bundle exec jekyll algolia after dependency installation, with ALGOLIA_API_KEY secret environment binding (source directory must match). Google needs google_cse_id for an existing configured engine; build/local exclusions do not control Google indexing.
 
 
 ## Comments

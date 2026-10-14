@@ -26,7 +26,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#118](https://github.com/dieghernan/chulapa/pull/118) — dated reassessment | Merged; internal planning only | Re-scores 28 merged user-facing surfaces after #117 using the original rubric; preserves baseline scores and revises the active implementation order. |
 | [#120](https://github.com/dieghernan/chulapa/pull/120) — appearance separation | Merged; Pages and context published with #121 | Extracts six appearance tasks and one precedence Explanation; preserves legacy anchors and Sunset/Codeply guidance and updates reference, task links and chatbot sources/cases. |
 | [#121](https://github.com/dieghernan/chulapa/pull/121) — context compaction | Merged; Pages and Worker deployment succeeded | Reduces selective context by 29%, preserves source URLs and adds a reviewed byte budget. Live answer and latency comparison remains blocked by endpoint access. |
-| [#122](https://github.com/dieghernan/chulapa/pull/122) — media extraction | In review; not deployed | Five How-To Guides separate galleries, carousels, PhotoSwipe, YouTube and Mermaid setup from snippet Reference. Legacy anchors and parameters remain; other Layouts mixtures still require work. |
+| [#122](https://github.com/dieghernan/chulapa/pull/122) — media extraction | Merged; Pages and Worker deployment succeeded | Five How-To Guides separate galleries, carousels, PhotoSwipe, YouTube and Mermaid setup from snippet Reference. Legacy anchors and parameters remain; other Layouts mixtures still require work. |
+| Search-provider extraction — current branch | In preparation; not deployed | Four How-To Guides separate Lunr, Simple-Jekyll-Search, Google and Algolia setup from configuration Reference. Comments-provider procedures remain pending; legacy anchors and settings are preserved. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -114,9 +115,9 @@ Phase 5 roadmap below remains historical; use this order for the next deliveries
 1. **Appearance — delivered in #120:** split Theming's task recipes, variable reference and
    skin/vars/Autothemer precedence explanation. Keep identifiers, defaults and
    version/override constraints with the relevant destinations.
-2. **Media — current delivery:** extract gallery, carousel, video and diagram procedures from Layouts,
+2. **Media — delivered in #122:** extract gallery, carousel, video and diagram procedures from Layouts,
    retaining parameter catalogs, runnable specimens and legacy anchors.
-3. **Provider setup:** finish the remaining Global settings task/reference split,
+3. **Provider setup — search current delivery; comments pending:** finish the remaining Global settings task/reference split,
    including indexing workflows and compatibility cautions.
 4. **FAQ and migration:** route symptom tasks to canonical How-To Guides and
    separate field mappings and hook/reference material without losing questions.

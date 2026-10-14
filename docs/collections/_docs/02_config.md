@@ -292,8 +292,10 @@ service's own behavior.
 ### Search engines
 
 `search` configures search within the site, independently of external search-engine
-indexing. The personal-blog template includes Fuse.js search. Setup instructions
-are in [Enable Fuse.js search](./12-fusejs-search).
+indexing. The personal-blog template includes Fuse.js search. Setup instructions:
+[Enable Fuse.js](./12-fusejs-search), [Lunr.js](./34-lunr-search),
+[Simple-Jekyll-Search](./35-simplesearch-search),
+[Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
 
 A search page uses `layout: search`; its `permalink` matches `search.landing_page`
 (default `/search`). A provider does not create the page. In the classic navbar
@@ -335,9 +337,8 @@ The `jekyll-algolia` plugin is deprecated and no longer maintained by Algolia.
 Its archived documentation remains available in the upstream repository.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
-The theme uses `jekyll-algolia` to upload its search index. See the plugin's
-[setup documentation](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/getting-started.md)
-and [configuration reference](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md).
+The theme uses `jekyll-algolia` for index uploads. Browser search and index
+upload are separate operations; the latter requires an indexing credential.
 The browser search requires these settings:
 
 - `algolia`:
@@ -355,14 +356,17 @@ Additional Algolia indexing options in the sample configuration are
 `searchableAttributes` (searchable fields) and `customRanking` (ranking rules).
 They belong under `algolia`; they do not affect the local search providers.
 
-For a complete starting configuration, see the
-[Algolia settings in the sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml)
-and adapt them to your account. Automate index uploads with your publishing
-workflow; see the [Algolia Jekyll action](https://github.com/marketplace/actions/algolia-jekyll-action).
+`include_on_search` is not an Algolia exclusion: the sample `customRanking`
+uses it for ranking. `algolia.files_to_exclude` controls omissions. These
+settings do not restrict Google's crawler or make published files private.
 
-If you are updating an older setup, remove `lunr_maxwords`,
-`simplesearch_maxwords` or `fusejs_maxwords` to use the shared `maxwords` setting.
-Those older settings take precedence when present.
+Configuration specimens: [sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml)
+and [plugin option catalog](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md).
+Setup and workflow steps: [Connect Algolia search](./37-algolia-search).
+
+Legacy `lunr_maxwords`, `simplesearch_maxwords` and `fusejs_maxwords` take
+precedence over the shared `maxwords` setting when present. Without those
+provider-specific keys, the shared setting applies.
 
 With the local search providers, visitors can search while typing or press
 Enter. Clearing the field clears the results.

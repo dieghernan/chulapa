@@ -373,5 +373,33 @@
     "doc": "33_add-diagram.md",
     "question": "I want to add a simple accessible Mermaid workflow diagram to my page. Where do I start?",
     "expected": "Link to /docs/33-add-diagram. Require main after v2.1.0; boolean mermaid: true in existing front matter, fenced mermaid flowchart in body, accTitle/accDescr plus prose for complex charts. Minimal-derived layout, no plugin. Modern modules/ES2024 Safari17.4+, jsDelivr; source fallback. Preserve other fields and publish/check. No claim it works on v2.1.0."
+  },
+  {
+    "id": "provider-lunr-task-1",
+    "section": "search",
+    "doc": "34_lunr-search.md",
+    "question": "How do I replace Fuse.js with Lunr search on my existing site?",
+    "expected": "search.provider: lunr, preserve existing search options, reuse/create layout: search page with matching permalink and landing_page, no account/key/extra plugin, no duplicate output or repeated baseurl. Publish and verify a title/result; include_on_search false affects local index. Link /docs/34-lunr-search."
+  },
+  {
+    "id": "provider-simplesearch-task-1",
+    "section": "search",
+    "doc": "35_simplesearch-search.md",
+    "question": "Can I enable Simple-Jekyll-Search without a hosted account?",
+    "expected": "Yes: provider simplesearch, existing search mapping and matching layout search page. No provider account/API key/extra plugin. Publish builds index; verify result and clearing. Link /docs/35-simplesearch-search. Preserve settings and baseurl-safe paths."
+  },
+  {
+    "id": "provider-google-task-1",
+    "section": "search",
+    "doc": "36_google-search.md",
+    "question": "I have a Google Custom Search engine. Will a Jekyll rebuild upload my new articles to Google?",
+    "expected": "No index upload to Google. Set search.provider google and top-level google_cse_id from existing engine, reuse/create matching search page; engine scope and Google indexing govern results. Local include_on_search exclusion does not control Google crawler. Link /docs/36-google-search."
+  },
+  {
+    "id": "provider-algolia-task-1",
+    "section": "search",
+    "doc": "37_algolia-search.md",
+    "question": "I configured Algolia in YAML but have no results. How do I upload the index and exclude a page?",
+    "expected": "Browser configuration does not upload index or create search page. Need application_id/index_name/public search_only_api_key plus matching layout search page. jekyll-algolia indexing plugin deprecated/unmaintained; dependency in plugin Gemfile group, bundle install, workflow step bundle exec jekyll algolia in actual site folder with separate ALGOLIA_API_KEY environment secret, never public config. Use algolia.files_to_exclude, not include_on_search false which sample uses for ranking. Check uploaded records and browser/index settings match. Link /docs/37-algolia-search."
   }
 ]
