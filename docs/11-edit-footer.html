@@ -18,8 +18,8 @@
         "description": "Update the contact, social or feed links below your pages - Change footer labels and destinations, then verify the links on your published site.",
         "headline": "Edit footer links",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-14T12:08:18+02:00",
-        "dateModified": "2026-10-14T12:08:18+02:00",
+        "datePublished": "2026-10-14T12:23:59+02:00",
+        "dateModified": "2026-10-14T12:23:59+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -175,6 +175,8 @@
          <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/09-run-starter">Run a starter example</a></li>
          <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/10-edit-menu">Edit menu links</a></li>
          <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/11-edit-footer" aria-current="page">Edit footer links</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">Enable Fuse.js search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/13-giscus-comments">Enable giscus comments</a></li>
          <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet</a></li>
          <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting</a></li>
          <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary</a></li>
@@ -212,7 +214,7 @@
 				</li><li class="nav-item my-0 py-1">
 					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
 				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1  active font-weight-bold " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
-					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Read the Docs </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/01-install">Installation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Global Settings </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Theming your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/04-layouts">Layouts & Snippets </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-faq">FAQs </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance">Accessibility and performance </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/08-starter-examples">Starter examples reference </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/09-run-starter">Run a starter example </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/10-edit-menu">Edit menu links </a><a class="dropdown-item nav-link d-block px-3 small  active font-weight-bold " href="https://dieghernan.github.io/chulapa/docs/11-edit-footer" aria-current="page">Edit footer links <span class="sr-only">(current)</span></a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary </a></div>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Read the Docs </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/01-install">Installation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Global Settings </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Theming your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/04-layouts">Layouts & Snippets </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-faq">FAQs </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance">Accessibility and performance </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/08-starter-examples">Starter examples reference </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/09-run-starter">Run a starter example </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/10-edit-menu">Edit menu links </a><a class="dropdown-item nav-link d-block px-3 small  active font-weight-bold " href="https://dieghernan.github.io/chulapa/docs/11-edit-footer" aria-current="page">Edit footer links <span class="sr-only">(current)</span></a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">Enable Fuse.js search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/13-giscus-comments">Enable giscus comments </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Syntax highlighting </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Variable dictionary </a></div>
 				</li><li class="nav-item my-0 py-1">
 					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
 				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
@@ -279,7 +281,8 @@ Find the existing <code class="language-plaintext highlighter-rouge">footer</cod
  <li>Edit a matching entry, or add an entry for a new destination. Keep other links
 and any existing <code class="language-plaintext highlighter-rouge">copyright</code> value. Do not add a second <code class="language-plaintext highlighter-rouge">footer</code> section.</li>
  <li>Set a descriptive <code class="language-plaintext highlighter-rouge">label</code> and the destination <code class="language-plaintext highlighter-rouge">url</code>. Keep the entry’s existing
-Font Awesome <code class="language-plaintext highlighter-rouge">icon</code>, or choose an icon appropriate to the destination.</li>
+Font Awesome <code class="language-plaintext highlighter-rouge">icon</code>, or choose one using the <a href="./02-config#font-awesome">icon reference</a>.
+Use the complete icon class value, such as <code class="language-plaintext highlighter-rouge">fas fa-envelope</code> for email.</li>
 </ol>
 <p>For example, this list adds an email contact and the built-in Atom feed:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">footer</span><span class="pi">:</span>
@@ -325,13 +328,13 @@ For the full option list and copyright behavior, use the <a href="./02-config#fo
 	  <p class="page-link">|</p>
 	 </li>	
 	 <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-sm-inline d-md-none ">
-	   <p class="page-link chulapa-label">Syntax highlig...</p>
+	   <p class="page-link chulapa-label">Enable Fuse.js...</p>
 	 </li>
 	 <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-md-inline ">
-	   <p class="page-link chulapa-label">Syntax highlighting demo</p>
+	   <p class="page-link chulapa-label">Enable Fuse.js search</p>
 	 </li>
    <li class="page-item text-right ml-0 ">
-      <a class="page-link border-0 px-4" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">
+      <a class="page-link border-0 px-4" href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">
 	  <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span></a>
    </li>
  </ul>
