@@ -116,6 +116,9 @@ For an existing Jekyll site, set `remote_theme: dieghernan/chulapa` and follow
 for dependencies and publishing. Without a version tag, this uses development
 updates; append `@v2.1.0` to stay on that release.
 
+Use the [migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration)
+to adapt your content, navigation and integrations while keeping existing URLs.
+
 ### C. Gem-based method 💎
 
 Add `gem "chulapa-jekyll"` to your Gemfile and set `theme: chulapa-jekyll` in

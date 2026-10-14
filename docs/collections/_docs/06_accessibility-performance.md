@@ -6,6 +6,11 @@ show_toc: true
 permalink: /docs/06-accessibility-performance
 ---
 
+**Getting started:** [check your own pages](#check-your-own-pages).
+**Advanced reference:** review [resource loading](#resource-loading),
+[offline limitations](#pwa-and-offline-behavior) and [test coverage](#review-coverage).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Make sure visitors can read and use your site on a phone, with a keyboard and
 with enlarged text. Start with your own content and the checks below.
 

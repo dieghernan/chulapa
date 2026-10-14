@@ -5,6 +5,11 @@ excerpt: Create a blog, edit your first post and add a photograph using GitHub i
 show_toc: true
 ---
 
+**Getting started:** follow the [browser walkthrough](#start-with-the-github-template).
+**Advanced reference:** jump to [minimal examples](#explore-minimal-examples),
+or use the [migration guide](./07-migration) for an existing Jekyll site.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 ## Start with the GitHub template
 
 You only need a free [GitHub account](https://github.com/signup) and your browser.

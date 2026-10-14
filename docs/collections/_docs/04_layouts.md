@@ -8,10 +8,20 @@ show_toc: true
 h_max: 4
 ---
 
+**Getting started:** [create a post](#create-a-post), [page](#create-a-page)
+or [add an image](#add-an-image). **Advanced reference:** jump to
+[layouts](#a-layouts), [snippets](#b-snippets), [page settings](#advanced-page-settings)
+or [customization](#advanced-customization-reference).
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Use this page to write an article, add a standalone page or include media.
 Start with the examples below; the [layout reference](#a-layouts) lists more
 options when you need them. A **layout** is a page design. **Front matter** is
 the settings block between `---` lines at the top of a content file.
+
+Moving existing posts or pages? Start with the
+[migration front matter mapping](./07-migration#3-adapt-front-matter)
+to replace layout names and options from your previous theme.
 
 ## Create a post
 
