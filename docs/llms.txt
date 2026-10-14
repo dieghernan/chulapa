@@ -12,10 +12,13 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-only tutorial: publish the Chulapa 101 blog with a personal title and edited sample article; existing task/example anchors remain as compatibility links.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): GitHub template, remote-theme and gem-based installation, dependencies, local overrides and deployment guidance.
 - [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration, local overrides, front matter mapping, integrations, preserved URLs and a twelve-point checklist.
-- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Essential site details and menu editing first; metadata, search, comments, analytics (Google and development GoatCounter), collections, Jekyll build settings and HTML compression as reference.
+- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Site details and option reference for navbar/footer, metadata, search, comments, analytics (Google and development GoatCounter), collections, Jekyll build settings and HTML compression; menu/footer editing have separate task guides.
 
 - [Add or change a menu link](https://dieghernan.github.io/chulapa/docs/10-edit-menu): Edit an existing site’s navbar links, preserve other navigation settings and verify destinations with baseurl.
 - [Edit footer links](https://dieghernan.github.io/chulapa/docs/11-edit-footer): Update contact, social and feed destinations while keeping existing footer settings.
+
+- [Enable Fuse.js search](https://dieghernan.github.io/chulapa/docs/12-fusejs-search): Configure the provider and matching search page, avoid duplicate output paths and verify indexed results.
+- [Enable giscus comments](https://dieghernan.github.io/chulapa/docs/13-giscus-comments): Configure the embed and provider, enable one post and verify GitHub Discussions.
 
 ## Theme and content reference
 

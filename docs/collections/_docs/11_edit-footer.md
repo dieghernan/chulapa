@@ -15,7 +15,8 @@ you want visitors to open from the footer.
 2. Edit a matching entry, or add an entry for a new destination. Keep other links
    and any existing `copyright` value. Do not add a second `footer` section.
 3. Set a descriptive `label` and the destination `url`. Keep the entry's existing
-   Font Awesome `icon`, or choose an icon appropriate to the destination.
+   Font Awesome `icon`, or choose one using the [icon reference](./02-config#font-awesome).
+   Use the complete icon class value, such as `fas fa-envelope` for email.
 
 For example, this list adds an email contact and the built-in Atom feed:
 
