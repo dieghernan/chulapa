@@ -60,7 +60,7 @@ After publishing, check the article again rather than the GitHub file preview.
 ### How do I change the colors or design?
 
 Choose a skin from the previews, then change the existing `chulapa-skin.skin`
-entry in `_config.yml`. See [Skins](./03-theming#skins). Changing a preview in
+entry in `_config.yml`. See [Skins](./22-choose-skin). Changing a preview in
 your browser does not save the design to your own website.
 
 ## How do I...

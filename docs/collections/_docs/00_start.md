@@ -116,7 +116,7 @@ in `_pages/about.md`. Keep the home page filename `index.html`.
 Choose a next task when you need it:
 
 - [Add a photograph](./17-add-image).
-- [Choose a design](./03-theming#skins).
+- [Choose a design](./22-choose-skin).
 - [Create a page](./16-create-page).
 
 <details markdown="1">
@@ -126,7 +126,7 @@ These destinations preserve links to tasks that used to follow the tutorial.
 They are not additional steps needed to publish your first site.
 
 - <span id="5-add-a-photograph"></span>[Add a photograph](./17-add-image).
-- <span id="6-choose-a-design"></span>[Choose a design](./03-theming#skins).
+- <span id="6-choose-a-design"></span>[Choose a design](./22-choose-skin).
 - <span id="explore-minimal-examples"></span>[Explore minimal examples](./08-starter-examples).
 - <span id="choose-a-starting-point"></span>[Choose a starting point](./08-starter-examples).
 - <span id="make-it-your-own"></span>[Set up a copied starter](./09-run-starter#prepare-your-copy).

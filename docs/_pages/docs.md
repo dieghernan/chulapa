@@ -27,7 +27,9 @@ search and comments are optional.
 - [Change your site's name and author](./docs/14-site-details).
 - [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
 - [Add an image](./docs/17-add-image).
-- [Choose a skin](./docs/03-theming#skins) or [change one color](./docs/03-theming#change-one-color).
+- [Choose a skin](./docs/22-choose-skin) or [change one color](./docs/23-change-color).
+- [Change fonts](./docs/24-change-fonts) or [code highlighting](./docs/25-code-highlighting).
+- [Enable Autothemer](./docs/27-autothemer) or [adapt a Sass skin](./docs/28-custom-skin).
 - [Add or change a menu link](./docs/10-edit-menu).
 - [Edit footer links](./docs/11-edit-footer).
 - [Migrate from another theme](./docs/07-migration).
@@ -52,6 +54,8 @@ reference sections in pages that also contain task guides.
 - [Syntax highlighting examples](./docs/syntax-highlighting).
 
 ## Explanation
+
+- [How skins and overrides interact](./docs/26-appearance-precedence): understand why an existing color or font can remain in effect.
 
 ### How publishing fits together
 

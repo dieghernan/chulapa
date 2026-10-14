@@ -310,5 +310,33 @@
     "doc": "21_gem-theme.md",
     "question": "How do I switch an existing remote-theme site to the Chulapa gem and update it later?",
     "expected": "Gemfile chulapa-jekyll, config theme chulapa-jekyll remove remote_theme and remote plugin if unused; enable include-cache, preserve other plugins/deps; bundle install/serve; publish bundle and check live site. bundle update chulapa-jekyll respects constraints, overrides persist, gem releases exclude unreleased features."
+  },
+  {
+    "id": "appearance-skin-task-1",
+    "section": "theming",
+    "doc": "22_choose-skin.md",
+    "question": "How do I change my published site to journal without losing my other design settings?",
+    "expected": "Edit existing chulapa-skin.skin journal preserve vars/settings; exact name, no duplicate sections; commit Actions published home/article/mobile, overrides can preserve old colors; preview choice not saved; local Jekyll restart."
+  },
+  {
+    "id": "appearance-font-task-1",
+    "section": "theming",
+    "doc": "24_change-fonts.md",
+    "question": "I loaded Rubik from Google Fonts but my text did not change. What should I edit?",
+    "expected": "Loading stylesheet alone insufficient; set font-family-base under existing chulapa-skin.vars, optional headings-font-family, quoted lists/fallbacks, preserve entries; rebuild/publish/local restart, check actual body/headings and external stylesheet availability."
+  },
+  {
+    "id": "appearance-auto-task-1",
+    "section": "theming",
+    "doc": "27_autothemer.md",
+    "question": "Can Autothemer replace every color of my current skin? What if I set autothemer false while using skin auto?",
+    "expected": "No, fills undefined; vars overrides skin and assigned colors persist. none plus autothemer true allows unassigned palette generation; preserving skin preserves explicit assignments. false only disables later generation step, skin auto independently imports generator; no new setting."
+  },
+  {
+    "id": "appearance-sass-task-1",
+    "section": "theming",
+    "doc": "28_custom-skin.md",
+    "question": "How do I adapt my Sass palette through Codeply or a local custom skin?",
+    "expected": "Preview SCSS assignments above existingimports, preserve Bootstrap/grid no second import; translate to vars dropping $/semicolon quote hex, font URL separate. Or _sass/skins/NAME.scss SCSS with !default, skin NAME in config, never YAML in Sass; Sunset palette not full skin CSS; rebuild/publish/contrast and mobile checks."
   }
 ]

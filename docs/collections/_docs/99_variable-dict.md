@@ -6,10 +6,9 @@ h_min: 2
 h_max: 3
 ---
 
-Use these settings to change colors, text sizes and other details of your
-chosen skin. Add them under `chulapa-skin.vars` in `_config.yml`, keeping your
-existing settings. Quote colors beginning with `#` and sizes such as `"1.1rem"`.
-Use `true` or `false` without quotes for switches:
+These are selected variables accepted by `chulapa-skin.vars` in `_config.yml`,
+not page front matter. Hex colors and Sass expressions such as sizes/font lists
+are quoted strings; switches are YAML booleans. Example mapping syntax:
 
 ```yaml
 chulapa-skin:
@@ -23,7 +22,8 @@ chulapa-skin:
 
 Values in `vars` override the selected skin's variable assignments.
 Autothemer fills in variables that are still undefined. See
-[Theming <span class="chulapa">Chulapa</span>](./03-theming#variables) for variable precedence and font setup.
+[How skins and overrides interact](./26-appearance-precedence) for precedence;
+[Change fonts](./24-change-fonts) provides the setup procedure.
 
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 
@@ -77,9 +77,8 @@ instead. The [complete <span class="chulapa">Chulapa</span> variable reference](
 includes these calculated values.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-Set these values in `_config.yml`, not in an article's settings block. Save
-and publish to see the change; restart Jekyll if you preview locally.
-For page options, see [Layouts and snippets](./04-layouts).
+These inputs belong to site configuration, not article settings. Procedure:
+[Change a color](./23-change-color). Page options: [Layouts and snippets](./04-layouts).
 
 ## Selected Bootstrap variables
 
