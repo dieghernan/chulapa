@@ -36,7 +36,7 @@ settings, match the home-page heading and verify publication. The complete
 For an article, create `_posts/YYYY-MM-DD-title.md` with a real date and the
 settings block at the top. For a standalone page, use `_pages/` in the starter
 and add its address to your menu. Follow the complete examples in
-[Create a post](./04-layouts#create-a-post) and [Create a page](./04-layouts#create-a-page).
+[Create a post](./15-create-post) and [Create a page](./16-create-page).
 
 ### Why can I not see my changes?
 
@@ -54,7 +54,7 @@ For local preview, restart Jekyll after changing `_config.yml`.
 
 Check that the file was uploaded and saved, and that its filename matches the
 link exactly, including uppercase and lowercase letters. Use the image example
-in [Add an image](./04-layouts#add-an-image), which handles repository paths.
+in [Add an image](./17-add-image), which handles repository paths.
 After publishing, check the article again rather than the GitHub file preview.
 
 ### How do I change the colors or design?
@@ -78,7 +78,7 @@ configuration uses kramdown with its GFM parser; accepted syntax depends on
 your Markdown configuration.
 
 For a complete file with its settings block and text, see
-[Create a post](./04-layouts#create-a-post).
+[Create a post](./15-create-post).
 
 ### ...add custom HTML, analytics, CSS or JavaScript to every page?
 

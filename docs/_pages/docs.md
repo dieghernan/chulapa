@@ -25,8 +25,8 @@ Choose a task for a site you already have. Basic changes come first;
 search and comments are optional.
 
 - [Change your site's name and author](./docs/14-site-details).
-- [Create a post](./docs/04-layouts#create-a-post) or [a page](./docs/04-layouts#create-a-page).
-- [Add an image](./docs/04-layouts#add-an-image).
+- [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
+- [Add an image](./docs/17-add-image).
 - [Choose a skin](./docs/03-theming#skins) or [change one color](./docs/03-theming#change-one-color).
 - [Add or change a menu link](./docs/10-edit-menu).
 - [Edit footer links](./docs/11-edit-footer).

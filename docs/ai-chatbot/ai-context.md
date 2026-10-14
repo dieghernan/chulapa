@@ -262,6 +262,26 @@ Use layout: default in front matter or configure it through Jekyll defaults.
 Optional components are enabled through front matter or defaults. Demos show
 rendered examples. Content uses Markdown with YAML front matter.
 
+## Writing content
+Source: https://dieghernan.github.io/chulapa/docs/15-create-post
+Source: https://dieghernan.github.io/chulapa/docs/16-create-page
+Source: https://dieghernan.github.io/chulapa/docs/17-add-image
+For a published site, create posts in _posts/YYYY-MM-DD-title.md with a real,
+non-future date and front matter layout: default, header_type: post, title and
+optionally show_date: true. The layout supplies the main heading; use ## inside
+the article. Post URLs follow the site's permalink, not the _posts source path.
+Chulapa 101 and the personal-blog example list posts on the home page; other
+sites may need an index or link. Create standalone pages under _pages in Chulapa
+101, or beside _config.yml when that folder is not included by the site's setup.
+A page can use layout: default, header_type: base, title and permalink: /contact/.
+Do not duplicate an existing output path. Add the page to the existing navbar;
+the file itself does not add a menu entry. Menu paths omit baseurl.
+Upload images under assets/img and insert Markdown in the content below front
+matter: ![Descriptive alt text]({{ '/assets/img/river.jpg' | relative_url }}).
+Match filename capitalization; do not manually prepend baseurl. Commit the upload
+and content edits on the publishing branch, wait for Actions, and check the actual
+website including a narrow viewport. GitHub's source preview is not the final site.
+
 ## Adding videos
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#video-support
 Yes, Chulapa supports adding videos to site pages with the Liquid include
