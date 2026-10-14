@@ -21,7 +21,7 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | Merged and deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
 | [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | Merged and deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
 | [#115](https://github.com/dieghernan/chulapa/pull/115) — analytics tasks | Merged and deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
-| [#116](https://github.com/dieghernan/chulapa/pull/116) — related-documentation pilot | In review; not deployed | Tags content, navigation and analytics guides plus their references; enables related cards only on seven How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
+| [#116](https://github.com/dieghernan/chulapa/pull/116) — related documentation | In review; not deployed | Tags content, navigation and analytics guides plus their references; enables related cards only on eight How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -63,17 +63,17 @@ filename sequence merely because its names can be reordered. A future tutorial
 series needs an intentional path, separately scoped and reviewed; #113
 did not add a new navigation API or implement such a series.
 
-### Topic-related documentation pilot
+### Related-documentation policy
 
 The current delivery uses the existing `tags`, `show_related` and `related_label`
-fields, without changing the theme's recommendation algorithm. Seven How-To
+fields, without changing the theme's recommendation algorithm. Eight How-To
 Guides show cards; the broad reference pages are candidates, not recommendation
 surfaces. Start, the index and other Docs pages have no related cards.
 
 | Topic | Guides showing cards | Reference candidate | Expected cards per guide |
 | --- | --- | --- | --- |
 | Analytics | GoatCounter; GA4 | Global settings | Reference plus the other guide: 2. |
-| Navigation | Edit menu; edit footer | Global settings | Reference plus the other guide: 2. |
+| Identity and navigation | Change site details; edit menu; edit footer | Global settings | Reference plus both other guides: 3. |
 | Content | Create post; create page; add image | Layouts and snippets | Reference plus both other guides: 3. |
 
 Each group shares `docs` plus its topic tag. Global settings belongs to both
@@ -85,16 +85,18 @@ classification. The widget requires two shared tags within a collection, or thre
 across collections, and ranks by match count then date. It cannot distinguish a
 prerequisite from an alternative or link to a reference subsection. Keep direct
 task/reference links and version caveats in the guides. Check the actual rendered
-candidate sets before extending this pilot; do not add generic shared tags to
-all Docs just to make the widget produce results. The content group fills the
+candidate sets when adding or editing a guide; do not add generic shared tags to
+all Docs just to make the widget produce results. The content and identity/navigation groups fill the
 three-card limit: adding another guide will require reviewing which links are
-omitted. Existing post-only tag listings remain unchanged.
+omitted. The cards are supplementary: retain essential links in the guide text.
+Docs explicitly sets `show_date: false`; related/random cards respect that setting
+so undated documentation does not display the fallback build date. Existing post-only tag listings remain unchanged.
 
 ### Next priorities, not yet merged
 
-1. Current delivery: validate the topic-related pilot on the analytics, content and navigation
-   guides. Keep the other Docs pages unchanged until its recommendations have
-   been reviewed.
+1. Current delivery: establish reviewed related-documentation links for content,
+   identity/navigation and analytics. Recheck candidate sets with every addition;
+   do not enable cards globally. Appearance and other integrations remain deferred.
 2. Continue extracting the remaining integration procedures from Global settings
    and media procedures from Layouts; retain exact option/default/version facts
    in Reference.

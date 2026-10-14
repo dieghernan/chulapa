@@ -402,6 +402,8 @@ the quoted string "false", to disable components.
 show_related displays up to three tag-related collection documents: candidates
 need two shared tags in the same collection or three across collections.
 show_random selects up to three from this candidate pool at build time.
+In v2.1.1-dev, a candidate with show_date: false has no date footer on either
+related or random cards; other candidates retain their existing date display.
 The v2.1.1 development version fixes a singleton pool rendering empty cards;
 one eligible candidate renders as one card.
 Empty related/random panels can mean no documents meet those shared-tag

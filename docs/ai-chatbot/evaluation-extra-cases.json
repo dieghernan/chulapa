@@ -289,5 +289,12 @@
     "doc": "19_google-analytics.md",
     "question": "I have a GA4 stream. How do I connect my blog, avoid duplicates and check it? Does local preview count?",
     "expected": "G- measurement ID as existing gtag_id, clear legacy analytics_id and goatcounter for Google-only; no duplicate custom script; publish/check Realtime in matching property. Not production gated, also loads local preview. Blockers/custom consent can prevent requests."
+  },
+  {
+    "id": "related-card-dates-1",
+    "section": "navigation",
+    "doc": "04_layouts.md",
+    "question": "How do I hide build dates on related documentation cards? Do I need a new card setting?",
+    "expected": "In v2.1.1-dev use existing show_date: false on candidate documents or collection defaults. Hides their date footer in related and random cards. Controls candidate display not selection/ranking; no new option, other candidates keep existing display."
   }
 ]

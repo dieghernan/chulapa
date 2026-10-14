@@ -202,6 +202,9 @@ id="aa">My heading</h1>`) don't forget to include the `id`.
   same collection or at least three tags otherwise. More matches rank first,
   with newer dates used within each score.
 
+In v2.1.1-dev, a candidate with `show_date: false` has no date footer in
+related or random cards. Other candidates retain the existing date display.
+
 - `show_random`: Display up to three randomly selected documents from the same
   candidate pool as `show_related`. Selection happens at build time, so the
   cards do not change on every page load. In v2.1.1-dev, a
