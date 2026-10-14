@@ -21,10 +21,14 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Enable Fuse.js search](https://dieghernan.github.io/chulapa/docs/12-fusejs-search): Configure the provider and matching search page, avoid duplicate output paths and verify indexed results.
 - [Enable giscus comments](https://dieghernan.github.io/chulapa/docs/13-giscus-comments): Configure the embed and provider, enable one post and verify GitHub Discussions.
 
+- [Create a post](https://dieghernan.github.io/chulapa/docs/15-create-post): Create a dated article, publish it and check its public listing and address.
+- [Create a page](https://dieghernan.github.io/chulapa/docs/16-create-page): Create a standalone page, preserve its address and add a menu link.
+- [Add an image](https://dieghernan.github.io/chulapa/docs/17-add-image): Upload an image, use relative_url and check the published result.
+
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Skins, fonts, syntax highlighting, Autothemer and Sass variable overrides.
-- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Complete post, page and image examples; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with complete snippet parameters, a theme-managed helper inventory and practical guidance for local overrides.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Links to post, page and image task guides; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with complete snippet parameters, a theme-managed helper inventory and practical guidance for local overrides.
 - [Starter examples reference](https://dieghernan.github.io/chulapa/docs/08-starter-examples): Four minimal Jekyll source examples, live previews, contents and limitations; no deployment workflow.
 - [Run a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter): Copy, configure, preview and publish a minimal example for existing Jekyll users.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
