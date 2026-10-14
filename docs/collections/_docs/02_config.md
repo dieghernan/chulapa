@@ -374,8 +374,10 @@ Enter. Clearing the field clears the results.
 ### Comments
 
 Comments require a supported provider's setup and `show_comments: true` on the
-page or in front matter defaults for a layout that displays comments. The
-[Enable giscus comments](./13-giscus-comments) guide provides a procedure for one post.
+page or in front matter defaults for a layout that displays comments. Setup guides for one post:
+[giscus](./13-giscus-comments), [Disqus](./38-disqus-comments),
+[Cactus](./39-cactus-comments), [Welcomments](./40-welcomments-comments) or
+[an existing self-hosted Cusdis service](./41-cusdis-comments).
 Provider identifiers and compatibility constraints are listed below.
 
 - [Disqus](https://disqus.com/), a hosted comment system.
@@ -391,13 +393,17 @@ Provider identifiers and compatibility constraints are listed below.
 - `comments`:
   - `provider`: Use `disqus`, `cusdis`, `giscus`, `cactus` or `welcomments` to
     enable it.
-  - `disqus_shortname`: Disqus only. Add your site id, on `https://DISQUS_SHORTNAME.disqus.com/admin/`.
+  - `disqus_shortname`: Disqus site identifier in `https://DISQUS_SHORTNAME.disqus.com/admin/`, not the display name.
   - `cusdis_app_id`: Cusdis application ID, shown as `data-app-id` in its embed
     code.
-  - `cusdis_host`: Cusdis only. If you are self-hosting Cusdis use this field.
+  - `cusdis_host`: Cusdis HTTPS host base URL. Default: `https://cusdis.com` (the original hosted service is unavailable). Required for connecting your own deployment.
   - `cactus_shortname`: Cactus only. The name you used to register this site
     with Cactus.
-  - `website_id`: Welcomments site id.
+  - `website_id`: Welcomments site id. Requires a separately configured integration delivering comment data under `_data/welcomments/`; setting the ID alone does not deliver data.
+
+Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
+field in this adapter. Comment-provider selection does not migrate comments,
+and thread matching depends on the provider and page identifiers/addresses.
 
 For **giscus**, `_includes/custom/giscus.html` contains the embed script generated
 by [giscus setup](https://giscus.app/), including repository and category identifiers.
@@ -411,9 +417,11 @@ In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
 iframe and requires a finite, nonnegative numeric height. Existing provider
 settings are unchanged.
 
-When setting up **Welcomments**, review any generated pull request before
-merging it. Use its `website_id`, but retain the customized templates supplied
-by <span class="chulapa">Chulapa</span> rather than overwriting them.
+**Welcomments compatibility:** the current form permalink omits `baseurl`;
+project sites need the local form correction in the setup guide. Local `_includes/welcomments/` files override
+the theme templates. Provider-generated templates can replace the customized
+ones supplied by <span class="chulapa">Chulapa</span>. The
+[setup guide](./40-welcomments-comments) covers reviewing those integration files.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ## D. Jekyll defaults and collections

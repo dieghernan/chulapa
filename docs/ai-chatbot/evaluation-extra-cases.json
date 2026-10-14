@@ -401,5 +401,33 @@
     "doc": "37_algolia-search.md",
     "question": "I configured Algolia in YAML but have no results. How do I upload the index and exclude a page?",
     "expected": "Browser configuration does not upload index or create search page. Need application_id/index_name/public search_only_api_key plus matching layout search page. jekyll-algolia indexing plugin deprecated/unmaintained; dependency in plugin Gemfile group, bundle install, workflow step bundle exec jekyll algolia in actual site folder with separate ALGOLIA_API_KEY environment secret, never public config. Use algolia.files_to_exclude, not include_on_search false which sample uses for ranking. Check uploaded records and browser/index settings match. Link /docs/37-algolia-search."
+  },
+  {
+    "id": "comments-disqus-task-1",
+    "section": "comments",
+    "doc": "38_disqus-comments.md",
+    "question": "How do I connect an existing Disqus site and keep old comments?",
+    "expected": "Set comments.provider disqus and disqus_shortname (identifier, not display name); default-layout post show_comments true, preserve settings, publish and verify. Theme supplies embed and page URL/id; same URL does not guarantee same identifier across themes. Existing threads may need provider-side matching; no automatic migration. Link /docs/38-disqus-comments."
+  },
+  {
+    "id": "comments-cactus-task-1",
+    "section": "comments",
+    "doc": "39_cactus-comments.md",
+    "question": "Can I configure any Matrix homeserver for Cactus comments?",
+    "expected": "No homeserver YAML field. Adapter uses Cactus-hosted service, registered cactus_shortname and provider cactus; enable show_comments true on default-layout post. Verify public article. Conditional Cactus resources only on comment-enabled pages is main after v2.1.0; do not claim improvement in release. Link /docs/39-cactus-comments."
+  },
+  {
+    "id": "comments-welcomments-task-1",
+    "section": "comments",
+    "doc": "40_welcomments-comments.md",
+    "question": "Is a Welcomments website_id sufficient? Should I accept its generated templates?",
+    "expected": "Needs provider welcomments, website_id, post show_comments true and external integration delivering _data/welcomments data. Review generated PR, retain customized theme templates; local files override theme. Publish and verify delivered data and rebuild, not only temporary browser placeholder. Check post slug matching old data; no automatic migration. Link /docs/40-welcomments-comments. Current form permalink omits baseurl. For project sites preserve customized form in local override and use page.url | absolute_url on hidden permalink field; verify full public URL."
+  },
+  {
+    "id": "comments-cusdis-task-1",
+    "section": "comments",
+    "doc": "41_cusdis-comments.md",
+    "question": "Can I create a new Cusdis hosted account to enable comments? I already have a self-hosted service too.",
+    "expected": "Upstream deprecated/archived and original hosted service unavailable. Guide only reconnects existing self-hosted deployment: comments.provider cusdis, cusdis_app_id and HTTPS cusdis_host base URL; omitted host falls back to old cusdis.com. Enable show_comments true and verify service/old threads; no second embed/no migration promise. Link /docs/41-cusdis-comments."
   }
 ]
