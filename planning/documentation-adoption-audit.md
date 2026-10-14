@@ -1,7 +1,7 @@
 # Chulapa documentation: a strict Diátaxis transformation plan
 
 Date: 14 October 2026. Baseline: `main` after PR #106.
-Status: strategic audit and proposed implementation, not a rewrite of the public documentation.
+Status: historical audit, current implementation tracking and a dated reassessment; public documentation changes are tracked by PR.
 Language: English.
 
 ## Implementation tracking
@@ -22,13 +22,15 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | Merged and deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
 | [#115](https://github.com/dieghernan/chulapa/pull/115) — analytics tasks | Merged and deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
 | [#116](https://github.com/dieghernan/chulapa/pull/116) — related documentation | Merged and deployed | Tags content, navigation and analytics guides plus their references; enables related cards only on eight How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
-| [#117](https://github.com/dieghernan/chulapa/pull/117) — installation methods | In review; not deployed | Makes Installation a short method directory; extracts remote-theme and gem setup into independent How-To Guides while preserving legacy anchors and updating chatbot sources/cases. |
+| [#117](https://github.com/dieghernan/chulapa/pull/117) — installation methods | Merged and deployed | Makes Installation a short method directory; extracts remote-theme and gem setup into independent How-To Guides while preserving legacy anchors and updating chatbot sources/cases. |
+| Dated reassessment — current delivery | Prepared for review; no site deployment required | Re-scores 28 merged user-facing surfaces after #117 using the original rubric; preserves baseline scores and revises the active implementation order. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
-source links and remaining mixed content. Do not mark an open PR as implemented
-or rescore all pages after a small extraction. Reassess purity against the same
-rubric when a page's full transformation is ready for review.
+source links and remaining mixed content. Do not mark an open PR as implemented.
+Keep baseline scores unchanged; publish dated reassessments with explicit scope,
+snapshot, the same rubric and evidence. A new score does not make a still-mixed
+page complete.
 
 The deployment-order safeguard is now implemented by #108; the later rollout
 section describes the original proposal. Its two-release sequence remains an
@@ -37,15 +39,22 @@ answer verification remains distinct from passing tests or a successful deployme
 
 ## Current adoption review
 
-Reviewed against `main` after #116, 14 October 2026. This is a qualitative
-implementation review, not a new set of purity scores or a usability study.
-The inventory and diagnosis below remain the historical baseline after #106.
+Reviewed against `main` after #117, 14 October 2026. The separate
+[dated reassessment](diataxis-reassessment-2026-10-14.md) scores 28 merged user-facing
+surfaces using the original strict rubric and records evidence, remaining mixtures
+and coverage limitations. The baseline inventory/diagnosis below remains historical.
+No new novice usability study or measured adoption result is claimed.
+
+Across the 14 comparable baseline surfaces, four purity scores increase, nine
+remain unchanged and the directory drops from 10 to 9 because it now includes
+limited conceptual material. Fourteen new pages are assessed independently
+(thirteen How-To Guides and one Reference catalog). There is no all-page average.
 
 | Area | Current result | Remaining design defect or gap |
 | --- | --- | --- |
 | Tutorials | #108 focused the first-site browser tutorial on publication and moved the starter catalog/setup elsewhere. | A second guided exercise and observed completion data are still missing. |
-| How-To Guides | Separate guides cover starter setup, menu/footer links, Fuse.js, giscus, site identity, post/page/image creation and analytics. | Several integration and appearance procedures remain embedded in reference pages. |
-| Reference | The starter catalog is separate; extracted tasks link back to the existing option catalogs. | Global settings, Layouts, Theming and Installation still mix reader intentions. They are not marked complete. |
+| How-To Guides | Separate guides cover starter setup, menu/footer links, Fuse.js, giscus, site identity, post/page/image creation, analytics and remote/gem installation. | Several integration and appearance procedures remain embedded in reference pages. |
+| Reference | The starter catalog is separate; extracted tasks link back to option catalogs. #117 made Installation a method directory with separate H guides. | Global settings, Layouts and Theming remain mixed. Partial extraction does not make them complete. |
 | Explanation | #112 added a short publishing explanation to the documentation directory. | Standalone explanations of publishing, skins/overrides and metadata remain proposed, not delivered. |
 | Navigation | #112 shortened the Docs dropdown and grouped the directory by the four Diátaxis intentions. | Grouping the directory does not transform the mixed pages it links to. Filename-ordered previous/next navigation was disabled for Docs by #113; independent tasks no longer imply a course sequence. |
 | Chatbot | Task sources and focused evaluation cases accompany the extracted guides; deployment waits for the matching Pages publication. | Passing unit tests and deployment do not establish live answer accuracy. Navigation-only changes need no new context facts or evaluation cases. |
@@ -93,19 +102,34 @@ omitted. The cards are supplementary: retain essential links in the guide text.
 Docs explicitly sets `show_date: false`; related/random cards respect that setting
 so undated documentation does not display the fallback build date. Existing post-only tag listings remain unchanged.
 
-### Next priorities, not yet merged
+### Active implementation order
 
-1. Current delivery: turn Installation into a method directory and extract the
-   remote-theme and gem procedures into separate How-To Guides. Preserve old
-   entry points and retarget the selective chatbot sources; pending review.
-2. Continue extracting the remaining integration procedures from Global settings
-   and media procedures from Layouts; retain exact option/default/version facts
-   in Reference.
-3. Separate appearance tasks from their reference and
-   conceptual material. Add Explanation pages only for reader decisions that
-   need context, not internal implementation detail.
-4. Reassess transformed pages using the baseline rubric when the full split is
-   reviewable; measure task success with readers before claiming adoption gains.
+The [revised roadmap](diataxis-reassessment-2026-10-14.md#revised-implementation-order)
+provides effort ranges, preserved depth and completion evidence. The original
+Phase 5 roadmap below remains historical; use this order for the next deliveries.
+
+1. **Appearance:** split Theming's task recipes, variable reference and
+   skin/vars/Autothemer precedence explanation. Keep identifiers, defaults and
+   version/override constraints with the relevant destinations.
+2. **Media:** extract gallery, carousel, video and diagram procedures from Layouts,
+   retaining parameter catalogs, runnable specimens and legacy anchors.
+3. **Provider setup:** finish the remaining Global settings task/reference split,
+   including indexing workflows and compatibility cautions.
+4. **FAQ and migration:** route symptom tasks to canonical How-To Guides and
+   separate field mappings and hook/reference material without losing questions.
+5. **Explanation and accessibility:** extract reader-facing publishing concepts
+   from the directory and separate practical checks from constraints/reasoning.
+6. **Learning evidence:** add one controlled second Tutorial and observe first-site
+   and expert lookup tasks; record sample size, help and failures.
+7. **Catalogs and entry points:** remove independent recipes from highlighting,
+   dictionary and Markdown lookup; simplify README/home routing without erasing
+   useful product orientation.
+
+Do not enable related cards globally or add types as matching tags. Recheck the
+actual candidate sets whenever content/tag changes affect them. Each extraction
+needs source/destination review, preserved anchors and focused example checks;
+review chatbot facts, citations and deployment needs separately. Contributor
+reorganization stays deferred. Proposed priorities are not implemented features.
 
 ## Executive diagnosis
 
@@ -425,6 +449,10 @@ URLs and heading anchors. Preserve them while planning extraction:
   Do not delete advanced detail to raise a purity score.
 
 ## Phase 5 — Transformation roadmap and prioritization
+
+This is the original #106-baseline roadmap. See [Active implementation order](#active-implementation-order)
+and the [dated reassessment](diataxis-reassessment-2026-10-14.md#revised-implementation-order)
+for current priorities; do not interpret completed historical proposals as pending.
 
 Effort estimates are working days, excluding review/recruitment waiting time.
 Impact is expected benefit, not an observed conversion lift. Order prioritizes a
