@@ -1,7 +1,7 @@
 ---
 title: Migrating from another Jekyll theme
 subtitle: Keep your content and URLs while switching themes
-excerpt: Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist.
+excerpt: Move an existing Jekyll site to <span class="chulapa">Chulapa</span> with a pinned remote theme and a practical migration checklist.
 show_toc: true
 ---
 
