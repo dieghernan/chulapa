@@ -375,11 +375,19 @@ thresholds. Disable the random panel with show_random: false in front matter.
 The gallery include's random parameter does not control the random article panel.
 
 ## Configuring site search
-Source: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
+https://dieghernan.github.io/chulapa/docs/12-fusejs-search
 Set search.provider to lunr, fusejs, simplesearch, algolia or google. Also create
 a page with layout: search and a permalink matching search.landing_page
 (default /search). Configuring the provider does not create this page.
-For an easy local index, for example, use search: { provider: lunr } in _config.yml.
+In classic navigation and desktop dual navigation, the Search menu link also
+requires navbar.nav. If it is absent, open the landing page directly, including
+the actual site baseurl in the browser address, or configure navbar.nav.
+For Fuse.js use search: { provider: fusejs, landing_page: /search } and a page
+with layout: search, title: Search and permalink: /search. Reuse an existing
+search page and path instead of creating duplicate output. The Chulapa 101
+template already has Fuse.js configured. No extra plugin, API key or account is
+needed for this provider. Do not repeat baseurl in landing_page or permalink.
 Lunr, Fuse.js and Simple-Jekyll-Search generate indexes during the build.
 include_on_search: false excludes a page from these three indexes. search.maxwords
 limits content words per indexed document (default 30). Algolia uses a separately
@@ -394,11 +402,17 @@ under algolia. Index uploads use the separate ALGOLIA_API_KEY environment
 variable; never publish that indexing key in _config.yml.
 
 ## Comments
-Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
+Sources: https://dieghernan.github.io/chulapa/docs/02-config#comments
+https://dieghernan.github.io/chulapa/docs/13-giscus-comments
 Set comments.provider and show_comments: true on pages or in defaults.
 Integrations are disqus, cusdis, giscus, cactus and welcomments. For giscus,
 follow its setup and paste the generated script into _includes/custom/giscus.html;
-it uses GitHub Discussions. Disqus requires comments.disqus_shortname, Cactus
+it uses GitHub Discussions. Giscus setup needs a public repository with
+Discussions enabled and the giscus app installed; commenters sign in with GitHub.
+The starter embed file initially contains only a comment. Select
+comments.provider: giscus and show_comments: true on the chosen post, preserving
+existing front matter. Keep repository/category/page mapping for existing threads.
+Disqus requires comments.disqus_shortname, Cactus
 comments.cactus_shortname and Welcomments comments.website_id. Cusdis needs
 cusdis_app_id and, for self-hosting, cusdis_host; its original hosted service is
 unavailable and the upstream project is archived.

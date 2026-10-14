@@ -504,8 +504,9 @@ from `search.provider` and renders its own title, navbar and footer. It does
 not inherit the optional components of `default`.
 
 Set the page's `permalink` to match `search.landing_page` in `_config.yml`
-(default `/search`). The navbar links to this path; configuring a provider
-does not create the page.
+(default `/search`). Search menu links use this path; the classic navbar and
+the desktop form of `dual` also require `navbar.nav` to show the link. Configuring
+a provider does not create the page.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### A note on defaults

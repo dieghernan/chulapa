@@ -21,7 +21,9 @@ configuration, layouts and customization. The [starter catalog](./docs/08-starte
 [the setup guide](./docs/09-run-starter) covers their local preview and publication.
 
 For a published site, [edit menu links](./docs/10-edit-menu) or
-[footer links](./docs/11-edit-footer) without reading the full configuration reference.
+[footer links](./docs/11-edit-footer) without reading the full configuration reference. Add
+[Fuse.js search](./docs/12-fusejs-search) or [giscus comments](./docs/13-giscus-comments)
+when you need them.
 
 Use [search](https://dieghernan.github.io/chulapa/search) to find a setting or
 ask the documentation chatbot a specific question.

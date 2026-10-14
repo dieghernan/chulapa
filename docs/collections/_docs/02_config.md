@@ -339,22 +339,14 @@ For tracker-specific behavior and additional setup, see the
 
 ### Search engines
 
-This section adds search **within your website**, not Google indexing.
-The personal-blog starter already has search enabled; keep its settings unless
-you want another provider. For an existing site without search, choose a provider
-below and add a search page. For example, create `search.md` at the site root:
+`search` configures search within the site, independently of external search-engine
+indexing. The personal-blog template includes Fuse.js search. Setup instructions
+are in [Enable Fuse.js search](./12-fusejs-search).
 
-```yaml
----
-layout: search
-title: Search
-permalink: /search
----
-```
-
-Set `search.provider` and create a page using `layout: search`. Its `permalink`
-must match `search.landing_page`, which defaults to `/search`. Selecting a
-provider adds the navbar link but does not create the search page.
+A search page uses `layout: search`; its `permalink` matches `search.landing_page`
+(default `/search`). A provider does not create the page. In the classic navbar
+and the desktop form of `dual`, the Search link also requires `navbar.nav`.
+The search page remains reachable directly without that menu link.
 
 The following engines are available:
 
@@ -425,14 +417,10 @@ Enter. Clearing the field clears the results.
 
 ### Comments
 
-Comments are optional and require an account with a supported provider.
-Choose one below, then configure its site identifier and enable
-`show_comments: true` on the pages where you want comments. The theme cannot
-create the provider account for you.
-
-Set `comments.provider` and enable `show_comments: true` on pages or in front
-matter defaults for layouts that display comments. Configure the selected
-provider as described below. The theme includes integrations for:
+Comments require a supported provider's setup and `show_comments: true` on the
+page or in front matter defaults for a layout that displays comments. The
+[Enable giscus comments](./13-giscus-comments) guide provides a procedure for one post.
+Provider identifiers and compatibility constraints are listed below.
 
 - [Disqus](https://disqus.com/), a hosted comment system.
 - [Cusdis](https://github.com/djyde/cusdis), a lightweight comment system whose
@@ -455,8 +443,8 @@ provider as described below. The theme includes integrations for:
     with Cactus.
   - `website_id`: Welcomments site id.
 
-Configure **giscus** using its setup instructions and paste the generated
-script into `_includes/custom/giscus.html` in your site repository.
+For **giscus**, `_includes/custom/giscus.html` contains the embed script generated
+by [giscus setup](https://giscus.app/), including repository and category identifiers.
 
 In development after v2.1.0, the Cactus script and stylesheet load only on
 pages with `show_comments: true`. Selecting the provider alone no longer loads

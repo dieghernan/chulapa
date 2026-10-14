@@ -136,6 +136,10 @@ navbar:
       url: /docs/10-edit-menu
     - title: Edit footer links
       url: /docs/11-edit-footer
+    - title: Enable Fuse.js search
+      url: /docs/12-fusejs-search
+    - title: Enable giscus comments
+      url: /docs/13-giscus-comments
     - title: Markdown cheatsheet
       url: /docs/markdown-cheatsheet
     - title: Syntax highlighting

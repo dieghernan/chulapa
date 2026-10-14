@@ -226,5 +226,26 @@
     "doc": "11_edit-footer.md",
     "question": "How do I update the footer email and keep my other links and copyright?",
     "expected": "Edit existing footer.links entries in _config.yml with label, icon and a plain email address as url, without mailto:. Preserve other links and copyright; no second footer section. Commit, wait for publication, test the contact link. Reference the footer links how-to and retain the full footer reference for copyright details."
+  },
+  {
+    "id": "search-fusejs-setup-1",
+    "section": "configuration",
+    "doc": "12_fusejs-search.md",
+    "question": "I want Fuse.js search at /find on my site under /my-blog. Is setting search.provider enough?",
+    "expected": "No. Set search.provider: fusejs and search.landing_page: /find, and create or reuse one search page with layout: search and permalink: /find. Do not repeat /my-blog; theme adds baseurl. No account/API key/extra Jekyll plugin needed. Template already has Fuse.js, so avoid duplicate pages. Publish and test a known title; local index rebuilt during site build."
+  },
+  {
+    "id": "comments-giscus-setup-1",
+    "section": "configuration",
+    "doc": "13_giscus-comments.md",
+    "question": "I set comments.provider to giscus but see no comments on my post. What else do I need?",
+    "expected": "Use giscus.app setup with public repo, Discussions and app installed; generated embed belongs in _includes/custom/giscus.html (starter file is comment-only). Enable show_comments: true in post front matter with a supported layout such as default, keeping other fields. Publish and verify embed/thread, settings and blockers if absent. Existing repo/category/page mapping matters; no automatic migration of threads."
+  },
+  {
+    "id": "search-no-navbar-links-1",
+    "section": "configuration",
+    "doc": "12_fusejs-search.md",
+    "question": "My Fuse.js page exists, but there is no Search link in my classic navbar and I have no navbar.nav. Is search broken?",
+    "expected": "Not necessarily. Classic and desktop dual Search items require navbar.nav. The search page works directly at its permalink matching search.landing_page; include the real baseurl in the browser address, not in these settings. Open that address or configure navbar.nav using the menu guide. A provider does not create the page. No theme bug or need to reinstall the theme."
   }
 ]
