@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-14T23:15:32+02:00",
-        "dateModified": "2026-10-14T23:15:32+02:00",
+        "datePublished": "2026-10-14T23:29:35+02:00",
+        "dateModified": "2026-10-14T23:29:35+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -602,8 +602,10 @@ Content Security Policy and browser-blocker checks. The
 service’s own behavior.</p>
 <h3 id="search-engines">Search engines</h3>
 <p><code class="language-plaintext highlighter-rouge">search</code> configures search within the site, independently of external search-engine
-indexing. The personal-blog template includes Fuse.js search. Setup instructions
-are in <a href="./12-fusejs-search">Enable Fuse.js search</a>.</p>
+indexing. The personal-blog template includes Fuse.js search. Setup instructions:
+<a href="./12-fusejs-search">Enable Fuse.js</a>, <a href="./34-lunr-search">Lunr.js</a>,
+<a href="./35-simplesearch-search">Simple-Jekyll-Search</a>,
+<a href="./36-google-search">Google Custom Search</a> or <a href="./37-algolia-search">Algolia</a>.</p>
 <p>A search page uses <code class="language-plaintext highlighter-rouge">layout: search</code>; its <code class="language-plaintext highlighter-rouge">permalink</code> matches <code class="language-plaintext highlighter-rouge">search.landing_page</code>
 (default <code class="language-plaintext highlighter-rouge">/search</code>). A provider does not create the page. In the classic navbar
 and the desktop form of <code class="language-plaintext highlighter-rouge">dual</code>, the Search link also requires <code class="language-plaintext highlighter-rouge">navbar.nav</code>.
@@ -643,9 +645,8 @@ Your search engine &gt; Settings</em>.</li>
 </ul>
 <p class="alert alert-warning p-3 mx-2 mb-3">The <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> plugin is deprecated and no longer maintained by Algolia.
 Its archived documentation remains available in the upstream repository.</p>
-<p>The theme uses <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> to upload its search index. See the plugin’s
-<a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/getting-started.md">setup documentation</a>
-and <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">configuration reference</a>.
+<p>The theme uses <code class="language-plaintext highlighter-rouge">jekyll-algolia</code> for index uploads. Browser search and index
+upload are separate operations; the latter requires an indexing credential.
 The browser search requires these settings:</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">algolia</code>:
@@ -663,13 +664,15 @@ or GitHub Actions secrets; do not put it in the public configuration.</p>
 <code class="language-plaintext highlighter-rouge">files_to_exclude</code> (omit files), <code class="language-plaintext highlighter-rouge">extensions_to_index</code> (file types),
 <code class="language-plaintext highlighter-rouge">searchableAttributes</code> (searchable fields) and <code class="language-plaintext highlighter-rouge">customRanking</code> (ranking rules).
 They belong under <code class="language-plaintext highlighter-rouge">algolia</code>; they do not affect the local search providers.</p>
-<p>For a complete starting configuration, see the
-<a href="https://github.com/dieghernan/chulapa/blob/main/_config.yml">Algolia settings in the sample configuration</a>
-and adapt them to your account. Automate index uploads with your publishing
-workflow; see the <a href="https://github.com/marketplace/actions/algolia-jekyll-action">Algolia Jekyll action</a>.</p>
-<p>If you are updating an older setup, remove <code class="language-plaintext highlighter-rouge">lunr_maxwords</code>,
-<code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code> or <code class="language-plaintext highlighter-rouge">fusejs_maxwords</code> to use the shared <code class="language-plaintext highlighter-rouge">maxwords</code> setting.
-Those older settings take precedence when present.</p>
+<p><code class="language-plaintext highlighter-rouge">include_on_search</code> is not an Algolia exclusion: the sample <code class="language-plaintext highlighter-rouge">customRanking</code>
+uses it for ranking. <code class="language-plaintext highlighter-rouge">algolia.files_to_exclude</code> controls omissions. These
+settings do not restrict Google’s crawler or make published files private.</p>
+<p>Configuration specimens: <a href="https://github.com/dieghernan/chulapa/blob/main/_config.yml">sample configuration</a>
+and <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">plugin option catalog</a>.
+Setup and workflow steps: <a href="./37-algolia-search">Connect Algolia search</a>.</p>
+<p>Legacy <code class="language-plaintext highlighter-rouge">lunr_maxwords</code>, <code class="language-plaintext highlighter-rouge">simplesearch_maxwords</code> and <code class="language-plaintext highlighter-rouge">fusejs_maxwords</code> take
+precedence over the shared <code class="language-plaintext highlighter-rouge">maxwords</code> setting when present. Without those
+provider-specific keys, the shared setting applies.</p>
 <p>With the local search providers, visitors can search while typing or press
 Enter. Clearing the field clears the results.</p>
 <h3 id="comments">Comments</h3>
