@@ -21,7 +21,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | Merged and deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
 | [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | Merged and deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
 | [#115](https://github.com/dieghernan/chulapa/pull/115) — analytics tasks | Merged and deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
-| [#116](https://github.com/dieghernan/chulapa/pull/116) — related documentation | In review; not deployed | Tags content, navigation and analytics guides plus their references; enables related cards only on eight How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
+| [#116](https://github.com/dieghernan/chulapa/pull/116) — related documentation | Merged and deployed | Tags content, navigation and analytics guides plus their references; enables related cards only on eight How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
+| [#117](https://github.com/dieghernan/chulapa/pull/117) — installation methods | In review; not deployed | Makes Installation a short method directory; extracts remote-theme and gem setup into independent How-To Guides while preserving legacy anchors and updating chatbot sources/cases. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -36,7 +37,7 @@ answer verification remains distinct from passing tests or a successful deployme
 
 ## Current adoption review
 
-Reviewed against `main` after #115, 14 October 2026. This is a qualitative
+Reviewed against `main` after #116, 14 October 2026. This is a qualitative
 implementation review, not a new set of purity scores or a usability study.
 The inventory and diagnosis below remain the historical baseline after #106.
 
@@ -65,7 +66,7 @@ did not add a new navigation API or implement such a series.
 
 ### Related-documentation policy
 
-The current delivery uses the existing `tags`, `show_related` and `related_label`
+PR #116 uses the existing `tags`, `show_related` and `related_label`
 fields, without changing the theme's recommendation algorithm. Eight How-To
 Guides show cards; the broad reference pages are candidates, not recommendation
 surfaces. Start, the index and other Docs pages have no related cards.
@@ -94,13 +95,13 @@ so undated documentation does not display the fallback build date. Existing post
 
 ### Next priorities, not yet merged
 
-1. Current delivery: establish reviewed related-documentation links for content,
-   identity/navigation and analytics. Recheck candidate sets with every addition;
-   do not enable cards globally. Appearance and other integrations remain deferred.
+1. Current delivery: turn Installation into a method directory and extract the
+   remote-theme and gem procedures into separate How-To Guides. Preserve old
+   entry points and retarget the selective chatbot sources; pending review.
 2. Continue extracting the remaining integration procedures from Global settings
    and media procedures from Layouts; retain exact option/default/version facts
    in Reference.
-3. Separate installation methods and appearance tasks from their reference and
+3. Separate appearance tasks from their reference and
    conceptual material. Add Explanation pages only for reader decisions that
    need context, not internal implementation detail.
 4. Reassess transformed pages using the baseline rubric when the full split is

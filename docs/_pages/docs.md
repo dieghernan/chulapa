@@ -37,7 +37,7 @@ search and comments are optional.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Troubleshoot editing and publishing](./docs/05-faq#editing-and-publishing).
-- [Install on an existing Jekyll site](./docs/01-install#2-remote-theme-method): use a remote theme or the gem.
+- [Install a remote theme](./docs/20-remote-theme) or [the theme gem](./docs/21-gem-theme) on an existing Jekyll site.
 
 ## Reference
 

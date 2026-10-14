@@ -296,5 +296,19 @@
     "doc": "04_layouts.md",
     "question": "How do I hide build dates on related documentation cards? Do I need a new card setting?",
     "expected": "In v2.1.1-dev use existing show_date: false on candidate documents or collection defaults. Hides their date footer in related and random cards. Controls candidate display not selection/ranking; no new option, other candidates keep existing display."
+  },
+  {
+    "id": "install-remote-task-1",
+    "section": "installation",
+    "doc": "20_remote-theme.md",
+    "question": "I have a working Jekyll site. How do I install Chulapa as a pinned remote theme without replacing my configuration?",
+    "expected": "Branch/backup, remote_theme dieghernan/chulapa@v2.1.0 remove conflicting theme/remote; merge Gemfile dependencies and plugins remote-theme/include-cache preserving existing. Remote does not install runtime deps; bundle install/serve, overrides, retain working deployment or adapt template Actions; verify published pages. Dev features absent from pin."
+  },
+  {
+    "id": "install-gem-task-1",
+    "section": "installation",
+    "doc": "21_gem-theme.md",
+    "question": "How do I switch an existing remote-theme site to the Chulapa gem and update it later?",
+    "expected": "Gemfile chulapa-jekyll, config theme chulapa-jekyll remove remote_theme and remote plugin if unused; enable include-cache, preserve other plugins/deps; bundle install/serve; publish bundle and check live site. bundle update chulapa-jekyll respects constraints, overrides persist, gem releases exclude unreleased features."
   }
 ]

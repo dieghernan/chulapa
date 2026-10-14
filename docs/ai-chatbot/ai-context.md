@@ -90,13 +90,20 @@ The home page uses jekyll-paginate with five posts per page and must remain
 index.html. This is one ordinary site, not a selector for four profiles.
 Fuse.js indexes posts and About; home, archives, search and 404 are excluded.
 Replace sample text, photo/alt text/credit and the About contact address.
+
+## Remote-theme installation
+Source: https://dieghernan.github.io/chulapa/docs/20-remote-theme
 For an existing site, set
-remote_theme: dieghernan/chulapa in _config.yml. Remove conflicting theme entries.
+remote_theme: dieghernan/chulapa@v2.1.0 in _config.yml for the pinned release. Remove conflicting theme entries.
 Add jekyll-remote-theme and jekyll-include-cache to the Gemfile and the plugins list
 in _config.yml, then run bundle install. Remote themes do not install runtime
 dependencies automatically; use the dependencies in the theme gemspec for local
-or custom builds. An unpinned remote theme follows the default branch. Append
-@v2.1.0 to pin that release. GitHub Pages can be deployed with GitHub Actions.
+or custom builds. An unpinned remote theme follows the default branch. GitHub Pages can be deployed with GitHub Actions.
+Retain an existing working deployment; a new GitHub Actions setup can adapt the
+Chulapa 101 workflow, including its branch, source and dependency installation.
+
+## Gem-theme installation
+Source: https://dieghernan.github.io/chulapa/docs/21-gem-theme
 For a gem installation, add gem "chulapa-jekyll" to Gemfile, run bundle and set
 theme: chulapa-jekyll in _config.yml. Local files override corresponding theme
 files and need manual merging when the theme changes.
