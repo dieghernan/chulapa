@@ -247,5 +247,12 @@
     "doc": "12_fusejs-search.md",
     "question": "My Fuse.js page exists, but there is no Search link in my classic navbar and I have no navbar.nav. Is search broken?",
     "expected": "Not necessarily. Classic and desktop dual Search items require navbar.nav. The search page works directly at its permalink matching search.landing_page; include the real baseurl in the browser address, not in these settings. Open that address or configure navbar.nav using the menu guide. A provider does not create the page. No theme bug or need to reinstall the theme."
+  },
+  {
+    "id": "site-details-edit-1",
+    "section": "configuration",
+    "doc": "14_site-details.md",
+    "question": "I want to rename my Chulapa 101 blog and change my author name without changing any URLs. Where do I edit?",
+    "expected": "Edit existing title, description and author.name in _config.yml preserving other author fields and site url/baseurl/repository/permalinks. For the visible home heading edit existing index.html title as well; do not rename or duplicate it. Commit to publishing branch, wait for Actions, check browser title and home heading. Page author overrides and custom footer copyright are not automatically rewritten. Cite the site-details how-to and reference as appropriate."
   }
 ]
