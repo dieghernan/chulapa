@@ -40,8 +40,12 @@ not embedded or fetched automatically.
 The `Deploy chatbot` workflow deploys the Worker on pushes to `main` that
 change `docs/ai-chatbot/` or the workflow itself. It installs dependencies and
 runs `npm test`, which rebuilds the context and widget, before deploying with
-Wrangler. Failed tests prevent deployment. It can also be run manually from
-GitHub Actions. Pull requests do not deploy.
+Wrangler. After tests pass, `wait-for-pages.sh` waits for a successful Pages
+push run for the exact same commit before the Worker is deployed. Missing,
+failed or cancelled Pages runs prevent deployment, keeping new context citations
+from going live before their documentation. The workflow uses the built-in
+GitHub token with `actions: read` for this check. It can also be run manually from
+GitHub Actions for a commit with a successful Pages push run. Pull requests do not deploy.
 
 Configure repository Actions secrets `CLOUDFLARE_API_TOKEN` (Cloudflare account
 permission **Workers Scripts: Edit**) and `CLOUDFLARE_ACCOUNT_ID` for the account

@@ -183,3 +183,39 @@ test('bundled deployment includes the complete current reviewed context', async 
   assert.equal(widget.headers.get('X-Content-Type-Options'), 'nosniff');
   assert.match(await widget.text(), /Ask AI/);
 });
+
+test('chatbot deployment waits for successful Pages for the exact commit', async () => {
+  const { mkdtempSync, writeFileSync, chmodSync, rmSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { spawnSync } = await import('node:child_process');
+  const directory = mkdtempSync(join(tmpdir(), 'chulapa-pages-gate-'));
+  try {
+    const gh = join(directory, 'gh');
+    writeFileSync(gh, `#!/usr/bin/env bash
+set -eu
+case "$2" in
+  list)
+    [[ "$*" == *"--workflow build-chulapa-gh-pages.yml --commit test-commit --event push"* ]] || exit 99
+    [[ "$CASE" != missing ]] || exit 0
+    echo 123 ;;
+  watch) [[ "$CASE" != failed ]] ;;
+  view) echo "$CASE" ;;
+  *) exit 98 ;;
+esac
+`);
+    const sleep = join(directory, 'sleep');
+    writeFileSync(sleep, '#!/usr/bin/env bash\nexit 0\n');
+    chmodSync(gh, 0o755);
+    chmodSync(sleep, 0o755);
+    for (const outcome of ['success', 'failed', 'cancelled', 'skipped', 'missing']) {
+      const result = spawnSync('bash', [new URL('./wait-for-pages.sh', import.meta.url).pathname], {
+        env: { ...process.env, PATH: `${directory}:${process.env.PATH}`, CASE: outcome,
+          GITHUB_REPOSITORY: 'owner/repo', GITHUB_SHA: 'test-commit' }, encoding: 'utf8'
+      });
+      assert.equal(result.status === 0, outcome === 'success', `${outcome}: ${result.stderr}`);
+    }
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});

@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: deploy-chatbot
@@ -32,6 +33,11 @@ jobs:
         run: npm ci
       - name: Build and test
         run: npm test
+      - name: Wait for the matching Pages deployment
+        timeout-minutes: 15
+        run: bash wait-for-pages.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Deploy to Cloudflare
         run: npx --yes wrangler@4.150.0 deploy
         env:

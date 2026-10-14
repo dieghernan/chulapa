@@ -11,14 +11,14 @@ index_sort_asc: true
 index_items: 20
 ---
 
-New to websites? [Start here](./docs/00-start) to publish a blog, edit an
-article and add a photograph using GitHub in your browser.
+New to websites? [Publish your first site](./docs/00-start) using GitHub in your
+browser. Finish with your own site title and an edited article on the public web.
 
 Moving an existing site? Use the [migration guide and checklist](./docs/07-migration).
 
 Already using Jekyll? Use the guides below as a reference for installation,
-configuration, layouts and customization. Each guide starts with common tasks
-and keeps more detailed options further down the page.
+configuration, layouts and customization. The [starter catalog](./docs/08-starter-examples) lists small example sites;
+[the setup guide](./docs/09-run-starter) covers their local preview and publication.
 
 Use [search](https://dieghernan.github.io/chulapa/search) to find a setting or
 ask the documentation chatbot a specific question.
