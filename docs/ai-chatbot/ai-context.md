@@ -131,7 +131,9 @@ old URLs, mobile/keyboard use and metadata.
 
 ## Basic editing and publishing
 Sources: https://dieghernan.github.io/chulapa/docs/00-start
-https://dieghernan.github.io/chulapa/docs/04-layouts
+https://dieghernan.github.io/chulapa/docs/15-create-post
+https://dieghernan.github.io/chulapa/docs/16-create-page
+https://dieghernan.github.io/chulapa/docs/17-add-image
 https://dieghernan.github.io/chulapa/docs/05-faq
 On GitHub, open a file in the Code tab, use the pencil button and save with
 Commit changes on the publishing branch. Check Actions for publishing progress
@@ -143,20 +145,29 @@ date. Start with this complete example:
 layout: default
 header_type: post
 title: "My first post"
+show_date: true
 ---
 My story begins here.
 ```
-The personal-blog starter lists posts on its home page. Other setups need an
-index or link. A standalone page can use _pages/contact.md in the starter,
+The layout supplies the main heading; use ## for sections inside the article.
+Post URLs follow the site permalink, not the _posts source path. Chulapa 101
+and the personal-blog starter list posts on the home page. Other setups need
+an index or link. A standalone page can use _pages/contact.md in the starter,
 or contact.md at the root of a site without its _pages setup; set layout:
 default, header_type: base, title: Contact and permalink: /contact/ between
---- lines, then add /contact/ to navbar.nav. The link does not create the page.
+--- lines. Avoid duplicate output paths and preserve existing settings when
+editing a page. Add /contact/ to the existing navbar.nav without baseurl; the
+theme adds it. The link does not create the page, and creating a file does not
+add it to the menu.
 Upload photographs through Add file > Upload files into assets/img/ and save,
 then insert a repository-safe Markdown image in the content:
 ```liquid
 ![Describe the photograph]({{ '/assets/img/river.jpg' | relative_url }})
 ```
-Replace the filename and alternative text. Match filename case. If changes
+Replace the filename and alternative text. Match filename case and extension,
+and do not manually prepend baseurl. Keep images below the front matter. Commit
+both uploads and content edits on the publishing branch and check the published
+article on a narrow screen; GitHub source preview is not the final website. If changes
 are missing, check the saved branch, Actions errors, the published website
 address and post dates before suggesting configuration changes.
 
@@ -261,26 +272,6 @@ The default layout is for posts, standalone pages and collection documents.
 Use layout: default in front matter or configure it through Jekyll defaults.
 Optional components are enabled through front matter or defaults. Demos show
 rendered examples. Content uses Markdown with YAML front matter.
-
-## Writing content
-Source: https://dieghernan.github.io/chulapa/docs/15-create-post
-Source: https://dieghernan.github.io/chulapa/docs/16-create-page
-Source: https://dieghernan.github.io/chulapa/docs/17-add-image
-For a published site, create posts in _posts/YYYY-MM-DD-title.md with a real,
-non-future date and front matter layout: default, header_type: post, title and
-optionally show_date: true. The layout supplies the main heading; use ## inside
-the article. Post URLs follow the site's permalink, not the _posts source path.
-Chulapa 101 and the personal-blog example list posts on the home page; other
-sites may need an index or link. Create standalone pages under _pages in Chulapa
-101, or beside _config.yml when that folder is not included by the site's setup.
-A page can use layout: default, header_type: base, title and permalink: /contact/.
-Do not duplicate an existing output path. Add the page to the existing navbar;
-the file itself does not add a menu entry. Menu paths omit baseurl.
-Upload images under assets/img and insert Markdown in the content below front
-matter: ![Descriptive alt text]({{ '/assets/img/river.jpg' | relative_url }}).
-Match filename capitalization; do not manually prepend baseurl. Commit the upload
-and content edits on the publishing branch, wait for Actions, and check the actual
-website including a narrow viewport. GitHub's source preview is not the final site.
 
 ## Adding videos
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#video-support
