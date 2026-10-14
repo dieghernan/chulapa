@@ -3,6 +3,11 @@
 Companion to the [strict transformation plan](documentation-adoption-audit.md).
 Baseline: `main` after PR #106, 14 October 2026. Language: English.
 
+This is the historical baseline inventory, not the current implementation status.
+See [Implementation tracking](documentation-adoption-audit.md#implementation-tracking)
+for merged work, the open delivery and the next proposed scope. Baseline scores
+are intentionally unchanged.
+
 The inventory covers tracked authored Markdown documentation, including hidden
 `.github` release records, issue templates and agent policies, demos, skins, README files, developer records,
 the homepage, six HTML demo pages and `llms.txt` are represented individually below.

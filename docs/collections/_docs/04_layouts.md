@@ -73,7 +73,7 @@ You can email me at [hello@example.org](mailto:hello@example.org).
 ```
 
 Replace the sample address. `permalink` sets the page's website address.
-Save and add `/contact/` to [your menu](./02-config#navbar) so visitors can find it.
+Save and add `/contact/` to [your menu](./10-edit-menu) so visitors can find it.
 For sites without the starter's `_pages` setup, place `contact.md` beside
 `_config.yml` instead.
 

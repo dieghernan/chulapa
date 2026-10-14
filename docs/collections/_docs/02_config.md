@@ -8,7 +8,7 @@ h_max: 5
 ---
 
 **Getting started:** edit your [site details](#start-with-your-site-details)
-and [menu](#navbar). **Advanced reference:** jump to
+and [menu](./10-edit-menu). **Advanced reference:** jump to
 [optional integrations and metadata](#optional-features-and-metadata) or
 [Jekyll defaults and collections](#d-jekyll-defaults-and-collections).
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
@@ -50,7 +50,7 @@ For another setup, use `baseurl: "/my-blog"` for that repository's website,
 or `baseurl: ""` for a site at the domain root. Keep `url` as the domain,
 without the repository name.
 
-Next, [edit the menu](#navbar) or [footer links](#footer).
+Next, [edit the menu](./10-edit-menu) or [footer links](./11-edit-footer).
 The reference below explains additional settings and their defaults.
 
 ## A. Site settings/SEO
@@ -118,26 +118,12 @@ author:
 
 ### Navbar
 
-The navbar is your site's menu. In the existing `navbar.nav` section, change
-link titles and destinations. For example, this menu links to the home page
-and an existing About page:
+`navbar` defines the site's menu. Entries in `navbar.nav` use `title` and `url`
+for existing pages; `child` supplies one level of dropdown links. Styles are
+classic (sticky top), `fab` (floating button) and `dual` (floating/classic at a breakpoint).
 
-```yaml
-navbar:
-  nav:
-    - title: Home
-      url: /
-    - title: About
-      url: /about/
-```
-
-Keep any existing `brand`, `style` and `expand` entries. A menu link does not
-create a page: its `url` must match a page you have already added. Save and
-check that each link opens the intended page.
-
-The navbar supports links and one level of child links. Choose a classic
-sticky-top navbar, `fab` for an animated floating action button or `dual` to
-switch from a floating button to a classic navbar at the configured breakpoint.
+For an editing procedure, use [Add or change a menu link](./10-edit-menu).
+The options and examples below are the configuration reference.
 
 For keyboard behavior of the development floating menu, see
 [Keyboard navigation](./06-accessibility-performance#keyboard-navigation).
@@ -182,7 +168,8 @@ navbar:
 
 ### Footer
 
-To set social links to be displayed on your footer, configure this section:
+`footer.links` defines the contact, social and feed links below the page.
+For an editing procedure, use [Edit footer links](./11-edit-footer).
 
 - `footer`:
   - `links`:

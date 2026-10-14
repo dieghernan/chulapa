@@ -132,6 +132,10 @@ navbar:
       url: /docs/08-starter-examples
     - title: Run a starter example
       url: /docs/09-run-starter
+    - title: Edit menu links
+      url: /docs/10-edit-menu
+    - title: Edit footer links
+      url: /docs/11-edit-footer
     - title: Markdown cheatsheet
       url: /docs/markdown-cheatsheet
     - title: Syntax highlighting

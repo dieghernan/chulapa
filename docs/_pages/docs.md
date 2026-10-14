@@ -20,5 +20,8 @@ Already using Jekyll? Use the guides below as a reference for installation,
 configuration, layouts and customization. The [starter catalog](./docs/08-starter-examples) lists small example sites;
 [the setup guide](./docs/09-run-starter) covers their local preview and publication.
 
+For a published site, [edit menu links](./docs/10-edit-menu) or
+[footer links](./docs/11-edit-footer) without reading the full configuration reference.
+
 Use [search](https://dieghernan.github.io/chulapa/search) to find a setting or
 ask the documentation chatbot a specific question.
