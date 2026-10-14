@@ -29,7 +29,10 @@ Follow [Create a page and link it from the menu](./16-create-page).
 ## Add an image
 
 Follow [Add an image to a post or page](./17-add-image). Gallery, carousel and
-video parameters remain in the reference below.
+video parameters remain in the reference below; use the
+[gallery](./29-add-gallery), [carousel](./30-add-carousel),
+[PhotoSwipe](./31-photoswipe), [video](./32-embed-video) or
+[diagram](./33-add-diagram) guide for setup steps.
 
 ## Choose a layout or an optional feature
 
@@ -474,11 +477,12 @@ for other content types.
 
 ## B. Snippets
 
-Copy these snippets into a post or page to add galleries, videos or formatted
-dates. Replace the example filenames and values with your own.
+Look up content snippet parameters here. For setup, use the
+[gallery](./29-add-gallery), [carousel](./30-add-carousel),
+[PhotoSwipe](./31-photoswipe), [video](./32-embed-video) or
+[Mermaid](./33-add-diagram) How-To Guide.
 
-
-For a quick reference, these are the content snippets and their parameters.
+These are the content snippets and their parameters.
 Parameters belong in the include call, not in page YAML:
 
 | Snippet | Parameters and defaults |
@@ -497,64 +501,39 @@ Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
 
 ### Masonry gallery
 
-If you want to create a [masonry-like gallery](https://masonry.desandro.com/) you can include this snippet in any part of your site.
+Setup: [Add a photo gallery](./29-add-gallery).
 
-You can use it with external or internal pages, see a small sample with external
-images:
+| Parameter | Default | Values and constraints |
+| --- | --- | --- |
+| `internal` | Unset | Group name assigned to static files through `image_col` in configuration defaults. Takes precedence over `external`. |
+| `external` | Unset | Comma-separated image URLs, optionally held in a Liquid variable. |
+| `index_sort` | `modified_time` | Internal galleries only; a static-file property such as `basename`. Static files have a [limited set of properties](https://jekyllrb.com/docs/static-files/). |
+| `index_sort_asc` | `false` | Internal galleries only; boolean `true` for ascending order. |
+| `index_items` | `100` | Maximum images displayed. |
+| `random` | `false` | Boolean `true` shuffles at build time, overriding the sort order. |
+| `photoswipe` | `false` | Boolean `true` enables the optional viewer; see [PhotoSwipe](#photoswipe-lightbox). |
+
+**Version constraint:** applying the selected `index_sort` field to internal
+galleries and carousels is fixed in v2.1.1-dev on `main`. It does not work
+correctly in v2.1.0; the filename-order guides require the fix.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+External-source specimen:
 
 {% raw %}
-```
-{% assign externalgallery = "
-https://picsum.photos/seed/10/600/1200,
-https://picsum.photos/seed/20/800/500,
-https://picsum.photos/seed/30/900/1200" %}
-
+```liquid
+{% assign externalgallery = "https://picsum.photos/seed/10/600/1200,https://picsum.photos/seed/20/800/500,https://picsum.photos/seed/30/900/1200" %}
 {% include_cached snippets/masonry.html external=externalgallery %}
 ```
 {% endraw %}
 
-This produces the following gallery:
-
-{% assign externalgallery = "
-https://picsum.photos/seed/10/600/1200,
-https://picsum.photos/seed/20/800/500,
-https://picsum.photos/seed/30/900/1200" %}
-
+{% assign externalgallery = "https://picsum.photos/seed/10/600/1200,https://picsum.photos/seed/20/800/500,https://picsum.photos/seed/30/900/1200" %}
 {% include_cached snippets/masonry.html external=externalgallery %}
 
-For your own photographs, upload them to `assets/img/gallery/`. Add this entry
-under your existing `defaults` in `_config.yml` to name the gallery:
-
-```yaml
-  -
-    scope:
-      path: "assets/img/gallery"
-    values:
-      image_col         : gallery
-```
-
-Then just copy the following snippet:
+Internal-source specimen, for a configured `gallery` image group:
 
 {% raw %}
-```
-{% include_cached snippets/masonry.html internal="gallery" %}
-```
-{% endraw %}
-
-{% include_cached snippets/masonry.html internal="gallery" %}
-
-There are four optional parameters that you can use for controlling the output:
-
-- `index_sort`: *(internal galleries only)* See [Index category](#index-category). Note that static files, such as images, have a [limited set of variables](https://jekyllrb.com/docs/static-files/). **modified_time**.
-- `index_sort_asc`: *(internal galleries only)* See [Index
-  category](#index-category).
-- `index_items`: See [Index category](#index-category). **100**.
-- `random`: Set to `true` to shuffle images at build time. This overrides
-  `index_sort`. Omit it or pass the boolean `false` to preserve the order.
-  Avoid the string `"false"`, which Liquid treats as true.
-
-{% raw %}
-```
+```liquid
 {% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=5 %}
 ```
 {% endraw %}
@@ -563,39 +542,29 @@ There are four optional parameters that you can use for controlling the output:
 
 ### Bootstrap carousel
 
-The carousel uses the same image sources and ordering options as the masonry
-gallery, with three additional parameters:
+Setup: [Add a manual slideshow](./30-add-carousel). All [masonry parameters](#masonry-gallery)
+also apply. Additional parameters:
 
-- `interval`: The amount of time to delay between automatically cycling an item
-  (ms). **5000**.
-- `indicators`: Show slide indicators. **false**.
+| Parameter | Default | Values and constraints |
+| --- | --- | --- |
+| `interval` | `5000` | Milliseconds between automatic slide changes. `0` disables automatic cycling. |
+| `indicators` | `false` | Boolean `true` displays slide indicators. |
+| `controls` | `false` | Boolean `true` displays previous/next controls. |
 
-- `controls`: Show previous and next controls. **false**.
+In v2.1.1-dev, a multi-image slideshow has a play/pause icon button with an
+action-specific accessible name and a symbol fallback if Font Awesome is missing.
+Reduced-motion visitors start paused. Keyboard control use pauses cycling;
+Enter and Space activate controls. Hovering pauses temporarily. Custom layouts
+must load Bootstrap's scripts for controls and automatic cycling.
 
-In v2.1.1-dev, a slideshow with more than one image has a play/pause icon button.
-Its accessible name describes the action, and a simple symbol remains if Font
-Awesome is unavailable.
-Set `interval=0` for manual navigation. Slideshows start paused when a visitor
-prefers reduced motion, and pause when someone uses the keyboard controls.
-The controls work with Enter and Space. Hovering temporarily pauses the slideshow.
+Control colors are Sass variables under the existing `chulapa-skin.vars` mapping
+in `_config.yml`: `carousel-control-color` and `carousel-indicator-active-bg`.
+See [Change a color](./23-change-color) for editing steps.
 
-If you use a custom layout instead of a theme layout, keep its Bootstrap
-scripts enabled for slideshow controls and automatic cycling.
-
-You can control the color of the indicators through your `_config.yml` file:
-
-```yaml
-chulapa-skin:
-  vars:
-    carousel-control-color: black
-    carousel-indicator-active-bg: black
-
-```
-
-Example carousel:
+Automatic-cycling specimen, for a configured `gallery` group:
 
 {% raw %}
-```
+```liquid
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 random=true controls=true indicators=true %}
 ```
 {% endraw %}
@@ -604,10 +573,12 @@ Example carousel:
 
 ### PhotoSwipe lightbox
 
-In v2.1.1-dev, add `photoswipe=true` to a masonry or
-carousel include to open its images in a PhotoSwipe viewer. The option is a
-Liquid boolean include parameter, not a page YAML setting. It is disabled by
-default; add it only to the galleries where you want a viewer.
+Setup: [Enable PhotoSwipe on a gallery](./31-photoswipe).
+
+Available in v2.1.1-dev, not in v2.1.0. `photoswipe` is a boolean include parameter
+on masonry and carousel snippets, **not** a page YAML setting. Default: `false`;
+only `photoswipe=true` enables it. It accepts internal image groups and external
+image lists; each gallery opens its own sequence.
 
 {% raw %}
 ```liquid
@@ -616,32 +587,37 @@ default; add it only to the galleries where you want a viewer.
 ```
 {% endraw %}
 
-Both uploaded image collections and external image lists work. Each gallery
-opens its own sequence. The viewer loads when someone opens an image.
+The viewer loads on image activation from `https://cdn.jsdelivr.net`; a Content
+Security Policy must allow its scripts and styles. It supports zoom, swipes,
+arrow keys and Escape, returns focus to the image and respects reduced motion.
+If loading fails, the link opens the original image. Gallery snippets use generic
+image descriptions; custom image markup needs descriptive alternative text.
 
-Visitors can zoom, swipe or use arrow keys, and press Escape to close the
-viewer. It returns keyboard focus to the image and respects reduced-motion
-preferences. If the viewer cannot load, the link opens the original image.
-
-Try the [PhotoSwipe demo]({{ "/demo/14-photoswipe" | relative_url }}).
-If you configure a Content Security Policy, allow its scripts and styles from
-`https://cdn.jsdelivr.net`. Provide descriptive alternative text when adding
-your own image markup; gallery snippets use generic image descriptions.
+Live specimen: [PhotoSwipe demo](../demo/14-photoswipe).
 
 ### Video support
 
-To embed a YouTube video, add this line to a post or page. Replace the `id`
-with the code after `v=` in the video's YouTube address and give it a clear name:
+Setup: [Embed a video](./32-embed-video).
+
+| Input | Default | Values and constraints |
+| --- | --- | --- |
+| `fileurl` | Unset | Local or external video-file URL. Takes precedence over `provider`. Local paths use the site URL and `baseurl`. |
+| `provider` | Unset | `youtube`, `vimeo`, `dailymotion`, `google-drive` or `bilibili`; used with `id`. |
+| `id` | Unset | Provider-specific identifier, not a full watch URL. |
+| `name` | Generic player name if absent | Actual video title; also supplies metadata and the player's accessible name. |
+| `nolazy` | Off | YouTube only; boolean `true` creates an iframe without activation. The browser may still defer the iframe through `loading="lazy"`. |
+| `video_res` | `maxresdefault` | Deferred YouTube preview resolution; see [preview behavior](#deferred-lazy-loading-of-youtube-videos). |
+
+For `fileurl`, browser-supported formats include MP4, Ogg and WebM. Playback
+also depends on the codec and browser; the extension alone is insufficient.
+
+YouTube specimen:
 
 {% raw %}
 ```liquid
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" name="Menorca - Isla Bonita" %}
+{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" %}
 ```
 {% endraw %}
-
-Other supported providers are `vimeo`, `dailymotion`, `google-drive` and
-`bilibili`. You can also use `fileurl` for a video file. For optional search descriptions and thumbnails, see
-[Optional video metadata](#optional-video-metadata).
 
 {% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
    name="Menorca - Isla Bonita"
@@ -650,24 +626,13 @@ Other supported providers are `vimeo`, `dailymotion`, `google-drive` and
    description="Exploring Menorca with a Mavic Pro drone in 2019."
    duration="PT2M52S" %}
 
-You can also display videos loaded through `fileurl`:
+Local-file specimen:
 
 {% raw %}
-```
-**Hosted on this repo**
-
-{% include snippets/video.html fileurl="/assets/mp4/sample.mp4"
-   name="Aerial lagoon sample" %}
-
-**publicdomainmovie.net**
-
-{% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4"
-   name="Betty Boop and Grampy" %}
-
+```liquid
+{% include snippets/video.html fileurl="/assets/mp4/sample.mp4" name="Aerial lagoon sample" %}
 ```
 {% endraw %}
-
-**Hosted on this repo**
 
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4"
    name="Aerial lagoon sample"
@@ -676,7 +641,13 @@ You can also display videos loaded through `fileurl`:
    description="Aerial footage of a turquoise lagoon surrounded by limestone cliffs."
    duration="PT48.064S" %}
 
-**publicdomainmovie.net**
+External-file specimen:
+
+{% raw %}
+```liquid
+{% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4" name="Betty Boop and Grampy" %}
+```
+{% endraw %}
 
 {% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4"
    name="Betty Boop and Grampy"
@@ -685,25 +656,19 @@ You can also display videos loaded through `fileurl`:
    description="A 1935 Betty Boop cartoon by Max Fleischer, available in the public domain."
    duration="PT6M58.59S" %}
 
-For `fileurl`, use a browser-supported format such as MP4, Ogg or WebM.
-Playback also depends on the codec and browser; a supported extension alone
-does not guarantee playback.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
 #### Deferred (lazy) loading of YouTube videos
 
-By default, YouTube videos show a preview and load the player when a visitor
-activates it. This helps pages load faster. If JavaScript is unavailable, the
-link opens the video on YouTube. Automatic playback depends on browser policy.
-For sites with a Content Security Policy, allow frames from
-`https://www.youtube-nocookie.com`.
+Default: a preview loads first; activation loads the player. Without JavaScript,
+the link opens YouTube. Autoplay remains subject to browser policy. The iframe
+uses `https://www.youtube-nocookie.com`, which must be allowed by a restrictive
+Content Security Policy.
 
-Set `nolazy=true` to load the YouTube iframe without waiting for a click:
+`nolazy=true` on `video.html` removes the activation requirement. Direct
+`youtube.html` calls are always deferred and have no `nolazy` parameter.
 
 {% raw %}
-```
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" nolazy=true
-   name="Menorca - Isla Bonita" %}
+```liquid
+{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" nolazy=true %}
 ```
 {% endraw %}
 
@@ -714,22 +679,17 @@ Set `nolazy=true` to load the YouTube iframe without waiting for a click:
    description="Exploring Menorca with a Mavic Pro drone in 2019."
    duration="PT2M52S" %}
 
-On lazy mode, the snippet tries to load the preview from YouTube using the
-option `maxresdefault`.
-This preview may not be available for a particular video. If this is happening
-to you,
-try loading another image using another option by using the `video_res`
-parameter
-(see [here](https://stackoverflow.com/a/2068371/7877917) for possible values).
+`video_res` defaults to `maxresdefault`; some videos lack that preview. A value
+such as `hqdefault` selects a different [YouTube preview variant](https://stackoverflow.com/a/2068371/7877917).
+This changes the displayed preview, unlike `thumbnail_url` (metadata only).
 
 {% raw %}
-```
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hq2"
-   name="Menorca - Isla Bonita" %}
+```liquid
+{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" video_res="hqdefault" %}
 ```
 {% endraw %}
 
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hq2"
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hqdefault"
    name="Menorca - Isla Bonita"
    thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
    upload_date="2019-07-27T12:44:00-07:00"
@@ -848,14 +808,15 @@ your locale will be used.
 
 ### Mermaid diagrams
 
-See the [Mermaid demo](../demo/13-mermaid) for flowchart and sequence examples.
+Setup: [Add a Mermaid diagram](./33-add-diagram).
+Live specimens: [Mermaid demo](../demo/13-mermaid).
 
 Available in v2.1.1-dev on `main`, not in v2.1.0. Use the updated default
 branch or a later release containing this feature; the v2.1.0 gem does not
 include it.
 
-Set `mermaid: true` (a YAML boolean) in page front matter or front matter
-defaults, then use a fenced `mermaid` code block:
+`mermaid` is a boolean page/front matter default, disabled when unset.
+`true` enables fenced `mermaid` blocks. Complete page specimen:
 
 ````markdown
 ---

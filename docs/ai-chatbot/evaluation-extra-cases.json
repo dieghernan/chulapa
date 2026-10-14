@@ -338,5 +338,40 @@
     "doc": "28_custom-skin.md",
     "question": "How do I adapt my Sass palette through Codeply or a local custom skin?",
     "expected": "Preview SCSS assignments above existingimports, preserve Bootstrap/grid no second import; translate to vars dropping $/semicolon quote hex, font URL separate. Or _sass/skins/NAME.scss SCSS with !default, skin NAME in config, never YAML in Sass; Sunset palette not full skin CSS; rebuild/publish/contrast and mobile checks."
+  },
+  {
+    "id": "media-gallery-task-1",
+    "section": "snippets",
+    "doc": "29_add-gallery.md",
+    "question": "I have uploaded 01-coast.jpg and 02-harbour.jpg. How do I display them in filename order as a gallery?",
+    "expected": "Link to /docs/29-add-gallery. Append a scoped defaults entry for the actual uploaded folder with image_col: gallery, preserve unrelated defaults, then include_cached snippets/masonry.html internal=\"gallery\" index_sort=\"basename\" index_sort_asc=true in Markdown body. Parameters are not page YAML; unquoted booleans. Commit, wait for build, check published gallery and folder/group if empty. Do not invent per-image alt/caption parameters. Selected index_sort filename ordering needs main after v2.1.0; explicitly warn that the v2.1.0 release does not correctly apply this sort field."
+  },
+  {
+    "id": "media-carousel-task-1",
+    "section": "snippets",
+    "doc": "30_add-carousel.md",
+    "question": "How can I show my existing gallery as a slideshow that does not advance by itself?",
+    "expected": "Link to /docs/30-add-carousel. Reuse image_col group, include_cached snippets/carousel.html internal=\"gallery\" interval=0 controls=true indicators=true, retain desired ordering. Unquoted 0/booleans. Custom layouts need Bootstrap scripts. Publish and verify keyboard controls. No new YAML setting. Filename ordering and native keyboard-operable buttons/indicators require main after v2.1.0; v2.1.0 indicators are not focusable and previous/next links do not activate with Space."
+  },
+  {
+    "id": "media-photoswipe-task-1",
+    "section": "snippets",
+    "doc": "31_photoswipe.md",
+    "question": "Where do I enable zooming on an existing carousel? I am pinned to v2.1.0.",
+    "expected": "Link to /docs/31-photoswipe. Feature absent from v2.1.0, needs main after that release or later release containing it. Add photoswipe=true to existing include, not page YAML. jsDelivr assets; check image opening, Escape/focus return. Original image link fallback."
+  },
+  {
+    "id": "media-video-task-1",
+    "section": "snippets",
+    "doc": "32_embed-video.md",
+    "question": "How do I insert a named YouTube video? Does nolazy mean the browser must load it immediately? My address is a youtu.be Share link or youtube.com/shorts URL.",
+    "expected": "Link to /docs/32-embed-video and /docs/04-layouts#deferred-lazy-loading-of-youtube-videos. Include snippets/video.html provider=\"youtube\" id with video identifier and name with title in content body. Default click activation. nolazy=true removes activation requirement, but iframe loading=\"lazy\" can still defer browser loading. video_res changes preview; thumbnail_url metadata only. Publish and verify. Extract the final path segment for youtu.be/ID and youtube.com/shorts/ID, or v= value for standard watch URLs; omit query parameters and fragments."
+  },
+  {
+    "id": "media-diagram-task-1",
+    "section": "snippets",
+    "doc": "33_add-diagram.md",
+    "question": "I want to add a simple accessible Mermaid workflow diagram to my page. Where do I start?",
+    "expected": "Link to /docs/33-add-diagram. Require main after v2.1.0; boolean mermaid: true in existing front matter, fenced mermaid flowchart in body, accTitle/accDescr plus prose for complex charts. Minimal-derived layout, no plugin. Modern modules/ES2024 Safari17.4+, jsDelivr; source fallback. Preserve other fields and publish/check. No claim it works on v2.1.0."
   }
 ]

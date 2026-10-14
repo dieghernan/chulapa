@@ -7,8 +7,8 @@ show_related: true
 ---
 
 Use this guide when you already have a post or page to edit in a published site.
-For several images, use the [gallery reference](./04-layouts#masonry-gallery)
-or [carousel reference](./04-layouts#bootstrap-carousel) instead.
+For several images, use the [gallery guide](./29-add-gallery)
+or [slideshow guide](./30-add-carousel) instead.
 
 ## Upload the file
 
@@ -50,4 +50,4 @@ If it is missing, compare the uploaded filename, extension and capitalization
 with the link. Verify both the image upload and article edit were saved, then
 follow [the publishing checks](./05-faq#why-can-i-not-see-my-changes).
 For captions, see [the caption example](./05-faq#add-a-caption).
-For video, use [the video reference](./04-layouts#video-support).
+For video, use [Embed a video](./32-embed-video).

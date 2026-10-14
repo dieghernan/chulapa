@@ -148,25 +148,29 @@ default is for posts/pages/collection documents, via front matter or Jekyll defa
 
 
 ## Adding videos
+Source: https://dieghernan.github.io/chulapa/docs/32-embed-video
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#video-support
-Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, google-drive, bilibili; provider and video ID required:
+Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, google-drive, bilibili; provider and video ID required (watch URL v= value, or final path segment of youtu.be/ID and youtube.com/shorts/ID; omit query/fragment, never full URL):
 {% include snippets/video.html id="YOUR_VIDEO_ID" provider="youtube" %}
 Local/remote file (fileurl wins over provider/id):
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
-YouTube defaults to click-to-load; nolazy=true loads immediately. video_res="hq2" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). This embeds website video, not uploads into chat.
+YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). This embeds website video, not uploads into chat.
 
 
 ## Image galleries and carousels
+Source: https://dieghernan.github.io/chulapa/docs/30-add-carousel
+Source: https://dieghernan.github.io/chulapa/docs/29-add-gallery
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#masonry-gallery
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel
 Masonry uses include_cached snippets/masonry.html; internal image directory needs defaults image_col: gallery:
 {% include_cached snippets/masonry.html internal="gallery" %}
-External source: assign comma-separated URLs to Liquid variable, pass external=that_variable. Internal wins if both supplied. Options: index_sort (internal only; modified_time default), index_sort_asc, index_items (100), random. Boolean random=true shuffles at build time and overrides sort; false disables, quoted "false" is truthy. Filename order: index_sort="basename" index_sort_asc=true random=false.
+External source: assign comma-separated URLs to Liquid variable, pass external=that_variable. Internal wins if both supplied. Options: index_sort (internal only; modified_time default), index_sort_asc, index_items (100), random. Boolean random=true shuffles at build time and overrides sort; false disables, quoted "false" is truthy. Filename order: index_sort="basename" index_sort_asc=true random=false. Selected index_sort fields in galleries/carousels are fixed only on main after v2.1.0; the released v2.1.0 does not correctly apply the field. Filename-order and native-button/keyboard-indicator recipes require these dev fixes.
 Carousel uses snippets/carousel.html, same sources/order options, plus interval (5000 ms), controls/indicators (false). Example:
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 controls=true indicators=true %}
 
 
 ## PhotoSwipe galleries (development after v2.1.0)
+Source: https://dieghernan.github.io/chulapa/docs/31-photoswipe
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#photoswipe-lightbox
 Demo: https://dieghernan.github.io/chulapa/demo/14-photoswipe
 Per-gallery Liquid boolean photoswipe=true (default disabled); no page YAML/plugin:
@@ -337,6 +341,7 @@ Give this subscription URL when asked. Feed entries are not in context; assistan
 
 
 ## Mermaid and clipboard (development version after v2.1.0)
+Source: https://dieghernan.github.io/chulapa/docs/33-add-diagram
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#mermaid-diagrams
 Demo: https://dieghernan.github.io/chulapa/demo/13-mermaid
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#copying-code
