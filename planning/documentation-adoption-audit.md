@@ -21,7 +21,7 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#113](https://github.com/dieghernan/chulapa/pull/113) — documentation reading paths | Merged and deployed | Disables filename-ordered previous/next navigation only for the Docs collection, using the existing setting. Readers use the Diátaxis directory, breadcrumbs, search and task links. |
 | [#114](https://github.com/dieghernan/chulapa/pull/114) — content authoring | Merged and deployed | Extracts post, standalone-page and image tasks from Layouts; preserves legacy anchors and updates task links, chatbot sources and focused evaluation cases. The remaining layout/snippet catalog is still mixed. |
 | [#115](https://github.com/dieghernan/chulapa/pull/115) — analytics tasks | Merged and deployed | Extracts GoatCounter and GA4 setup into separate How-To Guides, retains settings/constraints and legacy reference anchors, and updates selective chatbot sources and cases. |
-| [#116](https://github.com/dieghernan/chulapa/pull/116) — related-documentation pilot | In review; not deployed | Tags the analytics guides and configuration reference; enables related cards only on the two analytics How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
+| [#116](https://github.com/dieghernan/chulapa/pull/116) — related-documentation pilot | In review; not deployed | Tags content, navigation and analytics guides plus their references; enables related cards only on seven How-To Guides. Topic-based links supplement the directory without imposing a sequence. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -66,10 +66,19 @@ did not add a new navigation API or implement such a series.
 ### Topic-related documentation pilot
 
 The current delivery uses the existing `tags`, `show_related` and `related_label`
-fields, without changing the theme's recommendation algorithm. The GoatCounter
-and GA4 guides and Global settings share `[docs, analytics]`. Only the two guides
-show cards; the broad reference page is a candidate, not another recommendation
-surface. Each guide offers the reference and the alternative integration.
+fields, without changing the theme's recommendation algorithm. Seven How-To
+Guides show cards; the broad reference pages are candidates, not recommendation
+surfaces. Start, the index and other Docs pages have no related cards.
+
+| Topic | Guides showing cards | Reference candidate | Expected cards per guide |
+| --- | --- | --- | --- |
+| Analytics | GoatCounter; GA4 | Global settings | Reference plus the other guide: 2. |
+| Navigation | Edit menu; edit footer | Global settings | Reference plus the other guide: 2. |
+| Content | Create post; create page; add image | Layouts and snippets | Reference plus both other guides: 3. |
+
+Each group shares `docs` plus its topic tag. Global settings belongs to both
+analytics and navigation. Sharing only `docs` does not qualify a document, so
+these groups do not recommend unrelated tasks to one another.
 
 This is a topic-based navigation aid, not a tutorial sequence or a Diátaxis type
 classification. The widget requires two shared tags within a collection, or three
@@ -77,12 +86,13 @@ across collections, and ranks by match count then date. It cannot distinguish a
 prerequisite from an alternative or link to a reference subsection. Keep direct
 task/reference links and version caveats in the guides. Check the actual rendered
 candidate sets before extending this pilot; do not add generic shared tags to
-all Docs just to make the widget produce results. Existing post-only tag listings
-remain unchanged.
+all Docs just to make the widget produce results. The content group fills the
+three-card limit: adding another guide will require reviewing which links are
+omitted. Existing post-only tag listings remain unchanged.
 
 ### Next priorities, not yet merged
 
-1. Current delivery: validate the small topic-related pilot on the analytics
+1. Current delivery: validate the topic-related pilot on the analytics, content and navigation
    guides. Keep the other Docs pages unchanged until its recommendations have
    been reviewed.
 2. Continue extracting the remaining integration procedures from Global settings

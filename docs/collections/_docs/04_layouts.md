@@ -6,6 +6,7 @@ mathjax: true
 mermaid: true
 show_toc: true
 h_max: 4
+tags: [docs, content]
 ---
 
 Use this page to look up a layout, snippet or page setting. For everyday editing,

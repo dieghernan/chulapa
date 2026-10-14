@@ -5,7 +5,7 @@ excerpt: Reference for site identity, navigation, integrations and Jekyll settin
 show_toc: true
 h_min: 2
 h_max: 5
-tags: [docs, analytics]
+tags: [docs, analytics, navigation]
 ---
 
 For editing procedures, use [Change your site's name and author](./14-site-details),
