@@ -21,7 +21,7 @@ extraction decisions. Internal policies and legal/operational surfaces are bound
 Reference records; they do not become beginner lessons.
 
 
-Inventory total: **136 source documents/surfaces** (112 primary; 24 supporting).
+Inventory total: **137 source documents/surfaces** (113 primary; 24 supporting).
 
 ## Primary inventory: user-facing documentation and examples
 
@@ -124,6 +124,7 @@ Inventory total: **136 source documents/surfaces** (112 primary; 24 supporting).
 | [docs/collections/_skins/universal.md](../docs/collections/_skins/universal.md) | /skins/universal | Reference | How-To Guides | 6/10 | Skin/component specimen embeds configuration/Autothemer setup; move procedure to a canonical how-to. |
 | [docs/collections/_skins/wandoo.md](../docs/collections/_skins/wandoo.md) | /skins/wandoo | Reference | How-To Guides | 6/10 | Skin/component specimen embeds configuration/Autothemer setup; move procedure to a canonical how-to. |
 | [docs/collections/_skins/yeti.md](../docs/collections/_skins/yeti.md) | /skins/yeti | Reference | How-To Guides | 6/10 | Skin/component specimen embeds configuration/Autothemer setup; move procedure to a canonical how-to. |
+| [docs/blog/index.html](../docs/blog/index.html) | /blog/ | Reference | — | 10/10 | Documented runnable pagination/index specimen; user-facing reference linked from configuration and layouts. |
 | [docs/index.html](../docs/index.html) | / | Explanation | Reference | 7/10 | Product orientation mixes feature/example catalogs and installation alternatives. |
 | [docs/llms.txt](../docs/llms.txt) | /llms.txt | Reference | — | 10/10 | Selective machine-facing documentation directory with compatibility constraints. |
 | [examples/README.md](../examples/README.md) | Repository source | Reference | How-To Guides | 8/10 | Starter catalog includes setup/publishing directions. |
