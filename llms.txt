@@ -8,7 +8,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 ## Getting started
 
-- [Documentation overview](https://dieghernan.github.io/chulapa/docs): Main documentation index.
+- [Documentation overview](https://dieghernan.github.io/chulapa/docs): Task-oriented documentation index with Tutorials, How-To Guides, Reference and a short publishing Explanation.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-only tutorial: publish the Chulapa 101 blog with a personal title and edited sample article; existing task/example anchors remain as compatibility links.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): GitHub template, remote-theme and gem-based installation, dependencies, local overrides and deployment guidance.
 - [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration, local overrides, front matter mapping, integrations, preserved URLs and a twelve-point checklist.
