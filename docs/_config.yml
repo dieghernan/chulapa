@@ -124,6 +124,10 @@ navbar:
       url: /docs/04-layouts
     - title: FAQs
       url: /docs/05-faq
+    - title: Accessibility and performance
+      url: /docs/06-accessibility-performance
+    - title: Migrating from another theme
+      url: /docs/07-migration
     - title: Markdown cheatsheet
       url: /docs/markdown-cheatsheet
     - title: Syntax highlighting
