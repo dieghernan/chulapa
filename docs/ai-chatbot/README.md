@@ -23,6 +23,14 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
+The build rejects context larger than **45,000 UTF-8 bytes**, before generating
+artifacts. This is an editorial growth budget, not a model token limit. Keep
+supported settings, defaults, release caveats, complete small examples and exact
+source URLs; consolidate repeated advice before adding material. Increasing the
+budget requires an explicit review of the reason and coverage. Byte reduction
+alone does not demonstrate faster or equally accurate answers.
+See [the October context review](evaluations/context-review-2026-10-14.md) for
+baseline measurements, validation and outstanding live evaluation.
 Regenerate the bundle after changing the context, widget or Worker. Deployments
 do not automatically synchronize with Jekyll builds. The selected context is
 deliberately limited; the assistant must acknowledge missing information.
