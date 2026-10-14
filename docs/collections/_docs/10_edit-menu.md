@@ -5,7 +5,6 @@ excerpt: Edit a menu label or destination without replacing your site's other na
 show_toc: false
 tags: [docs, navigation]
 show_related: true
-related_label: "<h2>Related documentation</h2>"
 ---
 
 Use this guide when your site is already published and you have a page to link to.

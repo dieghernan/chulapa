@@ -4,7 +4,6 @@ subtitle: Publish a standalone page on an existing site
 excerpt: Add a Contact page, give it a public address and make it reachable from your navbar.
 tags: [docs, content]
 show_related: true
-related_label: "<h2>Related documentation</h2>"
 ---
 
 Use this guide when your site is already published and you want a page such as

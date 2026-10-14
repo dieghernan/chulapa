@@ -5,7 +5,6 @@ excerpt: Change footer labels and destinations, then verify the links on your pu
 show_toc: false
 tags: [docs, navigation]
 show_related: true
-related_label: "<h2>Related documentation</h2>"
 ---
 
 Use this guide for an existing site with a contact address, social profile or feed
