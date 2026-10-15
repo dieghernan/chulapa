@@ -18,8 +18,8 @@
         "description": "Some additional information you may find useful - Advice and FAQs",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T12:10:09+02:00",
-        "dateModified": "2026-10-15T12:10:09+02:00",
+        "datePublished": "2026-10-15T12:28:38+02:00",
+        "dateModified": "2026-10-15T12:28:38+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -312,19 +312,11 @@ procedure. Look up the three HTML hooks, custom CSS file and insertion order in
 separate setup guides; adding their scripts a second time can duplicate counts.</p>
 <h3 id="add-favicons">…add favicons?</h3>
 <h4 id="a-domain-root-icon">A. Domain-root icon</h4>
-<p>Place <code class="language-plaintext highlighter-rouge">favicon.ico</code> at your domain root for browsers that request it
-automatically. For a GitHub Pages project site under a path such as
-<code class="language-plaintext highlighter-rouge">/repository</code>, add an explicit icon link using the method below.</p>
+<p>See <a href="./52-add-favicon">Add a favicon</a> for domain-root discovery and why project
+sites need an explicit icon link.</p>
 <h4 id="b-explicit-icon-links">B. Explicit icon links</h4>
-<ol>
- <li>Go to <a href="https://realfavicongenerator.net/">https://realfavicongenerator.net/</a> and follow the instructions.</li>
- <li>Configure the generated icon URLs to match their final location, including
-<code class="language-plaintext highlighter-rouge">baseurl</code> for a project site.</li>
- <li>In your repo, copy the HTML code into <code class="language-plaintext highlighter-rouge">_includes/custom/custom_head.html</code>.</li>
- <li>Also, download the icon package and host it on your repo on
-<code class="language-plaintext highlighter-rouge">./assets/favicon/</code>.</li>
- <li>Build the site and check that the generated icon URLs resolve.</li>
-</ol>
+<p>Follow <a href="./52-add-favicon">Add a favicon</a> to upload the package, preserve existing
+head snippets and verify the generated addresses with <code class="language-plaintext highlighter-rouge">baseurl</code>.</p>
 <h3 id="add-an-alert-box">…add an alert box?</h3>
 <p>Follow <a href="./49-add-alert">Add an information or warning box</a> for the attribute
 placement, spacing and published-result checks.</p>
@@ -336,37 +328,9 @@ alternative text as well as the visible caption.</p>
 <p>Follow <a href="./51-add-footnote">Add a footnote to an article</a> for a matching reference
 and definition and a live output example.</p>
 <h3 id="chulapa-font">...use <span class="chulapa">Chulapa</span> font on my theme?</h3>
-<p>You can use <span class="chulapa">Chulapa</span> as a font just as you would do
-for any other font, since it is already installed. On your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chulapa-skin:
-  vars  :
-    headings-font-family: "chulapa, sans-serif"
-</code></pre></div></div>
-<p>This enables the font for headings. Without discretionary ligatures, the
-text appears as <span class="chulapa lead font-weight-bold" style="font-feature-settings: 'liga', 'dlig' 0;">Chulapa</span>.</p>
-<p>To enable its distinctive ligatures, add these rules to
-<code class="language-plaintext highlighter-rouge">assets/css/custom.scss</code>:</p>
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span><span class="o">,</span><span class="nt">h3</span><span class="o">,</span><span class="nt">h4</span><span class="o">,</span><span class="nt">h5</span><span class="o">,</span><span class="nt">h6</span> <span class="p">{</span>
-    <span class="na">-webkit-font-feature-settings</span><span class="p">:</span> <span class="s2">"liga"</span><span class="o">,</span> <span class="s2">"dlig"</span><span class="p">;</span>
-    <span class="na">-moz-font-feature-settings</span><span class="p">:</span> <span class="s2">"liga=1, dlig=1"</span><span class="p">;</span>
-    <span class="na">-moz-font-feature-settings</span><span class="p">:</span> <span class="s2">"liga"</span><span class="o">,</span> <span class="s2">"dlig"</span><span class="p">;</span>
-    <span class="na">-ms-font-feature-settings</span><span class="p">:</span> <span class="s2">"liga"</span><span class="o">,</span> <span class="s2">"dlig"</span><span class="p">;</span>
-    <span class="na">-o-font-feature-settings</span><span class="p">:</span> <span class="s2">"liga"</span><span class="o">,</span> <span class="s2">"dlig"</span><span class="p">;</span>
-    <span class="nl">font-feature-settings</span><span class="p">:</span> <span class="s2">"liga"</span><span class="o">,</span> <span class="s2">"dlig"</span><span class="p">;</span>
-    <span class="nl">text-rendering</span><span class="p">:</span> <span class="n">optimizeLegibility</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Then your headings would display as <span class="chulapa lead">Chulapa</span>!</p>
-<p>The documentation uses the <code class="language-plaintext highlighter-rouge">chulapa</code> CSS class to apply the font and its
-ligatures. For an inline name, use
-<code class="language-plaintext highlighter-rouge">&lt;span class="chulapa"&gt;Chulapa&lt;/span&gt;</code>. Apply the class to a paragraph to style
-its entire text:</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cool! I would like to use it. I love Madrid indeed! There is nothing quite like a relaxing cup of café con leche in Plaza Mayor or a romantic dinner in El Madrid de los Austrias, the oldest part of Madrid.
-{: .chulapa}
-</code></pre></div></div>
-<p class="chulapa">Cool! I would like to use it. I love Madrid indeed! There is nothing quite like
-a relaxing cup of café con leche in Plaza Mayor or a romantic dinner in El
-Madrid de los Austrias, the oldest part of Madrid.</p>
+<p>Follow <a href="./53-chulapa-font">Use the bundled font</a> for heading configuration,
+ligatures and the <code class="language-plaintext highlighter-rouge">chulapa</code> class on selected text. Other families are covered by
+<a href="./24-change-fonts">Change the fonts</a>.</p>
 <h3 id="add-a-font-awesome-icon-in-markdown">…add a Font Awesome icon in Markdown?</h3>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;i class="fas fa-exclamation-circle"&gt;&lt;/i&gt; You just insert the html code
 
