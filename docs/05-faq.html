@@ -18,8 +18,8 @@
         "description": "Some additional information you may find useful - Advice and FAQs",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T12:28:38+02:00",
-        "dateModified": "2026-10-15T12:28:38+02:00",
+        "datePublished": "2026-10-15T12:43:26+02:00",
+        "dateModified": "2026-10-15T12:43:26+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -332,10 +332,9 @@ and definition and a live output example.</p>
 ligatures and the <code class="language-plaintext highlighter-rouge">chulapa</code> class on selected text. Other families are covered by
 <a href="./24-change-fonts">Change the fonts</a>.</p>
 <h3 id="add-a-font-awesome-icon-in-markdown">…add a Font Awesome icon in Markdown?</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;i class="fas fa-exclamation-circle"&gt;&lt;/i&gt; You just insert the html code
-
-</code></pre></div></div>
-<p><i class="fas fa-exclamation-circle"></i> You just insert the html code</p>
+<p>Follow <a href="./54-add-icon">Add a Font Awesome icon</a> for an article example,
+accessible text and missing-icon checks. Version and kit fields remain in the
+<a href="./02-config#font-awesome">Font Awesome reference</a>.</p>
 <h3 id="have-a-quick-preview-of-a-page-of-my-site-with-any-skin">…have a quick preview of a page of my site with any skin?</h3>
 <p>Open the <a href="../skins">skin previews</a> to compare designs. To try one on your own
 site, change <code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>, save and publish. Follow
@@ -346,19 +345,9 @@ Changing a preview on this documentation site does not change your own site.</p>
 the failing edit, checking indentation/quotes/duplicate sections and rebuilding.
 Valid YAML alone does not establish valid skin names, provider IDs or field locations.</p>
 <h3 id="know-which-version-of-the-theme-i-am-using">…know which version of the theme I am using?</h3>
-<p>For a remote theme, check <code class="language-plaintext highlighter-rouge">remote_theme</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. A suffix such as
-<code class="language-plaintext highlighter-rouge">@v2.1.0</code> pins a release; an unpinned value uses the repository default branch
-and does not identify a fixed version. For a gem-based theme, check the
-<code class="language-plaintext highlighter-rouge">chulapa-jekyll</code> version in <code class="language-plaintext highlighter-rouge">Gemfile.lock</code>.</p>
-<p>For pages using the theme’s head include, view the HTML source and look for
-this comment near the beginning:</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="c">&lt;!-- Chulapa Jekyll Theme - VERSION NUMBER HERE --&gt;</span>
-
-</code></pre></div></div>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>The HTML comment is a theme version marker.</strong> It does not identify the exact
-commit of an unpinned remote theme or any local overrides. Use a pinned tag or
-<code class="language-plaintext highlighter-rouge">Gemfile.lock</code> to identify the selected release.</p>
+<p>Follow <a href="./55-check-theme-version">Check which theme version your site uses</a>
+to inspect the remote-theme selection, resolved gem and published HTML marker.
+The marker does not identify an exact unpinned commit or local overrides.</p>
 <h3 id="use-jekyll-feed-instead-of-chulapas-feeds">…use jekyll-feed instead of <span class="chulapa">Chulapa</span>’s feeds?</h3>
 <p><span class="chulapa">Chulapa</span> generates <code class="language-plaintext highlighter-rouge">/atom.xml</code> and <code class="language-plaintext highlighter-rouge">/rss.xml</code>. A document appears in these feeds
 only when <code class="language-plaintext highlighter-rouge">include_on_feed: true</code> and a date are set. To include all posts, add

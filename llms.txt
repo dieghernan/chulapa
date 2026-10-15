@@ -111,3 +111,8 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 - [Add a favicon](https://dieghernan.github.io/chulapa/docs/52-add-favicon): Upload icon files, preserve head snippets and verify explicit links with baseurl; manifests do not provide offline capability.
 - [Use the Chulapa font](https://dieghernan.github.io/chulapa/docs/53-chulapa-font): Apply the bundled family and ligatures to headings or use its existing class on selected text.
+
+## Icons and version checks
+
+- [Add a Font Awesome icon](https://dieghernan.github.io/chulapa/docs/54-add-icon): Insert a free icon with accompanying text and diagnose missing icons without duplicate loaders.
+- [Check the theme version](https://dieghernan.github.io/chulapa/docs/55-check-theme-version): Inspect remote tags, resolved gem versions and published markers without treating them as exact unpinned commits.

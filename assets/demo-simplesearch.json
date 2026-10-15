@@ -847,6 +847,28 @@
       "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"
     } ,
   {
+      "title": "Add a Font Awesome icon to an article",
+      "subtitle": "Place an icon in Markdown without losing its meaning",
+      "excerpt": "Use this guide on an existing site using the theme’s stylesheets. Font Awesomeis already loaded; do not add another script or stylesheet to the article.",
+      "content": "Use this guide on an existing site using the theme’s stylesheets. Font Awesome is already loaded; do not add another script or stylesheet to the article.   Insert the icon   Edit a post or page’s .md file. Below its front matter (the settings between --- lines), paste this complete example, keeping the surrounding text:   &lt;i class=\"fas fa-exclamation-circle\" aria-hidden=\"true\"&gt;&lt;/i&gt; Check the publication date.    Check the publication date.   The text carries the meaning; aria-hidden=\"true\" keeps the decorative icon from being announced again by screen readers. Do not replace a link or button’s accessible name with an icon alone.   To choose another icon, use the Font Awesome catalog. Copy the classes for a free icon available in your configured version; a paid icon or a class from a different version may not display. Replace only the example’s classes and text, retaining aria-hidden=\"true\" for decorative icons.   Publish and check   Commit the article on the publishing branch, wait for Actions to succeed and open the published page. The GitHub Markdown preview does not establish that the site’s icon stylesheet loaded. Check that the icon and its explanatory text both appear, including on a narrow screen.   If the icon is missing, check its spelling and whether it is available in your Font Awesome version or kit. Inspect failed stylesheet/kit requests in the browser’s developer tools; blocked external resources can prevent rendering. Do not add duplicate loaders as a workaround.   For version selection, v4 compatibility and kit settings, use the Font Awesome reference.",
+      "categories": "",
+      "date": "2026-10-15",
+      "tags": "",
+      "url": "https://dieghernan.github.io/chulapa/docs/54-add-icon",
+      "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"
+    } ,
+  {
+      "title": "Check which theme version your site uses",
+      "subtitle": "Identify the selected release before troubleshooting or upgrading",
+      "excerpt": "Use this guide for an existing site when an option does not match itsdocumentation or you need to identify your current release. These checks do notupgrade the theme.",
+      "content": "Use this guide for an existing site when an option does not match its documentation or you need to identify your current release. These checks do not upgrade the theme.   Check the selected theme   For a remote-theme installation, open _config.yml and find remote_theme:   remote_theme: dieghernan/chulapa@v2.1.0   Here, @v2.1.0 selects that release. An unpinned value such as dieghernan/chulapa follows the repository’s default branch; it does not select a fixed release. An explicit branch can move too. Record the value you actually have rather than replacing it with this example.   For a gem installation, open Gemfile.lock and find the chulapa-jekyll entry and its resolved version. The Gemfile’s version requirement alone may allow more than one version. If you have no lockfile, this check cannot identify the resolved gem used for the build; inspect the publishing build’s dependency output.   Compare with the published website   Open the published page’s HTML source and search for this comment near the beginning, replacing the example text with the version displayed:   &lt;!-- Chulapa Jekyll Theme - VERSION NUMBER HERE --&gt;   This marker is present on pages using the theme’s head include. If it is absent, check whether a local layout or head include replaced it. If the page is old, verify the publishing run and website address.   The marker is not an exact commit identifier. It cannot identify a specific unpinned remote-theme revision or describe local overrides. A version selected in source also does not prove that the latest build has been published.   Keep the configured tag or resolved gem version with your troubleshooting notes. Before relying on a documented feature, check its release caveat. When ready to change versions, use the remote-theme or gem installation guide, and review local overrides.",
+      "categories": "",
+      "date": "2026-10-15",
+      "tags": "",
+      "url": "https://dieghernan.github.io/chulapa/docs/55-check-theme-version",
+      "img": ":url('https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png')"
+    } ,
+  {
       "title": "Syntax highlighting demo",
       "subtitle": "Highlighters shipped with this theme.",
       "excerpt": "This page is a demo of the different styles ofsyntax highlighting shipped by default with thistheme. Just make your selection below.",
