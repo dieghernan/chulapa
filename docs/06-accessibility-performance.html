@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/06-accessibility-performance",
         "name": "Accessibility and performance",
-        "description": "Check your site’s navigation, colors and resources - Keyboard behavior, reduced motion and practical loading advice.",
+        "description": "Check your site’s navigation, colors and resources - Verify your published pages with a keyboard, narrow screens and real content.",
         "headline": "Accessibility and performance",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T11:42:19+02:00",
-        "dateModified": "2026-10-15T11:42:19+02:00",
+        "datePublished": "2026-10-15T12:00:57+02:00",
+        "dateModified": "2026-10-15T12:00:57+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -96,7 +96,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Check your site’s navigation, colors and resources - Keyboard behavior, reduced motion and practical loading advice.">
+    <meta name="description" content="Check your site’s navigation, colors and resources - Verify your published pages with a keyboard, narrow screens and real content.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -104,12 +104,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/06-accessibility-performance" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Check your site’s navigation, colors and resources - Keyboard behavior, reduced motion and practical loading advice." >
+    <meta property="og:description" content="Check your site’s navigation, colors and resources - Verify your published pages with a keyboard, narrow screens and real content." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Check your site’s navigation, colors and resources - Keyboard behavior, reduced motion and practical loading advice.">
+    <meta name="twitter:description" content="Check your site’s navigation, colors and resources - Verify your published pages with a keyboard, narrow screens and real content.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -260,83 +260,73 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#check-your-own-pages">Check your own pages</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#keyboard-navigation">Keyboard navigation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#colors-and-content">Colors and content</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#pwa-and-offline-behavior">PWA and offline behavior</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#resource-loading">Resource loading</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#review-coverage">Review coverage</a></li></ul>
 			</nav>
-			 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Getting started:</strong> <a href="#check-your-own-pages">check your own pages</a>.
-<strong>Advanced reference:</strong> review <a href="#resource-loading">resource loading</a>,
-<a href="#pwa-and-offline-behavior">offline limitations</a> and <a href="#review-coverage">test coverage</a>.</p>
-<p>Make sure visitors can read and use your site on a phone, with a keyboard and
-with enlarged text. Start with your own content and the checks below.</p>
+			 <p>Use this guide to check a published site after changing content, a skin or an
+integration. Have the home page, a representative article and search open, along
+with any galleries, videos or comments you use.</p>
+<p>Some expected controls require <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0, not the v2.1.0 gem or pin.
+Compare your installed version with <a href="./48-accessibility-reference">the behavior reference</a>.
+These checks do not establish WCAG compliance by themselves.</p>
 <h2 id="check-your-own-pages">Check your own pages</h2>
-<ul>
- <li>Use Tab to move through links and controls. Focus should remain visible;
-Enter opens links, and menu buttons also work with Space.</li>
- <li>Check the home page, an article and search on a narrow screen. Enlarge text
-and confirm that content stays readable and controls remain reachable.</li>
- <li>Describe informative photographs and use meaningful link text, such as
-“View my portfolio”, instead of “Click here”.</li>
- <li>Start article sections with <code class="language-plaintext highlighter-rouge">##</code>, below the page title.</li>
- <li>Check text and link contrast after changing a skin or colors.</li>
- <li>Try search, comments and any widgets you have enabled.</li>
-</ul>
-<p>The improvements described here are development changes after v2.1.0, not
-part of the v2.1.0 gem or pinned remote theme. Your content, colors and
-integrations still need checking; the theme alone does not establish compliance
-with the Web Content Accessibility Guidelines (WCAG).</p>
+<p>Open those pages at a narrow phone width and enlarge their text. Confirm that
+content remains readable and controls stay reachable. Check long headings and
+your actual images, not only short sample content. Repeat after fixing a problem.</p>
+<p>Use the steps below for each representative page. Record the page, browser,
+viewport and problem so you can verify the same case after changing it.</p>
 <h2 id="keyboard-navigation">Keyboard navigation</h2>
-<p>The first Tab stop, <strong>Skip to content</strong>, bypasses the menu. Open the floating
-menu with Enter or Space; Escape closes it and returns focus to its button.
-Following a link also closes it. Dropdown buttons use the same font as the
-surrounding menu links.</p>
-<p>Open the sidebar table of contents, then Tab through its close button and
-links. Escape closes the panel and returns focus. The table of contents
-highlights the section you are reading without moving keyboard focus.</p>
-<p>In PhotoSwipe galleries, use arrow keys to browse and Escape to close. Focus
-returns to the image link. If the viewer cannot load, links still open the
-original images. See <a href="./04-layouts#photoswipe-lightbox">PhotoSwipe lightboxes</a>.</p>
-<p>With JavaScript disabled, the floating menu provides ordinary navigation links.
-Interactive galleries and other integrations may need JavaScript and an
-internet connection.</p>
+<ol>
+ <li>Use Tab without a mouse. Confirm you can see which link or control has focus.
+Activate <strong>Skip to content</strong> when available and check that it bypasses the menu.</li>
+ <li>Open and close your menu and dropdowns. Use Enter for links, Enter/Space for
+buttons and Escape where a panel supports it. Confirm focus returns to the
+trigger after closing the floating menu.</li>
+ <li>If you use the sidebar TOC, open it, Tab through its controls and close it with
+Escape. Check that closed controls are no longer reachable and that section
+highlighting does not move keyboard focus while you read.</li>
+ <li>In a PhotoSwipe gallery, open an image, browse with arrow keys and close with
+Escape. Check the return to the image link. Try search, comments and your
+other widgets too.</li>
+</ol>
+<p>For exact supported behaviors and fallback limits, use
+<a href="./48-accessibility-reference#keyboard-navigation">the keyboard reference</a>.
+If you use custom layouts or widgets, check their headings, labels and controls
+as well as the theme’s own navigation.</p>
 <h2 id="colors-and-content">Colors and content</h2>
-<p>Keep links distinguishable from ordinary text. The theme underlines article
-links and provides visible keyboard focus; check that your custom colors
-preserve those cues.</p>
-<p>Carousels have a play/pause control when automatic cycling is enabled. A plain
-symbol remains if Font Awesome cannot load. They start paused for visitors
-who prefer reduced motion and stop when someone interacts with the slides or
-navigation controls. Hover pauses temporarily; use the play control to resume
-a manually paused slideshow. See <a href="./04-layouts#bootstrap-carousel">carousel settings</a>.</p>
-<p>Give videos a descriptive <code class="language-plaintext highlighter-rouge">name</code> and supply captions or transcripts where
-needed. For Mermaid diagrams, use <code class="language-plaintext highlighter-rouge">accTitle</code> and <code class="language-plaintext highlighter-rouge">accDescr</code>. Gallery snippets
-use generic image descriptions; use custom image markup with descriptive
-<code class="language-plaintext highlighter-rouge">alt</code> text when the photograph conveys information.</p>
-<p>Check long titles and enlarged text on your actual pages. If you add custom
-layouts or widgets, also check their headings, labels and keyboard controls.</p>
+<p>Check text and link contrast on the actual backgrounds after changing colors.
+Confirm that links remain distinguishable without relying only on color and
+that keyboard focus is visible. Use meaningful link text, such as “View my
+portfolio”, rather than “Click here”.</p>
+<p>Review informative photographs for descriptive alternative text. Gallery snippets
+supply generic descriptions; use <a href="./17-add-image">custom image markup</a> where the
+individual photograph conveys information. Give videos a descriptive <code class="language-plaintext highlighter-rouge">name</code> and
+provide captions/transcripts where needed. Give Mermaid diagrams <code class="language-plaintext highlighter-rouge">accTitle</code> and
+<code class="language-plaintext highlighter-rouge">accDescr</code> and explain complex diagrams in prose. Begin article sections with
+<code class="language-plaintext highlighter-rouge">##</code> below the page title.</p>
+<p>Enable reduced motion in your device/browser settings and reload an automatically
+cycling carousel. Check that it starts paused, that play/pause is operable and
+that the chosen state survives interaction as described by
+<a href="./48-accessibility-reference#colors-content-and-motion">the motion reference</a>.</p>
 <h2 id="pwa-and-offline-behavior">PWA and offline behavior</h2>
-<p class="alert alert-info p-3 mx-2 mb-3">The theme does not provide offline support or a setting to enable it.
-A favicon or web app manifest alone does not make the site work offline or
-guarantee that visitors can install it as an app.</p>
-<p>Adding those capabilities requires a separate setup for your own site and
-hosting. Comments, embedded videos and the documentation chatbot need an
-internet connection. Test the published site before promising offline access.</p>
+<p>Do not infer offline support from a favicon, manifest or an app-like window.
+The theme provides no built-in offline mode; see
+<a href="./48-accessibility-reference#pwa-and-offline-behavior">offline constraints</a>.
+If you added a separate offline implementation, disconnect the network and test
+the published pages and integrations before promising that behavior to visitors.</p>
 <h2 id="resource-loading">Resource loading</h2>
-<p>Resize large photographs before uploading and enable only integrations you
-use. Extra fonts, icons and external services can add requests and slow loading.</p>
-<p>The theme loads PhotoSwipe when a visitor opens an image. Deferred YouTube
-videos show a preview first and load the player on activation. See
-<a href="./04-layouts#deferred-lazy-loading-of-youtube-videos">video loading</a>.</p>
-<p>Enable MathJax or Mermaid only on pages that need them. With Cactus, comment
-resources load on pages with <code class="language-plaintext highlighter-rouge">show_comments: true</code>.</p>
-<p>Analytics are optional. If you configure Google Analytics and GoatCounter,
-both services count visits. See <a href="./02-config#goatcounter-analytics">analytics settings</a>
-for setup and production-build requirements.</p>
-<p>Check loading on your published home page and a representative article with
-your actual images and integrations. A test score from this demo does not
-predict your site’s performance.</p>
+<p>Check loading on the published home page and an article using your real images
+and enabled integrations. Resize large photographs before uploading. Remove
+unneeded fonts/integrations and enable MathJax or Mermaid only where needed.</p>
+<p>Open a deferred YouTube video or PhotoSwipe image and verify its loading/fallback
+behavior. Check comments on an enabled post and confirm that any configured
+analytics matches your intended setup. For expected loading behavior and version
+limits, use <a href="./48-accessibility-reference#resource-loading">the resource reference</a>.</p>
+<p>A score measured on the demo cannot replace these checks on your own site.</p>
 <h2 id="review-coverage">Review coverage</h2>
-<p>The theme has automated checks for keyboard navigation, narrow screens and
-reduced motion. They cover representative layouts and skins, not every site
-or customization. Test your own published pages too.</p>
-<p>The <a href="https://github.com/dieghernan/chulapa/blob/main/test/accessibility-review.md">review record</a>
-contains the technical results and remaining checks.</p>
+<p>After correcting a problem, repeat the affected steps on the same pages and
+check related controls. Include custom headings/labels and third-party widgets
+in your review. Record anything you could not test, including browsers or
+assistive technologies that were unavailable.</p>
+<p>The theme’s <a href="./48-accessibility-reference#review-coverage">automated-review scope</a>
+is a separate reference; a passing theme suite does not test your whole site.</p>
 </article>
 		</div>
 	</main></div>
