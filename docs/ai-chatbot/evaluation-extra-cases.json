@@ -541,5 +541,12 @@
     "doc": "58_content-toc.md",
     "question": "How do I insert a TOC inside an existing article, skip one heading, and show only levels 2 to 6? Does that configure the theme TOC?",
     "expected": "Two-line * Contents then {:toc}, blank lines outside code/front matter. Marker position does not limit scope: eligible headings before it are included. {:.no_toc} below heading excludes it from both content and theme TOCs. Merge kramdown.toc_levels: 2..6 site-wide preserving parser/options; distinct from show_toc/h_min/h_max. Commit/publish/check links."
+  },
+  {
+    "id": "person-publisher-task-1",
+    "section": "seo",
+    "doc": "60_person-publisher.md",
+    "question": "How do I make my personal blog publisher a Person? Will it replace a guest author, and do I need a logo?",
+    "expected": "Since v2.1.0; edit existing publisher mapping type: Person exact case/name; no duplicates. Person ignores logo and uses image/site avatar. Publish/check JSON-LD publisher on home/post, URLs with baseurl; guest article authors unchanged. Does not guarantee search appearance."
   }
 ]
