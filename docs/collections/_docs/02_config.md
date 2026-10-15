@@ -199,9 +199,9 @@ visible breadcrumbs are disabled.
   creator.
 
 **Check your sharing metadata**: <span class="chulapa">Chulapa</span> generates Open Graph and Twitter/X card
-tags automatically. Set accurate titles, excerpts and image URLs, then check the
-shared page with the relevant platform. Metadata does not guarantee a particular
-preview or search result.
+tags automatically. For setup and published checks, use
+[Set a post's sharing text and images](./64-post-sharing). Metadata does not
+guarantee a particular preview or search result.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Publisher
@@ -289,7 +289,9 @@ service's own behavior.
 ### Search engines
 
 `search` configures search within the site, independently of external search-engine
-indexing. The personal-blog template includes Fuse.js search. Setup instructions:
+indexing. For crawler/sitemap/local-index exclusions, use
+[Keep an auxiliary page out of search](./65-search-visibility).
+The personal-blog template includes Fuse.js search. Setup instructions:
 [Enable Fuse.js](./12-fusejs-search), [Lunr.js](./34-lunr-search),
 [Simple-Jekyll-Search](./35-simplesearch-search),
 [Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).

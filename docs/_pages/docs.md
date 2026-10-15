@@ -31,6 +31,7 @@ search and comments are optional.
 - [Add a table of contents inside an article](./docs/58-content-toc).
 - Add [an alert box](./docs/49-add-alert), [an image caption](./docs/50-add-caption) or [a footnote](./docs/51-add-footnote).
 - [Add a Font Awesome icon](./docs/54-add-icon).
+- [Add tag and category indexes](./docs/63-tag-category-clouds).
 - [Add an image](./docs/17-add-image) or [a photo gallery](./docs/29-add-gallery).
 - [Add a manual slideshow](./docs/30-add-carousel) or [enable PhotoSwipe](./docs/31-photoswipe).
 - [Embed a video](./docs/32-embed-video) or [add a Mermaid diagram](./docs/33-add-diagram).
@@ -47,6 +48,7 @@ search and comments are optional.
 - Connect comments: [giscus](./docs/13-giscus-comments), [Disqus](./docs/38-disqus-comments), [Cactus](./docs/39-cactus-comments) or [Welcomments](./docs/40-welcomments-comments).
 - [Reconnect an existing self-hosted Cusdis service](./docs/41-cusdis-comments): archived upstream; not a new hosted setup.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
+- [Set a post's sharing text and images](./docs/64-post-sharing) or [control a page's search visibility](./docs/65-search-visibility).
 - [Point a republished article to its original URL](./docs/62-canonical-article).
 - [Identify a personal site's publisher](./docs/60-person-publisher).
 - [Check accessibility and performance](./docs/06-accessibility-performance).

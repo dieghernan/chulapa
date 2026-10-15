@@ -355,35 +355,10 @@ layout: cloudcategory
 ---
 ```
 
-To set up a tag or category cloud, follow these two steps:
-
-**1. Set the URL where the tag cloud will be hosted**
-
-This could be easily done on your `_config.yml` file via [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/). This example would show how to set this for a specific collection [NAME OF YOUR COLLECTION]:
-
-```yaml
-  -
-    scope:
-      path: ""
-      type: "[NAME OF YOUR COLLECTION]"
-    values:
-      layout: "default"
-      header_type: "base"
-      cloudtag_url        : "[URL_CLOUDTAG]"
-      cloudcategory_url   : "[URL_CLOUDCATEGORY]"
-```
-
-**2. Create the page and host it in that `url` using this layout**
-
-The front matter of your cloud page:
-
-```yaml
----
-layout: cloudtag # Use cloudcategory for categories.
-permalink: [URL_CLOUDTAG] # OR [URL_CLOUDCATEGORY]
-include_collection: [NAME OF YOUR COLLECTION]
----
-```
+Setup: [Add tag and category indexes](./63-tag-category-clouds). The index
+page selects collections; `cloudtag_url` and `cloudcategory_url` on documents
+or their defaults connect the article badges to that page. `show_tags` and
+`show_categories` control badge display. A matching permalink is required.
 
 Use `cloudtag` and `cloudcategory` with Jekyll 3 or 4. The old `cloudtag2` and
 `cloudcategory2` layouts are compatibility aliases; no `grouptag.rb` plugin is
@@ -411,7 +386,7 @@ Optional arguments:
   ascending order. The default order is descending.
 - `index_items`: Limit the number of items to be displayed. **10**.
 
-To list collection documents by filename in ascending order, as on the demo index:
+Filename-order mapping specimen (sorting is by document field, not title):
 
 ```yaml
 ---
@@ -427,7 +402,8 @@ Sorting uses the selected field rather than the displayed title; the item limit
 is applied after sorting. Galleries use `basename` for filename order because
 they contain static files rather than collection documents.
 
-See a working example [here](https://dieghernan.github.io/chulapa/demo).
+The [live card index](../demo) uses `index_sort: path` with ascending order;
+its source/output example demonstrates the resulting numbered demo order.
 
 For a paginated post index, use [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). The [chulapa-101 home page](https://dieghernan.github.io/chulapa-101/) uses this plugin; its [index.html](https://github.com/dieghernan/chulapa-101/blob/main/index.html) lists five posts per page with previous and next links. Keep the filename `index.html` and configure `paginate` and `paginate_path` in `_config.yml`. For a separate blog index, use [the documentation site's example](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html).
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
@@ -438,16 +414,16 @@ Use `layout: search` for a dedicated search page. It selects the search widget
 from `search.provider` and renders its own title, navbar and footer. It does
 not inherit the optional components of `default`.
 
-Set the page's `permalink` to match `search.landing_page` in `_config.yml`
+The page's `permalink` matches `search.landing_page` in `_config.yml`
 (default `/search`). Search menu links use this path; the classic navbar and
 the desktop form of `dual` also require `navbar.nav` to show the link. Configuring
-a provider does not create the page.
+a provider does not create the page. Setup is covered by the
+[provider guides](./02-config#search-engines).
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### A note on defaults
 
-Defaults let you apply the same settings to all posts. Add this entry under
-`defaults` in `_config.yml`, keeping the entries already there:
+Defaults mapping specimen for shared post settings in `_config.yml`:
 
 ```yaml
 defaults:
@@ -968,8 +944,8 @@ tags:
 The generated tags precede custom head hooks. Configure these fields instead of
 adding duplicate properties in a hook. See the [Open Graph protocol](https://ogp.me/).
 
-Use `description` in page front matter when you want to write the metadata text
-independently of the visible content:
+`description` is optional page metadata independent of visible content.
+Procedure: [Set a post's sharing text and images](./64-post-sharing). Specimen:
 
 ```yaml
 ---
@@ -1008,7 +984,8 @@ Search indexing settings are independent:
 | `sitemap: false` | Excludes the page from `jekyll-sitemap`. It does not prevent indexing by itself. |
 | `include_on_search: false` | Excludes the page from the supported internal search indexes. It does not control external indexing; Algolia exclusions are configured separately. |
 
-For an auxiliary search page, you can use all three explicitly:
+Combined auxiliary-page mapping specimen (setup and verification are in the
+[search visibility guide](./65-search-visibility)):
 
 ```yaml
 robots: "noindex, follow"
@@ -1016,16 +993,15 @@ sitemap: false
 include_on_search: false
 ```
 
-The documentation site's search page uses these settings. Its categories page
-includes posts, demos and skins so it provides a working category index. Tags remain indexable. The standalone music scales widget opts out of
-external indexing and the sitemap; Algolia excludes it separately. The theme does not
-automatically exclude pages based on their path or layout.
+The documentation's [search page]({{ '/search.html' | relative_url }}) uses these
+settings; its [source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/search.md)
+is a complete example. There are no automatic exclusions by path or layout.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### Article images
 
-For posts, use `schema_image` in front matter to identify images that represent
-the article. A single URL or a YAML list is accepted. Relative URLs resolve
+`schema_image` identifies post illustrations for `BlogPosting` structured data.
+A single URL or YAML list is accepted. Procedure: [Set a post's sharing text and images](./64-post-sharing). Relative URLs resolve
 using the site's `url` and `baseurl`; absolute URLs remain unchanged.
 
 ```yaml
@@ -1059,12 +1035,12 @@ This option applies to posts rendered as `BlogPosting`, including values supplie
 
 ## Search crawler directives
 
-Use `robots` when you need page-specific indexing instructions. This is
-optional; ordinary pages use `index, follow`.
+`robots` supplies optional page-specific crawler instructions; ordinary pages
+use `index, follow`. Procedure: [Keep an auxiliary page out of search](./65-search-visibility).
 
 `robots` applies to pages, posts and collection documents.
 The default is `index, follow`; missing or empty values use this default.
-For example, set this in a page's front matter:
+Page front matter specimen:
 
 ```yaml
 ---
@@ -1073,7 +1049,7 @@ robots: "noindex, follow"
 ---
 ```
 
-You can also set `robots` through front matter defaults in `_config.yml`:
+`robots` also accepts front matter defaults in `_config.yml`:
 
 ```yaml
 defaults:
@@ -1106,8 +1082,7 @@ custom head and bottom-script hooks available. See the
 and [component sources](https://github.com/dieghernan/chulapa/tree/main/_includes/components)
 when replacing a specific part.
 
-To display up to two post cards inside a custom page, add this line to its
-content:
+Advanced include specimen for up to two post cards inside a custom page:
 
 {% raw %}
 ```

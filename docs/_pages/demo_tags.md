@@ -12,57 +12,17 @@ breadcrumb_list:
     url: /demo
 ---
 
-Here you can find the list of tags included in the `demo` and `skins`
-collections.
+This page groups tags from the `demo` and `skins` collections. Select a tag to
+jump to its group, then open one of the listed documents.
 
-Configuring a tag cloud is a two-step process:
-
-**1. Set the URL where the tag cloud will be hosted**
-
-This could be easily done on your `_config.yml` file via [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/). On this specific case:
+Actual selection for this demo:
 
 ```yaml
-  -
-    scope:
-      path: ""
-      type: "demo"
-    values:
-      layout: "default"
-      header_type: "base"
-      cloudtag_url        : "/demo/tags"
-  -
-    scope:
-      path: ""
-      type: "skins"
-    values:
-      header_type       : "splash"
-      cloudtag_url        : "/demo/tags"
-```
-
-After these steps, the tags generated on each specific page of the collection
-would link to `demo/tags`.
-
-**2. Create the page and host it in that `url`**
-
-The front matter of this page:
-
-```yaml
----
 layout: cloudtag
-title: Navigate the tags
-subtitle: 'Tags from <code>demo</code> and <code>skins</code> collections'
-header_type: hero
 permalink: /demo/tags
 include_collection: demo,skins
-breadcrumb_list:
-  - label: Home
-    url: /
-  - label: Demo
-    url: /demo
----
-
 ```
 
-The tag cloud should be generated right after this line:
-
----
+For your site, use [Add tag and category indexes](../docs/63-tag-category-clouds).
+Options and compatibility aliases are in the [layout reference](../docs/04-layouts#cloud-tags-and-categories).
+The [complete page source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_tags.md) includes its header and breadcrumb settings.

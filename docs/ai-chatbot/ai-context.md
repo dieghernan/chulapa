@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: canonical, 15 October 2026. Selective facts from public
+Reviewed snapshot: layout/SEO, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -191,15 +191,15 @@ Dev after v2.1.0: automatic active section for in-page/sidebar/kramdown TOCs wit
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#minimal
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#archive
-Source: https://dieghernan.github.io/chulapa/docs/04-layouts#cloud-tags-and-categories
+Source: https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
 landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chulapa-text-color under chulapa-skin.vars.
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
-Dev: minimal has no automatic h-entry; custom wrapper can use h-entry/p-name/u-url/e-content. default/landingpage keep entry markup. Visible h-card uses selected author.url, resolves url/baseurl, never inherits site URL for guest. show_date retains dt-published alongside dt-updated.
-archive: chronological collection documents, not standalone pages; include_collection names without underscores/spaces (e.g. posts,demo), unset all collections; include_missdates: true includes undated documents. cloudtag/cloudcategory need cloud permalink and cloudtag_url/cloudcategory_url in documents/defaults; include_collection restricts scope.
+Dev: minimal omits h-entry; custom wrappers may use h-entry/p-name/u-url/e-content. default/landingpage retain it. Visible h-card uses selected author.url, resolves url/baseurl, never inherits site URL for guest. show_date retains dt-published alongside dt-updated.
+archive: chronological collection docs, not standalone pages; include_collection names without underscores/spaces (e.g. posts,demo), unset all collections; include_missdates: true includes undated docs. cloudtag/cloudcategory: matching permalink and document/default cloudtag_url/cloudcategory_url; show_tags/show_categories display badges; include_collection sets scope.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
-Page switches: show_author (page author overrides site), show_date (publication/last_modified_at), show_sociallinks, show_categories/show_tags (badges), show_breadcrumb with breadcrumb_list label/url entries. show_bottomnavs uses supplied page.previous/page.next, not arbitrary standalone-page navigation.
-Defaults are scope/value list entries: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; unquoted YAML false, not "false".
+Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
+Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
 show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. Dev singleton pool renders one card; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
 
 ## Configuring site search
@@ -247,13 +247,15 @@ footer.links: label, icon (Font Awesome), url (plain email without mailto: allow
 
 
 ## SEO controls
-robots: "noindex, follow" changes HTML crawler directives (default index, follow), not privacy/robots.txt/sitemap. og_image is social image, header_img visible header, schema_image post JSON-LD image.
+Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
+robots: "noindex, follow" controls crawlers, not privacy/robots.txt/sitemap. og_image social image; header_img visible header; schema_image post JSON-LD image.
 
 
 ## Page metadata and article images
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images
+Source: https://dieghernan.github.io/chulapa/docs/64-post-sharing
 Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
 canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
 seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
