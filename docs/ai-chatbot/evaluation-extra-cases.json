@@ -485,5 +485,19 @@
     "doc": "51_add-footnote.md",
     "question": "How do I add a footnote and check the return link?",
     "expected": "Link /docs/51-add-footnote. Matching reference [^source] and definition [^source]: note text in same article, unique labels per note, compatible kramdown. Publish then follow generated superscript and backlink, keyboard too. No manually hardcoded numbering/URL or extra plugin."
+  },
+  {
+    "id": "favicon-task-1",
+    "section": "faq",
+    "doc": "52_add-favicon.md",
+    "question": "My site is at /my-blog. Is putting favicon.ico in the repository root enough?",
+    "expected": "Cite /docs/52-add-favicon. Domain-root autodiscovery differs from project root. Generate/upload icon package under assets/favicon, preserve existing custom_head, add/edit explicit rel icon href using relative_url for actual filename, avoid duplicate/manual baseurl. Verify published icon URL and tab; fuller package URLs/manifest icons must match location. Does not guarantee PWA offline/installability."
+  },
+  {
+    "id": "bundled-font-task-1",
+    "section": "faq",
+    "doc": "53_chulapa-font.md",
+    "question": "Can I use the included Chulapa font with its ligatures without adding Google Fonts?",
+    "expected": "Cite /docs/53-chulapa-font. Already supplied. Set existing chulapa-skin.vars.headings-font-family to chulapa, sans-serif for headings, preserve skin/vars; optional ligature CSS in custom.scss with front matter retained. Or existing chulapa class on span/paragraph applies font/ligatures to selected content. Publish/restart local config preview; no new YAML flag. Local font baseurl/preload improvements belong to dev after v2.1.0, not released pin."
   }
 ]

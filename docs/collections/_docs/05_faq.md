@@ -85,19 +85,13 @@ separate setup guides; adding their scripts a second time can duplicate counts.
 
 #### A. Domain-root icon
 
-Place `favicon.ico` at your domain root for browsers that request it
-automatically. For a GitHub Pages project site under a path such as
-`/repository`, add an explicit icon link using the method below.
+See [Add a favicon](./52-add-favicon) for domain-root discovery and why project
+sites need an explicit icon link.
 
 #### B. Explicit icon links
 
-1. Go to [https://realfavicongenerator.net/](https://realfavicongenerator.net/) and follow the instructions.
-2. Configure the generated icon URLs to match their final location, including
-   `baseurl` for a project site.
-3. In your repo, copy the HTML code into `_includes/custom/custom_head.html`.
-4. Also, download the icon package and host it on your repo on
-   `./assets/favicon/`.
-5. Build the site and check that the generated icon URLs resolve.
+Follow [Add a favicon](./52-add-favicon) to upload the package, preserve existing
+head snippets and verify the generated addresses with `baseurl`.
 
 ### ...add an alert box?
 
@@ -118,48 +112,9 @@ and definition and a live output example.
 
 <h3 id="chulapa-font">...use <span class="chulapa">Chulapa</span> font on my theme?</h3>
 
-You can use <span class="chulapa">Chulapa</span> as a font just as you would do
-for any other font, since it is already installed. On your `_config.yml`:
-```
-chulapa-skin:
-  vars  :
-    headings-font-family: "chulapa, sans-serif"
-```
-
-This enables the font for headings. Without discretionary ligatures, the
-text appears as <span class="chulapa lead font-weight-bold" style="font-feature-settings: 'liga', 'dlig' 0;">Chulapa</span>.
-
-To enable its distinctive ligatures, add these rules to
-`assets/css/custom.scss`:
-
-```scss
-h1,h2,h3,h4,h5,h6 {
-    -webkit-font-feature-settings: "liga", "dlig";
-    -moz-font-feature-settings: "liga=1, dlig=1";
-    -moz-font-feature-settings: "liga", "dlig";
-    -ms-font-feature-settings: "liga", "dlig";
-    -o-font-feature-settings: "liga", "dlig";
-    font-feature-settings: "liga", "dlig";
-    text-rendering: optimizeLegibility;
-}
-```
-
-Then your headings would display as <span class="chulapa lead">Chulapa</span>!
-
-The documentation uses the `chulapa` CSS class to apply the font and its
-ligatures. For an inline name, use
-`<span class="chulapa">Chulapa</span>`. Apply the class to a paragraph to style
-its entire text:
-
-```html
-Cool! I would like to use it. I love Madrid indeed! There is nothing quite like a relaxing cup of café con leche in Plaza Mayor or a romantic dinner in El Madrid de los Austrias, the oldest part of Madrid.
-{: .chulapa}
-```
-
-Cool! I would like to use it. I love Madrid indeed! There is nothing quite like
-a relaxing cup of café con leche in Plaza Mayor or a romantic dinner in El
-Madrid de los Austrias, the oldest part of Madrid.
-{: .chulapa}
+Follow [Use the bundled font](./53-chulapa-font) for heading configuration,
+ligatures and the `chulapa` class on selected text. Other families are covered by
+[Change the fonts](./24-change-fonts).
 
 ### ...add a Font Awesome icon in Markdown?
 

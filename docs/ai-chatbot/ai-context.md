@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: article formatting, 15 October 2026. Selective facts from public
+Reviewed snapshot: favicon/font tasks, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -266,14 +266,16 @@ Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
 Alert: blank line before paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3} on next line. Caption: image, paragraph then {: .caption}. Footnotes: [^1] with [^1]: text (kramdown).
 
 
-## FAQ: Markdown and favicons
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
-.md needs front matter/layout (explicit/default); sample: kramdown GFM, extensions parser-dependent. favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.
+## Favicons
+Source: https://dieghernan.github.io/chulapa/docs/52-add-favicon
+favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.
 
 
-## FAQ: Chulapa font and Font Awesome icons
-Source: https://dieghernan.github.io/chulapa/docs/05-faq#chulapa-font
+## Bundled font
+Source: https://dieghernan.github.io/chulapa/docs/53-chulapa-font
 Built-in chulapa font: headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars. For heading ligatures set font-feature-settings: "liga", "dlig" and text-rendering: optimizeLegibility in custom.scss. The chulapa class applies font/ligatures: <span class="chulapa">Chulapa</span> inline or {: .chulapa} after a Markdown paragraph.
+## Font Awesome
+Source: https://dieghernan.github.io/chulapa/docs/05-faq
 Font Awesome HTML works in Markdown: <i class="fas fa-exclamation-circle"></i>.
 
 
@@ -314,6 +316,7 @@ jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments r
 
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
+Use .md with front matter/layout (explicit/default).
 **bold**, _italic_, ~~strikethrough~~; blank-line paragraphs; #..###### headings; [label](URL), ![alt](URL), > blockquote; - bullets, 1. ordered list; backtick inline code, language-labelled fences (js/ruby/html/yaml). Pipe tables use separator rows; colons align columns. Sample kramdown GFM differs from some extensions requiring kramdown.input: Kramdown; check generated output.
 Content TOC uses two separate lines, not - {:toc}:
 ```markdown

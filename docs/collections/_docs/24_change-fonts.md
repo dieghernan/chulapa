@@ -7,7 +7,8 @@ Use this guide for an already published site. In your repository's **Code** tab,
 open `_config.yml` and click the pencil. Edit existing entries and preserve
 unrelated settings; do not add a second `chulapa-skin` section.
 
-Each skin already has a font choice; changing fonts is optional.
+Each skin already has a font choice; changing fonts is optional. For the bundled
+font rather than an external stylesheet, use [the bundled-font guide](./53-chulapa-font).
 
 ## Load and apply the fonts
 
