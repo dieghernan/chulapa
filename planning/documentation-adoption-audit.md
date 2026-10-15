@@ -6,7 +6,7 @@ Language: English.
 
 ## Implementation tracking
 
-Updated: 14 October 2026. The diagnosis and inventory below describe the baseline
+Updated: 15 October 2026. The diagnosis and inventory below describe the baseline
 after PR #106, not a continuously rescored view of the current documentation.
 Completed work is recorded here without rewriting that historical assessment.
 
@@ -37,7 +37,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#131](https://github.com/dieghernan/chulapa/pull/131) — icons and version checks | Merged; Pages and Worker deployment succeeded | Extracts two FAQ tasks, preserving old anchors and version-marker limitations. Feed compatibility remains pending. |
 | [#132](https://github.com/dieghernan/chulapa/pull/132) — subscription feeds | Merged; Pages and Worker deployment succeeded | Separates built-in feed publication and existing jekyll-feed coexistence into task guides; preserves FAQ anchors. Remaining Markdown/catalog mixtures are not claimed complete. |
 | [#133](https://github.com/dieghernan/chulapa/pull/133) — highlighting and variable catalogs | Merged; Pages and Worker deployment succeeded | Makes lookup purpose explicit and routes setup/publication to existing How-To Guides. Preserves style identifiers, code specimens, variable tables and public URLs. Markdown and README/home separation remain pending. |
-| [#134](https://github.com/dieghernan/chulapa/pull/134) — Markdown reference and content TOC | In review; not deployed | Extracts content-index setup into a How-To Guide, retains syntax specimens and parser constraints, and preserves legacy anchors. README/home and learning evidence remain pending. |
+| [#134](https://github.com/dieghernan/chulapa/pull/134) — Markdown reference and content TOC | Merged; Pages and Worker deployment succeeded | Extracts content-index setup into a How-To Guide, retains syntax specimens and parser constraints, and preserves legacy anchors. README/home and learning evidence remain pending. |
+| [#135](https://github.com/dieghernan/chulapa/pull/135) — README and home routing | In review; not deployed | Routes beginners, migrating users and experienced readers to canonical destinations; removes duplicated setup from README and a retired PageSpeed link from home. Learning evidence and remaining mixed reference sections are still pending. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -144,15 +145,11 @@ Phase 5 roadmap below remains historical; use this order for the next deliveries
    retaining parameter catalogs, runnable specimens and legacy anchors.
 3. **Provider setup — search #123 and comments #124 delivered:** finish the remaining Global settings task/reference split,
    including indexing workflows and compatibility cautions.
-4. **FAQ and migration — #126/#127 delivered; formatting remains pending:** route symptom tasks to canonical How-To Guides and
-   separate field mappings and hook/reference material without losing questions.
-5. **Explanation and accessibility — current delivery:** extract reader-facing publishing concepts
-   from the directory and separate practical checks from constraints/reasoning.
+4. **FAQ and migration — #126–#132 delivered:** task guides now cover troubleshooting, hooks, formatting, icons/version checks and feeds; migration mappings have a separate Reference. Keep questions and public destinations as routing links.
+5. **Explanation and accessibility — delivered in #128:** publishing concepts and accessibility constraints have separate destinations from practical checks.
 6. **Learning evidence:** add one controlled second Tutorial and observe first-site
    and expert lookup tasks; record sample size, help and failures.
-7. **Catalogs and entry points:** remove independent recipes from highlighting,
-   dictionary and Markdown lookup; simplify README/home routing without erasing
-   useful product orientation.
+7. **Catalogs and entry points — #133/#134 delivered; README/home in review in #135:** highlighting/variable lookup and Markdown content-index setup now route to canonical tasks. Simplify README/home routing while preserving product orientation. Remaining mixed reference sections and learning evidence still need review.
 
 Do not enable related cards globally or add types as matching tags. Recheck the
 actual candidate sets whenever content/tag changes affect them. Each extraction
