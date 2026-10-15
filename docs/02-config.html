@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T17:24:43+02:00",
-        "dateModified": "2026-10-15T17:24:43+02:00",
+        "datePublished": "2026-10-15T17:36:20+02:00",
+        "dateModified": "2026-10-15T17:36:20+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -492,16 +492,16 @@ tags automatically. Set accurate titles, excerpts and image URLs, then check the
 shared page with the relevant platform. Metadata does not guarantee a particular
 preview or search result.</p>
 <h4 id="publisher">Publisher</h4>
-<p>Use <code class="language-plaintext highlighter-rouge">publisher</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code> to identify who publishes your site to search
-engines. Choose <code class="language-plaintext highlighter-rouge">Person</code> for a personal blog or <code class="language-plaintext highlighter-rouge">Organization</code> for a company
-or association. This does not change the authors shown on articles.</p>
-<p>For an organization with its own logo:</p>
+<p><code class="language-plaintext highlighter-rouge">publisher</code> identifies the site publisher in JSON-LD structured data,
+independently of article authors. Supported since v2.1.0. For a personal-blog
+editing procedure, use <a href="./60-person-publisher">Identify a personal site’s publisher</a>.</p>
+<p>Organization mapping specimen:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">publisher</span><span class="pi">:</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">Organization</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">Example organization</span>
   <span class="na">logo</span><span class="pi">:</span> <span class="s">/assets/img/logo.png</span>
 </code></pre></div></div>
-<p>For a personal site:</p>
+<p>Person mapping specimen:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">publisher</span><span class="pi">:</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">Person</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">Jane Doe</span>
