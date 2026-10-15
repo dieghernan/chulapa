@@ -316,7 +316,6 @@ jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments r
 
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
-Use .md with front matter/layout (explicit/default).
 **bold**, _italic_, ~~strikethrough~~; blank-line paragraphs; #..###### headings; [label](URL), ![alt](URL), > blockquote; - bullets, 1. ordered list; backtick inline code, language-labelled fences (js/ruby/html/yaml). Pipe tables use separator rows; colons align columns. Sample kramdown GFM differs from some extensions requiring kramdown.input: Kramdown; check generated output.
 Content TOC uses two separate lines, not - {:toc}:
 ```markdown
