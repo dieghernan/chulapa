@@ -29,7 +29,9 @@ matter takes precedence over the default. To keep a particular post out, set
 
 The built-in feeds select posts and collection documents with
 `include_on_feed: true` and a date. Posts get their date from the filename;
-for a collection document, set `date` explicitly in its front matter to control
+for a collection document, first ensure its existing entry under `collections`
+in `_config.yml` has `output: true` so its article URL is published. Preserve
+the other collection settings. Then set `date` explicitly in its front matter to control
 its publication date and ordering. Jekyll 4 can infer a date when none is set;
 do not rely on that behavior across Jekyll versions. An ordinary
 standalone page outside a collection is not selected just by adding these
@@ -51,6 +53,9 @@ repository prefix in this setting; the theme adds `baseurl`.
 If a post is missing, check its explicit `include_on_feed` value and date, any
 more-specific defaults, and whether the publishing build included it. Use
 [Find missing changes](./42-unpublished-changes) before changing feed addresses.
+If a collection entry appears but its article returns 404, check that the
+collection has `output: true`, rebuild, and open that article URL directly.
+Opting a document into the feed does not enable collection output.
 If a feed returns 404, check the URL, latest deployment and any local file that
 overrides the theme's feed asset.
 

@@ -296,7 +296,7 @@ defaults:
     values:
       include_on_feed: true
 ```
-jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Set collection dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
+jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Collections need output: true for linked articles to exist; feed opt-in does not publish them. Set dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
 
 
 ## Custom hooks and version checks

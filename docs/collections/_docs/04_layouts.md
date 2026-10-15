@@ -239,7 +239,9 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
 Feeds are available at `/atom.xml` (Atom) and `/rss.xml` (RSS 2.0), under the
 site's `baseurl`. Selection is limited to posts and collection documents whose
 `include_on_feed` is boolean `true` and whose resolved `date` is non-null.
-An ordinary standalone page is not selected. Jekyll 4 can infer dates for
+Collection output must be enabled (`output: true`) for linked articles to be
+published; feed inclusion does not enable it. An ordinary standalone page is
+not selected. Jekyll 4 can infer dates for
 collection documents; set dates explicitly for consistent ordering across
 supported Jekyll versions.
 
