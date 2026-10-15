@@ -18,8 +18,8 @@
         "description": "Some additional information you may find useful - Advice and FAQs",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T12:43:26+02:00",
-        "dateModified": "2026-10-15T12:43:26+02:00",
+        "datePublished": "2026-10-15T13:47:27+02:00",
+        "dateModified": "2026-10-15T13:47:27+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -264,7 +264,7 @@
 use <a href="./00-start">the publishing tutorial</a>; for advanced integration lookup, use
 <a href="./45-custom-hooks">custom hooks</a>, <a href="#know-which-version-of-the-theme-i-am-using">version checks</a>
 or <a href="#use-jekyll-feed-instead-of-chulapas-feeds">feed compatibility</a>.</p>
-<p>Questions below link to task guides or retain examples still awaiting separation.
+<p>Questions below link to task guides and syntax references.
 This FAQ is not a complete configuration reference.</p>
 <h2 id="editing-and-publishing">Editing and publishing</h2>
 <h3 id="how-do-i-switch-from-another-jekyll-theme">How do I switch from another Jekyll theme?</h3>
@@ -349,24 +349,10 @@ Valid YAML alone does not establish valid skin names, provider IDs or field loca
 to inspect the remote-theme selection, resolved gem and published HTML marker.
 The marker does not identify an exact unpinned commit or local overrides.</p>
 <h3 id="use-jekyll-feed-instead-of-chulapas-feeds">…use jekyll-feed instead of <span class="chulapa">Chulapa</span>’s feeds?</h3>
-<p><span class="chulapa">Chulapa</span> generates <code class="language-plaintext highlighter-rouge">/atom.xml</code> and <code class="language-plaintext highlighter-rouge">/rss.xml</code>. A document appears in these feeds
-only when <code class="language-plaintext highlighter-rouge">include_on_feed: true</code> and a date are set. To include all posts, add
-this default to your <code class="language-plaintext highlighter-rouge">_config.yml</code>, preserving your other defaults:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">defaults</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
-      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">posts</span>
-    <span class="na">values</span><span class="pi">:</span>
-      <span class="na">include_on_feed</span><span class="pi">:</span> <span class="kc">true</span>
-</code></pre></div></div>
-<p>If you prefer <code class="language-plaintext highlighter-rouge">jekyll-feed</code>, its default <code class="language-plaintext highlighter-rouge">/feed.xml</code> can coexist with <span class="chulapa">Chulapa</span>’s
-feeds.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3">Changing its path to <code class="language-plaintext highlighter-rouge">/atom.xml</code> without removing <span class="chulapa">Chulapa</span>’s Atom feed
-creates two pages with the same output path.</p>
-<p>For most sites, keep the built-in feeds and link to <code class="language-plaintext highlighter-rouge">/atom.xml</code> or <code class="language-plaintext highlighter-rouge">/rss.xml</code>
-from your footer. If you need <code class="language-plaintext highlighter-rouge">jekyll-feed</code>, follow its
-<a href="https://github.com/jekyll/jekyll-feed#installation">setup guide</a> and keep its
-separate <code class="language-plaintext highlighter-rouge">/feed.xml</code> address to avoid conflicting with the theme’s feeds.</p>
+<p>Use <a href="./56-publish-feeds">Publish posts in the built-in feeds</a> for article
+selection and subscription links. To preserve an existing plugin feed, follow
+<a href="./57-jekyll-feed">Keep a jekyll-feed subscription address</a>; keep its output
+separate from the theme’s <code class="language-plaintext highlighter-rouge">/atom.xml</code> and <code class="language-plaintext highlighter-rouge">/rss.xml</code>.</p>
 </article>
 		</div>
 	</main></div>

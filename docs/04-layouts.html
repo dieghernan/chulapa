@@ -18,8 +18,8 @@
         "description": "Layout, snippet and page-option reference - Look up layouts, snippets and page settings, with links to content-editing guides.",
         "headline": "Layouts and snippets",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T12:43:26+02:00",
-        "dateModified": "2026-10-15T12:43:26+02:00",
+        "datePublished": "2026-10-15T13:47:27+02:00",
+        "dateModified": "2026-10-15T13:47:27+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -520,12 +520,20 @@ to a cloud tag page, with the landing page url defined on <code class="language-
  <li>
    <p><code class="language-plaintext highlighter-rouge">include_on_search</code>: Set to <code class="language-plaintext highlighter-rouge">false</code> to exclude a page from the Lunr, Fuse.js and Simple-Jekyll-Search indexes. Pages are included unless this value is explicitly <code class="language-plaintext highlighter-rouge">false</code>. For Algolia, this setting affects ranking only when configured in <code class="language-plaintext highlighter-rouge">customRanking</code>; it does not exclude records. Use <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md#files_to_exclude">Algolia’s <code class="language-plaintext highlighter-rouge">files_to_exclude</code></a> to exclude files. This option does not control external search crawlers; use <code class="language-plaintext highlighter-rouge">robots</code> for crawler directives.</p>
  </li>
- <li><code class="language-plaintext highlighter-rouge">include_on_feed</code>: Set the YAML boolean <code class="language-plaintext highlighter-rouge">true</code> to include the page in the
-theme’s Atom and RSS feeds, provided it has a date.</li>
+ <li><code class="language-plaintext highlighter-rouge">include_on_feed</code>: Set the YAML boolean <code class="language-plaintext highlighter-rouge">true</code> to include a post or collection
+document in the theme’s Atom and RSS feeds, provided it has a resolved date.
+This field does not include ordinary standalone pages.</li>
 </ul>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Note that</strong> the page would be included on the feed if this option is set to <code class="language-plaintext highlighter-rouge">true</code> <strong>and</strong> there is a <code class="language-plaintext highlighter-rouge">date</code> set. Posts in Jekyll need a date already present in the name of the file, but pages and collections don’t, so set a <code class="language-plaintext highlighter-rouge">date</code> value for those. You have two feeds available: Atom feed at <code class="language-plaintext highlighter-rouge">https://yoururl/atom.xml</code> (preferred) and RSS 2.0 at <code class="language-plaintext highlighter-rouge">https://yoururl/rss.xml</code>.</p>
-<p>To enable feeds for all posts or use <code class="language-plaintext highlighter-rouge">jekyll-feed</code> instead, see the
-<a href="./05-faq#use-jekyll-feed-instead-of-chulapas-feeds">feed configuration FAQ</a>.</p>
+<p>Feeds are available at <code class="language-plaintext highlighter-rouge">/atom.xml</code> (Atom) and <code class="language-plaintext highlighter-rouge">/rss.xml</code> (RSS 2.0), under the
+site’s <code class="language-plaintext highlighter-rouge">baseurl</code>. Selection is limited to posts and collection documents whose
+<code class="language-plaintext highlighter-rouge">include_on_feed</code> is boolean <code class="language-plaintext highlighter-rouge">true</code> and whose resolved <code class="language-plaintext highlighter-rouge">date</code> is non-null.
+Collection output must be enabled (<code class="language-plaintext highlighter-rouge">output: true</code>) for linked articles to be
+published; feed inclusion does not enable it. An ordinary standalone page is
+not selected. Jekyll 4 can infer dates for
+collection documents; set dates explicitly for consistent ordering across
+supported Jekyll versions.</p>
+<p>For setup, use <a href="./56-publish-feeds">Publish posts in the built-in feeds</a>.
+For an existing plugin address, use <a href="./57-jekyll-feed">Keep a jekyll-feed subscription address</a>.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">show_comments</code>: Display the comment widget when a supported
 <code class="language-plaintext highlighter-rouge">comments.provider</code> is configured.</li>
@@ -884,64 +892,64 @@ See <a href="./23-change-color">Change a color</a> for editing steps.</p>
   <button type="button" class="chulapa-carousel-toggle" aria-label="Pause slideshow" hidden=""><span class="chulapa-carousel-symbol" aria-hidden="true"><i class="fa fas fa-pause"></i><span class="chulapa-carousel-fallback">Ⅱ</span></span></button>
  <div class="carousel-inner" aria-live="polite" aria-atomic="false">
        <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="Image 1 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-antonio-gallego-vazquez-oTy2TfgAVAc-unsplash.jpg" alt="Carousel Item #1" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/apartment-buildings-against-sky-258181.jpg" alt="Carousel Item #1" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 2 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg" alt="Carousel Item #2" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alvaro-bernal-nlimH6wxY_I-unsplash.jpg" alt="Carousel Item #2" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 3 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/black-metal-post-with-sad-face-paint-3314301.jpg" alt="Carousel Item #3" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/paula-carrasco-R30nnrR8j_o-unsplash.jpg" alt="Carousel Item #3" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 4 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/apartment-buildings-against-sky-258181.jpg" alt="Carousel Item #4" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/florian-wehde-WBGjg0DsO_g-unsplash.jpg" alt="Carousel Item #4" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 5 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/florian-wehde-WBGjg0DsO_g-unsplash.jpg" alt="Carousel Item #5" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/david-monje-YwrD58FfX9g-unsplash.jpg" alt="Carousel Item #5" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 6 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" alt="Carousel Item #6" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg" alt="Carousel Item #6" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 7 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mindaugas-petrutis-RxEHnSDyH5I-unsplash.jpg" alt="Carousel Item #7" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" alt="Carousel Item #7" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 8 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Carousel Item #8" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-antonio-gallego-vazquez-oTy2TfgAVAc-unsplash.jpg" alt="Carousel Item #8" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 9 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alex-vasey-Zy-W7KWEyFE-unsplash.jpg" alt="Carousel Item #9" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/time-lapse-photography-of-city-during-night-time-4279199.jpg" alt="Carousel Item #9" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 10 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/quique-olivar-CRMjqDZwxS4-unsplash.jpg" alt="Carousel Item #10" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alberto-restifo-BS5kXq5jRL8-unsplash.jpg" alt="Carousel Item #10" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 11 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alberto-restifo-BS5kXq5jRL8-unsplash.jpg" alt="Carousel Item #11" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alex-vasey-Zy-W7KWEyFE-unsplash.jpg" alt="Carousel Item #11" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 12 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mario-gutierrez-dH7GC5QqO7Y-unsplash.jpg" alt="Carousel Item #12" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-manuel-viloria-martin-OEj-ETL9pMo-unsplash.jpg" alt="Carousel Item #12" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 13 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/time-lapse-photography-of-city-during-night-time-4279199.jpg" alt="Carousel Item #13" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/quique-olivar-CRMjqDZwxS4-unsplash.jpg" alt="Carousel Item #13" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 14 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
 	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/yellow-and-beige-high-rise-building-3254729.jpg" alt="Carousel Item #14" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 15 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/leigh-cooper-ImiT5XEi3Wk-unsplash.jpg" alt="Carousel Item #15" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Carousel Item #15" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 16 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/alvaro-bernal-nlimH6wxY_I-unsplash.jpg" alt="Carousel Item #16" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/tania-fernandez-zVdf2Hmrcxw-unsplash.jpg" alt="Carousel Item #16" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 17 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/tania-fernandez-zVdf2Hmrcxw-unsplash.jpg" alt="Carousel Item #17" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/leigh-cooper-ImiT5XEi3Wk-unsplash.jpg" alt="Carousel Item #17" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 18 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/jose-manuel-viloria-martin-OEj-ETL9pMo-unsplash.jpg" alt="Carousel Item #18" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/fran-velasco-2OZrVix-nek-unsplash.jpg" alt="Carousel Item #18" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 19 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/paula-carrasco-R30nnrR8j_o-unsplash.jpg" alt="Carousel Item #19" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/mindaugas-petrutis-RxEHnSDyH5I-unsplash.jpg" alt="Carousel Item #19" itemprop="contentUrl" />
 	</div>
        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Image 20 of 20" itemscope="" itemtype="https://schema.org/ImageObject">
-	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/patri-k5C0uJ6AIvo-unsplash.jpg" alt="Carousel Item #20" itemprop="contentUrl" />
+	<img class="d-block mw-100 chulapa-carousel" src="https://dieghernan.github.io/chulapa/assets/img/gallery/black-metal-post-with-sad-face-paint-3314301.jpg" alt="Carousel Item #20" itemprop="contentUrl" />
 	</div></div>
   <button type="button" class="carousel-control-prev" data-target="#Carousel25578" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
