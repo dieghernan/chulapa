@@ -1,6 +1,7 @@
 # Layouts, Global settings and demo consolidation
 
 Date: 15 October 2026. Baseline: main after #141.
+Delivery: [PR #142](https://github.com/dieghernan/chulapa/pull/142).
 Status: implementation in review; no new Diátaxis scores or observed user results.
 
 ## Source/destination decisions
