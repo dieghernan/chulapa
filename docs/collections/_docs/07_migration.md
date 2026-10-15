@@ -12,9 +12,8 @@ with Jekyll and has a `_config.yml` and `Gemfile`.
 settings and layouts are not converted automatically; check the preview before publishing.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
-**Getting started:** follow steps 1–5, then use the [migration checklist](#migration-checklist).
-**Advanced reference:** use the [front matter mapping](#3-adapt-layouts-and-front-matter) and
-linked settings to translate your existing configuration.
+Follow steps 1–5, then use the [migration checklist](#migration-checklist).
+For field-by-field lookup, use the separate [migration mappings](./46-migration-fields).
 
 ## 1. Prepare your site
 
@@ -76,17 +75,9 @@ Review `_config.yml` defaults as well as the settings between `---` lines in
 posts and pages. Explicit page values override defaults: an old `layout: post`
 will still need changing even if you set a new post default.
 
-Names vary between themes; these are common patterns to review, not automatic conversions:
-
-| Existing setting or purpose | Use with <span class="chulapa">Chulapa</span> |
-| --- | --- |
-| `layout: post` for an article | `layout: default` with `header_type: post` |
-| `layout: page` for a regular page | `layout: default` with `header_type: base` |
-| `image` or `cover` for a header photograph | `header_img`; choose an appropriate `header_type` |
-| `toc: true` for a table of contents | `show_toc: true`; see the [TOC example](./04-layouts#options) |
-| `comments: true` on a page | `show_comments: true`, plus a configured site provider |
-| `search: false` to exclude a page from the local index | `include_on_search: false` |
-| Include a dated document in the built-in feeds | `include_on_feed: true` |
+Use [the layout and front matter mappings](./46-migration-fields#layouts-and-page-front-matter)
+to identify the fields your old theme used. Check the relevant entries rather
+than renaming every setting indiscriminately; conversions are not automatic.
 
 Keep standard fields such as `title`, `date`, `categories`, `tags` and intended
 `permalink` values. Check old theme-specific includes and CSS classes in the
@@ -113,50 +104,26 @@ Edit existing sections in `_config.yml`; settings from the previous theme are
 not translated automatically. Remove obsolete theme-specific settings once you
 have translated them; keep unrelated Jekyll settings and plugins.
 
-Start by adapting your author details and choosing a skin. For example, merge
-these sections into `_config.yml`, replacing the sample name with your own:
+Adapt each existing integration, preserving the addresses and identifiers you
+recorded. Use the relevant task guide; the complete
+[field mappings and constraints](./46-migration-fields#site-configuration-and-integrations)
+remain separate.
 
-```yaml
-author:
-  name: "Ana"
-chulapa-skin:
-  skin: journal
-```
-
-If your old `author` was a plain string, replace it with the mapping above.
-Keep or translate any profile details using the [author reference](./02-config#site-author).
-Use an exact name from the [skin previews]({{ '/skins' | relative_url }});
-see [theming](./03-theming#skins) for fonts and color overrides.
-
-| Feature | What to change and check |
-| --- | --- |
-| Navbar | Rebuild links under `navbar.nav` with `title` and `url`; use `child` for one level of dropdown links. Check every destination. [Navbar examples](./02-config#navbar). |
-| Footer | Rebuild social and feed links to `footer.links` using `label`, `icon` and `url`. Set `footer.copyright` if needed. [Footer settings](./02-config#footer). |
-| Search | Choose `search.provider`. Create a page with `layout: search` and a `permalink` matching `search.landing_page` (default `/search`). A provider setting alone does not create the page. [Search setup](./02-config#search-engines). |
-| Comments | Set `comments.provider`, its required identifiers and `show_comments: true` on eligible pages or post defaults. Retain the provider's existing discussion identifiers and verify an old thread; changing themes does not migrate comments between services. [Provider setup](./02-config#comments). |
-| Feeds | Built-in `/atom.xml` and `/rss.xml` include dated documents with `include_on_feed: true`. Keep `jekyll-feed` if you need an existing `/feed.xml` URL; its default output can coexist. Avoid two generators writing the same path. [Feed guidance](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds). |
-| Analytics | For Google Analytics 4, set `gtag_id` to your existing measurement ID. Remove duplicate tracking snippets from local includes. GoatCounter requires development after v2.1.0. [Analytics settings](./02-config#google-analytics). |
-
-For a simple local search, merge this into `_config.yml`:
-
-```yaml
-search:
-  provider: fusejs
-  landing_page: /search
-```
-
-Create `search.md` at the site root, or adapt your existing search page:
-
-```yaml
----
-layout: search
-title: Search
-permalink: /search
----
-```
-
-Keep the old search URL if it is already in use, setting both `permalink` and
-`search.landing_page` to that path.
+- [Update author details](./14-site-details), then [choose a skin](./22-choose-skin).
+  Replace an old plain-string `author` with a mapping; use an exact skin name.
+- [Rebuild menu links](./10-edit-menu) and [footer links](./11-edit-footer).
+  Open every destination in the preview; old links are not imported.
+- Reuse the existing search URL. For local search, follow [Fuse.js setup](./12-fusejs-search);
+  other [provider guides](./02-config#search-engines) cover the alternatives.
+  Keep the page permalink matched to `search.landing_page`, without repeating `baseurl`.
+- Reconnect the existing [comment provider](./02-config#comments) and enable the
+  intended posts. Verify an old thread and preserve its identifiers; switching
+  providers does not migrate conversations. Apply the documented local
+  corrections if using Cactus or Welcomments on an affected site.
+- Open existing subscriber feed URLs. Keep `jekyll-feed` for an established
+  `/feed.xml` if needed, and avoid duplicate outputs using [the feed guidance](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
+- Keep the [Google Analytics ID](./19-google-analytics) and remove duplicate custom
+  tracking scripts. [GoatCounter](./18-goatcounter) is not in the pinned v2.1.0 release.
 
 ## 5. Preview, then publish
 
@@ -185,7 +152,7 @@ builds your site successfully. If you need GitHub Actions publishing:
 | Jekyll reports an unknown `include_cached` tag | Install `jekyll-include-cache`, enable it under `plugins`, run `bundle install` and restart Jekyll. |
 | A layout is missing, or an old include fails | Check explicit page front matter and configuration defaults for old layout names. Translate theme-specific includes; use `layout: default` for ordinary posts and pages. |
 | CSS or images return 404 | Check `url`, `baseurl` and asset paths. Keep `url` as the domain and use `baseurl` for the site subpath. See [site settings](./02-config#a-site-settingsseo). |
-| Search opens a missing page or returns no results | Check `search.provider`, create the search page and match its permalink to `search.landing_page`. Check `include_on_search`; Algolia also needs its uploaded index. |
+| Search opens a missing page or returns no results | Check `search.provider`, create the search page and match its permalink to `search.landing_page`. For local providers check `include_on_search`; Algolia needs its uploaded index and uses `files_to_exclude` for exclusions. Check the chosen [provider guide](./02-config#search-engines). |
 | Readers' feed URL stops working, or posts are missing | Preserve the existing feed URL. Keep `jekyll-feed` for `/feed.xml` if needed; built-in feeds require dates and `include_on_feed: true`. Avoid duplicate output paths. |
 
 ## Migration checklist

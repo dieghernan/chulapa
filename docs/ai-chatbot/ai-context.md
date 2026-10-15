@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: FAQ task extraction, 15 October 2026. Selective facts from public
+Reviewed snapshot: migration field extraction, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -51,9 +51,10 @@ Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll i
 
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
+Source: https://dieghernan.github.io/chulapa/docs/46-migration-fields
 Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.1.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local layouts/includes/assets that override theme files; retain useful customizations, prefer hooks over copied layouts.
 Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
-Guide includes twelve checks, Actions setup and six troubleshooting answers. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
+Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
 
 
 ## Basic editing and publishing
