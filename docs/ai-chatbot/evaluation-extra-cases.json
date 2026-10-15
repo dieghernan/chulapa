@@ -457,5 +457,12 @@
     "doc": "46_migration-fields.md",
     "question": "Where can I look up old toc/comments/search front matter equivalents without following the whole migration procedure? Does search: false exclude Algolia records?",
     "expected": "Cite /docs/46-migration-fields, a reference separate from /docs/07-migration task/checklist. Common patterns, not automatic conversions: toc true to show_toc true, page comments true to show_comments true plus configured provider/layout; search false to include_on_search false for local indexes only. Algolia exclusions use files_to_exclude, not this flag; Google indexing independent. Explicit page front matter wins over defaults. No bulk replacement or new options."
+  },
+  {
+    "id": "accessibility-task-reference-1",
+    "section": "accessibility",
+    "doc": "48_accessibility-reference.md",
+    "question": "Do passing theme tests and a manifest mean my own site is accessible and works offline? Where are the limits versus the checks I should perform?",
+    "expected": "No compliance/offline/installability guarantee. /docs/06-accessibility-performance is practical checking; /docs/48-accessibility-reference documents expected dev behaviors, coverage and limits. Test actual content, colors, keyboard/mobile/enlarged text/widgets; improvements main after v2.1.0, not pinned release. No built-in service worker/cache/offline YAML, network-dependent comments/videos/chatbot. Representative checks not every browser/site/assistive technology; no invented scores."
   }
 ]

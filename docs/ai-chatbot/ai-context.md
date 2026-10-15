@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: migration field extraction, 15 October 2026. Selective facts from public
+Reviewed snapshot: accessibility reference extraction, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -367,7 +367,7 @@ Demo paths: /demo/starter-personal-blog, /demo/starter-technical-blog, /demo/sta
 
 ## Accessibility and resource loading in development
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
-Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance#pwa-and-offline-behavior
+Source: https://dieghernan.github.io/chulapa/docs/48-accessibility-reference
 Dev after v2.1.0; absent from v2.1.0 gem/pin. Skip link first Tab stop. Floating fab/dual uses button: Enter/Space opens/focuses first link, Escape closes/returns focus, closed links outside Tab order. Sidebar TOC is not modal/no focus trap: closed inert/aria-hidden excludes offscreen controls; Escape from trigger/panel and button/overlay close return trigger focus; 44px minimum controls. Existing open-panel Tab order preserved.
 Visible focus/permalinks, underlined prose links, article-title names on thumbnail links, reduced-motion navigation/icon transitions. Navbar current destinations aria-current="page"; dropdown and carousel navigation native Enter/Space buttons. List/local search headings h2; tag/category h2/h3; archives year h2, month h3, entry h4. Without show_author, spacing remains without empty aside.
 Search landmarks: Lunr, Fuse, Simple-Jekyll-Search, Google. Lunr/Fuse polite result count, clear status on cleared query, paragraph for no results, no focus movement. Welcomments labels field, aria-describedby links Markdown help, paragraph config warnings. No new YAML or WCAG certification.

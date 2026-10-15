@@ -8,7 +8,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 ## Getting started
 
-- [Documentation overview](https://dieghernan.github.io/chulapa/docs): Task-oriented documentation index with Tutorials, How-To Guides, Reference and a short publishing Explanation.
+- [Documentation overview](https://dieghernan.github.io/chulapa/docs): Task-oriented documentation index with Tutorials, How-To Guides, Reference and separate Explanation pages.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-only tutorial: publish the Chulapa 101 blog with a personal title and edited sample article; existing task/example anchors remain as compatibility links.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): Method directory linking the first-site tutorial, remote-theme and gem setup guides, and migration checklist.
 - [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration procedure, task links, preserved URLs and a twelve-point checklist; separate field-mapping reference.
@@ -45,7 +45,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 ## Troubleshooting and site checks
 
 - [Frequently asked questions](https://dieghernan.github.io/chulapa/docs/05-faq): Browser editing and publishing, formatting, favicons, skin previews, troubleshooting and built-in feeds.
-- [Accessibility and performance](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance): Practical checks for keyboard navigation, mobile screens, readable colors, accessible media and loading speed; offline limitations and development-version caveats.
+- [Accessibility and performance](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance): How-To Guide for checking published pages with keyboard navigation, enlarged text, media and real resources; links to separate behavior/limit reference.
 
 ## Optional
 
@@ -95,3 +95,8 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Fix YAML errors](https://dieghernan.github.io/chulapa/docs/43-yaml-errors): Locate the failed edit, correct syntax and distinguish parsing from unsupported settings.
 - [Add HTML to the head](https://dieghernan.github.io/chulapa/docs/44-custom-head): Append a snippet without copying a layout; verify the published HTML.
 - [Custom hooks reference](https://dieghernan.github.io/chulapa/docs/45-custom-hooks): Supported paths, insertion order, CSS front matter and override constraints.
+
+## Publishing and accessibility
+
+- [How publishing fits together](https://dieghernan.github.io/chulapa/docs/47-publishing-explained): Explanation of source files, builds, deployment and hosting; why saving differs from publication.
+- [Accessibility and resource-loading reference](https://dieghernan.github.io/chulapa/docs/48-accessibility-reference): Supported development behaviors, version boundaries, offline limitations and review scope; not a site compliance claim.

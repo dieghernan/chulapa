@@ -1,111 +1,93 @@
 ---
 title: Accessibility and performance
 subtitle: Check your site's navigation, colors and resources
-excerpt: Keyboard behavior, reduced motion and practical loading advice.
+excerpt: Verify your published pages with a keyboard, narrow screens and real content.
 show_toc: true
 permalink: /docs/06-accessibility-performance
 ---
 
-**Getting started:** [check your own pages](#check-your-own-pages).
-**Advanced reference:** review [resource loading](#resource-loading),
-[offline limitations](#pwa-and-offline-behavior) and [test coverage](#review-coverage).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Use this guide to check a published site after changing content, a skin or an
+integration. Have the home page, a representative article and search open, along
+with any galleries, videos or comments you use.
 
-Make sure visitors can read and use your site on a phone, with a keyboard and
-with enlarged text. Start with your own content and the checks below.
+Some expected controls require `main` after v2.1.0, not the v2.1.0 gem or pin.
+Compare your installed version with [the behavior reference](./48-accessibility-reference).
+These checks do not establish WCAG compliance by themselves.
 
 ## Check your own pages
 
-- Use Tab to move through links and controls. Focus should remain visible;
-  Enter opens links, and menu buttons also work with Space.
-- Check the home page, an article and search on a narrow screen. Enlarge text
-  and confirm that content stays readable and controls remain reachable.
-- Describe informative photographs and use meaningful link text, such as
-  “View my portfolio”, instead of “Click here”.
-- Start article sections with `##`, below the page title.
-- Check text and link contrast after changing a skin or colors.
-- Try search, comments and any widgets you have enabled.
+Open those pages at a narrow phone width and enlarge their text. Confirm that
+content remains readable and controls stay reachable. Check long headings and
+your actual images, not only short sample content. Repeat after fixing a problem.
 
-The improvements described here are development changes after v2.1.0, not
-part of the v2.1.0 gem or pinned remote theme. Your content, colors and
-integrations still need checking; the theme alone does not establish compliance
-with the Web Content Accessibility Guidelines (WCAG).
+Use the steps below for each representative page. Record the page, browser,
+viewport and problem so you can verify the same case after changing it.
 
 ## Keyboard navigation
 
-The first Tab stop, **Skip to content**, bypasses the menu. Open the floating
-menu with Enter or Space; Escape closes it and returns focus to its button.
-Following a link also closes it. Dropdown buttons use the same font as the
-surrounding menu links.
+1. Use Tab without a mouse. Confirm you can see which link or control has focus.
+   Activate **Skip to content** when available and check that it bypasses the menu.
+2. Open and close your menu and dropdowns. Use Enter for links, Enter/Space for
+   buttons and Escape where a panel supports it. Confirm focus returns to the
+   trigger after closing the floating menu.
+3. If you use the sidebar TOC, open it, Tab through its controls and close it with
+   Escape. Check that closed controls are no longer reachable and that section
+   highlighting does not move keyboard focus while you read.
+4. In a PhotoSwipe gallery, open an image, browse with arrow keys and close with
+   Escape. Check the return to the image link. Try search, comments and your
+   other widgets too.
 
-Open the sidebar table of contents, then Tab through its close button and
-links. Escape closes the panel and returns focus. The table of contents
-highlights the section you are reading without moving keyboard focus.
-
-In PhotoSwipe galleries, use arrow keys to browse and Escape to close. Focus
-returns to the image link. If the viewer cannot load, links still open the
-original images. See [PhotoSwipe lightboxes](./04-layouts#photoswipe-lightbox).
-
-With JavaScript disabled, the floating menu provides ordinary navigation links.
-Interactive galleries and other integrations may need JavaScript and an
-internet connection.
+For exact supported behaviors and fallback limits, use
+[the keyboard reference](./48-accessibility-reference#keyboard-navigation).
+If you use custom layouts or widgets, check their headings, labels and controls
+as well as the theme's own navigation.
 
 ## Colors and content
 
-Keep links distinguishable from ordinary text. The theme underlines article
-links and provides visible keyboard focus; check that your custom colors
-preserve those cues.
+Check text and link contrast on the actual backgrounds after changing colors.
+Confirm that links remain distinguishable without relying only on color and
+that keyboard focus is visible. Use meaningful link text, such as “View my
+portfolio”, rather than “Click here”.
 
-Carousels have a play/pause control when automatic cycling is enabled. A plain
-symbol remains if Font Awesome cannot load. They start paused for visitors
-who prefer reduced motion and stop when someone interacts with the slides or
-navigation controls. Hover pauses temporarily; use the play control to resume
-a manually paused slideshow. See [carousel settings](./04-layouts#bootstrap-carousel).
+Review informative photographs for descriptive alternative text. Gallery snippets
+supply generic descriptions; use [custom image markup](./17-add-image) where the
+individual photograph conveys information. Give videos a descriptive `name` and
+provide captions/transcripts where needed. Give Mermaid diagrams `accTitle` and
+`accDescr` and explain complex diagrams in prose. Begin article sections with
+`##` below the page title.
 
-Give videos a descriptive `name` and supply captions or transcripts where
-needed. For Mermaid diagrams, use `accTitle` and `accDescr`. Gallery snippets
-use generic image descriptions; use custom image markup with descriptive
-`alt` text when the photograph conveys information.
-
-Check long titles and enlarged text on your actual pages. If you add custom
-layouts or widgets, also check their headings, labels and keyboard controls.
+Enable reduced motion in your device/browser settings and reload an automatically
+cycling carousel. Check that it starts paused, that play/pause is operable and
+that the chosen state survives interaction as described by
+[the motion reference](./48-accessibility-reference#colors-content-and-motion).
 
 ## PWA and offline behavior
 
-The theme does not provide offline support or a setting to enable it.
-A favicon or web app manifest alone does not make the site work offline or
-guarantee that visitors can install it as an app.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
-Adding those capabilities requires a separate setup for your own site and
-hosting. Comments, embedded videos and the documentation chatbot need an
-internet connection. Test the published site before promising offline access.
+Do not infer offline support from a favicon, manifest or an app-like window.
+The theme provides no built-in offline mode; see
+[offline constraints](./48-accessibility-reference#pwa-and-offline-behavior).
+If you added a separate offline implementation, disconnect the network and test
+the published pages and integrations before promising that behavior to visitors.
 
 ## Resource loading
 
-Resize large photographs before uploading and enable only integrations you
-use. Extra fonts, icons and external services can add requests and slow loading.
+Check loading on the published home page and an article using your real images
+and enabled integrations. Resize large photographs before uploading. Remove
+unneeded fonts/integrations and enable MathJax or Mermaid only where needed.
 
-The theme loads PhotoSwipe when a visitor opens an image. Deferred YouTube
-videos show a preview first and load the player on activation. See
-[video loading](./04-layouts#deferred-lazy-loading-of-youtube-videos).
+Open a deferred YouTube video or PhotoSwipe image and verify its loading/fallback
+behavior. Check comments on an enabled post and confirm that any configured
+analytics matches your intended setup. For expected loading behavior and version
+limits, use [the resource reference](./48-accessibility-reference#resource-loading).
 
-Enable MathJax or Mermaid only on pages that need them. With Cactus, comment
-resources load on pages with `show_comments: true`.
-
-Analytics are optional. If you configure Google Analytics and GoatCounter,
-both services count visits. See [analytics settings](./02-config#goatcounter-analytics)
-for setup and production-build requirements.
-
-Check loading on your published home page and a representative article with
-your actual images and integrations. A test score from this demo does not
-predict your site's performance.
+A score measured on the demo cannot replace these checks on your own site.
 
 ## Review coverage
 
-The theme has automated checks for keyboard navigation, narrow screens and
-reduced motion. They cover representative layouts and skins, not every site
-or customization. Test your own published pages too.
+After correcting a problem, repeat the affected steps on the same pages and
+check related controls. Include custom headings/labels and third-party widgets
+in your review. Record anything you could not test, including browsers or
+assistive technologies that were unavailable.
 
-The [review record](https://github.com/dieghernan/chulapa/blob/main/test/accessibility-review.md)
-contains the technical results and remaining checks.
+The theme's [automated-review scope](./48-accessibility-reference#review-coverage)
+is a separate reference; a passing theme suite does not test your whole site.

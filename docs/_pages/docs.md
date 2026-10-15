@@ -55,6 +55,7 @@ reference sections in pages that also contain task guides.
 - [Global settings](./docs/02-config): site identity, navigation, integrations and build settings.
 - [Layouts](./docs/04-layouts#a-layouts), [snippets](./docs/04-layouts#b-snippets) and [advanced page settings](./docs/04-layouts#advanced-page-settings).
 - [Migration field mappings](./docs/46-migration-fields): legacy patterns, integration fields and release constraints.
+- [Accessibility and resource loading](./docs/48-accessibility-reference): expected behavior, version limits and offline/review scope.
 - [Custom hooks](./docs/45-custom-hooks): supported files, insertion points and override constraints.
 - [Theme variables](./docs/03-theming#variables) and the [variables dictionary](./docs/variable-dictionary).
 - [Starter examples](./docs/08-starter-examples): source files, previews and limitations.
@@ -63,14 +64,12 @@ reference sections in pages that also contain task guides.
 
 ## Explanation
 
+- [How publishing fits together](./docs/47-publishing-explained): understand source files, builds and the public site.
 - [How skins and overrides interact](./docs/26-appearance-precedence): understand why an existing color or font can remain in effect.
 
 ### How publishing fits together
 
-GitHub stores your site's files. Jekyll turns those files into web pages, and
-<span class="chulapa">Chulapa</span> provides their design and supported features.
-GitHub Pages hosts the finished website. With the starter template, GitHub Actions
-runs the publishing workflow for you when you save changes to the publishing branch.
-You can use the template without setting up Jekyll on your computer.
+See [How publishing fits together](./docs/47-publishing-explained) for the roles
+of GitHub, Actions, Jekyll, the theme and hosting.
 
 For a specific question, use [search](./search) or the documentation chatbot.
