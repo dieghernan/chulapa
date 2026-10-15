@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/03-theming",
         "name": "Theming Chulapa",
-        "description": "Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact.",
+        "description": "Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact. For custom Sass and the Codeply sandbox, use Adapt a Sass skin.",
         "headline": "Theming Chulapa",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T17:53:14+02:00",
-        "dateModified": "2026-10-15T17:53:14+02:00",
+        "datePublished": "2026-10-15T18:48:02+02:00",
+        "dateModified": "2026-10-15T18:48:02+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -96,7 +96,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact.">
+    <meta name="description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact. For custom Sass and the Codeply sandbox, use Adapt a Sass skin.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -104,12 +104,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/03-theming" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact." >
+    <meta property="og:description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact. For custom Sass and the Codeply sandbox, use Adapt a Sass skin." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact.">
+    <meta name="twitter:description" content="Appearance settings reference - This page lists appearance settings. For a task, use Choose a skin, Change a color, Change fonts or Change code highlighting. For relationships between settings, read How skins and overrides interact. For custom Sass and the Codeply sandbox, use Adapt a Sass skin.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -254,16 +254,17 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Theming <span class="chulapa">Chulapa</span></a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#skins" class="nav-link">Skins</a></li><li class="nav-item nav d-block"><a href="#change-one-color" class="nav-link">Change one color</a></li><li class="nav-item nav d-block"><a href="#load-google-fonts" class="nav-link">Load Google Fonts</a></li><li class="nav-item nav d-block"><a href="#code-highlighting" class="nav-link">Code highlighting</a></li><li class="nav-item nav d-block"><a href="#autothemer" class="nav-link">Autothemer</a></li><li class="nav-item nav d-block"><a href="#variables" class="nav-link">Variables</a></li><li class="nav-item nav d-block"><a href="#tool" class="nav-link"><span class="chulapa">Chulapa</span> theming tool</a><ul><li class="nav-item nav d-block"><a href="#step-by-step-example" class="nav-link">Step-by-step example</a><ul><li class="nav-item nav d-block"><a href="#1-on-the-tool" class="nav-link">1. On the tool</a></li><li class="nav-item nav d-block"><a href="#step-2" class="nav-link">2. On your<code> _config.yml</code></a></li></ul></li><li class="nav-item nav d-block"><a href="#using-autothemer-on-codeply" class="nav-link">Using autothemer on Codeply</a></li></ul></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#skins" class="nav-link">Skins</a></li><li class="nav-item nav d-block"><a href="#load-google-fonts" class="nav-link">Load Google Fonts</a></li><li class="nav-item nav d-block"><a href="#code-highlighting" class="nav-link">Code highlighting</a></li><li class="nav-item nav d-block"><a href="#autothemer" class="nav-link">Autothemer</a></li><li class="nav-item nav d-block"><a href="#variables" class="nav-link">Variables</a></li></ul>
 		</nav>   
 	</div>
             <nav aria-label="table-of-contents">
-			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#skins">Skins</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#change-one-color">Change one color</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#load-google-fonts">Load Google Fonts</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#code-highlighting">Code highlighting</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#autothemer">Autothemer</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#variables">Variables</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#tool"><span class="chulapa">Chulapa</span> theming tool</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#step-by-step-example">Step-by-step example</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-on-the-tool">1. On the tool</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#step-2">2. On your<code> _config.yml</code></a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#using-autothemer-on-codeply">Using autothemer on Codeply</a></li></ul></li></ul>
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#skins">Skins</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#load-google-fonts">Load Google Fonts</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#code-highlighting">Code highlighting</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#autothemer">Autothemer</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#variables">Variables</a></li></ul>
 			</nav>
 			 <p>This page lists appearance settings. For a task, use <a href="./22-choose-skin">Choose a skin</a>,
 <a href="./23-change-color">Change a color</a>, <a href="./24-change-fonts">Change fonts</a> or
 <a href="./25-code-highlighting">Change code highlighting</a>. For relationships between
-settings, read <a href="./26-appearance-precedence">How skins and overrides interact</a>.</p>
+settings, read <a href="./26-appearance-precedence">How skins and overrides interact</a>.
+For custom Sass and the Codeply sandbox, use <a href="./28-custom-skin">Adapt a Sass skin</a>.</p>
 <p>Settings belong in <code class="language-plaintext highlighter-rouge">_config.yml</code> and compile into CSS during the build. Local
 preview needs a Jekyll restart after configuration changes.</p>
 <h2 id="skins">Skins</h2>
@@ -295,9 +296,6 @@ preview needs a Jekyll restart after configuration changes.</p>
 </table>
 <p>The <a href="../skins">skin catalog</a> provides the named previews. Its current-site
 preview is not a skin named <code class="language-plaintext highlighter-rouge">current</code>. Procedure: <a href="./22-choose-skin">Choose a skin</a>.</p>
-<h2 id="change-one-color">Change one color</h2>
-<p>Procedure: <a href="./23-change-color">Change a color</a>. Component names and constraints
-are in <a href="#variables">Variables</a> and the <a href="./variable-dictionary">variable dictionary</a>.</p>
 <h2 id="load-google-fonts">Load Google Fonts</h2>
 <table>
 <thead>
@@ -357,18 +355,6 @@ contains the full Bootstrap definitions. See also the
 <code class="language-plaintext highlighter-rouge">landingpage-card-bg</code> and <code class="language-plaintext highlighter-rouge">cactus-btn-text</code> are not overridable through <code class="language-plaintext highlighter-rouge">vars</code>.
 Custom CSS handles rules without exposed variables; see
 <a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom HTML and styles</a>.</p>
-<h2 id="tool"><span class="chulapa">Chulapa</span> theming tool</h2>
-<p>Procedure and <a href="https://www.codeply.com/p/qhEml875ge">Codeply sandbox</a> details:
-<a href="./28-custom-skin">Adapt a Sass skin</a>. The following legacy headings preserve
-links to the moved example.</p>
-<h3 id="step-by-step-example">Step-by-step example</h3>
-<p><a href="./28-custom-skin#step-by-step-example">Sunset assignment example</a>.</p>
-<h4 id="1-on-the-tool">1. On the tool</h4>
-<p><a href="./28-custom-skin#1-on-the-tool">Preview the assignments</a>.</p>
-<h4 id="step-2">2. On your<code> _config.yml</code></h4>
-<p><a href="./28-custom-skin#step-2">Apply the translated settings</a>.</p>
-<h3 id="using-autothemer-on-codeply">Using autothemer on Codeply</h3>
-<p><a href="./28-custom-skin#using-autothemer-on-codeply">Sandbox Autothemer and Bootstrap/grid constraints</a>.</p>
 </article>
 		</div>
 	</main></div>
