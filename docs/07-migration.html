@@ -18,8 +18,8 @@
         "description": "Keep your content and URLs while switching themes - Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist.",
         "headline": "Migrating from another Jekyll theme",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T10:29:58+02:00",
-        "dateModified": "2026-10-15T10:29:58+02:00",
+        "datePublished": "2026-10-15T11:42:19+02:00",
+        "dateModified": "2026-10-15T11:42:19+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -264,9 +264,8 @@
 with Jekyll and has a <code class="language-plaintext highlighter-rouge">_config.yml</code> and <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
 <p class="alert alert-warning p-3 mx-2 mb-3"><strong>Before switching themes:</strong> save a backup or create a migration branch. Theme-specific
 settings and layouts are not converted automatically; check the preview before publishing.</p>
-<p><strong>Getting started:</strong> follow steps 1–5, then use the <a href="#migration-checklist">migration checklist</a>.
-<strong>Advanced reference:</strong> use the <a href="#3-adapt-layouts-and-front-matter">front matter mapping</a> and
-linked settings to translate your existing configuration.</p>
+<p>Follow steps 1–5, then use the <a href="#migration-checklist">migration checklist</a>.
+For field-by-field lookup, use the separate <a href="./46-migration-fields">migration mappings</a>.</p>
 <h2 id="1-prepare-your-site">1. Prepare your site</h2>
 <p>Create a migration branch or backup. Record your home page, a post, a page,
 search and feed URLs so you can check them after switching themes.
@@ -306,45 +305,9 @@ Mermaid, PhotoSwipe and GoatCounter, are not in v2.1.0.</p>
 <p>Review <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults as well as the settings between <code class="language-plaintext highlighter-rouge">---</code> lines in
 posts and pages. Explicit page values override defaults: an old <code class="language-plaintext highlighter-rouge">layout: post</code>
 will still need changing even if you set a new post default.</p>
-<p>Names vary between themes; these are common patterns to review, not automatic conversions:</p>
-<table>
-<thead>
-   <tr>
-     <th>Existing setting or purpose</th>
-     <th>Use with <span class="chulapa">Chulapa</span></th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">layout: post</code> for an article</td>
-     <td><code class="language-plaintext highlighter-rouge">layout: default</code> with <code class="language-plaintext highlighter-rouge">header_type: post</code></td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">layout: page</code> for a regular page</td>
-     <td><code class="language-plaintext highlighter-rouge">layout: default</code> with <code class="language-plaintext highlighter-rouge">header_type: base</code></td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">image</code> or <code class="language-plaintext highlighter-rouge">cover</code> for a header photograph</td>
-     <td><code class="language-plaintext highlighter-rouge">header_img</code>; choose an appropriate <code class="language-plaintext highlighter-rouge">header_type</code></td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">toc: true</code> for a table of contents</td>
-     <td><code class="language-plaintext highlighter-rouge">show_toc: true</code>; see the <a href="./04-layouts#options">TOC example</a></td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">comments: true</code> on a page</td>
-     <td><code class="language-plaintext highlighter-rouge">show_comments: true</code>, plus a configured site provider</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">search: false</code> to exclude a page from the local index</td>
-     <td><code class="language-plaintext highlighter-rouge">include_on_search: false</code></td>
-   </tr>
-   <tr>
-     <td>Include a dated document in the built-in feeds</td>
-     <td><code class="language-plaintext highlighter-rouge">include_on_feed: true</code></td>
-   </tr>
- </tbody>
-</table>
+<p>Use <a href="./46-migration-fields#layouts-and-page-front-matter">the layout and front matter mappings</a>
+to identify the fields your old theme used. Check the relevant entries rather
+than renaming every setting indiscriminately; conversions are not automatic.</p>
 <p>Keep standard fields such as <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">categories</code>, <code class="language-plaintext highlighter-rouge">tags</code> and intended
 <code class="language-plaintext highlighter-rouge">permalink</code> values. Check old theme-specific includes and CSS classes in the
 content; translate or replace them using the <a href="./04-layouts#a-layouts">layout and snippet reference</a>.
@@ -363,65 +326,27 @@ then open every destination in the preview.</p>
 <p>Edit existing sections in <code class="language-plaintext highlighter-rouge">_config.yml</code>; settings from the previous theme are
 not translated automatically. Remove obsolete theme-specific settings once you
 have translated them; keep unrelated Jekyll settings and plugins.</p>
-<p>Start by adapting your author details and choosing a skin. For example, merge
-these sections into <code class="language-plaintext highlighter-rouge">_config.yml</code>, replacing the sample name with your own:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">author</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ana"</span>
-<span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">skin</span><span class="pi">:</span> <span class="s">journal</span>
-</code></pre></div></div>
-<p>If your old <code class="language-plaintext highlighter-rouge">author</code> was a plain string, replace it with the mapping above.
-Keep or translate any profile details using the <a href="./02-config#site-author">author reference</a>.
-Use an exact name from the <a href="/chulapa/skins">skin previews</a>;
-see <a href="./03-theming#skins">theming</a> for fonts and color overrides.</p>
-<table>
-<thead>
-   <tr>
-     <th>Feature</th>
-     <th>What to change and check</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td>Navbar</td>
-     <td>Rebuild links under <code class="language-plaintext highlighter-rouge">navbar.nav</code> with <code class="language-plaintext highlighter-rouge">title</code> and <code class="language-plaintext highlighter-rouge">url</code>; use <code class="language-plaintext highlighter-rouge">child</code> for one level of dropdown links. Check every destination. <a href="./02-config#navbar">Navbar examples</a>.</td>
-   </tr>
-   <tr>
-     <td>Footer</td>
-     <td>Rebuild social and feed links to <code class="language-plaintext highlighter-rouge">footer.links</code> using <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">icon</code> and <code class="language-plaintext highlighter-rouge">url</code>. Set <code class="language-plaintext highlighter-rouge">footer.copyright</code> if needed. <a href="./02-config#footer">Footer settings</a>.</td>
-   </tr>
-   <tr>
-     <td>Search</td>
-     <td>Choose <code class="language-plaintext highlighter-rouge">search.provider</code>. Create a page with <code class="language-plaintext highlighter-rouge">layout: search</code> and a <code class="language-plaintext highlighter-rouge">permalink</code> matching <code class="language-plaintext highlighter-rouge">search.landing_page</code> (default <code class="language-plaintext highlighter-rouge">/search</code>). A provider setting alone does not create the page. <a href="./02-config#search-engines">Search setup</a>.</td>
-   </tr>
-   <tr>
-     <td>Comments</td>
-     <td>Set <code class="language-plaintext highlighter-rouge">comments.provider</code>, its required identifiers and <code class="language-plaintext highlighter-rouge">show_comments: true</code> on eligible pages or post defaults. Retain the provider’s existing discussion identifiers and verify an old thread; changing themes does not migrate comments between services. <a href="./02-config#comments">Provider setup</a>.</td>
-   </tr>
-   <tr>
-     <td>Feeds</td>
-     <td>Built-in <code class="language-plaintext highlighter-rouge">/atom.xml</code> and <code class="language-plaintext highlighter-rouge">/rss.xml</code> include dated documents with <code class="language-plaintext highlighter-rouge">include_on_feed: true</code>. Keep <code class="language-plaintext highlighter-rouge">jekyll-feed</code> if you need an existing <code class="language-plaintext highlighter-rouge">/feed.xml</code> URL; its default output can coexist. Avoid two generators writing the same path. <a href="./05-faq#use-jekyll-feed-instead-of-chulapas-feeds">Feed guidance</a>.</td>
-   </tr>
-   <tr>
-     <td>Analytics</td>
-     <td>For Google Analytics 4, set <code class="language-plaintext highlighter-rouge">gtag_id</code> to your existing measurement ID. Remove duplicate tracking snippets from local includes. GoatCounter requires development after v2.1.0. <a href="./02-config#google-analytics">Analytics settings</a>.</td>
-   </tr>
- </tbody>
-</table>
-<p>For a simple local search, merge this into <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">search</span><span class="pi">:</span>
-  <span class="na">provider</span><span class="pi">:</span> <span class="s">fusejs</span>
-  <span class="na">landing_page</span><span class="pi">:</span> <span class="s">/search</span>
-</code></pre></div></div>
-<p>Create <code class="language-plaintext highlighter-rouge">search.md</code> at the site root, or adapt your existing search page:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">search</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">Search</span>
-<span class="na">permalink</span><span class="pi">:</span> <span class="s">/search</span>
-<span class="nn">---</span>
-</code></pre></div></div>
-<p>Keep the old search URL if it is already in use, setting both <code class="language-plaintext highlighter-rouge">permalink</code> and
-<code class="language-plaintext highlighter-rouge">search.landing_page</code> to that path.</p>
+<p>Adapt each existing integration, preserving the addresses and identifiers you
+recorded. Use the relevant task guide; the complete
+<a href="./46-migration-fields#site-configuration-and-integrations">field mappings and constraints</a>
+remain separate.</p>
+<ul>
+ <li><a href="./14-site-details">Update author details</a>, then <a href="./22-choose-skin">choose a skin</a>.
+Replace an old plain-string <code class="language-plaintext highlighter-rouge">author</code> with a mapping; use an exact skin name.</li>
+ <li><a href="./10-edit-menu">Rebuild menu links</a> and <a href="./11-edit-footer">footer links</a>.
+Open every destination in the preview; old links are not imported.</li>
+ <li>Reuse the existing search URL. For local search, follow <a href="./12-fusejs-search">Fuse.js setup</a>;
+other <a href="./02-config#search-engines">provider guides</a> cover the alternatives.
+Keep the page permalink matched to <code class="language-plaintext highlighter-rouge">search.landing_page</code>, without repeating <code class="language-plaintext highlighter-rouge">baseurl</code>.</li>
+ <li>Reconnect the existing <a href="./02-config#comments">comment provider</a> and enable the
+intended posts. Verify an old thread and preserve its identifiers; switching
+providers does not migrate conversations. Apply the documented local
+corrections if using Cactus or Welcomments on an affected site.</li>
+ <li>Open existing subscriber feed URLs. Keep <code class="language-plaintext highlighter-rouge">jekyll-feed</code> for an established
+<code class="language-plaintext highlighter-rouge">/feed.xml</code> if needed, and avoid duplicate outputs using <a href="./05-faq#use-jekyll-feed-instead-of-chulapas-feeds">the feed guidance</a>.</li>
+ <li>Keep the <a href="./19-google-analytics">Google Analytics ID</a> and remove duplicate custom
+tracking scripts. <a href="./18-goatcounter">GoatCounter</a> is not in the pinned v2.1.0 release.</li>
+</ul>
 <h2 id="5-preview-then-publish">5. Preview, then publish</h2>
 <p>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>. Restart it after changing <code class="language-plaintext highlighter-rouge">_config.yml</code>.
 Check representative pages against the URLs you recorded, including images
@@ -466,7 +391,7 @@ Analytics may load only in production; verify it there.</li>
    </tr>
    <tr>
      <td>Search opens a missing page or returns no results</td>
-     <td>Check <code class="language-plaintext highlighter-rouge">search.provider</code>, create the search page and match its permalink to <code class="language-plaintext highlighter-rouge">search.landing_page</code>. Check <code class="language-plaintext highlighter-rouge">include_on_search</code>; Algolia also needs its uploaded index.</td>
+     <td>Check <code class="language-plaintext highlighter-rouge">search.provider</code>, create the search page and match its permalink to <code class="language-plaintext highlighter-rouge">search.landing_page</code>. For local providers check <code class="language-plaintext highlighter-rouge">include_on_search</code>; Algolia needs its uploaded index and uses <code class="language-plaintext highlighter-rouge">files_to_exclude</code> for exclusions. Check the chosen <a href="./02-config#search-engines">provider guide</a>.</td>
    </tr>
    <tr>
      <td>Readers’ feed URL stops working, or posts are missing</td>
