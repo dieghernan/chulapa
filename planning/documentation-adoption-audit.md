@@ -28,7 +28,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#121](https://github.com/dieghernan/chulapa/pull/121) — context compaction | Merged; Pages and Worker deployment succeeded | Reduces selective context by 29%, preserves source URLs and adds a reviewed byte budget. Live answer and latency comparison remains blocked by endpoint access. |
 | [#122](https://github.com/dieghernan/chulapa/pull/122) — media extraction | Merged; Pages and Worker deployment succeeded | Five How-To Guides separate galleries, carousels, PhotoSwipe, YouTube and Mermaid setup from snippet Reference. Legacy anchors and parameters remain; other Layouts mixtures still require work. |
 | [#123](https://github.com/dieghernan/chulapa/pull/123) — search-provider extraction | Merged; Pages and Worker deployment succeeded | Four How-To Guides separate Lunr, Simple-Jekyll-Search, Google and Algolia setup from configuration Reference. Comments-provider procedures remain pending; legacy anchors and settings are preserved. |
-| [#124](https://github.com/dieghernan/chulapa/pull/124) — comment-provider extraction | In review; not deployed | Four How-To Guides connect existing Disqus, Cactus, Welcomments and self-hosted Cusdis services; retain provider constraints and old reference destinations. Documents tested local corrections for Welcomments project-site URLs and Cactus conversation IDs, with migration cautions; runtime fixes remain follow-ups. No automatic migration or live service validation is claimed. |
+| [#124](https://github.com/dieghernan/chulapa/pull/124) — comment-provider extraction | Merged; Pages and Worker deployment succeeded | Four How-To Guides connect existing Disqus, Cactus, Welcomments and self-hosted Cusdis services; retain provider constraints and old reference destinations. Documents tested local corrections for Welcomments project-site URLs and Cactus conversation IDs, with migration cautions; runtime fixes remain follow-ups. No automatic migration or live service validation is claimed. |
+| FAQ routing and custom hooks — current branch | In preparation; not deployed | Extracts two troubleshooting How-To Guides, a head-hook task and a separate hook Reference; preserves FAQ anchors and routes existing guides directly to the tasks. Remaining formatting recipes and migration field mappings are still mixed/pending. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -118,9 +119,9 @@ Phase 5 roadmap below remains historical; use this order for the next deliveries
    version/override constraints with the relevant destinations.
 2. **Media — delivered in #122:** extract gallery, carousel, video and diagram procedures from Layouts,
    retaining parameter catalogs, runnable specimens and legacy anchors.
-3. **Provider setup — search delivered in #123; comments current delivery:** finish the remaining Global settings task/reference split,
+3. **Provider setup — search #123 and comments #124 delivered:** finish the remaining Global settings task/reference split,
    including indexing workflows and compatibility cautions.
-4. **FAQ and migration:** route symptom tasks to canonical How-To Guides and
+4. **FAQ and migration — current delivery:** route symptom tasks to canonical How-To Guides and
    separate field mappings and hook/reference material without losing questions.
 5. **Explanation and accessibility:** extract reader-facing publishing concepts
    from the directory and separate practical checks from constraints/reasoning.

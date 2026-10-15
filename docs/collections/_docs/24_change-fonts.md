@@ -32,7 +32,7 @@ Raleway to headings. Loading a font alone does not apply it.
 
 For another provider, place its stylesheet link in
 `_includes/custom/custom_head.html` following that provider's instructions, then
-set the family variables as above. See [custom head instructions](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page).
+set the family variables as above. See [custom head instructions](./44-custom-head).
 
 ## Publish and check
 
@@ -44,6 +44,6 @@ spelling and stylesheet URL; a blocker or network failure can prevent an externa
 font from loading, leaving the fallback family.
 For local preview, restart Jekyll after changing `_config.yml`: these settings
 are compiled into CSS during the build. If changes are missing, use
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).
 
 For all relevant fields, see [the font reference](./03-theming#load-google-fonts).

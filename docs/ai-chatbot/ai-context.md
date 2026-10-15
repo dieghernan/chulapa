@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: comment-provider guide extraction, 14 October 2026. Selective facts from public
+Reviewed snapshot: FAQ task extraction, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -61,7 +61,7 @@ Sources: https://dieghernan.github.io/chulapa/docs/00-start
 https://dieghernan.github.io/chulapa/docs/15-create-post
 https://dieghernan.github.io/chulapa/docs/16-create-page
 https://dieghernan.github.io/chulapa/docs/17-add-image
-https://dieghernan.github.io/chulapa/docs/05-faq
+https://dieghernan.github.io/chulapa/docs/42-unpublished-changes
 GitHub editing: Code > pencil (existing file), or Add file > Create new file. Save with Commit changes on publishing branch; Actions must succeed before checking Settings > Pages website. For missing changes check branch/build errors/site address and post dates, not just GitHub source preview.
 Post: _posts/YYYY-MM-DD-title.md, real non-future date. Complete example:
 ```markdown
@@ -191,7 +191,6 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#minimal
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#archive
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#cloud-tags-and-categories
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
-Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chulapa-text-color under chulapa-skin.vars.
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
 Dev: minimal has no automatic h-entry; custom wrapper can use h-entry/p-name/u-url/e-content. default/landingpage keep entry markup. Visible h-card uses selected author.url, resolves url/baseurl, never inherits site URL for guest. show_date retains dt-published alongside dt-updated.
@@ -246,7 +245,6 @@ footer.links: label, icon (Font Awesome), url (plain email without mailto: allow
 
 
 ## Feeds and SEO controls
-Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Theme feeds /atom.xml and /rss.xml need include_on_feed: true and a date. Posts have dates; pages/collections need explicit ones. robots: "noindex, follow" changes HTML crawler directives (default index, follow), not privacy/robots.txt/sitemap. og_image is social image, header_img visible header, schema_image post JSON-LD image.
 
 
@@ -266,20 +264,18 @@ Separate alert paragraph from preceding paragraph/list by a blank line; append {
 
 
 ## FAQ: Markdown and favicons
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
 Use .md with YAML front matter/layout (explicit/default). Sample uses kramdown GFM; extensions depend on parser. favicon.ico at domain root is auto-discovered; project/baseurl sites need explicit links. Generate via RealFaviconGenerator, upload assets to assets/favicon/, put generated HTML in _includes/custom/custom_head.html, include baseurl in actual deployed icon URLs and verify.
 
 
 ## FAQ: Chulapa font and Font Awesome icons
 Source: https://dieghernan.github.io/chulapa/docs/05-faq#chulapa-font
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
 Built-in chulapa font: headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars. For heading ligatures set font-feature-settings: "liga", "dlig" and text-rendering: optimizeLegibility in custom.scss. The chulapa class applies font/ligatures: <span class="chulapa">Chulapa</span> inline or {: .chulapa} after a Markdown paragraph.
 Font Awesome HTML works in Markdown: <i class="fas fa-exclamation-circle"></i>.
 
 
-## FAQ: Previewing skins and diagnosing YAML
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
-Skin previews do not save own site settings; use the skin task above. YAML Lint or bundle exec jekyll build diagnoses _config.yml syntax; valid YAML does not establish valid theme fields/provider IDs/skin names. Check reference and build error.
+## Diagnosing YAML
+Source: https://dieghernan.github.io/chulapa/docs/43-yaml-errors
+Read failed build filename/line and preceding edits; check indentation, quotes and duplicate sections. YAML Lint or bundle exec jekyll build checks syntax, not valid skin/provider names or field locations. Compare reference; rebuild. Skin previews do not save own site settings; use the skin task.
 
 
 ## FAQ: Including posts in feeds and using jekyll-feed
@@ -296,10 +292,12 @@ defaults:
 jekyll-feed /feed.xml can coexist with built-in /atom.xml and /rss.xml. feed.path: /atom.xml collides unless theme Atom output removed. Prefer built-in feeds or keep plugin's separate /feed.xml (preserve existing subscribers). FAQ has no Ruby replacement recipe or YAML disable switch; do not invent one.
 
 
-## Custom code and version checks
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
-Remote version: remote_theme suffix; gem: chulapa-jekyll in Gemfile.lock. HTML version marker does not identify unpinned commit or local overrides.
-Custom hooks (also minimal/search): _includes/custom/custom_head_before_css.html before stylesheet; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Matching local files override theme; preserve existing snippets. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css compilation.
+## Custom hooks and version checks
+Source: https://dieghernan.github.io/chulapa/docs/45-custom-hooks
+Source: https://dieghernan.github.io/chulapa/docs/44-custom-head
+Source: https://dieghernan.github.io/chulapa/docs/05-faq#know-which-version-of-the-theme-i-am-using
+Remote version: remote_theme suffix; gem: chulapa-jekyll in Gemfile.lock. HTML marker identifies neither unpinned commit nor local overrides.
+Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before CSS; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Local files override theme: keep existing snippets, append HTML, no front matter/layout copy; verify published head. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css output. Do not duplicate built-in analytics.
 
 
 ## Layout structure and include caching
@@ -335,7 +333,6 @@ English/French/Spanish/German/Italian supported; unsupported languages keep lowe
 
 
 ## Additional navigation and community questions
-Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 Published files stay public: robots.txt, robots noindex and sitemap: false are not access control. Privacy needs hosting authentication or not publishing.
 Header types: base, post, hero, image, splash (hero is not splash). project_links entries url/icon/label become header buttons. words_per_minute defaults 200. paginator_maxnum numbered window defaults 3, clamped 2..total; first/last/previous/next are separate.
 include_collection filters collections, not categories. For custom category cards:
@@ -370,7 +367,6 @@ Demo paths: /demo/starter-personal-blog, /demo/starter-technical-blog, /demo/sta
 ## Accessibility and resource loading in development
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance#pwa-and-offline-behavior
-Source: https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel
 Dev after v2.1.0; absent from v2.1.0 gem/pin. Skip link first Tab stop. Floating fab/dual uses button: Enter/Space opens/focuses first link, Escape closes/returns focus, closed links outside Tab order. Sidebar TOC is not modal/no focus trap: closed inert/aria-hidden excludes offscreen controls; Escape from trigger/panel and button/overlay close return trigger focus; 44px minimum controls. Existing open-panel Tab order preserved.
 Visible focus/permalinks, underlined prose links, article-title names on thumbnail links, reduced-motion navigation/icon transitions. Navbar current destinations aria-current="page"; dropdown and carousel navigation native Enter/Space buttons. List/local search headings h2; tag/category h2/h3; archives year h2, month h3, entry h4. Without show_author, spacing remains without empty aside.
 Search landmarks: Lunr, Fuse, Simple-Jekyll-Search, Google. Lunr/Fuse polite result count, clear status on cleared query, paragraph for no results, no focus movement. Welcomments labels field, aria-describedby links Markdown help, paragraph config warnings. No new YAML or WCAG certification.

@@ -42,7 +42,9 @@ search and comments are optional.
 - [Reconnect an existing self-hosted Cusdis service](./docs/41-cusdis-comments): archived upstream; not a new hosted setup.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
-- [Troubleshoot editing and publishing](./docs/05-faq#editing-and-publishing).
+- [Find missing changes](./docs/42-unpublished-changes) or [fix a YAML error](./docs/43-yaml-errors).
+- [Add custom HTML to the head](./docs/44-custom-head).
+- [More questions and formatting examples](./docs/05-faq).
 - [Install a remote theme](./docs/20-remote-theme) or [the theme gem](./docs/21-gem-theme) on an existing Jekyll site.
 
 ## Reference

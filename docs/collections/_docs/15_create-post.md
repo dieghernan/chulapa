@@ -56,5 +56,5 @@ is not its public address. Use your existing post index or generated site to
 find that address, then [add a menu link](./10-edit-menu) if needed.
 
 If the article is missing, check its filename and date, then follow
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).
 For optional page settings, use [the layout reference](./04-layouts).

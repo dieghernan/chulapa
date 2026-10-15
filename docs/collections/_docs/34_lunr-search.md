@@ -51,7 +51,7 @@ The index updates during a site build; publish again after content changes.
 The classic navbar and desktop `dual` navbar show the Search link only when
 `navbar.nav` is configured. If it is absent, use the direct address above or
 [edit your menu](./10-edit-menu). If the page itself is missing, check the build
-and matching paths; see [publishing checks](./05-faq#why-can-i-not-see-my-changes).
+and matching paths; see [publishing checks](./42-unpublished-changes).
 
 For word limits, attribution and legacy settings, use
 [the search reference](./02-config#search-engines).

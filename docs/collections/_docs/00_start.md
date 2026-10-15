@@ -105,7 +105,7 @@ to Pages and open the website address instead.
 shows “Hello, this is my website” with your sentence below it.
 
 If the run fails or your changes do not appear, follow
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes), then return here
+[the publishing checks](./42-unpublished-changes), then return here
 to check the result.
 
 ## What to do next
