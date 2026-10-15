@@ -42,6 +42,7 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#136](https://github.com/dieghernan/chulapa/pull/136) — second publishing tutorial | Merged; Pages deployed; chatbot unchanged | Adds a controlled photo-page/menu exercise after first publication. Technical validation is distinct from observed novice usability; no human study or completion metric is claimed. |
 | [#137](https://github.com/dieghernan/chulapa/pull/137) — personal publisher | Merged; Pages and Worker deployment succeeded | Separates personal-site metadata setup from publisher field Reference; confirms v2.1.0 support and retains article-author independence. Remaining reference mixtures and human learning evidence stay pending. |
 | [#138](https://github.com/dieghernan/chulapa/pull/138) — date localization | In review; not deployed | Separates localized-date insertion from snippet parameter/language Reference, retaining source/output specimens and the public section anchor. Remaining reference mixtures and human learning evidence stay pending. |
+| Republished article — current branch | In preparation; not deployed | Separates canonical/sitemap setup from metadata Reference and preserves the copied page address. Remaining reference mixtures and human learning evidence stay pending. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected

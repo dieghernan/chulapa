@@ -555,5 +555,12 @@
     "doc": "61_localize-date.md",
     "question": "How do I show my article date in Spanish? Does changing a page locale translate every label and reorder dates?",
     "expected": "Use dated article page.date formatted via Liquid then include snippets/datetranslate.html date=formatted lang=\"es-ES\". Without lang uses site.locale then en, not page locale. Supports English/French/Spanish/German/Italian; lowercase names, original format order/punctuation; unsupported language retains English. No whole-interface translation; commit/publish/check actual output."
+  },
+  {
+    "id": "canonical-article-task-1",
+    "section": "seo",
+    "doc": "62_canonical-article.md",
+    "question": "How do I republish an article while pointing to the original, and exclude the copy from my sitemap? Will visitors be redirected?",
+    "expected": "Merge canonical_url original absolute HTTP(S) URL into existing front matter; preserve copy permalink/content. No redirect; metadata/feed links change. With jekyll-sitemap sitemap: false excludes copy actual URL; canonical alone does not. Check published source canonical/og:url/JSON-LD, feed entry and sitemap; preserve per-page pagination canonicals."
   }
 ]
