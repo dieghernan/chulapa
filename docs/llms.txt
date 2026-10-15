@@ -133,3 +133,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 ## Publisher metadata
 
 - [Identify a personal site's publisher](https://dieghernan.github.io/chulapa/docs/60-person-publisher): Set Person in the existing publisher mapping and inspect JSON-LD without changing article authors; supported since v2.1.0.
+
+## Date localization
+
+- [Display an article date in another language](https://dieghernan.github.io/chulapa/docs/61-localize-date): Format a dated object's value, translate month/weekday names and verify the result; site locale does not translate the entire interface.
