@@ -129,3 +129,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 ## Second guided exercise
 
 - [Publish an illustrated page](https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial): After first publication, create a fixed photo page and menu link in the browser using the existing starter image.
+
+## Publisher metadata
+
+- [Identify a personal site's publisher](https://dieghernan.github.io/chulapa/docs/60-person-publisher): Set Person in the existing publisher mapping and inspect JSON-LD without changing article authors; supported since v2.1.0.

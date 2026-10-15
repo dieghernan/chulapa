@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: Markdown separation, 15 October 2026. Selective facts from public
+Reviewed snapshot: publisher task, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -92,7 +92,8 @@ url is origin (https://username.github.io); baseurl is /repository or "" for roo
 
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
-publisher describes JSON-LD publisher, not visible article author. type: Organization (default/fallback) or Person; name/url identify it. Organization uses logo; Person uses image and ignores logo. Paths use url/baseurl. Changing publisher does not change guest authors.
+Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
+Since v2.1.0: publisher.type Person or Organization (default/fallback); name/url identify it. Organization uses logo; Person uses image, ignores logo. Paths use url/baseurl. Article authors unchanged.
 Font Awesome defaults to 6; fa_version: 5 selects 5; fa_v4_support: true enables v4 compatibility. fa_kit_code uses a kit instead of hosted stylesheet. Legacy fa5_kit_code takes precedence: remove it when migrating.
 
 

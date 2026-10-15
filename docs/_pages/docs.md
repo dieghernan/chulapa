@@ -46,6 +46,7 @@ search and comments are optional.
 - Connect comments: [giscus](./docs/13-giscus-comments), [Disqus](./docs/38-disqus-comments), [Cactus](./docs/39-cactus-comments) or [Welcomments](./docs/40-welcomments-comments).
 - [Reconnect an existing self-hosted Cusdis service](./docs/41-cusdis-comments): archived upstream; not a new hosted setup.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
+- [Identify a personal site's publisher](./docs/60-person-publisher).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Find missing changes](./docs/42-unpublished-changes) or [fix a YAML error](./docs/43-yaml-errors).
 - [Publish posts in feeds](./docs/56-publish-feeds) or [keep an existing jekyll-feed address](./docs/57-jekyll-feed).

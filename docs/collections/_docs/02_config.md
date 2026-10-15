@@ -209,11 +209,11 @@ preview or search result.
 
 #### Publisher
 
-Use `publisher` in `_config.yml` to identify who publishes your site to search
-engines. Choose `Person` for a personal blog or `Organization` for a company
-or association. This does not change the authors shown on articles.
+`publisher` identifies the site publisher in JSON-LD structured data,
+independently of article authors. Supported since v2.1.0. For a personal-blog
+editing procedure, use [Identify a personal site's publisher](./60-person-publisher).
 
-For an organization with its own logo:
+Organization mapping specimen:
 
 ```yaml
 publisher:
@@ -222,7 +222,7 @@ publisher:
   logo: /assets/img/logo.png
 ```
 
-For a personal site:
+Person mapping specimen:
 
 ```yaml
 publisher:
