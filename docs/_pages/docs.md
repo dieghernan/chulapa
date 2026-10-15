@@ -38,7 +38,8 @@ search and comments are optional.
 - [Run and publish a starter example](./docs/09-run-starter): for readers who already use Jekyll.
 - Enable local search with [Fuse.js](./docs/12-fusejs-search), [Lunr.js](./docs/34-lunr-search) or [Simple-Jekyll-Search](./docs/35-simplesearch-search).
 - Connect [Google Custom Search](./docs/36-google-search) or [Algolia and its index upload](./docs/37-algolia-search).
-- [Enable giscus comments on a post](./docs/13-giscus-comments).
+- Connect comments: [giscus](./docs/13-giscus-comments), [Disqus](./docs/38-disqus-comments), [Cactus](./docs/39-cactus-comments) or [Welcomments](./docs/40-welcomments-comments).
+- [Reconnect an existing self-hosted Cusdis service](./docs/41-cusdis-comments): archived upstream; not a new hosted setup.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Troubleshoot editing and publishing](./docs/05-faq#editing-and-publishing).

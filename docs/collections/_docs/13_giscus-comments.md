@@ -56,4 +56,7 @@ Content Security Policy can also stop the external embed from loading.
 
 To enable more pages, set `show_comments: true` on those pages or merge it into
 an existing appropriate [front matter default](./04-layouts#a-note-on-defaults).
-For other integrations and exact identifiers, use the [comments reference](./02-config#comments).
+For another existing service, use [Disqus](./38-disqus-comments),
+[Cactus](./39-cactus-comments), [Welcomments](./40-welcomments-comments) or
+[self-hosted Cusdis](./41-cusdis-comments). Exact identifiers and constraints
+remain in [the comments reference](./02-config#comments).

@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: search-provider guide extraction, 14 October 2026. Selective facts from public
+Reviewed snapshot: comment-provider guide extraction, 14 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -216,8 +216,14 @@ Algolia uses uploaded index; include_on_search affects ranking, not exclusion: a
 ## Comments
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#comments
 https://dieghernan.github.io/chulapa/docs/13-giscus-comments
-Set comments.provider plus show_comments: true on a page/defaults with a layout displaying comments. Providers: disqus, cusdis, giscus, cactus, welcomments. IDs: comments.disqus_shortname, comments.cactus_shortname, comments.website_id (Welcomments); comments.cusdis_app_id/cusdis_host. Cusdis upstream archived; original hosted service unavailable.
-Giscus needs public repo, Discussions enabled, installed giscus app; commenters sign in with GitHub. Paste generated script into _includes/custom/giscus.html (starter initially comment-only), set provider giscus and enable chosen post, preserving front matter and existing repository/category/page mappings.
+https://dieghernan.github.io/chulapa/docs/38-disqus-comments
+https://dieghernan.github.io/chulapa/docs/39-cactus-comments
+https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
+https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
+Use comments.provider and show_comments: true on comment-capable pages/defaults. Provider keys: disqus_shortname, cactus_shortname, website_id (Welcomments), cusdis_app_id/cusdis_host. Giscus: public repo, Discussions/app, generated _includes/custom/giscus.html (starter comment-only), GitHub login; keep repo/category/thread mapping.
+Cactus: hosted Matrix only, no homeserver option. Current / IDs invalid; override: include.pageurl | url_encode | replace: '_', '%5F'. Changed IDs may detach threads; verify/migrate first.
+Welcomments: deliver _data/welcomments/ + rebuild; keep theme templates in PRs. Form permalink omits baseurl: local correction page.url | absolute_url.
+Cusdis: archived, original hosting unavailable; self-hosted needs HTTPS cusdis_host (default cusdis.com). No automatic thread migration.
 
 
 ## Navbar and footer
