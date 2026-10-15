@@ -18,8 +18,8 @@
         "description": "Some additional information you may find useful - Advice and FAQs",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T12:00:57+02:00",
-        "dateModified": "2026-10-15T12:00:57+02:00",
+        "datePublished": "2026-10-15T12:10:09+02:00",
+        "dateModified": "2026-10-15T12:10:09+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -264,8 +264,8 @@
 use <a href="./00-start">the publishing tutorial</a>; for advanced integration lookup, use
 <a href="./45-custom-hooks">custom hooks</a>, <a href="#know-which-version-of-the-theme-i-am-using">version checks</a>
 or <a href="#use-jekyll-feed-instead-of-chulapas-feeds">feed compatibility</a>.</p>
-<p>The formatting examples below remain on this page; other tasks have their own
-guides. This FAQ is not a complete configuration reference.</p>
+<p>Questions below link to task guides or retain examples still awaiting separation.
+This FAQ is not a complete configuration reference.</p>
 <h2 id="editing-and-publishing">Editing and publishing</h2>
 <h3 id="how-do-i-switch-from-another-jekyll-theme">How do I switch from another Jekyll theme?</h3>
 <p>Follow the <a href="./07-migration">migration guide and checklist</a> to adapt your
@@ -326,31 +326,15 @@ automatically. For a GitHub Pages project site under a path such as
  <li>Build the site and check that the generated icon URLs resolve.</li>
 </ol>
 <h3 id="add-an-alert-box">…add an alert box?</h3>
-<p>Copy this into your article to display an information box:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A simple info alert **check it out!**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-</code></pre></div></div>
-<p class="alert alert-info p-3 mx-2 mb-3">A simple info alert <strong>check it out!</strong></p>
-<p>Use <code class="language-plaintext highlighter-rouge">alert-warning</code> instead of <code class="language-plaintext highlighter-rouge">alert-info</code> for a warning. Keep boxes short
-and reserve warnings for something the reader needs to avoid or fix.
-See <a href="https://getbootstrap.com/docs/4.5/components/alerts/">more alert styles</a>.</p>
+<p>Follow <a href="./49-add-alert">Add an information or warning box</a> for the attribute
+placement, spacing and published-result checks.</p>
 <h3 id="add-a-caption">…add a caption?</h3>
-<p>Add a paragraph with the <code class="language-plaintext highlighter-rouge">caption</code> class after the image:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-![example image](https://images.unsplash.com/photo-1532184312173-028645e16ba8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60)
-
-This is a caption
-{: .caption}
-</code></pre></div></div>
-<p><img src="https://images.unsplash.com/photo-1532184312173-028645e16ba8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60" alt="example image" /></p>
-<p class="caption">This is a caption</p>
+<p>Follow <a href="./50-add-caption">Add a caption below an image</a>. Keep descriptive
+alternative text as well as the visible caption.</p>
 <h3 id="add-a-footnote">…add a footnote?</h3>
-<p><strong>Markdown/kramdown</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
-</code></pre></div></div>
-<p>Here’s a sentence with a footnote. <sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+<p><span id="fnref:1"></span><span id="fn:1"></span></p>
+<p>Follow <a href="./51-add-footnote">Add a footnote to an article</a> for a matching reference
+and definition and a live output example.</p>
 <h3 id="chulapa-font">...use <span class="chulapa">Chulapa</span> font on my theme?</h3>
 <p>You can use <span class="chulapa">Chulapa</span> as a font just as you would do
 for any other font, since it is already installed. On your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
@@ -430,13 +414,6 @@ creates two pages with the same output path.</p>
 from your footer. If you need <code class="language-plaintext highlighter-rouge">jekyll-feed</code>, follow its
 <a href="https://github.com/jekyll/jekyll-feed#installation">setup guide</a> and keep its
 separate <code class="language-plaintext highlighter-rouge">/feed.xml</code> address to avoid conflicting with the theme’s feeds.</p>
-<div class="footnotes" role="doc-endnotes">
- <ol>
-   <li id="fn:1">
-     <p>This is the footnote. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&uarr;</a></p>
-   </li>
- </ol>
-</div>
 </article>
 		</div>
 	</main></div>

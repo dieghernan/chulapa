@@ -100,3 +100,9 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 - [How publishing fits together](https://dieghernan.github.io/chulapa/docs/47-publishing-explained): Explanation of source files, builds, deployment and hosting; why saving differs from publication.
 - [Accessibility and resource-loading reference](https://dieghernan.github.io/chulapa/docs/48-accessibility-reference): Supported development behaviors, version boundaries, offline limitations and review scope; not a site compliance claim.
+
+## Article formatting tasks
+
+- [Add an alert box](https://dieghernan.github.io/chulapa/docs/49-add-alert): Place kramdown paragraph attributes, choose information/warning styling and check the published box.
+- [Add a caption](https://dieghernan.github.io/chulapa/docs/50-add-caption): Add a styled caption beneath an image without replacing its alternative text.
+- [Add a footnote](https://dieghernan.github.io/chulapa/docs/51-add-footnote): Use matching labels and verify generated forward/return links.
