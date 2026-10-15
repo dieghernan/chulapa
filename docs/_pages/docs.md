@@ -54,6 +54,8 @@ reference sections in pages that also contain task guides.
 
 - [Global settings](./docs/02-config): site identity, navigation, integrations and build settings.
 - [Layouts](./docs/04-layouts#a-layouts), [snippets](./docs/04-layouts#b-snippets) and [advanced page settings](./docs/04-layouts#advanced-page-settings).
+- [Migration field mappings](./docs/46-migration-fields): legacy patterns, integration fields and release constraints.
+- [Custom hooks](./docs/45-custom-hooks): supported files, insertion points and override constraints.
 - [Theme variables](./docs/03-theming#variables) and the [variables dictionary](./docs/variable-dictionary).
 - [Starter examples](./docs/08-starter-examples): source files, previews and limitations.
 - [Markdown cheatsheet](./docs/markdown-cheatsheet).

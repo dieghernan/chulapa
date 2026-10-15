@@ -15,7 +15,7 @@ use [Create a post](./15-create-post), [Create a page](./16-create-page) or
 the settings block between `---` lines at the top of a content file.
 
 Moving existing posts or pages? Use the
-[migration front matter mapping](./07-migration#3-adapt-layouts-and-front-matter).
+[migration front matter mapping](./46-migration-fields#layouts-and-page-front-matter).
 
 ## Create a post
 

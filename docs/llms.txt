@@ -11,7 +11,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Documentation overview](https://dieghernan.github.io/chulapa/docs): Task-oriented documentation index with Tutorials, How-To Guides, Reference and a short publishing Explanation.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-only tutorial: publish the Chulapa 101 blog with a personal title and edited sample article; existing task/example anchors remain as compatibility links.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): Method directory linking the first-site tutorial, remote-theme and gem setup guides, and migration checklist.
-- [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration, local overrides, front matter mapping, integrations, preserved URLs and a twelve-point checklist.
+- [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration procedure, task links, preserved URLs and a twelve-point checklist; separate field-mapping reference.
 - [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Option reference for site identity, navbar/footer, metadata, search, comments, analytics (Google and development GoatCounter), collections, Jekyll build settings and HTML compression; site identity and menu/footer editing have separate task guides.
 
 - [Change site details](https://dieghernan.github.io/chulapa/docs/14-site-details): Update title, description and author, match the existing home-page heading and preserve site addresses.
@@ -35,6 +35,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Appearance fields, defaults, accepted values and constraints, with links to separate tasks and a precedence explanation.
 - [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Links to post, page and image task guides; layout and page options, galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with complete snippet parameters, a theme-managed helper inventory and practical guidance for local overrides.
+- [Migration field mappings](https://dieghernan.github.io/chulapa/docs/46-migration-fields): Lookup for legacy layout/front matter patterns, site integration fields, local overrides and pinned-version constraints.
 - [Starter examples reference](https://dieghernan.github.io/chulapa/docs/08-starter-examples): Four minimal Jekyll source examples, live previews, contents and limitations; no deployment workflow.
 - [Run a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter): Copy, configure, preview and publish a minimal example for existing Jekyll users.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.

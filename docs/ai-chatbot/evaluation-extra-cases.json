@@ -450,5 +450,12 @@
     "doc": "44_custom-head.md",
     "question": "How do I add an application-name meta tag to theme pages without copying layouts?",
     "expected": "Link /docs/44-custom-head and /docs/45-custom-hooks. Append HTML meta application-name tag to _includes/custom/custom_head.html preserving snippets, no YAML front matter. After CSS inside head; minimal and search supported, independent overrides need hooks. Publish and inspect head. CSS rules go in assets/css/custom.scss with front matter; no duplicate built-in analytics."
+  },
+  {
+    "id": "migration-fields-lookup-1",
+    "section": "migration",
+    "doc": "46_migration-fields.md",
+    "question": "Where can I look up old toc/comments/search front matter equivalents without following the whole migration procedure? Does search: false exclude Algolia records?",
+    "expected": "Cite /docs/46-migration-fields, a reference separate from /docs/07-migration task/checklist. Common patterns, not automatic conversions: toc true to show_toc true, page comments true to show_comments true plus configured provider/layout; search false to include_on_search false for local indexes only. Algolia exclusions use files_to_exclude, not this flag; Google indexing independent. Explicit page front matter wins over defaults. No bulk replacement or new options."
   }
 ]
