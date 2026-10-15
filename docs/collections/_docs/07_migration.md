@@ -67,8 +67,6 @@ follows development updates. Features documented as v2.1.1-dev, including
 Mermaid, PhotoSwipe and GoatCounter, are not in v2.1.0.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-<span id="3-adapt-front-matter"></span>
-
 ## 3. Adapt layouts and front matter
 
 Review `_config.yml` defaults as well as the settings between `---` lines in

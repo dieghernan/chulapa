@@ -83,13 +83,6 @@ separate setup guides; adding their scripts a second time can duplicate counts.
 
 ### ...add favicons?
 
-#### A. Domain-root icon
-
-See [Add a favicon](./52-add-favicon) for domain-root discovery and why project
-sites need an explicit icon link.
-
-#### B. Explicit icon links
-
 Follow [Add a favicon](./52-add-favicon) to upload the package, preserve existing
 head snippets and verify the generated addresses with `baseurl`.
 
@@ -104,8 +97,6 @@ Follow [Add a caption below an image](./50-add-caption). Keep descriptive
 alternative text as well as the visible caption.
 
 ### ...add a footnote?
-
-<span id="fnref:1"></span><span id="fn:1"></span>
 
 Follow [Add a footnote to an article](./51-add-footnote) for a matching reference
 and definition and a live output example.
@@ -126,7 +117,7 @@ accessible text and missing-icon checks. Version and kit fields remain in the
 
 Open the [skin previews](../skins) to compare designs. To try one on your own
 site, change `chulapa-skin.skin` in `_config.yml`, save and publish. Follow
-[Choose a design](./00-start#6-choose-a-design).
+[Choose a design](./22-choose-skin).
 Changing a preview on this documentation site does not change your own site.
 
 ### ...find an error in my `_config.yml` file?

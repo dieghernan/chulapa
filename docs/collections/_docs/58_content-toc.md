@@ -70,5 +70,5 @@ establish the published result.
 
 The sample site uses kramdown with the GFM parser. Other parser combinations
 can differ; verify generated output before changing the site-wide parser. Use
-[the Markdown syntax reference](./markdown-cheatsheet#create-a-table-of-contents)
+[the Markdown syntax reference](./markdown-cheatsheet#table-of-contents-syntax)
 for specimens and [publishing checks](./42-unpublished-changes) for old output.

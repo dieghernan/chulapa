@@ -12,7 +12,6 @@ file and publishing steps, use [Create a post](./15-create-post). To insert a
 content index, use [Add a table of contents inside an article](./58-content-toc).
 
 ## Markdown notation
-{: #whats-markdown}
 
 Markdown represents headings, links, lists and other formatting in plain text.
 The specimens below pair source notation with rendered output. External syntax
@@ -345,7 +344,6 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ---
 
 ## kramdown extensions
-{: #whats-kramdown}
 
 kramdown is Jekyll's default Markdown processor. Extension support depends on
 the configured input parser; the examples include attributes, footnotes and
@@ -405,7 +403,6 @@ Second level header
 ###### H6 header
 
 ## Table of contents syntax
-{: #create-a-table-of-contents}
 
 **The theme TOC is configured separately.** `show_toc`, `h_min` and `h_max`
 control the layout's automatic TOC. The specimens below use kramdown's `{:toc}`

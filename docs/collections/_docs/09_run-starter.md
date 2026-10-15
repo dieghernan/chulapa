@@ -37,7 +37,7 @@ and navigation links. Restart Jekyll after editing `_config.yml`.
 
 ## Publish the site
 
-Follow [remote-theme publishing](./01-install#2-remote-theme-method) to configure
+Follow [remote-theme publishing](./20-remote-theme#publish-and-check) to configure
 GitHub Actions for your copy. The example folders do not include a publishing
 workflow; copying them does not publish a site.
 

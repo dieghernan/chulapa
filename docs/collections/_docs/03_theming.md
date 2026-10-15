@@ -10,6 +10,7 @@ This page lists appearance settings. For a task, use [Choose a skin](./22-choose
 [Change a color](./23-change-color), [Change fonts](./24-change-fonts) or
 [Change code highlighting](./25-code-highlighting). For relationships between
 settings, read [How skins and overrides interact](./26-appearance-precedence).
+For custom Sass and the Codeply sandbox, use [Adapt a Sass skin](./28-custom-skin).
 
 Settings belong in `_config.yml` and compile into CSS during the build. Local
 preview needs a Jekyll restart after configuration changes.
@@ -24,11 +25,6 @@ preview needs a Jekyll restart after configuration changes.
 
 The [skin catalog](../skins) provides the named previews. Its current-site
 preview is not a skin named `current`. Procedure: [Choose a skin](./22-choose-skin).
-
-## Change one color
-
-Procedure: [Change a color](./23-change-color). Component names and constraints
-are in [Variables](#variables) and the [variable dictionary](./variable-dictionary).
 
 ## Load Google Fonts
 
@@ -85,25 +81,3 @@ contains the full Bootstrap definitions. See also the
 `landingpage-card-bg` and `cactus-btn-text` are not overridable through `vars`.
 Custom CSS handles rules without exposed variables; see
 [custom HTML and styles](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page).
-
-<h2 id="tool"><span class="chulapa">Chulapa</span> theming tool</h2>
-
-Procedure and [Codeply sandbox](https://www.codeply.com/p/qhEml875ge) details:
-[Adapt a Sass skin](./28-custom-skin). The following legacy headings preserve
-links to the moved example.
-
-### Step-by-step example
-
-[Sunset assignment example](./28-custom-skin#step-by-step-example).
-
-#### 1. On the tool
-
-[Preview the assignments](./28-custom-skin#1-on-the-tool).
-
-<h4 id="step-2">2. On your<code> _config.yml</code></h4>
-
-[Apply the translated settings](./28-custom-skin#step-2).
-
-### Using autothemer on Codeply
-
-[Sandbox Autothemer and Bootstrap/grid constraints](./28-custom-skin#using-autothemer-on-codeply).
