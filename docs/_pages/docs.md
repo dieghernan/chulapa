@@ -46,6 +46,7 @@ search and comments are optional.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Find missing changes](./docs/42-unpublished-changes) or [fix a YAML error](./docs/43-yaml-errors).
+- [Publish posts in feeds](./docs/56-publish-feeds) or [keep an existing jekyll-feed address](./docs/57-jekyll-feed).
 - [Check your theme version](./docs/55-check-theme-version).
 - [Add custom HTML to the head](./docs/44-custom-head).
 - [More questions and formatting examples](./docs/05-faq).

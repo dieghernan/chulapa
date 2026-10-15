@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: icon/version tasks, 15 October 2026. Selective facts from public
+Reviewed snapshot: feed tasks, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -284,8 +284,9 @@ Source: https://dieghernan.github.io/chulapa/docs/43-yaml-errors
 Read failed build filename/line and preceding edits; check indentation, quotes and duplicate sections. YAML Lint or bundle exec jekyll build checks syntax, not valid skin/provider names or field locations. Compare reference; rebuild. Skin previews do not save own site settings; use the skin task.
 
 
-## FAQ: Including posts in feeds and using jekyll-feed
-Source: https://dieghernan.github.io/chulapa/docs/05-faq#use-jekyll-feed-instead-of-chulapas-feeds
+## Subscription feeds
+Source: https://dieghernan.github.io/chulapa/docs/56-publish-feeds
+Source: https://dieghernan.github.io/chulapa/docs/57-jekyll-feed
 For all posts, merge this default with existing defaults; date also required:
 ```yaml
 defaults:
@@ -295,7 +296,7 @@ defaults:
     values:
       include_on_feed: true
 ```
-jekyll-feed /feed.xml can coexist with built-in /atom.xml and /rss.xml. feed.path: /atom.xml collides unless theme Atom output removed. Prefer built-in feeds or keep plugin's separate /feed.xml (preserve existing subscribers). FAQ has no Ruby replacement recipe or YAML disable switch; do not invent one.
+jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Set collection dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
 
 
 ## Custom hooks and version checks

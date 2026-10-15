@@ -116,3 +116,8 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 - [Add a Font Awesome icon](https://dieghernan.github.io/chulapa/docs/54-add-icon): Insert a free icon with accompanying text and diagnose missing icons without duplicate loaders.
 - [Check the theme version](https://dieghernan.github.io/chulapa/docs/55-check-theme-version): Inspect remote tags, resolved gem versions and published markers without treating them as exact unpinned commits.
+
+## Subscription feeds
+
+- [Publish posts in built-in feeds](https://dieghernan.github.io/chulapa/docs/56-publish-feeds): Merge post defaults, preserve explicit exclusions and verify subscription URLs with baseurl.
+- [Keep a jekyll-feed address](https://dieghernan.github.io/chulapa/docs/57-jekyll-feed): Preserve subscribers, avoid output collisions and distinguish plugin selection from theme feed settings.
