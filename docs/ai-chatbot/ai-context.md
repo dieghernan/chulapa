@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: feed tasks, 15 October 2026. Selective facts from public
+Reviewed snapshot: catalog separation, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -328,7 +328,8 @@ Placeholder replaced; kramdown.toc_levels: 2..6 sets levels; {:.no_toc} excludes
 
 ## Syntax highlighting styles
 Source: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
-Style names include github, github.dark, dracula, monokai, solarized.dark, solarized.light, nord, one.dark, zenburn. Example chulapa-skin.highlight: github.dark; rebuild/restart local Jekyll. Demo preview does not save own config. Changes code colors, not skin or language; fenced code needs language ID. Style can override pre-chulapa-bg-color.
+Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
+Style names include github, github.dark, dracula, monokai, solarized.dark, solarized.light, nord, one.dark, zenburn. Setup/publication: 25-code-highlighting; catalog shows mapping specimens. Demo preview does not save own config. Changes code colors, not skin or language; fenced code needs language ID. Style can override pre-chulapa-bg-color.
 
 
 ## Localized dates
