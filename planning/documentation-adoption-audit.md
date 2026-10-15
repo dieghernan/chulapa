@@ -30,7 +30,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#123](https://github.com/dieghernan/chulapa/pull/123) — search-provider extraction | Merged; Pages and Worker deployment succeeded | Four How-To Guides separate Lunr, Simple-Jekyll-Search, Google and Algolia setup from configuration Reference. Comments-provider procedures remain pending; legacy anchors and settings are preserved. |
 | [#124](https://github.com/dieghernan/chulapa/pull/124) — comment-provider extraction | Merged; Pages and Worker deployment succeeded | Four How-To Guides connect existing Disqus, Cactus, Welcomments and self-hosted Cusdis services; retain provider constraints and old reference destinations. Documents tested local corrections for Welcomments project-site URLs and Cactus conversation IDs, with migration cautions; runtime fixes remain follow-ups. No automatic migration or live service validation is claimed. |
 | [#126](https://github.com/dieghernan/chulapa/pull/126) — FAQ routing and custom hooks | Merged; Pages and Worker deployment succeeded | Extracts two troubleshooting How-To Guides, a head-hook task and a separate hook Reference; preserves FAQ anchors and routes existing guides directly to the tasks. Remaining formatting recipes and migration field mappings are still mixed/pending. |
-| [#127](https://github.com/dieghernan/chulapa/pull/127) — migration mappings | In review; not deployed | Extracts a field-mapping Reference, keeps the migration sequence/checklist and legacy anchors, and replaces repeated integration recipes with canonical task links. FAQ formatting mixtures remain pending. |
+| [#127](https://github.com/dieghernan/chulapa/pull/127) — migration mappings | Merged; Pages and Worker deployment succeeded | Extracts a field-mapping Reference, keeps the migration sequence/checklist and legacy anchors, and replaces repeated integration recipes with canonical task links. FAQ formatting mixtures remain pending. |
+| [#128](https://github.com/dieghernan/chulapa/pull/128) — publishing Explanation and accessibility separation | In review; not deployed | Extracts publishing concepts from the directory; separates the existing accessibility How-To from behavior/coverage Reference. Preserves old anchors and does not claim site compliance or offline capability. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -122,9 +123,9 @@ Phase 5 roadmap below remains historical; use this order for the next deliveries
    retaining parameter catalogs, runnable specimens and legacy anchors.
 3. **Provider setup — search #123 and comments #124 delivered:** finish the remaining Global settings task/reference split,
    including indexing workflows and compatibility cautions.
-4. **FAQ and migration — current delivery:** route symptom tasks to canonical How-To Guides and
+4. **FAQ and migration — #126/#127 delivered; formatting remains pending:** route symptom tasks to canonical How-To Guides and
    separate field mappings and hook/reference material without losing questions.
-5. **Explanation and accessibility:** extract reader-facing publishing concepts
+5. **Explanation and accessibility — current delivery:** extract reader-facing publishing concepts
    from the directory and separate practical checks from constraints/reasoning.
 6. **Learning evidence:** add one controlled second Tutorial and observe first-site
    and expert lookup tasks; record sample size, help and failures.
