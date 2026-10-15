@@ -171,7 +171,7 @@ author:
 ---
 ```
 
-- `show_toc`: Would display a table of contents of the page (thanks to [@allejo](https://github.com/allejo/jekyll-toc)).
+- `show_toc`: Would display a table of contents of the page (thanks to [@allejo](https://github.com/allejo/jekyll-toc)). Headings with the `no_toc` class are excluded, as they are from kramdown content indexes.
 
 - `show_sidetoc`: Alternative implementation of `show_toc` where the table of
   contents is displayed in a sliding off-canvas sidebar. This adds a

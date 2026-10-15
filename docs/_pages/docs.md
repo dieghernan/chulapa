@@ -26,6 +26,7 @@ search and comments are optional.
 
 - [Change your site's name and author](./docs/14-site-details).
 - [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
+- [Add a table of contents inside an article](./docs/58-content-toc).
 - Add [an alert box](./docs/49-add-alert), [an image caption](./docs/50-add-caption) or [a footnote](./docs/51-add-footnote).
 - [Add a Font Awesome icon](./docs/54-add-icon).
 - [Add an image](./docs/17-add-image) or [a photo gallery](./docs/29-add-gallery).

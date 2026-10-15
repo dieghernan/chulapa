@@ -1,17 +1,22 @@
 ---
 title: Markdown cheatsheet
-subtitle: The basic syntax of your page
-excerpt: A demo page checking Markdown
+subtitle: Syntax specimens and rendered output
+excerpt: Reference examples for Markdown formatting and kramdown extensions.
 permalink: /docs/markdown-cheatsheet
 show_toc: true
 h_max: 3
 ---
 
-## What’s Markdown?
+Lookup for formatting syntax and its rendered result. For a complete article
+file and publishing steps, use [Create a post](./15-create-post). To insert a
+content index, use [Add a table of contents inside an article](./58-content-toc).
 
-Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by [John Gruber](https://daringfireball.net/projects/markdown/) in 2004, Markdown is now one of the world’s most popular markup languages.
+## Markdown notation
+{: #whats-markdown}
 
-<https://www.markdownguide.org/basic-syntax/>
+Markdown represents headings, links, lists and other formatting in plain text.
+The specimens below pair source notation with rendered output. External syntax
+reference: [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
 
 **Examples use the sample configuration's GFM parser.** Some extensions in the
 kramdown reference require `kramdown.input: Kramdown` rather than `GFM`. Check
@@ -339,17 +344,12 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 
 ---
 
-## What’s kramdown?
+## kramdown extensions
+{: #whats-kramdown}
 
-**kramdown** converts Markdown to HTML and supports extensions such as
-attributes, footnotes and tables of contents.
-
-**kramdown** is the default Jekyll Markdown processor. When creating your site
-with Jekyll, you can use the standard Markdown syntax plus some specific
-**kramdown** syntax. Jekyll renders the result as HTML. Parser settings affect which extensions
-are available.
-
-<https://kramdown.gettalong.org/quickref.html>
+kramdown is Jekyll's default Markdown processor. Extension support depends on
+the configured input parser; the examples include attributes, footnotes and
+content indexes. Full syntax: [kramdown reference](https://kramdown.gettalong.org/quickref.html).
 
 ```markdown
 The first paragraph.
@@ -404,14 +404,16 @@ Second level header
 
 ###### H6 header
 
-## Create a table of contents
+## Table of contents syntax
+{: #create-a-table-of-contents}
 
-**The theme TOC is configured separately.** Use `show_toc`, `h_min` and `h_max`
-for the layout's automatic TOC. The example below inserts a TOC into Markdown
-content using kramdown's `{:toc}` syntax.
+**The theme TOC is configured separately.** `show_toc`, `h_min` and `h_max`
+control the layout's automatic TOC. The specimens below use kramdown's `{:toc}`
+for a content index. Procedure: [Add a table of contents inside an article](./58-content-toc).
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-Set the heading levels for kramdown's table of contents in `_config.yml`:
+Configuration mapping specimen: `kramdown.toc_levels` selects heading levels
+for content indexes site-wide.
 
 ```yaml
 kramdown:
@@ -419,7 +421,8 @@ kramdown:
 
 ```
 
-Ignore specific headers:
+Heading exclusion specimen: `.no_toc` excludes a heading from both the content
+index and the theme's automatic TOC.
 
 ```markdown
 
@@ -431,7 +434,10 @@ Ignore specific headers:
 ### This header would be ignored on the toc.
 {:.no_toc}
 
-Add this list marker to generate a table of contents:
+Content-index marker specimen: the list item and attribute occupy separate
+lines. The placeholder is replaced by heading links; `1.` selects a numbered
+list instead of bullets. The marker sets the index position; eligible headings
+before the marker are included too.
 
 ```markdown
 

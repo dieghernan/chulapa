@@ -121,3 +121,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 - [Publish posts in built-in feeds](https://dieghernan.github.io/chulapa/docs/56-publish-feeds): Merge post defaults, preserve explicit exclusions and verify subscription URLs with baseurl.
 - [Keep a jekyll-feed address](https://dieghernan.github.io/chulapa/docs/57-jekyll-feed): Preserve subscribers, avoid output collisions and distinguish plugin selection from theme feed settings.
+
+## Content indexes
+
+- [Add a content table of contents](https://dieghernan.github.io/chulapa/docs/58-content-toc): Place a kramdown index of article-wide headings, set levels and verify links; its settings differ from the theme TOC but .no_toc exclusions are shared.
