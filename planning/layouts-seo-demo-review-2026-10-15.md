@@ -98,3 +98,23 @@ routing review. The small FAQ recipes remain an editorial follow-up, as do
 observed beginner/expert tasks and focused live chatbot factual/citation/latency
 checks. Do not replace those evidence gaps with another round of tiny option
 pages or claim this implementation rescores the #140 snapshot automatically.
+
+## Review comments addressed
+
+- Privacy/access-control notice uses `alert-warning`, following docs/AGENTS.md.
+- Remove the asymmetric `demo` to `dmo` rewrite from cloud buttons and group IDs.
+  Badges and groups now agree; documentation and development changelog describe
+  the correction and migration of manually written old fragments. This is a
+  reusable theme fix, superseding the no-runtime-change scope above.
+- Regression fixture tests actual tag/category badge targets, group names and
+  cloud buttons for `demo`, `demonstration`, `demo topic` and `dmo`, at root and
+  `/preview`. Existing index/gallery and include-cache checks pass on Jekyll 4.4.
+- Full local documentation build passes. Generated warning class and cloud
+  button destinations checked; Chromium previews at 320/1280 px fit the viewport.
+- Selective chatbot context updated for the changed fragment behavior, with one
+  focused evaluation case. All 40 chatbot tests pass; context is 44,988 UTF-8
+  bytes. No live model evaluation or manual Worker deployment performed.
+- `llms.txt` retains the existing grouped-index guide entry; no new source page
+  or routing change needs a new entry. Accessibility improves through matching
+  fragment destinations and consistent warning treatment. No metadata,
+  manifest/service-worker/offline behavior changes; no full audit claimed.

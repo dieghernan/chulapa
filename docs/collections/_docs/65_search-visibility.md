@@ -9,7 +9,7 @@ settings are independent; choose the ones that match your publishing setup.
 
 **Excluding a page is not access control.** Its public URL still works. These
 settings do not make private information safe to publish.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+{: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ## Edit the existing page
 

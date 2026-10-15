@@ -95,3 +95,9 @@ explicit front matter overrides. For a 404 or missing group, compare the public
 permalink, badge URL, exact labels and collection scope. Both the page and badge
 settings are needed; a menu link does not create the page. Use
 [publishing checks](./42-unpublished-changes) for old output.
+
+In the development version after v2.1.0, group fragments preserve tag/category
+names and replace spaces with hyphens: `demo` links to `#demo`, and `demo topic`
+to `#demo-topic`. This also fixes badge links for names containing `demo`, which
+older versions rewrote only in the cloud index. Update any manually written
+links to those older `dmo` fragments when upgrading.

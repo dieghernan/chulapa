@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Match tag and category badge links to cloud group IDs for names containing `demo`, without rewriting those names to `dmo`.
+
 - Related and random cards respect a candidate's `show_date: false`, allowing
   undated documentation to hide Jekyll's fallback build date.
 
