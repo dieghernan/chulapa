@@ -13,7 +13,7 @@ use [the publishing tutorial](./00-start); for advanced integration lookup, use
 [custom hooks](./45-custom-hooks), [version checks](#know-which-version-of-the-theme-i-am-using)
 or [feed compatibility](#use-jekyll-feed-instead-of-chulapas-feeds).
 
-Questions below link to task guides or retain examples still awaiting separation.
+Questions below link to task guides and syntax references.
 This FAQ is not a complete configuration reference.
 
 ## Editing and publishing
@@ -143,27 +143,7 @@ The marker does not identify an exact unpinned commit or local overrides.
 
 ### ...use jekyll-feed instead of <span class="chulapa">Chulapa</span>'s feeds?
 
-<span class="chulapa">Chulapa</span> generates `/atom.xml` and `/rss.xml`. A document appears in these feeds
-only when `include_on_feed: true` and a date are set. To include all posts, add
-this default to your `_config.yml`, preserving your other defaults:
-
-```yaml
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      include_on_feed: true
-```
-
-If you prefer `jekyll-feed`, its default `/feed.xml` can coexist with <span class="chulapa">Chulapa</span>'s
-feeds.
-
-Changing its path to `/atom.xml` without removing <span class="chulapa">Chulapa</span>'s Atom feed
-creates two pages with the same output path.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
-
-For most sites, keep the built-in feeds and link to `/atom.xml` or `/rss.xml`
-from your footer. If you need `jekyll-feed`, follow its
-[setup guide](https://github.com/jekyll/jekyll-feed#installation) and keep its
-separate `/feed.xml` address to avoid conflicting with the theme's feeds.
+Use [Publish posts in the built-in feeds](./56-publish-feeds) for article
+selection and subscription links. To preserve an existing plugin feed, follow
+[Keep a jekyll-feed subscription address](./57-jekyll-feed); keep its output
+separate from the theme's `/atom.xml` and `/rss.xml`.

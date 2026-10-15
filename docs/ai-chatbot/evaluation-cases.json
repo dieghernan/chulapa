@@ -345,9 +345,9 @@
   {
     "id": "faq-6",
     "section": "faq",
-    "doc": "05_faq.md",
+    "doc": "57_jekyll-feed.md",
     "question": "Can jekyll-feed replace /atom.xml without conflicting with Chulapa?",
-    "expected": "Pointing jekyll-feed at /atom.xml conflicts with the built-in Atom feed. Recommend keeping theme feeds or using the plugin default /feed.xml with its setup guide. Do not invent a disable-feed YAML setting or claim the FAQ provides a replacement Ruby recipe."
+    "expected": "Pointing jekyll-feed at /atom.xml conflicts with the built-in Atom feed. Recommend keeping theme feeds or using the plugin default /feed.xml with its setup guide. Do not invent a disable-feed YAML setting or claim the guide provides a replacement Ruby recipe."
   },
   {
     "id": "reference-edge-cases-1",

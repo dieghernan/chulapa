@@ -513,5 +513,26 @@
     "doc": "55_check-theme-version.md",
     "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme?",
     "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately."
+  },
+  {
+    "id": "feed-coexistence-1",
+    "section": "feeds",
+    "doc": "57_jekyll-feed.md",
+    "question": "Can I make jekyll-feed overwrite atom.xml, and will include_on_feed control the plugin?",
+    "expected": "No stable collision: keep separate feed.xml and preserve subscribers; include_on_feed controls theme feeds only; head still advertises built-in feeds; no invented disable flag."
+  },
+  {
+    "id": "feed-selection-1",
+    "section": "feeds",
+    "doc": "56_publish-feeds.md",
+    "question": "How do I include all posts in the built-in feed, exclude one, and include a standalone page?",
+    "expected": "Merge defaults posts include_on_feed boolean true; explicit false excludes one; resolved date required, explicitly date collections for Jekyll 3/4 consistency; standalone non-collection page not selected; verify atom.xml/rss.xml under baseurl and reader links. Collection output: true required to publish linked articles; feed inclusion alone does not publish them."
+  },
+  {
+    "id": "feed-collection-output-1",
+    "section": "feeds",
+    "doc": "56_publish-feeds.md",
+    "question": "My collection document appears in atom.xml but its article URL returns 404. It has a date and include_on_feed: true. What is missing?",
+    "expected": "Check collection output: true in existing collections mapping; preserve other settings, rebuild and open article URL. Feed selection does not publish collection documents."
   }
 ]

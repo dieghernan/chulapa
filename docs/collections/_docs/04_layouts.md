@@ -233,14 +233,21 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
   `cloudcategory_url`. See [Cloud tags](#cloud-tags-and-categories) layouts.
 - `include_on_search`: Set to `false` to exclude a page from the Lunr, Fuse.js and Simple-Jekyll-Search indexes. Pages are included unless this value is explicitly `false`. For Algolia, this setting affects ranking only when configured in `customRanking`; it does not exclude records. Use [Algolia's `files_to_exclude`](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md#files_to_exclude) to exclude files. This option does not control external search crawlers; use `robots` for crawler directives.
 
-- `include_on_feed`: Set the YAML boolean `true` to include the page in the
-  theme's Atom and RSS feeds, provided it has a date.
+- `include_on_feed`: Set the YAML boolean `true` to include a post or collection
+  document in the theme's Atom and RSS feeds, provided it has a resolved date.
+  This field does not include ordinary standalone pages.
 
-**Note that** the page would be included on the feed if this option is set to `true` **and** there is a `date` set. Posts in Jekyll need a date already present in the name of the file, but pages and collections don't, so set a `date` value for those. You have two feeds available: Atom feed at `https://yoururl/atom.xml` (preferred) and RSS 2.0 at `https://yoururl/rss.xml`.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Feeds are available at `/atom.xml` (Atom) and `/rss.xml` (RSS 2.0), under the
+site's `baseurl`. Selection is limited to posts and collection documents whose
+`include_on_feed` is boolean `true` and whose resolved `date` is non-null.
+Collection output must be enabled (`output: true`) for linked articles to be
+published; feed inclusion does not enable it. An ordinary standalone page is
+not selected. Jekyll 4 can infer dates for
+collection documents; set dates explicitly for consistent ordering across
+supported Jekyll versions.
 
-To enable feeds for all posts or use `jekyll-feed` instead, see the
-[feed configuration FAQ](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
+For setup, use [Publish posts in the built-in feeds](./56-publish-feeds).
+For an existing plugin address, use [Keep a jekyll-feed subscription address](./57-jekyll-feed).
 
 - `show_comments`: Display the comment widget when a supported
   `comments.provider` is configured.

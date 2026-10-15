@@ -21,7 +21,7 @@ for ordinary posts and pages use the built-in `default` layout.
 | `toc: true` | `show_toc: true` | [TOC options](./04-layouts#options). |
 | Page `comments: true` | `show_comments: true` | Also needs the site provider and a comment-capable layout. |
 | Page `search: false` | `include_on_search: false` | Local Lunr/Fuse/Simple-Jekyll-Search indexes only; not an Algolia exclusion or Google crawler directive. |
-| Dated document in built-in feeds | `include_on_feed: true` | Dates are required. [Feed constraints](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds). |
+| Post or collection document in built-in feeds | `include_on_feed: true` | Requires a resolved date; set collection dates explicitly for Jekyll 3/4 consistency and `output: true` to publish linked collection articles. Standalone pages are not selected. [Feed constraints](./56-publish-feeds). |
 
 Standard fields such as `title`, `date`, `categories`, `tags` and intended
 `permalink` values remain relevant. Old theme-specific include names and CSS
@@ -51,7 +51,7 @@ include_on_feed: true
 | Footer | `footer.links` entries: `label`, `icon`, `url`; `footer.copyright` | Old links/copyright are not translated. [Footer](./02-config#footer). |
 | Search | `search.provider`, `search.landing_page`; page `layout: search`, matching `permalink` | Default path `/search`; provider selection creates neither page nor hosted index. [Search reference](./02-config#search-engines). |
 | Comments | `comments.provider`, provider identifiers; page/default `show_comments` | No automatic provider migration; existing discussion IDs and URLs affect matching. Current Cactus/Welcomments limitations and local corrections are in [Comments](./02-config#comments). |
-| Existing subscriber addresses | `/atom.xml`, `/rss.xml`, optional jekyll-feed `/feed.xml` | Built-in feeds select dated documents with `include_on_feed: true`. jekyll-feed's default path can coexist; two generators must not write the same path. |
+| Existing subscriber addresses | `/atom.xml`, `/rss.xml`, optional jekyll-feed `/feed.xml` | Built-in feeds select dated posts/collection documents with `include_on_feed: true`; collection output must publish linked articles. jekyll-feed's default path can coexist; two generators must not write the same path. |
 | Google Analytics 4 | `gtag_id` | Existing measurement ID; duplicate custom tracking scripts can count twice. [GA reference](./02-config#google-analytics). |
 | GoatCounter | `goatcounter` | Requires main after v2.1.0; [version and production constraints](./02-config#goatcounter-analytics). |
 
