@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: catalog separation, 15 October 2026. Selective facts from public
+Reviewed snapshot: Markdown separation, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -318,18 +318,19 @@ jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments r
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
 **bold**, _italic_, ~~strikethrough~~; blank-line paragraphs; #..###### headings; [label](URL), ![alt](URL), > blockquote; - bullets, 1. ordered list; backtick inline code, language-labelled fences (js/ruby/html/yaml). Pipe tables use separator rows; colons align columns. Sample kramdown GFM differs from some extensions requiring kramdown.input: Kramdown; check generated output.
-Content TOC uses two separate lines, not - {:toc}:
+Source: https://dieghernan.github.io/chulapa/docs/58-content-toc
+Content TOC: two separate lines, not - {:toc}:
 ```markdown
 * Placeholder
 {:toc}
 ```
-Placeholder replaced; kramdown.toc_levels: 2..6 sets levels; {:.no_toc} excludes heading. Distinct from show_toc/h_min/h_max. Alert/caption/footnote syntax is above.
+Placeholder becomes links; kramdown.toc_levels: 2..6 sets levels site-wide; {:.no_toc} excludes heading. Separate from show_toc/h_min/h_max.
 
 
 ## Syntax highlighting styles
 Source: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
 Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
-Style names include github, github.dark, dracula, monokai, solarized.dark, solarized.light, nord, one.dark, zenburn. Setup/publication: 25-code-highlighting; catalog shows mapping specimens. Demo preview does not save own config. Changes code colors, not skin or language; fenced code needs language ID. Style can override pre-chulapa-bg-color.
+Style names include github, github.dark, dracula, monokai, solarized.dark, solarized.light, nord, one.dark, zenburn. Demo preview does not save own config. Changes code colors, not skin or language; fenced code needs language ID. Style can override pre-chulapa-bg-color.
 
 
 ## Localized dates
