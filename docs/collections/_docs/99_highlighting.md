@@ -1,16 +1,15 @@
 ---
-title: Syntax highlighting demo
-subtitle: Highlighters shipped with this theme.
+title: Syntax highlighting reference
+subtitle: Available styles and rendered code specimens
 excerpt: |
-  This page is a demo of the different styles of
-  syntax highlighting shipped by default with this
-  theme. Just make your selection below.
+  Browse available syntax highlighting styles and compare rendered code examples.
 permalink: /docs/syntax-highlighting
 show_toc: false
 ---
 
-Select a highlighting style to preview it, then copy the displayed setting
-into `chulapa-skin.highlight` in `_config.yml`. Restart Jekyll to apply it.
+Lookup for highlighting style identifiers and code specimens. The selector
+previews a style on this page and displays its configuration mapping. For the
+editing and publishing procedure, use [Change code highlighting](./25-code-highlighting).
 
 Changing this preview does not save the style on your own website.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
@@ -59,7 +58,7 @@ style="max-height: 30vh;overflow-y: auto;">
   		
   		title = document.getElementById("config");
   		
-  		title.innerHTML = 'On your <code>_config.yml</code>';		
+    title.innerHTML = 'Configuration mapping';
   		
   		sel = document.getElementById("selected");  	
       sel.textContent = themename;
@@ -71,7 +70,9 @@ style="max-height: 30vh;overflow-y: auto;">
 
 </script>
 
-Demo of the different pieces of code for testing syntax highlighting.
+## Code specimens
+
+The examples below show the selected stylesheet across code languages.
 
 <div markdown="1">
 

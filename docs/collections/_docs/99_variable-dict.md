@@ -1,14 +1,17 @@
 ---
 title: Variables dictionary
+subtitle: Selected variable names, value types and constraints
 permalink: /docs/variable-dictionary
 show_toc: true
 h_min: 2
 h_max: 3
 ---
 
-These are selected variables accepted by `chulapa-skin.vars` in `_config.yml`,
+Lookup for selected variables accepted by `chulapa-skin.vars` in `_config.yml`,
 not page front matter. Hex colors and Sass expressions such as sizes/font lists
-are quoted strings; switches are YAML booleans. Example mapping syntax:
+are quoted strings; switches are YAML booleans. Names omit the Sass `$` prefix
+and trailing semicolon. For editing and publishing, use [Change a color](./23-change-color)
+or [Change fonts](./24-change-fonts). Mapping syntax specimen:
 
 ```yaml
 chulapa-skin:
@@ -20,10 +23,7 @@ chulapa-skin:
     enable-rounded: false
 ```
 
-Values in `vars` override the selected skin's variable assignments.
-Autothemer fills in variables that are still undefined. See
-[How skins and overrides interact](./26-appearance-precedence) for precedence;
-[Change fonts](./24-change-fonts) provides the setup procedure.
+Precedence and inherited values: [How skins and overrides interact](./26-appearance-precedence).
 
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 
@@ -72,13 +72,13 @@ skin or `vars` keep their assigned values.
 **Some values cannot be overridden through `vars`.** Helpers such as
 `landingpage-card-bg` and `cactus-btn-text` are calculated by the theme;
 adding them to `chulapa-skin.vars` has no effect. Use the options in the table
-or [custom CSS](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+or [custom CSS](./45-custom-hooks)
 instead. The [complete <span class="chulapa">Chulapa</span> variable reference](https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss)
 includes these calculated values.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-These inputs belong to site configuration, not article settings. Procedure:
-[Change a color](./23-change-color). Page options: [Layouts and snippets](./04-layouts).
+These inputs belong to site configuration, not article settings.
+Page options: [Layouts and snippets](./04-layouts).
 
 ## Selected Bootstrap variables
 

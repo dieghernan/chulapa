@@ -380,9 +380,9 @@
   {
     "id": "reference-edge-cases-5",
     "section": "reference-edge-cases",
-    "doc": "99_markdown-cheatsheet.md",
+    "doc": "25_code-highlighting.md",
     "question": "Does choosing dracula in the syntax-highlighting demo save it to my site?",
-    "expected": "No preview; chulapa-skin.highlight dracula configrebuild."
+    "expected": "Preview only; use /docs/25-code-highlighting to edit existing chulapa-skin.highlight: dracula, preserve other settings, commit/rebuild and check publication. Catalog /docs/syntax-highlighting lists identifiers and specimens."
   },
   {
     "id": "reference-edge-cases-6",
