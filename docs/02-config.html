@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-14 -->
+    <!-- Page build 2026-10-15 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-14T23:29:35+02:00",
-        "dateModified": "2026-10-14T23:29:35+02:00",
+        "datePublished": "2026-10-15T07:01:59+02:00",
+        "dateModified": "2026-10-15T07:01:59+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -677,8 +677,10 @@ provider-specific keys, the shared setting applies.</p>
 Enter. Clearing the field clears the results.</p>
 <h3 id="comments">Comments</h3>
 <p>Comments require a supported provider’s setup and <code class="language-plaintext highlighter-rouge">show_comments: true</code> on the
-page or in front matter defaults for a layout that displays comments. The
-<a href="./13-giscus-comments">Enable giscus comments</a> guide provides a procedure for one post.
+page or in front matter defaults for a layout that displays comments. Setup guides for one post:
+<a href="./13-giscus-comments">giscus</a>, <a href="./38-disqus-comments">Disqus</a>,
+<a href="./39-cactus-comments">Cactus</a>, <a href="./40-welcomments-comments">Welcomments</a> or
+<a href="./41-cusdis-comments">an existing self-hosted Cusdis service</a>.
 Provider identifiers and compatibility constraints are listed below.</p>
 <ul>
  <li><a href="https://disqus.com/">Disqus</a>, a hosted comment system.</li>
@@ -696,16 +698,21 @@ comment files.</p>
    <ul>
      <li><code class="language-plaintext highlighter-rouge">provider</code>: Use <code class="language-plaintext highlighter-rouge">disqus</code>, <code class="language-plaintext highlighter-rouge">cusdis</code>, <code class="language-plaintext highlighter-rouge">giscus</code>, <code class="language-plaintext highlighter-rouge">cactus</code> or <code class="language-plaintext highlighter-rouge">welcomments</code> to
 enable it.</li>
-     <li><code class="language-plaintext highlighter-rouge">disqus_shortname</code>: Disqus only. Add your site id, on <code class="language-plaintext highlighter-rouge">https://DISQUS_SHORTNAME.disqus.com/admin/</code>.</li>
+     <li><code class="language-plaintext highlighter-rouge">disqus_shortname</code>: Disqus site identifier in <code class="language-plaintext highlighter-rouge">https://DISQUS_SHORTNAME.disqus.com/admin/</code>, not the display name.</li>
      <li><code class="language-plaintext highlighter-rouge">cusdis_app_id</code>: Cusdis application ID, shown as <code class="language-plaintext highlighter-rouge">data-app-id</code> in its embed
 code.</li>
-     <li><code class="language-plaintext highlighter-rouge">cusdis_host</code>: Cusdis only. If you are self-hosting Cusdis use this field.</li>
+     <li><code class="language-plaintext highlighter-rouge">cusdis_host</code>: Cusdis HTTPS host base URL. Default: <code class="language-plaintext highlighter-rouge">https://cusdis.com</code> (the original hosted service is unavailable). Required for connecting your own deployment.</li>
      <li><code class="language-plaintext highlighter-rouge">cactus_shortname</code>: Cactus only. The name you used to register this site
 with Cactus.</li>
-     <li><code class="language-plaintext highlighter-rouge">website_id</code>: Welcomments site id.</li>
+     <li><code class="language-plaintext highlighter-rouge">website_id</code>: Welcomments site id. Requires a separately configured integration delivering comment data under <code class="language-plaintext highlighter-rouge">_data/welcomments/</code>; setting the ID alone does not deliver data.</li>
    </ul>
  </li>
 </ul>
+<p>Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
+field in this adapter. The current Cactus conversation ID retains <code class="language-plaintext highlighter-rouge">/</code> from page
+URLs, although the client forbids <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code>; its setup guide includes a local
+adapter correction and existing-thread migration cautions. Comment-provider selection does not migrate comments,
+and thread matching depends on the provider and page identifiers/addresses.</p>
 <p>For <strong>giscus</strong>, <code class="language-plaintext highlighter-rouge">_includes/custom/giscus.html</code> contains the embed script generated
 by <a href="https://giscus.app/">giscus setup</a>, including repository and category identifiers.</p>
 <p class="alert alert-info p-3 mx-2 mb-3">In development after v2.1.0, the Cactus script and stylesheet load only on
@@ -714,9 +721,11 @@ these resources on every page.</p>
 <p>In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
 iframe and requires a finite, nonnegative numeric height. Existing provider
 settings are unchanged.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3">When setting up <strong>Welcomments</strong>, review any generated pull request before
-merging it. Use its <code class="language-plaintext highlighter-rouge">website_id</code>, but retain the customized templates supplied
-by <span class="chulapa">Chulapa</span> rather than overwriting them.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Welcomments compatibility:</strong> the current form permalink omits <code class="language-plaintext highlighter-rouge">baseurl</code>;
+project sites need the local form correction in the setup guide. Local <code class="language-plaintext highlighter-rouge">_includes/welcomments/</code> files override
+the theme templates. Provider-generated templates can replace the customized
+ones supplied by <span class="chulapa">Chulapa</span>. The
+<a href="./40-welcomments-comments">setup guide</a> covers reviewing those integration files.</p>
 <h2 id="d-jekyll-defaults-and-collections">D. Jekyll defaults and collections</h2>
 <p><strong>Advanced configuration.</strong> A collection groups content such as portfolio
 projects; defaults apply shared page settings without repeating them in each
