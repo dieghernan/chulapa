@@ -31,7 +31,7 @@ theme copies outside the site source, preserving your own content and customizat
 
 Keep useful custom layouts and includes, then adapt their parent layouts, include
 paths and CSS to the new theme. For site-wide additions, prefer the supported
-[custom hooks](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
+[custom hooks reference](./45-custom-hooks)
 over copying a complete theme layout.
 
 ## 2. Switch to a pinned remote theme

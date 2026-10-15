@@ -48,6 +48,6 @@ image loads and fits the content on a narrow screen.
 
 If it is missing, compare the uploaded filename, extension and capitalization
 with the link. Verify both the image upload and article edit were saved, then
-follow [the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+follow [the publishing checks](./42-unpublished-changes).
 For captions, see [the caption example](./05-faq#add-a-caption).
 For video, use [Embed a video](./32-embed-video).

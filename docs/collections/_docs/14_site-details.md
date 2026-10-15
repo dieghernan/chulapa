@@ -65,5 +65,5 @@ The site description is metadata, not a replacement for the visible text of your
 pages. A page's own description or excerpt can take precedence; see the
 [description rules](./04-layouts#seo-metadata) when checking a shared-page preview.
 
-If the old values remain, follow [the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+If the old values remain, follow [the publishing checks](./42-unpublished-changes).
 For local preview, restart Jekyll after editing `_config.yml`.

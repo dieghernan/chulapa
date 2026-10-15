@@ -30,6 +30,6 @@ screen. A highlighting style controls code appearance; it does not change the
 font or colors of ordinary article text.
 For local preview, restart Jekyll after changing `_config.yml`: these settings
 are compiled into CSS during the build. If changes are missing, use
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).
 
 For the setting, see [the highlighting reference](./03-theming#code-highlighting).

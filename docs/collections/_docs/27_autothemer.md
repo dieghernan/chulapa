@@ -39,4 +39,4 @@ sets it. Use [the precedence explanation](./26-appearance-precedence) to decide
 whether to change that variable explicitly.
 For local preview, restart Jekyll after changing `_config.yml`: these settings
 are compiled into CSS during the build. If changes are missing, use
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).

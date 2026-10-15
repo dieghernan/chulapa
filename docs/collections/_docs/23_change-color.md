@@ -34,7 +34,7 @@ your home page and an article. Check them on a narrow screen too; a color can
 affect more than one component.
 For local preview, restart Jekyll after changing `_config.yml`: these settings
 are compiled into CSS during the build. If changes are missing, use
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).
 
 The [appearance reference](./03-theming#variables) covers supported value syntax
 and calculated values that cannot be changed through `vars`.

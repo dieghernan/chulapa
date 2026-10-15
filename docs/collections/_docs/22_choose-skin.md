@@ -30,6 +30,6 @@ Existing color/font overrides can keep parts of the previous appearance; see
 [how skins and overrides interact](./26-appearance-precedence) before removing them.
 For local preview, restart Jekyll after changing `_config.yml`: these settings
 are compiled into CSS during the build. If changes are missing, use
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).
 
 For an individual adjustment, use [Change a color](./23-change-color) instead.

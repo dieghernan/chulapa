@@ -50,5 +50,5 @@ Check every edited link: email should open your mail application, a profile shou
 open the intended account, and a feed should return the feed document. A working
 feed link does not subscribe the visitor automatically.
 
-If changes do not appear, follow [the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+If changes do not appear, follow [the publishing checks](./42-unpublished-changes).
 For the full option list and copyright behavior, use the [footer reference](./02-config#footer).

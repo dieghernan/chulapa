@@ -429,5 +429,26 @@
     "doc": "41_cusdis-comments.md",
     "question": "Can I create a new Cusdis hosted account to enable comments? I already have a self-hosted service too.",
     "expected": "Upstream deprecated/archived and original hosted service unavailable. Guide only reconnects existing self-hosted deployment: comments.provider cusdis, cusdis_app_id and HTTPS cusdis_host base URL; omitted host falls back to old cusdis.com. Enable show_comments true and verify service/old threads; no second embed/no migration promise. Link /docs/41-cusdis-comments."
+  },
+  {
+    "id": "troubleshoot-publishing-task-1",
+    "section": "faq",
+    "doc": "42_unpublished-changes.md",
+    "question": "My GitHub editor shows the new article, but the website still does not. What should I check first?",
+    "expected": "Link /docs/42-unpublished-changes. Check saved commit on actual publishing branch, matching Actions publishing/deployment result and error, public Settings Pages address versus preview. Missing post: real nonfuture filename/date and published flag, actual permalink vs source path. Restart local Jekyll for config edits; local success is not publication. Do not require Ruby for browser diagnosis."
+  },
+  {
+    "id": "troubleshoot-yaml-task-1",
+    "section": "faq",
+    "doc": "43_yaml-errors.md",
+    "question": "My YAML checker passes but the theme setting does nothing. Should I replace my whole configuration?",
+    "expected": "No. Preserve configuration, inspect exact failed build file/line and nearby edit; check indentation, quotes and duplicate mappings. YAML syntax success does not validate skin/provider identifiers or field placement. Compare reference and rebuild/publish; local config preview needs restart. Link /docs/43-yaml-errors."
+  },
+  {
+    "id": "custom-head-task-1",
+    "section": "faq",
+    "doc": "44_custom-head.md",
+    "question": "How do I add an application-name meta tag to theme pages without copying layouts?",
+    "expected": "Link /docs/44-custom-head and /docs/45-custom-hooks. Append HTML meta application-name tag to _includes/custom/custom_head.html preserving snippets, no YAML front matter. After CSS inside head; minimal and search supported, independent overrides need hooks. Publish and inspect head. CSS rules go in assets/css/custom.scss with front matter; no duplicate built-in analytics."
   }
 ]

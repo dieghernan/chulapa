@@ -8,14 +8,13 @@ redirect_from:
   - /docs/05-tips-n-tricks
 ---
 
-**Getting started:** use [editing and publishing answers](#editing-and-publishing).
-**Advanced reference:** find [custom code](#add-custom-html-analytics-css-or-javascript-to-every-page),
-[version checks](#know-which-version-of-the-theme-i-am-using) and
-[feed compatibility](#use-jekyll-feed-instead-of-chulapas-feeds).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Choose a question below for the relevant task or lookup page. For a first site,
+use [the publishing tutorial](./00-start); for advanced integration lookup, use
+[custom hooks](./45-custom-hooks), [version checks](#know-which-version-of-the-theme-i-am-using)
+or [feed compatibility](#use-jekyll-feed-instead-of-chulapas-feeds).
 
-These answers and examples cover common tasks when using
-<span class="chulapa">Chulapa</span>.
+The formatting examples below remain on this page; other tasks have their own
+guides. This FAQ is not a complete configuration reference.
 
 ## Editing and publishing
 
@@ -40,15 +39,9 @@ and add its address to your menu. Follow the complete examples in
 
 ### Why can I not see my changes?
 
-1. Check that you saved the file with **Commit changes** to your site's
-   publishing branch (`main` or `master` in the starter).
-2. Open **Actions** and wait for the publishing run to finish. If it failed,
-   open the run and check its error before changing other settings.
-3. Open the website address shown in **Settings > Pages**, then refresh it.
-4. If only a new post is missing, check its `YYYY-MM-DD-title.md` filename and
-   date. A future-dated post is not published by the normal Jekyll build.
-
-For local preview, restart Jekyll after changing `_config.yml`.
+Follow [Find changes missing from your website](./42-unpublished-changes) to
+check the saved commit, publishing run, website address and post date. For a
+configuration parse error, use [Fix a YAML configuration error](./43-yaml-errors).
 
 ### Why is my photograph missing?
 
@@ -82,44 +75,11 @@ For a complete file with its settings block and text, see
 
 ### ...add custom HTML, analytics, CSS or JavaScript to every page?
 
-<span class="chulapa">Chulapa</span> provides three HTML includes for adding your own snippets. Create or
-edit these files relative to the root of your site, keeping the leading
-underscore in `_includes`:
-
-- `_includes/custom/custom_head_before_css.html`: Insert HTML inside `<head>`,
-  before the theme's CSS stylesheet.
-- `_includes/custom/custom_head.html`: Insert HTML at the end of `<head>`,
-  after the theme's CSS stylesheet. Use this for analytics scripts, additional
-  stylesheets or favicons.
-- `_includes/custom/custom_bottomscripts.html`: Insert HTML at the end of
-  `<body>`, after the theme's JavaScript dependencies.
-
-Your site's files override the matching theme includes, including when using
-`remote_theme` or the gem-based theme. These snippets appear on pages using
-<span class="chulapa">Chulapa</span>'s layouts, including `minimal` and `search`. You do not need to copy or
-modify the layouts.
-
-For Google Analytics or GoatCounter, use the [built-in analytics settings](./02-config#google-analytics)
-instead of adding a second copy of their scripts here. GoatCounter is available
-in v2.1.1-dev on `main`, not in v2.1.0. Custom hooks remain useful for other
-providers or scripts that the theme does not supply.
-
-For example, if your analytics provider asks you to load a script in `<head>`,
-add its snippet to `_includes/custom/custom_head.html`:
-
-```html
-<!-- Replace this example with the snippet from your analytics provider. -->
-<script defer src="https://analytics.example.com/script.js"
-        data-site-id="YOUR_SITE_ID"></script>
-```
-
-Follow your provider's instructions when choosing the include and configuring
-the script. If the snippet belongs at the end of `<body>`, use
-`_includes/custom/custom_bottomscripts.html` instead.
-
-To add CSS rules or override existing ones, use `assets/css/custom.scss`.
-Keep its empty YAML front matter so Jekyll compiles it into `custom.css`.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Follow [Add custom HTML to the page head](./44-custom-head) for an editing
+procedure. Look up the three HTML hooks, custom CSS file and insertion order in
+[Custom hooks reference](./45-custom-hooks). Built-in
+[GoatCounter](./18-goatcounter) and [Google Analytics](./19-google-analytics) have
+separate setup guides; adding their scripts a second time can duplicate counts.
 
 ### ...add favicons?
 
@@ -249,13 +209,9 @@ Changing a preview on this documentation site does not change your own site.
 
 ### ...find an error in my `_config.yml` file?
 
-Open the failed publishing run in **Actions** and read its error. Check your
-last edit for indentation, missing quotes or duplicate sections. A
-[YAML checker](https://www.yamllint.com/) can help find formatting mistakes.
-For local preview, run `bundle exec jekyll build` to see the error.
-
-A formatting check cannot verify skin names or provider IDs. Compare those
-values with [Global settings](./02-config) before trying again.
+Follow [Fix a YAML configuration error](./43-yaml-errors). It covers locating
+the failing edit, checking indentation/quotes/duplicate sections and rebuilding.
+Valid YAML alone does not establish valid skin names, provider IDs or field locations.
 
 ### ...know which version of the theme I am using?
 

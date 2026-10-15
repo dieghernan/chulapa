@@ -45,5 +45,5 @@ Open the menu on a narrow screen and follow the edited link. Check that it opens
 the intended page, including on a site with a repository path.
 
 If it opens a missing page, check the page's published address and its `permalink`.
-If the old link remains, follow [the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+If the old link remains, follow [the publishing checks](./42-unpublished-changes).
 For dropdown links and navbar style options, consult the [navbar reference](./02-config#navbar).

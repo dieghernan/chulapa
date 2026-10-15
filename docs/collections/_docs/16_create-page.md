@@ -55,5 +55,5 @@ does not add it to the menu.
 
 If the page returns 404, check that the file was saved and the menu path matches
 its `permalink`. Check for another file producing the same path, then use
-[the publishing checks](./05-faq#why-can-i-not-see-my-changes).
+[the publishing checks](./42-unpublished-changes).
 For optional page settings, consult [the layout reference](./04-layouts).
