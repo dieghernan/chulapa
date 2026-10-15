@@ -125,3 +125,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 ## Content indexes
 
 - [Add a content table of contents](https://dieghernan.github.io/chulapa/docs/58-content-toc): Place a kramdown index of article-wide headings, set levels and verify links; its settings differ from the theme TOC but .no_toc exclusions are shared.
+
+## Second guided exercise
+
+- [Publish an illustrated page](https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial): After first publication, create a fixed photo page and menu link in the browser using the existing starter image.
