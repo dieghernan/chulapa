@@ -31,6 +31,7 @@ search and comments are optional.
 - [Add a manual slideshow](./docs/30-add-carousel) or [enable PhotoSwipe](./docs/31-photoswipe).
 - [Embed a video](./docs/32-embed-video) or [add a Mermaid diagram](./docs/33-add-diagram).
 - [Choose a skin](./docs/22-choose-skin) or [change one color](./docs/23-change-color).
+- [Add a favicon](./docs/52-add-favicon) or [use the bundled font](./docs/53-chulapa-font).
 - [Change fonts](./docs/24-change-fonts) or [code highlighting](./docs/25-code-highlighting).
 - [Enable Autothemer](./docs/27-autothemer) or [adapt a Sass skin](./docs/28-custom-skin).
 - [Add or change a menu link](./docs/10-edit-menu).

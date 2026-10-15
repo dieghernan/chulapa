@@ -106,3 +106,8 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Add an alert box](https://dieghernan.github.io/chulapa/docs/49-add-alert): Place kramdown paragraph attributes, choose information/warning styling and check the published box.
 - [Add a caption](https://dieghernan.github.io/chulapa/docs/50-add-caption): Add a styled caption beneath an image without replacing its alternative text.
 - [Add a footnote](https://dieghernan.github.io/chulapa/docs/51-add-footnote): Use matching labels and verify generated forward/return links.
+
+## Site icons and bundled font
+
+- [Add a favicon](https://dieghernan.github.io/chulapa/docs/52-add-favicon): Upload icon files, preserve head snippets and verify explicit links with baseurl; manifests do not provide offline capability.
+- [Use the Chulapa font](https://dieghernan.github.io/chulapa/docs/53-chulapa-font): Apply the bundled family and ligatures to headings or use its existing class on selected text.
