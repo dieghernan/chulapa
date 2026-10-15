@@ -15,6 +15,9 @@ The sections below describe site-wide options, defaults and integration settings
 Switching themes? Follow the [migration guide](./07-migration). For a new site,
 start with [the browser tutorial](./00-start).
 
+Appearance fields (`googlefonts` and `chulapa-skin`) have a separate
+[theming reference](./03-theming).
+
 ## Start with your site details
 
 Site identity uses `title`, `description`, `locale`, `repository`, `url`, `baseurl`
@@ -167,12 +170,6 @@ shows the build year and site author name, falling back to the GitHub owner name
 footer:
   copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
 ```
-
-<h2 id="theming"> C. Theming <span class="chulapa">Chulapa</span></h2>
-
-Configure fonts, skins, syntax highlighting and color overrides using
-`googlefonts` and `chulapa-skin`. See the [theming reference](./03-theming)
-for the available settings in <span class="chulapa">Chulapa</span>.
 
 ## Optional features and metadata
 

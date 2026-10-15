@@ -36,8 +36,6 @@ needed to publish; you do not need to add a workflow.
 
 **Check:** Pages shows GitHub Actions as its publishing source.
 
-<span id="2-change-the-name-and-author"></span>
-
 ### 3. Name your blog
 
 Return to **Code**, open `_config.yml` and click the pencil button. This is the
@@ -90,8 +88,6 @@ Click **Commit changes** and save to the same default branch.
 
 **Check:** the saved article contains your title and sentence.
 
-<span id="3-open-your-published-website"></span>
-
 ### 5. Open your published website
 
 Open **Actions** and find the publishing run for your latest saved change. Wait
@@ -121,21 +117,3 @@ Choose a next task when you need it:
 - [Add a photograph](./17-add-image).
 - [Choose a design](./22-choose-skin).
 - [Create a page](./16-create-page).
-
-<details markdown="1">
-<summary>Links from earlier versions of this guide</summary>
-
-These destinations preserve links to tasks that used to follow the tutorial.
-They are not additional steps needed to publish your first site.
-
-- <span id="5-add-a-photograph"></span>[Add a photograph](./17-add-image).
-- <span id="6-choose-a-design"></span>[Choose a design](./22-choose-skin).
-- <span id="explore-minimal-examples"></span>[Explore minimal examples](./08-starter-examples).
-- <span id="choose-a-starting-point"></span>[Choose a starting point](./08-starter-examples).
-- <span id="make-it-your-own"></span>[Set up a copied starter](./09-run-starter#prepare-your-copy).
-- <span id="preview-locally"></span>[Preview a starter locally](./09-run-starter#preview-the-site).
-- <span id="publish-and-extend"></span>[Publish a copied starter](./09-run-starter#publish-the-site).
-
-For your name and other profile details, use [site author settings](./02-config#site-author).
-
-</details>

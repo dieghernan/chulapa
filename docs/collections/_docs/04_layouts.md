@@ -17,23 +17,6 @@ the settings block between `---` lines at the top of a content file.
 Moving existing posts or pages? Use the
 [migration front matter mapping](./46-migration-fields#layouts-and-page-front-matter).
 
-## Create a post
-
-Follow [Create and publish a post](./15-create-post) for the complete editing and
-publication steps.
-
-## Create a page
-
-Follow [Create a page and link it from the menu](./16-create-page).
-
-## Add an image
-
-Follow [Add an image to a post or page](./17-add-image). Gallery, carousel and
-video parameters remain in the reference below; use the
-[gallery](./29-add-gallery), [carousel](./30-add-carousel),
-[PhotoSwipe](./31-photoswipe), [video](./32-embed-video) or
-[diagram](./33-add-diagram) guide for setup steps.
-
 ## Choose a layout or an optional feature
 
 The `default` layout works for ordinary articles and pages. Use

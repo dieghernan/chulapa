@@ -25,7 +25,7 @@ chulapa-skin:
 
 Precedence and inherited values: [How skins and overrides interact](./26-appearance-precedence).
 
-<h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
+## <span class="chulapa">Chulapa</span>-specific variables
 
 | `vars` | Description |
 |:---|:---|

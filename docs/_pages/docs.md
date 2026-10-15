@@ -76,10 +76,3 @@ reference sections in pages that also contain task guides.
 
 - [How publishing fits together](./docs/47-publishing-explained): understand source files, builds and the public site.
 - [How skins and overrides interact](./docs/26-appearance-precedence): understand why an existing color or font can remain in effect.
-
-### How publishing fits together
-
-See [How publishing fits together](./docs/47-publishing-explained) for the roles
-of GitHub, Actions, Jekyll, the theme and hosting.
-
-For a specific question, use [search](./search) or the documentation chatbot.
