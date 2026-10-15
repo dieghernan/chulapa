@@ -2,7 +2,7 @@
 layout: landingpage
 title: '<span class="chulapa">Chulapa</span>'
 subtitle: A flexible, visual theme for blogs, portfolios and personal sites
-excerpt: Choose a small starter site, explore 40+ skins and customize your Jekyll site from YAML.
+excerpt: Publish your first website in your browser, migrate an existing blog or explore 40+ skins.
 header_type: splash
 header_img: "https://images.unsplash.com/photo-1545290614-5ceedf604139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60"
 og_image: "./assets/img/site/banner.png"
@@ -20,9 +20,11 @@ project_links:
   <a href="https://github.com/dieghernan/chulapa/releases" class="btn btn-outline-primary font-weight-bold">{{ site.data.version.release }}</a>
 </div>
 <div class="text-center my-4">
-  <p class="lead">Choose a starting point, add your content and make it your own.</p>
+  <p class="lead">Build a blog, portfolio or project site. Start with a ready-to-publish template and edit it in your browser.</p>
   <a class="btn btn-primary btn-lg m-2" href="{{ '/docs/00-start' | relative_url }}">Publish your first site</a>
   <a class="btn btn-outline-primary btn-lg m-2" href="{{ '/skins' | relative_url }}">Browse 40+ skins</a>
+  <p class="mt-3">Already have a Jekyll site? <a href="{{ '/docs/07-migration' | relative_url }}">Follow the migration guide</a>.</p>
+  <p><a href="{{ '/docs#how-to-guides' | relative_url }}">Complete a task</a> or <a href="{{ '/docs#reference' | relative_url }}">look up a setting</a>.</p>
 </div>
 <section class="text-left my-5" aria-labelledby="starter-heading">
   <h2 id="starter-heading" class="text-center mb-4">What would you like to build?</h2>
@@ -43,35 +45,37 @@ project_links:
     </div>
     {% endfor %}
   </div>
-  <p class="text-center">Each example includes configuration and editable content.
-    <a href="{{ '/showcase' | relative_url }}">See sites built with Chulapa</a>.</p>
+  <p class="text-center">These examples include configuration and editable content. For your first
+    publication, follow <a href="{{ '/docs/00-start' | relative_url }}">the browser tutorial</a>;
+    copied minimal examples use <a href="{{ '/docs/09-run-starter' | relative_url }}">the Jekyll setup guide</a>.
+    <a href="{{ '/showcase' | relative_url }}">See sites built with <span class="chulapa">Chulapa</span></a>.</p>
 </section>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="
 background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/github.svg)">
- <p><i class="fas fa-rocket fa-3x"></i></p>
+ <p><i class="fas fa-rocket fa-3x" aria-hidden="true"></i></p>
  <h2 class="font-weight-light py-3">Easy to install</h2>
- <p class="lead font-weight-light py-2">Start with an example or the GitHub template. Install as a remote theme or Ruby gem and follow the publishing guide.</p>
+ <p class="lead font-weight-light py-2">Publish from the GitHub template without installing anything locally. For an existing site, <a href="{{ '/docs/01-install' | relative_url }}">choose an installation method</a>.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img" style="background-repeat: repeat;
 background-size: auto;
 background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/banner.svg)">
- <p><i class="fas fa-code fa-3x"></i></p>
+ <p><i class="fas fa-code fa-3x" aria-hidden="true"></i></p>
  <h2 class="font-weight-light  py-3">First-class features</h2>
  <p class="lead font-weight-light py-2">Add search, comments, galleries, video and mathematical notation when your site needs them.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/bolt.svg)">
- <p><i class="fa-brands fa-searchengin fa-3x"></i></p>
+ <p><i class="fa-brands fa-searchengin fa-3x" aria-hidden="true"></i></p>
  <h2 class="font-weight-light py-3">Check your published site</h2>
- <p class="lead font-weight-light py-2">Performance depends on your content, images and integrations. <a href="{{ "/pagespeed" | relative_url }}">See the recorded PageSpeed results</a> and measure your own site.</p>
+ <p class="lead font-weight-light py-2">Performance depends on your content, images and integrations. Follow the <a href="{{ '/docs/06-accessibility-performance' | relative_url }}">accessibility and performance checks</a> on your own site.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="
 background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/palette.svg)">
- <p><i class="fas fa-cogs fa-3x"></i></p>
+ <p><i class="fas fa-cogs fa-3x" aria-hidden="true"></i></p>
  <h2 class="font-weight-light py-3">One theme, a thousand looks</h2>
- <p class="lead font-weight-light py-2">Bootstrap 4 inside! Use Bootstrap theming, any of our 40+ skins or the <span class="chulapa">Chulapa</span> autothemer</p>
+ <p class="lead font-weight-light py-2"><a href="{{ '/docs/22-choose-skin' | relative_url }}">Choose a skin</a>, <a href="{{ '/docs/23-change-color' | relative_url }}">change a color</a> or explore the <span class="chulapa">Chulapa</span> <a href="{{ '/docs/27-autothemer' | relative_url }}">Autothemer</a>.</p>
 </div>
 <div class="text-center my-4 py-5 px-3 bg-secondary border border-primary rounded-lg chulapa-overlay-img"  style="background-image: url(https://dieghernan.github.io/chulapa/assets/img/iconbanner/th.svg)">
- <p><i class="fas fa-puzzle-piece fa-3x"></i></p>
+ <p><i class="fas fa-puzzle-piece fa-3x" aria-hidden="true"></i></p>
  <h2 class="font-weight-light py-3">Layouts for everything</h2>
  <p class="lead font-weight-light py-2">Blogs, portfolios, projects, archives, image galleries... Use our collection of built-in layouts with lots of additional components</p>
 </div>

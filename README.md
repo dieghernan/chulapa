@@ -28,13 +28,20 @@ Start with the ready-to-publish blog template, then add the features you need.
 
 ## Choose your starting point
 
-For your first site, use [chulapa-101](https://github.com/dieghernan/chulapa-101),
-the ready-to-publish personal blog template. It includes three sample posts,
-a local photograph, About, year, category and tag archives, Fuse.js search,
-RSS and a paginated home page, using the predefined Gitdev skin.
-[Explore the live starter](https://dieghernan.github.io/chulapa-101/).
-Create your repository, enable GitHub Pages with GitHub Actions and edit the
-site details and sample content. No local installation is required.
+Choose the route that matches your situation:
+
+| Your goal | Start here |
+| --- | --- |
+| Publish your first website | [Browser-only publishing tutorial](https://dieghernan.github.io/chulapa/docs/00-start), using the chulapa-101 template; no local installation needed. |
+| Move an existing Jekyll site | [Migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration), preserving your content and public URLs. |
+| Change something on a published site | [How-To Guides](https://dieghernan.github.io/chulapa/docs#how-to-guides) for individual tasks. |
+| Look up a setting or layout | [Reference](https://dieghernan.github.io/chulapa/docs#reference) for options, syntax and constraints. |
+| Understand how publishing works | [Publishing explained](https://dieghernan.github.io/chulapa/docs/47-publishing-explained). |
+
+The [chulapa-101 starter](https://github.com/dieghernan/chulapa-101) is a
+ready-to-publish personal blog. [Explore its live site](https://dieghernan.github.io/chulapa-101/)
+or look up its included files and defaults in the
+[starter reference](https://dieghernan.github.io/chulapa/docs/08-starter-examples).
 
 For smaller examples of individual site types, explore the folders below:
 
@@ -45,14 +52,11 @@ For smaller examples of individual site types, explore the folders below:
 | Portfolio | [A projects collection and card index](examples/portfolio) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-portfolio) |
 | Project | [A landing page with source and setup links](examples/project) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-project) |
 
-Each example includes configuration, dependencies and editable content.
-For a new site with a publishing workflow, use
-[chulapa-101](https://github.com/dieghernan/chulapa-101).
-See [the start guide](https://dieghernan.github.io/chulapa/docs/00-start) for
-browser publication. For copied minimal examples, use
-[the setup guide](https://dieghernan.github.io/chulapa/docs/09-run-starter).
-Examples follow the default branch; Mermaid
-requires development changes after v2.1.0.
+Each minimal example includes configuration, dependencies and editable content.
+They are smaller examples, not the ready-to-publish chulapa-101 template.
+[Run and publish a copied example](https://dieghernan.github.io/chulapa/docs/09-run-starter)
+if you already use Jekyll. Examples follow the default branch; Mermaid requires
+development changes after v2.1.0.
 
 ## Notable features
 
@@ -83,59 +87,44 @@ requires development changes after v2.1.0.
   blogs and collaborative sites
 
 A flexible theme for blogs, news sites, portfolios and personal sites. See the
-[documentation](https://dieghernan.github.io/chulapa/docs/01-install) to learn
+[documentation directory](https://dieghernan.github.io/chulapa/docs) to learn
 more.
 
 ## Installation
 
-See the [accessibility and performance guide](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance)
-for keyboard behavior, color checks and resource loading. These improvements
-are development changes after v2.1.0.
-
-See the sample
-[`_config.yml` file](https://github.com/dieghernan/chulapa/blob/main/_config.yml).
-
-There are three ways to install <span class="chulapa">Chulapa</span>:
+Choose an installation guide for your situation. For version pins and method
+constraints, use [Installation](https://dieghernan.github.io/chulapa/docs/01-install).
 
 ### A. Use our GitHub template
 
-**Recommended if you are starting from scratch.**
-
-Sign in to GitHub and
-[create a repository from the template](https://github.com/dieghernan/chulapa-101/generate)
-to get started with an editable personal blog. Choose **GitHub Actions** in
-your repository's **Settings > Pages**, then update the site details in
-`_config.yml` and replace the sample content. Follow the
-[starter's setup guide](https://github.com/dieghernan/chulapa-101#create-and-publish-your-site)
-for publishing and local preview.
+For a new site, follow [Publish your first site](https://dieghernan.github.io/chulapa/docs/00-start).
+It uses the [GitHub template](https://github.com/dieghernan/chulapa-101/generate)
+and guides you through editing and publication in your browser.
 
 ### B. Remote theme method
 
-**Recommended if you are migrating an existing site.**
-
-For an existing Jekyll site, set `remote_theme: dieghernan/chulapa` and follow
-[the remote-theme instructions](https://dieghernan.github.io/chulapa/docs/01-install#2-remote-theme-method)
-for dependencies and publishing. Without a version tag, this uses development
-updates; append `@v2.1.0` to stay on that release.
-
-Use the [migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration)
-to adapt your content, navigation and integrations while keeping existing URLs.
+For an existing site, use the [migration guide](https://dieghernan.github.io/chulapa/docs/07-migration)
+or go directly to [remote-theme setup](https://dieghernan.github.io/chulapa/docs/20-remote-theme).
+An unpinned remote theme follows development; `@v2.1.0` selects that release.
 
 ### C. Gem-based method 💎
 
-Add `gem "chulapa-jekyll"` to your Gemfile and set `theme: chulapa-jekyll` in
-`_config.yml`. Follow [the gem installation steps](https://dieghernan.github.io/chulapa/docs/01-install#3-gem-based-method-)
-for required plugins, local preview and updates.
-
-If you have customized theme files in your site, review those copies when
-updating: they take precedence over the installed theme.
+For a gem-based site, follow [Install the theme gem](https://dieghernan.github.io/chulapa/docs/21-gem-theme)
+for dependencies, configuration, local preview and updates. Review existing
+local overrides when upgrading: they take precedence over installed theme files.
 
 ## Configuration and layouts
 
-See the [documentation](https://dieghernan.github.io/chulapa/docs/01-install)
-for installation, configuration, layouts, search, comments and customization.
-Start with your site details and content. Add optional integrations when you
-need them.
+Use the [documentation directory](https://dieghernan.github.io/chulapa/docs) to
+choose a tutorial, task guide, reference or explanation. Configuration lookup:
+[Global settings](https://dieghernan.github.io/chulapa/docs/02-config),
+[layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts), and
+[the sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml).
+Add optional integrations when you need them.
+
+For a published site, follow the [accessibility and performance checks](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance).
+Behavior and release limits are listed separately in the
+[accessibility reference](https://dieghernan.github.io/chulapa/docs/48-accessibility-reference).
 
 ## License
 
