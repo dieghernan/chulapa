@@ -43,8 +43,9 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#137](https://github.com/dieghernan/chulapa/pull/137) — personal publisher | Merged; Pages and Worker deployment succeeded | Separates personal-site metadata setup from publisher field Reference; confirms v2.1.0 support and retains article-author independence. Remaining reference mixtures and human learning evidence stay pending. |
 | [#138](https://github.com/dieghernan/chulapa/pull/138) — date localization | Merged; Pages and Worker deployment succeeded | Separates localized-date insertion from snippet parameter/language Reference, retaining source/output specimens and the public section anchor. Remaining reference mixtures and human learning evidence stay pending. FOSSA license status was pending at merge; repository checks passed. |
 | [#139](https://github.com/dieghernan/chulapa/pull/139) — republished article | Merged; deployment pending verification | Separates canonical/sitemap setup from metadata Reference and preserves the copied page address. Remaining reference mixtures and human learning evidence stay pending. |
-| [#140](https://github.com/dieghernan/chulapa/pull/140) — legacy anchor review | In review; not deployed | Retires compatibility-only blocks, routing headings and old aliases; migrates active links and preserves functional IDs. Reassessment follows this cleanup; human learning evidence remains pending. |
-| Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
+| [#140](https://github.com/dieghernan/chulapa/pull/140) — legacy anchor review | Merged; Pages deployed; chatbot unchanged | Retires compatibility-only blocks, routing headings and old aliases; migrates active links and preserves functional IDs. Reassessment follows this cleanup; human learning evidence remains pending. |
+| [#141](https://github.com/dieghernan/chulapa/pull/141) — reassessment after #140 | In review; internal planning | Reviews 69 user-facing surfaces using the unchanged rubric, preserves earlier snapshots and prioritizes remaining Layouts/FAQ mixtures plus human learning evidence. |
+| Remaining Layouts and FAQ mixtures | Pending | Use the post-#140 roadmap: extract independent cloud/index/search/indexing/custom-card workflows and remove repeated FAQ recipes. Global settings is now single-intention Reference; completeness and findability still need separate validation. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -56,6 +57,22 @@ The deployment-order safeguard is now implemented by #108; the later rollout
 section describes the original proposal. Its two-release sequence remains an
 alternative when a change cannot use the exact-commit Pages gate. Live chatbot
 answer verification remains distinct from passing tests or a successful deployment.
+
+## Latest reassessment
+
+The [15 October reassessment after #140](diataxis-reassessment-2026-10-15-after-140.md)
+reviews 69 surfaces. Across the same 28 previously assessed surfaces, 11 improve
+and 17 remain unchanged; the 41 added pages are assessed independently. No global
+average, user-success claim or live chatbot accuracy result is inferred.
+
+Use its prioritized roadmap for new work: cloud/index tasks in Layouts, duplicated
+search/indexing/custom-card workflows, consistent FAQ routing, then selective
+metadata review. Global settings now has one Reference intention; do not keep
+splitting it merely because an older assessment called it mixed. README/home
+retain product/catalog mixtures. Human observations, live chatbot review and
+findability remain separate evidence gaps.
+
+The dated review below and its scores remain the #117 historical snapshot.
 
 ## Current adoption review
 
@@ -147,7 +164,8 @@ so undated documentation does not display the fallback build date. Existing post
 
 The [revised roadmap](diataxis-reassessment-2026-10-14.md#revised-implementation-order)
 provides effort ranges, preserved depth and completion evidence. The original
-Phase 5 roadmap below remains historical; use this order for the next deliveries.
+Phase 5 roadmap below remains historical. This order tracks deliveries through
+#140; use the latest reassessment roadmap above for subsequent priorities.
 
 1. **Appearance — delivered in #120:** split Theming's task recipes, variable reference and
    skin/vars/Autothemer precedence explanation. Keep identifiers, defaults and
