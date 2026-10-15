@@ -220,8 +220,10 @@ https://dieghernan.github.io/chulapa/docs/38-disqus-comments
 https://dieghernan.github.io/chulapa/docs/39-cactus-comments
 https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
 https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
-Set comments.provider and page/defaults show_comments: true on a comment-capable layout. Fields under comments: disqus_shortname (Disqus), cactus_shortname (Cactus), website_id (Welcomments), cusdis_app_id/cusdis_host (Cusdis). Giscus: public repo, Discussions, installed app, generated script in _includes/custom/giscus.html (starter comment-only); GitHub login. Keep repo/category/thread mapping.
-Cactus: hosted Matrix, no homeserver option. Welcomments: _data/welcomments/ delivery/rebuild required; keep theme templates in generated PRs. Form permalink omits baseurl; local correction uses page.url | absolute_url. Cusdis archived, original hosting unavailable: self-hosted needs HTTPS cusdis_host (default cusdis.com). No automatic provider migration; check old thread IDs after theme changes.
+Use comments.provider and show_comments: true on comment-capable pages/defaults. Provider keys: disqus_shortname, cactus_shortname, website_id (Welcomments), cusdis_app_id/cusdis_host. Giscus: public repo, Discussions/app, generated _includes/custom/giscus.html (starter comment-only), GitHub login; keep repo/category/thread mapping.
+Cactus: hosted Matrix only, no homeserver option. Current / IDs invalid; override: include.pageurl | url_encode | replace: '_', '%5F'. Changed IDs may detach threads; verify/migrate first.
+Welcomments: deliver _data/welcomments/ + rebuild; keep theme templates in PRs. Form permalink omits baseurl: local correction page.url | absolute_url.
+Cusdis: archived, original hosting unavailable; self-hosted needs HTTPS cusdis_host (default cusdis.com). No automatic thread migration.
 
 
 ## Navbar and footer

@@ -402,7 +402,9 @@ Provider identifiers and compatibility constraints are listed below.
   - `website_id`: Welcomments site id. Requires a separately configured integration delivering comment data under `_data/welcomments/`; setting the ID alone does not deliver data.
 
 Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
-field in this adapter. Comment-provider selection does not migrate comments,
+field in this adapter. The current Cactus conversation ID retains `/` from page
+URLs, although the client forbids `/` and `_`; its setup guide includes a local
+adapter correction and existing-thread migration cautions. Comment-provider selection does not migrate comments,
 and thread matching depends on the provider and page identifiers/addresses.
 
 For **giscus**, `_includes/custom/giscus.html` contains the embed script generated

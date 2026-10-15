@@ -414,7 +414,7 @@
     "section": "comments",
     "doc": "39_cactus-comments.md",
     "question": "Can I configure any Matrix homeserver for Cactus comments?",
-    "expected": "No homeserver YAML field. Adapter uses Cactus-hosted service, registered cactus_shortname and provider cactus; enable show_comments true on default-layout post. Verify public article. Conditional Cactus resources only on comment-enabled pages is main after v2.1.0; do not claim improvement in release. Link /docs/39-cactus-comments."
+    "expected": "No homeserver YAML field. Adapter uses Cactus-hosted service, registered cactus_shortname and provider cactus; enable show_comments true on default-layout post. Verify public article. Conditional Cactus resources only on comment-enabled pages is main after v2.1.0; do not claim improvement in release. Link /docs/39-cactus-comments. Current adapter derives invalid slash-containing conversation IDs. Require local _includes/components/cactus.html correction using include.pageurl | url_encode | replace: underscore, percent5F (literal %5F), with no slash/underscore and distinct paths retained. Changing IDs may detach existing threads; record/verify mapping and provider migration before publishing. This limitation also applies to v2.1.0; no claim the shipped adapter is already corrected."
   },
   {
     "id": "comments-welcomments-task-1",
