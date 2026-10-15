@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: favicon/font tasks, 15 October 2026. Selective facts from public
+Reviewed snapshot: icon/version tasks, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -275,8 +275,8 @@ favicon.ico auto-discovered at domain root; project/baseurl sites need explicit 
 Source: https://dieghernan.github.io/chulapa/docs/53-chulapa-font
 Built-in chulapa font: headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars. For heading ligatures set font-feature-settings: "liga", "dlig" and text-rendering: optimizeLegibility in custom.scss. The chulapa class applies font/ligatures: <span class="chulapa">Chulapa</span> inline or {: .chulapa} after a Markdown paragraph.
 ## Font Awesome
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
-Font Awesome HTML works in Markdown: <i class="fas fa-exclamation-circle"></i>.
+Source: https://dieghernan.github.io/chulapa/docs/54-add-icon
+Markdown: <i class="fas fa-exclamation-circle" aria-hidden="true"></i> plus meaningful text; use a free icon matching configured FA version.
 
 
 ## Diagnosing YAML
@@ -301,7 +301,7 @@ jekyll-feed /feed.xml can coexist with built-in /atom.xml and /rss.xml. feed.pat
 ## Custom hooks and version checks
 Source: https://dieghernan.github.io/chulapa/docs/45-custom-hooks
 Source: https://dieghernan.github.io/chulapa/docs/44-custom-head
-Source: https://dieghernan.github.io/chulapa/docs/05-faq#know-which-version-of-the-theme-i-am-using
+Source: https://dieghernan.github.io/chulapa/docs/55-check-theme-version
 Remote version: remote_theme suffix; gem: chulapa-jekyll in Gemfile.lock. HTML marker identifies neither unpinned commit nor local overrides.
 Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before CSS; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Local files override theme: keep existing snippets, append HTML, no front matter/layout copy; verify published head. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css output. Do not duplicate built-in analytics.
 

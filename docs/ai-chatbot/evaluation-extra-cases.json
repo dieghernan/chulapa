@@ -499,5 +499,19 @@
     "doc": "53_chulapa-font.md",
     "question": "Can I use the included Chulapa font with its ligatures without adding Google Fonts?",
     "expected": "Cite /docs/53-chulapa-font. Already supplied. Set existing chulapa-skin.vars.headings-font-family to chulapa, sans-serif for headings, preserve skin/vars; optional ligature CSS in custom.scss with front matter retained. Or existing chulapa class on span/paragraph applies font/ligatures to selected content. Publish/restart local config preview; no new YAML flag. Local font baseurl/preload improvements belong to dev after v2.1.0, not released pin."
+  },
+  {
+    "id": "icon-task-1",
+    "section": "formatting",
+    "doc": "54_add-icon.md",
+    "question": "How do I insert a Font Awesome icon in an article accessibly? Do I need another loader?",
+    "expected": "Existing loader; HTML below front matter; free icon matching version; decorative aria-hidden plus meaningful text; check published page and blocked resources; no duplicate loader."
+  },
+  {
+    "id": "version-task-1",
+    "section": "version",
+    "doc": "55_check-theme-version.md",
+    "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme?",
+    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately."
   }
 ]

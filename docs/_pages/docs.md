@@ -27,6 +27,7 @@ search and comments are optional.
 - [Change your site's name and author](./docs/14-site-details).
 - [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
 - Add [an alert box](./docs/49-add-alert), [an image caption](./docs/50-add-caption) or [a footnote](./docs/51-add-footnote).
+- [Add a Font Awesome icon](./docs/54-add-icon).
 - [Add an image](./docs/17-add-image) or [a photo gallery](./docs/29-add-gallery).
 - [Add a manual slideshow](./docs/30-add-carousel) or [enable PhotoSwipe](./docs/31-photoswipe).
 - [Embed a video](./docs/32-embed-video) or [add a Mermaid diagram](./docs/33-add-diagram).
@@ -45,6 +46,7 @@ search and comments are optional.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Find missing changes](./docs/42-unpublished-changes) or [fix a YAML error](./docs/43-yaml-errors).
+- [Check your theme version](./docs/55-check-theme-version).
 - [Add custom HTML to the head](./docs/44-custom-head).
 - [More questions and formatting examples](./docs/05-faq).
 - [Install a remote theme](./docs/20-remote-theme) or [the theme gem](./docs/21-gem-theme) on an existing Jekyll site.
