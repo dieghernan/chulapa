@@ -118,12 +118,9 @@ ligatures and the `chulapa` class on selected text. Other families are covered b
 
 ### ...add a Font Awesome icon in Markdown?
 
-```
-<i class="fas fa-exclamation-circle"></i> You just insert the html code
-
-```
-
-<i class="fas fa-exclamation-circle"></i> You just insert the html code
+Follow [Add a Font Awesome icon](./54-add-icon) for an article example,
+accessible text and missing-icon checks. Version and kit fields remain in the
+[Font Awesome reference](./02-config#font-awesome).
 
 ### ...have a quick preview of a page of my site with any skin?
 
@@ -140,24 +137,9 @@ Valid YAML alone does not establish valid skin names, provider IDs or field loca
 
 ### ...know which version of the theme I am using?
 
-For a remote theme, check `remote_theme` in `_config.yml`. A suffix such as
-`@v2.1.0` pins a release; an unpinned value uses the repository default branch
-and does not identify a fixed version. For a gem-based theme, check the
-`chulapa-jekyll` version in `Gemfile.lock`.
-
-For pages using the theme's head include, view the HTML source and look for
-this comment near the beginning:
-
-```html
-
-<!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
-
-```
-
-**The HTML comment is a theme version marker.** It does not identify the exact
-commit of an unpinned remote theme or any local overrides. Use a pinned tag or
-`Gemfile.lock` to identify the selected release.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Follow [Check which theme version your site uses](./55-check-theme-version)
+to inspect the remote-theme selection, resolved gem and published HTML marker.
+The marker does not identify an exact unpinned commit or local overrides.
 
 ### ...use jekyll-feed instead of <span class="chulapa">Chulapa</span>'s feeds?
 
