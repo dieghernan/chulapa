@@ -113,6 +113,9 @@ to check the result.
 Before sharing the site, replace the remaining sample articles and contact details
 in `_pages/about.md`. Keep the home page filename `index.html`.
 
+For another guided exercise, follow [Publish an illustrated page](./59-photo-page-tutorial)
+using the starter photograph and a fixed menu entry.
+
 Choose a next task when you need it:
 
 - [Add a photograph](./17-add-image).

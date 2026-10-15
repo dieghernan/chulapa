@@ -38,7 +38,8 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#132](https://github.com/dieghernan/chulapa/pull/132) — subscription feeds | Merged; Pages and Worker deployment succeeded | Separates built-in feed publication and existing jekyll-feed coexistence into task guides; preserves FAQ anchors. Remaining Markdown/catalog mixtures are not claimed complete. |
 | [#133](https://github.com/dieghernan/chulapa/pull/133) — highlighting and variable catalogs | Merged; Pages and Worker deployment succeeded | Makes lookup purpose explicit and routes setup/publication to existing How-To Guides. Preserves style identifiers, code specimens, variable tables and public URLs. Markdown and README/home separation remain pending. |
 | [#134](https://github.com/dieghernan/chulapa/pull/134) — Markdown reference and content TOC | Merged; Pages and Worker deployment succeeded | Extracts content-index setup into a How-To Guide, retains syntax specimens and parser constraints, and preserves legacy anchors. README/home and learning evidence remain pending. |
-| [#135](https://github.com/dieghernan/chulapa/pull/135) — README and home routing | In review; not deployed | Routes beginners, migrating users and experienced readers to canonical destinations; removes duplicated setup from README and a retired PageSpeed link from home. Learning evidence and remaining mixed reference sections are still pending. |
+| [#135](https://github.com/dieghernan/chulapa/pull/135) — README and home routing | Merged; Pages deployed; chatbot unchanged | Routes beginners, migrating users and experienced readers to canonical destinations; removes duplicated setup from README and a retired PageSpeed link from home. Learning evidence and remaining mixed reference sections are still pending. |
+| Second publishing tutorial — current branch | In preparation; not deployed | Adds a controlled photo-page/menu exercise after first publication. Technical validation is distinct from observed novice usability; no human study or completion metric is claimed. |
 | Remaining Global settings and Layouts | Pending | Continue separating task procedures, exhaustive reference and conceptual explanation. Keep the existing technical depth and source compatibility. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -147,9 +148,8 @@ Phase 5 roadmap below remains historical; use this order for the next deliveries
    including indexing workflows and compatibility cautions.
 4. **FAQ and migration — #126–#132 delivered:** task guides now cover troubleshooting, hooks, formatting, icons/version checks and feeds; migration mappings have a separate Reference. Keep questions and public destinations as routing links.
 5. **Explanation and accessibility — delivered in #128:** publishing concepts and accessibility constraints have separate destinations from practical checks.
-6. **Learning evidence:** add one controlled second Tutorial and observe first-site
-   and expert lookup tasks; record sample size, help and failures.
-7. **Catalogs and entry points — #133/#134 delivered; README/home in review in #135:** highlighting/variable lookup and Markdown content-index setup now route to canonical tasks. Simplify README/home routing while preserving product orientation. Remaining mixed reference sections and learning evidence still need review.
+6. **Learning evidence — second Tutorial in preparation:** add a controlled photo-page/menu exercise after first publication. Observed first-site and expert lookup tasks remain pending; record sample size, help and failures before claiming usability outcomes.
+7. **Catalogs and entry points — #133/#134 delivered; README/home delivered in #135:** highlighting/variable lookup and Markdown content-index setup now route to canonical tasks. Simplify README/home routing while preserving product orientation. Remaining mixed reference sections and learning evidence still need review.
 
 Do not enable related cards globally or add types as matching tags. Recheck the
 actual candidate sets whenever content/tag changes affect them. Each extraction

@@ -18,6 +18,7 @@ Moving an existing site? Follow the [migration guide and checklist](./docs/07-mi
 Follow a guided path to your first result.
 
 - [Publish your first site](./docs/00-start): create a blog, change its title and publish an edited article.
+- [Publish an illustrated page](./docs/59-photo-page-tutorial): continue with your published starter blog, create a photo page and link it from the menu.
 
 ## How-To Guides
 
