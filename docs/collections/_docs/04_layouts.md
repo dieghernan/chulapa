@@ -756,22 +756,26 @@ for the remaining conditions.
 
 ### Localization of dates
 
-<span class="chulapa">Chulapa</span> supports localization of dates and configurable labels such as
-`search.label`, `related_label` and `random_label`. Some interface and
-accessibility labels remain in English; `locale` does not translate the entire
-interface.
+Reference for `snippets/datetranslate.html`. For editing and publishing, use
+[Display an article date in another language](./61-localize-date).
 
-When dealing with dates, I have designed a snippet that would try to translate
-months and weekdays to the language set on your `locale` variable on
-`_config.yml`. Currently, **English (default)**, French, Spanish, German and
-Italian are supported. The snippet lowercases the supplied date string, replaces
-English month and weekday names and uses the first two characters of `lang` or
-`site.locale`. Unsupported languages retain English names in lowercase.
+| Parameter | Value and behavior |
+| --- | --- |
+| `date` | An English date string, usually formatted with Liquid's `date` filter before passing it to the snippet. |
+| `lang` | Optional language code. Defaults to site `locale`, then `en`; a page-level locale is not read automatically. Only the first two lowercase characters are used. |
 
-**Date formatting** in Liquid is quite flexible. You can see the [Jekyll documents](https://jekyllrb.com/docs/liquid/filters/) and the [official Liquid page](https://shopify.github.io/liquid/filters/date/)
+Supported translations are French (`fr`), Spanish (`es`), German (`de`) and
+Italian (`it`). English is the default/fallback. The input is lowercased before
+month/weekday replacements; unsupported languages keep lowercase English names.
+Order and punctuation come from the input format, not a locale-specific pattern.
+Format specifiers: [Liquid date filter](https://shopify.github.io/liquid/filters/date/).
 
-Note that in the next examples you can skip the `lang` parameter, as by default
-your locale will be used.
+Site `locale` controls language metadata, not complete interface translation.
+Labels such as `search.label`, `related_label` and `random_label` are separately
+configurable; some interface and accessibility labels remain in English.
+
+The source/output specimens below include explicit languages and the site-locale
+fallback. Their fixed date makes the translation differences comparable.
 
 {% raw %}
 ```
@@ -809,9 +813,6 @@ your locale will be used.
 - In Italian: {% include snippets/datetranslate.html date=formatdate lang="it" %}
 
 - Any other value in English: {% include snippets/datetranslate.html date=formatdate lang="zh" %}
-
-**Contribute** via PR and help us expand this feature.
-
 
 ### Mermaid diagrams
 

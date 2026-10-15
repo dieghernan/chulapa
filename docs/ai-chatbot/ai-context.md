@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: publisher task, 15 October 2026. Selective facts from public
+Reviewed snapshot: date task, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -335,11 +335,12 @@ Style names include github, github.dark, dracula, monokai, solarized.dark, solar
 
 
 ## Localized dates
+Source: https://dieghernan.github.io/chulapa/docs/61-localize-date
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dates
-locale controls HTML language, not complete UI translation. snippets/datetranslate.html accepts an English Liquid-formatted date and optional lang (defaults site.locale):
+locale sets HTML language, not full UI translation. datetranslate accepts English-formatted date; lang defaults site.locale, not page locale:
 {% assign formatted = page.date | date: "%A %d, %B %Y" %}
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
-English/French/Spanish/German/Italian supported; unsupported languages keep lowercased English names. Configurable search.label, related_label, random_label; some UI labels stay English. Related/random labels render HTML unchanged: use appropriate heading level, e.g. <h2 class="h5">Related posts</h2>, not a skipped level for visual size.
+English/French/Spanish/German/Italian supported; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English. Related/random labels allow raw HTML: preserve heading hierarchy, e.g. <h2 class="h5">Related posts</h2>.
 
 
 ## Additional navigation and community questions
