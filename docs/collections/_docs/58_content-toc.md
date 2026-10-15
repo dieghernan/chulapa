@@ -6,16 +6,16 @@ subtitle: Insert heading links into the Markdown content
 Use this guide for an existing post or page rendered with kramdown. It adds an
 index of heading links where you place it in the article's text.
 
-**The theme's TOC is separate.** This task uses Markdown's `{:toc}` marker.
-The layout's automatic TOC uses `show_toc`, `h_min` and `h_max`; changing one
-implementation does not configure the other. See the [layout options](./04-layouts#options).
+**The two TOCs have different settings.** This task uses Markdown's `{:toc}`
+marker; the layout's automatic TOC uses `show_toc`, `h_min` and `h_max`. Both
+exclude headings marked `.no_toc`. See the [layout options](./04-layouts#options).
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## Insert the marker
 
 Edit the article's `.md` file. Keep its existing front matter (the settings
-between `---` lines). In the content below it, before the sections you want to
-list, add these two lines with a blank line above and below:
+between `---` lines). In the content below it, at the position where you want
+the index to appear, add these two lines with a blank line above and below:
 
 ```markdown
 * Contents
@@ -24,7 +24,9 @@ list, add these two lines with a blank line above and below:
 
 Keep the marker and attribute on separate lines. `Contents` is a placeholder
 replaced by generated links; use `1. Contents` instead of `* Contents` for a
-numbered list.
+numbered list. The index covers eligible headings throughout the article,
+including headings before the marker. Moving the marker does not limit its
+scope; use heading exclusions or `toc_levels` to control the entries.
 
 Keep real Markdown headings in the article, such as `## First section` and
 `### Details`. To omit a particular heading from this content index, place the
@@ -34,6 +36,10 @@ attribute immediately below that heading:
 ## Further reading
 {:.no_toc}
 ```
+
+The `.no_toc` class also excludes this heading from the theme's automatic TOC
+when `show_toc` or `show_sidetoc` is enabled. It is not an exclusion for only
+one of the two indexes.
 
 ## Limit the heading levels when needed
 

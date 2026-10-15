@@ -421,7 +421,8 @@ kramdown:
 
 ```
 
-Heading exclusion specimen:
+Heading exclusion specimen: `.no_toc` excludes a heading from both the content
+index and the theme's automatic TOC.
 
 ```markdown
 
@@ -435,7 +436,8 @@ Heading exclusion specimen:
 
 Content-index marker specimen: the list item and attribute occupy separate
 lines. The placeholder is replaced by heading links; `1.` selects a numbered
-list instead of bullets.
+list instead of bullets. The marker sets the index position; eligible headings
+before the marker are included too.
 
 ```markdown
 

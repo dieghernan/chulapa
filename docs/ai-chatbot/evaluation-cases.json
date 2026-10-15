@@ -361,7 +361,7 @@
     "section": "reference-edge-cases",
     "doc": "58_content-toc.md",
     "question": "Does kramdown GFM support every Kramdown extension? How do I make a Markdown TOC?",
-    "expected": "GFM does not support every Kramdown extension. Guide /docs/58-content-toc uses two separate lines * Contents and {:toc}, outside a code fence in article content; verified on sample GFM. kramdown.toc_levels is site-wide and separate from show_toc/h_min/h_max. Preserve parser/options; publish and check generated links. Syntax specimens remain /docs/markdown-cheatsheet."
+    "expected": "GFM does not support every Kramdown extension. Guide /docs/58-content-toc uses two separate lines * Contents and {:toc}, outside a code fence in article content; verified on sample GFM. kramdown.toc_levels is site-wide and separate from show_toc/h_min/h_max. Preserve parser/options; publish and check generated links. Syntax specimens remain /docs/markdown-cheatsheet. Marker location only controls index position; .no_toc is shared by content and theme TOCs."
   },
   {
     "id": "reference-edge-cases-3",

@@ -540,6 +540,6 @@
     "section": "formatting",
     "doc": "58_content-toc.md",
     "question": "How do I insert a TOC inside an existing article, skip one heading, and show only levels 2 to 6? Does that configure the theme TOC?",
-    "expected": "Two-line * Contents then {:toc}, blank lines outside code/front matter; real headings; {:.no_toc} immediately after excluded heading. Merge kramdown.toc_levels: 2..6 site-wide preserving parser/options. Distinct from show_toc/h_min/h_max; commit/publish/check links."
+    "expected": "Two-line * Contents then {:toc}, blank lines outside code/front matter. Marker position does not limit scope: eligible headings before it are included. {:.no_toc} below heading excludes it from both content and theme TOCs. Merge kramdown.toc_levels: 2..6 site-wide preserving parser/options; distinct from show_toc/h_min/h_max. Commit/publish/check links."
   }
 ]

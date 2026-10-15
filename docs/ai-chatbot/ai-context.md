@@ -324,7 +324,7 @@ Content TOC: two separate lines, not - {:toc}:
 * Placeholder
 {:toc}
 ```
-Placeholder becomes links; kramdown.toc_levels: 2..6 sets levels site-wide; {:.no_toc} excludes heading. Separate from show_toc/h_min/h_max.
+TOC covers eligible headings before/after marker; marker sets position only. {:.no_toc} excludes from both TOCs. kramdown.toc_levels: 2..6 is site-wide, separate from show_toc/h_min/h_max.
 
 
 ## Syntax highlighting styles
