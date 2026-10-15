@@ -245,8 +245,8 @@ navbar:
 footer.links: label, icon (Font Awesome), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 
 
-## Feeds and SEO controls
-Theme feeds /atom.xml and /rss.xml need include_on_feed: true and a date. Posts have dates; pages/collections need explicit ones. robots: "noindex, follow" changes HTML crawler directives (default index, follow), not privacy/robots.txt/sitemap. og_image is social image, header_img visible header, schema_image post JSON-LD image.
+## SEO controls
+robots: "noindex, follow" changes HTML crawler directives (default index, follow), not privacy/robots.txt/sitemap. og_image is social image, header_img visible header, schema_image post JSON-LD image.
 
 
 ## Page metadata and article images
