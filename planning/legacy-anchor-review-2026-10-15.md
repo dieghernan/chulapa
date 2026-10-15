@@ -1,6 +1,7 @@
 # Legacy documentation anchor review
 
 Date: 15 October 2026. Baseline: main after PR #139.
+Delivery: [PR #140](https://github.com/dieghernan/chulapa/pull/140), in review.
 Scope: current user-facing documentation, active repository links and chatbot
 source URLs. This is a compatibility/content cleanup, not a Diátaxis rescore.
 
