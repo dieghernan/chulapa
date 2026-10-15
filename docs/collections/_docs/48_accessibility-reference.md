@@ -14,6 +14,9 @@ score establishes WCAG compliance for a complete site.
 
 ## Keyboard navigation
 
+**Version:** the keyboard/focus improvements below and PhotoSwipe require `main`
+after v2.1.0 (v2.1.1-dev); they are not included in the v2.1.0 gem or pin.
+
 | Component | Expected behavior in the development version |
 | --- | --- |
 | Skip link | First Tab stop, bypassing repeated navigation. |
@@ -30,18 +33,23 @@ preserves.
 
 ## Colors, content and motion
 
-Article links are underlined and keyboard focus is visible. Custom colors can
+The link/focus improvements here require `main` after v2.1.0 (v2.1.1-dev), not
+the v2.1.0 gem or pin. Article links are underlined and keyboard focus is visible.
+Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.
 
-Automatically cycling multi-image carousels have a play/pause control with an
+The carousel motion/control improvements in this paragraph require `main` after
+v2.1.0 (v2.1.1-dev), not the v2.1.0 gem or pin. Automatically cycling multi-image
+carousels have a play/pause control with an
 action-specific accessible name and a plain-symbol fallback when icon assets
 are unavailable. Reduced motion starts them paused. Slide/navigation interaction
 stops rotation until explicit restart; hovering pauses temporarily. `interval=0`
 disables cycling. [Carousel reference](./04-layouts#bootstrap-carousel).
 
 Video `name` supplies a descriptive player name, not captions or transcripts.
-Mermaid's `accTitle` and `accDescr` describe a diagram; complex content still
+Mermaid (available on `main` after v2.1.0, not in the v2.1.0 gem or pin) uses
+`accTitle` and `accDescr` to describe a diagram; complex content still
 needs a prose equivalent. Gallery snippets use generic image descriptions;
 individual informative photographs need descriptive custom image markup.
 [Media tasks](../docs#how-to-guides) cover adding that content.
@@ -53,11 +61,12 @@ promise about every custom layout or widget.
 
 | Integration or resource | Loading behavior or constraint |
 | --- | --- |
-| PhotoSwipe | Viewer loads when an image is opened. |
+| PhotoSwipe | Available on `main` after v2.1.0, not in the v2.1.0 gem or pin; viewer loads when an image is opened. |
 | Deferred YouTube | Preview first, player on activation; [loading reference](./04-layouts#deferred-lazy-loading-of-youtube-videos). |
-| MathJax and Mermaid | Page opt-ins; unnecessary enabled integrations can add resources. |
-| Cactus | Scripts/styles only on `show_comments: true` pages in the development version. |
-| Analytics | Optional; configuring GA and GoatCounter enables both counters. GoatCounter has [version/production requirements](./02-config#goatcounter-analytics). |
+| MathJax | Page opt-in; unnecessary enabled integrations can add resources. |
+| Mermaid | Page opt-in; available on `main` after v2.1.0, not in the v2.1.0 gem or pin. |
+| Cactus | Conditional scripts/styles on `show_comments: true` pages require `main` after v2.1.0; v2.1.0 loads those resources more broadly. |
+| Analytics | Optional; configuring GA and GoatCounter enables both counters. GoatCounter requires `main` after v2.1.0 (absent from the v2.1.0 gem/pin) and has [production requirements](./02-config#goatcounter-analytics). |
 
 Large images, additional fonts/icons and external services affect requests and
 loading time. Demo measurements do not predict another site's performance.
