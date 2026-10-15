@@ -87,3 +87,10 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Connect Cactus](https://dieghernan.github.io/chulapa/docs/39-cactus-comments): Reuse the hosted service with the required local conversation-ID correction and existing-thread checks; conditional resource loading requires main after v2.1.0.
 - [Connect Welcomments](https://dieghernan.github.io/chulapa/docs/40-welcomments-comments): Preserve theme templates, configure the website ID and verify delivered comment data after a rebuild; project sites need the documented form permalink correction.
 - [Connect self-hosted Cusdis](https://dieghernan.github.io/chulapa/docs/41-cusdis-comments): Reconnect an existing host/application; upstream is archived and the original hosted service is unavailable.
+
+## Troubleshooting and custom hooks
+
+- [Find missing changes](https://dieghernan.github.io/chulapa/docs/42-unpublished-changes): Check saved commits, publishing/deployment runs, public addresses and post dates.
+- [Fix YAML errors](https://dieghernan.github.io/chulapa/docs/43-yaml-errors): Locate the failed edit, correct syntax and distinguish parsing from unsupported settings.
+- [Add HTML to the head](https://dieghernan.github.io/chulapa/docs/44-custom-head): Append a snippet without copying a layout; verify the published HTML.
+- [Custom hooks reference](https://dieghernan.github.io/chulapa/docs/45-custom-hooks): Supported paths, insertion order, CSS front matter and override constraints.
