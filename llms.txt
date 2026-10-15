@@ -38,9 +38,9 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 - [Migration field mappings](https://dieghernan.github.io/chulapa/docs/46-migration-fields): Lookup for legacy layout/front matter patterns, site integration fields, local overrides and pinned-version constraints.
 - [Starter examples reference](https://dieghernan.github.io/chulapa/docs/08-starter-examples): Four minimal Jekyll source examples, live previews, contents and limitations; no deployment workflow.
 - [Run a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter): Copy, configure, preview and publish a minimal example for existing Jekyll users.
-- [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Sass variables configured under `chulapa-skin.vars`, rather than page front matter.
+- [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Selected variable identifiers, mapping syntax, value types and constraints; editing steps are in the color/font guides.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
-- [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Rendered examples for supported code languages.
+- [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Style identifiers, configuration mapping specimens and interactive code previews; saving steps are in Change code highlighting.
 
 ## Troubleshooting and site checks
 

@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/variable-dictionary",
         "name": "Variables dictionary",
-        "description": "These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:",
+        "description": "Selected variable names, value types and constraints - Lookup for selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Names omit the Sass $ prefix and trailing semicolon. For editing and publishing, use Change a color or Change fonts. Mapping syntax specimen:",
         "headline": "Variables dictionary",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T13:47:27+02:00",
-        "dateModified": "2026-10-15T13:47:27+02:00",
+        "datePublished": "2026-10-15T16:50:23+02:00",
+        "dateModified": "2026-10-15T16:50:23+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -96,7 +96,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:">
+    <meta name="description" content="Selected variable names, value types and constraints - Lookup for selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Names omit the Sass $ prefix and trailing semicolon. For editing and publishing, use Change a color or Change fonts. Mapping syntax specimen:">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -104,12 +104,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/variable-dictionary" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:" >
+    <meta property="og:description" content="Selected variable names, value types and constraints - Lookup for selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Names omit the Sass $ prefix and trailing semicolon. For editing and publishing, use Change a color or Change fonts. Mapping syntax specimen:" >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="These are selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Example mapping syntax:">
+    <meta name="twitter:description" content="Selected variable names, value types and constraints - Lookup for selected variables accepted by chulapa-skin.vars in _config.yml, not page front matter. Hex colors and Sass expressions such as sizes/font lists are quoted strings; switches are YAML booleans. Names omit the Sass $ prefix and trailing semicolon. For editing and publishing, use Change a color or Change fonts. Mapping syntax specimen:">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -216,7 +216,8 @@
 			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
     <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/variable-dictionary">Invisible link to canonical for Microformats</a>
 	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
-   <h1 class="p-name">Variables dictionary</h1>
+   <h1 class="p-name">Variables dictionary</h1><hr class="my-3">
+   <p class="chulapa-subtitle p-summary">Selected variable names, value types and constraints</p>
  </div>
 </header>
 	<main class="container-lg pb-3 flex-fill">
@@ -259,9 +260,11 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#theming"><span class="chulapa">Chulapa</span>-specific variables</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#selected-bootstrap-variables">Selected Bootstrap variables</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#color-map">Color map</a></li></ul></li></ul>
 			</nav>
-			 <p>These are selected variables accepted by <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>,
+			 <p>Lookup for selected variables accepted by <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>,
 not page front matter. Hex colors and Sass expressions such as sizes/font lists
-are quoted strings; switches are YAML booleans. Example mapping syntax:</p>
+are quoted strings; switches are YAML booleans. Names omit the Sass <code class="language-plaintext highlighter-rouge">$</code> prefix
+and trailing semicolon. For editing and publishing, use <a href="./23-change-color">Change a color</a>
+or <a href="./24-change-fonts">Change fonts</a>. Mapping syntax specimen:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
   <span class="na">vars</span><span class="pi">:</span>
     <span class="na">primary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#345678"</span>
@@ -270,10 +273,7 @@ are quoted strings; switches are YAML booleans. Example mapping syntax:</p>
     <span class="na">font-size-base</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1rem"</span>
     <span class="na">enable-rounded</span><span class="pi">:</span> <span class="kc">false</span>
 </code></pre></div></div>
-<p>Values in <code class="language-plaintext highlighter-rouge">vars</code> override the selected skin’s variable assignments.
-Autothemer fills in variables that are still undefined. See
-<a href="./26-appearance-precedence">How skins and overrides interact</a> for precedence;
-<a href="./24-change-fonts">Change fonts</a> provides the setup procedure.</p>
+<p>Precedence and inherited values: <a href="./26-appearance-precedence">How skins and overrides interact</a>.</p>
 <h2 id="theming"><span class="chulapa">Chulapa</span>-specific variables</h2>
 <table>
 <thead>
@@ -425,11 +425,11 @@ skin or <code class="language-plaintext highlighter-rouge">vars</code> keep thei
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Some values cannot be overridden through <code class="language-plaintext highlighter-rouge">vars</code>.</strong> Helpers such as
 <code class="language-plaintext highlighter-rouge">landingpage-card-bg</code> and <code class="language-plaintext highlighter-rouge">cactus-btn-text</code> are calculated by the theme;
 adding them to <code class="language-plaintext highlighter-rouge">chulapa-skin.vars</code> has no effect. Use the options in the table
-or <a href="./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page">custom CSS</a>
+or <a href="./45-custom-hooks">custom CSS</a>
 instead. The <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/chulapa/_variables.scss">complete <span class="chulapa">Chulapa</span> variable reference</a>
 includes these calculated values.</p>
-<p>These inputs belong to site configuration, not article settings. Procedure:
-<a href="./23-change-color">Change a color</a>. Page options: <a href="./04-layouts">Layouts and snippets</a>.</p>
+<p>These inputs belong to site configuration, not article settings.
+Page options: <a href="./04-layouts">Layouts and snippets</a>.</p>
 <h2 id="selected-bootstrap-variables">Selected Bootstrap variables</h2>
 <p>See the full set of variables <a href="https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss">here</a>.</p>
 <table>
