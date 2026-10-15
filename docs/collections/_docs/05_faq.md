@@ -13,8 +13,8 @@ use [the publishing tutorial](./00-start); for advanced integration lookup, use
 [custom hooks](./45-custom-hooks), [version checks](#know-which-version-of-the-theme-i-am-using)
 or [feed compatibility](#use-jekyll-feed-instead-of-chulapas-feeds).
 
-The formatting examples below remain on this page; other tasks have their own
-guides. This FAQ is not a complete configuration reference.
+Questions below link to task guides or retain examples still awaiting separation.
+This FAQ is not a complete configuration reference.
 
 ## Editing and publishing
 
@@ -101,50 +101,20 @@ automatically. For a GitHub Pages project site under a path such as
 
 ### ...add an alert box?
 
-Copy this into your article to display an information box:
-
-```
-A simple info alert **check it out!**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-```
-
-A simple info alert **check it out!**
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
-Use `alert-warning` instead of `alert-info` for a warning. Keep boxes short
-and reserve warnings for something the reader needs to avoid or fix.
-See [more alert styles](https://getbootstrap.com/docs/4.5/components/alerts/).
+Follow [Add an information or warning box](./49-add-alert) for the attribute
+placement, spacing and published-result checks.
 
 ### ...add a caption?
 
-Add a paragraph with the `caption` class after the image:
-
-```
-
-![example image](https://images.unsplash.com/photo-1532184312173-028645e16ba8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60)
-
-This is a caption
-{: .caption}
-```
-
-![example image](https://images.unsplash.com/photo-1532184312173-028645e16ba8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60)
-
-This is a caption
-{: .caption}
+Follow [Add a caption below an image](./50-add-caption). Keep descriptive
+alternative text as well as the visible caption.
 
 ### ...add a footnote?
 
-**Markdown/kramdown**
+<span id="fnref:1"></span><span id="fn:1"></span>
 
-```
-Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
-```
-
-Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
+Follow [Add a footnote to an article](./51-add-footnote) for a matching reference
+and definition and a live output example.
 
 <h3 id="chulapa-font">...use <span class="chulapa">Chulapa</span> font on my theme?</h3>
 

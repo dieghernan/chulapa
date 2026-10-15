@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: accessibility reference extraction, 15 October 2026. Selective facts from public
+Reviewed snapshot: article formatting, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -260,12 +260,15 @@ schema_image: URL/list for post BlogPosting, fallback page og_image then header_
 
 
 ## Alerts, captions and footnotes
-Source: https://dieghernan.github.io/chulapa/docs/05-faq
-Separate alert paragraph from preceding paragraph/list by a blank line; append {: .alert .alert-info .p-3 .mx-2 .mb-3} on next line. Caption: paragraph after image followed by {: .caption}. Footnote reference [^1], definition [^1]: Footnote text.
+Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
+Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
+Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
+Alert: blank line before paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3} on next line. Caption: image, paragraph then {: .caption}. Footnotes: [^1] with [^1]: text (kramdown).
 
 
 ## FAQ: Markdown and favicons
-Use .md with YAML front matter/layout (explicit/default). Sample uses kramdown GFM; extensions depend on parser. favicon.ico at domain root is auto-discovered; project/baseurl sites need explicit links. Generate via RealFaviconGenerator, upload assets to assets/favicon/, put generated HTML in _includes/custom/custom_head.html, include baseurl in actual deployed icon URLs and verify.
+Source: https://dieghernan.github.io/chulapa/docs/05-faq
+.md needs front matter/layout (explicit/default); sample: kramdown GFM, extensions parser-dependent. favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.
 
 
 ## FAQ: Chulapa font and Font Awesome icons

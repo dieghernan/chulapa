@@ -26,6 +26,7 @@ search and comments are optional.
 
 - [Change your site's name and author](./docs/14-site-details).
 - [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
+- Add [an alert box](./docs/49-add-alert), [an image caption](./docs/50-add-caption) or [a footnote](./docs/51-add-footnote).
 - [Add an image](./docs/17-add-image) or [a photo gallery](./docs/29-add-gallery).
 - [Add a manual slideshow](./docs/30-add-carousel) or [enable PhotoSwipe](./docs/31-photoswipe).
 - [Embed a video](./docs/32-embed-video) or [add a Mermaid diagram](./docs/33-add-diagram).

@@ -464,5 +464,26 @@
     "doc": "48_accessibility-reference.md",
     "question": "Do passing theme tests and a manifest mean my own site is accessible and works offline? Where are the limits versus the checks I should perform?",
     "expected": "No compliance/offline/installability guarantee. /docs/06-accessibility-performance is practical checking; /docs/48-accessibility-reference documents expected dev behaviors, coverage and limits. Test actual content, colors, keyboard/mobile/enlarged text/widgets; improvements main after v2.1.0, not pinned release. No built-in service worker/cache/offline YAML, network-dependent comments/videos/chatbot. Representative checks not every browser/site/assistive technology; no invented scores."
+  },
+  {
+    "id": "format-alert-task-1",
+    "section": "faq",
+    "doc": "49_add-alert.md",
+    "question": "How do I put a short information box in an existing post without wrapping the previous list?",
+    "expected": "Link /docs/49-add-alert. Edit body below front matter; blank line before paragraph, attribute line immediately next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Use warning only for concrete avoid/fix issue. kramdown parser support; commit/publish/check box boundaries. No new YAML setting."
+  },
+  {
+    "id": "format-caption-task-1",
+    "section": "faq",
+    "doc": "50_add-caption.md",
+    "question": "Can I add a visible image caption instead of alternative text?",
+    "expected": "Link /docs/50-add-caption. Caption does not replace alt. Image with descriptive alt and relative_url followed by blank line, caption paragraph and immediate {: .caption}. Preserve baseurl handling, publish/check actual image/caption. No invented gallery caption include parameter."
+  },
+  {
+    "id": "format-footnote-task-1",
+    "section": "faq",
+    "doc": "51_add-footnote.md",
+    "question": "How do I add a footnote and check the return link?",
+    "expected": "Link /docs/51-add-footnote. Matching reference [^source] and definition [^source]: note text in same article, unique labels per note, compatible kramdown. Publish then follow generated superscript and backlink, keyboard too. No manually hardcoded numbering/URL or extra plugin."
   }
 ]
