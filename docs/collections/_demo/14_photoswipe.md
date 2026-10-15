@@ -14,9 +14,10 @@ show_toc: true
 ---
 
 PhotoSwipe support is available in the development version after v2.1.0.
-Add `photoswipe=true` to a masonry or carousel include. No page YAML setting is
-needed. Each gallery opens its own sequence; images remain ordinary links when
-JavaScript is disabled or the library cannot load.
+Follow [Enable PhotoSwipe on a gallery](../docs/31-photoswipe) to add the viewer
+to an existing [gallery](../docs/29-add-gallery) or
+[carousel](../docs/30-add-carousel). No page YAML setting is needed. Each
+gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.
 
 ## Masonry gallery
 
@@ -28,7 +29,7 @@ you opened. On touchscreens, swipe between images and pinch to zoom.
 
 {% raw %}
 ```liquid
-{% include_cached snippets/masonry.html internal="gallery" index_items=6 photoswipe=true %}
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=6 photoswipe=true %}
 ```
 {% endraw %}
 
@@ -42,7 +43,7 @@ and discovers image dimensions without a Jekyll image-processing plugin.
 
 {% raw %}
 ```liquid
-{% include_cached snippets/carousel.html internal="gallery" index_items=3 interval=0 controls=true indicators=true photoswipe=true %}
+{% include_cached snippets/carousel.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=3 interval=0 controls=true indicators=true photoswipe=true %}
 ```
 {% endraw %}
 

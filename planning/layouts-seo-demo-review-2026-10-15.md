@@ -48,6 +48,49 @@ These checks do not establish novice success, full accessibility conformance,
 external preview/crawler behavior, live model accuracy or response time. No
 reusable runtime/API, manifest, service worker or offline behavior changes.
 
+## Demo overlap follow-up
+
+Resumed from remote commit `ba401d8`; the Mermaid and PhotoSwipe follow-up was
+not committed there. The four search demos already described their custom HTML,
+but did not link their provider guides.
+
+- Mermaid retains both live diagrams, their exact sources, `accTitle` and
+  `accDescr`, front matter and development-after-v2.1.0 caveat. Remove the repeated
+  YAML specimen and "Write your own" procedure; link the existing diagram guide
+  and reference, and shorten the rendering explanation.
+- PhotoSwipe links the existing viewer/gallery/carousel guides and keeps its
+  reference, interaction advice and limitations. Both displayed Liquid snippets
+  now exactly match their executed includes, including ascending basename order,
+  limits, interval, controls and indicators. Executed includes are unchanged.
+- Fuse.js, Lunr, Simple-Jekyll-Search and Google demos link their respective
+  guides and explicitly distinguish their custom HTML/front matter from the
+  normal `layout: search` and `search.provider` setup. Search implementation and
+  front matter are unchanged.
+
+Follow-up validation:
+
+- Full Jekyll 4.4 documentation build with the current local theme.
+- Mermaid and PhotoSwipe Ruby layout checks pass for root/subdirectory URLs;
+  both JavaScript test files pass.
+- Source comparison confirms unchanged diagram/accessibility sources, executed
+  gallery parameters and search implementation. Generated HTML retains two
+  diagram blocks and two galleries; both displayed snippets match. All ten
+  documentation links/fragments on the six affected pages resolve.
+- Chromium previews at 320 and 1280 px: both diagrams render as SVG; all six
+  pages fit the viewport, with long code specimens scrolling inside their blocks.
+  Both galleries open, accept ArrowRight, close with Escape and restore focus to
+  the original link at both widths. Site assets were served from the local build;
+  Mermaid and PhotoSwipe loaded from their CDN. Touch gestures were not tested.
+- Existing Google demo shows its search input; its external branding image did
+  not load in this environment. No external search-provider result checks or
+  full accessibility audit are claimed. Existing metadata, URLs, manifest and
+  service-worker behavior are unchanged; offline/PWA behavior was not tested.
+- Reviewed `llms.txt`, chatbot context and relevant evaluation cases: existing
+  guide links and facts remain accurate. No update or chatbot deployment is
+  needed for this editorial follow-up; no new chatbot tests were run.
+- Before the follow-up, PR #142 was open at `ba401d8`, its regression workflow
+  passed, and the recorded Codex review had no findings on `dfd4921`.
+
 ## Remaining work
 
 This delivery addresses the agreed Layouts/SEO/demo block and joint reference
