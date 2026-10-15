@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Reviewed snapshot: date task, 15 October 2026. Selective facts from public
+Reviewed snapshot: canonical, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for
 Actions, check Settings > Pages live site. Config changes require local Jekyll
@@ -254,7 +254,8 @@ robots: "noindex, follow" changes HTML crawler directives (default index, follow
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images
-canonical_url: absolute HTTP(S) or /site-path for republished content; changes metadata/feed links, not navigation/redirects. Sitemap still uses actual URL; sitemap: false excludes duplicate. Pagination keeps per-page canonical.
+Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
+canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
 seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
 locale sets HTML language; zh-Hant needs separate og_locale: zh_TW. og_locale_alternate lists real translated locales; [] clears inherited alternates; no translations/hreflang generation. og_type: article enables article metadata for another collection. og_article_author/og_article_section override author URL/first category; guest authors without URL do not inherit site's URL.
 schema_image: URL/list for post BlogPosting, fallback page og_image then header_img. Relative images use url/baseurl; no cropping/validation or visible/social image changes.
@@ -340,7 +341,7 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dat
 locale sets HTML language, not full UI translation. datetranslate accepts English-formatted date; lang defaults site.locale, not page locale:
 {% assign formatted = page.date | date: "%A %d, %B %Y" %}
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
-English/French/Spanish/German/Italian supported; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English. Related/random labels allow raw HTML: preserve heading hierarchy, e.g. <h2 class="h5">Related posts</h2>.
+English/French/Spanish/German/Italian; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English. Related/random labels allow raw HTML: preserve heading hierarchy, e.g. <h2 class="h5">Related posts</h2>.
 
 
 ## Additional navigation and community questions

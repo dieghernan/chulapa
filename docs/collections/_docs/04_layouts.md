@@ -879,9 +879,9 @@ metadata or instructions for republished content.
 The theme creates sharing and search metadata automatically from each page's
 address. Ordinary pages do not need a custom canonical URL.
 
-Set page `canonical_url` to identify the original version of duplicated or
-republished content. Use an absolute HTTP(S) URL or a site-relative path starting
-with `/`. Site-relative values use `url` and `baseurl`. Blank values, unsupported
+`canonical_url` identifies the original version in page metadata. Accepted
+values are absolute HTTP(S) URLs or site-relative paths starting with `/`.
+Procedure: [Point a republished article to its original URL](./62-canonical-article). Site-relative values use `url` and `baseurl`. Blank values, unsupported
 schemes and protocol-relative URLs fall back to the page's own URL. Fragments
 are removed. The page path still controls its home-page classification.
 
@@ -892,10 +892,9 @@ sitemap: false
 
 This identifies the original article to search engines and sharing services.
 It does not redirect visitors or change your page's address.
-`jekyll-sitemap` uses the actual page URL and does not apply this override: set
-`sitemap: false` on the duplicate, and retain the original page in its own
-sitemap. Do not point every paginated page at page one; each page in a sequence
-should retain its own canonical URL. See
+`jekyll-sitemap` uses the actual page URL, independently of this override;
+`sitemap: false` excludes the duplicate. The original remains in its own sitemap.
+Paginated pages retain individual canonicals, not a shared page-one URL. See
 [Google's canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
 
 Use `seo_title` to replace the complete browser and structured-data title without
