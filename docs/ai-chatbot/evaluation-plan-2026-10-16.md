@@ -1,8 +1,8 @@
 # Focused evaluation proposal for extracted guides
 
 Date: 16 October 2026. Baseline: main `fb265a74c`, after merged PR #149.
-Status: proposal only. No live requests, Worker deployment or answer-quality
-results from this proposal. Existing evaluations remain historical snapshots.
+Status: four-case proposal with second-tutorial context prepared offline.
+No live requests, Worker deployment or answer-quality results. Existing evaluations remain historical snapshots.
 
 ## PR reconciliation and scope
 
@@ -33,26 +33,28 @@ questions in the catalogs; do not redesign the runner or expand the batch into
 an exhaustive benchmark. The runner selects by ID in catalog order, not argument
 order. Duplicate or unknown IDs must be caught by the offline check first.
 
-## Offline coverage gap before execution
+## Context preparation and remaining execution gate
 
-The current selective context contains `/docs/00-start`, the PhotoSwipe task and
-reference, and the video task. It does not contain `/docs/59-photo-page-tutorial`,
-`My photo walk` or the fixed Madrid-photo scenario. General page/image/menu facts
-do not supply that tutorial's exact route or exercise. This is an observed
-source-coverage gap, not a failed live answer or measured hallucination rate.
+The initial offline review found no `/docs/59-photo-page-tutorial`, `My photo
+walk` or fixed Madrid-photo scenario in selective context. That initial finding
+was source-coverage evidence, not a failed model answer. Implementation now adds
+that exact URL, published-starter/image prerequisites, a complete page example,
+menu insertion constraints and publish/result checks from the existing tutorial.
+The case expectation no longer describes the local context as missing.
 
-Before running the second case as a supported-answer check, prepare a concise
-reviewed context addition from the existing tutorial, including its exact source
-URL and constraints. Review the byte budget, run `npm test`, and verify that the
-same reviewed context is deployed through the existing Pages gate. This proposal
-does not add context or initiate deployment. Until that follow-up is approved,
-report the second case as blocked by missing context; do not invent a URL or
-quietly count an honest missing-information answer as tutorial coverage.
+The previous context remains intact: this addition adds 934 bytes in the Windows
+checkout (45,871 to 46,805 bytes). Explicitly review the editorial budget at
+47,000 UTF-8 bytes, update both multibyte boundary tests and budget documentation.
+This increase pays for actual second-tutorial facts and a complete example; it
+is not for the navigation metadata proposed in issue #150, which retains its
+no-budget-increase constraint. No model output/token limit changes.
 
-The full four-case batch is not ready to execute while that gap remains. The
-other three can be evaluated separately if later authorized. Source publication
-and matching deployed Worker/context revision must be verified before either run.
-Prior proxy failures in the compaction record do not prove current reachability.
+The local coverage gap is resolved. The full four-case live batch is still
+pending authorization and verification of the same reviewed context deployed
+through the existing Pages gate. No deployment is performed here. First verify
+source publication and exact Worker/context revision. Prior proxy failures do
+not establish current reachability; no quota-consuming probe is authorized by
+this preparation. Any old deployed context may still lack this tutorial.
 
 ## Quality review, separate from latency
 
@@ -122,11 +124,21 @@ unit/build tests without sending inference requests. These checks validate the
 proposal artifacts and runtime regressions, not factual model answers.
 
 No public page, labels, extraction, theme behavior, accessibility, SEO or PWA
-change is introduced. `llms.txt` and runtime context remain unchanged because
-this is an internal evaluation proposal excluded from the published site.
+change is introduced. `llms.txt` already contains the second tutorial, so its
+entry remains unchanged. Selective runtime context is updated locally; Worker
+deployment is pending. This internal plan is excluded from the published site.
 
 Recorded offline checks on this branch: all 152 catalog records parse with unique
 IDs, each selected ID resolves exactly once, local source/proposal links exist,
-and the missing second-tutorial URL is confirmed against the selective context.
+and the initial missing second-tutorial URL was confirmed. The implementation
+follow-up verifies the new source, facts and complete example against the guide.
 `npm test` passes all 40 tests; `git diff --check` and UTF-8 checks pass.
 These are preparation checks, with no live answer or latency measurements.
+
+Implementation update: second-tutorial context now includes its exact source and
+complete page specimen, which matches guide 59 after removing blank lines. All
+previous context is retained unchanged; no fact compaction or deletion was used.
+The 46,805-byte Windows checkout fits the reviewed 47,000-byte limit. Both UTF-8
+boundary tests and all 40 chatbot tests pass. The [execution checklist](../../planning/diataxis-closeout-plan.md)
+and [issue #150 assessment](../../planning/search-topic-navigation-issue-150-2026-10-16.md)
+record the agreed follow-up. These are offline checks, not live model results.

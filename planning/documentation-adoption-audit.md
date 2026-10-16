@@ -169,6 +169,10 @@ omitted. The cards are supplementary: retain essential links in the guide text.
 Docs explicitly sets `show_date: false`; related/random cards respect that setting
 so undated documentation does not display the fallback build date. Existing post-only tag listings remain unchanged.
 
+Current execution checklist: [Diataxis closeout and release preparation](diataxis-closeout-plan.md).
+It records the agreed order, bounded remaining groups and actual delivery status;
+use it alongside the historical audit rather than treating old priorities as open work.
+
 ### Active implementation order
 
 Updated: 16 October 2026. #147 and #149 are merged. Historical assessments,
@@ -178,12 +182,17 @@ thresholds and synthetic review records below retain their original evidence.
    add no public type labels or new extracted pages without a concrete defect.
    Human interviews are optional and do not gate editorial completion.
 2. **Review topic navigation in bounded blocks.** Appearance and content/publishing
-   are merged in #147/#149. Navigation and integration metadata are separate
-   in-progress work, not delivered or included in this evaluation proposal.
+   are merged in #147/#149. Evaluate [#150](https://github.com/dieghernan/chulapa/issues/150)
+   as the next bounded navigation delivery: five search-provider tasks plus
+   search visibility, not all integrations. See the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md).
+   This is a discoverability improvement, not a verified runtime defect or
+   measured usability failure. Separate uncommitted integration work is not a
+   completed delivery; it lacks the visibility page and requires rescoping.
 3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
    Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;
-   add a focused second-tutorial case. Its exact tutorial URL/scenario is absent
-   from selective context and needs reviewed coverage before that live check.
+   add a focused second-tutorial case. Its URL/scenario and complete example are
+   now added to local selective context, with an explicitly reviewed 47,000-byte
+   budget for tutorial coverage. Deployed context verification remains pending.
    No quota-consuming run or Worker deployment is authorized or performed here.
    Judge facts/examples/sources separately from elapsed request time.
 4. **Collect concrete defects before release.** Keep the adapter bugs tracked in

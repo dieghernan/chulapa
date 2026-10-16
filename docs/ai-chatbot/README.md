@@ -32,7 +32,7 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects context larger than **46,000 UTF-8 bytes**, before generating
+The build rejects context larger than **47,000 UTF-8 bytes**, before generating
 artifacts. This is an editorial growth budget, not a model token limit. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the

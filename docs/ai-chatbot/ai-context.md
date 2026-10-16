@@ -87,6 +87,22 @@ Images: Add file > Upload files into assets/img/, commit image and article edits
 Replace filename/alt text; case/extension must match. relative_url adds baseurl once; do not prepend it. Check published article on narrow screens.
 
 
+## Second browser tutorial
+Source: https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial
+After publishing Chulapa 101, use its existing assets/img/madrid-at-night.jpg (restore if missing). No local software. Create _pages/photo-walk.md only if /photo-walk/ is unused:
+```markdown
+---
+layout: default
+header_type: base
+title: "My photo walk"
+permalink: /photo-walk/
+---
+## An evening in Madrid
+![Buildings illuminated at night in Madrid]({{ '/assets/img/madrid-at-night.jpg' | relative_url }})
+This is my first illustrated page.
+```
+In _config.yml add title: Photo walk and url: /photo-walk/ after Categories in existing navbar.nav. Match indentation, retain all entries/settings; no second navbar or repository prefix. Commit both edits on the original publishing branch; wait for Actions. From Settings > Pages follow Photo walk and verify title, heading, image and text; return Home and follow it again.
+
 ## Global settings
 Sources: https://dieghernan.github.io/chulapa/docs/02-config
 https://dieghernan.github.io/chulapa/docs/14-site-details
