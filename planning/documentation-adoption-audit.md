@@ -50,7 +50,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#142](https://github.com/dieghernan/chulapa/pull/142) — Layouts/SEO/demo consolidation | Merged; deployment not reverified in this update | Delivers cloud-index, sharing and search-visibility task guides; retains sorting/default/custom-include specimens in Reference; simplifies cloud, Mermaid, PhotoSwipe and search demos. Includes reviewed cloud-fragment/sidebar fixes. See [delivery record](layouts-seo-demo-review-2026-10-15.md). |
 | [#143](https://github.com/dieghernan/chulapa/pull/143) — starter consistency | Merged; deployment not reverified in this update | Centralizes setup/publication in guide 09, preserves complete samples and distinguishes annotated demos from standalone sites. Corrects the nested project demo button. See [source review and evidence protocol](starter-consistency-review-2026-10-16.md). |
 | [#144](https://github.com/dieghernan/chulapa/pull/144) — classic-navbar parity | Merged; Pages, Algolia and main regression workflows succeeded | Shares actual classic markup/dependencies between theme and demo, with keyboard/responsive and parity checks. Published branch HTML contains the new controls without duplicated dependencies. See [bounded review](classic-navbar-review-2026-10-16.md). Netlify preview failed; its logs were inaccessible, separately from successful official Pages deployment. |
-| Final FAQ/Reference routing review | Proposed in current branch; not merged | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
+| [#145](https://github.com/dieghernan/chulapa/pull/145) — final FAQ/Reference routing | Open; not merged | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
 | Visible Diátaxis labels versus purpose-oriented introductions | Proposal pending after the routing review | Compare four existing Docs pages, one per type, before any implementation. Treat usefulness as a hypothesis; no mass labels, new YAML or claim that a label resolves substantive mixtures. |
 | Human tasks and live chatbot evidence | Pending; independent evidence work | First publication, second tutorial, advanced lookup and chatbot fact/citation/latency checks remain unmeasured. Use the [prepared protocol](starter-consistency-review-2026-10-16.md#separate-evidence-protocol--still-pending); tests and deployment are not participant or answer-quality results. |
 
@@ -174,7 +174,7 @@ so undated documentation does not display the fallback build date. Existing post
 Updated: 16 October 2026. #142, #143 and #144 are merged. The original Phase 5
 roadmap and dated reassessments below remain historical; this is the current queue.
 
-1. **Final FAQ/Reference routing — proposed in current branch, not merged.**
+1. **Final FAQ/Reference routing — #145 in review, not merged.**
    Review the [joint source/destination decisions](faq-reference-review-2026-10-16.md),
    generated links, retained specimens/headings and responsive evidence. The
    changes route existing guides instead of creating another task per option.

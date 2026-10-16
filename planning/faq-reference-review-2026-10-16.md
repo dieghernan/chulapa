@@ -2,7 +2,8 @@
 
 Date: 16 October 2026. Baseline: `e49e30a62`, main after merged
 [PR #144](https://github.com/dieghernan/chulapa/pull/144).
-Status: proposed editorial delivery, not merged and not a new Diátaxis score.
+Delivery: [PR #145](https://github.com/dieghernan/chulapa/pull/145).
+Status: open for review, not merged and not a new Diátaxis score.
 
 ## Joint source review and decisions
 
