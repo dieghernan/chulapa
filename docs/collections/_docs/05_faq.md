@@ -32,10 +32,10 @@ settings, match the home-page heading and verify publication. The complete
 
 ### How do I add a new article or page?
 
-For an article, create `_posts/YYYY-MM-DD-title.md` with a real date and the
-settings block at the top. For a standalone page, use `_pages/` in the starter
-and add its address to your menu. Follow the complete examples in
-[Create a post](./15-create-post) and [Create a page](./16-create-page).
+Use [Create and publish a post](./15-create-post) for a dated article, or
+[Create a page and link it from the menu](./16-create-page) for standalone
+content such as About or Contact. Each guide includes a complete file and
+published-result checks.
 
 ### Why can I not see my changes?
 
@@ -45,16 +45,16 @@ configuration parse error, use [Fix a YAML configuration error](./43-yaml-errors
 
 ### Why is my photograph missing?
 
-Check that the file was uploaded and saved, and that its filename matches the
-link exactly, including uppercase and lowercase letters. Use the image example
-in [Add an image](./17-add-image), which handles repository paths.
-After publishing, check the article again rather than the GitHub file preview.
+The [image guide](./17-add-image#publish-and-check) covers missing uploads,
+filename capitalization and repository paths. If the whole article is stale,
+use [the publishing checks](./42-unpublished-changes).
 
 ### How do I change the colors or design?
 
-Choose a skin from the previews, then change the existing `chulapa-skin.skin`
-entry in `_config.yml`. See [Skins](./22-choose-skin). Changing a preview in
-your browser does not save the design to your own website.
+Use [Choose a skin](./22-choose-skin) for a complete design,
+[Change a color](./23-change-color) for one adjustment, or
+[Change the fonts](./24-change-fonts) for typography. Existing overrides are
+explained in [How skins and overrides interact](./26-appearance-precedence).
 
 ## How do I...
 
@@ -63,10 +63,9 @@ customization. Skip to the task you need.
 
 ### ...start with Markdown?
 
-[We've got you covered](./markdown-cheatsheet).
-
-See the [Markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) and
-[kramdown reference](https://kramdown.gettalong.org/quickref.html). The sample
+The [theme Markdown cheatsheet](./markdown-cheatsheet) shows syntax and output.
+The external [Markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) and
+[kramdown reference](https://kramdown.gettalong.org/quickref.html) cover more syntax. The sample
 configuration uses kramdown with its GFM parser; accepted syntax depends on
 your Markdown configuration.
 
@@ -115,10 +114,9 @@ accessible text and missing-icon checks. Version and kit fields remain in the
 
 ### ...have a quick preview of a page of my site with any skin?
 
-Open the [skin previews](../skins) to compare designs. To try one on your own
-site, change `chulapa-skin.skin` in `_config.yml`, save and publish. Follow
-[Choose a design](./22-choose-skin).
-Changing a preview on this documentation site does not change your own site.
+The [skin previews](../skins) compare designs on this documentation site.
+They do not save a design to your site; [Choose a skin](./22-choose-skin) covers
+applying one to your own pages.
 
 ### ...find an error in my `_config.yml` file?
 

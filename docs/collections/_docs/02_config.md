@@ -163,7 +163,7 @@ footer:
       url: https://www.facebook.com
 ```
 
-Use `footer.copyright` to supply custom text or HTML. When omitted, the footer
+`footer.copyright` supplies custom text or HTML. When omitted, the footer
 shows the build year and site author name, falling back to the GitHub owner name:
 
 ```yaml
@@ -173,10 +173,9 @@ footer:
 
 ## Optional features and metadata
 
-Add these features when you need them. SEO (search engine optimization) and
-social metadata describe your pages to search engines and sharing services;
-they do not change your article text. Existing defaults are a reasonable
-starting point for a personal blog.
+SEO (search engine optimization) and social metadata describe your pages to
+search engines and sharing services; they do not change your article text.
+The sections below list optional integration settings and their constraints.
 
 ### SEO
 
@@ -431,8 +430,8 @@ ones supplied by <span class="chulapa">Chulapa</span>. The
 projects; defaults apply shared page settings without repeating them in each
 file. The starter already configures these for a blog.
 
-Configure collections, pagination and front matter defaults for your site. See
-the Jekyll documentation on
+Collection, pagination and front matter default settings are defined by Jekyll:
+see its documentation on
 [collections](https://jekyllrb.com/docs/step-by-step/09-collections/),
 [pagination](https://jekyllrb.com/docs/pagination/#enable-pagination) and
 [front matter defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/).
@@ -448,8 +447,8 @@ See a sample defaults configuration [here](https://dieghernan.github.io/chulapa/
 
 ## XX. Other settings
 
-Keep the required `jekyll-include-cache` plugin enabled. Adjust other Jekyll
-settings, plugins and exclusions to suit your site.
+The `jekyll-include-cache` plugin is required; removing it breaks includes that
+use `include_cached`.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 The sample configuration

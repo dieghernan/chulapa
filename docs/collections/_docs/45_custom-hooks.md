@@ -44,6 +44,6 @@ provider, browser policy and dependency order.
 Google Analytics and development GoatCounter have [built-in settings](./02-config#google-analytics);
 a duplicate custom embed can count twice. GoatCounter is absent from v2.1.0.
 Favicons need URLs matching the site's deployed `baseurl`; see
-[the favicon task](./05-faq#add-favicons).
+[the favicon task](./52-add-favicon).
 The [giscus hook](./13-giscus-comments) is provider-specific and separate from
 these site-wide insertion points.

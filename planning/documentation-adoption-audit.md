@@ -49,8 +49,8 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#141](https://github.com/dieghernan/chulapa/pull/141) — reassessment after #140 | Merged; internal planning | Reviews 69 user-facing surfaces using the unchanged rubric, preserves earlier snapshots and prioritizes remaining Layouts/FAQ mixtures plus human learning evidence. |
 | [#142](https://github.com/dieghernan/chulapa/pull/142) — Layouts/SEO/demo consolidation | Merged; deployment not reverified in this update | Delivers cloud-index, sharing and search-visibility task guides; retains sorting/default/custom-include specimens in Reference; simplifies cloud, Mermaid, PhotoSwipe and search demos. Includes reviewed cloud-fragment/sidebar fixes. See [delivery record](layouts-seo-demo-review-2026-10-15.md). |
 | [#143](https://github.com/dieghernan/chulapa/pull/143) — starter consistency | Merged; deployment not reverified in this update | Centralizes setup/publication in guide 09, preserves complete samples and distinguishes annotated demos from standalone sites. Corrects the nested project demo button. See [source review and evidence protocol](starter-consistency-review-2026-10-16.md). |
-| [#144](https://github.com/dieghernan/chulapa/pull/144) — classic-navbar parity | Open; implementation proposed, not merged | Shares actual classic markup and dependencies between theme and demo; adds parity and interaction checks. See [bounded review](classic-navbar-review-2026-10-16.md). Do not count this as delivered until merged. |
-| Final FAQ/Reference routing review | Pending; next implementation after #144 | Remove demonstrated duplicate FAQ recipes in favor of existing guides; review Global settings/Layout boundaries together while retaining defaults, fallbacks and useful specimens. Do not re-extract cloud/sharing/indexing tasks delivered in #142. |
+| [#144](https://github.com/dieghernan/chulapa/pull/144) — classic-navbar parity | Merged; Pages, Algolia and main regression workflows succeeded | Shares actual classic markup/dependencies between theme and demo, with keyboard/responsive and parity checks. Published branch HTML contains the new controls without duplicated dependencies. See [bounded review](classic-navbar-review-2026-10-16.md). Netlify preview failed; its logs were inaccessible, separately from successful official Pages deployment. |
+| Final FAQ/Reference routing review | Proposed in current branch; not merged | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
 | Visible Diátaxis labels versus purpose-oriented introductions | Proposal pending after the routing review | Compare four existing Docs pages, one per type, before any implementation. Treat usefulness as a hypothesis; no mass labels, new YAML or claim that a label resolves substantive mixtures. |
 | Human tasks and live chatbot evidence | Pending; independent evidence work | First publication, second tutorial, advanced lookup and chatbot fact/citation/latency checks remain unmeasured. Use the [prepared protocol](starter-consistency-review-2026-10-16.md#separate-evidence-protocol--still-pending); tests and deployment are not participant or answer-quality results. |
 
@@ -171,25 +171,19 @@ so undated documentation does not display the fallback build date. Existing post
 
 ### Active implementation order
 
-Updated: 16 October 2026, checked against PR merge status. #142 and #143 are
-merged; #144 is open. This is the current queue; the original Phase 5 roadmap
-and dated reassessments below remain historical.
+Updated: 16 October 2026. #142, #143 and #144 are merged. The original Phase 5
+roadmap and dated reassessments below remain historical; this is the current queue.
 
-1. **Classic-navbar parity — #144 in review.** Review the shared component/demo
-   implementation and its root/project, expansion, keyboard and responsive
-   evidence. Keep it separate from FAQ edits; do not mark it delivered yet.
-2. **Final FAQ/Reference routing — next bounded PR after #144.** Reconcile FAQ,
-   Global settings and Layouts against existing guides. Short post/page and skin
-   editing recipes remain candidates for routing links; precise option/default,
-   fallback and snippet specimens stay in Reference. Add a guide only for a
-   demonstrated independent task. Check current docs/demo/README/chatbot links
-   before retiring any heading; age alone is not a preservation requirement.
-3. **Diátaxis type-signposting proposal — after the routing review.** Compare
+1. **Final FAQ/Reference routing — proposed in current branch, not merged.**
+   Review the [joint source/destination decisions](faq-reference-review-2026-10-16.md),
+   generated links, retained specimens/headings and responsive evidence. The
+   changes route existing guides instead of creating another task per option.
+2. **Diátaxis type-signposting proposal — after the routing review.** Compare
    explicit labels with reader-purpose introductions on four Docs pages, one
    per type. First inspect titles/subtitles and substantive mixtures; propose
    examples without editing templates or labeling every page. Any benefit remains
    unmeasured until tested. Do not introduce new YAML just for badges.
-4. **User and chatbot evidence — separately scheduled, still pending.** Observe
+3. **User and chatbot evidence — separately scheduled, still pending.** Observe
    first publication, the second tutorial and advanced-option lookup; review live
    chatbot answers for facts, complete examples, exact citations and latency.
    The [starter review protocol](starter-consistency-review-2026-10-16.md#separate-evidence-protocol--still-pending)
@@ -198,8 +192,9 @@ and dated reassessments below remain historical.
 
 Completed foundations include appearance/media/provider extraction, migration
 and FAQ task guides, publishing/override explanations, the second tutorial,
-catalog/entry-point cleanup, #142's Layouts/SEO/demo block and #143's starters.
-Do not repeat those extractions. Contributor reorganization remains deferred.
+catalog/entry-point cleanup, #142's Layouts/SEO/demo block, #143's starters and
+#144's classic-navbar parity. Do not repeat those extractions. Contributor
+reorganization remains deferred.
 
 Do not enable related cards globally or add types as matching tags. Recheck the
 actual candidate sets whenever content/tag changes affect them. Each extraction
