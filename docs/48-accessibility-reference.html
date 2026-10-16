@@ -18,8 +18,8 @@
         "description": "Expected behavior, version boundaries and limits - Lookup for the theme’s behavior and limits. Practical verification steps are in Check accessibility and performance.",
         "headline": "Accessibility and resource-loading reference",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T15:34:04+02:00",
-        "dateModified": "2026-10-16T15:34:04+02:00",
+        "datePublished": "2026-10-16T15:46:20+02:00",
+        "dateModified": "2026-10-16T15:46:20+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -317,7 +317,10 @@ action-specific accessible name and a plain-symbol fallback when icon assets
 are unavailable. Reduced motion starts them paused. Slide/navigation interaction
 stops rotation until explicit restart; hovering pauses temporarily. <code class="language-plaintext highlighter-rouge">interval=0</code>
 disables cycling. <a href="./04-layouts#bootstrap-carousel">Carousel reference</a>.</p>
-<p>Video <code class="language-plaintext highlighter-rouge">name</code> supplies a descriptive player name, not captions or transcripts.
+<p>In <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0 (v2.1.1-dev), video <code class="language-plaintext highlighter-rouge">name</code> supplies descriptive player and
+play-button names. In v2.1.0, it supplies video metadata but not those accessible
+names. Neither version creates captions or transcripts. The development version
+also provides a YouTube link when JavaScript is disabled; v2.1.0 lacks that link.
 Mermaid (available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0, not in the v2.1.0 gem or pin) uses
 <code class="language-plaintext highlighter-rouge">accTitle</code> and <code class="language-plaintext highlighter-rouge">accDescr</code> to describe a diagram; complex content still
 needs a prose equivalent. Gallery snippets use generic image descriptions;
