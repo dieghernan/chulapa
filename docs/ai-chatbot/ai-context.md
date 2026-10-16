@@ -14,7 +14,7 @@ Responsive Bootstrap-based Jekyll theme for blogs, portfolios, documentation and
 
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
-Partial Docs topics: appearance, content, publishing, search, installation, navigation, site-identity and branding. Subtopics: skins, colors, fonts, code-highlighting, writing, media, images, galleries, troubleshooting, local-search, hosted-search, starter-examples, theme-updates. Includes migration/version checks and search visibility. Provider/setup methods are alternatives. Badges on covered guides link here; cards suggest up to three readings, not required steps. All docs: https://dieghernan.github.io/chulapa/docs. Blog tags are separate; coverage is partial.
+Partial Docs topics: appearance, content, publishing, search, installation, navigation, site-identity, branding, comments, analytics. Subtopics: skins, colors, fonts, code-highlighting, writing, media, images, galleries, troubleshooting, local-search, hosted-search, starter-examples, theme-updates. Includes migration/version checks, search visibility. Provider/setup methods are alternatives. Badges on covered guides link here; cards suggest up to three readings, not required steps. All docs: https://dieghernan.github.io/chulapa/docs. Blog tags are separate; coverage is partial.
 
 ## Variables dictionary
 Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary

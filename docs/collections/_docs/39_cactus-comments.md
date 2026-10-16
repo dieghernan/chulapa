@@ -1,6 +1,10 @@
 ---
 title: Connect Cactus comments
 subtitle: Enable an already registered Cactus site on one post
+tags: [docs, comments]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide after registering your site with [Cactus](https://cactus.chat/).

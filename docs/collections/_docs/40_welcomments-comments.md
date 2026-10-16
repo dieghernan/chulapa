@@ -1,6 +1,10 @@
 ---
 title: Connect Welcomments
 subtitle: Keep theme templates while connecting an existing website
+tags: [docs, comments]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide if you already have a website configured with

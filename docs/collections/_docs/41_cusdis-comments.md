@@ -1,6 +1,10 @@
 ---
 title: Connect an existing self-hosted Cusdis service
 subtitle: Configure the host and application ID for one post
+tags: [docs, comments]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide only if you already operate a working self-hosted Cusdis service

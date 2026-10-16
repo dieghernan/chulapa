@@ -1,6 +1,10 @@
 ---
 title: Connect Disqus comments
 subtitle: Enable an existing Disqus site on one post
+tags: [docs, comments]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide if you already have a site registered with [Disqus](https://disqus.com/).
