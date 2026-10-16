@@ -15,11 +15,11 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/demo/starter-technical-blog",
         "name": "Engineering notes starter",
-        "description": "Code examples, diagrams and practical tutorials - Get the complete example or follow the starter setup guide. Copy the example’s files into your own repository and replace the sample content. The complete example includes a Gemfile and configuration; this demo displays its home-page source.",
+        "description": "Code examples, diagrams and practical tutorials - This annotated example shows home-page source and sample content from technical-blog. It runs inside the documentation site, using this site’s skin and configuration; it is not the standalone example’s home page. The full folder includes its own Gemfile and _config.yml, with no publishing workflow.",
         "headline": "Engineering notes starter",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
-        "datePublished": "2026-10-16T06:06:49+02:00",
-        "dateModified": "2026-10-16T06:06:49+02:00",
+        "datePublished": "2026-10-16T06:23:59+02:00",
+        "dateModified": "2026-10-16T06:23:59+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -89,7 +89,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Code examples, diagrams and practical tutorials - Get the complete example or follow the starter setup guide. Copy the example’s files into your own repository and replace the sample content. The complete example includes a Gemfile and configuration; this demo displays its home-page source.">
+    <meta name="description" content="Code examples, diagrams and practical tutorials - This annotated example shows home-page source and sample content from technical-blog. It runs inside the documentation site, using this site’s skin and configuration; it is not the standalone example’s home page. The full folder includes its own Gemfile and _config.yml, with no publishing workflow.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -97,12 +97,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/starter-technical-blog" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Code examples, diagrams and practical tutorials - Get the complete example or follow the starter setup guide. Copy the example’s files into your own repository and replace the sample content. The complete example includes a Gemfile and configuration; this demo displays its home-page source." >
+    <meta property="og:description" content="Code examples, diagrams and practical tutorials - This annotated example shows home-page source and sample content from technical-blog. It runs inside the documentation site, using this site’s skin and configuration; it is not the standalone example’s home page. The full folder includes its own Gemfile and _config.yml, with no publishing workflow." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Code examples, diagrams and practical tutorials - Get the complete example or follow the starter setup guide. Copy the example’s files into your own repository and replace the sample content. The complete example includes a Gemfile and configuration; this demo displays its home-page source.">
+    <meta name="twitter:description" content="Code examples, diagrams and practical tutorials - This annotated example shows home-page source and sample content from technical-blog. It runs inside the documentation site, using this site’s skin and configuration; it is not the standalone example’s home page. The full folder includes its own Gemfile and _config.yml, with no publishing workflow.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -241,11 +241,14 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#home-page-header">Home-page header</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#home-page-content">Home-page content</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#sample-article">Sample article</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#workflow">Workflow</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#code">Code</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#equation">Equation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#site-configuration">Site configuration</a></li></ul>
 			</nav>
-			 <p><a href="https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog">Get the complete example</a>
-or follow the <a href="../docs/09-run-starter">starter setup guide</a>.
-Copy the example’s files into your own repository and replace the sample content.
-The complete example includes a Gemfile and configuration; this demo displays
-its home-page source.</p>
+			 <p>This annotated example shows home-page source and sample content from
+<a href="https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog">technical-blog</a>.
+It runs inside the documentation site, using this site’s skin and configuration;
+it is not the standalone example’s home page. The full folder includes its own
+<code class="language-plaintext highlighter-rouge">Gemfile</code> and <code class="language-plaintext highlighter-rouge">_config.yml</code>, with no publishing workflow.</p>
+<p>For preparation, preview and publication, follow
+<a href="../docs/09-run-starter">Run and publish a starter example</a>.</p>
+<p>Mermaid requires development changes after v2.1.0 and is absent from that release.</p>
 <h2 id="home-page-header">Home-page header</h2>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">indexcategory</span>
@@ -260,6 +263,19 @@ its home-page source.</p>
 <h2 id="home-page-content">Home-page content</h2>
 <p>Notes with code, diagrams and mathematical notation.</p>
 <h2 id="sample-article">Sample article</h2>
+<p>Source: <a href="https://github.com/dieghernan/chulapa/blob/main/examples/technical-blog/_posts/2026-01-01-first-post.md"><code class="language-plaintext highlighter-rouge">2026-01-01-first-post.md</code></a>.
+Its settings enable the features illustrated below:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Document a workflow</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">header_type</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">show_date</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">show_toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">mermaid</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">mathjax</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">include_on_feed</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
 <p>Describe a workflow with a diagram, an equation and a code example.</p>
 <h2 id="workflow">Workflow</h2>
 <p>The process starts with writing and ends with publishing.</p><pre><code class="language-mermaid">flowchart LR

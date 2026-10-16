@@ -18,8 +18,8 @@
         "description": "Set up one of the minimal Jekyll sites - Copy a minimal example, preview it locally and configure its publication.",
         "headline": "Run and publish a starter example",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T06:06:49+02:00",
-        "dateModified": "2026-10-16T06:06:49+02:00",
+        "datePublished": "2026-10-16T06:23:59+02:00",
+        "dateModified": "2026-10-16T06:23:59+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -262,8 +262,13 @@
 			</nav>
 			 <p>Use this guide when you already work with Jekyll and want to run one of the
 <a href="./08-starter-examples">starter examples</a>. You need Ruby, Bundler and an internet
-connection for the remote theme download. For a first site without installing
-software, use <a href="./00-start">the browser tutorial</a>.</p>
+connection for gem installation and the remote theme download. The supplied
+Gemfiles use Jekyll <code class="language-plaintext highlighter-rouge">~&gt; 4.4</code>; keep each Gemfile together with its configuration.
+For a first site without installing software, use <a href="./00-start">the browser tutorial</a>.</p>
+<p>The project example’s “Getting started” section is placeholder copy for the
+project you are presenting, not an installation procedure for this theme.
+The demos show annotated sources inside the documentation site; your copy uses
+the example’s own skin and generates its own article/project links.</p>
 <h2 id="prepare-your-copy">Prepare your copy</h2>
 <ol>
  <li>Copy the <strong>contents</strong> of your selected example folder into your own site
@@ -283,7 +288,14 @@ Mermaid is unavailable in that release.</li>
 </span>bundle <span class="nb">exec </span>jekyll serve <span class="nt">--url</span> http://localhost:4000 <span class="nt">--baseurl</span> <span class="s2">""</span>
 </code></pre></div></div>
 <p>Open <a href="http://localhost:4000">http://localhost:4000</a>. Check the home page, an article or project, and image
-and navigation links. Restart Jekyll after editing <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+and navigation links. Stop the server with <strong>Ctrl+C</strong> when finished. Restart
+Jekyll after editing <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+<p>For the technical blog, also open its sample article and check the code,
+rendered diagram, equation and TOC links. Mermaid requires a modern browser with
+JavaScript modules/ES2024 support and access to jsDelivr; it is not included in
+v2.1.0. See <a href="./04-layouts#mermaid-diagrams">diagram requirements</a> and
+<a href="./04-layouts#options">page feature options</a>. For the portfolio, open both project cards;
+for the project landing page, check both buttons after replacing placeholder links.</p>
 <h2 id="publish-the-site">Publish the site</h2>
 <p>Follow <a href="./20-remote-theme#publish-and-check">remote-theme publishing</a> to configure
 GitHub Actions for your copy. The example folders do not include a publishing
