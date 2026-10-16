@@ -128,12 +128,17 @@ human interviews remain separate from editorial closeout.
 - [x] Resolve the two captured defects (#154/#125). Freeze the agreed editorial
   scope; accept README/home product/catalog mixtures and defer optional research.
   New concrete release defects may still be tracked during release validation.
-- [ ] Review release notes, installation from the packaged gem and supported
-  Jekyll versions. Reconcile development versus released feature guidance and
-  verify Pages/Worker rollout separately. Do not infer PWA readiness from a score.
-- [ ] Decide release numbering from the final feature set; 2.2.0 is a candidate
-  because of added features, not an approved version in this plan. Publish only
-  after a separate explicit release instruction.
+- [x] Prepare candidate release notes and verify installation of the local 2.2.0
+  candidate gem with Jekyll 3.10.0 and 4.4.1, including the complete documentation.
+  Reconcile development versus released guidance without claiming publication.
+  Pages and Worker rollout verified for merged #162 (`a0d9aca065`), separately
+  from the local candidate. See the [release preparation record](release-preparation-2026-10-16.md)
+  and [draft notes](release-2.2.0-notes.md). Final version metadata, final-artifact
+  validation and publication remain pending approval. No PWA readiness is inferred.
+- [x] Select 2.2.0 for the added features; the user approved this version and
+  release notes on 16 October 2026, authorizing a preparation PR only.
+- [ ] Publish only after a separate explicit release instruction. Finalize
+  release metadata and validate the final artifact before publication.
 
 ## 5. Separate optional live chatbot evaluation
 

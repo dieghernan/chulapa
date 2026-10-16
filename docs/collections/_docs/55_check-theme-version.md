@@ -38,6 +38,10 @@ beginning, replacing the example text with the version displayed:
 <!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
 ```
 
+An `unreleased` suffix identifies a development build, not a published release.
+For example, the 2.2.0 candidate is not yet published even though its source and
+locally built gem use that version number.
+
 This marker is present on pages using the theme's head include. If it is absent,
 check whether a local layout or head include replaced it. If the page is old,
 [verify the publishing run and website address](./42-unpublished-changes).

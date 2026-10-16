@@ -92,6 +92,10 @@ more.
 
 ## Installation
 
+The next release candidate is **2.2.0**, not yet published. Documentation labels
+`v2.1.1-dev` identify development features planned for that release; they remain
+unavailable in the published v2.1.0 gem and remote-theme tag.
+
 Choose an installation guide for your situation. For version pins and method
 constraints, use [Installation](https://dieghernan.github.io/chulapa/docs/01-install).
 

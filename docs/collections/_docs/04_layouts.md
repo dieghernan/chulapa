@@ -26,7 +26,8 @@ The `default` layout works for ordinary articles and pages. Use
 prominent introduction. The reference below covers page options, indexes,
 galleries and custom layouts; you do not need to configure them all.
 
-Features marked **v2.1.1-dev** are available on `main`, but are not included in
+Features marked **v2.1.1-dev** are planned for the unpublished **2.2.0** release
+candidate. They are available on `main`, but are not included in
 v2.1.0. An unpinned remote theme follows `main`; a pinned release or installed
 gem only provides the features included in that version.
 
