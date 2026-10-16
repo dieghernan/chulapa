@@ -24,7 +24,6 @@ directly and use your existing local Jekyll preview.
 The sandbox example includes **INDEX** and **CLASSICNAVBARDEMO** sections in
 the **HTML** panel for comparing navbar styles.
 
-
 ### Step-by-step example
 
 Let's say we want to implement the [Sunset theme](https://themesguide.github.io/top-hat/dist/sunset/) by TopHat on our site. Having a look to the `theme.scss`, it looks like this:
@@ -83,7 +82,6 @@ skin. The example above reproduces its palette and heading font through
 translating assignments, quote hex colors and leave a space after `:`.
 
 **Alternatively**, save your SCSS variables in `_sass/skins/THEMENAME.scss`, then set `skin: THEMENAME` inside `chulapa-skin` in `_config.yml`. Use `!default` for customizable skin variables. Autothemer fills undefined colors; omit a color from your skin if you want autothemer to derive it. Do not add a Bootstrap import: the theme imports Bootstrap after loading the skin. See the [Sunset skin source](https://github.com/dieghernan/chulapa/blob/main/_sass/skins/sunset.scss). To contribute a skin, open a pull request.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### Using autothemer on Codeply
 

@@ -1,7 +1,8 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `0646ee1ca`, after merged #159.
-Current delivery: #125 adapter/migration fix on `codex/fix-comment-adapters`; [PR #160](https://github.com/dieghernan/chulapa/pull/160) open; CI/review pending.
+Updated: 16 October 2026. Current delivery baseline: main `8dbcd89ad`, after merged #160.
+Status: agreed editorial/correction scope delivered. Final score/status closeout proposed on `codex/diataxis-final-assessment`; [PR #161](https://github.com/dieghernan/chulapa/pull/161) open; CI/review pending.
+See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -20,13 +21,14 @@ status and links after each bounded PR. Documentation is written in English.
 | Hooks, mappings, feeds and metadata tasks | Merged #157; applicable head checks passed, branch deleted. Seven guides and affected installation/publication/navigation recommendations reviewed. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). Merged #157; deployment separately unverified. |
 | General reference and accessibility | Merged #158, head checks passed and branch deleted. Eight pages reviewed: seven badge groups, five widgets; FAQ retains direct question navigation. See the [delivery record](reference-navigation-closeout-2026-10-16.md). Merged #158; deployment separately unverified. |
 | #154 cloud-entry dates | Closed by merged #159; head checks passed including Jekyll 3/4 and browser; branch deleted. See the [delivery record](cloud-date-fix-2026-10-16.md). |
-| #125 comment adapters | Open: both fixes and legacy/migration guidance prepared on this branch; Jekyll 3/4 adapter checks passed. Review/CI/merge pending. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
+| #125 comment adapters | Closed by merged #160; all applicable head checks passed, including Jekyll 3/4, installation and browser; branch deleted. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
 
 Human interviews and observed tasks are optional research. Tests, successful
 deployments and synthetic editorial reviews are not human usability evidence.
-No new site-wide purity score, measured findability gain or chatbot accuracy
-claim is established by this plan.
+The final source-based reassessment uses the unchanged editorial rubric and
+separate page scores, with no all-page average. No measured findability gain,
+human usability or live chatbot accuracy claim is established.
 
 ## 1. Completed preparation PR #151
 
@@ -75,7 +77,7 @@ change or unrelated page was included. All six required sources, including guide
 
 The installation/migration/starter group is merged in #153. Navigation, identity
 and branding are merged in #155; see the [page decisions](identity-topic-navigation-delivery-2026-10-16.md).
-Comments and analytics are merged in #156. Hooks, mappings, feeds and metadata tasks are merged in #157. The final reference/accessibility group is merged in #158. The editorial closeout is delivered; #154 and #125 remain separate runtime work. Use the archived draft
+Comments and analytics are merged in #156. Hooks, mappings, feeds and metadata tasks are merged in #157. The final reference/accessibility group is merged in #158. The editorial closeout is delivered; #154/#125 are resolved by #159/#160. Use the archived draft
 only as reference; do not apply stale context/index support files.
 
 At the historical #149 baseline (`fb265a74c`), 25 of 69 Docs pages had visible
@@ -88,8 +90,8 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 | Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Merged #153: badges on seven pages, cards on six; 01 retains its directory and body/version facts. |
 | Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed in #155: badges/cards, with two candidates on icons/publisher and affected appearance review. Merged #155; #154 tracked separately. |
 | Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Merged #156; applicable head checks passed, corrected thread resolved, branch deleted. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
-| Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Prepared on this branch; Merged #157; deployment separately unverified. Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
-| General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Reviewed on this branch; Merged #158; deployment separately unverified. Seven badge groups; five widgets; FAQ unchanged and 02/04 retain direct reference navigation. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
+| Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Merged #157; deployment separately unverified. Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
+| General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Merged #158; deployment separately unverified. Seven badge groups; five widgets; FAQ unchanged and 02/04 retain direct reference navigation. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
 
 - [x] For each group, record reviewed pages, intended audience/task, tag/card
   decision and verification. Split PRs by coherent outcome, not a page quota.
@@ -101,10 +103,10 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
   Final editorial delivery is merged in #158; this does not establish
   human usability or live chatbot accuracy.
 
-## 4. Resolve release-relevant defects and freeze scope
+## 4. Completed defect work and separate release handoff
 
-The final reference PR #158 and #154 rendering fix #159 are merged. Complete
-#125 in this adapter/migration PR, then freeze scope and perform release checks. Do not expand the
+The final reference PR #158 and #154 rendering fix #159 are merged. #125 is also fixed in merged #160. The agreed editorial/correction scope is
+complete. Close the final assessment/status PR, then perform release checks. Do not expand the
 editorial scope without a concrete defect. Live chatbot evaluation and optional
 human interviews remain separate from editorial closeout.
 
@@ -114,7 +116,7 @@ human interviews remain separate from editorial closeout.
   review Microformats2 output and validate tag/category aliases with Jekyll 3/4.
   This is separate from navigation metadata and #125 adapter migration.
 
-- [ ] Fix [#125](https://github.com/dieghernan/chulapa/issues/125) in a separate
+- [x] Fix [#125](https://github.com/dieghernan/chulapa/issues/125) in a separate
   runtime PR: stable distinct Cactus IDs without forbidden characters, explicit
   thread-mapping/migration advice and Welcomments URLs respecting `baseurl`.
 - [x] Check Jekyll 3/4, empty/project baseurl, root and slash/underscore/hyphen/
@@ -123,8 +125,9 @@ human interviews remain separate from editorial closeout.
 - [x] State separately whether real provider posting/migration was tested: neither
   live posting nor migration was performed in this task.
   Passing offline fixtures do not establish live service behavior.
-- [ ] Triage newly captured defects. Resolve release blockers; explicitly defer
-  optional improvements. Freeze feature/editorial scope before final checks.
+- [x] Resolve the two captured defects (#154/#125). Freeze the agreed editorial
+  scope; accept README/home product/catalog mixtures and defer optional research.
+  New concrete release defects may still be tracked during release validation.
 - [ ] Review release notes, installation from the packaged gem and supported
   Jekyll versions. Reconcile development versus released feature guidance and
   verify Pages/Worker rollout separately. Do not infer PWA readiness from a score.
@@ -132,7 +135,7 @@ human interviews remain separate from editorial closeout.
   because of added features, not an approved version in this plan. Publish only
   after a separate explicit release instruction.
 
-## 5. Optional, separately authorized live chatbot evaluation
+## 5. Separate optional live chatbot evaluation
 
 Use the [four-case protocol](../docs/ai-chatbot/evaluation-plan-2026-10-16.md):
 `installation-1`, `second-photo-tutorial-1`, `photoswipe-gallery`, `snippets-1`.

@@ -203,7 +203,6 @@ visible breadcrumbs are disabled.
 tags automatically. For setup and published checks, use
 [Set a post's sharing text and images](./64-post-sharing). Metadata does not
 guarantee a particular preview or search result.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 #### Publisher
 
@@ -458,7 +457,6 @@ use `include_cached`.
 The sample configuration
 includes this repository's demo collections and pagination settings; these are
 examples rather than requirements for every site.
-
 
 The following settings belong to Jekyll or its plugins. Keep the starter's
 values unless you need to change how files are built or published.

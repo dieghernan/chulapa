@@ -1,7 +1,7 @@
 # Cactus and Welcomments adapter fixes
 
 Date: 16 October 2026. Baseline: main `0646ee1ca`, after merged #159.
-Branch: `codex/fix-comment-adapters`. Issue: #125. [PR #160](https://github.com/dieghernan/chulapa/pull/160) open; CI/review pending.
+Branch: `codex/fix-comment-adapters`. Issue: #125. [PR #160](https://github.com/dieghernan/chulapa/pull/160) merged; all applicable head checks passed including Jekyll 3/4, installation and browser. #125 closed; branch deleted.
 
 ## Behavior and migration
 
@@ -55,7 +55,6 @@ availability. Relevant existing HTML/cache checks are run separately.
 ## Plan status
 
 #159 merged with Jekyll 3/4 and browser CI passing; #154 closed and its acceptance
-checklist reconciled. Editorial closeout is delivered. #125 remains open pending
-this PR's review/CI/merge. Next: freeze scope, review final release notes/version,
+checklist reconciled. Editorial closeout is delivered. #160 is merged and #125 is closed. Next: freeze scope, review final release notes/version,
 packaged installation and compatibility checks, then verify actual deployment
 separately. Release publication still requires an explicit instruction.
