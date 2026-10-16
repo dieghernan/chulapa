@@ -610,6 +610,6 @@
     "section": "navigation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse guides about writing posts, adding photos and fixing changes missing from my website? Are topic tags just for blog posts?",
-    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation topic coverage: content/writing, media/images/galleries and publishing/troubleshooting. Separate from blog tags. Related cards suggest up to three matching pages, not required steps. For complete docs use /docs. Do not claim all documentation is tagged."
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation topic coverage: content/writing, media/images/galleries and publishing/troubleshooting. Separate from blog tags. Related cards suggest up to three matching pages, not required steps. For complete docs use /docs. Coverage is partial: badges on covered guides link to the topic index; tags alone do not enable visible badges. Do not claim all documentation is tagged."
   }
 ]
