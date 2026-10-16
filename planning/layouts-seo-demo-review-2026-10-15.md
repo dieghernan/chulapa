@@ -118,3 +118,22 @@ pages or claim this implementation rescores the #140 snapshot automatically.
   or routing change needs a new entry. Accessibility improves through matching
   fragment destinations and consistent warning treatment. No metadata,
   manifest/service-worker/offline behavior changes; no full audit claimed.
+
+## Sidebar fragment collision follow-up
+
+Rename the sidebar TOC trigger from `demo` to `chulapa-sidetoc-toggle` and update
+its JavaScript lookup and browser test selectors. Cloud regression fixtures now
+actually render `show_sidetoc: true` and assert one DOM target per tested badge
+fragment, including `demo`. No public option or gallery/search behavior changes.
+The development changelog records the fix; `llms.txt` and chatbot facts remain
+accurate because this is an internal control ID change, not new setup advice.
+
+Validation: Jekyll 4.4 root/subdirectory index/gallery regression passes with the
+sidebar included; all 34 shared-script JavaScript tests pass; both updated browser
+scripts pass syntax checks. Full docs build passes. Chromium at 320/1280 px on a
+temporary copy of the category demo with sidebar enabled confirms a unique
+`#demo` section, the cloud button reaching it, sidebar opening, and Escape/close
+button restoring focus to the renamed trigger. Existing sidebar Tab behavior is
+unchanged. No full accessibility audit, Jekyll 3 run or offline/PWA test claimed;
+metadata and manifest/service-worker behavior are unaffected. No chatbot update
+or manual deployment needed.

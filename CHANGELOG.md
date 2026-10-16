@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Give the sidebar TOC trigger a theme-specific ID so it does not intercept links to the `demo` tag or category group.
+
 -   Match tag and category badge links to cloud group IDs for names containing `demo`, without rewriting those names to `dmo`.
 
 - Related and random cards respect a candidate's `show_date: false`, allowing

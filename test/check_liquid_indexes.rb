@@ -18,7 +18,7 @@ Jekyll::Filters.prepend(TrackGallerySampling)
 root = File.expand_path("..", __dir__)
 Dir.mktmpdir("chulapa-indexes-") do |source|
   %w[_includes _layouts].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
-  File.write(File.join(source, "_layouts/default.html"), "<!doctype html><html lang='en'><body>{{ content }}</body></html>")
+  File.write(File.join(source, "_layouts/default.html"), "<!doctype html><html lang='en'><body>{% if page.show_sidetoc %}{% include components/sidetoc.html %}{% endif %}{{ content }}</body></html>")
   FileUtils.mkdir_p(File.join(source, "_entries"))
   FileUtils.mkdir_p(File.join(source, "_other"))
   # File order, title order, dates and numeric ranks deliberately disagree.
@@ -56,7 +56,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
   File.write(File.join(source, "mixed.html"), "---\nlayout: indexcategory\ninclude_collection: other,entries\nindex_sort: rank\nindex_sort_asc: true\nindex_items: 100\n---\n")
   %w[archive cloudtag cloudcategory].each do |layout|
     ["entries", "entries,entries", "missing"].each_with_index do |collection, index|
-      File.write(File.join(source, "#{layout}-#{index}.html"), "---\nlayout: #{layout}\ninclude_collection: #{collection}\n---\n")
+      File.write(File.join(source, "#{layout}-#{index}.html"), "---\nlayout: #{layout}\ninclude_collection: #{collection}\nshow_sidetoc: true\n---\n")
     end
   end
 
@@ -108,6 +108,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
     raise "Collection selection or cross-collection sorting failed" unless output.call("mixed").css(".card-body a.u-url").map { |link| link["href"] } == urls.call(mixed)
     %w[cloudtag cloudcategory].each do |layout|
       cloud = output.call("#{layout}-0")
+      raise "Sidebar trigger missing" unless cloud.at_css('button#chulapa-sidetoc-toggle[aria-controls="sideBar"]')
       fragment_names.each do |name|
         badge = output.call("badges").css('a[rel="tag"]').find do |link|
           link.text == name && link["href"].include?("/#{layout}-0.html#")
@@ -116,6 +117,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
         fragment = badge["href"].split("#").last
         groups = cloud.css('section[id]').select { |section| section['id'] == fragment }
         raise "#{layout} badge must reach exactly one group: #{badge['href']}" unless groups.size == 1
+        raise "#{layout} duplicate fragment ID" unless cloud.css('[id]').count { |node| node['id'] == fragment } == 1
         raise "#{layout} badge reaches wrong group" unless groups.first.at_css('h2').text.strip == name
         raise "#{layout} cloud button missing for #{name}" unless cloud.css('a[role="button"]').any? { |a| a['href'] == "##{fragment}" }
       end
