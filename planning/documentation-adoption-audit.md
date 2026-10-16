@@ -734,3 +734,12 @@ the next bounded delivery, source/version checks and separate evidence protocol.
 Classic-navbar parity and the final FAQ/Reference routing review remain subsequent
 implementation blocks. Real novice/expert observations and live chatbot factual,
 citation and latency evaluations remain pending; builds/tests are not that evidence.
+
+### Classic-navbar checkpoint — 16 October 2026
+
+#143 is merged. The next bounded delivery is the
+[classic-navbar parity review](classic-navbar-review-2026-10-16.md): shared actual
+markup/dependencies, demo interaction advice and regression/browser evidence.
+After its review/merge, finish FAQ/Reference routing before proposing the optional
+four-page Diátaxis-label comparison. Human observations and live chatbot accuracy,
+citation and latency evidence remain independent pending work.
