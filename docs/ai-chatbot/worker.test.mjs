@@ -185,10 +185,15 @@ test('bundled deployment includes the complete current reviewed context', async 
 });
 
 test('chatbot deployment waits for successful Pages for the exact commit', async () => {
-  const { mkdtempSync, writeFileSync, chmodSync, rmSync } = await import('node:fs');
+  const { mkdtempSync, writeFileSync, chmodSync, rmSync, existsSync } = await import('node:fs');
   const { tmpdir } = await import('node:os');
   const { join } = await import('node:path');
   const { spawnSync } = await import('node:child_process');
+  const { fileURLToPath } = await import('node:url');
+  const windows = process.platform === 'win32';
+  const gitBash = join(process.env.ProgramFiles || 'C:/Program Files', 'Git', 'bin', 'bash.exe');
+  const bash = windows && existsSync(gitBash) ? gitBash : 'bash';
+  const script = fileURLToPath(new URL('./wait-for-pages.sh', import.meta.url));
   const directory = mkdtempSync(join(tmpdir(), 'chulapa-pages-gate-'));
   try {
     const gh = join(directory, 'gh');
@@ -209,10 +214,14 @@ esac
     chmodSync(gh, 0o755);
     chmodSync(sleep, 0o755);
     for (const outcome of ['success', 'failed', 'cancelled', 'skipped', 'missing']) {
-      const result = spawnSync('bash', [new URL('./wait-for-pages.sh', import.meta.url).pathname], {
-        env: { ...process.env, PATH: `${directory}:${process.env.PATH}`, CASE: outcome,
+      const setup = windows
+        ? 'export PATH="$(cygpath -u "$1"):$PATH"; bash "$(cygpath -u "$2")"'
+        : 'export PATH="$1:$PATH"; bash "$2"';
+      const result = spawnSync(bash, ['-c', setup, 'pages-gate-test', directory, script], {
+        env: { ...process.env, CASE: outcome,
           GITHUB_REPOSITORY: 'owner/repo', GITHUB_SHA: 'test-commit' }, encoding: 'utf8'
       });
+      assert.ifError(result.error);
       assert.equal(result.status === 0, outcome === 'success', `${outcome}: ${result.stderr}`);
     }
   } finally {

@@ -20,6 +20,10 @@ npm run build
 npm test
 ```
 
+The deployment-gate test requires Bash. On Windows, it prefers Git Bash from the
+standard Git installation and otherwise uses Bash on `PATH`. Build fixtures use
+directory junctions on Windows so administrator privileges are not required.
+
 The theme regression workflow also runs `npm test` on pull requests and pushes
 to `main`, without deploying or invoking live AI. The tests cover Worker routes,
 streamed UTF-8 and input limits, CORS, binding and rate-limiter failures, sanitized
