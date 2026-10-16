@@ -18,13 +18,21 @@ Jekyll::Filters.prepend(TrackGallerySampling)
 root = File.expand_path("..", __dir__)
 Dir.mktmpdir("chulapa-indexes-") do |source|
   %w[_includes _layouts].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
-  File.write(File.join(source, "_layouts/default.html"), "<!doctype html><html lang='en'><body>{{ content }}</body></html>")
+  File.write(File.join(source, "_layouts/default.html"), "<!doctype html><html lang='en'><body>{% if page.show_sidetoc %}{% include components/sidetoc.html %}{% endif %}{{ content }}</body></html>")
   FileUtils.mkdir_p(File.join(source, "_entries"))
   FileUtils.mkdir_p(File.join(source, "_other"))
   # File order, title order, dates and numeric ranks deliberately disagree.
   entries = (1..12).map do |i|
     {"title" => "Entry #{format('%02d', 13 - i)}", "date" => "2024-01-#{format('%02d', (i * 5) % 13)}", "rank" => (i * 7) % 13, "tags" => [i.even? ? "even" : "odd"], "categories" => i % 3 == 0 ? %w[guides shared] : %w[news]}
   end
+  # Exercise exact names, embedded "demo", spaces and the former rewrite collision.
+  fragment_names = ["demo", "demonstration", "demo topic", "dmo"]
+  entries.first["tags"] += fragment_names
+  entries.first["categories"] += fragment_names
+  File.write(File.join(source, "badges.html"), {"layout" => "default", "tags" => fragment_names,
+    "categories" => fragment_names, "cloudtag_url" => "/cloudtag-0.html",
+    "cloudcategory_url" => "/cloudcategory-0.html"}.to_yaml +
+    "---\n{% include components/tags.html %}{% include components/categories.html %}")
   entries.each_with_index do |data, index|
     File.write(File.join(source, "_entries/#{format('%02d', index)}.md"), "#{data.to_yaml}---\nSummary #{index}.")
   end
@@ -48,7 +56,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
   File.write(File.join(source, "mixed.html"), "---\nlayout: indexcategory\ninclude_collection: other,entries\nindex_sort: rank\nindex_sort_asc: true\nindex_items: 100\n---\n")
   %w[archive cloudtag cloudcategory].each do |layout|
     ["entries", "entries,entries", "missing"].each_with_index do |collection, index|
-      File.write(File.join(source, "#{layout}-#{index}.html"), "---\nlayout: #{layout}\ninclude_collection: #{collection}\n---\n")
+      File.write(File.join(source, "#{layout}-#{index}.html"), "---\nlayout: #{layout}\ninclude_collection: #{collection}\nshow_sidetoc: true\n---\n")
     end
   end
 
@@ -98,6 +106,22 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
     raise "Missing collection produces cards" unless output.call("empty").css(".card-title").empty?
     mixed = (site.collections["entries"].docs + site.collections["other"].docs).sort_by { |document| document.data["rank"] }
     raise "Collection selection or cross-collection sorting failed" unless output.call("mixed").css(".card-body a.u-url").map { |link| link["href"] } == urls.call(mixed)
+    %w[cloudtag cloudcategory].each do |layout|
+      cloud = output.call("#{layout}-0")
+      raise "Sidebar trigger missing" unless cloud.at_css('button#chulapa-sidetoc-toggle[aria-controls="sideBar"]')
+      fragment_names.each do |name|
+        badge = output.call("badges").css('a[rel="tag"]').find do |link|
+          link.text == name && link["href"].include?("/#{layout}-0.html#")
+        end
+        raise "Missing #{layout} badge for #{name}" unless badge
+        fragment = badge["href"].split("#").last
+        groups = cloud.css('section[id]').select { |section| section['id'] == fragment }
+        raise "#{layout} badge must reach exactly one group: #{badge['href']}" unless groups.size == 1
+        raise "#{layout} duplicate fragment ID" unless cloud.css('[id]').count { |node| node['id'] == fragment } == 1
+        raise "#{layout} badge reaches wrong group" unless groups.first.at_css('h2').text.strip == name
+        raise "#{layout} cloud button missing for #{name}" unless cloud.css('a[role="button"]').any? { |a| a['href'] == "##{fragment}" }
+      end
+    end
     by_date = site.collections["entries"].docs.sort_by(&:date).reverse
     [1, 2].each_with_index do |copies, index|
       archive = output.call("archive-#{index}").css(".h-entry .u-url").map { |link| link["href"] }
@@ -108,9 +132,9 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
         sections = output.call("#{layout}-#{index}").css("section.chulapa-#{layout}")
         expected_groups = by_date.flat_map { |document| document.data.fetch(field) }.uniq
         expected_groups = expected_groups.sort_by { |group| -by_date.count { |document| document.data.fetch(field).include?(group) } }
-        raise "Cloud groups missing or misordered: #{layout}" unless sections.map { |section| section["id"] } == expected_groups
+        raise "Cloud groups missing or misordered: #{layout}" unless sections.map { |section| section["id"] } == expected_groups.map { |group| group.tr(" ", "-") }
         sections.each do |section|
-          group = section["id"]
+          group = section.at_css("h2").text.strip
           expected_documents = by_date.select { |document| document.data.fetch(field).include?(group) }.flat_map { |document| [document] * copies }
           actual = section.css(".h-entry .u-url").map { |link| link["href"] }
           raise "Cloud article order changed: #{layout}/#{group}" unless actual == urls.call(expected_documents)

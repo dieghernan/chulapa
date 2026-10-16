@@ -18,29 +18,10 @@ redirect_from:
 ---
 
 Mermaid support is available in the development version after v2.1.0.
-Set `mermaid: true` in page front matter and write a fenced `mermaid` block.
-See the [configuration and browser requirements](../docs/04-layouts#mermaid-diagrams).
-
-```yaml
----
-title: Mermaid diagrams
-subtitle: Flowcharts and sequence diagrams from Markdown
-categories: [demo]
-header_type: post
-tags: [layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, mermaid, diagrams, markdown]
-date: 2022-12-01
-show_date         : true
-show_sociallinks  : true
-show_tags         : true
-show_categories   : true
-show_bottomnavs   : true
-show_author: true
-show_toc: true
-mermaid: true
-redirect_from:
-  - /demo/mermaid
----
-```
+Follow [Add a Mermaid diagram](../docs/33-add-diagram) to enable diagrams on your
+page. See the [Mermaid reference](../docs/04-layouts#mermaid-diagrams) for browser
+requirements, security restrictions and fallback behavior. The diagrams below
+show a publishing workflow and how rendering works in the browser.
 
 ## Publishing the documentation
 
@@ -68,11 +49,8 @@ flowchart TD
 
 ## Rendering Mermaid in a <span class="chulapa">Chulapa</span> page
 
-With `mermaid: true`, <span class="chulapa">Chulapa</span> includes its Mermaid
-module. That module only loads Mermaid from jsDelivr when it finds diagram
-blocks. Each successful render replaces its code block with a diagram; if
-loading or rendering fails, the source stays visible. These steps run in the
-visitor's browser after Jekyll has generated the page.
+The browser loads Mermaid from jsDelivr and replaces valid diagram blocks with
+diagrams. If loading or rendering fails, the source stays visible.
 
 ```mermaid
 sequenceDiagram
@@ -104,31 +82,3 @@ sequenceDiagram
     end
   end
 ```
-
-## Write your own
-
-Copy this complete page example. The outer Markdown block remains ordinary
-code and has a copy button; rendered diagrams do not have copy buttons.
-
-````markdown
----
-layout: default
-title: How Chulapa builds a page
-mermaid: true
----
-
-```mermaid
-flowchart TD
-  accTitle: Building a Chulapa page
-  accDescr: Jekyll applies configuration defaults and page front matter, converts Markdown to HTML, renders Chulapa layouts and includes, and writes the static page.
-  Config[_config.yml defaults] --> Page[Page settings]
-  Front[Page front matter] --> Page
-  Page --> Markdown[Convert Markdown to HTML]
-  Markdown --> Layout[Render Chulapa layouts and includes]
-  Layout --> Output[Write static HTML page]
-```
-````
-
-If Mermaid cannot load or the diagram syntax is invalid, the source stays
-visible. Add a prose explanation and `accTitle` and `accDescr` for accessible
-diagrams.

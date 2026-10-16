@@ -56,14 +56,14 @@ async function main() {
       assert.equal(await toggle.getAttribute("aria-expanded"), "true");
       await page.keyboard.press("Escape");
       // Preserve the sidebar's existing open/close and Tab behavior, without a focus trap.
-      await page.locator("#demo").click();
-      assert.equal(await page.locator("#demo").getAttribute("aria-expanded"), "true");
+      await page.locator("#chulapa-sidetoc-toggle").click();
+      assert.equal(await page.locator("#chulapa-sidetoc-toggle").getAttribute("aria-expanded"), "true");
       await page.keyboard.press("Tab");
       assert.equal(await page.locator("#sideBar button").evaluate(el => el === document.activeElement), true);
       await page.keyboard.press("Tab");
       assert.equal(await page.locator("#sideBar nav a").first().evaluate(el => el === document.activeElement), true);
       await page.locator("#sideBar button").click();
-      assert.equal(await page.locator("#demo").getAttribute("aria-expanded"), "false");
+      assert.equal(await page.locator("#chulapa-sidetoc-toggle").getAttribute("aria-expanded"), "false");
       await page.locator(".chulapa-header-link").first().focus();
       assert.equal(await page.locator(".chulapa-header-link").first().evaluate(el => getComputedStyle(el).opacity), "1");
       assert.equal(await page.locator(".navbar-chulapa-fab-background").evaluate(el => getComputedStyle(el).transitionDuration), "0s");

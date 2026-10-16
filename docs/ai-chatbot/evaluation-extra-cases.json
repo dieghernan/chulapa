@@ -562,5 +562,33 @@
     "doc": "62_canonical-article.md",
     "question": "How do I republish an article while pointing to the original, and exclude the copy from my sitemap? Will visitors be redirected?",
     "expected": "Merge canonical_url original absolute HTTP(S) URL into existing front matter; preserve copy permalink/content. No redirect; metadata/feed links change. With jekyll-sitemap sitemap: false excludes copy actual URL; canonical alone does not. Check published source canonical/og:url/JSON-LD, feed entry and sitemap; preserve per-page pagination canonicals."
+  },
+  {
+    "id": "cloud-task-1",
+    "section": "layouts",
+    "doc": "63_tag-category-clouds.md",
+    "question": "How do I connect post tag/category badges to grouped index pages on a project site?",
+    "expected": "Matching cloudtag/cloudcategory pages permalinks and posts defaults cloudtag_url/cloudcategory_url; show_tags/show_categories true; preserve defaults, no repository prefix, scope posts not standalone pages; collection output true for linked articles. Verify badge fragments and links; demos use demo/skins scopes."
+  },
+  {
+    "id": "sharing-task-1",
+    "section": "seo",
+    "doc": "64_post-sharing.md",
+    "question": "How do I set a post sharing image and article illustration without changing its visible heading or inserting a photograph into the body?",
+    "expected": "Edit existing description/og_title/og_image/og_image_alt/schema_image; real uploaded image; preserve title. Social and BlogPosting image roles separate; no crops/inspection. Check generated tags/JSON and image URL/baseurl; no guaranteed preview or ranking."
+  },
+  {
+    "id": "search-visibility-task-1",
+    "section": "seo",
+    "doc": "65_search-visibility.md",
+    "question": "Can I hide my auxiliary page from crawlers, sitemap and local search just with noindex? What about Algolia?",
+    "expected": "Independent robots noindex follow, sitemap false with jekyll-sitemap, include_on_search false for Lunr/Fuse/Simple search; Algolia files_to_exclude and reupload. Public page remains accessible, no robots.txt block preventing noindex read; verify published metadata/sitemap/search. No automatic exclusions or instant crawler removal."
+  },
+  {
+    "id": "cloud-demo-fragments",
+    "section": "layouts",
+    "doc": "63_tag-category-clouds.md",
+    "question": "Why does my demo category badge point to #demo but the cloud index has #dmo? What happens to demo topic when upgrading?",
+    "expected": "Development after v2.1.0 fixes the asymmetric demo-to-dmo rewrite: badge and cloud group both use #demo; demo topic uses #demo-topic (spaces become hyphens). Upgrade and update manually written old dmo fragments. Link /docs/63-tag-category-clouds. No new YAML option."
   }
 ]

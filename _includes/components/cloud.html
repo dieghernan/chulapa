@@ -33,7 +33,7 @@
 <div class="row g-0 pt-5" id="{{ include.field }}">
 <div class="col">
 	{%- for i in (0..n_tags)-%}
-	<a href="#{{- sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="btn btn-{{ cloud_color }} m-1" role="button" style="font-size: min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="{{ cloud_icon }} mr-2" aria-hidden="true"></i>{{- sorted_tags[i] -}}<span class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{ sorted_count_tags[i]}}</span></a>
+	<a href="#{{- sorted_tags[i] | replace: " ", "-" -}}" class="btn btn-{{ cloud_color }} m-1" role="button" style="font-size: min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="{{ cloud_icon }} mr-2" aria-hidden="true"></i>{{- sorted_tags[i] -}}<span class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{ sorted_count_tags[i]}}</span></a>
 	{%- endfor -%}
 	</div>
 </div>
@@ -49,7 +49,7 @@
   {%- assign cloud_entries = cloud_entries | push: cloud_entry -%}
 {%- endfor -%}
 {% for  i in (0..n_tags) %}
-<section id="{{- sorted_tags[i] | replace: "demo", "dmo" | replace: " ", "-" -}}" class="py-3 chulapa-cloud{{ cloud_kind }}">
+<section id="{{- sorted_tags[i] | replace: " ", "-" -}}" class="py-3 chulapa-cloud{{ cloud_kind }}">
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
   <h2 class="h5 my-0"><i class="{{ cloud_icon }} mr-1" aria-hidden="true"></i>{{- sorted_tags[i]-}} </h2>
   <div class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{sorted_count_tags[i]}}</div>
