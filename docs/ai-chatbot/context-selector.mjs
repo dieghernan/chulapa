@@ -1,3 +1,5 @@
+import { marked } from 'marked';
+
 // Select whole source sections: never cut code fences or fetch visitor URLs.
 const encoder = new TextEncoder();
 export const MAX_SELECTED_BYTES = 18000;
@@ -80,12 +82,14 @@ export function selectContext(context, question) {
   // Parameter names and specific heading words help queries not covered by aliases.
   const words = [...new Set(question.toLowerCase().match(/[\p{L}\p{N}_-]{4,}/gu) || [])]
     .filter(word => !['with', 'that', 'this', 'does', 'have', 'from', 'what', 'where', 'which', 'page', 'site', 'chulapa'].includes(word));
+  const sectionWords = sections.map(section => new Set(section.text.toLowerCase().match(/[\p{L}\p{N}_-]{4,}/gu) || []));
+  const frequency = new Map(words.map(word => [word, sectionWords.filter(tokens => tokens.has(word)).length]));
   const providers = ['giscus', 'disqus', 'cactus', 'welcomments', 'cusdis'];
   const namedProviders = providers.filter(name => question.toLowerCase().includes(name));
   const ranked = sections.map((section, index) => ({ ...section, index,
     score: (scores.get(section.title) || 0) + words.reduce((score, word) => score +
       (section.title.toLowerCase().includes(word) ? 3 : 0) +
-      (word.includes('_') && section.text.toLowerCase().includes(word) ? 2 : 0), 0)
+      (sectionWords[index].has(word) && frequency.get(word) <= Math.max(2, Math.floor(sections.length / 8)) ? 6 : 0), 0)
   })).filter(section => section.score > 0 && (!namedProviders.length ||
     !providers.some(name => section.title.toLowerCase().startsWith(name)) ||
     namedProviders.some(name => section.title.toLowerCase().startsWith(name))))
@@ -102,9 +106,21 @@ export function selectContext(context, question) {
   return { text: chosen.map(section => section.text).join('\n'), titles: chosen.map(section => section.title).filter(Boolean) };
 }
 
+function proseUrls(text) {
+  return (text.match(/https?:\/\/[^\s<>"'`\]]+/gi) || []).map(url => {
+    url = url.replace(/[.,;:!?]+$/, '');
+    while (url.endsWith(')') && (url.match(/\)/g) || []).length > (url.match(/\(/g) || []).length) url = url.slice(0, -1);
+    return url;
+  });
+}
+
 export function unsupportedCitations(answer, context) {
-  const known = new Set((context.match(/https?:\/\/[^\s<>"'`]+/g) || []).map(url => url.replace(/[),.;]+$/, '')));
-  const prose = answer.replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, '');
-  return [...prose.matchAll(/\[[^\]\n]*\]\((https?:\/\/[^\s)]+)\)/g)].map(match => match[1])
-    .filter(url => !known.has(url));
+  const known = new Set(proseUrls(context));
+  const tokens = marked.lexer(answer);
+  const urls = Object.values(tokens.links).flatMap(link => proseUrls(link.href));
+  marked.walkTokens(tokens, token => {
+    if (token.type === 'link' || token.type === 'image') urls.push(...proseUrls(token.href));
+    else if (token.type === 'html' || (token.type === 'text' && !token.tokens)) urls.push(...proseUrls(token.text));
+  });
+  return [...new Set(urls)].filter(url => !known.has(url));
 }

@@ -58,7 +58,7 @@ not embedded or fetched automatically.
 ## Local candidate: context selection and citations
 
 The local candidate selects whole sections for each question using explicit topic
-aliases and parameter/heading matches, including common Spanish terms. It always
+aliases, heading/parameter matches and uncommon body terms, including common Spanish terms. It always
 keeps the version/preservation instructions and documentation directory, adds
 relevant task/reference sections and caps the selected source context at 18,000
 UTF-8 bytes. Code fences are not split, including headings inside tutorial code.
@@ -71,22 +71,32 @@ question or select irrelevant sections. Offline coverage checks do not prove the
 model will answer correctly. Unknown topics retain the directory and instructions
 to acknowledge gaps rather than receiving the whole library.
 
-Markdown citations outside fenced examples must exactly match URLs in the selected
-source context. An unsupported URL or invented fragment produces a search fallback
+Prose URLs in inline Markdown links, bare URLs, autolinks, reference links and raw
+HTML must exactly match URLs in the selected source context. Fenced and inline
+code examples are excluded. An unsupported URL or invented fragment produces a search fallback
 without a retry or second inference. This checks URL identity, not semantic support,
-HTTP availability or raw URLs outside Markdown links. The existing renderer still
+HTTP availability or the factual accuracy of the surrounding answer. The existing renderer still
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-Source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 candidate cases remain untested. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
+**The current selection/citation fixes are not deployed or live-evaluated.**
+Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 candidate cases remain untested. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
 ## Pending evaluations
 
 Run `node evaluation-batches.mjs` to regenerate the offline
 [batch register](evaluations/pending-batches-2026-10-16.md) and its JSON companion.
+The [candidate evidence manifest](evaluations/candidate-evidence.json) selects the
+review and raw response files; regeneration validates their revision, unique IDs
+and answer/review consistency before writing either register. Completed cases
+are excluded from pending commands. Change the manifest only when recording
+evidence for a new evaluated revision; earlier passes must not be transferred to it.
+The four historical passes remain associated with 549f876dd. All 155 cases await
+live evaluation on the current, undeployed runtime changes.
+
 It distinguishes the 56 baseline responses, their reviews, the 99 catalog cases
-without a completed baseline record and all 155 cases untested on this candidate.
+without a completed baseline record and candidate coverage tied to an exact evaluated source.
 The interrupted run may have started a request without writing a result; absence
 of a raw record is not proof that no request was initiated.
 

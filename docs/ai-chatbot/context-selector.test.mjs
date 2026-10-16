@@ -59,3 +59,30 @@ test('layout regressions retain their own release constraints and caller inputs'
   const random = selectContext(context, 'My random article panel has only one eligible document.');
   assert.match(random.text, /singleton pool renders exactly one card/);
 });
+
+test('catalog questions select task sections when only a documented body value names the topic', () => {
+  const cases = ['evaluation-cases.json', 'evaluation-extra-cases.json', 'evaluation-community-cases.json']
+    .flatMap(file => JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')));
+  const requirements = {
+    'appearance-skin-task-1': ['Changing skins and colors', 'Available skins'],
+    'search-comments-3': ['Algolia search'],
+    'comments-giscus-setup-1': ['Giscus comments', 'Comments'],
+    'reference-edge-cases-3': ['Correct file and option scopes', 'Changing fonts and highlighting']
+  };
+  for (const [id, required] of Object.entries(requirements)) {
+    const selected = selectContext(context, cases.find(item => item.id === id).question);
+    for (const title of required) assert.ok(selected.titles.includes(title), `${id}: ${title}`);
+  }
+  assert.match(selectContext(context, cases.find(item => item.id === 'appearance-skin-task-1').question).text, /Preserve other entries/);
+});
+
+test('citation validation covers prose URL forms and ignores literal code examples', () => {
+  const known = 'https://dieghernan.github.io/chulapa/docs/04-layouts';
+  const bad = known + '#invented';
+  const forms = url => [url + '.', `<${url}>`, `[Source](${url})`, `[Source][ref]\n\n[ref]: ${url}`, `<a href="${url}">Source</a>`, `**[Source](${url})**`];
+  for (const answer of forms(bad)) assert.deepEqual(unsupportedCitations(answer, known), [bad], answer);
+  for (const answer of forms(known)) assert.deepEqual(unsupportedCitations(answer, known), [], answer);
+  assert.deepEqual(unsupportedCitations('````markdown\n```\n' + bad + '\n```\n````\n`' + bad + '`', known), []);
+  const parentheses = 'https://example.org/a_(b)';
+  assert.deepEqual(unsupportedCitations(`[Source](${parentheses})`, parentheses), []);
+});

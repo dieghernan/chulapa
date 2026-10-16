@@ -1,5 +1,10 @@
 {
-  "candidate_state": "deployed_first_batch_pass",
+  "candidate_state": "deployed_reviewed",
+  "candidate_source": "549f876dd",
+  "worker_version": "90b4709a-c8ce-4946-838a-d85d12922e73",
+  "latest_candidate_review": "candidate-regression-01-549f876dd-review.json",
+  "candidate_remaining_count": 151,
+  "candidate_pending_review": [],
   "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
   "catalog_count": 155,
   "baseline_record_count": 56,
@@ -1105,7 +1110,7 @@
         "layouts-microformats-nested-feed-1"
       ],
       "status": "reviewed_pass",
-      "command": "node evaluate-live.mjs candidate-regression-01 layouts-random-singleton-1,layouts-include-cache-1,layouts-head-formatting-1,layouts-microformats-nested-feed-1"
+      "command": null
     },
     {
       "name": "candidate-regression-02",
@@ -1204,8 +1209,8 @@
         "seo-2",
         "seo-3"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-01 migration-theme-1,seo-1,seo-2,seo-3"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-02",
@@ -1215,8 +1220,8 @@
         "navigation-2",
         "navigation-3"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-02 seo-4,navigation-1,navigation-2,navigation-3"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-03",
@@ -1226,8 +1231,8 @@
         "variables-2",
         "variables-3"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-03 layouts-7,variables-1,variables-2,variables-3"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-04",
@@ -1237,8 +1242,8 @@
         "starter-1",
         "starter-2"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-04 variables-unsupported,mermaid-1,starter-1,starter-2"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-05",
@@ -1248,8 +1253,8 @@
         "toc-active-section",
         "photoswipe-gallery"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-05 accessibility-1,resources-1,toc-active-section,photoswipe-gallery"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-06",
@@ -1259,8 +1264,8 @@
         "javascript-resource-fallbacks",
         "custom-search-script-dependencies"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-06 goatcounter-analytics,collection-filename-order,javascript-resource-fallbacks,custom-search-script-dependencies"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-07",
@@ -1270,8 +1275,8 @@
         "carousel-accessibility-motion",
         "sidebar-accessibility-focus"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-07 assistant-session-history,semantic-html-accessibility,carousel-accessibility-motion,sidebar-accessibility-focus"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-08",
@@ -1281,8 +1286,8 @@
         "beginner-image-1",
         "beginner-publishing-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-08 pwa-offline-status,beginner-post-1,beginner-image-1,beginner-publishing-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-09",
@@ -1292,8 +1297,8 @@
         "footer-edit-existing-1",
         "search-fusejs-setup-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-09 snippet-parameter-reference,navigation-edit-existing-1,footer-edit-existing-1,search-fusejs-setup-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-10",
@@ -1303,8 +1308,8 @@
         "site-details-edit-1",
         "content-post-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-10 comments-giscus-setup-1,search-no-navbar-links-1,site-details-edit-1,content-post-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-11",
@@ -1314,8 +1319,8 @@
         "analytics-goat-setup-1",
         "analytics-ga4-setup-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-11 content-page-1,content-image-1,analytics-goat-setup-1,analytics-ga4-setup-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-12",
@@ -1325,8 +1330,8 @@
         "install-gem-task-1",
         "appearance-skin-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-12 related-card-dates-1,install-remote-task-1,install-gem-task-1,appearance-skin-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-13",
@@ -1336,8 +1341,8 @@
         "appearance-sass-task-1",
         "media-gallery-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-13 appearance-font-task-1,appearance-auto-task-1,appearance-sass-task-1,media-gallery-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-14",
@@ -1347,8 +1352,8 @@
         "media-video-task-1",
         "media-diagram-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-14 media-carousel-task-1,media-photoswipe-task-1,media-video-task-1,media-diagram-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-15",
@@ -1358,8 +1363,8 @@
         "provider-google-task-1",
         "provider-algolia-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-15 provider-lunr-task-1,provider-simplesearch-task-1,provider-google-task-1,provider-algolia-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-16",
@@ -1369,8 +1374,8 @@
         "comments-welcomments-task-1",
         "comments-cusdis-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-16 comments-disqus-task-1,comments-cactus-task-1,comments-welcomments-task-1,comments-cusdis-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-17",
@@ -1380,8 +1385,8 @@
         "custom-head-task-1",
         "migration-fields-lookup-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-17 troubleshoot-publishing-task-1,troubleshoot-yaml-task-1,custom-head-task-1,migration-fields-lookup-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-18",
@@ -1391,8 +1396,8 @@
         "format-caption-task-1",
         "format-footnote-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-18 accessibility-task-reference-1,format-alert-task-1,format-caption-task-1,format-footnote-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-19",
@@ -1402,8 +1407,8 @@
         "icon-task-1",
         "version-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-19 favicon-task-1,bundled-font-task-1,icon-task-1,version-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-20",
@@ -1413,8 +1418,8 @@
         "feed-collection-output-1",
         "content-toc-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-20 feed-coexistence-1,feed-selection-1,feed-collection-output-1,content-toc-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-21",
@@ -1424,8 +1429,8 @@
         "canonical-article-task-1",
         "cloud-task-1"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-21 person-publisher-task-1,localized-date-task-1,canonical-article-task-1,cloud-task-1"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-22",
@@ -1435,8 +1440,8 @@
         "cloud-demo-fragments",
         "starter-demo-versus-site"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-22 sharing-task-1,search-visibility-task-1,cloud-demo-fragments,starter-demo-versus-site"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-23",
@@ -1446,8 +1451,8 @@
         "second-photo-tutorial-1",
         "documentation-search-topics"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-23 documentation-appearance-topics,documentation-content-publishing-topics,second-photo-tutorial-1,documentation-search-topics"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-24",
@@ -1457,8 +1462,8 @@
         "community-1",
         "community-2"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-24 documentation-installation-topics,documentation-identity-topics,community-1,community-2"
+      "status": "no_completed_record",
+      "command": null
     },
     {
       "name": "baseline-unfinished-25",
@@ -1467,8 +1472,8 @@
         "community-4",
         "community-5"
       ],
-      "status": "not_run",
-      "command": "node evaluate-live.mjs baseline-unfinished-25 community-3,community-4,community-5"
+      "status": "no_completed_record",
+      "command": null
     }
   ],
   "candidate_complete_batches": [
@@ -1481,7 +1486,7 @@
         "layouts-microformats-nested-feed-1"
       ],
       "status": "reviewed_pass",
-      "command": "node evaluate-live.mjs candidate-complete-01 layouts-random-singleton-1,layouts-include-cache-1,layouts-head-formatting-1,layouts-microformats-nested-feed-1"
+      "command": null
     },
     {
       "name": "candidate-complete-02",
@@ -1900,10 +1905,5 @@
       "status": "not_run",
       "command": "node evaluate-live.mjs candidate-complete-39 community-3,community-4,community-5"
     }
-  ],
-  "candidate_source": "549f876dd",
-  "candidate_remaining_count": 151,
-  "latest_candidate_review": "candidate-regression-01-549f876dd-review.json",
-  "worker_version": "90b4709a-c8ce-4946-838a-d85d12922e73",
-  "never_live_tested_candidate_cases": 151
+  ]
 }
