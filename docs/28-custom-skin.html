@@ -18,8 +18,8 @@
         "description": "Preview existing Sass assignments and apply them to your site - Use this guide when you already work with Sass/SCSS and have an existing Jekyll site. Work in a branch or save a backup. For a built-in design, use Choose a skin; for one value, use Change a color.",
         "headline": "Adapt a Sass skin",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T15:16:17+02:00",
-        "dateModified": "2026-10-16T15:16:17+02:00",
+        "datePublished": "2026-10-16T15:34:04+02:00",
+        "dateModified": "2026-10-16T15:34:04+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -317,7 +317,7 @@ its existing imports in the <strong>CSS</strong> panel.</li>
 skin. The example above reproduces its palette and heading font through
 <code class="language-plaintext highlighter-rouge">vars</code>; it does not copy all of the skin’s CSS rules. Remove <code class="language-plaintext highlighter-rouge">$</code> and <code class="language-plaintext highlighter-rouge">;</code> when
 translating assignments, quote hex colors and leave a space after <code class="language-plaintext highlighter-rouge">:</code>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Alternatively</strong>, save your SCSS variables in <code class="language-plaintext highlighter-rouge">_sass/skins/THEMENAME.scss</code>, then set <code class="language-plaintext highlighter-rouge">skin: THEMENAME</code> inside <code class="language-plaintext highlighter-rouge">chulapa-skin</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Use <code class="language-plaintext highlighter-rouge">!default</code> for customizable skin variables. Autothemer fills undefined colors; omit a color from your skin if you want autothemer to derive it. Do not add a Bootstrap import: the theme imports Bootstrap after loading the skin. See the <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/skins/sunset.scss">Sunset skin source</a>. To contribute a skin, open a pull request.</p>
+<p><strong>Alternatively</strong>, save your SCSS variables in <code class="language-plaintext highlighter-rouge">_sass/skins/THEMENAME.scss</code>, then set <code class="language-plaintext highlighter-rouge">skin: THEMENAME</code> inside <code class="language-plaintext highlighter-rouge">chulapa-skin</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Use <code class="language-plaintext highlighter-rouge">!default</code> for customizable skin variables. Autothemer fills undefined colors; omit a color from your skin if you want autothemer to derive it. Do not add a Bootstrap import: the theme imports Bootstrap after loading the skin. See the <a href="https://github.com/dieghernan/chulapa/blob/main/_sass/skins/sunset.scss">Sunset skin source</a>. To contribute a skin, open a pull request.</p>
 <h3 id="using-autothemer-on-codeply">Using autothemer on Codeply</h3>
 <p>Autothemer is already installed in the <strong>ply</strong>. To activate it,
 uncomment the lines between <code class="language-plaintext highlighter-rouge">/* Start autothemer */</code> and <code class="language-plaintext highlighter-rouge">/* End autothemer */</code>
