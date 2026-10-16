@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `db48e2d7c`, after merged #151.
-Current delivery: search-topic navigation under #150, prepared on `codex/docs-search-topic-navigation`; PR review and merge pending.
+Current delivery: [PR #152](https://github.com/dieghernan/chulapa/pull/152) implements #150 on `codex/docs-search-topic-navigation`; review, CI and merge pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.

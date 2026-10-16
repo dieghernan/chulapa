@@ -2,6 +2,7 @@
 
 Date: 16 October 2026. Baseline: main `db48e2d7c`, after merged #151.
 Issue: [#150](https://github.com/dieghernan/chulapa/issues/150).
+Delivery: [PR #152](https://github.com/dieghernan/chulapa/pull/152).
 Branch: `codex/docs-search-topic-navigation`.
 Status: implemented and locally validated; PR review, CI, merge and deployment
 pending. Issue closure occurs only with the accepted implementation merge.
