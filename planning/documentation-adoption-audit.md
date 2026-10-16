@@ -62,7 +62,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#157](https://github.com/dieghernan/chulapa/pull/157) — hooks, mappings, feeds and metadata | Merged; applicable head checks passed; branch deleted; deployment separately unverified | Seven guides with unchanged bodies and reviewed recommendations across 22 pages. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). |
 | [#158](https://github.com/dieghernan/chulapa/pull/158) — final reference/accessibility review | Merged; applicable head checks passed; branch deleted; deployment separately unverified | Eight explicit dispositions, seven badge groups and five widgets; FAQ and reference indexes retained. See the [closeout record](reference-navigation-closeout-2026-10-16.md). |
 | [#159](https://github.com/dieghernan/chulapa/pull/159) — cloud-entry hidden dates | Merged; head Jekyll 3/4 and browser CI passed; #154 closed; branch deleted | Fix for #154; see the [delivery record](cloud-date-fix-2026-10-16.md). Local Windows Jekyll 3 fixture limitation is recorded separately. |
-| [#160](https://github.com/dieghernan/chulapa/pull/160) — comment adapters and migration | Open; local Jekyll 3/4 adapter/footer checks passed; CI/review/merge pending | Fixes prepared for #125 with legacy guidance; see the [delivery record](comment-adapters-fix-2026-10-16.md). No live posting or migration. |
+| [#160](https://github.com/dieghernan/chulapa/pull/160) — comment adapters and migration | Merged; all applicable head checks passed; #125 closed; branch deleted | Fixes delivered for #125 with legacy guidance; see the [delivery record](comment-adapters-fix-2026-10-16.md). No live posting or migration. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -76,6 +76,15 @@ alternative when a change cannot use the exact-commit Pages gate. Live chatbot
 answer verification remains distinct from passing tests or a successful deployment.
 
 ## Latest reassessment
+
+The [final 16 October reassessment after #160](diataxis-final-reassessment-2026-10-16.md)
+records the current 72-surface inventory and unchanged rubric. Layouts moves
+7→10 and FAQ 8→10 against #140; the other 67 comparable scores stay unchanged.
+Three added task guides are scored separately. This is editorial judgement,
+not human usability or chatbot quality evidence. The final closeout PR remains
+subject to review/merge.
+
+### Previous reassessment after #140
 
 The [15 October reassessment after #140](diataxis-reassessment-2026-10-15-after-140.md)
 reviews 69 surfaces. Across the same 28 previously assessed surfaces, 11 improve
@@ -185,7 +194,7 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 16 October 2026. #147, #149, #151, #152, #153, #155, #156, #157, #158 and #159 are merged; #150 is closed. Historical assessments,
+Updated: 16 October 2026. #147, #149, #151, #152, #153, #155, #156, #157, #158, #159 and #160 are merged; #150 is closed. Historical assessments,
 thresholds and synthetic review records below retain their original evidence.
 
 1. **Maintain the completed editorial decision.** Keep purpose-oriented openings;
@@ -196,7 +205,7 @@ thresholds and synthetic review records below retain their original evidence.
    status, with deployment separately unverified. Navigation/identity/branding
    pages 10/11/14/52/53/54/60 are merged in #155;
    eight affected appearance pages were also checked. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md).
-   Comments and analytics are merged in #156; provider restrictions remain intact. Hooks, mappings, feeds and metadata tasks are merged in #157. Final reference/accessibility dispositions are merged in #158; editorial closeout delivered. #154 is fixed in merged #159. #125 adapter/migration fixes are prepared on this branch; review/CI/merge pending. Next: release scope freeze and checks. The archived broader draft is not a published delivery.
+   Comments and analytics are merged in #156; provider restrictions remain intact. Hooks, mappings, feeds and metadata tasks are merged in #157. Final reference/accessibility dispositions are merged in #158; editorial closeout delivered. #154 is fixed in merged #159. #125 is fixed in merged #160; both issues are closed. Next: release scope freeze and checks. The archived broader draft is not a published delivery.
 3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
    Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;
    add a focused second-tutorial case. Its URL/scenario and complete example are
@@ -204,11 +213,11 @@ thresholds and synthetic review records below retain their original evidence.
    budget for tutorial coverage. Deployed context verification remains pending.
    No quota-consuming run or Worker deployment is authorized or performed here.
    Judge facts/examples/sources separately from elapsed request time.
-4. **Collect concrete defects before release.** Keep the adapter bugs tracked in
-   [#125](https://github.com/dieghernan/chulapa/issues/125) and cloud-date rendering
-   [#154](https://github.com/dieghernan/chulapa/issues/154) distinct from editorial
-   improvements. #154 was confirmed in generated HTML during this review and
-   is not fixed by the current metadata change. Technical tests, deployment and agent reviews do not establish
+4. **Close the agreed scope and hand off release checks.**
+   [#125](https://github.com/dieghernan/chulapa/issues/125) is closed by #160;
+   [#154](https://github.com/dieghernan/chulapa/issues/154) is closed by #159.
+   Use the final reassessment for current scores and retain prior snapshots.
+   Release validation and actual rollout verification remain separate tasks. Technical tests, deployment and agent reviews do not establish
    human usability or live chatbot precision. Preserve historical results.
 
 Completed foundations include appearance/media/provider extraction, migration

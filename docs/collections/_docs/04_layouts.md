@@ -922,7 +922,6 @@ Posts use `og:type: article`; other pages use `website`. Set `og_type: article`
 for an article in another collection, or `og_type: website` to suppress article
 metadata on a post. This changes Open Graph only; JSON-LD retains its existing
 page classification.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 For `article`, the theme emits these properties when values are available:
 
@@ -1004,7 +1003,6 @@ include_on_search: false
 The documentation's [search page]({{ '/search.html' | relative_url }}) uses these
 settings; its [source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/search.md)
 is a complete example. There are no automatic exclusions by path or layout.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ### Article images
 
@@ -1122,7 +1120,6 @@ No extra configuration is needed.
 No formatting changes are needed to publish your site. The
 [custom hooks reference](./45-custom-hooks) describes head and bottom-script
 insertion without editing the theme's layouts.
-
 
 The remaining snippets support the theme's metadata. Standard layouts already
 use them; configure the corresponding page or site options instead of adding
