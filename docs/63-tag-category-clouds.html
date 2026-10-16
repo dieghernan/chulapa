@@ -18,8 +18,8 @@
         "description": "Connect article badges to grouped lists - Use this guide on an existing blog with tagged or categorized posts. The result is a Tags page and a Categories page whose grouped lists link to your articles. See the tag demo and category demo for rendered examples; their collection choices differ from this post-only setup.",
         "headline": "Add tag and category indexes for your posts",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T14:33:15+02:00",
-        "dateModified": "2026-10-16T14:33:15+02:00",
+        "datePublished": "2026-10-16T14:43:38+02:00",
+        "dateModified": "2026-10-16T14:43:38+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -317,6 +317,10 @@ scope and <code class="language-plaintext highlighter-rouge">include_collection<
 the existing collection configuration to be published. Ordinary standalone pages
 are not part of these collection indexes. Full scope/alias details remain in the
 <a href="./04-layouts#cloud-tags-and-categories">layout reference</a>.</p>
+<p>To hide dates for a collection’s entries in these indexes, set <code class="language-plaintext highlighter-rouge">show_date: false</code>
+on its documents or in its existing defaults. Cloud entries honor this setting
+in the development version after v2.1.0; reading time remains visible. The
+v2.1.0 release does not include this fix.</p>
 <h2 id="publish-and-verify">Publish and verify</h2>
 <p>Commit the page, configuration and post edits on the publishing branch. Wait for
 <strong>Actions</strong> to succeed, then open the article. Follow its tag/category badges and
