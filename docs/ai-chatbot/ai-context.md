@@ -374,7 +374,7 @@ Clipboard: HTTPS or localhost plus Clipboard API permission. Dev buttons await w
 ## Starter examples
 Sources: https://dieghernan.github.io/chulapa/docs/08-starter-examples
 https://dieghernan.github.io/chulapa/docs/09-run-starter
-Four example folders: personal-blog (posts/card index), technical-blog (code/Mermaid/MathJax/TOC), portfolio (projects collection/two pages), project (landing/source/setup buttons, no docs sidebar). Each has Gemfile/_config.yml/index.md/README, no deployment workflow. Copy contents to own repo; edit title/description/repository/url/baseurl/content/links. Explicit dependencies; unpinned remote follows main, Mermaid absent in v2.1.0. Preview: bundle install then bundle exec jekyll serve --url http://localhost:4000 --baseurl ""; configure Actions using installation guide. Chulapa 101 is the ready-made publishing template, not these folders. Portfolio cards have no filtering.
+Four folders: personal-blog (posts/cards), technical-blog (code/Mermaid/MathJax/TOC), portfolio (two projects/cards, no filtering), project (landing/buttons, no docs sidebar). Each: Gemfile/_config.yml/index.md/README; no workflow (chulapa-101 has publishing). Copy contents; edit title/description/repository/url/baseurl/content/links. Jekyll ~>4.4; dependencies explicit; unpinned main; Mermaid absent v2.1.0. Preview: bundle install; bundle exec jekyll serve --url http://localhost:4000 --baseurl "". Setup/publication: /docs/09-run-starter. Demos: annotated source, docs skin, not standalone home pages. Project Get started is sample copy, not theme setup.
 Demo paths: /demo/starter-personal-blog, /demo/starter-technical-blog, /demo/starter-portfolio, /demo/starter-project.
 
 

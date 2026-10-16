@@ -12,11 +12,16 @@ categories: [starter]
 tags: [starter, technical-blog]
 ---
 
-[Get the complete example](https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog)
-or follow the [starter setup guide](../docs/09-run-starter).
-Copy the example's files into your own repository and replace the sample content.
-The complete example includes a Gemfile and configuration; this demo displays
-its home-page source.
+This annotated example shows home-page source and sample content from
+[technical-blog](https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog).
+It runs inside the documentation site, using this site's skin and configuration;
+it is not the standalone example's home page. The full folder includes its own
+`Gemfile` and `_config.yml`, with no publishing workflow.
+
+For preparation, preview and publication, follow
+[Run and publish a starter example](../docs/09-run-starter).
+
+Mermaid requires development changes after v2.1.0 and is absent from that release.
 
 ## Home-page header
 
@@ -38,6 +43,21 @@ Notes with code, diagrams and mathematical notation.
 
 ## Sample article
 
+Source: [`2026-01-01-first-post.md`](https://github.com/dieghernan/chulapa/blob/main/examples/technical-blog/_posts/2026-01-01-first-post.md).
+Its settings enable the features illustrated below:
+
+```yaml
+---
+title: Document a workflow
+layout: default
+header_type: post
+show_date: true
+show_toc: true
+mermaid: true
+mathjax: true
+include_on_feed: true
+---
+```
 
 Describe a workflow with a diagram, an equation and a code example.
 

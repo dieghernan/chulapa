@@ -590,5 +590,12 @@
     "doc": "63_tag-category-clouds.md",
     "question": "Why does my demo category badge point to #demo but the cloud index has #dmo? What happens to demo topic when upgrading?",
     "expected": "Development after v2.1.0 fixes the asymmetric demo-to-dmo rewrite: badge and cloud group both use #demo; demo topic uses #demo-topic (spaces become hyphens). Upgrade and update manually written old dmo fragments. Link /docs/63-tag-category-clouds. No new YAML option."
+  },
+  {
+    "id": "starter-demo-versus-site",
+    "section": "installation",
+    "doc": "09_run-starter.md",
+    "question": "The project starter demo says to install the project and its design differs from my copied example. Is that how I install Chulapa? Where are the real setup steps?",
+    "expected": "The demo is annotated source/sample content within the docs site, not the standalone home page/skin. Project Getting started is fictional project copy, not Chulapa setup. Link /docs/09-run-starter for copy/config/dependencies/local preview/publication. Jekyll ~>4.4 Gemfile plus matching config, no deployment workflow, unpinned main/development; technical Mermaid absent v2.1.0. Preserve complete samples, do not claim profile selection or automatic publishing."
   }
 ]

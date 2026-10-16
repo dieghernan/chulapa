@@ -723,3 +723,14 @@ This plan and its inventory live outside the published `docs/` source and theme
 package selection. They change no supported product behavior and need no new public
 `llms.txt` entry, chatbot context update or deployment. The public documentation is
 unchanged in this PR. Implementing the roadmap is a subsequent scoped task.
+
+## Progress checkpoint — 16 October 2026
+
+[PR #142](https://github.com/dieghernan/chulapa/pull/142) is merged: Layouts/SEO
+procedures and media/search demo overlap are delivered, including reviewed cloud
+fragment/sidebar fixes. Historical scores above are not automatically rescored.
+The [starter consistency review](starter-consistency-review-2026-10-16.md) records
+the next bounded delivery, source/version checks and separate evidence protocol.
+Classic-navbar parity and the final FAQ/Reference routing review remain subsequent
+implementation blocks. Real novice/expert observations and live chatbot factual,
+citation and latency evaluations remain pending; builds/tests are not that evidence.
