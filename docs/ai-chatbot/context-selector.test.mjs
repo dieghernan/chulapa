@@ -45,3 +45,17 @@ test('citation checking rejects invented paths/fragments but leaves code example
   assert.deepEqual(unsupportedCitations('[Version](https://dieghernan.github.io/chulapa/docs/55-check-theme-version#invented)', source), ['https://dieghernan.github.io/chulapa/docs/55-check-theme-version#invented']);
   assert.deepEqual(unsupportedCitations('```markdown\n[Example](https://example.org/)\n```', source), []);
 });
+
+test('layout regressions retain their own release constraints and caller inputs', () => {
+  const inherited = selectContext(context, 'My custom2 inherits custom1 which inherits archive. Will it still be h-feed?');
+  assert.ok(inherited.titles.includes('Inherited list microformats (development only)'));
+  assert.match(inherited.text, /Keep the existing custom layout chain/);
+  const formatting = selectContext(context, 'Can I keep head and footer readable with indentation?');
+  assert.ok(formatting.titles.includes('Generated HTML formatting (development only)'));
+  const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (development only)');
+  assert.match(section.text, /After v2.1.0, unreleased/);
+  const caching = selectContext(context, 'Can I replace every include with include_cached?');
+  assert.match(caching.text, /Pass all page-dependent inputs/);
+  const random = selectContext(context, 'My random article panel has only one eligible document.');
+  assert.match(random.text, /singleton pool renders exactly one card/);
+});
