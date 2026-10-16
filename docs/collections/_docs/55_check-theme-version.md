@@ -1,6 +1,10 @@
 ---
 title: Check which theme version your site uses
 subtitle: Identify the selected release before troubleshooting or upgrading
+tags: [docs, installation, theme-updates]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing site when an option does not match its

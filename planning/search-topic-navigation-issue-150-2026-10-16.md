@@ -2,10 +2,15 @@
 
 Date: 16 October 2026. Baseline: main `fb265a74c`, after merged #149.
 Issue: https://github.com/dieghernan/chulapa/issues/150
-Status update: implementation prepared in `codex/docs-search-topic-navigation`;
-see the [delivery record](search-topic-navigation-delivery-2026-10-16.md).
-Issue closure, review, merge and deployment remain pending. The assessment below
-retains its original baseline and proposed constraints.
+Status update: implemented and merged in #152; #150 is closed. See the
+[delivery record](search-topic-navigation-delivery-2026-10-16.md). Pages/Worker
+deployment is separately unverified here. The assessment below retains its
+original baseline and proposed constraints.
+
+Status reconciliation, 16 October 2026: PR #152 is merged with applicable head
+checks passing; #150 is closed and its issue checklist updated. Its branch was
+deleted. Pages/Worker deployment remains separately unverified here. The original
+assessment/implementation evidence below retains its baseline and limits.
 
 ## Finding and priority
 

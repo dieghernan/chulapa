@@ -3,6 +3,10 @@ title: Migrating from another Jekyll theme
 subtitle: Keep your content and URLs while switching themes
 excerpt: Move an existing Jekyll site to <span class="chulapa">Chulapa</span> with a pinned remote theme and a practical migration checklist.
 show_toc: true
+tags: [docs, installation, theme-updates]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Keep your posts, pages and images. This guide assumes your site already builds

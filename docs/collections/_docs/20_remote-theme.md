@@ -2,6 +2,10 @@
 title: Install using a remote theme
 subtitle: Add the theme to an existing Jekyll site
 excerpt: Configure a pinned remote theme, install its dependencies and verify your published site.
+tags: [docs, installation, theme-updates]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you already have a working Jekyll site, a `Gemfile` and

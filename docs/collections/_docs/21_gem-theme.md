@@ -2,6 +2,10 @@
 title: Install using the theme gem
 subtitle: Add the released theme to an existing Jekyll site
 excerpt: Install the theme gem, enable its include-cache plugin and verify your build.
+tags: [docs, installation, theme-updates]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you already have a Jekyll site and use Bundler to build it.

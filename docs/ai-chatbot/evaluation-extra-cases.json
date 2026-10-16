@@ -625,5 +625,12 @@
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse the guides for local or hosted site search and excluding pages from results? Are the related provider cards setup steps I must follow in order?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation search topics: search, local-search and hosted-search cover five provider guides and /docs/65-search-visibility. Provider guides are alternatives, not ordered steps; cards are suggestions, not required progression. Badges on covered guides link here; tags alone do not enable badges. Preserve distinctions: robots, sitemap and local indexes are independent; include_on_search false is not an Algolia exclusion or access control. For all docs use /docs; do not claim every guide is tagged or confuse blog tags."
+  },
+  {
+    "id": "documentation-installation-topics",
+    "section": "navigation",
+    "doc": "../_pages/docs_tags.md",
+    "question": "Where can I browse installation, migration, starter examples and checking my theme version? Should I follow every installation method in order?",
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial installation topics, including starter-examples and theme-updates. Methods are alternatives for the existing site, not sequential prerequisites. /docs/01-install remains the method directory; first-time users have /docs/00-start. Related cards are supplementary, not required progression or a compatibility guarantee. /docs/08-starter-examples distinguishes minimal examples without deployment workflows from Chulapa 101; use /docs/09-run-starter for setup and /docs/55-check-theme-version for selected release checks. Complete docs index /docs; do not claim all pages have badges/cards."
   }
 ]

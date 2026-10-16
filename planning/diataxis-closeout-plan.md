@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `db48e2d7c`, after merged #151.
-Current delivery: [PR #152](https://github.com/dieghernan/chulapa/pull/152) implements #150 on `codex/docs-search-topic-navigation`; review, CI and merge pending.
+Updated: 16 October 2026. Current delivery baseline: main `a7af9ac81`, after merged #152.
+Current delivery: [PR #153](https://github.com/dieghernan/chulapa/pull/153), installation/migration/starters; review, CI and merge pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -13,9 +13,10 @@ status and links after each bounded PR. Documentation is written in English.
 | #147 proportionate review and appearance navigation | Merged; all applicable head checks passed. Three findings corrected/replied to; threads resolved. Its branch is deleted. No remaining change can be appended to that merged PR. |
 | #149 content and publishing navigation | Merged; head checks passed. Branch deleted. Merge/check success alone does not verify deployed chatbot answers. |
 | #151 second-tutorial chatbot coverage and evaluation preparation | Merged with applicable head checks passing. Exact source, prerequisites, complete page example and menu/publishing constraints added; reviewed budget is 47,000 bytes. Actual deployed context and live evaluation remain separately unverified here. |
-| #150 search topic navigation | Implemented on the current branch for six existing guides; review, CI, merge and deployment pending. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md). |
+| #150 search topic navigation | Closed by merged #152; all applicable head checks passed. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md). Actual Pages/Worker deployment remains separately unverified here. |
+| Installation, migration and starters | Seven pages reviewed and metadata prepared on the current branch; Installation keeps its method directory without a related widget. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). PR/CI/merge pending. |
 | #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
-| Broader navigation/integration working changes | Separate uncommitted work, not a delivered PR. Do not mix them into the evaluation branch or count them as #150 completion. |
+| Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
 
 Human interviews and observed tasks are optional research. Tests, successful
 deployments and synthetic editorial reviews are not human usability evidence.
@@ -42,12 +43,12 @@ already lists the second tutorial; runtime context changes are selective. Verify
 actual Pages/Worker workflow results and context revision separately rather than
 inferring publication from the merge or build alone.
 
-## 2. Deliver search navigation under #150
+## 2. Completed search navigation under #150
 
 Read the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md) and
 [issue #150](https://github.com/dieghernan/chulapa/issues/150) before editing.
 
-- [x] Scope the current branch to guides 12, 34, 35, 36, 37 and 65 only.
+- [x] Scope PR #152 to guides 12, 34, 35, 36, 37 and 65 only.
 - [x] Choose search topic metadata using existing options; inspect actual cards,
   including visibility guidance. Provider guides are alternatives, not a course.
 - [x] Keep guide bodies/examples, inline task/reference links and provider limits.
@@ -58,27 +59,30 @@ Read the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md) and
   Do not increase the byte budget for this navigation change. Run chatbot tests
   when context/cases change; live inference requires separate authorization.
 - [x] Record local implementation and checks in the [delivery record](search-topic-navigation-delivery-2026-10-16.md).
-- [ ] Complete PR review/CI; record the approved merge and actual deployment
-  separately before closing #150.
+- [x] Complete PR #152 review/CI and merge after the user's instruction; #150 is closed and its acceptance checklist updated.
+- [ ] Verify actual Pages/Worker deployment separately; do not infer it from merge.
 
-No Global settings activation just to fill cards, new configuration option,
-ranking/template/search change or unrelated page is part of this issue. Review
-and narrow any overlapping uncommitted work; it currently omits guide 65.
+No Global settings activation, new configuration option, ranking/template/search
+change or unrelated page was included. All six required sources, including guide
+65, are in the merged delivery; the earlier broader draft remains archived.
 
 ## 3. Finish the remaining editorial navigation review
 
-After #150 review/merge, begin the installation/migration/starter group below.
-Do not treat the uncommitted broader integration batch as the next approved PR.
+The installation/migration/starter group is reviewed and implemented on this
+branch, with the [page decisions and checks](installation-topic-navigation-delivery-2026-10-16.md).
+After its PR review/merge, continue with navigation, identity and branding. Use
+the local archived draft only as reference; do not apply stale support files.
 
-At the pinned baseline, 25 of 69 Docs pages have visible topic badges. Issue
-#150 covers six of the remaining 44. Of the other 38, the two tutorials (00 and
-59) intentionally keep explicit progression. Review the other 36 in the bounded
-groups below; reviewing a page does not require enabling badges/cards on it.
+At the historical #149 baseline (`fb265a74c`), 25 of 69 Docs pages had visible
+topic badges. Merged #152 adds six, for 31. This branch adds seven, for 38 if
+accepted. Of the remaining 31, tutorials 00/59 intentionally keep explicit
+progression; the other 29 belong to the four pending groups below. Reviewing a
+page does not require enabling badges/cards on it.
 This inventory concerns metadata coverage, not a new Diataxis quality score.
 
 | Review group | Existing page IDs | Completion rule |
 | --- | --- | --- |
-| Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Clear installation/version destinations; no duplicated tutorial or lost compatibility facts. |
+| Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Reviewed on this branch: badges on seven pages, cards on six; 01 retains its directory. PR/merge pending; no lost body/version facts. |
 | Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Useful topic routes and actual related cards where justified; preserve direct menu/footer/appearance instructions. |
 | Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
 | Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
