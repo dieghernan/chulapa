@@ -50,8 +50,8 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#142](https://github.com/dieghernan/chulapa/pull/142) — Layouts/SEO/demo consolidation | Merged; deployment not reverified in this update | Delivers cloud-index, sharing and search-visibility task guides; retains sorting/default/custom-include specimens in Reference; simplifies cloud, Mermaid, PhotoSwipe and search demos. Includes reviewed cloud-fragment/sidebar fixes. See [delivery record](layouts-seo-demo-review-2026-10-15.md). |
 | [#143](https://github.com/dieghernan/chulapa/pull/143) — starter consistency | Merged; deployment not reverified in this update | Centralizes setup/publication in guide 09, preserves complete samples and distinguishes annotated demos from standalone sites. Corrects the nested project demo button. See [source review and evidence protocol](starter-consistency-review-2026-10-16.md). |
 | [#144](https://github.com/dieghernan/chulapa/pull/144) — classic-navbar parity | Merged; Pages, Algolia and main regression workflows succeeded | Shares actual classic markup/dependencies between theme and demo, with keyboard/responsive and parity checks. Published branch HTML contains the new controls without duplicated dependencies. See [bounded review](classic-navbar-review-2026-10-16.md). Netlify preview failed; its logs were inaccessible, separately from successful official Pages deployment. |
-| [#145](https://github.com/dieghernan/chulapa/pull/145) — final FAQ/Reference routing | Open; not merged | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
-| Visible Diátaxis labels versus purpose-oriented introductions | Proposal pending after the routing review | Compare four existing Docs pages, one per type, before any implementation. Treat usefulness as a hypothesis; no mass labels, new YAML or claim that a label resolves substantive mixtures. |
+| [#145](https://github.com/dieghernan/chulapa/pull/145) — final FAQ/Reference routing | Merged; Pages and Algolia succeeded; main regressions running | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
+| Visible Diátaxis labels versus purpose-oriented introductions | Proposal prepared in current branch; review pending | [Four-page comparison](diataxis-signposting-proposal-2026-10-16.md) of a plain type sentence with existing purpose-oriented openings. Recommends keeping the current openings unless evidence supports labels; no public implementation, new YAML or measured improvement. |
 | Human tasks and live chatbot evidence | Pending; independent evidence work | First publication, second tutorial, advanced lookup and chatbot fact/citation/latency checks remain unmeasured. Use the [prepared protocol](starter-consistency-review-2026-10-16.md#separate-evidence-protocol--still-pending); tests and deployment are not participant or answer-quality results. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
@@ -171,18 +171,19 @@ so undated documentation does not display the fallback build date. Existing post
 
 ### Active implementation order
 
-Updated: 16 October 2026. #142, #143 and #144 are merged. The original Phase 5
-roadmap and dated reassessments below remain historical; this is the current queue.
+Updated: 16 October 2026. #142–#145 are merged. The original Phase 5 roadmap
+and dated reassessments below remain historical; this is the current queue.
 
-1. **Final FAQ/Reference routing — #145 in review, not merged.**
-   Review the [joint source/destination decisions](faq-reference-review-2026-10-16.md),
-   generated links, retained specimens/headings and responsive evidence. The
-   changes route existing guides instead of creating another task per option.
-2. **Diátaxis type-signposting proposal — after the routing review.** Compare
-   explicit labels with reader-purpose introductions on four Docs pages, one
-   per type. First inspect titles/subtitles and substantive mixtures; propose
-   examples without editing templates or labeling every page. Any benefit remains
-   unmeasured until tested. Do not introduce new YAML just for badges.
+1. **Diátaxis type-signposting proposal — prepared for review.** The
+   [four-page comparison](diataxis-signposting-proposal-2026-10-16.md) covers first
+   publication, menu editing, layout lookup and appearance Explanation. Compare
+   one plain type sentence with the existing purpose-oriented openings. No public
+   labels, templates, badges or new YAML are implemented; usefulness is unmeasured.
+2. **Decision/evidence before signposting implementation.** Review the sample
+   classifications and proposed comparison protocol. Keep the current openings
+   unless evidence supports a narrow change; do not turn an accepted proposal
+   automatically into labels on every page. Any substantive mixture still needs
+   editorial treatment, not a dominant-type badge.
 3. **User and chatbot evidence — separately scheduled, still pending.** Observe
    first publication, the second tutorial and advanced-option lookup; review live
    chatbot answers for facts, complete examples, exact citations and latency.
@@ -192,9 +193,9 @@ roadmap and dated reassessments below remain historical; this is the current que
 
 Completed foundations include appearance/media/provider extraction, migration
 and FAQ task guides, publishing/override explanations, the second tutorial,
-catalog/entry-point cleanup, #142's Layouts/SEO/demo block, #143's starters and
-#144's classic-navbar parity. Do not repeat those extractions. Contributor
-reorganization remains deferred.
+catalog/entry-point cleanup, #142's Layouts/SEO/demo block, #143's starters,
+#144's classic-navbar parity and #145's final FAQ/Reference routing review.
+Do not repeat those extractions. Contributor reorganization remains deferred.
 
 Do not enable related cards globally or add types as matching tags. Recheck the
 actual candidate sets whenever content/tag changes affect them. Each extraction
