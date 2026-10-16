@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-16",
+  "source_commit": "dd46ec432",
+  "worker_version": "c7e7ddb0-8adf-4af8-96d0-83224c0e9713",
+  "quota_before": "Dashboard: 6.62k/10k neurons today",
+  "raw": "candidate-regression-01-dd46ec432.jsonl",
+  "remaining_candidate_cases": 151,
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "partial",
+      "evidence": "Answers no empty cards and correct tag pool/count, but omits that one eligible document renders one card and the development-only caveat; suggests disabling instead."
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "status": "partial",
+      "evidence": "Corrects self-inheritance and blanket caching. Omits explicit page-dependent include parameters/shared renderers and unreleased versus v2.1.0 caveat. Viewing the site does not validate cache correctness."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "partial",
+      "evidence": "Correct existing setting, head/footer/body and custom snippet behavior. Omits development-only caveat and comments integration formatting."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "partial",
+      "evidence": "Correct inherited h-feed and no new flag. Omits version restriction and recommends layout: archive, which would replace the custom2 chain in the question."
+    }
+  ],
+  "decision": "Do not expand live batches or merge yet. No inference retry was performed. Tests and HTTP status are not factual accuracy or human usability evidence."
+}
