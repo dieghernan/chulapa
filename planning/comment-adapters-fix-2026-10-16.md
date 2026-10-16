@@ -1,7 +1,7 @@
 # Cactus and Welcomments adapter fixes
 
 Date: 16 October 2026. Baseline: main `0646ee1ca`, after merged #159.
-Branch: `codex/fix-comment-adapters`. Issue: #125. PR pending.
+Branch: `codex/fix-comment-adapters`. Issue: #125. [PR #160](https://github.com/dieghernan/chulapa/pull/160) open; CI/review pending.
 
 ## Behavior and migration
 

@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `0646ee1ca`, after merged #159.
-Current delivery: #125 adapter/migration fix on `codex/fix-comment-adapters`; PR pending.
+Current delivery: #125 adapter/migration fix on `codex/fix-comment-adapters`; [PR #160](https://github.com/dieghernan/chulapa/pull/160) open; CI/review pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
