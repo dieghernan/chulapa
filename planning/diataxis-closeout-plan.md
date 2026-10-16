@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `a7af9ac81`, after merged #152.
-Current delivery: installation/migration/starter review on `codex/docs-installation-topic-navigation`; PR/CI/merge pending.
+Current delivery: [PR #153](https://github.com/dieghernan/chulapa/pull/153), installation/migration/starters; review, CI and merge pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.

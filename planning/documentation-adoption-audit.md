@@ -56,6 +56,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#149](https://github.com/dieghernan/chulapa/pull/149) — content and publishing navigation | Merged; head checks passed; deployment not reverified here | Extends topic navigation to 17 existing guides; preserves guide bodies and explicit tutorial progression. |
 | [#151](https://github.com/dieghernan/chulapa/pull/151) — closeout plan and second tutorial context | Merged; head checks passed; deployment not reverified here | Adds the written execution plan, missing tutorial facts and a four-case evaluation protocol. No live inference or human study results. |
 | [#152](https://github.com/dieghernan/chulapa/pull/152) — search topic navigation | Merged; head checks passed; #150 closed; deployment not reverified here | Adds topic badges and reviewed cards to six existing search guides, including visibility. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md); #150 closed with this merge. |
+| [#153](https://github.com/dieghernan/chulapa/pull/153) — installation topic navigation | Open; local checks passed; review/CI/merge/deployment pending | Reviews seven existing installation/migration/starter/version pages; seven badge groups and six widgets, with the method directory retained. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
