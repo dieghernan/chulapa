@@ -2,6 +2,7 @@
 
 Date: 16 October 2026. Baseline: `505fa4836`, main after merged
 [PR #145](https://github.com/dieghernan/chulapa/pull/145).
+Delivery: [PR #146](https://github.com/dieghernan/chulapa/pull/146).
 Status: proposal for review, not a public implementation or user-study result.
 
 ## Recommendation and boundary
