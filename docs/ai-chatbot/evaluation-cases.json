@@ -60,7 +60,7 @@
     "section": "installation",
     "doc": "01_install.md",
     "question": "How do I start a new Chulapa site on GitHub Pages?",
-    "expected": "Recommend chulapa-101 as a personal blog template; create repository, enable Settings > Pages > GitHub Actions, set title/description/author/repository/url and commit to main or master. Workflow supplies base path; no local install or personal token required."
+    "expected": "Recommend chulapa-101 as a personal blog template; create repository, enable Settings > Pages > GitHub Actions, set title/description/author/repository/url and commit to main or master. Workflow supplies base path; no local install or personal token required. Cite /docs/00-start directly; preserve settings and check the separate index.html heading and edited sample article publicly."
   },
   {
     "id": "installation-2",
@@ -270,7 +270,7 @@
     "section": "snippets",
     "doc": "04_layouts.md",
     "question": "How do I embed a local MP4 video? Give the Liquid include.",
-    "expected": "snippets/video.html fileurl."
+    "expected": "snippets/video.html fileurl. Use a root-relative fileurl without relative_url or a manually added baseurl; the snippet applies absolute_url. Include a public playback check and /docs/32-embed-video."
   },
   {
     "id": "snippets-2",

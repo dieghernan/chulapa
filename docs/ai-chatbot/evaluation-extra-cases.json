@@ -128,7 +128,7 @@
     "id": "photoswipe-gallery",
     "doc": "04_layouts.md",
     "question": "How do I enable a PhotoSwipe lightbox on a masonry gallery? Is there a page YAML option or Jekyll plugin, and does this work in v2.1.0?",
-    "expected": "Development after v2.1.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel."
+    "expected": "Development after v2.1.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel. Verify opening/closing an image and focus restoration after publishing."
   },
   {
     "id": "goatcounter-analytics",
@@ -512,7 +512,7 @@
     "section": "version",
     "doc": "55_check-theme-version.md",
     "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme? Does v2.2.0 (unreleased) mean I can already install a published 2.2.0 release?",
-    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build: 2.2.0 is an unpublished candidate, v2.1.1-dev labels refer to its planned features, and the latest published release remains v2.1.0."
+    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build: 2.2.0 is an unpublished candidate, v2.1.1-dev labels refer to its planned features, and the latest published release remains v2.1.0. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; remote_theme/build evidence identifies the remote selection."
   },
   {
     "id": "feed-coexistence-1",
@@ -617,7 +617,7 @@
     "section": "installation",
     "doc": "59_photo-page-tutorial.md",
     "question": "I finished the first browser-only Chulapa tutorial. Which guided exercise publishes My photo walk, which file and image does it use, and how do I add its menu link without replacing the existing menu?",
-    "expected": "Route to https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial. Prerequisite: published Chulapa 101 blog and existing assets/img/madrid-at-night.jpg. Create _pages/photo-walk.md with layout default, header_type base, title My photo walk and permalink /photo-walk/; image uses relative_url and meaningful alt text. Add Photo walk with url /photo-walk/ to existing navbar.nav after Categories, retaining other entries and without a repository prefix or second navbar section. Commit to publishing branch, wait for Actions and check the public menu/page/image. Do not claim actual participant success."
+    "expected": "Route to https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial. Prerequisite: published Chulapa 101 blog and existing assets/img/madrid-at-night.jpg. Create _pages/photo-walk.md with layout default, header_type base, title My photo walk and permalink /photo-walk/; image uses relative_url and meaningful alt text. Add Photo walk with url /photo-walk/ to existing navbar.nav after Categories, retaining other entries and without a repository prefix or second navbar section. Commit to publishing branch, wait for Actions and check the public menu/page/image. Do not claim actual participant success. For insertion code show only the two-line Photo walk item, not a replacement navbar mapping."
   },
   {
     "id": "documentation-search-topics",
