@@ -18,8 +18,8 @@
         "description": "Keep theme templates while connecting an existing website - Use this guide if you already have a website configured with Welcomments, its website ID and a working integration that delivers comment files to this repository. Configure that service-side integration using the provider’s instructions before testing new submissions.",
         "headline": "Connect Welcomments",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T15:11:54+02:00",
-        "dateModified": "2026-10-16T15:11:54+02:00",
+        "datePublished": "2026-10-16T15:16:17+02:00",
+        "dateModified": "2026-10-16T15:16:17+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -278,16 +278,18 @@ Replace the example website ID and preserve unrelated settings:</p>
   <span class="na">website_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">YOUR_WELCOMMENTS_WEBSITE_ID"</span>
 </code></pre></div></div>
 <h2 id="check-the-form-url-on-a-project-site">Check the form URL on a project site</h2>
-<p class="alert alert-warning p-3 mx-2 mb-3">The current theme form builds its <code class="language-plaintext highlighter-rouge">permalink</code> without <code class="language-plaintext highlighter-rouge">baseurl</code>. If your site
-is under a path such as <code class="language-plaintext highlighter-rouge">https://ana.github.io/my-blog</code>, the submitted URL can
-point outside <code class="language-plaintext highlighter-rouge">/my-blog</code>. Check this before using the integration.</p>
-<p>For a site with <code class="language-plaintext highlighter-rouge">baseurl</code>, copy the theme’s
+<p class="alert alert-warning p-3 mx-2 mb-3">In development after v2.1.0 (v2.1.1-dev), the theme form uses the full published
+article URL, including <code class="language-plaintext highlighter-rouge">baseurl</code>. The v2.1.0 form omits that path: for a site
+such as <code class="language-plaintext highlighter-rouge">https://ana.github.io/my-blog</code>, its submitted URL can point outside
+<code class="language-plaintext highlighter-rouge">/my-blog</code>. Use the local correction below on v2.1.0 and review existing overrides
+when upgrading; local forms override the fixed theme.</p>
+<p>For a v2.1.0 site with <code class="language-plaintext highlighter-rouge">baseurl</code>, copy the theme’s
 <a href="https://github.com/dieghernan/chulapa/blob/main/_includes/welcomments/comment_form.html">customized form</a>
 to <code class="language-plaintext highlighter-rouge">_includes/welcomments/comment_form.html</code> in your repository. Use the file
 from your installed theme version; the linked <code class="language-plaintext highlighter-rouge">main</code> file is the development
 version. Preserve the rest of that file; replace only the hidden <code class="language-plaintext highlighter-rouge">permalink</code>
 input with:</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"permalink"</span> <span class="na">id=</span><span class="s">"permalink"</span> <span class="na">value=</span><span class="s">"{{ page.url | absolute_url }}"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"permalink"</span> <span class="na">id=</span><span class="s">"permalink"</span> <span class="na">value=</span><span class="s">"{{ page.url | absolute_url | escape }}"</span><span class="nt">&gt;</span>
 </code></pre></div></div>
 <p>When you publish the post below, inspect its hidden <code class="language-plaintext highlighter-rouge">permalink</code> value in your browser’s
 developer tools. It must match the full article address, including the project

@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T15:11:54+02:00",
-        "dateModified": "2026-10-16T15:11:54+02:00",
+        "datePublished": "2026-10-16T15:16:17+02:00",
+        "dateModified": "2026-10-16T15:16:17+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -705,9 +705,10 @@ with Cactus.</li>
  </li>
 </ul>
 <p>Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
-field in this adapter. The current Cactus conversation ID retains <code class="language-plaintext highlighter-rouge">/</code> from page
-URLs, although the client forbids <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code>; its setup guide includes a local
-adapter correction and existing-thread migration cautions. Comment-provider selection does not migrate comments,
+field in this adapter. In development after v2.1.0, conversation IDs URL-encode
+<code class="language-plaintext highlighter-rouge">page.url</code> and encode underscores as <code class="language-plaintext highlighter-rouge">%5F</code>; they exclude the forbidden <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code>.
+The v2.1.0 adapter retains slashes. Its setup guide includes a legacy local
+correction and migration checks: changing IDs does not move existing threads. Comment-provider selection does not migrate comments,
 and thread matching depends on the provider and page identifiers/addresses.</p>
 <p>For <strong>giscus</strong>, <code class="language-plaintext highlighter-rouge">_includes/custom/giscus.html</code> contains the embed script generated
 by <a href="https://giscus.app/">giscus setup</a>, including repository and category identifiers.</p>
@@ -717,8 +718,9 @@ these resources on every page.</p>
 <p>In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
 iframe and requires a finite, nonnegative numeric height. Existing provider
 settings are unchanged.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Welcomments compatibility:</strong> the current form permalink omits <code class="language-plaintext highlighter-rouge">baseurl</code>;
-project sites need the local form correction in the setup guide. Local <code class="language-plaintext highlighter-rouge">_includes/welcomments/</code> files override
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Welcomments compatibility:</strong> in development after v2.1.0, form permalinks
+include <code class="language-plaintext highlighter-rouge">baseurl</code>. The v2.1.0 form omits it; project sites on that release need
+the local correction in the setup guide. Local <code class="language-plaintext highlighter-rouge">_includes/welcomments/</code> files override
 the theme templates. Provider-generated templates can replace the customized
 ones supplied by <span class="chulapa">Chulapa</span>. The
 <a href="./40-welcomments-comments">setup guide</a> covers reviewing those integration files.</p>

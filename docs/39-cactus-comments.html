@@ -18,8 +18,8 @@
         "description": "Enable an already registered Cactus site on one post - Use this guide after registering your site with Cactus. Have its registered site name ready. This adapter uses the Cactus-hosted Matrix service; there is no theme setting for selecting an arbitrary Matrix homeserver.",
         "headline": "Connect Cactus comments",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T15:11:54+02:00",
-        "dateModified": "2026-10-16T15:11:54+02:00",
+        "datePublished": "2026-10-16T15:16:17+02:00",
+        "dateModified": "2026-10-16T15:16:17+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -260,10 +260,12 @@
 			<p>Use this guide after registering your site with <a href="https://cactus.chat/">Cactus</a>.
 Have its registered site name ready. This adapter uses the Cactus-hosted Matrix
 service; there is no theme setting for selecting an arbitrary Matrix homeserver.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Adapter limitation:</strong> the current theme passes page URLs containing <code class="language-plaintext highlighter-rouge">/</code> to
-Cactus, whose <a href="https://cactus.chat/docs/client/introduction/">client requirements</a>
-exclude <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code> from conversation IDs. Configure the local correction below
-before relying on this integration, including on v2.1.0.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Version and migration:</strong> in development after v2.1.0 (v2.1.1-dev), the adapter
+URL-encodes page paths and encodes underscores as <code class="language-plaintext highlighter-rouge">%5F</code>, meeting the
+<a href="https://cactus.chat/docs/client/introduction/">client requirements</a> that exclude
+<code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code>. This fix is absent from v2.1.0; use the local correction below on
+that release. Before upgrading an existing integration, record its current IDs
+and verify thread matching; the new mapping does not move old conversations.</p>
 <h2 id="select-cactus">Select Cactus</h2>
 <p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>, edit the existing <code class="language-plaintext highlighter-rouge">comments</code> section, or add it once if absent.
 Replace the example site name and preserve unrelated settings:</p>
@@ -273,7 +275,7 @@ Replace the example site name and preserve unrelated settings:</p>
 </code></pre></div></div>
 <p>Keep the theme’s Cactus integration; do not add another embed to the post.</p>
 <h2 id="correct-the-conversation-identifier">Correct the conversation identifier</h2>
-<p>Copy <code class="language-plaintext highlighter-rouge">_includes/components/cactus.html</code> from your installed theme version into
+<p>On v2.1.0, copy <code class="language-plaintext highlighter-rouge">_includes/components/cactus.html</code> from your installed theme version into
 the same path in your repository. The <a href="https://github.com/dieghernan/chulapa/blob/main/_includes/components/cactus.html">development source</a>
 shows the file’s structure. Preserve the rest of the file and replace only its
 <code class="language-plaintext highlighter-rouge">commentSectionId</code> line with:</p>
@@ -281,7 +283,12 @@ shows the file’s structure. Preserve the rest of the file and replace only its
 </code></pre></div></div>
 <p>This encodes <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code> without collapsing distinct paths such as <code class="language-plaintext highlighter-rouge">/a/b/</code> and
 <code class="language-plaintext highlighter-rouge">/a-b/</code> into one conversation ID. The same page URL always produces the same ID.
-Keep the local file under review when upgrading the theme.</p>
+The root path <code class="language-plaintext highlighter-rouge">/</code> becomes <code class="language-plaintext highlighter-rouge">%2F</code>; <code class="language-plaintext highlighter-rouge">/a_b/</code> becomes <code class="language-plaintext highlighter-rouge">%2Fa%5Fb%2F</code>, while
+<code class="language-plaintext highlighter-rouge">/a-b/</code> becomes <code class="language-plaintext highlighter-rouge">%2Fa-b%2F</code>. Percent signs are encoded too, so an already
+encoded-looking path is not decoded into a different path. The mapping uses
+<code class="language-plaintext highlighter-rouge">page.url</code>, independently of <code class="language-plaintext highlighter-rouge">baseurl</code>. Do not decode IDs before comparing them.
+Keep local files under review when upgrading: they override the corrected theme.
+A local adapter already using this exact mapping needs no second encoding step.</p>
 <p class="alert alert-warning p-3 mx-2 mb-3"><strong>Existing conversations:</strong> changing an ID can disconnect an old thread. Record
 the IDs used by your existing integration and check their matching before
 publishing this override. If they differ, arrange migration with the provider
