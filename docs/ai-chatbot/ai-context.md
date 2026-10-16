@@ -369,8 +369,9 @@ PWA: no built-in service worker, offline cache or YAML enable switch. Docs favic
 Local Chulapa font assets use baseurl in CSS/preload; Google Fonts/Font Awesome external. Cactus JS/CSS only show_comments: true pages. Tests cover representative six skins/layouts, not WCAG certification, guaranteed PageSpeed/Core Web Vitals or all customizations.
 ## Inherited list microformats (development only)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
-Cloudtag, cloudcategory, indexcategory and archive are siblings under default, not descendants of archive.
-After v2.1.0, unreleased: archive/indexcategory/cloudtag/cloudcategory (cloudtag2/cloudcategory2 aliases) use h-feed, not page-level h-entry; inherited custom list layouts retain it. Heading/canonical identify feed; visible author p-author; entries h-entry with title/URL/date; groups can repeat docs. indexcards/simplelist mark entries, indexcards excerpt p-summary. docs/blog/index.html pagination wraps each page h-feed; custom component users supply wrapper. Keep the existing custom layout chain; no new YAML/layout change.
+After v2.1.0, unreleased: archive uses h-feed. Custom layouts inheriting archive through any number of layers retain h-feed. Keep the existing custom layout chain; no page YAML flag or layout change is needed.
+indexcategory, cloudtag and cloudcategory also use h-feed (cloudtag2/cloudcategory2 aliases). All inherit default.
+Feed heading/canonical identify the feed; visible author p-author; entries h-entry with title/URL/date. Groups can repeat docs. indexcards/simplelist mark entries; indexcards excerpts use p-summary. docs/blog/index.html pagination wraps each page in h-feed; custom component users supply their wrapper.
 ## Generated HTML formatting (development only)
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
 After v2.1.0, unreleased: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries.
