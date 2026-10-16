@@ -370,7 +370,7 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-an
 After v2.1.0, unreleased: archive/indexcategory/cloudtag/cloudcategory (cloudtag2/cloudcategory2 aliases) use h-feed, not page-level h-entry; inherited custom list layouts retain it. Heading/canonical identify feed; visible author p-author; entries h-entry with title/URL/date; groups can repeat docs. indexcards/simplelist mark entries, indexcards excerpt p-summary. docs/blog/index.html pagination wraps each page h-feed; custom component users supply wrapper. Keep the existing custom layout chain; no new YAML/layout change.
 ## Generated HTML formatting (development only)
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
-After v2.1.0, unreleased: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries. 
+After v2.1.0, unreleased: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries.
 ## JavaScript maintenance (v2.1.1-dev, main only)
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/04-layouts#deferred-lazy-loading-of-youtube-videos
