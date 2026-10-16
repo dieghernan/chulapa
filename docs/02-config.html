@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T06:40:55+02:00",
-        "dateModified": "2026-10-16T06:40:55+02:00",
+        "datePublished": "2026-10-16T07:03:07+02:00",
+        "dateModified": "2026-10-16T07:03:07+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -456,16 +456,15 @@ For an editing procedure, use <a href="./11-edit-footer">Edit footer links</a>.<
       <span class="na">icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fab</span><span class="nv"> </span><span class="s">fa-facebook"</span>
       <span class="na">url</span><span class="pi">:</span> <span class="s">https://www.facebook.com</span>
 </code></pre></div></div>
-<p>Use <code class="language-plaintext highlighter-rouge">footer.copyright</code> to supply custom text or HTML. When omitted, the footer
+<p><code class="language-plaintext highlighter-rouge">footer.copyright</code> supplies custom text or HTML. When omitted, the footer
 shows the build year and site author name, falling back to the GitHub owner name:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">footer</span><span class="pi">:</span>
   <span class="na">copyright</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&amp;copy;</span><span class="nv"> </span><span class="s">2021</span><span class="nv"> </span><span class="s">&lt;span</span><span class="nv"> </span><span class="s">class='chulapa'&gt;Chulapa&lt;/span&gt;</span><span class="nv"> </span><span class="s">developers"</span>
 </code></pre></div></div>
 <h2 id="optional-features-and-metadata">Optional features and metadata</h2>
-<p>Add these features when you need them. SEO (search engine optimization) and
-social metadata describe your pages to search engines and sharing services;
-they do not change your article text. Existing defaults are a reasonable
-starting point for a personal blog.</p>
+<p>SEO (search engine optimization) and social metadata describe your pages to
+search engines and sharing services; they do not change your article text.
+The sections below list optional integration settings and their constraints.</p>
 <h3 id="seo">SEO</h3>
 <p>These settings control social metadata and structured data. <span class="chulapa">Chulapa</span> generates
 canonical URLs and JSON-LD for the home page (<code class="language-plaintext highlighter-rouge">WebSite</code>), posts (<code class="language-plaintext highlighter-rouge">BlogPosting</code>)
@@ -727,8 +726,8 @@ ones supplied by <span class="chulapa">Chulapa</span>. The
 <p><strong>Advanced configuration.</strong> A collection groups content such as portfolio
 projects; defaults apply shared page settings without repeating them in each
 file. The starter already configures these for a blog.</p>
-<p>Configure collections, pagination and front matter defaults for your site. See
-the Jekyll documentation on
+<p>Collection, pagination and front matter default settings are defined by Jekyll:
+see its documentation on
 <a href="https://jekyllrb.com/docs/step-by-step/09-collections/">collections</a>,
 <a href="https://jekyllrb.com/docs/pagination/#enable-pagination">pagination</a> and
 <a href="https://jekyllrb.com/docs/configuration/front-matter-defaults/">front matter defaults</a>.</p>
@@ -741,8 +740,8 @@ pages. First/last and previous/next controls are separate. <strong>3</strong>.</
 </ul>
 <p>See a sample defaults configuration <a href="https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults">here</a>.</p>
 <h2 id="xx-other-settings">XX. Other settings</h2>
-<p class="alert alert-warning p-3 mx-2 mb-3">Keep the required <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> plugin enabled. Adjust other Jekyll
-settings, plugins and exclusions to suit your site.</p>
+<p class="alert alert-warning p-3 mx-2 mb-3">The <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> plugin is required; removing it breaks includes that
+use <code class="language-plaintext highlighter-rouge">include_cached</code>.</p>
 <p>The sample configuration
 includes this repository’s demo collections and pagination settings; these are
 examples rather than requirements for every site.</p>

@@ -18,8 +18,8 @@
         "description": "Some additional information you may find useful - Advice and FAQs",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-16T06:40:55+02:00",
-        "dateModified": "2026-10-16T06:40:55+02:00",
+        "datePublished": "2026-10-16T07:03:07+02:00",
+        "dateModified": "2026-10-16T07:03:07+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -276,30 +276,30 @@ check the <a href="./07-migration#common-migration-problems">common migration pr
 settings, match the home-page heading and verify publication. The complete
 <a href="./02-config#a-site-settingsseo">field reference</a> remains available for option lookup.</p>
 <h3 id="how-do-i-add-a-new-article-or-page">How do I add a new article or page?</h3>
-<p>For an article, create <code class="language-plaintext highlighter-rouge">_posts/YYYY-MM-DD-title.md</code> with a real date and the
-settings block at the top. For a standalone page, use <code class="language-plaintext highlighter-rouge">_pages/</code> in the starter
-and add its address to your menu. Follow the complete examples in
-<a href="./15-create-post">Create a post</a> and <a href="./16-create-page">Create a page</a>.</p>
+<p>Use <a href="./15-create-post">Create and publish a post</a> for a dated article, or
+<a href="./16-create-page">Create a page and link it from the menu</a> for standalone
+content such as About or Contact. Each guide includes a complete file and
+published-result checks.</p>
 <h3 id="why-can-i-not-see-my-changes">Why can I not see my changes?</h3>
 <p>Follow <a href="./42-unpublished-changes">Find changes missing from your website</a> to
 check the saved commit, publishing run, website address and post date. For a
 configuration parse error, use <a href="./43-yaml-errors">Fix a YAML configuration error</a>.</p>
 <h3 id="why-is-my-photograph-missing">Why is my photograph missing?</h3>
-<p>Check that the file was uploaded and saved, and that its filename matches the
-link exactly, including uppercase and lowercase letters. Use the image example
-in <a href="./17-add-image">Add an image</a>, which handles repository paths.
-After publishing, check the article again rather than the GitHub file preview.</p>
+<p>The <a href="./17-add-image">image guide</a> covers missing uploads,
+filename capitalization and repository paths. If the whole article is stale,
+use <a href="./42-unpublished-changes">the publishing checks</a>.</p>
 <h3 id="how-do-i-change-the-colors-or-design">How do I change the colors or design?</h3>
-<p>Choose a skin from the previews, then change the existing <code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code>
-entry in <code class="language-plaintext highlighter-rouge">_config.yml</code>. See <a href="./22-choose-skin">Skins</a>. Changing a preview in
-your browser does not save the design to your own website.</p>
+<p>Use <a href="./22-choose-skin">Choose a skin</a> for a complete design,
+<a href="./23-change-color">Change a color</a> for one adjustment, or
+<a href="./24-change-fonts">Change the fonts</a> for typography. Existing overrides are
+explained in <a href="./26-appearance-precedence">How skins and overrides interact</a>.</p>
 <h2 id="how-do-i">How do I…</h2>
 <p>The answers below cover formatting, optional integrations and advanced
 customization. Skip to the task you need.</p>
 <h3 id="start-with-markdown">…start with Markdown?</h3>
-<p><a href="./markdown-cheatsheet">We’ve got you covered</a>.</p>
-<p>See the <a href="https://www.markdownguide.org/cheat-sheet/">Markdown cheatsheet</a> and
-<a href="https://kramdown.gettalong.org/quickref.html">kramdown reference</a>. The sample
+<p>The <a href="./markdown-cheatsheet">theme Markdown cheatsheet</a> shows syntax and output.
+The external <a href="https://www.markdownguide.org/cheat-sheet/">Markdown cheatsheet</a> and
+<a href="https://kramdown.gettalong.org/quickref.html">kramdown reference</a> cover more syntax. The sample
 configuration uses kramdown with its GFM parser; accepted syntax depends on
 your Markdown configuration.</p>
 <p>For a complete file with its settings block and text, see
@@ -331,10 +331,9 @@ ligatures and the <code class="language-plaintext highlighter-rouge">chulapa</co
 accessible text and missing-icon checks. Version and kit fields remain in the
 <a href="./02-config#font-awesome">Font Awesome reference</a>.</p>
 <h3 id="have-a-quick-preview-of-a-page-of-my-site-with-any-skin">…have a quick preview of a page of my site with any skin?</h3>
-<p>Open the <a href="../skins">skin previews</a> to compare designs. To try one on your own
-site, change <code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>, save and publish. Follow
-<a href="./22-choose-skin">Choose a design</a>.
-Changing a preview on this documentation site does not change your own site.</p>
+<p>The <a href="../skins">skin previews</a> compare designs on this documentation site.
+They do not save a design to your site; <a href="./22-choose-skin">Choose a skin</a> covers
+applying one to your own pages.</p>
 <h3 id="find-an-error-in-my-_configyml-file">…find an error in my <code class="language-plaintext highlighter-rouge">_config.yml</code> file?</h3>
 <p>Follow <a href="./43-yaml-errors">Fix a YAML configuration error</a>. It covers locating
 the failing edit, checking indentation/quotes/duplicate sections and rebuilding.
