@@ -70,7 +70,7 @@ reference sections in pages that also contain task guides.
 - [Accessibility and resource loading](./docs/48-accessibility-reference): expected behavior, version limits and offline/review scope.
 - [Custom hooks](./docs/45-custom-hooks): supported files, insertion points and override constraints.
 - [Theme variables](./docs/03-theming#variables) and the [variables dictionary](./docs/variable-dictionary).
-- [Starter examples](./docs/08-starter-examples): source files, previews and limitations.
+- [Starter examples](./docs/08-starter-examples): source files, annotated demos and limitations.
 - [Markdown cheatsheet](./docs/markdown-cheatsheet).
 - [Syntax highlighting examples](./docs/syntax-highlighting).
 

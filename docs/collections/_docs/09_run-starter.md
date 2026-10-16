@@ -7,8 +7,14 @@ show_toc: true
 
 Use this guide when you already work with Jekyll and want to run one of the
 [starter examples](./08-starter-examples). You need Ruby, Bundler and an internet
-connection for the remote theme download. For a first site without installing
-software, use [the browser tutorial](./00-start).
+connection for gem installation and the remote theme download. The supplied
+Gemfiles use Jekyll `~> 4.4`; keep each Gemfile together with its configuration.
+For a first site without installing software, use [the browser tutorial](./00-start).
+
+The project example's "Getting started" section is placeholder copy for the
+project you are presenting, not an installation procedure for this theme.
+The demos show annotated sources inside the documentation site; your copy uses
+the example's own skin and generates its own article/project links.
 
 ## Prepare your copy
 
@@ -33,7 +39,15 @@ bundle exec jekyll serve --url http://localhost:4000 --baseurl ""
 ```
 
 Open <http://localhost:4000>. Check the home page, an article or project, and image
-and navigation links. Restart Jekyll after editing `_config.yml`.
+and navigation links. Stop the server with **Ctrl+C** when finished. Restart
+Jekyll after editing `_config.yml`.
+
+For the technical blog, also open its sample article and check the code,
+rendered diagram, equation and TOC links. Mermaid requires a modern browser with
+JavaScript modules/ES2024 support and access to jsDelivr; it is not included in
+v2.1.0. See [diagram requirements](./04-layouts#mermaid-diagrams) and
+[page feature options](./04-layouts#options). For the portfolio, open both project cards;
+for the project landing page, check both buttons after replacing placeholder links.
 
 ## Publish the site
 

@@ -10,11 +10,14 @@ categories: [starter]
 tags: [starter, personal-blog]
 ---
 
-[Get the complete example](https://github.com/dieghernan/chulapa/tree/main/examples/personal-blog)
-or follow the [starter setup guide](../docs/09-run-starter).
-Copy the example's files into your own repository and replace the sample content.
-The complete example includes a Gemfile and configuration; this demo displays
-its home-page source.
+This annotated example shows home-page source and sample content from
+[personal-blog](https://github.com/dieghernan/chulapa/tree/main/examples/personal-blog).
+It runs inside the documentation site, using this site's skin and configuration;
+it is not the standalone example's home page. The full folder includes its own
+`Gemfile` and `_config.yml`, with no publishing workflow.
+
+For preparation, preview and publication, follow
+[Run and publish a starter example](../docs/09-run-starter).
 
 ## Home-page header
 
@@ -36,6 +39,19 @@ A personal journal with recent stories.
 
 ## Sample story
 
+Source: [`2026-01-01-first-post.md`](https://github.com/dieghernan/chulapa/blob/main/examples/personal-blog/_posts/2026-01-01-first-post.md).
+Its settings enable the features illustrated below:
+
+```yaml
+---
+title: A first story
+layout: default
+header_type: post
+show_date: true
+show_author: true
+include_on_feed: true
+---
+```
 
 Write a short introduction to your story here. This first paragraph becomes
 its excerpt unless you provide an explicit `excerpt` in front matter.

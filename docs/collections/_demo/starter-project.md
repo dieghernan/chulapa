@@ -18,11 +18,14 @@ categories: [starter]
 tags: [starter, project]
 ---
 
-[Get the complete example](https://github.com/dieghernan/chulapa/tree/main/examples/project)
-or follow the [starter setup guide](../docs/09-run-starter).
-Copy the example's files into your own repository and replace the sample content.
-The complete example includes a Gemfile and configuration; this demo displays
-its home-page source.
+This annotated example shows home-page source and sample content from
+[project](https://github.com/dieghernan/chulapa/tree/main/examples/project).
+It runs inside the documentation site, using this site's skin and configuration;
+it is not the standalone example's home page. The full folder includes its own
+`Gemfile` and `_config.yml`, with no publishing workflow.
+
+For preparation, preview and publication, follow
+[Run and publish a starter example](../docs/09-run-starter).
 
 ## Home-page header
 
@@ -43,6 +46,10 @@ project_links:
 ```
 
 ## Home-page content
+
+The sections below are sample copy for the fictional project. The **Get started**
+button jumps to that sample section; use the [starter setup guide](../docs/09-run-starter)
+to prepare the website itself.
 
 ## What you can build
 
