@@ -1,6 +1,10 @@
 ---
 title: Add a manual slideshow
 subtitle: Display an image group with previous and next controls
+tags: [docs, content, media, images, galleries]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing post or page. First upload and group photographs

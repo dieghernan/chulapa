@@ -1,6 +1,10 @@
 ---
 title: Fix a YAML configuration error
 subtitle: Correct the edit that stopped the site build
+tags: [docs, publishing, troubleshooting]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when your publishing run or local preview reports a YAML error,

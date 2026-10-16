@@ -1,6 +1,10 @@
 ---
 title: Embed a video
 subtitle: Add a named YouTube player to a post or page
+tags: [docs, content, media]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing Markdown post or page that uses a theme layout.

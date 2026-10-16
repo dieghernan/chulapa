@@ -1,6 +1,10 @@
 ---
 title: Add an information or warning box
 subtitle: Highlight a short message in an existing article
+tags: [docs, content, writing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing Markdown post or page. Open its file in your

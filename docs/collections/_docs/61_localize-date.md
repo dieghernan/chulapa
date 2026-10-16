@@ -2,6 +2,10 @@
 title: Display an article date in another language
 subtitle: Translate month and weekday names in your content
 excerpt: Add a localized date to an existing dated article using the supplied snippet.
+tags: [docs, content, writing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you want to display a date inside an existing article or

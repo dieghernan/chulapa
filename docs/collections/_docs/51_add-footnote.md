@@ -1,6 +1,10 @@
 ---
 title: Add a footnote to an article
 subtitle: Link a source note from a sentence in your text
+tags: [docs, content, writing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing Markdown post or page using kramdown, as in the

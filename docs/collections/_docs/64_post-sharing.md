@@ -1,6 +1,10 @@
 ---
 title: Set a post's sharing text and images
 subtitle: Prepare metadata without changing the visible article
+tags: [docs, publishing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing post when you want a specific description and

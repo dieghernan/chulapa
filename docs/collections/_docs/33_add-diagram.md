@@ -1,6 +1,10 @@
 ---
 title: Add a Mermaid diagram
 subtitle: Render an accessible flowchart in a post or page
+tags: [docs, content, writing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing Markdown post or page with the `default` layout

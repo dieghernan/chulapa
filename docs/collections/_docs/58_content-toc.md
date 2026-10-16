@@ -1,6 +1,10 @@
 ---
 title: Add a table of contents inside an article
 subtitle: Insert heading links into the Markdown content
+tags: [docs, content, writing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing post or page rendered with kramdown. It adds an
