@@ -1,0 +1,28 @@
+{
+  "source_commit": "0209a3d15",
+  "worker_version": "1a03c510-7316-4808-a521-0f3f20d64531",
+  "raw": "candidate-regression-01-0209a3d15.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "unavailable",
+      "evidence": "HTTP503: unsupported source citation rejected; no answer delivered. This is not an accuracy pass."
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "status": "fail",
+      "evidence": "Adds page inputs and hierarchy but falsely claims archive/cloud/index layouts are absent from v2.1.0. Verified those layouts in tag v2.1.0; latest context separates layout availability from development optimizations."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass",
+      "evidence": "Explains existing blanklines setting, head/footer/body formatting, custom snippets and unreleased restriction. Does not invent a new option."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "pass",
+      "evidence": "Answers inheritance and no new YAML, preserves custom chain and states unreleased restriction."
+    }
+  ],
+  "limits": "One observation per case; not general model reliability or human usability evidence. No automatic inference retries."
+}

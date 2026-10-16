@@ -1,0 +1,14 @@
+{
+  "source_commit": "718fc9f0e",
+  "worker_version": "ad5d0a0f-2b60-40e9-bc5a-17822f326dd8",
+  "raw": "candidate-regression-01-718fc9f0e.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "pass",
+      "evidence": "States no blanket replacement, caller-variable helpers and context-reading hooks uncached, all page-dependent inputs passed as parameters, correct hierarchy, standalone search and shared renderers, unpublished restriction. Does not assert built-in layouts absent in v2.1.0.",
+      "limits": "Does not enumerate fixed footer/cloud caching or page-specific comments; core safety and organization questions answered. One observation only."
+    }
+  ],
+  "limits": "Only this case was rerun on this source. No model reliability or human usability claim."
+}

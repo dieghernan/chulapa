@@ -78,7 +78,7 @@ HTTP availability or raw URLs outside Markdown links. The existing renderer stil
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-Source dd46ec432 was deployed locally on 16 October 2026 as Worker c7e7ddb0-8adf-4af8-96d0-83224c0e9713. The first four regression cases were live-evaluated and remain partial; 151 candidate cases are still untested. See [the batch review](evaluations/candidate-regression-01-dd46ec432-review.json). Public documentation
+Source 718fc9f0e was deployed locally on 16 October 2026 as Worker ad5d0a0f-2b60-40e9-bc5a-17822f326dd8. The cache-safety case passed on this exact source. The other three first-batch cases passed on earlier revisions; 154 cases still need live confirmation on the current source. See [the iteration review](evaluations/layout-regression-iterations-2026-10-16.md). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
 ## Pending evaluations
