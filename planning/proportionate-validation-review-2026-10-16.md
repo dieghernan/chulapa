@@ -11,6 +11,13 @@ adds public documentation navigation. The internal-only scope and no-browser
 validation statements below describe the original editorial review, not this
 extension. The pilot record contains its separate scope and checks.
 
+Follow-up status, 16 October 2026: #147 is merged; its three corrected review
+threads are now resolved and its head checks passed. The historical editorial
+record below is unchanged. The [focused chatbot evaluation proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md)
+selects four cases. Its initially missing second-tutorial coverage is now prepared
+locally with the source and a complete example; deployment and live quality/latency
+evaluation remain pending. No live requests or deployment were performed.
+
 ## Decision proposed
 
 Keep the existing purpose-oriented titles, subtitles and introductions on the

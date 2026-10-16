@@ -611,5 +611,12 @@
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse guides about writing posts, adding photos and fixing changes missing from my website? Are topic tags just for blog posts?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation topic coverage: content/writing, media/images/galleries and publishing/troubleshooting. Separate from blog tags. Related cards suggest up to three matching pages, not required steps. For complete docs use /docs. Coverage is partial: badges on covered guides link to the topic index; tags alone do not enable visible badges. Do not claim all documentation is tagged."
+  },
+  {
+    "id": "second-photo-tutorial-1",
+    "section": "installation",
+    "doc": "59_photo-page-tutorial.md",
+    "question": "I finished the first browser-only Chulapa tutorial. Which guided exercise publishes My photo walk, which file and image does it use, and how do I add its menu link without replacing the existing menu?",
+    "expected": "Route to https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial. Prerequisite: published Chulapa 101 blog and existing assets/img/madrid-at-night.jpg. Create _pages/photo-walk.md with layout default, header_type base, title My photo walk and permalink /photo-walk/; image uses relative_url and meaningful alt text. Add Photo walk with url /photo-walk/ to existing navbar.nav after Categories, retaining other entries and without a repository prefix or second navbar section. Commit to publishing branch, wait for Actions and check the public menu/page/image. Do not claim actual participant success."
   }
 ]
