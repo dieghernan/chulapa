@@ -3,6 +3,10 @@ title: Run and publish a starter example
 subtitle: Set up one of the minimal Jekyll sites
 excerpt: Copy a minimal example, preview it locally and configure its publication.
 show_toc: true
+tags: [docs, installation, starter-examples]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you already work with Jekyll and want to run one of the

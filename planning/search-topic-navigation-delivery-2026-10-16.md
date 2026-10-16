@@ -4,8 +4,13 @@ Date: 16 October 2026. Baseline: main `db48e2d7c`, after merged #151.
 Issue: [#150](https://github.com/dieghernan/chulapa/issues/150).
 Delivery: [PR #152](https://github.com/dieghernan/chulapa/pull/152).
 Branch: `codex/docs-search-topic-navigation`.
-Status: implemented and locally validated; PR review, CI, merge and deployment
-pending. Issue closure occurs only with the accepted implementation merge.
+Status: merged in #152 with applicable head checks passed; #150 is closed.
+Pages/Worker deployment is separately unverified here.
+
+Status reconciliation, 16 October 2026: PR #152 is merged with applicable head
+checks passing; #150 is closed and its issue checklist updated. Its branch was
+deleted. Pages/Worker deployment remains separately unverified here. The original
+assessment/implementation evidence below retains its baseline and limits.
 
 ## Scope and topic choices
 

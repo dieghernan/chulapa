@@ -55,7 +55,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#147](https://github.com/dieghernan/chulapa/pull/147) — proportionate editorial validation | Merged; corrected review threads resolved; head checks passed | [Four paired opening reviews and full-page adjudication](proportionate-validation-review-2026-10-16.md) support retaining current openings as the editorial default; no measured usability improvement. Human studies are optional, not a delivery gate. Live chatbot quality remains unmeasured and distinct from tests/deployments. |
 | [#149](https://github.com/dieghernan/chulapa/pull/149) — content and publishing navigation | Merged; head checks passed; deployment not reverified here | Extends topic navigation to 17 existing guides; preserves guide bodies and explicit tutorial progression. |
 | [#151](https://github.com/dieghernan/chulapa/pull/151) — closeout plan and second tutorial context | Merged; head checks passed; deployment not reverified here | Adds the written execution plan, missing tutorial facts and a four-case evaluation protocol. No live inference or human study results. |
-| [#152](https://github.com/dieghernan/chulapa/pull/152) — search topic navigation | Open; local checks passed; CI/review/merge/deployment pending | Adds topic badges and reviewed cards to six existing search guides, including visibility. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md); #150 closes only after accepted merge. |
+| [#152](https://github.com/dieghernan/chulapa/pull/152) — search topic navigation | Merged; head checks passed; #150 closed; deployment not reverified here | Adds topic badges and reviewed cards to six existing search guides, including visibility. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md); #150 closed with this merge. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -178,22 +178,21 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 16 October 2026. #147, #149 and #151 are merged. Historical assessments,
+Updated: 16 October 2026. #147, #149, #151 and #152 are merged; #150 is closed. Historical assessments,
 thresholds and synthetic review records below retain their original evidence.
 
 1. **Maintain the completed editorial decision.** Keep purpose-oriented openings;
    add no public type labels or new extracted pages without a concrete defect.
    Human interviews are optional and do not gate editorial completion.
-2. **Review topic navigation in bounded blocks.** Appearance and content/publishing
-   are merged in #147/#149. Evaluate [#150](https://github.com/dieghernan/chulapa/issues/150)
-   as the current bounded navigation delivery: five search-provider tasks plus
-   search visibility, not all integrations. See the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md)
-   and [implementation record](search-topic-navigation-delivery-2026-10-16.md).
-   Six-guide metadata, index/context coverage and focused case are prepared;
-   review, CI, merge and deployment remain pending.
-   This is a discoverability improvement, not a verified runtime defect or
-   measured usability failure. Separate uncommitted integration work is not a
-   completed delivery; it lacks the visibility page and requires rescoping.
+2. **Review topic navigation in bounded blocks.** Search delivery #152 is merged
+   and #150 closed. Its [record](search-topic-navigation-delivery-2026-10-16.md)
+   retains checks and actual merge status; deployment is separately unverified.
+   Installation/migration/starter pages 01/07/08/09/20/21/55 are reviewed and
+   implemented on the current branch; see the [page decisions](installation-topic-navigation-delivery-2026-10-16.md).
+   PR review/CI/merge remain pending. The next group is navigation, identity and
+   branding, without blanket card activation or new page extraction. The broader
+   draft was archived locally, not delivered. These are discoverability changes,
+   not measured usability gains or new runtime fixes.
 3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
    Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;
    add a focused second-tutorial case. Its URL/scenario and complete example are

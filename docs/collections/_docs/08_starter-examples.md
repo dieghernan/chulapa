@@ -3,6 +3,10 @@ title: Starter examples reference
 subtitle: Small site sources and annotated demonstrations
 excerpt: Compare the four minimal examples and find their source files and annotated demonstrations.
 show_toc: false
+tags: [docs, installation, starter-examples]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 These examples are for people who already use Jekyll. Each folder contains a
