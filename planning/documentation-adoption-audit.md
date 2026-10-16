@@ -6,9 +6,11 @@ Language: English.
 
 ## Implementation tracking
 
-Updated: 15 October 2026. The diagnosis and inventory below describe the baseline
+Updated: 16 October 2026. The delivery table and active implementation order
+track the current work. The diagnosis and inventory below describe the baseline
 after PR #106, not a continuously rescored view of the current documentation.
-Completed work is recorded here without rewriting that historical assessment.
+Historical scores are unchanged. Older deployment observations are retained as
+recorded; merge status alone does not establish a deployment or answer quality.
 
 | Delivery | Status | Result and remaining boundary |
 | --- | --- | --- |
@@ -45,8 +47,12 @@ Completed work is recorded here without rewriting that historical assessment.
 | [#139](https://github.com/dieghernan/chulapa/pull/139) — republished article | Merged; deployment pending verification | Separates canonical/sitemap setup from metadata Reference and preserves the copied page address. Remaining reference mixtures and human learning evidence stay pending. |
 | [#140](https://github.com/dieghernan/chulapa/pull/140) — legacy anchor review | Merged; Pages deployed; chatbot unchanged | Retires compatibility-only blocks, routing headings and old aliases; migrates active links and preserves functional IDs. Reassessment follows this cleanup; human learning evidence remains pending. |
 | [#141](https://github.com/dieghernan/chulapa/pull/141) — reassessment after #140 | Merged; internal planning | Reviews 69 user-facing surfaces using the unchanged rubric, preserves earlier snapshots and prioritizes remaining Layouts/FAQ mixtures plus human learning evidence. |
-| [#142](https://github.com/dieghernan/chulapa/pull/142) — Layouts/SEO/demo consolidation | In review; not deployed | Groups cloud-index setup, post-sharing metadata and search visibility in three task guides; keeps field/sorting specimens in Reference and removes duplicated setup from live cloud demos. Human observations and live chatbot evaluation remain pending. |
-| Remaining Layouts and FAQ mixtures | Pending | Use the post-#140 roadmap: extract independent cloud/index/search/indexing/custom-card workflows and remove repeated FAQ recipes. Global settings is now single-intention Reference; completeness and findability still need separate validation. |
+| [#142](https://github.com/dieghernan/chulapa/pull/142) — Layouts/SEO/demo consolidation | Merged; deployment not reverified in this update | Delivers cloud-index, sharing and search-visibility task guides; retains sorting/default/custom-include specimens in Reference; simplifies cloud, Mermaid, PhotoSwipe and search demos. Includes reviewed cloud-fragment/sidebar fixes. See [delivery record](layouts-seo-demo-review-2026-10-15.md). |
+| [#143](https://github.com/dieghernan/chulapa/pull/143) — starter consistency | Merged; deployment not reverified in this update | Centralizes setup/publication in guide 09, preserves complete samples and distinguishes annotated demos from standalone sites. Corrects the nested project demo button. See [source review and evidence protocol](starter-consistency-review-2026-10-16.md). |
+| [#144](https://github.com/dieghernan/chulapa/pull/144) — classic-navbar parity | Open; implementation proposed, not merged | Shares actual classic markup and dependencies between theme and demo; adds parity and interaction checks. See [bounded review](classic-navbar-review-2026-10-16.md). Do not count this as delivered until merged. |
+| Final FAQ/Reference routing review | Pending; next implementation after #144 | Remove demonstrated duplicate FAQ recipes in favor of existing guides; review Global settings/Layout boundaries together while retaining defaults, fallbacks and useful specimens. Do not re-extract cloud/sharing/indexing tasks delivered in #142. |
+| Visible Diátaxis labels versus purpose-oriented introductions | Proposal pending after the routing review | Compare four existing Docs pages, one per type, before any implementation. Treat usefulness as a hypothesis; no mass labels, new YAML or claim that a label resolves substantive mixtures. |
+| Human tasks and live chatbot evidence | Pending; independent evidence work | First publication, second tutorial, advanced lookup and chatbot fact/citation/latency checks remain unmeasured. Use the [prepared protocol](starter-consistency-review-2026-10-16.md#separate-evidence-protocol--still-pending); tests and deployment are not participant or answer-quality results. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -66,12 +72,14 @@ reviews 69 surfaces. Across the same 28 previously assessed surfaces, 11 improve
 and 17 remain unchanged; the 41 added pages are assessed independently. No global
 average, user-success claim or live chatbot accuracy result is inferred.
 
-Use its prioritized roadmap for new work: cloud/index tasks in Layouts, duplicated
-search/indexing/custom-card workflows, consistent FAQ routing, then selective
-metadata review. Global settings now has one Reference intention; do not keep
-splitting it merely because an older assessment called it mixed. README/home
-retain product/catalog mixtures. Human observations, live chatbot review and
-findability remain separate evidence gaps.
+That reassessment's priorities are historical input, not the current task queue.
+#142 delivered the cloud/sharing/indexing procedures and joint reference/demo
+routing review; #143 delivered starter consistency. Use the
+[active implementation order](#active-implementation-order) and delivery table
+above for current work. Global settings has one Reference intention; do not keep
+splitting it because an older assessment called it mixed. README/home retain
+product/catalog mixtures. Human observations, live chatbot review and findability
+remain separate evidence gaps.
 
 The dated review below and its scores remain the #117 historical snapshot.
 
@@ -163,22 +171,35 @@ so undated documentation does not display the fallback build date. Existing post
 
 ### Active implementation order
 
-The [revised roadmap](diataxis-reassessment-2026-10-14.md#revised-implementation-order)
-provides effort ranges, preserved depth and completion evidence. The original
-Phase 5 roadmap below remains historical. This order tracks deliveries through
-#140; use the latest reassessment roadmap above for subsequent priorities.
+Updated: 16 October 2026, checked against PR merge status. #142 and #143 are
+merged; #144 is open. This is the current queue; the original Phase 5 roadmap
+and dated reassessments below remain historical.
 
-1. **Appearance — delivered in #120:** split Theming's task recipes, variable reference and
-   skin/vars/Autothemer precedence explanation. Keep identifiers, defaults and
-   version/override constraints with the relevant destinations.
-2. **Media — delivered in #122:** extract gallery, carousel, video and diagram procedures from Layouts,
-   retaining parameter catalogs, runnable specimens and legacy anchors.
-3. **Provider setup — search #123 and comments #124 delivered:** finish the remaining Global settings task/reference split,
-   including indexing workflows and compatibility cautions.
-4. **FAQ and migration — #126–#132 delivered:** task guides now cover troubleshooting, hooks, formatting, icons/version checks and feeds; migration mappings have a separate Reference. Keep questions and public destinations as routing links.
-5. **Explanation and accessibility — delivered in #128:** publishing concepts and accessibility constraints have separate destinations from practical checks.
-6. **Learning evidence — second Tutorial delivered in #136; human observations pending:** add a controlled photo-page/menu exercise after first publication. Observed first-site and expert lookup tasks remain pending; record sample size, help and failures before claiming usability outcomes.
-7. **Catalogs and entry points — #133/#134 delivered; README/home delivered in #135:** highlighting/variable lookup and Markdown content-index setup now route to canonical tasks. Simplify README/home routing while preserving product orientation. Remaining mixed reference sections and learning evidence still need review.
+1. **Classic-navbar parity — #144 in review.** Review the shared component/demo
+   implementation and its root/project, expansion, keyboard and responsive
+   evidence. Keep it separate from FAQ edits; do not mark it delivered yet.
+2. **Final FAQ/Reference routing — next bounded PR after #144.** Reconcile FAQ,
+   Global settings and Layouts against existing guides. Short post/page and skin
+   editing recipes remain candidates for routing links; precise option/default,
+   fallback and snippet specimens stay in Reference. Add a guide only for a
+   demonstrated independent task. Check current docs/demo/README/chatbot links
+   before retiring any heading; age alone is not a preservation requirement.
+3. **Diátaxis type-signposting proposal — after the routing review.** Compare
+   explicit labels with reader-purpose introductions on four Docs pages, one
+   per type. First inspect titles/subtitles and substantive mixtures; propose
+   examples without editing templates or labeling every page. Any benefit remains
+   unmeasured until tested. Do not introduce new YAML just for badges.
+4. **User and chatbot evidence — separately scheduled, still pending.** Observe
+   first publication, the second tutorial and advanced-option lookup; review live
+   chatbot answers for facts, complete examples, exact citations and latency.
+   The [starter review protocol](starter-consistency-review-2026-10-16.md#separate-evidence-protocol--still-pending)
+   defines records and completion criteria. No participants or live results are
+   claimed; passing tests and successful deployments cannot close these tasks.
+
+Completed foundations include appearance/media/provider extraction, migration
+and FAQ task guides, publishing/override explanations, the second tutorial,
+catalog/entry-point cleanup, #142's Layouts/SEO/demo block and #143's starters.
+Do not repeat those extractions. Contributor reorganization remains deferred.
 
 Do not enable related cards globally or add types as matching tags. Recheck the
 actual candidate sets whenever content/tag changes affect them. Each extraction
@@ -723,23 +744,3 @@ This plan and its inventory live outside the published `docs/` source and theme
 package selection. They change no supported product behavior and need no new public
 `llms.txt` entry, chatbot context update or deployment. The public documentation is
 unchanged in this PR. Implementing the roadmap is a subsequent scoped task.
-
-## Progress checkpoint — 16 October 2026
-
-[PR #142](https://github.com/dieghernan/chulapa/pull/142) is merged: Layouts/SEO
-procedures and media/search demo overlap are delivered, including reviewed cloud
-fragment/sidebar fixes. Historical scores above are not automatically rescored.
-The [starter consistency review](starter-consistency-review-2026-10-16.md) records
-the next bounded delivery, source/version checks and separate evidence protocol.
-Classic-navbar parity and the final FAQ/Reference routing review remain subsequent
-implementation blocks. Real novice/expert observations and live chatbot factual,
-citation and latency evaluations remain pending; builds/tests are not that evidence.
-
-### Classic-navbar checkpoint — 16 October 2026
-
-#143 is merged. The next bounded delivery is the
-[classic-navbar parity review](classic-navbar-review-2026-10-16.md): shared actual
-markup/dependencies, demo interaction advice and regression/browser evidence.
-After its review/merge, finish FAQ/Reference routing before proposing the optional
-four-page Diátaxis-label comparison. Human observations and live chatbot accuracy,
-citation and latency evidence remain independent pending work.
