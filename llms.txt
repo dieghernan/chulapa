@@ -4,7 +4,7 @@
 
 The documentation is the source of truth for installation, configuration, layouts and supported integrations. Configure the site in `_config.yml` and use page front matter or Jekyll defaults for page options. Extend the theme through existing layouts, includes and assets.
 
-The documentation also covers v2.1.1-dev changes available on main after v2.1.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter analytics and the accessibility and resource-loading improvements are not included in the v2.1.0 gem or pinned remote theme. Check each page's version caveats and the theme version used by the site before applying its advice. Some integrations require third-party services, and accessibility depends on the site's content, skin and customizations as well as the theme.
+The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identify its planned features. The documentation also covers those changes available on main after v2.1.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter analytics and the accessibility and resource-loading improvements are not included in the v2.1.0 gem or pinned remote theme. Check each page's version caveats and the theme version used by the site before applying its advice. Some integrations require third-party services, and accessibility depends on the site's content, skin and customizations as well as the theme.
 
 ## Getting started
 
