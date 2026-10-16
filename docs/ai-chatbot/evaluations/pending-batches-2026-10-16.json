@@ -1,5 +1,5 @@
 {
-  "candidate_state": "deployed_focused_retest_reviewed",
+  "candidate_state": "deployed_first_batch_pass",
   "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
   "catalog_count": 155,
   "baseline_record_count": 56,
@@ -10,8 +10,8 @@
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "pass_on_earlier_revision_pending_retest",
-      "candidate_source": "5e7dc75dc"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
     },
     {
       "id": "layouts-include-cache-1",
@@ -19,23 +19,23 @@
       "baseline": "answer_received",
       "baseline_review": "fail",
       "candidate_live": "reviewed_pass",
-      "candidate_source": "718fc9f0e"
+      "candidate_source": "549f876dd"
     },
     {
       "id": "layouts-head-formatting-1",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "pass_on_earlier_revision_pending_retest",
-      "candidate_source": "0209a3d15"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
     },
     {
       "id": "layouts-microformats-nested-feed-1",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "pass_on_earlier_revision_pending_retest",
-      "candidate_source": "0209a3d15"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
     },
     {
       "id": "layouts-microformats-feed-1",
@@ -1104,7 +1104,7 @@
         "layouts-head-formatting-1",
         "layouts-microformats-nested-feed-1"
       ],
-      "status": "one_pass_current_three_pass_earlier_revision",
+      "status": "reviewed_pass",
       "command": "node evaluate-live.mjs candidate-regression-01 layouts-random-singleton-1,layouts-include-cache-1,layouts-head-formatting-1,layouts-microformats-nested-feed-1"
     },
     {
@@ -1480,7 +1480,7 @@
         "layouts-head-formatting-1",
         "layouts-microformats-nested-feed-1"
       ],
-      "status": "one_pass_current_three_pass_earlier_revision",
+      "status": "reviewed_pass",
       "command": "node evaluate-live.mjs candidate-complete-01 layouts-random-singleton-1,layouts-include-cache-1,layouts-head-formatting-1,layouts-microformats-nested-feed-1"
     },
     {
@@ -1901,9 +1901,9 @@
       "command": "node evaluate-live.mjs candidate-complete-39 community-3,community-4,community-5"
     }
   ],
-  "candidate_source": "718fc9f0e",
-  "candidate_remaining_count": 154,
-  "latest_candidate_review": "candidate-regression-01-718fc9f0e-review.json",
-  "worker_version": "ad5d0a0f-2b60-40e9-bc5a-17822f326dd8",
+  "candidate_source": "549f876dd",
+  "candidate_remaining_count": 151,
+  "latest_candidate_review": "candidate-regression-01-549f876dd-review.json",
+  "worker_version": "90b4709a-c8ce-4946-838a-d85d12922e73",
   "never_live_tested_candidate_cases": 151
 }

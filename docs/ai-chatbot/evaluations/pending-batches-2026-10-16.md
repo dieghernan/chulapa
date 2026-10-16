@@ -1,6 +1,6 @@
 # Pending evaluation batches: 16 October 2026
 
-155 catalog cases; 56 recorded baseline responses; 56 reviewed. Candidate 718fc9f0e is deployed as Worker ad5d0a0f-2b60-40e9-bc5a-17822f326dd8. One case passed on this exact source; three other first-batch cases passed on earlier revisions and need confirmation on the current source. **154 cases are untested on this exact source**, including **151 never tested on any selection/citation candidate**. See [iteration review](layout-regression-iterations-2026-10-16.md). Historical baseline coverage is unchanged.
+155 catalog cases; 56 recorded baseline responses; 56 reviewed. Candidate 549f876dd is deployed as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases were run and reviewed as passing on this exact source. **151 candidate cases remain untested**, organized in the remaining batches below. See [final batch review](candidate-regression-01-549f876dd-review.json). Baseline coverage remains 56 reviewed responses and 99 cases without completed records.
 
 Each planned batch contains at most four independent questions. Commands run from docs/ai-chatbot and consume quota; none were executed to generate this plan. Use a fresh run name, verify the deployed revision first and preserve raw outputs. Recheck account allowance before any batch.
 
@@ -10,7 +10,7 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 
 | Batch | Case IDs | State |
 | --- | --- | --- |
-| candidate-regression-01 | `layouts-random-singleton-1`, `layouts-include-cache-1`, `layouts-head-formatting-1`, `layouts-microformats-nested-feed-1` | 1 pass current; 3 passes earlier revisions |
+| candidate-regression-01 | `layouts-random-singleton-1`, `layouts-include-cache-1`, `layouts-head-formatting-1`, `layouts-microformats-nested-feed-1` | Reviewed: pass |
 | candidate-regression-02 | `config-author-profile-1`, `layouts-label-headings-1`, `layouts-microformats-1`, `installation-1` | Not run |
 | candidate-regression-03 | `installation-2`, `installation-3`, `configuration-3`, `search-comments-2` | Not run |
 | candidate-regression-04 | `search-comments-3`, `search-comments-4`, `search-comments-5`, `search-comments-6` | Not run |
@@ -50,11 +50,11 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | baseline-unfinished-24 | `documentation-installation-topics`, `documentation-identity-topics`, `community-1`, `community-2` | Not run |
 | baseline-unfinished-25 | `community-3`, `community-4`, `community-5` | Not run |
 
-## Full candidate matrix (154 pending on current source)
+## Full candidate matrix (151 pending on current source)
 
 | Batch | Case IDs | State |
 | --- | --- | --- |
-| candidate-complete-01 | `layouts-random-singleton-1`, `layouts-include-cache-1`, `layouts-head-formatting-1`, `layouts-microformats-nested-feed-1` | 1 pass current; 3 passes earlier revisions |
+| candidate-complete-01 | `layouts-random-singleton-1`, `layouts-include-cache-1`, `layouts-head-formatting-1`, `layouts-microformats-nested-feed-1` | Reviewed: pass |
 | candidate-complete-02 | `layouts-microformats-feed-1`, `config-author-profile-1`, `layouts-label-headings-1`, `layouts-microformats-1` | Not run |
 | candidate-complete-03 | `installation-1`, `installation-2`, `installation-3`, `installation-4` | Not run |
 | candidate-complete-04 | `installation-5`, `installation-6`, `configuration-1`, `configuration-2` | Not run |

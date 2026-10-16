@@ -78,7 +78,7 @@ HTTP availability or raw URLs outside Markdown links. The existing renderer stil
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-Source 718fc9f0e was deployed locally on 16 October 2026 as Worker ad5d0a0f-2b60-40e9-bc5a-17822f326dd8. The cache-safety case passed on this exact source. The other three first-batch cases passed on earlier revisions; 154 cases still need live confirmation on the current source. See [the iteration review](evaluations/layout-regression-iterations-2026-10-16.md). Public documentation
+Source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 candidate cases remain untested. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
 ## Pending evaluations
