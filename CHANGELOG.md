@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Encode Cactus conversation identifiers without forbidden characters or path collisions and include `baseurl` in Welcomments form permalinks; review existing Cactus thread mappings before upgrading (#125).
+
 -   Respect each document's `show_date: false` in tag/category cloud entries and their aliases, hiding fallback publication dates while preserving reading time (#154).
 
 -   Render the classic-navbar demo with the same menu component and shared script dependencies as the theme, preserving native dropdown controls and configured expansion.

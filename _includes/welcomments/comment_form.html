@@ -1,7 +1,7 @@
 <form id="welcomments__form" class="welcomments__comment-form" autocomplete="on" action="{{ include.api_url }}/comments" method="post">
   <input type="hidden" name="website-id" id="website-id" value="{{ include.website_id }}" >
   <input type="hidden" name="replying-to" id="replying-to" >
-  <input type="hidden" name="permalink" id="permalink" value="{{ site.url }}{{ page.url }}" >
+  <input type="hidden" name="permalink" id="permalink" value="{{ page.url | absolute_url | escape }}" >
   <input type="hidden" name="page-slug" id="page-slug" value="{{ page.slug }}">
   <div class="welcomments__form-group">
     <label for="message">Comment</label>

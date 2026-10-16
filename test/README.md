@@ -71,6 +71,7 @@ bundle exec ruby test/check_cloud_performance.rb
 bundle exec ruby test/check_include_cache.rb
 bundle exec ruby test/check_cloud_dates.rb
 bundle exec ruby test/check_footer_comments.rb
+bundle exec ruby test/check_comment_adapters.rb
 bundle exec ruby test/check_index_order.rb
 bundle exec ruby test/check_liquid_indexes.rb
 bundle exec ruby test/check_skin_variables.rb

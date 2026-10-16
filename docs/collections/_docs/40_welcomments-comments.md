@@ -38,12 +38,14 @@ comments:
 
 ## Check the form URL on a project site
 
-The current theme form builds its `permalink` without `baseurl`. If your site
-is under a path such as `https://ana.github.io/my-blog`, the submitted URL can
-point outside `/my-blog`. Check this before using the integration.
+In development after v2.1.0 (v2.1.1-dev), the theme form uses the full published
+article URL, including `baseurl`. The v2.1.0 form omits that path: for a site
+such as `https://ana.github.io/my-blog`, its submitted URL can point outside
+`/my-blog`. Use the local correction below on v2.1.0 and review existing overrides
+when upgrading; local forms override the fixed theme.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
-For a site with `baseurl`, copy the theme's
+For a v2.1.0 site with `baseurl`, copy the theme's
 [customized form](https://github.com/dieghernan/chulapa/blob/main/_includes/welcomments/comment_form.html)
 to `_includes/welcomments/comment_form.html` in your repository. Use the file
 from your installed theme version; the linked `main` file is the development
@@ -52,7 +54,7 @@ input with:
 
 {% raw %}
 ```html
-<input type="hidden" name="permalink" id="permalink" value="{{ page.url | absolute_url }}">
+<input type="hidden" name="permalink" id="permalink" value="{{ page.url | absolute_url | escape }}">
 ```
 {% endraw %}
 

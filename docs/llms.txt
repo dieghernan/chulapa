@@ -86,8 +86,8 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 ## Comment-provider tasks
 
 - [Connect Disqus](https://dieghernan.github.io/chulapa/docs/38-disqus-comments): Reuse an existing shortname, enable one post and check thread matching.
-- [Connect Cactus](https://dieghernan.github.io/chulapa/docs/39-cactus-comments): Reuse the hosted service with the required local conversation-ID correction and existing-thread checks; conditional resource loading requires main after v2.1.0.
-- [Connect Welcomments](https://dieghernan.github.io/chulapa/docs/40-welcomments-comments): Preserve theme templates, configure the website ID and verify delivered comment data after a rebuild; project sites need the documented form permalink correction.
+- [Connect Cactus](https://dieghernan.github.io/chulapa/docs/39-cactus-comments): Reuse the hosted service; main after v2.1.0 fixes conversation IDs and conditionally loads resources. Check old thread mappings/local overrides before upgrading; v2.1.0 needs the documented ID correction.
+- [Connect Welcomments](https://dieghernan.github.io/chulapa/docs/40-welcomments-comments): Preserve theme templates, configure the website ID and verify delivered comment data after a rebuild; main after v2.1.0 includes baseurl in form permalinks; project sites on v2.1.0 need the documented local correction.
 - [Connect self-hosted Cusdis](https://dieghernan.github.io/chulapa/docs/41-cusdis-comments): Reconnect an existing host/application; upstream is archived and the original hosted service is unavailable.
 
 ## Troubleshooting and custom hooks

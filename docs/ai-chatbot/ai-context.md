@@ -14,7 +14,7 @@ Responsive Bootstrap-based Jekyll theme for blogs, portfolios, documentation and
 
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
-Partial Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. Includes syntax/variable references; FAQ/tutorials keep direct routes. Comment providers are alternatives; GA4/GoatCounter and distinct feed URLs can coexist. Badges on covered guides link here; cards suggest up to three readings, not required steps. All docs: https://dieghernan.github.io/chulapa/docs. Blog tags separate.
+Partial Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. Syntax/variable references; FAQ/tutorials keep direct routes. Comment providers are alternatives; GA4/GoatCounter and distinct feed URLs can coexist. Badges link here; up to three cards suggest optional reading. All docs: https://dieghernan.github.io/chulapa/docs. Blog tags separate.
 
 ## Variables dictionary
 Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary
@@ -242,8 +242,8 @@ https://dieghernan.github.io/chulapa/docs/39-cactus-comments
 https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
 https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
 Use comments.provider and show_comments: true on comment-capable pages/defaults. Provider keys: disqus_shortname, cactus_shortname, website_id (Welcomments), cusdis_app_id/cusdis_host. Giscus: public repo, Discussions/app, generated _includes/custom/giscus.html (starter comment-only), GitHub login; keep repo/category/thread mapping.
-Cactus: hosted Matrix only, no homeserver option. Current / IDs invalid; override: include.pageurl | url_encode | replace: '_', '%5F'. Changed IDs may detach threads; verify/migrate first.
-Welcomments: deliver _data/welcomments/ + rebuild; keep theme templates in PRs. Form permalink omits baseurl: local correction page.url | absolute_url.
+Cactus: hosted Matrix; no homeserver option. Dev fixes IDs: include.pageurl | url_encode | replace: '_', '%5F'. v2.1.0: local override. ID changes may detach threads: verify/migrate; keep valid local mappings.
+Welcomments: deliver _data/welcomments/ + rebuild; keep theme templates. Dev permalink includes baseurl; v2.1.0 needs page.url | absolute_url | escape locally. Review overrides.
 Cusdis: archived, original hosting unavailable; self-hosted needs HTTPS cusdis_host (default cusdis.com). No automatic thread migration.
 
 

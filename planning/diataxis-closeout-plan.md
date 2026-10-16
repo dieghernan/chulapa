@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `0b9bbb375`, after merged #158.
-Current delivery: #154 cloud-date fix on `codex/fix-cloud-entry-dates`; [PR #159](https://github.com/dieghernan/chulapa/pull/159) open; CI/review pending.
+Updated: 16 October 2026. Current delivery baseline: main `0646ee1ca`, after merged #159.
+Current delivery: #125 adapter/migration fix on `codex/fix-comment-adapters`; PR pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -19,8 +19,8 @@ status and links after each bounded PR. Documentation is written in English.
 | Comments and analytics | Merged #156 with applicable head checks passed; corrected thread resolved and branch deleted. See the [delivery record](comments-analytics-topic-delivery-2026-10-16.md). Deployment separately unverified. |
 | Hooks, mappings, feeds and metadata tasks | Merged #157; applicable head checks passed, branch deleted. Seven guides and affected installation/publication/navigation recommendations reviewed. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). Merged #157; deployment separately unverified. |
 | General reference and accessibility | Merged #158, head checks passed and branch deleted. Eight pages reviewed: seven badge groups, five widgets; FAQ retains direct question navigation. See the [delivery record](reference-navigation-closeout-2026-10-16.md). Merged #158; deployment separately unverified. |
-| #154 cloud-entry dates | Open: fix prepared on this branch to respect candidate show_date false; regression coverage and review/CI pending. See the [delivery record](cloud-date-fix-2026-10-16.md). |
-| #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
+| #154 cloud-entry dates | Closed by merged #159; head checks passed including Jekyll 3/4 and browser; branch deleted. See the [delivery record](cloud-date-fix-2026-10-16.md). |
+| #125 comment adapters | Open: both fixes and legacy/migration guidance prepared on this branch; Jekyll 3/4 adapter checks passed. Review/CI/merge pending. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
 
 Human interviews and observed tasks are optional research. Tests, successful
@@ -103,13 +103,13 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 
 ## 4. Resolve release-relevant defects and freeze scope
 
-The final reference PR #158 is merged. Fix #154 in a separate
-rendering PR, then #125 in a separate adapter/migration PR. Do not expand the
+The final reference PR #158 and #154 rendering fix #159 are merged. Complete
+#125 in this adapter/migration PR, then freeze scope and perform release checks. Do not expand the
 editorial scope without a concrete defect. Live chatbot evaluation and optional
 human interviews remain separate from editorial closeout.
 
-- [ ] Resolve or explicitly triage [#154](https://github.com/dieghernan/chulapa/issues/154)
-  before release: cloud entries expose build dates as publication dates on
+- [x] Resolve or explicitly triage [#154](https://github.com/dieghernan/chulapa/issues/154)
+  before release: merged #159 prevents build dates being presented on
   undated Docs. Respect existing hidden-date intent, preserve real blog dates,
   review Microformats2 output and validate tag/category aliases with Jekyll 3/4.
   This is separate from navigation metadata and #125 adapter migration.
@@ -117,10 +117,11 @@ human interviews remain separate from editorial closeout.
 - [ ] Fix [#125](https://github.com/dieghernan/chulapa/issues/125) in a separate
   runtime PR: stable distinct Cactus IDs without forbidden characters, explicit
   thread-mapping/migration advice and Welcomments URLs respecting `baseurl`.
-- [ ] Check Jekyll 3/4, empty/project baseurl, root and slash/underscore/hyphen/
+- [x] Check Jekyll 3/4, empty/project baseurl, root and slash/underscore/hyphen/
   percent path cases; retain other form fields and existing data. Update guides,
   development changelog and selective chatbot facts/cases together.
-- [ ] State separately whether real provider posting/migration was tested.
+- [x] State separately whether real provider posting/migration was tested: neither
+  live posting nor migration was performed in this task.
   Passing offline fixtures do not establish live service behavior.
 - [ ] Triage newly captured defects. Resolve release blockers; explicitly defer
   optional improvements. Freeze feature/editorial scope before final checks.
