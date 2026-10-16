@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-15 -->
+    <!-- Page build 2026-10-16 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -15,7 +15,7 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/demo/13-mermaid",
         "name": "Mermaid diagrams",
-        "description": "Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Set mermaid: true in page front matter and write a fenced mermaid block. See the configuration and browser requirements.",
+        "description": "Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Follow Add a Mermaid diagram to enable diagrams on your page. See the Mermaid reference for browser requirements, security restrictions and fallback behavior. The diagrams below show a publishing workflow and how rendering works in the browser.",
         "headline": "Mermaid diagrams",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
         "datePublished": "2022-12-01T00:00:00+01:00",
@@ -89,7 +89,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Set mermaid: true in page front matter and write a fenced mermaid block. See the configuration and browser requirements.">
+    <meta name="description" content="Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Follow Add a Mermaid diagram to enable diagrams on your page. See the Mermaid reference for browser requirements, security restrictions and fallback behavior. The diagrams below show a publishing workflow and how rendering works in the browser.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -97,12 +97,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/13-mermaid" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Set mermaid: true in page front matter and write a fenced mermaid block. See the configuration and browser requirements." >
+    <meta property="og:description" content="Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Follow Add a Mermaid diagram to enable diagrams on your page. See the Mermaid reference for browser requirements, security restrictions and fallback behavior. The diagrams below show a publishing workflow and how rendering works in the browser." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Set mermaid: true in page front matter and write a fenced mermaid block. See the configuration and browser requirements.">
+    <meta name="twitter:description" content="Flowcharts and sequence diagrams from Markdown - Mermaid support is available in the development version after v2.1.0. Follow Add a Mermaid diagram to enable diagrams on your page. See the Mermaid reference for browser requirements, security restrictions and fallback behavior. The diagrams below show a publishing workflow and how rendering works in the browser.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -258,30 +258,13 @@
 </aside>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
             <nav aria-label="table-of-contents">
-			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#publishing-the-documentation">Publishing the documentation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#rendering-mermaid-in-a-chulapa-page">Rendering Mermaid in a <span class="chulapa">Chulapa</span> page</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#write-your-own">Write your own</a></li></ul>
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#publishing-the-documentation">Publishing the documentation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#rendering-mermaid-in-a-chulapa-page">Rendering Mermaid in a <span class="chulapa">Chulapa</span> page</a></li></ul>
 			</nav>
 			 <p>Mermaid support is available in the development version after v2.1.0.
-Set <code class="language-plaintext highlighter-rouge">mermaid: true</code> in page front matter and write a fenced <code class="language-plaintext highlighter-rouge">mermaid</code> block.
-See the <a href="../docs/04-layouts#mermaid-diagrams">configuration and browser requirements</a>.</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">Mermaid diagrams</span>
-<span class="na">subtitle</span><span class="pi">:</span> <span class="s">Flowcharts and sequence diagrams from Markdown</span>
-<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">demo</span><span class="pi">]</span>
-<span class="na">header_type</span><span class="pi">:</span> <span class="s">post</span>
-<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">layout-default</span><span class="pi">,</span> <span class="nv">header-post</span><span class="pi">,</span> <span class="nv">social-links</span><span class="pi">,</span> <span class="nv">tags</span><span class="pi">,</span> <span class="nv">categories</span><span class="pi">,</span> <span class="nv">bottom-navs</span><span class="pi">,</span> <span class="nv">author</span><span class="pi">,</span> <span class="nv">date</span><span class="pi">,</span> <span class="nv">mermaid</span><span class="pi">,</span> <span class="nv">diagrams</span><span class="pi">,</span> <span class="nv">markdown</span><span class="pi">]</span>
-<span class="na">date</span><span class="pi">:</span> <span class="s">2022-12-01</span>
-<span class="na">show_date         </span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">show_sociallinks  </span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">show_tags         </span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">show_categories   </span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">show_bottomnavs   </span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">show_author</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">show_toc</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">mermaid</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">redirect_from</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">/demo/mermaid</span>
-<span class="nn">---</span>
-</code></pre></div></div>
+Follow <a href="../docs/33-add-diagram">Add a Mermaid diagram</a> to enable diagrams on your
+page. See the <a href="../docs/04-layouts#mermaid-diagrams">Mermaid reference</a> for browser
+requirements, security restrictions and fallback behavior. The diagrams below
+show a publishing workflow and how rendering works in the browser.</p>
 <h2 id="publishing-the-documentation">Publishing the documentation</h2>
 <p>A push to <code class="language-plaintext highlighter-rouge">main</code> starts this repository’s GitHub Pages workflow. It installs
 Ruby dependencies from <code class="language-plaintext highlighter-rouge">docs/Gemfile</code>, builds the documentation with Jekyll,
@@ -302,11 +285,8 @@ on its schedule or be started manually.</p><pre><code class="language-mermaid">f
   Deploy --&gt; Site[Chulapa documentation website]
 </code></pre>
 <h2 id="rendering-mermaid-in-a-chulapa-page">Rendering Mermaid in a <span class="chulapa">Chulapa</span> page</h2>
-<p>With <code class="language-plaintext highlighter-rouge">mermaid: true</code>, <span class="chulapa">Chulapa</span> includes its Mermaid
-module. That module only loads Mermaid from jsDelivr when it finds diagram
-blocks. Each successful render replaces its code block with a diagram; if
-loading or rendering fails, the source stays visible. These steps run in the
-visitor’s browser after Jekyll has generated the page.</p><pre><code class="language-mermaid">sequenceDiagram
+<p>The browser loads Mermaid from jsDelivr and replaces valid diagram blocks with
+diagrams. If loading or rendering fails, the source stays visible.</p><pre><code class="language-mermaid">sequenceDiagram
   accTitle: Rendering Mermaid in Chulapa
   accDescr: The browser loads an enabled page and the Chulapa Mermaid module. When diagram blocks exist, the module imports Mermaid from jsDelivr and renders each block. Successful diagrams replace their source, while failed diagrams keep their source visible.
   participant Browser
@@ -335,29 +315,6 @@ visitor’s browser after Jekyll has generated the page.</p><pre><code class="la
     end
   end
 </code></pre>
-<h2 id="write-your-own">Write your own</h2>
-<p>Copy this complete page example. The outer Markdown block remains ordinary
-code and has a copy button; rendered diagrams do not have copy buttons.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">How Chulapa builds a page</span>
-<span class="na">mermaid</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="nn">---</span>
-
-<span class="p">```</span><span class="nl">mermaid
-</span><span class="sb">flowchart TD
-  accTitle: Building a Chulapa page
-  accDescr: Jekyll applies configuration defaults and page front matter, converts Markdown to HTML, renders Chulapa layouts and includes, and writes the static page.
-  Config[_config.yml defaults] --&gt; Page[Page settings]
-  Front[Page front matter] --&gt; Page
-  Page --&gt; Markdown[Convert Markdown to HTML]
-  Markdown --&gt; Layout[Render Chulapa layouts and includes]
-  Layout --&gt; Output[Write static HTML page]</span>
-<span class="p">```</span>
-</code></pre></div></div>
-<p>If Mermaid cannot load or the diagram syntax is invalid, the source stays
-visible. Add a prose explanation and <code class="language-plaintext highlighter-rouge">accTitle</code> and <code class="language-plaintext highlighter-rouge">accDescr</code> for accessible
-diagrams.</p>
 </article>
 		</div>
 	</main><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">

@@ -2,7 +2,7 @@
 var clipboardOnly = document.currentScript && document.currentScript.getAttribute("data-clipboard-only") === "true";
 if (!clipboardOnly) {
 var sT = document.getElementById("sidetoc");
-var btn = document.getElementById("demo");
+var btn = document.getElementById("chulapa-sidetoc-toggle");
 var body = document.getElementById("body");
 var main = document.getElementById("maincontent");
 var heads = main ? main.querySelectorAll("h1, h2, h3, h4, h5 , h6") : [];

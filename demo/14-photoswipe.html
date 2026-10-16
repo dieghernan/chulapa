@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-15 -->
+    <!-- Page build 2026-10-16 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -15,7 +15,7 @@
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/demo/14-photoswipe",
         "name": "PhotoSwipe image galleries",
-        "description": "Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Add photoswipe=true to a masonry or carousel include. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.",
+        "description": "Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Follow Enable PhotoSwipe on a gallery to add the viewer to an existing gallery or carousel. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.",
         "headline": "PhotoSwipe image galleries",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png",
         "datePublished": "2022-12-01T00:00:00+01:00",
@@ -89,7 +89,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Add photoswipe=true to a masonry or carousel include. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.">
+    <meta name="description" content="Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Follow Enable PhotoSwipe on a gallery to add the viewer to an existing gallery or carousel. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -97,12 +97,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/demo/14-photoswipe" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Add photoswipe=true to a masonry or carousel include. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load." >
+    <meta property="og:description" content="Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Follow Enable PhotoSwipe on a gallery to add the viewer to an existing gallery or carousel. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-demos.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Add photoswipe=true to a masonry or carousel include. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.">
+    <meta name="twitter:description" content="Open, zoom and explore images - PhotoSwipe support is available in the development version after v2.1.0. Follow Enable PhotoSwipe on a gallery to add the viewer to an existing gallery or carousel. No page YAML setting is needed. Each gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
 <!-- this script is inserted before the css stylesheet -->
@@ -254,9 +254,10 @@
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#masonry-gallery">Masonry gallery</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#carousel-gallery">Carousel gallery</a></li></ul>
 			</nav>
 			 <p>PhotoSwipe support is available in the development version after v2.1.0.
-Add <code class="language-plaintext highlighter-rouge">photoswipe=true</code> to a masonry or carousel include. No page YAML setting is
-needed. Each gallery opens its own sequence; images remain ordinary links when
-JavaScript is disabled or the library cannot load.</p>
+Follow <a href="../docs/31-photoswipe">Enable PhotoSwipe on a gallery</a> to add the viewer
+to an existing <a href="../docs/29-add-gallery">gallery</a> or
+<a href="../docs/30-add-carousel">carousel</a>. No page YAML setting is needed. Each
+gallery opens its own sequence; images remain ordinary links when JavaScript is disabled or the library cannot load.</p>
 <h2 id="masonry-gallery">Masonry gallery</h2>
 <p>Click an image, or focus its link and press Enter. Inside the viewer, use the
 arrow keys to change images and Escape to close it. Focus returns to the image
@@ -286,7 +287,7 @@ you opened. On touchscreens, swipe between images and pinch to zoom.</p>
   <img loading="lazy" class="chulapa-masonry-brick" src="https://dieghernan.github.io/chulapa/assets/img/gallery/city-spain-dense-17658.jpg" alt="Masonry Item #6" itemprop="contentUrl" />
 </a>
  </div></div>
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">include_cached</span><span class="w"> </span>snippets/masonry.html<span class="w"> </span><span class="na">internal</span><span class="o">=</span><span class="s2">"gallery"</span><span class="w"> </span><span class="na">index_items</span><span class="o">=</span><span class="mi">6</span><span class="w"> </span><span class="na">photoswipe</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">include_cached</span><span class="w"> </span>snippets/masonry.html<span class="w"> </span><span class="na">internal</span><span class="o">=</span><span class="s2">"gallery"</span><span class="w"> </span><span class="na">index_sort</span><span class="o">=</span><span class="s2">"basename"</span><span class="w"> </span><span class="na">index_sort_asc</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">index_items</span><span class="o">=</span><span class="mi">6</span><span class="w"> </span><span class="na">photoswipe</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 <h2 id="carousel-gallery">Carousel gallery</h2>
 <p>The carousel uses a separate group. Its slide remains in place while the viewer
@@ -324,7 +325,7 @@ and discovers image dimensions without a Jekyll image-processing plugin.</p>
     <span class="sr-only">Next</span>
   </button></div>
 <script type="module" src="/chulapa/assets/js/chulapa_carousel.js"></script>
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">include_cached</span><span class="w"> </span>snippets/carousel.html<span class="w"> </span><span class="na">internal</span><span class="o">=</span><span class="s2">"gallery"</span><span class="w"> </span><span class="na">index_items</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="na">interval</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="na">controls</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">indicators</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">photoswipe</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">include_cached</span><span class="w"> </span>snippets/carousel.html<span class="w"> </span><span class="na">internal</span><span class="o">=</span><span class="s2">"gallery"</span><span class="w"> </span><span class="na">index_sort</span><span class="o">=</span><span class="s2">"basename"</span><span class="w"> </span><span class="na">index_sort_asc</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">index_items</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="na">interval</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="na">controls</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">indicators</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">photoswipe</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 <p>The examples use the existing <code class="language-plaintext highlighter-rouge">image_col: gallery</code> static-file defaults. External
 image lists work too. See <a href="../docs/04-layouts#photoswipe-lightbox">gallery setup and PhotoSwipe requirements</a>.</p>

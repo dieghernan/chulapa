@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-15 -->
+    <!-- Page build 2026-10-16 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-15T18:57:16+02:00",
-        "dateModified": "2026-10-15T18:57:16+02:00",
+        "datePublished": "2026-10-16T06:06:49+02:00",
+        "dateModified": "2026-10-16T06:06:49+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -243,7 +243,7 @@
 		<div class="row pt-2">
 			<div class="col-lg-2 mt-lg-3 small"></div>
 			<article id="maincontent" class="col-lg-8 mt-3 e-content">
-	<button type="button" class="btn btn-primary btn-sm rounded-right position-fixed chulapa-btn-sidebar bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" id='demo' onclick="openSideBar()" aria-label="Open Sidebar" aria-expanded="false" aria-controls="sideBar">
+	<button type="button" class="btn btn-primary btn-sm rounded-right position-fixed chulapa-btn-sidebar bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" id='chulapa-sidetoc-toggle' onclick="openSideBar()" aria-label="Open Sidebar" aria-expanded="false" aria-controls="sideBar">
 		<i class="fa-solid fa-plus"></i><span class="sr-only">Open Sidebar</span>
 	</button>
 	<div class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed navbar-chulapa h-100" id='sideBar' aria-hidden="true" inert>
@@ -486,9 +486,9 @@ used as a fallback. Status, sharing and other non-profile URLs do not set a
 creator.</li>
 </ul>
 <p class="alert alert-info p-3 mx-2 mb-3"><strong>Check your sharing metadata</strong>: <span class="chulapa">Chulapa</span> generates Open Graph and Twitter/X card
-tags automatically. Set accurate titles, excerpts and image URLs, then check the
-shared page with the relevant platform. Metadata does not guarantee a particular
-preview or search result.</p>
+tags automatically. For setup and published checks, use
+<a href="./64-post-sharing">Set a post’s sharing text and images</a>. Metadata does not
+guarantee a particular preview or search result.</p>
 <h4 id="publisher">Publisher</h4>
 <p><code class="language-plaintext highlighter-rouge">publisher</code> identifies the site publisher in JSON-LD structured data,
 independently of article authors. Supported since v2.1.0. For a personal-blog
@@ -597,7 +597,9 @@ Content Security Policy and browser-blocker checks. The
 service’s own behavior.</p>
 <h3 id="search-engines">Search engines</h3>
 <p><code class="language-plaintext highlighter-rouge">search</code> configures search within the site, independently of external search-engine
-indexing. The personal-blog template includes Fuse.js search. Setup instructions:
+indexing. For crawler/sitemap/local-index exclusions, use
+<a href="./65-search-visibility">Keep an auxiliary page out of search</a>.
+The personal-blog template includes Fuse.js search. Setup instructions:
 <a href="./12-fusejs-search">Enable Fuse.js</a>, <a href="./34-lunr-search">Lunr.js</a>,
 <a href="./35-simplesearch-search">Simple-Jekyll-Search</a>,
 <a href="./36-google-search">Google Custom Search</a> or <a href="./37-algolia-search">Algolia</a>.</p>
