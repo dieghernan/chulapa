@@ -1,5 +1,7 @@
 # Chulapa documentation context
 
+Release preparation: 2.2.0 candidate is unpublished; v2.1.1-dev labels refer to its planned features, not a released gem/tag. Latest published release: v2.1.0.
+
 Reviewed snapshot: layout/SEO, 15 October 2026. Selective facts from public
 docs and llms.txt, not a full manual. Acknowledge facts absent from this summary.
 For edit tasks: preserve unrelated config, commit on publishing branch, wait for

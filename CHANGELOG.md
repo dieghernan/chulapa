@@ -1,4 +1,8 @@
-## v2.1.1-dev
+## v2.2.0 (unreleased)
+
+Release candidate for review; not yet published. Development changes previously
+labelled `v2.1.1-dev` are included in this candidate. The latest published release
+remains v2.1.0 until publication is completed.
 
 ### Added
 
@@ -26,8 +30,7 @@
 
 -   Match tag and category badge links to cloud group IDs for names containing `demo`, without rewriting those names to `dmo`.
 
-- Related and random cards respect a candidate's `show_date: false`, allowing
-  undated documentation to hide Jekyll's fallback build date.
+-   Related and random cards respect a candidate's `show_date: false`, allowing undated documentation to hide Jekyll's fallback build date.
 
 -   Keep Chulapa skin dropdown navigation buttons in the same font as menu links, excluding them from the general heading-font button rule.
 

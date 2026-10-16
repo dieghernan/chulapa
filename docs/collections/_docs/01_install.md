@@ -8,6 +8,10 @@ show_tags: true
 cloudtag_url: /docs/tags
 ---
 
+The next release candidate is **2.2.0**, not yet published. Features labelled
+**v2.1.1-dev** are development changes planned for that release. Until publication,
+use `main` to try them; the released gem and `@v2.1.0` do not include them.
+
 Choose the route that matches your site. These are alternatives, not steps to
 complete in sequence.
 
