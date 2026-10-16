@@ -3,7 +3,7 @@
 	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-10-16T11:42:08+02:00</updated>
+	<updated>2026-10-16T11:57:15+02:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A flexible, visual Jekyll theme</title>
 	<subtitle>A flexible, visual Jekyll theme</subtitle>
@@ -245,8 +245,8 @@ you build. Share your site or feedback in
 			&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; &gt;
 			
 	&lt;p&gt;1 min.&lt;/p&gt;
-			&lt;p&gt;The &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; documentation now has an AI assistant.
-You can open it from the sparkle button on the homepage or documentation pages
+			&lt;p&gt;The &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; documentation now has an AI assistant &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot; width=&quot;1em&quot; height=&quot;1em&quot; style=&quot;vertical-align:-.1em&quot;&gt;&lt;path d=&quot;M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;.
+You can open it from the AI button on the homepage or documentation pages
 and ask about installation, skins, configuration, layouts and other documented
 features.&lt;/p&gt;
 

@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Fri, 16 Oct 2026 11:42:08 +0200</pubDate>
-		<lastBuildDate>Fri, 16 Oct 2026 11:42:08 +0200</lastBuildDate>
+		<pubDate>Fri, 16 Oct 2026 11:57:15 +0200</pubDate>
+		<lastBuildDate>Fri, 16 Oct 2026 11:57:15 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -232,8 +232,8 @@ you build. Share your site or feedback in
 				<![CDATA[	
  				<h3>A new way to explore the documentation</h3>
     		<p>1 min.</p>
-				<div><p>The <span class="chulapa">Chulapa</span> documentation now has an AI assistant.
-You can open it from the sparkle button on the homepage or documentation pages
+				<div><p>The <span class="chulapa">Chulapa</span> documentation now has an AI assistant <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align:-.1em"><path d="M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z"></path></svg>.
+You can open it from the AI button on the homepage or documentation pages
 and ask about installation, skins, configuration, layouts and other documented
 features.</p>
 
