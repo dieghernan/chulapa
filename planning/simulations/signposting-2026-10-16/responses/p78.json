@@ -1,0 +1,27 @@
+{
+  "packet": "p78",
+  "purpose": "Explain how skins, individual variables, and Autothemer interact to determine appearance.",
+  "stated_prerequisites": [],
+  "expected_next_action": "Continue reading for an explanation; the opening gives no procedural action.",
+  "findings": [
+    {
+      "exact_quote": "*Understand which appearance settings take effect*",
+      "concern": "Frames the page as conceptual explanation rather than a recipe.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "Individual variables customize\nthat design; Autothemer supplies a generated palette for values that are still\nundefined.",
+      "concern": "States when Autothemer supplies values, but does not explain why a particular override could leave some colors unchanged or how to identify the relevant variables.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "A skin provides a coordinated starting design.",
+      "concern": "Whether the page later specifies precedence between skin values and individual overrides requires checking beyond the opening.",
+      "classification": "requires_full_page_check"
+    }
+  ],
+  "uncertainties": [
+    "The excerpt does not establish which settings control particular colors.",
+    "The excerpt does not show whether the remainder offers diagnostic steps or examples."
+  ]
+}

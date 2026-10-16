@@ -1,0 +1,21 @@
+{
+  "packet": "p85",
+  "purpose": "Reference for looking up a layout, snippet or page setting, with separate routes for everyday editing and migration.",
+  "stated_prerequisites": [],
+  "expected_next_action": "Continue into the reference to locate the needed layout, snippet or page option.",
+  "findings": [
+    {
+      "exact_quote": "Use this page to look up a layout, snippet or page setting.",
+      "concern": "Clearly establishes lookup intent; the excerpt does not yet show how to locate a specific entry.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "*Layout, snippet and page-option reference*",
+      "concern": "Whether entries provide exact option names, defaults and version restrictions requires checking the full page.",
+      "classification": "requires_full_page_check"
+    }
+  ],
+  "uncertainties": [
+    "The excerpt does not show reference entries, navigation, defaults or version restrictions; their absence here does not establish a defect."
+  ]
+}

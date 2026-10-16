@@ -1,0 +1,54 @@
+{
+  "baseline": "5619c8cc7285f940a5535be25f884ac6e99da961",
+  "input_scope": "Title, subtitle and body before first H2; links are visible text only, not followed by reviewers.",
+  "pairs": [
+    {
+      "packet": "p41",
+      "source": "00_start.md",
+      "type": "tutorial",
+      "type_sentence": true
+    },
+    {
+      "packet": "p12",
+      "source": "00_start.md",
+      "type": "tutorial",
+      "type_sentence": false
+    },
+    {
+      "packet": "p23",
+      "source": "10_edit-menu.md",
+      "type": "how-to guide",
+      "type_sentence": true
+    },
+    {
+      "packet": "p64",
+      "source": "10_edit-menu.md",
+      "type": "how-to guide",
+      "type_sentence": false
+    },
+    {
+      "packet": "p85",
+      "source": "04_layouts.md",
+      "type": "reference",
+      "type_sentence": true
+    },
+    {
+      "packet": "p36",
+      "source": "04_layouts.md",
+      "type": "reference",
+      "type_sentence": false
+    },
+    {
+      "packet": "p57",
+      "source": "26_appearance-precedence.md",
+      "type": "explanation",
+      "type_sentence": true
+    },
+    {
+      "packet": "p78",
+      "source": "26_appearance-precedence.md",
+      "type": "explanation",
+      "type_sentence": false
+    }
+  ]
+}
