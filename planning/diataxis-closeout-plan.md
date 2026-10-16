@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `23f38525d`, after merged #157.
-Current delivery: final reference/accessibility review on `codex/docs-reference-closeout`; PR pending.
+Current delivery: final reference/accessibility review on `codex/docs-reference-closeout`; [PR #158](https://github.com/dieghernan/chulapa/pull/158) open; CI/review pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -18,7 +18,7 @@ status and links after each bounded PR. Documentation is written in English.
 | Navigation, identity and branding | Merged #155; applicable head checks passed, branch deleted. Seven guides and eight affected appearance pages reviewed. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). Deployment separately unverified. |
 | Comments and analytics | Merged #156 with applicable head checks passed; corrected thread resolved and branch deleted. See the [delivery record](comments-analytics-topic-delivery-2026-10-16.md). Deployment separately unverified. |
 | Hooks, mappings, feeds and metadata tasks | Merged #157; applicable head checks passed, branch deleted. Seven guides and affected installation/publication/navigation recommendations reviewed. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). Merged #157; deployment separately unverified. |
-| General reference and accessibility | Eight pages reviewed on this branch: seven badge groups, five widgets; FAQ retains direct question navigation. See the [delivery record](reference-navigation-closeout-2026-10-16.md). PR/CI/merge pending. |
+| General reference and accessibility | Eight pages reviewed on this branch: seven badge groups, five widgets; FAQ retains direct question navigation. See the [delivery record](reference-navigation-closeout-2026-10-16.md). PR #158 open; CI/review/merge pending. |
 | #154 cloud-entry dates | Open: undated Docs show fallback build dates in tag/category cloud entries despite hidden-date defaults. Confirmed during this review; separate rendering fix and release triage. |
 | #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
@@ -89,7 +89,7 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 | Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed in #155: badges/cards, with two candidates on icons/publisher and affected appearance review. Merged #155; #154 tracked separately. |
 | Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Merged #156; applicable head checks passed, corrected thread resolved, branch deleted. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
 | Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Prepared on this branch; Merged #157; deployment separately unverified. Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
-| General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Reviewed on this branch; PR/CI/merge pending. Seven badge groups; five widgets; FAQ unchanged and 02/04 retain direct reference navigation. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
+| General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Reviewed on this branch; PR #158 open; CI/review/merge pending. Seven badge groups; five widgets; FAQ unchanged and 02/04 retain direct reference navigation. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
 
 - [x] For each group, record reviewed pages, intended audience/task, tag/card
   decision and verification. Split PRs by coherent outcome, not a page quota.
