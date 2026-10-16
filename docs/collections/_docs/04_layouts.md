@@ -368,6 +368,12 @@ required.
 
 `include_collection` is optional; see the [Archive](#archive) layout.
 
+In v2.1.1-dev after v2.1.0, cloud entries respect each document's
+`show_date: false`: the publication date, calendar icon and date separator are
+hidden, while reading time remains. This also applies to the compatibility
+aliases and prevents undated guides from displaying Jekyll's fallback build date.
+It does not change which documents appear or their ordering.
+
 See a working example of the cloud tag on a list of collections [here]({{"./demo/tags" | absolute_url }}).
 
 #### Index category

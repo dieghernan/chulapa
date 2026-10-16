@@ -568,7 +568,7 @@
     "section": "layouts",
     "doc": "63_tag-category-clouds.md",
     "question": "How do I connect post tag/category badges to grouped index pages on a project site?",
-    "expected": "Matching cloudtag/cloudcategory pages permalinks and posts defaults cloudtag_url/cloudcategory_url; show_tags/show_categories true; preserve defaults, no repository prefix, scope posts not standalone pages; collection output true for linked articles. Verify badge fragments and links; demos use demo/skins scopes."
+    "expected": "Matching cloudtag/cloudcategory pages permalinks and posts defaults cloudtag_url/cloudcategory_url; show_tags/show_categories true; preserve defaults, no repository prefix, scope posts not standalone pages; collection output true for linked articles. Verify badge fragments and links; demos use demo/skins scopes. Dev after v2.1.0 respects candidate show_date: false in cloudtag/cloudcategory and aliases: no publication date/calendar/separator, reading time remains. v2.1.0 lacks this fix; do not invent a publication date for undated Docs."
   },
   {
     "id": "sharing-task-1",

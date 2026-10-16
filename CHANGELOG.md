@@ -16,6 +16,8 @@
 
 ### Fixed
 
+-   Respect each document's `show_date: false` in tag/category cloud entries and their aliases, hiding fallback publication dates while preserving reading time (#154).
+
 -   Render the classic-navbar demo with the same menu component and shared script dependencies as the theme, preserving native dropdown controls and configured expansion.
 
 -   Give the sidebar TOC trigger a theme-specific ID so it does not intercept links to the `demo` tag or category group.

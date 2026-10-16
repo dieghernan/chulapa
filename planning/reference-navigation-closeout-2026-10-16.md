@@ -3,7 +3,7 @@
 Date: 16 October 2026. Baseline: main `23f38525d`, after merged #157.
 Branch: `codex/docs-reference-closeout`.
 Delivery: [PR #158](https://github.com/dieghernan/chulapa/pull/158).
-Status: open; local checks passed; CI, review and merge pending.
+Status: merged #158; all applicable head checks passed, no unresolved threads and branch deleted. Editorial closeout delivered; actual Pages/Worker rollout separately unverified.
 
 ## Page decisions
 
