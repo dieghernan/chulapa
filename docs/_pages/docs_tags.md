@@ -14,8 +14,9 @@ breadcrumb_list:
 
 Browse the tagged guides and references below. Coverage is partial and includes
 appearance, content editing, publishing, site search, installation, navigation,
-site identity and branding. Installation includes migration, starter examples
-and theme updates; identity and branding include menu/footer links, site details,
-favicons, fonts, icons and publisher metadata. Provider and installation methods
-are alternatives, not sequential steps. For all documentation, use the
+site identity, branding, comments and analytics. Installation includes migration,
+starter examples and theme updates; identity and branding include menu/footer
+links, site details, favicons, fonts, icons and publisher metadata. Comment
+providers and installation methods are alternatives, not sequential steps.
+Google Analytics and GoatCounter can run together. For all documentation, use the
 [documentation index]({{ '/docs' | relative_url }}).

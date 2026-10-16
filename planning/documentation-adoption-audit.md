@@ -57,7 +57,8 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#151](https://github.com/dieghernan/chulapa/pull/151) — closeout plan and second tutorial context | Merged; head checks passed; deployment not reverified here | Adds the written execution plan, missing tutorial facts and a four-case evaluation protocol. No live inference or human study results. |
 | [#152](https://github.com/dieghernan/chulapa/pull/152) — search topic navigation | Merged; head checks passed; #150 closed; deployment not reverified here | Adds topic badges and reviewed cards to six existing search guides, including visibility. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md); #150 closed with this merge. |
 | [#153](https://github.com/dieghernan/chulapa/pull/153) — installation topic navigation | Merged; head checks passed; deployment separately unverified | Reviews seven existing installation/migration/starter/version pages; seven badge groups and six widgets, with the method directory retained. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). |
-| [#155](https://github.com/dieghernan/chulapa/pull/155) — navigation, identity and branding | Open; local checks passed; CI, review, merge and deployment pending | Reviews seven guides and eight affected appearance pages; captures the cloud-entry date defect separately in #154. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). |
+| [#155](https://github.com/dieghernan/chulapa/pull/155) — navigation, identity and branding | Merged; head checks passed; branch deleted; deployment separately unverified | Reviews seven guides and eight affected appearance pages; captures the cloud-entry date defect separately in #154. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). |
+| [#156](https://github.com/dieghernan/chulapa/pull/156) — comments and analytics | Open; local checks passed; CI/review/merge pending | Seven guides with provider alternatives, unchanged bodies and preserved #125 workarounds. See the [delivery record](comments-analytics-topic-delivery-2026-10-16.md). |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -180,7 +181,7 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 16 October 2026. #147, #149, #151, #152 and #153 are merged; #150 is closed. Historical assessments,
+Updated: 16 October 2026. #147, #149, #151, #152, #153 and #155 are merged; #150 is closed. Historical assessments,
 thresholds and synthetic review records below retain their original evidence.
 
 1. **Maintain the completed editorial decision.** Keep purpose-oriented openings;
@@ -189,10 +190,9 @@ thresholds and synthetic review records below retain their original evidence.
 2. **Review topic navigation in bounded blocks.** Search #152 and installation
    #153 are merged; #150 is closed. Their records retain actual checks and merge
    status, with deployment separately unverified. Navigation/identity/branding
-   pages 10/11/14/52/53/54/60 are reviewed/implemented on the current branch;
+   pages 10/11/14/52/53/54/60 are merged in #155;
    eight affected appearance pages were also checked. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md).
-   [PR #155](https://github.com/dieghernan/chulapa/pull/155) is open; CI, review and merge remain pending. Next: comments and analytics, retaining provider
-   restrictions. The archived broader draft is not a published delivery.
+   Comments and analytics are prepared on this branch; PR #156 open; CI/review pending. Provider restrictions remain intact. Next: hooks, mappings, feeds and metadata tasks. The archived broader draft is not a published delivery.
 3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
    Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;
    add a focused second-tutorial case. Its URL/scenario and complete example are

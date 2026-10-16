@@ -3,7 +3,7 @@
 Date: 16 October 2026. Baseline: main `d7e0b78a6`, after merged #153.
 Delivery: [PR #155](https://github.com/dieghernan/chulapa/pull/155).
 Branch: `codex/docs-identity-topic-navigation`.
-Status: open PR; local checks passed; CI, review, merge and deployment pending.
+Status: merged #155 with applicable head checks passed; branch deleted. Deployment separately unverified.
 
 ## Scope and dispositions
 

@@ -3,6 +3,10 @@ title: Enable giscus comments on a post
 subtitle: Connect GitHub Discussions and verify one published article
 excerpt: Add the giscus embed, select the provider and enable comments on an existing post.
 show_toc: false
+tags: [docs, comments]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing post using `layout: default` and a GitHub repository
