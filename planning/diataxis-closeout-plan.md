@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `8dbcd89ad`, after merged #160.
-Status: agreed editorial/correction scope delivered. Final score/status closeout proposed on `codex/diataxis-final-assessment`; PR pending.
+Status: agreed editorial/correction scope delivered. Final score/status closeout proposed on `codex/diataxis-final-assessment`; [PR #161](https://github.com/dieghernan/chulapa/pull/161) open; CI/review pending.
 See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery

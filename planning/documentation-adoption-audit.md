@@ -63,6 +63,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#158](https://github.com/dieghernan/chulapa/pull/158) — final reference/accessibility review | Merged; applicable head checks passed; branch deleted; deployment separately unverified | Eight explicit dispositions, seven badge groups and five widgets; FAQ and reference indexes retained. See the [closeout record](reference-navigation-closeout-2026-10-16.md). |
 | [#159](https://github.com/dieghernan/chulapa/pull/159) — cloud-entry hidden dates | Merged; head Jekyll 3/4 and browser CI passed; #154 closed; branch deleted | Fix for #154; see the [delivery record](cloud-date-fix-2026-10-16.md). Local Windows Jekyll 3 fixture limitation is recorded separately. |
 | [#160](https://github.com/dieghernan/chulapa/pull/160) — comment adapters and migration | Merged; all applicable head checks passed; #125 closed; branch deleted | Fixes delivered for #125 with legacy guidance; see the [delivery record](comment-adapters-fix-2026-10-16.md). No live posting or migration. |
+| [#161](https://github.com/dieghernan/chulapa/pull/161) — final scores and plan closeout | Open; local documentation checks passed; CI/review/merge pending | Dated 72-surface reassessment, resolved defect tracking and bounded alert-format review; historical scores preserved. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.

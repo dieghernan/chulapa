@@ -2,6 +2,7 @@
 
 Date: 16 October 2026. Reviewed snapshot: main after merged #160,
 [`8dbcd89ad`](https://github.com/dieghernan/chulapa/tree/8dbcd89ad0b94cb3389cd56ececba2b84790d1dc).
+Delivery: [PR #161](https://github.com/dieghernan/chulapa/pull/161).
 Status: closure proposed for review. Internal editorial judgement, not a user study.
 
 ## Scope, method and unchanged rubric
