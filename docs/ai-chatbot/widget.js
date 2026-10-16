@@ -1,5 +1,6 @@
 import { createAnswerRenderer } from './render-answer.mjs';
 import sparkles from './sparkles.svg';
+import launcher from './launcher.svg';
 
 (() => {
   'use strict';
@@ -51,7 +52,7 @@ import sparkles from './sparkles.svg';
     :host([data-compact]) form{order:-1;padding:.5rem 3.5rem .5rem .5rem}
     @media(prefers-color-scheme:dark){:host{color:#eef3f5;--surface:#1d2b33;--muted:#bac7cf;--line:#36454e;--bubble:#2a3b45}a{color:#a8dae8}}
   </style>
-  <button id="launch" aria-label="Ask AI" title="Ask Chulapa AI" aria-expanded="false" aria-controls="chat">${sparkles}</button>
+  <button id="launch" aria-label="Ask AI" title="Ask Chulapa AI" aria-expanded="false" aria-controls="chat">${launcher}</button>
   <section id="chat" hidden role="region" aria-labelledby="title">
     <header><div><h2 id="title">Ask <span class="chulapa">Chulapa</span> ${sparkles}</h2><p class="subtitle">Help with your site, straight from the docs.</p><button id="clear" type="button">Clear chat</button></div><button id="close" aria-label="Close chat">&#215;</button></header>
     <div id="log" role="log" aria-live="polite" aria-relevant="additions"><p class="message assistant">Hi! Ask me about <span class="chulapa">Chulapa</span>'s setup, layouts or features.</p></div>

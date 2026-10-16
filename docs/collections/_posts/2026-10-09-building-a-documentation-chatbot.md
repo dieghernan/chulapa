@@ -7,8 +7,8 @@ tags:
   - ai
 ---
 
-The <span class="chulapa">Chulapa</span> documentation now has an AI assistant.
-You can open it from the sparkle button on the homepage or documentation pages
+The <span class="chulapa">Chulapa</span> documentation now has an AI assistant {% include custom/chatbot-icon.html %}.
+You can open it from the AI button on the homepage or documentation pages
 and ask about installation, skins, configuration, layouts and other documented
 features.
 

@@ -6,6 +6,11 @@ custom include loads it on the homepage, documentation index, guides and the
 Ask Chulapa announcement post, controlled by
 `docs_chat` in `docs/_config.yml`. There are no API keys in the browser.
 
+The launcher combines AI lettering inspired by the
+[basic EU AI icon](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content)
+with a sparkle. This custom launcher graphic is distinct from the official
+content labels. The chat header retains the original sparkles.
+
 ## Build and test
 
 ```sh
