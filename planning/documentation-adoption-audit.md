@@ -53,6 +53,8 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#145](https://github.com/dieghernan/chulapa/pull/145) — final FAQ/Reference routing | Merged; Pages, Algolia and all main regressions succeeded | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
 | [#146](https://github.com/dieghernan/chulapa/pull/146) — Diátaxis signposting comparison | Merged; proposal only, not a public implementation | [Four-page comparison](diataxis-signposting-proposal-2026-10-16.md) of a plain type sentence with existing purpose-oriented openings. Recommends keeping the current openings unless evidence supports labels; no public implementation, new YAML or measured improvement. |
 | [#147](https://github.com/dieghernan/chulapa/pull/147) — proportionate editorial validation | Merged; corrected review threads resolved; head checks passed | [Four paired opening reviews and full-page adjudication](proportionate-validation-review-2026-10-16.md) support retaining current openings as the editorial default; no measured usability improvement. Human studies are optional, not a delivery gate. Live chatbot quality remains unmeasured and distinct from tests/deployments. |
+| [#149](https://github.com/dieghernan/chulapa/pull/149) — content and publishing navigation | Merged; head checks passed; deployment not reverified here | Extends topic navigation to 17 existing guides; preserves guide bodies and explicit tutorial progression. |
+| [#151](https://github.com/dieghernan/chulapa/pull/151) — closeout plan and second tutorial context | Merged; head checks passed; deployment not reverified here | Adds the written execution plan, missing tutorial facts and a four-case evaluation protocol. No live inference or human study results. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -175,7 +177,7 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 16 October 2026. #147 and #149 are merged. Historical assessments,
+Updated: 16 October 2026. #147, #149 and #151 are merged. Historical assessments,
 thresholds and synthetic review records below retain their original evidence.
 
 1. **Maintain the completed editorial decision.** Keep purpose-oriented openings;
@@ -183,8 +185,11 @@ thresholds and synthetic review records below retain their original evidence.
    Human interviews are optional and do not gate editorial completion.
 2. **Review topic navigation in bounded blocks.** Appearance and content/publishing
    are merged in #147/#149. Evaluate [#150](https://github.com/dieghernan/chulapa/issues/150)
-   as the next bounded navigation delivery: five search-provider tasks plus
-   search visibility, not all integrations. See the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md).
+   as the current bounded navigation delivery: five search-provider tasks plus
+   search visibility, not all integrations. See the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md)
+   and [implementation record](search-topic-navigation-delivery-2026-10-16.md).
+   Six-guide metadata, index/context coverage and focused case are prepared;
+   review, CI, merge and deployment remain pending.
    This is a discoverability improvement, not a verified runtime defect or
    measured usability failure. Separate uncommitted integration work is not a
    completed delivery; it lacks the visibility page and requires rescoping.

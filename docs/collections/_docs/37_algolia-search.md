@@ -1,6 +1,10 @@
 ---
 title: Connect Algolia search and upload its index
 subtitle: Configure browser search and a separate indexing step
+tags: [docs, search, hosted-search]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide if you already have an Algolia application/index and maintain
