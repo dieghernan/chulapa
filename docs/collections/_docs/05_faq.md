@@ -45,7 +45,7 @@ configuration parse error, use [Fix a YAML configuration error](./43-yaml-errors
 
 ### Why is my photograph missing?
 
-The [image guide](./17-add-image#publish-and-check) covers missing uploads,
+The [image guide](./17-add-image) covers missing uploads,
 filename capitalization and repository paths. If the whole article is stale,
 use [the publishing checks](./42-unpublished-changes).
 

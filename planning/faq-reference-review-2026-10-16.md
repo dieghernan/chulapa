@@ -10,7 +10,7 @@ Status: open for review, not merged and not a new Diátaxis score.
 | Area | Source issue | Final destination and retained detail |
 | --- | --- | --- |
 | FAQ post/page creation | Repeats filename/front matter/menu steps already covered by complete guides. | Brief distinction between dated articles and standalone content; links to guides 15/16, which retain complete files, prerequisites and publishing checks. |
-| FAQ missing photo | Repeats upload/name/publish troubleshooting from guide 17. | Direct link to its publish/check section and guide 42 for stale whole-article output. No missing-upload, capitalization or repository-path advice is lost from the canonical task. |
+| FAQ missing photo | Repeats upload/name/publish troubleshooting from guide 17. | Direct link to the complete image guide and guide 42 for stale whole-article output. No missing-upload, capitalization or repository-path advice is lost from the canonical task. |
 | FAQ design and previews | Two answers repeat config/save/publish skin instructions. | Route to guides 22/23/24 and Explanation 26; retain the useful warning that previewing documentation does not save a design to the reader's site. |
 | FAQ Markdown | Vague "covered" link competes with the syntax destinations. | Explicit theme syntax/output reference; retain external Markdown/kramdown links and parser caveat. |
 | Global settings | Footer/optional-feature/collection intros use procedure phrasing inside field lookup. | Declarative field/reference framing; retain every setting table, mapping, default, secret warning, compatibility caveat and provider task link. Required include-cache warning remains concrete. |
@@ -62,3 +62,12 @@ introductions is the next proposal after this delivery is reviewed/merged.
 Real first publication, second tutorial and advanced lookup observations plus
 live chatbot facts/citations/latency remain pending under the starter protocol.
 Historical inventories, scores and evaluation results are not rewritten.
+
+## Review correction: missing-image destination
+
+The FAQ now opens the complete image guide rather than skipping to its final
+publish/check section. Repository-path guidance and the `relative_url` example
+appear earlier under "Insert it into the content"; the whole-guide destination
+keeps both insertion and troubleshooting accessible. The FAQ link was rendered
+and its destination/source content checked. No new anchor, procedure, chatbot
+fact or runtime change; the full site build was not repeated for this link fix.
