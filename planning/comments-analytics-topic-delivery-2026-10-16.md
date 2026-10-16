@@ -62,3 +62,16 @@ Cloud-entry fallback dates remain tracked separately in #154; this PR does not
 fix or close it. Historical assessments and optional human research remain
 separate from these technical/editorial checks. Next bounded block: hooks,
 mappings, feeds and metadata tasks (44, 45, 46, 56, 57, 62 and 63).
+
+## PR review follow-up
+
+The review identified an overbroad alternatives statement in the topic index
+and chatbot summary. Narrow it to comment providers/setup methods and state
+that Google Analytics and GoatCounter can coexist, matching guides 02/18/19.
+Strengthen the existing GA4 evaluation expectation rather than add a duplicate
+case. Preserve the previous verification record; this wording correction does
+not change provider runtime, card selection, URLs, SEO metadata or PWA behavior.
+
+Follow-up validation: Jekyll build and 40 chatbot tests passed; rendered topic
+index contains the coexistence clarification. UTF-8, JSON and context budget
+checks passed. No live queries or manual Worker deployment.

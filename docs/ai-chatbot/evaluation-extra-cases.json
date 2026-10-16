@@ -288,7 +288,7 @@
     "section": "analytics",
     "doc": "19_google-analytics.md",
     "question": "I have a GA4 stream. How do I connect my blog, avoid duplicates and check it? Does local preview count?",
-    "expected": "G- measurement ID as existing gtag_id, clear legacy analytics_id and goatcounter for Google-only; no duplicate custom script; publish/check Realtime in matching property. Not production gated, also loads local preview. Blockers/custom consent can prevent requests."
+    "expected": "G- measurement ID as existing gtag_id, clear legacy analytics_id and goatcounter for Google-only; no duplicate custom script; publish/check Realtime in matching property. Not production gated, also loads local preview. GA4 and GoatCounter may run together; topic cards do not imply mutual exclusion. Blockers/custom consent can prevent requests."
   },
   {
     "id": "related-card-dates-1",
