@@ -1,0 +1,30 @@
+{
+  "packet": "p23",
+  "purpose": "A how-to guide for adding or changing a navbar link to an existing page on an already published site.",
+  "stated_prerequisites": [
+    "The site is already published.",
+    "A page exists to link to."
+  ],
+  "expected_next_action": "Proceed with the guide if the page exists; otherwise, create the page first using the linked guide.",
+  "findings": [
+    {
+      "exact_quote": "Use this guide when your site is already published and you have a page to link to.",
+      "concern": "The opening explicitly establishes applicability and prerequisites for this review lens.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "A menu entry does not create a page.",
+      "concern": "The opening distinguishes adding navigation from creating the destination page.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "*Make an existing page reachable from your navbar*",
+      "concern": "The stated scope is an existing page; whether external URLs or other link destinations are supported is not established here.",
+      "classification": "requires_full_page_check"
+    }
+  ],
+  "uncertainties": [
+    "The excerpt does not show the menu-editing steps or any additional prerequisites.",
+    "The linked page-creation guide was not inspected."
+  ]
+}

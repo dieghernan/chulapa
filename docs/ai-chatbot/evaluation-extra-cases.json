@@ -597,5 +597,12 @@
     "doc": "09_run-starter.md",
     "question": "The project starter demo says to install the project and its design differs from my copied example. Is that how I install Chulapa? Where are the real setup steps?",
     "expected": "The demo is annotated source/sample content within the docs site, not the standalone home page/skin. Project Getting started is fictional project copy, not Chulapa setup. Link /docs/09-run-starter for copy/config/dependencies/local preview/publication. Jekyll ~>4.4 Gemfile plus matching config, no deployment workflow, unpinned main/development; technical Mermaid absent v2.1.0. Preserve complete samples, do not claim profile selection or automatic publishing."
+  },
+  {
+    "id": "documentation-appearance-topics",
+    "section": "navigation",
+    "doc": "../_pages/docs_tags.md",
+    "question": "Where can I browse appearance documentation by topic rather than follow a tutorial? Are the related cards the next required steps?",
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for the partial documentation topic index (appearance, skins, colors, fonts, code-highlighting). Pilot covers appearance Reference and guides 22-28; badge links and up to three related cards help exploration, not a prescribed sequence. For complete documentation link /docs; do not confuse with blog tags or claim exhaustive topic coverage."
   }
 ]

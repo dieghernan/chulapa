@@ -1,6 +1,10 @@
 ---
 title: Change code highlighting
 subtitle: Apply a highlighting stylesheet to code blocks
+tags: [docs, appearance, code-highlighting]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,

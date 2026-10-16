@@ -1,0 +1,30 @@
+{
+  "packet": "p12",
+  "purpose": "Publish a public blog with a custom site title and an edited article using a supplied example.",
+  "stated_prerequisites": [
+    "A browser; no other prerequisites are stated in this excerpt."
+  ],
+  "expected_next_action": "Use the supplied example throughout the tutorial; the excerpt gives no immediate action or location for that example.",
+  "findings": [
+    {
+      "exact_quote": "Use the supplied example throughout",
+      "concern": "The example is referenced but not identified or located within the excerpt. Check whether the following instructions supply it.",
+      "classification": "requires_full_page_check"
+    },
+    {
+      "exact_quote": "using only your browser",
+      "concern": "This states the tool requirement but does not establish whether accounts or other setup are required. Check the full tutorial for those prerequisites.",
+      "classification": "requires_full_page_check"
+    },
+    {
+      "exact_quote": "you can choose colors and add photographs after publishing",
+      "concern": "Clearly places optional visual customization after the initial publication.",
+      "classification": "verifiable_from_excerpt"
+    }
+  ],
+  "uncertainties": [
+    "The excerpt does not explain what Chulapa is.",
+    "Any account, GitHub, or Jekyll requirements are unknown from this opening.",
+    "Subsequent instructions may identify the example and provide prerequisites."
+  ]
+}

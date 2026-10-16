@@ -1,0 +1,27 @@
+{
+  "packet": "p36",
+  "purpose": "Introduce a lookup reference for layouts, snippets and page settings, with separate routes for everyday editing and migration.",
+  "stated_prerequisites": [],
+  "expected_next_action": "Look up the relevant reference entry on this page; use the migration mapping when moving existing content.",
+  "findings": [
+    {
+      "exact_quote": "Use this page to look up a layout, snippet or page setting.",
+      "concern": "Clearly establishes reference intent, but the opening supplies no exact option names, defaults or version restrictions. Whether those are available requires checking the reference entries.",
+      "classification": "requires_full_page_check"
+    },
+    {
+      "exact_quote": "A **layout** is a page design; **front matter** is the settings block between `---` lines at the top of a content file.",
+      "concern": "Defines layout and front matter, while leaving snippet undefined in this excerpt.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "Moving existing posts or pages? Use the\n[migration front matter mapping](./46-migration-fields#layouts-and-page-front-matter).",
+      "concern": "Explicitly routes migration readers to a front matter mapping; its coverage cannot be assessed from this opening.",
+      "classification": "requires_full_page_check"
+    }
+  ],
+  "uncertainties": [
+    "The excerpt does not show how reference entries are organized or located.",
+    "Option syntax, defaults and version restrictions are not shown; their absence from the opening does not establish their absence from the page."
+  ]
+}

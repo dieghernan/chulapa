@@ -1,6 +1,10 @@
 ---
 title: Change the fonts
 subtitle: Load a font stylesheet and apply its families
+tags: [docs, appearance, fonts]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,

@@ -5,6 +5,12 @@ Date: 16 October 2026. Baseline: `505fa4836`, main after merged
 Delivery: [PR #146](https://github.com/dieghernan/chulapa/pull/146).
 Status: proposal for review, not a public implementation or user-study result.
 
+Policy update, 16 October 2026: #146 is merged. The comparison and human protocol
+below remain the original proposal. The
+[subsequent proportionate review](proportionate-validation-review-2026-10-16.md)
+uses agents as editorial reviewers; human participation is optional and is not
+a prerequisite for deciding whether to implement labels.
+
 ## Recommendation and boundary
 
 Keep the existing purpose-oriented titles, subtitles and introductions as the

@@ -1,0 +1,30 @@
+{
+  "packet": "p64",
+  "purpose": "Explain how to add or change a navbar link to an existing page on an already published site.",
+  "stated_prerequisites": [
+    "The site is already published.",
+    "A page exists to link to."
+  ],
+  "expected_next_action": "Continue into the guide if the page exists; otherwise, follow “create it first.”",
+  "findings": [
+    {
+      "exact_quote": "Use this guide when your site is already published and you have a page to link to.",
+      "concern": "Explicitly establishes applicability for an author with a published site and an existing destination page.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "A menu entry does not create a page.",
+      "concern": "Clarifies the distinction between adding navigation and creating its destination.",
+      "classification": "verifiable_from_excerpt"
+    },
+    {
+      "exact_quote": "# Add or change a menu link",
+      "concern": "The opening identifies the task but does not show the menu-editing action; whether subsequent instructions provide it requires checking the full page.",
+      "classification": "requires_full_page_check"
+    }
+  ],
+  "uncertainties": [
+    "The excerpt does not establish where or how to edit the menu.",
+    "The destination of “create it first” was not inspected."
+  ]
+}

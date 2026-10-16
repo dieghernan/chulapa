@@ -1,6 +1,10 @@
 ---
 title: Choose a skin
 subtitle: Apply a predefined design to your site
+tags: [docs, appearance, skins]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,

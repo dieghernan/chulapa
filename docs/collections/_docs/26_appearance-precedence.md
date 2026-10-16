@@ -1,6 +1,10 @@
 ---
 title: How skins and overrides interact
 subtitle: Understand which appearance settings take effect
+tags: [docs, appearance, skins, colors]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 A skin provides a coordinated starting design. Individual variables customize
