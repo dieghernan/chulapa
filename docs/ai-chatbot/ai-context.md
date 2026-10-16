@@ -308,9 +308,9 @@ Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before 
 ## Layout structure and include caching
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
+jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments remain page-specific in footer.html. Pass all page-dependent inputs to include_cached; use ordinary include for helpers assigning caller variables (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
 Existing layouts (including v2.1.0): compress wraps minimal then default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
 Custom shells: components/scripts.html supplies common jQuery/Popper/Bootstrap and fab/dual chulapa_navigation.js once; inherited minimal/search handle this, minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters require assets/js/chulapa_search.js, provider library and generated store before adapter. Review overrides together during upgrades; standard layouts order dependencies.
-jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments remain page-specific in footer.html. Pass all page-dependent inputs to include_cached; use ordinary include for helpers assigning caller variables (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
 **bold**, _italic_, ~~strikethrough~~; blank-line paragraphs; #..###### headings; [label](URL), ![alt](URL), > blockquote; - bullets, 1. ordered list; backtick inline code, language-labelled fences (js/ruby/html/yaml). Pipe tables use separator rows; colons align columns. Sample kramdown GFM differs from some extensions requiring kramdown.input: Kramdown; check generated output.

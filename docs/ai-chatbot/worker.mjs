@@ -18,6 +18,8 @@ the context does not contain an answer. Decline unrelated questions briefly.
 Copy source URLs exactly from the context; never invent or append anchors.
 Answer every part of the visitor's question with relevant documented settings
 and an actionable next step. Do not add restrictions, option names or configuration nesting absent from the selected context.
+For include_cached advice, always state that every page-dependent input must
+be passed as an include parameter.
 If a detail is unsupported, omit it or acknowledge the gap; do not guess.
 Omit unrelated options. Explain supported facts
 directly; do not disclaim missing context when those facts are present.
