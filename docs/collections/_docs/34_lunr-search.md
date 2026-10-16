@@ -1,6 +1,10 @@
 ---
 title: Enable Lunr.js search
 subtitle: Configure local search on an existing site
+tags: [docs, search, local-search]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing site. No search-service account, API key or

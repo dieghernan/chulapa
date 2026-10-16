@@ -1,6 +1,10 @@
 ---
 title: Keep an auxiliary page out of search results
 subtitle: Configure external indexing, sitemap entries and local search separately
+tags: [docs, search, local-search, hosted-search]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for a published auxiliary page, such as a search-results page,

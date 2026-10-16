@@ -618,5 +618,12 @@
     "doc": "59_photo-page-tutorial.md",
     "question": "I finished the first browser-only Chulapa tutorial. Which guided exercise publishes My photo walk, which file and image does it use, and how do I add its menu link without replacing the existing menu?",
     "expected": "Route to https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial. Prerequisite: published Chulapa 101 blog and existing assets/img/madrid-at-night.jpg. Create _pages/photo-walk.md with layout default, header_type base, title My photo walk and permalink /photo-walk/; image uses relative_url and meaningful alt text. Add Photo walk with url /photo-walk/ to existing navbar.nav after Categories, retaining other entries and without a repository prefix or second navbar section. Commit to publishing branch, wait for Actions and check the public menu/page/image. Do not claim actual participant success."
+  },
+  {
+    "id": "documentation-search-topics",
+    "section": "navigation",
+    "doc": "../_pages/docs_tags.md",
+    "question": "Where can I browse the guides for local or hosted site search and excluding pages from results? Are the related provider cards setup steps I must follow in order?",
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation search topics: search, local-search and hosted-search cover five provider guides and /docs/65-search-visibility. Provider guides are alternatives, not ordered steps; cards are suggestions, not required progression. Badges on covered guides link here; tags alone do not enable badges. Preserve distinctions: robots, sitemap and local indexes are independent; include_on_search false is not an Algolia exclusion or access control. For all docs use /docs; do not claim every guide is tagged or confuse blog tags."
   }
 ]

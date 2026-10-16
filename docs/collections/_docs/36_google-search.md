@@ -1,6 +1,10 @@
 ---
 title: Enable Google Custom Search
 subtitle: Connect an existing Google search engine to your site
+tags: [docs, search, hosted-search]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide if you already have a Google Custom Search engine configured for

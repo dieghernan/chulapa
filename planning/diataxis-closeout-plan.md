@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Baseline: main `fb265a74c`, after merged #149.
-Current delivery: [PR #151](https://github.com/dieghernan/chulapa/pull/151), open for review.
+Updated: 16 October 2026. Current delivery baseline: main `db48e2d7c`, after merged #151.
+Current delivery: [PR #152](https://github.com/dieghernan/chulapa/pull/152) implements #150 on `codex/docs-search-topic-navigation`; review, CI and merge pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -12,8 +12,8 @@ status and links after each bounded PR. Documentation is written in English.
 | --- | --- |
 | #147 proportionate review and appearance navigation | Merged; all applicable head checks passed. Three findings corrected/replied to; threads resolved. Its branch is deleted. No remaining change can be appended to that merged PR. |
 | #149 content and publishing navigation | Merged; head checks passed. Branch deleted. Merge/check success alone does not verify deployed chatbot answers. |
-| Second-tutorial chatbot coverage and evaluation preparation | Prepared on `codex/diataxis-chatbot-evaluation-plan`, pending PR review. Exact source, prerequisites, complete page example and menu/publishing constraints added locally. Context is 46,805 bytes in the Windows checkout; reviewed limit is 47,000. No deployment or live evaluation performed. |
-| #150 search topic navigation | Assessed, open and not implemented by this branch. Six existing guides form the next bounded navigation delivery. |
+| #151 second-tutorial chatbot coverage and evaluation preparation | Merged with applicable head checks passing. Exact source, prerequisites, complete page example and menu/publishing constraints added; reviewed budget is 47,000 bytes. Actual deployed context and live evaluation remain separately unverified here. |
+| #150 search topic navigation | Implemented on the current branch for six existing guides; review, CI, merge and deployment pending. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md). |
 | #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
 | Broader navigation/integration working changes | Separate uncommitted work, not a delivered PR. Do not mix them into the evaluation branch or count them as #150 completion. |
 
@@ -22,7 +22,7 @@ deployments and synthetic editorial reviews are not human usability evidence.
 No new site-wide purity score, measured findability gain or chatbot accuracy
 claim is established by this plan.
 
-## 1. Review and close the current preparation PR
+## 1. Completed preparation PR #151
 
 - [x] Reconcile #147 with GitHub; verify its fixes, replies, checks and threads.
 - [x] Preserve previous context facts and add the missing second tutorial source,
@@ -33,37 +33,42 @@ claim is established by this plan.
   second-tutorial case. Check unique IDs, source paths and example fidelity.
 - [x] Run `npm test`: 40 passed. Check UTF-8 and `git diff --check`.
 - [x] Open [PR #151](https://github.com/dieghernan/chulapa/pull/151).
-- [ ] Review its exact head and address justified findings.
-- [ ] Wait for applicable CI and an explicit merge instruction. Do not merge or
-  deploy as part of the current preparation request.
+- [x] Verify the reviewed head and applicable CI.
+- [x] Merge #151 after the user's explicit instruction. Deployment status remains
+  separately unverified here; no live evaluation has been performed.
 
-No new public page, Diataxis type label or extraction is needed. `llms.txt`
-already lists the second tutorial; runtime context changes are selective. After
-any later approved merge, verify actual Pages/Worker workflow results and context
-revision rather than inferring publication from the merge or build alone.
+No new public page, Diataxis type label or extraction was needed. `llms.txt`
+already lists the second tutorial; runtime context changes are selective. Verify
+actual Pages/Worker workflow results and context revision separately rather than
+inferring publication from the merge or build alone.
 
 ## 2. Deliver search navigation under #150
 
 Read the [issue assessment](search-topic-navigation-issue-150-2026-10-16.md) and
 [issue #150](https://github.com/dieghernan/chulapa/issues/150) before editing.
 
-- [ ] Scope a separate PR to guides 12, 34, 35, 36, 37 and 65 only.
-- [ ] Choose search topic metadata using existing options; inspect actual cards,
+- [x] Scope the current branch to guides 12, 34, 35, 36, 37 and 65 only.
+- [x] Choose search topic metadata using existing options; inspect actual cards,
   including visibility guidance. Provider guides are alternatives, not a course.
-- [ ] Keep guide bodies/examples, inline task/reference links and provider limits.
+- [x] Keep guide bodies/examples, inline task/reference links and provider limits.
   Keep local search, sitemap, robots and external indexing distinctions intact.
-- [ ] Validate docs build, card/topic destinations and fragments, 320/1280 px
+- [x] Validate docs build, card/topic destinations and fragments, 320/1280 px
   reflow and keyboard activation. Two relevant cards are better than filler.
-- [ ] Review index/`llms.txt`/selective context and navigation evaluation cases.
+- [x] Review index/`llms.txt`/selective context and navigation evaluation cases.
   Do not increase the byte budget for this navigation change. Run chatbot tests
   when context/cases change; live inference requires separate authorization.
-- [ ] Record PR, checked commit, results and actual merge/deployment state.
+- [x] Record local implementation and checks in the [delivery record](search-topic-navigation-delivery-2026-10-16.md).
+- [ ] Complete PR review/CI; record the approved merge and actual deployment
+  separately before closing #150.
 
 No Global settings activation just to fill cards, new configuration option,
 ranking/template/search change or unrelated page is part of this issue. Review
 and narrow any overlapping uncommitted work; it currently omits guide 65.
 
 ## 3. Finish the remaining editorial navigation review
+
+After #150 review/merge, begin the installation/migration/starter group below.
+Do not treat the uncommitted broader integration batch as the next approved PR.
 
 At the pinned baseline, 25 of 69 Docs pages have visible topic badges. Issue
 #150 covers six of the remaining 44. Of the other 38, the two tutorials (00 and

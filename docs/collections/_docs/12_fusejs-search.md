@@ -3,6 +3,10 @@ title: Enable Fuse.js search
 subtitle: Add a search page to an existing site
 excerpt: Configure Fuse.js, publish a matching search page and check that visitors can find your content.
 show_toc: false
+tags: [docs, search, local-search]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing site where you want Fuse.js search. The
