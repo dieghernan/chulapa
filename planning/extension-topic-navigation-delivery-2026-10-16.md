@@ -3,7 +3,7 @@
 Date: 16 October 2026. Baseline: main `9663b7375`, after merged #156.
 Branch: `codex/docs-extension-topic-navigation`.
 Delivery: [PR #157](https://github.com/dieghernan/chulapa/pull/157).
-Status: open; local checks passed; CI, review, merge and deployment pending.
+Status: merged #157; applicable head checks passed, no review findings and branch deleted. Deployment separately unverified.
 
 ## Scope and decisions
 
@@ -44,23 +44,23 @@ publication and navigation pages whose candidate pools can change:
 | 46-migration-fields | Migrating from another Jekyll theme; Check which theme version your site uses; Install using the theme gem |
 | 56-publish-feeds | Keep a jekyll-feed subscription address |
 | 57-jekyll-feed | Publish posts in the built-in feeds |
-| 62-canonical-article | Create and publish a post; Set a postâ€™s sharing text and images; How publishing fits together |
-| 63-tag-category-clouds | Global settings; Change your siteâ€™s name and author; Edit footer links |
+| 62-canonical-article | Create and publish a post; Set a post’s sharing text and images; How publishing fits together |
+| 63-tag-category-clouds | Global settings; Change your site’s name and author; Edit footer links |
 | 07-migration | Install using a remote theme; Check which theme version your site uses; Migration field mappings |
 | 08-starter-examples | Run and publish a starter example; Installation; Check which theme version your site uses |
 | 09-run-starter | Starter examples reference; Installation; Check which theme version your site uses |
 | 20-remote-theme | Migrating from another Jekyll theme; Check which theme version your site uses; Migration field mappings |
 | 21-gem-theme | Migrating from another Jekyll theme; Check which theme version your site uses; Migration field mappings |
 | 55-check-theme-version | Migrating from another Jekyll theme; Migration field mappings; Install using the theme gem |
-| 10-edit-menu | Global settings; Add tag and category indexes for your posts; Change your siteâ€™s name and author |
-| 11-edit-footer | Global settings; Add tag and category indexes for your posts; Change your siteâ€™s name and author |
+| 10-edit-menu | Global settings; Add tag and category indexes for your posts; Change your site’s name and author |
+| 11-edit-footer | Global settings; Add tag and category indexes for your posts; Change your site’s name and author |
 | 15-create-post | Create a page and link it from the menu; Add a Mermaid diagram; Display an article date in another language |
 | 16-create-page | Create and publish a post; Add a Mermaid diagram; Display an article date in another language |
 | 42-unpublished-changes | Fix a YAML configuration error; How publishing fits together; Create and publish a post |
 | 43-yaml-errors | Find changes missing from your website; How publishing fits together; Create and publish a post |
 | 47-publishing-explained | Find changes missing from your website; Fix a YAML configuration error; Create and publish a post |
 | 64-post-sharing | Create and publish a post; Point a republished article to its original URL; How publishing fits together |
-| 14-site-details | Global settings; Add tag and category indexes for your posts; Identify a personal siteâ€™s publisher |
+| 14-site-details | Global settings; Add tag and category indexes for your posts; Identify a personal site’s publisher |
 
 ## Verification and limitations
 

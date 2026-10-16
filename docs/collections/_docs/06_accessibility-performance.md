@@ -4,6 +4,10 @@ subtitle: Check your site's navigation, colors and resources
 excerpt: Verify your published pages with a keyboard, narrow screens and real content.
 show_toc: true
 permalink: /docs/06-accessibility-performance
+tags: [docs, accessibility]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide to check a published site after changing content, a skin or an

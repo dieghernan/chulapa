@@ -5,6 +5,10 @@ excerpt: Reference examples for Markdown formatting and kramdown extensions.
 permalink: /docs/markdown-cheatsheet
 show_toc: true
 h_max: 3
+tags: [docs, content, writing]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Lookup for formatting syntax and its rendered result. For a complete article

@@ -6,6 +6,8 @@ show_toc: true
 h_min: 2
 h_max: 5
 tags: [docs, analytics, navigation]
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 For editing procedures, use [Change your site's name and author](./14-site-details),

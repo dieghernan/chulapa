@@ -5,6 +5,10 @@ permalink: /docs/variable-dictionary
 show_toc: true
 h_min: 2
 h_max: 3
+tags: [docs, appearance, colors, fonts]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Lookup for selected variables accepted by `chulapa-skin.vars` in `_config.yml`,
