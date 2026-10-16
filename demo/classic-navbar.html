@@ -143,7 +143,8 @@
     <!-- end custom head snippets -->
     <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
 </head>
-	<body class="d-flex flex-column"><nav class="navbar navbar-expand-md sticky-top navbar-chulapa">
+	<body class="d-flex flex-column" id="body">
+<nav class="navbar navbar-expand-md sticky-top navbar-chulapa" aria-label="primary-navigation">
 	<div class="container-fluid mx-md-2">
 			<a class="navbar-brand font-weight-bold" href="https://dieghernan.github.io/chulapa/"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">Home</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -151,21 +152,22 @@
 			<div class="collapse navbar-collapse" id="navbarToggler">
 				<ul class="navbar-nav ml-auto"><li class="nav-item">
 						<a class="nav-link " href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
-					</li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle " href="#" id="Docs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="Docs"><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs">Documentation</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting</a></div>
+					</li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
+						<div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="Docs"><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs">Documentation</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting</a></div>
 					</li><li class="nav-item">
 						<a class="nav-link " href="https://dieghernan.github.io/chulapa/skins">Skins</a>
-					</li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle  active font-weight-bold" href="#" id="Demos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="Demos"><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo">Index</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a><a class="dropdown-item  active font-weight-bold" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar<span class="sr-only">(current)</span></a></div>
-					</li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle " href="#" id="About" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="About"><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/license">License</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/showcase">Showcase</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/contribute">Contribute</a><a class="dropdown-item " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></div>
+					</li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle  active font-weight-bold" id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
+						<div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="Demos"><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo">Index</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a><a class="dropdown-item  active font-weight-bold" href="https://dieghernan.github.io/chulapa/demo/classic-navbar" aria-current="page">Classic Navbar<span class="sr-only">(current)</span></a></div>
+					</li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle " id="About" data-toggle="dropdown" aria-expanded="false">About</button>
+						<div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="About"><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/license">License</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/showcase">Showcase</a><a class="dropdown-item " href="https://dieghernan.github.io/chulapa/contribute">Contribute</a><a class="dropdown-item " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></div>
 					</li><li class="nav-item">
 						<a class="nav-link " href="https://dieghernan.github.io/chulapa/search">
 							<span class="d-md-none p-0 pr-1">Search</span><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search</span>
 						</a>
 					</li></ul>
 			</div></div>
-</nav><header class="text-center header-chulapa"><div class="container-lg mt-2">
+</nav>
+<header class="text-center header-chulapa"><div class="container-lg mt-2">
        <div class="row">
            <div class="col-lg-8 offset-lg-2">
            <h1 class="p-name">Demo navbar</h1><p class="lead chulapa-subtitle p-summary">See how the classic navbar looks</p>
@@ -173,16 +175,26 @@
 			</div>
 		</div>
 	</div>
-</header><main class="container-lg pb-3 flex-fill">
+</header><main class="container-lg pb-3 flex-fill" id="maincontent">
 	<div class="row pt-2">
 	 <article class="col-lg-8 offset-lg-2 mt-3">
-		<p>This is an example that shows how the classic navbar would look on this theme.</p>
-				<p class="h-100"> Sticky behaviour</p>
+       <p>Try the classic navbar at the top of this page. On a narrow screen,
+        focus <strong>Toggle navigation</strong> and press Enter or Space to show
+        the links. Open a dropdown with Enter or Space, use the arrow keys to
+        move between its links, and press Escape to close it.</p>
+       <p>This demo follows the development version after v2.1.0. Its updated
+        controls are not included in the v2.1.0 gem or a remote theme pinned to
+        that release.</p>
+       <p>The navbar stays at the top while you scroll. It uses this site's
+        menu entries and <code>navbar.expand</code> breakpoint, rendered by the
+        same classic component as a standard theme page.</p>
+       <p>For your own menu, follow <a href="/chulapa/docs/10-edit-menu">Add or change a menu link</a>.
+        Style and breakpoint values are in the <a href="/chulapa/docs/02-config#navbar">navbar reference</a>.</p>
 		</article>
 		</div>
 <section class="container-lg py-4 text-left" aria-label="Demo front matter">
  <h2 class="h4">Front matter for this demo</h2>
- <p>This is the front matter used by this demo. The classic navbar is written in this page's HTML. For a standard layout, omit <code>navbar.style</code> in <code>_config.yml</code> to use the classic navbar.</p>
+ <p>This demo selects the theme's classic navbar while the rest of the documentation can use a floating menu. For a standard layout, omit <code>navbar.style</code> in <code>_config.yml</code> to use the classic navbar.</p>
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">compress</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s">Demo navbar</span>
@@ -230,10 +242,11 @@
     </div>
   </footer>
   <!-- Footer -->
-<!-- JS, Popper.js, and jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
+	<script src="/chulapa/assets/js/chulapa_script.js"></script>
 	<!-- start custom scripts to be placed at the bottom of the page -->
 <!-- end custom bottom scripts -->
 	</body>
