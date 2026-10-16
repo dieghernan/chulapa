@@ -184,6 +184,8 @@ archive: collection docs by date; include_collection: posts,demo (no underscores
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
 Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
 Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
+## Related and random article cards
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On main after v2.1.0 (unreleased), a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
 ## Configuring site search
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
@@ -306,7 +308,7 @@ Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before 
 ## Layout structure and include caching
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
-Development only, not released v2.1.0: compress wraps minimal then default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
+Existing layouts (including v2.1.0): compress wraps minimal then default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
 Custom shells: components/scripts.html supplies common jQuery/Popper/Bootstrap and fab/dual chulapa_navigation.js once; inherited minimal/search handle this, minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters require assets/js/chulapa_search.js, provider library and generated store before adapter. Review overrides together during upgrades; standard layouts order dependencies.
 jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments remain page-specific in footer.html. Pass all page-dependent inputs to include_cached; use ordinary include for helpers assigning caller variables (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
 ## Markdown formatting
@@ -392,7 +394,7 @@ Gallery internal=image_col group, external=comma-separated URLs (internal wins).
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults
 Source: https://dieghernan.github.io/chulapa/docs/03-theming#variables
-Native layouts: compress wraps minimal; default and landingpage inherit minimal; archive/cloudtag/cloudcategory/indexcategory inherit default. default does not inherit itself. minimal can have a hero with show_header: true, header_type: hero and header_img, but show_author does not add an author panel to minimal.
+minimal can have a hero with show_header: true, header_type: hero and header_img, but show_author does not add an author panel to minimal.
 Related/random labels: user-supplied related_label/random_label HTML is rendered unchanged, not a hardcoded heading. Use <h2 class="h5">Related posts</h2> for small-looking level-2 text. Eligibility uses tags, not categories. show_random is an on/off switch, not a count; up to three from the eligible pool.
 Archive page front matter, NOT an archive mapping in _config.yml:
 ```yaml

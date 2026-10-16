@@ -49,6 +49,7 @@ const routes = [
   [/photoswipe/i, ['PhotoSwipe galleries (development after v2.1.0)', 'Image galleries and carousels']],
   [/gallery|masonry|carousel|slideshow|galer[ií]a|carrusel/i, ['Image galleries and carousels']],
   [/math|equation|formula|toc|table of contents|sidebar|[ií]ndice.*contenido/i, ['Mathematical notation and tables of contents', 'Markdown formatting']],
+  [/related|random|eligible|singleton/i, ['Related and random article cards']],
   [/layout|minimal|archive|cloudtag|categor|related|random|indexcards|indexcategory|h.feed|microformat/i, ['More layouts and content navigation', 'Layout structure and include caching']],
   [/layout|minimal|archive|cloudtag|related|random|indexcards|indexcategory|rounded|enable.rounded|skin|font|feed|mathjax|label/i, ['Correct file and option scopes']],
   [/include.cached|include cache|inherit|herencia/i, ['Layout structure and include caching']],
