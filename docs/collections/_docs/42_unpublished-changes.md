@@ -1,6 +1,10 @@
 ---
 title: Find changes missing from your website
 subtitle: Check the saved edit, publishing run and public address
+tags: [docs, publishing, troubleshooting]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you have edited your site's files but the public website

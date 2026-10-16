@@ -603,6 +603,13 @@
     "section": "navigation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse appearance documentation by topic rather than follow a tutorial? Are the related cards the next required steps?",
-    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for the partial documentation topic index (appearance, skins, colors, fonts, code-highlighting). Pilot covers appearance Reference and guides 22-28; badge links and up to three related cards help exploration, not a prescribed sequence. For complete documentation link /docs; do not confuse with blog tags or claim exhaustive topic coverage."
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for the partial documentation topic index (appearance, skins, colors, fonts, code-highlighting). Coverage includes appearance, content editing and publishing but remains partial; badge links and up to three related cards help exploration, not a prescribed sequence. For complete documentation link /docs; do not confuse with blog tags or claim exhaustive topic coverage."
+  },
+  {
+    "id": "documentation-content-publishing-topics",
+    "section": "navigation",
+    "doc": "../_pages/docs_tags.md",
+    "question": "Where can I browse guides about writing posts, adding photos and fixing changes missing from my website? Are topic tags just for blog posts?",
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation topic coverage: content/writing, media/images/galleries and publishing/troubleshooting. Separate from blog tags. Related cards suggest up to three matching pages, not required steps. For complete docs use /docs. Coverage is partial: badges on covered guides link to the topic index; tags alone do not enable visible badges. Do not claim all documentation is tagged."
   }
 ]

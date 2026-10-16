@@ -1,6 +1,10 @@
 ---
 title: Enable PhotoSwipe on a gallery
 subtitle: Open gallery images in a zoomable viewer
+tags: [docs, content, media, images, galleries]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing [gallery](./29-add-gallery) or

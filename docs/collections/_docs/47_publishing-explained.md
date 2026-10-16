@@ -1,6 +1,10 @@
 ---
 title: How publishing fits together
 subtitle: The relationship between your files, the theme and the live website
+tags: [docs, publishing, troubleshooting]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 A saved file and a published web page are different things. The repository holds

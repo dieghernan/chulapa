@@ -2,8 +2,10 @@
 title: Add an image to a post or page
 subtitle: Upload a photograph and display it in your content
 excerpt: Upload an image, use a repository-safe path and check the published result.
-tags: [docs, content]
+tags: [docs, content, media, images]
 show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you already have a post or page to edit in a published site.

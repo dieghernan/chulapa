@@ -13,5 +13,5 @@ breadcrumb_list:
 ---
 
 Browse the tagged guides and references below. Topic coverage is currently
-partial, with an appearance navigation pilot. For all documentation, use the
+partial, covering appearance, content editing and publishing. For all documentation, use the
 [documentation index]({{ '/docs' | relative_url }}).

@@ -1,6 +1,10 @@
 ---
 title: Add a photo gallery
 subtitle: Group uploaded photographs in a masonry gallery
+tags: [docs, content, media, images, galleries]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing post or page that uses a theme layout and can
