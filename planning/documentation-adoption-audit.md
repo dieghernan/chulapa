@@ -52,7 +52,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#144](https://github.com/dieghernan/chulapa/pull/144) — classic-navbar parity | Merged; Pages, Algolia and main regression workflows succeeded | Shares actual classic markup/dependencies between theme and demo, with keyboard/responsive and parity checks. Published branch HTML contains the new controls without duplicated dependencies. See [bounded review](classic-navbar-review-2026-10-16.md). Netlify preview failed; its logs were inaccessible, separately from successful official Pages deployment. |
 | [#145](https://github.com/dieghernan/chulapa/pull/145) — final FAQ/Reference routing | Merged; Pages, Algolia and all main regressions succeeded | Routes duplicate FAQ recipes and indirect guide links to existing tasks; reviews Global settings/Layout framing while retaining fields, examples and current headings. See [joint review](faq-reference-review-2026-10-16.md). No new guide or purity score. |
 | [#146](https://github.com/dieghernan/chulapa/pull/146) — Diátaxis signposting comparison | Merged; proposal only, not a public implementation | [Four-page comparison](diataxis-signposting-proposal-2026-10-16.md) of a plain type sentence with existing purpose-oriented openings. Recommends keeping the current openings unless evidence supports labels; no public implementation, new YAML or measured improvement. |
-| [#147](https://github.com/dieghernan/chulapa/pull/147) — proportionate editorial validation | Open; agent review completed, decision proposed for review | [Four paired opening reviews and full-page adjudication](proportionate-validation-review-2026-10-16.md) support retaining current openings as the editorial default; no measured usability improvement. Human studies are optional, not a delivery gate. Live chatbot quality remains unmeasured and distinct from tests/deployments. |
+| [#147](https://github.com/dieghernan/chulapa/pull/147) — proportionate editorial validation | Merged; corrected review threads resolved; head checks passed | [Four paired opening reviews and full-page adjudication](proportionate-validation-review-2026-10-16.md) support retaining current openings as the editorial default; no measured usability improvement. Human studies are optional, not a delivery gate. Live chatbot quality remains unmeasured and distinct from tests/deployments. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -171,25 +171,25 @@ so undated documentation does not display the fallback build date. Existing post
 
 ### Active implementation order
 
-Updated: 16 October 2026. #142–#146 are merged. The original Phase 5 roadmap
-and dated reassessments below remain historical; this is the current queue.
+Updated: 16 October 2026. #147 and #149 are merged. Historical assessments,
+thresholds and synthetic review records below retain their original evidence.
 
-1. **Review the proportionate validation decision.** The
-   [agent review and adjudication](proportionate-validation-review-2026-10-16.md)
-   compares four opening pairs. Retain existing purpose-oriented openings; no
-   public labels, templates, badges or YAML are proposed. This is an editorial
-   recommendation, not a measured improvement or a human usability result.
-2. **Maintain demonstrated correctness.** Address reproducible content, link,
-   example or behavior defects in bounded PRs. Keep technical depth and complete
-   examples. No additional extraction or signposting rollout is automatically due.
-3. **Optional follow-up evidence.** First publication, the second tutorial and
-   advanced-option lookup can use the existing human protocols if useful and
-   feasible; recruitment and interviews are not prerequisites for closing this
-   editorial program. Agent profiles supply editorial hypotheses, never human
-   completion, timing or preference data. Live chatbot facts, citations and
-   latency remain unmeasured; assess affected answers when advice/context changes,
-   separately from technical tests and deployment. This internal review changes
-   neither public advice nor chatbot context and needs no live evaluation.
+1. **Maintain the completed editorial decision.** Keep purpose-oriented openings;
+   add no public type labels or new extracted pages without a concrete defect.
+   Human interviews are optional and do not gate editorial completion.
+2. **Review topic navigation in bounded blocks.** Appearance and content/publishing
+   are merged in #147/#149. Navigation and integration metadata are separate
+   in-progress work, not delivered or included in this evaluation proposal.
+3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
+   Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;
+   add a focused second-tutorial case. Its exact tutorial URL/scenario is absent
+   from selective context and needs reviewed coverage before that live check.
+   No quota-consuming run or Worker deployment is authorized or performed here.
+   Judge facts/examples/sources separately from elapsed request time.
+4. **Collect concrete defects before release.** Keep the adapter bugs tracked in
+   [#125](https://github.com/dieghernan/chulapa/issues/125) distinct from editorial
+   improvements. Technical tests, deployment and agent reviews do not establish
+   human usability or live chatbot precision. Preserve historical results.
 
 Completed foundations include appearance/media/provider extraction, migration
 and FAQ task guides, publishing/override explanations, the second tutorial,
