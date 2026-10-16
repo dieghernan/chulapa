@@ -29,7 +29,7 @@ selectors.each do |provider, selector|
         raise "Cusdis page inputs leaked" unless %w[data-page-id data-page-url data-page-title].map { |attribute| thread[attribute] } == expected
       when "cactus"
         script = html.css("script").map(&:text).join
-        raise "Cactus page URL leaked" unless script.include?("commentSectionId: \"/#{name}-page\"")
+        raise "Cactus page URL leaked" unless script.include?("commentSectionId: \"%2F#{name}%5Fpage\"")
       when "welcomments"
         raise "Welcomments page URL leaked" unless html.at_css('input[name="permalink"]')["value"] == "https://example.com/#{name}_page"
         raise "Welcomments page slug leaked" unless html.at_css('input[name="page-slug"]')["value"] == name

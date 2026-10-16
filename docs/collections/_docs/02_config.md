@@ -402,9 +402,10 @@ Provider identifiers and compatibility constraints are listed below.
   - `website_id`: Welcomments site id. Requires a separately configured integration delivering comment data under `_data/welcomments/`; setting the ID alone does not deliver data.
 
 Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
-field in this adapter. The current Cactus conversation ID retains `/` from page
-URLs, although the client forbids `/` and `_`; its setup guide includes a local
-adapter correction and existing-thread migration cautions. Comment-provider selection does not migrate comments,
+field in this adapter. In development after v2.1.0, conversation IDs URL-encode
+`page.url` and encode underscores as `%5F`; they exclude the forbidden `/` and `_`.
+The v2.1.0 adapter retains slashes. Its setup guide includes a legacy local
+correction and migration checks: changing IDs does not move existing threads. Comment-provider selection does not migrate comments,
 and thread matching depends on the provider and page identifiers/addresses.
 
 For **giscus**, `_includes/custom/giscus.html` contains the embed script generated
@@ -419,8 +420,9 @@ In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
 iframe and requires a finite, nonnegative numeric height. Existing provider
 settings are unchanged.
 
-**Welcomments compatibility:** the current form permalink omits `baseurl`;
-project sites need the local form correction in the setup guide. Local `_includes/welcomments/` files override
+**Welcomments compatibility:** in development after v2.1.0, form permalinks
+include `baseurl`. The v2.1.0 form omits it; project sites on that release need
+the local correction in the setup guide. Local `_includes/welcomments/` files override
 the theme templates. Provider-generated templates can replace the customized
 ones supplied by <span class="chulapa">Chulapa</span>. The
 [setup guide](./40-welcomments-comments) covers reviewing those integration files.

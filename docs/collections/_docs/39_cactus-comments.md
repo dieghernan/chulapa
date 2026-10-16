@@ -11,10 +11,12 @@ Use this guide after registering your site with [Cactus](https://cactus.chat/).
 Have its registered site name ready. This adapter uses the Cactus-hosted Matrix
 service; there is no theme setting for selecting an arbitrary Matrix homeserver.
 
-**Adapter limitation:** the current theme passes page URLs containing `/` to
-Cactus, whose [client requirements](https://cactus.chat/docs/client/introduction/)
-exclude `/` and `_` from conversation IDs. Configure the local correction below
-before relying on this integration, including on v2.1.0.
+**Version and migration:** in development after v2.1.0 (v2.1.1-dev), the adapter
+URL-encodes page paths and encodes underscores as `%5F`, meeting the
+[client requirements](https://cactus.chat/docs/client/introduction/) that exclude
+`/` and `_`. This fix is absent from v2.1.0; use the local correction below on
+that release. Before upgrading an existing integration, record its current IDs
+and verify thread matching; the new mapping does not move old conversations.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ## Select Cactus
@@ -32,7 +34,7 @@ Keep the theme's Cactus integration; do not add another embed to the post.
 
 ## Correct the conversation identifier
 
-Copy `_includes/components/cactus.html` from your installed theme version into
+On v2.1.0, copy `_includes/components/cactus.html` from your installed theme version into
 the same path in your repository. The [development source](https://github.com/dieghernan/chulapa/blob/main/_includes/components/cactus.html)
 shows the file's structure. Preserve the rest of the file and replace only its
 `commentSectionId` line with:
@@ -45,7 +47,12 @@ shows the file's structure. Preserve the rest of the file and replace only its
 
 This encodes `/` and `_` without collapsing distinct paths such as `/a/b/` and
 `/a-b/` into one conversation ID. The same page URL always produces the same ID.
-Keep the local file under review when upgrading the theme.
+The root path `/` becomes `%2F`; `/a_b/` becomes `%2Fa%5Fb%2F`, while
+`/a-b/` becomes `%2Fa-b%2F`. Percent signs are encoded too, so an already
+encoded-looking path is not decoded into a different path. The mapping uses
+`page.url`, independently of `baseurl`. Do not decode IDs before comparing them.
+Keep local files under review when upgrading: they override the corrected theme.
+A local adapter already using this exact mapping needs no second encoding step.
 
 **Existing conversations:** changing an ID can disconnect an old thread. Record
 the IDs used by your existing integration and check their matching before

@@ -1,7 +1,7 @@
 # Cloud entry hidden-date fix
 
 Date: 16 October 2026. Baseline: main `0b9bbb375`, after merged #158.
-Branch: `codex/fix-cloud-entry-dates`. Issue: #154. [PR #159](https://github.com/dieghernan/chulapa/pull/159) open; CI/review pending.
+Branch: `codex/fix-cloud-entry-dates`. Issue: #154. [PR #159](https://github.com/dieghernan/chulapa/pull/159) merged; all applicable head checks passed, including Jekyll 3/4 and browser. #154 closed; branch deleted.
 
 ## Behavior
 
@@ -38,11 +38,11 @@ queries or manual Worker deployment; deployed answer quality is unverified.
 Local Windows Jekyll 3.10 renders empty fixture pages, including the pre-existing
 include-cache test. Its new test did not pass locally; the cause is not established.
 The automatic regression runner discovers the new check in the existing Jekyll
-3/4 CI matrix. Require that CI result before treating compatibility as verified.
+3/4 CI matrix. The reviewed head subsequently passed the Jekyll 3/4 CI matrix in #159, establishing compatibility for the tested fixtures.
 
 ## Plan status
 
 #158 is merged, with head checks passed and branch deleted. All editorial groups
-are delivered. #154 remains open until this fix is reviewed/merged; next is #125
+are delivered. #159 is merged and #154 is closed; next is #125
 adapter/migration work, followed by release checks. Preserve historical reviews
 and keep optional interviews/live chatbot evaluation separate.
