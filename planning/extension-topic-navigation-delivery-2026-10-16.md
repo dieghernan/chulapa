@@ -2,7 +2,8 @@
 
 Date: 16 October 2026. Baseline: main `9663b7375`, after merged #156.
 Branch: `codex/docs-extension-topic-navigation`.
-Status: local checks passed; PR, CI, review, merge and deployment pending.
+Delivery: [PR #157](https://github.com/dieghernan/chulapa/pull/157).
+Status: open; local checks passed; CI, review, merge and deployment pending.
 
 ## Scope and decisions
 
