@@ -2,6 +2,7 @@
 
 Date: 16 October 2026. Baseline: `5619c8cc7285f940a5535be25f884ac6e99da961`,
 main after merged [#146](https://github.com/dieghernan/chulapa/pull/146).
+Delivery: [PR #147](https://github.com/dieghernan/chulapa/pull/147).
 Status: completed synthetic editorial review; recommendation submitted for review.
 No public implementation or human study.
 
