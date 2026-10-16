@@ -5,6 +5,10 @@ excerpt: |
   Browse available syntax highlighting styles and compare rendered code examples.
 permalink: /docs/syntax-highlighting
 show_toc: false
+tags: [docs, appearance, code-highlighting]
+show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Lookup for highlighting style identifiers and code specimens. The selector

@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `9663b7375`, after merged #156.
-Current delivery: hooks, mappings, feeds and metadata tasks on `codex/docs-extension-topic-navigation`; [PR #157](https://github.com/dieghernan/chulapa/pull/157) open; CI/review pending.
+Updated: 16 October 2026. Current delivery baseline: main `23f38525d`, after merged #157.
+Current delivery: final reference/accessibility review on `codex/docs-reference-closeout`; PR pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -17,7 +17,8 @@ status and links after each bounded PR. Documentation is written in English.
 | Installation, migration and starters | Merged #153 with applicable head checks passed; seven badges and six widgets. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). Deployment separately unverified here. |
 | Navigation, identity and branding | Merged #155; applicable head checks passed, branch deleted. Seven guides and eight affected appearance pages reviewed. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). Deployment separately unverified. |
 | Comments and analytics | Merged #156 with applicable head checks passed; corrected thread resolved and branch deleted. See the [delivery record](comments-analytics-topic-delivery-2026-10-16.md). Deployment separately unverified. |
-| Hooks, mappings, feeds and metadata tasks | Seven pages prepared; affected installation/publication/navigation recommendations also checked. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). PR #157 open; CI/review pending. |
+| Hooks, mappings, feeds and metadata tasks | Merged #157; applicable head checks passed, branch deleted. Seven guides and affected installation/publication/navigation recommendations reviewed. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). Merged #157; deployment separately unverified. |
+| General reference and accessibility | Eight pages reviewed on this branch: seven badge groups, five widgets; FAQ retains direct question navigation. See the [delivery record](reference-navigation-closeout-2026-10-16.md). PR/CI/merge pending. |
 | #154 cloud-entry dates | Open: undated Docs show fallback build dates in tag/category cloud entries despite hidden-date defaults. Confirmed during this review; separate rendering fix and release triage. |
 | #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
@@ -70,16 +71,15 @@ No Global settings activation, new configuration option, ranking/template/search
 change or unrelated page was included. All six required sources, including guide
 65, are in the merged delivery; the earlier broader draft remains archived.
 
-## 3. Finish the remaining editorial navigation review
+## 3. Final editorial navigation review
 
 The installation/migration/starter group is merged in #153. Navigation, identity
 and branding are merged in #155; see the [page decisions](identity-topic-navigation-delivery-2026-10-16.md).
-Comments and analytics are merged in #156. Hooks, mappings, feeds and metadata tasks are prepared on this branch; next is general reference and accessibility. Use the archived draft
+Comments and analytics are merged in #156. Hooks, mappings, feeds and metadata tasks are merged in #157. The final reference/accessibility group is reviewed on this branch; review/CI/merge remain pending. Use the archived draft
 only as reference; do not apply stale context/index support files.
 
 At the historical #149 baseline (`fb265a74c`), 25 of 69 Docs pages had visible
-topic badges. Merged #152 adds six (31), and #153 adds seven (38). #155 adds seven (45), and #156 adds seven (52). This branch adds seven, for 59 if accepted. Of the remaining 10, tutorials 00/59 retain
-explicit progression; the other eight belong to the final pending group below. Reviewing a
+topic badges. Merged #152 adds six (31), and #153 adds seven (38). #155 adds seven (45), and #156 adds seven (52). #157 adds seven (59). This branch adds seven, for 66 if accepted. The FAQ and tutorials 00/59 deliberately retain direct navigation without topic badges. All eight final reference/accessibility pages have an explicit disposition. Reviewing a
 page does not require enabling badges/cards on it.
 This inventory concerns metadata coverage, not a new Diataxis quality score.
 
@@ -88,19 +88,25 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 | Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Merged #153: badges on seven pages, cards on six; 01 retains its directory and body/version facts. |
 | Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed in #155: badges/cards, with two candidates on icons/publisher and affected appearance review. Merged #155; #154 tracked separately. |
 | Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Merged #156; applicable head checks passed, corrected thread resolved, branch deleted. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
-| Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Prepared on this branch; PR #157 open; CI/review pending. Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
-| General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Decide badges/cards page by page. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
+| Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Prepared on this branch; Merged #157; deployment separately unverified. Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
+| General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Reviewed on this branch; PR/CI/merge pending. Seven badge groups; five widgets; FAQ unchanged and 02/04 retain direct reference navigation. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
 
-- [ ] For each group, record reviewed pages, intended audience/task, tag/card
+- [x] For each group, record reviewed pages, intended audience/task, tag/card
   decision and verification. Split PRs by coherent outcome, not a page quota.
-- [ ] Capture verified behavior defects as issues with source, reproduction,
+- [x] Capture verified behavior defects as issues with source, reproduction,
   expected/actual result and release impact. Avoid duplicating #125/#150.
-- [ ] Do not extract pages, add type badges, retag every page or revise old scores
+- [x] Do not extract pages, add type badges, retag every page or revise old scores
   solely to claim completion. Essential inline links remain authoritative.
-- [ ] Mark the review complete when every group has an explicit disposition and
-  concrete defects are tracked, not when every possible improvement is built.
+- [x] Record an editorial disposition for every group and track concrete defects.
+  Final delivery remains subject to PR review/CI/merge; this does not establish
+  human usability or live chatbot accuracy.
 
 ## 4. Resolve release-relevant defects and freeze scope
+
+After the final reference PR is reviewed and merged, fix #154 in a separate
+rendering PR, then #125 in a separate adapter/migration PR. Do not expand the
+editorial scope without a concrete defect. Live chatbot evaluation and optional
+human interviews remain separate from editorial closeout.
 
 - [ ] Resolve or explicitly triage [#154](https://github.com/dieghernan/chulapa/issues/154)
   before release: cloud entries expose build dates as publication dates on

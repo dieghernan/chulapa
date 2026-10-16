@@ -7,6 +7,8 @@ mermaid: true
 show_toc: true
 h_max: 4
 tags: [docs, content]
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this page to look up a layout, snippet or page setting. For everyday editing,
