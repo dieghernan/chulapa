@@ -1,5 +1,6 @@
 # Build the gem at the repository root, then run from test/:
-# bundle exec ruby check_theme_installation.rb
+# BUNDLE_GEMFILE=installation/Gemfile bundle exec ruby check_theme_installation.rb
+# For Jekyll 3, select BUNDLE_GEMFILE=jekyll3/Gemfile instead.
 # Jekyll 3 can otherwise pick up repository layouts instead of installed files.
 require "jekyll"
 require "jekyll-include-cache"
