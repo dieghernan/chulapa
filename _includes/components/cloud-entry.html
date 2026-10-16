@@ -8,7 +8,7 @@
       <h3 class="h6"><a href="{{ include.document.url | absolute_url }}" class="p-name u-url">{{ include.document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h3>
       {%- if include.document.subtitle -%}<p class="p-summary">{{- include.document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
       <div class="small">
-        {% if include.document.date %}
+        {% if include.document.date and include.document.show_date != false %}
         {% assign dateformat = include.document.date | date: "%B %d, %Y" %}
         <i class="far fa-calendar" aria-hidden="true"></i> <time class="dt-published" datetime="{{- include.document.date | date_to_xmlschema -}}">{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
 {% if include.document.last_modified_at %} <i class="fa fa-redo" aria-hidden="true"></i>{% endif %} |

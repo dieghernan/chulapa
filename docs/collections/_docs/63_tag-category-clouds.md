@@ -86,6 +86,11 @@ the existing collection configuration to be published. Ordinary standalone pages
 are not part of these collection indexes. Full scope/alias details remain in the
 [layout reference](./04-layouts#cloud-tags-and-categories).
 
+To hide dates for a collection's entries in these indexes, set `show_date: false`
+on its documents or in its existing defaults. Cloud entries honor this setting
+in the development version after v2.1.0; reading time remains visible. The
+v2.1.0 release does not include this fix.
+
 ## Publish and verify
 
 Commit the page, configuration and post edits on the publishing branch. Wait for
