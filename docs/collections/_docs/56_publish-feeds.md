@@ -1,6 +1,10 @@
 ---
 title: Publish posts in the built-in feeds
 subtitle: Include articles and share a subscription address
+tags: [docs, feeds]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide on an existing site to let readers subscribe in a feed reader.

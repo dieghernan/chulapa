@@ -1,6 +1,10 @@
 ---
 title: Add custom HTML to the page head
 subtitle: Use a supported hook without copying a layout
+tags: [docs, custom-hooks]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing site using the theme's layouts. Have the HTML

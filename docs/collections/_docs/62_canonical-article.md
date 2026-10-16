@@ -2,6 +2,10 @@
 title: Point a republished article to its original URL
 subtitle: Set a canonical URL without changing the copied page's address
 excerpt: Identify an article's original version, exclude the duplicate from a jekyll-sitemap index and verify generated metadata.
+tags: [docs, publishing]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when you publish a copy of an article and want its metadata to

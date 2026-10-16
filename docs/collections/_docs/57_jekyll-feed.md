@@ -1,6 +1,10 @@
 ---
 title: Keep a jekyll-feed subscription address
 subtitle: Preserve an existing feed alongside the theme's Atom and RSS files
+tags: [docs, feeds]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when your existing site uses `jekyll-feed`, especially if readers
