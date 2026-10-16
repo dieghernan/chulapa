@@ -11,7 +11,8 @@ function fixture(context, check) {
   const path = mkdtempSync(join(tmpdir(), 'chulapa-build-'));
   try {
     copyFileSync(join(directory, 'build.mjs'), join(path, 'build.mjs'));
-    symlinkSync(join(directory, 'node_modules'), join(path, 'node_modules'), 'dir');
+    symlinkSync(join(directory, 'node_modules'), join(path, 'node_modules'),
+      process.platform === 'win32' ? 'junction' : 'dir');
     writeFileSync(join(path, 'ai-context.md'), context);
     check(path, () => spawnSync(process.execPath, [join(path, 'build.mjs')], { encoding: 'utf8' }));
   } finally { rmSync(path, { recursive: true, force: true }); }

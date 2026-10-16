@@ -78,7 +78,7 @@ offline support. A favicon/web app manifest alone establishes neither offline
 operation nor guaranteed app installability. Site-specific capabilities depend
 on the site's hosting and any separate implementation.
 
-Comments, embedded videos and the documentation chatbot need network access.
+Comments, embedded videos and the documentation chatbot {% include custom/chatbot-icon.html %} need network access.
 A published site must be tested before offline behavior is promised.
 
 ## Review coverage

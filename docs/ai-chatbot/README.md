@@ -6,6 +6,11 @@ custom include loads it on the homepage, documentation index, guides and the
 Ask Chulapa announcement post, controlled by
 `docs_chat` in `docs/_config.yml`. There are no API keys in the browser.
 
+The launcher combines AI lettering inspired by the
+[basic EU AI icon](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content)
+with a sparkle. This custom launcher graphic is distinct from the official
+content labels. The chat header retains the original sparkles.
+
 ## Build and test
 
 ```sh
@@ -14,6 +19,10 @@ npm ci
 npm run build
 npm test
 ```
+
+The deployment-gate test requires Bash. On Windows, it prefers Git Bash from the
+standard Git installation and otherwise uses Bash on `PATH`. Build fixtures use
+directory junctions on Windows so administrator privileges are not required.
 
 The theme regression workflow also runs `npm test` on pull requests and pushes
 to `main`, without deploying or invoking live AI. The tests cover Worker routes,
