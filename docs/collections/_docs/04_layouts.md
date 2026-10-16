@@ -582,6 +582,10 @@ Setup: [Embed a video](./32-embed-video).
 | `nolazy` | Off | YouTube only; boolean `true` creates an iframe without activation. The browser may still defer the iframe through `loading="lazy"`. |
 | `video_res` | `maxresdefault` | Deferred YouTube preview resolution; see [preview behavior](#deferred-lazy-loading-of-youtube-videos). |
 
+The accessible player and play-button names derived from `name` require `main`
+after v2.1.0 (v2.1.1-dev); v2.1.0 supports `name` in video metadata but does not
+use it for those accessible names.
+
 For `fileurl`, browser-supported formats include MP4, Ogg and WebM. Playback
 also depends on the codec and browser; the extension alone is insufficient.
 
@@ -632,9 +636,10 @@ External-file specimen:
 
 #### Deferred (lazy) loading of YouTube videos
 
-Default: a preview loads first; activation loads the player. Without JavaScript,
-the link opens YouTube. Autoplay remains subject to browser policy. The iframe
-uses `https://www.youtube-nocookie.com`, which must be allowed by a restrictive
+Default: a preview loads first; activation loads the player. In `main` after
+v2.1.0 (v2.1.1-dev), a link opens YouTube when JavaScript is disabled; v2.1.0
+does not provide that fallback link. Autoplay remains subject to browser policy.
+The iframe uses `https://www.youtube-nocookie.com`, which must be allowed by a restrictive
 Content Security Policy.
 
 `nolazy=true` on `video.html` removes the activation requirement. Direct

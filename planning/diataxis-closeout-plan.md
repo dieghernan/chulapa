@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `8dbcd89ad`, after merged #160.
-Status: agreed editorial/correction scope delivered. Final score/status closeout proposed on `codex/diataxis-final-assessment`; [PR #161](https://github.com/dieghernan/chulapa/pull/161) open; CI/review pending.
+Updated: 16 October 2026. Current delivery baseline: main `a2302de0f`, after merged #161.
+Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release preparation and deployment verification remain separate.
 See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
@@ -106,7 +106,7 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 ## 4. Completed defect work and separate release handoff
 
 The final reference PR #158 and #154 rendering fix #159 are merged. #125 is also fixed in merged #160. The agreed editorial/correction scope is
-complete. Close the final assessment/status PR, then perform release checks. Do not expand the
+complete, including the final assessment/status PR #161. Perform release checks separately. Do not expand the
 editorial scope without a concrete defect. Live chatbot evaluation and optional
 human interviews remain separate from editorial closeout.
 

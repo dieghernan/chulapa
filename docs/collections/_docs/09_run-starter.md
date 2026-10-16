@@ -29,7 +29,7 @@ the example's own skin and generates its own article/project links.
    to `/my-blog` for that repository's site or `""` for a site at the domain root.
 3. Replace sample content and placeholder links. Blog posts go in
    `_posts/YYYY-MM-DD-title.md`; portfolio projects go in `_projects/`.
-4. Keep the supplied design, or follow [Choose a skin](./03-theming#skins).
+4. Keep the supplied design, or follow [Choose a skin](./22-choose-skin).
    To keep a released version, append a tag such as `@v2.1.0` to `remote_theme`;
    Mermaid is unavailable in that release.
 

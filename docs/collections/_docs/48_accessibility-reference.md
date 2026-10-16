@@ -51,7 +51,10 @@ are unavailable. Reduced motion starts them paused. Slide/navigation interaction
 stops rotation until explicit restart; hovering pauses temporarily. `interval=0`
 disables cycling. [Carousel reference](./04-layouts#bootstrap-carousel).
 
-Video `name` supplies a descriptive player name, not captions or transcripts.
+In `main` after v2.1.0 (v2.1.1-dev), video `name` supplies descriptive player and
+play-button names. In v2.1.0, it supplies video metadata but not those accessible
+names. Neither version creates captions or transcripts. The development version
+also provides a YouTube link when JavaScript is disabled; v2.1.0 lacks that link.
 Mermaid (available on `main` after v2.1.0, not in the v2.1.0 gem or pin) uses
 `accTitle` and `accDescr` to describe a diagram; complex content still
 needs a prose equivalent. Gallery snippets use generic image descriptions;
