@@ -1,6 +1,10 @@
 ---
 title: Migration field mappings
 subtitle: Legacy patterns, supported fields and integration constraints
+tags: [docs, installation, theme-updates]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Lookup for an existing Jekyll site's migration. The entries below are common

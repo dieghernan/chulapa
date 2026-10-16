@@ -1,6 +1,10 @@
 ---
 title: Add tag and category indexes for your posts
 subtitle: Connect article badges to grouped lists
+tags: [docs, navigation]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide on an existing blog with tagged or categorized posts. The result

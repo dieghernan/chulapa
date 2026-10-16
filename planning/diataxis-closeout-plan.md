@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `246aae5a0`, after merged #155.
-Current delivery: comments and analytics on `codex/docs-comments-analytics-topics`; [PR #156](https://github.com/dieghernan/chulapa/pull/156) open; CI and review pending.
+Updated: 16 October 2026. Current delivery baseline: main `9663b7375`, after merged #156.
+Current delivery: hooks, mappings, feeds and metadata tasks on `codex/docs-extension-topic-navigation`; PR pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -16,6 +16,8 @@ status and links after each bounded PR. Documentation is written in English.
 | #150 search topic navigation | Closed by merged #152; all applicable head checks passed. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md). Actual Pages/Worker deployment remains separately unverified here. |
 | Installation, migration and starters | Merged #153 with applicable head checks passed; seven badges and six widgets. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). Deployment separately unverified here. |
 | Navigation, identity and branding | Merged #155; applicable head checks passed, branch deleted. Seven guides and eight affected appearance pages reviewed. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). Deployment separately unverified. |
+| Comments and analytics | Merged #156 with applicable head checks passed; corrected thread resolved and branch deleted. See the [delivery record](comments-analytics-topic-delivery-2026-10-16.md). Deployment separately unverified. |
+| Hooks, mappings, feeds and metadata tasks | Seven pages prepared; affected installation/publication/navigation recommendations also checked. See the [delivery record](extension-topic-navigation-delivery-2026-10-16.md). PR/CI/review pending. |
 | #154 cloud-entry dates | Open: undated Docs show fallback build dates in tag/category cloud entries despite hidden-date defaults. Confirmed during this review; separate rendering fix and release triage. |
 | #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
@@ -72,12 +74,12 @@ change or unrelated page was included. All six required sources, including guide
 
 The installation/migration/starter group is merged in #153. Navigation, identity
 and branding are merged in #155; see the [page decisions](identity-topic-navigation-delivery-2026-10-16.md).
-Comments and analytics are prepared on this branch; next are hooks, mappings, feeds and metadata tasks. Use the archived draft
+Comments and analytics are merged in #156. Hooks, mappings, feeds and metadata tasks are prepared on this branch; next is general reference and accessibility. Use the archived draft
 only as reference; do not apply stale context/index support files.
 
 At the historical #149 baseline (`fb265a74c`), 25 of 69 Docs pages had visible
-topic badges. Merged #152 adds six (31), and #153 adds seven (38). #155 adds seven (45). This branch adds seven, for 52 if accepted. Of the remaining 17, tutorials 00/59 retain
-explicit progression; the other 15 belong to the two pending groups below. Reviewing a
+topic badges. Merged #152 adds six (31), and #153 adds seven (38). #155 adds seven (45), and #156 adds seven (52). This branch adds seven, for 59 if accepted. Of the remaining 10, tutorials 00/59 retain
+explicit progression; the other eight belong to the final pending group below. Reviewing a
 page does not require enabling badges/cards on it.
 This inventory concerns metadata coverage, not a new Diataxis quality score.
 
@@ -85,8 +87,8 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 | --- | --- | --- |
 | Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Merged #153: badges on seven pages, cards on six; 01 retains its directory and body/version facts. |
 | Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed in #155: badges/cards, with two candidates on icons/publisher and affected appearance review. Merged #155; #154 tracked separately. |
-| Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Prepared on this branch; PR #156 open; CI/review pending. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
-| Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
+| Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Merged #156; applicable head checks passed, corrected thread resolved, branch deleted. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
+| Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Prepared on this branch; PR/CI/review pending. Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
 | General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Decide badges/cards page by page. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
 
 - [ ] For each group, record reviewed pages, intended audience/task, tag/card

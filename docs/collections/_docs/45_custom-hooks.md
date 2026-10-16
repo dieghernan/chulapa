@@ -1,6 +1,10 @@
 ---
 title: Custom hooks reference
 subtitle: File paths, insertion points and override constraints
+tags: [docs, custom-hooks]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Lookup for site-wide custom files. For an editing procedure, use
