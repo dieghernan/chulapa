@@ -6,7 +6,7 @@ date)](https://img.shields.io/github/v/release/dieghernan/chulapa)
 [![Gem Version](https://badge.fury.io/rb/chulapa-jekyll.svg)](https://badge.fury.io/rb/chulapa-jekyll)
 ![Gem Total Downloads](https://img.shields.io/gem/dt/chulapa-jekyll)
 ![License](https://img.shields.io/github/license/dieghernan/chulapa)
-![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.8.7-blue)
+![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.7%20%3C5.0-blue)
 ![GitHub Pages](https://img.shields.io/badge/gh--pages-ready-succes)
 ![Google Analytics](https://img.shields.io/badge/google--analytics-ready-succes)
 ![Disqus](https://img.shields.io/badge/disqus-ready-succes) ![Social

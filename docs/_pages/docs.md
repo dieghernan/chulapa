@@ -64,8 +64,8 @@ search and comments are optional.
 
 ## Reference
 
-Look up an option, supported value or example. These links include specific
-reference sections in pages that also contain task guides.
+Look up an option, supported value, default or constraint. The references include
+configuration examples and links to related task guides.
 
 - [Global settings](./docs/02-config): site identity, navigation, integrations and build settings.
 - [Layouts](./docs/04-layouts#a-layouts), [snippets](./docs/04-layouts#b-snippets) and [advanced page settings](./docs/04-layouts#advanced-page-settings).

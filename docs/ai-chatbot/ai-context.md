@@ -176,7 +176,7 @@ Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, goog
 {% include snippets/video.html id="YOUR_VIDEO_ID" provider="youtube" %}
 Local/remote file (fileurl wins over provider/id):
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
-YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). This embeds website video, not uploads into chat.
+YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). Accessible player/play-button names from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but not those accessible names or fallback link. This embeds website video, not uploads into chat.
 
 
 ## Image galleries and carousels

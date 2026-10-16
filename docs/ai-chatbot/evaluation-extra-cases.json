@@ -364,8 +364,8 @@
     "id": "media-video-task-1",
     "section": "snippets",
     "doc": "32_embed-video.md",
-    "question": "How do I insert a named YouTube video? Does nolazy mean the browser must load it immediately? My address is a youtu.be Share link or youtube.com/shorts URL.",
-    "expected": "Link to /docs/32-embed-video and /docs/04-layouts#deferred-lazy-loading-of-youtube-videos. Include snippets/video.html provider=\"youtube\" id with video identifier and name with title in content body. Default click activation. nolazy=true removes activation requirement, but iframe loading=\"lazy\" can still defer browser loading. video_res changes preview; thumbnail_url metadata only. Publish and verify. Extract the final path segment for youtu.be/ID and youtube.com/shorts/ID, or v= value for standard watch URLs; omit query parameters and fragments."
+    "question": "How do I insert a named YouTube video? Does nolazy mean the browser must load it immediately? My address is a youtu.be Share link or youtube.com/shorts URL. I am pinned to v2.1.0: does name label the player, and is there a link without JavaScript?",
+    "expected": "Link to /docs/32-embed-video and /docs/04-layouts#deferred-lazy-loading-of-youtube-videos. Include snippets/video.html provider=\"youtube\" id with video identifier and name with title in content body. Default click activation. nolazy=true removes activation requirement, but iframe loading=\"lazy\" can still defer browser loading. video_res changes preview; thumbnail_url metadata only. Publish and verify. Accessible player/play-button names derived from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but lacks those accessible names and fallback link. Extract the final path segment for youtu.be/ID and youtube.com/shorts/ID, or v= value for standard watch URLs; omit query parameters and fragments."
   },
   {
     "id": "media-diagram-task-1",
