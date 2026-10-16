@@ -1,8 +1,9 @@
 # Navigation, identity and branding topic delivery
 
 Date: 16 October 2026. Baseline: main `d7e0b78a6`, after merged #153.
+Delivery: [PR #155](https://github.com/dieghernan/chulapa/pull/155).
 Branch: `codex/docs-identity-topic-navigation`.
-Status: locally reviewed/implemented; PR, CI, merge and deployment pending.
+Status: open PR; local checks passed; CI, review, merge and deployment pending.
 
 ## Scope and dispositions
 

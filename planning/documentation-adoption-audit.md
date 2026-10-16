@@ -57,6 +57,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#151](https://github.com/dieghernan/chulapa/pull/151) — closeout plan and second tutorial context | Merged; head checks passed; deployment not reverified here | Adds the written execution plan, missing tutorial facts and a four-case evaluation protocol. No live inference or human study results. |
 | [#152](https://github.com/dieghernan/chulapa/pull/152) — search topic navigation | Merged; head checks passed; #150 closed; deployment not reverified here | Adds topic badges and reviewed cards to six existing search guides, including visibility. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md); #150 closed with this merge. |
 | [#153](https://github.com/dieghernan/chulapa/pull/153) — installation topic navigation | Merged; head checks passed; deployment separately unverified | Reviews seven existing installation/migration/starter/version pages; seven badge groups and six widgets, with the method directory retained. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). |
+| [#155](https://github.com/dieghernan/chulapa/pull/155) — navigation, identity and branding | Open; local checks passed; CI, review, merge and deployment pending | Reviews seven guides and eight affected appearance pages; captures the cloud-entry date defect separately in #154. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -190,7 +191,7 @@ thresholds and synthetic review records below retain their original evidence.
    status, with deployment separately unverified. Navigation/identity/branding
    pages 10/11/14/52/53/54/60 are reviewed/implemented on the current branch;
    eight affected appearance pages were also checked. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md).
-   PR/CI/merge remain pending. Next: comments and analytics, retaining provider
+   [PR #155](https://github.com/dieghernan/chulapa/pull/155) is open; CI, review and merge remain pending. Next: comments and analytics, retaining provider
    restrictions. The archived broader draft is not a published delivery.
 3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
    Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;

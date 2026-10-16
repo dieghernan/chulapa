@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `d7e0b78a6`, after merged #153.
-Current delivery: navigation/identity/branding on `codex/docs-identity-topic-navigation`; PR/CI/merge pending.
+Current delivery: [PR #155](https://github.com/dieghernan/chulapa/pull/155), navigation/identity/branding on `codex/docs-identity-topic-navigation`; CI, review and merge pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -15,7 +15,7 @@ status and links after each bounded PR. Documentation is written in English.
 | #151 second-tutorial chatbot coverage and evaluation preparation | Merged with applicable head checks passing. Exact source, prerequisites, complete page example and menu/publishing constraints added; reviewed budget is 47,000 bytes. Actual deployed context and live evaluation remain separately unverified here. |
 | #150 search topic navigation | Closed by merged #152; all applicable head checks passed. See the [delivery record](search-topic-navigation-delivery-2026-10-16.md). Actual Pages/Worker deployment remains separately unverified here. |
 | Installation, migration and starters | Merged #153 with applicable head checks passed; seven badges and six widgets. See the [delivery record](installation-topic-navigation-delivery-2026-10-16.md). Deployment separately unverified here. |
-| Navigation, identity and branding | Seven pages reviewed and metadata prepared on this branch; eight affected appearance pages also checked. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). PR/CI/merge pending. |
+| Navigation, identity and branding | Seven pages reviewed and metadata prepared on this branch; eight affected appearance pages also checked. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md). Open in [PR #155](https://github.com/dieghernan/chulapa/pull/155); CI, review and merge pending. |
 | #154 cloud-entry dates | Open: undated Docs show fallback build dates in tag/category cloud entries despite hidden-date defaults. Confirmed during this review; separate rendering fix and release triage. |
 | #125 comment adapters | Open runtime defects: Cactus identifiers and Welcomments project-site permalinks. Existing workarounds and migration warnings remain necessary. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
@@ -85,7 +85,7 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 | Review group | Existing page IDs | Completion rule |
 | --- | --- | --- |
 | Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Merged #153: badges on seven pages, cards on six; 01 retains its directory and body/version facts. |
-| Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed on this branch: badges/cards, with two candidates on icons/publisher and affected appearance review. PR/merge pending; #154 tracked separately. |
+| Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed on this branch: badges/cards, with two candidates on icons/publisher and affected appearance review. Open PR #155; review/merge pending; #154 tracked separately. |
 | Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
 | Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
 | General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Decide badges/cards page by page. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
