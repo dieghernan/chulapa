@@ -10,7 +10,7 @@ root = File.expand_path("..", __dir__)
 layouts = %w[cloudtag cloudcategory cloudtag2 cloudcategory2]
 Dir.mktmpdir("chulapa-cloud-dates-") do |source|
   %w[_includes _layouts].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
-  File.write(File.join(source, "_layouts/default.html"), '<link rel="stylesheet" href="/assets/css/main.css"><main class="container">{{ content }}</main>')
+  File.write(File.join(source, "_layouts/default.html"), '<meta charset="utf-8"><link rel="stylesheet" href="/assets/css/main.css"><main class="container">{{ content }}</main>')
   FileUtils.mkdir_p(File.join(source, "_entries"))
   fixtures = {
     "visible" => {"date" => "2024-01-02", "show_date" => true},

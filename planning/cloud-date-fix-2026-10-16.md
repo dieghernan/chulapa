@@ -1,7 +1,7 @@
 # Cloud entry hidden-date fix
 
 Date: 16 October 2026. Baseline: main `0b9bbb375`, after merged #158.
-Branch: `codex/fix-cloud-entry-dates`. Issue: #154. PR pending.
+Branch: `codex/fix-cloud-entry-dates`. Issue: #154. [PR #159](https://github.com/dieghernan/chulapa/pull/159) open; CI/review pending.
 
 ## Behavior
 

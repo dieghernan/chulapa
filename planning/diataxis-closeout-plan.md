@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `0b9bbb375`, after merged #158.
-Current delivery: #154 cloud-date fix on `codex/fix-cloud-entry-dates`; PR pending.
+Current delivery: #154 cloud-date fix on `codex/fix-cloud-entry-dates`; [PR #159](https://github.com/dieghernan/chulapa/pull/159) open; CI/review pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
