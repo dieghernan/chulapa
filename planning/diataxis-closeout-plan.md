@@ -1,6 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Baseline: main `fb265a74c`, after merged #149.
+Current delivery: [PR #151](https://github.com/dieghernan/chulapa/pull/151), open for review.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -31,7 +32,8 @@ claim is established by this plan.
 - [x] Reuse three existing evaluation cases and add only the missing focused
   second-tutorial case. Check unique IDs, source paths and example fidelity.
 - [x] Run `npm test`: 40 passed. Check UTF-8 and `git diff --check`.
-- [ ] Open the PR, review its exact head and address justified findings.
+- [x] Open [PR #151](https://github.com/dieghernan/chulapa/pull/151).
+- [ ] Review its exact head and address justified findings.
 - [ ] Wait for applicable CI and an explicit merge instruction. Do not merge or
   deploy as part of the current preparation request.
 
