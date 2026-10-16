@@ -1,5 +1,6 @@
 // The generated dashboard-worker.mjs includes the reviewed context and widget.
 import { CONTEXT, WIDGET } from './generated-content.mjs';
+import { selectContext, unsupportedCitations } from './context-selector.mjs';
 
 const MODEL = '@cf/google/gemma-4-26b-a4b-it';
 const PROMPT = `You are the Chulapa documentation assistant. Answer in the visitor's
@@ -12,7 +13,9 @@ published-result check. Do not invent features, facts or URLs. Say when
 the context does not contain an answer. Decline unrelated questions briefly.
 Copy source URLs exactly from the context; never invent or append anchors.
 Answer every part of the visitor's question with relevant documented settings
-and an actionable next step. Omit unrelated options. Explain supported facts
+and an actionable next step. Do not add restrictions, option names or configuration nesting absent from the selected context.
+If a detail is unsupported, omit it or acknowledge the gap; do not guess.
+Omit unrelated options. Explain supported facts
 directly; do not disclaim missing context when those facts are present.
 When asked which skins are available, give 6–8 actual examples from the
 Available skins section (the full list only if requested) and link the catalog at
@@ -75,27 +78,44 @@ export default {
       return json({ error: 'Use a question of 1–1,000 characters.' }, 400);
     }
     if (!env.AI || !env.CHAT_RATE_LIMIT) {
+      console.error(JSON.stringify({ event: 'chat_not_configured', status: 503 }));
       return json({ error: 'Chat is not configured. Please use site search.' }, 503);
     }
+    let failureEvent = 'chat_rate_limiter_failed';
     try {
       const { success } = await env.CHAT_RATE_LIMIT.limit({
         key: request.headers.get('CF-Connecting-IP') || 'unknown'
       });
-      if (!success) return json({ error: 'Please wait a minute or use site search.' }, 429);
+      if (!success) {
+        console.warn(JSON.stringify({ event: 'chat_rate_limited', status: 429 }));
+        return json({ error: 'Please wait a minute or use site search.' }, 429);
+      }
+      failureEvent = 'chat_inference_failed';
+      const selected = selectContext(CONTEXT, message.trim());
       const result = await env.AI.run(MODEL, {
         messages: [
-          { role: 'system', content: PROMPT + '\n\nWEBSITE CONTEXT:\n' + CONTEXT },
+          { role: 'system', content: PROMPT + '\n\nWEBSITE CONTEXT:\n' + selected.text },
           { role: 'user', content: message.trim() }
         ], max_completion_tokens: 450, temperature: 0.2,
         chat_template_kwargs: { enable_thinking: false }
       });
       if (result.choices?.[0]?.finish_reason === 'length') {
+        console.warn(JSON.stringify({ event: 'chat_answer_truncated', status: 503 }));
         return json({ error: 'The answer was too long. Ask a more specific question or search the docs.' }, 503);
       }
       const answer = result.choices?.[0]?.message?.content;
-      if (typeof answer !== 'string' || !answer.trim()) throw new Error('Empty answer');
+      if (typeof answer !== 'string' || !answer.trim()) {
+        failureEvent = 'chat_answer_empty';
+        throw new Error('Empty answer');
+      }
+      if (unsupportedCitations(answer, selected.text).length) {
+        console.warn(JSON.stringify({ event: 'chat_source_unsupported', status: 503 }));
+        return json({ error: 'The answer cited an unsupported source. Please use site search.' }, 503);
+      }
       return json({ answer: answer.slice(0, 6000) });
     } catch {
+      // Fixed categories exclude provider errors, visitor content and identifiers.
+      console.error(JSON.stringify({ event: failureEvent, status: 503 }));
       // Includes exhausted free allowance. Never route to a paid provider.
       return json({ error: 'AI is unavailable. Please use site search.' }, 503);
     }

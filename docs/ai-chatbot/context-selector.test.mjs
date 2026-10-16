@@ -1,0 +1,47 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations } from './context-selector.mjs';
+
+const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
+
+test('section extraction preserves headings inside fenced tutorial examples', () => {
+  const sections = splitSections('intro\n## Tutorial\n```markdown\n## Inner heading\n```\n## Reference\nfields');
+  assert.deepEqual(sections.map(section => section.title), ['', 'Tutorial', 'Reference']);
+  assert.match(sections[1].text, /## Inner heading/);
+});
+
+test('giscus questions receive its complete setup without other providers credentials', () => {
+  const selected = selectContext(context, 'How do I enable giscus comments on my posts?');
+  assert.ok(selected.titles.includes('Giscus comments'));
+  assert.match(selected.text, /paste its actual script/);
+  assert.match(selected.text, /NEVER inside comments/);
+  assert.ok(!selected.titles.includes('Welcomments comments'));
+  assert.doesNotMatch(selected.text, /YOUR_WELCOMMENTS|comments\.website_id belongs ONLY/);
+});
+
+test('Spanish queries and scoped parameters retrieve the matching recipe', () => {
+  assert.ok(selectContext(context, 'Mi sitio es https://ana.github.io/blog. ¿Qué pongo en url y baseurl?').text.includes('baseurl'));
+  const algolia = selectContext(context, 'Where should I put my Algolia indexing key and search key?');
+  assert.ok(algolia.titles.includes('Algolia search'));
+  assert.match(algolia.text, /sibling of search/);
+  assert.ok(selectContext(context, 'How do I disable rounded buttons?').titles.includes('Correct file and option scopes'));
+});
+
+test('all catalog questions stay within the input cap without cutting source sections', () => {
+  const cases = ['evaluation-cases.json', 'evaluation-extra-cases.json', 'evaluation-community-cases.json']
+    .flatMap(file => JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')));
+  const sections = splitSections(context);
+  for (const item of cases) {
+    const selected = selectContext(context, item.question);
+    assert.ok(Buffer.byteLength(selected.text) <= MAX_SELECTED_BYTES, item.id);
+    for (const title of selected.titles) assert.ok(selected.text.includes(sections.find(section => section.title === title).text), `${item.id}: ${title}`);
+  }
+});
+
+test('citation checking rejects invented paths/fragments but leaves code examples alone', () => {
+  const source = 'Source: https://dieghernan.github.io/chulapa/docs/55-check-theme-version';
+  assert.deepEqual(unsupportedCitations('[Version](https://dieghernan.github.io/chulapa/docs/55-check-theme-version)', source), []);
+  assert.deepEqual(unsupportedCitations('[Version](https://dieghernan.github.io/chulapa/docs/55-check-theme-version#invented)', source), ['https://dieghernan.github.io/chulapa/docs/55-check-theme-version#invented']);
+  assert.deepEqual(unsupportedCitations('```markdown\n[Example](https://example.org/)\n```', source), []);
+});

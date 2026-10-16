@@ -93,7 +93,8 @@ Insert only this item after Categories in existing _config.yml navbar.nav, not a
 ```yaml
   - title: Photo walk
     url: /photo-walk/
-``` Match indentation, retain all entries/settings; no second navbar or repository prefix. Commit both edits on the original publishing branch; wait for Actions. From Settings > Pages follow Photo walk and verify title, heading, image and text; return Home and follow it again.
+```
+Match indentation, retain all entries/settings; no second navbar or repository prefix. Commit both edits on the original publishing branch; wait for Actions. From Settings > Pages follow Photo walk and verify title, heading, image and text; return Home and follow it again.
 ## Global settings
 Sources: https://dieghernan.github.io/chulapa/docs/02-config
 https://dieghernan.github.io/chulapa/docs/14-site-details
@@ -102,7 +103,7 @@ url is origin (https://username.github.io); baseurl is /repository or "" for roo
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
-Since v2.1.0: publisher.type Person or Organization (default/fallback); name/url identify it. Organization uses logo; Person uses image, ignores logo. Paths use url/baseurl. Article authors unchanged.
+Since v2.1.0: publisher.type Person or Organization (default/fallback); name/url identify it. Organization uses logo; Person uses image, ignores logo. Paths use url/baseurl. Article authors unchanged. Verify publisher in the published application/ld+json publisher object, NOT the visible header/footer.
 Font Awesome defaults to 6; fa_version: 5 selects 5; fa_v4_support: true enables v4 compatibility. fa_kit_code uses a kit instead of hosted stylesheet. Legacy fa5_kit_code takes precedence: remove it when migrating.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
@@ -132,7 +133,7 @@ Source: https://dieghernan.github.io/chulapa/docs/27-autothemer
 Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
 Order: skin, vars, autothemer, Bootstrap, theme components. vars overrides skin assignments; Autothemer fills undefined colors from primary, retaining explicit colors. chulapa-skin.autothemer: true enables the later step; none skin avoids predefined assignments, named skins retain them. false/omission disables only later step; skin: auto independently imports generator.
 Custom CSS: assets/css/custom.scss with empty YAML front matter, loaded after theme; specificity still matters. Local matching files override theme and need upgrade review.
-Custom skin: _sass/skins/NAME.scss contains SCSS, e.g. $primary: #285d70 !default;. Set skin: NAME in _config.yml, never YAML in Sass. Use !default for customizable variables, no second Bootstrap import. Codeply previews SCSS above existing imports; translate to vars without $/semicolon, quote hex. Keep Bootstrap/grid. INDEX/CLASSICNAVBARDEMO panels and Autothemer CSS markers are supplied; Sunset palette/font example does not reproduce all skin CSS.
+Custom skin: _sass/skins/NAME.scss contains SCSS, e.g. $primary: #285d70 !default;. Set skin: NAME in _config.yml, never YAML in Sass. Use !default for customizable variables, no second Bootstrap import. Codeply previews SCSS above existing imports; translate to vars without $/semicolon, quote hex. Keep Bootstrap/grid imports in the Codeply sandbox ONLY. A site skin file must NOT import Bootstrap/grid; the theme does it. INDEX/CLASSICNAVBARDEMO panels and Autothemer CSS markers are supplied; Sunset palette/font example does not reproduce all skin CSS.
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
 Named skins: academia, butterfly, butterfly-dark, butterfly-dim, chulapa, cyborg, dark-bg, darkly, deeply, electro, flatly, focal, gitdev, gitdev-dark, graymor, hootstrap, journal, listen, lux, lymcha, materia, media, mickie, minco, minty, monotone, navi, pear, preptor, skeeblu, sketchy, slate, solar, sunset, towards, twitter, twitter-dim, twitter-lights-out, united, universal, wandoo, yeti.
@@ -168,7 +169,7 @@ Per-gallery Liquid boolean photoswipe=true (default disabled); no page YAML/plug
 Internal/external sources and isolated sequences. Cached variants remain separate. Works with default/minimal/landingpage; search does not render gallery content. PhotoSwipe 5.4.4 CSS/JS from jsDelivr on first opening; browser discovers dimensions and loads offscreen images on demand. Touch/zoom/arrows/Escape, focus trap/restoration, reduced motion; carousel pauses while open. Without JS/assets, original image links work. Not in v2.1.0.
 ## Mathematical notation and tables of contents
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
-mathjax: true enables mathematical notation. show_toc: true adds in-page TOC; show_sidetoc: true adds sliding sidebar. h_min/h_max default 2/4. Only ID-bearing headings appear; Markdown gets generated IDs, HTML needs supplied IDs. default supports panels/TOCs; minimal does not add them.
+mathjax: true works in default, minimal and landingpage via the shared head. Only author panels/TOCs are absent from minimal; do not apply that limit to MathJax. show_toc: true adds in-page TOC; show_sidetoc: true adds sliding sidebar. h_min/h_max default 2/4. Only ID-bearing headings appear; Markdown gets generated IDs, HTML needs supplied IDs. default supports panels/TOCs; minimal does not add them.
 Dev after v2.1.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria-current="location"; only included/rendered headings (skip hidden/closed). No new YAML or focus/Tab changes; anchors work without JS.
 ## More layouts and content navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
@@ -195,16 +196,30 @@ search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse pag
 Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
 Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Browser fields algolia.application_id, index_name, search_only_api_key; indexing secret ALGOLIA_API_KEY belongs in environment/secrets, never public config. Docs site uses Algolia. jekyll-algolia is deprecated/unmaintained; install in Gemfile plugin group and upload via bundle exec jekyll algolia after dependency installation, with ALGOLIA_API_KEY secret environment binding (source directory must match). Google needs google_cse_id for an existing configured engine; build/local exclusions do not control Google indexing.
 ## Comments
-Sources: https://dieghernan.github.io/chulapa/docs/02-config#comments
-https://dieghernan.github.io/chulapa/docs/13-giscus-comments
-https://dieghernan.github.io/chulapa/docs/38-disqus-comments
-https://dieghernan.github.io/chulapa/docs/39-cactus-comments
-https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
-https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
-Use comments.provider and show_comments: true on comment-capable pages/defaults. Provider keys: disqus_shortname, cactus_shortname, website_id (Welcomments), cusdis_app_id/cusdis_host. Giscus: public repo, Discussions/app, generated _includes/custom/giscus.html (starter comment-only), GitHub login; keep repo/category/thread mapping.
-Cactus: hosted Matrix; no homeserver option. Dev fixes IDs: include.pageurl | url_encode | replace: '_', '%5F'. v2.1.0: local override. ID changes may detach threads: verify/migrate; keep valid local mappings.
-Welcomments: deliver _data/welcomments/ + rebuild; keep theme templates. Dev permalink includes baseurl; v2.1.0 needs page.url | absolute_url | escape locally. Review overrides.
-Cusdis: archived, original hosting unavailable; self-hosted needs HTTPS cusdis_host (default cusdis.com). No automatic thread migration.
+Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
+Select comments.provider in _config.yml. Separately set show_comments: true in the post/page front matter or defaults.values, NEVER inside comments. The page layout must display comments. Providers do not migrate threads automatically.
+## Giscus comments
+Source: https://dieghernan.github.io/chulapa/docs/13-giscus-comments
+Public GitHub repository, Discussions enabled, giscus app installed. Generate the embed at https://giscus.app/ and paste its actual script/IDs into _includes/custom/giscus.html (starter file is comment-only). File existence alone is insufficient. Keep repository/category/thread mapping. Commenters sign in with GitHub.
+_config.yml:
+```yaml
+comments:
+  provider: giscus
+```
+Existing post front matter: show_comments: true. Giscus has NO website_id configuration field (that belongs to Welcomments). Publish; check the interface on the article and the selected Discussions repository.
+## Disqus comments
+Source: https://dieghernan.github.io/chulapa/docs/38-disqus-comments
+comments.provider: disqus; comments.disqus_shortname is the registered Disqus site identifier, not display name. Separately enable show_comments on the post and check the published interface.
+## Cactus comments
+Source: https://dieghernan.github.io/chulapa/docs/39-cactus-comments
+comments.provider: cactus; comments.cactus_shortname is the registered site name. Hosted Matrix only; no homeserver option. Dev fixes IDs: include.pageurl | url_encode | replace: '_', '%5F'. v2.1.0 needs local override. Changes may detach threads: verify/migrate; retain valid local mappings.
+## Welcomments comments
+Source: https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
+comments.provider: welcomments; comments.website_id belongs ONLY to this provider. Deliver _data/welcomments/ plus rebuild; keep theme templates. Dev permalink includes baseurl; v2.1.0 needs page.url | absolute_url | escape locally. Review overrides and existing post slug/thread mapping.
+## Cusdis comments
+Source: https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
+comments.provider: cusdis; comments.cusdis_app_id and HTTPS comments.cusdis_host for an existing deployment. Upstream archived; original hosting unavailable (default host cusdis.com). No automatic thread migration.
+
 ## Navbar and footer
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
 https://dieghernan.github.io/chulapa/docs/10-edit-menu
@@ -239,13 +254,29 @@ schema_image: URL/list for post BlogPosting, fallback page og_image then header_
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
 Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
-Alert: blank line before paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3} on next line. Caption: image, paragraph then {: .caption}. Footnotes: [^1] with [^1]: text (kramdown).
+Alert: blank line before paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3} on next line. Caption: image, BLANK LINE, separate caption paragraph then {: .caption} on its next line; never merge the image and caption paragraphs.
+```liquid
+![River]({{ '/assets/img/river.jpg' | relative_url }})
+
+The river in spring.
+{: .caption}
+```
+Footnotes: [^1] with [^1]: text (kramdown).
 ## Favicons
 Source: https://dieghernan.github.io/chulapa/docs/52-add-favicon
 favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.
 ## Bundled font
 Source: https://dieghernan.github.io/chulapa/docs/53-chulapa-font
-Built-in chulapa font: headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars. For heading ligatures set font-feature-settings: "liga", "dlig" and text-rendering: optimizeLegibility in custom.scss. The chulapa class applies font/ligatures: <span class="chulapa">Chulapa</span> inline or {: .chulapa} after a Markdown paragraph.
+Chulapa font is bundled, NOT a Google Font; no external loading required. Built-in chulapa font: headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars. For heading ligatures in assets/css/custom.scss, preserve empty YAML front matter and use:
+```scss
+---
+---
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "liga", "dlig";
+  text-rendering: optimizeLegibility;
+}
+```
+The chulapa class applies font/ligatures: <span class="chulapa">Chulapa</span> inline or {: .chulapa} after a Markdown paragraph.
 ## Font Awesome
 Source: https://dieghernan.github.io/chulapa/docs/54-add-icon
 Markdown: <i class="fas fa-exclamation-circle" aria-hidden="true"></i> plus meaningful text; use a free icon matching configured FA version.
@@ -352,3 +383,46 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#xx-other-settings
 https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets
 Jekyll/plugin settings (not new theme API): include/exclude, collections_dir, permalink, defaults, pagination, excerpt_separator, kramdown, sass, compress_html. Usually retain starter values. Reference lists content snippets/parameters and separate metadata-helper inventory for custom layouts; ordinary posts need not invoke helpers.
 Gallery internal=image_col group, external=comma-separated URLs (internal wins). video fileurl wins; hosted videos need provider/id. Direct youtube.html is always deferred, has no nolazy; for immediate use video.html provider="youtube" nolazy=true. bootstrapdemo.html has no parameters, samples components for skins. Include booleans unquoted (photoswipe=true); quoted "false" can enable features.
+
+## Correct file and option scopes
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults
+Source: https://dieghernan.github.io/chulapa/docs/03-theming#variables
+Native layouts: compress wraps minimal; default and landingpage inherit minimal; archive/cloudtag/cloudcategory/indexcategory inherit default. default does not inherit itself. minimal can have a hero with show_header: true, header_type: hero and header_img, but show_author does not add an author panel to minimal.
+Related/random labels: user-supplied related_label/random_label HTML is rendered unchanged, not a hardcoded heading. Use <h2 class="h5">Related posts</h2> for small-looking level-2 text. Eligibility uses tags, not categories. show_random is an on/off switch, not a count; up to three from the eligible pool.
+Archive page front matter, NOT an archive mapping in _config.yml:
+```yaml
+---
+layout: archive
+include_collection: posts,demo
+include_missdates: true
+---
+```
+Five newest post cards need layout: indexcategory, include_collection: posts, index_sort: date, index_sort_asc: false, index_items: 5 in page front matter. Default sorting is name, not date.
+Tag indexes: cloudtag_url and show_tags belong to documents or defaults.values, not the root _config.yml. No cloudtag_label field.
+Merge into existing _config.yml defaults:
+```yaml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      cloudtag_url: /tags/
+      show_tags: true
+```
+The index page needs layout: cloudtag and matching permalink; scope with include_collection. Use /docs/63-tag-category-clouds.
+Sass switches including enable-rounded belong under chulapa-skin.vars, never _config.yml root. Fonts already loaded via googlefonts do not also require custom_head.html; loading alone still needs font-family-base/headings-font-family vars.
+include_on_feed controls theme feeds only, NOT jekyll-feed. Plugin /feed.xml can coexist; /atom.xml or /rss.xml collisions must be resolved, never recommend replacing them with include_on_feed.
+## Algolia search
+Source: https://dieghernan.github.io/chulapa/docs/37-algolia-search
+Source: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
+The algolia mapping is TOP LEVEL, a sibling of search, NEVER nested in search:
+```yaml
+search:
+  provider: algolia
+algolia:
+  application_id: YOUR_APP_ID
+  index_name: YOUR_INDEX_NAME
+  search_only_api_key: YOUR_PUBLIC_SEARCH_ONLY_KEY
+```
+Indexing secret ALGOLIA_API_KEY goes only in environment/Actions secrets. Use algolia.files_to_exclude for exclusions and upload the index; include_on_search affects ranking only if customRanking uses it. jekyll-algolia is deprecated/unmaintained; a Gemfile group is :jekyll_plugins, not :plugins. Verify the uploaded index and live search result.

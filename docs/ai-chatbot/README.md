@@ -32,8 +32,11 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects context larger than **47,000 UTF-8 bytes**, before generating
-artifacts. This is an editorial growth budget, not a model token limit. Keep
+The build rejects a source library larger than **52,000 UTF-8 bytes**, before
+generating artifacts. This replaces the former 47,000-byte editorial budget: the
+reviewed increase preserves explicit provider boundaries and complete recipes
+rather than compressing instructions into ambiguous phrases. It is not the
+per-request input budget or a model token limit. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the
 budget requires an explicit review of the reason and coverage. Byte reduction
@@ -51,6 +54,46 @@ It also summarizes selected Sass variables, Markdown syntax and highlighting
 style configuration. Unpublished development changes are explicitly marked.
 The context includes the public RSS URL as a link for visitors. Feed entries are
 not embedded or fetched automatically.
+
+## Local candidate: context selection and citations
+
+The local candidate selects whole sections for each question using explicit topic
+aliases and parameter/heading matches, including common Spanish terms. It always
+keeps the version/preservation instructions and documentation directory, adds
+relevant task/reference sections and caps the selected source context at 18,000
+UTF-8 bytes. Code fences are not split, including headings inside tutorial code.
+No embedding service, extra model call, network retrieval or conversation history
+is used. The full source library remains bundled for other questions.
+
+Named comment-provider questions exclude other providers' specific sections.
+This is deterministic topic selection, not semantic search: aliases can miss a
+question or select irrelevant sections. Offline coverage checks do not prove the
+model will answer correctly. Unknown topics retain the directory and instructions
+to acknowledge gaps rather than receiving the whole library.
+
+Markdown citations outside fenced examples must exactly match URLs in the selected
+source context. An unsupported URL or invented fragment produces a search fallback
+without a retry or second inference. This checks URL identity, not semantic support,
+HTTP availability or raw URLs outside Markdown links. The existing renderer still
+controls which domains become clickable. Future live checks must assess both answer
+quality and unnecessary fallback rates.
+
+This candidate is local and **not deployed or live-evaluated**. Public documentation
+and llms.txt already describe the corrected facts; neither needs a new page or entry.
+
+## Pending evaluations
+
+Run `node evaluation-batches.mjs` to regenerate the offline
+[batch register](evaluations/pending-batches-2026-10-16.md) and its JSON companion.
+It distinguishes the 56 baseline responses, their reviews, the 99 catalog cases
+without a completed baseline record and all 155 cases untested on this candidate.
+The interrupted run may have started a request without writing a result; absence
+of a raw record is not proof that no request was initiated.
+
+Planned batches contain at most four cases and explicit IDs. The regression,
+unfinished-baseline and complete-candidate lists overlap; do not run all three.
+Begin with a small regression batch only after separately authorizing quota use
+and verifying deployment. Regenerating the plan sends no requests.
 
 ## Automatic deployment
 
@@ -72,6 +115,24 @@ separate; documentation changes outside this directory require reviewing and
 updating `ai-context.md` to update the chatbot's knowledge.
 
 ## Cloudflare setup
+
+The connected Cloudflare Workers Builds trigger uses `main`, root directory
+`docs/ai-chatbot`, build command `npm ci && npm test` and deploy command
+`npx --yes wrangler@4.150.0 deploy`. Its include watch path is
+`docs/ai-chatbot/*`, relative to the repository root; `*` also matches nested
+paths. Preview builds are disabled. This trigger runs alongside GitHub Actions
+and does not wait for the matching Pages publication. Publish documentation
+before deploying context that cites it. Build watch paths are configured in
+Cloudflare, not in `wrangler.jsonc`.
+
+Workers Logs is configured in `wrangler.jsonc` with 10% head sampling and
+automatic invocation logs disabled. Application diagnostics record only fixed
+event categories and HTTP status codes for missing bindings, rate limiting,
+limiter failures, inference failures and empty or truncated answers. They do not
+record questions, answers, IP addresses, headers or provider exception messages.
+Sampling can omit errors, so these logs are diagnostic samples, not complete
+error counts. View them in the Worker's Observability tab after deploying the
+updated Worker. Request-body logging remains disabled.
 
 Keep the account on **Workers Free**. As checked on October 8, 2026, Workers AI
 provides 10,000 Neurons per day and stops at that allowance on Free. Do not upgrade
