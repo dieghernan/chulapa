@@ -1,6 +1,10 @@
 ---
 title: Add a favicon
 subtitle: Publish an icon with a repository-safe address
+tags: [docs, site-identity, branding]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing site. The browser-tab icon is a favicon; it is

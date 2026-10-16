@@ -632,5 +632,12 @@
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse installation, migration, starter examples and checking my theme version? Should I follow every installation method in order?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial installation topics, including starter-examples and theme-updates. Methods are alternatives for the existing site, not sequential prerequisites. /docs/01-install remains the method directory; first-time users have /docs/00-start. Related cards are supplementary, not required progression or a compatibility guarantee. /docs/08-starter-examples distinguishes minimal examples without deployment workflows from Chulapa 101; use /docs/09-run-starter for setup and /docs/55-check-theme-version for selected release checks. Complete docs index /docs; do not claim all pages have badges/cards."
+  },
+  {
+    "id": "documentation-identity-topics",
+    "section": "navigation",
+    "doc": "../_pages/docs_tags.md",
+    "question": "Where can I browse help with menu/footer links, my site identity, favicons, fonts, icons and personal publisher metadata? Does changing publisher also change article authors?",
+    "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial navigation, site-identity and branding topics; /docs for all documentation. Badges on covered guides link here; cards are suggestions, not required steps. Guides distinguish site title/author from publisher structured data: /docs/60-person-publisher does not rewrite article authors. Favicon /docs/52-add-favicon is separate from an article illustration, bundled Chulapa font /docs/53-chulapa-font is already supplied and icons /docs/54-add-icon use Font Awesome. Do not claim every page has badges/cards or that a favicon manifest establishes PWA support."
   }
 ]
