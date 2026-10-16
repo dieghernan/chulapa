@@ -5,6 +5,8 @@ excerpt: Edit a menu label or destination without replacing your site's other na
 show_toc: false
 tags: [docs, navigation]
 show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide when your site is already published and you have a page to link to.

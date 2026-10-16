@@ -1,6 +1,10 @@
 ---
 title: Add a Font Awesome icon to an article
 subtitle: Place an icon in Markdown without losing its meaning
+tags: [docs, branding]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide on an existing site using the theme's stylesheets. Font Awesome

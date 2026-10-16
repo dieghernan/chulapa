@@ -5,6 +5,8 @@ excerpt: Change footer labels and destinations, then verify the links on your pu
 show_toc: false
 tags: [docs, navigation]
 show_related: true
+show_tags: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an existing site with a contact address, social profile or feed

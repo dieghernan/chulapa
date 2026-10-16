@@ -2,6 +2,10 @@
 title: Identify a personal site's publisher
 subtitle: Set Person in search metadata without changing article authors
 excerpt: Configure the publisher of a personal blog and verify the generated structured data.
+tags: [docs, site-identity]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for a personal blog that you publish yourself. It changes the

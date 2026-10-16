@@ -3,7 +3,8 @@
 Date: 16 October 2026. Baseline: main `a7af9ac81`, after merged PR #152.
 Delivery: [PR #153](https://github.com/dieghernan/chulapa/pull/153).
 Branch: `codex/docs-installation-topic-navigation`.
-Status: reviewed and implemented locally; PR/CI/merge/deployment pending.
+Status: merged #153 with applicable head checks passed. Its branch was deleted;
+actual Pages/Worker deployment is separately unverified here.
 
 ## Page dispositions and scope
 

@@ -1,6 +1,10 @@
 ---
 title: 'Use the <span class="chulapa">Chulapa</span> font'
 subtitle: Apply the bundled font to headings or selected text
+tags: [docs, appearance, fonts, branding]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide on an existing site using the theme's stylesheets. The
