@@ -12,6 +12,10 @@ Source: https://dieghernan.github.io/chulapa/docs
 Responsive Bootstrap-based Jekyll theme for blogs, portfolios, documentation and project sites, on GitHub Pages or other Jekyll hosts. Supports search, SEO, multi-author pages, code highlighting, MathJax, galleries and comments.
 
 
+## Browse documentation topics
+Source: https://dieghernan.github.io/chulapa/docs/tags
+Partial topic index for tagged documentation, including the appearance navigation pilot (appearance Reference and guides 22-28). Browse appearance, skins, colors, fonts and code-highlighting topics; badges on pilot guides link here. Related documentation cards suggest up to three matching pages, not a prescribed tutorial sequence. For all documentation use https://dieghernan.github.io/chulapa/docs; the topic index is not exhaustive and is separate from blog tags.
+
 ## Variables dictionary
 Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary
 Site Sass variables go under chulapa-skin.vars in _config.yml, not page front matter. Names omit $ and ;. Example:

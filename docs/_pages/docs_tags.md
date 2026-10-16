@@ -4,8 +4,6 @@ title: Documentation topics
 subtitle: Browse tagged documentation by topic
 permalink: /docs/tags
 include_collection: docs
-show_date: false
-show_comments: false
 show_breadcrumb: true
 breadcrumb_list:
   - label: Home

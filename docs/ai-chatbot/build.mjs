@@ -5,7 +5,8 @@ const directory = fileURLToPath(new URL('.', import.meta.url));
 const read = name => readFileSync(directory + name, 'utf8');
 const context = read('ai-context.md');
 // Review additions instead of silently growing every inference request.
-const maxContextBytes = 45000;
+// Reviewed: add the partial documentation topic route without dropping existing facts.
+const maxContextBytes = 46000;
 const contextBytes = Buffer.byteLength(context, 'utf8');
 if (contextBytes > maxContextBytes) {
   throw new Error(`Reviewed context is ${contextBytes} bytes; limit is ${maxContextBytes}. Consolidate facts or explicitly review the budget.`);

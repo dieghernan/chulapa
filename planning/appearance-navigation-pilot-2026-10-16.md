@@ -37,8 +37,22 @@ review, not an accessibility certification. Canonical guide URLs and metadata
 are unchanged; the topic index adds an internal public route. No manifest,
 service worker, caching or offline behavior changes or PWA-readiness claim.
 
-`llms.txt` adds the partial topic index. The selective chatbot context and
-appearance/related evaluation cases were reviewed: no theme facts, settings,
-canonical advice or existing citations change, so context, tests and Worker
-deployment are unnecessary. No changelog entry: this is a documentation-only
-navigation pilot, with no reusable-theme behavior change.
+`llms.txt` adds the partial topic index. PR review identified a useful new
+chatbot destination: context now includes `/docs/tags`, its partial coverage and
+the distinction between suggestions and a prescribed sequence. A focused
+navigation evaluation case records those expectations. The custom include now
+loads the existing widget on the topic index too. Redundant false date/comment
+options were removed from the regular index page.
+
+The context budget was explicitly reviewed and raised from 45,000 to 46,000
+UTF-8 bytes to retain existing facts plus the new navigation destination
+(45,940 bytes in this Windows checkout, including CRLF). Boundary tests and the
+budget documentation were updated. No model output limit changes.
+
+Follow-up validation: Jekyll incremental build passes; chatbot build passes.
+`npm test` runs 40 tests: 37 pass, while two fixture tests cannot create symlinks
+on this Windows account and the deployment-gate test cannot find Bash. These
+three environment limitations require Linux CI confirmation; they do not
+establish a fully passing local suite. No live model evaluation or manual
+Worker deployment. Context rollout is pending merge and the existing Pages-gated
+Worker workflow. No changelog entry for this documentation-only pilot.
