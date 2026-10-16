@@ -6,6 +6,11 @@ Delivery: [PR #147](https://github.com/dieghernan/chulapa/pull/147).
 Status: completed synthetic editorial review; recommendation submitted for review.
 No public implementation or human study.
 
+PR extension: the [appearance navigation pilot](appearance-navigation-pilot-2026-10-16.md)
+adds public documentation navigation. The internal-only scope and no-browser
+validation statements below describe the original editorial review, not this
+extension. The pilot record contains its separate scope and checks.
+
 ## Decision proposed
 
 Keep the existing purpose-oriented titles, subtitles and introductions on the

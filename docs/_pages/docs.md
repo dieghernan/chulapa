@@ -13,6 +13,9 @@ browser. You do not need to install anything on your computer.
 
 Moving an existing site? Follow the [migration guide and checklist](./docs/07-migration).
 
+Browse [documentation topics](./docs/tags) for tagged guides and references.
+Topic coverage is partial; the sections below list all documentation.
+
 ## Tutorials
 
 Follow a guided path to your first result.

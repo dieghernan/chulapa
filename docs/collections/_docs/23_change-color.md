@@ -1,6 +1,10 @@
 ---
 title: Change a color
 subtitle: Override one design value without replacing the skin
+tags: [docs, appearance, colors]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,

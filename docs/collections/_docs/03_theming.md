@@ -4,6 +4,10 @@ subtitle: Appearance settings reference
 show_toc: true
 h_min: 2
 h_max: 5
+tags: [docs, appearance, skins, colors, fonts, code-highlighting]
+show_tags: true
+show_related: true
+cloudtag_url: /docs/tags
 ---
 
 This page lists appearance settings. For a task, use [Choose a skin](./22-choose-skin),
