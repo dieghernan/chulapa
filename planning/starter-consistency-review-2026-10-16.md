@@ -93,3 +93,15 @@ context is not deployed and no human sessions were available. Exactness, links
 and latency on the extracted guides, first publication, second tutorial and
 advanced lookup remain open evidence tasks. This plan adds no fabricated results
 and does not rescore the historical Diátaxis snapshots.
+
+## Review correction: project demo button
+
+The initial preview did not verify the header button's navigation target.
+`absolute_url` resolves a fragment-only project link against the site root, so
+this nested demo now uses `/demo/starter-project#getting-started` in its actual
+front matter. The complete home-page source specimen remains unchanged: its
+standalone `index.md` is at the site root. The demo explains that distinction.
+Jekyll builds with empty and `/project` baseurl confirm exact generated button
+URLs and one matching heading for both the demo and standalone home page. No
+shared header behavior, public API or chatbot fact changes; no context update
+or new live evaluation is needed for this correction.

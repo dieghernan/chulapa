@@ -9,7 +9,7 @@ project_links:
     url: https://github.com/dieghernan/chulapa/tree/main/examples/project
   - label: Get started
     icon: fas fa-book
-    url: "#getting-started"
+    url: "/demo/starter-project#getting-started"
 show_toc: true
 show_related: false
 show_random: false
@@ -44,6 +44,11 @@ project_links:
     url: "#getting-started"
 ---
 ```
+
+The source above is the standalone site's `index.md`, so its button targets the
+home-page section. This documentation demo uses
+`/demo/starter-project#getting-started` for its own button to reach the same
+sample section without leaving the demo.
 
 ## Home-page content
 
