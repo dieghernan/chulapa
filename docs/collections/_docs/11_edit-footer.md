@@ -40,7 +40,7 @@ when the website lives under a repository path; the theme adds the site's `baseu
 
 The example shows only the links. Merge your changes into the existing list and
 preserve the other settings. To use a different feed, keep its actual published
-path; see [feed compatibility](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
+path; see [feed compatibility](./57-jekyll-feed).
 
 ## Publish and check
 

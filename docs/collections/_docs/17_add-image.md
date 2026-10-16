@@ -49,5 +49,5 @@ image loads and fits the content on a narrow screen.
 If it is missing, compare the uploaded filename, extension and capitalization
 with the link. Verify both the image upload and article edit were saved, then
 follow [the publishing checks](./42-unpublished-changes).
-For captions, see [the caption example](./05-faq#add-a-caption).
+For captions, see [Add a caption below an image](./50-add-caption).
 For video, use [Embed a video](./32-embed-video).

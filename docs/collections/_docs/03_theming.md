@@ -80,4 +80,4 @@ contains the full Bootstrap definitions. See also the
 [Bootstrap 4 theming reference](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults). Calculated helpers such as
 `landingpage-card-bg` and `cactus-btn-text` are not overridable through `vars`.
 Custom CSS handles rules without exposed variables; see
-[custom HTML and styles](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page).
+[custom HTML and styles](./45-custom-hooks).

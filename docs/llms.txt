@@ -44,7 +44,7 @@ The documentation also covers v2.1.1-dev changes available on main after v2.1.0.
 
 ## Troubleshooting and site checks
 
-- [Frequently asked questions](https://dieghernan.github.io/chulapa/docs/05-faq): Browser editing and publishing, formatting, favicons, skin previews, troubleshooting and built-in feeds.
+- [Frequently asked questions](https://dieghernan.github.io/chulapa/docs/05-faq): Question directory linking editing, publishing, design, formatting, troubleshooting and feed guides.
 - [Accessibility and performance](https://dieghernan.github.io/chulapa/docs/06-accessibility-performance): How-To Guide for checking published pages with keyboard navigation, enlarged text, media and real resources; links to separate behavior/limit reference.
 
 ## Optional

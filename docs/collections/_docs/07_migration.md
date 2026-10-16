@@ -119,7 +119,7 @@ remain separate.
   providers does not migrate conversations. Apply the documented local
   corrections if using Cactus or Welcomments on an affected site.
 - Open existing subscriber feed URLs. Keep `jekyll-feed` for an established
-  `/feed.xml` if needed, and avoid duplicate outputs using [the feed guidance](./05-faq#use-jekyll-feed-instead-of-chulapas-feeds).
+  `/feed.xml` if needed, and avoid duplicate outputs using [the feed guidance](./57-jekyll-feed).
 - Keep the [Google Analytics ID](./19-google-analytics) and remove duplicate custom
   tracking scripts. [GoatCounter](./18-goatcounter) is not in the pinned v2.1.0 release.
 

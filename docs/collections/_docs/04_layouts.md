@@ -41,8 +41,7 @@ gem only provides the features included in that version.
 
 #### Default
 
-Use `default` for articles and ordinary pages. Add this to the settings block
-at the top of the file:
+`default` is the article and ordinary-page layout. Front matter specimen:
 
 ```yaml
 ---
@@ -50,7 +49,8 @@ layout: default
 ---
 ```
 
-You can avoid typing this on each page by setting this layout as the default layout for all the pages via `_config.yml` and [front matter defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/):
+Site-wide default-layout mapping specimen in `_config.yml` (explicit page values
+take precedence):
 
 ```yaml
 
@@ -1011,7 +1011,7 @@ schema_image: /assets/img/article.jpg
 ---
 ```
 
-For several images, provide actual files appropriate for the article:
+Multi-image mapping specimen (each URL identifies an existing article image):
 
 ```yaml
 schema_image:
@@ -1070,12 +1070,12 @@ examples at the start of this guide.
 
 ### Layout structure and components
 
-For small additions such as scripts or extra head tags, use the
-[custom includes](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
-instead of copying a complete layout.
+For small head additions, follow [Add custom HTML to the page head](./44-custom-head).
+The [custom hooks reference](./45-custom-hooks) lists the insertion points and
+stylesheet hook; a complete layout copy is not required.
 
-For a custom page design, start from `minimal`. `default` and `landingpage`
-add the article components; archive, tag, category and card-index layouts build
+`minimal` supplies the base structure for a custom page design. `default` and
+`landingpage` add the article components; archive, tag, category and card-index layouts build
 on `default`. The `search` layout is a separate search page. Both keep the
 custom head and bottom-script hooks available. See the
 [layout sources](https://github.com/dieghernan/chulapa/tree/main/_layouts)
@@ -1111,9 +1111,9 @@ No extra configuration is needed.
 
 ### Generated head and footer formatting
 
-No formatting changes are needed to publish your site. Use the
-[custom includes](./05-faq#add-custom-html-analytics-css-or-javascript-to-every-page)
-to add your own head tags or scripts without editing the theme's layouts.
+No formatting changes are needed to publish your site. The
+[custom hooks reference](./45-custom-hooks) describes head and bottom-script
+insertion without editing the theme's layouts.
 
 
 The remaining snippets support the theme's metadata. Standard layouts already
