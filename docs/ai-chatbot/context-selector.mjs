@@ -60,7 +60,7 @@ const routes = [
   [/navbar|footer|menu|men[uú]|copyright|email/i, ['Navbar and footer']],
   [/canonical|robots|sitemap|seo|metadata|schema_image|og_|twitter/i, ['SEO controls', 'Page metadata and article images']],
   [/feed|rss|atom|suscri/i, ['Subscription feeds', 'Public RSS feed']],
-  [/alert|caption|footnote|pie de foto|nota al pie/i, ['Alerts, captions and footnotes']],
+  [/alert|information\s+box|info\s+box|caja\s+(?:de\s+)?informaci[oó]n|recuadro\s+informativo|caption|footnote|pie de foto|nota al pie/i, ['Alerts, captions and footnotes']],
   [/favicon|manifest/i, ['Favicons']],
   [/custom.head|custom.css|custom.scss|hook|before.*css|end.*body/i, ['Custom hooks']],
   [/markdown|kramdown|gfm|table|tabla/i, ['Markdown formatting']],
@@ -86,11 +86,21 @@ export function selectContext(context, question) {
   const frequency = new Map(words.map(word => [word, sectionWords.filter(tokens => tokens.has(word)).length]));
   const providers = ['giscus', 'disqus', 'cactus', 'welcomments', 'cusdis'];
   const namedProviders = providers.filter(name => question.toLowerCase().includes(name));
+  const comparesProviders = namedProviders.length > 1 ||
+    (/alternativ|compar|versus|\bvs\b|differ|diferenc|instead|en lugar/i.test(question) &&
+      (namedProviders.length > 0 || /comments?|comentarios?|providers?|proveedores?/i.test(question)));
+  if (comparesProviders) {
+    scores.set('Comments', (scores.get('Comments') || 0) + 30);
+    for (const provider of providers) {
+      const title = sections.find(section => section.title.toLowerCase() === `${provider} comments`)?.title;
+      if (title) scores.set(title, (scores.get(title) || 0) + 30);
+    }
+  }
   const ranked = sections.map((section, index) => ({ ...section, index,
     score: (scores.get(section.title) || 0) + words.reduce((score, word) => score +
       (section.title.toLowerCase().includes(word) ? 3 : 0) +
       (sectionWords[index].has(word) && frequency.get(word) <= Math.max(2, Math.floor(sections.length / 8)) ? 6 : 0), 0)
-  })).filter(section => section.score > 0 && (!namedProviders.length ||
+  })).filter(section => section.score > 0 && (comparesProviders || !namedProviders.length ||
     !providers.some(name => section.title.toLowerCase().startsWith(name)) ||
     namedProviders.some(name => section.title.toLowerCase().startsWith(name))))
     .sort((a, b) => b.score - a.score || a.index - b.index);

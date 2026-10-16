@@ -65,6 +65,7 @@ test('catalog questions select task sections when only a documented body value n
     .flatMap(file => JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')));
   const requirements = {
     'appearance-skin-task-1': ['Changing skins and colors', 'Available skins'],
+    'format-alert-task-1': ['Alerts, captions and footnotes'],
     'search-comments-3': ['Algolia search'],
     'comments-giscus-setup-1': ['Giscus comments', 'Comments'],
     'reference-edge-cases-3': ['Correct file and option scopes', 'Changing fonts and highlighting']
@@ -85,4 +86,26 @@ test('citation validation covers prose URL forms and ignores literal code exampl
   assert.deepEqual(unsupportedCitations('````markdown\n```\n' + bad + '\n```\n````\n`' + bad + '`', known), []);
   const parentheses = 'https://example.org/a_(b)';
   assert.deepEqual(unsupportedCitations(`[Source](${parentheses})`, parentheses), []);
+});
+
+test('information-box synonyms retrieve the complete alert syntax and source', () => {
+  for (const question of ['How do I add an information box?', 'Quiero añadir un recuadro informativo', 'Una caja de información para mi post']) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Alerts, captions and footnotes'), question);
+    assert.match(selected.text, /\{: \.alert \.alert-info \.p-3 \.mx-2 \.mb-3\}/);
+    assert.match(selected.text, /https:\/\/dieghernan.github.io\/chulapa\/docs\/49-add-alert/);
+  }
+});
+
+test('provider comparisons retain alternatives while single-provider setup stays isolated', () => {
+  const providerTitles = ['Giscus comments', 'Disqus comments', 'Cactus comments', 'Welcomments comments', 'Cusdis comments'];
+  for (const question of ['What alternatives to Giscus are supported?', '¿Qué alternativas a Giscus hay?', 'Compare Giscus versus Disqus', 'How do comment providers differ?']) {
+    const selected = selectContext(context, question);
+    for (const title of providerTitles) assert.ok(selected.titles.includes(title), `${question}: ${title}`);
+    assert.ok(Buffer.byteLength(selected.text) <= MAX_SELECTED_BYTES);
+    assert.match(selected.text, /Upstream archived/);
+  }
+  const setup = selectContext(context, 'How do I configure Giscus?');
+  assert.ok(setup.titles.includes('Giscus comments'));
+  for (const title of providerTitles.slice(1)) assert.ok(!setup.titles.includes(title));
 });

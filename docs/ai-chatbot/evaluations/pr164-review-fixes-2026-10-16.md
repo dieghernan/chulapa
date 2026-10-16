@@ -10,3 +10,7 @@ The four open findings were reproduced offline before correction.
 56 automated tests pass, including isolated temporary-directory CLI regeneration. No live inference, deployment or release publication was performed for these corrections. The current runtime changes need live evaluation; the historical evaluated source still has 151 cases without candidate responses. The context facts themselves did not change, so public documentation and llms.txt need no update. The assistant README documents the new behavior and evidence workflow.
 
 No theme controls, URLs, SEO metadata, manifest or service worker changed. No new browser accessibility or PWA claims are made. Broader selection can still choose irrelevant sections; live answer quality and false fallback frequency remain untested for this correction.
+
+## Follow-up routing review
+
+Two additional findings were reproduced and corrected offline: information-box questions omitted the existing alert recipe; named-provider isolation discarded alternatives in comparison questions. The existing format-alert-task-1 catalog case now asserts the required section, syntax and source. English/Spanish comparisons retain all five supported comment-provider sections and their restrictions, while single-provider setup remains isolated. The 155-case input-cap checks still pass. 58 local tests pass; these routing corrections remain undeployed and have no live answer evidence. Context facts, public documentation and llms.txt are unchanged.

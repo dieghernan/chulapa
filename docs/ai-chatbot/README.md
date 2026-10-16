@@ -65,7 +65,10 @@ UTF-8 bytes. Code fences are not split, including headings inside tutorial code.
 No embedding service, extra model call, network retrieval or conversation history
 is used. The full source library remains bundled for other questions.
 
-Named comment-provider questions exclude other providers' specific sections.
+Single-provider setup questions exclude other providers' specific sections.
+Comparison and alternative-provider questions retain all supported provider
+sections, including their restrictions. Information-box synonyms route to the
+existing alert recipe.
 This is deterministic topic selection, not semantic search: aliases can miss a
 question or select irrelevant sections. Offline coverage checks do not prove the
 model will answer correctly. Unknown topics retain the directory and instructions
