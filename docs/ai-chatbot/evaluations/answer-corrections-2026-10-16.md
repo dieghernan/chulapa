@@ -21,6 +21,6 @@ No source URL or supported capability is removed. Condense introductory wording 
 
 ## Local deployment
 
-The user explicitly authorized deploying this correction locally without waiting for GitHub Actions. Use the existing Worker, account, AI binding and rate limiter via wrangler.jsonc; no secret is added to source. Deployment details will be recorded after execution.
+The user explicitly authorized deploying this correction locally without waiting for GitHub Actions. Use the existing Worker, account, AI binding and rate limiter via wrangler.jsonc; no secret is added to source. Deployed locally with Wrangler 4.150.0 from source commit `be75d8ad1` on 16 October 2026. Cloudflare version: `986535e6-f13b-48ac-9c45-bc3b9482c4b8`. Worker: https://chulapa-ai-prototype.dieghernan.workers.dev . Wrangler confirmed the AI and CHAT_RATE_LIMIT (5 requests/60s) bindings. A non-inference GET of /widget.js returned HTTP 200. GitHub Actions was not used for this deployment. The subsequent record-only commit does not change deployed code/context.
 
 No post-correction live inference is authorized or performed. Passing local tests and deployment does not establish improved answer quality. A separately authorized affected-case run is needed to compare answers.
