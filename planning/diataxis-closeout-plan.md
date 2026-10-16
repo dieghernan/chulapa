@@ -1,7 +1,7 @@
 # Diataxis closeout and release preparation plan
 
 Updated: 16 October 2026. Current delivery baseline: main `246aae5a0`, after merged #155.
-Current delivery: comments and analytics on `codex/docs-comments-analytics-topics`; PR pending.
+Current delivery: comments and analytics on `codex/docs-comments-analytics-topics`; [PR #156](https://github.com/dieghernan/chulapa/pull/156) open; CI and review pending.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
@@ -85,7 +85,7 @@ This inventory concerns metadata coverage, not a new Diataxis quality score.
 | --- | --- | --- |
 | Installation, migration and starters | 01, 07, 08, 09, 20, 21, 55 | Merged #153: badges on seven pages, cards on six; 01 retains its directory and body/version facts. |
 | Navigation, identity and branding | 10, 11, 14, 52, 53, 54, 60 | Reviewed in #155: badges/cards, with two candidates on icons/publisher and affected appearance review. Merged #155; #154 tracked separately. |
-| Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Prepared on this branch; PR/CI/review pending. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
+| Comments and analytics | 13, 18, 19, 38, 39, 40, 41 | Prepared on this branch; PR #156 open; CI/review pending. Preserve provider/migration warnings, known #125 workarounds and retired-service constraints; do not pad small groups. |
 | Hooks, mappings, feeds and metadata tasks | 44, 45, 46, 56, 57, 62, 63 | Preserve complete examples and exact reference/task links; distinguish task and lookup contracts. |
 | General reference and accessibility | 02, 04, 05, 06, 48, 99_highlighting, 99_markdown-cheatsheet, 99_variable-dict | Decide badges/cards page by page. Keep lookup depth, useful FAQ routes and accessibility boundaries. A mixed intention requires a concrete defect before any extraction. |
 

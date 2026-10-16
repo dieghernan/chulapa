@@ -2,7 +2,8 @@
 
 Date: 16 October 2026. Baseline: main `246aae5a0`, after merged #155.
 Branch: `codex/docs-comments-analytics-topics`.
-Status: local checks passed; PR, CI, review, merge and deployment pending.
+Delivery: [PR #156](https://github.com/dieghernan/chulapa/pull/156).
+Status: open; local checks passed; CI, review, merge and deployment pending.
 
 ## Scope and decisions
 
