@@ -512,7 +512,7 @@
     "section": "version",
     "doc": "55_check-theme-version.md",
     "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme? Does v2.2.0 (unreleased) mean I can already install a published 2.2.0 release?",
-    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build: 2.2.0 is an unpublished candidate, v2.1.1-dev labels refer to its planned features, and the latest published release remains v2.1.0. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; remote_theme/build evidence identifies the remote selection."
+    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build: 2.2.0 is an unpublished candidate, v2.1.1-dev labels refer to its planned features, and the latest published release remains v2.1.0. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; inspect remote_theme; tags select releases, unpinned/branch values can move. No documented exact-remote-commit procedure."
   },
   {
     "id": "feed-coexistence-1",

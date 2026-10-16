@@ -2,7 +2,7 @@
 
 2.2.0 is unpublished; v2.1.1-dev labels mean its planned features, not a release. Latest published: v2.1.0.
 
-Reviewed: 16 October 2026. Selective public docs/llms.txt facts; acknowledge gaps. Preserve config, commit on publishing branch, wait for Actions, check Settings > Pages live site. Restart local Jekyll after config edits. Copy source URLs exactly; no fetching linked pages. Dev/after v2.1.0 means main, not v2.1.0 gem/pin.
+Reviewed: 16 October 2026. Selected docs/llms.txt facts; acknowledge gaps. Preserve config, commit on publishing branch, wait for Actions, check Settings > Pages live site. Restart local Jekyll after config edits. Copy source URLs exactly; no fetching linked pages. Dev means main after v2.1.0, not gem/pin.
 
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
@@ -33,7 +33,7 @@ Selected Bootstrap inputs: primary, secondary, success, info, warning, danger, l
 
 ## Installation
 Source: https://dieghernan.github.io/chulapa/docs/01-install
-First site: cite /docs/00-start. Template: https://github.com/dieghernan/chulapa-101/generate; Settings > Pages > GitHub Actions. Demo: https://dieghernan.github.io/chulapa-101/ . No token/local install; workflow sets baseurl. Edit title/description/author/repository/url in _config.yml section A, index.html title and a sample article; verify publicly. Commit to main/master; replace sample content/photo/alt/credit/About contacts.
+First site: /docs/00-start. Template: https://github.com/dieghernan/chulapa-101/generate; Settings > Pages > GitHub Actions. Demo: https://dieghernan.github.io/chulapa-101/ . No token/local install; workflow sets baseurl. _config.yml A: title/description/author/repository/url. index.html: ONLY home title. Existing _posts/ file: article title/text. Verify both live. Commit to main/master; replace sample content/photo/alt/credit/About contacts.
 Chulapa 101 is one personal blog, not a selector for four profiles: gitdev skin, three posts, local credited photo, About, year/category/tag archives, Fuse.js, RSS. Root files: index.html (must keep that filename for jekyll-paginate; five posts/page), _posts/, _pages/, assets/img/. Fuse indexes posts/About, excluding home, archives, search and 404. Navbar/footer config stays in _config.yml.
 Starter config has commented/empty full-sample settings with blog collections/defaults. _includes/custom/ contains comment-only custom_head_before_css.html, custom_head.html, custom_bottomscripts.html and giscus.html; these do not change the skin. assets/css/custom.scss includes YAML front matter. Giscus also needs its provider and show_comments.
 
@@ -158,7 +158,7 @@ Source: https://dieghernan.github.io/chulapa/docs/32-embed-video
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#video-support
 Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, google-drive, bilibili; provider and video ID required (watch URL v= value, or final path segment of youtu.be/ID and youtube.com/shorts/ID; omit query/fragment, never full URL):
 {% include snippets/video.html id="YOUR_VIDEO_ID" provider="youtube" %}
-Local/remote file (fileurl wins): root-relative path; snippet applies absolute_url. No relative_url or baseurl prefix:
+fileurl wins: local=root-relative path, no relative_url/baseurl prefix; external=full HTTPS URL. Snippet applies absolute_url:
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
 YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). Accessible player/play-button names from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but not those accessible names or fallback link. This embeds website video, not uploads into chat.
 
@@ -295,7 +295,7 @@ jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outp
 
 ## Check theme version
 Source: https://dieghernan.github.io/chulapa/docs/55-check-theme-version
-Remote: remote_theme suffix/build revision; unpinned follows main. Gem only: chulapa-jekyll in Gemfile.lock. HTML marker identifies neither unpinned commit nor local overrides. Cite this guide, not custom-head/docs index.
+Remote: inspect remote_theme; tag=release, unpinned/branch can move. No documented exact commit check. Gem only: chulapa-jekyll in Gemfile.lock. HTML marker identifies neither unpinned commit nor local overrides. Cite this guide, not custom-head/docs index.
 
 ## Custom hooks
 Source: https://dieghernan.github.io/chulapa/docs/45-custom-hooks
