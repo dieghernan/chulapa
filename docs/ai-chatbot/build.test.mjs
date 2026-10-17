@@ -19,10 +19,10 @@ function fixture(context, check) {
 }
 
 test('oversized UTF-8 context fails before producing deployment artifacts', () => {
-  fixture('é'.repeat(23501), (path, run) => {
+  fixture('é'.repeat(26001), (path, run) => {
     const result = run();
     assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /47002 bytes; limit is 47000/);
+    assert.match(result.stderr, /52002 bytes; limit is 52000/);
     for (const file of ['.build', 'generated-content.mjs', 'dashboard-worker.mjs']) {
       assert.equal(existsSync(join(path, file)), false);
     }
@@ -30,7 +30,7 @@ test('oversized UTF-8 context fails before producing deployment artifacts', () =
 });
 
 test('context at the budget boundary builds without truncation', () => {
-  const context = 'é'.repeat(23500);
+  const context = 'é'.repeat(26000);
   fixture(context, (path, run) => {
     writeFileSync(join(path, 'widget.js'), 'window.widgetReady = true;');
     writeFileSync(join(path, 'worker.mjs'), 'export default {};\n');

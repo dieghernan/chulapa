@@ -1,0 +1,1909 @@
+{
+  "candidate_state": "deployed_reviewed",
+  "candidate_source": "549f876dd",
+  "worker_version": "90b4709a-c8ce-4946-838a-d85d12922e73",
+  "latest_candidate_review": "candidate-regression-01-549f876dd-review.json",
+  "candidate_remaining_count": 151,
+  "candidate_pending_review": [],
+  "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
+  "catalog_count": 155,
+  "baseline_record_count": 56,
+  "baseline_review_count": 56,
+  "entries": [
+    {
+      "id": "layouts-random-singleton-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "549f876dd"
+    },
+    {
+      "id": "layouts-microformats-feed-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "config-author-profile-1",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-microformats-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "installation-1",
+      "doc": "01_install.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "installation-2",
+      "doc": "01_install.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "installation-3",
+      "doc": "01_install.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "installation-4",
+      "doc": "01_install.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "installation-5",
+      "doc": "01_install.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "installation-6",
+      "doc": "01_install.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "configuration-1",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "configuration-2",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "configuration-3",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "configuration-4",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "configuration-5",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "configuration-6",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-comments-1",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-comments-2",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-comments-3",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-comments-4",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-comments-5",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-comments-6",
+      "doc": "02_config.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "theming-1",
+      "doc": "03_theming.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "theming-2",
+      "doc": "03_theming.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "theming-3",
+      "doc": "03_theming.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "theming-4",
+      "doc": "03_theming.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "theming-5",
+      "doc": "03_theming.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "theming-6",
+      "doc": "03_theming.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-2",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-3",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-4",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-5",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-6",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippets-1",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippets-2",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippets-3",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippets-4",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippets-5",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippets-6",
+      "doc": "04_layouts.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "faq-1",
+      "doc": "05_faq.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "faq-2",
+      "doc": "05_faq.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "faq-3",
+      "doc": "05_faq.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "faq-4",
+      "doc": "05_faq.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "faq-5",
+      "doc": "05_faq.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "faq-6",
+      "doc": "57_jekyll-feed.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "reference-edge-cases-1",
+      "doc": "99_markdown-cheatsheet.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "reference-edge-cases-2",
+      "doc": "58_content-toc.md",
+      "baseline": "answer_received",
+      "baseline_review": "partial",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "reference-edge-cases-3",
+      "doc": "99_markdown-cheatsheet.md",
+      "baseline": "answer_received",
+      "baseline_review": "fail",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "reference-edge-cases-4",
+      "doc": "99_markdown-cheatsheet.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "reference-edge-cases-5",
+      "doc": "25_code-highlighting.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "reference-edge-cases-6",
+      "doc": "99_markdown-cheatsheet.md",
+      "baseline": "answer_received",
+      "baseline_review": "pass",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "migration-theme-1",
+      "doc": "07_migration.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "seo-1",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "seo-2",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "seo-3",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "seo-4",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "navigation-1",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "navigation-2",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "navigation-3",
+      "doc": "02_config.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "layouts-7",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "variables-1",
+      "doc": "99_variable-dict.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "variables-2",
+      "doc": "99_variable-dict.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "variables-3",
+      "doc": "99_variable-dict.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "variables-unsupported",
+      "doc": "99_variable-dict.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "mermaid-1",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "starter-1",
+      "doc": "08_starter-examples.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "starter-2",
+      "doc": "00_start.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "accessibility-1",
+      "doc": "06_accessibility-performance.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "resources-1",
+      "doc": "06_accessibility-performance.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "toc-active-section",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "photoswipe-gallery",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "goatcounter-analytics",
+      "doc": "02_config.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "collection-filename-order",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "javascript-resource-fallbacks",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "custom-search-script-dependencies",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "assistant-session-history",
+      "doc": "2026-10-09-building-a-documentation-chatbot.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "semantic-html-accessibility",
+      "doc": "06_accessibility-performance.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "carousel-accessibility-motion",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "sidebar-accessibility-focus",
+      "doc": "06_accessibility-performance.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "pwa-offline-status",
+      "doc": "06_accessibility-performance.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "beginner-post-1",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "beginner-image-1",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "beginner-publishing-1",
+      "doc": "05_faq.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "snippet-parameter-reference",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "navigation-edit-existing-1",
+      "doc": "10_edit-menu.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "footer-edit-existing-1",
+      "doc": "11_edit-footer.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-fusejs-setup-1",
+      "doc": "12_fusejs-search.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "doc": "13_giscus-comments.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-no-navbar-links-1",
+      "doc": "12_fusejs-search.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "site-details-edit-1",
+      "doc": "14_site-details.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "content-post-1",
+      "doc": "15_create-post.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "content-page-1",
+      "doc": "16_create-page.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "content-image-1",
+      "doc": "17_add-image.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "analytics-goat-setup-1",
+      "doc": "18_goatcounter.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "analytics-ga4-setup-1",
+      "doc": "19_google-analytics.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "related-card-dates-1",
+      "doc": "04_layouts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "install-remote-task-1",
+      "doc": "20_remote-theme.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "install-gem-task-1",
+      "doc": "21_gem-theme.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "doc": "22_choose-skin.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "appearance-font-task-1",
+      "doc": "24_change-fonts.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "appearance-auto-task-1",
+      "doc": "27_autothemer.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "appearance-sass-task-1",
+      "doc": "28_custom-skin.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "media-gallery-task-1",
+      "doc": "29_add-gallery.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "media-carousel-task-1",
+      "doc": "30_add-carousel.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "media-photoswipe-task-1",
+      "doc": "31_photoswipe.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "media-video-task-1",
+      "doc": "32_embed-video.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "media-diagram-task-1",
+      "doc": "33_add-diagram.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "provider-lunr-task-1",
+      "doc": "34_lunr-search.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "provider-simplesearch-task-1",
+      "doc": "35_simplesearch-search.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "provider-google-task-1",
+      "doc": "36_google-search.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "provider-algolia-task-1",
+      "doc": "37_algolia-search.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "comments-disqus-task-1",
+      "doc": "38_disqus-comments.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "comments-cactus-task-1",
+      "doc": "39_cactus-comments.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "comments-welcomments-task-1",
+      "doc": "40_welcomments-comments.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "comments-cusdis-task-1",
+      "doc": "41_cusdis-comments.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "troubleshoot-publishing-task-1",
+      "doc": "42_unpublished-changes.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "troubleshoot-yaml-task-1",
+      "doc": "43_yaml-errors.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "custom-head-task-1",
+      "doc": "44_custom-head.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "doc": "46_migration-fields.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "accessibility-task-reference-1",
+      "doc": "48_accessibility-reference.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "format-alert-task-1",
+      "doc": "49_add-alert.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "format-caption-task-1",
+      "doc": "50_add-caption.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "format-footnote-task-1",
+      "doc": "51_add-footnote.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "favicon-task-1",
+      "doc": "52_add-favicon.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "bundled-font-task-1",
+      "doc": "53_chulapa-font.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "icon-task-1",
+      "doc": "54_add-icon.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "version-task-1",
+      "doc": "55_check-theme-version.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "feed-coexistence-1",
+      "doc": "57_jekyll-feed.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "feed-selection-1",
+      "doc": "56_publish-feeds.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "feed-collection-output-1",
+      "doc": "56_publish-feeds.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "content-toc-task-1",
+      "doc": "58_content-toc.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "person-publisher-task-1",
+      "doc": "60_person-publisher.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "localized-date-task-1",
+      "doc": "61_localize-date.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "canonical-article-task-1",
+      "doc": "62_canonical-article.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "cloud-task-1",
+      "doc": "63_tag-category-clouds.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "sharing-task-1",
+      "doc": "64_post-sharing.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "search-visibility-task-1",
+      "doc": "65_search-visibility.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "doc": "63_tag-category-clouds.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "starter-demo-versus-site",
+      "doc": "09_run-starter.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "documentation-appearance-topics",
+      "doc": "../_pages/docs_tags.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "documentation-content-publishing-topics",
+      "doc": "../_pages/docs_tags.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "second-photo-tutorial-1",
+      "doc": "59_photo-page-tutorial.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "documentation-search-topics",
+      "doc": "../_pages/docs_tags.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "documentation-installation-topics",
+      "doc": "../_pages/docs_tags.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "documentation-identity-topics",
+      "doc": "../_pages/docs_tags.md",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "community-1",
+      "doc": "https://github.com/dieghernan/chulapa/discussions/31",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "community-2",
+      "doc": "https://github.com/dieghernan/chulapa/discussions/24",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "community-3",
+      "doc": "https://github.com/dieghernan/chulapa/issues/27",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "community-4",
+      "doc": "https://github.com/dieghernan/chulapa/issues/39",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    },
+    {
+      "id": "community-5",
+      "doc": "https://github.com/dieghernan/chulapa/discussions/49",
+      "baseline": "no_completed_record",
+      "baseline_review": "not_reviewed",
+      "candidate_live": "not_run"
+    }
+  ],
+  "candidate_regression_batches": [
+    {
+      "name": "candidate-regression-01",
+      "ids": [
+        "layouts-random-singleton-1",
+        "layouts-include-cache-1",
+        "layouts-head-formatting-1",
+        "layouts-microformats-nested-feed-1"
+      ],
+      "status": "reviewed_pass",
+      "command": null
+    },
+    {
+      "name": "candidate-regression-02",
+      "ids": [
+        "config-author-profile-1",
+        "layouts-label-headings-1",
+        "layouts-microformats-1",
+        "installation-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-02 config-author-profile-1,layouts-label-headings-1,layouts-microformats-1,installation-1"
+    },
+    {
+      "name": "candidate-regression-03",
+      "ids": [
+        "installation-2",
+        "installation-3",
+        "configuration-3",
+        "search-comments-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-03 installation-2,installation-3,configuration-3,search-comments-2"
+    },
+    {
+      "name": "candidate-regression-04",
+      "ids": [
+        "search-comments-3",
+        "search-comments-4",
+        "search-comments-5",
+        "search-comments-6"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-04 search-comments-3,search-comments-4,search-comments-5,search-comments-6"
+    },
+    {
+      "name": "candidate-regression-05",
+      "ids": [
+        "theming-4",
+        "theming-5",
+        "layouts-1",
+        "layouts-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-05 theming-4,theming-5,layouts-1,layouts-2"
+    },
+    {
+      "name": "candidate-regression-06",
+      "ids": [
+        "layouts-4",
+        "layouts-5",
+        "layouts-6",
+        "snippets-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-06 layouts-4,layouts-5,layouts-6,snippets-1"
+    },
+    {
+      "name": "candidate-regression-07",
+      "ids": [
+        "snippets-4",
+        "snippets-6",
+        "faq-1",
+        "faq-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-07 snippets-4,snippets-6,faq-1,faq-2"
+    },
+    {
+      "name": "candidate-regression-08",
+      "ids": [
+        "faq-4",
+        "faq-5",
+        "faq-6",
+        "reference-edge-cases-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-08 faq-4,faq-5,faq-6,reference-edge-cases-1"
+    },
+    {
+      "name": "candidate-regression-09",
+      "ids": [
+        "reference-edge-cases-2",
+        "reference-edge-cases-3"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-regression-09 reference-edge-cases-2,reference-edge-cases-3"
+    }
+  ],
+  "baseline_pending_review": [],
+  "baseline_unfinished_batches": [
+    {
+      "name": "baseline-unfinished-01",
+      "ids": [
+        "migration-theme-1",
+        "seo-1",
+        "seo-2",
+        "seo-3"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-02",
+      "ids": [
+        "seo-4",
+        "navigation-1",
+        "navigation-2",
+        "navigation-3"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-03",
+      "ids": [
+        "layouts-7",
+        "variables-1",
+        "variables-2",
+        "variables-3"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-04",
+      "ids": [
+        "variables-unsupported",
+        "mermaid-1",
+        "starter-1",
+        "starter-2"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-05",
+      "ids": [
+        "accessibility-1",
+        "resources-1",
+        "toc-active-section",
+        "photoswipe-gallery"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-06",
+      "ids": [
+        "goatcounter-analytics",
+        "collection-filename-order",
+        "javascript-resource-fallbacks",
+        "custom-search-script-dependencies"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-07",
+      "ids": [
+        "assistant-session-history",
+        "semantic-html-accessibility",
+        "carousel-accessibility-motion",
+        "sidebar-accessibility-focus"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-08",
+      "ids": [
+        "pwa-offline-status",
+        "beginner-post-1",
+        "beginner-image-1",
+        "beginner-publishing-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-09",
+      "ids": [
+        "snippet-parameter-reference",
+        "navigation-edit-existing-1",
+        "footer-edit-existing-1",
+        "search-fusejs-setup-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-10",
+      "ids": [
+        "comments-giscus-setup-1",
+        "search-no-navbar-links-1",
+        "site-details-edit-1",
+        "content-post-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-11",
+      "ids": [
+        "content-page-1",
+        "content-image-1",
+        "analytics-goat-setup-1",
+        "analytics-ga4-setup-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-12",
+      "ids": [
+        "related-card-dates-1",
+        "install-remote-task-1",
+        "install-gem-task-1",
+        "appearance-skin-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-13",
+      "ids": [
+        "appearance-font-task-1",
+        "appearance-auto-task-1",
+        "appearance-sass-task-1",
+        "media-gallery-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-14",
+      "ids": [
+        "media-carousel-task-1",
+        "media-photoswipe-task-1",
+        "media-video-task-1",
+        "media-diagram-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-15",
+      "ids": [
+        "provider-lunr-task-1",
+        "provider-simplesearch-task-1",
+        "provider-google-task-1",
+        "provider-algolia-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-16",
+      "ids": [
+        "comments-disqus-task-1",
+        "comments-cactus-task-1",
+        "comments-welcomments-task-1",
+        "comments-cusdis-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-17",
+      "ids": [
+        "troubleshoot-publishing-task-1",
+        "troubleshoot-yaml-task-1",
+        "custom-head-task-1",
+        "migration-fields-lookup-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-18",
+      "ids": [
+        "accessibility-task-reference-1",
+        "format-alert-task-1",
+        "format-caption-task-1",
+        "format-footnote-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-19",
+      "ids": [
+        "favicon-task-1",
+        "bundled-font-task-1",
+        "icon-task-1",
+        "version-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-20",
+      "ids": [
+        "feed-coexistence-1",
+        "feed-selection-1",
+        "feed-collection-output-1",
+        "content-toc-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-21",
+      "ids": [
+        "person-publisher-task-1",
+        "localized-date-task-1",
+        "canonical-article-task-1",
+        "cloud-task-1"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-22",
+      "ids": [
+        "sharing-task-1",
+        "search-visibility-task-1",
+        "cloud-demo-fragments",
+        "starter-demo-versus-site"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-23",
+      "ids": [
+        "documentation-appearance-topics",
+        "documentation-content-publishing-topics",
+        "second-photo-tutorial-1",
+        "documentation-search-topics"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-24",
+      "ids": [
+        "documentation-installation-topics",
+        "documentation-identity-topics",
+        "community-1",
+        "community-2"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    },
+    {
+      "name": "baseline-unfinished-25",
+      "ids": [
+        "community-3",
+        "community-4",
+        "community-5"
+      ],
+      "status": "no_completed_record",
+      "command": null
+    }
+  ],
+  "candidate_complete_batches": [
+    {
+      "name": "candidate-complete-01",
+      "ids": [
+        "layouts-random-singleton-1",
+        "layouts-include-cache-1",
+        "layouts-head-formatting-1",
+        "layouts-microformats-nested-feed-1"
+      ],
+      "status": "reviewed_pass",
+      "command": null
+    },
+    {
+      "name": "candidate-complete-02",
+      "ids": [
+        "layouts-microformats-feed-1",
+        "config-author-profile-1",
+        "layouts-label-headings-1",
+        "layouts-microformats-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-02 layouts-microformats-feed-1,config-author-profile-1,layouts-label-headings-1,layouts-microformats-1"
+    },
+    {
+      "name": "candidate-complete-03",
+      "ids": [
+        "installation-1",
+        "installation-2",
+        "installation-3",
+        "installation-4"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-03 installation-1,installation-2,installation-3,installation-4"
+    },
+    {
+      "name": "candidate-complete-04",
+      "ids": [
+        "installation-5",
+        "installation-6",
+        "configuration-1",
+        "configuration-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-04 installation-5,installation-6,configuration-1,configuration-2"
+    },
+    {
+      "name": "candidate-complete-05",
+      "ids": [
+        "configuration-3",
+        "configuration-4",
+        "configuration-5",
+        "configuration-6"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-05 configuration-3,configuration-4,configuration-5,configuration-6"
+    },
+    {
+      "name": "candidate-complete-06",
+      "ids": [
+        "search-comments-1",
+        "search-comments-2",
+        "search-comments-3",
+        "search-comments-4"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-06 search-comments-1,search-comments-2,search-comments-3,search-comments-4"
+    },
+    {
+      "name": "candidate-complete-07",
+      "ids": [
+        "search-comments-5",
+        "search-comments-6",
+        "theming-1",
+        "theming-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-07 search-comments-5,search-comments-6,theming-1,theming-2"
+    },
+    {
+      "name": "candidate-complete-08",
+      "ids": [
+        "theming-3",
+        "theming-4",
+        "theming-5",
+        "theming-6"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-08 theming-3,theming-4,theming-5,theming-6"
+    },
+    {
+      "name": "candidate-complete-09",
+      "ids": [
+        "layouts-1",
+        "layouts-2",
+        "layouts-3",
+        "layouts-4"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-09 layouts-1,layouts-2,layouts-3,layouts-4"
+    },
+    {
+      "name": "candidate-complete-10",
+      "ids": [
+        "layouts-5",
+        "layouts-6",
+        "snippets-1",
+        "snippets-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-10 layouts-5,layouts-6,snippets-1,snippets-2"
+    },
+    {
+      "name": "candidate-complete-11",
+      "ids": [
+        "snippets-3",
+        "snippets-4",
+        "snippets-5",
+        "snippets-6"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-11 snippets-3,snippets-4,snippets-5,snippets-6"
+    },
+    {
+      "name": "candidate-complete-12",
+      "ids": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-12 faq-1,faq-2,faq-3,faq-4"
+    },
+    {
+      "name": "candidate-complete-13",
+      "ids": [
+        "faq-5",
+        "faq-6",
+        "reference-edge-cases-1",
+        "reference-edge-cases-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-13 faq-5,faq-6,reference-edge-cases-1,reference-edge-cases-2"
+    },
+    {
+      "name": "candidate-complete-14",
+      "ids": [
+        "reference-edge-cases-3",
+        "reference-edge-cases-4",
+        "reference-edge-cases-5",
+        "reference-edge-cases-6"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-14 reference-edge-cases-3,reference-edge-cases-4,reference-edge-cases-5,reference-edge-cases-6"
+    },
+    {
+      "name": "candidate-complete-15",
+      "ids": [
+        "migration-theme-1",
+        "seo-1",
+        "seo-2",
+        "seo-3"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-15 migration-theme-1,seo-1,seo-2,seo-3"
+    },
+    {
+      "name": "candidate-complete-16",
+      "ids": [
+        "seo-4",
+        "navigation-1",
+        "navigation-2",
+        "navigation-3"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-16 seo-4,navigation-1,navigation-2,navigation-3"
+    },
+    {
+      "name": "candidate-complete-17",
+      "ids": [
+        "layouts-7",
+        "variables-1",
+        "variables-2",
+        "variables-3"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-17 layouts-7,variables-1,variables-2,variables-3"
+    },
+    {
+      "name": "candidate-complete-18",
+      "ids": [
+        "variables-unsupported",
+        "mermaid-1",
+        "starter-1",
+        "starter-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-18 variables-unsupported,mermaid-1,starter-1,starter-2"
+    },
+    {
+      "name": "candidate-complete-19",
+      "ids": [
+        "accessibility-1",
+        "resources-1",
+        "toc-active-section",
+        "photoswipe-gallery"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-19 accessibility-1,resources-1,toc-active-section,photoswipe-gallery"
+    },
+    {
+      "name": "candidate-complete-20",
+      "ids": [
+        "goatcounter-analytics",
+        "collection-filename-order",
+        "javascript-resource-fallbacks",
+        "custom-search-script-dependencies"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-20 goatcounter-analytics,collection-filename-order,javascript-resource-fallbacks,custom-search-script-dependencies"
+    },
+    {
+      "name": "candidate-complete-21",
+      "ids": [
+        "assistant-session-history",
+        "semantic-html-accessibility",
+        "carousel-accessibility-motion",
+        "sidebar-accessibility-focus"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-21 assistant-session-history,semantic-html-accessibility,carousel-accessibility-motion,sidebar-accessibility-focus"
+    },
+    {
+      "name": "candidate-complete-22",
+      "ids": [
+        "pwa-offline-status",
+        "beginner-post-1",
+        "beginner-image-1",
+        "beginner-publishing-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-22 pwa-offline-status,beginner-post-1,beginner-image-1,beginner-publishing-1"
+    },
+    {
+      "name": "candidate-complete-23",
+      "ids": [
+        "snippet-parameter-reference",
+        "navigation-edit-existing-1",
+        "footer-edit-existing-1",
+        "search-fusejs-setup-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-23 snippet-parameter-reference,navigation-edit-existing-1,footer-edit-existing-1,search-fusejs-setup-1"
+    },
+    {
+      "name": "candidate-complete-24",
+      "ids": [
+        "comments-giscus-setup-1",
+        "search-no-navbar-links-1",
+        "site-details-edit-1",
+        "content-post-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-24 comments-giscus-setup-1,search-no-navbar-links-1,site-details-edit-1,content-post-1"
+    },
+    {
+      "name": "candidate-complete-25",
+      "ids": [
+        "content-page-1",
+        "content-image-1",
+        "analytics-goat-setup-1",
+        "analytics-ga4-setup-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-25 content-page-1,content-image-1,analytics-goat-setup-1,analytics-ga4-setup-1"
+    },
+    {
+      "name": "candidate-complete-26",
+      "ids": [
+        "related-card-dates-1",
+        "install-remote-task-1",
+        "install-gem-task-1",
+        "appearance-skin-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-26 related-card-dates-1,install-remote-task-1,install-gem-task-1,appearance-skin-task-1"
+    },
+    {
+      "name": "candidate-complete-27",
+      "ids": [
+        "appearance-font-task-1",
+        "appearance-auto-task-1",
+        "appearance-sass-task-1",
+        "media-gallery-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-27 appearance-font-task-1,appearance-auto-task-1,appearance-sass-task-1,media-gallery-task-1"
+    },
+    {
+      "name": "candidate-complete-28",
+      "ids": [
+        "media-carousel-task-1",
+        "media-photoswipe-task-1",
+        "media-video-task-1",
+        "media-diagram-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-28 media-carousel-task-1,media-photoswipe-task-1,media-video-task-1,media-diagram-task-1"
+    },
+    {
+      "name": "candidate-complete-29",
+      "ids": [
+        "provider-lunr-task-1",
+        "provider-simplesearch-task-1",
+        "provider-google-task-1",
+        "provider-algolia-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-29 provider-lunr-task-1,provider-simplesearch-task-1,provider-google-task-1,provider-algolia-task-1"
+    },
+    {
+      "name": "candidate-complete-30",
+      "ids": [
+        "comments-disqus-task-1",
+        "comments-cactus-task-1",
+        "comments-welcomments-task-1",
+        "comments-cusdis-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-30 comments-disqus-task-1,comments-cactus-task-1,comments-welcomments-task-1,comments-cusdis-task-1"
+    },
+    {
+      "name": "candidate-complete-31",
+      "ids": [
+        "troubleshoot-publishing-task-1",
+        "troubleshoot-yaml-task-1",
+        "custom-head-task-1",
+        "migration-fields-lookup-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-31 troubleshoot-publishing-task-1,troubleshoot-yaml-task-1,custom-head-task-1,migration-fields-lookup-1"
+    },
+    {
+      "name": "candidate-complete-32",
+      "ids": [
+        "accessibility-task-reference-1",
+        "format-alert-task-1",
+        "format-caption-task-1",
+        "format-footnote-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-32 accessibility-task-reference-1,format-alert-task-1,format-caption-task-1,format-footnote-task-1"
+    },
+    {
+      "name": "candidate-complete-33",
+      "ids": [
+        "favicon-task-1",
+        "bundled-font-task-1",
+        "icon-task-1",
+        "version-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-33 favicon-task-1,bundled-font-task-1,icon-task-1,version-task-1"
+    },
+    {
+      "name": "candidate-complete-34",
+      "ids": [
+        "feed-coexistence-1",
+        "feed-selection-1",
+        "feed-collection-output-1",
+        "content-toc-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-34 feed-coexistence-1,feed-selection-1,feed-collection-output-1,content-toc-task-1"
+    },
+    {
+      "name": "candidate-complete-35",
+      "ids": [
+        "person-publisher-task-1",
+        "localized-date-task-1",
+        "canonical-article-task-1",
+        "cloud-task-1"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-35 person-publisher-task-1,localized-date-task-1,canonical-article-task-1,cloud-task-1"
+    },
+    {
+      "name": "candidate-complete-36",
+      "ids": [
+        "sharing-task-1",
+        "search-visibility-task-1",
+        "cloud-demo-fragments",
+        "starter-demo-versus-site"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-36 sharing-task-1,search-visibility-task-1,cloud-demo-fragments,starter-demo-versus-site"
+    },
+    {
+      "name": "candidate-complete-37",
+      "ids": [
+        "documentation-appearance-topics",
+        "documentation-content-publishing-topics",
+        "second-photo-tutorial-1",
+        "documentation-search-topics"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-37 documentation-appearance-topics,documentation-content-publishing-topics,second-photo-tutorial-1,documentation-search-topics"
+    },
+    {
+      "name": "candidate-complete-38",
+      "ids": [
+        "documentation-installation-topics",
+        "documentation-identity-topics",
+        "community-1",
+        "community-2"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-38 documentation-installation-topics,documentation-identity-topics,community-1,community-2"
+    },
+    {
+      "name": "candidate-complete-39",
+      "ids": [
+        "community-3",
+        "community-4",
+        "community-5"
+      ],
+      "status": "not_run",
+      "command": "node evaluate-live.mjs candidate-complete-39 community-3,community-4,community-5"
+    }
+  ]
+}

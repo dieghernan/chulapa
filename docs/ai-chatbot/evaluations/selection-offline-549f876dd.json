@@ -1,0 +1,1965 @@
+{
+  "source_commit": "549f876dd",
+  "note": "Routing only, not model accuracy evidence.",
+  "cases": [
+    {
+      "id": "layouts-random-singleton-1",
+      "bytes": 11392,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Related and random article cards",
+        "Basic editing and publishing",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Page metadata and article images",
+        "Inherited list microformats (development only)",
+        "Generated HTML formatting (development only)"
+      ]
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "bytes": 10512,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Layout structure and include caching",
+        "More layouts and content navigation",
+        "Check theme version",
+        "Gem-theme installation",
+        "Correct file and option scopes",
+        "Mermaid and clipboard (development version after v2.1.0)",
+        "PhotoSwipe galleries (development after v2.1.0)",
+        "GoatCounter analytics (development after v2.1.0)"
+      ]
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "bytes": 6059,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Navbar and footer",
+        "Generated HTML formatting (development only)",
+        "Global settings",
+        "Palette precedence and custom skins",
+        "Diagnosing YAML",
+        "Custom hooks"
+      ]
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "bytes": 10132,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Layout structure and include caching",
+        "Basic editing and publishing",
+        "More layouts and content navigation",
+        "Subscription feeds",
+        "Public RSS feed",
+        "Inherited list microformats (development only)",
+        "Correct file and option scopes",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "layouts-microformats-feed-1",
+      "bytes": 8681,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "More layouts and content navigation",
+        "Subscription feeds",
+        "Public RSS feed",
+        "Inherited list microformats (development only)",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Layouts",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "config-author-profile-1",
+      "bytes": 6022,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Global settings",
+        "Layout structure and include caching",
+        "Inherited list microformats (development only)"
+      ]
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "bytes": 8657,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Related and random article cards",
+        "Basic editing and publishing",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "layouts-microformats-1",
+      "bytes": 10620,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Global settings",
+        "Localized dates",
+        "Inherited list microformats (development only)",
+        "Basic editing and publishing",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "installation-1",
+      "bytes": 5223,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "First-site tutorial",
+        "Basic editing and publishing",
+        "Starter examples"
+      ]
+    },
+    {
+      "id": "installation-2",
+      "bytes": 5000,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Migrating an existing Jekyll site",
+        "Remote-theme installation",
+        "Check theme version",
+        "Gem-theme installation",
+        "Additional navigation and community questions"
+      ]
+    },
+    {
+      "id": "installation-3",
+      "bytes": 8309,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Layout structure and include caching",
+        "Migrating an existing Jekyll site",
+        "Check theme version",
+        "Localized dates",
+        "Gem-theme installation",
+        "Image galleries and carousels",
+        "PhotoSwipe galleries (development after v2.1.0)"
+      ]
+    },
+    {
+      "id": "installation-4",
+      "bytes": 6848,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Gem-theme installation",
+        "Check theme version",
+        "Global settings",
+        "Localized dates",
+        "Remote-theme installation",
+        "Inherited list microformats (development only)",
+        "Generated HTML formatting (development only)",
+        "JavaScript maintenance (v2.1.1-dev, main only)"
+      ]
+    },
+    {
+      "id": "installation-5",
+      "bytes": 6107,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Check theme version",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Migrating an existing Jekyll site",
+        "Mermaid and clipboard (development version after v2.1.0)",
+        "Additional navigation and community questions"
+      ]
+    },
+    {
+      "id": "installation-6",
+      "bytes": 7202,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Check theme version",
+        "Migrating an existing Jekyll site",
+        "Gem-theme installation",
+        "Generated HTML formatting (development only)",
+        "First-site tutorial",
+        "Changing fonts and highlighting",
+        "Giscus comments"
+      ]
+    },
+    {
+      "id": "configuration-1",
+      "bytes": 3964,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Global settings"
+      ]
+    },
+    {
+      "id": "configuration-2",
+      "bytes": 2977,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Localized dates",
+        "Global settings"
+      ]
+    },
+    {
+      "id": "configuration-3",
+      "bytes": 6734,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Publisher, analytics and icon configuration",
+        "Global settings",
+        "Related and random article cards",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "configuration-4",
+      "bytes": 3704,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Google Analytics 4",
+        "GoatCounter analytics (development after v2.1.0)",
+        "Publisher, analytics and icon configuration"
+      ]
+    },
+    {
+      "id": "configuration-5",
+      "bytes": 5668,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Font Awesome",
+        "Changing fonts and highlighting",
+        "Publisher, analytics and icon configuration",
+        "Appearance reference",
+        "Correct file and option scopes",
+        "Bundled font"
+      ]
+    },
+    {
+      "id": "configuration-6",
+      "bytes": 8052,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Navbar and footer",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Publisher, analytics and icon configuration"
+      ]
+    },
+    {
+      "id": "search-comments-1",
+      "bytes": 3857,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "search-comments-2",
+      "bytes": 5574,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Algolia search",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "search-comments-3",
+      "bytes": 3857,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "search-comments-4",
+      "bytes": 3857,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "search-comments-5",
+      "bytes": 3883,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Giscus comments",
+        "Comments",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "search-comments-6",
+      "bytes": 4093,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Navbar and footer",
+        "Palette precedence and custom skins",
+        "Custom hooks"
+      ]
+    },
+    {
+      "id": "theming-1",
+      "bytes": 8430,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Available skins",
+        "Changing skins and colors",
+        "Palette precedence and custom skins",
+        "Variables dictionary",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "theming-2",
+      "bytes": 6142,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing skins and colors",
+        "Variables dictionary",
+        "Palette precedence and custom skins",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "theming-3",
+      "bytes": 8430,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing skins and colors",
+        "Palette precedence and custom skins",
+        "Variables dictionary",
+        "Correct file and option scopes",
+        "Available skins"
+      ]
+    },
+    {
+      "id": "theming-4",
+      "bytes": 6678,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Basic editing and publishing",
+        "Appearance reference",
+        "Correct file and option scopes",
+        "Bundled font",
+        "Font Awesome"
+      ]
+    },
+    {
+      "id": "theming-5",
+      "bytes": 8984,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Palette precedence and custom skins",
+        "Changing skins and colors",
+        "Variables dictionary",
+        "Correct file and option scopes",
+        "Available skins",
+        "Custom hooks"
+      ]
+    },
+    {
+      "id": "theming-6",
+      "bytes": 7307,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Variables dictionary",
+        "Changing skins and colors",
+        "Palette precedence and custom skins",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "layouts-1",
+      "bytes": 8312,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Basic editing and publishing",
+        "Correct file and option scopes",
+        "Layouts"
+      ]
+    },
+    {
+      "id": "layouts-2",
+      "bytes": 9118,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Global settings",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "layouts-3",
+      "bytes": 2736,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Mathematical notation and tables of contents",
+        "Markdown formatting"
+      ]
+    },
+    {
+      "id": "layouts-4",
+      "bytes": 11131,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Localized dates",
+        "Basic editing and publishing",
+        "Global settings",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Inherited list microformats (development only)",
+        "Generated HTML formatting (development only)"
+      ]
+    },
+    {
+      "id": "layouts-5",
+      "bytes": 2892,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "layouts-6",
+      "bytes": 5460,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Related and random article cards",
+        "More layouts and content navigation"
+      ]
+    },
+    {
+      "id": "snippets-1",
+      "bytes": 4584,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Adding videos",
+        "Layout structure and include caching",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "snippets-2",
+      "bytes": 5870,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Adding videos",
+        "Accessibility and resource loading in development"
+      ]
+    },
+    {
+      "id": "snippets-3",
+      "bytes": 4370,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Adding videos",
+        "Global settings",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "snippets-4",
+      "bytes": 2540,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels"
+      ]
+    },
+    {
+      "id": "snippets-5",
+      "bytes": 4505,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "Basic editing and publishing",
+        "SEO controls"
+      ]
+    },
+    {
+      "id": "snippets-6",
+      "bytes": 4453,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Mathematical notation and tables of contents",
+        "Basic editing and publishing",
+        "Markdown formatting"
+      ]
+    },
+    {
+      "id": "faq-1",
+      "bytes": 4560,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Check theme version",
+        "Gem-theme installation",
+        "Remote-theme installation",
+        "Localized dates",
+        "Mermaid and clipboard (development version after v2.1.0)"
+      ]
+    },
+    {
+      "id": "faq-2",
+      "bytes": 6317,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Custom hooks",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Publisher, analytics and icon configuration",
+        "Google Analytics 4",
+        "GoatCounter analytics (development after v2.1.0)",
+        "Check theme version",
+        "Generated HTML formatting (development only)"
+      ]
+    },
+    {
+      "id": "faq-3",
+      "bytes": 5515,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Favicons",
+        "First-site tutorial",
+        "Basic editing and publishing",
+        "Publisher, analytics and icon configuration",
+        "Font Awesome"
+      ]
+    },
+    {
+      "id": "faq-4",
+      "bytes": 7132,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Alerts, captions and footnotes",
+        "Markdown formatting",
+        "Basic editing and publishing",
+        "Image galleries and carousels",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "faq-5",
+      "bytes": 4961,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Bundled font",
+        "Appearance reference",
+        "Correct file and option scopes",
+        "Font Awesome"
+      ]
+    },
+    {
+      "id": "faq-6",
+      "bytes": 4017,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Subscription feeds",
+        "Public RSS feed",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "reference-edge-cases-1",
+      "bytes": 4048,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Markdown formatting",
+        "Mathematical notation and tables of contents",
+        "Diagnosing YAML",
+        "Starter examples"
+      ]
+    },
+    {
+      "id": "reference-edge-cases-2",
+      "bytes": 2736,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Markdown formatting",
+        "Mathematical notation and tables of contents"
+      ]
+    },
+    {
+      "id": "reference-edge-cases-3",
+      "bytes": 9545,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Variables dictionary",
+        "Appearance reference",
+        "Changing skins and colors",
+        "Palette precedence and custom skins",
+        "Correct file and option scopes",
+        "Bundled font",
+        "Font Awesome"
+      ]
+    },
+    {
+      "id": "reference-edge-cases-4",
+      "bytes": 6775,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Navbar and footer",
+        "Changing skins and colors",
+        "Variables dictionary",
+        "Palette precedence and custom skins"
+      ]
+    },
+    {
+      "id": "reference-edge-cases-5",
+      "bytes": 2272,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Syntax highlighting styles"
+      ]
+    },
+    {
+      "id": "reference-edge-cases-6",
+      "bytes": 5523,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "SEO controls",
+        "Page metadata and article images",
+        "Subscription feeds",
+        "Public RSS feed"
+      ]
+    },
+    {
+      "id": "migration-theme-1",
+      "bytes": 9284,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Migrating an existing Jekyll site",
+        "More layouts and content navigation",
+        "Subscription feeds",
+        "Check theme version",
+        "Layout structure and include caching",
+        "Public RSS feed",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "seo-1",
+      "bytes": 6275,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Page metadata and article images",
+        "Global settings",
+        "SEO controls",
+        "Related and random article cards"
+      ]
+    },
+    {
+      "id": "seo-2",
+      "bytes": 3603,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Second browser tutorial",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "seo-3",
+      "bytes": 5601,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Page metadata and article images",
+        "Gem-theme installation",
+        "Global settings",
+        "SEO controls",
+        "Check theme version",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "seo-4",
+      "bytes": 5957,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Page metadata and article images",
+        "SEO controls",
+        "Basic editing and publishing",
+        "Image galleries and carousels"
+      ]
+    },
+    {
+      "id": "navigation-1",
+      "bytes": 6940,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Related and random article cards",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "navigation-2",
+      "bytes": 2892,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "navigation-3",
+      "bytes": 2892,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "layouts-7",
+      "bytes": 2892,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "variables-1",
+      "bytes": 3752,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Markdown formatting",
+        "Mathematical notation and tables of contents",
+        "Navbar and footer"
+      ]
+    },
+    {
+      "id": "variables-2",
+      "bytes": 10801,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing skins and colors",
+        "Palette precedence and custom skins",
+        "Variables dictionary",
+        "Basic editing and publishing",
+        "Correct file and option scopes",
+        "Changing fonts and highlighting",
+        "Available skins"
+      ]
+    },
+    {
+      "id": "variables-3",
+      "bytes": 7007,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Publisher, analytics and icon configuration",
+        "Font Awesome",
+        "Variables dictionary",
+        "Palette precedence and custom skins",
+        "Favicons",
+        "Custom hooks"
+      ]
+    },
+    {
+      "id": "variables-unsupported",
+      "bytes": 4413,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Documentation assistant session state",
+        "Variables dictionary"
+      ]
+    },
+    {
+      "id": "mermaid-1",
+      "bytes": 2282,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Mermaid and clipboard (development version after v2.1.0)"
+      ]
+    },
+    {
+      "id": "starter-1",
+      "bytes": 2104,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Starter examples"
+      ]
+    },
+    {
+      "id": "starter-2",
+      "bytes": 5107,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Starter examples",
+        "Basic editing and publishing",
+        "Layout structure and include caching"
+      ]
+    },
+    {
+      "id": "accessibility-1",
+      "bytes": 10835,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Global settings",
+        "Mathematical notation and tables of contents",
+        "Markdown formatting",
+        "Localized dates",
+        "Accessibility and resource loading in development",
+        "More layouts and content navigation",
+        "Additional navigation and community questions"
+      ]
+    },
+    {
+      "id": "resources-1",
+      "bytes": 10460,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Cactus comments",
+        "Bundled font",
+        "Basic editing and publishing",
+        "Appearance reference",
+        "Comments",
+        "Correct file and option scopes",
+        "Accessibility and resource loading in development"
+      ]
+    },
+    {
+      "id": "toc-active-section",
+      "bytes": 8590,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Markdown formatting",
+        "Mathematical notation and tables of contents",
+        "Changing fonts and highlighting",
+        "Syntax highlighting styles",
+        "Accessibility and resource loading in development",
+        "Global settings",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "photoswipe-gallery",
+      "bytes": 9675,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "PhotoSwipe galleries (development after v2.1.0)",
+        "Basic editing and publishing",
+        "Migrating an existing Jekyll site",
+        "Diagnosing YAML",
+        "Complete option and snippet reference",
+        "Correct file and option scopes"
+      ]
+    },
+    {
+      "id": "goatcounter-analytics",
+      "bytes": 8378,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "GoatCounter analytics (development after v2.1.0)",
+        "Google Analytics 4",
+        "Custom hooks",
+        "SEO controls",
+        "Page metadata and article images",
+        "Global settings",
+        "Publisher, analytics and icon configuration",
+        "Palette precedence and custom skins"
+      ]
+    },
+    {
+      "id": "collection-filename-order",
+      "bytes": 3923,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "Related and random article cards",
+        "Inherited list microformats (development only)"
+      ]
+    },
+    {
+      "id": "javascript-resource-fallbacks",
+      "bytes": 12675,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "More layouts and content navigation",
+        "Configuring site search",
+        "Layout structure and include caching",
+        "Basic editing and publishing",
+        "Adding videos",
+        "Correct file and option scopes",
+        "Layouts",
+        "Additional navigation and community questions"
+      ]
+    },
+    {
+      "id": "custom-search-script-dependencies",
+      "bytes": 11523,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Basic editing and publishing",
+        "Global settings",
+        "Localized dates",
+        "Palette precedence and custom skins",
+        "More layouts and content navigation",
+        "Custom hooks",
+        "Additional navigation and community questions"
+      ]
+    },
+    {
+      "id": "assistant-session-history",
+      "bytes": 7767,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "GoatCounter analytics (development after v2.1.0)",
+        "PhotoSwipe galleries (development after v2.1.0)",
+        "Mathematical notation and tables of contents",
+        "Check theme version",
+        "Additional navigation and community questions",
+        "Mermaid and clipboard (development version after v2.1.0)"
+      ]
+    },
+    {
+      "id": "semantic-html-accessibility",
+      "bytes": 6534,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Gem-theme installation",
+        "Check theme version",
+        "Accessibility and resource loading in development",
+        "Diagnosing YAML",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "carousel-accessibility-motion",
+      "bytes": 6225,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "Accessibility and resource loading in development",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "sidebar-accessibility-focus",
+      "bytes": 2736,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Mathematical notation and tables of contents",
+        "Markdown formatting"
+      ]
+    },
+    {
+      "id": "pwa-offline-status",
+      "bytes": 5389,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Accessibility and resource loading in development",
+        "Documentation assistant session state",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "beginner-post-1",
+      "bytes": 8832,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "First-site tutorial",
+        "Basic editing and publishing",
+        "Migrating an existing Jekyll site",
+        "Second browser tutorial",
+        "Inherited list microformats (development only)",
+        "Generated HTML formatting (development only)",
+        "JavaScript maintenance (v2.1.1-dev, main only)"
+      ]
+    },
+    {
+      "id": "beginner-image-1",
+      "bytes": 2892,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "beginner-publishing-1",
+      "bytes": 5721,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "First-site tutorial",
+        "Basic editing and publishing",
+        "Global settings",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "snippet-parameter-reference",
+      "bytes": 7510,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Adding videos",
+        "PhotoSwipe galleries (development after v2.1.0)",
+        "Basic editing and publishing",
+        "Image galleries and carousels",
+        "Diagnosing YAML",
+        "Generated HTML formatting (development only)"
+      ]
+    },
+    {
+      "id": "navigation-edit-existing-1",
+      "bytes": 6433,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Navbar and footer",
+        "Basic editing and publishing",
+        "Migrating an existing Jekyll site",
+        "Layout structure and include caching"
+      ]
+    },
+    {
+      "id": "footer-edit-existing-1",
+      "bytes": 3993,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Navbar and footer",
+        "Global settings",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "search-fusejs-setup-1",
+      "bytes": 4929,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Global settings",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "bytes": 3883,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Giscus comments",
+        "Comments",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "search-no-navbar-links-1",
+      "bytes": 6590,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Navbar and footer",
+        "Basic editing and publishing",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "site-details-edit-1",
+      "bytes": 5145,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Global settings",
+        "Changing skins and colors",
+        "Changing fonts and highlighting"
+      ]
+    },
+    {
+      "id": "content-post-1",
+      "bytes": 4955,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Related and random article cards",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "content-page-1",
+      "bytes": 3908,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Navbar and footer"
+      ]
+    },
+    {
+      "id": "content-image-1",
+      "bytes": 4131,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Migrating an existing Jekyll site"
+      ]
+    },
+    {
+      "id": "analytics-goat-setup-1",
+      "bytes": 4684,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "GoatCounter analytics (development after v2.1.0)",
+        "Inherited list microformats (development only)",
+        "Generated HTML formatting (development only)",
+        "JavaScript maintenance (v2.1.1-dev, main only)"
+      ]
+    },
+    {
+      "id": "analytics-ga4-setup-1",
+      "bytes": 4082,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Google Analytics 4",
+        "GoatCounter analytics (development after v2.1.0)",
+        "Check theme version",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "related-card-dates-1",
+      "bytes": 9271,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Related and random article cards",
+        "Global settings",
+        "Localized dates",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Documentation assistant session state"
+      ]
+    },
+    {
+      "id": "install-remote-task-1",
+      "bytes": 4669,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Migrating an existing Jekyll site",
+        "Check theme version",
+        "Gem-theme installation",
+        "Publisher, analytics and icon configuration"
+      ]
+    },
+    {
+      "id": "install-gem-task-1",
+      "bytes": 5195,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Migrating an existing Jekyll site",
+        "Global settings",
+        "Check theme version",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "bytes": 2247,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Global settings"
+      ]
+    },
+    {
+      "id": "appearance-font-task-1",
+      "bytes": 6498,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Appearance reference",
+        "Correct file and option scopes",
+        "Basic editing and publishing",
+        "Google Analytics 4"
+      ]
+    },
+    {
+      "id": "appearance-auto-task-1",
+      "bytes": 8430,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing skins and colors",
+        "Palette precedence and custom skins",
+        "Variables dictionary",
+        "Correct file and option scopes",
+        "Available skins"
+      ]
+    },
+    {
+      "id": "appearance-sass-task-1",
+      "bytes": 9714,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Palette precedence and custom skins",
+        "Changing skins and colors",
+        "Variables dictionary",
+        "Correct file and option scopes",
+        "Available skins",
+        "Custom hooks",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "media-gallery-task-1",
+      "bytes": 4835,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Mathematical notation and tables of contents",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "media-carousel-task-1",
+      "bytes": 3779,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "Migrating an existing Jekyll site"
+      ]
+    },
+    {
+      "id": "media-photoswipe-task-1",
+      "bytes": 3779,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Image galleries and carousels",
+        "Migrating an existing Jekyll site"
+      ]
+    },
+    {
+      "id": "media-video-task-1",
+      "bytes": 12586,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Adding videos",
+        "Basic editing and publishing",
+        "Global settings",
+        "Correct file and option scopes",
+        "Second browser tutorial",
+        "Accessibility and resource loading in development",
+        "JavaScript maintenance (v2.1.1-dev, main only)"
+      ]
+    },
+    {
+      "id": "media-diagram-task-1",
+      "bytes": 8230,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Mermaid and clipboard (development version after v2.1.0)",
+        "Basic editing and publishing",
+        "Accessibility and resource loading in development",
+        "Starter examples"
+      ]
+    },
+    {
+      "id": "provider-lunr-task-1",
+      "bytes": 5096,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Migrating an existing Jekyll site",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "provider-simplesearch-task-1",
+      "bytes": 3107,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search"
+      ]
+    },
+    {
+      "id": "provider-google-task-1",
+      "bytes": 9351,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Basic editing and publishing",
+        "Migrating an existing Jekyll site",
+        "Google Analytics 4",
+        "Palette precedence and custom skins",
+        "Custom hooks",
+        "Algolia search"
+      ]
+    },
+    {
+      "id": "provider-algolia-task-1",
+      "bytes": 5957,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Algolia search",
+        "Basic editing and publishing",
+        "Configuring site search",
+        "Diagnosing YAML"
+      ]
+    },
+    {
+      "id": "comments-disqus-task-1",
+      "bytes": 3013,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Disqus comments",
+        "Comments",
+        "Migrating an existing Jekyll site"
+      ]
+    },
+    {
+      "id": "comments-cactus-task-1",
+      "bytes": 1875,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Cactus comments",
+        "Comments"
+      ]
+    },
+    {
+      "id": "comments-welcomments-task-1",
+      "bytes": 2392,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Welcomments comments",
+        "Comments",
+        "Generated HTML formatting (development only)"
+      ]
+    },
+    {
+      "id": "comments-cusdis-task-1",
+      "bytes": 1798,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Cusdis comments",
+        "Comments"
+      ]
+    },
+    {
+      "id": "troubleshoot-publishing-task-1",
+      "bytes": 6712,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "First-site tutorial",
+        "Basic editing and publishing",
+        "Related and random article cards",
+        "Page metadata and article images",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "troubleshoot-yaml-task-1",
+      "bytes": 4885,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Global settings",
+        "Publisher, analytics and icon configuration",
+        "Diagnosing YAML",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "custom-head-task-1",
+      "bytes": 10957,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "More layouts and content navigation",
+        "Basic editing and publishing",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Layouts",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "bytes": 7954,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Algolia search",
+        "Remote-theme installation",
+        "Migrating an existing Jekyll site",
+        "Mathematical notation and tables of contents",
+        "Check theme version",
+        "Markdown formatting",
+        "Comments"
+      ]
+    },
+    {
+      "id": "accessibility-task-reference-1",
+      "bytes": 6319,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Favicons",
+        "Accessibility and resource loading in development",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "format-alert-task-1",
+      "bytes": 4903,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Migrating an existing Jekyll site",
+        "Inherited list microformats (development only)"
+      ]
+    },
+    {
+      "id": "format-caption-task-1",
+      "bytes": 6318,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Alerts, captions and footnotes",
+        "Basic editing and publishing",
+        "Image galleries and carousels",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "format-footnote-task-1",
+      "bytes": 2139,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Alerts, captions and footnotes",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "favicon-task-1",
+      "bytes": 2396,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Favicons",
+        "Publisher, analytics and icon configuration",
+        "Font Awesome"
+      ]
+    },
+    {
+      "id": "bundled-font-task-1",
+      "bytes": 6990,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Changing fonts and highlighting",
+        "Bundled font",
+        "Appearance reference",
+        "Correct file and option scopes",
+        "Google Analytics 4",
+        "Adding videos",
+        "Font Awesome"
+      ]
+    },
+    {
+      "id": "icon-task-1",
+      "bytes": 10702,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Font Awesome",
+        "Publisher, analytics and icon configuration",
+        "Changing fonts and highlighting",
+        "Basic editing and publishing",
+        "Appearance reference",
+        "Accessibility and resource loading in development",
+        "Correct file and option scopes",
+        "Related and random article cards"
+      ]
+    },
+    {
+      "id": "version-task-1",
+      "bytes": 6310,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Check theme version",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Migrating an existing Jekyll site",
+        "Localized dates",
+        "Mermaid and clipboard (development version after v2.1.0)",
+        "Generated HTML formatting (development only)"
+      ]
+    },
+    {
+      "id": "feed-coexistence-1",
+      "bytes": 4265,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Subscription feeds",
+        "Correct file and option scopes",
+        "Public RSS feed",
+        "SEO controls"
+      ]
+    },
+    {
+      "id": "feed-selection-1",
+      "bytes": 7020,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Subscription feeds",
+        "Public RSS feed",
+        "Basic editing and publishing",
+        "Correct file and option scopes",
+        "Layout structure and include caching"
+      ]
+    },
+    {
+      "id": "feed-collection-output-1",
+      "bytes": 9599,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Global settings",
+        "Localized dates",
+        "Subscription feeds",
+        "Correct file and option scopes",
+        "Public RSS feed",
+        "Related and random article cards",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "content-toc-task-1",
+      "bytes": 8948,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Mathematical notation and tables of contents",
+        "Markdown formatting",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Migrating an existing Jekyll site",
+        "Related and random article cards",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "person-publisher-task-1",
+      "bytes": 4671,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Publisher, analytics and icon configuration",
+        "Basic editing and publishing",
+        "Global settings"
+      ]
+    },
+    {
+      "id": "localized-date-task-1",
+      "bytes": 9849,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Localized dates",
+        "Basic editing and publishing",
+        "Global settings",
+        "Correct file and option scopes",
+        "Changing skins and colors",
+        "Changing fonts and highlighting",
+        "Related and random article cards",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "canonical-article-task-1",
+      "bytes": 5203,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Page metadata and article images",
+        "Basic editing and publishing",
+        "SEO controls",
+        "Related and random article cards"
+      ]
+    },
+    {
+      "id": "cloud-task-1",
+      "bytes": 6135,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "More layouts and content navigation",
+        "Layout structure and include caching"
+      ]
+    },
+    {
+      "id": "sharing-task-1",
+      "bytes": 7501,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Page metadata and article images",
+        "Changing skins and colors",
+        "Changing fonts and highlighting",
+        "Image galleries and carousels",
+        "Related and random article cards"
+      ]
+    },
+    {
+      "id": "search-visibility-task-1",
+      "bytes": 8004,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Configuring site search",
+        "Algolia search",
+        "Basic editing and publishing",
+        "SEO controls",
+        "Page metadata and article images",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "bytes": 4418,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "More layouts and content navigation",
+        "Layout structure and include caching"
+      ]
+    },
+    {
+      "id": "starter-demo-versus-site",
+      "bytes": 3297,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Starter examples",
+        "Remote-theme installation",
+        "Gem-theme installation"
+      ]
+    },
+    {
+      "id": "documentation-appearance-topics",
+      "bytes": 10252,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Related and random article cards",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Second browser tutorial",
+        "First-site tutorial",
+        "Appearance reference",
+        "Documentation assistant session state"
+      ]
+    },
+    {
+      "id": "documentation-content-publishing-topics",
+      "bytes": 6227,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing",
+        "Second browser tutorial",
+        "Adding videos",
+        "PhotoSwipe galleries (development after v2.1.0)"
+      ]
+    },
+    {
+      "id": "second-photo-tutorial-1",
+      "bytes": 11308,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "First-site tutorial",
+        "Second browser tutorial",
+        "Basic editing and publishing",
+        "Navbar and footer",
+        "Migrating an existing Jekyll site",
+        "Image galleries and carousels",
+        "PhotoSwipe galleries (development after v2.1.0)",
+        "Page metadata and article images"
+      ]
+    },
+    {
+      "id": "documentation-search-topics",
+      "bytes": 12295,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Related and random article cards",
+        "Configuring site search",
+        "Basic editing and publishing",
+        "More layouts and content navigation",
+        "Layout structure and include caching",
+        "Correct file and option scopes",
+        "Second browser tutorial",
+        "Localized dates"
+      ]
+    },
+    {
+      "id": "documentation-installation-topics",
+      "bytes": 6974,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Check theme version",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Starter examples",
+        "Migrating an existing Jekyll site",
+        "Second browser tutorial",
+        "Mermaid and clipboard (development version after v2.1.0)"
+      ]
+    },
+    {
+      "id": "documentation-identity-topics",
+      "bytes": 8492,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Publisher, analytics and icon configuration",
+        "Basic editing and publishing",
+        "Changing fonts and highlighting",
+        "Page metadata and article images",
+        "Favicons",
+        "Navbar and footer",
+        "Global settings",
+        "Appearance reference"
+      ]
+    },
+    {
+      "id": "community-1",
+      "bytes": 2892,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Basic editing and publishing"
+      ]
+    },
+    {
+      "id": "community-2",
+      "bytes": 10107,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "More layouts and content navigation",
+        "Basic editing and publishing",
+        "Layout structure and include caching",
+        "Related and random article cards",
+        "Inherited list microformats (development only)",
+        "Generated HTML formatting (development only)",
+        "JavaScript maintenance (v2.1.1-dev, main only)",
+        "Additional navigation and community questions"
+      ]
+    },
+    {
+      "id": "community-3",
+      "bytes": 4146,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Alerts, captions and footnotes",
+        "Markdown formatting",
+        "Remote-theme installation",
+        "Gem-theme installation",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "community-4",
+      "bytes": 6494,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "Subscription feeds",
+        "Public RSS feed",
+        "Basic editing and publishing",
+        "Correct file and option scopes",
+        "Appearance reference",
+        "Check theme version"
+      ]
+    },
+    {
+      "id": "community-5",
+      "bytes": 7941,
+      "titles": [
+        "Overview",
+        "Browse documentation topics",
+        "First-site tutorial",
+        "Migrating an existing Jekyll site",
+        "GoatCounter analytics (development after v2.1.0)",
+        "PhotoSwipe galleries (development after v2.1.0)",
+        "Check theme version",
+        "Mermaid and clipboard (development version after v2.1.0)",
+        "Generated HTML formatting (development only)"
+      ]
+    }
+  ]
+}

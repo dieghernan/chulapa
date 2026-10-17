@@ -1,0 +1,32 @@
+{
+  "source_commit": "549f876dd",
+  "worker_version": "90b4709a-c8ce-4946-838a-d85d12922e73",
+  "raw": [
+    "candidate-inheritance-549f876dd.jsonl",
+    "candidate-confirm-549f876dd.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass",
+      "evidence": "Exactly one card, up to three sampled at build time, boolean setting and unreleased main restriction."
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "status": "pass",
+      "evidence": "No blanket replacement, page-dependent parameters, caller/context helpers uncached, correct hierarchy, standalone search, shared renderers and release restriction.",
+      "limits": "Does not enumerate fixed footer/cloud optimization and comments inputs; core safety and organization questions answered."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass",
+      "evidence": "Existing blanklines setting, preserved head/footer/custom formatting, clipped body whitespace, two-space footer and development-only caveat."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "pass",
+      "evidence": "Custom2 via custom1 to archive retains h-feed; no new YAML or layout change; correct version restriction."
+    }
+  ],
+  "limits": "Four observations on this source, not general reliability, exhaustive coverage or human usability evidence. Presentation still includes generic next-step wording in some answers."
+}

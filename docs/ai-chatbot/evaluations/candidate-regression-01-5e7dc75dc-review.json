@@ -1,0 +1,18 @@
+{
+  "source_commit": "5e7dc75dc",
+  "worker_version": "f9fb8d9c-867a-4217-8275-f099200933cc",
+  "raw": "candidate-regression-01-5e7dc75dc.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass",
+      "evidence": "States exactly one card, up to three at build time, on/off semantics and main after v2.1.0 unreleased restriction. Source is the documented options anchor."
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "status": "partial",
+      "evidence": "Correct hierarchy, shared renderers and unpublished restriction. Still omits page-dependent inputs as include parameters and standalone search. No longer claims layouts absent in v2.1.0."
+    }
+  ],
+  "limits": "Focused rerun only; formatting and inherited microformats were not rerun on this source."
+}

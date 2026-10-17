@@ -2,6 +2,14 @@
   "name": "chulapa-ai-prototype",
   "main": "worker.mjs",
   "compatibility_date": "2026-10-08",
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 0.1,
+      "invocation_logs": false
+    }
+  },
   "ai": { "binding": "AI" },
   "ratelimits": [{
     "name": "CHAT_RATE_LIMIT",

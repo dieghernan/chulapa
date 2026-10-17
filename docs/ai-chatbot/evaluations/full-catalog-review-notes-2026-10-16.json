@@ -1,0 +1,347 @@
+{
+  "status": "stopped_at_user_request",
+  "workerVersion": "82e28155-81a4-45c0-adcc-076c77f8cdc8",
+  "source": "3966233f7eb4a444ada1e7a2ea4e7a04efeb405f",
+  "completed_responses": 56,
+  "planned_cases": 155,
+  "remaining_catalog_cases": 99,
+  "reviews": [
+    {
+      "n": 1,
+      "id": "layouts-random-singleton-1",
+      "result": "fail",
+      "note": "Omits dev singleton fix, wrongly includes categories in eligibility and implies show_random controls sampling count; citation #recommendations requires checking."
+    },
+    {
+      "n": 2,
+      "id": "layouts-include-cache-1",
+      "result": "fail",
+      "note": "Correctly rejects blanket caching, but says default/landingpage inherit default; actual chain is compress -> minimal -> default/landingpage. Omits cache input parameters."
+    },
+    {
+      "n": 3,
+      "id": "layouts-head-formatting-1",
+      "result": "partial",
+      "note": "Correct blanklines setting/body/custom formatting; omits development-only boundary and 2-space footer detail."
+    },
+    {
+      "n": 4,
+      "id": "layouts-microformats-nested-feed-1",
+      "result": "partial",
+      "note": "Correct inheritance/no page flag; omits development boundary; does not explicitly discuss multilevel inheritance."
+    },
+    {
+      "n": 5,
+      "id": "layouts-microformats-feed-1",
+      "result": "pass",
+      "note": "Correct dev layouts/no YAML/indexcards distinction; omits simplelist, pagination, repeated cloud entries and explicit h-entry detail."
+    },
+    {
+      "n": 6,
+      "id": "config-author-profile-1",
+      "result": "partial",
+      "note": "Core author.url, /about/ resolution and guest isolation correct; Page authors citation points to landing-page section instead of author options."
+    },
+    {
+      "n": 7,
+      "id": "layouts-label-headings-1",
+      "result": "fail",
+      "note": "Invents hardcoded h2.h5. Actual related_label/random_label render user HTML unchanged; should edit heading and use h5 class. CSS example lacks required front matter and targets invented structure."
+    },
+    {
+      "n": 8,
+      "id": "layouts-microformats-1",
+      "result": "partial",
+      "note": "Correct minimal/date/guest facts; omits custom wrapper and profile resolution details; repeats same source three times."
+    },
+    {
+      "n": 9,
+      "id": "installation-1",
+      "result": "partial",
+      "note": "Correct identity/home/publishing/source and explicit home/article result checks; omits the step editing the existing article despite later asking to open it. No wrong-file advice."
+    },
+    {
+      "n": 10,
+      "id": "installation-2",
+      "result": "partial",
+      "note": "Correct pin/dependencies/migration guidance; calls override directories layouts/includes without underscores, imprecise plugin activation."
+    },
+    {
+      "n": 11,
+      "id": "installation-3",
+      "result": "partial",
+      "note": "Correct required installed/enabled plugin and restart; says Gemfile plugins group rather than standard :jekyll_plugins or top-level entry."
+    },
+    {
+      "n": 12,
+      "id": "installation-4",
+      "result": "pass",
+      "note": "Correct gem install/theme/include-cache/remove remote/preview and scoped bundle update."
+    },
+    {
+      "n": 13,
+      "id": "installation-5",
+      "result": "pass",
+      "note": "Correct main versus tag, complete pin example and rebuild/publish checks."
+    },
+    {
+      "n": 14,
+      "id": "installation-6",
+      "result": "pass",
+      "note": "Core local override precedence and manual review correct; initial depends wording and overwrite phrase are unnecessary."
+    },
+    {
+      "n": 15,
+      "id": "configuration-1",
+      "result": "pass",
+      "note": "Correct Spanish origin/baseurl values and publishing check."
+    },
+    {
+      "n": 16,
+      "id": "configuration-2",
+      "result": "pass",
+      "note": "Correct locale boundary, complete datetranslate code and languages/fallback; missing direct date-guide citation."
+    },
+    {
+      "n": 17,
+      "id": "configuration-3",
+      "result": "fail",
+      "note": "Person mapping and independent authors correct, but tells reader to verify publisher in footer/header; publisher is JSON-LD metadata, not that visible author UI."
+    },
+    {
+      "n": 18,
+      "id": "configuration-4",
+      "result": "pass",
+      "note": "Correct GA4 ID, legacy blank, independent snippets and realtime check."
+    },
+    {
+      "n": 19,
+      "id": "configuration-5",
+      "result": "pass",
+      "note": "Correct kit field and legacy precedence/removal; omits optional FA6 default."
+    },
+    {
+      "n": 20,
+      "id": "configuration-6",
+      "result": "pass",
+      "note": "Complete dual/lg/child example and one-level limit; sample docs destination must exist on user's site."
+    },
+    {
+      "n": 21,
+      "id": "search-comments-1",
+      "result": "pass",
+      "note": "Correct search-page creation and matching permalink, complete front matter and publish check."
+    },
+    {
+      "n": 22,
+      "id": "search-comments-2",
+      "result": "partial",
+      "note": "Correct local exclusion versus Algolia ranking; omits files_to_exclude remedy and conditional customRanking qualifier."
+    },
+    {
+      "n": 23,
+      "id": "search-comments-3",
+      "result": "fail",
+      "note": "Protects indexing secret correctly, but nests algolia under search in code and prose; canonical algolia mapping is top-level, sibling of search."
+    },
+    {
+      "n": 24,
+      "id": "search-comments-4",
+      "result": "partial",
+      "note": "Correct show_attrib/maxwords/legacy precedence; omits separate Algolia logo/attribution requirements."
+    },
+    {
+      "n": 25,
+      "id": "search-comments-5",
+      "result": "fail",
+      "note": "Invents giscus website_id (Welcomments field), nests show_comments under comments and only checks embed file exists instead of pasting generated giscus script."
+    },
+    {
+      "n": 26,
+      "id": "search-comments-6",
+      "result": "partial",
+      "note": "Correct plain email and copyright/merge instructions; icon: envelope is not a Font Awesome class string; first citation targets navbar instead of footer."
+    },
+    {
+      "n": 27,
+      "id": "theming-1",
+      "result": "pass",
+      "note": "Gives eight named examples and catalog; validate sunset against actual skin inventory; URL is bare text rather than descriptive link."
+    },
+    {
+      "n": 28,
+      "id": "theming-2",
+      "result": "pass",
+      "note": "Correct autothemer, quoted purple, vars mapping and precedence; complete example/restart."
+    },
+    {
+      "n": 29,
+      "id": "theming-3",
+      "result": "pass",
+      "note": "Correct Autothemer gap-fill and explicit vars/skin preservation; unnecessary enable example."
+    },
+    {
+      "n": 30,
+      "id": "theming-4",
+      "result": "fail",
+      "note": "Correct vars font assignments, but incorrectly requires Google Fonts URL in custom_head.html when question already loads it through googlefonts."
+    },
+    {
+      "n": 31,
+      "id": "theming-5",
+      "result": "fail",
+      "note": "Contradictory claim custom skin must keep Bootstrap/grid imports, then says no second Bootstrap import. Theme skin files should not import Bootstrap."
+    },
+    {
+      "n": 32,
+      "id": "theming-6",
+      "result": "pass",
+      "note": "Correct Codeply vars translation and complete YAML/restart/contrast check; no direct custom-skin guide citation."
+    },
+    {
+      "n": 33,
+      "id": "layouts-1",
+      "result": "partial",
+      "note": "Correct defaults/front matter examples and precedence; citation #defaults needs validation (canonical a-note-on-defaults)."
+    },
+    {
+      "n": 34,
+      "id": "layouts-2",
+      "result": "fail",
+      "note": "Contradicts itself about minimal header, omits header_type:hero and falsely suggests show_author enables an author panel in minimal."
+    },
+    {
+      "n": 35,
+      "id": "layouts-3",
+      "result": "pass",
+      "note": "Correct sidebar h2-h5 front matter and heading ID requirements."
+    },
+    {
+      "n": 36,
+      "id": "layouts-4",
+      "result": "fail",
+      "note": "Invents _config.yml archive mapping; must use archive page front matter with layout: archive and collection/date fields."
+    },
+    {
+      "n": 37,
+      "id": "layouts-5",
+      "result": "fail",
+      "note": "Invents cloudtag_label, puts cloudtag_url at site root rather than post/default values, omits show_tags; tag cloud page itself valid."
+    },
+    {
+      "n": 38,
+      "id": "layouts-6",
+      "result": "fail",
+      "note": "Snippet lacks posts collection selection and date-descending sort, so cannot guarantee five newest posts; bottomnav explanation correct. #page-switches likely fabricated."
+    },
+    {
+      "n": 39,
+      "id": "snippets-1",
+      "result": "partial",
+      "note": "Correct local MP4 include/no relative_url or baseurl, source; omits publish/playback verification."
+    },
+    {
+      "n": 40,
+      "id": "snippets-2",
+      "result": "pass",
+      "note": "Correct preview-resolution and nolazy activation versus browser lazy distinction; complete include and playback check."
+    },
+    {
+      "n": 41,
+      "id": "snippets-3",
+      "result": "pass",
+      "note": "Correct metadata-only thumbnail, no inference and complete ISO8601 include."
+    },
+    {
+      "n": 42,
+      "id": "snippets-4",
+      "result": "partial",
+      "note": "Correct basename/ascending/random=false include and image_col prerequisite; omits development sorting-fix version constraint and complete defaults setup."
+    },
+    {
+      "n": 43,
+      "id": "snippets-5",
+      "result": "pass",
+      "note": "Correct external variable, interval2000 and controls=true; whitespace is stripped by the carousel snippet. Indicators not explicitly requested."
+    },
+    {
+      "n": 44,
+      "id": "snippets-6",
+      "result": "fail",
+      "note": "Correct mathjax front matter, but falsely says minimal does not support MathJax; shared head supports it."
+    },
+    {
+      "n": 45,
+      "id": "faq-1",
+      "result": "partial",
+      "note": "Correct remote/gem/local override guidance and canonical version source; omits HTML marker limitations/exact unpinned commit boundary."
+    },
+    {
+      "n": 46,
+      "id": "faq-2",
+      "result": "fail",
+      "note": "Correct hook files and no front matter; fabricates /docs/44-custom_head URL (underscore instead of hyphen), so task citation fails."
+    },
+    {
+      "n": 47,
+      "id": "faq-3",
+      "result": "pass",
+      "note": "Correct favicon custom-head relative_url/root distinction; omits manifest internal icon path verification."
+    },
+    {
+      "n": 48,
+      "id": "faq-4",
+      "result": "fail",
+      "note": "Alert/footnote syntax correct; caption specimen lacks required blank line between image and caption, merging paragraphs."
+    },
+    {
+      "n": 49,
+      "id": "faq-5",
+      "result": "fail",
+      "note": "Falsely requires Google Fonts for bundled Chulapa font; CSS declarations lack selector; inline class alternative is correct."
+    },
+    {
+      "n": 50,
+      "id": "faq-6",
+      "result": "fail",
+      "note": "Does not clearly reject replacement at /atom.xml and conflates jekyll-feed selection with theme include_on_feed defaults; separate URLs coexist but answer misleads configuration."
+    },
+    {
+      "n": 51,
+      "id": "reference-edge-cases-1",
+      "result": "partial",
+      "note": "Correct alignment/YAML syntax, but Markdown table is rendered rather than shown as a copyable Markdown code specimen."
+    },
+    {
+      "n": 52,
+      "id": "reference-edge-cases-2",
+      "result": "partial",
+      "note": "Correct two-line TOC and scope; unnecessarily claims context lacks GFM extension coverage; verify context. Omits no_toc/shared setting distinction."
+    },
+    {
+      "n": 53,
+      "id": "reference-edge-cases-3",
+      "result": "fail",
+      "note": "Places enable-rounded at config root instead of chulapa-skin.vars; headings field correct. Suggests custom_head rather than built-in googlefonts."
+    },
+    {
+      "n": 54,
+      "id": "reference-edge-cases-4",
+      "result": "pass",
+      "note": "Correct navbar/footer/pre backgrounds under vars, quoting and highlight override; publish check."
+    },
+    {
+      "n": 55,
+      "id": "reference-edge-cases-5",
+      "result": "pass",
+      "note": "Correct preview-only distinction, chulapa-skin.highlight mapping and published verification."
+    },
+    {
+      "n": 56,
+      "id": "reference-edge-cases-6",
+      "result": "pass",
+      "note": "Correct noindex/privacy boundary, no RSS fetching and unsupported cart acknowledgement."
+    }
+  ],
+  "note": "Baseline run stopped at user request. 56 retained answers reviewed offline; no new inference."
+}
