@@ -68,7 +68,10 @@ test('catalog questions select task sections when only a documented body value n
     'format-alert-task-1': ['Alerts, captions and footnotes'],
     'search-comments-3': ['Algolia search'],
     'comments-giscus-setup-1': ['Giscus comments', 'Comments'],
-    'reference-edge-cases-3': ['Correct file and option scopes', 'Changing fonts and highlighting']
+    'reference-edge-cases-3': ['Correct file and option scopes', 'Changing fonts and highlighting'],
+    'sharing-task-1': ['Page metadata and article images'],
+    'custom-head-task-1': ['Custom hooks'],
+    'troubleshoot-yaml-task-1': ['Diagnosing YAML']
   };
   for (const [id, required] of Object.entries(requirements)) {
     const selected = selectContext(context, cases.find(item => item.id === id).question);
@@ -93,7 +96,7 @@ test('information-box synonyms retrieve the complete alert syntax and source', (
     const selected = selectContext(context, question);
     assert.ok(selected.titles.includes('Alerts, captions and footnotes'), question);
     assert.match(selected.text, /\{: \.alert \.alert-info \.p-3 \.mx-2 \.mb-3\}/);
-    assert.match(selected.text, /https:\/\/dieghernan.github.io\/chulapa\/docs\/49-add-alert/);
+    assert.ok(selected.text.includes('https://dieghernan.github.io/chulapa/docs/49-add-alert'));
   }
 });
 

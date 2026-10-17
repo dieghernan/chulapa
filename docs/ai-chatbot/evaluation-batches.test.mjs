@@ -19,6 +19,9 @@ test('invalid and repeated IDs cannot masquerade as coverage', () => {
   assert.throws(() => evaluationPlan(cases, [{ id: 'unknown' }], []), /Unknown/);
   assert.throws(() => evaluationPlan(cases, [{ id: 'one' }, { id: 'one' }], []), /duplicate/);
   assert.throws(() => evaluationPlan(cases, [], [{ id: 'one', result: 'pass' }]), /Review without/);
+  for (const result of ['pas', 'unavailable', undefined]) {
+    assert.throws(() => evaluationPlan(cases, [{ id: 'one' }], [{ id: 'one', result }]), /Unknown baseline review result/);
+  }
 });
 
 test('duplicate reviews are rejected regardless of order or agreement', () => {

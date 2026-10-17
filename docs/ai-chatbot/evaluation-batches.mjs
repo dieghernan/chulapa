@@ -21,6 +21,9 @@ export function evaluationPlan(cases, records, reviews, size = 4, candidate = nu
     return result;
   }
   const assessed = reviewMap(reviews, completed);
+  for (const review of assessed.values()) {
+    if (!['pass', 'partial', 'fail'].includes(review.result)) throw new Error('Unknown baseline review result.');
+  }
   const candidateRecords = new Map();
   for (const record of candidate?.records || []) {
     if (!ids.includes(record.id) || candidateRecords.has(record.id)) throw new Error('Unknown or duplicate candidate recorded ID.');

@@ -58,18 +58,18 @@ const routes = [
   [/compress_html|indent|head.*readable|footer.*readable/i, ['Generated HTML formatting (development only)']],
   [/h.feed|microformat|inherit.*archive|hered.*archive/i, ['Inherited list microformats (development only)']],
   [/navbar|footer|menu|men[uú]|copyright|email/i, ['Navbar and footer']],
-  [/canonical|robots|sitemap|seo|metadata|schema_image|og_|twitter/i, ['SEO controls', 'Page metadata and article images']],
+  [/canonical|robots|sitemap|seo|metadata|schema_image|og_|twitter|sharing.?image|article illustration/i, ['SEO controls', 'Page metadata and article images']],
   [/feed|rss|atom|suscri/i, ['Subscription feeds', 'Public RSS feed']],
   [/alert|information\s+box|info\s+box|caja\s+(?:de\s+)?informaci[oó]n|recuadro\s+informativo|caption|footnote|pie de foto|nota al pie/i, ['Alerts, captions and footnotes']],
   [/favicon|manifest/i, ['Favicons']],
-  [/custom.head|custom.css|custom.scss|hook|before.*css|end.*body/i, ['Custom hooks']],
+  [/custom.head|custom.css|custom.scss|hook|before.*css|end.*body|meta.?tag|application.?name/i, ['Custom hooks']],
   [/markdown|kramdown|gfm|table|tabla/i, ['Markdown formatting']],
   [/locale|translate|date|fecha|idioma/i, ['Localized dates', 'Global settings']],
   [/mermaid|diagram/i, ['Mermaid and clipboard (development version after v2.1.0)']],
   [/accessib|keyboard|focus|motion|pwa|offline|performance|teclado/i, ['Accessibility and resource loading in development']],
   [/starter|portfolio|technical blog/i, ['Starter examples']],
   [/session|history|chatbot|conversaci[oó]n/i, ['Documentation assistant session state']],
-  [/yaml.*error|error.*yaml/i, ['Diagnosing YAML']],
+  [/yaml.*(?:error|checker|setting)|(?:error|checker|setting).*yaml|setting.*does nothing|does nothing.*setting/i, ['Diagnosing YAML']],
   [/post|article|page|image|imagen|p[aá]gina/i, ['Basic editing and publishing']]
 ];
 
