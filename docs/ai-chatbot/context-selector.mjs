@@ -43,7 +43,7 @@ const routes = [
   [/goatcounter/i, ['GoatCounter analytics (development after v2.1.0)']],
   [/font awesome|fa_kit|fa5_|icono|icons?/i, ['Font Awesome', 'Publisher, analytics and icon configuration']],
   [/chulapa.*font|logo.*font|bundled.*font|ligatur|fuente.*chulapa/i, ['Bundled font']],
-  [/googlefonts|rubik|fuentes|fonts?|typograph/i, ['Changing fonts and highlighting', 'Appearance reference']],
+  [/googlefonts|rubik|fuentes|fonts?|typograph/i, ['Bundled font', 'Changing fonts and highlighting', 'Appearance reference']],
   [/skin|autothemer|codeply|palette|color|rounded|sass/i, ['Palette precedence and custom skins', 'Variables dictionary', 'Changing skins and colors']],
   [/skins.*available|available.*skins|what skins|qu[eé].*skins/i, ['Available skins']],
   [/highlight|dracula|rouge|syntax/i, ['Syntax highlighting styles', 'Changing fonts and highlighting']],
@@ -79,6 +79,8 @@ export function selectContext(context, question) {
   for (const [pattern, titles] of routes) {
     if (pattern.test(question)) for (const title of titles) scores.set(title, (scores.get(title) || 0) + 10);
   }
+  if (/\bfonts?\b|\bfuentes?\b/i.test(question)) scores.set('Bundled font', (scores.get('Bundled font') || 0) + 20);
+  if (/\bicons?\b|\biconos?\b/i.test(question)) scores.set('Font Awesome', (scores.get('Font Awesome') || 0) + 20);
   // Parameter names and specific heading words help queries not covered by aliases.
   const words = [...new Set(question.toLowerCase().match(/[\p{L}\p{N}_-]{4,}/gu) || [])]
     .filter(word => !['with', 'that', 'this', 'does', 'have', 'from', 'what', 'where', 'which', 'page', 'site', 'chulapa'].includes(word));
@@ -96,6 +98,7 @@ export function selectContext(context, question) {
       if (title) scores.set(title, (scores.get(title) || 0) + 30);
     }
   }
+  const routedTitles = new Set(scores.keys());
   const ranked = sections.map((section, index) => ({ ...section, index,
     score: (scores.get(section.title) || 0) + words.reduce((score, word) => score +
       (section.title.toLowerCase().includes(word) ? 3 : 0) +
@@ -103,7 +106,8 @@ export function selectContext(context, question) {
   })).filter(section => section.score > 0 && (comparesProviders || !namedProviders.length ||
     !providers.some(name => section.title.toLowerCase().startsWith(name)) ||
     namedProviders.some(name => section.title.toLowerCase().startsWith(name))))
-    .sort((a, b) => b.score - a.score || a.index - b.index);
+    .sort((a, b) => Number(routedTitles.has(b.title)) - Number(routedTitles.has(a.title)) ||
+      b.score - a.score || a.index - b.index);
   const chosen = sections.filter(section => !section.title || ['Overview', 'Browse documentation topics'].includes(section.title));
   let bytes = encoder.encode(chosen.map(section => section.text).join('\n')).length;
   for (const section of ranked) {
