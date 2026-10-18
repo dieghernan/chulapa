@@ -1,0 +1,22 @@
+{
+  "source_commit": "843dc822b",
+  "worker_version": "6ceb37e8-9dc9-4def-9508-bf3ca00790fb",
+  "raw": [],
+  "reviews": [],
+  "local_tests_passed": 69,
+  "status": "deployed_not_live_evaluated",
+  "zero_inference_checks": [
+    {
+      "path": "/widget.js",
+      "status": 200,
+      "bytes": 93259
+    },
+    {
+      "path": "/api/chat",
+      "status": 400,
+      "bytes": 51
+    }
+  ],
+  "checked_at": "2026-10-18T13:11:31.459199+00:00",
+  "limits": "No new AI requests on the citation-parser artifact. Earlier answers remain revision-specific and are not transferred. All 155 catalog cases are pending on this exact revision; targeted historical evidence remains in pr164-task-corrections-2026-10-18.md."
+}

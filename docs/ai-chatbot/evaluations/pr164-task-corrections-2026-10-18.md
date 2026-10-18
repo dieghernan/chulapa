@@ -31,3 +31,7 @@ The final citation parser changes validation after those runs. Its fresh deploym
 Keep the PR open. Stop broad quota-consuming batches while the exact TOC syntax and discovery scope remain inconsistent. Next investigate bounded answer validation or a documented deterministic recipe for these narrow syntax tasks, with failure behavior and faithful treatment of quoted invalid examples; do not silently rewrite arbitrary answers or count a fallback as a correct answer. Recheck both affected tasks on one identified candidate and retain every attempt.
 
 GitHub CI is tracked separately from Netlify: the 640ce7555 Netlify API record had state error, skipped true and no error_message; its log endpoint returned 404. The cause is unconfirmed, not proven to be a theme or chatbot defect. Review the latest commit checks and inspect the provider build settings/logs before merging. No merge, release 2.2.0 publication or tag creation was performed.
+
+## Final deployed artifact
+
+Source 843dc822b, Worker 6ceb37e8-9dc9-4def-9508-bf3ca00790fb at 100% traffic. The decoded-citation thread is resolved after pushed regression fixes. Local suite: 69 passing tests. GET /widget.js returned 200; an empty POST /api/chat returned 400 without inference. No live model requests were made after this parser deployment. The active candidate manifest correctly starts with zero reviewed AI cases and 155 pending; old version evidence remains linked above and is not erased. See citation-843dc822b-review.json for endpoint records.

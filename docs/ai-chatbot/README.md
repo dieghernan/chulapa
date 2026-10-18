@@ -82,21 +82,23 @@ HTTP availability or the factual accuracy of the surrounding answer. The existin
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-The current runtime snapshot `worktree-981dd71ee196` was deployed on
-18 October 2026 as Worker `65bb328b-a4ed-4828-9218-9c36553b2306`. Source/build
-hashes identify the snapshot tested before committing. The current evidence and
-limitations are recorded in the [pre-commit review](evaluations/precommit-worktree-981dd71ee196-review.json).
-The historical snapshot now has 50 reviewed catalog cases out of 155: 35 pass,
-13 partial, one fail and one unavailable. There are 105 unrun cases and one
-unavailable retry. See the [additional 13 review](evaluations/additional13-2026-10-18.md):
-a deployment replaced the Worker during that run, so its final five responses
-are recorded separately under version cd95fb43-7af8-4926-bbd4-a8d8b6c0396f.
-The replacement was subsequently matched to 81a4adfea by exact module SHA-256; see evaluations/runtime-cd95fb43-identity.json. Earlier live passes must
-not be transferred to it. Provider inventory fixes have local regression tests;
-their presence in that replacement is verified, but inventory answers remain untested live.
-The sidebar TOC, alert include, gallery setup and heading-font recipes need
-follow-up alongside footer icon and Autothemer prose defects. A supplementary
-provider-comparison probe remains outside the catalog denominator.
+The active runtime is source `843dc822b`, Worker
+`6ceb37e8-9dc9-4def-9508-bf3ca00790fb`, deployed locally on 18 October 2026.
+69 local tests pass. A public widget GET returned 200 and an empty chat request
+returned 400 without inference. This citation-parser artifact has no live AI
+review yet; its 155 catalog cases remain pending. Earlier answers are not
+transferred to it. See the [iteration report](evaluations/pr164-task-corrections-2026-10-18.md)
+and the active [evidence manifest](evaluations/candidate-evidence.json).
+
+Historical evaluations found and corrected migration paths, sidebar scopes,
+footer classes, Autothemer nesting, font setup and complete recipes. The last
+content-only iteration still produced two partial answers: invalid heading
+exclusion syntax and guide-discovery drift. English and Spanish singular
+provider inventories retained all five choices and explicit Cusdis hosting
+unavailability on c3107102d. These limited observations do not establish
+repeatability or human usability. Keep the PR open for those limitations and
+unresolved Netlify preview failure; raw responses and per-source reviews remain
+under evaluations/.
 Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
@@ -270,7 +272,7 @@ References:
 - https://developers.cloudflare.com/workers-ai/platform/pricing/
 - https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
 
-Provider inventory routing is present in version cd95fb43 (verified against 81a4adfea), but its inventory answers still need live evaluation. Historical passes must not be transferred to newer code.
+Provider inventories were subsequently reviewed on c3107102d; see evaluations/inventory-c3107102d-review.json. Those passes are not transferred to the latest citation-parser artifact.
 
 The reviewed library budget increased by 1,000 bytes to retain complete navbar/gallery recipes and explicit override/playback checks after a live regression from removing the navbar example. The selected input cap remains 18,000 bytes; model and output limits are unchanged.
 
