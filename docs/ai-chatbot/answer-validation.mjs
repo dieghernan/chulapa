@@ -26,7 +26,7 @@ export function answerViolations(answer, question) {
   const guideDiscovery = /guides?|documentation|docs|gu[ií]as/i.test(question) &&
     /search|b[uú]squeda/i.test(question) && /cards?|tarjetas?/i.test(question);
   if (guideDiscovery) {
-    const sources = new Set(answerSourceUrls(answer));
+    const sources = new Set(answerSourceUrls(answer, { linksOnly: true }));
     const required = ['https://dieghernan.github.io/chulapa/docs/tags'];
     if (/exclud|exclusion|exclu/i.test(question)) required.push('https://dieghernan.github.io/chulapa/docs/65-search-visibility');
     if (required.some(url => !sources.has(url))) issues.add('missing_discovery_sources');

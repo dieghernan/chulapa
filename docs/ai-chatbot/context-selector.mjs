@@ -28,7 +28,7 @@ export function splitSections(context) {
 
 const routes = [
   [/baseurl|\burl\b|author|autor|site.*title|site.*name|nombre.*sitio/i, ['Global settings', 'Basic editing and publishing']],
-  [/first|new.*site|start.*site|primer|empez|comenz|github pages/i, ['First-site tutorial']],
+  [/first|new.*site|start.*site|primer|empez|comenz|github pages|(?:set\s*up|get(?:ting)?\s+started).*chulapa/i, ['First-site tutorial']],
   [/photo walk|second.*tutorial|segundo.*tutorial/i, ['Second browser tutorial']],
   [/remote.theme|migrat|migrar/i, ['Remote-theme installation', 'Migrating an existing Jekyll site', 'Check theme version']],
   [/gem.based|theme gem|gema|gemfile|installed.*version|theme.*version|version.*theme|unreleased|unpinned|versi[oó]n/i, ['Check theme version', 'Gem-theme installation']],
@@ -135,7 +135,7 @@ function proseUrls(text) {
   });
 }
 
-export function answerSourceUrls(answer) {
+export function answerSourceUrls(answer, { linksOnly = false } = {}) {
   // Inspect the same decoded HTML attributes a browser sees, including entities.
   const document = parseFragment(marked.parse(answer, { async: false }));
   const urls = [];
@@ -144,12 +144,16 @@ export function answerSourceUrls(answer) {
     const literalText = codeText || ['code', 'pre'].includes(node.tagName);
     for (const attribute of node.attrs || []) {
       if (!['href', 'src'].includes(attribute.name)) continue;
+      if (linksOnly && (node.tagName !== 'a' ||
+          node.namespaceURI !== 'http://www.w3.org/1999/xhtml' || attribute.name !== 'href')) continue;
       try {
         const url = new URL(attribute.value);
+        if (linksOnly && (url.origin !== 'https://dieghernan.github.io' ||
+            !url.pathname.startsWith('/chulapa/') || url.username || url.password)) continue;
         if (['http:', 'https:'].includes(url.protocol)) urls.push(url.href);
       } catch { /* Relative/invalid attributes cannot pass the renderer's URL hook. */ }
     }
-    if (node.nodeName === '#text' && !literalText) urls.push(...proseUrls(node.value));
+    if (node.nodeName === '#text' && !literalText && !linksOnly) urls.push(...proseUrls(node.value));
     for (const child of node.childNodes || []) visit(child, literalText);
   }
   visit(document);

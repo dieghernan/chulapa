@@ -200,3 +200,12 @@ test('real links inside pre/code are checked while escaped code text is ignored'
   // GFM creates a real autolink inside inline raw code, so it must be checked.
   assert.deepEqual(unsupportedCitations(`<code>${bad}</code>`, source), [bad]);
 });
+
+
+test('common onboarding wording selects the first-site tutorial and template', () => {
+  for (const question of ['How do I set up Chulapa?', 'How do I get started with Chulapa?', 'Getting started with Chulapa']) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('First-site tutorial'), question);
+    assert.match(selected.text, /https:\/\/github.com\/dieghernan\/chulapa-101\/generate/);
+  }
+});

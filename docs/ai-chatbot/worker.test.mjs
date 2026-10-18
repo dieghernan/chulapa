@@ -298,7 +298,8 @@ test('task validation discards unsupported recipes with one inference and fixed 
     ['How do I insert a TOC inside an article?', '```markdown\n{.no_toc}\n```'],
     ['Explain how to insert an article TOC and exclude a heading.', '```markdown\n{.no_toc}\n```'],
     ['Why is my `post.md` article TOC wrong, and how do I exclude a heading?', '```markdown\n{.no_toc}\n```'],
-    ['Where are the search guides and cards for excluding pages?', 'Use show_related.']
+    ['Where are the search guides and cards for excluding pages?', 'Use show_related.'],
+    ['Where are the search guides and cards for excluding pages?', '![Topics](https://dieghernan.github.io/chulapa/docs/tags) ![Visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility)']
   ];
   for (const [question, answer] of cases) {
     let calls = 0;

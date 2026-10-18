@@ -34,6 +34,8 @@ test('guide discovery requires real prose sources rather than URLs inside exampl
   const visibility = 'https://dieghernan.github.io/chulapa/docs/65-search-visibility';
   assert.deepEqual(answerViolations(`[Topics](${tags})`, question), ['missing_discovery_sources']);
   assert.deepEqual(answerViolations(`[Topics](${tags}) [Visibility](${visibility})`, question), []);
+  assert.deepEqual(answerViolations(`![Topics](${tags}) ![Visibility](${visibility})`, question), ['missing_discovery_sources']);
+  assert.deepEqual(answerViolations(`<img src="${tags}"><img src="${visibility}">`, question), ['missing_discovery_sources']);
   assert.deepEqual(answerViolations(markdown(tags + '\n' + visibility), question), ['missing_discovery_sources']);
   assert.deepEqual(answerViolations(`<a href="${tags.replace('https:', 'https&colon;')}">Topics</a> [Visibility](${visibility})`, question), []);
   assert.deepEqual(answerViolations('Use show_related.', 'How do I configure related article cards?'), []);
