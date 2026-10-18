@@ -1,0 +1,35 @@
+{
+  "source_commit": "841b3925f",
+  "worker_version": "ebfe1d5c-ac38-4ec8-ad51-0dc97455f98d",
+  "raw": [
+    "taskfix-841b3925f-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-3",
+      "status": "pass",
+      "evidence": "Correct page-level sidebar flags/range and ID requirements."
+    },
+    {
+      "id": "snippets-4",
+      "status": "pass",
+      "evidence": "Complete scoped defaults and Liquid sort recipe with dev caveat; upload destination inferred from scoped path rather than an explicit upload step."
+    },
+    {
+      "id": "content-toc-task-1",
+      "status": "partial",
+      "evidence": "Correct {:.no_toc} and theme/content distinction, but advises invalid one-line kramdown: toc_levels: 2..6 instead of a nested YAML block."
+    },
+    {
+      "id": "documentation-search-topics",
+      "status": "partial",
+      "evidence": "Correct document-front-matter exclusion, Algolia distinction, optional alternatives and visibility-guide link. Incorrectly locates provider cards in SEO controls and omits crawler/local-index distinction."
+    }
+  ],
+  "totals": {
+    "pass": 2,
+    "partial": 2,
+    "fail": 0,
+    "unavailable": 0
+  }
+}

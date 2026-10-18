@@ -252,7 +252,7 @@ navbar:
 footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
-Guide discovery: link /docs/65-search-visibility; provider cards are optional alternatives, not setup steps. No config recipe is needed for a guide-discovery question. robots: "noindex, follow" controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy. og_image social image; header_img visible header; schema_image post JSON-LD image.
+Guide discovery: link /docs/65-search-visibility; cards on selected docs pages are optional alternatives, not setup steps. No config recipe is needed for a guide-discovery question. robots: "noindex, follow" controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy. og_image social image; header_img visible header; schema_image post JSON-LD image.
 ## Page metadata and article images
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
@@ -337,6 +337,11 @@ To exclude a heading, copy the colon exactly:
 {:.no_toc}
 ```
 TOC covers eligible headings before/after marker; marker sets position only. {:.no_toc} excludes from both TOCs. kramdown.toc_levels: 2..6 is site-wide, separate from show_toc/h_min/h_max.
+_config.yml (merge, keep parser/options):
+```yaml
+kramdown:
+  toc_levels: 2..6
+```
 ## Syntax highlighting styles
 Source: https://dieghernan.github.io/chulapa/docs/syntax-highlighting
 Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
