@@ -112,3 +112,24 @@ has a favicon manifest but the theme adds no service worker or offline cache.
 External widgets/comments, fixed custom colors and existing rendered diagrams
 do not automatically change theme. No PWA installability or WCAG certification
 is claimed.
+
+## Review follow-up: browser theme color
+
+The controller now keeps `meta[name="theme-color"]` aligned with the active
+skin's explicit `vars.primary`, including the saved initial appearance,
+successful interactive/Auto switches and initial CSS-failure recovery. Failed
+interactive loads retain the current appearance and its metadata. If the active
+skin has no explicit primary override, remove the previous skin's color hint;
+when needed, create the hint on switching back. Static Light metadata remains
+available without script execution. No new setting is introduced.
+
+Verified in this follow-up: compiled Jekyll fixtures and the Chromium browser
+suite pass, including classic/floating/dual navigation, root/project paths,
+375/1280 px, saved preferences, Auto, both initial CSS failures and interactive
+failure recovery. Added light-only and dark-only primary fixtures check metadata
+creation/removal and reloads. The documentation build also passes. The 80 chatbot tests pass; selective context is
+53,983/54,000 UTF-8 bytes without increasing the budget. The skin guide explains
+the browser hint and unspecified-color behavior; existing llms.txt links suffice.
+No live inference or Worker deployment. These checks verify metadata in the DOM,
+not actual OS/mobile browser chrome or installed-app appearance. No canonical,
+indexing, manifest, service-worker or offline-cache changes.

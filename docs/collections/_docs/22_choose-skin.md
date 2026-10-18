@@ -66,6 +66,10 @@ skin or highlighter name fails the build.
 After publishing, the navigation shows a sun/moon icon and the current mode,
 with **Light**, **Dark** and **Auto** choices in a dropdown. This works with
 classic, floating and dual navigation, including sites without menu links.
+If you set `vars.primary` in either skin, its value also supplies the browser's
+address-bar color when that appearance is active, on browsers that support it.
+A skin without an explicit `vars.primary` leaves that color to the browser.
+
 Light is the initial default. Auto follows the device's color preference and
 updates when it changes. The browser remembers the visitor's choice across
 pages and tabs. If browser storage is blocked, switching

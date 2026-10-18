@@ -8,7 +8,7 @@ root = File.expand_path('..', __dir__)
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, 'chulapa-theme-selector')))
 FileUtils.mkdir_p(output)
 fixtures = %w[classic fab dual].product([true, false]).map { |style, links| ["#{style}-#{links ? 'links' : 'empty'}", style, links, true] }
-fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false], ['blank', 'classic', true, false]]
+fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false], ['blank', 'classic', true, false], ['dark-color-only', 'classic', true, true], ['light-color-only', 'classic', true, true]]
 fixtures.each do |name, style, links, enabled|
   Dir.mktmpdir('chulapa-theme-source-') do |source|
     %w[_includes _layouts _sass assets].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
@@ -19,10 +19,12 @@ fixtures.each do |name, style, links, enabled|
     config = {'source' => source, 'destination' => File.join(output, name, baseurl),
       'url' => "http://#{name}.localhost:8770", 'baseurl' => baseurl, 'quiet' => true,
       'plugins' => ['jekyll-include-cache'], 'title' => 'Theme selector fixture',
-      'chulapa-skin' => {'skin' => 'gitdev', 'highlight' => 'github', 'vars' => {'font-size-base' => '1.05rem'}},
+      'chulapa-skin' => {'skin' => 'gitdev', 'highlight' => 'github', 'vars' => {'primary' => '#123456', 'font-size-base' => '1.05rem'}},
       'navbar' => {'style' => style, 'brand' => {'title' => 'Home'},
         'nav' => links ? [{'title' => 'Article', 'url' => '/article.html'}] : nil}}
-    config['chulapa-skin-dark'] = {'skin' => 'gitdev-dark', 'highlight' => 'github.dark', 'vars' => {'font-size-base' => '1.1rem'}} if enabled
+    config['chulapa-skin-dark'] = {'skin' => 'gitdev-dark', 'highlight' => 'github.dark', 'vars' => {'primary' => '#abcdef', 'font-size-base' => '1.1rem'}} if enabled
+    config['chulapa-skin']['vars'].delete('primary') if name == 'dark-color-only'
+    config['chulapa-skin-dark']['vars'].delete('primary') if name == 'light-color-only'
     config['chulapa-skin-dark'] = {'skin' => nil, 'highlight' => nil, 'autothemer' => nil, 'vars' => nil} if name == 'blank'
     Jekyll::Site.new(Jekyll.configuration(config)).process
     html = File.read(File.join(config['destination'], 'article.html'))

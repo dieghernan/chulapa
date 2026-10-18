@@ -14,7 +14,7 @@ async function main() {
   const browser = await chromium.launch({headless: true,
     ...(process.env.CHULAPA_BROWSER_EXECUTABLE ? {executablePath: process.env.CHULAPA_BROWSER_EXECUTABLE} : {})});
   try {
-    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank']) {
+    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank', 'dark-color-only', 'light-color-only']) {
       const context = await browser.newContext({reducedMotion: 'reduce', colorScheme: 'light'});
       await context.addInitScript(() => {
         window.__themeReads = 0;
@@ -49,6 +49,22 @@ async function main() {
       await page.goto(`${base}/article.html`);
       const bodyColor = () => page.locator('body').evaluate(node => getComputedStyle(node).backgroundColor);
       const light = await bodyColor();
+      const themeColor = () => page.locator('meta[name="theme-color"]').getAttribute('content');
+      if (name === 'dark-color-only' || name === 'light-color-only') {
+        const readColor = () => page.evaluate(() => document.querySelector('meta[name="theme-color"]')?.content ?? null);
+        assert.equal(await readColor(), name === 'dark-color-only' ? null : '#123456');
+        await page.evaluate(() => window.chulapaSetThemeMode('dark'));
+        await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
+        assert.equal(await readColor(), name === 'dark-color-only' ? '#abcdef' : null);
+        await page.reload();
+        assert.equal(await readColor(), name === 'dark-color-only' ? '#abcdef' : null);
+        await page.evaluate(() => window.chulapaSetThemeMode('light'));
+        await page.waitForFunction(() => document.documentElement.dataset.theme === 'light');
+        assert.equal(await readColor(), name === 'dark-color-only' ? null : '#123456');
+        await context.close();
+        continue;
+      }
+      assert.equal(await themeColor(), '#123456');
       if (name === 'disabled' || name === 'blank') {
         assert.equal(await page.evaluate(() => typeof window.chulapaSetThemeMode), 'undefined');
         assert.equal(await page.evaluate(() => window.__themeReads), 0);
@@ -76,6 +92,7 @@ async function main() {
           console.error(name, theme, errors, requests.slice(-8), await page.evaluate(() => ({theme: document.documentElement.dataset.theme, mode: document.documentElement.dataset.themeMode, links: Array.from(document.querySelectorAll('link[rel=stylesheet]')).map(link => ({id: link.id, href: link.href, media: link.media}))})));
           throw error;
         }
+        assert.equal(await themeColor(), theme === 'dark' ? '#abcdef' : '#123456');
       };
       for (const width of [1280, 375]) {
         await page.setViewportSize({width, height: 900});
@@ -151,6 +168,7 @@ async function main() {
       await page.waitForFunction(() => !document.querySelector('link[media="not all"]'));
       assert.equal(await page.evaluate(() => document.documentElement.dataset.themeMode), 'dark');
       assert.equal(await bodyColor(), light);
+      assert.equal(await themeColor(), '#123456');
       failDark = false;
       if (name === 'classic-links') {
         // Failed system-driven switches preserve Auto and recover on later changes.

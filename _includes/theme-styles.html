@@ -9,6 +9,21 @@
         light: [{{ '/assets/css/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighter.css' | relative_url | jsonify }}],
         dark: [{{ '/assets/css/dark/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighterdark.css' | relative_url | jsonify }}]
       };
+      var themeColors = {
+        light: {{ site.chulapa-skin.vars.primary | default: '' | jsonify }},
+        dark: {{ site.chulapa-skin-dark.vars.primary | default: '' | jsonify }}
+      };
+      function updateThemeColor(theme) {
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var color = themeColors[theme];
+        if (!color) { if (meta) meta.remove(); return; }
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.name = 'theme-color';
+          document.head.appendChild(meta);
+        }
+        meta.content = color;
+      }
       var key = 'chulapa-theme';
       var mode = 'light';
       var scheme = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
@@ -21,6 +36,7 @@
       root.dataset.theme = theme;
       root.dataset.themeMode = mode;
       root.style.colorScheme = theme;
+      updateThemeColor(theme);
       /* Recover initial dark CSS failures without discarding the saved choice. */
       if (theme === 'dark') {
         var initialPending = ['maincss', 'csshigh'];
@@ -39,6 +55,7 @@
           });
           root.dataset.theme = 'light';
           root.style.colorScheme = 'light';
+          updateThemeColor('light');
           controls();
         }
         function initialLoaded(event) {
@@ -120,6 +137,7 @@
             });
             root.dataset.theme = target;
             root.style.colorScheme = target;
+            updateThemeColor(target);
           };
           /* Keep the custom stylesheet last in the cascade. */
           document.head.insertBefore(link, previous[0]);
