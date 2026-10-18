@@ -86,10 +86,14 @@ The current runtime snapshot `worktree-981dd71ee196` was deployed on
 18 October 2026 as Worker `65bb328b-a4ed-4828-9218-9c36553b2306`. Source/build
 hashes identify the snapshot tested before committing. The current evidence and
 limitations are recorded in the [pre-commit review](evaluations/precommit-worktree-981dd71ee196-review.json).
-Seven earlier catalog cases passed their core factual/task checks. An additional
-20-question run produced 12 passes and eight partial answers; 128 cases remain
-unrun on that deployed snapshot. See [the additional evaluation](evaluations/additional20-2026-10-18.md). A separate provider-comparison probe remains partial. Literal LaTeX arrows
-and other precision limits are recorded rather than treated as verified behavior.
+The deployed snapshot now has 42 reviewed catalog cases out of 155: 30 pass,
+11 partial and one fail, with 113 unrun. See the [additional 20](evaluations/additional20-2026-10-18.md),
+[additional ten](evaluations/additional10-2026-10-18.md) and
+[additional five](evaluations/additional5-2026-10-18.md) records. The sidebar TOC
+answer fails its configuration task; footer icon, Autothemer prose and video
+verification limitations remain recorded. A separate provider-comparison probe
+remains partial. Local singular/plural provider-inventory routing fixes retain
+all five choices and Cusdis restrictions; they are not deployed or tested live.
 Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 

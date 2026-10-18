@@ -1,0 +1,44 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "source_commit": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+  "status": "completed",
+  "reviews": [
+    {
+      "id": "layouts-3",
+      "status": "fail",
+      "evidence": "Uses root-level show_sidetoc and kramdown.toc_levels instead of page front matter show_sidetoc, h_min: 2 and h_max: 5. The sidebar reads page flags and h_min/h_max, so the requested sidebar/range is not configured."
+    },
+    {
+      "id": "layouts-4",
+      "status": "pass",
+      "evidence": "Correct archive front matter, include_collection: posts,demo and include_missdates: true."
+    },
+    {
+      "id": "layouts-5",
+      "status": "pass",
+      "evidence": "Correct cloudtag page, matching permalink/cloudtag_url, show_tags defaults for posts and collection restriction."
+    },
+    {
+      "id": "layouts-6",
+      "status": "pass",
+      "evidence": "Correct indexcategory, date descending and index_items: 5; correctly restricts bottom navigation to page.previous/next."
+    },
+    {
+      "id": "snippets-1",
+      "status": "partial",
+      "evidence": "Correct complete Liquid include and root-relative fileurl without duplicate baseurl handling, with canonical video source. Omits the requested public playback verification."
+    }
+  ],
+  "totals": {
+    "pass": 3,
+    "partial": 1,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 5
+  },
+  "limits": "Single-run manual factual/task review; not human usability, browser playback, provider integration or repeated-run consistency. Local inventory selector fixes were not deployed."
+}

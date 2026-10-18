@@ -1,0 +1,106 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "cases": [
+    {
+      "id": "search-comments-5",
+      "section": "search-comments",
+      "doc": "02_config.md",
+      "question": "How do I enable giscus comments on my posts?",
+      "expected": "comments.provider giscus; show_comments true; custom/giscus.html generatedembed."
+    },
+    {
+      "id": "search-comments-6",
+      "section": "search-comments",
+      "doc": "02_config.md",
+      "question": "How do I add an email link and custom copyright text to the footer?",
+      "expected": "footer.links label icon plainemailurl; footer.copyright."
+    },
+    {
+      "id": "theming-1",
+      "section": "theming",
+      "doc": "03_theming.md",
+      "question": "What skins are available?",
+      "expected": "Actual names and /skins visual catalog."
+    },
+    {
+      "id": "theming-2",
+      "section": "theming",
+      "doc": "03_theming.md",
+      "question": "How do I enable Autothemer using a purple primary color? Show YAML.",
+      "expected": "autothemer true; vars.primary quotedhex."
+    },
+    {
+      "id": "theming-3",
+      "section": "theming",
+      "doc": "03_theming.md",
+      "question": "Does Autothemer replace every color defined by my chosen skin?",
+      "expected": "No !default fills undefined; vars override skin."
+    },
+    {
+      "id": "theming-4",
+      "section": "theming",
+      "doc": "03_theming.md",
+      "question": "I loaded Rubik with googlefonts but the page font did not change. Why?",
+      "expected": "Apply font-family-base/headings-font-family undervars; rebuild."
+    },
+    {
+      "id": "theming-5",
+      "section": "theming",
+      "doc": "03_theming.md",
+      "question": "How do I add a custom skin named myskin? Should it import Bootstrap?",
+      "expected": "_sass/skins/myskin.scss; skinmyskin; !default variables; no secondBootstrapimport."
+    },
+    {
+      "id": "theming-6",
+      "section": "theming",
+      "doc": "03_theming.md",
+      "question": "How do I transfer a Codeply theme preview to my site?",
+      "expected": "PreviewSCSS translatevars no$semicolon quotedhex; don'tdisablegrid."
+    },
+    {
+      "id": "layouts-1",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "How do I set the default layout for every post but override one page?",
+      "expected": "defaults scope typeposts values layoutdefault explicitfrontmatterwins booleanfalse."
+    },
+    {
+      "id": "layouts-2",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "Can minimal show a hero header and an author panel?",
+      "expected": "show_header true header_typehero header_img; minimalnoauthorpanel."
+    }
+  ],
+  "run": "additional10-worktree-981dd71ee196-20261018.jsonl",
+  "quota_before": "Dashboard showed 389.06/10k daily neurons and 1.78k last 24h; reporting may lag.",
+  "deployment_verified_before_and_after": "65bb328b-a4ed-4828-9218-9c36553b2306 at 100%",
+  "batches": [
+    {
+      "batch": 1,
+      "ids": [
+        "search-comments-5",
+        "search-comments-6",
+        "theming-1",
+        "theming-2"
+      ]
+    },
+    {
+      "batch": 2,
+      "ids": [
+        "theming-3",
+        "theming-4",
+        "theming-5",
+        "theming-6"
+      ]
+    },
+    {
+      "batch": 3,
+      "ids": [
+        "layouts-1",
+        "layouts-2"
+      ]
+    }
+  ]
+}

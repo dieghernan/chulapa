@@ -1,0 +1,41 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "cases": [
+    {
+      "id": "layouts-3",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "How do I add a sidebar TOC that includes h2 through h5?",
+      "expected": "show_sidetoc true h_min2 h_max5 headingsIDs."
+    },
+    {
+      "id": "layouts-4",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "How do I archive only posts and demo, including documents without dates?",
+      "expected": "layoutarchive include_collection posts,demo no_ no spaces include_missdatestrue; no standalonepages."
+    },
+    {
+      "id": "layouts-5",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "How do I create a tag cloud and link tags in my posts to it?",
+      "expected": "layoutcloudtag permalink /tags; cloudtag_url; show_tags; collectionrestriction."
+    },
+    {
+      "id": "layouts-6",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "How do I show five newest posts as cards? Will show_bottomnavs also link arbitrary pages?",
+      "expected": "indexcategory index_sortdate descending index_items5; bottomnavusespreviousnext notarbitrary."
+    },
+    {
+      "id": "snippets-1",
+      "section": "snippets",
+      "doc": "04_layouts.md",
+      "question": "How do I embed a local MP4 video? Give the Liquid include.",
+      "expected": "snippets/video.html fileurl. Use a root-relative fileurl without relative_url or a manually added baseurl; the snippet applies absolute_url. Include a public playback check and /docs/32-embed-video."
+    }
+  ]
+}

@@ -3,7 +3,7 @@
   "candidate_source": "worktree-981dd71ee196",
   "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
   "latest_candidate_review": "combined-worktree-981dd71ee196-review.json",
-  "candidate_remaining_count": 128,
+  "candidate_remaining_count": 113,
   "candidate_unavailable_count": 0,
   "candidate_pending_review": [],
   "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
@@ -208,105 +208,120 @@
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-comments-6",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "theming-1",
       "doc": "03_theming.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "theming-2",
       "doc": "03_theming.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "theming-3",
       "doc": "03_theming.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "theming-4",
       "doc": "03_theming.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "theming-5",
       "doc": "03_theming.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "theming-6",
       "doc": "03_theming.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-1",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-2",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-3",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_fail",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-4",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-5",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-6",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "snippets-1",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "snippets-2",
@@ -1169,9 +1184,9 @@
         "search-comments-5",
         "search-comments-6"
       ],
-      "status": "needs_request",
+      "status": "needs_review",
       "run_name": "candidate-regression-04-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-04-worktree-981dd71ee196 search-comments-5,search-comments-6"
+      "command": null
     },
     {
       "name": "candidate-regression-05",
@@ -1181,9 +1196,9 @@
         "layouts-1",
         "layouts-2"
       ],
-      "status": "not_run",
+      "status": "reviewed_pass",
       "run_name": "candidate-regression-05-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-05-worktree-981dd71ee196 theming-4,theming-5,layouts-1,layouts-2"
+      "command": null
     },
     {
       "name": "candidate-regression-06",
@@ -1193,9 +1208,9 @@
         "layouts-6",
         "snippets-1"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-regression-06-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-06-worktree-981dd71ee196 layouts-4,layouts-5,layouts-6,snippets-1"
+      "command": null
     },
     {
       "name": "candidate-regression-07",
@@ -1615,9 +1630,9 @@
         "theming-1",
         "theming-2"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-07-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-07-worktree-981dd71ee196 search-comments-5,search-comments-6,theming-1,theming-2"
+      "command": null
     },
     {
       "name": "candidate-complete-08",
@@ -1627,9 +1642,9 @@
         "theming-5",
         "theming-6"
       ],
-      "status": "not_run",
+      "status": "reviewed_pass",
       "run_name": "candidate-complete-08-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-08-worktree-981dd71ee196 theming-3,theming-4,theming-5,theming-6"
+      "command": null
     },
     {
       "name": "candidate-complete-09",
@@ -1639,9 +1654,9 @@
         "layouts-3",
         "layouts-4"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-09-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-09-worktree-981dd71ee196 layouts-1,layouts-2,layouts-3,layouts-4"
+      "command": null
     },
     {
       "name": "candidate-complete-10",
@@ -1651,9 +1666,9 @@
         "snippets-1",
         "snippets-2"
       ],
-      "status": "not_run",
+      "status": "needs_request",
       "run_name": "candidate-complete-10-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-10-worktree-981dd71ee196 layouts-5,layouts-6,snippets-1,snippets-2"
+      "command": "node evaluate-live.mjs candidate-complete-10-worktree-981dd71ee196 snippets-2"
     },
     {
       "name": "candidate-complete-11",

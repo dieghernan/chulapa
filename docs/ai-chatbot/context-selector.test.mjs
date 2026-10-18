@@ -118,7 +118,7 @@ test('provider comparisons retain alternatives while single-provider setup stays
 
 
 test('plain provider inventories include all provider choices and availability restrictions', () => {
-  for (const question of ['What comment providers are supported?', 'Which commenting services can I use?', 'List the supported comment systems', '¿Qué proveedores de comentarios están disponibles?', '¿Cuáles son los servicios de comentarios que puedo usar?']) {
+  for (const question of ['Which comment provider can I use?', 'What commenting service is supported?', '¿Qué proveedor de comentarios puedo usar?', 'What comment providers are supported?', 'Which commenting services can I use?', 'List the supported comment systems', '¿Qué proveedores de comentarios están disponibles?', '¿Cuáles son los servicios de comentarios que puedo usar?']) {
     const selected = selectContext(context, question);
     for (const title of ['Giscus comments', 'Disqus comments', 'Cactus comments', 'Welcomments comments', 'Cusdis comments']) assert.ok(selected.titles.includes(title), `${question}: ${title}`);
     assert.match(selected.text, /Upstream archived; original hosting unavailable/);

@@ -1,0 +1,72 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+  "status": "completed",
+  "reviews": [
+    {
+      "id": "search-comments-5",
+      "status": "pass",
+      "evidence": "Correct provider mapping, generated Giscus embed location and show_comments in post/page front matter, with layout and migration caveats."
+    },
+    {
+      "id": "search-comments-6",
+      "status": "partial",
+      "evidence": "Correct footer.links/copyright and plain email. Example icon: envelope is not a complete Font Awesome CSS class and will not render the requested icon."
+    },
+    {
+      "id": "theming-1",
+      "status": "pass",
+      "evidence": "Lists actual skin names and links the visual catalog.",
+      "limits": "Lists all 42 instead of the instructed short selection and uses a bare source URL; presentation issue, not invented skin data."
+    },
+    {
+      "id": "theming-2",
+      "status": "partial",
+      "evidence": "Correct YAML: autothemer under chulapa-skin and primary under vars. Prose incorrectly says both switches go under vars and adds unrelated include_cached advice."
+    },
+    {
+      "id": "theming-3",
+      "status": "pass",
+      "evidence": "Correct explicit colors retained, Autothemer fills undefined colors from primary, vars overrides skin; correct precedence order.",
+      "limits": "Literal LaTeX arrows remain a presentation issue."
+    },
+    {
+      "id": "theming-4",
+      "status": "pass",
+      "evidence": "Correct separation of loading versus applying font; complete quoted Rubik/fallback YAML for body/headings in vars, rebuild and verification."
+    },
+    {
+      "id": "theming-5",
+      "status": "pass",
+      "evidence": "Correct _sass/skins/myskin.scss, SCSS !default variable and chulapa-skin.skin setting; explicitly forbids redundant Bootstrap/grid imports."
+    },
+    {
+      "id": "theming-6",
+      "status": "pass",
+      "evidence": "Correct SCSS-to-vars translation without dollar prefixes/semicolons, quoted hex, imports retained in sandbox only and not duplicated in site skins."
+    },
+    {
+      "id": "layouts-1",
+      "status": "pass",
+      "evidence": "Correct defaults scope path/type posts, values.layout and explicit page front matter override, with complete YAML examples."
+    },
+    {
+      "id": "layouts-2",
+      "status": "pass",
+      "evidence": "Correct minimal hero configuration and no author panel. Minimal h-entry statement is accurate.",
+      "limits": "header_img omitted, but the hero template explicitly supports an image-free fallback, so the example remains valid."
+    }
+  ],
+  "source_commit": "worktree-981dd71ee196",
+  "totals": {
+    "pass": 8,
+    "partial": 2,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 10
+  },
+  "limits": "Manual factual/task review, not human usability or repeated-run consistency. HTTP200 is not accuracy evidence. Runtime unchanged; source URL identity enforced by Worker, not live reachability. Current local provider-inventory fix is not deployed."
+}

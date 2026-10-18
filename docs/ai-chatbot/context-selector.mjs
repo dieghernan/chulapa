@@ -90,7 +90,7 @@ export function selectContext(context, question) {
   const namedProviders = providers.filter(name => question.toLowerCase().includes(name));
   const inventoriesProviders = namedProviders.length === 0 &&
     /comments?|commenting|comentarios?/i.test(question) &&
-    /providers|services|systems|proveedores|servicios|sistemas/i.test(question) &&
+    /providers?|services?|systems?|proveedor(?:es)?|servicios?|sistemas?/i.test(question) &&
     /what|which|list|supported|available|choices|options|can.*use|qu[eé]|cu[aá]les|lista|disponib|soport|opciones/i.test(question);
   const comparesProviders = inventoriesProviders || namedProviders.length > 1 ||
     (/alternativ|compar|versus|\bvs\b|differ|diferenc|instead|en lugar/i.test(question) &&

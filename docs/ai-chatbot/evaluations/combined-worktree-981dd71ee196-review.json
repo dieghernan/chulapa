@@ -7,7 +7,9 @@
     "precommit-worktree-981dd71ee196-alert-skin.jsonl",
     "precommit-worktree-981dd71ee196-layouts.jsonl",
     "precommit-worktree-981dd71ee196-giscus.jsonl",
-    "additional20-worktree-981dd71ee196-20261018.jsonl"
+    "additional20-worktree-981dd71ee196-20261018.jsonl",
+    "additional10-worktree-981dd71ee196-20261018.jsonl",
+    "additional5-worktree-981dd71ee196-20261018.jsonl"
   ],
   "reviews": [
     {
@@ -149,7 +151,85 @@
       "id": "search-comments-4",
       "status": "partial",
       "evidence": "Correct show_attrib false and legacy precedence; does not explicitly advise replacing/removing lunr_maxwords so search.maxwords can apply, and omits separate Algolia logo behavior."
+    },
+    {
+      "id": "search-comments-5",
+      "status": "pass",
+      "evidence": "Correct provider mapping, generated Giscus embed location and show_comments in post/page front matter, with layout and migration caveats."
+    },
+    {
+      "id": "search-comments-6",
+      "status": "partial",
+      "evidence": "Correct footer.links/copyright and plain email. Example icon: envelope is not a complete Font Awesome CSS class and will not render the requested icon."
+    },
+    {
+      "id": "theming-1",
+      "status": "pass",
+      "evidence": "Lists actual skin names and links the visual catalog.",
+      "limits": "Lists all 42 instead of the instructed short selection and uses a bare source URL; presentation issue, not invented skin data."
+    },
+    {
+      "id": "theming-2",
+      "status": "partial",
+      "evidence": "Correct YAML: autothemer under chulapa-skin and primary under vars. Prose incorrectly says both switches go under vars and adds unrelated include_cached advice."
+    },
+    {
+      "id": "theming-3",
+      "status": "pass",
+      "evidence": "Correct explicit colors retained, Autothemer fills undefined colors from primary, vars overrides skin; correct precedence order.",
+      "limits": "Literal LaTeX arrows remain a presentation issue."
+    },
+    {
+      "id": "theming-4",
+      "status": "pass",
+      "evidence": "Correct separation of loading versus applying font; complete quoted Rubik/fallback YAML for body/headings in vars, rebuild and verification."
+    },
+    {
+      "id": "theming-5",
+      "status": "pass",
+      "evidence": "Correct _sass/skins/myskin.scss, SCSS !default variable and chulapa-skin.skin setting; explicitly forbids redundant Bootstrap/grid imports."
+    },
+    {
+      "id": "theming-6",
+      "status": "pass",
+      "evidence": "Correct SCSS-to-vars translation without dollar prefixes/semicolons, quoted hex, imports retained in sandbox only and not duplicated in site skins."
+    },
+    {
+      "id": "layouts-1",
+      "status": "pass",
+      "evidence": "Correct defaults scope path/type posts, values.layout and explicit page front matter override, with complete YAML examples."
+    },
+    {
+      "id": "layouts-2",
+      "status": "pass",
+      "evidence": "Correct minimal hero configuration and no author panel. Minimal h-entry statement is accurate.",
+      "limits": "header_img omitted, but the hero template explicitly supports an image-free fallback, so the example remains valid."
+    },
+    {
+      "id": "layouts-3",
+      "status": "fail",
+      "evidence": "Uses root-level show_sidetoc and kramdown.toc_levels instead of page front matter show_sidetoc, h_min: 2 and h_max: 5. The sidebar reads page flags and h_min/h_max, so the requested sidebar/range is not configured."
+    },
+    {
+      "id": "layouts-4",
+      "status": "pass",
+      "evidence": "Correct archive front matter, include_collection: posts,demo and include_missdates: true."
+    },
+    {
+      "id": "layouts-5",
+      "status": "pass",
+      "evidence": "Correct cloudtag page, matching permalink/cloudtag_url, show_tags defaults for posts and collection restriction."
+    },
+    {
+      "id": "layouts-6",
+      "status": "pass",
+      "evidence": "Correct indexcategory, date descending and index_items: 5; correctly restricts bottom navigation to page.previous/next."
+    },
+    {
+      "id": "snippets-1",
+      "status": "partial",
+      "evidence": "Correct complete Liquid include and root-relative fileurl without duplicate baseurl handling, with canonical video source. Omits the requested public playback verification."
     }
   ],
-  "limits": "Seven earlier cases plus 20 additional cases on the exact same deployed runtime; inventory-routing correction is newer and untested live."
+  "limits": "37 cases recorded and reviewed on the unchanged deployed worktree-981dd71ee196 runtime; newer inventory-routing code remains undeployed."
 }
