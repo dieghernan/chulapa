@@ -1,0 +1,36 @@
+{
+  "source_commit": "c3107102d",
+  "worker_version": "78f8ca87-bb45-4950-82c5-9e1e53814f9f",
+  "raw": [
+    "taskfix-c3107102d-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-3",
+      "status": "pass",
+      "evidence": "Correct page front matter, bounds 2/5 and heading IDs."
+    },
+    {
+      "id": "snippets-4",
+      "status": "pass",
+      "evidence": "Correct scoped defaults plus Liquid invocation and dev sorting caveat. Uploading images is implicit in the scoped path, not an explicit action; source guide supplies it."
+    },
+    {
+      "id": "content-toc-task-1",
+      "status": "partial",
+      "evidence": "Nested kramdown YAML is now valid, but the answer regresses to {.no_toc} without the colon despite exact fenced {:.no_toc} context."
+    },
+    {
+      "id": "documentation-search-topics",
+      "status": "partial",
+      "evidence": "Links docs topics and local/provider guides with correct document-front-matter exclusion; drifts into unrelated show_related/show_random configuration and omits visibility guide and crawler distinction."
+    }
+  ],
+  "totals": {
+    "pass": 2,
+    "partial": 2,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "limits": "Single-run factual/task review, not usability or repeatability. Results are historical if runtime changes; not transferred to later citation-parser code."
+}

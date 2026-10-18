@@ -278,7 +278,7 @@ esac
 
 test('every unsupported prose URL form fails closed with exactly one inference', async () => {
   const url = 'https://dieghernan.github.io/chulapa/docs/invented';
-  for (const answer of [url, `<${url}>`, `[Source][ref]\n\n[ref]: ${url}`, `<a href="${url}">Source</a>`]) {
+  for (const answer of [url, `<${url}>`, `[Source][ref]\n\n[ref]: ${url}`, `<a href="${url}">Source</a>`, `<a href="https&#58;//dieghernan.github.io/chulapa/docs/invented">Source</a>`, `<a href=https&colon;//dieghernan.github.io/chulapa/docs/invented>Source</a>`]) {
     let calls = 0;
     const response = await worker.fetch(request('Where do I add custom head HTML?'), environment(async () => {
       calls++;

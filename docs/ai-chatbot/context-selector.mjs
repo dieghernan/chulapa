@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { parseFragment } from 'parse5';
 
 // Select whole source sections: never cut code fences or fetch visitor URLs.
 const encoder = new TextEncoder();
@@ -136,11 +137,21 @@ function proseUrls(text) {
 
 export function unsupportedCitations(answer, context) {
   const known = new Set(proseUrls(context));
-  const tokens = marked.lexer(answer);
-  const urls = Object.values(tokens.links).flatMap(link => proseUrls(link.href));
-  marked.walkTokens(tokens, token => {
-    if (token.type === 'link' || token.type === 'image') urls.push(...proseUrls(token.href));
-    else if (token.type === 'html' || (token.type === 'text' && !token.tokens)) urls.push(...proseUrls(token.text));
-  });
+  // Inspect the same decoded HTML attributes a browser sees, including entities.
+  const document = parseFragment(marked.parse(answer, { async: false }));
+  const urls = [];
+  function visit(node) {
+    if (['code', 'pre', 'script', 'style'].includes(node.tagName)) return;
+    for (const attribute of node.attrs || []) {
+      if (!['href', 'src'].includes(attribute.name)) continue;
+      try {
+        const url = new URL(attribute.value);
+        if (['http:', 'https:'].includes(url.protocol)) urls.push(url.href);
+      } catch { /* Relative/invalid attributes cannot pass the renderer's URL hook. */ }
+    }
+    if (node.nodeName === '#text') urls.push(...proseUrls(node.value));
+    for (const child of node.childNodes || []) visit(child);
+  }
+  visit(document);
   return [...new Set(urls)].filter(url => !known.has(url));
 }

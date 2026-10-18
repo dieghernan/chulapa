@@ -273,3 +273,5 @@ References:
 Provider inventory routing is present in version cd95fb43 (verified against 81a4adfea), but its inventory answers still need live evaluation. Historical passes must not be transferred to newer code.
 
 The reviewed library budget increased by 1,000 bytes to retain complete navbar/gallery recipes and explicit override/playback checks after a live regression from removing the navbar example. The selected input cap remains 18,000 bytes; model and output limits are unchanged.
+
+Citation validation parses rendered Markdown with parse5 before checking decoded, complete href/src URLs against selected sources. HTML numeric/named entities cannot hide links; code examples remain excluded. parse5 8.0.1 is promoted from the existing jsdom dependency to a pinned runtime dependency. This changes citation validation, not answer accuracy.

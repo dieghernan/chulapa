@@ -173,3 +173,16 @@ test('search exclusion and heading omission preserve exact syntax and scope', ()
   const toc = selectContext(context, 'How do I insert a TOC inside an article and skip a heading?');
   assert.match(toc.text, /## Omitted heading\n\{:\.no_toc\}/);
 });
+
+
+test('HTML citations decode entities and compare complete browser URL attributes', () => {
+  const known = 'https://dieghernan.github.io/chulapa/docs/45-custom-hooks';
+  const bad = 'https://dieghernan.github.io/chulapa/docs/invented';
+  for (const href of ['https&#58;//dieghernan.github.io/chulapa/docs/invented', 'https&colon;//dieghernan.github.io/chulapa/docs/invented', 'https&#x3a;//dieghernan.github.io/chulapa/docs/invented']) {
+    assert.deepEqual(unsupportedCitations(`<a href="${href}">Source</a>`, known), [bad]);
+    assert.deepEqual(unsupportedCitations(`<a href=${href}>Source</a>`, known), [bad]);
+  }
+  assert.deepEqual(unsupportedCitations('<a href="https&colon;//dieghernan.github.io/chulapa/docs/45-custom-hooks">Source</a>', known), []);
+  assert.deepEqual(unsupportedCitations(`<a href="${known}&#34;invented">Source</a>`, known), [known + '%22invented']);
+  assert.deepEqual(unsupportedCitations('```html\n<a href="https&colon;//example.org/">Example</a>\n```', known), []);
+});

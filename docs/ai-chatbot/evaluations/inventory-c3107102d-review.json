@@ -1,0 +1,21 @@
+{
+  "source_commit": "c3107102d",
+  "worker_version": "78f8ca87-bb45-4950-82c5-9e1e53814f9f",
+  "raw": [
+    "inventory-c3107102d-20261018.jsonl"
+  ],
+  "outside_catalog": true,
+  "reviews": [
+    {
+      "id": "inventory-singular-1",
+      "status": "pass",
+      "evidence": "All five providers and original Cusdis hosting explicitly no longer functional."
+    },
+    {
+      "id": "inventory-singular-2",
+      "status": "pass",
+      "evidence": "All five providers and Spanish hosting original ya no funciona. Unrequested Giscus setup remains a presentation limitation."
+    }
+  ],
+  "limits": "Two independent answers, not repeated-run consistency."
+}

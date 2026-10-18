@@ -40,6 +40,9 @@ test('candidate evidence preserves passes and excludes completed requests from c
     reviews: [{ id: 'one', status: 'pass' }] };
   const plan = evaluationPlan(cases, [], [], 4, candidate);
   assert.equal(plan.candidate_source, 'source');
+  const fresh = evaluationPlan(cases, [], [], 4, { ...candidate, records: [], reviews: [] });
+  assert.equal(fresh.candidate_state, 'deployed_not_reviewed');
+  assert.equal(fresh.candidate_remaining_count, cases.length);
   assert.equal(plan.worker_version, 'version');
   assert.equal(plan.entries[0].candidate_live, 'reviewed_pass');
   assert.deepEqual(plan.candidate_pending_review, ['two']);

@@ -68,7 +68,7 @@ export function evaluationPlan(cases, records, reviews, size = 4, candidate = nu
     return result;
   }
   return {
-    candidate_state: candidate ? 'deployed_reviewed' : 'local_not_deployed',
+    candidate_state: candidate ? (candidate.reviews?.length ? 'deployed_reviewed' : 'deployed_not_reviewed') : 'local_not_deployed',
     ...(candidate ? { candidate_source: candidate.source_commit, worker_version: candidate.worker_version,
       latest_candidate_review: candidate.review_path } : {}),
     candidate_remaining_count: entries.filter(needsRequest).length,
