@@ -77,6 +77,9 @@ No additional scripts or styles are loaded when switching is disabled. Existing 
 both skins; check fixed colors, images, diagrams and embedded comments in both
 modes. External widgets do not automatically follow the selector.
 
+If your site's security settings block the selector, visitors still see the
+light appearance.
+
 If a skin fails to load, the previous appearance stays available, or Light when
 opening a page. Your choice is still remembered. Auto continues to follow device
 changes, and opening another page retries your chosen appearance.

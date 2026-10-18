@@ -29,6 +29,7 @@ async function main() {
       const requests = [];
       const errors = [];
       let failDark = false;
+      let blockInline = false;
       await context.route('**/*', route => {
         const url = new URL(route.request().url());
         if (url.hostname === 'fonts.googleapis.com') return route.fulfill({body: '', contentType: 'text/css'});
@@ -38,7 +39,7 @@ async function main() {
           if (failDark && url.pathname.endsWith(failDark === 'highlighter' ? '/highlighterdark.css' : '/dark/main.css')) return route.fulfill({status: 404, body: 'Missing CSS'});
           const filename = path.join(directory, name, url.pathname);
           return fs.existsSync(filename) && fs.statSync(filename).isFile()
-            ? route.fulfill({path: filename}) : route.fulfill({status: 404, body: 'Missing'});
+            ? route.fulfill({path: filename, headers: blockInline && filename.endsWith('.html') ? {'content-security-policy': "script-src 'self'"} : {}}) : route.fulfill({status: 404, body: 'Missing'});
         }
         return route.abort();
       });
@@ -99,7 +100,7 @@ async function main() {
       requests.length = 0;
       await page.goto(`${base}/second.html`);
       await waitTheme('dark');
-      assert.ok(!requests.some(url => /^\/(?:project\/)?assets\/css\/(main|highlighter)\.css$/.test(url)), 'Saved dark preference loaded light CSS');
+      assert.equal(await page.locator('#maincss').getAttribute('href'), `${name === 'root' ? '' : '/project'}/assets/css/dark/main.css`);
       // Reload with slow dark CSS: no first paint may use the light skin.
       await page.addInitScript(() => {
         window.__paints = [];
@@ -223,6 +224,18 @@ async function main() {
         await page.unroute('**/assets/css/main.css');
         await page.reload();
       }
+      // CSP can block inline scripts while scripting and external styles remain enabled.
+      await page.evaluate(() => localStorage.setItem('chulapa-theme', 'dark'));
+      blockInline = true;
+      await page.reload();
+      assert.equal(await bodyColor(), light, 'CSP must retain the ordinary light stylesheet fallback');
+      assert.equal(await page.locator('.chulapa-theme-selector:visible').count(), 0);
+      assert.equal(await page.evaluate(() => typeof window.chulapaSetThemeMode), 'undefined');
+      assert.equal(await page.locator('#csshigh').getAttribute('href'), `${name === 'root' ? '' : '/project'}/assets/css/highlighter.css`);
+      assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), 'dark');
+      blockInline = false;
+      await page.reload();
+      await waitTheme('dark');
       // Storage errors do not stop current-page switching.
       await page.addInitScript(() => {
         Storage.prototype.getItem = Storage.prototype.setItem = function () { throw new Error('Storage blocked'); };

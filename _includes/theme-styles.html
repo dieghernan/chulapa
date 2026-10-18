@@ -1,5 +1,7 @@
 {%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
 {% if dark_skin_enabled %}
+    <link rel="stylesheet" id="maincss" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" id="csshigh" href="{{ '/assets/css/highlighter.css' | relative_url }}">
     <script>
     (function () {
       'use strict';
@@ -27,6 +29,7 @@
           document.removeEventListener('load', initialLoaded, true);
         }
         function initialFailed(event) {
+          if (event.target !== document.getElementById(event.target.id)) return;
           if (initialPending.indexOf(event.target.id) === -1) return;
           stopInitialListeners();
           ++request;
@@ -39,6 +42,7 @@
           controls();
         }
         function initialLoaded(event) {
+          if (event.target !== document.getElementById(event.target.id)) return;
           var index = initialPending.indexOf(event.target.id);
           if (index === -1) return;
           initialPending.splice(index, 1);
@@ -47,10 +51,14 @@
         document.addEventListener('error', initialFailed, true);
         document.addEventListener('load', initialLoaded, true);
       }
-      /* Parser-inserted stylesheets block the first paint with the selected skin. */
-      ['maincss', 'csshigh'].forEach(function (id, index) {
-        document.write('<link rel="stylesheet" id="' + id + '" href="' + paths[theme][index] + '">');
-      });
+      /* Static light links also work when CSP blocks this script. Replace them
+         with parser-blocking dark links before body content can be painted. */
+      if (theme === 'dark') {
+        ['maincss', 'csshigh'].forEach(function (id, index) {
+          document.getElementById(id).remove();
+          document.write('<link rel="stylesheet" id="' + id + '" href="' + paths.dark[index] + '">');
+        });
+      }
       function controls() {
         var names = {light: 'Light', dark: 'Dark', auto: 'Auto'};
         var icons = {light: 'fas fa-sun', dark: 'fas fa-moon', auto: 'fa fa-adjust'};
@@ -141,8 +149,4 @@
       }
     })();
     </script>
-    <noscript>
-      <link rel="stylesheet" id="maincss" href="{{ '/assets/css/main.css' | relative_url }}">
-      <link rel="stylesheet" id="csshigh" href="{{ '/assets/css/highlighter.css' | relative_url }}">
-    </noscript>
 {% endif %}

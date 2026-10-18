@@ -28,7 +28,7 @@ to the documentation's skin preview entrypoints, which contain Jekyll front matt
 - Actual Edge/Chromium browser checks passed at 1280px and 375px for all three
   navigation styles with/without links, plus root URLs and disabled mode.
   Coverage includes Light/Dark/Auto, system preference changes, saved dark mode
-  without light stylesheet requests, delayed dark CSS at first paint, cross-tab
+  delayed dark CSS at first paint, cross-tab
   updates, keyboard/dropdown/Escape focus, CSS failure, blocked storage and no JS.
 - Visually inspected the reference and the local dark dropdown on desktop/mobile.
   Theme-aware active-control colors preserve the icon/text UI and visible focus.
@@ -82,6 +82,27 @@ The rebuilt gem and full documentation installation check also passed with the
 docs selector disabled. A separate HTML-semantics rerun hit Windows `Errno::EINVAL`
 while rewriting temporary fixture files on two attempts; this is not recorded as
 a pass for this revision. The existing Linux PR matrix runs that check as well.
+The Linux workflow subsequently passed all jobs for `ab953355d`, including
+HTML semantics on both Jekyll versions.
+
+## CSP fallback
+
+Ordinary light stylesheet links now remain in the enabled HTML independently of
+inline-script execution. If CSP blocks the controller, the light appearance and
+highlighting remain available and the selector stays hidden. With scripts
+allowed, dark preferences replace those links with parser-blocking dark links
+before body content is painted. This deliberately permits light CSS requests
+on dark page loads as the cost of a dependable static fallback; the previous
+no-light-request optimization is no longer claimed. The delayed dark first-paint
+test remains, and browser coverage explicitly sends a CSP response header that
+blocks inline scripts while JavaScript stays enabled.
+
+Compiled fixtures, the expanded browser suite (all navigation styles and root
+URLs, CSP, delayed dark first paint, failure recovery and disabled/blank options)
+and all 80 chatbot tests passed locally for this correction. Public guidance and
+selective context describe the light fallback in user terms. Existing llms.txt
+links remain sufficient; context deployment remains pending. No metadata, URL,
+manifest or service-worker changes were introduced.
 
 Controls use native named buttons, a named group, pressed states and existing
 Bootstrap keyboard behavior. Floating navigation retains its existing Escape

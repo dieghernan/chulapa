@@ -322,8 +322,9 @@ No live video playback, analytics or comment service requests are required.
 IDs, independent overrides and root/subdirectory URLs on Jekyll 3 and 4. The
 browser check covers classic/floating/dual menus with and without links, desktop
 and mobile, keyboard/Escape focus, automatic device changes, persisted dark first
-paint with delayed CSS, cross-tab synchronization, blocked storage, failed CSS
-and the no-JavaScript fallback. CI runs both checks. For a local run:
+paint with delayed CSS, cross-tab synchronization, blocked storage, failed CSS,
+CSP blocking inline scripts and the no-JavaScript fallback. CI runs both checks.
+For a local run:
 
 ```sh
 bundle exec ruby test/check_theme_selector.rb /tmp/chulapa-theme-selector
