@@ -8,7 +8,7 @@ const context = read('ai-context.md');
 // Reviewed: provider isolation and explicit source recipes; per-request selection is capped at 18,000 bytes.
 // Reviewed increase preserves complete navbar/gallery recipes and explicit upgrade checks.
 // Per-request selected context remains capped at 18,000 UTF-8 bytes.
-const maxContextBytes = 52500;
+const maxContextBytes = 53000;
 const contextBytes = Buffer.byteLength(context, 'utf8');
 if (contextBytes > maxContextBytes) {
   throw new Error(`Reviewed context is ${contextBytes} bytes; limit is ${maxContextBytes}. Consolidate facts or explicitly review the budget.`);

@@ -165,3 +165,11 @@ test('navigation retains its complete child-list recipe and upgrade advice requi
   const video = selectContext(context, 'How do I embed a local MP4 video?');
   assert.match(video.text, /verify playback/);
 });
+
+
+test('search exclusion and heading omission preserve exact syntax and scope', () => {
+  const search = selectContext(context, 'Where are guides for site search and excluding pages?');
+  assert.match(search.text, /DOCUMENT FRONT MATTER .*NEVER nested under search/);
+  const toc = selectContext(context, 'How do I insert a TOC inside an article and skip a heading?');
+  assert.match(toc.text, /## Omitted heading\n\{:\.no_toc\}/);
+});

@@ -165,7 +165,7 @@ Upload images to assets/img/gallery/. Append to existing _config.yml defaults (d
   values:
     image_col: gallery
 ```
-In article content: {% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true random=false %}. Group must match image_col; publish and check images/order.
+A gallery task answer needs BOTH the scoped defaults YAML and the Liquid invocation, not a scope mention alone. In article content: {% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true random=false %}. Group must match image_col; publish and check images/order.
 External source: assign comma-separated URLs to Liquid variable, pass external=that_variable. Internal wins if both supplied. Options: index_sort (internal only; modified_time default), index_sort_asc, index_items (100), random. Boolean random=true shuffles at build time and overrides sort; false disables, quoted "false" is truthy. Filename order: index_sort="basename" index_sort_asc=true random=false. Selected index_sort fields in galleries/carousels are fixed only on main after v2.1.0; the released v2.1.0 does not correctly apply the field. Filename-order and native-button/keyboard-indicator recipes require these dev fixes.
 Carousel uses snippets/carousel.html, same sources/order options, plus interval (5000 ms), controls/indicators (false). Example:
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 controls=true indicators=true %}
@@ -205,7 +205,7 @@ https://dieghernan.github.io/chulapa/docs/35-simplesearch-search
 https://dieghernan.github.io/chulapa/docs/36-google-search
 https://dieghernan.github.io/chulapa/docs/37-algolia-search
 search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search link also needs navbar.nav; otherwise visit landing path including actual baseurl or add navbar links.
-Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
+Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false is DOCUMENT FRONT MATTER (or defaults.values), NEVER nested under search; excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
 Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Browser fields algolia.application_id, index_name, search_only_api_key; indexing secret ALGOLIA_API_KEY belongs in environment/secrets, never public config. Docs site uses Algolia. jekyll-algolia is deprecated/unmaintained; install in Gemfile plugin group and upload via bundle exec jekyll algolia after dependency installation, with ALGOLIA_API_KEY secret environment binding (source directory must match). Google needs google_cse_id for an existing configured engine; build/local exclusions do not control Google indexing.
 ## Comments
 Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
@@ -230,7 +230,7 @@ Source: https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
 comments.provider: welcomments; comments.website_id belongs ONLY to this provider. Deliver _data/welcomments/ plus rebuild; keep theme templates. Dev permalink includes baseurl; v2.1.0 needs page.url | absolute_url | escape locally. Review overrides and existing post slug/thread mapping.
 ## Cusdis comments
 Source: https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
-comments.provider: cusdis; comments.cusdis_app_id and HTTPS comments.cusdis_host for an existing deployment. Upstream archived; original hosting unavailable (default host cusdis.com). No automatic thread migration.
+comments.provider: cusdis; comments.cusdis_app_id and HTTPS comments.cusdis_host for an existing deployment. Upstream archived; original hosting unavailable (el hosting original ya no funciona, no solo archivado) (default host cusdis.com). No automatic thread migration.
 
 ## Navbar and footer
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
@@ -252,7 +252,7 @@ navbar:
 footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
-robots: "noindex, follow" controls crawlers, not privacy/robots.txt/sitemap. og_image social image; header_img visible header; schema_image post JSON-LD image.
+Guide discovery: link /docs/65-search-visibility; provider cards are optional alternatives, not setup steps. No config recipe is needed for a guide-discovery question. robots: "noindex, follow" controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy. og_image social image; header_img visible header; schema_image post JSON-LD image.
 ## Page metadata and article images
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
@@ -330,6 +330,11 @@ Content TOC: two separate lines, not - {:toc}:
 ```markdown
 * Placeholder
 {:toc}
+```
+To exclude a heading, copy the colon exactly:
+```markdown
+## Omitted heading
+{:.no_toc}
 ```
 TOC covers eligible headings before/after marker; marker sets position only. {:.no_toc} excludes from both TOCs. kramdown.toc_levels: 2..6 is site-wide, separate from show_toc/h_min/h_max.
 ## Syntax highlighting styles

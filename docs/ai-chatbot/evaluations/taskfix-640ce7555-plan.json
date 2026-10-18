@@ -1,0 +1,15 @@
+{
+  "source_commit": "640ce755529cb2d6c726ca59f03663371f4125b4",
+  "worker_version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+  "source_sha256": {
+    "ai-context.md": "143d487449d3b5828ad68e452dedbcf5b64a64cf7154472b85293792986df3c7",
+    "context-selector.mjs": "c6820372d34689dbacd9c61629a022545cbaf3281a57a647fa608a793c8068d9",
+    "worker.mjs": "8a7d14576db6ad1bedb5f786b5c96d1c454686e2875ee96408f9be523de570c9",
+    "build.mjs": "903ca19882b5deb303395f569106f6138d49e811b45ca5db61fd1157d4a373d9",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1"
+  },
+  "catalog_cases": 14,
+  "supplementary_inventory_questions": 2,
+  "request_policy": "At most four calls per 75-second batch window, no automatic inference retries. Last two inventory questions follow the final two catalog questions in the same window.",
+  "pre_run_deployment": "d160113d-105d-4a04-b05e-79a43c8506d8; 100% traffic"
+}
