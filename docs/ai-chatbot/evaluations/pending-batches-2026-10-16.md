@@ -1,8 +1,8 @@
 # Pending evaluation batches: 16 October 2026
 
-155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: 549f876dd; Worker: 90b4709a-c8ce-4946-838a-d85d12922e73. 4 reviewed passes; **151 cases have no recorded candidate response**. These results belong to that evaluated revision, not later local changes. Evidence: [review](candidate-regression-01-549f876dd-review.json).
+155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: 549f876dd; Worker: 90b4709a-c8ce-4946-838a-d85d12922e73. 4 reviewed passes; **151 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](candidate-regression-01-549f876dd-review.json).
 
-Each planned batch contains at most four independent questions. Commands run from docs/ai-chatbot and consume quota; none were executed to generate this plan. Use a fresh run name, verify the deployed revision first and preserve raw outputs. Recheck account allowance before any batch.
+Each planned batch contains at most four independent questions. Commands run from docs/ai-chatbot and consume quota; none were executed to generate this plan. Generated run names include the candidate revision and skip existing run files. Verify the deployed revision first and preserve raw outputs. Unavailable results are retryable plans, not automatic quota-consuming retries. Recheck account allowance before any batch.
 
 Do not execute all three lists: they overlap. Start with a small candidate-regression batch; expand only after reviewing it. The unfinished baseline list records coverage gaps, not a requirement to spend quota on the old revision. Candidate-complete is the eventual full matrix.
 

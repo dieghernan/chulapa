@@ -83,3 +83,67 @@ test('CLI regeneration is repeatable and keeps revision-specific evidence', asyn
     rmSync(directory, { recursive: true, force: true });
   }
 });
+
+
+test('unavailable candidate assessments remain retryable without retrying reviewed answers', () => {
+  const cases = ['limited', 'unavailable', 'unrun', 'passed'].map(id => ({ id }));
+  const candidate = { source_commit: 'rev-one', records: [
+    { id: 'limited', status: 429 }, { id: 'unavailable', status: 503 },
+    { id: 'passed', status: 200, result: { answer: 'Answer' } }
+  ], reviews: [{ id: 'limited', status: 'unavailable' }, { id: 'unavailable', status: 'unavailable' }, { id: 'passed', status: 'pass' }] };
+  const plan = evaluationPlan(cases, [], [], 4, candidate);
+  assert.equal(plan.candidate_remaining_count, 3);
+  assert.equal(plan.candidate_unavailable_count, 2);
+  assert.equal(plan.candidate_complete_batches[0].status, 'needs_request');
+  assert.match(plan.candidate_complete_batches[0].command, / limited,unavailable,unrun$/);
+  assert.doesNotMatch(plan.candidate_complete_batches[0].command, /passed/);
+  assert.equal(plan.entries[0].candidate_live, 'reviewed_unavailable');
+});
+
+test('run names separate revisions and skip previous attempts', () => {
+  const cases = [{ id: 'one' }];
+  const first = evaluationPlan(cases, [], [], 4, { source_commit: 'rev-one' });
+  const second = evaluationPlan(cases, [], [], 4, { source_commit: 'rev-two' });
+  const name = first.candidate_complete_batches[0].run_name;
+  assert.notEqual(name, second.candidate_complete_batches[0].run_name);
+  assert.match(first.candidate_complete_batches[0].command, /candidate-complete-01-rev-one one$/);
+  const retry = evaluationPlan(cases, [], [], 4, { source_commit: 'rev-one', used_run_names: [name, name + '-retry-1'] });
+  assert.equal(retry.candidate_complete_batches[0].run_name, name + '-retry-2');
+});
+
+test('factual baseline and candidate reviews require a real answer', () => {
+  const cases = [{ id: 'one' }];
+  const invalid = [{ id: 'one', status: 429 }, { id: 'one', status: 503 },
+    { id: 'one', status: 200 }, { id: 'one', status: 200, result: { answer: '  ' } },
+    { id: 'one', status: 200, result: { answer: {} } }];
+  for (const record of invalid) for (const result of ['pass', 'partial', 'fail']) {
+    assert.throws(() => evaluationPlan(cases, [record], [{ id: 'one', result }]), /Baseline factual review without/);
+    assert.throws(() => evaluationPlan(cases, [], [], 4, { source_commit: 'rev', records: [record], reviews: [{ id: 'one', status: result }] }), /without a candidate answer/);
+  }
+  for (const result of ['pass', 'partial', 'fail']) {
+    const plan = evaluationPlan(cases, [{ id: 'one', status: 200, result: { answer: 'Answer' } }], [{ id: 'one', result }]);
+    assert.equal(plan.baseline_review_count, 1);
+  }
+});
+
+test('live evaluator refuses an existing evidence file before any request', async () => {
+  const { mkdtempSync, mkdirSync, copyFileSync, writeFileSync, readFileSync, rmSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join, resolve, dirname, basename } = await import('node:path');
+  const { execFileSync } = await import('node:child_process');
+  const directory = mkdtempSync(join(tmpdir(), 'chulapa-evaluation-'));
+  try {
+    copyFileSync(new URL('./evaluate-live.mjs', import.meta.url), join(directory, 'evaluate-live.mjs'));
+    mkdirSync(join(directory, 'evaluations'));
+    writeFileSync(join(directory, 'evaluation-cases.json'), JSON.stringify([{ id: 'one', question: 'Question' }]));
+    for (const file of ['evaluation-extra-cases.json', 'evaluation-community-cases.json']) writeFileSync(join(directory, file), '[]');
+    const path = join(directory, 'evaluations/existing.jsonl');
+    writeFileSync(path, 'Preserved evidence');
+    assert.throws(() => execFileSync(process.execPath, [join(directory, 'evaluate-live.mjs'), 'existing', 'one'], { stdio: 'pipe' }), /EEXIST/);
+    assert.equal(readFileSync(path, 'utf8'), 'Preserved evidence');
+  } finally {
+    assert.equal(dirname(resolve(directory)), resolve(tmpdir()));
+    assert.ok(basename(directory).startsWith('chulapa-evaluation-'));
+    rmSync(directory, { recursive: true, force: true });
+  }
+});

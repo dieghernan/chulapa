@@ -92,8 +92,15 @@ Run `node evaluation-batches.mjs` to regenerate the offline
 [batch register](evaluations/pending-batches-2026-10-16.md) and its JSON companion.
 The [candidate evidence manifest](evaluations/candidate-evidence.json) selects the
 review and raw response files; regeneration validates their revision, unique IDs
-and answer/review consistency before writing either register. Completed cases
-are excluded from pending commands. Change the manifest only when recording
+and answer/review consistency before writing either register. Reviewed answers are excluded from pending commands. Cases reviewed as
+`unavailable` remain retryable and count toward `candidate_remaining_count`;
+`candidate_unavailable_count` identifies that subset. A retry command is a plan,
+not an automatic inference. Factual baseline and candidate reviews require a
+nonempty answer-bearing HTTP 200 record.
+
+Generated run names include the evaluated revision and skip existing run files
+with a retry suffix. The live evaluator reserves its evidence file exclusively
+before making requests; reusing a run name fails without modifying old evidence. Change the manifest only when recording
 evidence for a new evaluated revision; earlier passes must not be transferred to it.
 The four historical passes remain associated with 549f876dd. All 155 cases await
 live evaluation on the current, undeployed runtime changes.
