@@ -16,6 +16,14 @@ async function main() {
   try {
     for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled']) {
       const context = await browser.newContext({reducedMotion: 'reduce', colorScheme: 'light'});
+      await context.addInitScript(() => {
+        window.__themeReads = 0;
+        const original = Storage.prototype.getItem;
+        Storage.prototype.getItem = function (key) {
+          if (key === 'chulapa-theme') window.__themeReads++;
+          return original.call(this, key);
+        };
+      });
       const requests = [];
       const errors = [];
       let failDark = false;
@@ -39,11 +47,14 @@ async function main() {
       const bodyColor = () => page.locator('body').evaluate(node => getComputedStyle(node).backgroundColor);
       const light = await bodyColor();
       if (name === 'disabled') {
+        assert.equal(await page.evaluate(() => typeof window.chulapaSetThemeMode), 'undefined');
+        assert.equal(await page.evaluate(() => window.__themeReads), 0);
         assert.equal(await page.locator('.chulapa-theme-selector').count(), 0);
         assert.deepEqual(requests.filter(url => url.endsWith('.css')).sort(), ['custom', 'highlighter', 'main'].map(file => `/project/assets/css/${file}.css`));
         await context.close();
         continue;
       }
+      assert.equal(await page.evaluate(() => window.__themeReads), 1);
       const openNavigation = async () => {
         const floating = page.locator('#navi-toggle:visible');
         if (await floating.count() && await floating.getAttribute('aria-expanded') === 'false') await floating.click();
@@ -137,6 +148,45 @@ async function main() {
       await page.waitForFunction(() => document.documentElement.dataset.themeMode === 'light');
       assert.equal(await bodyColor(), light);
       failDark = false;
+      if (name === 'classic-links') {
+        // Custom controls share validation, persistence and the already initialized mode.
+        await page.evaluate(() => window.chulapaSetThemeMode('dark'));
+        await waitTheme('dark');
+        await page.evaluate(() => window.chulapaSetThemeMode('invalid'));
+        assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), 'dark');
+        const reads = await page.evaluate(() => window.__themeReads);
+        await page.evaluate(() => {
+          document.querySelector('.chulapa-theme-toggle i').remove();
+          document.querySelector('.chulapa-theme-label').remove();
+          window.chulapaSetThemeMode('light');
+        });
+        await waitTheme('light');
+        assert.equal(await page.evaluate(() => window.__themeReads), reads, 'API reread the saved mode');
+        await page.evaluate(() => {
+          document.querySelector('.chulapa-theme-toggle').remove();
+          window.chulapaSetThemeMode('dark');
+        });
+        await waitTheme('dark');
+        await page.evaluate(() => {
+          document.getElementById('csshigh').remove();
+          window.chulapaSetThemeMode('light');
+        });
+        assert.equal(await page.evaluate(() => document.documentElement.dataset.themeMode), 'dark');
+        assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), 'dark');
+        await page.reload();
+        await page.route('**/assets/css/main.css', async route => {
+          await new Promise(resolve => setTimeout(resolve, 200));
+          await route.fallback();
+        });
+        await page.evaluate(() => {
+          window.chulapaSetThemeMode('light');
+          document.getElementById('csshigh').remove();
+        });
+        await page.waitForFunction(() => document.documentElement.dataset.themeMode === 'dark');
+        assert.equal(await page.locator('#maincss').getAttribute('href'), '/project/assets/css/dark/main.css');
+        await page.unroute('**/assets/css/main.css');
+        await page.reload();
+      }
       // Storage errors do not stop current-page switching.
       await page.addInitScript(() => {
         Storage.prototype.getItem = Storage.prototype.setItem = function () { throw new Error('Storage blocked'); };

@@ -27,10 +27,13 @@
         var icons = {light: 'fas fa-sun', dark: 'fas fa-moon', auto: 'fa fa-adjust'};
         document.querySelectorAll('.chulapa-theme-selector').forEach(function (selector) {
           var button = selector.querySelector('.chulapa-theme-toggle');
+          if (!button) { selector.hidden = true; return; }
           button.setAttribute('aria-label', 'Color theme: ' + names[mode]);
           button.title = 'Color theme: ' + names[mode];
-          button.querySelector('i').className = icons[mode];
-          button.querySelector('.chulapa-theme-label').textContent = names[mode];
+          var icon = button.querySelector('i');
+          var label = button.querySelector('.chulapa-theme-label');
+          if (icon) icon.className = icons[mode];
+          if (label) label.textContent = names[mode];
           selector.querySelectorAll('[data-theme-mode]').forEach(function (option) {
             var selected = option.dataset.themeMode === mode;
             option.classList.toggle('active', selected);
@@ -40,12 +43,16 @@
         });
       }
       function apply(value) {
+        var ids = ['maincss', 'csshigh'];
+        var previous = ids.map(function (id) { return document.getElementById(id); });
+        /* Custom head overrides may remove the managed stylesheet pair. */
+        if (previous.some(function (link) { return !link || link.tagName !== 'LINK'; })) return false;
         var target = resolved(value);
         var currentRequest = ++request;
         mode = value;
         root.dataset.themeMode = mode;
         controls();
-        if (target === root.dataset.theme) return;
+        if (target === root.dataset.theme) return true;
         var links = paths[target].map(function (url) {
           var link = document.createElement('link');
           link.rel = 'stylesheet';
@@ -55,22 +62,25 @@
         });
         var loaded = 0;
         function discard() { links.forEach(function (link) { link.remove(); }); }
+        function failed() {
+          discard();
+          if (currentRequest === request) {
+            ++request;
+            mode = root.dataset.theme;
+            root.dataset.themeMode = mode;
+            try { localStorage.setItem(key, mode); } catch (error) {}
+            controls();
+          }
+        }
         links.forEach(function (link) {
-          link.onerror = function () {
-            discard();
-            if (currentRequest === request) {
-              ++request;
-              mode = root.dataset.theme;
-              root.dataset.themeMode = mode;
-              try { localStorage.setItem(key, mode); } catch (error) {}
-              controls();
-            }
-          };
+          link.onerror = failed;
           link.onload = function () {
             if (++loaded !== 2) return;
             if (currentRequest !== request) { discard(); return; }
-            ['maincss', 'csshigh'].forEach(function (id, index) {
-              document.getElementById(id).remove();
+            /* Do not overwrite stylesheets replaced by custom scripts while loading. */
+            if (previous.some(function (old, index) { return document.getElementById(ids[index]) !== old; })) { failed(); return; }
+            ids.forEach(function (id, index) {
+              previous[index].remove();
               links[index].id = id;
               links[index].media = 'all';
             });
@@ -78,16 +88,22 @@
             root.style.colorScheme = target;
           };
           /* Keep the custom stylesheet last in the cascade. */
-          document.head.insertBefore(link, document.getElementById('maincss'));
+          document.head.insertBefore(link, previous[0]);
         });
+        return true;
       }
+      /* Preserve the prototype's entry point for custom controls, with one initialization read. */
+      window.chulapaSetThemeMode = function (value) {
+        if (!valid(value) || !apply(value)) return;
+        try { localStorage.setItem(key, mode); } catch (error) {}
+      };
       document.addEventListener('DOMContentLoaded', controls);
       document.addEventListener('click', function (event) {
-        var option = event.target.closest('.chulapa-theme-selector [data-theme-mode]');
+        var option = event.target.closest && event.target.closest('.chulapa-theme-selector [data-theme-mode]');
         if (!option || !valid(option.dataset.themeMode)) return;
-        apply(option.dataset.themeMode);
-        try { localStorage.setItem(key, mode); } catch (error) {}
-        option.closest('.chulapa-theme-selector').querySelector('.chulapa-theme-toggle').focus();
+        window.chulapaSetThemeMode(option.dataset.themeMode);
+        var button = option.closest('.chulapa-theme-selector').querySelector('.chulapa-theme-toggle');
+        if (button) button.focus();
       });
       window.addEventListener('storage', function (event) {
         if (event.key === key || event.key === null) apply(valid(event.newValue) ? event.newValue : 'light');

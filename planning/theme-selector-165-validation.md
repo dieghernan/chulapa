@@ -47,6 +47,16 @@ library budget increases from 53,000 to 54,000 bytes for the new setting and its
 constraints; the per-request selected-context limit remains 18,000 bytes.
 The context has not been deployed and no live inference evaluation was run.
 
+Follow-up hardening preserves `window.chulapaSetThemeMode()` for custom controls.
+The API validates modes, persists preferences and updates selectors without
+rereading storage. Browser coverage verifies a single initialization read,
+invalid requests, missing toggle/icon/label nodes, missing stylesheet links and
+stylesheet removal while a replacement is loading. Requests without the managed
+pair are ignored; changes made by custom scripts during loading are retained.
+The API is absent on disabled sites. The expanded browser suite and all 80
+chatbot tests passed locally. The theming reference and selective context cover
+the API; existing llms.txt links already point to these guides.
+
 Controls use native named buttons, a named group, pressed states and existing
 Bootstrap keyboard behavior. Floating navigation retains its existing Escape
 focus restoration. No animation is added. Metadata, canonical URLs and indexing

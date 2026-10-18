@@ -42,6 +42,12 @@ are stored in the browser's `chulapa-theme` local-storage entry, shared by sites
 on the same origin. JavaScript is required for switching; without it, the first
 skin remains available. See [setup and checks](./22-choose-skin#let-visitors-switch-between-light-and-dark).
 
+Custom JavaScript controls can call `window.chulapaSetThemeMode('light')`,
+`window.chulapaSetThemeMode('dark')` or `window.chulapaSetThemeMode('auto')`.
+The function updates the existing selector and saves the preference when browser
+storage is available. It ignores invalid modes or requests made without both
+managed stylesheet links. It exists only when `chulapa-skin-dark` is enabled.
+
 ## Load Google Fonts
 
 | Field | Value / effect |
