@@ -1,0 +1,76 @@
+{
+  "source_commit": "96a7feeaa",
+  "worker_version": "8bdab7d6-e47c-469e-85ca-f3a336c33a6d",
+  "raw": [
+    "taskfix-96a7feeaa-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "installation-2",
+      "status": "pass",
+      "evidence": "Correct pinned migration, dependency setup, preservation and exact underscore override directories."
+    },
+    {
+      "id": "installation-6",
+      "status": "partial",
+      "evidence": "Local override preserved, but still omits manually merging upstream changes; opening remains unnecessarily conditional."
+    },
+    {
+      "id": "configuration-6",
+      "status": "fail",
+      "evidence": "Invents child_list instead of child, so submenu configuration is ineffective."
+    },
+    {
+      "id": "search-comments-6",
+      "status": "pass",
+      "evidence": "Correct full fas fa-envelope class, email, copyright and merge/live checks."
+    },
+    {
+      "id": "theming-2",
+      "status": "pass",
+      "evidence": "Correct autothemer sibling of vars and primary nested under vars."
+    },
+    {
+      "id": "layouts-3",
+      "status": "pass",
+      "evidence": "Correct page-level show_sidetoc/h_min/h_max, IDs and published verification."
+    },
+    {
+      "id": "snippets-1",
+      "status": "partial",
+      "evidence": "Correct MP4 include/baseurl handling, but no explicit published playback check."
+    },
+    {
+      "id": "snippets-4",
+      "status": "pass",
+      "evidence": "Complete internal folder/defaults and sort recipe with development-only caveat. Secondary config reference label is broad; primary gallery source is correct."
+    },
+    {
+      "id": "faq-1",
+      "status": "pass",
+      "evidence": "Correct remote/gem/HTML marker and override limitations."
+    },
+    {
+      "id": "faq-3",
+      "status": "pass",
+      "evidence": "Correct explicit favicon links and baseurl under /blog."
+    },
+    {
+      "id": "faq-4",
+      "status": "pass",
+      "evidence": "Valid alert attributes, separate caption and footnote; no nonexistent include."
+    },
+    {
+      "id": "faq-5",
+      "status": "pass",
+      "evidence": "Correct headings font selection plus ligature CSS and custom.scss front matter."
+    }
+  ],
+  "totals": {
+    "pass": 9,
+    "partial": 2,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "limits": "Single-run manual factual review. Not human usability, repeated consistency, provider integration or browser rendering. Historical evidence, not transferable to subsequent candidate."
+}

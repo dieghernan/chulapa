@@ -152,7 +152,7 @@ Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, goog
 {% include snippets/video.html id="YOUR_VIDEO_ID" provider="youtube" %}
 fileurl wins: local=root-relative path, no relative_url/baseurl prefix; external=full HTTPS URL. Snippet applies absolute_url:
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
-YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). Accessible player/play-button names from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but not those accessible names or fallback link. This embeds website video, not uploads into chat.
+YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). Accessible player/play-button names from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but not those accessible names or fallback link. After publishing local MP4, open the public page and verify playback (including project baseurl). This embeds website video, not uploads into chat.
 ## Image galleries and carousels
 Source: https://dieghernan.github.io/chulapa/docs/30-add-carousel
 Source: https://dieghernan.github.io/chulapa/docs/29-add-gallery
@@ -239,6 +239,16 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#footer
 https://dieghernan.github.io/chulapa/docs/11-edit-footer
 navbar.nav: title/url or title/child list of title/url; one submenu level, child not child_list. Omitted navbar.style=classic; fab=floating; dual=floating/classic breakpoint. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. brand: title,img,url.
 
+```yaml
+navbar:
+  style: dual
+  expand: lg
+  nav:
+    - title: Docs
+      child:
+        - title: Installation
+          url: /docs/01-install
+```
 footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
@@ -305,7 +315,7 @@ Remote: inspect remote_theme; tag=release, unpinned/branch can move. No exact co
 ## Custom hooks
 Source: https://dieghernan.github.io/chulapa/docs/45-custom-hooks
 Source: https://dieghernan.github.io/chulapa/docs/44-custom-head
-Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before CSS; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Local files override theme: preserve snippets, append HTML, no front matter/layout copy; check published head. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css output. Do not duplicate built-in analytics.
+Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before CSS; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Local _includes/head.html is never overwritten by remote-theme upgrades. Manually merge upstream head changes into that override. Local files override theme: preserve snippets, append HTML, no front matter/layout copy; check published head. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css output. Do not duplicate built-in analytics.
 ## Layout structure and include caching
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides

@@ -153,3 +153,13 @@ test('task recipes retain exact paths and required setup', () => {
   assert.match(font.text, /headings-font-family: "chulapa, sans-serif"/);
   assert.match(font.text, /ligature CSS alone does NOT select the font/);
 });
+
+
+test('navigation retains its complete child-list recipe and upgrade advice requires merging', () => {
+  const navbar = selectContext(context, 'Show a minimal dual navbar configuration with a submenu and expansion at lg.');
+  assert.match(navbar.text, /child:\n        - title: Installation/);
+  const override = selectContext(context, 'Will upgrading the remote theme overwrite my own _includes/head.html?');
+  assert.match(override.text, /Manually merge upstream head changes/);
+  const video = selectContext(context, 'How do I embed a local MP4 video?');
+  assert.match(video.text, /verify playback/);
+});

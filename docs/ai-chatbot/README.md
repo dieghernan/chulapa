@@ -32,7 +32,7 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects a source library larger than **52,000 UTF-8 bytes**, before
+The build rejects a source library larger than **52,500 UTF-8 bytes**, before
 generating artifacts. This replaces the former 47,000-byte editorial budget: the
 reviewed increase preserves explicit provider boundaries and complete recipes
 rather than compressing instructions into ambiguous phrases. It is not the
@@ -271,3 +271,5 @@ References:
 - https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
 
 Provider inventory routing is present in version cd95fb43 (verified against 81a4adfea), but its inventory answers still need live evaluation. Historical passes must not be transferred to newer code.
+
+The reviewed library budget increased by 500 bytes to retain complete navbar/gallery recipes and explicit override/playback checks after a live regression from removing the navbar example. The selected input cap remains 18,000 bytes; model and output limits are unchanged.
