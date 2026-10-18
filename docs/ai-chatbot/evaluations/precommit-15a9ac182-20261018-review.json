@@ -1,0 +1,46 @@
+{
+  "runtime_source_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
+  "worker_version": "cc38c84a-1836-4333-936d-895ceaae31c5",
+  "raw": [
+    "precommit-15a9ac182-20261018-batch01.jsonl",
+    "precommit-15a9ac182-20261018-affected.jsonl"
+  ],
+  "supplement": "precommit-15a9ac182-20261018-supplement.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass"
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "status": "partial",
+      "evidence": "Safe caching inputs included; wrapper/list/search hierarchy omitted."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass"
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "pass"
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "status": "partial",
+      "evidence": "Adds sample primary override and guesses main/master despite preservation request."
+    },
+    {
+      "id": "format-alert-task-1",
+      "status": "pass"
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "status": "pass",
+      "limits": "Public-repository prerequisite not explicit; generated setup linked."
+    }
+  ],
+  "supplement_review": {
+    "status": "partial",
+    "evidence": "Lists actual providers but omits Cusdis archived/original hosting unavailable."
+  }
+}

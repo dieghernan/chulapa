@@ -1,6 +1,6 @@
 # Pending evaluation batches: 16 October 2026
 
-155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: 549f876dd; Worker: 90b4709a-c8ce-4946-838a-d85d12922e73. 4 reviewed passes; **151 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](candidate-regression-01-549f876dd-review.json).
+155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: worktree-981dd71ee196; Worker: 65bb328b-a4ed-4828-9218-9c36553b2306. 7 reviewed passes; **148 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](precommit-worktree-981dd71ee196-review.json).
 
 Each planned batch contains at most four independent questions. Commands run from docs/ai-chatbot and consume quota; none were executed to generate this plan. Generated run names include the candidate revision and skip existing run files. Verify the deployed revision first and preserve raw outputs. Unavailable results are retryable plans, not automatic quota-consuming retries. Recheck account allowance before any batch.
 
@@ -77,15 +77,15 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | candidate-complete-21 | `assistant-session-history`, `semantic-html-accessibility`, `carousel-accessibility-motion`, `sidebar-accessibility-focus` | not_run |
 | candidate-complete-22 | `pwa-offline-status`, `beginner-post-1`, `beginner-image-1`, `beginner-publishing-1` | not_run |
 | candidate-complete-23 | `snippet-parameter-reference`, `navigation-edit-existing-1`, `footer-edit-existing-1`, `search-fusejs-setup-1` | not_run |
-| candidate-complete-24 | `comments-giscus-setup-1`, `search-no-navbar-links-1`, `site-details-edit-1`, `content-post-1` | not_run |
+| candidate-complete-24 | `comments-giscus-setup-1`, `search-no-navbar-links-1`, `site-details-edit-1`, `content-post-1` | needs_request |
 | candidate-complete-25 | `content-page-1`, `content-image-1`, `analytics-goat-setup-1`, `analytics-ga4-setup-1` | not_run |
-| candidate-complete-26 | `related-card-dates-1`, `install-remote-task-1`, `install-gem-task-1`, `appearance-skin-task-1` | not_run |
+| candidate-complete-26 | `related-card-dates-1`, `install-remote-task-1`, `install-gem-task-1`, `appearance-skin-task-1` | needs_request |
 | candidate-complete-27 | `appearance-font-task-1`, `appearance-auto-task-1`, `appearance-sass-task-1`, `media-gallery-task-1` | not_run |
 | candidate-complete-28 | `media-carousel-task-1`, `media-photoswipe-task-1`, `media-video-task-1`, `media-diagram-task-1` | not_run |
 | candidate-complete-29 | `provider-lunr-task-1`, `provider-simplesearch-task-1`, `provider-google-task-1`, `provider-algolia-task-1` | not_run |
 | candidate-complete-30 | `comments-disqus-task-1`, `comments-cactus-task-1`, `comments-welcomments-task-1`, `comments-cusdis-task-1` | not_run |
 | candidate-complete-31 | `troubleshoot-publishing-task-1`, `troubleshoot-yaml-task-1`, `custom-head-task-1`, `migration-fields-lookup-1` | not_run |
-| candidate-complete-32 | `accessibility-task-reference-1`, `format-alert-task-1`, `format-caption-task-1`, `format-footnote-task-1` | not_run |
+| candidate-complete-32 | `accessibility-task-reference-1`, `format-alert-task-1`, `format-caption-task-1`, `format-footnote-task-1` | needs_request |
 | candidate-complete-33 | `favicon-task-1`, `bundled-font-task-1`, `icon-task-1`, `version-task-1` | not_run |
 | candidate-complete-34 | `feed-coexistence-1`, `feed-selection-1`, `feed-collection-output-1`, `content-toc-task-1` | not_run |
 | candidate-complete-35 | `person-publisher-task-1`, `localized-date-task-1`, `canonical-article-task-1`, `cloud-task-1` | not_run |

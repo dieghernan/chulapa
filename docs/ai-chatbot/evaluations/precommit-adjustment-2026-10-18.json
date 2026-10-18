@@ -1,0 +1,16 @@
+{
+  "runtime_id": "worktree-4419e056a24d",
+  "source_kind": "uncommitted runtime snapshot",
+  "base_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
+  "hashes": {
+    "worker.mjs": "f9aed765abe5cb9b4bfae28ba1a8534422ff09ce04bd3ec1b32eb5621d07121b",
+    "context-selector.mjs": "927c87d552af527f3b38c208679d6c30cacc6060ad92b2e89c2f90fe7c447c4f",
+    "ai-context.md": "c8b2cf2916d523cb9c9bd8dbd2751532b65428c7b2520f909219e6c0a9dc7269",
+    "generated-content.mjs": "3f25187e75753da703aed59e09359a419b5e8ee122fabd2ea2a9456221e108dd",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "package-lock.json": "243cae6bee851001a2403d6e54238127a5e6786959fe954f59964383f98b16e5"
+  },
+  "local_tests": 63,
+  "live": "in_progress",
+  "worker_version": "31e83405-c57e-43ca-957b-c45622f2c1c7"
+}

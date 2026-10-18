@@ -1,0 +1,12 @@
+{
+  "runtime_id": "worktree-4f9e05aec576",
+  "worker_version": "9fc4f154-d8d7-4a74-b954-b3591df8fb2a",
+  "raw": "precommit-worktree-4f9e05aec576-supplement.jsonl",
+  "review": {
+    "id": "supplement-provider-alternatives-1",
+    "status": "pass",
+    "evidence": "All four documented alternatives, correct keys, Cusdis archived/original hosting unavailable and migration caveat.",
+    "limits": "Unrequested setup snippet/steps remain."
+  },
+  "catalog_coverage": "Supplement only; excluded from the 155-case catalog denominator."
+}

@@ -1,0 +1,18 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "source_kind": "uncommitted runtime snapshot",
+  "base_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
+  "hashes": {
+    "worker.mjs": "8a7d14576db6ad1bedb5f786b5c96d1c454686e2875ee96408f9be523de570c9",
+    "context-selector.mjs": "927c87d552af527f3b38c208679d6c30cacc6060ad92b2e89c2f90fe7c447c4f",
+    "ai-context.md": "e1d0f02b24c275078d406f40c9ffad87f6ff5ea2a54fa2ae77e258d6fb1f7030",
+    "generated-content.mjs": "a1740b1ba003ea5a2f81df3f5940ae1da5dc717da19bd25f4ae972f1781546ce",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "package-lock.json": "243cae6bee851001a2403d6e54238127a5e6786959fe954f59964383f98b16e5"
+  },
+  "local_tests": 63,
+  "live": "reviewed: seven catalog cases pass core factual/task criteria; one supplementary comparison partial",
+  "previous_runtime": "worktree-4f9e05aec576",
+  "change": "Alert availability clarified; small wording consolidation in skin guidance.",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306"
+}

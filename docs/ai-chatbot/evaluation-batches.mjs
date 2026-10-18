@@ -37,6 +37,7 @@ export function evaluationPlan(cases, records, reviews, size = 4, candidate = nu
   for (const [id, review] of candidateReviews) {
     if (!['pass', 'partial', 'fail', 'unavailable'].includes(review.status)) throw new Error('Unknown candidate review status.');
     const record = candidateRecords.get(id);
+    if (review.status === 'unavailable' && hasAnswer(record)) throw new Error('Unavailable review has an answer-bearing 200 response.');
     if (review.status !== 'unavailable' && !hasAnswer(record)) throw new Error('Factual review without a candidate answer.');
   }
   const entries = cases.map(item => ({

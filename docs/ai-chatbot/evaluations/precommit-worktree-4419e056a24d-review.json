@@ -1,0 +1,27 @@
+{
+  "runtime_id": "worktree-4419e056a24d",
+  "worker_version": "31e83405-c57e-43ca-957b-c45622f2c1c7",
+  "raw": "precommit-worktree-4419e056a24d-focused.jsonl",
+  "supplement": "precommit-worktree-4419e056a24d-supplement.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "pass",
+      "limits": "LaTeX arrows displayed literally; not a factual pass for presentation."
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "status": "partial",
+      "evidence": "Still injects primary override and assumes main/master."
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "status": "pass",
+      "limits": "Public repository not explicit."
+    }
+  ],
+  "supplement_review": {
+    "status": "pass",
+    "limits": "Unrequested setup example/steps remain."
+  }
+}

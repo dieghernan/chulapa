@@ -147,3 +147,15 @@ test('live evaluator refuses an existing evidence file before any request', asyn
     rmSync(directory, { recursive: true, force: true });
   }
 });
+
+
+test('unavailable reviews reject answer-bearing responses but accept unavailable records', () => {
+  const cases = [{ id: 'one' }];
+  const assess = record => evaluationPlan(cases, [], [], 4, { source_commit: 'rev', records: [record], reviews: [{ id: 'one', status: 'unavailable' }] });
+  assert.throws(() => assess({ id: 'one', status: 200, result: { answer: 'Answer' } }), /Unavailable review has an answer-bearing/);
+  for (const record of [{ id: 'one', status: 429 }, { id: 'one', status: 503 }, { id: 'one', status: 200 }, { id: 'one', status: 200, result: { answer: '  ' } }]) {
+    const plan = assess(record);
+    assert.equal(plan.candidate_remaining_count, 1);
+    assert.match(plan.candidate_complete_batches[0].command, / one$/);
+  }
+});

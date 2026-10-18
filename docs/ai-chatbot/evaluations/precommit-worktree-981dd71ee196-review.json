@@ -1,0 +1,52 @@
+{
+  "source_commit": "worktree-981dd71ee196",
+  "source_kind": "uncommitted runtime snapshot; identifier derived from source/build SHA-256 hashes",
+  "base_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "raw": [
+    "precommit-worktree-981dd71ee196-alert-skin.jsonl",
+    "precommit-worktree-981dd71ee196-layouts.jsonl",
+    "precommit-worktree-981dd71ee196-giscus.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "pass",
+      "evidence": "Safe caller/context handling, explicit page inputs, full wrapper/list/search hierarchy and shared renderers.",
+      "limits": "Literal LaTeX arrows remain a presentation defect; fixed-footer/cloud/comments examples not enumerated."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass",
+      "evidence": "Correct setting, body/head/footer/custom formatting and unreleased caveat."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "pass",
+      "evidence": "Custom chain retains h-feed, no YAML or layout change, correct version caveat."
+    },
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass",
+      "evidence": "One eligible card, boolean option, build-time sampling and main-only restriction.",
+      "limits": "Unrequested eligibility next-step wording is imprecise; same-collection membership alone does not establish tag eligibility."
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "status": "pass",
+      "evidence": "Only skin change; preserves vars/highlight, uses actual publishing branch, verifies published output; no sample color override."
+    },
+    {
+      "id": "format-alert-task-1",
+      "status": "pass",
+      "evidence": "Correct paragraph/list boundary and alert syntax/source; no invented v2.1.0 restriction."
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "status": "pass",
+      "evidence": "Correct separate config/front matter, generated embed, Discussions/app setup and published checks.",
+      "limits": "Public repository and layout compatibility prerequisites not explicit; canonical setup guide linked."
+    }
+  ],
+  "limits": "One observed answer per catalog case on this exact runtime; this is not full-catalog coverage, consistency evidence or human usability. Snapshot hashes identify the source built before commit."
+}

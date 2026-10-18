@@ -1,9 +1,9 @@
 {
   "candidate_state": "deployed_reviewed",
-  "candidate_source": "549f876dd",
-  "worker_version": "90b4709a-c8ce-4946-838a-d85d12922e73",
-  "latest_candidate_review": "candidate-regression-01-549f876dd-review.json",
-  "candidate_remaining_count": 151,
+  "candidate_source": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "latest_candidate_review": "precommit-worktree-981dd71ee196-review.json",
+  "candidate_remaining_count": 148,
   "candidate_unavailable_count": 0,
   "candidate_pending_review": [],
   "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
@@ -17,7 +17,7 @@
       "baseline": "answer_received",
       "baseline_review": "fail",
       "candidate_live": "reviewed_pass",
-      "candidate_source": "549f876dd"
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-include-cache-1",
@@ -25,7 +25,7 @@
       "baseline": "answer_received",
       "baseline_review": "fail",
       "candidate_live": "reviewed_pass",
-      "candidate_source": "549f876dd"
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-head-formatting-1",
@@ -33,7 +33,7 @@
       "baseline": "answer_received",
       "baseline_review": "partial",
       "candidate_live": "reviewed_pass",
-      "candidate_source": "549f876dd"
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-microformats-nested-feed-1",
@@ -41,7 +41,7 @@
       "baseline": "answer_received",
       "baseline_review": "partial",
       "candidate_live": "reviewed_pass",
-      "candidate_source": "549f876dd"
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-microformats-feed-1",
@@ -664,7 +664,8 @@
       "doc": "13_giscus-comments.md",
       "baseline": "no_completed_record",
       "baseline_review": "not_reviewed",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-no-navbar-links-1",
@@ -741,7 +742,8 @@
       "doc": "22_choose-skin.md",
       "baseline": "no_completed_record",
       "baseline_review": "not_reviewed",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "appearance-font-task-1",
@@ -895,7 +897,8 @@
       "doc": "49_add-alert.md",
       "baseline": "no_completed_record",
       "baseline_review": "not_reviewed",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "format-caption-task-1",
@@ -1111,7 +1114,7 @@
         "layouts-microformats-nested-feed-1"
       ],
       "status": "reviewed_pass",
-      "run_name": "candidate-regression-01-549f876dd",
+      "run_name": "candidate-regression-01-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1123,8 +1126,8 @@
         "installation-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-02-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-02-549f876dd config-author-profile-1,layouts-label-headings-1,layouts-microformats-1,installation-1"
+      "run_name": "candidate-regression-02-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-02-worktree-981dd71ee196 config-author-profile-1,layouts-label-headings-1,layouts-microformats-1,installation-1"
     },
     {
       "name": "candidate-regression-03",
@@ -1135,8 +1138,8 @@
         "search-comments-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-03-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-03-549f876dd installation-2,installation-3,configuration-3,search-comments-2"
+      "run_name": "candidate-regression-03-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-03-worktree-981dd71ee196 installation-2,installation-3,configuration-3,search-comments-2"
     },
     {
       "name": "candidate-regression-04",
@@ -1147,8 +1150,8 @@
         "search-comments-6"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-04-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-04-549f876dd search-comments-3,search-comments-4,search-comments-5,search-comments-6"
+      "run_name": "candidate-regression-04-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-04-worktree-981dd71ee196 search-comments-3,search-comments-4,search-comments-5,search-comments-6"
     },
     {
       "name": "candidate-regression-05",
@@ -1159,8 +1162,8 @@
         "layouts-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-05-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-05-549f876dd theming-4,theming-5,layouts-1,layouts-2"
+      "run_name": "candidate-regression-05-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-05-worktree-981dd71ee196 theming-4,theming-5,layouts-1,layouts-2"
     },
     {
       "name": "candidate-regression-06",
@@ -1171,8 +1174,8 @@
         "snippets-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-06-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-06-549f876dd layouts-4,layouts-5,layouts-6,snippets-1"
+      "run_name": "candidate-regression-06-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-06-worktree-981dd71ee196 layouts-4,layouts-5,layouts-6,snippets-1"
     },
     {
       "name": "candidate-regression-07",
@@ -1183,8 +1186,8 @@
         "faq-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-07-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-07-549f876dd snippets-4,snippets-6,faq-1,faq-2"
+      "run_name": "candidate-regression-07-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-07-worktree-981dd71ee196 snippets-4,snippets-6,faq-1,faq-2"
     },
     {
       "name": "candidate-regression-08",
@@ -1195,8 +1198,8 @@
         "reference-edge-cases-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-08-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-08-549f876dd faq-4,faq-5,faq-6,reference-edge-cases-1"
+      "run_name": "candidate-regression-08-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-08-worktree-981dd71ee196 faq-4,faq-5,faq-6,reference-edge-cases-1"
     },
     {
       "name": "candidate-regression-09",
@@ -1205,8 +1208,8 @@
         "reference-edge-cases-3"
       ],
       "status": "not_run",
-      "run_name": "candidate-regression-09-549f876dd",
-      "command": "node evaluate-live.mjs candidate-regression-09-549f876dd reference-edge-cases-2,reference-edge-cases-3"
+      "run_name": "candidate-regression-09-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-regression-09-worktree-981dd71ee196 reference-edge-cases-2,reference-edge-cases-3"
     }
   ],
   "baseline_pending_review": [],
@@ -1220,7 +1223,7 @@
         "seo-3"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-01-549f876dd",
+      "run_name": "baseline-unfinished-01-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1232,7 +1235,7 @@
         "navigation-3"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-02-549f876dd",
+      "run_name": "baseline-unfinished-02-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1244,7 +1247,7 @@
         "variables-3"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-03-549f876dd",
+      "run_name": "baseline-unfinished-03-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1256,7 +1259,7 @@
         "starter-2"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-04-549f876dd",
+      "run_name": "baseline-unfinished-04-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1268,7 +1271,7 @@
         "photoswipe-gallery"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-05-549f876dd",
+      "run_name": "baseline-unfinished-05-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1280,7 +1283,7 @@
         "custom-search-script-dependencies"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-06-549f876dd",
+      "run_name": "baseline-unfinished-06-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1292,7 +1295,7 @@
         "sidebar-accessibility-focus"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-07-549f876dd",
+      "run_name": "baseline-unfinished-07-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1304,7 +1307,7 @@
         "beginner-publishing-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-08-549f876dd",
+      "run_name": "baseline-unfinished-08-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1316,7 +1319,7 @@
         "search-fusejs-setup-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-09-549f876dd",
+      "run_name": "baseline-unfinished-09-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1328,7 +1331,7 @@
         "content-post-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-10-549f876dd",
+      "run_name": "baseline-unfinished-10-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1340,7 +1343,7 @@
         "analytics-ga4-setup-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-11-549f876dd",
+      "run_name": "baseline-unfinished-11-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1352,7 +1355,7 @@
         "appearance-skin-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-12-549f876dd",
+      "run_name": "baseline-unfinished-12-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1364,7 +1367,7 @@
         "media-gallery-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-13-549f876dd",
+      "run_name": "baseline-unfinished-13-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1376,7 +1379,7 @@
         "media-diagram-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-14-549f876dd",
+      "run_name": "baseline-unfinished-14-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1388,7 +1391,7 @@
         "provider-algolia-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-15-549f876dd",
+      "run_name": "baseline-unfinished-15-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1400,7 +1403,7 @@
         "comments-cusdis-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-16-549f876dd",
+      "run_name": "baseline-unfinished-16-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1412,7 +1415,7 @@
         "migration-fields-lookup-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-17-549f876dd",
+      "run_name": "baseline-unfinished-17-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1424,7 +1427,7 @@
         "format-footnote-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-18-549f876dd",
+      "run_name": "baseline-unfinished-18-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1436,7 +1439,7 @@
         "version-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-19-549f876dd",
+      "run_name": "baseline-unfinished-19-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1448,7 +1451,7 @@
         "content-toc-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-20-549f876dd",
+      "run_name": "baseline-unfinished-20-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1460,7 +1463,7 @@
         "cloud-task-1"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-21-549f876dd",
+      "run_name": "baseline-unfinished-21-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1472,7 +1475,7 @@
         "starter-demo-versus-site"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-22-549f876dd",
+      "run_name": "baseline-unfinished-22-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1484,7 +1487,7 @@
         "documentation-search-topics"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-23-549f876dd",
+      "run_name": "baseline-unfinished-23-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1496,7 +1499,7 @@
         "community-2"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-24-549f876dd",
+      "run_name": "baseline-unfinished-24-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1507,7 +1510,7 @@
         "community-5"
       ],
       "status": "no_completed_record",
-      "run_name": "baseline-unfinished-25-549f876dd",
+      "run_name": "baseline-unfinished-25-worktree-981dd71ee196",
       "command": null
     }
   ],
@@ -1521,7 +1524,7 @@
         "layouts-microformats-nested-feed-1"
       ],
       "status": "reviewed_pass",
-      "run_name": "candidate-complete-01-549f876dd",
+      "run_name": "candidate-complete-01-worktree-981dd71ee196",
       "command": null
     },
     {
@@ -1533,8 +1536,8 @@
         "layouts-microformats-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-02-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-02-549f876dd layouts-microformats-feed-1,config-author-profile-1,layouts-label-headings-1,layouts-microformats-1"
+      "run_name": "candidate-complete-02-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-02-worktree-981dd71ee196 layouts-microformats-feed-1,config-author-profile-1,layouts-label-headings-1,layouts-microformats-1"
     },
     {
       "name": "candidate-complete-03",
@@ -1545,8 +1548,8 @@
         "installation-4"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-03-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-03-549f876dd installation-1,installation-2,installation-3,installation-4"
+      "run_name": "candidate-complete-03-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-03-worktree-981dd71ee196 installation-1,installation-2,installation-3,installation-4"
     },
     {
       "name": "candidate-complete-04",
@@ -1557,8 +1560,8 @@
         "configuration-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-04-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-04-549f876dd installation-5,installation-6,configuration-1,configuration-2"
+      "run_name": "candidate-complete-04-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-04-worktree-981dd71ee196 installation-5,installation-6,configuration-1,configuration-2"
     },
     {
       "name": "candidate-complete-05",
@@ -1569,8 +1572,8 @@
         "configuration-6"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-05-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-05-549f876dd configuration-3,configuration-4,configuration-5,configuration-6"
+      "run_name": "candidate-complete-05-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-05-worktree-981dd71ee196 configuration-3,configuration-4,configuration-5,configuration-6"
     },
     {
       "name": "candidate-complete-06",
@@ -1581,8 +1584,8 @@
         "search-comments-4"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-06-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-06-549f876dd search-comments-1,search-comments-2,search-comments-3,search-comments-4"
+      "run_name": "candidate-complete-06-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-06-worktree-981dd71ee196 search-comments-1,search-comments-2,search-comments-3,search-comments-4"
     },
     {
       "name": "candidate-complete-07",
@@ -1593,8 +1596,8 @@
         "theming-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-07-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-07-549f876dd search-comments-5,search-comments-6,theming-1,theming-2"
+      "run_name": "candidate-complete-07-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-07-worktree-981dd71ee196 search-comments-5,search-comments-6,theming-1,theming-2"
     },
     {
       "name": "candidate-complete-08",
@@ -1605,8 +1608,8 @@
         "theming-6"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-08-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-08-549f876dd theming-3,theming-4,theming-5,theming-6"
+      "run_name": "candidate-complete-08-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-08-worktree-981dd71ee196 theming-3,theming-4,theming-5,theming-6"
     },
     {
       "name": "candidate-complete-09",
@@ -1617,8 +1620,8 @@
         "layouts-4"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-09-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-09-549f876dd layouts-1,layouts-2,layouts-3,layouts-4"
+      "run_name": "candidate-complete-09-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-09-worktree-981dd71ee196 layouts-1,layouts-2,layouts-3,layouts-4"
     },
     {
       "name": "candidate-complete-10",
@@ -1629,8 +1632,8 @@
         "snippets-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-10-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-10-549f876dd layouts-5,layouts-6,snippets-1,snippets-2"
+      "run_name": "candidate-complete-10-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-10-worktree-981dd71ee196 layouts-5,layouts-6,snippets-1,snippets-2"
     },
     {
       "name": "candidate-complete-11",
@@ -1641,8 +1644,8 @@
         "snippets-6"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-11-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-11-549f876dd snippets-3,snippets-4,snippets-5,snippets-6"
+      "run_name": "candidate-complete-11-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-11-worktree-981dd71ee196 snippets-3,snippets-4,snippets-5,snippets-6"
     },
     {
       "name": "candidate-complete-12",
@@ -1653,8 +1656,8 @@
         "faq-4"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-12-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-12-549f876dd faq-1,faq-2,faq-3,faq-4"
+      "run_name": "candidate-complete-12-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-12-worktree-981dd71ee196 faq-1,faq-2,faq-3,faq-4"
     },
     {
       "name": "candidate-complete-13",
@@ -1665,8 +1668,8 @@
         "reference-edge-cases-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-13-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-13-549f876dd faq-5,faq-6,reference-edge-cases-1,reference-edge-cases-2"
+      "run_name": "candidate-complete-13-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-13-worktree-981dd71ee196 faq-5,faq-6,reference-edge-cases-1,reference-edge-cases-2"
     },
     {
       "name": "candidate-complete-14",
@@ -1677,8 +1680,8 @@
         "reference-edge-cases-6"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-14-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-14-549f876dd reference-edge-cases-3,reference-edge-cases-4,reference-edge-cases-5,reference-edge-cases-6"
+      "run_name": "candidate-complete-14-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-14-worktree-981dd71ee196 reference-edge-cases-3,reference-edge-cases-4,reference-edge-cases-5,reference-edge-cases-6"
     },
     {
       "name": "candidate-complete-15",
@@ -1689,8 +1692,8 @@
         "seo-3"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-15-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-15-549f876dd migration-theme-1,seo-1,seo-2,seo-3"
+      "run_name": "candidate-complete-15-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-15-worktree-981dd71ee196 migration-theme-1,seo-1,seo-2,seo-3"
     },
     {
       "name": "candidate-complete-16",
@@ -1701,8 +1704,8 @@
         "navigation-3"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-16-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-16-549f876dd seo-4,navigation-1,navigation-2,navigation-3"
+      "run_name": "candidate-complete-16-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-16-worktree-981dd71ee196 seo-4,navigation-1,navigation-2,navigation-3"
     },
     {
       "name": "candidate-complete-17",
@@ -1713,8 +1716,8 @@
         "variables-3"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-17-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-17-549f876dd layouts-7,variables-1,variables-2,variables-3"
+      "run_name": "candidate-complete-17-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-17-worktree-981dd71ee196 layouts-7,variables-1,variables-2,variables-3"
     },
     {
       "name": "candidate-complete-18",
@@ -1725,8 +1728,8 @@
         "starter-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-18-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-18-549f876dd variables-unsupported,mermaid-1,starter-1,starter-2"
+      "run_name": "candidate-complete-18-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-18-worktree-981dd71ee196 variables-unsupported,mermaid-1,starter-1,starter-2"
     },
     {
       "name": "candidate-complete-19",
@@ -1737,8 +1740,8 @@
         "photoswipe-gallery"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-19-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-19-549f876dd accessibility-1,resources-1,toc-active-section,photoswipe-gallery"
+      "run_name": "candidate-complete-19-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-19-worktree-981dd71ee196 accessibility-1,resources-1,toc-active-section,photoswipe-gallery"
     },
     {
       "name": "candidate-complete-20",
@@ -1749,8 +1752,8 @@
         "custom-search-script-dependencies"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-20-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-20-549f876dd goatcounter-analytics,collection-filename-order,javascript-resource-fallbacks,custom-search-script-dependencies"
+      "run_name": "candidate-complete-20-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-20-worktree-981dd71ee196 goatcounter-analytics,collection-filename-order,javascript-resource-fallbacks,custom-search-script-dependencies"
     },
     {
       "name": "candidate-complete-21",
@@ -1761,8 +1764,8 @@
         "sidebar-accessibility-focus"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-21-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-21-549f876dd assistant-session-history,semantic-html-accessibility,carousel-accessibility-motion,sidebar-accessibility-focus"
+      "run_name": "candidate-complete-21-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-21-worktree-981dd71ee196 assistant-session-history,semantic-html-accessibility,carousel-accessibility-motion,sidebar-accessibility-focus"
     },
     {
       "name": "candidate-complete-22",
@@ -1773,8 +1776,8 @@
         "beginner-publishing-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-22-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-22-549f876dd pwa-offline-status,beginner-post-1,beginner-image-1,beginner-publishing-1"
+      "run_name": "candidate-complete-22-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-22-worktree-981dd71ee196 pwa-offline-status,beginner-post-1,beginner-image-1,beginner-publishing-1"
     },
     {
       "name": "candidate-complete-23",
@@ -1785,8 +1788,8 @@
         "search-fusejs-setup-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-23-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-23-549f876dd snippet-parameter-reference,navigation-edit-existing-1,footer-edit-existing-1,search-fusejs-setup-1"
+      "run_name": "candidate-complete-23-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-23-worktree-981dd71ee196 snippet-parameter-reference,navigation-edit-existing-1,footer-edit-existing-1,search-fusejs-setup-1"
     },
     {
       "name": "candidate-complete-24",
@@ -1796,9 +1799,9 @@
         "site-details-edit-1",
         "content-post-1"
       ],
-      "status": "not_run",
-      "run_name": "candidate-complete-24-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-24-549f876dd comments-giscus-setup-1,search-no-navbar-links-1,site-details-edit-1,content-post-1"
+      "status": "needs_request",
+      "run_name": "candidate-complete-24-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-24-worktree-981dd71ee196 search-no-navbar-links-1,site-details-edit-1,content-post-1"
     },
     {
       "name": "candidate-complete-25",
@@ -1809,8 +1812,8 @@
         "analytics-ga4-setup-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-25-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-25-549f876dd content-page-1,content-image-1,analytics-goat-setup-1,analytics-ga4-setup-1"
+      "run_name": "candidate-complete-25-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-25-worktree-981dd71ee196 content-page-1,content-image-1,analytics-goat-setup-1,analytics-ga4-setup-1"
     },
     {
       "name": "candidate-complete-26",
@@ -1820,9 +1823,9 @@
         "install-gem-task-1",
         "appearance-skin-task-1"
       ],
-      "status": "not_run",
-      "run_name": "candidate-complete-26-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-26-549f876dd related-card-dates-1,install-remote-task-1,install-gem-task-1,appearance-skin-task-1"
+      "status": "needs_request",
+      "run_name": "candidate-complete-26-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-26-worktree-981dd71ee196 related-card-dates-1,install-remote-task-1,install-gem-task-1"
     },
     {
       "name": "candidate-complete-27",
@@ -1833,8 +1836,8 @@
         "media-gallery-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-27-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-27-549f876dd appearance-font-task-1,appearance-auto-task-1,appearance-sass-task-1,media-gallery-task-1"
+      "run_name": "candidate-complete-27-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-27-worktree-981dd71ee196 appearance-font-task-1,appearance-auto-task-1,appearance-sass-task-1,media-gallery-task-1"
     },
     {
       "name": "candidate-complete-28",
@@ -1845,8 +1848,8 @@
         "media-diagram-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-28-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-28-549f876dd media-carousel-task-1,media-photoswipe-task-1,media-video-task-1,media-diagram-task-1"
+      "run_name": "candidate-complete-28-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-28-worktree-981dd71ee196 media-carousel-task-1,media-photoswipe-task-1,media-video-task-1,media-diagram-task-1"
     },
     {
       "name": "candidate-complete-29",
@@ -1857,8 +1860,8 @@
         "provider-algolia-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-29-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-29-549f876dd provider-lunr-task-1,provider-simplesearch-task-1,provider-google-task-1,provider-algolia-task-1"
+      "run_name": "candidate-complete-29-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-29-worktree-981dd71ee196 provider-lunr-task-1,provider-simplesearch-task-1,provider-google-task-1,provider-algolia-task-1"
     },
     {
       "name": "candidate-complete-30",
@@ -1869,8 +1872,8 @@
         "comments-cusdis-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-30-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-30-549f876dd comments-disqus-task-1,comments-cactus-task-1,comments-welcomments-task-1,comments-cusdis-task-1"
+      "run_name": "candidate-complete-30-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-30-worktree-981dd71ee196 comments-disqus-task-1,comments-cactus-task-1,comments-welcomments-task-1,comments-cusdis-task-1"
     },
     {
       "name": "candidate-complete-31",
@@ -1881,8 +1884,8 @@
         "migration-fields-lookup-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-31-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-31-549f876dd troubleshoot-publishing-task-1,troubleshoot-yaml-task-1,custom-head-task-1,migration-fields-lookup-1"
+      "run_name": "candidate-complete-31-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-31-worktree-981dd71ee196 troubleshoot-publishing-task-1,troubleshoot-yaml-task-1,custom-head-task-1,migration-fields-lookup-1"
     },
     {
       "name": "candidate-complete-32",
@@ -1892,9 +1895,9 @@
         "format-caption-task-1",
         "format-footnote-task-1"
       ],
-      "status": "not_run",
-      "run_name": "candidate-complete-32-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-32-549f876dd accessibility-task-reference-1,format-alert-task-1,format-caption-task-1,format-footnote-task-1"
+      "status": "needs_request",
+      "run_name": "candidate-complete-32-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-32-worktree-981dd71ee196 accessibility-task-reference-1,format-caption-task-1,format-footnote-task-1"
     },
     {
       "name": "candidate-complete-33",
@@ -1905,8 +1908,8 @@
         "version-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-33-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-33-549f876dd favicon-task-1,bundled-font-task-1,icon-task-1,version-task-1"
+      "run_name": "candidate-complete-33-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-33-worktree-981dd71ee196 favicon-task-1,bundled-font-task-1,icon-task-1,version-task-1"
     },
     {
       "name": "candidate-complete-34",
@@ -1917,8 +1920,8 @@
         "content-toc-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-34-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-34-549f876dd feed-coexistence-1,feed-selection-1,feed-collection-output-1,content-toc-task-1"
+      "run_name": "candidate-complete-34-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-34-worktree-981dd71ee196 feed-coexistence-1,feed-selection-1,feed-collection-output-1,content-toc-task-1"
     },
     {
       "name": "candidate-complete-35",
@@ -1929,8 +1932,8 @@
         "cloud-task-1"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-35-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-35-549f876dd person-publisher-task-1,localized-date-task-1,canonical-article-task-1,cloud-task-1"
+      "run_name": "candidate-complete-35-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-35-worktree-981dd71ee196 person-publisher-task-1,localized-date-task-1,canonical-article-task-1,cloud-task-1"
     },
     {
       "name": "candidate-complete-36",
@@ -1941,8 +1944,8 @@
         "starter-demo-versus-site"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-36-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-36-549f876dd sharing-task-1,search-visibility-task-1,cloud-demo-fragments,starter-demo-versus-site"
+      "run_name": "candidate-complete-36-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-36-worktree-981dd71ee196 sharing-task-1,search-visibility-task-1,cloud-demo-fragments,starter-demo-versus-site"
     },
     {
       "name": "candidate-complete-37",
@@ -1953,8 +1956,8 @@
         "documentation-search-topics"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-37-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-37-549f876dd documentation-appearance-topics,documentation-content-publishing-topics,second-photo-tutorial-1,documentation-search-topics"
+      "run_name": "candidate-complete-37-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-37-worktree-981dd71ee196 documentation-appearance-topics,documentation-content-publishing-topics,second-photo-tutorial-1,documentation-search-topics"
     },
     {
       "name": "candidate-complete-38",
@@ -1965,8 +1968,8 @@
         "community-2"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-38-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-38-549f876dd documentation-installation-topics,documentation-identity-topics,community-1,community-2"
+      "run_name": "candidate-complete-38-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-38-worktree-981dd71ee196 documentation-installation-topics,documentation-identity-topics,community-1,community-2"
     },
     {
       "name": "candidate-complete-39",
@@ -1976,8 +1979,8 @@
         "community-5"
       ],
       "status": "not_run",
-      "run_name": "candidate-complete-39-549f876dd",
-      "command": "node evaluate-live.mjs candidate-complete-39-549f876dd community-3,community-4,community-5"
+      "run_name": "candidate-complete-39-worktree-981dd71ee196",
+      "command": "node evaluate-live.mjs candidate-complete-39-worktree-981dd71ee196 community-3,community-4,community-5"
     }
   ]
 }

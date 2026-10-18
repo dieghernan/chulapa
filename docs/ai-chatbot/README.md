@@ -82,8 +82,14 @@ HTTP availability or the factual accuracy of the surrounding answer. The existin
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-**The current selection/citation fixes are not deployed or live-evaluated.**
-Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 candidate cases remain untested. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
+The current runtime snapshot `worktree-981dd71ee196` was deployed on
+18 October 2026 as Worker `65bb328b-a4ed-4828-9218-9c36553b2306`. Source/build
+hashes identify the snapshot tested before committing. The current evidence and
+limitations are recorded in the [pre-commit review](evaluations/precommit-worktree-981dd71ee196-review.json).
+Seven selected catalog cases passed their core factual/task checks; 148 remain
+unrun. A separate provider-comparison probe remains partial. Literal LaTeX arrows
+and other precision limits are recorded rather than treated as verified behavior.
+Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
 ## Pending evaluations
@@ -102,8 +108,8 @@ Generated run names include the evaluated revision and skip existing run files
 with a retry suffix. The live evaluator reserves its evidence file exclusively
 before making requests; reusing a run name fails without modifying old evidence. Change the manifest only when recording
 evidence for a new evaluated revision; earlier passes must not be transferred to it.
-The four historical passes remain associated with 549f876dd. All 155 cases await
-live evaluation on the current, undeployed runtime changes.
+Earlier passes remain associated with their original sources. Current coverage
+is regenerated only from the selected snapshot's raw responses and reviews.
 
 It distinguishes the 56 baseline responses, their reviews, the 99 catalog cases
 without a completed baseline record and candidate coverage tied to an exact evaluated source.

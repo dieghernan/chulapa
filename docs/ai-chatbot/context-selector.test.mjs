@@ -78,7 +78,7 @@ test('catalog questions select task sections when only a documented body value n
     const selected = selectContext(context, cases.find(item => item.id === id).question);
     for (const title of required) assert.ok(selected.titles.includes(title), `${id}: ${title}`);
   }
-  assert.match(selectContext(context, cases.find(item => item.id === 'appearance-skin-task-1').question).text, /Preserve other entries/);
+  assert.match(selectContext(context, cases.find(item => item.id === 'appearance-skin-task-1').question).text, /Keep vars, highlight and other settings/);
 });
 
 test('citation validation covers prose URL forms and ignores literal code examples', () => {

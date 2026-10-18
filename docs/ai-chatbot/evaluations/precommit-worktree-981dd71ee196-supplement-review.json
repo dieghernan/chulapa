@@ -1,0 +1,12 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "raw": "precommit-worktree-981dd71ee196-supplement.jsonl",
+  "review": {
+    "id": "supplement-provider-alternatives-1",
+    "status": "partial",
+    "evidence": "Four real alternatives, correct keys, Cusdis upstream archived and migration caveat. Does not explicitly state original Cusdis hosting is unavailable.",
+    "limits": "Also includes unrequested setup advice. Earlier runtime 4f9e05aec576 stated hosting unavailability explicitly; this illustrates variation and is not carried forward as a pass."
+  },
+  "catalog_coverage": "Supplement only; excluded from 155-case catalog denominator."
+}

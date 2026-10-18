@@ -1,0 +1,50 @@
+{
+  "source_commit": "worktree-4f9e05aec576",
+  "source_kind": "uncommitted runtime snapshot; identifier derived from source/build SHA-256 hashes",
+  "base_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
+  "worker_version": "9fc4f154-d8d7-4a74-b954-b3591df8fb2a",
+  "raw": [
+    "precommit-worktree-4f9e05aec576-confirm01.jsonl",
+    "precommit-worktree-4f9e05aec576-confirm02.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "pass",
+      "evidence": "Safe caller/context handling, explicit page inputs, full wrapper/list/search hierarchy and shared renderers.",
+      "limits": "Literal LaTeX arrows remain a presentation defect; fixed-footer/cloud/comments examples not enumerated."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass",
+      "evidence": "Correct setting, body/head/footer/custom formatting and unreleased caveat."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "pass",
+      "evidence": "Custom chain retains h-feed, no YAML or layout change, correct version caveat."
+    },
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass",
+      "evidence": "One eligible card, boolean option, build-time sampling and main-only restriction."
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "status": "pass",
+      "evidence": "Only skin change; preserves vars/highlight, uses actual publishing branch, verifies published output; no sample color override."
+    },
+    {
+      "id": "format-alert-task-1",
+      "status": "partial",
+      "evidence": "Correct blank-line boundary, complete syntax and task-specific source. Adds unnecessary advice to stay within a v2.1.0 release framework; this could be mistaken for a version restriction."
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "status": "pass",
+      "evidence": "Correct separate config/front matter, generated embed, Discussions/app setup and published checks.",
+      "limits": "Public repository and layout compatibility prerequisites not explicit; canonical setup guide linked."
+    }
+  ],
+  "limits": "One observation per case on this snapshot. Not human usability or general reliability evidence. Latest bookkeeping fix is uncommitted and verified locally; no new commit or push."
+}

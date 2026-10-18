@@ -121,7 +121,11 @@ chulapa-skin.skin: exact case-sensitive filename without .scss; unknown names fa
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
 Source: https://dieghernan.github.io/chulapa/docs/23-change-color
-For an existing site, edit chulapa-skin.skin (e.g. journal) or vars (e.g. primary: "#285d70") in existing _config.yml section. Preserve other entries/overrides, no duplicate sections; quote hex colors. Commit/publish; check home/article/menu, mobile and contrast. Config compiles to CSS: restart local Jekyll. Demo/preview selection does not save own site settings.
+_config.yml, existing chulapa-skin mapping: replace only:
+```yaml
+skin: journal
+```
+Keep vars, highlight and other settings; do not add sample overrides or duplicate mappings. Quote hex colors when editing vars. Commit publishing branch (not necessarily main/master); wait for Actions. Check home/article/menu, mobile and contrast. Restart Jekyll after config edits. Preview does not save settings.
 ## Changing fonts and highlighting
 Source: https://dieghernan.github.io/chulapa/docs/24-change-fonts
 Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
@@ -256,7 +260,7 @@ schema_image: URL/list for post BlogPosting, fallback page og_image then header_
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
 Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
-Alert: blank line before paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3} on next line. Caption: image, BLANK LINE, separate caption paragraph then {: .caption} on its next line; never merge the image and caption paragraphs.
+Alerts work in v2.1.0 and main: blank line, paragraph, next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Caption: image, BLANK LINE, separate caption paragraph then {: .caption} on its next line; never merge the image and caption paragraphs.
 ```liquid
 ![River]({{ '/assets/img/river.jpg' | relative_url }})
 
@@ -309,7 +313,7 @@ Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before 
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
 jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments remain page-specific in footer.html. Pass all page-dependent inputs to include_cached; use ordinary include for helpers assigning caller variables (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
-Existing layouts (including v2.1.0): compress wraps minimal then default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
+Hierarchy (also v2.1.0): compress -> minimal -> default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
 Custom shells: components/scripts.html supplies common jQuery/Popper/Bootstrap and fab/dual chulapa_navigation.js once; inherited minimal/search handle this, minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters require assets/js/chulapa_search.js, provider library and generated store before adapter. Review overrides together during upgrades; standard layouts order dependencies.
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
