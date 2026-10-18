@@ -14,12 +14,13 @@
         dark: {{ site.chulapa-skin-dark.vars.primary | default: '' | jsonify }}
       };
       function updateThemeColor(theme) {
-        var meta = document.querySelector('meta[name="theme-color"]');
+        var meta = document.querySelector('meta[data-chulapa-theme-color]');
         var color = themeColors[theme];
         if (!color) { if (meta) meta.remove(); return; }
         if (!meta) {
           meta = document.createElement('meta');
           meta.name = 'theme-color';
+          meta.setAttribute('data-chulapa-theme-color', '');
           document.head.appendChild(meta);
         }
         meta.content = color;

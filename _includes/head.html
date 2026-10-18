@@ -295,7 +295,7 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="robots" content="{{ page.robots | default: 'index, follow' | strip | default: 'index, follow' | escape }}">
     {% if site.chulapa-skin.vars.primary %}
     <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="{{ site.chulapa-skin.vars.primary }}">
+    <meta name="theme-color" data-chulapa-theme-color content="{{ site.chulapa-skin.vars.primary }}">
    {% endif %}
     <!-- OpenGraph -->
     <meta property="og:title" content="{{ social_title | escape_once }}" >

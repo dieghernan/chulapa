@@ -69,6 +69,8 @@ classic, floating and dual navigation, including sites without menu links.
 If you set `vars.primary` in either skin, its value also supplies the browser's
 address-bar color when that appearance is active, on browsers that support it.
 A skin without an explicit `vars.primary` leaves that color to the browser.
+The selector preserves custom `theme-color` tags added through the head hook.
+The footer credits both configured built-in skins, once each.
 
 Light is the initial default. Auto follows the device's color preference and
 updates when it changes. The browser remembers the visitor's choice across

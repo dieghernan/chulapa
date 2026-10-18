@@ -133,3 +133,25 @@ the browser hint and unspecified-color behavior; existing llms.txt links suffice
 No live inference or Worker deployment. These checks verify metadata in the DOM,
 not actual OS/mobile browser chrome or installed-app appearance. No canonical,
 indexing, manifest, service-worker or offline-cache changes.
+
+## Review follow-up: custom metadata and skin attribution
+
+Theme-color updates now target only the theme-owned metadata marker. Tags
+provided by custom head hooks, including media-specific tags, are never selected,
+removed or overwritten by the controller. Light-only/dark-only primary browser
+fixtures include a custom hook tag and check its value and media after switching
+and reloading, alongside the managed hint's creation/removal behavior.
+
+Move the existing attribution mapping unchanged into a skin-parameterized
+include. The footer renders credits for both distinct configured built-in skins,
+including providers such as Bootswatch, and emits only one credit for identical
+skins. Unknown/custom names retain the existing no-built-in-credit behavior;
+no new configuration or attribution catalog is added. Compiled fixtures assert
+GitDev/Darkly provider credits, both selected skins, disabled behavior and
+deduplication. Footer screenshots at 375/1280 px show readable credits with no
+horizontal document overflow. The public skin guide and selective chatbot
+summary describe both corrections; context is 53,987/54,000 UTF-8 bytes, with no
+budget increase. Compiled fixtures and the full Chromium selector suite pass,
+including custom metadata and light-only/dark-only colors. All 80 chatbot tests
+and the documentation build pass. No
+live inference, deployment, canonical/indexing, manifest or cache changes.

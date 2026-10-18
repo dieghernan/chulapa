@@ -51,7 +51,7 @@ async function main() {
       const light = await bodyColor();
       const themeColor = () => page.locator('meta[name="theme-color"]').getAttribute('content');
       if (name === 'dark-color-only' || name === 'light-color-only') {
-        const readColor = () => page.evaluate(() => document.querySelector('meta[name="theme-color"]')?.content ?? null);
+        const readColor = () => page.evaluate(() => document.querySelector('meta[data-chulapa-theme-color]')?.content ?? null);
         assert.equal(await readColor(), name === 'dark-color-only' ? null : '#123456');
         await page.evaluate(() => window.chulapaSetThemeMode('dark'));
         await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
@@ -61,6 +61,8 @@ async function main() {
         await page.evaluate(() => window.chulapaSetThemeMode('light'));
         await page.waitForFunction(() => document.documentElement.dataset.theme === 'light');
         assert.equal(await readColor(), name === 'dark-color-only' ? null : '#123456');
+        assert.equal(await page.locator('#custom-theme-color').getAttribute('content'), '#987654');
+        assert.equal(await page.locator('#custom-theme-color').getAttribute('media'), '(prefers-color-scheme: dark)');
         await context.close();
         continue;
       }

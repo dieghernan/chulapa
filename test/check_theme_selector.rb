@@ -26,9 +26,21 @@ fixtures.each do |name, style, links, enabled|
     config['chulapa-skin']['vars'].delete('primary') if name == 'dark-color-only'
     config['chulapa-skin-dark']['vars'].delete('primary') if name == 'light-color-only'
     config['chulapa-skin-dark'] = {'skin' => nil, 'highlight' => nil, 'autothemer' => nil, 'vars' => nil} if name == 'blank'
+    if %w[dark-color-only light-color-only].include?(name)
+      File.write(File.join(source, '_includes/custom/custom_head.html'), '<meta name="theme-color" id="custom-theme-color" media="(prefers-color-scheme: dark)" content="#987654">')
+      config['chulapa-skin-dark']['skin'] = name == 'dark-color-only' ? 'darkly' : 'gitdev'
+    end
     Jekyll::Site.new(Jekyll.configuration(config)).process
     html = File.read(File.join(config['destination'], 'article.html'))
     doc = Nokogiri::HTML(html)
+    credit = doc.at_css('.chulapa-footer-brand').text
+    raise 'Light skin credit missing' unless credit.include?('GitDev skin by dieghernan')
+    expected_dark = name == 'dark-color-only' ? 'Darkly skin by Bootswatch' : 'GitDev Dark skin by dieghernan'
+    if enabled && name != 'light-color-only'
+      raise "Dark skin credit missing: #{name}" unless credit.include?(expected_dark)
+    else
+      raise 'Duplicated or disabled skin credit' unless credit.scan('skin by').size == 1
+    end
     selectors = doc.css('.chulapa-theme-selector')
     raise "Selector count: #{name}" unless selectors.size == (enabled ? (style == 'dual' ? 2 : 1) : 0)
     ids = doc.css('[id]').map { |node| node['id'] }
