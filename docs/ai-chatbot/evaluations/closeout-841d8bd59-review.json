@@ -1,0 +1,21 @@
+{
+  "source_commit": "841d8bd59",
+  "worker_version": "77795a6e-1dff-45f0-97f3-3e7aa68b4222",
+  "raw": [],
+  "reviews": [],
+  "local_tests_passed": 78,
+  "zero_inference_checks": [
+    {
+      "path": "/widget.js",
+      "status": 200
+    },
+    {
+      "path": "/api/chat",
+      "status": 400,
+      "body": "empty JSON object"
+    }
+  ],
+  "user_agent": "ChulapaDocsValidation/1.0",
+  "checked_at": "2026-10-18T17:53:06.024042+00:00",
+  "limits": "No live AI requests on closing artifact. Earlier evidence remains historical; the full catalog backlog is not an added merge requirement. A default urllib User-Agent smoke attempt did not meet expected statuses; explicit validation User-Agent checks above succeeded."
+}

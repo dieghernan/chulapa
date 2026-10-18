@@ -82,24 +82,23 @@ HTTP availability or the factual accuracy of the surrounding answer. The existin
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-The active runtime is source `dd9e23b90`, Worker
-`64ee01ab-3f43-4d32-b90b-df0264e04cfb`, deployed locally on 18 October 2026.
-77 local tests pass. Four catalog requests on this exact artifact produced two
-reviewed passes and two task-validation search recoveries (unavailable, not
-passes). There are 151 unrun catalog cases plus two unavailable retries:
-153 pending. Earlier version outcomes are preserved separately and not transferred.
-See the [bounded-validation review](evaluations/pr164-bounded-validation-2026-10-18.md)
-and [active manifest](evaluations/candidate-evidence.json).
+The active runtime is source `841d8bd59`, Worker
+`77795a6e-1dff-45f0-97f3-3e7aa68b4222`, deployed locally on 18 October 2026.
+78 local tests pass. Zero-inference checks returned 200 for the widget and 400 for
+an empty chat request. No new model queries were made for these closing fixes.
+The exact-artifact register therefore retains 155 pending cases; this is a
+follow-up backlog, not an additional merge requirement. Earlier passes are not
+transferred. See the [scope closeout](evaluations/pr164-closeout-2026-10-18.md)
+and [active evidence manifest](evaluations/candidate-evidence.json).
 
-Four platform/options inventory variants in English/Spanish passed manual review
-on the preceding ff5be537f artifact, listing all five providers and explicitly
-unavailable original Cusdis hosting. They are supplementary, outside the catalog.
-The TOC and guide-discovery tasks still do not receive a successful answer; the
-bounded guard prevents delivery of specific observed defects rather than repairing
-the model or validating arbitrary prose. Keep the PR open for those limitations
-and the unresolved Netlify preview failure. Canonical public documentation already
-supports the facts; this routing/validation task did not change ai-context.md or
-require a new llms.txt entry. No new UI, SEO metadata or PWA behavior changed.
+Historical bounded-validation evidence on dd9e23b90 records two correct answers
+and two unavailable task recoveries. Four provider inventory variants were
+correct on ff5be537f. These observations remain version-specific. The content-TOC
+and guide-discovery answer-quality limitations are explicitly tracked follow-ups;
+rejected answers are not successes. No general reliability or usability claim is
+made. Final CI and the external Netlify preview check still need review for merge.
+Canonical facts and llms.txt did not change in these closing fixes; no new theme
+UI, metadata, PWA behavior or configuration option was added.
 Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
