@@ -284,8 +284,8 @@ Citation validation parses rendered Markdown with parse5 before checking decoded
 After citation checks, the Worker rejects specific observed task-answer defects
 with HTTP 503 and the existing search recovery, without another inference or
 silent rewriting. It detects malformed `{.no_toc}` examples and the observed
-one-line `kramdown: toc_levels:` mapping for article/content TOC tasks. Syntax
-analysis questions and blockquoted examples are outside that check so an invalid
+one-line `kramdown: toc_levels:` mapping for article/content TOC tasks. Questions analyzing supplied
+syntax and blockquoted examples are outside that check so an invalid
 example can be discussed faithfully. This is an intentional scope limit, not a
 claim to validate every Markdown/YAML example.
 
@@ -305,3 +305,5 @@ plataforma/opciones while preserving named-provider setup isolation. Public
 configuration facts did not change, so ai-context.md and llms.txt need no update
 for this validation/routing change. No widget controls, metadata or PWA behavior
 changed; no new browser usability or accessibility evidence is claimed.
+
+Citation extraction ignores literal text inside pre/code while still checking real descendant href/src elements; escaped code examples remain literal. Ordinary explain-how task requests remain validated; syntax-analysis exemption requires both supplied syntax and analysis intent.

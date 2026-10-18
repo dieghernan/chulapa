@@ -1,0 +1,31 @@
+{
+  "source_commit": "ff5be537f",
+  "worker_version": "96ff26b2-225b-4110-9ed3-819246c2887c",
+  "outside_catalog": true,
+  "raw": [
+    "inventory-synonyms-ff5be537f-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "inventory-synonym-1",
+      "status": "pass",
+      "evidence": "All five providers listed, original Cusdis hosting explicitly unavailable, and comment enabling scope remains separate. Unrequested setup prose/examples are an editorial limitation."
+    },
+    {
+      "id": "inventory-synonym-2",
+      "status": "pass",
+      "evidence": "All five providers listed, original Cusdis hosting explicitly unavailable, and comment enabling scope remains separate. Unrequested setup prose/examples are an editorial limitation."
+    },
+    {
+      "id": "inventory-synonym-3",
+      "status": "pass",
+      "evidence": "All five providers listed, original Cusdis hosting explicitly unavailable, and comment enabling scope remains separate. Unrequested setup prose/examples are an editorial limitation."
+    },
+    {
+      "id": "inventory-synonym-4",
+      "status": "pass",
+      "evidence": "All five providers listed, original Cusdis hosting explicitly unavailable, and comment enabling scope remains separate. Unrequested setup prose/examples are an editorial limitation."
+    }
+  ],
+  "limits": "Four single-run supplemental questions, not part of the 155-case catalog and not repeated consistency evidence."
+}

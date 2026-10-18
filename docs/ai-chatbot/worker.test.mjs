@@ -278,7 +278,7 @@ esac
 
 test('every unsupported prose URL form fails closed with exactly one inference', async () => {
   const url = 'https://dieghernan.github.io/chulapa/docs/invented';
-  for (const answer of [url, `<${url}>`, `[Source][ref]\n\n[ref]: ${url}`, `<a href="${url}">Source</a>`, `<a href="https&#58;//dieghernan.github.io/chulapa/docs/invented">Source</a>`, `<a href=https&colon;//dieghernan.github.io/chulapa/docs/invented>Source</a>`]) {
+  for (const answer of [url, `<${url}>`, `[Source][ref]\n\n[ref]: ${url}`, `<a href="${url}">Source</a>`, `<a href="https&#58;//dieghernan.github.io/chulapa/docs/invented">Source</a>`, `<a href=https&colon;//dieghernan.github.io/chulapa/docs/invented>Source</a>`, `<pre><a href="${url}">Source</a></pre>`, `<code><a href="${url}">Source</a></code>`]) {
     let calls = 0;
     const response = await worker.fetch(request('Where do I add custom head HTML?'), environment(async () => {
       calls++;
@@ -296,6 +296,7 @@ test('task validation discards unsupported recipes with one inference and fixed 
   t.mock.method(console, 'warn', value => logs.push(JSON.parse(value)));
   const cases = [
     ['How do I insert a TOC inside an article?', '```markdown\n{.no_toc}\n```'],
+    ['Explain how to insert an article TOC and exclude a heading.', '```markdown\n{.no_toc}\n```'],
     ['Where are the search guides and cards for excluding pages?', 'Use show_related.']
   ];
   for (const [question, answer] of cases) {

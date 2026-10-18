@@ -186,3 +186,17 @@ test('HTML citations decode entities and compare complete browser URL attributes
   assert.deepEqual(unsupportedCitations(`<a href="${known}&#34;invented">Source</a>`, known), [known + '%22invented']);
   assert.deepEqual(unsupportedCitations('```html\n<a href="https&colon;//example.org/">Example</a>\n```', known), []);
 });
+
+
+test('real links inside pre/code are checked while escaped code text is ignored', () => {
+  const source = 'https://dieghernan.github.io/chulapa/docs/45-custom-hooks';
+  const bad = 'https://dieghernan.github.io/chulapa/docs/invented';
+  for (const tag of ['pre', 'code']) {
+    assert.deepEqual(unsupportedCitations(`<${tag}><a href="${bad}">Source</a></${tag}>`, source), [bad]);
+    assert.deepEqual(unsupportedCitations(`<${tag}><a href="${source}">Source</a></${tag}>`, source), []);
+    assert.deepEqual(unsupportedCitations(`<${tag}>&lt;a href="${bad.replace("https:", "https&#58;")}"&gt;Example&lt;/a&gt;</${tag}>`, source), []);
+  }
+  assert.deepEqual(unsupportedCitations(`<pre>${bad}</pre>`, source), []);
+  // GFM creates a real autolink inside inline raw code, so it must be checked.
+  assert.deepEqual(unsupportedCitations(`<code>${bad}</code>`, source), [bad]);
+});

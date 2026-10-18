@@ -1,0 +1,23 @@
+{
+  "source_commit": "ff5be537f",
+  "worker_version": "96ff26b2-225b-4110-9ed3-819246c2887c",
+  "catalog_cases": [
+    "layouts-3",
+    "snippets-4",
+    "content-toc-task-1",
+    "documentation-search-topics"
+  ],
+  "supplemental_questions": [
+    "Which commenting platform can I use?",
+    "What commenting options are supported?",
+    "¿Qué plataforma de comentarios puedo usar?",
+    "¿Qué opciones de comentarios hay?"
+  ],
+  "source_sha256": {
+    "answer-validation.mjs": "14d0c29c43158200a94cde6fffa43b76a84fd05e77a2b9838e0cb8699252bad9",
+    "context-selector.mjs": "a32b582028e0a140dcb06eb8acc31c3d2fa9ede93e17a0fa389f3dfdad4e5fdb",
+    "worker.mjs": "797d05afbcecbead5cb733b607313a7f18c289d0b0d5bd24fc15c64112f433f5",
+    "ai-context.md": "5c2b2b4f6ee78e7444a501634bbaf39cf17a815290d3ed9e4148ec61b4231603"
+  },
+  "policy": "Four catalog questions; evaluator pauses 75s after each unavailable result without retrying it. Supplemental batch begins at least 75s after final catalog request start. Four additional requests, no automatic retries."
+}

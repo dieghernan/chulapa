@@ -139,8 +139,9 @@ export function answerSourceUrls(answer) {
   // Inspect the same decoded HTML attributes a browser sees, including entities.
   const document = parseFragment(marked.parse(answer, { async: false }));
   const urls = [];
-  function visit(node) {
-    if (['code', 'pre', 'script', 'style'].includes(node.tagName)) return;
+  function visit(node, codeText = false) {
+    if (['script', 'style'].includes(node.tagName)) return;
+    const literalText = codeText || ['code', 'pre'].includes(node.tagName);
     for (const attribute of node.attrs || []) {
       if (!['href', 'src'].includes(attribute.name)) continue;
       try {
@@ -148,8 +149,8 @@ export function answerSourceUrls(answer) {
         if (['http:', 'https:'].includes(url.protocol)) urls.push(url.href);
       } catch { /* Relative/invalid attributes cannot pass the renderer's URL hook. */ }
     }
-    if (node.nodeName === '#text') urls.push(...proseUrls(node.value));
-    for (const child of node.childNodes || []) visit(child);
+    if (node.nodeName === '#text' && !literalText) urls.push(...proseUrls(node.value));
+    for (const child of node.childNodes || []) visit(child, literalText);
   }
   visit(document);
   return [...new Set(urls)];

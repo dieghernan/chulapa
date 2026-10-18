@@ -17,7 +17,7 @@ test('rejects malformed heading exclusions in task examples without rewriting th
 test('preserves quoted invalid examples and syntax-analysis questions', () => {
   const bad = markdown('## Heading\n{.no_toc}');
   assert.deepEqual(answerViolations(bad, 'Why is {.no_toc} invalid in my article TOC?'), []);
-  assert.deepEqual(answerViolations(bad, 'Explain the syntax error in a Markdown TOC.'), []);
+  assert.deepEqual(answerViolations(bad, 'Explain the syntax error in a Markdown TOC: `{.no_toc}`.'), []);
   assert.deepEqual(answerViolations('> ```markdown\n> {.no_toc}\n> ```', task), []);
   assert.deepEqual(answerViolations(bad, 'What does this quotation mean?'), []);
 });
@@ -37,4 +37,13 @@ test('guide discovery requires real prose sources rather than URLs inside exampl
   assert.deepEqual(answerViolations(markdown(tags + '\n' + visibility), question), ['missing_discovery_sources']);
   assert.deepEqual(answerViolations(`<a href="${tags.replace('https:', 'https&colon;')}">Topics</a> [Visibility](${visibility})`, question), []);
   assert.deepEqual(answerViolations('Use show_related.', 'How do I configure related article cards?'), []);
+});
+
+
+test('explain-how task wording remains validated without disabling supplied-syntax analysis', () => {
+  const bad = markdown('## Heading\n{.no_toc}');
+  assert.deepEqual(answerViolations(bad, 'Explain how to insert an article TOC and exclude a heading.'), ['invalid_heading_exclusion']);
+  assert.deepEqual(answerViolations(bad, 'Explica cómo insertar un índice en un artículo y excluir un encabezado.'), ['invalid_heading_exclusion']);
+  assert.deepEqual(answerViolations(bad, 'How do I insert an article TOC with {.no_toc}?'), ['invalid_heading_exclusion']);
+  assert.deepEqual(answerViolations(bad, 'Explain this syntax error in my article TOC: `{.no_toc}`.'), []);
 });
