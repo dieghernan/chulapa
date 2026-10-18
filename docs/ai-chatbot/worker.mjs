@@ -1,6 +1,7 @@
 // The generated dashboard-worker.mjs includes the reviewed context and widget.
 import { CONTEXT, WIDGET } from './generated-content.mjs';
 import { selectContext, unsupportedCitations } from './context-selector.mjs';
+import { answerViolations } from './answer-validation.mjs';
 
 const MODEL = '@cf/google/gemma-4-26b-a4b-it';
 const PROMPT = `You are the Chulapa documentation assistant. Answer in the visitor's
@@ -123,6 +124,10 @@ export default {
       if (unsupportedCitations(answer, selected.text).length) {
         console.warn(JSON.stringify({ event: 'chat_source_unsupported', status: 503 }));
         return json({ error: 'The answer cited an unsupported source. Please use site search.' }, 503);
+      }
+      if (answerViolations(answer, message.trim()).length) {
+        console.warn(JSON.stringify({ event: 'chat_task_answer_unverified', status: 503 }));
+        return json({ error: 'The answer could not be verified. Please use site search.' }, 503);
       }
       return json({ answer: answer.slice(0, 6000) });
     } catch {

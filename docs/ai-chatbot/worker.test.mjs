@@ -289,3 +289,37 @@ test('every unsupported prose URL form fails closed with exactly one inference',
     assert.equal(calls, 1);
   }
 });
+
+
+test('task validation discards unsupported recipes with one inference and fixed diagnostics', async t => {
+  const logs = [];
+  t.mock.method(console, 'warn', value => logs.push(JSON.parse(value)));
+  const cases = [
+    ['How do I insert a TOC inside an article?', '```markdown\n{.no_toc}\n```'],
+    ['Where are the search guides and cards for excluding pages?', 'Use show_related.']
+  ];
+  for (const [question, answer] of cases) {
+    let calls = 0;
+    const response = await worker.fetch(request(question), environment(async () => {
+      calls++;
+      return { choices: [{ message: { content: answer } }] };
+    }));
+    assert.equal(response.status, 503);
+    assert.equal((await response.json()).answer, undefined);
+    assert.equal(calls, 1);
+    assert.deepEqual(logs.splice(0), [{ event: 'chat_task_answer_unverified', status: 503 }]);
+  }
+});
+
+test('task validation returns correct examples and invalid-example discussions unchanged', async () => {
+  const cases = [
+    ['How do I insert a TOC inside an article?', '```markdown\n{:.no_toc}\n```'],
+    ['Why is {.no_toc} invalid in my article TOC?', 'The invalid example was `{.no_toc}`; use `{:.no_toc}`.'],
+    ['Where are the search guides and cards for excluding pages?', '[Topics](https://dieghernan.github.io/chulapa/docs/tags) [Visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility)']
+  ];
+  for (const [question, answer] of cases) {
+    const response = await worker.fetch(request(question), environment(async () => ({ choices: [{ message: { content: answer } }] })));
+    assert.equal(response.status, 200, question);
+    assert.equal((await response.json()).answer, answer);
+  }
+});

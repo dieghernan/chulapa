@@ -277,3 +277,31 @@ Provider inventories were subsequently reviewed on c3107102d; see evaluations/in
 The reviewed library budget increased by 1,000 bytes to retain complete navbar/gallery recipes and explicit override/playback checks after a live regression from removing the navbar example. The selected input cap remains 18,000 bytes; model and output limits are unchanged.
 
 Citation validation parses rendered Markdown with parse5 before checking decoded, complete href/src URLs against selected sources. HTML numeric/named entities cannot hide links; code examples remain excluded. parse5 8.0.1 is promoted from the existing jsdom dependency to a pinned runtime dependency. This changes citation validation, not answer accuracy.
+
+
+## Bounded task validation
+
+After citation checks, the Worker rejects specific observed task-answer defects
+with HTTP 503 and the existing search recovery, without another inference or
+silent rewriting. It detects malformed `{.no_toc}` examples and the observed
+one-line `kramdown: toc_levels:` mapping for article/content TOC tasks. Syntax
+analysis questions and blockquoted examples are outside that check so an invalid
+example can be discussed faithfully. This is an intentional scope limit, not a
+claim to validate every Markdown/YAML example.
+
+Search-guide discovery questions mentioning cards must cite the documentation
+topics page and, when exclusions are asked about, the visibility guide. URLs must
+be actual prose citations, not literals inside code. This checks source coverage,
+not whether every surrounding claim is relevant or true. Other languages or
+wording outside the narrow English/Spanish intent aliases may not be checked.
+
+Only fixed `chat_task_answer_unverified`/503 diagnostics are logged; no question,
+answer or violation details are logged. A rejected answer remains unavailable in
+live evaluation, not a correct task answer. Unit/Worker tests cover acceptance,
+rejection, unchanged valid output, quoted-invalid discussion and one inference.
+
+Provider inventory routing also recognizes platform/options and Spanish
+plataforma/opciones while preserving named-provider setup isolation. Public
+configuration facts did not change, so ai-context.md and llms.txt need no update
+for this validation/routing change. No widget controls, metadata or PWA behavior
+changed; no new browser usability or accessibility evidence is claimed.

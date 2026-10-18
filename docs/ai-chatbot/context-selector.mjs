@@ -93,7 +93,7 @@ export function selectContext(context, question) {
   const namedProviders = providers.filter(name => question.toLowerCase().includes(name));
   const inventoriesProviders = namedProviders.length === 0 &&
     /comments?|commenting|comentarios?/i.test(question) &&
-    /providers?|services?|systems?|proveedor(?:es)?|servicios?|sistemas?/i.test(question) &&
+    /providers?|services?|systems?|platforms?|options?|proveedor(?:es)?|servicios?|sistemas?|plataformas?|opci[oó]n(?:es)?/i.test(question) &&
     /what|which|list|supported|available|choices|options|can.*use|qu[eé]|cu[aá]les|lista|disponib|soport|opciones/i.test(question);
   const comparesProviders = inventoriesProviders || namedProviders.length > 1 ||
     (/alternativ|compar|versus|\bvs\b|differ|diferenc|instead|en lugar/i.test(question) &&
@@ -135,8 +135,7 @@ function proseUrls(text) {
   });
 }
 
-export function unsupportedCitations(answer, context) {
-  const known = new Set(proseUrls(context));
+export function answerSourceUrls(answer) {
   // Inspect the same decoded HTML attributes a browser sees, including entities.
   const document = parseFragment(marked.parse(answer, { async: false }));
   const urls = [];
@@ -153,5 +152,10 @@ export function unsupportedCitations(answer, context) {
     for (const child of node.childNodes || []) visit(child);
   }
   visit(document);
-  return [...new Set(urls)].filter(url => !known.has(url));
+  return [...new Set(urls)];
+}
+
+export function unsupportedCitations(answer, context) {
+  const known = new Set(proseUrls(context));
+  return answerSourceUrls(answer).filter(url => !known.has(url));
 }
