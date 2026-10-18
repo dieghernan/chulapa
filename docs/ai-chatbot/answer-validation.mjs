@@ -7,7 +7,7 @@ export function answerViolations(answer, question) {
   const issues = new Set();
   const tocTask = /toc|table of contents|[ií]ndice/i.test(question) &&
     /article|content|markdown|heading|art[ií]culo|encabezad/i.test(question);
-  const suppliedSyntax = /\{\s*\.no_toc\s*\}|`[^`]+`|```|kramdown:[ \t]+toc_levels:/.test(question);
+  const suppliedSyntax = /\{\s*(?::\s*)?\.no_toc\s*\}|\{:\s*toc\s*\}|\bkramdown\s*:|\btoc_levels\s*:/.test(question);
   const analysisIntent = /why|invalid|incorrect|wrong|debug|error|fix|correct|is .*valid|por qu[eé]|corrig|es .*v[aá]lid|explain (?:this|the) (?:syntax|code|snippet|example)|explica (?:este|el) (?:c[oó]digo|ejemplo|error)/i.test(question);
   const discussesSyntax = suppliedSyntax && analysisIntent;
   if (tocTask && !discussesSyntax) {

@@ -297,6 +297,7 @@ test('task validation discards unsupported recipes with one inference and fixed 
   const cases = [
     ['How do I insert a TOC inside an article?', '```markdown\n{.no_toc}\n```'],
     ['Explain how to insert an article TOC and exclude a heading.', '```markdown\n{.no_toc}\n```'],
+    ['Why is my `post.md` article TOC wrong, and how do I exclude a heading?', '```markdown\n{.no_toc}\n```'],
     ['Where are the search guides and cards for excluding pages?', 'Use show_related.']
   ];
   for (const [question, answer] of cases) {

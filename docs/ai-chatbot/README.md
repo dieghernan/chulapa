@@ -308,3 +308,5 @@ for this validation/routing change. No widget controls, metadata or PWA behavior
 changed; no new browser usability or accessibility evidence is claimed.
 
 Citation extraction ignores literal text inside pre/code while still checking real descendant href/src elements; escaped code examples remain literal. Ordinary explain-how task requests remain validated; syntax-analysis exemption requires both supplied syntax and analysis intent.
+
+Generic comment-choice/availability questions no longer require an enumerated provider noun, avoiding repeated tool/integration synonym gaps; named-provider setup remains isolated. TOC analysis exemptions require recognized TOC attributes or kramdown/toc_levels keys, not arbitrary backticks, filenames or fences.

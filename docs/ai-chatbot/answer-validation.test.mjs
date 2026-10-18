@@ -47,3 +47,12 @@ test('explain-how task wording remains validated without disabling supplied-synt
   assert.deepEqual(answerViolations(bad, 'How do I insert an article TOC with {.no_toc}?'), ['invalid_heading_exclusion']);
   assert.deepEqual(answerViolations(bad, 'Explain this syntax error in my article TOC: `{.no_toc}`.'), []);
 });
+
+
+test('a quoted filename or unrelated code is not supplied TOC syntax', () => {
+  const bad = markdown('## Heading\n{.no_toc}');
+  assert.deepEqual(answerViolations(bad, 'Why is my `post.md` article TOC wrong, and how do I exclude a heading?'), ['invalid_heading_exclusion']);
+  assert.deepEqual(answerViolations(bad, 'Why is my article TOC wrong? My code is ```hello```.'), ['invalid_heading_exclusion']);
+  assert.deepEqual(answerViolations(bad, 'Why is this article TOC syntax wrong: `{:toc}`?'), []);
+  assert.deepEqual(answerViolations(bad, 'Explain this article TOC error: `kramdown: toc_levels: 2..6`.'), []);
+});
