@@ -413,10 +413,14 @@ where_exp: "item", "item.url contains 'http'"
     <link rel="preload" href="{{ '/assets/js/chulapa_script.js' | relative_url }}" as="script" >
     {% endif %}
     <link rel="preload" href="{{ '/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
+    {% if site.chulapa-skin-dark %}
+    {% include theme-styles.html %}
+    {% else %}
     <!-- Theme css (Bootstrap included) -->
     <link rel="stylesheet" id="maincss" href="{{- "assets/css/main.css " | absolute_url -}}" >
     <!-- Highlighter -->
     <link id="csshigh" rel="stylesheet" href="{{- "assets/css/highlighter.css " | absolute_url -}}" >
+    {% endif %}
     <!-- Custom css -->
     <link rel="stylesheet" href="{{- "assets/css/custom.css " | absolute_url -}}" >
       {% if page.mathjax %}

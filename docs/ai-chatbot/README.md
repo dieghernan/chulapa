@@ -32,11 +32,12 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects a source library larger than **53,000 UTF-8 bytes**, before
+The build rejects a source library larger than **54,000 UTF-8 bytes**, before
 generating artifacts. This replaces the former 47,000-byte editorial budget: the
 reviewed increase preserves explicit provider boundaries and complete recipes
 rather than compressing instructions into ambiguous phrases. It is not the
-per-request input budget or a model token limit. Keep
+per-request input budget or a model token limit. The additional 1,000 bytes
+cover the optional skin selector, independent settings and release limitations. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the
 budget requires an explicit review of the reason and coverage. Byte reduction

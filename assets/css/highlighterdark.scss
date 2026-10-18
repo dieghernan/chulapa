@@ -1,0 +1,6 @@
+---
+---
+@charset "utf-8";
+{% if site.chulapa-skin-dark %}
+@import "highlight/{{- site.chulapa-skin-dark.highlight | default: site.chulapa-skin.highlight | downcase | default: 'default' -}}";
+{% endif %}

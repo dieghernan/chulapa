@@ -6,6 +6,8 @@ remains v2.1.0 until publication is completed.
 
 ### Added
 
+-   Add an opt-in light/dark/auto skin selector to classic, floating and dual navigation, preserving preferences and applying the selected skin before the first paint (#165).
+
 -   Support opt-in GoatCounter analytics with a public HTTPS endpoint, loaded asynchronously only for production builds.
 
 -   Add opt-in PhotoSwipe image viewers to masonry galleries and carousels with lazy loading, keyboard and touch controls, reduced-motion support and original-image fallbacks.

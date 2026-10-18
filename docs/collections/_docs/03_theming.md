@@ -30,6 +30,18 @@ preview needs a Jekyll restart after configuration changes.
 The [skin catalog](../skins) provides the named previews. Its current-site
 preview is not a skin named `current`. Procedure: [Choose a skin](./22-choose-skin).
 
+### Optional light/dark selector
+
+In **2.2.0 (unreleased)**, a separate `chulapa-skin-dark` mapping enables a
+Light/Dark/Auto dropdown in all navigation styles. It accepts the same `skin`,
+`highlight`, `vars` and `autothemer` fields. An omitted dark `highlight` inherits
+`chulapa-skin.highlight`, falling back to `default` if neither is set. Other
+settings have independent defaults. Without this mapping, switching is disabled.
+Light is the initial default and Auto follows the device preference. Choices
+are stored in the browser's `chulapa-theme` local-storage entry, shared by sites
+on the same origin. JavaScript is required for switching; without it, the first
+skin remains available. See [setup and checks](./22-choose-skin#let-visitors-switch-between-light-and-dark).
+
 ## Load Google Fonts
 
 | Field | Value / effect |

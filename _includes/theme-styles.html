@@ -1,0 +1,106 @@
+{% if site.chulapa-skin-dark %}
+    <script>
+    (function () {
+      'use strict';
+      var paths = {
+        light: [{{ '/assets/css/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighter.css' | relative_url | jsonify }}],
+        dark: [{{ '/assets/css/dark/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighterdark.css' | relative_url | jsonify }}]
+      };
+      var key = 'chulapa-theme';
+      var mode = 'light';
+      var scheme = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+      var root = document.documentElement;
+      var request = 0;
+      function valid(value) { return ['light', 'dark', 'auto'].indexOf(value) !== -1; }
+      function resolved(value) { return value === 'dark' || (value === 'auto' && scheme && scheme.matches) ? 'dark' : 'light'; }
+      try { var stored = localStorage.getItem(key); if (valid(stored)) mode = stored; } catch (error) {}
+      var theme = resolved(mode);
+      root.dataset.theme = theme;
+      root.dataset.themeMode = mode;
+      root.style.colorScheme = theme;
+      /* Parser-inserted stylesheets block the first paint with the selected skin. */
+      ['maincss', 'csshigh'].forEach(function (id, index) {
+        document.write('<link rel="stylesheet" id="' + id + '" href="' + paths[theme][index] + '">');
+      });
+      function controls() {
+        var names = {light: 'Light', dark: 'Dark', auto: 'Auto'};
+        var icons = {light: 'fas fa-sun', dark: 'fas fa-moon', auto: 'fa fa-adjust'};
+        document.querySelectorAll('.chulapa-theme-selector').forEach(function (selector) {
+          var button = selector.querySelector('.chulapa-theme-toggle');
+          button.setAttribute('aria-label', 'Color theme: ' + names[mode]);
+          button.title = 'Color theme: ' + names[mode];
+          button.querySelector('i').className = icons[mode];
+          button.querySelector('.chulapa-theme-label').textContent = names[mode];
+          selector.querySelectorAll('[data-theme-mode]').forEach(function (option) {
+            var selected = option.dataset.themeMode === mode;
+            option.classList.toggle('active', selected);
+            option.setAttribute('aria-pressed', String(selected));
+          });
+          selector.hidden = false;
+        });
+      }
+      function apply(value) {
+        var target = resolved(value);
+        var currentRequest = ++request;
+        mode = value;
+        root.dataset.themeMode = mode;
+        controls();
+        if (target === root.dataset.theme) return;
+        var links = paths[target].map(function (url) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.media = 'not all';
+          link.href = url;
+          return link;
+        });
+        var loaded = 0;
+        function discard() { links.forEach(function (link) { link.remove(); }); }
+        links.forEach(function (link) {
+          link.onerror = function () {
+            discard();
+            if (currentRequest === request) {
+              ++request;
+              mode = root.dataset.theme;
+              root.dataset.themeMode = mode;
+              try { localStorage.setItem(key, mode); } catch (error) {}
+              controls();
+            }
+          };
+          link.onload = function () {
+            if (++loaded !== 2) return;
+            if (currentRequest !== request) { discard(); return; }
+            ['maincss', 'csshigh'].forEach(function (id, index) {
+              document.getElementById(id).remove();
+              links[index].id = id;
+              links[index].media = 'all';
+            });
+            root.dataset.theme = target;
+            root.style.colorScheme = target;
+          };
+          /* Keep the custom stylesheet last in the cascade. */
+          document.head.insertBefore(link, document.getElementById('maincss'));
+        });
+      }
+      document.addEventListener('DOMContentLoaded', controls);
+      document.addEventListener('click', function (event) {
+        var option = event.target.closest('.chulapa-theme-selector [data-theme-mode]');
+        if (!option || !valid(option.dataset.themeMode)) return;
+        apply(option.dataset.themeMode);
+        try { localStorage.setItem(key, mode); } catch (error) {}
+        option.closest('.chulapa-theme-selector').querySelector('.chulapa-theme-toggle').focus();
+      });
+      window.addEventListener('storage', function (event) {
+        if (event.key === key || event.key === null) apply(valid(event.newValue) ? event.newValue : 'light');
+      });
+      if (scheme) {
+        var changed = function () { if (mode === 'auto') apply('auto'); };
+        if (scheme.addEventListener) scheme.addEventListener('change', changed);
+        else if (scheme.addListener) scheme.addListener(changed);
+      }
+    })();
+    </script>
+    <noscript>
+      <link rel="stylesheet" id="maincss" href="{{ '/assets/css/main.css' | relative_url }}">
+      <link rel="stylesheet" id="csshigh" href="{{ '/assets/css/highlighter.css' | relative_url }}">
+    </noscript>
+{% endif %}

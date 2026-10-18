@@ -74,6 +74,7 @@ development changes after v2.1.0.
 - **Styles for code blocks**
 - **Mathematical notation** with MathJax
 - **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (development version after v2.1.0)
+- **[Light/dark/auto selector](https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark)** - optional second skin with remembered preferences (2.2.0, unreleased)
 - **[PhotoSwipe galleries](https://dieghernan.github.io/chulapa/demo/14-photoswipe)** - opt-in lightboxes for masonry and carousels (v2.1.1-dev, available on `main`; not in v2.1.0)
 - **Active TOC sections** - current-section indicators while scrolling (v2.1.1-dev, available on `main`; not in v2.1.0)
 - **Google Analytics** and **[GoatCounter](https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics)** - GoatCounter is optional and production-only (v2.1.1-dev, available on `main`; not in v2.1.0)

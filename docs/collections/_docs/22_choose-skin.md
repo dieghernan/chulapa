@@ -37,3 +37,49 @@ are compiled into CSS during the build. If changes are missing, use
 [the publishing checks](./42-unpublished-changes).
 
 For an individual adjustment, use [Change a color](./23-change-color) instead.
+
+## Let visitors switch between light and dark
+
+Available in the development version for **2.2.0 (unreleased)**, after v2.1.0.
+The v2.1.0 gem and pinned remote theme do not include this feature.
+
+In `_config.yml`, keep your existing `chulapa-skin` section for the light
+appearance. Add a separate `chulapa-skin-dark` section for the dark appearance.
+For example, this complete pair uses matching GitDev skins:
+
+```yaml
+chulapa-skin:
+  skin: gitdev
+  highlight: github
+chulapa-skin-dark:
+  skin: gitdev-dark
+  highlight: github.dark
+```
+
+Both sections support `skin`, `highlight`, `vars` and `autothemer` with the
+[same precedence rules](./26-appearance-precedence). Each section is independent:
+copy shared font or color overrides into both if needed. The dark highlighter
+uses `chulapa-skin.highlight` when `chulapa-skin-dark.highlight` is omitted,
+then `default` if neither is set. Other settings are independent. An unknown
+skin or highlighter name fails the build.
+
+After publishing, the navigation shows a sun/moon icon and the current mode,
+with **Light**, **Dark** and **Auto** choices in a dropdown. This works with
+classic, floating and dual navigation, including sites without menu links.
+Light is the initial default. Auto follows the device's color preference and
+updates when it changes. The browser remembers the visitor's choice across
+pages and synchronizes it between tabs on the same origin. Sites sharing an
+origin also share this preference. If browser storage is blocked, switching
+still works on the current page but the preference cannot be remembered.
+
+Without JavaScript, the site uses `chulapa-skin` and hides the selector. Remove
+`chulapa-skin-dark` to disable switching; disabled sites load no selector script,
+selector styles or alternate stylesheets. Existing custom CSS still overrides
+both skins; check fixed colors, images, diagrams and embedded comments in both
+modes. External widgets do not automatically follow the selector. This feature
+does not add offline support or a service worker.
+
+Check a home page and an article, including code blocks, keyboard navigation
+and the mobile menu. Select Dark, open another page and reload: the page should
+start with the dark appearance. Choose Auto and change your device preference
+to check both modes. Local previews need a Jekyll restart after config edits.

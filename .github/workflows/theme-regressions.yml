@@ -100,8 +100,10 @@ jobs:
           bundle exec ruby build_accessibility_fixtures.rb "$RUNNER_TEMP/chulapa-navigation"
           bundle exec ruby check_photoswipe.rb "$RUNNER_TEMP/chulapa-photoswipe"
           bundle exec ruby build_javascript_fixtures.rb "$RUNNER_TEMP/chulapa-javascript"
+          bundle exec ruby check_theme_selector.rb "$RUNNER_TEMP/chulapa-theme-selector"
       - name: Check keyboard navigation and responsive state in Chromium
         run: |
           node test/check_navigation_browser.js "$RUNNER_TEMP/chulapa-navigation"
           node test/check_photoswipe_browser.js "$RUNNER_TEMP/chulapa-photoswipe"
           node test/check_javascript_browser.js "$RUNNER_TEMP/chulapa-javascript"
+          node test/check_theme_selector_browser.js "$RUNNER_TEMP/chulapa-theme-selector"

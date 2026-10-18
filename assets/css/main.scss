@@ -33,3 +33,6 @@
 {% if site.search.provider == "algolia" %}
 @import "reset-algolia";
 {% endif %}
+{% if site.chulapa-skin-dark %}
+@import "chulapa/theme-selector";
+{% endif %}

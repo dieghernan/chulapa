@@ -315,3 +315,21 @@ pages and 404. Checks verify helper-before-adapter ordering, one copy of common
 JavaScript dependencies, functional search regardless of the site's selected
 provider and FAB operation on these custom documents.
 No live video playback, analytics or comment service requests are required.
+
+## Light/dark selector
+
+`check_theme_selector.rb` builds actual skins and checks selector markup, unique
+IDs, independent overrides and root/subdirectory URLs on Jekyll 3 and 4. The
+browser check covers classic/floating/dual menus with and without links, desktop
+and mobile, keyboard/Escape focus, automatic device changes, persisted dark first
+paint with delayed CSS, cross-tab synchronization, blocked storage, failed CSS
+and the no-JavaScript fallback. CI runs both checks. For a local run:
+
+```sh
+bundle exec ruby test/check_theme_selector.rb /tmp/chulapa-theme-selector
+NODE_PATH=test/browser/node_modules node test/check_theme_selector_browser.js /tmp/chulapa-theme-selector
+```
+
+Use `CHULAPA_BROWSER_EXECUTABLE` to select a local Chromium/Edge executable.
+External scripts use the existing test-only pinned copies. These checks do not
+verify third-party comment widgets, offline support or every custom skin.
