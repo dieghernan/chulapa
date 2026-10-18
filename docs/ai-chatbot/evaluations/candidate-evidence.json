@@ -1,6 +1,6 @@
 {
-  "source_commit": "843dc822b",
+  "source_commit": "dd9e23b90",
   "source_kind": "committed runtime; local Wrangler deployment",
-  "worker_version": "6ceb37e8-9dc9-4def-9508-bf3ca00790fb",
-  "review_path": "citation-843dc822b-review.json"
+  "worker_version": "64ee01ab-3f43-4d32-b90b-df0264e04cfb",
+  "review_path": "validation-dd9e23b90-review.json"
 }

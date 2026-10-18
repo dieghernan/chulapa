@@ -1,0 +1,19 @@
+{
+  "source_commit": "dd9e23b90",
+  "worker_version": "64ee01ab-3f43-4d32-b90b-df0264e04cfb",
+  "cases": [
+    "layouts-3",
+    "snippets-4",
+    "content-toc-task-1",
+    "documentation-search-topics"
+  ],
+  "source_sha256": {
+    "answer-validation.mjs": "9bbcf6400ed2c7a24b29c57ebe1147230477f134ba40dada3bcb53e7c546c7e5",
+    "context-selector.mjs": "096b2a1c7a8c28a318609a1510ec7b10d8108ad6ab3c8d94f40bed45366159af",
+    "worker.mjs": "797d05afbcecbead5cb733b607313a7f18c289d0b0d5bd24fc15c64112f433f5",
+    "ai-context.md": "5c2b2b4f6ee78e7444a501634bbaf39cf17a815290d3ed9e4148ec61b4231603"
+  },
+  "deployment_id": "e4d39c16-2d33-4d53-a957-6b78752b9336",
+  "traffic_before_after": "100% same Worker version",
+  "policy": "Four independent planned requests, one inference each; no retries. Unlike evaluate-live.mjs, the four-request probe does not pause after semantic task-validation rejections; it stops on network, rate-limit or other 503 failures."
+}

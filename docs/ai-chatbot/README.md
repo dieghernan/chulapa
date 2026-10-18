@@ -82,23 +82,24 @@ HTTP availability or the factual accuracy of the surrounding answer. The existin
 controls which domains become clickable. Future live checks must assess both answer
 quality and unnecessary fallback rates.
 
-The active runtime is source `843dc822b`, Worker
-`6ceb37e8-9dc9-4def-9508-bf3ca00790fb`, deployed locally on 18 October 2026.
-69 local tests pass. A public widget GET returned 200 and an empty chat request
-returned 400 without inference. This citation-parser artifact has no live AI
-review yet; its 155 catalog cases remain pending. Earlier answers are not
-transferred to it. See the [iteration report](evaluations/pr164-task-corrections-2026-10-18.md)
-and the active [evidence manifest](evaluations/candidate-evidence.json).
+The active runtime is source `dd9e23b90`, Worker
+`64ee01ab-3f43-4d32-b90b-df0264e04cfb`, deployed locally on 18 October 2026.
+77 local tests pass. Four catalog requests on this exact artifact produced two
+reviewed passes and two task-validation search recoveries (unavailable, not
+passes). There are 151 unrun catalog cases plus two unavailable retries:
+153 pending. Earlier version outcomes are preserved separately and not transferred.
+See the [bounded-validation review](evaluations/pr164-bounded-validation-2026-10-18.md)
+and [active manifest](evaluations/candidate-evidence.json).
 
-Historical evaluations found and corrected migration paths, sidebar scopes,
-footer classes, Autothemer nesting, font setup and complete recipes. The last
-content-only iteration still produced two partial answers: invalid heading
-exclusion syntax and guide-discovery drift. English and Spanish singular
-provider inventories retained all five choices and explicit Cusdis hosting
-unavailability on c3107102d. These limited observations do not establish
-repeatability or human usability. Keep the PR open for those limitations and
-unresolved Netlify preview failure; raw responses and per-source reviews remain
-under evaluations/.
+Four platform/options inventory variants in English/Spanish passed manual review
+on the preceding ff5be537f artifact, listing all five providers and explicitly
+unavailable original Cusdis hosting. They are supplementary, outside the catalog.
+The TOC and guide-discovery tasks still do not receive a successful answer; the
+bounded guard prevents delivery of specific observed defects rather than repairing
+the model or validating arbitrary prose. Keep the PR open for those limitations
+and the unresolved Netlify preview failure. Canonical public documentation already
+supports the facts; this routing/validation task did not change ai-context.md or
+require a new llms.txt entry. No new UI, SEO metadata or PWA behavior changed.
 Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 

@@ -1,6 +1,6 @@
 # Pending evaluation batches: 16 October 2026
 
-155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: 843dc822b; Worker: 6ceb37e8-9dc9-4def-9508-bf3ca00790fb. 0 reviewed passes; **155 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](citation-843dc822b-review.json).
+155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: dd9e23b90; Worker: 64ee01ab-3f43-4d32-b90b-df0264e04cfb. 2 reviewed passes; **153 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](validation-dd9e23b90-review.json).
 
 Each planned batch contains at most four independent questions. Commands run from docs/ai-chatbot and consume quota; none were executed to generate this plan. Generated run names include the candidate revision and skip existing run files. Verify the deployed revision first and preserve raw outputs. Unavailable results are retryable plans, not automatic quota-consuming retries. Recheck account allowance before any batch.
 
@@ -16,7 +16,7 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | candidate-regression-04 | `search-comments-3`, `search-comments-4`, `search-comments-5`, `search-comments-6` | not_run |
 | candidate-regression-05 | `theming-4`, `theming-5`, `layouts-1`, `layouts-2` | not_run |
 | candidate-regression-06 | `layouts-4`, `layouts-5`, `layouts-6`, `snippets-1` | not_run |
-| candidate-regression-07 | `snippets-4`, `snippets-6`, `faq-1`, `faq-2` | not_run |
+| candidate-regression-07 | `snippets-4`, `snippets-6`, `faq-1`, `faq-2` | needs_request |
 | candidate-regression-08 | `faq-4`, `faq-5`, `faq-6`, `reference-edge-cases-1` | not_run |
 | candidate-regression-09 | `reference-edge-cases-2`, `reference-edge-cases-3` | not_run |
 
@@ -62,9 +62,9 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | candidate-complete-06 | `search-comments-1`, `search-comments-2`, `search-comments-3`, `search-comments-4` | not_run |
 | candidate-complete-07 | `search-comments-5`, `search-comments-6`, `theming-1`, `theming-2` | not_run |
 | candidate-complete-08 | `theming-3`, `theming-4`, `theming-5`, `theming-6` | not_run |
-| candidate-complete-09 | `layouts-1`, `layouts-2`, `layouts-3`, `layouts-4` | not_run |
+| candidate-complete-09 | `layouts-1`, `layouts-2`, `layouts-3`, `layouts-4` | needs_request |
 | candidate-complete-10 | `layouts-5`, `layouts-6`, `snippets-1`, `snippets-2` | not_run |
-| candidate-complete-11 | `snippets-3`, `snippets-4`, `snippets-5`, `snippets-6` | not_run |
+| candidate-complete-11 | `snippets-3`, `snippets-4`, `snippets-5`, `snippets-6` | needs_request |
 | candidate-complete-12 | `faq-1`, `faq-2`, `faq-3`, `faq-4` | not_run |
 | candidate-complete-13 | `faq-5`, `faq-6`, `reference-edge-cases-1`, `reference-edge-cases-2` | not_run |
 | candidate-complete-14 | `reference-edge-cases-3`, `reference-edge-cases-4`, `reference-edge-cases-5`, `reference-edge-cases-6` | not_run |
@@ -87,10 +87,10 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | candidate-complete-31 | `troubleshoot-publishing-task-1`, `troubleshoot-yaml-task-1`, `custom-head-task-1`, `migration-fields-lookup-1` | not_run |
 | candidate-complete-32 | `accessibility-task-reference-1`, `format-alert-task-1`, `format-caption-task-1`, `format-footnote-task-1` | not_run |
 | candidate-complete-33 | `favicon-task-1`, `bundled-font-task-1`, `icon-task-1`, `version-task-1` | not_run |
-| candidate-complete-34 | `feed-coexistence-1`, `feed-selection-1`, `feed-collection-output-1`, `content-toc-task-1` | not_run |
+| candidate-complete-34 | `feed-coexistence-1`, `feed-selection-1`, `feed-collection-output-1`, `content-toc-task-1` | needs_request |
 | candidate-complete-35 | `person-publisher-task-1`, `localized-date-task-1`, `canonical-article-task-1`, `cloud-task-1` | not_run |
 | candidate-complete-36 | `sharing-task-1`, `search-visibility-task-1`, `cloud-demo-fragments`, `starter-demo-versus-site` | not_run |
-| candidate-complete-37 | `documentation-appearance-topics`, `documentation-content-publishing-topics`, `second-photo-tutorial-1`, `documentation-search-topics` | not_run |
+| candidate-complete-37 | `documentation-appearance-topics`, `documentation-content-publishing-topics`, `second-photo-tutorial-1`, `documentation-search-topics` | needs_request |
 | candidate-complete-38 | `documentation-installation-topics`, `documentation-identity-topics`, `community-1`, `community-2` | not_run |
 | candidate-complete-39 | `community-3`, `community-4`, `community-5` | not_run |
 

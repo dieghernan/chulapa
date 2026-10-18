@@ -1,0 +1,37 @@
+{
+  "source_commit": "dd9e23b90",
+  "worker_version": "64ee01ab-3f43-4d32-b90b-df0264e04cfb",
+  "raw": [
+    "validation-dd9e23b90-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-3",
+      "status": "pass",
+      "evidence": "Correct page-front-matter sidebar flags, 2/5 bounds, IDs and live verification."
+    },
+    {
+      "id": "snippets-4",
+      "status": "pass",
+      "evidence": "Correct scoped gallery defaults and invocation, sorting booleans and unreleased restriction; upload destination inferred from path."
+    },
+    {
+      "id": "content-toc-task-1",
+      "status": "unavailable",
+      "evidence": "HTTP503 task-validation search recovery, not a factual/task pass. Original model output is neither returned nor logged, so the exact rejected syntax is unverified."
+    },
+    {
+      "id": "documentation-search-topics",
+      "status": "unavailable",
+      "evidence": "HTTP503 task-validation recovery for missing required discovery sources. Does not complete the guide-discovery task."
+    }
+  ],
+  "totals": {
+    "pass": 2,
+    "partial": 0,
+    "fail": 0,
+    "unavailable": 2
+  },
+  "local_tests_passed": 77,
+  "limits": "Four independent requests in one batch; no retries. On overload/network failure the probe would stop, but semantic validation rejections do not indicate overload. No claim of human usability, complete factual validation or broad reliability."
+}
