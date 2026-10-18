@@ -72,7 +72,9 @@ test('catalog questions select task sections when only a documented body value n
     'sharing-task-1': ['Page metadata and article images'],
     'custom-head-task-1': ['Custom hooks'],
     'troubleshoot-yaml-task-1': ['Diagnosing YAML'],
-    'documentation-identity-topics': ['Bundled font', 'Font Awesome']
+    'documentation-identity-topics': ['Bundled font', 'Font Awesome'],
+    'content-toc-task-1': ['Markdown formatting'],
+    'documentation-search-topics': ['SEO controls', 'Configuring site search']
   };
   for (const [id, required] of Object.entries(requirements)) {
     const selected = selectContext(context, cases.find(item => item.id === id).question);
