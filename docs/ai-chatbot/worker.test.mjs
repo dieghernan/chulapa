@@ -12,6 +12,37 @@ function request(message, options = {}) {
 function environment(run = async () => ({ choices: [{ message: { content: 'A documented answer.' } }] })) {
   return { AI: { run }, CHAT_RATE_LIMIT: { limit: async () => ({ success: true }) } };
 }
+
+test('diagnostics contain only fixed categories and status, excluding visitor and provider data', async t => {
+  const logs = [];
+  t.mock.method(console, 'error', value => logs.push(JSON.parse(value)));
+  t.mock.method(console, 'warn', value => logs.push(JSON.parse(value)));
+  const failing = async () => { throw new Error('Private provider error with visitor content'); };
+  const limited = environment();
+  limited.CHAT_RATE_LIMIT.limit = async () => ({ success: false });
+  const brokenLimiter = environment();
+  brokenLimiter.CHAT_RATE_LIMIT.limit = failing;
+  const cases = [
+    [{}, 'chat_not_configured', 503],
+    [limited, 'chat_rate_limited', 429],
+    [brokenLimiter, 'chat_rate_limiter_failed', 503],
+    [environment(failing), 'chat_inference_failed', 503],
+    [environment(async () => ({})), 'chat_answer_empty', 503],
+    [environment(async () => ({ choices: [{ finish_reason: 'length', message: {
+      content: 'Private generated answer'
+    } }] })), 'chat_answer_truncated', 503]
+  ];
+  for (const [env, event, status] of cases) {
+    const response = await worker.fetch(request('Private visitor question', { headers: {
+      'Content-Type': 'application/json', 'CF-Connecting-IP': '192.0.2.42',
+      Authorization: 'Bearer private-token'
+    } }), env);
+    assert.equal(response.status, status);
+    assert.deepEqual(logs.splice(0), [{ event, status }]);
+  }
+  assert.equal((await worker.fetch(request('Private visitor question'), environment())).status, 200);
+  assert.deepEqual(logs, []);
+});
 test('rejects invalid questions before invoking AI', async () => {
   const env = environment(() => assert.fail('AI must not run'));
   for (const message of [null, 1, '', '   ', 'x'.repeat(1001)]) {
@@ -166,11 +197,13 @@ test('rate limits by connecting IP and returns allowed CORS headers on errors', 
   assert.equal(forbidden.headers.get('Access-Control-Allow-Origin'), null);
 });
 
-test('bundled deployment includes the complete current reviewed context', async () => {
+test('bundled deployment sends relevant bounded context and serves the widget', async () => {
   const { default: bundled } = await import('./dashboard-worker.mjs');
   const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
   const env = environment(async (_, options) => {
-    assert.ok(options.messages[0].content.endsWith(context), 'Deployment context is stale or incomplete');
+    assert.match(options.messages[0].content, /Pass all page-dependent inputs to include_cached/);
+    assert.doesNotMatch(options.messages[0].content, /comments\.website_id belongs ONLY/);
+    assert.ok(options.messages[0].content.length < context.length, 'Task selection must not send the full library');
     assert.equal(options.messages[1].content, 'Explain include caching.');
     return { choices: [{ message: { content: 'Use explicit page inputs.' } }] };
   });
@@ -182,6 +215,20 @@ test('bundled deployment includes the complete current reviewed context', async 
   assert.match(widget.headers.get('Content-Type'), /javascript/);
   assert.equal(widget.headers.get('X-Content-Type-Options'), 'nosniff');
   assert.match(await widget.text(), /Ask AI/);
+});
+
+test('unsupported model citations return a search fallback without a second inference', async () => {
+  let calls = 0;
+  const env = environment(async () => {
+    calls++;
+    return { choices: [{ message: { content: '[Invented](https://dieghernan.github.io/chulapa/docs/44-custom_head)' } }] };
+  });
+  const response = await worker.fetch(request('Where do I add custom head HTML?'), env);
+  assert.equal(response.status, 503);
+  const body = await response.json();
+  assert.match(body.error, /unsupported source/);
+  assert.equal(body.answer, undefined);
+  assert.equal(calls, 1);
 });
 
 test('chatbot deployment waits for successful Pages for the exact commit', async () => {
@@ -226,5 +273,56 @@ esac
     }
   } finally {
     rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('every unsupported prose URL form fails closed with exactly one inference', async () => {
+  const url = 'https://dieghernan.github.io/chulapa/docs/invented';
+  for (const answer of [url, `<${url}>`, `[Source][ref]\n\n[ref]: ${url}`, `<a href="${url}">Source</a>`, `<a href="https&#58;//dieghernan.github.io/chulapa/docs/invented">Source</a>`, `<a href=https&colon;//dieghernan.github.io/chulapa/docs/invented>Source</a>`, `<pre><a href="${url}">Source</a></pre>`, `<code><a href="${url}">Source</a></code>`]) {
+    let calls = 0;
+    const response = await worker.fetch(request('Where do I add custom head HTML?'), environment(async () => {
+      calls++;
+      return { choices: [{ message: { content: answer } }] };
+    }));
+    assert.equal(response.status, 503, answer);
+    assert.equal((await response.json()).answer, undefined);
+    assert.equal(calls, 1);
+  }
+});
+
+
+test('task validation discards unsupported recipes with one inference and fixed diagnostics', async t => {
+  const logs = [];
+  t.mock.method(console, 'warn', value => logs.push(JSON.parse(value)));
+  const cases = [
+    ['How do I insert a TOC inside an article?', '```markdown\n{.no_toc}\n```'],
+    ['Explain how to insert an article TOC and exclude a heading.', '```markdown\n{.no_toc}\n```'],
+    ['Why is my `post.md` article TOC wrong, and how do I exclude a heading?', '```markdown\n{.no_toc}\n```'],
+    ['Where are the search guides and cards for excluding pages?', 'Use show_related.'],
+    ['Where are the search guides and cards for excluding pages?', '![Topics](https://dieghernan.github.io/chulapa/docs/tags) ![Visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility)']
+  ];
+  for (const [question, answer] of cases) {
+    let calls = 0;
+    const response = await worker.fetch(request(question), environment(async () => {
+      calls++;
+      return { choices: [{ message: { content: answer } }] };
+    }));
+    assert.equal(response.status, 503);
+    assert.equal((await response.json()).answer, undefined);
+    assert.equal(calls, 1);
+    assert.deepEqual(logs.splice(0), [{ event: 'chat_task_answer_unverified', status: 503 }]);
+  }
+});
+
+test('task validation returns correct examples and invalid-example discussions unchanged', async () => {
+  const cases = [
+    ['How do I insert a TOC inside an article?', '```markdown\n{:.no_toc}\n```'],
+    ['Why is {.no_toc} invalid in my article TOC?', 'The invalid example was `{.no_toc}`; use `{:.no_toc}`.'],
+    ['Where are the search guides and cards for excluding pages?', '[Topics](https://dieghernan.github.io/chulapa/docs/tags) [Visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility)']
+  ];
+  for (const [question, answer] of cases) {
+    const response = await worker.fetch(request(question), environment(async () => ({ choices: [{ message: { content: answer } }] })));
+    assert.equal(response.status, 200, question);
+    assert.equal((await response.json()).answer, answer);
   }
 });

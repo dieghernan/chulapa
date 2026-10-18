@@ -32,8 +32,11 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects context larger than **47,000 UTF-8 bytes**, before generating
-artifacts. This is an editorial growth budget, not a model token limit. Keep
+The build rejects a source library larger than **53,000 UTF-8 bytes**, before
+generating artifacts. This replaces the former 47,000-byte editorial budget: the
+reviewed increase preserves explicit provider boundaries and complete recipes
+rather than compressing instructions into ambiguous phrases. It is not the
+per-request input budget or a model token limit. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the
 budget requires an explicit review of the reason and coverage. Byte reduction
@@ -51,6 +54,82 @@ It also summarizes selected Sass variables, Markdown syntax and highlighting
 style configuration. Unpublished development changes are explicitly marked.
 The context includes the public RSS URL as a link for visitors. Feed entries are
 not embedded or fetched automatically.
+
+## Local candidate: context selection and citations
+
+The local candidate selects whole sections for each question using explicit topic
+aliases, heading/parameter matches and uncommon body terms, including common Spanish terms. It always
+keeps the version/preservation instructions and documentation directory, adds
+relevant task/reference sections and caps the selected source context at 18,000
+UTF-8 bytes. Code fences are not split, including headings inside tutorial code.
+No embedding service, extra model call, network retrieval or conversation history
+is used. The full source library remains bundled for other questions.
+
+Single-provider setup questions exclude other providers' specific sections.
+Comparison, alternative-provider and plain inventory questions retain all supported provider
+sections, including their restrictions. Information-box synonyms route to the
+existing alert recipe.
+This is deterministic topic selection, not semantic search: aliases can miss a
+question or select irrelevant sections. Offline coverage checks do not prove the
+model will answer correctly. Unknown topics retain the directory and instructions
+to acknowledge gaps rather than receiving the whole library.
+
+Prose URLs in inline Markdown links, bare URLs, autolinks, reference links and raw
+HTML must exactly match URLs in the selected source context. Fenced and inline
+code examples are excluded. An unsupported URL or invented fragment produces a search fallback
+without a retry or second inference. This checks URL identity, not semantic support,
+HTTP availability or the factual accuracy of the surrounding answer. The existing renderer still
+controls which domains become clickable. Future live checks must assess both answer
+quality and unnecessary fallback rates.
+
+The active runtime is source `841d8bd59`, Worker
+`77795a6e-1dff-45f0-97f3-3e7aa68b4222`, deployed locally on 18 October 2026.
+78 local tests pass. Zero-inference checks returned 200 for the widget and 400 for
+an empty chat request. No new model queries were made for these closing fixes.
+The exact-artifact register therefore retains 155 pending cases; this is a
+follow-up backlog, not an additional merge requirement. Earlier passes are not
+transferred. See the [scope closeout](evaluations/pr164-closeout-2026-10-18.md)
+and [active evidence manifest](evaluations/candidate-evidence.json).
+
+Historical bounded-validation evidence on dd9e23b90 records two correct answers
+and two unavailable task recoveries. Four provider inventory variants were
+correct on ff5be537f. These observations remain version-specific. The content-TOC
+and guide-discovery answer-quality limitations are explicitly tracked follow-ups;
+rejected answers are not successes. No general reliability or usability claim is
+made. Final CI and the external Netlify preview check still need review for merge.
+Canonical facts and llms.txt did not change in these closing fixes; no new theme
+UI, metadata, PWA behavior or configuration option was added.
+Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
+and llms.txt already describe the corrected facts; neither needs a new page or entry.
+
+## Pending evaluations
+
+Run `node evaluation-batches.mjs` to regenerate the offline
+[batch register](evaluations/pending-batches-2026-10-16.md) and its JSON companion.
+The [candidate evidence manifest](evaluations/candidate-evidence.json) selects the
+review and raw response files; regeneration validates their revision, unique IDs
+and answer/review consistency before writing either register. Reviewed answers are excluded from pending commands. Cases reviewed as
+`unavailable` remain retryable and count toward `candidate_remaining_count`;
+`candidate_unavailable_count` identifies that subset. A retry command is a plan,
+not an automatic inference. Factual baseline and candidate reviews require a
+nonempty answer-bearing HTTP 200 record.
+
+Generated run names include the evaluated revision and skip existing run files
+with a retry suffix. The live evaluator reserves its evidence file exclusively
+before making requests; reusing a run name fails without modifying old evidence. Change the manifest only when recording
+evidence for a new evaluated revision; earlier passes must not be transferred to it.
+Earlier passes remain associated with their original sources. Current coverage
+is regenerated only from the selected snapshot's raw responses and reviews.
+
+It distinguishes the 56 baseline responses, their reviews, the 99 catalog cases
+without a completed baseline record and candidate coverage tied to an exact evaluated source.
+The interrupted run may have started a request without writing a result; absence
+of a raw record is not proof that no request was initiated.
+
+Planned batches contain at most four cases and explicit IDs. The regression,
+unfinished-baseline and complete-candidate lists overlap; do not run all three.
+Begin with a small regression batch only after separately authorizing quota use
+and verifying deployment. Regenerating the plan sends no requests.
 
 ## Automatic deployment
 
@@ -72,6 +151,24 @@ separate; documentation changes outside this directory require reviewing and
 updating `ai-context.md` to update the chatbot's knowledge.
 
 ## Cloudflare setup
+
+The connected Cloudflare Workers Builds trigger uses `main`, root directory
+`docs/ai-chatbot`, build command `npm ci && npm test` and deploy command
+`npx --yes wrangler@4.150.0 deploy`. Its include watch path is
+`docs/ai-chatbot/*`, relative to the repository root; `*` also matches nested
+paths. Preview builds are disabled. This trigger runs alongside GitHub Actions
+and does not wait for the matching Pages publication. Publish documentation
+before deploying context that cites it. Build watch paths are configured in
+Cloudflare, not in `wrangler.jsonc`.
+
+Workers Logs is configured in `wrangler.jsonc` with 10% head sampling and
+automatic invocation logs disabled. Application diagnostics record only fixed
+event categories and HTTP status codes for missing bindings, rate limiting,
+limiter failures, inference failures and empty or truncated answers. They do not
+record questions, answers, IP addresses, headers or provider exception messages.
+Sampling can omit errors, so these logs are diagnostic samples, not complete
+error counts. View them in the Worker's Observability tab after deploying the
+updated Worker. Request-body logging remains disabled.
 
 Keep the account on **Workers Free**. As checked on October 8, 2026, Workers AI
 provides 10,000 Neurons per day and stops at that allowance on Free. Do not upgrade
@@ -174,3 +271,43 @@ References:
 - https://www.freecodecamp.org/news/how-to-build-an-embeddable-ai-chatbot-widget-with-cloudflare-workers/
 - https://developers.cloudflare.com/workers-ai/platform/pricing/
 - https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+
+Provider inventories were subsequently reviewed on c3107102d; see evaluations/inventory-c3107102d-review.json. Those passes are not transferred to the latest citation-parser artifact.
+
+The reviewed library budget increased by 1,000 bytes to retain complete navbar/gallery recipes and explicit override/playback checks after a live regression from removing the navbar example. The selected input cap remains 18,000 bytes; model and output limits are unchanged.
+
+Citation validation parses rendered Markdown with parse5 before checking decoded, complete href/src URLs against selected sources. HTML numeric/named entities cannot hide links; code examples remain excluded. parse5 8.0.1 is promoted from the existing jsdom dependency to a pinned runtime dependency. This changes citation validation, not answer accuracy.
+
+
+## Bounded task validation
+
+After citation checks, the Worker rejects specific observed task-answer defects
+with HTTP 503 and the existing search recovery, without another inference or
+silent rewriting. It detects malformed `{.no_toc}` examples and the observed
+one-line `kramdown: toc_levels:` mapping for article/content TOC tasks. Questions analyzing supplied
+syntax and blockquoted examples are outside that check so an invalid
+example can be discussed faithfully. This is an intentional scope limit, not a
+claim to validate every Markdown/YAML example.
+
+Search-guide discovery questions mentioning cards must cite the documentation
+topics page and, when exclusions are asked about, the visibility guide. URLs must
+be actual prose citations, not literals inside code. This checks source coverage,
+not whether every surrounding claim is relevant or true. Other languages or
+wording outside the narrow English/Spanish intent aliases may not be checked.
+
+Only fixed `chat_task_answer_unverified`/503 diagnostics are logged; no question,
+answer or violation details are logged. A rejected answer remains unavailable in
+live evaluation, not a correct task answer. Unit/Worker tests cover acceptance,
+rejection, unchanged valid output, quoted-invalid discussion and one inference.
+
+Provider inventory routing also recognizes platform/options and Spanish
+plataforma/opciones while preserving named-provider setup isolation. Public
+configuration facts did not change, so ai-context.md and llms.txt need no update
+for this validation/routing change. No widget controls, metadata or PWA behavior
+changed; no new browser usability or accessibility evidence is claimed.
+
+Citation extraction ignores literal text inside pre/code while still checking real descendant href/src elements; escaped code examples remain literal. Ordinary explain-how task requests remain validated; syntax-analysis exemption requires both supplied syntax and analysis intent.
+
+Generic comment-choice/availability questions no longer require an enumerated provider noun, avoiding repeated tool/integration synonym gaps; named-provider setup remains isolated. TOC analysis exemptions require recognized TOC attributes or kramdown/toc_levels keys, not arbitrary backticks, filenames or fences.
+
+Final merge corrections route common set-up/get-started wording to the existing first-site tutorial. Required guide-discovery destinations must be HTML anchor hrefs permitted by the renderer URL policy; image src/alt values, plain text and literal examples cannot satisfy that check. This does not claim complete semantic validation.

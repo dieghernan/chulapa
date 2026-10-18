@@ -1,4 +1,4 @@
-import { readFileSync, appendFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, appendFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as pause } from 'node:timers/promises';
 
@@ -10,6 +10,8 @@ const run = process.argv[2] || 'baseline';
 if (!/^[a-z0-9-]+$/.test(run)) throw new Error('Use a lowercase run name.');
 mkdirSync(directory + 'evaluations', { recursive: true });
 const output = directory + `evaluations/${run}.jsonl`;
+// Reserve a fresh evidence file before making any quota-consuming request.
+writeFileSync(output, '', { flag: 'wx' });
 let batchStarted = 0;
 for (let index = 0; index < selected.length; index++) {
   if (index % 4 === 0) {

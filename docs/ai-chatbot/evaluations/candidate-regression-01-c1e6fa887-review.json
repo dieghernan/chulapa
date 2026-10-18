@@ -1,0 +1,27 @@
+{
+  "source_commit": "c1e6fa887",
+  "worker_version": "8c879734-ebd5-4644-845b-e84f41536e72",
+  "raw": "candidate-regression-01-c1e6fa887.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass",
+      "evidence": "Correct singleton result and version restriction."
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "status": "partial",
+      "evidence": "Core safety, hierarchy and shared renderers correct, but calls related/random layouts rather than panels; wording imprecise."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass",
+      "evidence": "Correct existing setting, head/footer/body/custom formatting and unreleased caveat."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "fail",
+      "evidence": "Incorrectly denies archive-derived custom layouts retain h-feed. Corrected by directly stating archive behavior before other list layouts."
+    }
+  ]
+}

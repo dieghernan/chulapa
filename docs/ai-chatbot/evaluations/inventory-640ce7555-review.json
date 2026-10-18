@@ -1,0 +1,20 @@
+{
+  "source_commit": "640ce7555",
+  "worker_version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+  "raw": [
+    "inventory-640ce7555-20261018.jsonl"
+  ],
+  "outside_catalog": true,
+  "reviews": [
+    {
+      "id": "inventory-singular-1",
+      "status": "pass",
+      "evidence": "All five providers and explicit original Cusdis hosting unavailable."
+    },
+    {
+      "id": "inventory-singular-2",
+      "status": "partial",
+      "evidence": "All five choices retained; original hosting described as archived, but unavailability is not explicit. Unrequested setup remains."
+    }
+  ]
+}

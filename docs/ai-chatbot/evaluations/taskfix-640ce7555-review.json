@@ -1,0 +1,87 @@
+{
+  "source_commit": "640ce7555",
+  "worker_version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+  "raw": [
+    "taskfix-640ce7555-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "installation-2",
+      "status": "pass",
+      "evidence": "Correct pinned migration, dependency setup, preservation and exact underscore override directories."
+    },
+    {
+      "id": "installation-6",
+      "status": "pass",
+      "evidence": "Correct no overwrite, local precedence and manual upstream merge."
+    },
+    {
+      "id": "configuration-6",
+      "status": "pass",
+      "evidence": "Complete correct dual/lg navbar with child list, not child_list."
+    },
+    {
+      "id": "search-comments-6",
+      "status": "pass",
+      "evidence": "Correct full fas fa-envelope class, email, copyright and merge/live checks."
+    },
+    {
+      "id": "theming-2",
+      "status": "pass",
+      "evidence": "Correct autothemer sibling of vars and primary nested under vars."
+    },
+    {
+      "id": "layouts-3",
+      "status": "pass",
+      "evidence": "Correct page-level show_sidetoc/h_min/h_max, IDs and published verification."
+    },
+    {
+      "id": "snippets-1",
+      "status": "pass",
+      "evidence": "Correct root-relative MP4 include and explicit public playback/baseurl verification."
+    },
+    {
+      "id": "snippets-4",
+      "status": "partial",
+      "evidence": "Correct folder, image_col requirement, sorting and dev caveat, but only says append image_col scope without its YAML, leaving setup incomplete."
+    },
+    {
+      "id": "faq-1",
+      "status": "pass",
+      "evidence": "Correct remote/gem/HTML marker and override limitations."
+    },
+    {
+      "id": "faq-3",
+      "status": "pass",
+      "evidence": "Correct explicit favicon links and baseurl under /blog."
+    },
+    {
+      "id": "faq-4",
+      "status": "pass",
+      "evidence": "Valid alert attributes, separate caption and footnote; no nonexistent include."
+    },
+    {
+      "id": "faq-5",
+      "status": "pass",
+      "evidence": "Correct headings font selection plus ligature CSS and custom.scss front matter."
+    },
+    {
+      "id": "content-toc-task-1",
+      "status": "partial",
+      "evidence": "Correct marker/range distinction, but gives {.no_toc} without required colon instead of valid kramdown attributes."
+    },
+    {
+      "id": "documentation-search-topics",
+      "status": "fail",
+      "evidence": "Discovery answer invents search.include_on_search nesting and omits crawler/local-index distinctions and visibility guide despite it being selected."
+    }
+  ],
+  "totals": {
+    "pass": 11,
+    "partial": 2,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "module_sha256": "eaecad6b17c1e4e3d84767eff668fd0e5d5b373603da75e965092c2a4a5a09c7",
+  "limits": "Deployed/local module exact hash match, 100% version before/after. Manual factual/task review, no human usability or repeated consistency. Historical version results are not transferred."
+}

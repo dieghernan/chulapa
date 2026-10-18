@@ -1,0 +1,19 @@
+{
+  "runtime_source_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
+  "runtime_also_matches": "03f0055df",
+  "worker_version": "cc38c84a-1836-4333-936d-895ceaae31c5",
+  "deployed_from": "local before committing evaluation bookkeeping fix",
+  "quota_before": "Cloudflare dashboard: 0/10k neurons today; last 24 hours 180.49; figures can lag",
+  "local_tests": 63,
+  "ci": "GitHub checks pass on 15a9ac182; Netlify preview and related checks fail, cause not investigated",
+  "hashes": {
+    "worker.mjs": "2176a3e39f496ca3aa66fb956825bbea8210b041873d2962e1f589a78c7c8f2e",
+    "context-selector.mjs": "927c87d552af527f3b38c208679d6c30cacc6060ad92b2e89c2f90fe7c447c4f",
+    "ai-context.md": "84a656194fda904571fc921a2d897c1c616f4aa877baab8e23adde1d3eea7618",
+    "generated-content.mjs": "b4f620061cee2427ae8ce51d5c3735a1172a9c3ec226b234f0ce1979ec627936",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "build.mjs": "6362ef79a35bac50a377cebd54b05d3f993f412d6e266f8869e2e3b7e7f479df",
+    "package-lock.json": "243cae6bee851001a2403d6e54238127a5e6786959fe954f59964383f98b16e5"
+  },
+  "scope": "Four first-batch catalog cases, three affected catalog cases, one supplementary provider comparison. No automatic retry. No commit, push, merge or release publication."
+}

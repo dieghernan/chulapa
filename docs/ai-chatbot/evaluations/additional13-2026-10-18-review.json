@@ -1,0 +1,93 @@
+{
+  "status": "completed_with_runtime_change",
+  "raw": "additional13-worktree-981dd71ee196-20261018.jsonl",
+  "totals": {
+    "pass": 8,
+    "partial": 3,
+    "unavailable": 1,
+    "fail": 1
+  },
+  "deployment_transition_utc": "2026-10-18T08:34:32.286092Z",
+  "groups": [
+    {
+      "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+      "source_commit": "worktree-981dd71ee196",
+      "raw": "additional13-first8-worktree-981dd71ee196-20261018.jsonl",
+      "reviews": [
+        {
+          "id": "snippets-2",
+          "status": "pass",
+          "evidence": "Correct video_res preview resolution and nolazy distinction, complete supported include and live check."
+        },
+        {
+          "id": "snippets-3",
+          "status": "pass",
+          "evidence": "Correct metadata-only thumbnail and no inferred upload date/duration. ISO examples are optional for this conceptual question."
+        },
+        {
+          "id": "snippets-4",
+          "status": "partial",
+          "evidence": "Correct sorting flags and development-only caveat, but omits required image_col defaults and folder setup; a new internal gallery remains empty."
+        },
+        {
+          "id": "snippets-5",
+          "status": "pass",
+          "evidence": "Correct external URL variable, controls and 2000ms interval. Indicators are optional and were not requested."
+        },
+        {
+          "id": "snippets-6",
+          "status": "pass",
+          "evidence": "Correct page mathjax front matter and published rendering check."
+        },
+        {
+          "id": "faq-1",
+          "status": "partial",
+          "evidence": "Correct remote/gem checks and marker limitations, but omits the documented published HTML version marker and local override inspection path."
+        },
+        {
+          "id": "faq-2",
+          "status": "pass",
+          "evidence": "Correct custom hook paths, preserve snippets/no front matter and avoid duplicate analytics."
+        },
+        {
+          "id": "faq-3",
+          "status": "unavailable",
+          "evidence": "HTTP503 unsupported-source fallback; rejected model citation is not exposed, so its exact URL and semantic correctness cannot be assessed."
+        }
+      ]
+    },
+    {
+      "worker_version": "cd95fb43-7af8-4926-bbd4-a8d8b6c0396f",
+      "source_commit": "81a4adfea48ab97f253208488bfe3c2a26b04aa7",
+      "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+      "reviews": [
+        {
+          "id": "faq-4",
+          "status": "fail",
+          "evidence": "Invents include_cached snippets/alert.html, which does not exist. Copying the example causes a missing-include build error despite correct paragraph attributes, caption and footnote."
+        },
+        {
+          "id": "faq-5",
+          "status": "partial",
+          "evidence": "CSS enables ligatures but never selects the chulapa heading font. Inline class alternative works, yet the primary heading recipe is incomplete."
+        },
+        {
+          "id": "faq-6",
+          "status": "pass",
+          "evidence": "Correct same-path feed collision, default /feed.xml coexistence and include_on_feed scope."
+        },
+        {
+          "id": "reference-edge-cases-1",
+          "status": "pass",
+          "evidence": "Valid right-aligned pipe table and YAML fence syntax. The displayed YAML block is rendered rather than presented as copyable fence delimiters, an editorial limitation."
+        },
+        {
+          "id": "reference-edge-cases-2",
+          "status": "pass",
+          "evidence": "Correct GFM caveat, two-line TOC marker and site-wide toc_levels distinction. No published-link verification instruction; operational completeness remains limited."
+        }
+      ]
+    }
+  ],
+  "limits": "Version attribution inferred from deployment history and request intervals, not response version headers. Replacement runtime subsequently matched exactly to 81a4adfea: see runtime-cd95fb43-identity.json. Mixed-version totals are not candidate accuracy."
+}

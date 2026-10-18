@@ -1,0 +1,196 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "cases": [
+    {
+      "id": "layouts-microformats-feed-1",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "Which Chulapa list layouts provide h-feed? Do I need new YAML options or does including indexcards automatically create a feed?",
+      "expected": "In v2.1.1-dev (main, not released v2.1.0) archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
+    },
+    {
+      "id": "config-author-profile-1",
+      "section": "config",
+      "doc": "02_config.md",
+      "question": "Where do I configure my site author's profile URL? Can I use /about/ and will guest authors inherit it?",
+      "expected": "Use author.url in _config.yml, alongside name, avatar, location and links. It accepts a profile URL or site-relative path such as /about/; paths resolve with site url/baseurl. It supplies the default article:author URL for posts and, from v2.1.1, u-url in visible Microformats2 author cards. A page author does not inherit the site author's profile URL. Social links remain in author.links."
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "W3C says my Related posts h5 skips heading levels. Does Chulapa choose that heading? How can I keep small text?",
+      "expected": "related_label and random_label render the user's HTML unchanged. Choose a heading matching the page hierarchy, such as h2 for a separate section, and use class h5 for its visual size. No new configuration option is needed."
+    },
+    {
+      "id": "layouts-microformats-1",
+      "section": "layouts",
+      "doc": "04_layouts.md",
+      "question": "In v2.1.1, does minimal create a Microformats entry? How do updated dates and guest author URLs work?",
+      "expected": "Minimal does not declare an automatic h-entry; custom content can supply its own wrapper with p-name, u-url and e-content. Default and landingpage retain automatic entry markup. With show_date enabled, updated pages retain dt-published and dt-updated. Visible h-card uses the selected author.url, resolves relative paths with url/baseurl and does not inherit a site profile URL for a guest."
+    },
+    {
+      "id": "installation-1",
+      "section": "installation",
+      "doc": "01_install.md",
+      "question": "How do I start a new Chulapa site on GitHub Pages?",
+      "expected": "Recommend chulapa-101 as a personal blog template; create repository, enable Settings > Pages > GitHub Actions, set title/description/author/repository/url and commit to main or master. Workflow supplies base path; no local install or personal token required. Cite /docs/00-start directly; preserve settings and change only the home heading in index.html; edit the article in an existing _posts/ file and check both publicly."
+    },
+    {
+      "id": "installation-2",
+      "section": "installation",
+      "doc": "01_install.md",
+      "question": "How do I migrate an existing Jekyll site to Chulapa using remote_theme?",
+      "expected": "Remove conflicting theme; add remote-theme and include-cache to Gemfile/plugins."
+    },
+    {
+      "id": "installation-3",
+      "section": "installation",
+      "doc": "01_install.md",
+      "question": "Unknown tag include_cached appears during my local remote-theme build. What do I need?",
+      "expected": "Install and enable jekyll-include-cache; remote themes do not install dependencies."
+    },
+    {
+      "id": "installation-4",
+      "section": "installation",
+      "doc": "01_install.md",
+      "question": "How do I install and update only the gem-based Chulapa theme?",
+      "expected": "gem chulapa-jekyll; theme setting; include-cache; bundle update chulapa-jekyll."
+    },
+    {
+      "id": "installation-5",
+      "section": "installation",
+      "doc": "01_install.md",
+      "question": "Does remote_theme: dieghernan/chulapa select v2.1.0? How can I pin that version?",
+      "expected": "Unpinned default branch versus @v2.1.0; rebuild."
+    },
+    {
+      "id": "installation-6",
+      "section": "installation",
+      "doc": "01_install.md",
+      "question": "Will upgrading the remote theme overwrite my own _includes/head.html?",
+      "expected": "Local override remains; merge theme updates manually."
+    },
+    {
+      "id": "configuration-1",
+      "section": "configuration",
+      "doc": "02_config.md",
+      "question": "Mi sitio es https://ana.github.io/blog. ¿Qué pongo en url y baseurl?",
+      "expected": "url origin; baseurl /blog; Spanish reply."
+    },
+    {
+      "id": "configuration-2",
+      "section": "configuration",
+      "doc": "02_config.md",
+      "question": "Does locale: es translate the whole interface? How do I translate date names?",
+      "expected": "locale HTML language, not full translation; datetranslate details from layouts."
+    },
+    {
+      "id": "configuration-3",
+      "section": "configuration",
+      "doc": "02_config.md",
+      "question": "How do I configure a Person publisher? Does it change guest article authors?",
+      "expected": "publisher type Person name image; independent authors; logo ignored."
+    },
+    {
+      "id": "configuration-4",
+      "section": "configuration",
+      "doc": "02_config.md",
+      "question": "How do I enable Google Analytics 4? Should I set analytics_id too?",
+      "expected": "gtag_id G-; analytics_id legacy; leave unused empty; both loads both."
+    },
+    {
+      "id": "configuration-5",
+      "section": "configuration",
+      "doc": "02_config.md",
+      "question": "How do I use a Font Awesome kit? What if fa5_kit_code is already set?",
+      "expected": "fa_kit_code; legacy takes precedence; remove legacy; default FA6."
+    },
+    {
+      "id": "configuration-6",
+      "section": "configuration",
+      "doc": "02_config.md",
+      "question": "Show a minimal dual navbar configuration with a submenu and expansion at lg.",
+      "expected": "navbar.style dual expand lg; nav child list; one nesting level."
+    },
+    {
+      "id": "search-comments-1",
+      "section": "search-comments",
+      "doc": "02_config.md",
+      "question": "I set search.provider: lunr but /search is missing. Why?",
+      "expected": "Create layout search page with matching permalink."
+    },
+    {
+      "id": "search-comments-2",
+      "section": "search-comments",
+      "doc": "02_config.md",
+      "question": "Does include_on_search: false exclude pages from both Lunr and Algolia?",
+      "expected": "Yes local indices; Algolia ranking only; files_to_exclude."
+    },
+    {
+      "id": "search-comments-3",
+      "section": "search-comments",
+      "doc": "02_config.md",
+      "question": "Where should I put my Algolia indexing key and search key?",
+      "expected": "Public search_only_api_key versus private ALGOLIA_API_KEY env; no indexing secret inconfig."
+    },
+    {
+      "id": "search-comments-4",
+      "section": "search-comments",
+      "doc": "02_config.md",
+      "question": "How do I hide search attribution? Is lunr_maxwords still recommended?",
+      "expected": "show_attrib false; prefer maxwords; deprecated provider fields precedence; Algolia separatelogo."
+    }
+  ],
+  "run": "additional20-worktree-981dd71ee196-20261018.jsonl",
+  "quota_before": "Dashboard: 389.06/10k daily neurons; 1.1k last 24h; figures may lag",
+  "deployment_verified_before_and_after": "65bb328b-a4ed-4828-9218-9c36553b2306 at 100%",
+  "batches": [
+    {
+      "batch": 1,
+      "ids": [
+        "layouts-microformats-feed-1",
+        "config-author-profile-1",
+        "layouts-label-headings-1",
+        "layouts-microformats-1"
+      ]
+    },
+    {
+      "batch": 2,
+      "ids": [
+        "installation-1",
+        "installation-2",
+        "installation-3",
+        "installation-4"
+      ]
+    },
+    {
+      "batch": 3,
+      "ids": [
+        "installation-5",
+        "installation-6",
+        "configuration-1",
+        "configuration-2"
+      ]
+    },
+    {
+      "batch": 4,
+      "ids": [
+        "configuration-3",
+        "configuration-4",
+        "configuration-5",
+        "configuration-6"
+      ]
+    },
+    {
+      "batch": 5,
+      "ids": [
+        "search-comments-1",
+        "search-comments-2",
+        "search-comments-3",
+        "search-comments-4"
+      ]
+    }
+  ]
+}

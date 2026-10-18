@@ -1,0 +1,515 @@
+{
+  "scope": "Existing local docs/_site snapshot only; no HTTP or inference requests.",
+  "checks": [
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/00-start",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/01-install",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/tags",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/variable-dictionary",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/20-remote-theme",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/21-gem-theme",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/07-migration",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/46-migration-fields",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/15-create-post",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/16-create-page",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/17-add-image",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/42-unpublished-changes",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/59-photo-page-tutorial",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/14-site-details",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/60-person-publisher",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/19-google-analytics",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#google-analytics",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/18-goatcounter",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/03-theming",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/22-choose-skin",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/23-change-color",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/24-change-fonts",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/25-code-highlighting",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/26-appearance-precedence",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/27-autothemer",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/28-custom-skin",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/skins",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/32-embed-video",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#video-support",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/30-add-carousel",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/29-add-gallery",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#masonry-gallery",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/31-photoswipe",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#photoswipe-lightbox",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/demo/14-photoswipe",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#options",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#minimal",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#archive",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#index-category",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#search-engines",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/12-fusejs-search",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/34-lunr-search",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/35-simplesearch-search",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/36-google-search",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/37-algolia-search",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#comments",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/13-giscus-comments",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/38-disqus-comments",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/39-cactus-comments",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/40-welcomments-comments",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/41-cusdis-comments",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#navbar",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/10-edit-menu",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#footer",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/11-edit-footer",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/65-search-visibility",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#article-images",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/64-post-sharing",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/62-canonical-article",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/49-add-alert",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/50-add-caption",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/51-add-footnote",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/52-add-favicon",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/53-chulapa-font",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/54-add-icon",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/43-yaml-errors",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/56-publish-feeds",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/57-jekyll-feed",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/55-check-theme-version",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/45-custom-hooks",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/44-custom-head",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/58-content-toc",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/61-localize-date",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dates",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/rss.xml",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/33-add-diagram",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#mermaid-diagrams",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/demo/13-mermaid",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#copying-code",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/08-starter-examples",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/09-run-starter",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/06-accessibility-performance",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/48-accessibility-reference",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#deferred-lazy-loading-of-youtube-videos",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot",
+      "file_found": true,
+      "fragment_found": null
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/02-config#xx-other-settings",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults",
+      "file_found": true,
+      "fragment_found": true
+    },
+    {
+      "url": "https://dieghernan.github.io/chulapa/docs/03-theming#variables",
+      "file_found": true,
+      "fragment_found": true
+    }
+  ]
+}

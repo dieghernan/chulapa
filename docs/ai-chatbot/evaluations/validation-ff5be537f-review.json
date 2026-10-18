@@ -1,0 +1,37 @@
+{
+  "source_commit": "ff5be537f",
+  "worker_version": "96ff26b2-225b-4110-9ed3-819246c2887c",
+  "raw": [
+    "validation-ff5be537f-20261018.jsonl"
+  ],
+  "reviews": [
+    {
+      "id": "layouts-3",
+      "status": "pass",
+      "evidence": "Correct sidebar page-front-matter flags, bounds and IDs, with published-result check."
+    },
+    {
+      "id": "snippets-4",
+      "status": "pass",
+      "evidence": "Correct scoped gallery defaults and Liquid invocation, boolean sorting and development restriction. Upload action is implicit in the scoped path."
+    },
+    {
+      "id": "content-toc-task-1",
+      "status": "unavailable",
+      "evidence": "HTTP503 task-validation recovery. No model answer is exposed, so no factual/task pass is assigned and the exact rejected text is unavailable."
+    },
+    {
+      "id": "documentation-search-topics",
+      "status": "unavailable",
+      "evidence": "HTTP503 recovery; inspect recorded fixed error category, not a successful guide answer."
+    }
+  ],
+  "totals": {
+    "pass": 2,
+    "partial": 0,
+    "fail": 0,
+    "unavailable": 2
+  },
+  "local_tests_passed": 75,
+  "limits": "Manual factual review of the two delivered answers. Rejections prevent selected known patterns but do not complete the user task. No retries. No human usability, repeated consistency or broad accuracy claim."
+}

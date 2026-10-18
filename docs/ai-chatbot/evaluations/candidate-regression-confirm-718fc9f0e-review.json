@@ -1,0 +1,22 @@
+{
+  "source_commit": "718fc9f0e",
+  "worker_version": "ad5d0a0f-2b60-40e9-bc5a-17822f326dd8",
+  "raw": "candidate-regression-confirm-718fc9f0e.jsonl",
+  "reviews": [
+    {
+      "id": "layouts-random-singleton-1",
+      "status": "pass",
+      "evidence": "One card, build-time up to three, boolean option and correct unreleased caveat."
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "status": "pass",
+      "evidence": "Existing blanklines setting, head/footer/body and custom formatting with unreleased caveat."
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "status": "partial",
+      "evidence": "Correct custom chain, h-feed, no flag and version caveat, but incorrectly describes cloudtag/cloudcategory/indexcategory as descendants of archive. They are sibling layouts under default."
+    }
+  ]
+}

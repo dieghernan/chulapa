@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "test": "npm run build && node --test worker.test.mjs render-answer.test.mjs widget.test.mjs build.test.mjs"
+    "test": "npm run build && node --test worker.test.mjs render-answer.test.mjs widget.test.mjs build.test.mjs context-selector.test.mjs answer-validation.test.mjs evaluation-batches.test.mjs"
   },
   "dependencies": {
     "dompurify": "3.4.16",
-    "marked": "18.1.0"
+    "marked": "18.1.0",
+    "parse5": "8.0.1"
   },
   "devDependencies": {
     "esbuild": "0.28.2",
