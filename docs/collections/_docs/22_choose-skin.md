@@ -68,16 +68,14 @@ with **Light**, **Dark** and **Auto** choices in a dropdown. This works with
 classic, floating and dual navigation, including sites without menu links.
 Light is the initial default. Auto follows the device's color preference and
 updates when it changes. The browser remembers the visitor's choice across
-pages and synchronizes it between tabs on the same origin. Sites sharing an
-origin also share this preference. If browser storage is blocked, switching
+pages and tabs. If browser storage is blocked, switching
 still works on the current page but the preference cannot be remembered.
 
 Without JavaScript, the site uses `chulapa-skin` and hides the selector. Remove
-`chulapa-skin-dark` to disable switching; disabled sites load no selector script,
-selector styles or alternate stylesheets. Existing custom CSS still overrides
+`chulapa-skin-dark` to disable switching. No additional scripts or styles are
+loaded when switching is disabled. Existing custom CSS still overrides
 both skins; check fixed colors, images, diagrams and embedded comments in both
-modes. External widgets do not automatically follow the selector. This feature
-does not add offline support or a service worker.
+modes. External widgets do not automatically follow the selector.
 
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should

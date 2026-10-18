@@ -37,16 +37,9 @@ Light/Dark/Auto dropdown in all navigation styles. It accepts the same `skin`,
 `highlight`, `vars` and `autothemer` fields. An omitted dark `highlight` inherits
 `chulapa-skin.highlight`, falling back to `default` if neither is set. Other
 settings have independent defaults. Without this mapping, switching is disabled.
-Light is the initial default and Auto follows the device preference. Choices
-are stored in the browser's `chulapa-theme` local-storage entry, shared by sites
-on the same origin. JavaScript is required for switching; without it, the first
-skin remains available. See [setup and checks](./22-choose-skin#let-visitors-switch-between-light-and-dark).
-
-Custom JavaScript controls can call `window.chulapaSetThemeMode('light')`,
-`window.chulapaSetThemeMode('dark')` or `window.chulapaSetThemeMode('auto')`.
-The function updates the existing selector and saves the preference when browser
-storage is available. It ignores invalid modes or requests made without both
-managed stylesheet links. It exists only when `chulapa-skin-dark` is enabled.
+Light is the initial default and Auto follows the device preference. The browser
+remembers the visitor's choice. Without JavaScript, the first skin remains
+available. See [setup and checks](./22-choose-skin#let-visitors-switch-between-light-and-dark).
 
 ## Load Google Fonts
 

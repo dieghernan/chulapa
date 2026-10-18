@@ -9,7 +9,7 @@ test('light and dark selector questions receive activation, inheritance and vers
   const selected = selectContext(context, 'How do I add the Light, Dark and Auto dropdown to my Chulapa site?');
   assert.ok(selected.titles.includes('Light/dark/auto selector'));
   assert.match(selected.text, /Omitted dark highlight inherits light highlight/);
-  assert.match(selected.text, /Absent dark mapping: no selector includes, JS, CSS/);
+  assert.match(selected.text, /Absent dark mapping: no additional scripts or styles/);
   assert.match(selected.text, /2\.2\.0 unreleased\/main only, absent v2\.1\.0/);
 });
 

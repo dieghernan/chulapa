@@ -54,8 +54,9 @@ invalid requests, missing toggle/icon/label nodes, missing stylesheet links and
 stylesheet removal while a replacement is loading. Requests without the managed
 pair are ignored; changes made by custom scripts during loading are retained.
 The API is absent on disabled sites. The expanded browser suite and all 80
-chatbot tests passed locally. The theming reference and selective context cover
-the API; existing llms.txt links already point to these guides.
+chatbot tests passed locally. API details remain in implementation code and this
+validation note; public guides and chatbot context focus on configuring and
+using the selector. Existing llms.txt links already point to these guides.
 
 Controls use native named buttons, a named group, pressed states and existing
 Bootstrap keyboard behavior. Floating navigation retains its existing Escape
