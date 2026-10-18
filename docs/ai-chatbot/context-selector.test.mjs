@@ -115,3 +115,16 @@ test('provider comparisons retain alternatives while single-provider setup stays
   assert.ok(setup.titles.includes('Giscus comments'));
   for (const title of providerTitles.slice(1)) assert.ok(!setup.titles.includes(title));
 });
+
+
+test('plain provider inventories include all provider choices and availability restrictions', () => {
+  for (const question of ['What comment providers are supported?', 'Which commenting services can I use?', 'List the supported comment systems', '¿Qué proveedores de comentarios están disponibles?', '¿Cuáles son los servicios de comentarios que puedo usar?']) {
+    const selected = selectContext(context, question);
+    for (const title of ['Giscus comments', 'Disqus comments', 'Cactus comments', 'Welcomments comments', 'Cusdis comments']) assert.ok(selected.titles.includes(title), `${question}: ${title}`);
+    assert.match(selected.text, /Upstream archived; original hosting unavailable/);
+    assert.ok(Buffer.byteLength(selected.text) <= MAX_SELECTED_BYTES);
+  }
+  const setup = selectContext(context, 'Which provider settings do I need for Giscus?');
+  assert.ok(setup.titles.includes('Giscus comments'));
+  assert.ok(!setup.titles.includes('Disqus comments'));
+});

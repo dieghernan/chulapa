@@ -66,7 +66,7 @@ No embedding service, extra model call, network retrieval or conversation histor
 is used. The full source library remains bundled for other questions.
 
 Single-provider setup questions exclude other providers' specific sections.
-Comparison and alternative-provider questions retain all supported provider
+Comparison, alternative-provider and plain inventory questions retain all supported provider
 sections, including their restrictions. Information-box synonyms route to the
 existing alert recipe.
 This is deterministic topic selection, not semantic search: aliases can miss a
@@ -86,8 +86,9 @@ The current runtime snapshot `worktree-981dd71ee196` was deployed on
 18 October 2026 as Worker `65bb328b-a4ed-4828-9218-9c36553b2306`. Source/build
 hashes identify the snapshot tested before committing. The current evidence and
 limitations are recorded in the [pre-commit review](evaluations/precommit-worktree-981dd71ee196-review.json).
-Seven selected catalog cases passed their core factual/task checks; 148 remain
-unrun. A separate provider-comparison probe remains partial. Literal LaTeX arrows
+Seven earlier catalog cases passed their core factual/task checks. An additional
+20-question run produced 12 passes and eight partial answers; 128 cases remain
+unrun on that deployed snapshot. See [the additional evaluation](evaluations/additional20-2026-10-18.md). A separate provider-comparison probe remains partial. Literal LaTeX arrows
 and other precision limits are recorded rather than treated as verified behavior.
 Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
@@ -261,3 +262,7 @@ References:
 - https://www.freecodecamp.org/news/how-to-build-an-embeddable-ai-chatbot-widget-with-cloudflare-workers/
 - https://developers.cloudflare.com/workers-ai/platform/pricing/
 - https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+
+The latest provider-inventory routing correction is local and not deployed or
+live-evaluated. Results in the manifest still refer to the earlier deployed
+snapshot; its passes must not be transferred to newer code.

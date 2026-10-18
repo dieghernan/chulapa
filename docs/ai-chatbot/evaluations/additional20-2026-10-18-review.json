@@ -1,0 +1,122 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+  "status": "completed",
+  "reviews": [
+    {
+      "id": "layouts-microformats-feed-1",
+      "status": "partial",
+      "evidence": "Correct four layouts, no new YAML, no automatic feed from indexcards, correct development restriction. Omits that custom pages must supply a feed wrapper and entries-only distinction."
+    },
+    {
+      "id": "config-author-profile-1",
+      "status": "pass",
+      "evidence": "Correct author.url destination, relative /about/ resolution with url/baseurl and no guest inheritance.",
+      "limits": "Does not discuss social links or exact microformat version; these are outside the direct configuration question."
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "status": "partial",
+      "evidence": "Correct user-controlled related_label and h5 visual class, but says article h2 subheadings imply related h3. The related section may be a sibling and requires its own heading hierarchy assessment."
+    },
+    {
+      "id": "layouts-microformats-1",
+      "status": "partial",
+      "evidence": "Correct minimal h-entry absence, date classes and no guest URL inheritance, but introduces unclear unsupported terminology/restriction: inheritance reserved for default post article author and development user-url."
+    },
+    {
+      "id": "installation-1",
+      "status": "partial",
+      "evidence": "Correct template, Actions, config and index.html title. Omits editing the existing _posts article but asks to verify edited articles, leaving that tutorial step unexplained."
+    },
+    {
+      "id": "installation-2",
+      "status": "partial",
+      "evidence": "Correct pinned remote theme/dependencies/backup and URL preservation. Calls override directories layouts/ and includes/ instead of _layouts/ and _includes/."
+    },
+    {
+      "id": "installation-3",
+      "status": "pass",
+      "evidence": "Correct jekyll-include-cache Gemfile/plugins setup, bundle install and restart.",
+      "limits": "Does not explicitly explain remote-theme dependency installation; sources include gem/caching guides rather than remote-theme task."
+    },
+    {
+      "id": "installation-4",
+      "status": "pass",
+      "evidence": "Correct gem dependency/theme setting/include-cache, removal of remote theme, constrained bundle update and override/release caveats."
+    },
+    {
+      "id": "installation-5",
+      "status": "pass",
+      "evidence": "Correct unpinned main versus @v2.1.0, valid config example and unpublished caveat; asks to publish and verify."
+    },
+    {
+      "id": "installation-6",
+      "status": "partial",
+      "evidence": "Correct local override precedence and hooks; opening says overwrite depends, and omits manual merging of upstream head changes during upgrades."
+    },
+    {
+      "id": "configuration-1",
+      "status": "pass",
+      "evidence": "Spanish answer, correct origin url and /blog baseurl, valid sibling YAML and restart."
+    },
+    {
+      "id": "configuration-2",
+      "status": "pass",
+      "evidence": "Distinguishes HTML locale from full UI translation and gives complete date formatting plus datetranslate language example; supported-language/fallback statement correct."
+    },
+    {
+      "id": "configuration-3",
+      "status": "pass",
+      "evidence": "Correct Person type, name/url/image, ignores logo, independent guest authors, valid YAML and JSON-LD verification."
+    },
+    {
+      "id": "configuration-4",
+      "status": "pass",
+      "evidence": "Correct GA4 gtag_id versus retired analytics_id, independent snippets, local-preview behavior and Realtime verification."
+    },
+    {
+      "id": "configuration-5",
+      "status": "pass",
+      "evidence": "Correct fa_kit_code and legacy fa5_kit_code precedence/removal; valid config example and verification."
+    },
+    {
+      "id": "configuration-6",
+      "status": "pass",
+      "evidence": "Valid dual navbar with expand lg and a single child submenu, correct config location and nesting."
+    },
+    {
+      "id": "search-comments-1",
+      "status": "pass",
+      "evidence": "Explains provider does not create the page; complete search layout/permalink example matches landing_page."
+    },
+    {
+      "id": "search-comments-2",
+      "status": "pass",
+      "evidence": "Correct local exclusion versus Algolia ranking, and algolia.files_to_exclude remedy."
+    },
+    {
+      "id": "search-comments-3",
+      "status": "partial",
+      "evidence": "Protects indexing secret and gives correct sibling search/algolia YAML. Prose first says search_only_api_key is sibling to search, conflicting with the correct nested code example."
+    },
+    {
+      "id": "search-comments-4",
+      "status": "partial",
+      "evidence": "Correct show_attrib false and legacy precedence; does not explicitly advise replacing/removing lunr_maxwords so search.maxwords can apply, and omits separate Algolia logo behavior."
+    }
+  ],
+  "source_commit": "worktree-981dd71ee196",
+  "source_kind": "Deployed source/build snapshot committed in 5c1b3ae6f; newer local inventory-routing change not deployed",
+  "totals": {
+    "pass": 12,
+    "partial": 8,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 20
+  },
+  "limits": "Manual factual/task review against catalog expectations, local canonical documentation/context and relevant implementation. No human usability or consistency evidence. Source URL identity was checked by the Worker; live availability and every external provider were not revalidated. No retries or runtime changes during these 20 requests."
+}

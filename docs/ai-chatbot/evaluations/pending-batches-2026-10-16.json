@@ -2,8 +2,8 @@
   "candidate_state": "deployed_reviewed",
   "candidate_source": "worktree-981dd71ee196",
   "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
-  "latest_candidate_review": "precommit-worktree-981dd71ee196-review.json",
-  "candidate_remaining_count": 148,
+  "latest_candidate_review": "combined-worktree-981dd71ee196-review.json",
+  "candidate_remaining_count": 128,
   "candidate_unavailable_count": 0,
   "candidate_pending_review": [],
   "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
@@ -48,140 +48,160 @@
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "config-author-profile-1",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-label-headings-1",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "layouts-microformats-1",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "installation-1",
       "doc": "01_install.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "installation-2",
       "doc": "01_install.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "installation-3",
       "doc": "01_install.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "installation-4",
       "doc": "01_install.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "installation-5",
       "doc": "01_install.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "installation-6",
       "doc": "01_install.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "configuration-1",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "configuration-2",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "configuration-3",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "configuration-4",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "configuration-5",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "configuration-6",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-comments-1",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-comments-2",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-comments-3",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-comments-4",
       "doc": "02_config.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "search-comments-5",
@@ -1125,9 +1145,9 @@
         "layouts-microformats-1",
         "installation-1"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-regression-02-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-02-worktree-981dd71ee196 config-author-profile-1,layouts-label-headings-1,layouts-microformats-1,installation-1"
+      "command": null
     },
     {
       "name": "candidate-regression-03",
@@ -1137,9 +1157,9 @@
         "configuration-3",
         "search-comments-2"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-regression-03-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-03-worktree-981dd71ee196 installation-2,installation-3,configuration-3,search-comments-2"
+      "command": null
     },
     {
       "name": "candidate-regression-04",
@@ -1149,9 +1169,9 @@
         "search-comments-5",
         "search-comments-6"
       ],
-      "status": "not_run",
+      "status": "needs_request",
       "run_name": "candidate-regression-04-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-04-worktree-981dd71ee196 search-comments-3,search-comments-4,search-comments-5,search-comments-6"
+      "command": "node evaluate-live.mjs candidate-regression-04-worktree-981dd71ee196 search-comments-5,search-comments-6"
     },
     {
       "name": "candidate-regression-05",
@@ -1535,9 +1555,9 @@
         "layouts-label-headings-1",
         "layouts-microformats-1"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-02-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-02-worktree-981dd71ee196 layouts-microformats-feed-1,config-author-profile-1,layouts-label-headings-1,layouts-microformats-1"
+      "command": null
     },
     {
       "name": "candidate-complete-03",
@@ -1547,9 +1567,9 @@
         "installation-3",
         "installation-4"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-03-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-03-worktree-981dd71ee196 installation-1,installation-2,installation-3,installation-4"
+      "command": null
     },
     {
       "name": "candidate-complete-04",
@@ -1559,9 +1579,9 @@
         "configuration-1",
         "configuration-2"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-04-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-04-worktree-981dd71ee196 installation-5,installation-6,configuration-1,configuration-2"
+      "command": null
     },
     {
       "name": "candidate-complete-05",
@@ -1571,9 +1591,9 @@
         "configuration-5",
         "configuration-6"
       ],
-      "status": "not_run",
+      "status": "reviewed_pass",
       "run_name": "candidate-complete-05-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-05-worktree-981dd71ee196 configuration-3,configuration-4,configuration-5,configuration-6"
+      "command": null
     },
     {
       "name": "candidate-complete-06",
@@ -1583,9 +1603,9 @@
         "search-comments-3",
         "search-comments-4"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-06-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-06-worktree-981dd71ee196 search-comments-1,search-comments-2,search-comments-3,search-comments-4"
+      "command": null
     },
     {
       "name": "candidate-complete-07",

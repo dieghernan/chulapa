@@ -3,5 +3,5 @@
   "source_kind": "uncommitted runtime snapshot; identifier derived from source/build SHA-256 hashes",
   "base_commit": "15a9ac182d3c8be025554e967c86897d616de2b7",
   "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
-  "review_path": "precommit-worktree-981dd71ee196-review.json"
+  "review_path": "combined-worktree-981dd71ee196-review.json"
 }

@@ -88,7 +88,11 @@ export function selectContext(context, question) {
   const frequency = new Map(words.map(word => [word, sectionWords.filter(tokens => tokens.has(word)).length]));
   const providers = ['giscus', 'disqus', 'cactus', 'welcomments', 'cusdis'];
   const namedProviders = providers.filter(name => question.toLowerCase().includes(name));
-  const comparesProviders = namedProviders.length > 1 ||
+  const inventoriesProviders = namedProviders.length === 0 &&
+    /comments?|commenting|comentarios?/i.test(question) &&
+    /providers|services|systems|proveedores|servicios|sistemas/i.test(question) &&
+    /what|which|list|supported|available|choices|options|can.*use|qu[eé]|cu[aá]les|lista|disponib|soport|opciones/i.test(question);
+  const comparesProviders = inventoriesProviders || namedProviders.length > 1 ||
     (/alternativ|compar|versus|\bvs\b|differ|diferenc|instead|en lugar/i.test(question) &&
       (namedProviders.length > 0 || /comments?|comentarios?|providers?|proveedores?/i.test(question)));
   if (comparesProviders) {
