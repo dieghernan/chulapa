@@ -1,3 +1,4 @@
+{%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
 {%- assign thispageurl = include.pageurl | replace: ".html", ""  -%}
 {%- assign colnav = site.navbar.expand | default: "md" -%}
 {%- if colnav == "always" -%}
@@ -55,7 +56,7 @@
 					{{- site.search.label | default: 'Search' -}}</a>
 				</li>
 				{%- endif -%}
-			{% if site.chulapa-skin-dark %}{% include components/theme-selector.html selector_id='floating' %}{% endif %}
+			{% if dark_skin_enabled %}{% include components/theme-selector.html selector_id='floating' %}{% endif %}
 			</ul>
 		</nav>
 	</div>
@@ -105,7 +106,7 @@
 					{{- site.search.label | default: 'Search' -}}</a>
 				</li>
 				{%- endif -%}
-			{% if site.chulapa-skin-dark %}{% include components/theme-selector.html selector_id='dual-floating' %}{% endif %}
+			{% if dark_skin_enabled %}{% include components/theme-selector.html selector_id='dual-floating' %}{% endif %}
 			</ul>
 		</nav>
 	</div>
@@ -116,7 +117,7 @@
 			{%- if site.navbar.brand.img -%}
 				<img src="{{ site.navbar.brand.img | absolute_url }}" width="30" height="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">
 			{%- endif -%}{{- site.navbar.brand.title -}}</a>
-			{%- if site.navbar.nav or site.chulapa-skin-dark -%}
+			{%- if site.navbar.nav or dark_skin_enabled -%}
 				<ul class="navbar-nav ml-auto">
 				{%- for item in site.navbar.nav -%}
 					{%- if item.child[0] -%}
@@ -148,7 +149,7 @@
 						</a>
 					</li>
 			{%- endif -%}
-			{% if site.chulapa-skin-dark %}{% include components/theme-selector.html selector_id='dual-desktop' %}{% endif %}
+			{% if dark_skin_enabled %}{% include components/theme-selector.html selector_id='dual-desktop' %}{% endif %}
 			</ul>
 		{%- endif -%}
 	</div>

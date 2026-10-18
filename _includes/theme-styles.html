@@ -1,4 +1,5 @@
-{% if site.chulapa-skin-dark %}
+{%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
+{% if dark_skin_enabled %}
     <script>
     (function () {
       'use strict';
@@ -18,6 +19,34 @@
       root.dataset.theme = theme;
       root.dataset.themeMode = mode;
       root.style.colorScheme = theme;
+      /* Recover initial dark CSS failures without discarding the saved choice. */
+      if (theme === 'dark') {
+        var initialPending = ['maincss', 'csshigh'];
+        function stopInitialListeners() {
+          document.removeEventListener('error', initialFailed, true);
+          document.removeEventListener('load', initialLoaded, true);
+        }
+        function initialFailed(event) {
+          if (initialPending.indexOf(event.target.id) === -1) return;
+          stopInitialListeners();
+          ++request;
+          ['maincss', 'csshigh'].forEach(function (id, index) {
+            var link = document.getElementById(id);
+            if (link) link.href = paths.light[index];
+          });
+          root.dataset.theme = 'light';
+          root.style.colorScheme = 'light';
+          controls();
+        }
+        function initialLoaded(event) {
+          var index = initialPending.indexOf(event.target.id);
+          if (index === -1) return;
+          initialPending.splice(index, 1);
+          if (!initialPending.length) stopInitialListeners();
+        }
+        document.addEventListener('error', initialFailed, true);
+        document.addEventListener('load', initialLoaded, true);
+      }
       /* Parser-inserted stylesheets block the first paint with the selected skin. */
       ['maincss', 'csshigh'].forEach(function (id, index) {
         document.write('<link rel="stylesheet" id="' + id + '" href="' + paths[theme][index] + '">');
@@ -66,9 +95,6 @@
           discard();
           if (currentRequest === request) {
             ++request;
-            mode = root.dataset.theme;
-            root.dataset.themeMode = mode;
-            try { localStorage.setItem(key, mode); } catch (error) {}
             controls();
           }
         }

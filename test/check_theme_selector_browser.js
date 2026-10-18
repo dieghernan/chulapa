@@ -14,10 +14,12 @@ async function main() {
   const browser = await chromium.launch({headless: true,
     ...(process.env.CHULAPA_BROWSER_EXECUTABLE ? {executablePath: process.env.CHULAPA_BROWSER_EXECUTABLE} : {})});
   try {
-    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled']) {
+    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank']) {
       const context = await browser.newContext({reducedMotion: 'reduce', colorScheme: 'light'});
       await context.addInitScript(() => {
         window.__themeReads = 0;
+        window.__schemeChanges = 0;
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => window.__schemeChanges++);
         const original = Storage.prototype.getItem;
         Storage.prototype.getItem = function (key) {
           if (key === 'chulapa-theme') window.__themeReads++;
@@ -33,7 +35,7 @@ async function main() {
         if (dependencies.has(url.href)) return route.fulfill({path: dependencies.get(url.href), contentType: 'application/javascript', headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === `${name}.localhost`) {
           requests.push(url.pathname);
-          if (failDark && url.pathname.endsWith('/dark/main.css')) return route.fulfill({status: 404, body: 'Missing CSS'});
+          if (failDark && url.pathname.endsWith(failDark === 'highlighter' ? '/highlighterdark.css' : '/dark/main.css')) return route.fulfill({status: 404, body: 'Missing CSS'});
           const filename = path.join(directory, name, url.pathname);
           return fs.existsSync(filename) && fs.statSync(filename).isFile()
             ? route.fulfill({path: filename}) : route.fulfill({status: 404, body: 'Missing'});
@@ -46,7 +48,7 @@ async function main() {
       await page.goto(`${base}/article.html`);
       const bodyColor = () => page.locator('body').evaluate(node => getComputedStyle(node).backgroundColor);
       const light = await bodyColor();
-      if (name === 'disabled') {
+      if (name === 'disabled' || name === 'blank') {
         assert.equal(await page.evaluate(() => typeof window.chulapaSetThemeMode), 'undefined');
         assert.equal(await page.evaluate(() => window.__themeReads), 0);
         assert.equal(await page.locator('.chulapa-theme-selector').count(), 0);
@@ -145,10 +147,43 @@ async function main() {
       await waitTheme('light');
       failDark = true;
       await choose('dark');
-      await page.waitForFunction(() => document.documentElement.dataset.themeMode === 'light');
+      await page.waitForFunction(() => !document.querySelector('link[media="not all"]'));
+      assert.equal(await page.evaluate(() => document.documentElement.dataset.themeMode), 'dark');
       assert.equal(await bodyColor(), light);
       failDark = false;
       if (name === 'classic-links') {
+        // Failed system-driven switches preserve Auto and recover on later changes.
+        await page.evaluate(() => window.chulapaSetThemeMode('auto'));
+        failDark = true;
+        const automaticFailure = page.waitForResponse(response => response.url().endsWith('/dark/main.css') && response.status() === 404);
+        await page.emulateMedia({colorScheme: 'dark'});
+        await automaticFailure;
+        await page.waitForFunction(() => !document.querySelector('link[media="not all"]') && document.documentElement.dataset.themeMode === 'auto');
+        assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), 'auto');
+        assert.equal(await bodyColor(), light);
+        failDark = false;
+        const changes = await page.evaluate(() => window.__schemeChanges);
+        await page.emulateMedia({colorScheme: 'light'});
+        await page.waitForFunction(count => window.__schemeChanges > count, changes);
+        await page.emulateMedia({colorScheme: 'dark'});
+        await waitTheme('dark');
+        // Either initially missing dark sheet falls back to the complete light pair.
+        for (const file of ['main', 'highlighter']) {
+          for (const preference of ['dark', 'auto']) {
+            await page.evaluate(value => localStorage.setItem('chulapa-theme', value), preference);
+            failDark = file;
+            await page.reload();
+            await waitTheme('light');
+            await page.waitForFunction(() => document.getElementById('maincss').href.endsWith('/assets/css/main.css') && document.getElementById('csshigh').href.endsWith('/assets/css/highlighter.css'));
+            assert.equal(await bodyColor(), light);
+            assert.equal(await page.evaluate(() => document.documentElement.dataset.themeMode), preference);
+            assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), preference);
+            failDark = false;
+            await page.reload();
+            await waitTheme('dark');
+          }
+        }
+        await page.emulateMedia({colorScheme: 'light'});
         // Custom controls share validation, persistence and the already initialized mode.
         await page.evaluate(() => window.chulapaSetThemeMode('dark'));
         await waitTheme('dark');
@@ -182,7 +217,8 @@ async function main() {
           window.chulapaSetThemeMode('light');
           document.getElementById('csshigh').remove();
         });
-        await page.waitForFunction(() => document.documentElement.dataset.themeMode === 'dark');
+        await page.waitForFunction(() => !document.querySelector('link[media="not all"]'));
+        assert.equal(await page.evaluate(() => document.documentElement.dataset.themeMode), 'light');
         assert.equal(await page.locator('#maincss').getAttribute('href'), '/project/assets/css/dark/main.css');
         await page.unroute('**/assets/css/main.css');
         await page.reload();

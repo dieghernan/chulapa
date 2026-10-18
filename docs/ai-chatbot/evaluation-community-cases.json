@@ -39,6 +39,6 @@
     "section": "community",
     "doc": "https://github.com/dieghernan/chulapa/issues/165",
     "question": "How can I add the Light, Dark and Auto dropdown to my Chulapa site? Does it work with the v2.1.0 gem and floating navigation?",
-    "expected": "2.2.0 unreleased/main only, not v2.1.0. Preserve existing chulapa-skin and add independent chulapa-skin-dark mapping with skin gitdev-dark and highlight github.dark. Works classic/fab/dual. Default Light, Auto tracks system; browser remembers choice when storage available; no JS uses Light. Shared vars need copying, custom CSS/widgets may need adjustment. Cite choose-skin guide. Omitted dark highlight inherits chulapa-skin.highlight, then default; other fields remain independent."
+    "expected": "2.2.0 unreleased/main only, not v2.1.0. Preserve existing chulapa-skin and add independent chulapa-skin-dark mapping with skin gitdev-dark and highlight github.dark. Works classic/fab/dual. Default Light, Auto tracks system; browser remembers choice when storage available; no JS uses Light. Shared vars need copying, custom CSS/widgets may need adjustment. Cite choose-skin guide. Omitted dark highlight inherits chulapa-skin.highlight, then default; other fields remain independent. Blank dark fields disable switching. Initial dark CSS failures restore Light; later failures retain current appearance and preserve the requested mode, including Auto."
   }
 ]

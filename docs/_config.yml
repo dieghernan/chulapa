@@ -183,10 +183,12 @@ chulapa-skin:
   skin: navi
   autothemer: true
 
-# Optional selector demo, available in the unreleased 2.2.0 theme.
+# Optional second skin (2.2.0, unreleased). Leave blank to disable.
 chulapa-skin-dark:
-  skin: gitdev-dark
-  highlight: github.dark
+  skin:
+  highlight:
+  autothemer:
+  vars:
 
 # D. Jekyll defaults and collections
 # These collections and defaults configure the documentation and demo site.

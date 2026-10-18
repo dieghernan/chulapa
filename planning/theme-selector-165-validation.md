@@ -41,7 +41,7 @@ to the documentation's skin preview entrypoints, which contain Jekyll front matt
 ## Documentation, accessibility, SEO and PWA
 
 Updated the skin task, theming reference, README, commented config example,
-docs-site demo, development changelog and draft release notes. Updated llms.txt,
+blank optional configuration fields in both sites, development changelog and draft release notes. Updated llms.txt,
 the selective chatbot context and community evaluation case. The reviewed context
 library budget increases from 53,000 to 54,000 bytes for the new setting and its
 constraints; the per-request selected-context limit remains 18,000 bytes.
@@ -57,6 +57,31 @@ The API is absent on disabled sites. The expanded browser suite and all 80
 chatbot tests passed locally. API details remain in implementation code and this
 validation note; public guides and chatbot context focus on configuring and
 using the selector. Existing llms.txt links already point to these guides.
+
+## PR review corrections
+
+- Initial failures of either dark stylesheet now restore the complete light
+  pair without changing the saved mode. Browser tests cover each file with
+  saved Dark and Auto-dark preferences, then retry successfully on reload.
+- Interactive failures retain the requested mode, especially Auto, rather than
+  rewriting storage. A system-driven dark failure followed by later light/dark
+  changes recovers without user intervention.
+- Both configuration files contain blank optional fields. No mode is configured
+  for the docs deployment, which avoids conflicts with skin preview overrides.
+  Blank mappings use the disabled path, including no selector includes, scripts,
+  selector CSS, API or alternate stylesheet requests. This is covered by compiled
+  fixtures and browser checks alongside the absent-mapping case.
+
+Expanded browser checks, highlighter fallback checks, classic-navbar parity,
+head formatting and all 80 chatbot tests passed locally. The source guidance
+and selective context now describe blank settings and preserved choices after
+loading failures. Existing llms.txt links remain applicable; the chatbot context
+has not been deployed.
+
+The rebuilt gem and full documentation installation check also passed with the
+docs selector disabled. A separate HTML-semantics rerun hit Windows `Errno::EINVAL`
+while rewriting temporary fixture files on two attempts; this is not recorded as
+a pass for this revision. The existing Linux PR matrix runs that check as well.
 
 Controls use native named buttons, a named group, pressed states and existing
 Bootstrap keyboard behavior. Floating navigation retains its existing Escape

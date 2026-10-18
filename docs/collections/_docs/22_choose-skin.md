@@ -72,10 +72,14 @@ pages and tabs. If browser storage is blocked, switching
 still works on the current page but the preference cannot be remembered.
 
 Without JavaScript, the site uses `chulapa-skin` and hides the selector. Remove
-`chulapa-skin-dark` to disable switching. No additional scripts or styles are
-loaded when switching is disabled. Existing custom CSS still overrides
+`chulapa-skin-dark`, or leave all its fields blank, to disable switching.
+No additional scripts or styles are loaded when switching is disabled. Existing custom CSS still overrides
 both skins; check fixed colors, images, diagrams and embedded comments in both
 modes. External widgets do not automatically follow the selector.
+
+If a skin fails to load, the previous appearance stays available, or Light when
+opening a page. Your choice is still remembered. Auto continues to follow device
+changes, and opening another page retries your chosen appearance.
 
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should

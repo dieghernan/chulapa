@@ -8,7 +8,7 @@ root = File.expand_path('..', __dir__)
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, 'chulapa-theme-selector')))
 FileUtils.mkdir_p(output)
 fixtures = %w[classic fab dual].product([true, false]).map { |style, links| ["#{style}-#{links ? 'links' : 'empty'}", style, links, true] }
-fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false]]
+fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false], ['blank', 'classic', true, false]]
 fixtures.each do |name, style, links, enabled|
   Dir.mktmpdir('chulapa-theme-source-') do |source|
     %w[_includes _layouts _sass assets].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
@@ -23,6 +23,7 @@ fixtures.each do |name, style, links, enabled|
       'navbar' => {'style' => style, 'brand' => {'title' => 'Home'},
         'nav' => links ? [{'title' => 'Article', 'url' => '/article.html'}] : nil}}
     config['chulapa-skin-dark'] = {'skin' => 'gitdev-dark', 'highlight' => 'github.dark', 'vars' => {'font-size-base' => '1.1rem'}} if enabled
+    config['chulapa-skin-dark'] = {'skin' => nil, 'highlight' => nil, 'autothemer' => nil, 'vars' => nil} if name == 'blank'
     Jekyll::Site.new(Jekyll.configuration(config)).process
     html = File.read(File.join(config['destination'], 'article.html'))
     doc = Nokogiri::HTML(html)

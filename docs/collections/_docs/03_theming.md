@@ -36,7 +36,8 @@ In **2.2.0 (unreleased)**, a separate `chulapa-skin-dark` mapping enables a
 Light/Dark/Auto dropdown in all navigation styles. It accepts the same `skin`,
 `highlight`, `vars` and `autothemer` fields. An omitted dark `highlight` inherits
 `chulapa-skin.highlight`, falling back to `default` if neither is set. Other
-settings have independent defaults. Without this mapping, switching is disabled.
+settings have independent defaults. Without this mapping, or when all its fields
+are blank, switching is disabled.
 Light is the initial default and Auto follows the device preference. The browser
 remembers the visitor's choice. Without JavaScript, the first skin remains
 available. See [setup and checks](./22-choose-skin#let-visitors-switch-between-light-and-dark).
