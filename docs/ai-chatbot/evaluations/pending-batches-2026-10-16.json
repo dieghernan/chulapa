@@ -3,8 +3,8 @@
   "candidate_source": "worktree-981dd71ee196",
   "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
   "latest_candidate_review": "combined-worktree-981dd71ee196-review.json",
-  "candidate_remaining_count": 113,
-  "candidate_unavailable_count": 0,
+  "candidate_remaining_count": 106,
+  "candidate_unavailable_count": 1,
   "candidate_pending_review": [],
   "note": "Commands are plans only, not authorization or executed checks. No completed record does not prove a request was never initiated before interruption. Do not resume by appending a whole catalog to an existing raw log.",
   "catalog_count": 155,
@@ -328,56 +328,64 @@
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "snippets-3",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "snippets-4",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "snippets-5",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "snippets-6",
       "doc": "04_layouts.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "faq-1",
       "doc": "05_faq.md",
       "baseline": "answer_received",
       "baseline_review": "partial",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_partial",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "faq-2",
       "doc": "05_faq.md",
       "baseline": "answer_received",
       "baseline_review": "fail",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_pass",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "faq-3",
       "doc": "05_faq.md",
       "baseline": "answer_received",
       "baseline_review": "pass",
-      "candidate_live": "not_run"
+      "candidate_live": "reviewed_unavailable",
+      "candidate_source": "worktree-981dd71ee196"
     },
     {
       "id": "faq-4",
@@ -1220,9 +1228,9 @@
         "faq-1",
         "faq-2"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-regression-07-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-regression-07-worktree-981dd71ee196 snippets-4,snippets-6,faq-1,faq-2"
+      "command": null
     },
     {
       "name": "candidate-regression-08",
@@ -1666,9 +1674,9 @@
         "snippets-1",
         "snippets-2"
       ],
-      "status": "needs_request",
+      "status": "needs_review",
       "run_name": "candidate-complete-10-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-10-worktree-981dd71ee196 snippets-2"
+      "command": null
     },
     {
       "name": "candidate-complete-11",
@@ -1678,9 +1686,9 @@
         "snippets-5",
         "snippets-6"
       ],
-      "status": "not_run",
+      "status": "needs_review",
       "run_name": "candidate-complete-11-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-11-worktree-981dd71ee196 snippets-3,snippets-4,snippets-5,snippets-6"
+      "command": null
     },
     {
       "name": "candidate-complete-12",
@@ -1690,9 +1698,9 @@
         "faq-3",
         "faq-4"
       ],
-      "status": "not_run",
+      "status": "needs_request",
       "run_name": "candidate-complete-12-worktree-981dd71ee196",
-      "command": "node evaluate-live.mjs candidate-complete-12-worktree-981dd71ee196 faq-1,faq-2,faq-3,faq-4"
+      "command": "node evaluate-live.mjs candidate-complete-12-worktree-981dd71ee196 faq-3,faq-4"
     },
     {
       "name": "candidate-complete-13",

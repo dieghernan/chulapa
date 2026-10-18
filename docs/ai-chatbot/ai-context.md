@@ -1,8 +1,8 @@
 # Chulapa documentation context
 
-2.2.0 is unpublished; v2.1.1-dev labels mean its planned features, not a release. Latest published: v2.1.0.
+2.2.0 unpublished; v2.1.1-dev labels denote planned features. Latest release: v2.1.0.
 
-Reviewed 16 October 2026. Selected docs/llms.txt; acknowledge gaps. Preserve config; commit publishing branch; wait for Actions; check Pages live site. Restart Jekyll after config edits. Copy URLs exactly; no fetching pages. Dev means main after v2.1.0, not gem/pin.
+Reviewed 18 October 2026. Selected docs/llms.txt; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart after config edits. Copy URLs; no fetching. Dev=main after v2.1.0, not gem/pin.
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
 Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other Jekyll hosts. Search, SEO, multi-author, code highlighting, MathJax, galleries, comments.
@@ -14,12 +14,12 @@ Methods: https://dieghernan.github.io/chulapa/docs/01-install
 3. index.html: change ONLY home title, keep filename/content.
 4. Edit an EXISTING _posts/ sample: change title/body, keep filename/front matter. NOT a new post.
 5. Commit main/master; wait for Actions. Settings > Pages website: verify home title AND open edited article, verify title/body.
-Replace other samples/photo/alt/credit/About contacts before sharing.
-Chulapa 101: one blog, not four profiles; gitdev, three posts, credited local photo, About, year/category/tag archives, Fuse.js, RSS. Root: index.html (keep for jekyll-paginate, five posts/page), _posts/, _pages/, assets/img/. Fuse indexes posts/About, not home/archives/search/404. Navbar/footer: _config.yml.
-Starter config: commented/empty full-sample fields, blog defaults/collections. _includes/custom/: comment-only custom_head_before_css.html, custom_head.html, custom_bottomscripts.html, giscus.html; no skin change. assets/css/custom.scss has YAML front matter. Giscus needs provider/show_comments.
+Replace samples/photo/alt/credit/About contacts before sharing.
+Chulapa 101: one gitdev blog, three posts, credited photo, About, year/category/tag archives, Fuse.js/RSS. Keep index.html for pagination (5/page); _posts/, _pages/, assets/img/. Fuse indexes posts/About only. Navbar/footer: _config.yml.
+Starter: commented/empty sample fields, blog defaults/collections. _includes/custom/: comment-only custom_head_before_css.html, custom_head.html, custom_bottomscripts.html, giscus.html; skin unchanged. assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
-Partial Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. Syntax/variable references; FAQ/tutorials keep direct routes. Comment providers are alternatives; GA4/GoatCounter and distinct feed URLs can coexist. Badges link here; up to three cards suggest optional reading. All docs: https://dieghernan.github.io/chulapa/docs. Blog tags separate.
+Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. References/FAQ/tutorials retain direct routes. Providers are alternatives; analytics/distinct feed URLs can coexist. Badges link here; up to three optional cards. Blog tags separate.
 ## Variables dictionary
 Source: https://dieghernan.github.io/chulapa/docs/variable-dictionary
 Site Sass variables go under chulapa-skin.vars in _config.yml, not page front matter. Names omit $ and ;. Example:
@@ -48,7 +48,7 @@ Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll i
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
 Source: https://dieghernan.github.io/chulapa/docs/46-migration-fields
-Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.1.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local layouts/includes/assets that override theme files; retain useful customizations, prefer hooks over copied layouts.
+Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.1.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
 Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
 Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
 ## Basic editing and publishing
@@ -104,7 +104,7 @@ url is origin (https://username.github.io); baseurl is /repository or "" for roo
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
 Since v2.1.0: publisher.type Person or Organization (default/fallback); name/url identify it. Organization uses logo; Person uses image, ignores logo. Paths use url/baseurl. Article authors unchanged. Verify publisher in the published application/ld+json publisher object, NOT the visible header/footer.
-Font Awesome defaults to 6; fa_version: 5 selects 5; fa_v4_support: true enables v4 compatibility. fa_kit_code uses a kit instead of hosted stylesheet. Legacy fa5_kit_code takes precedence: remove it when migrating.
+Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4. fa_kit_code replaces hosted CSS with kit. Legacy fa5_kit_code wins: remove on migration.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
 Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
@@ -125,7 +125,7 @@ _config.yml, existing chulapa-skin mapping: replace only:
 ```yaml
 skin: journal
 ```
-Keep vars, highlight and other settings; do not add sample overrides or duplicate mappings. Quote hex colors when editing vars. Commit publishing branch (not necessarily main/master); wait for Actions. Check home/article/menu, mobile and contrast. Restart Jekyll after config edits. Preview does not save settings.
+Keep vars, highlight and other settings; no sample overrides or duplicate mappings. Quote hex. Publish via configured branch/Actions; check home/article/menu, mobile/contrast. Restart after config edits. Preview does not save.
 ## Changing fonts and highlighting
 Source: https://dieghernan.github.io/chulapa/docs/24-change-fonts
 Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
@@ -135,13 +135,13 @@ chulapa-skin.highlight: zenburn changes code appearance, not article typography.
 Source: https://dieghernan.github.io/chulapa/docs/26-appearance-precedence
 Source: https://dieghernan.github.io/chulapa/docs/27-autothemer
 Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
-Order: skin, vars, autothemer, Bootstrap, theme components. vars overrides skin assignments; Autothemer fills undefined colors from primary, retaining explicit colors. chulapa-skin.autothemer: true enables the later step; none skin avoids predefined assignments, named skins retain them. false/omission disables only later step; skin: auto independently imports generator.
-Custom CSS: assets/css/custom.scss with empty YAML front matter, loaded after theme; specificity still matters. Local matching files override theme and need upgrade review.
-Custom skin: _sass/skins/NAME.scss contains SCSS, e.g. $primary: #285d70 !default;. Set skin: NAME in _config.yml, never YAML in Sass. Use !default for customizable variables, no second Bootstrap import. Codeply previews SCSS above existing imports; translate to vars without $/semicolon, quote hex. Keep Bootstrap/grid imports in the Codeply sandbox ONLY. A site skin file must NOT import Bootstrap/grid; the theme does it. INDEX/CLASSICNAVBARDEMO panels and Autothemer CSS markers are supplied; Sunset palette/font example does not reproduce all skin CSS.
+Order: skin, vars, autothemer, Bootstrap, theme components. vars overrides skin assignments; Autothemer fills undefined colors from primary, retaining explicit colors. autothemer: true belongs directly under chulapa-skin, beside vars (NOT inside vars); primary belongs inside vars. This enables the later step; none skin avoids predefined assignments, named skins retain them. false/omission disables only later step; skin: auto independently imports generator.
+Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
+Skin: _sass/skins/NAME.scss is SCSS, e.g. $primary: #285d70 !default;. Set skin: NAME in _config.yml; no YAML in Sass. Use !default for customizable variables, no second Bootstrap import. Codeply previews SCSS above existing imports; translate to vars without $/semicolon, quote hex. Keep Bootstrap/grid imports in the Codeply sandbox ONLY. A site skin file must NOT import Bootstrap/grid; the theme does it. INDEX/CLASSICNAVBARDEMO panels and Autothemer markers supplied; Sunset palette/font is not full skin CSS.
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
 Named skins: academia, butterfly, butterfly-dark, butterfly-dim, chulapa, cyborg, dark-bg, darkly, deeply, electro, flatly, focal, gitdev, gitdev-dark, graymor, hootstrap, journal, listen, lux, lymcha, materia, media, mickie, minco, minty, monotone, navi, pear, preptor, skeeblu, sketchy, slate, solar, sunset, towards, twitter, twitter-dim, twitter-lights-out, united, universal, wandoo, yeti.
-For availability give actual names and catalog link, not just count/setup. Short answers may give named examples explicitly labelled as examples, not complete list. Use a real name such as navi in YAML. Special auto/none are not named visual skins; current preview is not a skin named current.
+Availability: give actual examples and catalog link; full list only on request. Use real YAML names. auto/none are special; current is not a skin.
 ## Layouts
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 default is for posts/pages/collection documents, via front matter or Jekyll defaults. Markdown content uses YAML front matter. Optional components use front matter/defaults; demos show output.
@@ -158,8 +158,14 @@ Source: https://dieghernan.github.io/chulapa/docs/30-add-carousel
 Source: https://dieghernan.github.io/chulapa/docs/29-add-gallery
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#masonry-gallery
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#bootstrap-carousel
-Masonry uses include_cached snippets/masonry.html; internal image directory needs defaults image_col: gallery:
-{% include_cached snippets/masonry.html internal="gallery" %}
+Upload images to assets/img/gallery/. Append to existing _config.yml defaults (do not replace other entries):
+```yaml
+- scope:
+    path: "assets/img/gallery"
+  values:
+    image_col: gallery
+```
+In article content: {% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true random=false %}. Group must match image_col; publish and check images/order.
 External source: assign comma-separated URLs to Liquid variable, pass external=that_variable. Internal wins if both supplied. Options: index_sort (internal only; modified_time default), index_sort_asc, index_items (100), random. Boolean random=true shuffles at build time and overrides sort; false disables, quoted "false" is truthy. Filename order: index_sort="basename" index_sort_asc=true random=false. Selected index_sort fields in galleries/carousels are fixed only on main after v2.1.0; the released v2.1.0 does not correctly apply the field. Filename-order and native-button/keyboard-indicator recipes require these dev fixes.
 Carousel uses snippets/carousel.html, same sources/order options, plus interval (5000 ms), controls/indicators (false). Example:
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 controls=true indicators=true %}
@@ -173,7 +179,7 @@ Per-gallery Liquid boolean photoswipe=true (default disabled); no page YAML/plug
 Internal/external sources and isolated sequences. Cached variants remain separate. Works with default/minimal/landingpage; search does not render gallery content. PhotoSwipe 5.4.4 CSS/JS from jsDelivr on first opening; browser discovers dimensions and loads offscreen images on demand. Touch/zoom/arrows/Escape, focus trap/restoration, reduced motion; carousel pauses while open. Without JS/assets, original image links work. Not in v2.1.0.
 ## Mathematical notation and tables of contents
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
-mathjax: true works in default, minimal and landingpage via the shared head. Only author panels/TOCs are absent from minimal; do not apply that limit to MathJax. show_toc: true adds in-page TOC; show_sidetoc: true adds sliding sidebar. h_min/h_max default 2/4. Only ID-bearing headings appear; Markdown gets generated IDs, HTML needs supplied IDs. default supports panels/TOCs; minimal does not add them.
+mathjax: true works in default, minimal and landingpage via the shared head. Only author panels/TOCs are absent from minimal; do not apply that limit to MathJax. Page front matter: show_toc: true adds in-page TOC; show_sidetoc: true adds sidebar. For sidebar h2–h5 set show_sidetoc: true, h_min: 2, h_max: 5 in page front matter, NOT config root. Defaults 2/4. kramdown.toc_levels does not control theme TOCs. Only headings with IDs appear: Markdown generates IDs; HTML needs explicit IDs. default supports panels/TOCs; minimal does not add them.
 Dev after v2.1.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria-current="location"; only included/rendered headings (skip hidden/closed). No new YAML or focus/Tab changes; anchors work without JS.
 ## More layouts and content navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
@@ -231,18 +237,9 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
 https://dieghernan.github.io/chulapa/docs/10-edit-menu
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#footer
 https://dieghernan.github.io/chulapa/docs/11-edit-footer
-navbar.nav entries: title/url, or title/child list of title/url; only one submenu level, use child not child_list. Omitted navbar.style=classic; fab=floating; dual=floating/classic breakpoint. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. brand: title,img,url.
-```yaml
-navbar:
-  style: dual
-  expand: lg
-  nav:
-    - title: Docs
-      child:
-        - title: Installation
-          url: /docs/01-install
-```
-footer.links: label, icon (Font Awesome), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
+navbar.nav: title/url or title/child list of title/url; one submenu level, child not child_list. Omitted navbar.style=classic; fab=floating; dual=floating/classic breakpoint. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. brand: title,img,url.
+
+footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
 robots: "noindex, follow" controls crawlers, not privacy/robots.txt/sitemap. og_image social image; header_img visible header; schema_image post JSON-LD image.
@@ -260,7 +257,7 @@ schema_image: URL/list for post BlogPosting, fallback page og_image then header_
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
 Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
-Alerts work in v2.1.0 and main: blank line, paragraph, next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Caption: image, BLANK LINE, separate caption paragraph then {: .caption} on its next line; never merge the image and caption paragraphs.
+No snippets/alert.html exists; do NOT include one. Alerts use Markdown attributes in v2.1.0 and main: blank line, paragraph, next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Caption: image, BLANK LINE, caption paragraph then {: .caption}; keep image/caption separate.
 ```liquid
 ![River]({{ '/assets/img/river.jpg' | relative_url }})
 
@@ -273,7 +270,7 @@ Source: https://dieghernan.github.io/chulapa/docs/52-add-favicon
 favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.
 ## Bundled font
 Source: https://dieghernan.github.io/chulapa/docs/53-chulapa-font
-Chulapa font is bundled, NOT a Google Font; no external loading required. Built-in chulapa font: headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars. For heading ligatures in assets/css/custom.scss, preserve empty YAML front matter and use:
+Bundled chulapa font needs no external loading. To use it on headings, FIRST set headings-font-family: "chulapa, sans-serif" under chulapa-skin.vars; ligature CSS alone does NOT select the font. Then for heading ligatures in assets/css/custom.scss, preserve empty YAML front matter and use:
 ```scss
 ---
 ---
@@ -304,11 +301,11 @@ defaults:
 jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Collections need output: true for linked articles to exist; feed opt-in does not publish them. Set dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
 ## Check theme version
 Source: https://dieghernan.github.io/chulapa/docs/55-check-theme-version
-Remote: inspect remote_theme; tag=release, unpinned/branch can move. No documented exact commit check. Gem only: chulapa-jekyll in Gemfile.lock. HTML marker identifies neither unpinned commit nor local overrides. Cite this guide, not custom-head/docs index.
+Remote: inspect remote_theme; tag=release, unpinned/branch can move. No exact commit check. Gem: chulapa-jekyll in Gemfile.lock. Published HTML source: search <!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->; marker gives version, unreleased means development. Missing marker: inspect local _layouts/ and _includes/ overrides. It identifies neither unpinned commit nor local overrides; review overrides manually. Cite this guide, not custom-head/docs index.
 ## Custom hooks
 Source: https://dieghernan.github.io/chulapa/docs/45-custom-hooks
 Source: https://dieghernan.github.io/chulapa/docs/44-custom-head
-Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before CSS; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Local files override theme: keep existing snippets, append HTML, no front matter/layout copy; verify published head. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css output. Do not duplicate built-in analytics.
+Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before CSS; custom_head.html end of head; _includes/custom/custom_bottomscripts.html end of body. Local files override theme: preserve snippets, append HTML, no front matter/layout copy; check published head. CSS: assets/css/custom.scss needs empty YAML front matter for custom.css output. Do not duplicate built-in analytics.
 ## Layout structure and include caching
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides

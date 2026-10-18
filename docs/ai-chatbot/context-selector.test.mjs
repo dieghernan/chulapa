@@ -128,3 +128,28 @@ test('plain provider inventories include all provider choices and availability r
   assert.ok(setup.titles.includes('Giscus comments'));
   assert.ok(!setup.titles.includes('Disqus comments'));
 });
+
+
+test('sidebar ranges select page-level guidance without the content TOC recipe', () => {
+  const selected = selectContext(context, 'How do I add a sidebar TOC that includes h2 through h5?');
+  assert.ok(selected.titles.includes('Mathematical notation and tables of contents'));
+  assert.ok(!selected.titles.includes('Markdown formatting'));
+  assert.match(selected.text, /show_sidetoc: true, h_min: 2, h_max: 5 in page front matter/);
+  assert.match(selected.text, /kramdown.toc_levels does not control theme TOCs/);
+  const content = selectContext(context, 'How do I make a Markdown TOC with kramdown GFM?');
+  assert.ok(content.titles.includes('Markdown formatting'));
+  assert.match(content.text, /\{:toc\}/);
+});
+
+test('task recipes retain exact paths and required setup', () => {
+  const migration = selectContext(context, 'How do I migrate my existing site?');
+  assert.match(migration.text, /_layouts\/, _includes\/ and assets\//);
+  const gallery = selectContext(context, 'How do I make an internal masonry gallery sorted by filename?');
+  assert.match(gallery.text, /path: "assets\/img\/gallery"/);
+  assert.match(gallery.text, /image_col: gallery/);
+  const alerts = selectContext(context, 'How do I add an info alert?');
+  assert.match(alerts.text, /No snippets\/alert.html exists/);
+  const font = selectContext(context, 'How do I use the Chulapa font on headings?');
+  assert.match(font.text, /headings-font-family: "chulapa, sans-serif"/);
+  assert.match(font.text, /ligature CSS alone does NOT select the font/);
+});

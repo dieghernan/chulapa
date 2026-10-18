@@ -1,0 +1,97 @@
+{
+  "runtime_id": "worktree-981dd71ee196",
+  "worker_version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+  "cases": [
+    {
+      "id": "snippets-2",
+      "section": "snippets",
+      "doc": "04_layouts.md",
+      "question": "My YouTube preview is blank. How do I change its resolution or load the player immediately?",
+      "expected": "video_res versus nolazy true; no metadata thumbnailconfusion."
+    },
+    {
+      "id": "snippets-3",
+      "section": "snippets",
+      "doc": "04_layouts.md",
+      "question": "Does thumbnail_url change the video preview? Can Chulapa infer upload_date and duration?",
+      "expected": "Metadataonly no visualposter; no infer; ISO8601inputs."
+    },
+    {
+      "id": "snippets-4",
+      "section": "snippets",
+      "doc": "04_layouts.md",
+      "question": "How do I make an internal masonry gallery sorted by filename without shuffling?",
+      "expected": "defaultsimage_col internalgallery; index_sortbasename index_sort_asctrue randombooleanfalse."
+    },
+    {
+      "id": "snippets-5",
+      "section": "snippets",
+      "doc": "04_layouts.md",
+      "question": "How do I add an external-image carousel with controls and a 2-second interval?",
+      "expected": "assigncommaseparatedurls externalvariable interval2000 controlstrue indicatorstrue."
+    },
+    {
+      "id": "snippets-6",
+      "section": "snippets",
+      "doc": "04_layouts.md",
+      "question": "How do I enable mathematical formulas on a page?",
+      "expected": "mathjax true in frontmatter; example correct."
+    },
+    {
+      "id": "faq-1",
+      "section": "faq",
+      "doc": "05_faq.md",
+      "question": "How do I check my installed theme version, including local overrides?",
+      "expected": "remote suffix Gemfile.lock markerlimitations notexactunpinnedcommit."
+    },
+    {
+      "id": "faq-2",
+      "section": "faq",
+      "doc": "05_faq.md",
+      "question": "Where do I add analytics HTML before the theme CSS and JavaScript at the end of body?",
+      "expected": "custom_head_before_css.html versus custom_bottomscripts.html relative _includes."
+    },
+    {
+      "id": "faq-3",
+      "section": "faq",
+      "doc": "05_faq.md",
+      "question": "How do I configure favicons for a GitHub Pages project under /blog?",
+      "expected": "expliciticonlinks generated assets custom_head URLsrespectbaseurl."
+    },
+    {
+      "id": "faq-4",
+      "section": "faq",
+      "doc": "05_faq.md",
+      "question": "How do I add an info alert, an image caption and a footnote in Markdown?",
+      "expected": "kramdownalertattributes captionparagraph footnoterefdefinition."
+    },
+    {
+      "id": "faq-5",
+      "section": "faq",
+      "doc": "05_faq.md",
+      "question": "How do I render the Chulapa logo font with its ligatures in a heading?",
+      "expected": "classchulapa or font-family headings plusliga,dlig; preservebrandingcode."
+    },
+    {
+      "id": "faq-6",
+      "section": "faq",
+      "doc": "57_jekyll-feed.md",
+      "question": "Can jekyll-feed replace /atom.xml without conflicting with Chulapa?",
+      "expected": "Pointing jekyll-feed at /atom.xml conflicts with the built-in Atom feed. Recommend keeping theme feeds or using the plugin default /feed.xml with its setup guide. Do not invent a disable-feed YAML setting or claim the guide provides a replacement Ruby recipe."
+    },
+    {
+      "id": "reference-edge-cases-1",
+      "section": "reference-edge-cases",
+      "doc": "99_markdown-cheatsheet.md",
+      "question": "How do I write a Markdown table with right-aligned numbers and a fenced YAML example?",
+      "expected": "pipetable alignment ---: fence yaml; compactcompleteexample."
+    },
+    {
+      "id": "reference-edge-cases-2",
+      "section": "reference-edge-cases",
+      "doc": "58_content-toc.md",
+      "question": "Does kramdown GFM support every Kramdown extension? How do I make a Markdown TOC?",
+      "expected": "GFM does not support every Kramdown extension. Guide /docs/58-content-toc uses two separate lines * Contents and {:toc}, outside a code fence in article content; verified on sample GFM. kramdown.toc_levels is site-wide and separate from show_toc/h_min/h_max. Preserve parser/options; publish and check generated links. Syntax specimens remain /docs/markdown-cheatsheet. Marker location only controls index position; .no_toc is shared by content and theme TOCs."
+    }
+  ]
+}

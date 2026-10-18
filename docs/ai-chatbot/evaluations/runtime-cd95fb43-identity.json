@@ -1,0 +1,8 @@
+{
+  "worker_version": "cd95fb43-7af8-4926-bbd4-a8d8b6c0396f",
+  "source_commit": "81a4adfea48ab97f253208488bfe3c2a26b04aa7",
+  "module": "worker.js",
+  "module_bytes": 223771,
+  "remote_and_local_module_sha256": "7733b190b68e6324b08f554a3ad44747e969a5f226c45f2b049bc88712680db2",
+  "method": "GET deployed Worker multipart first module compared with wrangler 4.150.0 deploy --dry-run output from unchanged runtime sources at HEAD 81a4adfea. Exact SHA-256 and byte length match. No inference or deployment performed for identification."
+}

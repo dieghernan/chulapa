@@ -50,7 +50,8 @@ const routes = [
   [/mp4|video|youtube|vimeo|thumbnail_url|fileurl|duration|nolazy/i, ['Adding videos']],
   [/photoswipe/i, ['PhotoSwipe galleries (development after v2.1.0)', 'Image galleries and carousels']],
   [/gallery|masonry|carousel|slideshow|galer[ií]a|carrusel/i, ['Image galleries and carousels']],
-  [/math|equation|formula|toc|table of contents|sidebar|[ií]ndice.*contenido/i, ['Mathematical notation and tables of contents', 'Markdown formatting']],
+  [/math|equation|formula|toc|table of contents|sidebar|[ií]ndice.*contenido/i, ['Mathematical notation and tables of contents']],
+  [/markdown.*(?:toc|table of contents)|(?:toc|table of contents).*markdown|kramdown|gfm/i, ['Markdown formatting']],
   [/related|random|eligible|singleton/i, ['Related and random article cards']],
   [/layout|minimal|archive|cloudtag|categor|related|random|indexcards|indexcategory|h.feed|microformat/i, ['More layouts and content navigation', 'Layout structure and include caching']],
   [/layout|minimal|archive|cloudtag|related|random|indexcards|indexcategory|rounded|enable.rounded|skin|font|feed|mathjax|label/i, ['Correct file and option scopes']],
@@ -75,6 +76,7 @@ const routes = [
 
 export function selectContext(context, question) {
   const sections = splitSections(context);
+  const sidebarOnly = /sidebar|sidetoc|lateral/i.test(question) && !/markdown|kramdown|gfm|content.?toc/i.test(question);
   const scores = new Map();
   for (const [pattern, titles] of routes) {
     if (pattern.test(question)) for (const title of titles) scores.set(title, (scores.get(title) || 0) + 10);
@@ -107,7 +109,7 @@ export function selectContext(context, question) {
     score: (scores.get(section.title) || 0) + words.reduce((score, word) => score +
       (section.title.toLowerCase().includes(word) ? 3 : 0) +
       (sectionWords[index].has(word) && frequency.get(word) <= Math.max(2, Math.floor(sections.length / 8)) ? 6 : 0), 0)
-  })).filter(section => section.score > 0 && (comparesProviders || !namedProviders.length ||
+  })).filter(section => section.score > 0 && (!sidebarOnly || section.title !== 'Markdown formatting') && (comparesProviders || !namedProviders.length ||
     !providers.some(name => section.title.toLowerCase().startsWith(name)) ||
     namedProviders.some(name => section.title.toLowerCase().startsWith(name))))
     .sort((a, b) => Number(routedTitles.has(b.title)) - Number(routedTitles.has(a.title)) ||

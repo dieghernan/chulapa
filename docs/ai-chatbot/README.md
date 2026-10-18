@@ -86,14 +86,17 @@ The current runtime snapshot `worktree-981dd71ee196` was deployed on
 18 October 2026 as Worker `65bb328b-a4ed-4828-9218-9c36553b2306`. Source/build
 hashes identify the snapshot tested before committing. The current evidence and
 limitations are recorded in the [pre-commit review](evaluations/precommit-worktree-981dd71ee196-review.json).
-The deployed snapshot now has 42 reviewed catalog cases out of 155: 30 pass,
-11 partial and one fail, with 113 unrun. See the [additional 20](evaluations/additional20-2026-10-18.md),
-[additional ten](evaluations/additional10-2026-10-18.md) and
-[additional five](evaluations/additional5-2026-10-18.md) records. The sidebar TOC
-answer fails its configuration task; footer icon, Autothemer prose and video
-verification limitations remain recorded. A separate provider-comparison probe
-remains partial. Local singular/plural provider-inventory routing fixes retain
-all five choices and Cusdis restrictions; they are not deployed or tested live.
+The historical snapshot now has 50 reviewed catalog cases out of 155: 35 pass,
+13 partial, one fail and one unavailable. There are 105 unrun cases and one
+unavailable retry. See the [additional 13 review](evaluations/additional13-2026-10-18.md):
+a deployment replaced the Worker during that run, so its final five responses
+are recorded separately under version cd95fb43-7af8-4926-bbd4-a8d8b6c0396f.
+The replacement was subsequently matched to 81a4adfea by exact module SHA-256; see evaluations/runtime-cd95fb43-identity.json. Earlier live passes must
+not be transferred to it. Provider inventory fixes have local regression tests;
+their presence in that replacement is verified, but inventory answers remain untested live.
+The sidebar TOC, alert include, gallery setup and heading-font recipes need
+follow-up alongside footer icon and Autothemer prose defects. A supplementary
+provider-comparison probe remains outside the catalog denominator.
 Historical source 549f876dd was deployed locally on 16 October 2026 as Worker 90b4709a-c8ce-4946-838a-d85d12922e73. All four first-batch cases passed review on this source; 151 cases remained untested on that historical source. See [the batch review](evaluations/candidate-regression-01-549f876dd-review.json). Public documentation
 and llms.txt already describe the corrected facts; neither needs a new page or entry.
 
@@ -267,6 +270,4 @@ References:
 - https://developers.cloudflare.com/workers-ai/platform/pricing/
 - https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
 
-The latest provider-inventory routing correction is local and not deployed or
-live-evaluated. Results in the manifest still refer to the earlier deployed
-snapshot; its passes must not be transferred to newer code.
+Provider inventory routing is present in version cd95fb43 (verified against 81a4adfea), but its inventory answers still need live evaluation. Historical passes must not be transferred to newer code.

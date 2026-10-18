@@ -9,7 +9,8 @@
     "precommit-worktree-981dd71ee196-giscus.jsonl",
     "additional20-worktree-981dd71ee196-20261018.jsonl",
     "additional10-worktree-981dd71ee196-20261018.jsonl",
-    "additional5-worktree-981dd71ee196-20261018.jsonl"
+    "additional5-worktree-981dd71ee196-20261018.jsonl",
+    "additional13-first8-worktree-981dd71ee196-20261018.jsonl"
   ],
   "reviews": [
     {
@@ -229,6 +230,46 @@
       "id": "snippets-1",
       "status": "partial",
       "evidence": "Correct complete Liquid include and root-relative fileurl without duplicate baseurl handling, with canonical video source. Omits the requested public playback verification."
+    },
+    {
+      "id": "snippets-2",
+      "status": "pass",
+      "evidence": "Correct video_res preview resolution and nolazy distinction, complete supported include and live check."
+    },
+    {
+      "id": "snippets-3",
+      "status": "pass",
+      "evidence": "Correct metadata-only thumbnail and no inferred upload date/duration. ISO examples are optional for this conceptual question."
+    },
+    {
+      "id": "snippets-4",
+      "status": "partial",
+      "evidence": "Correct sorting flags and development-only caveat, but omits required image_col defaults and folder setup; a new internal gallery remains empty."
+    },
+    {
+      "id": "snippets-5",
+      "status": "pass",
+      "evidence": "Correct external URL variable, controls and 2000ms interval. Indicators are optional and were not requested."
+    },
+    {
+      "id": "snippets-6",
+      "status": "pass",
+      "evidence": "Correct page mathjax front matter and published rendering check."
+    },
+    {
+      "id": "faq-1",
+      "status": "partial",
+      "evidence": "Correct remote/gem checks and marker limitations, but omits the documented published HTML version marker and local override inspection path."
+    },
+    {
+      "id": "faq-2",
+      "status": "pass",
+      "evidence": "Correct custom hook paths, preserve snippets/no front matter and avoid duplicate analytics."
+    },
+    {
+      "id": "faq-3",
+      "status": "unavailable",
+      "evidence": "HTTP503 unsupported-source fallback; rejected model citation is not exposed, so its exact URL and semantic correctness cannot be assessed."
     }
   ],
   "limits": "37 cases recorded and reviewed on the unchanged deployed worktree-981dd71ee196 runtime; newer inventory-routing code remains undeployed."

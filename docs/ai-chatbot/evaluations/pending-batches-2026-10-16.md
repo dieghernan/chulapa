@@ -1,6 +1,6 @@
 # Pending evaluation batches: 16 October 2026
 
-155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: worktree-981dd71ee196; Worker: 65bb328b-a4ed-4828-9218-9c36553b2306. 30 reviewed passes; **113 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](combined-worktree-981dd71ee196-review.json).
+155 catalog cases; 56 recorded baseline responses; 56 reviewed. Evaluated source: worktree-981dd71ee196; Worker: 65bb328b-a4ed-4828-9218-9c36553b2306. 35 reviewed passes; **106 cases need an initial request or a reviewed-unavailable retry**. These results belong to that evaluated revision, not later local changes. Evidence: [review](combined-worktree-981dd71ee196-review.json).
 
 Each planned batch contains at most four independent questions. Commands run from docs/ai-chatbot and consume quota; none were executed to generate this plan. Generated run names include the candidate revision and skip existing run files. Verify the deployed revision first and preserve raw outputs. Unavailable results are retryable plans, not automatic quota-consuming retries. Recheck account allowance before any batch.
 
@@ -16,7 +16,7 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | candidate-regression-04 | `search-comments-3`, `search-comments-4`, `search-comments-5`, `search-comments-6` | needs_review |
 | candidate-regression-05 | `theming-4`, `theming-5`, `layouts-1`, `layouts-2` | reviewed_pass |
 | candidate-regression-06 | `layouts-4`, `layouts-5`, `layouts-6`, `snippets-1` | needs_review |
-| candidate-regression-07 | `snippets-4`, `snippets-6`, `faq-1`, `faq-2` | not_run |
+| candidate-regression-07 | `snippets-4`, `snippets-6`, `faq-1`, `faq-2` | needs_review |
 | candidate-regression-08 | `faq-4`, `faq-5`, `faq-6`, `reference-edge-cases-1` | not_run |
 | candidate-regression-09 | `reference-edge-cases-2`, `reference-edge-cases-3` | not_run |
 
@@ -63,9 +63,9 @@ Do not execute all three lists: they overlap. Start with a small candidate-regre
 | candidate-complete-07 | `search-comments-5`, `search-comments-6`, `theming-1`, `theming-2` | needs_review |
 | candidate-complete-08 | `theming-3`, `theming-4`, `theming-5`, `theming-6` | reviewed_pass |
 | candidate-complete-09 | `layouts-1`, `layouts-2`, `layouts-3`, `layouts-4` | needs_review |
-| candidate-complete-10 | `layouts-5`, `layouts-6`, `snippets-1`, `snippets-2` | needs_request |
-| candidate-complete-11 | `snippets-3`, `snippets-4`, `snippets-5`, `snippets-6` | not_run |
-| candidate-complete-12 | `faq-1`, `faq-2`, `faq-3`, `faq-4` | not_run |
+| candidate-complete-10 | `layouts-5`, `layouts-6`, `snippets-1`, `snippets-2` | needs_review |
+| candidate-complete-11 | `snippets-3`, `snippets-4`, `snippets-5`, `snippets-6` | needs_review |
+| candidate-complete-12 | `faq-1`, `faq-2`, `faq-3`, `faq-4` | needs_request |
 | candidate-complete-13 | `faq-5`, `faq-6`, `reference-edge-cases-1`, `reference-edge-cases-2` | not_run |
 | candidate-complete-14 | `reference-edge-cases-3`, `reference-edge-cases-4`, `reference-edge-cases-5`, `reference-edge-cases-6` | not_run |
 | candidate-complete-15 | `migration-theme-1`, `seo-1`, `seo-2`, `seo-3` | not_run |
