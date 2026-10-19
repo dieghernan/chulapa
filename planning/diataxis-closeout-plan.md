@@ -23,7 +23,8 @@ answer-quality measurement. The known Netlify preview failure remains separate.
 
 Next steps:
 
-1. Review the final 2.2.0 release scope/notes including #164/#166. The old local
+1. Review and approve the revised 2.2.0 release scope/notes including #164/#166;
+   the 16 October approval covers the original draft only. The old local
    candidate artifact predates them and must not be uploaded as the final gem.
 2. On separate publication authorization, finalize release metadata/date, build
    and verify the exact final artifact, then publish the approved tag/gem/release.

@@ -6,7 +6,9 @@ This document retains the original #163 preparation and artifact evidence below.
 #163 is merged; #164 chatbot corrections and #166 appearance selector are also
 merged. See the [post-#166 record](post166-release-status-2026-10-19.md) for current
 CI and Pages/Worker deployment. The original candidate hash below predates these
-changes and is not the final upload. Finalize metadata and rebuild/validate the
+changes and is not the final upload. The expanded release-note draft including
+#164/#166 awaits review; the original approval below covers the original notes
+only. Finalize metadata and rebuild/validate the
 final artifact only with a separate publication instruction. 2.2.0 remains
 unpublished; the original preparation authorization did not publish it.
 
