@@ -1,7 +1,7 @@
 # Chulapa 2.2.0 release notes draft
 
 Status: version 2.2.0 and the original notes were approved on 16 October 2026
-for preparation only. This revised draft includes subsequent #164/#166/#168 work
+for preparation only. This revised draft includes subsequent #164/#166/#168/#170 work
 and is pending maintainer review; the historical approval does not approve
 these additions. Not published.
 
@@ -44,5 +44,5 @@ Accessibility checks are representative, not WCAG certification. The theme suppl
 ## Publication gate
 
 Version 2.2.0 remains the approved target. Review and approve this revised draft,
-including #164/#166/#168 additions, and obtain separate publication authorization
+including #164/#166/#168/#170 additions, and obtain separate publication authorization
 before proceeding. Finalize the release date, remove the `unreleased` marker and reconcile public development labels/data with the published release. Build and verify the final gem, create the reviewed tag, publish the gem and GitHub release, then verify Pages and Worker deployment separately. Do not publish the current candidate artifact as a final release: its HTML marker and changelog intentionally identify it as unreleased.

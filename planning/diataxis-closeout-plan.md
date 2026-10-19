@@ -1,32 +1,32 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 19 October 2026. Current delivery baseline: main `ed66ab4ac`, after merged #168.
-Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Post-#168 deployment is verified separately below.
+Updated: 19 October 2026. Current delivery baseline: main `eeb161de6`, after merged #170.
+Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Post-#170 Pages/CI and unchanged Worker lineage are recorded below.
 See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
 
-## Current handoff after #168
+## Current handoff after #170
 
 The editorial/correction program is closed. #163 prepared 2.2.0 without publishing;
 #164 merged chatbot context/citation/answer checks; #166 merged the optional
 Light/Dark/Auto selector and its review fixes. #168 adds shared recovery for
 Google Fonts import failures while rejecting incomplete/unverified essential CSS.
-The current source is `ed66ab4ac2c7124086c218ada8b00abb7c813041`.
+#170 adds the bounded default-layout/keyboard/microformats correction.
+The current source is `eeb161de61dd57aa95d957b05c0becd87299c1a7`.
 
-[Post-#168 candidate evidence](release-candidate-after168-2026-10-19.md)
-confirms successful exact-source Pages, Pages-gated Worker, Jekyll 3/4 regression
-and installed-gem jobs, browser and Algolia workflows. Worker version:
-`5cc044b1-b8a9-4135-a500-66c9bcb0db67`. The prior
-[post-#166 record](post166-release-status-2026-10-19.md) remains historical evidence
-for that revision. Current deployment is not new live inference/availability
-evidence; proxy-restricted HTTP checks and the known Netlify failure are not
-claimed resolved.
+[Current candidate evidence](release-candidate-after170-2026-10-19.md) records
+successful exact-source Pages and all regression jobs plus the rebuilt local
+gem's passing installation checks on Jekyll 3.10/4.4. No Worker update was
+triggered: its files/workflow are unchanged since #168. The valid Worker lineage
+remains #168, version `5cc044b1-b8a9-4135-a500-66c9bcb0db67`, not a new #170
+inference/availability result. Earlier candidate records retain their own hashes
+and source scope; Netlify/proxy limitations are not claimed resolved.
 
 Next steps:
 
-1. Review and approve the revised 2.2.0 release scope/notes including #164/#166/#168;
+1. Review and approve the revised 2.2.0 release scope/notes including #164/#166/#168/#170;
    the 16 October approval covers the original draft only. A new local candidate
    is recorded for this baseline; it still contains unreleased markers and must
    not be uploaded as the final release artifact.
@@ -60,6 +60,7 @@ by the exact current-source evidence, not retroactively for each historical revi
 | #125 comment adapters | Closed by merged #160; all applicable head checks passed, including Jekyll 3/4, installation and browser; branch deleted. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
 | #163 release preparation | Merged; 2.2.0 remains unreleased. Final artifact/publication requires a separate instruction. |
 | #164 chatbot corrections | Merged; revision-specific live evidence exists. Final changes have local/CI checks, not inherited live-answer passes. Current cumulative context includes #168 and was deployed by [post-#168 Worker run 39200007159](https://github.com/dieghernan/chulapa/actions/runs/39200007159) for `ed66ab4ac`; see the [current candidate evidence](release-candidate-after168-2026-10-19.md). |
+| #170 default semantics | Merged; exact-main Pages/regressions succeeded. Current rebuilt gem and unchanged #168 Worker lineage are recorded in the current candidate report. |
 | #168 font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded. New candidate validation and CSS-upgrade constraints are recorded in the current candidate report. |
 | #166 appearance selector | Merged with all review threads resolved; exact-main regression and Pages/Worker results verified. Netlify preview failure remains known. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |

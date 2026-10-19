@@ -2,8 +2,8 @@
 
 ## Current handoff — 19 October 2026
 
-The original #163 evidence and candidate below remain historical. #164/#166/#168
-are merged; the [new candidate record](release-candidate-after168-2026-10-19.md)
+The original #163 evidence and candidate below remain historical. #164/#166/#168/#170
+are merged; the [new candidate record](release-candidate-after170-2026-10-19.md)
 identifies the rebuilt artifact, validation and exact current-source deployments.
 The expanded draft notes including these changes await review; the original
 approval below covers the original notes only. Neither local candidate is an
