@@ -36,7 +36,12 @@ const server = http.createServer((req, res) => {
   // Per-skin fixtures are built with their own baseurl, without nesting it twice.
   const filename = path.resolve(directory, `.${relative}`);
   if (!filename.startsWith(directory + path.sep) || !fs.existsSync(filename) || !fs.statSync(filename).isFile()) return send(404, 'text/plain', 'Missing');
-  let body = fs.readFileSync(filename).toString();
+  let body = fs.readFileSync(filename);
+  if (!filename.endsWith('.html') && !filename.endsWith('.css')) {
+    const type = filename.endsWith('.js') ? 'application/javascript' : filename.endsWith('.otf') ? 'font/otf' : 'application/octet-stream';
+    return send(200, type, body);
+  }
+  body = body.toString();
   if (filename.endsWith('.html')) {
     body = body.replaceAll('http://catalog.localhost', origin);
     [...dependencies.keys()].forEach((url, index) => { body = body.replaceAll(url, `/dependency-${index}.js`); });
