@@ -1082,6 +1082,14 @@ examples at the start of this guide.
 
 ### Layout structure and components
 
+In the unpublished 2.2.0 development version, `default` places its page heading
+and body in one `main` landmark. Its `e-content` property wraps the editorial
+body, excluding the theme's optional sidebar and integrated TOCs. Lists or a
+Markdown TOC written in the page body remain editorial content. Inherited
+listing layouts retain `h-feed` and their child entries; the feed container does
+not acquire article-content properties. Local layout overrides must be reviewed
+to receive these structural changes.
+
 For small head additions, follow [Add custom HTML to the page head](./44-custom-head).
 The [custom hooks reference](./45-custom-hooks) lists the insertion points and
 stylesheet hook; a complete layout copy is not required.

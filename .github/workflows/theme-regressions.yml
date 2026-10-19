@@ -97,6 +97,7 @@ jobs:
       - name: Build actual theme fixtures
         working-directory: test
         run: |
+          DEFAULT_CONTENT_OUTPUT="$RUNNER_TEMP/chulapa-default-content" bundle exec ruby check_default_content.rb
           bundle exec ruby build_accessibility_fixtures.rb "$RUNNER_TEMP/chulapa-navigation"
           bundle exec ruby check_photoswipe.rb "$RUNNER_TEMP/chulapa-photoswipe"
           bundle exec ruby build_javascript_fixtures.rb "$RUNNER_TEMP/chulapa-javascript"
@@ -104,6 +105,7 @@ jobs:
           bundle exec ruby build_theme_font_fixtures.rb "$RUNNER_TEMP/chulapa-theme-fonts"
       - name: Check keyboard navigation and responsive state in Chromium
         run: |
+          node test/check_default_content_browser.js "$RUNNER_TEMP/chulapa-default-content"
           node test/check_navigation_browser.js "$RUNNER_TEMP/chulapa-navigation"
           node test/check_photoswipe_browser.js "$RUNNER_TEMP/chulapa-photoswipe"
           node test/check_javascript_browser.js "$RUNNER_TEMP/chulapa-javascript"

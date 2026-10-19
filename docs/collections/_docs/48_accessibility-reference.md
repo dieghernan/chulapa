@@ -23,7 +23,8 @@ after v2.1.0 (v2.1.1-dev); they are not included in the v2.1.0 gem or pin.
 
 | Component | Expected behavior in the development version |
 | --- | --- |
-| Skip link | First Tab stop, bypassing repeated navigation. |
+| Skip link | First Tab stop, bypassing repeated navigation. On `default` pages, the main landmark includes the page heading and body. |
+| Previous/Next documents | Available destinations are Tab-reachable; missing neighbors have no interactive link. |
 | Floating menu | Enter/Space opens; Escape closes and returns focus to its button. Following a link closes it. Closed links are outside the Tab order. |
 | Dropdowns | Native buttons; font inherits the surrounding menu styling. |
 | Sidebar TOC | Close control and links are keyboard reachable while open. Escape closes and returns focus; the panel is not a modal focus trap. |

@@ -344,3 +344,25 @@ Dark/Auto startup and changes, actual GitDev catalog previews, reverse switches,
 missing fonts/CSS, empty/truncated/wrong-marker sheets, unreadable CSSOM and
 non-font imports. It verifies computed colors, active pairs, link errors,
 accessible selection, preferences and Auto recovery. Font imports remain in CSS.
+
+## Default content semantics
+
+`check_default_content.rb` participates in the existing Jekyll 3/4 regression
+runner. Set `DEFAULT_CONTENT_OUTPUT` to retain fixtures for the browser check:
+
+```sh
+DEFAULT_CONTENT_OUTPUT=/tmp/chulapa-default bundle exec ruby test/check_default_content.rb
+NODE_PATH=test/browser/node_modules node test/check_default_content_browser.js /tmp/chulapa-default
+```
+
+The browser check uses the existing Playwright tools; CI runs it with the other
+navigation checks. An optional second directory supplies before-change fixtures
+for geometry comparison. `DEFAULT_CONTENT_SCREENSHOTS` names an existing output
+directory for desktop/mobile screenshots.
+
+For an independent Microformats2 parse, install `mf2py==2.0.2` in a disposable
+Python environment and run `python test/check_default_microformats.py` with the
+same fixture directory. This is a validation tool only, not a theme dependency.
+The parser checks complete editorial content, exclusion of theme TOCs, retention
+of authored Markdown TOCs, and the title/URL/date contracts of all six built-in
+feed layouts, including aliases.
