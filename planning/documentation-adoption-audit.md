@@ -67,6 +67,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#163](https://github.com/dieghernan/chulapa/pull/163) — 2.2.0 preparation | Merged; unpublished | Approved version and draft notes; final release artifact/publication remain separate. |
 | [#164](https://github.com/dieghernan/chulapa/pull/164) — chatbot corrections | Merged | Topic selection, recipe checks and citation integrity; revision-specific live evidence and two answer-quality limitations remain explicit. |
 | [#166](https://github.com/dieghernan/chulapa/pull/166) — appearance selector | Merged; exact-main Pages/Worker and regressions succeeded | Optional Light/Dark/Auto selector and reviewed recovery/metadata/attribution/blank-config fixes. [Post-merge record](post166-release-status-2026-10-19.md); no new inference result or release publication. |
+| [#168](https://github.com/dieghernan/chulapa/pull/168) — font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded | Verified CSS completion permits safe switching despite Google Fonts failures; reject missing/incomplete essential sheets. [Current candidate/handoff](release-candidate-after168-2026-10-19.md). |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -199,17 +200,18 @@ use it alongside the historical audit rather than treating old priorities as ope
 ### Active implementation order
 
 Updated: 19 October 2026. Editorial closeout #161, release preparation #163,
-chatbot corrections #164 and selector #166 are merged. Historical assessments,
+chatbot corrections #164, selector #166 and font-failure follow-up #168 are
+merged. Historical assessments,
 thresholds and synthetic reviews retain their original evidence.
 
 1. **Keep the editorial scope closed.** No labels, new extractions or global
    navigation rollout without a concrete defect. Human research remains optional.
 2. **Finish release preparation.** Use the [current handoff](diataxis-closeout-plan.md)
-   and [exact post-#166 evidence](post166-release-status-2026-10-19.md). Pages/Worker,
+   and [current candidate evidence](release-candidate-after168-2026-10-19.md). Pages/Worker,
    Jekyll 3/4 installation/regressions, browser and Algolia succeeded on current
    main; public HTTP availability remains unverified from this environment.
-   Refresh the final artifact after publication authorization; do not upload the
-   earlier local candidate. No tag/gem/release publication is authorized here.
+   A new local unreleased candidate is recorded after #168. Rebuild the final
+   artifact after publication authorization; do not upload a test candidate. No tag/gem/release publication is authorized here.
 3. **Keep chatbot evidence revision-specific.** #164 has live observations;
    the current deployed revision has no new inference review in this update.
    Content-TOC and guide-discovery limitations are separate bounded follow-ups,
