@@ -22,6 +22,8 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
+-   Load GitDev and GitDev Dark fonts independently so unavailable Google Fonts CSS cannot prevent skin switching in Chromium; retain recovery for missing skin or highlighter CSS.
+
 -   Encode Cactus conversation identifiers without forbidden characters or path collisions and include `baseurl` in Welcomments form permalinks; review existing Cactus thread mappings before upgrading (#125).
 
 -   Respect each document's `show_date: false` in tag/category cloud entries and their aliases, hiding fallback publication dates while preserving reading time (#154).

@@ -14,6 +14,11 @@ unrelated settings; do not add a second `chulapa-skin` section.
 Each skin already has a font choice; changing fonts is optional. For the bundled
 font rather than an external stylesheet, use [the bundled-font guide](./53-chulapa-font).
 
+In **2.2.0 (unreleased)**, `gitdev` and `gitdev-dark` load their fonts
+automatically through a separate stylesheet. No `googlefonts` entry is needed
+for their default families. Blocking those fonts leaves fallback text and does
+not prevent [Light/Dark/Auto switching](./22-choose-skin#let-visitors-switch-between-light-and-dark).
+
 ## Load and apply the fonts
 
 Choose families at [Google Fonts](https://fonts.google.com/) and use their

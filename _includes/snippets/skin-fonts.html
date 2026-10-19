@@ -1,0 +1,19 @@
+{%- comment -%}
+  Keep optional font stylesheets outside the managed skin pair. In Chromium,
+  a failed CSS @import emits error on its parent link even when its rules work.
+{%- endcomment -%}
+{%- include snippets/dark-skin-enabled.html -%}
+{%- assign gitdev_skins = 'gitdev,gitdev-dark' | split: ',' -%}
+{%- assign needs_gitdev_fonts = false -%}
+{%- if gitdev_skins contains site.chulapa-skin.skin -%}
+  {%- assign needs_gitdev_fonts = true -%}
+{%- elsif dark_skin_enabled and gitdev_skins contains site.chulapa-skin-dark.skin -%}
+  {%- assign needs_gitdev_fonts = true -%}
+{%- endif -%}
+{%- if needs_gitdev_fonts -%}
+  {%- assign gitdev_font_url = 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&family=Inter:wght@100..900&family=Inter+Tight:wght@100..900&display=swap' -%}
+  {%- assign configured_font_urls = site.googlefonts | map: 'url' -%}
+  {%- unless configured_font_urls contains gitdev_font_url %}
+    <link rel="stylesheet" href="{{ gitdev_font_url | escape }}">
+  {%- endunless -%}
+{%- endif -%}

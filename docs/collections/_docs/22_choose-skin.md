@@ -90,6 +90,10 @@ If a skin fails to load, the previous appearance stays available, or Light when
 opening a page. Your choice is still remembered. Auto continues to follow device
 changes, and opening another page retries your chosen appearance.
 
+In **2.2.0 (unreleased)**, `gitdev` and `gitdev-dark` load their web fonts
+separately. If Google Fonts is blocked or unavailable, these skins still switch
+using fallback fonts. Other skins may depend on external font stylesheets.
+
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should
 start with the dark appearance. Choose Auto and change your device preference

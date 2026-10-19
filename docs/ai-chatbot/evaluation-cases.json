@@ -397,5 +397,12 @@
     "doc": "07_migration.md",
     "question": "I already have a Jekyll site with layout: post, a local _layouts/default.html and subscribers using /feed.xml. How do I migrate safely to Chulapa using a released remote theme?",
     "expected": "Link the migration guide /docs/07-migration and its checklist. Back up/use a branch; preserve url/baseurl/permalink and existing public URLs. Set remote_theme: dieghernan/chulapa@v2.1.0, remove conflicting theme settings, install and enable jekyll-remote-theme and jekyll-include-cache. Review local overrides rather than blindly deleting custom files: _layouts/default.html takes precedence. Translate post front matter to layout: default and header_type: post; explicit page values override defaults. Preserve /feed.xml using jekyll-feed; it can coexist with built-in atom.xml/rss.xml without an output collision. Built-in feeds need dated documents and include_on_feed: true. Check navigation, search page/provider, comments, analytics duplicates, build and live URLs. Do not claim development Mermaid, PhotoSwipe or GoatCounter are in v2.1.0. Adapt author.name and chulapa-skin.skin; useful local customizations should be adapted, not deleted indiscriminately. The guide includes GitHub Actions setup steps and six common migration problems."
+  },
+  {
+    "id": "skin-font-failure-1",
+    "section": "theming",
+    "doc": "22_choose-skin.md",
+    "question": "In main/2.2.0, can I switch gitdev to gitdev-dark if Google Fonts is blocked? Do I need a new option?",
+    "expected": "2.2.0 unreleased/main isolates GitDev and GitDev Dark fonts in an independent stylesheet automatically; no new option or googlefonts entry required for default families. Fonts unavailable: fallback text and working Light/Dark/Auto. A missing essential skin or highlighter still keeps the previous appearance or Light at startup, preserving the chosen mode; Auto follows later device changes. Do not extend this guarantee to every skin or released v2.1.0."
   }
 ]

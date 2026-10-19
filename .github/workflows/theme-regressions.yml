@@ -107,3 +107,4 @@ jobs:
           node test/check_photoswipe_browser.js "$RUNNER_TEMP/chulapa-photoswipe"
           node test/check_javascript_browser.js "$RUNNER_TEMP/chulapa-javascript"
           node test/check_theme_selector_browser.js "$RUNNER_TEMP/chulapa-theme-selector"
+          node test/check_theme_fonts_browser.js "$RUNNER_TEMP/chulapa-theme-selector"
