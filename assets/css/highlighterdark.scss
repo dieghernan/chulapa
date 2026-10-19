@@ -1,0 +1,7 @@
+---
+---
+{%- include snippets/dark-skin-enabled.html -%}
+@charset "utf-8";
+{% if dark_skin_enabled %}
+@import "highlight/{{- site.chulapa-skin-dark.highlight | default: site.chulapa-skin.highlight | downcase | default: 'default' -}}";
+{% endif %}

@@ -172,6 +172,13 @@ chulapa-skin:
   vars          :
     primary     :   #default ["#007bff"] - Bootstrap blue
 
+# Optional second skin (2.2.0, unreleased). Leave blank to disable.
+chulapa-skin-dark:
+  skin:
+  highlight:
+  autothemer:
+  vars:
+
 # D. Jekyll defaults and collections
 # Demo collections and pagination below are examples for this repository.
 

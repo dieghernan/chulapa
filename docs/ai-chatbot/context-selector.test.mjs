@@ -5,6 +5,14 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('light and dark selector questions receive activation, inheritance and version limits', () => {
+  const selected = selectContext(context, 'How do I add the Light, Dark and Auto dropdown to my Chulapa site?');
+  assert.ok(selected.titles.includes('Light/dark/auto selector'));
+  assert.match(selected.text, /Omitted dark highlight inherits light highlight/);
+  assert.match(selected.text, /Absent dark mapping: no additional scripts or styles/);
+  assert.match(selected.text, /2\.2\.0 unreleased\/main only, absent v2\.1\.0/);
+});
+
 test('section extraction preserves headings inside fenced tutorial examples', () => {
   const sections = splitSections('intro\n## Tutorial\n```markdown\n## Inner heading\n```\n## Reference\nfields');
   assert.deepEqual(sections.map(section => section.title), ['', 'Tutorial', 'Reference']);

@@ -1,0 +1,14 @@
+{%- assign dark_skin_enabled = false -%}
+{%- assign dark_skin_name = site.chulapa-skin-dark.skin | default: '' | strip -%}
+{%- assign dark_highlight_name = site.chulapa-skin-dark.highlight | default: '' | strip -%}
+{%- if dark_skin_name != empty or dark_highlight_name != empty or site.chulapa-skin-dark.autothemer == true -%}
+  {%- assign dark_skin_enabled = true -%}
+{%- else -%}
+  {%- for dark_var in site.chulapa-skin-dark.vars -%}
+    {%- assign dark_value = dark_var[1] | append: '' | strip -%}
+    {%- if dark_value != empty -%}
+      {%- assign dark_skin_enabled = true -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

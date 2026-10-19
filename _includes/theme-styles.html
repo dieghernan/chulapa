@@ -1,0 +1,171 @@
+{%- include snippets/dark-skin-enabled.html -%}
+{% if dark_skin_enabled %}
+    <link rel="stylesheet" id="maincss" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" id="csshigh" href="{{ '/assets/css/highlighter.css' | relative_url }}">
+    <script>
+    (function () {
+      'use strict';
+      var paths = {
+        light: [{{ '/assets/css/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighter.css' | relative_url | jsonify }}],
+        dark: [{{ '/assets/css/dark/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighterdark.css' | relative_url | jsonify }}]
+      };
+      var themeColors = {
+        light: {{ site.chulapa-skin.vars.primary | default: '' | jsonify }},
+        dark: {{ site.chulapa-skin-dark.vars.primary | default: '' | jsonify }}
+      };
+      function updateThemeColor(theme) {
+        var meta = document.querySelector('meta[data-chulapa-theme-color]');
+        var color = themeColors[theme];
+        if (!color) { if (meta) meta.remove(); return; }
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.name = 'theme-color';
+          meta.setAttribute('data-chulapa-theme-color', '');
+          document.head.appendChild(meta);
+        }
+        meta.content = color;
+      }
+      var key = 'chulapa-theme';
+      var mode = 'light';
+      var scheme = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+      var root = document.documentElement;
+      var request = 0;
+      function valid(value) { return ['light', 'dark', 'auto'].indexOf(value) !== -1; }
+      function resolved(value) { return value === 'dark' || (value === 'auto' && scheme && scheme.matches) ? 'dark' : 'light'; }
+      try { var stored = localStorage.getItem(key); if (valid(stored)) mode = stored; } catch (error) {}
+      var theme = resolved(mode);
+      root.dataset.theme = theme;
+      root.dataset.themeMode = mode;
+      root.style.colorScheme = theme;
+      updateThemeColor(theme);
+      /* Recover initial dark CSS failures without discarding the saved choice. */
+      if (theme === 'dark') {
+        var initialPending = ['maincss', 'csshigh'];
+        function stopInitialListeners() {
+          document.removeEventListener('error', initialFailed, true);
+          document.removeEventListener('load', initialLoaded, true);
+        }
+        function initialFailed(event) {
+          if (event.target !== document.getElementById(event.target.id)) return;
+          if (initialPending.indexOf(event.target.id) === -1) return;
+          stopInitialListeners();
+          ++request;
+          ['maincss', 'csshigh'].forEach(function (id, index) {
+            var link = document.getElementById(id);
+            if (link) link.href = paths.light[index];
+          });
+          root.dataset.theme = 'light';
+          root.style.colorScheme = 'light';
+          updateThemeColor('light');
+          controls();
+        }
+        function initialLoaded(event) {
+          if (event.target !== document.getElementById(event.target.id)) return;
+          var index = initialPending.indexOf(event.target.id);
+          if (index === -1) return;
+          initialPending.splice(index, 1);
+          if (!initialPending.length) stopInitialListeners();
+        }
+        document.addEventListener('error', initialFailed, true);
+        document.addEventListener('load', initialLoaded, true);
+      }
+      /* Static light links also work when CSP blocks this script. Replace them
+         with parser-blocking dark links before body content can be painted. */
+      if (theme === 'dark') {
+        ['maincss', 'csshigh'].forEach(function (id, index) {
+          document.getElementById(id).remove();
+          document.write('<link rel="stylesheet" id="' + id + '" href="' + paths.dark[index] + '">');
+        });
+      }
+      function controls() {
+        var names = {light: 'Light', dark: 'Dark', auto: 'Auto'};
+        var icons = {light: 'fas fa-sun', dark: 'fas fa-moon', auto: 'fa fa-adjust'};
+        document.querySelectorAll('.chulapa-theme-selector').forEach(function (selector) {
+          var button = selector.querySelector('.chulapa-theme-toggle');
+          if (!button) { selector.hidden = true; return; }
+          button.setAttribute('aria-label', 'Color theme: ' + names[mode]);
+          button.title = 'Color theme: ' + names[mode];
+          var icon = button.querySelector('i');
+          var label = button.querySelector('.chulapa-theme-label');
+          if (icon) icon.className = icons[mode];
+          if (label) label.textContent = names[mode];
+          selector.querySelectorAll('[data-theme-mode]').forEach(function (option) {
+            var selected = option.dataset.themeMode === mode;
+            option.classList.toggle('active', selected);
+            option.setAttribute('aria-pressed', String(selected));
+          });
+          selector.hidden = false;
+        });
+      }
+      function apply(value) {
+        var ids = ['maincss', 'csshigh'];
+        var previous = ids.map(function (id) { return document.getElementById(id); });
+        /* Custom head overrides may remove the managed stylesheet pair. */
+        if (previous.some(function (link) { return !link || link.tagName !== 'LINK'; })) return false;
+        var target = resolved(value);
+        var currentRequest = ++request;
+        mode = value;
+        root.dataset.themeMode = mode;
+        controls();
+        if (target === root.dataset.theme) return true;
+        var links = paths[target].map(function (url) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.media = 'not all';
+          link.href = url;
+          return link;
+        });
+        var loaded = 0;
+        function discard() { links.forEach(function (link) { link.remove(); }); }
+        function failed() {
+          discard();
+          if (currentRequest === request) {
+            ++request;
+            controls();
+          }
+        }
+        links.forEach(function (link) {
+          link.onerror = failed;
+          link.onload = function () {
+            if (++loaded !== 2) return;
+            if (currentRequest !== request) { discard(); return; }
+            /* Do not overwrite stylesheets replaced by custom scripts while loading. */
+            if (previous.some(function (old, index) { return document.getElementById(ids[index]) !== old; })) { failed(); return; }
+            ids.forEach(function (id, index) {
+              previous[index].remove();
+              links[index].id = id;
+              links[index].media = 'all';
+            });
+            root.dataset.theme = target;
+            root.style.colorScheme = target;
+            updateThemeColor(target);
+          };
+          /* Keep the custom stylesheet last in the cascade. */
+          document.head.insertBefore(link, previous[0]);
+        });
+        return true;
+      }
+      /* Preserve the prototype's entry point for custom controls, with one initialization read. */
+      window.chulapaSetThemeMode = function (value) {
+        if (!valid(value) || !apply(value)) return;
+        try { localStorage.setItem(key, mode); } catch (error) {}
+      };
+      document.addEventListener('DOMContentLoaded', controls);
+      document.addEventListener('click', function (event) {
+        var option = event.target.closest && event.target.closest('.chulapa-theme-selector [data-theme-mode]');
+        if (!option || !valid(option.dataset.themeMode)) return;
+        window.chulapaSetThemeMode(option.dataset.themeMode);
+        var button = option.closest('.chulapa-theme-selector').querySelector('.chulapa-theme-toggle');
+        if (button) button.focus();
+      });
+      window.addEventListener('storage', function (event) {
+        if (event.key === key || event.key === null) apply(valid(event.newValue) ? event.newValue : 'light');
+      });
+      if (scheme) {
+        var changed = function () { if (mode === 'auto') apply('auto'); };
+        if (scheme.addEventListener) scheme.addEventListener('change', changed);
+        else if (scheme.addListener) scheme.addListener(changed);
+      }
+    })();
+    </script>
+{% endif %}

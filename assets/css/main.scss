@@ -1,5 +1,6 @@
 ---
 ---
+{%- include snippets/dark-skin-enabled.html -%}
 @charset "utf-8";
 // Custom free font: see https://diario.madrid.es/chulapa/
 @font-face {
@@ -32,4 +33,7 @@
 @import "chulapa-master";
 {% if site.search.provider == "algolia" %}
 @import "reset-algolia";
+{% endif %}
+{% if dark_skin_enabled %}
+@import "chulapa/theme-selector";
 {% endif %}

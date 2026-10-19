@@ -60,7 +60,7 @@ The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identi
 
 ## Appearance tasks and explanation
 
-- [Choose a skin](https://dieghernan.github.io/chulapa/docs/22-choose-skin): Apply a named skin while preserving existing overrides.
+- [Choose a skin](https://dieghernan.github.io/chulapa/docs/22-choose-skin): Apply a named skin while preserving existing overrides; configure the optional light/dark/auto selector (2.2.0, unreleased).
 - [Change a color](https://dieghernan.github.io/chulapa/docs/23-change-color): Edit one supported variable and check component contrast.
 - [Change fonts](https://dieghernan.github.io/chulapa/docs/24-change-fonts): Load a stylesheet and apply body/heading families.
 - [Code highlighting](https://dieghernan.github.io/chulapa/docs/25-code-highlighting): Apply a highlighting stylesheet and check code blocks.

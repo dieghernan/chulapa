@@ -1,0 +1,40 @@
+---
+---
+{%- include snippets/dark-skin-enabled.html -%}
+{% if dark_skin_enabled %}
+@charset "utf-8";
+// Custom free font: see https://diario.madrid.es/chulapa/
+@font-face {
+  font-family: chulapa;
+  src: url('{{ '/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf' | relative_url }}');
+  font-display: fallback;
+}
+
+ //Theming Bootstrap from config
+
+//Theme
+@import "skins/{{- site.chulapa-skin-dark.skin | default: "none" -}}";
+
+//Theming Bootstrap from config // overrides
+{% for var in site.chulapa-skin-dark.vars %}
+  {% assign dark_value = var[1] | append: '' | strip %}
+  {% if dark_value != empty %}
+   ${{ var[0] }}: {{ var[1] }};
+  {% endif %}
+{% endfor%}
+
+
+{% if site.chulapa-skin-dark.autothemer %}
+  // Autothemer: No overrides
+  @import "skins/auto";
+{% endif %}
+
+// Import bootstrap
+@import "bootstrap/bootstrap";
+//B. Chulapa specifics
+@import "chulapa-master";
+{% if site.search.provider == "algolia" %}
+@import "reset-algolia";
+{% endif %}
+@import "chulapa/theme-selector";
+{% endif %}

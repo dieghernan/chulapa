@@ -1,0 +1,5 @@
+// Keep the current mode as legible as the navbar's active controls.
+.navbar-chulapa .navbar-nav .chulapa-theme-toggle,
+.navbar-chulapa-fab .chulapa-theme-toggle {
+  color: $navbar-chulapa-active-color;
+}

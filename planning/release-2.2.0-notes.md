@@ -5,6 +5,7 @@ Status: version 2.2.0 and these notes approved on 16 October 2026 for a preparat
 ## New capabilities
 
 - Opt-in Mermaid diagrams, PhotoSwipe gallery viewers and production-only GoatCounter analytics.
+- Optional light/dark/auto selector across all navigation styles, with remembered preferences and the selected skin applied on initial load (#165).
 - Active-section indicators for in-page, sidebar and kramdown tables of contents.
 - Microformats2 feeds for archive, category and tag indexes.
 - Four minimal starter examples and a revised task-oriented documentation directory, alongside the ready-to-publish Chulapa 101 template.
