@@ -40,9 +40,6 @@ const server = http.createServer((req, res) => {
   if (filename.endsWith('.html')) {
     body = body.replaceAll('http://catalog.localhost', origin);
     [...dependencies.keys()].forEach((url, index) => { body = body.replaceAll(url, `/dependency-${index}.js`); });
-    body = body.replace(/<link\b[^>]*href="https?:\/\/(?!127\.0\.0\.1)[^"]+"[^>]*>/g, '');
-    body = body.replace(/<script\b[^>]*src="https?:\/\/(?!127\.0\.0\.1)[^"]+"[^>]*>\s*<\/script>/g, '');
-    body = body.replace(/<img\b[^>]*>/g, '');
     return send(200, 'text/html', body);
   }
   if (main) {
