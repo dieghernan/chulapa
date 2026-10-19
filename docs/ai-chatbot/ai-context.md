@@ -121,7 +121,7 @@ chulapa-skin.skin: exact case-sensitive filename without .scss; unknown names fa
 ## Light/dark/auto selector
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark
 2.2.0 unreleased/main only, absent v2.1.0. chulapa-skin=Light; add chulapa-skin-dark: {skin: gitdev-dark, highlight: github.dark}. Omitted dark highlight inherits light highlight, then default; other fields independent; copy shared vars. Dropdown: classic/fab/dual, empty menus too. Blank disables. Default Light; Auto tracks device. theme-color: active vars.primary or browser default; custom tags kept. Both credited. chulapa-theme localStorage: pages/tabs/sites on same origin; blocked: page only. No JS/blocked inline: Light, hidden selector. Absent dark mapping: no additional scripts or styles. Custom CSS overrides both; check widgets/images/diagrams. Failed CSS: initial Light, later previous appearance; mode persists, Auto tracks device changes. Restart Jekyll on config edits.
-gitdev/gitdev-dark: independent fonts, no googlefonts needed; failures keep switching with fallback text. Other skins may import fonts.
+CSS font imports stay; failed Google Fonts use fallback text and switching works. Missing/incomplete essential CSS keeps safe fallback.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
 Source: https://dieghernan.github.io/chulapa/docs/23-change-color

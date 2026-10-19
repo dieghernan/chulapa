@@ -22,7 +22,7 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
--   Load GitDev and GitDev Dark fonts independently so unavailable Google Fonts CSS cannot prevent skin switching in Chromium; retain recovery for missing skin or highlighter CSS.
+-   Keep skin switching functional when imported Google Fonts CSS fails, preserving the skins' font imports and standalone previews. Verify completed theme CSS before activation and retain safe recovery for missing or incomplete skin/highlighter sheets.
 
 -   Encode Cactus conversation identifiers without forbidden characters or path collisions and include `baseurl` in Welcomments form permalinks; review existing Cactus thread mappings before upgrading (#125).
 

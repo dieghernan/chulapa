@@ -4,4 +4,7 @@
 @charset "utf-8";
 {% if dark_skin_enabled %}
 @import "highlight/{{- site.chulapa-skin-dark.highlight | default: site.chulapa-skin.highlight | downcase | default: 'default' -}}";
+
+// Completion marker for the managed stylesheet pair; keep after all imports.
+:root { --chulapa-css-ready: highlighter-dark; }
 {% endif %}

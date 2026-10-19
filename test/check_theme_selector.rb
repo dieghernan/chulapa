@@ -5,23 +5,6 @@ require 'tmpdir'
 require 'fileutils'
 
 root = File.expand_path('..', __dir__)
-font_url = 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&family=Inter:wght@100..900&family=Inter+Tight:wght@100..900&display=swap'
-font_markup = '{% include snippets/skin-fonts.html %}{% for font in site.googlefonts %}<link rel="stylesheet" href="{{ font.url | escape }}">{% endfor %}'
-font_cases = [
-  ['gitdev', nil, [], 1], ['gitdev-dark', nil, [], 1],
-  ['none', 'gitdev-dark', [], 1], ['none', 'gitdev', [], 1],
-  ['none', nil, [], 0], ['none', 'darkly', [], 0],
-  ['gitdev', 'gitdev-dark', [], 1],
-  ['gitdev', 'gitdev-dark', [{'url' => font_url}], 1]
-]
-font_cases.each do |light, dark, fonts, expected|
-  site = {'source' => root, 'quiet' => true, 'plugins' => [], 'googlefonts' => fonts,
-    'chulapa-skin' => {'skin' => light}, 'chulapa-skin-dark' => {'skin' => dark}}
-  jekyll_site = Jekyll::Site.new(Jekyll.configuration(site))
-  rendered = jekyll_site.liquid_renderer.file('skin-fonts-test').parse(font_markup).render!({'site' => site}, registers: {site: jekyll_site})
-  links = Nokogiri::HTML(rendered).css('link[rel=stylesheet]').select { |link| link['href'] == font_url }
-  raise "Independent skin fonts: #{light}/#{dark}" unless links.size == expected
-end
 predicate = Liquid::Template.parse(File.read(File.join(root, '_includes/snippets/dark-skin-enabled.html')) + '{{ dark_skin_enabled }}')
 [
   [nil, false],
@@ -90,12 +73,11 @@ fixtures.each do |name, style, links, enabled|
       raise 'Missing theme choices' unless selector.css('[data-theme-mode]').map { |node| node['data-theme-mode'] } == %w[light dark auto]
     end
     css = File.read(File.join(config['destination'], 'assets/css/main.css'))
-    font_links = doc.css('link[rel=stylesheet]').select { |link| link['href'] == font_url }
-    raise "Missing or duplicated independent GitDev fonts: #{name}" unless font_links.size == 1
-    raise 'Optional fonts still imported by light CSS' if css.include?('fonts.googleapis.com')
+    raise 'GitDev font imports removed' unless css.match?(/@import\s+url\(/)
+    raise 'Missing light completion marker' if enabled && !css.match?(/--chulapa-css-ready:\s*main-light/)
     raise 'Light override missing' unless css.include?('1.05rem')
     dark = File.read(File.join(config['destination'], 'assets/css/dark/main.css'))
-    raise 'Optional fonts still imported by GitDev dark CSS' if config.dig('chulapa-skin-dark', 'skin') == 'gitdev-dark' && dark.include?('fonts.googleapis.com')
+    raise 'Missing dark completion marker' if enabled && !dark.match?(/--chulapa-css-ready:\s*main-dark/)
     raise 'Dark settings ignored' if enabled && (!dark.include?('1.1rem') || dark == css)
     raise 'Disabled dark CSS compiled' if !enabled && dark.include?('font-face')
     raise 'Disabled selector CSS compiled' if !enabled && css.include?('chulapa-theme-toggle')
@@ -107,8 +89,8 @@ fixtures.each do |name, style, links, enabled|
         config['chulapa-skin']['highlight'] = light_highlight
         Jekyll::Site.new(Jekyll.configuration(config)).process
         expected = dark_highlight || light_highlight || 'default'
-        actual = File.read(File.join(config['destination'], 'assets/css/highlighterdark.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '')
-        baseline = File.read(File.join(config['destination'], 'assets/css/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '')
+        actual = File.read(File.join(config['destination'], 'assets/css/highlighterdark.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
+        baseline = File.read(File.join(config['destination'], 'assets/css/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
         raise "Dark highlighter fallback failed: #{expected}" if !dark_highlight && actual != baseline
         raise 'Explicit dark highlighter ignored' if dark_highlight && actual == baseline
       end

@@ -90,9 +90,13 @@ If a skin fails to load, the previous appearance stays available, or Light when
 opening a page. Your choice is still remembered. Auto continues to follow device
 changes, and opening another page retries your chosen appearance.
 
-In **2.2.0 (unreleased)**, `gitdev` and `gitdev-dark` load their web fonts
-separately. If Google Fonts is blocked or unavailable, these skins still switch
-using fallback fonts. Other skins may depend on external font stylesheets.
+In **2.2.0 (unreleased)**, the bundled skins keep their font imports and can
+still switch using fallback fonts when Google Fonts is blocked or unavailable.
+Missing or incomplete skin/highlighter CSS keeps the safe fallback above.
+Rebuild and publish all theme CSS together when upgrading. Custom replacements
+for the generated CSS must keep its completion marker as the last rule;
+unverified sheets are not activated. Only Google Fonts import errors are
+eligible for recovery; other import errors keep the safe fallback.
 
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should

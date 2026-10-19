@@ -392,7 +392,6 @@ where_exp: "item", "item.url contains 'http'"
     <!-- Preconnect with Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {% include snippets/skin-fonts.html %}
     {% for font in site.googlefonts %}
       {% if font.url %}
     <link href="{{ font.url }}" rel="stylesheet">

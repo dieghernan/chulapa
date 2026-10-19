@@ -38,36 +38,61 @@
       root.dataset.themeMode = mode;
       root.style.colorScheme = theme;
       updateThemeColor(theme);
+      /* A link error can come from an optional font import. Verify the end of
+         this exact generated sheet, never an imported or currently active sheet.
+         Unknown imports and inaccessible CSSOM keep the normal safe fallback. */
+      function usable(link, target, index, failed) {
+        try {
+          var rules = link.sheet.cssRules;
+          if (rules.length < 2) return false;
+          var last = rules[rules.length - 1];
+          var expected = (index === 0 ? 'main-' : 'highlighter-') + target;
+          if (!last || last.selectorText !== ':root' ||
+              last.style.getPropertyValue('--chulapa-css-ready').trim() !== expected) return false;
+          if (!failed) return true;
+          if (index !== 0) return false;
+          var imports = 0;
+          for (var i = 0; i < rules.length; i++) {
+            if (rules[i].type !== 3) continue; /* CSSImportRule */
+            var url = new URL(rules[i].href, document.baseURI);
+            if (url.origin !== 'https://fonts.googleapis.com' ||
+                (url.pathname !== '/css' && url.pathname !== '/css2')) return false;
+            imports++;
+          }
+          return imports > 0;
+        } catch (error) { return false; }
+      }
       /* Recover initial dark CSS failures without discarding the saved choice. */
       if (theme === 'dark') {
         var initialPending = ['maincss', 'csshigh'];
         function stopInitialListeners() {
-          document.removeEventListener('error', initialFailed, true);
-          document.removeEventListener('load', initialLoaded, true);
+          document.removeEventListener('error', initialFinished, true);
+          document.removeEventListener('load', initialFinished, true);
         }
-        function initialFailed(event) {
-          if (event.target !== document.getElementById(event.target.id)) return;
-          if (initialPending.indexOf(event.target.id) === -1) return;
+        function initialFinished(event) {
+          var ids = ['maincss', 'csshigh'];
+          var link = event.target;
+          if (link !== document.getElementById(link.id)) return;
+          var index = initialPending.indexOf(link.id);
+          if (index === -1) return;
+          if (usable(link, 'dark', ids.indexOf(link.id), event.type === 'error')) {
+            initialPending.splice(index, 1);
+            if (!initialPending.length) stopInitialListeners();
+            return;
+          }
           stopInitialListeners();
           ++request;
-          ['maincss', 'csshigh'].forEach(function (id, index) {
-            var link = document.getElementById(id);
-            if (link) link.href = paths.light[index];
+          ids.forEach(function (id, index) {
+            var current = document.getElementById(id);
+            if (current) current.href = paths.light[index];
           });
           root.dataset.theme = 'light';
           root.style.colorScheme = 'light';
           updateThemeColor('light');
           controls();
         }
-        function initialLoaded(event) {
-          if (event.target !== document.getElementById(event.target.id)) return;
-          var index = initialPending.indexOf(event.target.id);
-          if (index === -1) return;
-          initialPending.splice(index, 1);
-          if (!initialPending.length) stopInitialListeners();
-        }
-        document.addEventListener('error', initialFailed, true);
-        document.addEventListener('load', initialLoaded, true);
+        document.addEventListener('error', initialFinished, true);
+        document.addEventListener('load', initialFinished, true);
       }
       /* Static light links also work when CSP blocks this script. Replace them
          with parser-blocking dark links before body content can be painted. */
@@ -124,9 +149,12 @@
             controls();
           }
         }
-        links.forEach(function (link) {
-          link.onerror = failed;
-          link.onload = function () {
+        links.forEach(function (link, index) {
+          var settled = false;
+          function finished(event) {
+            if (settled) return;
+            settled = true;
+            if (!usable(link, target, index, event.type === 'error')) { failed(); return; }
             if (++loaded !== 2) return;
             if (currentRequest !== request) { discard(); return; }
             /* Do not overwrite stylesheets replaced by custom scripts while loading. */
@@ -139,7 +167,9 @@
             root.dataset.theme = target;
             root.style.colorScheme = target;
             updateThemeColor(target);
-          };
+          }
+          link.onerror = finished;
+          link.onload = finished;
           /* Keep the custom stylesheet last in the cascade. */
           document.head.insertBefore(link, previous[0]);
         });

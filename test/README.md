@@ -329,16 +329,18 @@ For a local run:
 ```sh
 bundle exec ruby test/check_theme_selector.rb /tmp/chulapa-theme-selector
 NODE_PATH=test/browser/node_modules node test/check_theme_selector_browser.js /tmp/chulapa-theme-selector
-NODE_PATH=test/browser/node_modules node test/check_theme_fonts_browser.js /tmp/chulapa-theme-selector
+bundle exec ruby test/build_theme_font_fixtures.rb /tmp/chulapa-theme-fonts
+NODE_PATH=test/browser/node_modules node test/check_theme_fonts_browser.js /tmp/chulapa-theme-selector /tmp/chulapa-theme-fonts
 ```
 
 Use `CHULAPA_BROWSER_EXECUTABLE` to select a local Chromium/Edge executable.
 External scripts use the existing test-only pinned copies. These checks do not
 verify third-party comment widgets, offline support or every custom skin.
 
-The font-isolation check uses a real local HTTP server without request
-interception. It covers available/empty/missing font CSS, connection loss,
-missing font files, and missing essential CSS during interactive changes,
-persisted Dark startup, Auto startup and device changes. It checks computed
-colors, active stylesheet pairs, link events, accessible selection and preference
-retention, including Auto recovery after an essential stylesheet returns.
+The font-recovery check serves actual CSS over local HTTP. It simulates font
+responses separately, then repeats failures without interception through a local
+CONNECT proxy that never forwards Internet traffic. It covers all named skins,
+Dark/Auto startup and changes, actual GitDev catalog previews, reverse switches,
+missing fonts/CSS, empty/truncated/wrong-marker sheets, unreadable CSSOM and
+non-font imports. It verifies computed colors, active pairs, link errors,
+accessible selection, preferences and Auto recovery. Font imports remain in CSS.
