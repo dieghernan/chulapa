@@ -2,15 +2,13 @@
 
 ## Current handoff — 19 October 2026
 
-This document retains the original #163 preparation and artifact evidence below.
-#163 is merged; #164 chatbot corrections and #166 appearance selector are also
-merged. See the [post-#166 record](post166-release-status-2026-10-19.md) for current
-CI and Pages/Worker deployment. The original candidate hash below predates these
-changes and is not the final upload. The expanded release-note draft including
-#164/#166 awaits review; the original approval below covers the original notes
-only. Finalize metadata and rebuild/validate the
-final artifact only with a separate publication instruction. 2.2.0 remains
-unpublished; the original preparation authorization did not publish it.
+The original #163 evidence and candidate below remain historical. #164/#166/#168
+are merged; the [new candidate record](release-candidate-after168-2026-10-19.md)
+identifies the rebuilt artifact, validation and exact current-source deployments.
+The expanded draft notes including these changes await review; the original
+approval below covers the original notes only. Neither local candidate is an
+authorized final upload. Finalize metadata and rebuild/validate the final artifact
+only with a separate publication instruction. 2.2.0 remains unpublished here.
 
 ## Scope and candidate
 
