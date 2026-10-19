@@ -208,9 +208,11 @@ thresholds and synthetic reviews retain their original evidence.
 1. **Keep the editorial scope closed.** No labels, new extractions or global
    navigation rollout without a concrete defect. Human research remains optional.
 2. **Finish release preparation.** Use the [current handoff](diataxis-closeout-plan.md)
-   and [current candidate evidence](release-candidate-after170-2026-10-19.md). Pages/Worker,
-   Jekyll 3/4 installation/regressions, browser and Algolia succeeded on current
-   main; public HTTP availability remains unverified from this environment.
+   and [current candidate evidence](release-candidate-after170-2026-10-19.md).
+   Pages, Jekyll 3/4 installation/regressions, browser and Algolia succeeded on
+   current main `eeb161de6`. No Worker deployment ran for #170: unchanged Worker
+   files retain #168's successful deployment from `ed66ab4ac`, run 39200007159.
+   Public HTTP availability remains unverified from this environment.
    A new local unreleased candidate is recorded after #170. Rebuild the final
    artifact after publication authorization; do not upload a test candidate. No tag/gem/release publication is authorized here.
 3. **Keep chatbot evidence revision-specific.** #164 has live observations;

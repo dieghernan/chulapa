@@ -190,7 +190,7 @@ performed revision-specific live evaluations and corrections; see its
 [closeout and limitations](../docs/ai-chatbot/evaluations/pr164-closeout-2026-10-18.md).
 Preserve raw outputs and version identities. The historical evidence manifest
 still points to an earlier manually deployed candidate; it is not the identity
-of the new Pages-gated Worker recorded above.
+of the retained #168 Pages-gated Worker deployment recorded above.
 
 The deployed #168 source has no new inference evaluation in this task. Known
 content-TOC and guide-discovery fallbacks mean an answer can be unavailable;
