@@ -5,10 +5,27 @@ require 'tmpdir'
 require 'fileutils'
 
 root = File.expand_path('..', __dir__)
+predicate = Liquid::Template.parse(File.read(File.join(root, '_includes/snippets/dark-skin-enabled.html')) + '{{ dark_skin_enabled }}')
+[
+  [nil, false],
+  [{'vars' => {'primary' => nil}}, false],
+  [{'vars' => {'primary' => '', 'secondary' => ' '}}, false],
+  [{'vars' => {'enable-rounded' => false}}, true],
+  [{'vars' => {'border-width' => 0}}, true],
+  [{'autothemer' => false}, false],
+  [{'autothemer' => true}, true],
+  [{'skin' => 'gitdev-dark'}, true],
+  [{'highlight' => 'github.dark'}, true]
+].each do |settings, enabled|
+  actual = predicate.render!('site' => {'chulapa-skin-dark' => settings}).strip
+  raise "Dark configuration activation: #{settings.inspect}: #{actual}" unless actual == enabled.to_s
+end
 output = File.expand_path(ARGV.fetch(0, File.join(Dir.tmpdir, 'chulapa-theme-selector')))
 FileUtils.mkdir_p(output)
 fixtures = %w[classic fab dual].product([true, false]).map { |style, links| ["#{style}-#{links ? 'links' : 'empty'}", style, links, true] }
 fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false], ['blank', 'classic', true, false], ['dark-color-only', 'classic', true, true], ['light-color-only', 'classic', true, true]]
+fixtures << ['blank-vars', 'classic', false, false]
+fixtures = %w[classic fab dual].map { |style| ["null-vars-#{style}", style, false, false] } + fixtures
 fixtures.each do |name, style, links, enabled|
   Dir.mktmpdir('chulapa-theme-source-') do |source|
     %w[_includes _layouts _sass assets].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
@@ -26,6 +43,9 @@ fixtures.each do |name, style, links, enabled|
     config['chulapa-skin']['vars'].delete('primary') if name == 'dark-color-only'
     config['chulapa-skin-dark']['vars'].delete('primary') if name == 'light-color-only'
     config['chulapa-skin-dark'] = {'skin' => nil, 'highlight' => nil, 'autothemer' => nil, 'vars' => nil} if name == 'blank'
+    config['chulapa-skin-dark'] = {'skin' => '', 'highlight' => nil, 'autothemer' => false, 'vars' => {'primary' => nil}} if name.start_with?('null-vars-')
+    config['chulapa-skin-dark'] = {'skin' => ' ', 'highlight' => '', 'autothemer' => false, 'vars' => {'primary' => nil, 'secondary' => '', 'body-bg' => '  '}} if name == 'blank-vars'
+    config['chulapa-skin-dark']['vars'].merge!({'secondary' => nil, 'body-bg' => ' ', 'enable-rounded' => false, 'border-width' => 0}) if name == 'classic-links'
     if %w[dark-color-only light-color-only].include?(name)
       File.write(File.join(source, '_includes/custom/custom_head.html'), '<meta name="theme-color" id="custom-theme-color" media="(prefers-color-scheme: dark)" content="#987654">')
       config['chulapa-skin-dark']['skin'] = name == 'dark-color-only' ? 'darkly' : 'gitdev'

@@ -1,4 +1,4 @@
-{%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
+{%- include snippets/dark-skin-enabled.html -%}
 {% if dark_skin_enabled %}
     <link rel="stylesheet" id="maincss" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="stylesheet" id="csshigh" href="{{ '/assets/css/highlighter.css' | relative_url }}">

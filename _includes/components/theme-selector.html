@@ -1,4 +1,4 @@
-{%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
+{%- include snippets/dark-skin-enabled.html -%}
 {% if dark_skin_enabled %}
 <li class="nav-item dropdown chulapa-theme-selector" hidden>
   <button type="button" class="nav-link dropdown-toggle chulapa-theme-toggle" id="chulapa-theme-{{ include.selector_id | default: 'classic' }}" data-toggle="dropdown" aria-expanded="false" aria-label="Color theme: Light" title="Color theme: Light">

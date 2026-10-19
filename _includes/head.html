@@ -413,7 +413,7 @@ where_exp: "item", "item.url contains 'http'"
     <link rel="preload" href="{{ '/assets/js/chulapa_script.js' | relative_url }}" as="script" >
     {% endif %}
     <link rel="preload" href="{{ '/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
-    {% assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer %}
+    {%- include snippets/dark-skin-enabled.html -%}
     {% if dark_skin_enabled %}
     {% include theme-styles.html %}
     {% else %}

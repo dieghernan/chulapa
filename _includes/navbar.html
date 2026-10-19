@@ -1,4 +1,4 @@
-{%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
+{%- include snippets/dark-skin-enabled.html -%}
 {%- assign thispageurl = include.pageurl | replace: ".html", ""  -%}
 {%- assign colnav = site.navbar.expand | default: "md" -%}
 {%- if colnav == "always" -%}

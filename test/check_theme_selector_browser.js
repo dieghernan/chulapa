@@ -14,7 +14,7 @@ async function main() {
   const browser = await chromium.launch({headless: true,
     ...(process.env.CHULAPA_BROWSER_EXECUTABLE ? {executablePath: process.env.CHULAPA_BROWSER_EXECUTABLE} : {})});
   try {
-    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank', 'dark-color-only', 'light-color-only']) {
+    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank', 'dark-color-only', 'light-color-only', 'null-vars-classic', 'null-vars-fab', 'null-vars-dual', 'blank-vars']) {
       const context = await browser.newContext({reducedMotion: 'reduce', colorScheme: 'light'});
       await context.addInitScript(() => {
         window.__themeReads = 0;
@@ -67,7 +67,7 @@ async function main() {
         continue;
       }
       assert.equal(await themeColor(), '#123456');
-      if (name === 'disabled' || name === 'blank') {
+      if (name === 'disabled' || name === 'blank' || name.startsWith('null-vars-') || name === 'blank-vars') {
         assert.equal(await page.evaluate(() => typeof window.chulapaSetThemeMode), 'undefined');
         assert.equal(await page.evaluate(() => window.__themeReads), 0);
         assert.equal(await page.locator('.chulapa-theme-selector').count(), 0);

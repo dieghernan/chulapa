@@ -155,3 +155,24 @@ budget increase. Compiled fixtures and the full Chromium selector suite pass,
 including custom metadata and light-only/dark-only colors. All 80 chatbot tests
 and the documentation build pass. No
 live inference, deployment, canonical/indexing, manifest or cache changes.
+
+## Review follow-up: null-only dark variables
+
+Reproduced the previous Liquid predicate treating `vars: { primary: null }`
+as enabled. A shared include now computes activation for every navbar, the
+controller, head and all selector stylesheet entry points. Null/empty/whitespace
+variable values do not activate the feature; meaningful Sass values such as
+`false` and `0` still do. Skin/highlighter names and enabled Autothemer also
+activate it. Dark Sass generation skips blank overrides using the same value
+normalization, including when meaningful settings coexist with empty fields.
+
+Verification: nine focused activation cases pass; compiled selector fixtures
+cover null maps with empty menus on classic/floating/dual, whitespace-only maps,
+and mixed meaningful/blank variables. The complete Chromium selector suite
+passes, including zero controller/selector/alternate-CSS requests for all new
+disabled cases. Head-formatting and classic-navbar parity
+checks pass. No new YAML option, public advice or context fact changes: guide 22,
+llms.txt and selective chatbot context already state the all-blank-disabled rule.
+No additional chatbot test/live inference/deployment was needed for this fix.
+Jekyll 3 compatibility remains for the remote CI matrix; local fixtures use 4.4.1.
+No SEO URLs, color metadata policy, manifest or offline behavior is changed.

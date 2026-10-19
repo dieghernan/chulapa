@@ -1,6 +1,6 @@
 ---
 ---
-{%- assign dark_skin_enabled = site.chulapa-skin-dark.skin | default: site.chulapa-skin-dark.highlight | default: site.chulapa-skin-dark.vars | default: site.chulapa-skin-dark.autothemer -%}
+{%- include snippets/dark-skin-enabled.html -%}
 @charset "utf-8";
 // Custom free font: see https://diario.madrid.es/chulapa/
 @font-face {
