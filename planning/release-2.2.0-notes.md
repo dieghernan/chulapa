@@ -17,6 +17,7 @@ these additions. Not published.
 
 - Correct Cactus conversation identifiers without path collisions and include project-site paths in Welcomments submissions (#125).
 - Honor hidden dates in tag/category cloud entries (#154) and recommendation cards, fix badge destinations containing `demo` and correct configured image/index sorting.
+- Keep default-layout headings inside main, exclude theme TOCs from editorial Microformats content and restore keyboard access to available Previous/Next document links.
 - Improve keyboard navigation, focus visibility, reduced-motion behavior, carousel controls, video names and local-search feedback.
 - Improve deferred YouTube activation and provide a link when JavaScript is disabled.
 - Keep skin switching available when verified, complete stylesheets encounter unavailable Google Fonts imports; retain safe fallback for missing or unverified essential CSS (#168).

@@ -22,6 +22,8 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
+-   Make available Previous/Next document links keyboard reachable, omit interactive missing neighbors, and keep default-layout headings inside main while excluding theme TOCs from editorial Microformats content. Preserve inherited listing feeds.
+
 -   Keep skin switching functional when imported Google Fonts CSS fails, preserving the skins' font imports and standalone previews. Verify completed theme CSS before activation and retain safe recovery for missing or incomplete skin/highlighter sheets.
 
 -   Encode Cactus conversation identifiers without forbidden characters or path collisions and include `baseurl` in Welcomments form permalinks; review existing Cactus thread mappings before upgrading (#125).

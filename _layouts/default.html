@@ -8,8 +8,9 @@ header_in_content: true
 {%- endif -%}
 <div class="{% if is_feed %}h-feed{% else %}h-entry{% endif %} d-flex flex-column flex-fill">
     {% include snippets/microformats-url.html %}
+	<main class="d-flex flex-column flex-fill">
 	{% include components/headers.html headertype= page.header_type imghero=page.header_img projects=page.project_links %}
-	<main class="container-lg pb-3 flex-fill">
+	<div class="container-lg pb-3 flex-fill">
 	  {% if page.show_breadcrumb or page.show_date or page.show_sociallinks -%}
 	  {%- include components/breadcrumbdatesocial.html -%}
 	  {% endif %}
@@ -19,7 +20,7 @@ header_in_content: true
 			  {% include components/author.html %}
 			  {%- endif -%}
 			</{% if page.show_author %}aside{% else %}div{% endif %}>
-			<{% if is_feed %}div{% else %}article{% endif %} id="maincontent" class="col-lg-8 mt-3{% unless is_feed %} e-content{% endunless %}">
+			<{% if is_feed %}div{% else %}article{% endif %} id="maincontent" class="col-lg-8 mt-3">
 			{% if page.show_sidetoc %}
 			
 			{% include components/sidetoc.html %}
@@ -32,9 +33,12 @@ header_in_content: true
 			 {% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skip_no_ids=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
 			 </nav>
 			  {% endif %}
+			{% unless is_feed %}<div class="e-content">{% endunless %}
 			{{- content -}}
+			{% unless is_feed %}</div>{% endunless %}
 			</{% if is_feed %}div{% else %}article{% endif %}>
 		</div>
+	</div>
 	</main>
 	{%- if page.show_bottomnavs -%}
 	  {%- include components/navbeforeafter.html -%}

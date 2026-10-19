@@ -1,3 +1,4 @@
+{%- if page.previous.url or page.next.url -%}
 {%- assign classitemnext = "invisible" -%}
 {%- if page.next.url -%}
  {%- assign classitemnext = "" -%}
@@ -14,9 +15,9 @@
 <nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
   <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
     <li class="page-item text-left mr-0 {{ classitemprevious -}}">
-      <a class="page-link border-0 px-4" href="{{ page.previous.url | absolute_url | default: "#" }}" tabindex="-1">
+      {% if page.previous.url %}<a class="page-link border-0 px-4" href="{{ page.previous.url | absolute_url }}">{% else %}<span class="page-link border-0 px-4">{% endif %}
 	  <i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sr-only">Previous</span>
-	  </a>
+	  {% if page.previous.url %}</a>{% else %}</span>{% endif %}
     </li>
     <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-md-inline {{ classitemprevious -}}">
       <p class="page-link chulapa-label">{{ titleitemprevious }}</p>
@@ -34,8 +35,10 @@
 	    <p class="page-link chulapa-label">{{ titleitemnext }}</p>
 	  </li>
     <li class="page-item text-right ml-0 {{ classitemnext -}}">
-      <a class="page-link border-0 px-4" href="{{ page.next.url | absolute_url | default: "#" }}">
-	  <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span></a>
+      {% if page.next.url %}<a class="page-link border-0 px-4" href="{{ page.next.url | absolute_url }}">{% else %}<span class="page-link border-0 px-4">{% endif %}
+	  <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span>{% if page.next.url %}</a>{% else %}</span>{% endif %}
     </li>
   </ul>
 </nav>
+
+{%- endif -%}
