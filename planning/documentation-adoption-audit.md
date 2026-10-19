@@ -6,7 +6,7 @@ Language: English.
 
 ## Implementation tracking
 
-Updated: 16 October 2026. The delivery table and active implementation order
+Updated: 19 October 2026. The delivery table and active implementation order
 track the current work. The diagnosis and inventory below describe the baseline
 after PR #106, not a continuously rescored view of the current documentation.
 Historical scores are unchanged. Older deployment observations are retained as
@@ -63,7 +63,10 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#158](https://github.com/dieghernan/chulapa/pull/158) — final reference/accessibility review | Merged; applicable head checks passed; branch deleted; deployment separately unverified | Eight explicit dispositions, seven badge groups and five widgets; FAQ and reference indexes retained. See the [closeout record](reference-navigation-closeout-2026-10-16.md). |
 | [#159](https://github.com/dieghernan/chulapa/pull/159) — cloud-entry hidden dates | Merged; head Jekyll 3/4 and browser CI passed; #154 closed; branch deleted | Fix for #154; see the [delivery record](cloud-date-fix-2026-10-16.md). Local Windows Jekyll 3 fixture limitation is recorded separately. |
 | [#160](https://github.com/dieghernan/chulapa/pull/160) — comment adapters and migration | Merged; all applicable head checks passed; #125 closed; branch deleted | Fixes delivered for #125 with legacy guidance; see the [delivery record](comment-adapters-fix-2026-10-16.md). No live posting or migration. |
-| [#161](https://github.com/dieghernan/chulapa/pull/161) — final scores and plan closeout | Open; local documentation checks passed; CI/review/merge pending | Dated 72-surface reassessment, resolved defect tracking and bounded alert-format review; historical scores preserved. |
+| [#161](https://github.com/dieghernan/chulapa/pull/161) — final scores and plan closeout | Merged; final editorial scope closed | Dated 72-surface reassessment, resolved defect tracking and bounded alert-format review; historical scores preserved. |
+| [#163](https://github.com/dieghernan/chulapa/pull/163) — 2.2.0 preparation | Merged; unpublished | Approved version and draft notes; final release artifact/publication remain separate. |
+| [#164](https://github.com/dieghernan/chulapa/pull/164) — chatbot corrections | Merged | Topic selection, recipe checks and citation integrity; revision-specific live evidence and two answer-quality limitations remain explicit. |
+| [#166](https://github.com/dieghernan/chulapa/pull/166) — appearance selector | Merged; exact-main Pages/Worker and regressions succeeded | Optional Light/Dark/Auto selector and reviewed recovery/metadata/attribution/blank-config fixes. [Post-merge record](post166-release-status-2026-10-19.md); no new inference result or release publication. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -195,31 +198,22 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 16 October 2026. #147, #149, #151, #152, #153, #155, #156, #157, #158, #159 and #160 are merged; #150 is closed. Historical assessments,
-thresholds and synthetic review records below retain their original evidence.
+Updated: 19 October 2026. Editorial closeout #161, release preparation #163,
+chatbot corrections #164 and selector #166 are merged. Historical assessments,
+thresholds and synthetic reviews retain their original evidence.
 
-1. **Maintain the completed editorial decision.** Keep purpose-oriented openings;
-   add no public type labels or new extracted pages without a concrete defect.
-   Human interviews are optional and do not gate editorial completion.
-2. **Review topic navigation in bounded blocks.** Search #152 and installation
-   #153 are merged; #150 is closed. Their records retain actual checks and merge
-   status, with deployment separately unverified. Navigation/identity/branding
-   pages 10/11/14/52/53/54/60 are merged in #155;
-   eight affected appearance pages were also checked. See the [delivery record](identity-topic-navigation-delivery-2026-10-16.md).
-   Comments and analytics are merged in #156; provider restrictions remain intact. Hooks, mappings, feeds and metadata tasks are merged in #157. Final reference/accessibility dispositions are merged in #158; editorial closeout delivered. #154 is fixed in merged #159. #125 is fixed in merged #160; both issues are closed. Next: release scope freeze and checks. The archived broader draft is not a published delivery.
-3. **Prepare focused chatbot evidence.** Use the [four-case proposal](../docs/ai-chatbot/evaluation-plan-2026-10-16.md).
-   Reuse first-publication, advanced PhotoSwipe and complete-video-example cases;
-   add a focused second-tutorial case. Its URL/scenario and complete example are
-   now added to local selective context, with an explicitly reviewed 47,000-byte
-   budget for tutorial coverage. Deployed context verification remains pending.
-   No quota-consuming run or Worker deployment is authorized or performed here.
-   Judge facts/examples/sources separately from elapsed request time.
-4. **Close the agreed scope and hand off release checks.**
-   [#125](https://github.com/dieghernan/chulapa/issues/125) is closed by #160;
-   [#154](https://github.com/dieghernan/chulapa/issues/154) is closed by #159.
-   Use the final reassessment for current scores and retain prior snapshots.
-   Release validation and actual rollout verification remain separate tasks. Technical tests, deployment and agent reviews do not establish
-   human usability or live chatbot precision. Preserve historical results.
+1. **Keep the editorial scope closed.** No labels, new extractions or global
+   navigation rollout without a concrete defect. Human research remains optional.
+2. **Finish release preparation.** Use the [current handoff](diataxis-closeout-plan.md)
+   and [exact post-#166 evidence](post166-release-status-2026-10-19.md). Pages/Worker,
+   Jekyll 3/4 installation/regressions, browser and Algolia succeeded on current
+   main; public HTTP availability remains unverified from this environment.
+   Refresh the final artifact after publication authorization; do not upload the
+   earlier local candidate. No tag/gem/release publication is authorized here.
+3. **Keep chatbot evidence revision-specific.** #164 has live observations;
+   the current deployed revision has no new inference review in this update.
+   Content-TOC and guide-discovery limitations are separate bounded follow-ups,
+   not a reason to reopen the editorial program or claim general accuracy.
 
 Completed foundations include appearance/media/provider extraction, migration
 and FAQ task guides, publishing/override explanations, the second tutorial,

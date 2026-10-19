@@ -18,6 +18,8 @@ Status: version 2.2.0 and these notes approved on 16 October 2026 for a preparat
 - Improve deferred YouTube activation and provide a link when JavaScript is disabled.
 - Share search, navigation and rendering helpers; retain supported settings and existing custom hooks.
 
+- Strengthen documentation-assistant topic selection, complete-recipe checks and usable source citations. Known content-TOC and guide-discovery answer limitations remain; technical checks do not certify general answer accuracy.
+
 ## Upgrade checks
 
 - Back up the site and review local layouts, includes and assets: local copies override the upgraded theme.
