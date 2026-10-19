@@ -37,3 +37,8 @@
 {% if dark_skin_enabled %}
 @import "chulapa/theme-selector";
 {% endif %}
+
+{% if dark_skin_enabled %}
+// Completion marker for the managed stylesheet pair; keep after all imports.
+:root { --chulapa-css-ready: main-light; }
+{% endif %}

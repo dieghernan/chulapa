@@ -397,5 +397,12 @@
     "doc": "07_migration.md",
     "question": "I already have a Jekyll site with layout: post, a local _layouts/default.html and subscribers using /feed.xml. How do I migrate safely to Chulapa using a released remote theme?",
     "expected": "Link the migration guide /docs/07-migration and its checklist. Back up/use a branch; preserve url/baseurl/permalink and existing public URLs. Set remote_theme: dieghernan/chulapa@v2.1.0, remove conflicting theme settings, install and enable jekyll-remote-theme and jekyll-include-cache. Review local overrides rather than blindly deleting custom files: _layouts/default.html takes precedence. Translate post front matter to layout: default and header_type: post; explicit page values override defaults. Preserve /feed.xml using jekyll-feed; it can coexist with built-in atom.xml/rss.xml without an output collision. Built-in feeds need dated documents and include_on_feed: true. Check navigation, search page/provider, comments, analytics duplicates, build and live URLs. Do not claim development Mermaid, PhotoSwipe or GoatCounter are in v2.1.0. Adapt author.name and chulapa-skin.skin; useful local customizations should be adapted, not deleted indiscriminately. The guide includes GitHub Actions setup steps and six common migration problems."
+  },
+  {
+    "id": "skin-font-failure-1",
+    "section": "theming",
+    "doc": "22_choose-skin.md",
+    "question": "In main/2.2.0, can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?",
+    "expected": "2.2.0 unreleased/main keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if the generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider."
   }
 ]

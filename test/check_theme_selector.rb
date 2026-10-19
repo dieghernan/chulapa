@@ -73,8 +73,11 @@ fixtures.each do |name, style, links, enabled|
       raise 'Missing theme choices' unless selector.css('[data-theme-mode]').map { |node| node['data-theme-mode'] } == %w[light dark auto]
     end
     css = File.read(File.join(config['destination'], 'assets/css/main.css'))
+    raise 'GitDev font imports removed' unless css.match?(/@import\s+url\(/)
+    raise 'Missing light completion marker' if enabled && !css.match?(/--chulapa-css-ready:\s*main-light/)
     raise 'Light override missing' unless css.include?('1.05rem')
     dark = File.read(File.join(config['destination'], 'assets/css/dark/main.css'))
+    raise 'Missing dark completion marker' if enabled && !dark.match?(/--chulapa-css-ready:\s*main-dark/)
     raise 'Dark settings ignored' if enabled && (!dark.include?('1.1rem') || dark == css)
     raise 'Disabled dark CSS compiled' if !enabled && dark.include?('font-face')
     raise 'Disabled selector CSS compiled' if !enabled && css.include?('chulapa-theme-toggle')
@@ -86,8 +89,8 @@ fixtures.each do |name, style, links, enabled|
         config['chulapa-skin']['highlight'] = light_highlight
         Jekyll::Site.new(Jekyll.configuration(config)).process
         expected = dark_highlight || light_highlight || 'default'
-        actual = File.read(File.join(config['destination'], 'assets/css/highlighterdark.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '')
-        baseline = File.read(File.join(config['destination'], 'assets/css/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '')
+        actual = File.read(File.join(config['destination'], 'assets/css/highlighterdark.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
+        baseline = File.read(File.join(config['destination'], 'assets/css/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
         raise "Dark highlighter fallback failed: #{expected}" if !dark_highlight && actual != baseline
         raise 'Explicit dark highlighter ignored' if dark_highlight && actual == baseline
       end

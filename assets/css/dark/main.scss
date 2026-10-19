@@ -37,4 +37,7 @@
 @import "reset-algolia";
 {% endif %}
 @import "chulapa/theme-selector";
+
+// Completion marker for the managed stylesheet pair; keep after all imports.
+:root { --chulapa-css-ready: main-dark; }
 {% endif %}
