@@ -1,6 +1,9 @@
 # Chulapa 2.2.0 release notes draft
 
-Status: version 2.2.0 and these notes approved on 16 October 2026 for a preparation PR; not published.
+Status: version 2.2.0 and the original notes were approved on 16 October 2026
+for preparation only. This revised draft includes subsequent #164/#166 work
+and is pending maintainer review; the historical approval does not approve
+these additions. Not published.
 
 ## New capabilities
 
@@ -17,6 +20,7 @@ Status: version 2.2.0 and these notes approved on 16 October 2026 for a preparat
 - Improve keyboard navigation, focus visibility, reduced-motion behavior, carousel controls, video names and local-search feedback.
 - Improve deferred YouTube activation and provide a link when JavaScript is disabled.
 - Share search, navigation and rendering helpers; retain supported settings and existing custom hooks.
+- Strengthen documentation-assistant topic selection, complete-recipe checks and usable source citations. Known content-TOC and guide-discovery answer limitations remain; technical checks do not certify general answer accuracy.
 
 ## Upgrade checks
 
@@ -36,4 +40,6 @@ Accessibility checks are representative, not WCAG certification. The theme suppl
 
 ## Publication gate
 
-Version 2.2.0 and these notes are approved. Obtain separate publication authorization before proceeding. Finalize the release date, remove the `unreleased` marker and reconcile public development labels/data with the published release. Build and verify the final gem, create the reviewed tag, publish the gem and GitHub release, then verify Pages and Worker deployment separately. Do not publish the current candidate artifact as a final release: its HTML marker and changelog intentionally identify it as unreleased.
+Version 2.2.0 remains the approved target. Review and approve this revised draft,
+including #164/#166 additions, and obtain separate publication authorization
+before proceeding. Finalize the release date, remove the `unreleased` marker and reconcile public development labels/data with the published release. Build and verify the final gem, create the reviewed tag, publish the gem and GitHub release, then verify Pages and Worker deployment separately. Do not publish the current candidate artifact as a final release: its HTML marker and changelog intentionally identify it as unreleased.

@@ -1,11 +1,43 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 16 October 2026. Current delivery baseline: main `a2302de0f`, after merged #161.
-Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release preparation and deployment verification remain separate.
+Updated: 19 October 2026. Current delivery baseline: main `233776789`, after merged #166.
+Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Post-#166 deployment is verified separately below.
 See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
+
+## Current handoff after #166
+
+The editorial/correction program is closed. #163 prepared 2.2.0 without publishing;
+#164 merged chatbot context/citation/answer checks; #166 merged the optional
+Light/Dark/Auto selector and its review fixes. The current source is
+`2337767895da8533cf9a65bbbacd4a91170a8d92`.
+
+[Post-merge evidence](post166-release-status-2026-10-19.md) confirms successful
+Pages, Pages-gated Worker deployment, Jekyll 3/4 regression/installed-gem jobs,
+browser checks and Algolia for that exact commit. Worker version:
+`6e902e42-cda2-4313-8832-1ac232897ec4`. Public guide/widget HTTP checks were blocked
+by this environment's proxy; deployment success is not a live availability or
+answer-quality measurement. The known Netlify preview failure remains separate.
+
+Next steps:
+
+1. Review and approve the revised 2.2.0 release scope/notes including #164/#166;
+   the 16 October approval covers the original draft only. The old local
+   candidate artifact predates them and must not be uploaded as the final gem.
+2. On separate publication authorization, finalize release metadata/date, build
+   and verify the exact final artifact, then publish the approved tag/gem/release.
+   CI has already verified installed-gem compatibility on this baseline with
+   Jekyll 3/4; later source changes require checks appropriate to those changes.
+3. If prioritized, address the two documented chatbot limitations (content TOC
+   recipes and guide discovery) in a separate bounded task. Do not reopen #164
+   or require the full catalog/human research to close this editorial program.
+
+No publication, live inference or manual deployment is authorized by this status
+update. Earlier delivery rows below are dated delivery observations: their
+unverified-deployment wording is superseded for the current cumulative source
+by the exact post-#166 evidence, not retroactively for each historical revision.
 
 ## Current state
 
@@ -22,13 +54,17 @@ status and links after each bounded PR. Documentation is written in English.
 | General reference and accessibility | Merged #158, head checks passed and branch deleted. Eight pages reviewed: seven badge groups, five widgets; FAQ retains direct question navigation. See the [delivery record](reference-navigation-closeout-2026-10-16.md). Merged #158; deployment separately unverified. |
 | #154 cloud-entry dates | Closed by merged #159; head checks passed including Jekyll 3/4 and browser; branch deleted. See the [delivery record](cloud-date-fix-2026-10-16.md). |
 | #125 comment adapters | Closed by merged #160; all applicable head checks passed, including Jekyll 3/4, installation and browser; branch deleted. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
+| #163 release preparation | Merged; 2.2.0 remains unreleased. Final artifact/publication requires a separate instruction. |
+| #164 chatbot corrections | Merged; revision-specific live evidence exists. Final changes have local/CI checks, not inherited live-answer passes. Current cumulative context deployed by the post-#166 workflow. |
+| #166 appearance selector | Merged with all review threads resolved; exact-main regression and Pages/Worker results verified. Netlify preview failure remains known. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
 
 Human interviews and observed tasks are optional research. Tests, successful
 deployments and synthetic editorial reviews are not human usability evidence.
 The final source-based reassessment uses the unchanged editorial rubric and
 separate page scores, with no all-page average. No measured findability gain,
-human usability or live chatbot accuracy claim is established.
+human usability or generally accurate chatbot claim is established. Revision-specific
+live chatbot observations are recorded under #164 and must retain their scope.
 
 ## 1. Completed preparation PR #151
 
@@ -140,20 +176,21 @@ human interviews remain separate from editorial closeout.
 - [ ] Publish only after a separate explicit release instruction. Finalize
   release metadata and validate the final artifact before publication.
 
-## 5. Separate optional live chatbot evaluation
+## 5. Separate chatbot quality follow-up
 
-Use the [four-case protocol](../docs/ai-chatbot/evaluation-plan-2026-10-16.md):
-`installation-1`, `second-photo-tutorial-1`, `photoswipe-gallery`, `snippets-1`.
+The [four-case protocol](../docs/ai-chatbot/evaluation-plan-2026-10-16.md) is an
+older proposal, not a claim that no live work has occurred. #164 subsequently
+performed revision-specific live evaluations and corrections; see its
+[closeout and limitations](../docs/ai-chatbot/evaluations/pr164-closeout-2026-10-18.md).
+Preserve raw outputs and version identities. The historical evidence manifest
+still points to an earlier manually deployed candidate; it is not the identity
+of the new Pages-gated Worker recorded above.
 
-- [ ] Verify the reviewed context is actually deployed and exact source routes
-  are published; then obtain authorization for quota-consuming requests.
-- [ ] Run the existing selected-case tool once with a fresh run name. Preserve
-  raw responses/statuses and review facts, complete examples and exact citations.
-- [ ] Record `durationMs` separately as client request/response elapsed time,
-  not model-only latency or human completion time. Classify availability failures
-  separately; four samples do not establish p90 or a performance guarantee.
-- [ ] Add a dated result review without changing historical JSONL or inventing
-  human participants, answer success or latency improvements.
-
-This live review is not performed now. Optional participant research remains
-independent of editorial completion and of technical answer verification.
+The deployed #166 source has no new inference evaluation in this task. Known
+content-TOC and guide-discovery fallbacks mean an answer can be unavailable;
+containment is not successful task completion. If a follow-up is authorized,
+select focused cases, verify the exact deployed revision, retain raw outputs and
+review facts, complete examples and usable citations separately from availability
+and request duration. Neither old passes nor deployment success transfer
+accuracy to a newer artifact. Full-catalog/repeated-run evaluation and human
+research remain optional, separately prioritized work.
