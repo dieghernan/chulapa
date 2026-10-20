@@ -32,7 +32,7 @@ function fontRequest(request) {
     const axes = names.split(',');
     weights = values.split(';').map(value=>value.split(','))
       .filter(value=>!axes.includes('ital') || value[axes.indexOf('ital')]==='0')
-      .map(value=>axes.includes('wght') ? value[axes.indexOf('wght')].replace('..',' ') : '400');
+      .map(value=>axes.includes('wght') ? value[axes.indexOf('wght')].replaceAll('..',' ') : '400');
   } else if (specification) {
     weights = specification.split(',').filter(value=>!value.includes('italic'))
       .map(value=>value==='regular'?'400':value==='bold'?'700':value);
