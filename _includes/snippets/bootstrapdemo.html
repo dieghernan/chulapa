@@ -72,7 +72,18 @@
                     <span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
                   </a>
                 </li> {%- endif -%} 
-                {% include components/theme-selector.html selector_id='demo-dual-desktop' %}
+<li class="nav-item dropdown chulapa-theme-selector" hidden>
+  <button type="button" class="nav-link dropdown-toggle chulapa-theme-toggle" id="chulapa-theme-demo-dark" data-toggle="dropdown" aria-expanded="false" aria-label="Color theme: Light" title="Color theme: Light">
+    <i class="fas fa-sun" aria-hidden="true"></i>
+    <span class="chulapa-theme-label">Light</span>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="chulapa-theme-demo-dark">
+    <button type="button" class="dropdown-item" data-theme-mode="light" aria-pressed="true"><i class="fas fa-sun mr-2" aria-hidden="true"></i>Light</button>
+    <button type="button" class="dropdown-item" data-theme-mode="dark" aria-pressed="false"><i class="fas fa-moon mr-2" aria-hidden="true"></i>Dark</button>
+    <button type="button" class="dropdown-item" data-theme-mode="auto" aria-pressed="false"><i class="fa fa-adjust mr-2" aria-hidden="true"></i>Auto</button>
+  </div>
+</li>
+
                 </ul>
             </div> {%- endif -%}
           </div>
