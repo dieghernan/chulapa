@@ -1418,3 +1418,11 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 .navbar-chulapa .chulapa-theme-toggle i {
   color: $navbar-chulapa-text-color !important;
 }
+
+.chulapa-theme-toggle:focus,
+.chulapa-theme-toggle:focus-visible,
+.chulapa-theme-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+  color: $navbar-chulapa-text-color !important;
+}
