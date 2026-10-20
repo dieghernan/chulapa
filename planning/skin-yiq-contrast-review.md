@@ -2,7 +2,7 @@
 
 ## Identity-preserving compromise
 
-All 42 skins and the auto defaults preserve their original primary background colors exactly. Strong darkening of secondary/warning/info colors is reverted as well: Minty retains its pastel green and pink, Focal its salmon, Hootstrap its yellow, and Sketchy/Materia/Yeti their original warning colors. Only small remaining palette adjustments and existing YIQ thresholds are changed. The shared YIQ function is unchanged.
+All 42 skins and the auto defaults preserve their original primary background colors exactly. Strong darkening of secondary/warning/info colors is reverted as well: Minty retains its pastel green and pink, Focal its salmon, Hootstrap its yellow, and Sketchy/Materia/Yeti their original warning colors. Palette changes are limited to small adjustments and existing YIQ thresholds. Linked badge states also select text for their actual darkened background. The shared YIQ function is unchanged.
 
 29 of 43 palettes now meet WCAG AA 4.5:1 on all eight base semantic pairs, compared with five originally. 18 pairs remain below 4.5:1 across 14 palettes (including auto), and are explicitly retained for identity. This is not an all-palette accessibility certification.
 
@@ -24,14 +24,14 @@ The original primary values are pinned in `test/skin-contrast-identity.json`. No
 | electro | 6/8 → 8/8 | 7.11:1 | None on base palette | None | 150 → 140 |
 | flatly | 2/8 → 7/8 | 4.30:1 | dark (4.30:1) | info, danger | 175 → 130 |
 | focal | 4/8 → 8/8 | 4.56:1 | None on base palette | danger | 150 → 119 |
-| gitdev-dark | 8/8 → 8/8 | 6.61:1 | None on base palette | None | 150 → 150 |
+| gitdev-dark | 8/8 → 8/8 | 6.61:1 | None on base palette | None | 150 → 139 |
 | gitdev | 8/8 → 8/8 | 4.69:1 | None on base palette | None | 150 → 150 |
 | graymor | 5/8 → 8/8 | 4.56:1 | None on base palette | secondary, info | 150 → 130 |
 | hootstrap | 7/8 → 7/8 | 4.45:1 | primary (4.45:1) | None | 150 → 150 |
 | journal | 5/8 → 8/8 | 5.07:1 | None on base palette | None | 150 → 123 |
 | listen | 6/8 → 8/8 | 4.57:1 | None on base palette | secondary, danger | 130 → 130 |
 | lux | 4/8 → 8/8 | 4.65:1 | None on base palette | info, danger | 185 → 128 |
-| lymcha | 8/8 → 8/8 | 5.61:1 | None on base palette | None | 150 → 150 |
+| lymcha | 8/8 → 8/8 | 5.61:1 | None on base palette | None | 150 → 116 |
 | materia | 5/8 → 8/8 | 4.64:1 | None on base palette | None | 170 → 125 |
 | media | 7/8 → 8/8 | 4.53:1 | None on base palette | danger | 150 → 150 |
 | mickie | 5/8 → 8/8 | 4.58:1 | None on base palette | info, danger | 150 → 128 |
@@ -46,7 +46,7 @@ The original primary values are pinned in `test/skin-contrast-identity.json`. No
 | sketchy | 5/8 → 8/8 | 4.53:1 | None on base palette | info | 200 → 117 |
 | slate | 3/8 → 8/8 | 4.56:1 | None on base palette | secondary, danger | 170 → 140 |
 | solar | 4/8 → 7/8 | 4.08:1 | info (4.08:1) | None | 150 → 116 |
-| sunset | 7/8 → 8/8 | 4.55:1 | None on base palette | danger | 150 → 150 |
+| sunset | 7/8 → 8/8 | 4.55:1 | None on base palette | danger | 150 → 146 |
 | towards | 7/8 → 8/8 | 4.61:1 | None on base palette | None | 150 → 130 |
 | twitter-dim | 3/8 → 7/8 | 4.27:1 | secondary (4.27:1) | danger | 150 → 123 |
 | twitter-lights-out | 3/8 → 8/8 | 4.55:1 | None on base palette | secondary, danger | 150 → 123 |
@@ -111,16 +111,22 @@ The review correctly identified that darkening Twitter Dim and Butterfly Dim pri
 
 ## Semantic foreground and interaction regressions
 
-All four review findings are addressed without changing any primary color:
+All five review findings are addressed without changing any primary color:
 
 - Twitter Dim/Butterfly Dim link accents retain the original bright colors, including readable hover/focus states.
 - Butterfly Dim restores `success: #00a400`; `.text-success` reaches 5.05:1 and threshold 96 keeps the green background readable with dark text.
 - Twitter Dim restores `secondary: #788995`; `.text-secondary` and the resting outline button recover 4.56:1 on `#15202b`.
 - Focal restores its original success/info tones and uses threshold 119; success-button hover/focus recover 4.54:1 and active reaches 5.16:1.
 
-A systematic comparison found 32 newly failing semantic-text/button-state pairs in the pre-fix palette revision `9dd17fd`, including repeats between hover and focus. Restore the implicated original tones and choose thresholds that preserve the previously passing states. The independent browser regression now checks all 1,849 originally AA-passing pairs across all 43 palettes at 390px and 1280px (3,698 checks), including semantic foregrounds and normal/hover/focus/active states of filled and outline buttons. No originally passing pair in that matrix drops below 4.5:1. The fixture records only previously passing pairs, not a certification of excluded pairs or complete gradients.
+A systematic comparison found 32 newly failing semantic-text/button-state pairs in the pre-fix palette revision `9dd17fd`, including repeats between hover and focus. Restore the implicated original tones and choose thresholds that preserve the previously passing states. The independent browser regression now checks all 2,898 originally AA-passing pairs across all 43 palettes at 390px and 1280px (5,796 checks), including semantic foregrounds and normal/hover/focus/active states of filled/outline buttons and linked badges. No originally passing pair in that matrix drops below 4.5:1. The fixture records only previously passing pairs, not a certification of excluded pairs or complete gradients.
 
 The three contrast scripts are wired into the existing browser CI job. Local Chromium checks pass; remote CI status must be checked for the final commit. Netlify previews also fail on earlier unrelated PRs; their logs remain inaccessible from this workspace (proxy 403), so no cause or fix is claimed.
+
+## Linked badge hover/focus contrast
+
+The badge mixin previously darkened a linked badge's background by 10% on hover/focus while choosing text from its unchanged resting background. Select text with the same existing `color-yiq()` function using the actual darkened background instead. No palette values or YIQ algorithm are changed. GitDev Dark, Lymcha and Sunset thresholds are aligned with the newly evaluated backgrounds; Listen retains its established dark labels on three bright badge variants. All previously passing base colors and interaction pairs remain covered. No new configuration option is added.
+
+Academia `.badge-info` reproduces the review failure at 3.29:1 before the fix and reaches 4.69:1 afterward, verified with real pointer hover and Tab focus at 390px and 1280px. The expanded baseline includes linked badges in all 43 palettes and all four CSS states, detecting 102 newly failing linked-badge state pairs before this correction. The full non-regression suite now guards 2,898 previously passing pairs at two viewport sizes (5,796 checks). This does not certify the excluded, previously failing pairs.
 
 ## Fixed-text component limitations
 

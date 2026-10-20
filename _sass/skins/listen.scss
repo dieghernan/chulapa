@@ -49,3 +49,13 @@ $yiq-contrasted-threshold: 130 !default;
 
 // Lines for dark themes
 @import "skins/dark-bg";
+
+// Retain dark labels on the skin's bright linked-badge hover backgrounds.
+a.badge.badge-primary,
+a.badge.badge-success,
+a.badge.badge-info {
+  &:hover,
+  &:focus {
+    color: $yiq-text-dark;
+  }
+}

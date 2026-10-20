@@ -29,7 +29,7 @@ async function audit(sassRoot, page, session) {
     const html = colors
       .map(
         (k) =>
-          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button>`,
+          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a>`,
       )
       .join("");
     await page.setContent(
@@ -40,7 +40,7 @@ async function audit(sassRoot, page, session) {
     } = await session.send("DOM.getDocument");
     const { nodeIds } = await session.send("DOM.querySelectorAll", {
       nodeId,
-      selector: "button",
+      selector: "button,a",
     });
     output[skin] = {};
     for (const state of ["normal", "hover", "focus", "active"]) {
@@ -117,7 +117,7 @@ async function audit(sassRoot, page, session) {
       }
     }
     console.log(
-      `${checked} previously AA-passing foreground/button-state pairs retain 4.5:1 across both viewports.`,
+      `${checked} previously AA-passing text/button/linked-badge pairs retain 4.5:1 across both viewports.`,
     );
   } finally {
     await browser.close();
