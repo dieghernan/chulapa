@@ -24,12 +24,28 @@ function download(url) {
   return fs.readFileSync(file);
 }
 const loadedFonts = new Map();
-function fontCSS(family) {
-  if (loadedFonts.has(family)) return loadedFonts.get(family);
+function fontRequest(request) {
+  const [family, specification] = request.split(':');
+  let weights = ['400'];
+  if (specification?.includes('@')) {
+    const [names, values] = specification.split('@');
+    const axes = names.split(',');
+    weights = values.split(';').map(value=>value.split(','))
+      .filter(value=>!axes.includes('ital') || value[axes.indexOf('ital')]==='0')
+      .map(value=>axes.includes('wght') ? value[axes.indexOf('wght')].replace('..',' ') : '400');
+  } else if (specification) {
+    weights = specification.split(',').filter(value=>!value.includes('italic'))
+      .map(value=>value==='regular'?'400':value==='bold'?'700':value);
+  }
+  return {family, weights};
+}
+function fontCSS({family, weights}) {
+  const key = JSON.stringify([family, weights]);
+  if (loadedFonts.has(key)) return loadedFonts.get(key);
   let css = '';
   // Muli was renamed upstream; retain its original font rather than substitute Mulish.
   if (family === 'Muli') {
-    for (const weight of [400,700]) {
+    for (const weight of weights) {
       const data = download(`https://cdn.jsdelivr.net/npm/@fontsource/muli@4.1.0/files/muli-latin-${weight}-normal.woff2`);
       css += `@font-face{font-family:'Muli';font-weight:${weight};src:url(data:font/woff2;base64,${data.toString('base64')})}`;
     }
@@ -46,29 +62,39 @@ function fontCSS(family) {
       .filter(f=>f.style==='normal');
     assert.ok(faces.length, `No normal face for ${family}`);
     const chosen = new Map();
-    for (const weight of [400,700]) {
-      const face = faces.find(f=>f.file.includes('[')) || faces.reduce((a,b)=>Math.abs(b.weight-weight)<Math.abs(a.weight-weight)?b:a);
-      chosen.set(face.file, face);
+    const variable = faces.find(face=>/\[[^\]]*wght/.test(face.file));
+    for (const weight of weights) {
+      if (variable) {
+        chosen.set(weight, {...variable, descriptor:weight});
+      } else {
+        const limits = weight.split(' ').map(Number);
+        const requested = limits.length===1
+          ? [faces.reduce((a,b)=>Math.abs(b.weight-limits[0])<Math.abs(a.weight-limits[0])?b:a)]
+          : faces.filter(face=>face.weight>=limits[0] && face.weight<=limits[1]);
+        for (const face of requested) chosen.set(String(face.weight), {...face, descriptor:face.weight});
+      }
     }
     for (const face of chosen.values()) {
       const data = download(base+encodeURIComponent(face.file));
-      const weight = face.file.includes('[') ? '100 1000' : face.weight;
-      css += `@font-face{font-family:'${family}';font-weight:${weight};src:url(data:font/ttf;base64,${data.toString('base64')})}`;
+      css += `@font-face{font-family:'${family}';font-weight:${face.descriptor};src:url(data:font/ttf;base64,${data.toString('base64')})}`;
     }
   }
-  loadedFonts.set(family, css);
+  loadedFonts.set(key, css);
   return css;
 }
 function prepareCSS(skin) {
   let css = sass.compileString(`@import "skins/${skin}";@import "bootstrap/bootstrap";@import "chulapa-master";`, {loadPaths:[root+'/_sass'],logger:{warn(){}}}).css;
-  const families = new Set();
+  const families = new Map();
   for (const match of css.matchAll(/https:\/\/fonts\.googleapis\.com\/[^\s"')]+/g)) {
     const url = new URL(match[0]);
     for (const value of url.searchParams.getAll('family'))
-      for (const family of value.split('|')) families.add(family.split(':')[0]);
+      for (const request of value.split('|')) {
+        const {family, weights} = fontRequest(request);
+        families.set(family, [...new Set([...(families.get(family)||[]), ...weights])]);
+      }
   }
   css = css.replace(/^@import[^\n]+$/gm, '');
-  css += [...families].map(fontCSS).join('\n');
+  css += [...families].map(([family, weights])=>fontCSS({family, weights})).join('\n');
   const brand = fs.readFileSync(root+'/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf');
   return css+`@font-face{font-family:chulapa;src:url(data:font/otf;base64,${brand.toString('base64')})}`;
 }

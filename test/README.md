@@ -465,7 +465,8 @@ CHULAPA_CHROMIUM=/path/to/chromium node test/generate_skin_previews.js
 ```
 
 Python with Pillow and `curl` are also required. The generator downloads pinned
-Google Fonts sources (and the legacy Muli font from Fontsource), caches them in
+Google Fonts sources (and the legacy Muli font from Fontsource), preserving the
+normal weights and variable weight ranges requested by each skin. It caches them in
 the system temporary directory, and embeds them for captures. It stops if a font
 cannot load, content is cropped, or a sample overflows at 390 or 1280 pixels.
 It changes no skin palettes, component rules or contrast baselines. `current`
