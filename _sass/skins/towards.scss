@@ -34,3 +34,27 @@ a:not([class]) {
 .card.bg-primary {
   color: $white;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  success: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  success: #008756,
+  info: #4e738b,
+  warning: #976f00,
+) !default;
+
+// Reviewed AA fills for solid buttons with white labels.
+$skin-button-backgrounds: (
+  success: #008756,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #8ed1fc,
+  success: #00d084,
+  warning: #fcb900,
+) !default;
+$skin-button-body-bg: #fff !default;

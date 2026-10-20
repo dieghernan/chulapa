@@ -26,3 +26,24 @@ $btn-border-radius-sm: .8rem;
     color: $white;
 }
 
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  warning: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #68777a,
+  info: #4c7196,
+  warning: #008900,
+  danger: #008900,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #00f900,
+  info: #7ebcfa,
+  secondary: #a0b7bc,
+  warning: #00f900,
+) !default;
+$skin-button-body-bg: #ffffff !default;

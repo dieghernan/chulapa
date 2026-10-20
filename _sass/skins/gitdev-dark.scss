@@ -88,3 +88,13 @@ blockquote {
   border-radius: 0 !important;
   border-left: solid $link-color !important;
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #91959a,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  primary: #373e47,
+) !default;
+$skin-button-body-bg: #24292f !default;

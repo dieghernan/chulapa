@@ -32,3 +32,34 @@ $thead-chulapa-bg-color: $white !default;
 .chulapa-landingpage-color .card.bg-light {
   color: $dark !important;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  secondary: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #0e6fcf,
+  secondary: #717278,
+  info: #32778e,
+  warning: #8c6600,
+  danger: #c83d41,
+) !default;
+
+// AA button fills; keep the global palette and link accents unchanged.
+$skin-button-backgrounds: (
+  primary: #0e75da,
+  secondary: #75757c,
+  danger: #d34044,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #fa4c51,
+  info: #54c7ec,
+  primary: #1083f3,
+  secondary: #8d8e96,
+  warning: #ffba00,
+) !default;
+$skin-button-body-bg: #ffffff !default;

@@ -671,3 +671,28 @@ label,
 .card.bg-primary {
   color: $white;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  success: #ffffff,
+  info: #ffffff,
+  warning: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #007ea7,
+  secondary: #707070,
+  success: #328150,
+  info: #3b7d90,
+  warning: #a36501,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #5bc0de,
+  primary: #008cba,
+  secondary: #ccc,
+  success: #43ac6a,
+  warning: #e99002,
+) !default;
+$skin-button-body-bg: #fff !default;

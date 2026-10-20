@@ -4,8 +4,15 @@
  * Licensed under MIT
  */
 
+// Original Bootswatch component rules follow Bootstrap without importing it twice.
+@if mixin-exists(chulapa-bootswatch) {
+  @include chulapa-bootswatch;
+}
+
 @import "chulapa/_bootstrapv5";
 @import "chulapa/_mixins";
 @import "chulapa/_variables";
 @import "chulapa/_reboot";
 @import "chulapa/_classes";
+
+@import "chulapa/_buttons";

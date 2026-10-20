@@ -411,5 +411,12 @@
     "doc": "23_change-color.md",
     "question": "Do the improved skin palettes guarantee that my custom colors and whole website meet accessibility requirements? Are they in v2.1.0?",
     "expected": "No. 2.2.0 unreleased makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
+  },
+  {
+    "id": "skins-bootswatch-originals-1",
+    "section": "skins",
+    "doc": "23_change-color.md",
+    "question": "Can I use Cerulean, Litera or Pulse, and have their original Bootswatch colors been changed for AA?",
+    "expected": "Added in 2.2.0 unreleased, not guaranteed available in v2.1.0. Set chulapa-skin.skin to cerulean, litera or pulse; preserve existing vars and other settings. Original Bootswatch 4.6.2 palettes/typography/components retained, with original contrast limitations; do not claim AA or replace Bootstrap CSS. Link the skins catalog and relevant preview. Restart local preview for config changes."
   }
 ]

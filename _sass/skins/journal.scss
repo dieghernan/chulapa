@@ -133,3 +133,28 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;70
     text-decoration: none;
   }
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #bc5350,
+  secondary: #6e6e6e,
+  success: #1a8639,
+  warning: #7a7312,
+  danger: #b85c00,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #f57a00,
+  primary: #eb6864,
+  secondary: #aaa,
+  success: #22b24c,
+  warning: #f5e625,
+) !default;
+$skin-button-body-bg: #fff !default;

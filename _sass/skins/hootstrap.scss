@@ -22,3 +22,26 @@ $white: #fff !default;
 .card.bg-secondary {
   color: $white;
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #4e7a72,
+  secondary: #837632,
+  success: #8c6a00,
+  info: #367f50,
+  warning: #807434,
+) !default;
+
+// Minimal AA adjustment for the filled Primary button only.
+$skin-button-backgrounds: (
+  primary: #517e77,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #63e792,
+  primary: #528078,
+  secondary: #eed75a,
+  success: #FEC100,
+  warning: #FFE869,
+) !default;
+$skin-button-body-bg: #fff !default;

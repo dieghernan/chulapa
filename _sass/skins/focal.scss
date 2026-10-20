@@ -57,3 +57,33 @@ nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
 .card.bg-secondary {
   color: $white;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  success: #ffffff,
+  info: #ffffff,
+  warning: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #a65f56,
+  success: #1e8549,
+  info: #008191,
+  warning: #bb4f0a,
+) !default;
+
+// Reviewed AA fills for solid buttons with white labels.
+$skin-button-backgrounds: (
+  success: #1f864a,
+  info: #008292,
+  warning: #c4530b,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #00acc1,
+  primary: #ff9285,
+  success: #26a65b,
+  warning: #f9690e,
+) !default;
+$skin-button-body-bg: #fff !default;

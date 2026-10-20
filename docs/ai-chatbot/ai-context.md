@@ -144,8 +144,9 @@ Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after th
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
-Named skins: academia, butterfly, butterfly-dark, butterfly-dim, chulapa, cyborg, dark-bg, darkly, deeply, electro, flatly, focal, gitdev, gitdev-dark, graymor, hootstrap, journal, listen, lux, lymcha, materia, media, mickie, minco, minty, monotone, navi, pear, preptor, skeeblu, sketchy, slate, solar, sunset, towards, twitter, twitter-dim, twitter-lights-out, united, universal, wandoo, yeti.
-Availability: give actual examples and catalog link; full list only on request. Use real YAML names. auto/none are special; current is not a skin.
+Named skins: academia,cerulean,litera,pulse,butterfly,butterfly-dark,butterfly-dim,chulapa,cyborg,dark-bg,darkly,deeply,electro,flatly,focal,gitdev,gitdev-dark,graymor,hootstrap,journal,listen,lux,lymcha,materia,media,mickie,minco,minty,monotone,navi,pear,preptor,skeeblu,sketchy,slate,solar,sunset,towards,twitter,twitter-dim,twitter-lights-out,united,universal,wandoo,yeti.
+Examples+catalog; full list on request. auto/none special; current not a skin.
+cerulean/litera/pulse: 2.2.0 unreleased; original Bootswatch 4.6.2, contrast limits retained.
 ## Layouts
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 default is for posts/pages/collection documents, via front matter or Jekyll defaults. Markdown content uses YAML front matter. Optional components use front matter/defaults; demos show output.

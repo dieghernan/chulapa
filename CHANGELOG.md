@@ -6,6 +6,8 @@ remains v2.1.0 until publication is completed.
 
 ### Added
 
+-   Add Cerulean, Litera and Pulse using original Bootswatch 4.6.2 Sass, preserving their palettes, typography and component styling, with catalog previews and documented contrast limitations.
+
 -   Add an opt-in light/dark/auto skin selector to classic, floating and dual navigation, preserving preferences and applying the selected skin before the first paint (#165).
 
 -   Support opt-in GoatCounter analytics with a public HTTPS endpoint, loaded asynchronously only for production builds.
@@ -21,6 +23,10 @@ remains v2.1.0 until publication is completed.
 -   Render Mermaid diagrams with `mermaid: true`, loading the library only on enabled pages containing diagrams and preserving source when rendering fails.
 
 ### Fixed
+
+-   Limit button palette corrections to unchanged stock colors, respect configured semantic colors and page backgrounds, and keep Auto-specific button styles out of Autothemer palette filling for other skins.
+
+-   Restore original light labels on filled skin buttons consistently across interaction states, and improve low-contrast outline labels and borders on each skin’s page background while preserving global palette colors. Bring all eight solid-button variants in the 16 original dieghernan skins to AA text contrast in normal, hover, focus and active states; also adjust Hootstrap Primary. Keep Listen’s readable dark labels and Chulapa Success’s pastel resting fill. Other authors’ original filled-button limitations remain intentional.
 
 -   Restore readable Flatly alert text on Bootstrap’s pale contextual backgrounds, including inline code and links in hover/focus states, without changing the palette.
 

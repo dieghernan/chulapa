@@ -49,3 +49,24 @@ $breadcrumb-divider: quote(">") !default;
 .card.bg-secondary {
     color: $white;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+  warning: #ffffff,
+) !default;
+
+// Reviewed AA fills for solid buttons with white labels.
+$skin-button-backgrounds: (
+  primary: #177bbe,
+  success: #00875a,
+  warning: #bc5a00,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  primary: #1d9bf0,
+  success: #00ba7c,
+  warning: #ff7a00,
+) !default;
+$skin-button-body-bg: #000 !default;

@@ -83,3 +83,19 @@ a:focus {
   color: $footer-chulapa-icon-hover-color;
   text-decoration: underline;
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #8962aa,
+  success: #627c0c,
+  info: #117a8a,
+  warning: #8c6a04,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #17a2b8,
+  primary: #986dbd,
+  success: #97bf13,
+  warning: #ffc107,
+) !default;
+$skin-button-body-bg: #fff !default;

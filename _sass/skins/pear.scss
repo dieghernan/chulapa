@@ -31,3 +31,34 @@ $btn-border-radius-sm: 1rem !default;
   font-variant-ligatures: none;
 }
 
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+  info: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #117a65,
+  success: #1e7d34,
+  info: #187c8c,
+  warning: #8c6a04,
+  danger: #d13242,
+) !default;
+
+// Reviewed AA fills for solid buttons with white labels.
+$skin-button-backgrounds: (
+  primary: #12856f,
+  success: #208738,
+  info: #198192,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #dc3545,
+  info: #20a6bb,
+  primary: #1abc9c,
+  success: #28a745,
+  warning: #ffc107,
+) !default;
+$skin-button-body-bg: rgb(243.55, 251.65, 250.05) !default;

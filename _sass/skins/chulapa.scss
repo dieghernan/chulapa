@@ -59,4 +59,23 @@ $white: #ffffff !default;
   color: $dark !important;
 }
 
-@import "skins/auto";
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #826d65,
+  success: #587b7a,
+  warning: #737237,
+) !default;
+
+// Auto fills palette defaults without replacing this skin's button choices.
+$skin-button-labels: () !default;
+@import "chulapa/autothemer";
+
+// Keep pastel Success readable in interaction states, for the stock palette.
+$skin-button-lighter-states: (success) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  primary: #edc7b7,
+  success: #88bdbc,
+  warning: #fffe7a,
+) !default;
+$skin-button-body-bg: #ffffff !default;

@@ -49,9 +49,33 @@ The bundled palettes receive small color and YIQ threshold adjustments while
 preserving their original primary colors and visual identity. Dark dim skins
 retain brighter accents for links and navigation. Some original combinations
 remain below 4.5:1; these improvements do not certify every palette as WCAG AA.
+Filled buttons retain their original light labels where YIQ adjustments had
+changed them to dark text, including hover, focus and active states. Low-contrast
+outline labels and borders are adjusted for the skin’s page background;
+`Light` and `Dark` variants retain their use on alternate backgrounds.
+All eight solid-button variants in the 16 skins authored by dieghernan reach
+4.5:1 in normal, hover, focus and active states. Selected fills are darker with
+white labels; Listen retains dark labels on bright fills, and <span class="chulapa">Chulapa</span> Success
+uses lighter interaction fills. Hootstrap Primary also receives a minimal AA
+adjustment. These button-specific changes leave global palette and link accents
+unchanged; they do not certify other components or entire skins.
+Button corrections apply to unchanged stock colors. Setting a semantic color
+through `vars` keeps that variant on the skin’s normal color handling; stock
+outline corrections also stop applying if you change the page background.
+Autothemer fills palette defaults without importing the Auto skin’s button styles.
 No new configuration is required.
 
 Check text contrast on your actual page, particularly when using custom `vars`,
 generated palettes, fixed white text, translucent backgrounds or hover/focus
 states. Preserving a skin's identity can require accepting a contrast limitation
 or choosing different text colors for your site's components.
+
+### Original Bootswatch skins (2.2.0, unreleased)
+
+`cerulean`, `litera` and `pulse` retain Bootswatch 4.6.2's original palettes,
+typography and component styles. Select one using the existing `chulapa-skin.skin`
+setting; no extra configuration is required. Existing `vars` still override skin
+variables. These three skins deliberately keep upstream contrast limitations;
+they are not included in the AA button adjustments described above. Cerulean's
+gradients also need checking across their full area, not just one background color.
+See their previews in the [skin catalog]({{ "/skins" | relative_url }}).

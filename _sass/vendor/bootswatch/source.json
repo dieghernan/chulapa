@@ -1,0 +1,18 @@
+{
+  "version": "4.6.2",
+  "commit": "57980884525efb94836d88a5f59d5db9c5e8bbf0",
+  "skins": {
+    "cerulean": {
+      "_variables.scss": "7ed76e6a8da85143129d37ed932265282bbf5f6c9466448dfbeb00f1dedcb24a",
+      "_bootswatch.scss": "00e54efeec6cbea890a9be6f0ef822f4189e08d884ce17a6f5cc940e9d31266b"
+    },
+    "litera": {
+      "_variables.scss": "26399d7abe06e0d6121366bf77894a4029e8022061b594df020b3e8bee7c8b74",
+      "_bootswatch.scss": "11f6957d08f5ddec41dfe9b589c59f1d86e93a9c1e3e0eaef8a72363c5c7f3a8"
+    },
+    "pulse": {
+      "_variables.scss": "450c4276c4c008c7303e672b26e58f6bfe4d1785c05da4d7ecce20dbd335605a",
+      "_bootswatch.scss": "85692f9f9a09926e5a06df74e38ce05b2008b1fc98a6dcfca09bf7670144ba36"
+    }
+  }
+}

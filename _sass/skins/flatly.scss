@@ -384,3 +384,29 @@ $landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
 .card.bg-primary {
   color: $white;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  secondary: #ffffff,
+  success: #ffffff,
+  info: #ffffff,
+  warning: #ffffff,
+  dark: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #687374,
+  success: #11846d,
+  info: #2a7aaf,
+  warning: #9e650c,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  dark: #7b8a8b,
+  info: #3598db,
+  secondary: #95a5a6,
+  success: #18bc9c,
+  warning: #f39c12,
+) !default;
+$skin-button-body-bg: #fff !default;

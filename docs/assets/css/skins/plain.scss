@@ -22,7 +22,7 @@
 
 {% if site.chulapa-skin.autothemer %}
   // Autothemer: No overrides
-  @import "skins/auto";
+  @import "chulapa/autothemer";
 {% endif %}
 
 // Import bootstrap
