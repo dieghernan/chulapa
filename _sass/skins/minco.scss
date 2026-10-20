@@ -8,11 +8,12 @@ $headings-font-family: 'Crete Round';
 
 // Color Variables
 $primary: #083358;
+$yiq-contrasted-threshold: 128 !default;
 $secondary: #F67280;
 $success: #0074E4;
-$danger: #FF4057;
+$danger: #ff475d;
 $info: #74DBEF;
-$warning: #FC3C3C;
+$warning: #fc4c4c;
 $light: #F2F2F0;
 $dark: #072247;
 $white: #ffffff !default;

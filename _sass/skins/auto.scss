@@ -5,6 +5,7 @@
  */
 
 $primary: #007bff !default;
+$yiq-contrasted-threshold: 117 !default;
 $white: mix(#fff, $primary, 95%) !default;
 $gray-100: mix(#f8f9fa, $primary, 85%) !default;
 $gray-200: mix(#e9ecef, $primary, 85%) !default;

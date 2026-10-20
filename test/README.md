@@ -366,3 +366,41 @@ same fixture directory. This is a validation tool only, not a theme dependency.
 The parser checks complete editorial content, exclusion of theme TOCs, retention
 of authored Markdown TOCs, and the title/URL/date contracts of all six built-in
 feed layouts, including aliases.
+
+### Automatic skin contrast
+
+```sh
+npm ci --prefix test/browser
+node test/check_skin_contrast.js
+```
+
+Compiles every skin and the autothemer defaults, checks automatic text against
+all eight palette backgrounds with an independent WCAG calculation, and checks
+each skin’s unchanged YIQ function output. Run the rendered component check
+with Chromium installed:
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_browser.js
+```
+
+It compiles theme CSS and checks base buttons, badges and skin-defined colored
+cards at 390px and 1280px. It also checks body, navigation and footer links on
+the two dim skins in normal, hover and focus states, plus body links on Cyborg
+and Wandoo. Butterfly Dim also checks `.text-success` against the page background.
+`skin-contrast-identity.json` records original primary colors and
+known contrast limitations retained for identity. These exceptions are checked
+for degradation, not counted as WCAG passes. The checks do not establish
+whole-page accessibility or cover all component interaction states.
+
+For semantic foregrounds, filled/outline buttons and linked badge CSS states
+across every skin:
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_states_browser.js
+```
+
+This compares 2,898 formerly AA-passing pairs from the original `e88f641`
+palettes at both viewport sizes. Chromium forces normal, hover, focus and active
+CSS states with transitions disabled for measurement. The recorded baseline
+covers previously passing pairs only; it does not certify excluded pairs,
+full gradients, arbitrary site content or JavaScript interactions.

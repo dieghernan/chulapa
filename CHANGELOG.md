@@ -22,6 +22,10 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
+-   Choose linked badge hover/focus text from the darkened background so labels retain contrast when the pointer or keyboard focus enters the link.
+
+-   Improve bundled skin contrast with small palette and YIQ threshold adjustments while preserving original primary colors and skin identity. Keep dim-skin link accents and semantic text readable, and preserve previously readable button interaction states. Some original combinations remain below 4.5:1; custom colors and component states still require review.
+
 -   Make available Previous/Next document links keyboard reachable, omit interactive missing neighbors, and keep default-layout headings inside main while excluding theme TOCs from editorial Microformats content. Preserve inherited listing feeds.
 
 -   Keep skin switching functional when imported Google Fonts CSS fails, preserving the skins' font imports and standalone previews. Verify completed theme CSS before activation and retain safe recovery for missing or incomplete skin/highlighter sheets.

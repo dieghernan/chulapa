@@ -31,13 +31,13 @@ $cyan:    #1f9bcf !default;
 $primary:       $gray-900 !default;
 $secondary:     $white !default;
 $success:       $green !default;
-$info:          $cyan !default;
+$info:          #279ed1 !default;
 $warning:       $yellow !default;
-$danger:        $red !default;
+$danger:        #db5a56 !default;
 $light:         $white !default;
 $dark:          $gray-800 !default;
 
-$yiq-contrasted-threshold:  185 !default;
+$yiq-contrasted-threshold: 128 !default;
 
 // Options
 

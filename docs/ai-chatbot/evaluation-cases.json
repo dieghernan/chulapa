@@ -404,5 +404,12 @@
     "doc": "22_choose-skin.md",
     "question": "In main/2.2.0, can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?",
     "expected": "2.2.0 unreleased/main keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if the generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider."
+  },
+  {
+    "id": "skin-palette-contrast-1",
+    "section": "appearance",
+    "doc": "23_change-color.md",
+    "question": "Do the improved skin palettes guarantee that my custom colors and whole website meet accessibility requirements? Are they in v2.1.0?",
+    "expected": "No. 2.2.0 unreleased makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
   }
 ]

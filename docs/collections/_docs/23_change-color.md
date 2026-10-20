@@ -42,3 +42,16 @@ are compiled into CSS during the build. If changes are missing, use
 
 The [appearance reference](./03-theming#variables) covers supported value syntax
 and calculated values that cannot be changed through `vars`.
+
+## Palette contrast (2.2.0, unreleased)
+
+The bundled palettes receive small color and YIQ threshold adjustments while
+preserving their original primary colors and visual identity. Dark dim skins
+retain brighter accents for links and navigation. Some original combinations
+remain below 4.5:1; these improvements do not certify every palette as WCAG AA.
+No new configuration is required.
+
+Check text contrast on your actual page, particularly when using custom `vars`,
+generated palettes, fixed white text, translucent backgrounds or hover/focus
+states. Preserving a skin's identity can require accepting a contrast limitation
+or choosing different text colors for your site's components.
