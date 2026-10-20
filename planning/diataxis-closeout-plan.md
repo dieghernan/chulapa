@@ -1,32 +1,34 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 19 October 2026. Current delivery baseline: main `eeb161de6`, after merged #170.
-Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Post-#170 Pages/CI and unchanged Worker lineage are recorded below.
+Updated: 20 October 2026. Current delivery baseline: main `58966b5dd`, after #172 and the Flatly alert correction.
+Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Current-main Pages/CI and #172 Worker lineage are recorded below.
 See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
 
-## Current handoff after #170
+## Current handoff after #172 and Flatly correction
 
 The editorial/correction program is closed. #163 prepared 2.2.0 without publishing;
 #164 merged chatbot context/citation/answer checks; #166 merged the optional
 Light/Dark/Auto selector and its review fixes. #168 adds shared recovery for
 Google Fonts import failures while rejecting incomplete/unverified essential CSS.
 #170 adds the bounded default-layout/keyboard/microformats correction.
-The current source is `eeb161de61dd57aa95d957b05c0becd87299c1a7`.
+#172 and subsequent commits improve GitDev/skin contrast while preserving
+original primary colors; the latest commit corrects Flatly alert text/links.
+The current source is `58966b5ddf1f8bd9059c8ea7e466c5ba4a700884`.
 
 [Current candidate evidence](release-candidate-after170-2026-10-19.md) records
-successful exact-source Pages and all regression jobs plus the rebuilt local
-gem's passing installation checks on Jekyll 3.10/4.4. No Worker update was
-triggered: its files/workflow are unchanged since #168. The valid Worker lineage
-remains #168, version `5cc044b1-b8a9-4135-a500-66c9bcb0db67`, not a new #170
-inference/availability result. Earlier candidate records retain their own hashes
-and source scope; Netlify/proxy limitations are not claimed resolved.
+exact-source Pages/regression success and the rebuilt artifact validation.
+Worker context changed in #172 and was deployed from `c1edaae46`, run
+39427985494, version `003c283d-7144-4aae-badc-4e4a24e7706d`. The later Flatly
+commit does not change Worker files; it does not imply a new Worker deployment.
+Older candidate hashes/checks remain historical. Deployment/tests do not establish
+live answer accuracy or remove the recorded Netlify/proxy limitations.
 
 Next steps:
 
-1. Review and approve the revised 2.2.0 release scope/notes including #164/#166/#168/#170;
+1. Review and approve the revised 2.2.0 release scope/notes including #164/#166/#168/#170/#172 and the latest Flatly correction;
    the 16 October approval covers the original draft only. A new local candidate
    is recorded for this baseline; it still contains unreleased markers and must
    not be uploaded as the final release artifact.
@@ -59,8 +61,9 @@ by the exact current-source evidence, not retroactively for each historical revi
 | #154 cloud-entry dates | Closed by merged #159; head checks passed including Jekyll 3/4 and browser; branch deleted. See the [delivery record](cloud-date-fix-2026-10-16.md). |
 | #125 comment adapters | Closed by merged #160; all applicable head checks passed, including Jekyll 3/4, installation and browser; branch deleted. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
 | #163 release preparation | Merged; 2.2.0 remains unreleased. Final artifact/publication requires a separate instruction. |
-| #164 chatbot corrections | Merged; revision-specific live evidence exists. Final changes have local/CI checks, not inherited live-answer passes. Current cumulative context includes #168 and was deployed by [post-#168 Worker run 39200007159](https://github.com/dieghernan/chulapa/actions/runs/39200007159) for `ed66ab4ac`; see the [current candidate evidence](release-candidate-after168-2026-10-19.md). |
-| #170 default semantics | Merged; exact-main Pages/regressions succeeded. Current rebuilt gem and unchanged #168 Worker lineage are recorded in the current candidate report. |
+| #164 chatbot corrections | Merged; revision-specific live evidence exists. Final changes have local/CI checks, not inherited live-answer passes. Current cumulative context includes #172 and was deployed by [Worker run 39427985494](https://github.com/dieghernan/chulapa/actions/runs/39427985494) for `c1edaae46`; see the [current candidate evidence](release-candidate-after170-2026-10-19.md). |
+| #172 skin contrast and Flatly follow-up | Merged/current main; exact-source Pages/regressions passed. Current candidate and separate #172 Worker deployment are recorded in the candidate report. |
+| #170 default semantics | Merged; exact-main Pages/regressions succeeded. That revision's gem/unchanged #168 Worker lineage remain historical; the current candidate report records the newer baseline. |
 | #168 font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded. New candidate validation and CSS-upgrade constraints are recorded in the current candidate report. |
 | #166 appearance selector | Merged with all review threads resolved; exact-main regression and Pages/Worker results verified. Netlify preview failure remains known. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
@@ -190,9 +193,9 @@ performed revision-specific live evaluations and corrections; see its
 [closeout and limitations](../docs/ai-chatbot/evaluations/pr164-closeout-2026-10-18.md).
 Preserve raw outputs and version identities. The historical evidence manifest
 still points to an earlier manually deployed candidate; it is not the identity
-of the retained #168 Pages-gated Worker deployment recorded above.
+of the newer #172 Pages-gated Worker deployment recorded above.
 
-The deployed #168 source has no new inference evaluation in this task. Known
+The deployed #172 Worker source has no new inference evaluation in this task. Known
 content-TOC and guide-discovery fallbacks mean an answer can be unavailable;
 containment is not successful task completion. If a follow-up is authorized,
 select focused cases, verify the exact deployed revision, retain raw outputs and

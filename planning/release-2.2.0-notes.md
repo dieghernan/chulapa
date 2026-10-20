@@ -1,7 +1,7 @@
 # Chulapa 2.2.0 release notes draft
 
 Status: version 2.2.0 and the original notes were approved on 16 October 2026
-for preparation only. This revised draft includes subsequent #164/#166/#168/#170 work
+for preparation only. This revised draft includes subsequent #164/#166/#168/#170/#172 work and the Flatly follow-up
 and is pending maintainer review; the historical approval does not approve
 these additions. Not published.
 
@@ -18,6 +18,7 @@ these additions. Not published.
 - Correct Cactus conversation identifiers without path collisions and include project-site paths in Welcomments submissions (#125).
 - Honor hidden dates in tag/category cloud entries (#154) and recommendation cards, fix badge destinations containing `demo` and correct configured image/index sorting.
 - Keep default-layout headings inside main, exclude theme TOCs from editorial Microformats content and restore keyboard access to available Previous/Next document links.
+- Improve GitDev and bundled-skin contrast while preserving original primary colors; correct Flatly alert text/link contrast. Recorded skin/component exceptions remain, so this is not a whole-site contrast guarantee.
 - Improve keyboard navigation, focus visibility, reduced-motion behavior, carousel controls, video names and local-search feedback.
 - Improve deferred YouTube activation and provide a link when JavaScript is disabled.
 - Keep skin switching available when verified, complete stylesheets encounter unavailable Google Fonts imports; retain safe fallback for missing or unverified essential CSS (#168).
@@ -44,5 +45,5 @@ Accessibility checks are representative, not WCAG certification. The theme suppl
 ## Publication gate
 
 Version 2.2.0 remains the approved target. Review and approve this revised draft,
-including #164/#166/#168/#170 additions, and obtain separate publication authorization
+including #164/#166/#168/#170/#172 additions and the Flatly follow-up, and obtain separate publication authorization
 before proceeding. Finalize the release date, remove the `unreleased` marker and reconcile public development labels/data with the published release. Build and verify the final gem, create the reviewed tag, publish the gem and GitHub release, then verify Pages and Worker deployment separately. Do not publish the current candidate artifact as a final release: its HTML marker and changelog intentionally identify it as unreleased.

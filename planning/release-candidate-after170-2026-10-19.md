@@ -1,4 +1,42 @@
-# Rebuilt candidate after merged #170
+# Candidate revisions after merged #170
+
+## Current revision — 20 October 2026
+
+Baseline: main `58966b5ddf1f8bd9059c8ea7e466c5ba4a700884`, after GitDev changes,
+#172 skin contrast and the Flatly alert correction. PR #171 was rebased on this
+baseline without conflicts; its two earlier planning commits were replayed.
+The 19 October artifact/evidence below is historical, not the current candidate.
+
+Current local `chulapa-jekyll-2.2.0.gem`, SHA256:
+`62d5c82771682c86117db8d256195536db5b441358a82c7178da08d05cdab53a`.
+All 336 extracted files match source bytes; package exclusions remain checked by
+the installed-gem tests. Existing Sass/Ruby-minimum warnings remain. The new
+artifact is retained locally by hash alongside earlier candidates; no upload.
+The same artifact passes both installed-gem checks with Jekyll 3.10.0 and
+4.4.1, including root/project pagination, canonical URLs, sitemap and complete
+documentation builds. These are fresh local results for this hash.
+
+Exact-source Pages [39430159449](https://github.com/dieghernan/chulapa/actions/runs/39430159449),
+regressions [39430159490](https://github.com/dieghernan/chulapa/actions/runs/39430159490)
+and Algolia [39430159460](https://github.com/dieghernan/chulapa/actions/runs/39430159460)
+succeeded. Connector job details confirm all seven regression jobs, including
+Jekyll 3/4 installation, Ruby, browser, JavaScript and chatbot.
+
+Worker context changed in #172; [run 39427985494](https://github.com/dieghernan/chulapa/actions/runs/39427985494)
+succeeded for `c1edaae46ede0fb72629d716882aa29342e4ad83`, including matching-Pages
+wait and Cloudflare deployment. Job 118645292730 logs record version
+`003c283d-7144-4aae-badc-4e4a24e7706d`. The subsequent Flatly correction has no
+diff in Worker files/workflow; this inherited deployment is separate from
+current-main Pages/CI, not an exact-`58966b5dd` Worker run. No new live inference
+or availability measurement; previous access/Netlify limits are not claimed fixed.
+
+The revised notes include skin/Flatly contrast improvements and preserve the
+recorded component exceptions rather than claiming complete WCAG coverage.
+Version/notes approval and publication remain separate: the expanded draft
+awaits review, unreleased markers remain, and final bytes require rebuilding
+and validating after publication authorization. No release/tag/gem publication.
+
+## Historical revision — 19 October 2026
 
 Source: main `eeb161de61dd57aa95d957b05c0becd87299c1a7`, 19 October 2026.
 Local candidate only; no release, tag, upload, inference or manual deployment.

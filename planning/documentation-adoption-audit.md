@@ -6,7 +6,7 @@ Language: English.
 
 ## Implementation tracking
 
-Updated: 19 October 2026. The delivery table and active implementation order
+Updated: 20 October 2026. The delivery table and active implementation order
 track the current work. The diagnosis and inventory below describe the baseline
 after PR #106, not a continuously rescored view of the current documentation.
 Historical scores are unchanged. Older deployment observations are retained as
@@ -69,6 +69,7 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#166](https://github.com/dieghernan/chulapa/pull/166) — appearance selector | Merged; exact-main Pages/Worker and regressions succeeded | Optional Light/Dark/Auto selector and reviewed recovery/metadata/attribution/blank-config fixes. [Post-merge record](post166-release-status-2026-10-19.md); no new inference result or release publication. |
 | [#168](https://github.com/dieghernan/chulapa/pull/168) — font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded | Verified CSS completion permits safe switching despite Google Fonts failures; reject missing/incomplete essential sheets. [Current candidate/handoff](release-candidate-after168-2026-10-19.md). |
 | [#170](https://github.com/dieghernan/chulapa/pull/170) — default semantics | Merged; exact-main Pages/regressions succeeded | Restores document keyboard links and scopes main/editorial content while preserving feeds. [Current rebuilt candidate](release-candidate-after170-2026-10-19.md); no new Worker deployment required. |
+| [#172](https://github.com/dieghernan/chulapa/pull/172) and Flatly follow-up — skin contrast | Merged/current main `58966b5dd` | Preserves original primary palettes, improves documented component pairs and fixes Flatly alerts; exceptions remain explicit. Current candidate rebuilt; Worker deployed separately from #172. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -200,7 +201,7 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 19 October 2026. Editorial closeout #161, release preparation #163,
+Updated: 20 October 2026. Editorial closeout #161, release preparation #163,
 chatbot corrections #164, selector #166 and font-failure follow-up #168 are
 merged; #170 adds a bounded semantics correction. Historical assessments,
 thresholds and synthetic reviews retain their original evidence.
@@ -210,11 +211,12 @@ thresholds and synthetic reviews retain their original evidence.
 2. **Finish release preparation.** Use the [current handoff](diataxis-closeout-plan.md)
    and [current candidate evidence](release-candidate-after170-2026-10-19.md).
    Pages, Jekyll 3/4 installation/regressions, browser and Algolia succeeded on
-   current main `eeb161de6`. No Worker deployment ran for #170: unchanged Worker
-   files retain #168's successful deployment from `ed66ab4ac`, run 39200007159.
-   Public HTTP availability remains unverified from this environment.
-   A new local unreleased candidate is recorded after #170. Rebuild the final
-   artifact after publication authorization; do not upload a test candidate. No tag/gem/release publication is authorized here.
+   current main `58966b5dd`. The Worker separately deployed #172's context from
+   `c1edaae46`, run 39427985494; no subsequent Worker files changed in the Flatly
+   correction. Public HTTP availability remains unverified from this environment.
+   A rebuilt candidate for the new skin/Flatly runtime is recorded. Final
+   publication still needs separate authorization and final-artifact validation.
+
 3. **Keep chatbot evidence revision-specific.** #164 has live observations;
    the current deployed revision has no new inference review in this update.
    Content-TOC and guide-discovery limitations are separate bounded follow-ups,
