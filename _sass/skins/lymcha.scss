@@ -18,3 +18,12 @@ $white: #fff !default;
 .card.bg-primary {
   color: $white;
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #6f767b,
+  success: #0a7f71,
+  info: #597585,
+  warning: #b25848,
+  danger: #b85660,
+) !default;

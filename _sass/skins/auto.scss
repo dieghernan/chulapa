@@ -29,3 +29,17 @@ $dark: mix(black, $primary, 75%) !default;
 $carousel-control-color: $dark !default;
 $carousel-indicator-active-bg: $dark !default;
 $code-color: #E80E61 !default;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  info: #f2f8ff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #0069d9,
+  secondary: #57708a,
+  success: #187d5d,
+  info: #0d7298,
+  warning: #7c722d,
+) !default;

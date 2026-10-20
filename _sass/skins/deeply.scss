@@ -288,3 +288,15 @@ $chulapa-toc-bg: lighten($body-bg, 5%);
 .alert {
   border: none !important;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #787878,
+  success: #40808e,
+) !default;

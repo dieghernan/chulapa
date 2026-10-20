@@ -19,3 +19,19 @@ $navbar-chulapa-text-color: $body-bg;
 $hero-chulapa-text-color: $body-bg;
 $footer-chulapa-text-color: $body-bg;
 $footer-chulapa-link-color: $secondary;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #1969a4,
+  secondary: #606e71,
+  success: #247b4b,
+  info: #45678a,
+  warning: #995d21,
+  danger: #c9225d,
+) !default;

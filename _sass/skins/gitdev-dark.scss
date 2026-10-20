@@ -88,3 +88,8 @@ blockquote {
   border-radius: 0 !important;
   border-left: solid $link-color !important;
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #91959a,
+) !default;

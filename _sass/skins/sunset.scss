@@ -28,3 +28,10 @@ a:not([class]) {
 .card.bg-primary {
   color: $white;
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #b75c3e,
+  info: #4c7196,
+  warning: #a66321,
+) !default;

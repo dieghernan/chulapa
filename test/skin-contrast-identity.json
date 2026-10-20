@@ -43,7 +43,10 @@
     "united": "#e95420",
     "universal": "#986dbd",
     "wandoo": "#ff304f",
-    "yeti": "#008cba"
+    "yeti": "#008cba",
+    "cerulean": "#2fa4e7",
+    "litera": "#4582ec",
+    "pulse": "#593196"
   },
   "baseExceptions": {
     "auto/primary": 3.72,
@@ -63,7 +66,19 @@
     "universal/primary": 3.99,
     "universal/info": 3.04,
     "wandoo/primary": 3.62,
-    "yeti/primary": 3.84
+    "yeti/primary": 3.84,
+    "cerulean/primary": 2.76,
+    "cerulean/success": 2.84,
+    "cerulean/warning": 3.88,
+    "litera/primary": 3.71,
+    "litera/secondary": 2.07,
+    "litera/success": 2.58,
+    "litera/info": 3.04,
+    "litera/warning": 1.94,
+    "litera/danger": 3.96,
+    "pulse/success": 2.59,
+    "pulse/info": 3.09,
+    "pulse/danger": 3.63
   },
   "renderedExceptions": {
     "auto/btn btn-primary": 3.72,
@@ -72,22 +87,19 @@
     "auto/badge badge-secondary": 4.4,
     "auto/btn btn-success": 3.24,
     "auto/badge badge-success": 3.24,
-    "auto/btn btn-info": 3.97,
+    "auto/btn btn-info": 3.08,
     "auto/badge badge-info": 3.97,
-    "butterfly-dark/btn btn-primary": 4.18,
     "butterfly-dark/badge badge-primary": 4.18,
     "butterfly-dark/card bg-primary": 3.68,
     "butterfly-dim/card bg-primary": 3.39,
-    "butterfly/btn btn-primary": 3.77,
     "butterfly/badge badge-primary": 3.77,
     "butterfly/card bg-primary": 3.77,
     "cyborg/card bg-primary": 2.98,
-    "darkly/btn btn-danger": 4.16,
+    "darkly/btn btn-danger": 3.82,
     "darkly/badge badge-danger": 4.16,
-    "flatly/btn btn-dark": 4.29,
+    "flatly/btn btn-dark": 3.58,
     "flatly/badge badge-dark": 4.29,
     "focal/card bg-primary": 2.16,
-    "hootstrap/btn btn-primary": 4.45,
     "hootstrap/badge badge-primary": 4.45,
     "hootstrap/card bg-primary": 4.45,
     "hootstrap/card bg-secondary": 1.44,
@@ -98,7 +110,6 @@
     "mickie/card bg-primary": 2.94,
     "minty/card bg-primary": 2.07,
     "minty/card bg-secondary": 2.17,
-    "navi/btn btn-primary": 4.02,
     "navi/badge badge-primary": 4.02,
     "navi/card bg-primary": 3.83,
     "none/btn btn-primary": 3.97,
@@ -106,15 +117,14 @@
     "sketchy/badge badge-warning": 1.63,
     "solar/card bg-primary": 3.2,
     "solar/card bg-secondary": 3.16,
-    "solar/btn btn-info": 4.07,
+    "solar/btn btn-info": 3.68,
     "solar/badge badge-info": 4.07,
     "twitter-dim/card bg-primary": 2.84,
-    "twitter-dim/btn btn-secondary": 4.26,
     "twitter-dim/badge badge-secondary": 4.26,
     "twitter-dim/card bg-secondary": 3.42,
-    "twitter-lights-out/card bg-primary": 3.0,
-    "twitter/card bg-primary": 3.0,
-    "united/btn btn-primary": 4.22,
+    "twitter-lights-out/card bg-primary": 3,
+    "twitter/card bg-primary": 3,
+    "united/btn btn-primary": 3.64,
     "united/badge badge-primary": 4.22,
     "united/card bg-primary": 3.64,
     "united/card bg-secondary": 2.37,
@@ -122,12 +132,2411 @@
     "universal/badge badge-primary": 3.99,
     "universal/btn btn-info": 3.04,
     "universal/badge badge-info": 3.04,
-    "wandoo/btn btn-primary": 4.25,
+    "wandoo/btn btn-primary": 3.62,
     "wandoo/badge badge-primary": 4.25,
     "yeti/btn btn-primary": 3.84,
     "yeti/badge badge-primary": 3.84,
     "yeti/card bg-primary": 3.84,
     "yeti/badge badge-info": 2.09,
-    "yeti/badge badge-warning": 2.48
-  }
+    "yeti/badge badge-warning": 2.48,
+    "cyborg/btn btn-primary": 2.98,
+    "cyborg/btn btn-success": 2.55,
+    "cyborg/btn btn-warning": 2.39,
+    "cyborg/btn btn-dark": 2.2,
+    "darkly/btn btn-success": 2.42,
+    "darkly/btn btn-info": 3.15,
+    "darkly/btn btn-warning": 2.19,
+    "deeply/btn btn-primary": 3.2,
+    "deeply/btn btn-danger": 3.33,
+    "electro/btn btn-warning": 1.44,
+    "electro/btn btn-danger": 1.44,
+    "flatly/btn btn-secondary": 2.55,
+    "flatly/btn btn-success": 2.41,
+    "flatly/btn btn-info": 3.15,
+    "flatly/btn btn-warning": 2.19,
+    "graymor/btn btn-info": 3.37,
+    "graymor/btn btn-warning": 2.93,
+    "journal/btn btn-primary": 3.13,
+    "journal/btn btn-success": 2.78,
+    "journal/btn btn-danger": 2.73,
+    "lux/btn btn-success": 2.33,
+    "lux/btn btn-info": 3.04,
+    "lux/btn btn-warning": 1.94,
+    "lux/btn btn-danger": 3.74,
+    "materia/btn btn-primary": 3.12,
+    "materia/btn btn-success": 2.77,
+    "mickie/btn btn-primary": 2.94,
+    "mickie/btn btn-danger": 3.31,
+    "minco/btn btn-warning": 3.34,
+    "minco/btn btn-danger": 3.32,
+    "minty/btn btn-primary": 2.07,
+    "minty/btn btn-secondary": 2.17,
+    "minty/btn btn-success": 1.99,
+    "minty/btn btn-info": 2.01,
+    "minty/btn btn-warning": 1.47,
+    "minty/btn btn-danger": 2.6,
+    "none/btn btn-success": 3.13,
+    "none/btn btn-info": 2.9,
+    "preptor/btn btn-info": 2.24,
+    "preptor/btn btn-danger": 3.38,
+    "skeeblu/btn btn-primary": 2.74,
+    "skeeblu/btn btn-success": 2.41,
+    "sketchy/btn btn-success": 3.13,
+    "sketchy/btn btn-info": 2.9,
+    "sketchy/btn btn-warning": 1.63,
+    "slate/btn btn-success": 2.18,
+    "slate/btn btn-info": 2.09,
+    "slate/btn btn-warning": 2.27,
+    "slate/btn btn-danger": 3.11,
+    "solar/btn btn-primary": 3.2,
+    "solar/btn btn-secondary": 3.16,
+    "solar/btn btn-success": 3.15,
+    "united/btn btn-secondary": 2.37,
+    "united/btn btn-success": 2.69,
+    "united/btn btn-info": 2.9,
+    "united/btn btn-warning": 1.82,
+    "yeti/btn btn-success": 2.85,
+    "yeti/btn btn-info": 2.09,
+    "yeti/btn btn-warning": 2.48,
+    "cerulean/btn btn-primary": 2.76,
+    "cerulean/btn btn-success": 2.84,
+    "cerulean/btn btn-warning": 3.88,
+    "cerulean/badge badge-primary": 2.76,
+    "cerulean/badge badge-success": 2.84,
+    "cerulean/badge badge-warning": 3.88,
+    "litera/btn btn-primary": 3.71,
+    "litera/btn btn-secondary": 2.07,
+    "litera/btn btn-success": 2.58,
+    "litera/btn btn-info": 3.04,
+    "litera/btn btn-warning": 1.94,
+    "litera/btn btn-danger": 3.96,
+    "litera/badge badge-primary": 3.71,
+    "litera/badge badge-secondary": 2.07,
+    "litera/badge badge-success": 2.58,
+    "litera/badge badge-info": 3.04,
+    "litera/badge badge-warning": 1.94,
+    "litera/badge badge-danger": 3.96,
+    "pulse/btn btn-success": 2.59,
+    "pulse/btn btn-info": 3.09,
+    "pulse/btn btn-warning": 2.11,
+    "pulse/btn btn-danger": 3.63,
+    "pulse/badge badge-secondary": 2.73,
+    "pulse/badge badge-success": 2.59,
+    "pulse/badge badge-info": 3.09,
+    "pulse/badge badge-warning": 2.11,
+    "pulse/badge badge-danger": 3.63
+  },
+  "lightButtonLabels": {
+    "academia": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "auto": {
+      "info": {
+        "color": "#f2f8ff",
+        "minimum": 3.08
+      }
+    },
+    "butterfly-dark": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "butterfly-dim": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "butterfly": {
+      "secondary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "cyborg": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 2.98
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.55
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 2.39
+      },
+      "dark": {
+        "color": "#ffffff",
+        "minimum": 2.2
+      }
+    },
+    "darkly": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.42
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 3.15
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 2.19
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.82
+      }
+    },
+    "deeply": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 3.2
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.33
+      }
+    },
+    "electro": {
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 1.44
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 1.44
+      }
+    },
+    "flatly": {
+      "secondary": {
+        "color": "#ffffff",
+        "minimum": 2.55
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.41
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 3.15
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 2.19
+      },
+      "dark": {
+        "color": "#ffffff",
+        "minimum": 3.58
+      }
+    },
+    "focal": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "graymor": {
+      "info": {
+        "color": "#ffffff",
+        "minimum": 3.37
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 2.93
+      }
+    },
+    "journal": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 3.13
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.78
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 2.73
+      }
+    },
+    "lux": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.33
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 3.04
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 1.94
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.74
+      }
+    },
+    "materia": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 3.12
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.77
+      }
+    },
+    "mickie": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 2.94
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.31
+      }
+    },
+    "minco": {
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 3.34
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.32
+      }
+    },
+    "minty": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 2.07
+      },
+      "secondary": {
+        "color": "#ffffff",
+        "minimum": 2.17
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 1.99
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.01
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 1.47
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 2.6
+      }
+    },
+    "navi": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "none": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 3.13
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.9
+      }
+    },
+    "pear": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "preptor": {
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.24
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.38
+      }
+    },
+    "skeeblu": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 2.74
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.41
+      }
+    },
+    "sketchy": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 3.13
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.9
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 1.63
+      }
+    },
+    "slate": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.18
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.09
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 2.27
+      },
+      "danger": {
+        "color": "#ffffff",
+        "minimum": 3.11
+      }
+    },
+    "solar": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 3.2
+      },
+      "secondary": {
+        "color": "#ffffff",
+        "minimum": 3.16
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 3.15
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 3.68
+      }
+    },
+    "towards": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "twitter-dim": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "secondary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "twitter-lights-out": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "twitter": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 4.5
+      }
+    },
+    "united": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 3.64
+      },
+      "secondary": {
+        "color": "#ffffff",
+        "minimum": 2.37
+      },
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.69
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.9
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 1.82
+      }
+    },
+    "wandoo": {
+      "primary": {
+        "color": "#ffffff",
+        "minimum": 3.62
+      }
+    },
+    "yeti": {
+      "success": {
+        "color": "#ffffff",
+        "minimum": 2.85
+      },
+      "info": {
+        "color": "#ffffff",
+        "minimum": 2.09
+      },
+      "warning": {
+        "color": "#ffffff",
+        "minimum": 2.48
+      }
+    }
+  },
+  "buttonOutlines": {
+    "academia": {
+      "success": "#208637",
+      "info": "#187c8c",
+      "warning": "#8c6a04"
+    },
+    "auto": {
+      "primary": "#0069d9",
+      "secondary": "#57708a",
+      "success": "#187d5d",
+      "info": "#0d7298",
+      "warning": "#7c722d"
+    },
+    "butterfly": {
+      "primary": "#0e6fcf",
+      "secondary": "#717278",
+      "info": "#32778e",
+      "warning": "#8c6600",
+      "danger": "#c83d41"
+    },
+    "chulapa": {
+      "primary": "#826d65",
+      "success": "#587b7a",
+      "warning": "#737237"
+    },
+    "cyborg": {
+      "secondary": "#808080",
+      "info": "#a852d4",
+      "danger": "#d94040"
+    },
+    "darkly": {
+      "primary": "#738ca5",
+      "secondary": "#8f8f8f",
+      "danger": "#e95e50"
+    },
+    "deeply": {
+      "secondary": "#787878",
+      "success": "#40808e"
+    },
+    "electro": {
+      "secondary": "#68777a",
+      "info": "#4c7196",
+      "warning": "#008900",
+      "danger": "#008900"
+    },
+    "flatly": {
+      "secondary": "#687374",
+      "success": "#11846d",
+      "info": "#2a7aaf",
+      "warning": "#9e650c"
+    },
+    "focal": {
+      "primary": "#a65f56",
+      "success": "#1e8549",
+      "info": "#008191",
+      "warning": "#bb4f0a"
+    },
+    "gitdev-dark": {
+      "primary": "#91959a"
+    },
+    "graymor": {
+      "info": "#4f767a",
+      "warning": "#52777c"
+    },
+    "hootstrap": {
+      "primary": "#4e7a72",
+      "secondary": "#837632",
+      "success": "#8c6a00",
+      "info": "#367f50",
+      "warning": "#807434"
+    },
+    "journal": {
+      "primary": "#bc5350",
+      "secondary": "#6e6e6e",
+      "success": "#1a8639",
+      "warning": "#7a7312",
+      "danger": "#b85c00"
+    },
+    "listen": {
+      "secondary": "#838383",
+      "danger": "#e43f50"
+    },
+    "lux": {
+      "secondary": "#51565a",
+      "success": "#317c4b",
+      "info": "#1f7ea7",
+      "warning": "#90682f",
+      "danger": "#ba4c49"
+    },
+    "lymcha": {
+      "secondary": "#6f767b",
+      "success": "#0a7f71",
+      "info": "#597585",
+      "warning": "#b25848",
+      "danger": "#b85660"
+    },
+    "materia": {
+      "primary": "#1a78c2",
+      "secondary": "#6f7173",
+      "success": "#39833c",
+      "warning": "#a66300"
+    },
+    "media": {
+      "warning": "#8c6a0d"
+    },
+    "mickie": {
+      "primary": "#b84b69",
+      "secondary": "#6f6f6f",
+      "warning": "#077c81",
+      "danger": "#cc3a42"
+    },
+    "minco": {
+      "secondary": "#b85660",
+      "info": "#407883",
+      "warning": "#ca3d3d",
+      "danger": "#cc394a"
+    },
+    "minty": {
+      "primary": "#4e7e70",
+      "secondary": "#9e6264",
+      "success": "#347a5e",
+      "info": "#417580",
+      "warning": "#8c7139",
+      "danger": "#b25439"
+    },
+    "navi": {
+      "primary": "#3e6ee6",
+      "success": "#00853a",
+      "warning": "#7c700f"
+    },
+    "none": {
+      "primary": "#006fe6",
+      "success": "#208637",
+      "info": "#187c8c",
+      "warning": "#8c6a04"
+    },
+    "pear": {
+      "primary": "#117a65",
+      "success": "#1e7d34",
+      "info": "#187c8c",
+      "warning": "#8c6a04",
+      "danger": "#d13242"
+    },
+    "preptor": {
+      "secondary": "#6e6e6e",
+      "success": "#2b841e",
+      "info": "#007a9c",
+      "warning": "#7a781a",
+      "danger": "#c83b4a"
+    },
+    "skeeblu": {
+      "primary": "#1969a4",
+      "secondary": "#606e71",
+      "success": "#247b4b",
+      "info": "#45678a",
+      "warning": "#995d21",
+      "danger": "#c9225d"
+    },
+    "sketchy": {
+      "success": "#208637",
+      "info": "#187c8c",
+      "warning": "#8c6a04"
+    },
+    "slate": {
+      "primary": "#939598",
+      "secondary": "#93999d"
+    },
+    "solar": {
+      "info": "#3c97d6",
+      "warning": "#d87850",
+      "danger": "#de68a1"
+    },
+    "sunset": {
+      "secondary": "#b75c3e",
+      "info": "#4c7196",
+      "warning": "#a66321"
+    },
+    "towards": {
+      "success": "#008756",
+      "info": "#4e738b",
+      "warning": "#976f00"
+    },
+    "twitter-dim": {
+      "info": "#8c6fff",
+      "danger": "#e95097"
+    },
+    "twitter": {
+      "primary": "#1674b4",
+      "success": "#008257",
+      "warning": "#b25500"
+    },
+    "united": {
+      "primary": "#c6471b",
+      "secondary": "#7a756f",
+      "success": "#277e34",
+      "info": "#187c8c",
+      "warning": "#8f6e25"
+    },
+    "universal": {
+      "primary": "#8962aa",
+      "success": "#627c0c",
+      "info": "#117a8a",
+      "warning": "#8c6a04"
+    },
+    "wandoo": {
+      "primary": "#d92943",
+      "secondary": "#6f6f6f",
+      "warning": "#077c81"
+    },
+    "yeti": {
+      "primary": "#007ea7",
+      "secondary": "#707070",
+      "success": "#328150",
+      "info": "#3b7d90",
+      "warning": "#a36501"
+    }
+  },
+  "buttonBackgrounds": {
+    "academia": {
+      "primary": {
+        "background": "#1565c0",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#2962ff",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#208738",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#198192",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffc107",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#dc3545",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "auto": {
+      "primary": {
+        "background": "#007bff",
+        "label": "#f2f8ff"
+      },
+      "secondary": {
+        "background": "#5c7691",
+        "label": "#f2f8ff"
+      },
+      "success": {
+        "background": "#1e9c74",
+        "label": "#f2f8ff"
+      },
+      "info": {
+        "background": "#1198ca",
+        "label": "#f2f8ff"
+      },
+      "warning": {
+        "background": "#bfb045",
+        "label": "#1c3249"
+      },
+      "danger": {
+        "background": "#a54774",
+        "label": "#f2f8ff"
+      },
+      "light": {
+        "background": "#bfdeff",
+        "label": "#1c3249"
+      },
+      "dark": {
+        "background": "#001f40",
+        "label": "#f2f8ff"
+      }
+    },
+    "butterfly-dark": {
+      "primary": {
+        "background": "#0e74e2",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#c5cfd9",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#008900",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#54c7ec",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ffba00",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#d34044",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#0b0f14",
+        "label": "#ffffff"
+      }
+    },
+    "butterfly-dim": {
+      "primary": {
+        "background": "#1b75d7",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#c9d2db",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#008900",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#54c7ec",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ffba00",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#d34044",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#0b0f14",
+        "label": "#ffffff"
+      }
+    },
+    "butterfly": {
+      "primary": {
+        "background": "#0e75da",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#75757c",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#008900",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#54c7ec",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ffba00",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#d34044",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#0b0f14",
+        "label": "#ffffff"
+      }
+    },
+    "chulapa": {
+      "primary": {
+        "background": "#edc7b7",
+        "label": "#403d3e"
+      },
+      "secondary": {
+        "background": "#687864",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#88bdbc",
+        "label": "#403d3e"
+      },
+      "info": {
+        "background": "#31708e",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#fffe7a",
+        "label": "#403d3e"
+      },
+      "danger": {
+        "background": "#dc371d",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#fbf1ed",
+        "label": "#403d3e"
+      },
+      "dark": {
+        "background": "#505c4d",
+        "label": "#ffffff"
+      }
+    },
+    "cyborg": {
+      "primary": {
+        "background": "#2a9fd6",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#555555",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#77b300",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#9933cc",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ff8800",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#cc0000",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#222222",
+        "label": "#ffffff"
+      },
+      "dark": {
+        "background": "#adafae",
+        "label": "#ffffff"
+      }
+    },
+    "darkly": {
+      "primary": {
+        "background": "#375a7f",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#444444",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#04bd8e",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#3498db",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f39c12",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#e74c3c",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#adb5bd",
+        "label": "#222222"
+      },
+      "dark": {
+        "background": "#303030",
+        "label": "#ffffff"
+      }
+    },
+    "deeply": {
+      "primary": {
+        "background": "#ff550b",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#303030",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#015668",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#0e7bbe",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#0de2ea",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#ff4661",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#e8e8e8",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#000000",
+        "label": "#ffffff"
+      }
+    },
+    "electro": {
+      "primary": {
+        "background": "#1633ff",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#a0b7bc",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#1633ff",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#7ebcfa",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#00f900",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#00f900",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eef0f2",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#000633",
+        "label": "#ffffff"
+      }
+    },
+    "flatly": {
+      "primary": {
+        "background": "#2c3e50",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#95a5a6",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#18bc9c",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#3598db",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f39c12",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#d04536",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#ecf0f1",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#7b8a8b",
+        "label": "#ffffff"
+      }
+    },
+    "focal": {
+      "primary": {
+        "background": "#ff9285",
+        "label": "#212529"
+      },
+      "secondary": {
+        "background": "#6e6e6e",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#1f864a",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#008292",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#c4530b",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#ed0000",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f2f1f1",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#262626",
+        "label": "#ffffff"
+      }
+    },
+    "gitdev-dark": {
+      "primary": {
+        "background": "#373e47",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#a8b3c1",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#6fdd8c",
+        "label": "#212529"
+      },
+      "info": {
+        "background": "#b8a7e6",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#e3ba52",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#ee8f95",
+        "label": "#212529"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "gitdev": {
+      "primary": {
+        "background": "#22272e",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#6c757d",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#277f46",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#8250df",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#b45306",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#cf222e",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "graymor": {
+      "primary": {
+        "background": "#2f3c48",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#687884",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#3e4d59",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#639498",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#6e9fa5",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#cc330d",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eceeec",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#1e2b37",
+        "label": "#ffffff"
+      }
+    },
+    "hootstrap": {
+      "primary": {
+        "background": "#517e77",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#eed75a",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#fec100",
+        "label": "#212529"
+      },
+      "info": {
+        "background": "#63e792",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ffe869",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#703b3b",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#fdfbf7",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#555555",
+        "label": "#ffffff"
+      }
+    },
+    "journal": {
+      "primary": {
+        "background": "#eb6864",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#aaaaaa",
+        "label": "#222222"
+      },
+      "success": {
+        "background": "#22b24c",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#336699",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f5e625",
+        "label": "#222222"
+      },
+      "danger": {
+        "background": "#f57a00",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#222222"
+      },
+      "dark": {
+        "background": "#222222",
+        "label": "#ffffff"
+      }
+    },
+    "listen": {
+      "primary": {
+        "background": "#1ed760",
+        "label": "#212529"
+      },
+      "secondary": {
+        "background": "#757575",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#1ed760",
+        "label": "#212529"
+      },
+      "info": {
+        "background": "#4cb3ff",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ffa42b",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#e12a3c",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#c1c2c2",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#15181c",
+        "label": "#ffffff"
+      }
+    },
+    "lux": {
+      "primary": {
+        "background": "#1a1a1a",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#ffffff",
+        "label": "#1a1a1a"
+      },
+      "success": {
+        "background": "#4bbf73",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#279ed1",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f0ad4e",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#db5a56",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#ffffff",
+        "label": "#1a1a1a"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "lymcha": {
+      "primary": {
+        "background": "#07689f",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#c9d6df",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#11d3bc",
+        "label": "#212529"
+      },
+      "info": {
+        "background": "#a2d5f2",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ff7e67",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#f67280",
+        "label": "#212529"
+      },
+      "light": {
+        "background": "#fafafa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#4e4e4e",
+        "label": "#ffffff"
+      }
+    },
+    "materia": {
+      "primary": {
+        "background": "#2196f3",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#ffffff",
+        "label": "#212121"
+      },
+      "success": {
+        "background": "#4caf50",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#9c27b0",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ff9800",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#e51c23",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#ffffff",
+        "label": "#212121"
+      },
+      "dark": {
+        "background": "#222222",
+        "label": "#ffffff"
+      }
+    },
+    "media": {
+      "primary": {
+        "background": "#242424",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#555555",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#1a8917",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#000000",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffc017",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#c35050",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "mickie": {
+      "primary": {
+        "background": "#f6648c",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#cacaca",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#035668",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#3b78ba",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#0de2ea",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#ff4953",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eaeaea",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#223322",
+        "label": "#ffffff"
+      }
+    },
+    "minco": {
+      "primary": {
+        "background": "#083358",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#f67280",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#0074e4",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#74dbef",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#fc4c4c",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#ff475d",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f2f2f0",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#072247",
+        "label": "#ffffff"
+      }
+    },
+    "minty": {
+      "primary": {
+        "background": "#78c2ad",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#f3969a",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#56cc9d",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#6cc3d5",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffce67",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#ff7851",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "monotone": {
+      "primary": {
+        "background": "#222222",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#666666",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#333333",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#515151",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#5f5f5f",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#434343",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eceeec",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#111111",
+        "label": "#ffffff"
+      }
+    },
+    "navi": {
+      "primary": {
+        "background": "#3e6ee7",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#000033",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#00883b",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#6d3fa1",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f7df1e",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#b52e31",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#d6d6e7",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#23263b",
+        "label": "#ffffff"
+      }
+    },
+    "none": {
+      "primary": {
+        "background": "#007bff",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#6c757d",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#28a745",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#20a6bb",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffc107",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#dc3545",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "pear": {
+      "primary": {
+        "background": "#12856f",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#656e75",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#208738",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#198192",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffc107",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#dc3545",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#ddf5f0",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "preptor": {
+      "primary": {
+        "background": "#d80e70",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#dddddd",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#4ef037",
+        "label": "#212529"
+      },
+      "info": {
+        "background": "#00bbf0",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f4f133",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#fa4a5c",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eeeeee",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#353535",
+        "label": "#ffffff"
+      }
+    },
+    "skeeblu": {
+      "primary": {
+        "background": "#27a2fc",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#a0b7bc",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#37bd74",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#7ebcfa",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ff9b37",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#df2667",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eef0f2",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#3c4055",
+        "label": "#ffffff"
+      }
+    },
+    "sketchy": {
+      "primary": {
+        "background": "#333333",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#555555",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#28a745",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#20a6bb",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffc107",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#dc3545",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#ffffff",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#555555",
+        "label": "#ffffff"
+      }
+    },
+    "slate": {
+      "primary": {
+        "background": "#3a3f44",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#6f777c",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#62c462",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#5bc0de",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f89406",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#ef6662",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#e9ecef",
+        "label": "#272b30"
+      },
+      "dark": {
+        "background": "#272b30",
+        "label": "#ffffff"
+      }
+    },
+    "solar": {
+      "primary": {
+        "background": "#b58900",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#839496",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#2aa198",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#268bd2",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#cb4b16",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#d33682",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#fdf6e3",
+        "label": "#002b36"
+      },
+      "dark": {
+        "background": "#073642",
+        "label": "#ffffff"
+      }
+    },
+    "sunset": {
+      "primary": {
+        "background": "#2f414a",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#f47b53",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#420084",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#7ebcfa",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#ff9933",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#d83e0c",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eef0f2",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#000633",
+        "label": "#ffffff"
+      }
+    },
+    "towards": {
+      "primary": {
+        "background": "#355876",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#757575",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#008756",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#8ed1fc",
+        "label": "#212529"
+      },
+      "warning": {
+        "background": "#fcb900",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#cf2e2e",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "twitter-dim": {
+      "primary": {
+        "background": "#177bbe",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#697883",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#00875a",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#7856ff",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#bc5a00",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#e21674",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#192734",
+        "label": "#ffffff"
+      }
+    },
+    "twitter-lights-out": {
+      "primary": {
+        "background": "#177bbe",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#697883",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#00875a",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#7856ff",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#bc5a00",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#e21674",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#c1c2c2",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#15181c",
+        "label": "#ffffff"
+      }
+    },
+    "twitter": {
+      "primary": {
+        "background": "#177bbe",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#697883",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#00875a",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#7856ff",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#bc5a00",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#e21674",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f5f8fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "united": {
+      "primary": {
+        "background": "#e95420",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#aea79f",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#38b44a",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#20a6bb",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#efb73e",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#db372b",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#e9ecef",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#772953",
+        "label": "#ffffff"
+      }
+    },
+    "universal": {
+      "primary": {
+        "background": "#986dbd",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#6c757d",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#97bf13",
+        "label": "#212529"
+      },
+      "info": {
+        "background": "#17a2b8",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#ffc107",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#dc3545",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "wandoo": {
+      "primary": {
+        "background": "#ff304f",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#cacaca",
+        "label": "#212529"
+      },
+      "success": {
+        "background": "#015668",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#0e7bbe",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#0de2ea",
+        "label": "#212529"
+      },
+      "danger": {
+        "background": "#06648c",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#ececec",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#222222",
+        "label": "#ffffff"
+      }
+    },
+    "yeti": {
+      "primary": {
+        "background": "#008cba",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#cccccc",
+        "label": "#222222"
+      },
+      "success": {
+        "background": "#43ac6a",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#5bc0de",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#e99002",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#d93b21",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#eeeeee",
+        "label": "#222222"
+      },
+      "dark": {
+        "background": "#222222",
+        "label": "#ffffff"
+      }
+    },
+    "cerulean": {
+      "primary": {
+        "background": "#2fa4e7",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#e9ecef",
+        "label": "#495057"
+      },
+      "success": {
+        "background": "#73a839",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#033c73",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#dd5600",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#c71c22",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "litera": {
+      "primary": {
+        "background": "#4582ec",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#adb5bd",
+        "label": "#ffffff"
+      },
+      "success": {
+        "background": "#02b875",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#17a2b8",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#f0ad4e",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#d9534f",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f8f9fa",
+        "label": "#212529"
+      },
+      "dark": {
+        "background": "#343a40",
+        "label": "#ffffff"
+      }
+    },
+    "pulse": {
+      "primary": {
+        "background": "#593196",
+        "label": "#ffffff"
+      },
+      "secondary": {
+        "background": "#ffffff",
+        "label": "#17141f"
+      },
+      "success": {
+        "background": "#13b955",
+        "label": "#ffffff"
+      },
+      "info": {
+        "background": "#009cdc",
+        "label": "#ffffff"
+      },
+      "warning": {
+        "background": "#efa31d",
+        "label": "#ffffff"
+      },
+      "danger": {
+        "background": "#fc3939",
+        "label": "#ffffff"
+      },
+      "light": {
+        "background": "#f9f8fc",
+        "label": "#17141f"
+      },
+      "dark": {
+        "background": "#17141f",
+        "label": "#ffffff"
+      }
+    }
+  },
+  "aaButtonBackgrounds": {
+    "navi": {
+      "primary": "#3e6ee7",
+      "success": "#00883b"
+    },
+    "butterfly": {
+      "primary": "#0e75da",
+      "secondary": "#75757c",
+      "danger": "#d34044"
+    },
+    "butterfly-dark": {
+      "primary": "#0e74e2",
+      "danger": "#d34044"
+    },
+    "butterfly-dim": {
+      "primary": "#1b75d7",
+      "success": "#008900",
+      "danger": "#d34044"
+    },
+    "hootstrap": {
+      "primary": "#517e77"
+    },
+    "academia": {
+      "success": "#208738",
+      "info": "#198192"
+    },
+    "focal": {
+      "success": "#1f864a",
+      "info": "#008292",
+      "warning": "#c4530b"
+    },
+    "pear": {
+      "primary": "#12856f",
+      "success": "#208738",
+      "info": "#198192"
+    },
+    "towards": {
+      "success": "#008756"
+    },
+    "twitter-dim": {
+      "secondary": "#697883",
+      "primary": "#177bbe",
+      "success": "#00875a",
+      "warning": "#bc5a00"
+    },
+    "twitter-lights-out": {
+      "primary": "#177bbe",
+      "success": "#00875a",
+      "warning": "#bc5a00"
+    },
+    "twitter": {
+      "primary": "#177bbe",
+      "success": "#00875a",
+      "warning": "#bc5a00"
+    }
+  },
+  "consistentButtonLabels": {
+    "listen": {
+      "primary": {
+        "color": "#212529",
+        "minimum": 4.5
+      },
+      "success": {
+        "color": "#212529",
+        "minimum": 4.5
+      },
+      "info": {
+        "color": "#212529",
+        "minimum": 4.5
+      }
+    }
+  },
+  "authoredButtonSkins": [
+    "academia",
+    "butterfly-dark",
+    "butterfly-dim",
+    "butterfly",
+    "chulapa",
+    "focal",
+    "gitdev-dark",
+    "gitdev",
+    "listen",
+    "media",
+    "navi",
+    "pear",
+    "towards",
+    "twitter-dim",
+    "twitter-lights-out",
+    "twitter"
+  ]
 }

@@ -401,7 +401,16 @@ CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_states_browser.
 
 This compares 2,898 formerly AA-passing pairs from the original `e88f641`
 palettes at both viewport sizes. Chromium forces normal, hover, focus and active
-CSS states with transitions disabled for measurement. The recorded baseline
+CSS states with transitions disabled for measurement. It also checks original
+light labels on 93 filled-button variants (including disabled, class-based focus,
+active and open-dropdown states), reviewed filled backgrounds, and normal/focus
+contrast plus matching borders on 139 corrected outline variants. `Light` and
+`Dark` outlines are deliberately excluded because they target alternate backgrounds.
+Thirty reviewed AA button fills are checked with white text in normal, hover,
+focus and active states. All eight solid variants of all 16 original dieghernan
+skins are covered in every state (1,024 combinations at two sizes), including
+Listen’s consistent dark labels and Chulapa Success’s lighter interaction fills.
+The recorded baseline
 covers previously passing pairs only; it does not certify excluded pairs,
 full gradients, arbitrary site content or JavaScript interactions.
 
@@ -413,3 +422,19 @@ CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_flatly_alerts_browser.js
 
 It checks text, inline code, ordinary links and `.alert-link` labels on all eight
 alert backgrounds at 390px and 1280px, including hover and focus.
+
+### Original Bootswatch additions
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_bootswatch_originals_browser.js
+```
+
+Cerulean, Litera and Pulse retain unmodified Bootswatch 4.6.2 source files and
+MIT attribution under `_sass/vendor/bootswatch`. The check validates source
+hashes and deferred wrappers, compares original typography and components against
+a reference compiled directly from upstream Sass at 390px and 1280px, exercises
+normal/hover/focus/active states and disabled buttons, with autothemer off and on, and verifies custom colors
+and a single Bootstrap grid import. These original skins keep their contrast
+limitations; reference equality is not a WCAG pass. Cerulean gradients are
+compared as CSS images; the base contrast audit does not measure every gradient
+pixel. Full Jekyll builds are still covered by the existing Ruby workflow.

@@ -55,3 +55,21 @@ $table-dark-border-color: darken($dark, 5%) !default;
 .card.bg-primary, .card.bg-secondary {
   color: $white;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  secondary: #ffffff,
+  success: #ffffff,
+  info: #ffffff,
+  warning: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #c6471b,
+  secondary: #7a756f,
+  success: #277e34,
+  info: #187c8c,
+  warning: #8f6e25,
+) !default;

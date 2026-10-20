@@ -512,3 +512,18 @@ legend {
 .card .card-header {
   background-color: inherit;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+  warning: #ffffff,
+  dark: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #808080,
+  info: #a852d4,
+  danger: #d94040,
+) !default;

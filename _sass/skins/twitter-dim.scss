@@ -53,3 +53,25 @@ $link-hover-color: lighten($link-color, 10%);
 .card.bg-secondary {
   color: $light;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  secondary: #ffffff,
+  success: #ffffff,
+  warning: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  info: #8c6fff,
+  danger: #e95097,
+) !default;
+
+// Reviewed AA fills for solid buttons with white labels.
+$skin-button-backgrounds: (
+  secondary: #697883,
+  primary: #177bbe,
+  success: #00875a,
+  warning: #bc5a00,
+) !default;

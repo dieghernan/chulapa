@@ -2,11 +2,177 @@
 
 ## Identity-preserving compromise
 
-All 42 skins and the auto defaults preserve their original primary background colors exactly. Strong darkening of secondary/warning/info colors is reverted as well: Minty retains its pastel green and pink, Focal its salmon, Hootstrap its yellow, and Sketchy/Materia/Yeti their original warning colors. Palette changes are limited to small adjustments and existing YIQ thresholds. Linked badge states also select text for their actual darkened background. The shared YIQ function is unchanged.
+The original 42 skins, the three Bootswatch additions and the auto defaults preserve their original global primary palette values exactly; reviewed solid-button fills can differ as documented below. Strong darkening of secondary/warning/info colors is reverted as well: Minty retains its pastel green and pink, Focal its salmon, Hootstrap its yellow, and Sketchy/Materia/Yeti their original warning colors. Palette changes are limited to small adjustments and existing YIQ thresholds. Linked badge states also select text for their actual darkened background. The shared YIQ function is unchanged.
 
-29 of 43 palettes now meet WCAG AA 4.5:1 on all eight base semantic pairs, compared with five originally. 18 pairs remain below 4.5:1 across 14 palettes (including auto), and are explicitly retained for identity. This is not an all-palette accessibility certification.
+29 of 46 palettes now meet WCAG AA 4.5:1 on all eight base semantic pairs, compared with five originally. 30 base pairs remain below 4.5:1 across 17 palettes (including auto and the three original Bootswatch additions), and are explicitly retained for identity. This is not an all-palette accessibility certification.
 
 The original primary values are pinned in `test/skin-contrast-identity.json`. No new YAML settings, color-selection helpers or automatic fallback logic. The none skin still leaves palette assignments unset for autothemer. Custom primary values and overrides need their own review.
+
+## Local button follow-up (not published)
+
+The base-palette table below still describes the unchanged automatic YIQ result;
+it is not the result of the explicit button-label styling. No global palette or YIQ threshold is changed in this follow-up.
+Thirty approved button-specific fills now cover Navi, all three Butterfly
+variants, Hootstrap Primary and the remaining failing solid buttons in original
+dieghernan skins. Listen retains dark labels; Chulapa Success uses lighter
+interaction fills to retain its original dark label and pastel resting fill. Filled buttons recover 93 original
+light labels across 33 skins, including Navi Primary/Success and Minty’s pastel
+variants. Hover, keyboard focus, active, disabled, class-based focus/active and
+open dropdowns retain those labels. Accepted filled-button contrast limitations
+remain explicit; restoring the original appearance does not establish WCAG AA.
+
+For 139 outline variants across 38 skins, only the resting/focus label and border
+are adjusted to meet 4.5:1 against the current skin background. Filled hover/active
+backgrounds and their existing labels are preserved. Light/Dark outline variants
+are excluded because they are intended for alternate backgrounds. Custom colors
+and placement on other backgrounds still need review. Corrections use explicit
+skin colors and a small CSS partial, without a new contrast algorithm or YAML.
+Lux Secondary also retains a readable label on its existing gray interaction fill;
+Materia Secondary no longer forces pale outline labels through `!important`.
+
+### Button changes by skin
+
+| Skin | Original light labels restored | Outlines adjusted |
+|---|---|---|
+| academia | success, info | success, info, warning |
+| auto | info | primary, secondary, success, info, warning |
+| butterfly-dark | primary, danger | — |
+| butterfly-dim | primary, success, danger | — |
+| butterfly | secondary, danger | primary, secondary, info, warning, danger |
+| chulapa | — | primary, success, warning |
+| cyborg | primary, success, warning, dark | secondary, info, danger |
+| darkly | success, info, warning, danger | primary, secondary, danger |
+| deeply | primary, danger | secondary, success |
+| electro | warning, danger | secondary, info, warning, danger |
+| flatly | secondary, success, info, warning, dark | secondary, success, info, warning |
+| focal | success, info, warning | primary, success, info, warning |
+| gitdev-dark | — | primary |
+| gitdev | — | — |
+| graymor | info, warning | info, warning |
+| hootstrap | — | primary, secondary, success, info, warning |
+| journal | primary, success, danger | primary, secondary, success, warning, danger |
+| listen | — | secondary, danger |
+| lux | success, info, warning, danger | secondary, success, info, warning, danger |
+| lymcha | — | secondary, success, info, warning, danger |
+| materia | primary, success | primary, secondary, success, warning |
+| media | — | warning |
+| mickie | primary, danger | primary, secondary, warning, danger |
+| minco | warning, danger | secondary, info, warning, danger |
+| minty | primary, secondary, success, info, warning, danger | primary, secondary, success, info, warning, danger |
+| monotone | — | — |
+| navi | primary, success | primary, success, warning |
+| none | success, info | primary, success, info, warning |
+| pear | primary, success, info | primary, success, info, warning, danger |
+| preptor | info, danger | secondary, success, info, warning, danger |
+| skeeblu | primary, success | primary, secondary, success, info, warning, danger |
+| sketchy | success, info, warning | success, info, warning |
+| slate | success, info, warning, danger | primary, secondary |
+| solar | primary, secondary, success, info | info, warning, danger |
+| sunset | — | secondary, info, warning |
+| towards | success | success, info, warning |
+| twitter-dim | primary, secondary, success, warning | info, danger |
+| twitter-lights-out | primary, success, warning | — |
+| twitter | primary, success, warning | primary, success, warning |
+| united | primary, secondary, success, info, warning | primary, secondary, success, info, warning |
+| universal | — | primary, success, info, warning |
+| wandoo | primary | primary, secondary, warning |
+| yeti | success, info, warning | primary, secondary, success, info, warning |
+
+## Approved AA fills for solid buttons (local)
+
+The approved AA proposal is applied to all ten proposed Navi/Butterfly buttons.
+Hootstrap Primary follows with a minimal adjustment from `#528078` to `#517e77`
+(white-text contrast 4.45 → 4.56:1). This affects solid buttons and their states;
+original global primary colors, links, badges, cards and outline fills are retained.
+All eight normal solid-button variants in these five palettes now reach 4.5:1.
+Additional original dieghernan skins are covered by the next follow-up; external/default exceptions remain documented. Unreleased; no deployment.
+
+| Skin | Button | Approved fill | White-text contrast, normal |
+|---|---|---|---|
+| navi | primary | `#3e6ee7` | 4.58:1 |
+| navi | success | `#00883b` | 4.58:1 |
+| butterfly | primary | `#0e75da` | 4.59:1 |
+| butterfly | secondary | `#75757c` | 4.57:1 |
+| butterfly | danger | `#d34044` | 4.58:1 |
+| butterfly-dark | primary | `#0e74e2` | 4.55:1 |
+| butterfly-dark | danger | `#d34044` | 4.58:1 |
+| butterfly-dim | primary | `#1b75d7` | 4.59:1 |
+| butterfly-dim | success | `#008900` | 4.59:1 |
+| butterfly-dim | danger | `#d34044` | 4.58:1 |
+| hootstrap | primary | `#517e77` | 4.56:1 |
+
+## Original dieghernan skins: complete solid-button coverage (local)
+
+Scope follows `skin_author: dieghernan` in the skin catalog: 16 original skins.
+Universal is an adaptation of Bootstrapious and is excluded from this additional
+permission. Existing earlier approved changes to external skins remain intact.
+All eight solid-button variants are checked at normal, hover, keyboard focus and
+active states on both 390px and 1280px viewports (1,024 authored-state checks).
+This covers button text, not whole-skin or whole-page WCAG conformance.
+
+Nineteen additional fills across seven skins are adjusted to at least 4.55:1 with
+white labels. Listen Primary/Success/Info retain their bright backgrounds and
+use dark labels consistently, including interaction states. Chulapa Success keeps
+its pastel resting fill and dark text; hover/focus/active fills become lighter,
+so the dark text remains readable. Neither change alters shared YIQ behavior.
+Global palette accents, body/navigation links, badges and cards remain unchanged.
+
+| Skin | Button | Previous fill | AA fill | White-text contrast |
+|---|---|---|---|---|
+| academia | success | `#28a745` | `#208738` | 4.58:1 |
+| academia | info | `#20a6bb` | `#198192` | 4.57:1 |
+| focal | success | `#26a65b` | `#1f864a` | 4.60:1 |
+| focal | info | `#00acc1` | `#008292` | 4.56:1 |
+| focal | warning | `#f9690e` | `#c4530b` | 4.58:1 |
+| pear | primary | `#1abc9c` | `#12856f` | 4.56:1 |
+| pear | success | `#28a745` | `#208738` | 4.58:1 |
+| pear | info | `#20a6bb` | `#198192` | 4.57:1 |
+| towards | success | `#00d084` | `#008756` | 4.57:1 |
+| twitter-dim | secondary | `#788995` | `#697883` | 4.55:1 |
+| twitter-dim | primary | `#1d9bf0` | `#177bbe` | 4.55:1 |
+| twitter-dim | success | `#00ba7c` | `#00875a` | 4.55:1 |
+| twitter-dim | warning | `#ff7a00` | `#bc5a00` | 4.56:1 |
+| twitter-lights-out | primary | `#1d9bf0` | `#177bbe` | 4.55:1 |
+| twitter-lights-out | success | `#00ba7c` | `#00875a` | 4.55:1 |
+| twitter-lights-out | warning | `#ff7a00` | `#bc5a00` | 4.56:1 |
+| twitter | primary | `#1d9bf0` | `#177bbe` | 4.55:1 |
+| twitter | success | `#00ba7c` | `#00875a` | 4.55:1 |
+| twitter | warning | `#ff7a00` | `#bc5a00` | 4.56:1 |
+
+Remaining solid-button exceptions belong to other authors or the `auto`/`none` defaults.
+The selective chatbot context still needs no change: configuration and its
+identity/custom-color review caveats remain accurate; the public guide contains
+the narrower button-specific behavior. No new guide page or llms.txt link.
+
+## Original Bootswatch additions (local, 2.2.0 unreleased)
+
+Cerulean, Litera and Pulse preserve Bootswatch v4.6.2 source palettes, typography
+and component rules from commit `57980884525efb94836d88a5f59d5db9c5e8bbf0`.
+Their unmodified Sass and MIT license are retained in `_sass/vendor/bootswatch`.
+Entrypoints defer original component rules until after the theme's single
+Bootstrap import; Cerulean's original global helper declarations remain at top
+level. Custom `vars` still apply. No AA recoloring is applied to these three.
+
+The dedicated browser check compares 2,160 original component/state/viewport
+combinations against a reference compiled directly from the upstream source,
+with autothemer both off and on, including paragraph typography, headings, buttons, alerts, badges, forms,
+progress bars and navigation. Source hashes and exact wrapper contents are
+verified. These are fidelity checks, not WCAG passes. Cerulean's gradients are
+preserved as CSS images; base ratios below do not assess every gradient pixel.
+
+| Added skin | Failing normal solid buttons | Recorded ratio floors |
+|---|---|---|
+| cerulean | primary, success, warning | primary 2.76:1, success 2.84:1, warning 3.88:1 |
+| litera | primary, secondary, success, info, warning, danger | primary 3.71:1, secondary 2.07:1, success 2.58:1, info 3.04:1, warning 1.94:1, danger 3.96:1 |
+| pulse | success, info, warning, danger | success 2.59:1, info 3.09:1, warning 2.11:1, danger 3.63:1 |
+
+Catalog pages, standalone preview stylesheets and PNG/WebP images are included.
+The existing color guide and catalog document unreleased availability and
+original contrast limitations. Chatbot catalog/context and one evaluation case
+are updated in this change; no deployment. llms.txt already links the catalog and guide,
+so no additional guide entry is required. No navigation behavior, URLs of existing
+pages, metadata machinery, manifest or service-worker behavior is changed.
+Full Jekyll 3/4 builds cannot run locally without Ruby; CI keeps its build matrix.
 
 ## Updated summary
 
@@ -55,6 +221,9 @@ The original primary values are pinned in `test/skin-contrast-identity.json`. No
 | universal | 6/8 → 6/8 | 3.04:1 | primary (3.99:1), info (3.04:1) | None | 150 → 150 |
 | wandoo | 6/8 → 7/8 | 4.25:1 | primary (4.25:1) | info | 150 → 113 |
 | yeti | 3/8 → 7/8 | 3.85:1 | primary (3.85:1) | danger | 200 → 130 |
+| cerulean | 5/8 → 5/8 | 2.77:1 | primary (2.77:1), success (2.84:1), warning (3.88:1) | None; original Bootswatch | 150 → 150 |
+| litera | 2/8 → 2/8 | 1.95:1 | primary (3.71:1), secondary (2.07:1), success (2.59:1), info (3.04:1), warning (1.95:1), danger (3.96:1) | None; original Bootswatch | 190 → 190 |
+| pulse | 5/8 → 5/8 | 2.59:1 | success (2.59:1), info (3.09:1), danger (3.63:1) | None; original Bootswatch | 150 → 150 |
 
 ## Remaining palette adjustments
 
@@ -130,81 +299,163 @@ Academia `.badge-info` reproduces the review failure at 3.29:1 before the fix an
 
 ## Fixed-text component limitations
 
-The following rendered base pairs remain below 4.5:1. They are recorded as limitations rather than successes; fixed white text on the original bright backgrounds is a frequent cause. Their test floors prevent further degradation. They do not invalidate the narrower base-YIQ counts above, which measure automatic text selection only.
+The following rendered base pairs remain below 4.5:1. They are recorded as limitations rather than successes; fixed white text on the original bright backgrounds is a frequent cause. The table records rounded-down test floors for the accepted local appearance, not WCAG passes. They do not invalidate the narrower base-YIQ counts above, which measure automatic text selection only.
 
-| Skin | Component | Recorded minimum ratio |
+| Skin | Component | Recorded contrast floor |
 |---|---|---|
-| auto | `btn btn-primary` | 3.72:1 |
-| auto | `badge badge-primary` | 3.72:1 |
-| auto | `btn btn-secondary` | 4.40:1 |
-| auto | `badge badge-secondary` | 4.40:1 |
-| auto | `btn btn-success` | 3.24:1 |
-| auto | `badge badge-success` | 3.24:1 |
-| auto | `btn btn-info` | 3.97:1 |
 | auto | `badge badge-info` | 3.97:1 |
-| butterfly-dark | `btn btn-primary` | 4.18:1 |
+| auto | `badge badge-primary` | 3.72:1 |
+| auto | `badge badge-secondary` | 4.40:1 |
+| auto | `badge badge-success` | 3.24:1 |
+| auto | `btn btn-info` | 3.08:1 |
+| auto | `btn btn-primary` | 3.72:1 |
+| auto | `btn btn-secondary` | 4.40:1 |
+| auto | `btn btn-success` | 3.24:1 |
 | butterfly-dark | `badge badge-primary` | 4.18:1 |
 | butterfly-dark | `card bg-primary` | 3.68:1 |
 | butterfly-dim | `card bg-primary` | 3.39:1 |
-| butterfly | `btn btn-primary` | 3.77:1 |
 | butterfly | `badge badge-primary` | 3.77:1 |
 | butterfly | `card bg-primary` | 3.77:1 |
+| cerulean | `badge badge-primary` | 2.76:1 |
+| cerulean | `badge badge-success` | 2.84:1 |
+| cerulean | `badge badge-warning` | 3.88:1 |
+| cerulean | `btn btn-primary` | 2.76:1 |
+| cerulean | `btn btn-success` | 2.84:1 |
+| cerulean | `btn btn-warning` | 3.88:1 |
+| cyborg | `btn btn-dark` | 2.20:1 |
+| cyborg | `btn btn-primary` | 2.98:1 |
+| cyborg | `btn btn-success` | 2.55:1 |
+| cyborg | `btn btn-warning` | 2.39:1 |
 | cyborg | `card bg-primary` | 2.98:1 |
-| darkly | `btn btn-danger` | 4.16:1 |
 | darkly | `badge badge-danger` | 4.16:1 |
-| flatly | `btn btn-dark` | 4.29:1 |
+| darkly | `btn btn-danger` | 3.82:1 |
+| darkly | `btn btn-info` | 3.15:1 |
+| darkly | `btn btn-success` | 2.42:1 |
+| darkly | `btn btn-warning` | 2.19:1 |
+| deeply | `btn btn-danger` | 3.33:1 |
+| deeply | `btn btn-primary` | 3.20:1 |
+| electro | `btn btn-danger` | 1.44:1 |
+| electro | `btn btn-warning` | 1.44:1 |
 | flatly | `badge badge-dark` | 4.29:1 |
+| flatly | `btn btn-dark` | 3.58:1 |
+| flatly | `btn btn-info` | 3.15:1 |
+| flatly | `btn btn-secondary` | 2.55:1 |
+| flatly | `btn btn-success` | 2.41:1 |
+| flatly | `btn btn-warning` | 2.19:1 |
 | focal | `card bg-primary` | 2.16:1 |
-| hootstrap | `btn btn-primary` | 4.45:1 |
+| graymor | `btn btn-info` | 3.37:1 |
+| graymor | `btn btn-warning` | 2.93:1 |
 | hootstrap | `badge badge-primary` | 4.45:1 |
 | hootstrap | `card bg-primary` | 4.45:1 |
 | hootstrap | `card bg-secondary` | 1.44:1 |
-| materia | `card bg-primary` | 3.12:1 |
+| journal | `btn btn-danger` | 2.73:1 |
+| journal | `btn btn-primary` | 3.13:1 |
+| journal | `btn btn-success` | 2.78:1 |
+| litera | `badge badge-danger` | 3.96:1 |
+| litera | `badge badge-info` | 3.04:1 |
+| litera | `badge badge-primary` | 3.71:1 |
+| litera | `badge badge-secondary` | 2.07:1 |
+| litera | `badge badge-success` | 2.58:1 |
+| litera | `badge badge-warning` | 1.94:1 |
+| litera | `btn btn-danger` | 3.96:1 |
+| litera | `btn btn-info` | 3.04:1 |
+| litera | `btn btn-primary` | 3.71:1 |
+| litera | `btn btn-secondary` | 2.07:1 |
+| litera | `btn btn-success` | 2.58:1 |
+| litera | `btn btn-warning` | 1.94:1 |
+| lux | `btn btn-danger` | 3.74:1 |
+| lux | `btn btn-info` | 3.04:1 |
+| lux | `btn btn-success` | 2.33:1 |
+| lux | `btn btn-warning` | 1.94:1 |
 | materia | `badge badge-secondary` | 1.91:1 |
-| materia | `btn btn-warning` | 2.15:1 |
 | materia | `badge badge-warning` | 2.15:1 |
+| materia | `btn btn-primary` | 3.12:1 |
+| materia | `btn btn-success` | 2.77:1 |
+| materia | `btn btn-warning` | 2.15:1 |
+| materia | `card bg-primary` | 3.12:1 |
+| mickie | `btn btn-danger` | 3.31:1 |
+| mickie | `btn btn-primary` | 2.94:1 |
 | mickie | `card bg-primary` | 2.94:1 |
+| minco | `btn btn-danger` | 3.32:1 |
+| minco | `btn btn-warning` | 3.34:1 |
+| minty | `btn btn-danger` | 2.60:1 |
+| minty | `btn btn-info` | 2.01:1 |
+| minty | `btn btn-primary` | 2.07:1 |
+| minty | `btn btn-secondary` | 2.17:1 |
+| minty | `btn btn-success` | 1.99:1 |
+| minty | `btn btn-warning` | 1.47:1 |
 | minty | `card bg-primary` | 2.07:1 |
 | minty | `card bg-secondary` | 2.17:1 |
-| navi | `btn btn-primary` | 4.02:1 |
 | navi | `badge badge-primary` | 4.02:1 |
 | navi | `card bg-primary` | 3.83:1 |
-| none | `btn btn-primary` | 3.97:1 |
 | none | `badge badge-primary` | 3.97:1 |
+| none | `btn btn-info` | 2.90:1 |
+| none | `btn btn-primary` | 3.97:1 |
+| none | `btn btn-success` | 3.13:1 |
+| preptor | `btn btn-danger` | 3.38:1 |
+| preptor | `btn btn-info` | 2.24:1 |
+| pulse | `badge badge-danger` | 3.63:1 |
+| pulse | `badge badge-info` | 3.09:1 |
+| pulse | `badge badge-secondary` | 2.73:1 |
+| pulse | `badge badge-success` | 2.59:1 |
+| pulse | `badge badge-warning` | 2.11:1 |
+| pulse | `btn btn-danger` | 3.63:1 |
+| pulse | `btn btn-info` | 3.09:1 |
+| pulse | `btn btn-success` | 2.59:1 |
+| pulse | `btn btn-warning` | 2.11:1 |
+| skeeblu | `btn btn-primary` | 2.74:1 |
+| skeeblu | `btn btn-success` | 2.41:1 |
 | sketchy | `badge badge-warning` | 1.63:1 |
+| sketchy | `btn btn-info` | 2.90:1 |
+| sketchy | `btn btn-success` | 3.13:1 |
+| sketchy | `btn btn-warning` | 1.63:1 |
+| slate | `btn btn-danger` | 3.11:1 |
+| slate | `btn btn-info` | 2.09:1 |
+| slate | `btn btn-success` | 2.18:1 |
+| slate | `btn btn-warning` | 2.27:1 |
+| solar | `badge badge-info` | 4.07:1 |
+| solar | `btn btn-info` | 3.68:1 |
+| solar | `btn btn-primary` | 3.20:1 |
+| solar | `btn btn-secondary` | 3.16:1 |
+| solar | `btn btn-success` | 3.15:1 |
 | solar | `card bg-primary` | 3.20:1 |
 | solar | `card bg-secondary` | 3.16:1 |
-| solar | `btn btn-info` | 4.07:1 |
-| solar | `badge badge-info` | 4.07:1 |
-| twitter-dim | `card bg-primary` | 2.84:1 |
-| twitter-dim | `btn btn-secondary` | 4.26:1 |
 | twitter-dim | `badge badge-secondary` | 4.26:1 |
+| twitter-dim | `card bg-primary` | 2.84:1 |
 | twitter-dim | `card bg-secondary` | 3.42:1 |
 | twitter-lights-out | `card bg-primary` | 3.00:1 |
 | twitter | `card bg-primary` | 3.00:1 |
-| united | `btn btn-primary` | 4.22:1 |
 | united | `badge badge-primary` | 4.22:1 |
+| united | `btn btn-info` | 2.90:1 |
+| united | `btn btn-primary` | 3.64:1 |
+| united | `btn btn-secondary` | 2.37:1 |
+| united | `btn btn-success` | 2.69:1 |
+| united | `btn btn-warning` | 1.82:1 |
 | united | `card bg-primary` | 3.64:1 |
 | united | `card bg-secondary` | 2.37:1 |
-| universal | `btn btn-primary` | 3.99:1 |
+| universal | `badge badge-info` | 3.04:1 |
 | universal | `badge badge-primary` | 3.99:1 |
 | universal | `btn btn-info` | 3.04:1 |
-| universal | `badge badge-info` | 3.04:1 |
-| wandoo | `btn btn-primary` | 4.25:1 |
+| universal | `btn btn-primary` | 3.99:1 |
 | wandoo | `badge badge-primary` | 4.25:1 |
-| yeti | `btn btn-primary` | 3.84:1 |
-| yeti | `badge badge-primary` | 3.84:1 |
-| yeti | `card bg-primary` | 3.84:1 |
+| wandoo | `btn btn-primary` | 3.62:1 |
 | yeti | `badge badge-info` | 2.09:1 |
+| yeti | `badge badge-primary` | 3.84:1 |
 | yeti | `badge badge-warning` | 2.48:1 |
+| yeti | `btn btn-info` | 2.09:1 |
+| yeti | `btn btn-primary` | 3.84:1 |
+| yeti | `btn btn-success` | 2.85:1 |
+| yeti | `btn btn-warning` | 2.48:1 |
+| yeti | `card bg-primary` | 3.84:1 |
 
 ## Validation and scope
 
-- `node test/check_skin_contrast.js`: all 43 original primary colors preserved; 18 known base exceptions checked against their recorded original contrast; all other base pairs reach 4.5:1.
-- `node test/check_skin_contrast_browser.js`: 86 skin/viewport combinations (390px and 1280px); base components checked with 63 documented component exceptions per viewport, not counted as WCAG passes. Body/navigation/footer links on Twitter Dim and Butterfly Dim pass 4.5:1 in normal, hover and focus states; Cyborg/Wandoo body links pass the same focused checks.
-- Complete palette galleries visually inspected at both widths, including the restored primary colors and bright/pastel backgrounds.
+- `node test/check_skin_contrast.js`: all 46 original primary colors preserved; 30 known base exceptions checked against their recorded original contrast; all other base pairs reach 4.5:1.
+- `node test/check_skin_contrast_browser.js`: 92 skin/viewport combinations (390px and 1280px); base components checked with 144 documented component exceptions per viewport, not counted as WCAG passes. Body/navigation/footer links on Twitter Dim and Butterfly Dim pass 4.5:1 in normal, hover and focus states; Cyborg/Wandoo body links pass the same focused checks.
+- Button follow-up: 1,488 restored-light-label state checks and 556 corrected outline normal/focus checks pass at 390px and 1280px, in addition to the 5,796 original passing-state checks. Reviewed filled backgrounds and intended normal labels are pinned across all 43 palettes. Updated galleries cover all 43 palettes; focused 390px captures for Navi and all three Butterfly variants were visually inspected.
+- Earlier complete palette galleries were visually inspected at both widths, including restored primary colors and bright/pastel backgrounds.
 - Chatbot suite: 80 tests pass. Color guide, changelog, context and evaluation reflect the compromise. Context updated locally, not deployed. llms.txt already links the changed color guide; no new guide/link needed.
-- The selective chatbot context needs no further change for these local color/state fixes: no new configuration or changed reader recipe.
+- The selective chatbot context and llms.txt need no further change for these local button fixes: the existing guide link, identity/contrast caveat and custom-color review advice remain accurate; no new configuration or changed reader recipe. No chatbot deployment was performed.
 - Legacy SassC/Jekyll execution remains unverified because Ruby is unavailable. Only existing variables, mixes, lighten and YIQ mechanisms are used.
-- No whole-page accessibility certification: other interaction states, gradients across their full area, transparency, outlines, alerts and custom colors remain outside this review.
+- No whole-page accessibility certification: other interaction states, gradients across their full area, transparency, arbitrary component backgrounds and custom colors remain outside this review.
 - No URL, metadata, manifest, service-worker or runtime-script changes; SEO and PWA behavior is unaffected.

@@ -1,2 +1,16 @@
 /*! No named skin selected; use the base palette. */
 $yiq-contrasted-threshold: 117 !default;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  success: #ffffff,
+  info: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #006fe6,
+  success: #208637,
+  info: #187c8c,
+  warning: #8c6a04,
+) !default;

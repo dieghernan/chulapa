@@ -58,3 +58,17 @@ $link-hover-color: lighten($link-color, 10%);
 .card.bg-secondary {
   color: $dark;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// AA button fills; keep the global palette and link accents unchanged.
+$skin-button-backgrounds: (
+  primary: #1b75d7,
+  success: #008900,
+  danger: #d34044,
+) !default;

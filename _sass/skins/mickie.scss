@@ -26,5 +26,16 @@ $white:    #fff !default;
 $min-contrast-ratio: 2 !default;
 $navbar-chulapa-text-color: $white;
 
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  danger: #ffffff,
+) !default;
 
-
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #b84b69,
+  secondary: #6f6f6f,
+  warning: #077c81,
+  danger: #cc3a42,
+) !default;

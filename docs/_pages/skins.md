@@ -8,6 +8,8 @@ permalink: /skins
 
 <span class="chulapa">Chulapa</span> includes predefined skins from [Bootswatch](https://bootswatch.com/), [Tophat](https://themesguide.github.io/top-hat/dist/) and other contributors. Select a preview for installation instructions and a demonstration of the skin.
 
+`cerulean`, `litera` and `pulse` are added in **2.2.0 (unreleased)** with their original Bootswatch 4.6.2 implementation. Existing release installations need to upgrade when that version is published.
+
 Preview the documentation site's [current theme](https://dieghernan.github.io/chulapa/skins/current).
 
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}

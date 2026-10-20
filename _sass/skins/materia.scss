@@ -291,12 +291,12 @@ $navbar-chulapa-hover-color: $gray-800 !default;
   }
 
   &-outline-secondary {
-    border-color: $gray-200 !important;
-    color: $gray-300 !important;
+    border-color: $gray-200;
+    color: $gray-300;
 
     &:hover,
     &:focus {
-      color: $dark !important;
+      color: $dark;
     }
   }
 
@@ -887,3 +887,17 @@ select.form-control {
 .card.border-secondary.text-secondary {
   color: $dark !important;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #1a78c2,
+  secondary: #6f7173,
+  success: #39833c,
+  warning: #a66300,
+) !default;

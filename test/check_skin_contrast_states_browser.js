@@ -13,7 +13,14 @@ const colors = [
 ];
 const root = require("path").resolve(__dirname, "..");
 const baseline = require("./skin-contrast-passing-states.json");
+const identity = require("./skin-contrast-identity.json");
 const assert = require("node:assert/strict");
+const authoredCatalog = fs.readdirSync(root + "/docs/collections/_skins")
+  .filter(name => name.endsWith(".md"))
+  .filter(name => /^skin_author:\s*dieghernan\s*$/m.test(fs.readFileSync(root + "/docs/collections/_skins/" + name, "utf8")))
+  .map(name => name.slice(0, -3)).sort();
+assert.deepEqual([...identity.authoredButtonSkins].sort(), authoredCatalog,
+  "Cover all original dieghernan skins, without including adaptations");
 async function audit(sassRoot, page, session) {
   const output = {};
   for (const f of fs
@@ -29,7 +36,7 @@ async function audit(sassRoot, page, session) {
     const html = colors
       .map(
         (k) =>
-          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a>`,
+          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><button disabled class="btn btn-${k}" data-pair="disabled-${k}">${k}</button><button class="btn btn-${k} focus" data-pair="class-focus-${k}">${k}</button><button class="btn btn-${k} active" data-pair="class-active-${k}">${k}</button><div class="show"><button class="btn btn-${k} dropdown-toggle" data-pair="dropdown-${k}">${k}</button></div><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a>`,
       )
       .join("");
     await page.setContent(
@@ -76,6 +83,7 @@ async function audit(sassRoot, page, session) {
             key: el.dataset.pair,
             fg,
             bg: back,
+            border: rgb(getComputedStyle(el).borderTopColor),
             ratio: (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05),
           };
         });
@@ -99,10 +107,76 @@ async function audit(sassRoot, page, session) {
     const session = await page.context().newCDPSession(page);
     await session.send("DOM.enable");
     await session.send("CSS.enable");
-    let checked = 0;
+    let checked = 0, labelsChecked = 0, outlinesChecked = 0;
+    const hex = (rgb) => "#" + rgb.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, "0")).join("");
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       const after = await audit(root + "/_sass", page, session);
+      for (const [skin, variants] of Object.entries(identity.buttonBackgrounds)) {
+        for (const [variant, color] of Object.entries(variants))
+          assert.equal(hex(after[skin][`btn-${variant}/normal`].bg), color.background,
+            `${skin}/${variant}: keep the reviewed filled button background`);
+        for (const [variant, color] of Object.entries(variants))
+          assert.equal(hex(after[skin][`btn-${variant}/normal`].fg), color.label,
+            `${skin}/${variant}: only change the intended filled labels`);
+      }
+      // Cover every solid variant/state in original dieghernan skins, not only
+      // combinations that happened to pass in the historical baseline.
+      for (const skin of identity.authoredButtonSkins) {
+        for (const variant of colors) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            const r = after[skin][`btn-${variant}/${state}`];
+            assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: authored button contrast ${r.ratio}`);
+          }
+        }
+      }
+      for (const [skin, variants] of Object.entries(identity.consistentButtonLabels)) {
+        for (const [variant, expected] of Object.entries(variants)) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            const r = after[skin][`btn-${variant}/${state}`];
+            assert.equal(hex(r.fg), expected.color, `${skin}/${variant}/${state}: consistent readable label`);
+            assert.ok(r.ratio >= expected.minimum, `${skin}/${variant}/${state}: consistent label contrast ${r.ratio}`);
+          }
+          for (const type of ["disabled", "class-focus", "class-active", "dropdown"])
+            assert.equal(hex(after[skin][`${type}-${variant}/normal`].fg), expected.color,
+              `${skin}/${type}/${variant}: consistent label`);
+        }
+      }
+      for (const [skin, variants] of Object.entries(identity.aaButtonBackgrounds)) {
+        for (const variant of Object.keys(variants)) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            const r = after[skin][`btn-${variant}/${state}`];
+            assert.equal(hex(r.fg), "#ffffff", `${skin}/${variant}/${state}: AA white label`);
+            assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: AA contrast ${r.ratio}`);
+          }
+        }
+      }
+      for (const [skin, variants] of Object.entries(identity.lightButtonLabels)) {
+        for (const [variant, expected] of Object.entries(variants)) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            const r = after[skin][`btn-${variant}/${state}`];
+            assert.equal(hex(r.fg), expected.color, `${skin}/${variant}/${state}: original light label`);
+            assert.ok(r.ratio >= expected.minimum, `${skin}/${variant}/${state}: ${r.ratio}; accepted minimum ${expected.minimum}`);
+            labelsChecked++;
+          }
+          for (const type of ["disabled", "class-focus", "class-active", "dropdown"]) {
+            assert.equal(hex(after[skin][`${type}-${variant}/normal`].fg), expected.color,
+              `${skin}/${type}/${variant}: original light label`);
+            labelsChecked++;
+          }
+        }
+      }
+      for (const [skin, variants] of Object.entries(identity.buttonOutlines)) {
+        for (const [variant, expected] of Object.entries(variants)) {
+          for (const state of ["normal", "focus"]) {
+            const r = after[skin][`outline-${variant}/${state}`];
+            assert.equal(hex(r.fg), expected, `${skin}/${variant}/${state}: outline label`);
+            assert.equal(hex(r.border), expected, `${skin}/${variant}/${state}: outline border`);
+            assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: outline contrast ${r.ratio}`);
+            outlinesChecked++;
+          }
+        }
+      }
       for (const [skin, variants] of Object.entries(baseline.passingPairs)) {
         assert.ok(after[skin], `Missing skin ${skin}`);
         for (const [variant, states] of Object.entries(variants))
@@ -117,7 +191,7 @@ async function audit(sassRoot, page, session) {
       }
     }
     console.log(
-      `${checked} previously AA-passing text/button/linked-badge pairs retain 4.5:1 across both viewports.`,
+      `${checked} previously AA-passing pairs retain 4.5:1; ${labelsChecked} original light-label states and ${outlinesChecked} readable outline states checked; ${identity.authoredButtonSkins.length * colors.length * 4 * 2} authored solid-button states meet 4.5:1 across both viewports.`,
     );
   } finally {
     await browser.close();

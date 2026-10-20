@@ -1,0 +1,53 @@
+// Skin-specific button corrections; keep the global palette and YIQ unchanged.
+$skin-button-labels: () !default;
+$skin-button-outlines: () !default;
+$skin-button-backgrounds: () !default;
+
+// Reviewed fills for white labels, scoped to solid buttons only.
+@each $variant, $background in $skin-button-backgrounds {
+  .btn-#{$variant} {
+    @include button-variant($background, $background);
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:disabled,
+    &.disabled,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      color: #fff;
+    }
+  }
+}
+
+@each $variant, $label in $skin-button-labels {
+  .btn-#{$variant} {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:disabled,
+    &.disabled,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      color: $label;
+    }
+  }
+}
+
+@each $variant, $label in $skin-button-outlines {
+  .btn-outline-#{$variant} {
+    // Filled interaction states retain their original palette and YIQ label.
+    &:not(:hover):not(:active):not(.active):not(.disabled):not(:disabled) {
+      color: $label;
+      border-color: $label;
+
+      .show > &.dropdown-toggle {
+        color: color-yiq(theme-color($variant));
+        border-color: theme-color($variant);
+      }
+    }
+  }
+}

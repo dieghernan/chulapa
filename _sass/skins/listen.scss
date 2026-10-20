@@ -59,3 +59,16 @@ a.badge.badge-info {
     color: $yiq-text-dark;
   }
 }
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #838383,
+  danger: #e43f50,
+) !default;
+
+// Keep dark labels readable on the bright green/teal interaction fills.
+$skin-button-labels: (
+  primary: #212529,
+  success: #212529,
+  info: #212529,
+) !default;

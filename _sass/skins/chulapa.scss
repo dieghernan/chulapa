@@ -59,4 +59,30 @@ $white: #ffffff !default;
   color: $dark !important;
 }
 
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #826d65,
+  success: #587b7a,
+  warning: #737237,
+) !default;
+
+// Auto fills palette defaults without replacing this skin's button choices.
+$skin-button-labels: () !default;
 @import "skins/auto";
+
+// Lighter interaction fills preserve readable dark text on pastel Success.
+.btn.btn-success:not(:disabled):not(.disabled) {
+  &:hover,
+  &:focus,
+  &.focus {
+    background-color: lighten($success, 3%);
+    color: $gray-900;
+  }
+
+  &:active,
+  &.active,
+  .show > &.dropdown-toggle {
+    background-color: lighten($success, 5%);
+    color: $gray-900;
+  }
+}

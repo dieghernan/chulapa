@@ -424,3 +424,18 @@ $indexcards-chulapa-border-color: $body-bg !default;
 }
 
 $chulapa-toc-bg: lighten($body-bg, 5%);
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  secondary: #ffffff,
+  success: #ffffff,
+  info: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  info: #3c97d6,
+  warning: #d87850,
+  danger: #de68a1,
+) !default;

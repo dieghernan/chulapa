@@ -41,3 +41,24 @@ $breadcrumb-divider: quote(">") !default;
 .card.bg-secondary {
   color: $body-bg;
 }
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  success: #ffffff,
+  warning: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #1674b4,
+  success: #008257,
+  warning: #b25500,
+) !default;
+
+// Reviewed AA fills for solid buttons with white labels.
+$skin-button-backgrounds: (
+  primary: #177bbe,
+  success: #00875a,
+  warning: #bc5a00,
+) !default;
