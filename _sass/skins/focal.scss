@@ -10,12 +10,13 @@ $headings-font-family: "Playfair Display", serif;
   font-weight: 600;
 }
 
-$primary: #ff9285;
+$primary: #aa6259;
+$yiq-contrasted-threshold: 128 !default;
 $secondary: #6e6e6e;
-$success: #26a65b;
-$info: #00acc1;
+$success: #34ac65;
+$info: #0aafc4;
 $warning: #f9690e;
-$danger: #ff0000;
+$danger: #ed0000;
 $light: #f2f1f1;
 $dark: #262626;
 $body-color: $dark;

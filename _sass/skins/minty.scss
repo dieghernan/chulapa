@@ -25,8 +25,8 @@ $green:   #56cc9d !default;
 $teal:    #20c997 !default;
 $cyan:    #6cc3d5 !default;
 
-$primary:       #78c2ad !default;
-$secondary:     #f3969a !default;
+$primary:       #4f7f72 !default;
+$secondary:     #a36567 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -34,7 +34,7 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
-$yiq-contrasted-threshold: 220 !default;
+$yiq-contrasted-threshold: 150 !default;
 
 // Body
 $body-color: $gray-600 !default;

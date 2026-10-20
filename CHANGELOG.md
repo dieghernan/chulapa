@@ -22,7 +22,7 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
--   Guard automatic YIQ text selection with WCAG 4.5:1 contrast on opaque backgrounds, preserving skin palettes and using alternate text or black/white when needed.
+-   Tune bundled skin palettes and YIQ thresholds for readable text on all eight base semantic colors, including fixed-text buttons, badges and colored cards. Some backgrounds are darker; custom colors and interaction states still require review.
 
 -   Make available Previous/Next document links keyboard reachable, omit interactive missing neighbors, and keep default-layout headings inside main while excluding theme TOCs from editorial Microformats content. Preserve inherited listing feeds.
 

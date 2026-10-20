@@ -4,8 +4,10 @@ $font-family-base: 'Source Sans Pro', sans-serif !default;
 $headings-font-family: 'Raleway', sans-serif !default;
 
 $primary: #1abc9c !default;
-$info: #17a2b8 !default;
-$success: #28a745 !default;
+$secondary: #656e75 !default;
+$yiq-contrasted-threshold: 128 !default;
+$info: #20a6bb !default;
+$success: #38ae53 !default;
 $warning: #ffc107 !default;
 $danger: #dc3545 !default;
 $light: mix(white, $primary, 85%) !default;

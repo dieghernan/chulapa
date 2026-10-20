@@ -30,16 +30,16 @@ $green:   #38b44a !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
-$primary:       $orange !default;
-$secondary:     $gray-500 !default;
+$primary:       #cd4a1c !default;
+$secondary:     #7a7570 !default;
 $success:       $green !default;
-$info:          $cyan !default;
+$info:          #20a6bb !default;
 $warning:       $yellow !default;
-$danger:        $red !default;
+$danger:        #db372b !default;
 $light:         $gray-200 !default;
 $dark:          $purple !default;
 
-$yiq-contrasted-threshold: 200 !default;
+$yiq-contrasted-threshold: 128 !default;
 
 // Body
 $body-color: $gray-800 !default;

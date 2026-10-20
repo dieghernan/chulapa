@@ -10,12 +10,13 @@ $font-family-base: 'Inter', 'Roboto' !default;
   font-variant-ligatures: none;
 }
 
-$primary: #208bfe !default;
+$primary: #1b75d7 !default;
+$yiq-contrasted-threshold: 128 !default;
 $secondary: #c9d2db !default;
-$success: #00a400 !default;
+$success: #008900 !default;
 $info: #54c7ec !default;
 $warning: #ffba00 !default;
-$danger: #fa383e !default;
+$danger: #fa4c51 !default;
 $dark: #0b0f14 !default;
 $white: #ffffff !default;
 $black: #161e27 !default;

@@ -42,3 +42,14 @@ are compiled into CSS during the build. If changes are missing, use
 
 The [appearance reference](./03-theming#variables) covers supported value syntax
 and calculated values that cannot be changed through `vars`.
+
+## Palette contrast (2.2.0, unreleased)
+
+The bundled palettes and their YIQ thresholds have been tuned so automatic
+text selection reaches at least 4.5:1 on all eight default semantic colors.
+Some colors are darker than in v2.1.0, including backgrounds that skins pair
+with fixed white text. No new configuration is required.
+
+Custom `vars`, generated palettes with a custom primary color, translucent
+backgrounds and hover/focus states still need checks on your actual page.
+A passing palette does not establish whole-page accessibility.

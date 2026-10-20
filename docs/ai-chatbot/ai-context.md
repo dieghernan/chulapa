@@ -1,8 +1,8 @@
 # Chulapa documentation context
 
-2.2.0 unpublished; v2.1.1-dev=planned. Latest: v2.1.0.
+2.2.0 unpublished; v2.1.1-dev=planned. Released: v2.1.0.
 
-Reviewed 18 Oct 2026. docs/llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart after config edits. Copy URLs; no fetching. Dev=main after v2.1.0, not gem/pin.
+18 Oct 2026 review. docs/llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching. Dev=main after v2.1.0, not gem/pin.
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
 Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other Jekyll hosts. Search, SEO, multi-author, code highlighting, MathJax, galleries, comments.
@@ -139,9 +139,9 @@ chulapa-skin.highlight: zenburn changes code appearance, not article typography.
 Source: https://dieghernan.github.io/chulapa/docs/26-appearance-precedence
 Source: https://dieghernan.github.io/chulapa/docs/27-autothemer
 Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
-Order: skin → vars → autothemer → Bootstrap → components. vars overrides skins; Autothemer fills only undefined colors from primary. Put autothemer: true beside vars under chulapa-skin; primary inside vars. none has no assignments; named skins retain theirs. false/omission disables the later step only; skin: auto imports the generator independently.
+Order: skin → vars → autothemer → Bootstrap → components. vars overrides skins; Autothemer fills only undefined colors from primary. Put autothemer: true beside vars under chulapa-skin; primary inside vars. none has no palette assignments; named skins retain theirs. false/omission disables the later step only; skin: auto imports the generator independently.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
-Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply requires its existing Bootstrap/grid imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply: Sunset palette/font omits CSS.
+Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
 Named skins: academia, butterfly, butterfly-dark, butterfly-dim, chulapa, cyborg, dark-bg, darkly, deeply, electro, flatly, focal, gitdev, gitdev-dark, graymor, hootstrap, journal, listen, lux, lymcha, materia, media, mickie, minco, minty, monotone, navi, pear, preptor, skeeblu, sketchy, slate, solar, sunset, towards, twitter, twitter-dim, twitter-lights-out, united, universal, wandoo, yeti.
@@ -460,4 +460,4 @@ algolia:
 ```
 Indexing secret ALGOLIA_API_KEY goes only in environment/Actions secrets. Use algolia.files_to_exclude for exclusions and upload the index; include_on_search affects ranking only if customRanking uses it. jekyll-algolia is deprecated/unmaintained; a Gemfile group is :jekyll_plugins, not :plugins. Verify the uploaded index and live search result.
 
-YIQ (2.2.0 unreleased, absent v2.1.0): opaque backgrounds retain preferred text at ≥4.5:1, else alternate then black/white. Palette unchanged. CSS overrides/transparency need page review; no whole-page guarantee. /docs/28-custom-skin.
+2.2.0 unreleased: palette colors/YIQ thresholds reach ≥4.5:1 on eight default semantic colors; some darker. YIQ unchanged. Custom vars/generated colors, transparency/states need page checks; no whole-page guarantee. /docs/23-change-color.

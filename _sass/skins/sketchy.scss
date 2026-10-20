@@ -32,14 +32,14 @@ $cyan: #17a2b8;
 
 $primary: $gray-800;
 $secondary: $gray-700;
-$success: $green;
-$info: $cyan;
-$warning: $yellow;
+$success: #38ae53;
+$info: #20a6bb;
+$warning: #947004;
 $danger: $red;
 $light: $white;
 $dark: $gray-700;
 
-$yiq-contrasted-threshold: 200;
+$yiq-contrasted-threshold: 128 !default;
 
 // Links
 

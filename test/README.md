@@ -376,5 +376,13 @@ node test/check_skin_contrast.js
 
 Compiles every skin and the autothemer defaults, checks automatic text against
 all eight palette backgrounds with an independent WCAG calculation, and checks
-luminance accuracy and fallback behavior. This does not cover explicit CSS
-text overrides or replace rendered-page review.
+each skin’s unchanged YIQ function output. Run the rendered component check
+with Chromium installed:
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_browser.js
+```
+
+It compiles theme CSS and checks base buttons, badges and skin-defined colored
+cards at 390px and 1280px. It does not establish whole-page accessibility or
+cover translucent backgrounds and interaction states.
