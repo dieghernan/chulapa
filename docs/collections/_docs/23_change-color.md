@@ -55,7 +55,7 @@ outline labels and borders are adjusted for the skin’s page background;
 `Light` and `Dark` variants retain their use on alternate backgrounds.
 All eight solid-button variants in the 16 skins authored by dieghernan reach
 4.5:1 in normal, hover, focus and active states. Selected fills are darker with
-white labels; Listen retains dark labels on bright fills, and Chulapa Success
+white labels; Listen retains dark labels on bright fills, and <span class="chulapa">Chulapa</span> Success
 uses lighter interaction fills. Hootstrap Primary also receives a minimal AA
 adjustment. These button-specific changes leave global palette and link accents
 unchanged; they do not certify other components or entire skins.
