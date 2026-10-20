@@ -62,7 +62,7 @@ function fontCSS(family) {
 function prepareCSS(skin) {
   let css = sass.compileString(`@import "skins/${skin}";@import "bootstrap/bootstrap";@import "chulapa-master";`, {loadPaths:[root+'/_sass'],logger:{warn(){}}}).css;
   const families = new Set();
-  for (const match of css.matchAll(/https:\/\/fonts.googleapis.com\/[^\s"')]+/g)) {
+  for (const match of css.matchAll(/https:\/\/fonts\.googleapis\.com\/[^\s"')]+/g)) {
     const url = new URL(match[0]);
     for (const value of url.searchParams.getAll('family'))
       for (const family of value.split('|')) families.add(family.split(':')[0]);
@@ -83,8 +83,10 @@ function prepareCSS(skin) {
     const id = source.match(/^skin: (.+)$/m)?.[1];
     if (!id) continue; // Current-site demo is not a selectable skin.
     const skin = file.slice(0,-3);
-    const title = source.match(/^title: (.+)$/m)[1].replace(/<[^>]*>/g, '').replace(/^['"]|['"]$/g, '');
-    const escape = s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+    const rawTitle = source.match(/^title: (.+)$/m)[1].replace(/^['"]|['"]$/g, '');
+    // Parse markup as an inert document, then escape its text for the template.
+    const title = await page.evaluate(value=>new DOMParser().parseFromString(value, 'text/html').body.textContent, rawTitle);
+    const escape = s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
     const button = outline=>variants.map(v=>`<button class="btn btn-sm btn-${outline?'outline-':''}${v}" type="button">${v[0].toUpperCase()+v.slice(1)}</button>`).join('');
     const values = {title:escape(title),css:prepareCSS(skin),buttons:button(false),outlines:button(true)};
     const html = template.replace(/\{\{(title|css|buttons|outlines)\}\}/g, (_,key)=>values[key]);
