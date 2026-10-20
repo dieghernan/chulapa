@@ -15,7 +15,7 @@ The original primary values are pinned in `test/skin-contrast-identity.json`. No
 | academia | 6/8 → 8/8 | 4.53:1 | None on base palette | success, info | 150 → 128 |
 | auto | 4/8 → 7/8 | 3.72:1 | primary (3.72:1) | secondary, success, info | 150 → 128 |
 | butterfly-dark | 5/8 → 7/8 | 4.19:1 | primary (4.19:1) | success, danger | 150 → 110 |
-| butterfly-dim | 5/8 → 8/8 | 4.54:1 | None on base palette | success, danger | 150 → 120 |
+| butterfly-dim | 5/8 → 8/8 | 4.54:1 | None on base palette | danger | 150 → 96 |
 | butterfly | 4/8 → 7/8 | 4.09:1 | primary (4.09:1) | success, danger | 150 → 109 |
 | chulapa | 7/8 → 8/8 | 4.56:1 | None on base palette | danger | 150 → 128 |
 | cyborg | 4/8 → 8/8 | 5.16:1 | None on base palette | None | 175 → 130 |
@@ -69,7 +69,6 @@ Hex values are rounded; Sass preserves fractional channels in generated colors. 
 | auto | info | `#1198ca` | `#29aaca` |
 | butterfly-dark | success | `#00a400` | `#008900` |
 | butterfly-dark | danger | `#fa383e` | `#fa4c51` |
-| butterfly-dim | success | `#00a400` | `#008900` |
 | butterfly-dim | danger | `#fa383e` | `#fa4c51` |
 | butterfly | success | `#00a400` | `#008900` |
 | butterfly | danger | `#fa383e` | `#fa4c51` |
@@ -127,6 +126,10 @@ Hex values are rounded; Sass preserves fractional channels in generated colors. 
 ## PR review: dark link regression
 
 The review correctly identified that darkening Twitter Dim and Butterfly Dim primary colors made page links, navbar accents and footer links less readable. Restoring the original primary colors restores those normal link contrasts (5.50:1 and 4.95:1 respectively). Their hover/focus accents are kept bright rather than darkened by shared dark defaults. Body links on Cyborg and Wandoo are also covered by focused regression checks.
+
+## Semantic success foreground
+
+Butterfly Dim restores its original `success: #00a400`: `.text-success` on `#161e27` reaches 5.05:1 again (the darker green gave 3.67:1). Its YIQ threshold is 96 so the original green background receives readable dark text. A rendered regression checks this foreground at both viewport sizes in addition to buttons/badges.
 
 ## Fixed-text component limitations
 

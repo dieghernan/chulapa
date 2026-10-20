@@ -386,7 +386,8 @@ CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_browser.js
 It compiles theme CSS and checks base buttons, badges and skin-defined colored
 cards at 390px and 1280px. It also checks body, navigation and footer links on
 the two dim skins in normal, hover and focus states, plus body links on Cyborg
-and Wandoo. `skin-contrast-identity.json` records original primary colors and
+and Wandoo. Butterfly Dim also checks `.text-success` against the page background.
+`skin-contrast-identity.json` records original primary colors and
 known contrast limitations retained for identity. These exceptions are checked
 for degradation, not counted as WCAG passes. The checks do not establish
 whole-page accessibility or cover all component interaction states.

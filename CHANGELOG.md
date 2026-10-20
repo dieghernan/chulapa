@@ -22,7 +22,7 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
--   Improve bundled skin contrast with small palette and YIQ threshold adjustments while preserving original primary colors and skin identity. Keep dim-skin link accents bright. Some original combinations remain below 4.5:1; custom colors and component states still require review.
+-   Improve bundled skin contrast with small palette and YIQ threshold adjustments while preserving original primary colors and skin identity. Keep dim-skin link accents and Butterfly Dim success text readable. Some original combinations remain below 4.5:1; custom colors and component states still require review.
 
 -   Make available Previous/Next document links keyboard reachable, omit interactive missing neighbors, and keep default-layout headings inside main while excluding theme TOCs from editorial Microformats content. Preserve inherited listing feeds.
 

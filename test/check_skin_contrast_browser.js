@@ -89,7 +89,8 @@ const root = require("path").resolve(__dirname, ".."),
           ["twitter-dim", "butterfly-dim", "cyborg", "wandoo"].includes(skin)
         ) {
           await page.setContent(`<style>${css}</style>
-            <main><a id="body-link" href="#target">Article link</a></main>
+            <main><a id="body-link" href="#target">Article link</a>
+              <span id="success-text" class="text-success">Success text</span></main>
             <nav class="navbar-chulapa"><div class="navbar-nav">
               <a id="nav-link" class="nav-link" href="#target">Navigation</a>
               <a id="nav-active" class="nav-link active" href="#target">Current page</a>
@@ -97,9 +98,17 @@ const root = require("path").resolve(__dirname, ".."),
             <footer class="footer-chulapa"><a id="footer-link" href="#target">Footer link</a></footer>`);
           for (const id of ["cyborg", "wandoo"].includes(skin)
             ? ["body-link"]
-            : ["body-link", "nav-link", "nav-active", "footer-link"]) {
+            : [
+                "body-link",
+                "nav-link",
+                "nav-active",
+                "footer-link",
+                ...(skin === "butterfly-dim" ? ["success-text"] : []),
+              ]) {
             const link = page.locator(`#${id}`);
-            for (const state of ["normal", "hover", "focus"]) {
+            for (const state of id === "success-text"
+              ? ["normal"]
+              : ["normal", "hover", "focus"]) {
               await page.mouse.move(0, 0);
               await page.evaluate(() => document.activeElement?.blur());
               if (state === "hover") await link.hover();
