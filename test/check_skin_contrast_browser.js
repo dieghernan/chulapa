@@ -16,7 +16,7 @@ const root = require("path").resolve(__dirname, ".."),
   ];
 (async () => {
   const browser = await chromium.launch({
-    executablePath: process.env.CHULAPA_CHROMIUM || "/usr/bin/chromium",
+    executablePath: process.env.CHULAPA_CHROMIUM,
     headless: true,
     args: ["--no-sandbox"],
   });

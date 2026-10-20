@@ -35,11 +35,11 @@ $secondary: $gray-700 !default;
 $success: #04bd8e !default;
 $info: $cyan !default;
 $warning: $yellow !default;
-$danger: #e95a4b !default;
+$danger: $red !default;
 $light: $gray-500 !default;
 $dark: $gray-800 !default;
 
-$yiq-contrasted-threshold: 128 !default;
+$yiq-contrasted-threshold: 120 !default;
 
 // Body
 

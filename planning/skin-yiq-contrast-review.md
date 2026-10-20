@@ -4,7 +4,7 @@
 
 All 42 skins and the auto defaults preserve their original primary background colors exactly. Strong darkening of secondary/warning/info colors is reverted as well: Minty retains its pastel green and pink, Focal its salmon, Hootstrap its yellow, and Sketchy/Materia/Yeti their original warning colors. Only small remaining palette adjustments and existing YIQ thresholds are changed. The shared YIQ function is unchanged.
 
-33 of 43 palettes now meet WCAG AA 4.5:1 on all eight base semantic pairs, compared with five originally. Eleven pairs remain below 4.5:1 across ten palettes (including auto), and are explicitly retained for identity. This is not an all-palette accessibility certification.
+29 of 43 palettes now meet WCAG AA 4.5:1 on all eight base semantic pairs, compared with five originally. 18 pairs remain below 4.5:1 across 14 palettes (including auto), and are explicitly retained for identity. This is not an all-palette accessibility certification.
 
 The original primary values are pinned in `test/skin-contrast-identity.json`. No new YAML settings, color-selection helpers or automatic fallback logic. The none skin still leaves palette assignments unset for autothemer. Custom primary values and overrides need their own review.
 
@@ -12,23 +12,23 @@ The original primary values are pinned in `test/skin-contrast-identity.json`. No
 
 | Skin | Passing base pairs, before → after | Minimum after | Remaining limitations | Small palette changes | YIQ threshold, before → after |
 |---|---|---|---|---|---|
-| academia | 6/8 → 8/8 | 4.53:1 | None on base palette | success, info | 150 → 128 |
-| auto | 4/8 → 7/8 | 3.72:1 | primary (3.72:1) | secondary, success, info | 150 → 128 |
+| academia | 6/8 → 8/8 | 4.53:1 | None on base palette | info | 150 → 117 |
+| auto | 4/8 → 4/8 | 3.24:1 | primary (3.72:1), secondary (4.41:1), success (3.24:1), info (3.98:1) | None | 150 → 117 |
 | butterfly-dark | 5/8 → 7/8 | 4.19:1 | primary (4.19:1) | success, danger | 150 → 110 |
 | butterfly-dim | 5/8 → 8/8 | 4.54:1 | None on base palette | danger | 150 → 96 |
-| butterfly | 4/8 → 7/8 | 4.09:1 | primary (4.09:1) | success, danger | 150 → 109 |
-| chulapa | 7/8 → 8/8 | 4.56:1 | None on base palette | danger | 150 → 128 |
+| butterfly | 4/8 → 7/8 | 3.78:1 | primary (3.78:1) | success, danger | 150 → 117 |
+| chulapa | 7/8 → 8/8 | 4.56:1 | None on base palette | danger | 150 → 117 |
 | cyborg | 4/8 → 8/8 | 5.16:1 | None on base palette | None | 175 → 130 |
-| darkly | 4/8 → 8/8 | 4.57:1 | None on base palette | success, danger | 175 → 128 |
+| darkly | 4/8 → 7/8 | 4.16:1 | danger (4.16:1) | success | 175 → 120 |
 | deeply | 5/8 → 8/8 | 4.57:1 | None on base palette | info, danger | 150 → 127 |
 | electro | 6/8 → 8/8 | 7.11:1 | None on base palette | None | 150 → 140 |
-| flatly | 2/8 → 8/8 | 4.58:1 | None on base palette | info, danger, dark | 175 → 130 |
-| focal | 4/8 → 8/8 | 4.56:1 | None on base palette | success, info, danger | 150 → 128 |
+| flatly | 2/8 → 7/8 | 4.30:1 | dark (4.30:1) | info, danger | 175 → 130 |
+| focal | 4/8 → 8/8 | 4.56:1 | None on base palette | danger | 150 → 119 |
 | gitdev-dark | 8/8 → 8/8 | 6.61:1 | None on base palette | None | 150 → 150 |
 | gitdev | 8/8 → 8/8 | 4.69:1 | None on base palette | None | 150 → 150 |
 | graymor | 5/8 → 8/8 | 4.56:1 | None on base palette | secondary, info | 150 → 130 |
 | hootstrap | 7/8 → 7/8 | 4.45:1 | primary (4.45:1) | None | 150 → 150 |
-| journal | 5/8 → 8/8 | 5.07:1 | None on base palette | success | 150 → 128 |
+| journal | 5/8 → 8/8 | 5.07:1 | None on base palette | None | 150 → 123 |
 | listen | 6/8 → 8/8 | 4.57:1 | None on base palette | secondary, danger | 130 → 130 |
 | lux | 4/8 → 8/8 | 4.65:1 | None on base palette | info, danger | 185 → 128 |
 | lymcha | 8/8 → 8/8 | 5.61:1 | None on base palette | None | 150 → 150 |
@@ -39,18 +39,18 @@ The original primary values are pinned in `test/skin-contrast-identity.json`. No
 | minty | 2/8 → 8/8 | 5.92:1 | None on base palette | None | 220 → 150 |
 | monotone | 8/8 → 8/8 | 5.74:1 | None on base palette | None | 150 → 150 |
 | navi | 6/8 → 7/8 | 4.03:1 | primary (4.03:1) | None | 150 → 105 |
-| none | 5/8 → 7/8 | 3.98:1 | primary (3.98:1) | success, info | 150 → 128 |
-| pear | 5/8 → 8/8 | 4.53:1 | None on base palette | secondary, success, info | 150 → 128 |
+| none | 5/8 → 7/8 | 3.98:1 | primary (3.98:1) | info | 150 → 117 |
+| pear | 5/8 → 8/8 | 4.53:1 | None on base palette | secondary, info | 150 → 117 |
 | preptor | 6/8 → 8/8 | 4.55:1 | None on base palette | danger | 150 → 128 |
 | skeeblu | 5/8 → 8/8 | 4.55:1 | None on base palette | danger | 150 → 130 |
-| sketchy | 5/8 → 8/8 | 4.53:1 | None on base palette | success, info | 200 → 128 |
+| sketchy | 5/8 → 8/8 | 4.53:1 | None on base palette | info | 200 → 117 |
 | slate | 3/8 → 8/8 | 4.56:1 | None on base palette | secondary, danger | 170 → 140 |
-| solar | 4/8 → 8/8 | 4.55:1 | None on base palette | success, info | 150 → 128 |
+| solar | 4/8 → 7/8 | 4.08:1 | info (4.08:1) | None | 150 → 116 |
 | sunset | 7/8 → 8/8 | 4.55:1 | None on base palette | danger | 150 → 150 |
 | towards | 7/8 → 8/8 | 4.61:1 | None on base palette | None | 150 → 130 |
-| twitter-dim | 3/8 → 8/8 | 4.56:1 | None on base palette | secondary, success, danger | 150 → 127 |
-| twitter-lights-out | 3/8 → 8/8 | 4.55:1 | None on base palette | secondary, success, danger | 150 → 127 |
-| twitter | 3/8 → 8/8 | 4.55:1 | None on base palette | secondary, success, danger | 150 → 127 |
+| twitter-dim | 3/8 → 7/8 | 4.27:1 | secondary (4.27:1) | danger | 150 → 123 |
+| twitter-lights-out | 3/8 → 8/8 | 4.55:1 | None on base palette | secondary, danger | 150 → 123 |
+| twitter | 3/8 → 8/8 | 4.55:1 | None on base palette | secondary, danger | 150 → 123 |
 | united | 2/8 → 7/8 | 4.23:1 | primary (4.23:1) | info, danger | 200 → 122 |
 | universal | 6/8 → 6/8 | 3.04:1 | primary (3.99:1), info (3.04:1) | None | 150 → 150 |
 | wandoo | 6/8 → 7/8 | 4.25:1 | primary (4.25:1) | info | 150 → 113 |
@@ -62,11 +62,7 @@ Hex values are rounded; Sass preserves fractional channels in generated colors. 
 
 | Skin | Color | Before | After |
 |---|---|---|---|
-| academia | success | `#28a745` | `#38ae53` |
 | academia | info | `#17a2b8` | `#20a6bb` |
-| auto | secondary | `#5c7691` | `#59738e` |
-| auto | success | `#1e9c74` | `#38b38c` |
-| auto | info | `#1198ca` | `#29aaca` |
 | butterfly-dark | success | `#00a400` | `#008900` |
 | butterfly-dark | danger | `#fa383e` | `#fa4c51` |
 | butterfly-dim | danger | `#fa383e` | `#fa4c51` |
@@ -74,18 +70,13 @@ Hex values are rounded; Sass preserves fractional channels in generated colors. 
 | butterfly | danger | `#fa383e` | `#fa4c51` |
 | chulapa | danger | `#f13c20` | `#dc371d` |
 | darkly | success | `#00bc8c` | `#04bd8e` |
-| darkly | danger | `#e74c3c` | `#e95a4b` |
 | deeply | info | `#0f81c7` | `#0e7bbe` |
 | deeply | danger | `#ff304f` | `#ff4661` |
 | flatly | info | `#3498db` | `#3598db` |
 | flatly | danger | `#e74c3c` | `#d04536` |
-| flatly | dark | `#7b8a8b` | `#808f90` |
-| focal | success | `#26a65b` | `#34ac65` |
-| focal | info | `#00acc1` | `#0aafc4` |
 | focal | danger | `#ff0000` | `#ed0000` |
 | graymor | secondary | `#6f7f8c` | `#687884` |
 | graymor | info | `#5c8f94` | `#639498` |
-| journal | success | `#22b24c` | `#2ab552` |
 | listen | secondary | `#7c7c7c` | `#757575` |
 | listen | danger | `#ed2c3f` | `#e12a3c` |
 | lux | info | `#1f9bcf` | `#279ed1` |
@@ -95,28 +86,19 @@ Hex values are rounded; Sass preserves fractional channels in generated colors. 
 | mickie | danger | `#ff444f` | `#ff4953` |
 | minco | warning | `#fc3c3c` | `#fc4c4c` |
 | minco | danger | `#ff4057` | `#ff475d` |
-| none | success | `#28a745` | `#38ae53` |
 | none | info | `#17a2b8` | `#20a6bb` |
 | pear | secondary | `#6c757d` | `#656e75` |
-| pear | success | `#28a745` | `#38ae53` |
 | pear | info | `#17a2b8` | `#20a6bb` |
 | preptor | danger | `#fa4659` | `#fa4a5c` |
 | skeeblu | danger | `#e8286b` | `#df2667` |
-| sketchy | success | `#28a745` | `#38ae53` |
 | sketchy | info | `#17a2b8` | `#20a6bb` |
 | slate | secondary | `#7a8288` | `#6f777c` |
 | slate | danger | `#ee5f5b` | `#ef6662` |
-| solar | success | `#2aa198` | `#30a49b` |
-| solar | info | `#268bd2` | `#3894d6` |
 | sunset | danger | `#f2460d` | `#d83e0c` |
-| twitter-dim | secondary | `#788995` | `#66747f` |
-| twitter-dim | success | `#00ba7c` | `#09bd81` |
 | twitter-dim | danger | `#f91880` | `#e21674` |
 | twitter-lights-out | secondary | `#788995` | `#697883` |
-| twitter-lights-out | success | `#00ba7c` | `#09bd81` |
 | twitter-lights-out | danger | `#f91880` | `#e21674` |
 | twitter | secondary | `#788995` | `#697883` |
-| twitter | success | `#00ba7c` | `#09bd81` |
 | twitter | danger | `#f91880` | `#e21674` |
 | united | info | `#17a2b8` | `#20a6bb` |
 | united | danger | `#df382c` | `#db372b` |
@@ -127,9 +109,18 @@ Hex values are rounded; Sass preserves fractional channels in generated colors. 
 
 The review correctly identified that darkening Twitter Dim and Butterfly Dim primary colors made page links, navbar accents and footer links less readable. Restoring the original primary colors restores those normal link contrasts (5.50:1 and 4.95:1 respectively). Their hover/focus accents are kept bright rather than darkened by shared dark defaults. Body links on Cyborg and Wandoo are also covered by focused regression checks.
 
-## Semantic success foreground
+## Semantic foreground and interaction regressions
 
-Butterfly Dim restores its original `success: #00a400`: `.text-success` on `#161e27` reaches 5.05:1 again (the darker green gave 3.67:1). Its YIQ threshold is 96 so the original green background receives readable dark text. A rendered regression checks this foreground at both viewport sizes in addition to buttons/badges.
+All four review findings are addressed without changing any primary color:
+
+- Twitter Dim/Butterfly Dim link accents retain the original bright colors, including readable hover/focus states.
+- Butterfly Dim restores `success: #00a400`; `.text-success` reaches 5.05:1 and threshold 96 keeps the green background readable with dark text.
+- Twitter Dim restores `secondary: #788995`; `.text-secondary` and the resting outline button recover 4.56:1 on `#15202b`.
+- Focal restores its original success/info tones and uses threshold 119; success-button hover/focus recover 4.54:1 and active reaches 5.16:1.
+
+A systematic comparison found 32 newly failing semantic-text/button-state pairs in the pre-fix palette revision `9dd17fd`, including repeats between hover and focus. Restore the implicated original tones and choose thresholds that preserve the previously passing states. The independent browser regression now checks all 1,849 originally AA-passing pairs across all 43 palettes at 390px and 1280px (3,698 checks), including semantic foregrounds and normal/hover/focus/active states of filled and outline buttons. No originally passing pair in that matrix drops below 4.5:1. The fixture records only previously passing pairs, not a certification of excluded pairs or complete gradients.
+
+The three contrast scripts are wired into the existing browser CI job. Local Chromium checks pass; remote CI status must be checked for the final commit. Netlify previews also fail on earlier unrelated PRs; their logs remain inaccessible from this workspace (proxy 403), so no cause or fix is claimed.
 
 ## Fixed-text component limitations
 
@@ -139,14 +130,24 @@ The following rendered base pairs remain below 4.5:1. They are recorded as limit
 |---|---|---|
 | auto | `btn btn-primary` | 3.72:1 |
 | auto | `badge badge-primary` | 3.72:1 |
+| auto | `btn btn-secondary` | 4.40:1 |
+| auto | `badge badge-secondary` | 4.40:1 |
+| auto | `btn btn-success` | 3.24:1 |
+| auto | `badge badge-success` | 3.24:1 |
+| auto | `btn btn-info` | 3.97:1 |
+| auto | `badge badge-info` | 3.97:1 |
 | butterfly-dark | `btn btn-primary` | 4.18:1 |
 | butterfly-dark | `badge badge-primary` | 4.18:1 |
 | butterfly-dark | `card bg-primary` | 3.68:1 |
 | butterfly-dim | `card bg-primary` | 3.39:1 |
-| butterfly | `btn btn-primary` | 4.08:1 |
-| butterfly | `badge badge-primary` | 4.08:1 |
+| butterfly | `btn btn-primary` | 3.77:1 |
+| butterfly | `badge badge-primary` | 3.77:1 |
 | butterfly | `card bg-primary` | 3.77:1 |
 | cyborg | `card bg-primary` | 2.98:1 |
+| darkly | `btn btn-danger` | 4.16:1 |
+| darkly | `badge badge-danger` | 4.16:1 |
+| flatly | `btn btn-dark` | 4.29:1 |
+| flatly | `badge badge-dark` | 4.29:1 |
 | focal | `card bg-primary` | 2.16:1 |
 | hootstrap | `btn btn-primary` | 4.45:1 |
 | hootstrap | `badge badge-primary` | 4.45:1 |
@@ -167,7 +168,12 @@ The following rendered base pairs remain below 4.5:1. They are recorded as limit
 | sketchy | `badge badge-warning` | 1.63:1 |
 | solar | `card bg-primary` | 3.20:1 |
 | solar | `card bg-secondary` | 3.16:1 |
+| solar | `btn btn-info` | 4.07:1 |
+| solar | `badge badge-info` | 4.07:1 |
 | twitter-dim | `card bg-primary` | 2.84:1 |
+| twitter-dim | `btn btn-secondary` | 4.26:1 |
+| twitter-dim | `badge badge-secondary` | 4.26:1 |
+| twitter-dim | `card bg-secondary` | 3.42:1 |
 | twitter-lights-out | `card bg-primary` | 3.00:1 |
 | twitter | `card bg-primary` | 3.00:1 |
 | united | `btn btn-primary` | 4.22:1 |
@@ -188,10 +194,11 @@ The following rendered base pairs remain below 4.5:1. They are recorded as limit
 
 ## Validation and scope
 
-- `node test/check_skin_contrast.js`: all 43 original primary colors preserved; eleven known base exceptions checked against their recorded original contrast; all other base pairs reach 4.5:1.
-- `node test/check_skin_contrast_browser.js`: 86 skin/viewport combinations (390px and 1280px); base components checked with 48 documented component exceptions per viewport, not counted as WCAG passes. Body/navigation/footer links on Twitter Dim and Butterfly Dim pass 4.5:1 in normal, hover and focus states; Cyborg/Wandoo body links pass the same focused checks.
+- `node test/check_skin_contrast.js`: all 43 original primary colors preserved; 18 known base exceptions checked against their recorded original contrast; all other base pairs reach 4.5:1.
+- `node test/check_skin_contrast_browser.js`: 86 skin/viewport combinations (390px and 1280px); base components checked with 63 documented component exceptions per viewport, not counted as WCAG passes. Body/navigation/footer links on Twitter Dim and Butterfly Dim pass 4.5:1 in normal, hover and focus states; Cyborg/Wandoo body links pass the same focused checks.
 - Complete palette galleries visually inspected at both widths, including the restored primary colors and bright/pastel backgrounds.
 - Chatbot suite: 80 tests pass. Color guide, changelog, context and evaluation reflect the compromise. Context updated locally, not deployed. llms.txt already links the changed color guide; no new guide/link needed.
+- The selective chatbot context needs no further change for these local color/state fixes: no new configuration or changed reader recipe.
 - Legacy SassC/Jekyll execution remains unverified because Ruby is unavailable. Only existing variables, mixes, lighten and YIQ mechanisms are used.
 - No whole-page accessibility certification: other interaction states, gradients across their full area, transparency, outlines, alerts and custom colors remain outside this review.
 - No URL, metadata, manifest, service-worker or runtime-script changes; SEO and PWA behavior is unaffected.

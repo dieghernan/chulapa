@@ -32,10 +32,10 @@ $teal:    #20c997 !default;
 $cyan:    #268bd2 !default;
 
 $primary:       $blue !default;
-$yiq-contrasted-threshold: 128 !default;
+$yiq-contrasted-threshold: 116 !default;
 $secondary:     $gray-600 !default;
-$success:       #30a49b !default;
-$info:          #3894d6 !default;
+$success:       $green !default;
+$info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;

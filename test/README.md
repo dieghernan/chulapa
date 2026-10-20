@@ -391,3 +391,15 @@ and Wandoo. Butterfly Dim also checks `.text-success` against the page backgroun
 known contrast limitations retained for identity. These exceptions are checked
 for degradation, not counted as WCAG passes. The checks do not establish
 whole-page accessibility or cover all component interaction states.
+
+For semantic foregrounds and filled/outline button CSS states across every skin:
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_states_browser.js
+```
+
+This compares 1,849 formerly AA-passing pairs from the original `e88f641`
+palettes at both viewport sizes. Chromium forces normal, hover, focus and active
+CSS states with transitions disabled for measurement. The recorded baseline
+covers previously passing pairs only; it does not certify excluded pairs,
+full gradients, arbitrary site content or JavaScript interactions.

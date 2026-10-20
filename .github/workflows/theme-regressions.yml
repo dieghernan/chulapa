@@ -94,6 +94,11 @@ jobs:
         run: |
           npm ci --prefix test/browser
           test/browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Check skin identity and contrast regressions
+        run: |
+          node test/check_skin_contrast.js
+          node test/check_skin_contrast_browser.js
+          node test/check_skin_contrast_states_browser.js
       - name: Build actual theme fixtures
         working-directory: test
         run: |

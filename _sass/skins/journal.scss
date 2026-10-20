@@ -29,9 +29,9 @@ $teal:    #20c997 !default;
 $cyan:    #369 !default;
 
 $primary:       $blue !default;
-$yiq-contrasted-threshold: 128 !default;
+$yiq-contrasted-threshold: 123 !default;
 $secondary:     $gray-500 !default;
-$success:       #2ab552 !default;
+$success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
