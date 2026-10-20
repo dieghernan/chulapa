@@ -404,3 +404,12 @@ palettes at both viewport sizes. Chromium forces normal, hover, focus and active
 CSS states with transitions disabled for measurement. The recorded baseline
 covers previously passing pairs only; it does not certify excluded pairs,
 full gradients, arbitrary site content or JavaScript interactions.
+
+Flatly alerts have a focused check matching the skin guide notice:
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_flatly_alerts_browser.js
+```
+
+It checks text, inline code, ordinary links and `.alert-link` labels on all eight
+alert backgrounds at 390px and 1280px, including hover and focus.

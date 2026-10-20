@@ -22,6 +22,8 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
+-   Restore readable Flatly alert text on Bootstrap’s pale contextual backgrounds, including inline code and links in hover/focus states, without changing the palette.
+
 -   Choose linked badge hover/focus text from the darkened background so labels retain contrast when the pointer or keyboard focus enters the link.
 
 -   Improve bundled skin contrast with small palette and YIQ threshold adjustments while preserving original primary colors and skin identity. Keep dim-skin link accents and semantic text readable, and preserve previously readable button interaction states. Some original combinations remain below 4.5:1; custom colors and component states still require review.

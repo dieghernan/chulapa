@@ -339,30 +339,30 @@ $landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
 }
 
 .alert {
-  border: none  !important;
-  color: $white !important;
+  border: none !important;
 
+  // Bootstrap supplies tinted backgrounds and matching contextual text.
+  // Keep ordinary links and inline code readable on the same background.
   a,
-  .alert-link {
-    color: $white;
-    text-decoration: underline;
+  code {
+    color: inherit;
   }
 
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($body-bg, $value, 15%), $value) repeat-x;
-      } @else {
-        background-color: $value;
-      }
+  a {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      color: inherit;
     }
   }
 
-  &-light {
-    &,
-    a,
+  // The default light variant's gray text is too faint on its pale fill.
+  &.alert-light {
+    color: $body-color;
+
     .alert-link {
-      color: $body-color;
+      color: inherit;
     }
   }
 }

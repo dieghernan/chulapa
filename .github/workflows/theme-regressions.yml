@@ -99,6 +99,7 @@ jobs:
           node test/check_skin_contrast.js
           node test/check_skin_contrast_browser.js
           node test/check_skin_contrast_states_browser.js
+          node test/check_flatly_alerts_browser.js
       - name: Build actual theme fixtures
         working-directory: test
         run: |
