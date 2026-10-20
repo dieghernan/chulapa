@@ -1412,6 +1412,7 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
   padding-right: 0.6rem;
 }
 
+// Default color (closed)
 .navbar-chulapa-fab-nav .chulapa-theme-toggle,
 .navbar-chulapa-fab-nav .chulapa-theme-toggle i,
 .navbar-chulapa .chulapa-theme-toggle,
@@ -1419,10 +1420,16 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
   color: $navbar-chulapa-text-color !important;
 }
 
+// Remove focus outline
 .chulapa-theme-toggle:focus,
-.chulapa-theme-toggle:focus-visible,
-.chulapa-theme-toggle:active {
+.chulapa-theme-toggle:focus-visible {
   outline: none !important;
   box-shadow: none !important;
   color: $navbar-chulapa-text-color !important;
+}
+
+// Active color when dropdown is open
+.chulapa-theme-selector.show .chulapa-theme-toggle,
+.chulapa-theme-selector.show .chulapa-theme-toggle i {
+  color: $navbar-chulapa-active-color !important;
 }
