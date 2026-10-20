@@ -29,6 +29,7 @@ Dir.mktmpdir('chulapa-font-source-') do |source|
   FileUtils.mkdir_p(File.join(source, 'collections/_skins'))
   FileUtils.mkdir_p(File.join(source, 'assets/css/skins'))
   FileUtils.cp(File.join(root, 'docs/_includes/custom/custom_head.html'), File.join(source, '_includes/custom/custom_head.html'))
+  FileUtils.cp_r(File.join(root, 'docs/_includes/skins'), File.join(source, '_includes'))
   %w[gitdev gitdev-dark].each do |skin|
     FileUtils.cp(File.join(root, "docs/collections/_skins/#{skin}.md"), File.join(source, 'collections/_skins'))
     FileUtils.cp(File.join(root, "docs/assets/css/skins/#{skin}.scss"), File.join(source, 'assets/css/skins'))

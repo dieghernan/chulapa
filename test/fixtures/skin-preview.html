@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}} skin preview</title>
+<style>{{css}}
+/* Only framing is shared: component appearance comes from the skin. */
+.preview { padding: 20px; max-width: 1200px; margin: auto; }
+.preview > h1, .preview-columns h2 { margin-top: 0; }
+.preview-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.preview-buttons { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0 16px; }
+@media (max-width: 700px) {
+  .preview { padding: 16px; }
+  .preview-columns { grid-template-columns: 1fr; }
+}
+* { transition: none !important; animation: none !important; }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-primary" aria-label="Sample navigation">
+  <a class="navbar-brand" href="#">{{title}}</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active"><a class="nav-link" href="#" aria-current="page">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Articles</a></li>
+  </ul>
+</nav>
+<main class="preview">
+  <h1 class="h2">{{title}}</h1>
+  <p class="lead">A place for your ideas</p>
+  <div class="preview-columns">
+    <section aria-labelledby="typography">
+      <h2 class="h4" id="typography">Typography</h2>
+      <p>Readable articles and familiar components. Share your stories and explore something new.</p>
+      <h3 class="h5">Buttons</h3>
+      <div class="preview-buttons">{{buttons}}</div>
+      <div class="preview-buttons">{{outlines}}</div>
+    </section>
+    <section aria-labelledby="components">
+      <h2 class="h4" id="components">Components</h2>
+      <div class="alert alert-info"><strong>Welcome.</strong> Explore the <a href="#" class="alert-link">latest stories</a>.</div>
+      <div class="card">
+        <div class="card-header">Featured article</div>
+        <div class="card-body">
+          <h3 class="card-title h5">A fresh perspective</h3>
+          <p class="card-text">Ideas and stories to remember.</p>
+          <a class="btn btn-primary" href="#">Read more</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
