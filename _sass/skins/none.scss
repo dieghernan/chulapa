@@ -14,3 +14,11 @@ $skin-button-outlines: (
   info: #187c8c,
   warning: #8c6a04,
 ) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #20a6bb,
+  primary: #007bff,
+  success: #28a745,
+  warning: #ffc107,
+) !default;
+$skin-button-body-bg: #fff !default;

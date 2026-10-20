@@ -459,3 +459,41 @@ The following rendered base pairs remain below 4.5:1. They are recorded as limit
 - Legacy SassC/Jekyll execution remains unverified because Ruby is unavailable. Only existing variables, mixes, lighten and YIQ mechanisms are used.
 - No whole-page accessibility certification: other interaction states, gradients across their full area, transparency, arbitrary component backgrounds and custom colors remain outside this review.
 - No URL, metadata, manifest, service-worker or runtime-script changes; SEO and PWA behavior is unaffected.
+
+## PR #173: configured colors and Autothemer scope
+
+Review identified that fixed button corrections were emitted after configured
+`vars`, overwriting custom semantic colors, and that importing `skins/auto` for
+palette filling could install Auto-specific corrections on unrelated skins.
+
+Each affected skin now records its exact unconfigured stock colors (including
+fractional channels). Both current semantic variables and the effective
+`theme-colors` map must still match, so predeclared colors and later `vars`
+assignments remain authoritative.
+Background, label and outline corrections are emitted only for unchanged
+variants; outline corrections also require the stock page background. Moving
+Chulapa's pastel interaction fix after configuration applies the same guard.
+Lux's upstream important rule is retained, with the reviewed replacement only
+emitted for the stock palette/background. Other unchanged variants retain their
+improvements when one semantic color is overridden.
+
+Palette filling is separated into `chulapa/autothemer`. Selecting `skin: auto`
+still imports its own corrections, while light/dark assets, the plain preview,
+and Chulapa's palette fill import only the generator. This preserves Monotone's
+monochrome outlines and avoids Auto styles on user-defined skins. No new YAML
+options or YIQ algorithm changes. Custom palettes still need contrast review.
+
+The new regression reproduces the pre-fix custom-color failure on Academia.
+It compares complete custom-palette CSS to an uncorrected reference, covers
+colors/backgrounds declared before a skin import as well as later `vars`, and checks
+custom labels, unaffected variants, page backgrounds, and named/custom skins
+with Autothemer in Chromium. The original-stock contrast and Bootswatch fidelity
+checks remain required. Guide, changelog and test README are updated; chatbot
+recipes and llms.txt links remain accurate, so no additional context/deployment.
+
+Validation of the review fixes: 109 complete configured-palette/background CSS
+comparisons and 20 browser checks pass. The original 5,796 passing-state checks,
+1,488 light-label checks, 556 outline checks and 1,024 authored solid-button
+states remain passing. Base palette, rendered component, Bootswatch fidelity
+and Flatly alert checks also pass. Netlify's existing deploy-preview failure
+remains outside these fixes; the external log is inaccessible in this session.

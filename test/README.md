@@ -438,3 +438,18 @@ and a single Bootstrap grid import. These original skins keep their contrast
 limitations; reference equality is not a WCAG pass. Cerulean gradients are
 compared as CSS images; the base contrast audit does not measure every gradient
 pixel. Full Jekyll builds are still covered by the existing Ruby workflow.
+
+### Configured button colors and Autothemer scope
+
+```sh
+CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_button_overrides_browser.js
+```
+
+Compares full compiled CSS with stock corrections disabled for custom light/dark
+palettes on every skin, plus Autothemer, predeclared skin colors and
+changed-page-background scenarios.
+Browser checks verify readable custom Navi labels while retaining corrections
+on untouched variants, monochrome Monotone outlines with Autothemer, and custom
+site skins that must not inherit fixed Auto colors. Auto remains a selectable
+skin; palette filling uses the separate `chulapa/autothemer` partial. Existing
+YAML names and options do not change.

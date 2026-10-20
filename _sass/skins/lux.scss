@@ -297,9 +297,8 @@ th {
 }
 
 .btn-outline-secondary {
-  // Keep this label readable on both the page and gray interaction fill.
-  border-color: #51565a !important;
-  color: #51565a !important;
+  border-color: $gray-600 !important;
+  color: $gray-600 !important;
 }
 
 .card.bg-primary {
@@ -326,3 +325,15 @@ $skin-button-outlines: (
   warning: #90682f,
   danger: #ba4c49,
 ) !default;
+
+// Upstream Secondary forces these properties with !important.
+$skin-button-outline-important: (secondary) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #db5a56,
+  info: #279ed1,
+  secondary: #fff,
+  success: #4bbf73,
+  warning: #f0ad4e,
+) !default;
+$skin-button-body-bg: #fff !default;

@@ -59,6 +59,10 @@ white labels; Listen retains dark labels on bright fills, and Chulapa Success
 uses lighter interaction fills. Hootstrap Primary also receives a minimal AA
 adjustment. These button-specific changes leave global palette and link accents
 unchanged; they do not certify other components or entire skins.
+Button corrections apply to unchanged stock colors. Setting a semantic color
+through `vars` keeps that variant on the skin’s normal color handling; stock
+outline corrections also stop applying if you change the page background.
+Autothemer fills palette defaults without importing the Auto skin’s button styles.
 No new configuration is required.
 
 Check text contrast on your actual page, particularly when using custom `vars`,

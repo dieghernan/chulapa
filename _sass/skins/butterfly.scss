@@ -54,3 +54,12 @@ $skin-button-backgrounds: (
   secondary: #75757c,
   danger: #d34044,
 ) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #fa4c51,
+  info: #54c7ec,
+  primary: #1083f3,
+  secondary: #8d8e96,
+  warning: #ffba00,
+) !default;
+$skin-button-body-bg: #ffffff !default;

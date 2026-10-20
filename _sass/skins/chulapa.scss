@@ -68,21 +68,14 @@ $skin-button-outlines: (
 
 // Auto fills palette defaults without replacing this skin's button choices.
 $skin-button-labels: () !default;
-@import "skins/auto";
+@import "chulapa/autothemer";
 
-// Lighter interaction fills preserve readable dark text on pastel Success.
-.btn.btn-success:not(:disabled):not(.disabled) {
-  &:hover,
-  &:focus,
-  &.focus {
-    background-color: lighten($success, 3%);
-    color: $gray-900;
-  }
-
-  &:active,
-  &.active,
-  .show > &.dropdown-toggle {
-    background-color: lighten($success, 5%);
-    color: $gray-900;
-  }
-}
+// Keep pastel Success readable in interaction states, for the stock palette.
+$skin-button-lighter-states: (success) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  primary: #edc7b7,
+  success: #88bdbc,
+  warning: #fffe7a,
+) !default;
+$skin-button-body-bg: #ffffff !default;

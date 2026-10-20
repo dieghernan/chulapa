@@ -1,52 +1,100 @@
-// Skin-specific button corrections; keep the global palette and YIQ unchanged.
+// Corrections apply only to stock colors; site vars retain Bootstrap behavior.
 $skin-button-labels: () !default;
 $skin-button-outlines: () !default;
 $skin-button-backgrounds: () !default;
+$skin-button-palette: () !default;
+$skin-button-body-bg: null !default;
+$skin-button-lighter-states: () !default;
+$skin-button-outline-important: () !default;
 
-// Reviewed fills for white labels, scoped to solid buttons only.
+// Some legacy skins initialize $theme-colors before vars; check both views.
+$skin-button-effective-palette: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark,
+);
+
 @each $variant, $background in $skin-button-backgrounds {
-  .btn-#{$variant} {
-    @include button-variant($background, $background);
-    &,
-    &:hover,
-    &:focus,
-    &.focus,
-    &:disabled,
-    &.disabled,
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled).active,
-    .show > &.dropdown-toggle {
-      color: #fff;
+  $stock: map-get($skin-button-palette, $variant);
+  @if $stock == map-get($skin-button-effective-palette, $variant) and $stock == theme-color($variant) {
+    .btn-#{$variant} {
+      @include button-variant($background, $background);
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:disabled,
+      &.disabled,
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: #fff;
+      }
     }
   }
 }
 
 @each $variant, $label in $skin-button-labels {
-  .btn-#{$variant} {
-    &,
-    &:hover,
-    &:focus,
-    &.focus,
-    &:disabled,
-    &.disabled,
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled).active,
-    .show > &.dropdown-toggle {
-      color: $label;
+  $stock: map-get($skin-button-palette, $variant);
+  @if $stock == map-get($skin-button-effective-palette, $variant) and $stock == theme-color($variant) {
+    .btn-#{$variant} {
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:disabled,
+      &.disabled,
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $label;
+      }
     }
   }
 }
 
 @each $variant, $label in $skin-button-outlines {
-  .btn-outline-#{$variant} {
-    // Filled interaction states retain their original palette and YIQ label.
-    &:not(:hover):not(:active):not(.active):not(.disabled):not(:disabled) {
-      color: $label;
-      border-color: $label;
+  $stock: map-get($skin-button-palette, $variant);
+  @if $stock == map-get($skin-button-effective-palette, $variant) and $stock == theme-color($variant) and $skin-button-body-bg == $body-bg {
+    .btn-outline-#{$variant} {
+      // Lux's upstream Secondary rule also forces these properties.
+      @if index($skin-button-outline-important, $variant) {
+        color: $label !important;
+        border-color: $label !important;
+      }
+      &:not(:hover):not(:active):not(.active):not(.disabled):not(:disabled) {
+        color: $label;
+        border-color: $label;
 
+        .show > &.dropdown-toggle {
+          color: color-yiq(theme-color($variant));
+          border-color: theme-color($variant);
+        }
+      }
+    }
+  }
+}
+
+@each $variant in $skin-button-lighter-states {
+  $stock: map-get($skin-button-palette, $variant);
+  @if $stock == map-get($skin-button-effective-palette, $variant) and $stock == theme-color($variant) {
+    .btn.btn-#{$variant}:not(:disabled):not(.disabled) {
+      &:hover,
+      &:focus,
+      &.focus {
+        background-color: lighten(theme-color($variant), 3%);
+        color: $gray-900;
+      }
+      &:active,
+      &.active,
       .show > &.dropdown-toggle {
-        color: color-yiq(theme-color($variant));
-        border-color: theme-color($variant);
+        background-color: lighten(theme-color($variant), 5%);
+        color: $gray-900;
       }
     }
   }

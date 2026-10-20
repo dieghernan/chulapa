@@ -30,7 +30,7 @@ const properties = ['color','backgroundColor','backgroundImage','borderTopColor'
    const ref = compile(`@import "vendor/bootswatch/${skin}/variables"; @import "bootstrap/bootstrap"; @import "vendor/bootswatch/${skin}/bootswatch";`);
    const actual = compile(`@import "skins/${skin}"; @import "bootstrap/bootstrap"; @import "chulapa-master";`);
    assert.equal((actual.match(/\.row\s*\{/g)||[]).length,(ref.match(/\.row\s*\{/g)||[]).length,`${skin}: no second Bootstrap grid`);
-   const auto = compile(`@import "skins/${skin}"; @import "skins/auto"; @import "bootstrap/bootstrap"; @import "chulapa-master";`);
+   const auto = compile(`@import "skins/${skin}"; @import "chulapa/autothemer"; @import "bootstrap/bootstrap"; @import "chulapa-master";`);
    const previewPath=root+`/docs/assets/css/skins/${skin}.scss`;
    assert.ok(fs.readFileSync(previewPath,'utf8').includes(`@import "skins/${skin}";`),`${skin}: standalone catalog stylesheet`);
    assert.match(fs.readFileSync(root+`/docs/collections/_skins/${skin}.md`,'utf8'),new RegExp(`^skin: ${skin}$`,'m'));

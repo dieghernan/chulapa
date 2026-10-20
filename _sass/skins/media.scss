@@ -75,3 +75,8 @@ a:not([class]) {
 $skin-button-outlines: (
   warning: #8c6a0d,
 ) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  warning: #FFC017,
+) !default;
+$skin-button-body-bg: #ffffff !default;
