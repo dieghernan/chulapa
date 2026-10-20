@@ -410,6 +410,6 @@
     "section": "appearance",
     "doc": "23_change-color.md",
     "question": "Do the improved skin palettes guarantee that my custom colors and whole website meet accessibility requirements? Are they in v2.1.0?",
-    "expected": "No. 2.2.0 unreleased tunes bundled palette colors and YIQ thresholds so automatic text on all eight default semantic colors reaches 4.5:1; some backgrounds are darker. No shared YIQ function change or new setting. Custom vars/generated palettes with custom primary, transparency, interaction states and actual page content still need checks; no whole-page guarantee. Not included in v2.1.0. Link /docs/23-change-color."
+    "expected": "No. 2.2.0 unreleased makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
   }
 ]

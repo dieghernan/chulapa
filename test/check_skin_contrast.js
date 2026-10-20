@@ -11,6 +11,8 @@ const ratio = (a, b) =>
   (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05);
 // Run from the repository root after npm ci --prefix test/browser.
 // The WCAG calculation here is independent of Sass and checks the stock YIQ output.
+const identity = require("./skin-contrast-identity.json");
+let knownFailures = 0;
 let out = [];
 for (const file of fs
   .readdirSync(root + "/skins")
@@ -48,8 +50,24 @@ for (const file of fs
         alternative: Math.max(ratio(bg, get("dt")), ratio(bg, get("lt"))),
       };
     }
-    for (const [key, value] of Object.entries(colors))
-      assert.ok(value.ratio >= 4.5, `${name}/${key}: ${value.ratio}`);
+    const primaryHex =
+      "#" +
+      colors.primary.bg
+        .map((x) => Math.round(x).toString(16).padStart(2, "0"))
+        .join("");
+    assert.equal(
+      primaryHex,
+      identity.primaryColors[name],
+      `${name}: preserve the original primary`,
+    );
+    for (const [key, value] of Object.entries(colors)) {
+      const minimum = identity.baseExceptions[`${name}/${key}`] ?? 4.5;
+      assert.ok(
+        value.ratio >= minimum,
+        `${name}/${key}: ${value.ratio}; minimum ${minimum}`,
+      );
+      if (value.ratio < 4.5) knownFailures++;
+    }
     out.push({
       name,
       threshold: +block.match(/threshold: ([^;]+)/)[1],
@@ -65,5 +83,5 @@ assert.equal(
   JSON.stringify(out.filter((s) => s.error)),
 );
 console.log(
-  `${out.length} palettes: all eight color-yiq text/background pairs meet 4.5:1.`,
+  `${out.length} original primary colors preserved; ${knownFailures} known base pairs remain below 4.5:1, with no degradation from their recorded original contrast.`,
 );

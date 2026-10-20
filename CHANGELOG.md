@@ -22,7 +22,7 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
--   Tune bundled skin palettes and YIQ thresholds for readable text on all eight base semantic colors, including fixed-text buttons, badges and colored cards. Some backgrounds are darker; custom colors and interaction states still require review.
+-   Improve bundled skin contrast with small palette and YIQ threshold adjustments while preserving original primary colors and skin identity. Keep dim-skin link accents bright. Some original combinations remain below 4.5:1; custom colors and component states still require review.
 
 -   Make available Previous/Next document links keyboard reachable, omit interactive missing neighbors, and keep default-layout headings inside main while excluding theme TOCs from editorial Microformats content. Preserve inherited listing feeds.
 

@@ -24,11 +24,11 @@ $green:   #43ac6a !default;
 $teal:    #20c997 !default;
 $cyan:    #5bc0de !default;
 
-$primary:       #007fa9 !default;
+$primary:       $blue !default;
 $secondary:     $gray-400 !default;
 $success:       $green !default;
-$info:          #3c7e92 !default;
-$warning:       #a76701 !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
 $danger:        #d93b21 !default;
 $light:         $gray-200 !default;
 $dark:          $gray-900 !default;

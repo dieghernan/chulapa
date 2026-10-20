@@ -11,7 +11,7 @@ $gray-100: #f8f9fa !default;
 $gray-200: #eee !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
-$gray-500: #757575 !default;
+$gray-500: #bbb !default;
 $gray-600: #666 !default;
 $gray-700: #444 !default;
 $gray-800: #222 !default;
@@ -29,16 +29,16 @@ $green:   #4caf50 !default;
 $teal:    #20c997 !default;
 $cyan:    #9c27b0 !default;
 
-$primary:       #1b79c5 !default;
+$primary:       $blue !default;
 $secondary:     $white !default;
 $success:       $green !default;
 $info:          $cyan !default;
-$warning:       #aa6600 !default;
+$warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $white !default;
 $dark:          $gray-800 !default;
 
-$yiq-contrasted-threshold: 128 !default;
+$yiq-contrasted-threshold: 125 !default;
 
 $enable-gradients: true !default;
 

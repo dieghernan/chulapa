@@ -7,8 +7,10 @@ $font-family-base: $headings-font-family;
 $headings-font-weight: 800 !default;
 
 // Some bootstrap variables
-$primary: #1677b9 !default;
-$yiq-contrasted-threshold: 128 !default;
+$primary: #1d9bf0 !default;
+// Keep link accents bright against the dark page background.
+$link-color: #1d9bf0 !default;
+$yiq-contrasted-threshold: 127 !default;
 $secondary: #66747f !default;
 $success: #09bd81 !default;
 $warning: #ff7a00 !default;
@@ -28,12 +30,13 @@ $pre-chulapa-bg-color: mix($body-color, $primary, 95%) !default;
 $navbar-chulapa-bg-color: $body-bg !default;
 $navbar-chulapa-text-color: $body-color !default;
 $navbar-chulapa-brand-color: $body-color !default;
-$navbar-chulapa-hover-color: $primary !default;
-$navbar-chulapa-active-color: $primary !default;
+$navbar-chulapa-hover-color: $link-color !default;
+$navbar-chulapa-active-color: $link-color !default;
 $dropdown-link-active-bg: lighten($primary, 30%) !default;
 
 $footer-chulapa-text-color: $body-color !default;
-$footer-chulapa-link-color: $primary !default;
+$footer-chulapa-link-color: $link-color !default;
+$footer-chulapa-hover-color: lighten($link-color, 10%) !default;
 
 $pagination-chulapa-bg-hover-color: $primary !default;
 
@@ -43,6 +46,8 @@ $breadcrumb-divider: quote(">") !default;
 
 // Lines for dark themes
 @import "skins/dark-bg";
+// The shared dark defaults darken link hover colors; use a lighter accent here.
+$link-hover-color: lighten($link-color, 10%);
 
 .card.bg-primary,
 .card.bg-secondary {

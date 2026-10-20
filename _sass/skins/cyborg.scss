@@ -30,7 +30,8 @@ $green:   #77b300 !default;
 $teal:    #20c997 !default;
 $cyan:    #93c !default;
 
-$primary:       #217da9 !default;
+$primary:       $blue !default;
+$link-color:    #2a9fd6 !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
@@ -169,6 +170,7 @@ $pre-color:                         inherit !default;
 
 $navbar-chulapa-bg-color: $body-bg !default;
 @import "skins/dark-bg";
+$link-hover-color: lighten($link-color, 10%);
 
 // Cyborg 4.6.2
 // Bootswatch

@@ -460,4 +460,4 @@ algolia:
 ```
 Indexing secret ALGOLIA_API_KEY goes only in environment/Actions secrets. Use algolia.files_to_exclude for exclusions and upload the index; include_on_search affects ranking only if customRanking uses it. jekyll-algolia is deprecated/unmaintained; a Gemfile group is :jekyll_plugins, not :plugins. Verify the uploaded index and live search result.
 
-2.2.0 unreleased: palette colors/YIQ thresholds reach ≥4.5:1 on eight default semantic colors; some darker. YIQ unchanged. Custom vars/generated colors, transparency/states need page checks; no whole-page guarantee. /docs/23-change-color.
+2.2.0 unreleased: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.
