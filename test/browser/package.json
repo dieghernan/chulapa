@@ -10,6 +10,7 @@
     "lunr": "2.3.9",
     "photoswipe": "5.4.4",
     "playwright": "1.62.1",
-    "popper.js": "1.16.0"
+    "popper.js": "1.16.0",
+    "sass": "1.100.0"
   }
 }

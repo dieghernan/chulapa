@@ -22,6 +22,8 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
+-   Guard automatic YIQ text selection with WCAG 4.5:1 contrast on opaque backgrounds, preserving skin palettes and using alternate text or black/white when needed.
+
 -   Make available Previous/Next document links keyboard reachable, omit interactive missing neighbors, and keep default-layout headings inside main while excluding theme TOCs from editorial Microformats content. Preserve inherited listing feeds.
 
 -   Keep skin switching functional when imported Google Fonts CSS fails, preserving the skins' font imports and standalone previews. Verify completed theme CSS before activation and retain safe recovery for missing or incomplete skin/highlighter sheets.

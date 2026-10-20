@@ -105,3 +105,12 @@ The palette-only example does not copy all original skin CSS rules.
 For local preview, restart Jekyll after changing `_config.yml`: these settings
 are compiled into CSS during the build. If changes are missing, use
 [the publishing checks](./42-unpublished-changes).
+
+### Automatic text contrast (2.2.0, unreleased)
+
+For opaque backgrounds, buttons, badges and other components using automatic
+YIQ text selection keep the skin’s preferred text color when it reaches 4.5:1.
+Otherwise they use the alternate text color, then black or white if necessary.
+The background palette stays unchanged. Custom CSS text overrides, translucent
+backgrounds, hover states and surrounding links still need a contrast check
+on your actual page. This safeguard is not included in v2.1.0.

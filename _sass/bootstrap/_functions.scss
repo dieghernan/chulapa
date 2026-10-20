@@ -66,19 +66,55 @@
   @return $string;
 }
 
-// Color contrast
-@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-
-  @if ($yiq >= $yiq-contrasted-threshold) {
-    @return $dark;
-  } @else {
-    @return $light;
+// WCAG relative luminance, using legacy Sass syntax for SassC compatibility.
+@function chulapa-linear-channel($channel) {
+  $channel: $channel / 255;
+  @if $channel <= .04045 { @return $channel / 12.92; }
+  $base: ($channel + .055) / 1.055;
+  // base^2.4 = base^2 * fifth-root(base^2). Newton iteration avoids
+  // Dart-Sass-only math.pow(); 16 steps converge across the sRGB range.
+  $square: $base * $base;
+  $root: 1;
+  @for $step from 1 through 16 {
+    $root: (4 * $root + $square / ($root * $root * $root * $root)) / 5;
   }
+  @return $square * $root;
+}
+
+@function chulapa-luminance($color) {
+  @return .2126 * chulapa-linear-channel(red($color)) +
+    .7152 * chulapa-linear-channel(green($color)) +
+    .0722 * chulapa-linear-channel(blue($color));
+}
+
+@function chulapa-contrast-ratio($background, $foreground) {
+  $a: chulapa-luminance($background);
+  $b: chulapa-luminance($foreground);
+  @return (max($a, $b) + .05) / (min($a, $b) + .05);
+}
+
+// Keep the skin's YIQ preference when readable. Try the other configured
+// text color, then black/white, without changing the background palette.
+// Translucent backgrounds need their composited backdrop to be assessed.
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  $yiq: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
+  $preferred: $light;
+  $alternate: $dark;
+  @if $yiq >= $yiq-contrasted-threshold {
+    $preferred: $dark;
+    $alternate: $light;
+  }
+  @if alpha($color) < 1 { @return $preferred; }
+  @if alpha($preferred) == 1 and chulapa-contrast-ratio($color, $preferred) >= 4.5 {
+    @return $preferred;
+  }
+  @if alpha($alternate) == 1 and chulapa-contrast-ratio($color, $alternate) >= 4.5 {
+    @return $alternate;
+  }
+  @if chulapa-contrast-ratio($color, #000) > chulapa-contrast-ratio($color, #fff) {
+    @return #000;
+  }
+  @return #fff;
 }
 
 // Retrieve color Sass maps

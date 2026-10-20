@@ -404,5 +404,12 @@
     "doc": "22_choose-skin.md",
     "question": "In main/2.2.0, can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?",
     "expected": "2.2.0 unreleased/main keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if the generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider."
+  },
+  {
+    "id": "skin-automatic-contrast-1",
+    "section": "appearance",
+    "doc": "28_custom-skin.md",
+    "question": "Does automatic YIQ text selection guarantee that my entire custom skin is accessible? Is this in v2.1.0?",
+    "expected": "No whole-page guarantee. In 2.2.0 unpublished development, opaque backgrounds using automatic YIQ text selection keep the preferred text if it meets 4.5:1, then try the alternate and black/white without changing palettes. Explicit CSS text overrides, translucent backgrounds, hover states and surrounding links require actual-page checks. Not included in v2.1.0. Link /docs/28-custom-skin."
   }
 ]

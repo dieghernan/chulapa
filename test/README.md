@@ -366,3 +366,15 @@ same fixture directory. This is a validation tool only, not a theme dependency.
 The parser checks complete editorial content, exclusion of theme TOCs, retention
 of authored Markdown TOCs, and the title/URL/date contracts of all six built-in
 feed layouts, including aliases.
+
+### Automatic skin contrast
+
+```sh
+npm ci --prefix test/browser
+node test/check_skin_contrast.js
+```
+
+Compiles every skin and the autothemer defaults, checks automatic text against
+all eight palette backgrounds with an independent WCAG calculation, and checks
+luminance accuracy and fallback behavior. This does not cover explicit CSS
+text overrides or replace rendered-page review.
