@@ -472,8 +472,12 @@ It changes no skin palettes, component rules or contrast baselines. `current`
 is a live site demo and is excluded; Navi's image uses `navi`, while its page
 stylesheet retains the existing `navi_current` identifier.
 
-Use `--check` to validate without replacing images. Set
-`CHULAPA_PREVIEW_OUTPUT=/tmp/skin-previews` to retain sample HTML and desktop/mobile
+Use `--check` to render temporary PNG/WebP candidates and compare their decoded
+pixels with the committed images, without replacing them. It fails if either
+format is stale, even when its dimensions are unchanged. Temporary candidates
+are removed after success or failure. Run generation and comparison with the
+same Chromium, system fonts and Pillow versions to avoid rendering differences.
+Set `CHULAPA_PREVIEW_OUTPUT=/tmp/skin-previews` to retain sample HTML and desktop/mobile
 screenshots for visual review. Re-run after changing a skin or the sample template.
 The regular Ruby suite also checks every skin page's rendered activation YAML,
 shared component demo and documentation links (`check_skin_documentation.rb`).

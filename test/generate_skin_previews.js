@@ -74,7 +74,9 @@ function prepareCSS(skin) {
 }
 (async()=>{
  const browser = await chromium.launch({executablePath:process.env.CHULAPA_CHROMIUM,args:['--no-sandbox']});
+ let temporary;
  try {
+  if (check) temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'chulapa-preview-check-'));
   const page = await browser.newPage({deviceScaleFactor:1});
   await page.route('**/*', r=>r.request().url().startsWith('data:')?r.continue():r.abort());
   let count = 0;
@@ -99,11 +101,10 @@ function prepareCSS(skin) {
     assert.ok(await page.locator('.card').evaluate(el=>el.getBoundingClientRect().bottom<=540), `${skin}: card fits social preview`);
     assert.ok(await page.locator('.preview-buttons').last().evaluate(el=>el.getBoundingClientRect().bottom<=540), `${skin}: buttons fit social preview`);
     const target = root+'/docs/assets/img/skinspreview/'+skin;
-    if (!check) {
-      await page.screenshot({path:target+'.png'});
-      execFileSync('python', ['-c', 'from PIL import Image; import sys; Image.open(sys.argv[1]+".png").save(sys.argv[1]+".webp", quality=85)', target]);
-    }
-    execFileSync('python', ['-c', 'from PIL import Image; import sys; [(_ for _ in ()).throw(AssertionError(p)) if Image.open(p).size != (960,540) else None for p in sys.argv[1:]]', target+'.png',target+'.webp']);
+    const candidate = check ? path.join(temporary, skin) : target;
+    await page.screenshot({path:candidate+'.png'});
+    execFileSync('python', ['-c', 'from PIL import Image; import sys; Image.open(sys.argv[1]+".png").save(sys.argv[1]+".webp", quality=85)', candidate]);
+    execFileSync('python', [path.join(__dirname, 'verify_skin_previews.py'), target, candidate]);
     for (const width of [390,1280]) {
       await page.setViewportSize({width,height:900});
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth), `${skin}: no overflow at ${width}px`);
@@ -113,6 +114,9 @@ function prepareCSS(skin) {
     console.log(`${check?'Checked':'Generated'} ${skin}`);
     count++;
   }
-  console.log(`${count} skin previews; fonts loaded, complete framing and responsive reflow verified.`);
- } finally {await browser.close();}
+  console.log(`${count} skin previews${check?' match committed PNG/WebP assets':''}; fonts loaded, complete framing and responsive reflow verified.`);
+ } finally {
+  await browser.close();
+  if (temporary) fs.rmSync(temporary, {recursive:true,force:true});
+ }
 })().catch(error=>{console.error(error);process.exitCode=1;});
