@@ -18,4 +18,12 @@ row.element_children.each do |column|
   raise "Expected one card per column" unless column.css(".card").size == 1
   raise "Skin columns must not nest" unless column.css(".col").empty?
 end
+row.css("img").each do |image|
+  raise "Missing intrinsic dimensions" unless image["width"] == "960" && image["height"] == "540"
+  raise "Missing lazy loading" unless image["loading"] == "lazy"
+  raise "Unhelpful preview alt" unless image["alt"].include?("typography, buttons and components")
+end
+names = row.css(".card-footer a").map { |a| a["aria-label"] }
+raise "Preview links need distinct accessible names" unless names.uniq.size == documents.size && names.none?(&:nil?)
+File.write(ARGV.first, html) if ARGV.first
 puts "Skins grid checks passed."

@@ -453,3 +453,27 @@ on untouched variants, monochrome Monotone outlines with Autothemer, and custom
 site skins that must not inherit fixed Auto colors. Auto remains a selectable
 skin; palette filling uses the separate `chulapa/autothemer` partial. Existing
 YAML names and options do not change.
+
+### Skin catalog previews
+
+All catalog images use `fixtures/skin-preview.html` and the actual skin Sass.
+Regenerate PNG social images (960 × 540) and WebP catalog images from the root:
+
+```sh
+npm ci --prefix test/browser
+CHULAPA_CHROMIUM=/path/to/chromium node test/generate_skin_previews.js
+```
+
+Python with Pillow and `curl` are also required. The generator downloads pinned
+Google Fonts sources (and the legacy Muli font from Fontsource), caches them in
+the system temporary directory, and embeds them for captures. It stops if a font
+cannot load, content is cropped, or a sample overflows at 390 or 1280 pixels.
+It changes no skin palettes, component rules or contrast baselines. `current`
+is a live site demo and is excluded; Navi's image uses `navi`, while its page
+stylesheet retains the existing `navi_current` identifier.
+
+Use `--check` to validate without replacing images. Set
+`CHULAPA_PREVIEW_OUTPUT=/tmp/skin-previews` to retain sample HTML and desktop/mobile
+screenshots for visual review. Re-run after changing a skin or the sample template.
+The regular Ruby suite also checks every skin page's rendered activation YAML,
+shared component demo and documentation links (`check_skin_documentation.rb`).

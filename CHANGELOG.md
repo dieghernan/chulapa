@@ -6,6 +6,8 @@ remains v2.1.0 until publication is completed.
 
 ### Added
 
+-   Standardize skin catalog images and activation guidance with shared preview generation and documentation templates.
+
 -   Add Cerulean, Litera and Pulse using original Bootswatch 4.6.2 Sass, preserving their palettes, typography and component styling, with catalog previews and documented contrast limitations.
 
 -   Add an opt-in light/dark/auto skin selector to classic, floating and dual navigation, preserving preferences and applying the selected skin before the first paint (#165).

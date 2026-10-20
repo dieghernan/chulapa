@@ -10,6 +10,8 @@ permalink: /skins
 
 `cerulean`, `litera` and `pulse` are added in **2.2.0 (unreleased)** with their original Bootswatch 4.6.2 implementation. Existing release installations need to upgrade when that version is published.
 
+Each image uses the same sample content, so you can compare colors, typography and components. Open a preview for activation instructions and the complete component demo.
+
 Preview the documentation site's [current theme](https://dieghernan.github.io/chulapa/skins/current).
 
 {% assign alldocs = site.documents | where_exp: "item", "item.collection == 'skins'" | sort: "date" | reverse %}
@@ -31,14 +33,14 @@ Preview the documentation site's [current theme](https://dieghernan.github.io/ch
   <div class="col mb-3">
   <div class="card h-100 border">
   <a href="{{- post.url | absolute_url -}}">
- <img class="card-img-top" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url -}}" alt="{{ post.skin }}"></a>
+ <img class="card-img-top img-fluid" src="{{- post.og_image | replace: ".png", ".webp" | absolute_url -}}" width="960" height="540" loading="lazy" alt="{{ post.title | strip_html | escape }} skin: typography, buttons and components"></a>
      <div class="card-body text-center border-top">
       {%- if post.skin_author -%}
       <p class="card-text text-right"><span class="font-weight-bold lead">{{ post.title }}</span><br><span class="small font-weight-light font-italic text-secondary"> by {{ post.skin_author}}{% if post.skin_adapter %}; adapted for <span class="chulapa">Chulapa</span> by {{ post.skin_adapter }}{% endif %}</span></p>
       {%- endif -%}
     </div>
     <div class="card-footer text-center bg-transparent border-top-0">
-    <a href="{{- post.url | absolute_url -}}" class="btn btn-primary btn-sm">Preview</a>
+    <a href="{{- post.url | absolute_url -}}" class="btn btn-primary btn-sm" aria-label="Preview {{ post.title | strip_html | escape }} skin">Preview</a>
     </div>
   </div>
 </div>
