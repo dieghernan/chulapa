@@ -431,8 +431,9 @@ CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_bootswatch_originals_browser.
 
 Cerulean, Litera and Pulse retain unmodified Bootswatch 4.6.2 source files and
 MIT attribution under `_sass/vendor/bootswatch`. The check validates source
-hashes and deferred wrappers, compares original typography and components against
-a reference compiled directly from upstream Sass at 390px and 1280px, exercises
+hashes and deferred wrappers, allowing Cerulean's explicit Chulapa navbar/hero
+text colors. It compares original typography and components against a reference
+compiled directly from upstream Sass at 390px and 1280px, exercises
 normal/hover/focus/active states and disabled buttons, with autothemer off and on, and verifies custom colors
 and a single Bootstrap grid import. These original skins keep their contrast
 limitations; reference equality is not a WCAG pass. Cerulean gradients are
