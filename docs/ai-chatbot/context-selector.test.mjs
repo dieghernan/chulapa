@@ -13,6 +13,24 @@ test('light and dark selector questions receive activation, inheritance and vers
   assert.match(selected.text, /2\.2\.0\+, absent v2\.1\.0/);
 });
 
+const releaseRoutes = [
+  ['¿Cómo agrego un diagrama?', 'Mermaid and clipboard (v2.2.0)', /Set mermaid: true/],
+  ['How do I enable PhotoSwipe?', 'PhotoSwipe galleries (v2.2.0)', /photoswipe=true/],
+  ['How do I enable GoatCounter?', 'GoatCounter analytics (v2.2.0)', /JEKYLL_ENV=production/],
+  ['¿Cómo uso el teclado?', 'Accessibility and resource loading in v2.2.0', /Escape closes/],
+  ['How does inherited h-feed work?', 'Inherited list microformats (v2.2.0)', /Keep the existing custom layout chain/],
+  ['How do I configure compress_html?', 'Generated HTML formatting (v2.2.0)', /compress_html.blanklines: true/]
+];
+
+for (const [question, title, recipe] of releaseRoutes) {
+  test(`release context retrieval: ${question}`, () => {
+    const selected = selectContext(context, question);
+    const section = splitSections(selected.text).find(item => item.title === title);
+    assert.ok(section, `Missing context for ${question}: ${title}`);
+    assert.match(section.text, recipe);
+  });
+}
+
 test('section extraction preserves headings inside fenced tutorial examples', () => {
   const sections = splitSections('intro\n## Tutorial\n```markdown\n## Inner heading\n```\n## Reference\nfields');
   assert.deepEqual(sections.map(section => section.title), ['', 'Tutorial', 'Reference']);
