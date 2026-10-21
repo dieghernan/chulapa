@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- Chulapa Jekyll Theme - v2.2.0 -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -18,8 +18,8 @@
         "description": "Identify the selected release before troubleshooting or upgrading - Use this guide for an existing site when an option does not match its documentation or you need to identify your current release. These checks do not upgrade the theme.",
         "headline": "Check which theme version your site uses",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-21T19:29:20+02:00",
-        "dateModified": "2026-10-21T19:29:20+02:00",
+        "datePublished": "2026-10-21T20:09:11+02:00",
+        "dateModified": "2026-10-21T20:09:11+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -264,9 +264,9 @@ documentation or you need to identify your current release. These checks do not
 upgrade the theme.</p>
 <h2 id="check-the-selected-theme">Check the selected theme</h2>
 <p>For a remote-theme installation, open <code class="language-plaintext highlighter-rouge">_config.yml</code> and find <code class="language-plaintext highlighter-rouge">remote_theme</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.1.0</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.2.0</span>
 </code></pre></div></div>
-<p>Here, <code class="language-plaintext highlighter-rouge">@v2.1.0</code> selects that release. An unpinned value such as
+<p>Here, <code class="language-plaintext highlighter-rouge">@v2.2.0</code> selects that release. An unpinned value such as
 <code class="language-plaintext highlighter-rouge">dieghernan/chulapa</code> follows the repository’s default branch; it does not select
 a fixed release. An explicit branch can move too. Record the value you actually
 have rather than replacing it with this example.</p>
@@ -280,8 +280,8 @@ beginning, replacing the example text with the version displayed:</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Chulapa Jekyll Theme - VERSION NUMBER HERE --&gt;</span>
 </code></pre></div></div>
 <p>An <code class="language-plaintext highlighter-rouge">unreleased</code> suffix identifies a development build, not a published release.
-For example, the 2.2.0 candidate is not yet published even though its source and
-locally built gem use that version number.</p>
+A locally built gem or version marker alone does not prove that a version has
+been published to RubyGems or tagged on GitHub.</p>
 <p>This marker is present on pages using the theme’s head include. If it is absent,
 check whether a local layout or head include replaced it. If the page is old,
 <a href="./42-unpublished-changes">verify the publishing run and website address</a>.</p>

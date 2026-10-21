@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- Chulapa Jekyll Theme - v2.2.0 -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -18,8 +18,8 @@
         "description": "Enable an already registered Cactus site on one post - Use this guide after registering your site with Cactus. Have its registered site name ready. This adapter uses the Cactus-hosted Matrix service; there is no theme setting for selecting an arbitrary Matrix homeserver.",
         "headline": "Connect Cactus comments",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-21T19:29:20+02:00",
-        "dateModified": "2026-10-21T19:29:20+02:00",
+        "datePublished": "2026-10-21T20:09:11+02:00",
+        "dateModified": "2026-10-21T20:09:11+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -262,7 +262,7 @@
 			<div class="e-content"><p>Use this guide after registering your site with <a href="https://cactus.chat/">Cactus</a>.
 Have its registered site name ready. This adapter uses the Cactus-hosted Matrix
 service; there is no theme setting for selecting an arbitrary Matrix homeserver.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Version and migration:</strong> in development after v2.1.0 (v2.1.1-dev), the adapter
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Version and migration:</strong> in v2.2.0, the adapter
 URL-encodes page paths and encodes underscores as <code class="language-plaintext highlighter-rouge">%5F</code>, meeting the
 <a href="https://cactus.chat/docs/client/introduction/">client requirements</a> that exclude
 <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code>. This fix is absent from v2.1.0; use the local correction below on
@@ -314,7 +314,7 @@ Changing providers does not migrate comments.</p>
 <p>If the area is missing, check the registered site name, <code class="language-plaintext highlighter-rouge">show_comments</code>, layout
 and publishing run. Check external script/network failures and any Content
 Security Policy or browser blocker before changing the setup.</p>
-<p class="alert alert-info p-3 mx-2 mb-3">In <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0 (v2.1.1-dev), Cactus scripts and styles load only on
+<p class="alert alert-info p-3 mx-2 mb-3">In v2.2.0, Cactus scripts and styles load only on
 pages with <code class="language-plaintext highlighter-rouge">show_comments: true</code>. That loading improvement is not in v2.1.0;
 the identifier correction above is still required for this guide on that release.</p>
 <p>For more posts, set <code class="language-plaintext highlighter-rouge">show_comments: true</code> individually or merge it into an

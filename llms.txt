@@ -4,7 +4,7 @@
 
 The documentation is the source of truth for installation, configuration, layouts and supported integrations. Configure the site in `_config.yml` and use page front matter or Jekyll defaults for page options. Extend the theme through existing layouts, includes and assets.
 
-The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identify its planned features. The documentation also covers those changes available on main after v2.1.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter analytics and the accessibility and resource-loading improvements are not included in the v2.1.0 gem or pinned remote theme. Check each page's version caveats and the theme version used by the site before applying its advice. Some integrations require third-party services, and accessibility depends on the site's content, skin and customizations as well as the theme.
+This documentation targets 2.2.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter, the light/dark/auto selector and the accessibility and resource-loading improvements require 2.2.0 and are absent from v2.1.0. Check the installed gem or remote-theme tag before applying advice. External services retain their own requirements; accessibility depends on site content, skins and customizations.
 
 ## Getting started
 
@@ -26,7 +26,7 @@ The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identi
 - [Create a page](https://dieghernan.github.io/chulapa/docs/16-create-page): Create a standalone page, preserve its address and add a menu link.
 - [Add an image](https://dieghernan.github.io/chulapa/docs/17-add-image): Upload an image, use relative_url and check the published result.
 
-- [Enable GoatCounter](https://dieghernan.github.io/chulapa/docs/18-goatcounter): Configure the HTTPS counting endpoint, production build and visit checks; requires main after v2.1.0.
+- [Enable GoatCounter](https://dieghernan.github.io/chulapa/docs/18-goatcounter): Configure the HTTPS counting endpoint, production build and visit checks; requires v2.2.0.
 - [Enable Google Analytics 4](https://dieghernan.github.io/chulapa/docs/19-google-analytics): Configure a measurement ID, avoid duplicate snippets and verify reporting.
 
 - [Install a remote theme](https://dieghernan.github.io/chulapa/docs/20-remote-theme): Configure a pinned release, merge runtime dependencies and plugins, preview and publish.
@@ -60,7 +60,7 @@ The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identi
 
 ## Appearance tasks and explanation
 
-- [Choose a skin](https://dieghernan.github.io/chulapa/docs/22-choose-skin): Apply a named skin while preserving existing overrides; configure the optional light/dark/auto selector (2.2.0, unreleased).
+- [Choose a skin](https://dieghernan.github.io/chulapa/docs/22-choose-skin): Apply a named skin while preserving existing overrides; configure the optional light/dark/auto selector (2.2.0).
 - [Change a color](https://dieghernan.github.io/chulapa/docs/23-change-color): Edit one supported variable and check component contrast.
 - [Change fonts](https://dieghernan.github.io/chulapa/docs/24-change-fonts): Load a stylesheet and apply body/heading families.
 - [Code highlighting](https://dieghernan.github.io/chulapa/docs/25-code-highlighting): Apply a highlighting stylesheet and check code blocks.
@@ -70,11 +70,11 @@ The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identi
 
 ## Media tasks
 
-- [Add a photo gallery](https://dieghernan.github.io/chulapa/docs/29-add-gallery): Group uploaded images and display them in filename order; the selected sort field requires main after v2.1.0 or a later release containing the sorting fix.
-- [Add a manual slideshow](https://dieghernan.github.io/chulapa/docs/30-add-carousel): Reuse an image group with keyboard-operable carousel controls; filename ordering and native keyboard-operable buttons/indicators require main after v2.1.0 or a later release containing those fixes.
-- [Enable PhotoSwipe](https://dieghernan.github.io/chulapa/docs/31-photoswipe): Enable a viewer on an existing gallery; requires main after v2.1.0.
-- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Embed YouTube and verify playback; accessible names and the no-JavaScript link require main after v2.1.0.
-- [Add a Mermaid diagram](https://dieghernan.github.io/chulapa/docs/33-add-diagram): Enable page rendering and add an accessible flowchart; requires main after v2.1.0.
+- [Add a photo gallery](https://dieghernan.github.io/chulapa/docs/29-add-gallery): Group uploaded images and display them in filename order; the selected sort field requires v2.2.0 or later.
+- [Add a manual slideshow](https://dieghernan.github.io/chulapa/docs/30-add-carousel): Reuse an image group with keyboard-operable carousel controls; filename ordering and native keyboard-operable buttons/indicators require v2.2.0 or later.
+- [Enable PhotoSwipe](https://dieghernan.github.io/chulapa/docs/31-photoswipe): Enable a viewer on an existing gallery; requires v2.2.0.
+- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Embed YouTube and verify playback; accessible names and the no-JavaScript link require v2.2.0.
+- [Add a Mermaid diagram](https://dieghernan.github.io/chulapa/docs/33-add-diagram): Enable page rendering and add an accessible flowchart; requires v2.2.0.
 
 ## Other search providers
 
@@ -86,8 +86,8 @@ The next release candidate is 2.2.0, not yet published; v2.1.1-dev labels identi
 ## Comment-provider tasks
 
 - [Connect Disqus](https://dieghernan.github.io/chulapa/docs/38-disqus-comments): Reuse an existing shortname, enable one post and check thread matching.
-- [Connect Cactus](https://dieghernan.github.io/chulapa/docs/39-cactus-comments): Reuse the hosted service; main after v2.1.0 fixes conversation IDs and conditionally loads resources. Check old thread mappings/local overrides before upgrading; v2.1.0 needs the documented ID correction.
-- [Connect Welcomments](https://dieghernan.github.io/chulapa/docs/40-welcomments-comments): Preserve theme templates, configure the website ID and verify delivered comment data after a rebuild; main after v2.1.0 includes baseurl in form permalinks; project sites on v2.1.0 need the documented local correction.
+- [Connect Cactus](https://dieghernan.github.io/chulapa/docs/39-cactus-comments): Reuse the hosted service; v2.2.0 fixes conversation IDs and conditionally loads resources. Check old thread mappings/local overrides before upgrading; v2.1.0 needs the documented ID correction.
+- [Connect Welcomments](https://dieghernan.github.io/chulapa/docs/40-welcomments-comments): Preserve theme templates, configure the website ID and verify delivered comment data after a rebuild; v2.2.0 includes baseurl in form permalinks; project sites on v2.1.0 need the documented local correction.
 - [Connect self-hosted Cusdis](https://dieghernan.github.io/chulapa/docs/41-cusdis-comments): Reconnect an existing host/application; upstream is archived and the original hosted service is unavailable.
 
 ## Troubleshooting and custom hooks

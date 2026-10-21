@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- Chulapa Jekyll Theme - v2.2.0 -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -18,8 +18,8 @@
         "description": "Expected behavior, version boundaries and limits - Lookup for the theme’s behavior and limits. Practical verification steps are in Check accessibility and performance.",
         "headline": "Accessibility and resource-loading reference",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-21T19:29:20+02:00",
-        "dateModified": "2026-10-21T19:29:20+02:00",
+        "datePublished": "2026-10-21T20:09:11+02:00",
+        "dateModified": "2026-10-21T20:09:11+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -261,18 +261,16 @@
 	</div>
 			<div class="e-content"><p>Lookup for the theme’s behavior and limits. Practical verification steps are in
 <a href="./06-accessibility-performance">Check accessibility and performance</a>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3">The improvements listed here are available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0
-(v2.1.1-dev), not in the v2.1.0 gem or pinned remote theme. Actual results depend
+<p class="alert alert-info p-3 mx-2 mb-3">The improvements listed here are available in v2.2.0, not in the v2.1.0 gem or pinned remote theme. Actual results depend
 on content, colors, integrations and local overrides. No theme setting or test
 score establishes WCAG compliance for a complete site.</p>
 <h2 id="keyboard-navigation">Keyboard navigation</h2>
-<p><strong>Version:</strong> the keyboard/focus improvements below and PhotoSwipe require <code class="language-plaintext highlighter-rouge">main</code>
-after v2.1.0 (v2.1.1-dev); they are not included in the v2.1.0 gem or pin.</p>
+<p><strong>Version:</strong> the keyboard/focus improvements below and PhotoSwipe require v2.2.0; they are not included in the v2.1.0 gem or pin.</p>
 <table>
 <thead>
    <tr>
      <th>Component</th>
-     <th>Expected behavior in the development version</th>
+     <th>Expected behavior in v2.2.0</th>
    </tr>
  </thead>
  <tbody>
@@ -310,24 +308,28 @@ after v2.1.0 (v2.1.1-dev); they are not included in the v2.1.0 gem or pin.</p>
 Interactive integrations can still depend on JavaScript and network access.
 Custom layouts/widgets only have the semantics and controls their own markup
 preserves.</p>
+<p>The optional light/dark/auto selector has a known limitation in v2.2.0: its
+toggle suppresses the keyboard focus outline and shadow. Sites requiring a
+visible focus indicator for this control need a local CSS override, or can
+leave the optional selector disabled. Other navigation focus checks do not
+establish visible focus for this toggle.</p>
 <h2 id="colors-content-and-motion">Colors, content and motion</h2>
-<p>The link/focus improvements here require <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0 (v2.1.1-dev), not
+<p>The link/focus improvements here require v2.2.0, not
 the v2.1.0 gem or pin. Article links are underlined and keyboard focus is visible.
 Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.</p>
-<p>The carousel motion/control improvements in this paragraph require <code class="language-plaintext highlighter-rouge">main</code> after
-v2.1.0 (v2.1.1-dev), not the v2.1.0 gem or pin. Automatically cycling multi-image
+<p>The carousel motion/control improvements in this paragraph require v2.2.0, not the v2.1.0 gem or pin. Automatically cycling multi-image
 carousels have a play/pause control with an
 action-specific accessible name and a plain-symbol fallback when icon assets
 are unavailable. Reduced motion starts them paused. Slide/navigation interaction
 stops rotation until explicit restart; hovering pauses temporarily. <code class="language-plaintext highlighter-rouge">interval=0</code>
 disables cycling. <a href="./04-layouts#bootstrap-carousel">Carousel reference</a>.</p>
-<p>In <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0 (v2.1.1-dev), video <code class="language-plaintext highlighter-rouge">name</code> supplies descriptive player and
+<p>In v2.2.0, video <code class="language-plaintext highlighter-rouge">name</code> supplies descriptive player and
 play-button names. In v2.1.0, it supplies video metadata but not those accessible
-names. Neither version creates captions or transcripts. The development version
+names. Neither version creates captions or transcripts. Version 2.2.0
 also provides a YouTube link when JavaScript is disabled; v2.1.0 lacks that link.
-Mermaid (available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0, not in the v2.1.0 gem or pin) uses
+Mermaid (available in v2.2.0, not in the v2.1.0 gem or pin) uses
 <code class="language-plaintext highlighter-rouge">accTitle</code> and <code class="language-plaintext highlighter-rouge">accDescr</code> to describe a diagram; complex content still
 needs a prose equivalent. Gallery snippets use generic image descriptions;
 individual informative photographs need descriptive custom image markup.
@@ -345,7 +347,7 @@ promise about every custom layout or widget.</p>
  <tbody>
    <tr>
      <td>PhotoSwipe</td>
-     <td>Available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0, not in the v2.1.0 gem or pin; viewer loads when an image is opened.</td>
+     <td>Available in v2.2.0, not in the v2.1.0 gem or pin; viewer loads when an image is opened.</td>
    </tr>
    <tr>
      <td>Deferred YouTube</td>
@@ -357,15 +359,15 @@ promise about every custom layout or widget.</p>
    </tr>
    <tr>
      <td>Mermaid</td>
-     <td>Page opt-in; available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0, not in the v2.1.0 gem or pin.</td>
+     <td>Page opt-in; available in v2.2.0, not in the v2.1.0 gem or pin.</td>
    </tr>
    <tr>
      <td>Cactus</td>
-     <td>Conditional scripts/styles on <code class="language-plaintext highlighter-rouge">show_comments: true</code> pages require <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0; v2.1.0 loads those resources more broadly.</td>
+     <td>Conditional scripts/styles on <code class="language-plaintext highlighter-rouge">show_comments: true</code> pages require v2.2.0; v2.1.0 loads those resources more broadly.</td>
    </tr>
    <tr>
      <td>Analytics</td>
-     <td>Optional; configuring GA and GoatCounter enables both counters. GoatCounter requires <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0 (absent from the v2.1.0 gem/pin) and has <a href="./02-config#goatcounter-analytics">production requirements</a>.</td>
+     <td>Optional; configuring GA and GoatCounter enables both counters. GoatCounter requires v2.2.0 (absent from the v2.1.0 gem/pin) and has <a href="./02-config#goatcounter-analytics">production requirements</a>.</td>
    </tr>
  </tbody>
 </table>

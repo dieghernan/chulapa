@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- Chulapa Jekyll Theme - v2.2.0 -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -18,8 +18,8 @@
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-21T19:29:20+02:00",
-        "dateModified": "2026-10-21T19:29:20+02:00",
+        "datePublished": "2026-10-21T20:09:11+02:00",
+        "dateModified": "2026-10-21T20:09:11+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -569,7 +569,7 @@ enables version 4 compatibility. When updating an old configuration, replace
 <p>Google Analytics and GoatCounter are independent. Setting either does not disable
 the other. Custom copies of a tracker are not removed automatically.</p>
 <h3 id="goatcounter-analytics">GoatCounter analytics</h3>
-<p><strong>Available on <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0; not in the v2.1.0 release.</strong></p>
+<p><strong>Available v2.2.0; not in the v2.1.0 release.</strong></p>
 <p>Setup: <a href="./18-goatcounter">Enable GoatCounter analytics</a>.</p>
 <table>
 <thead>
@@ -707,20 +707,20 @@ with Cactus.</li>
  </li>
 </ul>
 <p>Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
-field in this adapter. In development after v2.1.0, conversation IDs URL-encode
+field in this adapter. In v2.2.0, conversation IDs URL-encode
 <code class="language-plaintext highlighter-rouge">page.url</code> and encode underscores as <code class="language-plaintext highlighter-rouge">%5F</code>; they exclude the forbidden <code class="language-plaintext highlighter-rouge">/</code> and <code class="language-plaintext highlighter-rouge">_</code>.
 The v2.1.0 adapter retains slashes. Its setup guide includes a legacy local
 correction and migration checks: changing IDs does not move existing threads. Comment-provider selection does not migrate comments,
 and thread matching depends on the provider and page identifiers/addresses.</p>
 <p>For <strong>giscus</strong>, <code class="language-plaintext highlighter-rouge">_includes/custom/giscus.html</code> contains the embed script generated
 by <a href="https://giscus.app/">giscus setup</a>, including repository and category identifiers.</p>
-<p class="alert alert-info p-3 mx-2 mb-3">In development after v2.1.0, the Cactus script and stylesheet load only on
+<p class="alert alert-info p-3 mx-2 mb-3">In v2.2.0, the Cactus script and stylesheet load only on
 pages with <code class="language-plaintext highlighter-rouge">show_comments: true</code>. Selecting the provider alone no longer loads
 these resources on every page.</p>
-<p>In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
+<p>In v2.2.0, the Cusdis adapter accepts resize messages only from its own
 iframe and requires a finite, nonnegative numeric height. Existing provider
 settings are unchanged.</p>
-<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Welcomments compatibility:</strong> in development after v2.1.0, form permalinks
+<p class="alert alert-warning p-3 mx-2 mb-3"><strong>Welcomments compatibility:</strong> in v2.2.0, form permalinks
 include <code class="language-plaintext highlighter-rouge">baseurl</code>. The v2.1.0 form omits it; project sites on that release need
 the local correction in the setup guide. Local <code class="language-plaintext highlighter-rouge">_includes/welcomments/</code> files override
 the theme templates. Provider-generated templates can replace the customized

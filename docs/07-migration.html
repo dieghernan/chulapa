@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- Chulapa Jekyll Theme - v2.2.0 -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -18,8 +18,8 @@
         "description": "Keep your content and URLs while switching themes - Move an existing Jekyll site to Chulapa with a pinned remote theme and a practical migration checklist.",
         "headline": "Migrating from another Jekyll theme",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-21T19:29:20+02:00",
-        "dateModified": "2026-10-21T19:29:20+02:00",
+        "datePublished": "2026-10-21T20:09:11+02:00",
+        "dateModified": "2026-10-21T20:09:11+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -262,7 +262,11 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-prepare-your-site">1. Prepare your site</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-adapt-layouts-and-front-matter">3. Adapt layouts and front matter</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#4-reconnect-navigation-and-integrations">4. Reconnect navigation and integrations</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#5-preview-then-publish">5. Preview, then publish</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#common-migration-problems">Common migration problems</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#migration-checklist">Migration checklist</a></li></ul>
 			</nav>
-			<div class="e-content"><p>Keep your posts, pages and images. This guide assumes your site already builds
+			<div class="e-content"><p class="alert alert-info p-3 mx-2 mb-3"><strong>Publication pending:</strong> the v2.2.0 instructions below are prepared for the next
+release; its tag is not available yet. Until publication, use <code class="language-plaintext highlighter-rouge">@v2.1.0</code> instead
+of <code class="language-plaintext highlighter-rouge">@v2.2.0</code> in <code class="language-plaintext highlighter-rouge">remote_theme</code>. Features marked v2.2.0, including Mermaid,
+PhotoSwipe and GoatCounter, are absent from v2.1.0.</p>
+<p>Keep your posts, pages and images. This guide assumes your site already builds
 with Jekyll and has a <code class="language-plaintext highlighter-rouge">_config.yml</code> and <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
 <p class="alert alert-warning p-3 mx-2 mb-3"><strong>Before switching themes:</strong> save a backup or create a migration branch. Theme-specific
 settings and layouts are not converted automatically; check the preview before publishing.</p>
@@ -283,7 +287,7 @@ paths and CSS to the new theme. For site-wide additions, prefer the supported
 over copying a complete theme layout.</p>
 <h2 id="2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</h2>
 <p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>, remove the old <code class="language-plaintext highlighter-rouge">theme</code> and replace any existing <code class="language-plaintext highlighter-rouge">remote_theme</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.1.0</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.2.0</span>
 </code></pre></div></div>
 <p>Add these entries to your existing <code class="language-plaintext highlighter-rouge">plugins</code> list, keeping unrelated plugins:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
@@ -299,9 +303,8 @@ needed by your content or publishing workflow. The
 <a href="https://github.com/dieghernan/chulapa/blob/main/examples/personal-blog/Gemfile">personal-blog Gemfile</a>
 provides a dependency reference; merge it with your file rather than replacing it.
 Run <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3">Pinning <code class="language-plaintext highlighter-rouge">@v2.1.0</code> keeps the migration on a released version. Omitting the tag
-follows development updates. Features documented as v2.1.1-dev, including
-Mermaid, PhotoSwipe and GoatCounter, are not in v2.1.0.</p>
+<p class="alert alert-info p-3 mx-2 mb-3">Pin <code class="language-plaintext highlighter-rouge">@v2.2.0</code> for the features described here. Omitting the tag follows
+development updates. Mermaid, PhotoSwipe and GoatCounter are absent from v2.1.0.</p>
 <h2 id="3-adapt-layouts-and-front-matter">3. Adapt layouts and front matter</h2>
 <p>Review <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults as well as the settings between <code class="language-plaintext highlighter-rouge">---</code> lines in
 posts and pages. Explicit page values override defaults: an old <code class="language-plaintext highlighter-rouge">layout: post</code>
@@ -360,7 +363,7 @@ builds your site successfully. If you need GitHub Actions publishing:</p>
  <li>Add a workflow under <code class="language-plaintext highlighter-rouge">.github/workflows/</code>, using the
 <a href="https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml">template workflow</a>
 as a starting point. Adapt its branch and build settings to your repository.</li>
- <li>Keep the <code class="language-plaintext highlighter-rouge">@v2.1.0</code> pin in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Merge the migration when the preview
+ <li>Keep the <code class="language-plaintext highlighter-rouge">@v2.2.0</code> pin in <code class="language-plaintext highlighter-rouge">_config.yml</code>. Merge the migration when the preview
 is ready, then check the publishing run in <strong>Actions</strong>.</li>
  <li>Open the address in <strong>Settings &gt; Pages</strong> and repeat the checklist’s live checks.
 Analytics may load only in production; verify it there.</li>
@@ -404,7 +407,7 @@ Analytics may load only in production; verify it there.</li>
 <ul class="task-list">
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Save a backup or migration branch and record important URLs.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Review local layouts, includes and assets for old theme overrides.</li>
- <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.1.0</code>; remove conflicting theme settings.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.2.0</code>; remove conflicting theme settings.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Install and enable both remote-theme and include-cache plugins.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Translate layouts and front matter, including <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Replace old theme-specific includes and classes used in content.</li>

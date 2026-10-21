@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- Chulapa Jekyll Theme - v2.2.0 -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
@@ -18,8 +18,8 @@
         "description": "Add the theme to an existing Jekyll site - Configure a pinned remote theme, install its dependencies and verify your published site.",
         "headline": "Install using a remote theme",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-21T19:29:20+02:00",
-        "dateModified": "2026-10-21T19:29:20+02:00",
+        "datePublished": "2026-10-21T20:09:11+02:00",
+        "dateModified": "2026-10-21T20:09:11+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -259,18 +259,22 @@
 			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#update-your-theme-and-dependencies" class="nav-link">Update your theme and dependencies</a></li><li class="nav-item nav d-block"><a href="#publish-and-check" class="nav-link">Publish and check</a></li></ul>
 		</nav>   
 	</div>
-			<div class="e-content"><p>Use this guide when you already have a working Jekyll site, a <code class="language-plaintext highlighter-rouge">Gemfile</code> and
+			<div class="e-content"><p class="alert alert-info p-3 mx-2 mb-3"><strong>Publication pending:</strong> the v2.2.0 instructions below are prepared for the next
+release; its tag is not available yet. Until publication, use <code class="language-plaintext highlighter-rouge">@v2.1.0</code> instead
+of <code class="language-plaintext highlighter-rouge">@v2.2.0</code> in <code class="language-plaintext highlighter-rouge">remote_theme</code>. Features marked v2.2.0, including Mermaid,
+PhotoSwipe and GoatCounter, are absent from v2.1.0.</p>
+<p>Use this guide when you already have a working Jekyll site, a <code class="language-plaintext highlighter-rouge">Gemfile</code> and
 Bundler available. For your first website, use <a href="./00-start">the browser tutorial</a>.
 If you are replacing another theme, follow the <a href="./07-migration">migration checklist</a>
 to review content and old customizations as well.</p>
 <h2 id="update-your-theme-and-dependencies">Update your theme and dependencies</h2>
 <p>Work in a branch or save a backup. In <code class="language-plaintext highlighter-rouge">_config.yml</code>, remove the old <code class="language-plaintext highlighter-rouge">theme</code> entry
 and replace any existing <code class="language-plaintext highlighter-rouge">remote_theme</code> entry with:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.1.0</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.2.0</span>
 </code></pre></div></div>
 <p>This pins the released version. Use <code class="language-plaintext highlighter-rouge">dieghernan/chulapa</code> without the tag only
-when you want development updates from <code class="language-plaintext highlighter-rouge">main</code>. Features marked <strong>v2.1.1-dev</strong>
-are not included in v2.1.0.</p>
+when you want development updates from <code class="language-plaintext highlighter-rouge">main</code>. Features marked <strong>v2.2.0</strong>
+require that release or later.</p>
 <p>In your existing <code class="language-plaintext highlighter-rouge">Gemfile</code>, add missing dependencies from the following list.
 Edit entries already present instead of declaring the same gem twice. Keep
 your existing Jekyll version, source, groups and other dependencies.</p>
