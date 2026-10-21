@@ -2,7 +2,7 @@
 
 The initial three-skin study below is retained as history. The follow-up section
 records the later batches and stricter artifact verification; the generated
-summary and comparison directory now cover all eighteen skins.
+summary and comparison directory now cover all twenty-three skins.
 
 ## Scope and selection
 
@@ -285,3 +285,58 @@ These remain experimental companions outside the public catalog and gem.
 Public documentation, `llms.txt` and chatbot context need no changes for this
 unshipped batch. The earlier component-study boundaries and deferred CI baseline
 alignment still apply; no deployment or release-readiness claim is made.
+
+
+## Fifth batch — 2026-10-21
+
+The fifth batch adds **Electro, Graymor, Mickie, Monotone and Sunset**. All five
+are light TopHat integrations without declared dark companions in the catalog.
+They extend the study with bright green accents, restrained gray/teal, pink,
+a single-color design and warm orange tones. The existing family exclusions
+remain unchanged. No public skin, configuration or automatic switching is added.
+
+Original TopHat authorship, source imports and MIT notices remain intact.
+Experimental adaptations are maintained by dieghernan with assistance from
+OpenAI's ChatGPT; this does not replace the original design credits.
+
+| Source | Narrow panes (390px each) | Wider panes (640px each) |
+| --- | --- | --- |
+| Electro | [Comparison](dark-skin-pilot-2026-10-21/electro-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/electro-comparison-640.png) |
+| Graymor | [Comparison](dark-skin-pilot-2026-10-21/graymor-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/graymor-comparison-640.png) |
+| Mickie | [Comparison](dark-skin-pilot-2026-10-21/mickie-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/mickie-comparison-640.png) |
+| Monotone | [Comparison](dark-skin-pilot-2026-10-21/monotone-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/monotone-comparison-640.png) |
+| Sunset | [Comparison](dark-skin-pilot-2026-10-21/sunset-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/sunset-comparison-640.png) |
+
+The shared generator and control rules are unchanged in this batch. Browser
+validation targets the five additions using the generator with an in-memory
+selection and a separate artifact directory. Their outputs are combined with
+the verified prior eighteen-skin report and existing images; earlier measurements
+are retained historical results, not newly executed tests of those eighteen.
+The full unfiltered reproduction command remains documented in the test README.
+
+
+### Fifth-batch validation
+
+- Targeted generation and a second independent `--check` of the five additions
+  pass in separate temporary output directories. All ten checked comparison
+  PNGs and five summary records match the corresponding committed outputs.
+- The five new dark samples pass 82 text/state measurements each (410 new
+  measurements). Minimums: Electro 4.75, Graymor 4.54, Mickie 4.58, Monotone 4.74,
+  Sunset 4.55. Original light contrast exceptions remain recorded and unchanged.
+- All ten new light/dark documents reach 23 Tab stops in order with no horizontal
+  overflow at 390/1280px. Original body/heading families, card radii and all eight
+  effective filled-button backgrounds are preserved; requested font faces load.
+  Each dark sample alert passes the retained-gradient assertion.
+- Visually inspected all five new 390/640px comparison pairs and individual
+  1280px dark captures. All 23 current prototypes compile with Dart Sass 1.100.0
+  and Ruby Sass 3.7.4; these are stylesheet compilations, not Jekyll builds.
+- Original light preview CSS for all five new sources remains byte-for-byte
+  unchanged against main `4efd1e3e9`. All 36 earlier comparison PNGs and eighteen
+  summary records are unchanged. Fast Sass drift and artifact negative regression
+  pass; the combined 23-skin artifact set is internally consistent.
+
+The accumulated report now contains 1,886 dark measurements. A full unfiltered
+23-skin browser rerun was not executed in this batch. Six light candidates remain:
+Cerulean, Focal, Media, Navi, Skeeblu and Towards. These remain studies rather
+than released skins; the previous component, CI and Netlify limitations still
+apply. No public documentation, chatbot context, SEO or PWA behavior changes.
