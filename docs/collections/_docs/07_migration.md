@@ -9,6 +9,12 @@ show_related: true
 cloudtag_url: /docs/tags
 ---
 
+**Publication pending:** the v2.2.0 instructions below are prepared for the next
+release; its tag is not available yet. Until publication, use `@v2.1.0` instead
+of `@v2.2.0` in `remote_theme`. Features marked v2.2.0, including Mermaid,
+PhotoSwipe and GoatCounter, are absent from v2.1.0.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Keep your posts, pages and images. This guide assumes your site already builds
 with Jekyll and has a `_config.yml` and `Gemfile`.
 

@@ -1,5 +1,6 @@
 # Chulapa documentation context
 
+Tag v2.2.0 pending: use @v2.1.0 until published; 2.2.0 features absent there.
 Target: v2.2.0; new features absent from v2.1.0. Verify tag/gem publication separately.
 
 21 Oct 2026. llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
