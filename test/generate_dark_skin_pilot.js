@@ -66,18 +66,19 @@ $footer-chulapa-text-color: #adb5bd;
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
+// Some source integrations force labels with !important (for example Materia).
 @each $name, $source-fill in $theme-colors {
   // Keep existing reviewed button fills (which can differ from palette tokens).
   $fill: if(map-has-key($skin-button-backgrounds, $name), map-get($skin-button-backgrounds, $name), $source-fill);
   .btn.btn-#{$name} {
-    color: color-contrast($fill, #000, #fff, 4.5);
+    color: color-contrast($fill, #000, #fff, 4.5) !important;
     &:hover, &:focus {
       background-color: darken($fill, 7.5%);
-      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5);
+      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5) !important;
     }
     &:not(:disabled):not(.disabled):active {
       background-color: darken($fill, 10%);
-      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5);
+      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5) !important;
     }
   }
 }
@@ -94,7 +95,7 @@ $pilot-outlines: (${outlines});
   }
 }
 .table tbody td { background-color: $body-bg; color: $body-color; }
-${variants.map(v=>`.alert.alert-${v} { background-color: ${hex(mix([0,0,0],rgb(t[v]),.8))} !important; color: #e5e9ef !important; } .alert.alert-${v} .alert-link { color: ${readable(rgb(t[v]),mix([0,0,0],rgb(t[v]),.8))} !important; }`).join('\n')}
+${variants.map(v=>`.alert.alert-${v} { background: ${hex(mix([0,0,0],rgb(t[v]),.8))} !important; color: #e5e9ef !important; } .alert.alert-${v} .alert-link { color: ${readable(rgb(t[v]),mix([0,0,0],rgb(t[v]),.8))} !important; }`).join('\n')}
 `;
 
 }
@@ -153,6 +154,8 @@ function html(skin,mode,css) {return `<!doctype html><html lang="en" style="colo
     styles.contrast=measurements;
     styles.contrastFailures=measurements.filter(m=>!m.passesNormalText);
     if(mode==='dark')assert.equal(styles.contrastFailures.length,0,`${skin}: generated dark text contrast failures ${JSON.stringify(styles.contrastFailures)}`);
+    if(mode==='dark')assert.equal(await page.locator('.alert').evaluate(e=>getComputedStyle(e).backgroundImage),'none',
+      `${skin}: dark alert must not retain a source gradient over its measured background`);
     await page.mouse.move(0,0);await page.evaluate(()=>document.activeElement.blur());
     await page.evaluate(()=>{document.body.tabIndex=-1;document.body.focus();document.body.removeAttribute('tabindex');});
     styles.keyboardStops=await page.locator('a[href],button,input').count();

@@ -2,7 +2,7 @@
 
 The initial three-skin study below is retained as history. The follow-up section
 records the later batches and stricter artifact verification; the generated
-summary and comparison directory now cover all thirteen skins.
+summary and comparison directory now cover all eighteen skins.
 
 ## Scope and selection
 
@@ -218,3 +218,70 @@ The earlier component-study limitations still apply. No public skin catalog,
 configuration, `llms.txt`, chatbot context, SEO or PWA behavior is changed. No
 chatbot tests, live evaluation, context deployment or manual site deployment is
 part of this batch.
+
+## Fourth batch — 2026-10-21
+
+The fourth batch adds **Materia, Universal, Lymcha, Preptor and Wandoo**.
+These are light sources without declared dark companions in the current catalog.
+Materia extends the Bootswatch studies with Material component styling;
+Universal retains its uppercase typography and letter spacing; the three TopHat
+sources add pastel, hot pink and red palettes with their original font pairings.
+Existing family exclusions are unchanged. Listen was considered and excluded
+because it is already a dark skin, rather than a light source needing a companion.
+
+| Source | Narrow panes (390px each) | Wider panes (640px each) |
+| --- | --- | --- |
+| Materia | [Comparison](dark-skin-pilot-2026-10-21/materia-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/materia-comparison-640.png) |
+| Universal | [Comparison](dark-skin-pilot-2026-10-21/universal-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/universal-comparison-640.png) |
+| Lymcha | [Comparison](dark-skin-pilot-2026-10-21/lymcha-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/lymcha-comparison-640.png) |
+| Preptor | [Comparison](dark-skin-pilot-2026-10-21/preptor-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/preptor-comparison-640.png) |
+| Wandoo | [Comparison](dark-skin-pilot-2026-10-21/wandoo-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/wandoo-comparison-640.png) |
+
+Materia forces a white warning-button label and can retain an alert gradient
+above the measured background. The shared experimental rules now make the chosen
+button labels authoritative and reset alert backgrounds completely. A browser
+assertion rejects a retained gradient on the dark sample alert. These overrides
+are confined to prototypes; original skins and vendor sources remain unchanged.
+
+### Deferred CI baseline alignment
+
+Review 5599909943 correctly identified that the artifact helper's unit test did
+not regenerate real pilot outputs in CI. Commits `d91af80eb` and `861b94b12` add
+a dedicated full `--check` job in a Playwright image pinned by digest. Its
+[first run](https://github.com/dieghernan/chulapa/actions/runs/39604493621/job/119237081426)
+rendered all thirteen then-selected sources with zero sampled dark contrast
+failures, then rejected the committed summary because its browser environment
+differs from the original local baseline. It retained candidate PNGs and reports.
+
+The maintainer explicitly deferred further work on this job to prioritize the
+next batch. Canonical container baseline regeneration, updated reproduction
+instructions and a successful real CI drift check remain pending. The review
+thread remains open. The local browser results and Sass checks use the original
+Debian/Chromium environment; they do not establish that the new container job
+passes. Netlify remains blocked by exhausted quota; no manual deploy was run.
+
+
+### Fourth-batch validation
+
+- All eighteen final standalone prototypes compile with Dart Sass 1.100.0 and
+  Ruby Sass 3.7.4. These are stylesheet compilations, not full Jekyll builds.
+- Full local generation passes: 82 sampled text/state measurements per dark
+  sample, 1,476 total, with no failures below 4.5:1. New minimums: Materia 4.64,
+  Universal 4.53, Lymcha 4.74, Preptor 4.72, Wandoo 4.57.
+- All 36 light/dark documents reach 23 Tab stops in order, with no horizontal
+  overflow at 390/1280px. Requested font faces load; body/heading font families,
+  card radius and all eight effective button fills match between modes.
+- Visually inspected all five new 390/640px comparison pairs and the individual
+  1280px dark captures, including Materia's corrected alert background.
+- All 26 previously committed comparison PNGs and their thirteen skin records
+  remain byte-for-byte / structurally unchanged. The four non-Materia preflight
+  sets inspected visually also match the final images byte-for-byte.
+- Original preview CSS for all five new light sources matches main `4efd1e3e9`
+  byte-for-byte. Fast Sass drift check, negative artifact regression, JavaScript
+  syntax and diff whitespace checks pass. Full local browser generation was
+  executed; a second full `--check` for eighteen skins was not run in this batch.
+
+These remain experimental companions outside the public catalog and gem.
+Public documentation, `llms.txt` and chatbot context need no changes for this
+unshipped batch. The earlier component-study boundaries and deferred CI baseline
+alignment still apply; no deployment or release-readiness claim is made.

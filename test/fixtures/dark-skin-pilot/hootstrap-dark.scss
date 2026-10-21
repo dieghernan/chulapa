@@ -64,18 +64,19 @@ $footer-chulapa-text-color: #adb5bd;
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
+// Some source integrations force labels with !important (for example Materia).
 @each $name, $source-fill in $theme-colors {
   // Keep existing reviewed button fills (which can differ from palette tokens).
   $fill: if(map-has-key($skin-button-backgrounds, $name), map-get($skin-button-backgrounds, $name), $source-fill);
   .btn.btn-#{$name} {
-    color: color-contrast($fill, #000, #fff, 4.5);
+    color: color-contrast($fill, #000, #fff, 4.5) !important;
     &:hover, &:focus {
       background-color: darken($fill, 7.5%);
-      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5);
+      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5) !important;
     }
     &:not(:disabled):not(.disabled):active {
       background-color: darken($fill, 10%);
-      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5);
+      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5) !important;
     }
   }
 }
@@ -92,11 +93,11 @@ $pilot-outlines: (primary: #658e87, secondary: #eed75a, success: #fec100, info: 
   }
 }
 .table tbody td { background-color: $body-bg; color: $body-color; }
-.alert.alert-primary { background-color: #101a18 !important; color: #e5e9ef !important; } .alert.alert-primary .alert-link { color: #628b84 !important; }
-.alert.alert-secondary { background-color: #302b12 !important; color: #e5e9ef !important; } .alert.alert-secondary .alert-link { color: #eed75a !important; }
-.alert.alert-success { background-color: #332700 !important; color: #e5e9ef !important; } .alert.alert-success .alert-link { color: #fec100 !important; }
-.alert.alert-info { background-color: #142e1d !important; color: #e5e9ef !important; } .alert.alert-info .alert-link { color: #63e792 !important; }
-.alert.alert-warning { background-color: #332e15 !important; color: #e5e9ef !important; } .alert.alert-warning .alert-link { color: #ffe869 !important; }
-.alert.alert-danger { background-color: #160c0c !important; color: #e5e9ef !important; } .alert.alert-danger .alert-link { color: #9b7676 !important; }
-.alert.alert-light { background-color: #333231 !important; color: #e5e9ef !important; } .alert.alert-light .alert-link { color: #fdfbf7 !important; }
-.alert.alert-dark { background-color: #111111 !important; color: #e5e9ef !important; } .alert.alert-dark .alert-link { color: #808080 !important; }
+.alert.alert-primary { background: #101a18 !important; color: #e5e9ef !important; } .alert.alert-primary .alert-link { color: #628b84 !important; }
+.alert.alert-secondary { background: #302b12 !important; color: #e5e9ef !important; } .alert.alert-secondary .alert-link { color: #eed75a !important; }
+.alert.alert-success { background: #332700 !important; color: #e5e9ef !important; } .alert.alert-success .alert-link { color: #fec100 !important; }
+.alert.alert-info { background: #142e1d !important; color: #e5e9ef !important; } .alert.alert-info .alert-link { color: #63e792 !important; }
+.alert.alert-warning { background: #332e15 !important; color: #e5e9ef !important; } .alert.alert-warning .alert-link { color: #ffe869 !important; }
+.alert.alert-danger { background: #160c0c !important; color: #e5e9ef !important; } .alert.alert-danger .alert-link { color: #9b7676 !important; }
+.alert.alert-light { background: #333231 !important; color: #e5e9ef !important; } .alert.alert-light .alert-link { color: #fdfbf7 !important; }
+.alert.alert-dark { background: #111111 !important; color: #e5e9ef !important; } .alert.alert-dark .alert-link { color: #808080 !important; }
