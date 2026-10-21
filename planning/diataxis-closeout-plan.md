@@ -47,7 +47,8 @@ Next steps:
 No publication, live inference or manual deployment is authorized by this status
 update. Earlier delivery rows below are dated delivery observations: their
 unverified-deployment wording is superseded for the current cumulative source
-by the exact current-source evidence, not retroactively for each historical revision.
+by exact-source site checks and the separately identified Worker lineage,
+not retroactively for each historical revision.
 
 ## Current state
 

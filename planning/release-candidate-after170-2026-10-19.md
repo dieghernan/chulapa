@@ -21,9 +21,9 @@ Pages [39552038892](https://github.com/dieghernan/chulapa/actions/runs/395520388
 and Algolia [39552038856](https://github.com/dieghernan/chulapa/actions/runs/39552038856)
 succeeded for this exact source. Regression run
 [39552038890](https://github.com/dieghernan/chulapa/actions/runs/39552038890)
-has six successful jobs (both Ruby/Jekyll versions, both installation versions,
-JavaScript and chatbot); the browser job is still running at this checkpoint.
-Older browser passes are not transferred.
+has all seven jobs completed successfully, including browser, both Ruby/Jekyll
+versions, both installation versions, JavaScript and chatbot. This follow-up
+confirms the previously pending browser job; older passes are not transferred.
 
 Worker [run 39548857744](https://github.com/dieghernan/chulapa/actions/runs/39548857744)
 succeeded from #175, `c698197c8b33ea656f89f3bfa64d2479be8a2b61`, after its
