@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- MIT License -->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build 2026-10-21 -->
+    <!-- Jekyll Version 4.4.1 -->
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting",
+        "name": "Syntax highlighting reference",
+        "description": "Available styles and rendered code specimens - Browse available syntax highlighting styles and compare rendered code examples.",
+        "headline": "Syntax highlighting reference",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
+        "datePublished": "2026-10-21T10:47:06+02:00",
+        "dateModified": "2026-10-21T10:47:06+02:00",
+        "author": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://github.com/dieghernan/",
+          "sameAs": [
+            "https://dieghernan.github.io/",
+            "https://stackoverflow.com/users/7877917/dieghernan"
+          ]
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://dieghernan.github.io/chulapa/",
+          "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb-1",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dieghernan.github.io/chulapa/"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb-2",
+            "position": 2,
+            "name": "Docs",
+            "item": "https://dieghernan.github.io/chulapa/docs"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb-3",
+            "position": 3,
+            "item": "https://dieghernan.github.io/chulapa/docs/syntax-highlighting",
+            "name": "Syntax highlighting reference"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Madrid, Spain"
+        },
+        "description": "Site author",
+        "name": "dieghernan",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "sameAs": [
+          "https://github.com/dieghernan/",
+          "https://dieghernan.github.io/",
+          "https://stackoverflow.com/users/7877917/dieghernan"
+        ]
+      }
+    </script>
+    <title>Syntax highlighting reference | Chulapa</title>
+    <link rel="canonical" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">
+    <!-- Atom feed -->
+    <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
+    <!-- RSS 2.0 feed -->
+    <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" >
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="dieghernan" >
+    <meta name="copyright" content="dieghernan" >
+    <meta name="description" content="Available styles and rendered code specimens - Browse available syntax highlighting styles and compare rendered code examples.">
+    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <meta name="robots" content="index, follow">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Syntax highlighting reference | Chulapa" >
+    <meta property="og:site_name" content="Chulapa" >
+    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/syntax-highlighting" >
+    <meta property="og:type" content="website" >
+    <meta property="og:description" content="Available styles and rendered code specimens - Browse available syntax highlighting styles and compare rendered code examples." >
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <!-- Twitter/X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Available styles and rendered code specimens - Browse available syntax highlighting styles and compare rendered code examples.">
+    <meta name="twitter:site" content="@dhernangomez" >
+    <!-- start custom head snippets -->
+<!-- this script is inserted before the css stylesheet -->
+<!-- end custom head snippets -->
+    <!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontawesome-->
+    <!-- v6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+    <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
+    <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+    <!-- Theme css (Bootstrap included) -->
+    <link rel="stylesheet" id="maincss" href="https://dieghernan.github.io/chulapa/assets/css/main.css" >
+    <!-- Highlighter -->
+    <link id="csshigh" rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/highlighter.css" >
+    <!-- Custom css -->
+    <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q654SQGBGS');
+    </script>
+    <script data-goatcounter="https://chulapa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <!-- start custom head snippets -->
+    <!-- https://realfavicongenerator.net/-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+    <link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+    <link rel="llms" href="https://dieghernan.github.io/chulapa/llms.txt">
+    <meta name="apple-mobile-web-app-title" content="Chulapa">
+    <meta name="application-name" content="Chulapa">
+    <meta name="msapplication-TileColor" content="#efebdd">
+    <meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#efebdd">
+    <!-- end custom head snippets -->
+    <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+</head>
+<body class="d-flex flex-column" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
+	<noscript>
+ <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="https://dieghernan.github.io/chulapa/">Home</a>
+   <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/blog/">Blog</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs">Documentation</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/skins">Skins</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo">Index</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/license">License</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/showcase">Showcase</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/contribute">Contribute</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></li>
+     <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/search">Search</a></li>
+   </ul>
+ </nav>
+</noscript>
+	<div class="navbar-chulapa-fab">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Documentation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="About" data-toggle="dropdown" aria-expanded="false">About</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="About"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/license">License </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/showcase">Showcase </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/contribute">Contribute </a><a class="dropdown-item nav-link d-block px-3 small " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
+    <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">Invisible link to canonical for Microformats</a>
+	<main class="d-flex flex-column flex-fill">
+	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
+   <h1 class="p-name">Syntax highlighting reference</h1><hr class="my-3">
+   <p class="chulapa-subtitle p-summary">Available styles and rendered code specimens</p>
+ </div>
+</header>
+	<div class="container-lg pb-3 flex-fill">
+<div class="row my-1">
+<div class="col-lg-8 offset-lg-2 col small">
+ <nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/" itemprop="item"><span itemprop="name">Home</span></a>
+         <meta itemprop="position" content="1" ></li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb-2"><a href="https://dieghernan.github.io/chulapa/docs" itemprop="item"><span itemprop="name">Docs</span></a>
+         <meta itemprop="position" content="2" ></li>
+      <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/syntax-highlighting#breadcrumb-3">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/docs/syntax-highlighting">
+        <span itemprop="name">Syntax highlighting reference</span>
+       <meta itemprop="position" content="3" >
+     </li>
+ </ol>
+ </nav>
+ </div></div>
+		<div class="row pt-2">
+			<div class="col-lg-2 mt-lg-3 small"></div>
+			<article id="maincontent" class="col-lg-8 mt-3">
+	<button type="button" class="btn btn-primary btn-sm rounded-right position-fixed chulapa-btn-sidebar bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" id='chulapa-sidetoc-toggle' onclick="openSideBar()" aria-label="Open Sidebar" aria-expanded="false" aria-controls="sideBar">
+		<i class="fa-solid fa-plus"></i><span class="sr-only">Open Sidebar</span>
+	</button>
+	<div class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed navbar-chulapa h-100" id='sideBar' aria-hidden="true" inert>
+		<p class="pt-2 pb-1 px-3">
+			<button type="button" class="navbar-text close chulapa-btn-nofocus chulapa-fa-static" aria-label="Close" onclick="closeSideBar()">
+				<i class="fa-solid fa-times"></i><span class="sr-only">Close Sidebar</span>
+			</button>
+		</p>
+		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
+		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Syntax highlighting reference</a></p>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#code-specimens" class="nav-link">Code specimens</a></li><li class="nav-item nav d-block"><a href="#javascript" class="nav-link">JavaScript</a></li><li class="nav-item nav d-block"><a href="#python" class="nav-link">Python</a></li><li class="nav-item nav d-block"><a href="#css" class="nav-link">CSS</a></li><li class="nav-item nav d-block"><a href="#scss" class="nav-link">SCSS</a></li><li class="nav-item nav d-block"><a href="#java" class="nav-link">Java</a></li><li class="nav-item nav d-block"><a href="#c" class="nav-link">C#</a></li><li class="nav-item nav d-block"><a href="#html" class="nav-link">HTML</a></li><li class="nav-item nav d-block"><a href="#r" class="nav-link">R</a></li><li class="nav-item nav d-block"><a href="#ruby" class="nav-link">Ruby</a></li><li class="nav-item nav d-block"><a href="#php" class="nav-link">PHP</a></li><li class="nav-item nav d-block"><a href="#markdown" class="nav-link">Markdown</a></li><li class="nav-item nav d-block"><a href="#yaml" class="nav-link">YAML</a></li><li class="nav-item nav d-block"><a href="#json" class="nav-link">JSON</a></li></ul>
+		</nav>   
+	</div>
+			<div class="e-content"><p>Lookup for highlighting style identifiers and code specimens. The selector
+previews a style on this page and displays its configuration mapping. For the
+editing and publishing procedure, use <a href="./25-code-highlighting">Change code highlighting</a>.</p>
+<p class="alert alert-info p-3 mx-2 mb-3">Changing this preview does not save the style on your own website.</p>
+<p id="count" class="lead mb-2"></p>
+<div class="dropdown my-4">
+  <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select style</button>
+ <div id="list" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 30vh;overflow-y: auto;">
+ </div>
+</div>
+<p><span id="config">None</span></p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span> <br /><span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
+<script>
+  var styles = ['abap','algol','algol_nu','arduino','autumn','base16','borland',
+  'bw','coffee','cobalt2','colorful','cran','default','dracula','emacs','friendly',
+  'friendly_grayscale','fruity','github.dark','github','gruvbox.dark',
+  'gruvbox.light','gruvbox','igor','igorpro','inkpot','lightbulb','lilypond',
+  'lovelace','magritte','manni','material','molokai','monokai',
+  'monokai.sublime','murphy','native','night-owl', 'nord.darker','nord','oksolar.dark',
+  'oksolar.light','one.dark','panda', 'paraiso.dark','paraiso.light','pastie','perldoc',
+  'rainbow_dash','rrt','sas','selenized.black','selenized.dark',
+  'selenized.light','selenized.white','skeletor','solarized.dark',
+  'solarized.light','stackoverflow.dark','stackoverflow.light','staroffice',
+  'stata.dark','stata.light','tango', 'thankful_eyes','trac','tulip','vim',
+  'vs','xcode','zenburn'].sort();
+  styles.forEach(function(word) {
+  	var row = document.createElement('a');
+  	row.classList.add('dropdown-item');
+  	row.href = 'javascript:void(0)';
+    row.textContent = word;
+  	row.setAttribute("onclick", "reaplyStyles('" + word + "');");
+  	document.getElementById('list').appendChild(row);
+  });
+  document.getElementById("count").innerHTML = "A total of <span class='font-weight-bold'>" + styles.length + "</span> highlighting styles available";
+  var csshigh = document.getElementById("csshigh");
+  	function reaplyStyles(themename){
+  		csshigh.href = 'https://dieghernan.github.io/chulapa/assets/css/highlighter/'+themename+'.css';
+  		title = document.getElementById("config");
+    title.innerHTML = 'Configuration mapping';
+  		sel = document.getElementById("selected");  	
+      sel.textContent = themename;
+  		btn = document.getElementById("dropdownMenuButton");  	
+      btn.textContent = themename;
+      return true;
+  }
+</script>
+<h2 id="code-specimens">Code specimens</h2>
+<p>The examples below show the selected stylesheet across code languages.</p>
+<div>
+ <h2 id="javascript">JavaScript</h2>
+ <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Cross-browser xml parsing</span>
+<span class="kd">var</span> <span class="nx">parseXML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">xml</span><span class="p">,</span> <span class="nx">tmp</span><span class="p">;</span>
+  <span class="k">if </span><span class="p">(</span> <span class="o">!</span><span class="nx">data</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">data</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">DOMParser</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">// Standard</span>
+      <span class="nx">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DOMParser</span><span class="p">();</span>
+      <span class="nx">xml</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">.</span><span class="nf">parseFromString</span><span class="p">(</span> <span class="nx">data</span> <span class="p">,</span> <span class="dl">"</span><span class="s2">text/xml</span><span class="dl">"</span> <span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// IE</span>
+      <span class="nx">xml</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ActiveXObject</span><span class="p">(</span> <span class="dl">"</span><span class="s2">Microsoft.XMLDOM</span><span class="dl">"</span> <span class="p">);</span>
+      <span class="nx">xml</span><span class="p">.</span><span class="k">async</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">xml</span><span class="p">.</span><span class="nf">loadXML</span><span class="p">(</span> <span class="nx">data</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">catch</span><span class="p">(</span> <span class="nx">e</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">xml</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if </span><span class="p">(</span> <span class="o">!</span><span class="nx">xml</span> <span class="o">||</span> <span class="o">!</span><span class="nx">xml</span><span class="p">.</span><span class="nx">documentElement</span> <span class="o">||</span> <span class="nx">xml</span><span class="p">.</span><span class="nf">getElementsByTagName</span><span class="p">(</span> <span class="dl">"</span><span class="s2">parsererror</span><span class="dl">"</span> <span class="p">).</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">jQuery</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span> <span class="dl">"</span><span class="s2">Invalid XML: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">data</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">xml</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Bind a function to a context, optionally partially applying any arguments.</span>
+<span class="kd">var</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">context</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">tmp</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">proxy</span><span class="p">;</span>
+
+  <span class="k">if </span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">context</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">[</span> <span class="nx">context</span> <span class="p">];</span>
+    <span class="nx">context</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">;</span>
+    <span class="nx">fn</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Quick check to determine if target is callable, in the spec</span>
+  <span class="c1">// this throws a TypeError, but we will just return undefined.</span>
+  <span class="k">if </span><span class="p">(</span> <span class="o">!</span><span class="nx">jQuery</span><span class="p">.</span><span class="nf">isFunction</span><span class="p">(</span> <span class="nx">fn</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Simulated bind</span>
+  <span class="nx">args</span> <span class="o">=</span> <span class="nx">core_slice</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span> <span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+  <span class="nx">proxy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fn</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span> <span class="nx">context</span> <span class="o">||</span> <span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nf">concat</span><span class="p">(</span> <span class="nx">core_slice</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span> <span class="nx">arguments</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Set the guid of unique handler to the same of original handler, so it can be removed</span>
+  <span class="nx">proxy</span><span class="p">.</span><span class="nx">guid</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">guid</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">guid</span> <span class="o">||</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">guid</span><span class="o">++</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">proxy</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">play</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">something</span><span class="p">;</span> <span class="p">}</span>
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">play</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">Sound</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">play</span> <span class="o">=</span> <span class="nx">myfunc</span>
+<span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://example.com:3000/pathname/?search=test#hash</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">hostname</span><span class="p">;</span> <span class="c1">// =&gt; "example.com"</span>
+
+</code></pre></div></div>
+ <h2 id="python">Python</h2>
+ <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">#!/usr/bin/python
+# -*- coding: utf-8 -*-
+</span>
+<span class="kn">import</span> <span class="n">re</span>
+<span class="kn">import</span> <span class="n">sublime</span>
+<span class="kn">import</span> <span class="n">sublime_plugin</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">class</span> <span class="nc">SublimeTasksBase</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="p">.</span><span class="n">TextCommand</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">edit</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">open_tasks_bullet</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">done_tasks_bullet</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">done_tasks_bullet</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">date_format</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">date_format</span><span class="sh">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">settings</span><span class="p">().</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">done_tag</span><span class="sh">'</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">done_tag</span> <span class="o">=</span> <span class="sh">"</span><span class="s">@done</span><span class="sh">"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">done_tag</span> <span class="o">=</span> <span class="sh">""</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">runCommand</span><span class="p">(</span><span class="n">edit</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">NewCommand</span><span class="p">(</span><span class="n">SublimeTasksBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">runCommand</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">edit</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">():</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+            <span class="n">line_contents</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">).</span><span class="nf">rstrip</span><span class="p">()</span>
+            <span class="n">has_bullet</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sh">'</span><span class="s">^(\s*)[</span><span class="sh">'</span> <span class="o">+</span> <span class="n">re</span><span class="p">.</span><span class="nf">escape</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span><span class="p">)</span> <span class="o">+</span> <span class="n">re</span><span class="p">.</span><span class="nf">escape</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">done_tasks_bullet</span><span class="p">)</span> <span class="o">+</span> <span class="sh">'</span><span class="s">]</span><span class="sh">'</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+            <span class="n">current_scope</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">scope_name</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">b</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">has_bullet</span><span class="p">:</span>
+                <span class="n">grps</span> <span class="o">=</span> <span class="n">has_bullet</span><span class="p">.</span><span class="nf">groups</span><span class="p">()</span>
+                <span class="n">line_contents</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span> <span class="o">+</span> <span class="n">grps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="sh">'</span><span class="s">header</span><span class="sh">'</span> <span class="ow">in</span> <span class="n">current_scope</span><span class="p">:</span>
+                <span class="n">header</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sh">'</span><span class="s">^(\s*)\S+</span><span class="sh">'</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
+                    <span class="n">grps</span> <span class="o">=</span> <span class="n">header</span><span class="p">.</span><span class="nf">groups</span><span class="p">()</span>
+                    <span class="n">line_contents</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span> <span class="o">+</span> <span class="n">grps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line_contents</span> <span class="o">=</span>  <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">b</span>
+                <span class="n">pt</span> <span class="o">=</span> <span class="n">sublime</span><span class="p">.</span><span class="nc">Region</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">clear</span><span class="p">()</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">add</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">has_space</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sh">'</span><span class="s">^(\s+)(.*)</span><span class="sh">'</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">has_space</span><span class="p">:</span>
+                    <span class="n">grps</span> <span class="o">=</span> <span class="n">has_space</span><span class="p">.</span><span class="nf">groups</span><span class="p">()</span>
+                    <span class="n">spaces</span> <span class="o">=</span> <span class="n">grps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">line_contents</span> <span class="o">=</span> <span class="n">spaces</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">grps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line_contents</span> <span class="o">=</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">open_tasks_bullet</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">substr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">edit</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_contents</span><span class="p">)</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">b</span>
+                    <span class="n">pt</span> <span class="o">=</span> <span class="n">sublime</span><span class="p">.</span><span class="nc">Region</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">clear</span><span class="p">()</span>
+                    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">sel</span><span class="p">().</span><span class="nf">add</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+
+</code></pre></div></div>
+ <h2 id="css">CSS</h2>
+ <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">arial</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">table</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span><span class="nx">#CCC</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span><span class="nx">#39F</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.addon-store</span> <span class="nc">.pagehead</span> <span class="nt">h1</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">inline-block</span> <span class="p">}</span>
+<span class="nc">.addon-store</span> <span class="nc">.addon-summary</span><span class="nd">:after</span> <span class="p">{</span> <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span> <span class="p">}</span>
+
+<span class="nf">#addon-store</span> <span class="nc">.pagehead</span> <span class="nc">.electrocat-small</span> <span class="p">{</span>
+    <span class="nl">bottom</span><span class="p">:</span> <span class="m">-7px</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.addon-store</span> <span class="nc">.addons-nav</span> <span class="nt">a</span><span class="nc">.selected</span> <span class="p">{</span>
+    <span class="nl">border-bottom-color</span><span class="p">:</span> <span class="nx">#d26911</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">#333</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">14px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.addon-store</span> <span class="nc">.addon-icon</span> <span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="nx">#fff</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nx">#ddd</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.15</span><span class="p">);</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">80px</span><span class="p">;</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">80px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.addon-store</span> <span class="nc">.developer-callout</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#f1f1f1</span><span class="p">;</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="o">-</span><span class="n">moz-linear-gradient</span><span class="p">(</span><span class="nx">#fafafa</span><span class="p">,</span> <span class="nx">#f1f1f1</span><span class="p">);</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="o">-</span><span class="n">webkit-linear-gradient</span><span class="p">(</span><span class="nx">#fafafa</span><span class="p">,</span> <span class="nx">#f1f1f1</span><span class="p">);</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="nf">linear-gradient</span><span class="p">(</span><span class="nx">#fafafa</span><span class="p">,</span> <span class="nx">#f1f1f1</span><span class="p">);</span>
+    <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-x</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nx">#ddd</span><span class="p">;</span>
+    <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nx">#ccc</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="nx">#fff</span><span class="p">,</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">5px</span> <span class="nx">#f1f1f1</span><span class="p">;</span>
+    <span class="nl">margin-top</span><span class="p">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="nx">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.addon-field-editor</span> <span class="nc">.addon-field-list</span><span class="o">,</span> <span class="nc">.addon-field-editor</span> <span class="nc">.addon-new-field</span> <span class="p">{</span>
+    <span class="nl">-moz-box-sizing</span><span class="p">:</span> <span class="nb">border-box</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="nl">box-sizing</span><span class="p">:</span> <span class="nb">border-box</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">inline-block</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">595px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nx">red</span> <span class="cp">!important</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">@media</span> <span class="nb">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">100px</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="k">@main-color</span><span class="p">:</span> <span class="nx">red</span><span class="p">;</span>
+
+<span class="nc">.foo</span> <span class="p">{</span>
+	<span class="nl">background</span><span class="p">:</span> <span class="err">@</span><span class="n">main-color</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+ <h2 id="scss">SCSS</h2>
+ <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">@import</span> <span class="s2">"foo.scss"</span><span class="p">;</span>
+
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="nc">.seriousError</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nc">.error</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">3</span> <span class="p">{}</span>
+
+<span class="k">@font-face</span> <span class="p">{</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">"opensans"</span><span class="p">;</span>
+	<span class="nl">src</span><span class="p">:</span> <span class="nf">font-url</span><span class="p">(</span><span class="s2">"opensans.ttf"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nv">$width</span><span class="p">:</span> <span class="m">5em</span><span class="p">;</span>
+
+<span class="nn">#main</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nv">$width</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">p</span><span class="nc">.</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span> <span class="p">{</span>
+    <span class="si">#{</span><span class="nv">$attr</span><span class="si">}</span><span class="nt">-color</span><span class="nd">:</span> <span class="nt">blue</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+ <h2 id="java">Java</h2>
+ <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Life</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">show</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">){</span>
+        <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">grid</span><span class="o">){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">val</span> <span class="o">:</span> <span class="n">row</span><span class="o">)</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">val</span><span class="o">)</span>
+                    <span class="n">s</span> <span class="o">+=</span> <span class="s">"*"</span><span class="o">;</span>
+                <span class="k">else</span>
+                    <span class="n">s</span> <span class="o">+=</span> <span class="s">"."</span><span class="o">;</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s">"\n"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="nf">gen</span><span class="o">(){</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">10</span><span class="o">][</span><span class="mi">10</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">r</span><span class="o">++)</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">c</span><span class="o">++)</span>
+                <span class="k">if</span><span class="o">(</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mf">0.7</span> <span class="o">)</span>
+                    <span class="n">grid</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">grid</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span> <span class="o">=</span> <span class="n">gen</span><span class="o">();</span>
+        <span class="n">show</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="n">world</span> <span class="o">=</span> <span class="n">nextGen</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+        <span class="n">show</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+            <span class="n">world</span> <span class="o">=</span> <span class="n">nextGen</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+            <span class="n">show</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="nf">nextGen</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span><span class="o">){</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">newWorld</span>
+            <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">world</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">r</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">c</span><span class="o">++){</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">numNeighbors</span><span class="o">(</span><span class="n">world</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">c</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(</span> <span class="n">occupiedNext</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">world</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">])</span> <span class="o">)</span>
+                    <span class="n">newWorld</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">newWorld</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">occupiedNext</span><span class="o">(</span><span class="kt">int</span> <span class="n">numNeighbors</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">occupied</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span> <span class="n">occupied</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">numNeighbors</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">numNeighbors</span> <span class="o">==</span> <span class="mi">3</span><span class="o">))</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(!</span><span class="n">occupied</span> <span class="o">&amp;&amp;</span> <span class="n">numNeighbors</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numNeighbors</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">world</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">r</span><span class="o">++)</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">c</span><span class="o">++)</span>
+                <span class="k">if</span><span class="o">(</span> <span class="n">inbounds</span><span class="o">(</span><span class="n">world</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">c</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">world</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">)</span>
+                    <span class="n">num</span><span class="o">++;</span>
+
+        <span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">inbounds</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">world</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+        <span class="n">c</span> <span class="o">&lt;</span> <span class="n">world</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+ <h2 id="c">C#</h2>
+ <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Abp.Domain.Entities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Abp.Domain.Repositories</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Abp.MemoryDb.Repositories</span>
+<span class="p">{</span>
+    <span class="c1">//TODO: Implement thread-safety..?</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">MemoryRepository</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">,</span> <span class="n">TPrimaryKey</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">AbpRepositoryBase</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">,</span> <span class="n">TPrimaryKey</span><span class="p">&gt;</span>
+        <span class="k">where</span> <span class="n">TEntity</span> <span class="p">:</span> <span class="k">class</span><span class="err">,</span> <span class="nc">IEntity</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">IMemoryDatabaseProvider</span> <span class="n">_databaseProvider</span><span class="p">;</span>
+        <span class="k">protected</span> <span class="n">MemoryDatabase</span> <span class="n">Database</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_databaseProvider</span><span class="p">.</span><span class="n">Database</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+
+        <span class="k">protected</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">&gt;</span> <span class="n">Table</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Database</span><span class="p">.</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">&gt;();</span> <span class="p">}</span> <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">MemoryPrimaryKeyGenerator</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;</span> <span class="n">_primaryKeyGenerator</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="nf">MemoryRepository</span><span class="p">(</span><span class="n">IMemoryDatabaseProvider</span> <span class="n">databaseProvider</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">_databaseProvider</span> <span class="p">=</span> <span class="n">databaseProvider</span><span class="p">;</span>
+            <span class="n">_primaryKeyGenerator</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MemoryPrimaryKeyGenerator</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">TEntity</span><span class="p">&gt;</span> <span class="nf">GetAll</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Table</span><span class="p">.</span><span class="nf">AsQueryable</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">TEntity</span> <span class="nf">Insert</span><span class="p">(</span><span class="n">TEntity</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">entity</span><span class="p">.</span><span class="nf">IsTransient</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="n">entity</span><span class="p">.</span><span class="n">Id</span> <span class="p">=</span> <span class="n">_primaryKeyGenerator</span><span class="p">.</span><span class="nf">GetNext</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="n">Table</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">entity</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">TEntity</span> <span class="nf">Update</span><span class="p">(</span><span class="n">TEntity</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">Table</span><span class="p">.</span><span class="nf">FindIndex</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">EqualityComparer</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;.</span><span class="n">Default</span><span class="p">.</span><span class="nf">Equals</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">entity</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">entity</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">entity</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">TEntity</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">Delete</span><span class="p">(</span><span class="n">entity</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">TPrimaryKey</span> <span class="n">id</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">Table</span><span class="p">.</span><span class="nf">FindIndex</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">EqualityComparer</span><span class="p">&lt;</span><span class="n">TPrimaryKey</span><span class="p">&gt;.</span><span class="n">Default</span><span class="p">.</span><span class="nf">Equals</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">id</span><span class="p">));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Table</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+ <h2 id="html">HTML</h2>
+ <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Meta, title, CSS, favicons, etc. --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"author"</span> <span class="na">content=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Bootstrap<span class="nt">&lt;/title&gt;</span>
+
+    <span class="c">&lt;!-- Bootstrap core CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./dist/css/bootstrap.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Documentation extras --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./assets/css/docs.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./assets/css/pygments-manni.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"./assets/ico/favicon.png"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">"bs-docs-home"</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- Docs master nav --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse navbar-fixed-top bs-docs-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./"</span> <span class="na">class=</span><span class="s">"navbar-brand"</span><span class="nt">&gt;</span>Bootstrap 3 RC1<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"navbar-toggle"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">".bs-navbar-collapse"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-collapse collapse bs-navbar-collapse"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./getting-started"</span><span class="nt">&gt;</span>Getting started<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./css"</span><span class="nt">&gt;</span>CSS<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./components"</span><span class="nt">&gt;</span>Components<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./javascript"</span><span class="nt">&gt;</span>JavaScript<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"./customize"</span><span class="nt">&gt;</span>Customize<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Page content of course! --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bs-masthead"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Bootstrap 3<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead"</span><span class="nt">&gt;</span>Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/twbs/bootstrap/releases/tag/v3.0.0-rc1"</span> <span class="na">class=</span><span class="s">"btn btn-bs btn-large"</span> <span class="na">onclick=</span><span class="s">"_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.0 RC1']);"</span><span class="nt">&gt;</span>Download Bootstrap<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./assets/js/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./dist/js/bootstrap.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./assets/js/holder.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./assets/js/application.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+</code></pre></div></div>
+ <h2 id="r">R</h2>
+ <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">geom_dotplot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="p">(</span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bindot"</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"identity"</span><span class="p">,</span><span class="w">
+</span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">binwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">binaxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s2">"dotdensity"</span><span class="p">,</span><span class="w"> </span><span class="n">binpositions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bygroup"</span><span class="p">,</span><span class="w"> </span><span class="n">stackdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"up"</span><span class="p">,</span><span class="w">
+</span><span class="n">stackratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">dotsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stackgroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">GeomDotplot</span><span class="o">$</span><span class="n">new</span><span class="p">(</span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapping</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w">
+  </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">na.rm</span><span class="p">,</span><span class="w"> </span><span class="n">binwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binwidth</span><span class="p">,</span><span class="w"> </span><span class="n">binaxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binaxis</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">binpositions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binpositions</span><span class="p">,</span><span class="w">
+  </span><span class="n">stackdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackdir</span><span class="p">,</span><span class="w"> </span><span class="n">stackratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackratio</span><span class="p">,</span><span class="w"> </span><span class="n">dotsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dotsize</span><span class="p">,</span><span class="w"> </span><span class="n">stackgroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackgroups</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">GeomDotplot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">proto</span><span class="p">(</span><span class="n">Geom</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">objname</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"dotplot"</span><span class="w">
+
+  </span><span class="n">new</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">){</span><span class="w">
+    </span><span class="c1"># This code is adapted from Layer$new. It's needed to pull out the stat_params</span><span class="w">
+    </span><span class="c1"># and geom_params, then manually add binaxis to both sets of params. Otherwise</span><span class="w">
+    </span><span class="c1"># Layer$new will give binaxis only to the geom.</span><span class="w">
+
+    </span><span class="n">stat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Stat</span><span class="o">$</span><span class="n">find</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span><span class="w">
+    </span><span class="n">match.params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">possible</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">"..."</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">possible</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="n">params</span><span class="w">
+      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="n">params</span><span class="p">[</span><span class="n">match</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">possible</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">params</span><span class="p">),</span><span class="w"> </span><span class="n">nomatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+    </span><span class="n">params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">...</span><span class="p">)</span><span class="w">
+    </span><span class="c1"># American names must be changed here so that they'll go to geom_params;</span><span class="w">
+    </span><span class="c1"># otherwise they'll end up in stat_params</span><span class="w">
+    </span><span class="n">params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rename_aes</span><span class="p">(</span><span class="n">params</span><span class="p">)</span><span class="w">
+
+    </span><span class="n">geom_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">match.params</span><span class="p">(</span><span class="n">.</span><span class="o">$</span><span class="n">parameters</span><span class="p">(),</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w">
+    </span><span class="n">stat_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">match.params</span><span class="p">(</span><span class="n">stat</span><span class="o">$</span><span class="n">parameters</span><span class="p">(),</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w">
+    </span><span class="n">stat_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stat_params</span><span class="p">[</span><span class="n">setdiff</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">stat_params</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">geom_params</span><span class="p">))]</span><span class="w">
+    </span><span class="c1"># Add back binaxis</span><span class="w">
+    </span><span class="n">stat_params</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">stat_params</span><span class="p">,</span><span class="w"> </span><span class="n">binaxis</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># If identical(position, "stack") or position is position_stack() (the test</span><span class="w">
+    </span><span class="c1">#  is kind of complex), tell them to use stackgroups=TRUE instead. Need to</span><span class="w">
+    </span><span class="c1">#  use identical() instead of ==, because == will fail if object is</span><span class="w">
+    </span><span class="c1">#  position_stack() or position_dodge()</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">identical</span><span class="p">(</span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="s2">"stack"</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">is.proto</span><span class="p">(</span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">position</span><span class="o">$</span><span class="n">objname</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"stack"</span><span class="p">)))</span><span class="w">
+      </span><span class="n">message</span><span class="p">(</span><span class="s2">"position=\"stack\" doesn't work properly with geom_dotplot. Use stackgroups=TRUE instead."</span><span class="p">)</span><span class="w">
+
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackgroups</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"dotdensity"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binpositions</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"bygroup"</span><span class="p">)</span><span class="w">
+      </span><span class="n">message</span><span class="p">(</span><span class="s1">'geom_dotplot called with stackgroups=TRUE and method="dotdensity". You probably want to set binpositions="all"'</span><span class="p">)</span><span class="w">
+
+    </span><span class="n">do.call</span><span class="p">(</span><span class="s2">"layer"</span><span class="p">,</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapping</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">,</span><span class="w"> </span><span class="n">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w">
+                          </span><span class="n">geom_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">geom_params</span><span class="p">,</span><span class="w"> </span><span class="n">stat_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat_params</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">))</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+  </span><span class="n">reparameterise</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">%||%</span><span class="w">
+      </span><span class="n">params</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">%||%</span><span class="w"> </span><span class="p">(</span><span class="n">resolution</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># Set up the stacking function and range</span><span class="w">
+    </span><span class="k">if</span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"up"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">.5</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"down"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">.5</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-1</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"center"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-.5</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">.5</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackdir</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"centerwhole"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="n">stackdots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+      </span><span class="n">stackaxismin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-.5</span><span class="w">
+      </span><span class="n">stackaxismax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">.5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+    </span><span class="c1"># Fill the bins: at a given x (or y), if count=3, make 3 entries at that x</span><span class="w">
+    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="p">[</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">count</span><span class="p">),</span><span class="w"> </span><span class="p">]</span><span class="w">
+
+    </span><span class="c1"># Next part will set the position of each dot within each stack</span><span class="w">
+    </span><span class="c1"># If stackgroups=TRUE, split only on x (or y) and panel; if not stacking, also split by group</span><span class="w">
+    </span><span class="n">plyvars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">%||%</span><span class="w"> </span><span class="s2">"x"</span><span class="w">
+    </span><span class="n">plyvars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">plyvars</span><span class="p">,</span><span class="w"> </span><span class="s2">"PANEL"</span><span class="p">)</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">stackgroups</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">params</span><span class="o">$</span><span class="n">stackgroups</span><span class="p">)</span><span class="w">
+      </span><span class="n">plyvars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">plyvars</span><span class="p">,</span><span class="w"> </span><span class="s2">"group"</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># Within each x, or x+group, set countidx=1,2,3, and set stackpos according to stack function</span><span class="w">
+    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">plyvars</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="n">xx</span><span class="o">$</span><span class="n">countidx</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">nrow</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span><span class="w">
+            </span><span class="n">xx</span><span class="o">$</span><span class="n">stackpos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackdots</span><span class="p">(</span><span class="n">xx</span><span class="o">$</span><span class="n">countidx</span><span class="p">)</span><span class="w">
+            </span><span class="n">xx</span><span class="w">
+          </span><span class="p">})</span><span class="w">
+
+    </span><span class="c1"># Set the bounding boxes for the dots</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"x"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1"># ymin, ymax, xmin, and xmax define the bounding rectangle for each stack</span><span class="w">
+      </span><span class="c1"># Can't do bounding box per dot, because y position isn't real.</span><span class="w">
+      </span><span class="c1"># After position code is rewritten, each dot should have its own bounding box.</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">binwidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">binwidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">ymin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackaxismin</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">ymax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stackaxismax</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">y</span><span class="w">    </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">
+
+    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="o">$</span><span class="n">binaxis</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"y"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1"># ymin, ymax, xmin, and xmax define the bounding rectangle for each stack</span><span class="w">
+      </span><span class="c1"># Can't do bounding box per dot, because x position isn't real.</span><span class="w">
+      </span><span class="c1"># xmin and xmax aren't really the x bounds, because of the odd way the grob</span><span class="w">
+      </span><span class="c1"># works. They're just set to the standard x +- width/2 so that dot clusters</span><span class="w">
+      </span><span class="c1"># can be dodged like other geoms.</span><span class="w">
+      </span><span class="c1"># After position code is rewritten, each dot should have its own bounding box.</span><span class="w">
+      </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ddply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">group</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="p">,</span><span class="w">
+            </span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">binwidth</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">
+            </span><span class="n">ymax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">binwidth</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackaxismin</span><span class="w">
+      </span><span class="n">df</span><span class="o">$</span><span class="n">xmax</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackaxismax</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+    </span><span class="n">df</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+ <h2 id="ruby">Ruby</h2>
+ <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">HTMLProcessor</span>
+
+  <span class="c1"># called before parsing anything</span>
+  <span class="k">def</span> <span class="nf">start_parsing</span><span class="p">(</span><span class="n">scope_name</span><span class="p">)</span>
+    <span class="vi">@line</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="vi">@offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="vi">@text</span><span class="o">=</span> <span class="p">[]</span>
+  <span class="k">end</span>
+
+  <span class="c1"># called after parsing everything</span>
+  <span class="k">def</span> <span class="nf">end_parsing</span><span class="p">(</span><span class="n">scope_name</span><span class="p">)</span>
+    <span class="vi">@text</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+      <span class="vi">@text</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;span class='l l-</span><span class="si">#{</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">scope_name</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span><span class="s1">' '</span><span class="p">)</span><span class="si">}</span><span class="s2">'&gt;</span><span class="si">#{</span><span class="n">line</span><span class="si">}</span><span class="s2">&lt;/span&gt;"</span>
+    <span class="k">end</span>
+    <span class="nb">puts</span> <span class="vi">@text</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># called before processing a line</span>
+  <span class="k">def</span> <span class="nf">new_line</span><span class="p">(</span><span class="n">line_content</span><span class="p">)</span>
+    <span class="vi">@offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="vi">@line</span> <span class="o">=</span> <span class="n">line_content</span><span class="p">.</span><span class="nf">clone</span>
+    <span class="vi">@text</span> <span class="o">&lt;&lt;</span> <span class="vi">@line</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">open_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">position_in_current_line</span><span class="p">)</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="s2">"&lt;s class='</span><span class="si">#{</span><span class="n">tag_name</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span><span class="s2">" "</span><span class="p">)</span><span class="si">}</span><span class="s2">'&gt;"</span>
+    <span class="vi">@line</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">position_in_current_line</span> <span class="o">+</span> <span class="vi">@offset</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+    <span class="vi">@offset</span> <span class="o">+=</span> <span class="n">tag</span><span class="p">.</span><span class="nf">size</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">close_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">position_in_current_line</span><span class="p">)</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="s2">"&lt;/s&gt;"</span>
+    <span class="vi">@line</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">position_in_current_line</span> <span class="o">+</span> <span class="vi">@offset</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+    <span class="vi">@offset</span> <span class="o">+=</span> <span class="n">tag</span><span class="p">.</span><span class="nf">size</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">syntax</span> <span class="o">=</span> <span class="no">Textpow</span><span class="p">.</span><span class="nf">syntax</span><span class="p">(</span><span class="s1">'ruby'</span><span class="p">)</span> <span class="c1"># or 'source.ruby' or 'lib/textpow/syntax/source.ruby.syntax'</span>
+<span class="n">processor</span> <span class="o">=</span> <span class="no">HTMLProcessor</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">syntax</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">processor</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../boot'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="s1">'rails/all'</span>
+
+<span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="no">Bundler</span><span class="p">)</span>
+  <span class="c1"># If you precompile assets before deploying to production, use this line</span>
+  <span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="o">*</span><span class="no">Rails</span><span class="p">.</span><span class="nf">groups</span><span class="p">(</span><span class="ss">:assets</span> <span class="o">=&gt;</span> <span class="sx">%w(development test)</span><span class="p">))</span>
+  <span class="c1"># If you want your assets lazily compiled in production, use this line</span>
+  <span class="c1"># Bundler.require(:default, :assets, Rails.env)</span>
+<span class="k">end</span>
+
+<span class="nb">require</span> <span class="s1">'rubygems'</span>
+
+<span class="c1"># Set up gems listed in the Gemfile.</span>
+<span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">]</span> <span class="o">||=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../../Gemfile'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="s1">'bundler/setup'</span> <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s1">'BUNDLE_GEMFILE'</span><span class="p">])</span>
+
+</code></pre></div></div>
+ <h2 id="php">PHP</h2>
+ <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;?php</span>
+
+<span class="c1">// base class with member properties and methods</span>
+<span class="kd">class</span> <span class="nc">Vegetable</span> <span class="p">{</span>
+
+   <span class="k">var</span> <span class="nv">$edible</span><span class="p">;</span>
+   <span class="k">var</span> <span class="nv">$color</span><span class="p">;</span>
+
+   <span class="k">function</span> <span class="n">Vegetable</span><span class="p">(</span><span class="nv">$edible</span><span class="p">,</span> <span class="nv">$color</span><span class="o">=</span><span class="s2">"green"</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">edible</span> <span class="o">=</span> <span class="nv">$edible</span><span class="p">;</span>
+       <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">color</span> <span class="o">=</span> <span class="nv">$color</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">function</span> <span class="n">is_edible</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">edible</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">function</span> <span class="n">what_color</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">color</span><span class="p">;</span>
+   <span class="p">}</span>
+
+<span class="p">}</span> <span class="c1">// end of class Vegetable</span>
+
+<span class="c1">// extends the base class</span>
+<span class="kd">class</span> <span class="nc">Spinach</span> <span class="kd">extends</span> <span class="nc">Vegetable</span> <span class="p">{</span>
+
+   <span class="k">var</span> <span class="nv">$cooked</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+   <span class="k">function</span> <span class="n">Spinach</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">Vegetable</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="k">function</span> <span class="n">cook_it</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">cooked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">function</span> <span class="n">is_cooked</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">cooked</span><span class="p">;</span>
+   <span class="p">}</span>
+
+<span class="p">}</span> <span class="c1">// end of class Spinach</span>
+
+<span class="cp">?&gt;</span>
+
+</code></pre></div></div>
+ <h2 id="markdown">Markdown</h2>
+ <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="gu">Title 1
+==
+</span>
+<span class="gh">Title 2
+-------
+</span>
+<span class="gh"># Title 1</span>
+<span class="gu">## Title 2</span>
+<span class="gu">### Title 3</span>
+<span class="gu">#### Title 4</span>
+<span class="gu">##### Title 5</span>
+<span class="gu">###### Title 6</span>
+
+Normal text
+
+<span class="ge">*Italic*</span>
+<span class="ge">**</span>Bold on
+multiple lines<span class="ge">**</span>
+<span class="err">*</span>Italic on
+multiple lines too<span class="err">*</span>
+<span class="gs">__It also works with underscores__</span>
+<span class="ge">_It also works with underscores_</span>
+
+<span class="ge">__</span>An empty line
+
+is not allowed__
+
+<span class="p">[</span><span class="nv">Prism</span><span class="p">](</span><span class="sx">https://prismjs.com/</span><span class="p">)</span>
+<span class="p">[</span><span class="nv">Prism</span><span class="p">](</span><span class="sx">https://prismjs.com/</span> “Prism”)
+
+<span class="p">[</span><span class="ss">prism link</span><span class="p">]:</span> <span class="sx">https://prismjs.com/</span> <span class="nn">(Prism)</span>
+[Prism] [prism link]
+<span class="p">
+*</span> This is
+<span class="p">*</span> an unordered list
+<span class="p">
+1.</span> This is an
+<span class="p">2.</span> ordered list
+<span class="p">
+*</span> <span class="ge">*List item in italic*</span>
+<span class="p">*</span> <span class="gs">**List item in bold**</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">List item as a link</span><span class="p">](</span><span class="sx">http://example.com</span> “This is an example”)
+<span class="gt">
+&gt; This is a quotation</span>
+<span class="gt">&gt;&gt; With another quotation inside</span>
+<span class="gt">&gt; _italic here_, __bold there__</span>
+<span class="gt">&gt; And a [link](http://example.com)</span>
+
+Inline code between backticks <span class="sb">`Paragraph`
+
+    some_code(); /* Indented
+    with four spaces */
+
+	some_code(); /* Indented
+	with a tab */
+
+</span></code></pre></div></div>
+ <h2 id="yaml">YAML</h2>
+ <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">%YAML</span> <span class="m">1.2</span>
+<span class="nn">---</span> <span class="kt">!&lt;tag:clarkevans.com,2002:invoice&gt;</span>
+<span class="na">invoice</span><span class="pi">:</span> <span class="m">34843</span>
+<span class="na">date   </span><span class="pi">:</span> <span class="s">2001-01-23</span>
+<span class="na">bill-to</span><span class="pi">:</span> <span class="nl">&amp;id001</span>
+  <span class="na">given  </span><span class="pi">:</span> <span class="s">Chris</span>
+  <span class="na">family </span><span class="pi">:</span> <span class="s">Dumars</span>
+  <span class="na">address</span><span class="pi">:</span>
+    <span class="na">lines</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">458 Walkman Dr.</span>
+      <span class="s">Suite #292</span>
+    <span class="na">city    </span><span class="pi">:</span> <span class="s">Royal Oak</span>
+    <span class="na">state   </span><span class="pi">:</span> <span class="s">MI</span>
+    <span class="na">postal  </span><span class="pi">:</span> <span class="m">48046</span>
+<span class="na">ship-to</span><span class="pi">:</span>
+  <span class="na">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*id001</span>
+  <span class="na">product</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">sku         </span><span class="pi">:</span> <span class="s">BL394D</span>
+      <span class="na">quantity    </span><span class="pi">:</span> <span class="m">4</span>
+      <span class="na">description </span><span class="pi">:</span> <span class="s">Basketball</span>
+      <span class="na">price       </span><span class="pi">:</span> <span class="m">450.00</span>
+    <span class="pi">-</span> <span class="na">sku         </span><span class="pi">:</span> <span class="s">BL4438H</span>
+      <span class="na">quantity    </span><span class="pi">:</span> <span class="m">1</span>
+      <span class="na">description </span><span class="pi">:</span> <span class="s">Super Hoop</span>
+      <span class="na">price       </span><span class="pi">:</span> <span class="m">2392.00</span>
+<span class="na">tax  </span><span class="pi">:</span> <span class="m">251.42</span>
+<span class="na">total</span><span class="pi">:</span> <span class="m">4443.52</span>
+<span class="na">comments</span><span class="pi">:</span>
+    <span class="s">Late afternoon is best.</span>
+    <span class="s">Backup contact is Nancy</span>
+
+</code></pre></div></div>
+ <h2 id="json">JSON</h2>
+ <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-06-21T08:10:46Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"farm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5855620975"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfriend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ispublic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32021554@N04"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1f5e8515d"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5110"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7087 bandit cat"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"farm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5856170534"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfriend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ispublic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32021554@N04"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff1efb2a6f"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3217"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6975 rusty cat"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"farm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5856172972"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfriend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ispublic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51249875@N03"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c6887347c"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5192"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watermarked-cats"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"farm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5856168328"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfriend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ispublic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32021554@N04"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0c1cfdf64c"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5078"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7020 mandy cat"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"farm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5856171774"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"isfriend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ispublic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32021554@N04"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7f5a3180ab"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2696"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7448 bobby cat"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+</div>
+</div>
+			</article>
+		</div>
+	</div>
+	</main>
+<div class="container-lg my-1">
+ <div class="row">
+   <div class="col-lg-8 offset-lg-2 col">
+      <i class="fas fa-tag mr-1 fa-xs" aria-hidden="true"></i>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#docs" class="badge chulapa-pill-bg-primary p-category" rel="tag" >docs</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#appearance" class="badge chulapa-pill-bg-primary p-category" rel="tag" >appearance</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#code-highlighting" class="badge chulapa-pill-bg-primary p-category" rel="tag" >code-highlighting</a>
+     </div>
+   </div>
+</div>
+<!-- Compatible with Jekyll v3 and v4, pure Jekyll group by -->
+       <div class="container-lg mt-1 mb-2">
+         <div class="row">
+           <div class="col-lg-8 offset-lg-2">
+             <hr>
+               <h2>Related documentation</h2>
+             <nav class="card-group" aria-label="related-articles"><div class="card  border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/28-custom-skin" class="chulapa-text-body-color">
+              Adapt a Sass skin
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Preview existing Sass assignments and apply them to your site</small>
+           </p></div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/25-code-highlighting" class="chulapa-text-body-color">
+              Change code highlighting
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Apply a highlighting stylesheet to code blocks</small>
+           </p></div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/03-theming" class="chulapa-text-body-color">
+              Theming <span class="chulapa">Chulapa</span>
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Appearance settings reference</small>
+           </p></div>
+     </div></nav>
+           </div>
+         </div>
+       </div></div>
+  <!-- Footer -->
+  <footer class="footer-chulapa text-center mt-0 pt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <!-- Include the script from  https://giscus.app/ -->
+<script src="https://giscus.app/client.js"
+        data-repo="dieghernan/chulapa"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTQ0NjMyOTg="
+        data-category="General"
+        data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyOTI0OTg2"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_high_contrast"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            <a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+            <a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">My blog</span>
+            </a>
+          </nav>
+          <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
+          <!-- Do not remove this in order to give attributions -->
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <!-- End attributions -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
+<!-- JS, Popper.js, and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
+	<script src="/chulapa/assets/js/chulapa_script.js"></script>
+	<!-- start custom scripts to be placed at the bottom of the page -->
+    <script defer
+            src="https://chulapa-ai-prototype.dieghernan.workers.dev/widget.js"
+            data-endpoint="https://chulapa-ai-prototype.dieghernan.workers.dev/api/chat"
+            data-position="right"
+            data-menu-toggle="navi-toggle"
+            data-sidebar-toggle="demo"
+            data-search="/chulapa/search"></script>
+<!-- end custom bottom scripts -->
+	</body>
+</html>

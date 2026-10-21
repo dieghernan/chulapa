@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- MIT License -->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build 2026-10-21 -->
+    <!-- Jekyll Version 4.4.1 -->
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://dieghernan.github.io/chulapa/docs/30-add-carousel",
+        "name": "Add a manual slideshow",
+        "description": "Display an image group with previous and next controls - Use this guide for an existing post or page. First upload and group photographs following Add a photo gallery. Keep the same image_col: gallery group; a custom layout must load Bootstrap’s scripts for slideshow controls to work.",
+        "headline": "Add a manual slideshow",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
+        "datePublished": "2026-10-21T10:47:06+02:00",
+        "dateModified": "2026-10-21T10:47:06+02:00",
+        "author": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://github.com/dieghernan/",
+          "sameAs": [
+            "https://dieghernan.github.io/",
+            "https://stackoverflow.com/users/7877917/dieghernan"
+          ]
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://dieghernan.github.io/chulapa/",
+          "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb-1",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dieghernan.github.io/chulapa/"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb-2",
+            "position": 2,
+            "name": "Docs",
+            "item": "https://dieghernan.github.io/chulapa/docs"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb-3",
+            "position": 3,
+            "item": "https://dieghernan.github.io/chulapa/docs/30-add-carousel",
+            "name": "Add a manual slideshow"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Madrid, Spain"
+        },
+        "description": "Site author",
+        "name": "dieghernan",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "sameAs": [
+          "https://github.com/dieghernan/",
+          "https://dieghernan.github.io/",
+          "https://stackoverflow.com/users/7877917/dieghernan"
+        ]
+      }
+    </script>
+    <title>Add a manual slideshow | Chulapa</title>
+    <link rel="canonical" href="https://dieghernan.github.io/chulapa/docs/30-add-carousel">
+    <!-- Atom feed -->
+    <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
+    <!-- RSS 2.0 feed -->
+    <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" >
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="dieghernan" >
+    <meta name="copyright" content="dieghernan" >
+    <meta name="description" content="Display an image group with previous and next controls - Use this guide for an existing post or page. First upload and group photographs following Add a photo gallery. Keep the same image_col: gallery group; a custom layout must load Bootstrap’s scripts for slideshow controls to work.">
+    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <meta name="robots" content="index, follow">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Add a manual slideshow | Chulapa" >
+    <meta property="og:site_name" content="Chulapa" >
+    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/30-add-carousel" >
+    <meta property="og:type" content="website" >
+    <meta property="og:description" content="Display an image group with previous and next controls - Use this guide for an existing post or page. First upload and group photographs following Add a photo gallery. Keep the same image_col: gallery group; a custom layout must load Bootstrap’s scripts for slideshow controls to work." >
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <!-- Twitter/X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Display an image group with previous and next controls - Use this guide for an existing post or page. First upload and group photographs following Add a photo gallery. Keep the same image_col: gallery group; a custom layout must load Bootstrap’s scripts for slideshow controls to work.">
+    <meta name="twitter:site" content="@dhernangomez" >
+    <!-- start custom head snippets -->
+<!-- this script is inserted before the css stylesheet -->
+<!-- end custom head snippets -->
+    <!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontawesome-->
+    <!-- v6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+    <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
+    <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+    <!-- Theme css (Bootstrap included) -->
+    <link rel="stylesheet" id="maincss" href="https://dieghernan.github.io/chulapa/assets/css/main.css" >
+    <!-- Highlighter -->
+    <link id="csshigh" rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/highlighter.css" >
+    <!-- Custom css -->
+    <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q654SQGBGS');
+    </script>
+    <script data-goatcounter="https://chulapa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <!-- start custom head snippets -->
+    <!-- https://realfavicongenerator.net/-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+    <link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+    <link rel="llms" href="https://dieghernan.github.io/chulapa/llms.txt">
+    <meta name="apple-mobile-web-app-title" content="Chulapa">
+    <meta name="application-name" content="Chulapa">
+    <meta name="msapplication-TileColor" content="#efebdd">
+    <meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#efebdd">
+    <!-- end custom head snippets -->
+    <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+</head>
+<body class="d-flex flex-column" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
+	<noscript>
+ <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="https://dieghernan.github.io/chulapa/">Home</a>
+   <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/blog/">Blog</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs">Documentation</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/skins">Skins</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo">Index</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/license">License</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/showcase">Showcase</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/contribute">Contribute</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></li>
+     <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/search">Search</a></li>
+   </ul>
+ </nav>
+</noscript>
+	<div class="navbar-chulapa-fab">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Documentation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="About" data-toggle="dropdown" aria-expanded="false">About</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="About"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/license">License </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/showcase">Showcase </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/contribute">Contribute </a><a class="dropdown-item nav-link d-block px-3 small " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
+    <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/30-add-carousel">Invisible link to canonical for Microformats</a>
+	<main class="d-flex flex-column flex-fill">
+	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
+   <h1 class="p-name">Add a manual slideshow</h1><hr class="my-3">
+   <p class="chulapa-subtitle p-summary">Display an image group with previous and next controls</p>
+ </div>
+</header>
+	<div class="container-lg pb-3 flex-fill">
+<div class="row my-1">
+<div class="col-lg-8 offset-lg-2 col small">
+ <nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/" itemprop="item"><span itemprop="name">Home</span></a>
+         <meta itemprop="position" content="1" ></li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb-2"><a href="https://dieghernan.github.io/chulapa/docs" itemprop="item"><span itemprop="name">Docs</span></a>
+         <meta itemprop="position" content="2" ></li>
+      <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/30-add-carousel#breadcrumb-3">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/docs/30-add-carousel">
+        <span itemprop="name">Add a manual slideshow</span>
+       <meta itemprop="position" content="3" >
+     </li>
+ </ol>
+ </nav>
+ </div></div>
+		<div class="row pt-2">
+			<div class="col-lg-2 mt-lg-3 small"></div>
+			<article id="maincontent" class="col-lg-8 mt-3">
+	<button type="button" class="btn btn-primary btn-sm rounded-right position-fixed chulapa-btn-sidebar bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" id='chulapa-sidetoc-toggle' onclick="openSideBar()" aria-label="Open Sidebar" aria-expanded="false" aria-controls="sideBar">
+		<i class="fa-solid fa-plus"></i><span class="sr-only">Open Sidebar</span>
+	</button>
+	<div class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed navbar-chulapa h-100" id='sideBar' aria-hidden="true" inert>
+		<p class="pt-2 pb-1 px-3">
+			<button type="button" class="navbar-text close chulapa-btn-nofocus chulapa-fa-static" aria-label="Close" onclick="closeSideBar()">
+				<i class="fa-solid fa-times"></i><span class="sr-only">Close Sidebar</span>
+			</button>
+		</p>
+		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
+		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Add a manual slideshow</a></p>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#insert-a-carousel" class="nav-link">Insert a carousel</a></li><li class="nav-item nav d-block"><a href="#publish-and-check" class="nav-link">Publish and check</a></li></ul>
+		</nav>   
+	</div>
+			<div class="e-content"><p>Use this guide for an existing post or page. First upload and group photographs
+following <a href="./29-add-gallery#group-the-photographs">Add a photo gallery</a>. Keep the
+same <code class="language-plaintext highlighter-rouge">image_col: gallery</code> group; a custom layout must load Bootstrap’s scripts
+for slideshow controls to work.</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Version requirement:</strong> this recipe’s filename ordering and keyboard-operable
+buttons and indicators require <code class="language-plaintext highlighter-rouge">main</code> after v2.1.0 (v2.1.1-dev), or a later release
+containing those fixes. In v2.1.0, the sort field is not applied correctly,
+indicators cannot receive keyboard focus and previous/next links do not activate
+with Space.</p>
+<h2 id="insert-a-carousel">Insert a carousel</h2>
+<p>Add this to the Markdown body of your page, replacing a masonry include if you
+want to display the same photographs only once:</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">include_cached</span><span class="w"> </span>snippets/carousel.html<span class="w"> </span><span class="na">internal</span><span class="o">=</span><span class="s2">"gallery"</span><span class="w"> </span><span class="na">index_sort</span><span class="o">=</span><span class="s2">"basename"</span><span class="w"> </span><span class="na">index_sort_asc</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">interval</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="na">controls</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="na">indicators</span><span class="o">=</span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
+</code></pre></div></div>
+<p>This starts with manual navigation. Pass <code class="language-plaintext highlighter-rouge">0</code> without quotes to stop automatic
+cycling; pass <code class="language-plaintext highlighter-rouge">true</code> without quotes for the controls and slide indicators.</p>
+<h2 id="publish-and-check">Publish and check</h2>
+<p>Save with <strong>Commit changes</strong> on your publishing branch. Wait for <strong>Actions</strong> to
+succeed, then open the site from <strong>Settings &gt; Pages</strong>. Check the published page,
+not only GitHub’s file preview. For a local preview, restart Jekyll after changing
+<code class="language-plaintext highlighter-rouge">_config.yml</code>. If the result is missing, use <a href="./42-unpublished-changes">the publishing checks</a>.</p>
+<p>Check the previous/next buttons and indicators on a narrow screen. Use Tab to
+reach each control and Enter or Space to activate it. An empty slideshow usually
+means the folder or <code class="language-plaintext highlighter-rouge">image_col</code> group does not match the include.</p>
+<p>For optional automatic cycling, timing and control colors, see
+<a href="./04-layouts#bootstrap-carousel">the carousel reference</a>. For a zoomable viewer,
+follow <a href="./31-photoswipe">Enable PhotoSwipe</a>.</p>
+</div>
+			</article>
+		</div>
+	</div>
+	</main>
+<div class="container-lg my-1">
+ <div class="row">
+   <div class="col-lg-8 offset-lg-2 col">
+      <i class="fas fa-tag mr-1 fa-xs" aria-hidden="true"></i>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#docs" class="badge chulapa-pill-bg-primary p-category" rel="tag" >docs</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#content" class="badge chulapa-pill-bg-primary p-category" rel="tag" >content</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#media" class="badge chulapa-pill-bg-primary p-category" rel="tag" >media</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#images" class="badge chulapa-pill-bg-primary p-category" rel="tag" >images</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#galleries" class="badge chulapa-pill-bg-primary p-category" rel="tag" >galleries</a>
+     </div>
+   </div>
+</div>
+<!-- Compatible with Jekyll v3 and v4, pure Jekyll group by -->
+       <div class="container-lg mt-1 mb-2">
+         <div class="row">
+           <div class="col-lg-8 offset-lg-2">
+             <hr>
+               <h2>Related documentation</h2>
+             <nav class="card-group" aria-label="related-articles"><div class="card  border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/31-photoswipe" class="chulapa-text-body-color">
+              Enable PhotoSwipe on a gallery
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Open gallery images in a zoomable viewer</small>
+           </p></div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/29-add-gallery" class="chulapa-text-body-color">
+              Add a photo gallery
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Group uploaded photographs in a masonry gallery</small>
+           </p></div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/50-add-caption" class="chulapa-text-body-color">
+              Add a caption below an image
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Keep the visible caption separate from alternative text</small>
+           </p></div>
+     </div></nav>
+           </div>
+         </div>
+       </div></div>
+  <!-- Footer -->
+  <footer class="footer-chulapa text-center mt-0 pt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <!-- Include the script from  https://giscus.app/ -->
+<script src="https://giscus.app/client.js"
+        data-repo="dieghernan/chulapa"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTQ0NjMyOTg="
+        data-category="General"
+        data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyOTI0OTg2"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_high_contrast"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            <a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+            <a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">My blog</span>
+            </a>
+          </nav>
+          <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
+          <!-- Do not remove this in order to give attributions -->
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <!-- End attributions -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
+<!-- JS, Popper.js, and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
+	<script src="/chulapa/assets/js/chulapa_script.js"></script>
+	<!-- start custom scripts to be placed at the bottom of the page -->
+    <script defer
+            src="https://chulapa-ai-prototype.dieghernan.workers.dev/widget.js"
+            data-endpoint="https://chulapa-ai-prototype.dieghernan.workers.dev/api/chat"
+            data-position="right"
+            data-menu-toggle="navi-toggle"
+            data-sidebar-toggle="demo"
+            data-search="/chulapa/search"></script>
+<!-- end custom bottom scripts -->
+	</body>
+</html>

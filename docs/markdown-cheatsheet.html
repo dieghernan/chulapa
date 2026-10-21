@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - v2.2.0 (unreleased) -->
+    <!-- MIT License -->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build 2026-10-21 -->
+    <!-- Jekyll Version 4.4.1 -->
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet",
+        "name": "Markdown cheatsheet",
+        "description": "Syntax specimens and rendered output - Reference examples for Markdown formatting and kramdown extensions.",
+        "headline": "Markdown cheatsheet",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
+        "datePublished": "2026-10-21T10:47:06+02:00",
+        "dateModified": "2026-10-21T10:47:06+02:00",
+        "author": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://github.com/dieghernan/",
+          "sameAs": [
+            "https://dieghernan.github.io/",
+            "https://stackoverflow.com/users/7877917/dieghernan"
+          ]
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "dieghernan",
+          "url": "https://dieghernan.github.io/chulapa/",
+          "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb-1",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dieghernan.github.io/chulapa/"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb-2",
+            "position": 2,
+            "name": "Docs",
+            "item": "https://dieghernan.github.io/chulapa/docs"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb-3",
+            "position": 3,
+            "item": "https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet",
+            "name": "Markdown cheatsheet"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Madrid, Spain"
+        },
+        "description": "Site author",
+        "name": "dieghernan",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "sameAs": [
+          "https://github.com/dieghernan/",
+          "https://dieghernan.github.io/",
+          "https://stackoverflow.com/users/7877917/dieghernan"
+        ]
+      }
+    </script>
+    <title>Markdown cheatsheet | Chulapa</title>
+    <link rel="canonical" href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">
+    <!-- Atom feed -->
+    <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
+    <!-- RSS 2.0 feed -->
+    <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" >
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="dieghernan" >
+    <meta name="copyright" content="dieghernan" >
+    <meta name="description" content="Syntax specimens and rendered output - Reference examples for Markdown formatting and kramdown extensions.">
+    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <meta name="robots" content="index, follow">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Markdown cheatsheet | Chulapa" >
+    <meta property="og:site_name" content="Chulapa" >
+    <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet" >
+    <meta property="og:type" content="website" >
+    <meta property="og:description" content="Syntax specimens and rendered output - Reference examples for Markdown formatting and kramdown extensions." >
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
+    <!-- Twitter/X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Syntax specimens and rendered output - Reference examples for Markdown formatting and kramdown extensions.">
+    <meta name="twitter:site" content="@dhernangomez" >
+    <!-- start custom head snippets -->
+<!-- this script is inserted before the css stylesheet -->
+<!-- end custom head snippets -->
+    <!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontawesome-->
+    <!-- v6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+    <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
+    <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+    <!-- Theme css (Bootstrap included) -->
+    <link rel="stylesheet" id="maincss" href="https://dieghernan.github.io/chulapa/assets/css/main.css" >
+    <!-- Highlighter -->
+    <link id="csshigh" rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/highlighter.css" >
+    <!-- Custom css -->
+    <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q654SQGBGS');
+    </script>
+    <script data-goatcounter="https://chulapa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <!-- start custom head snippets -->
+    <!-- https://realfavicongenerator.net/-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+    <link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+    <link rel="llms" href="https://dieghernan.github.io/chulapa/llms.txt">
+    <meta name="apple-mobile-web-app-title" content="Chulapa">
+    <meta name="application-name" content="Chulapa">
+    <meta name="msapplication-TileColor" content="#efebdd">
+    <meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#efebdd">
+    <!-- end custom head snippets -->
+    <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+</head>
+<body class="d-flex flex-column" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
+	<noscript>
+ <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="https://dieghernan.github.io/chulapa/">Home</a>
+   <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/blog/">Blog</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs">Documentation</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/skins">Skins</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo">Index</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/license">License</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/showcase">Showcase</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/contribute">Contribute</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></li>
+     <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/search">Search</a></li>
+   </ul>
+ </nav>
+</noscript>
+	<div class="navbar-chulapa-fab">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Documentation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/03-theming">Customize your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/05-faq">Troubleshooting </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="About" data-toggle="dropdown" aria-expanded="false">About</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="About"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/license">License </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/showcase">Showcase </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/contribute">Contribute </a><a class="dropdown-item nav-link d-block px-3 small " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
+    <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">Invisible link to canonical for Microformats</a>
+	<main class="d-flex flex-column flex-fill">
+	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
+   <h1 class="p-name">Markdown cheatsheet</h1><hr class="my-3">
+   <p class="chulapa-subtitle p-summary">Syntax specimens and rendered output</p>
+ </div>
+</header>
+	<div class="container-lg pb-3 flex-fill">
+<div class="row my-1">
+<div class="col-lg-8 offset-lg-2 col small">
+ <nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/" itemprop="item"><span itemprop="name">Home</span></a>
+         <meta itemprop="position" content="1" ></li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb-2"><a href="https://dieghernan.github.io/chulapa/docs" itemprop="item"><span itemprop="name">Docs</span></a>
+         <meta itemprop="position" content="2" ></li>
+      <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet#breadcrumb-3">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet">
+        <span itemprop="name">Markdown cheatsheet</span>
+       <meta itemprop="position" content="3" >
+     </li>
+ </ol>
+ </nav>
+ </div></div>
+		<div class="row pt-2">
+			<div class="col-lg-2 mt-lg-3 small"></div>
+			<article id="maincontent" class="col-lg-8 mt-3">
+	<button type="button" class="btn btn-primary btn-sm rounded-right position-fixed chulapa-btn-sidebar bs-canvas-anim chulapa-btn-nofocus chulapa-fa-static" id='chulapa-sidetoc-toggle' onclick="openSideBar()" aria-label="Open Sidebar" aria-expanded="false" aria-controls="sideBar">
+		<i class="fa-solid fa-plus"></i><span class="sr-only">Open Sidebar</span>
+	</button>
+	<div class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed navbar-chulapa h-100" id='sideBar' aria-hidden="true" inert>
+		<p class="pt-2 pb-1 px-3">
+			<button type="button" class="navbar-text close chulapa-btn-nofocus chulapa-fa-static" aria-label="Close" onclick="closeSideBar()">
+				<i class="fa-solid fa-times"></i><span class="sr-only">Close Sidebar</span>
+			</button>
+		</p>
+		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
+		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Markdown cheatsheet</a></p>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#markdown-notation" class="nav-link">Markdown notation</a></li><li class="nav-item nav d-block"><a href="#markdown-cheatsheet" class="nav-link">Markdown cheatsheet</a></li><li class="nav-item nav d-block"><a href="#header-2" class="nav-link">Header 2</a><ul><li class="nav-item nav d-block"><a href="#header-3" class="nav-link">Header 3</a></li><li class="nav-item nav d-block"><a href="#definition-lists-can-be-used-with-html-syntax" class="nav-link">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li></ul></li><li class="nav-item nav d-block"><a href="#kramdown-extensions" class="nav-link">kramdown extensions</a></li><li class="nav-item nav d-block"><a href="#second-level-header" class="nav-link">Second level header</a></li><li class="nav-item nav d-block"><a href="#h2-header" class="nav-link">H2 header</a><ul><li class="nav-item nav d-block"><a href="#h3-header" class="nav-link">H3 header</a></li></ul></li><li class="nav-item nav d-block"><a href="#table-of-contents-syntax" class="nav-link">Table of contents syntax</a></li><li class="nav-item nav d-block"><a href="#headers-work-too" class="nav-link">Headers work too</a></li></ul>
+		</nav>   
+	</div>
+            <nav aria-label="table-of-contents">
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#markdown-notation">Markdown notation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#markdown-cheatsheet">Markdown cheatsheet</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#header-2">Header 2</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#header-3">Header 3</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#definition-lists-can-be-used-with-html-syntax">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#kramdown-extensions">kramdown extensions</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#second-level-header">Second level header</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#h2-header">H2 header</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#h3-header">H3 header</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#table-of-contents-syntax">Table of contents syntax</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#headers-work-too">Headers work too</a></li></ul>
+			</nav>
+			<div class="e-content"><p>Lookup for formatting syntax and its rendered result. For a complete article
+file and publishing steps, use <a href="./15-create-post">Create a post</a>. To insert a
+content index, use <a href="./58-content-toc">Add a table of contents inside an article</a>.</p>
+<h2 id="markdown-notation">Markdown notation</h2>
+<p>Markdown represents headings, links, lists and other formatting in plain text.
+The specimens below pair source notation with rendered output. External syntax
+reference: <a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a>.</p>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>Examples use the sample configuration’s GFM parser.</strong> Some extensions in the
+kramdown reference require <code class="language-plaintext highlighter-rouge">kramdown.input: Kramdown</code> rather than <code class="language-plaintext highlighter-rouge">GFM</code>. Check
+the generated page when changing parsers.</p>
+<h2 id="markdown-cheatsheet">Markdown cheatsheet</h2>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text can be <span class="gs">**bold**</span>, _italic_ or ~~strikethrough~~.
+</code></pre></div></div>
+<p>Text can be <strong>bold</strong>, <em>italic</em> or <del>strikethrough</del>.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Link to another page</span><span class="p">](</span><span class="sx">./01-install</span><span class="p">)</span>.
+</code></pre></div></div>
+<p><a href="./01-install">Link to another page</a>.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>There should be whitespace between this paragraph
+
+and this paragraph.
+</code></pre></div></div>
+<p>There should be whitespace between this paragraph</p>
+<p>and this paragraph.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Header 1</span>
+
+<span class="gu">## Header 2</span>
+
+<span class="gu">### Header 3</span>
+
+<span class="gu">#### Header 4</span>
+
+<span class="gu">##### Header 5</span>
+
+<span class="gu">###### Header 6</span>
+</code></pre></div></div>
+<h1 id="header-1">Header 1</h1>
+<h2 id="header-2">Header 2</h2>
+<h3 id="header-3">Header 3</h3>
+<h4 id="header-4">Header 4</h4>
+<h5 id="header-5">Header 5</h5>
+<h6 id="header-6">Header 6</h6>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; This is a blockquote following a header.</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; When something is important enough, you do it even if the odds are not in your favor.</span>
+</code></pre></div></div>
+<blockquote>
+ <p>This is a blockquote.</p>
+ <p>When something is important enough, you do it even if the odds are not in your
+favor.</p>
+</blockquote>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">js
+</span><span class="c1">// JavaScript code with syntax highlighting.</span>
+<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lang/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">```</span>
+
+<span class="p">```</span><span class="nl">ruby
+</span><span class="c1"># Ruby code with syntax highlighting</span>
+<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="p">```</span>
+
+<span class="p">```</span><span class="nl">html
+</span><span class="c">&lt;!--HTML code syntax highlighter--&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>This is a paragraph.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is another paragraph.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+<span class="p">```</span>
+</code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JavaScript code with syntax highlighting.</span>
+<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lang/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Ruby code with syntax highlighting</span>
+<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--HTML code syntax highlighter--&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>This is a paragraph.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is another paragraph.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> This is an unordered list.
+<span class="p">*</span> This is an unordered list.
+<span class="p">*</span> This is an unordered list.
+
+A two-level ordered list:
+<span class="p">
+1.</span>  This is an ordered list.
+<span class="p">2.</span>  This is an ordered list.
+<span class="p">    *</span> Unordered sub-list.
+<span class="p">    *</span> Unordered sub-list.
+<span class="p">12.</span> The starting number matters; subsequent items are numbered automatically.
+<span class="p">4.</span>  And another item.<span class="sb">
+
+    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces.
+
+    # And a header
+    
+</span>Unordered list can use asterisks:
+<span class="p">
+*</span> Like this
+<span class="p">-</span> Or minuses
+<span class="p">   -</span>  Minus
+<span class="p">      1.</span> One
+<span class="p">      2.</span> Two
+<span class="p">         +</span> Or pluses
+         
+And a task list:
+<span class="p">
+-</span> [x] This is a complete item
+<span class="p">-</span> [ ] This is an incomplete item
+
+</code></pre></div></div>
+<ul>
+ <li>This is an unordered list.</li>
+</ul>
+<p>A two-level ordered list:</p>
+<ol>
+ <li>This is an ordered list.</li>
+ <li>This is an ordered list.
+   <ul>
+     <li>Unordered sub-list.</li>
+     <li>Unordered sub-list.</li>
+   </ul>
+ </li>
+ <li>The starting number matters; subsequent items are numbered automatically.</li>
+ <li>
+   <p>And another item.</p>
+   <p>You can have properly indented paragraphs within list items. Notice the
+blank line above, and the leading spaces.</p>
+   <p># And a header</p>
+ </li>
+</ol>
+<p>Unordered list can use asterisks:</p>
+<ul>
+ <li>Like this</li>
+ <li>Or minuses
+   <ul>
+     <li>Minus
+       <ol>
+         <li>One</li>
+         <li>Two
+           <ul>
+             <li>Or pluses</li>
+           </ul>
+         </li>
+       </ol>
+     </li>
+   </ul>
+ </li>
+</ul>
+<p>And a task list:</p>
+<ul class="task-list">
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />This is a complete item</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />This is an incomplete item</li>
+</ul>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Use an emoji here: 👍🏻⭐️🏆
+
+</code></pre></div></div>
+<p>Use an emoji here: 👍🏻⭐️🏆</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To quickly turn a URL or email address into a link, enclose it in angle brackets.
+
+<span class="nv">&lt;https://www.markdownguide.org&gt;</span>
+<span class="nv">&lt;fake@example.com&gt;</span>
+
+</code></pre></div></div>
+<p>To quickly turn a URL or email address into a link, enclose it in angle
+brackets.</p>
+<p><a href="https://www.markdownguide.org">https://www.markdownguide.org</a>
+<a href="mailto:fake@example.com">fake@example.com</a></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+
+<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">This</span> is the first footnote.
+
+<span class="p">[</span><span class="ss">^bignote</span><span class="p">]:</span> <span class="sx">Here's</span> one with multiple paragraphs and code.<span class="sb">
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
+</span></code></pre></div></div>
+<p>Here’s a simple footnote,<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> and here’s a longer one.<sup id="fnref:bignote"><a href="#fn:bignote" class="footnote" rel="footnote" role="doc-noteref">2</a></sup></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+A table
+
+| <span class="gs">**id**</span> | <span class="gs">**name**</span> | <span class="gs">**age**</span> | <span class="gs">**gender**</span> |
+|:-------|:--------:|--------:|:----------:|
+| Left   | Center   | Right   | M          |
+| 2      | Oliver   | 25      | M          |
+| 3      | Shayna   | 18      | F          |
+| 4      | Fechin   | 18      | M          |
+
+</code></pre></div></div>
+<p>A table</p>
+<table>
+<thead>
+   <tr>
+     <th style="text-align: left"><strong>id</strong></th>
+     <th style="text-align: center"><strong>name</strong></th>
+     <th style="text-align: right"><strong>age</strong></th>
+     <th style="text-align: center"><strong>gender</strong></th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td style="text-align: left">Left</td>
+     <td style="text-align: center">Center</td>
+     <td style="text-align: right">Right</td>
+     <td style="text-align: center">M</td>
+   </tr>
+   <tr>
+     <td style="text-align: left">2</td>
+     <td style="text-align: center">Oliver</td>
+     <td style="text-align: right">25</td>
+     <td style="text-align: center">M</td>
+   </tr>
+   <tr>
+     <td style="text-align: left">3</td>
+     <td style="text-align: center">Shayna</td>
+     <td style="text-align: right">18</td>
+     <td style="text-align: center">F</td>
+   </tr>
+   <tr>
+     <td style="text-align: left">4</td>
+     <td style="text-align: center">Fechin</td>
+     <td style="text-align: right">18</td>
+     <td style="text-align: center">M</td>
+   </tr>
+ </tbody>
+</table>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>There's a horizontal rule below this.
+<span class="p">
+* * *
+</span>
+Another
+<span class="p">
+---
+</span></code></pre></div></div>
+<p>There’s a horizontal rule below this.</p>
+<hr />
+<p>Another</p>
+<hr />
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Small image**</span>
+
+<span class="p">![</span><span class="nv">Octocat</span><span class="p">](</span><span class="sx">https://github.githubassets.com/images/icons/emoji/octocat.png</span><span class="p">)</span>
+
+<span class="gs">**Large image**</span>
+
+<span class="p">![</span><span class="nv">Large sample photograph</span><span class="p">](</span><span class="sx">https://picsum.photos/id/36/1200/600.jpg</span><span class="p">)</span>
+</code></pre></div></div>
+<p><strong>Small image</strong></p>
+<p><img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="Octocat" /></p>
+<p><strong>Large image</strong></p>
+<p><img src="https://picsum.photos/id/36/1200/600.jpg" alt="Large sample photograph" /></p>
+<h3 id="definition-lists-can-be-used-with-html-syntax">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dl&gt;</span>
+<span class="nt">&lt;dt&gt;</span>Name<span class="nt">&lt;/dt&gt;</span>
+<span class="nt">&lt;dd&gt;</span>Godzilla<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;dt&gt;</span>Born<span class="nt">&lt;/dt&gt;</span>
+<span class="nt">&lt;dd&gt;</span>1952<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;dt&gt;</span>Birthplace<span class="nt">&lt;/dt&gt;</span>
+<span class="nt">&lt;dd&gt;</span>Japan<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;dt&gt;</span>Color<span class="nt">&lt;/dt&gt;</span>
+<span class="nt">&lt;dd&gt;</span>Green<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span>
+</code></pre></div></div>
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+</code></pre></div></div>
+<hr />
+<h2 id="kramdown-extensions">kramdown extensions</h2>
+<p>kramdown is Jekyll’s default Markdown processor. Extension support depends on
+the configured input parser; the examples include attributes, footnotes and
+content indexes. Full syntax: <a href="https://kramdown.gettalong.org/quickref.html">kramdown reference</a>.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The first paragraph.
+
+Another paragraph
+
+This is a paragraph  
+which contains a hard line break.
+
+<span class="gu">First level header
+==================
+</span>
+<span class="gh">Second level header
+-------------------
+</span>
+<span class="gh"># H1 header</span>
+
+<span class="gu">## H2 header</span>
+
+<span class="gu">### H3 header</span>
+
+<span class="gu">#### H4 header</span>
+
+<span class="gu">##### H5 header</span>
+
+<span class="gu">###### H6 header</span>
+
+</code></pre></div></div>
+<p>The first paragraph.</p>
+<p>Another paragraph</p>
+<p>This is a paragraph<br />
+which contains a hard line break.</p>
+<h1 id="first-level-header">First level header</h1>
+<h2 id="second-level-header">Second level header</h2>
+<h1 id="h1-header">H1 header</h1>
+<h2 id="h2-header">H2 header</h2>
+<h3 id="h3-header">H3 header</h3>
+<h4 id="h4-header">H4 header</h4>
+<h5 id="h5-header">H5 header</h5>
+<h6 id="h6-header">H6 header</h6>
+<h2 id="table-of-contents-syntax">Table of contents syntax</h2>
+<p class="alert alert-info p-3 mx-2 mb-3"><strong>The theme TOC is configured separately.</strong> <code class="language-plaintext highlighter-rouge">show_toc</code>, <code class="language-plaintext highlighter-rouge">h_min</code> and <code class="language-plaintext highlighter-rouge">h_max</code>
+control the layout’s automatic TOC. The specimens below use kramdown’s <code class="language-plaintext highlighter-rouge">{:toc}</code>
+for a content index. Procedure: <a href="./58-content-toc">Add a table of contents inside an article</a>.</p>
+<p>Configuration mapping specimen: <code class="language-plaintext highlighter-rouge">kramdown.toc_levels</code> selects heading levels
+for content indexes site-wide.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">kramdown</span><span class="pi">:</span>
+  <span class="na">toc_levels</span><span class="pi">:</span> <span class="s">2..6</span>
+
+</code></pre></div></div>
+<p>Heading exclusion specimen: <code class="language-plaintext highlighter-rouge">.no_toc</code> excludes a heading from both the content
+index and the theme’s automatic TOC.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="gu">## This header would be ignored on the toc.</span>
+{:.no_toc}
+
+</code></pre></div></div>
+<h3 class="no_toc" id="this-header-would-be-ignored-on-the-toc">This header would be ignored on the toc.</h3>
+<p>Content-index marker specimen: the list item and attribute occupy separate
+lines. The placeholder is replaced by heading links; <code class="language-plaintext highlighter-rouge">1.</code> selects a numbered
+list instead of bullets. The marker sets the index position; eligible headings
+before the marker are included too.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">
+*</span> This line is needed, but won't appear. Replace '<span class="err">*</span>' with '1' to create a numbered list.
+{:toc}<span class="sb">
+
+
+</span></code></pre></div></div>
+<ul id="markdown-toc">
+ <li><a href="#markdown-notation" id="markdown-toc-markdown-notation">Markdown notation</a></li>
+ <li><a href="#markdown-cheatsheet" id="markdown-toc-markdown-cheatsheet">Markdown cheatsheet</a></li>
+ <li><a href="#header-2" id="markdown-toc-header-2">Header 2</a>   <ul>
+     <li><a href="#header-3" id="markdown-toc-header-3">Header 3</a>       <ul>
+         <li><a href="#header-4" id="markdown-toc-header-4">Header 4</a>           <ul>
+             <li><a href="#header-5" id="markdown-toc-header-5">Header 5</a>               <ul>
+                 <li><a href="#header-6" id="markdown-toc-header-6">Header 6</a></li>
+               </ul>
+             </li>
+           </ul>
+         </li>
+       </ul>
+     </li>
+     <li><a href="#definition-lists-can-be-used-with-html-syntax" id="markdown-toc-definition-lists-can-be-used-with-html-syntax">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li>
+   </ul>
+ </li>
+ <li><a href="#kramdown-extensions" id="markdown-toc-kramdown-extensions">kramdown extensions</a></li>
+ <li><a href="#second-level-header" id="markdown-toc-second-level-header">Second level header</a></li>
+ <li><a href="#h2-header" id="markdown-toc-h2-header">H2 header</a>   <ul>
+     <li><a href="#h3-header" id="markdown-toc-h3-header">H3 header</a>       <ul>
+         <li><a href="#h4-header" id="markdown-toc-h4-header">H4 header</a>           <ul>
+             <li><a href="#h5-header" id="markdown-toc-h5-header">H5 header</a>               <ul>
+                 <li><a href="#h6-header" id="markdown-toc-h6-header">H6 header</a></li>
+               </ul>
+             </li>
+           </ul>
+         </li>
+       </ul>
+     </li>
+   </ul>
+ </li>
+ <li><a href="#table-of-contents-syntax" id="markdown-toc-table-of-contents-syntax">Table of contents syntax</a></li>
+ <li><a href="#headers-work-too" id="markdown-toc-headers-work-too">Headers work too</a></li>
+</ul>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; A sample blockquote.</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; &gt;Nested blockquotes are</span>
+<span class="gt">&gt; &gt;also possible.</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; ## Headers work too</span>
+<span class="gt">&gt; This is the outer quote again.</span><span class="sb">
+
+
+</span>term
+: definition
+: another definition
+
+another term
+and another term
+: and a definition for the term
+</code></pre></div></div>
+<blockquote>
+ <p>A sample blockquote.</p>
+ <blockquote>
+   <p>Nested blockquotes are
+also possible.</p>
+ </blockquote>
+ <h2 id="headers-work-too">Headers work too</h2>
+ <p>This is the outer quote again.</p>
+</blockquote>
+<dl>
+ <dt>term</dt>
+ <dd>definition</dd>
+ <dd>another definition</dd>
+ <dt>another term</dt>
+ <dt>and another term</dt>
+ <dd>and a definition for the term</dd>
+</dl>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Header1 | Header2 | Header3 |
+|:--------|:-------:|--------:|
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
+|----
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
+|=====
+| Foot1   | Foot2   | Foot3
+{: rules="groups"}
+
+</code></pre></div></div>
+<table rules="groups">
+<thead>
+   <tr>
+     <th style="text-align: left">Header1</th>
+     <th style="text-align: center">Header2</th>
+     <th style="text-align: right">Header3</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td style="text-align: left">cell1</td>
+     <td style="text-align: center">cell2</td>
+     <td style="text-align: right">cell3</td>
+   </tr>
+   <tr>
+     <td style="text-align: left">cell4</td>
+     <td style="text-align: center">cell5</td>
+     <td style="text-align: right">cell6</td>
+   </tr>
+ </tbody>
+ <tbody>
+   <tr>
+     <td style="text-align: left">cell1</td>
+     <td style="text-align: center">cell2</td>
+     <td style="text-align: right">cell3</td>
+   </tr>
+   <tr>
+     <td style="text-align: left">cell4</td>
+     <td style="text-align: center">cell5</td>
+     <td style="text-align: right">cell6</td>
+   </tr>
+ </tbody>
+ <tfoot>
+   <tr>
+     <td style="text-align: left">Foot1</td>
+     <td style="text-align: center">Foot2</td>
+     <td style="text-align: right">Foot3</td>
+   </tr>
+ </tfoot>
+</table>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is a paragraph
+{::comment}
+This is a comment which is
+completely ignored.
+{:/comment}
+... paragraph continues here.
+
+Extensions can also be used
+inline {::nomarkdown}<span class="gs">**see**</span>{:/}!
+This is a paragraph … paragraph continues here.
+
+Extensions can also be used inline <span class="gs">**see**</span>!
+</code></pre></div></div>
+<p>This is a paragraph
+<!-- 
+This is a comment which is
+completely ignored.
+ -->
+… paragraph continues here.</p>
+<p>Extensions can also be used
+inline **see**!
+This is a paragraph … paragraph continues here.</p>
+<p>Extensions can also be used inline <strong>see</strong>!</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A <span class="p">[</span><span class="nv">link</span><span class="p">](</span><span class="sx">https://kramdown.gettalong.org</span> <span class="nn">"hp"</span><span class="p">)</span>
+to the homepage.
+
+A simple info alert <span class="gs">**check it out!**</span>
+{: #myid .alert .alert-info .p-3 .mx-2 .mb-3}
+
+This is a text with a
+footnote[^1].
+
+<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">And</span> here is the definition.<span class="sb">
+
+
+</span>This is an HTML
+example.
+
+<span class="err">*</span>[HTML]: Hyper Text Markup Language<span class="sb">
+
+
+</span>This is <span class="gs">**Chulapa**</span>{:.chulapa} <span class="ge">*red*</span>{: style="color: red"}.
+</code></pre></div></div>
+<p>A <a href="https://kramdown.gettalong.org" title="hp">link</a>
+to the homepage.</p>
+<p id="myid" class="alert alert-info p-3 mx-2 mb-3">A simple info alert <strong>check it out!</strong></p>
+<p>This is a text with a
+footnote<sup id="fnref:1:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+<p>This is an <abbr title="Hyper Text Markup Language">HTML</abbr>
+example.</p>
+<p>This is <span class="chulapa">Chulapa</span> <em style="color: red">red</em>.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>This is the first part of a para,
+which is continued here.
+<span class="p">-</span>  List
+<span class="p">-</span>  List <span class="gs">**bold**</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+<div>
+ <p>This is the first part of a para,
+which is continued here.</p>
+ <ul>
+   <li>List</li>
+   <li>List <strong>bold</strong></li>
+ </ul>
+</div>
+<div class="footnotes" role="doc-endnotes">
+ <ol>
+   <li id="fn:1">
+     <p>And here is the definition. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&uarr;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&uarr;<sup>2</sup></a></p>
+   </li>
+   <li id="fn:bignote">
+     <p>Here’s one with multiple paragraphs and code.</p>
+     <p>Indent paragraphs to include them in the footnote.</p>
+     <p><code class="language-plaintext highlighter-rouge">{ my code }</code></p>
+     <p>Add as many paragraphs as you like. <a href="#fnref:bignote" class="reversefootnote" role="doc-backlink">&uarr;</a></p>
+   </li>
+ </ol>
+</div>
+</div>
+			</article>
+		</div>
+	</div>
+	</main>
+<div class="container-lg my-1">
+ <div class="row">
+   <div class="col-lg-8 offset-lg-2 col">
+      <i class="fas fa-tag mr-1 fa-xs" aria-hidden="true"></i>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#docs" class="badge chulapa-pill-bg-primary p-category" rel="tag" >docs</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#content" class="badge chulapa-pill-bg-primary p-category" rel="tag" >content</a>
+      <a href="https://dieghernan.github.io/chulapa/docs/tags#writing" class="badge chulapa-pill-bg-primary p-category" rel="tag" >writing</a>
+     </div>
+   </div>
+</div>
+<!-- Compatible with Jekyll v3 and v4, pure Jekyll group by -->
+       <div class="container-lg mt-1 mb-2">
+         <div class="row">
+           <div class="col-lg-8 offset-lg-2">
+             <hr>
+               <h2>Related documentation</h2>
+             <nav class="card-group" aria-label="related-articles"><div class="card  border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/61-localize-date" class="chulapa-text-body-color">
+              Display an article date in another language
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Translate month and weekday names in your content</small>
+           </p></div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/58-content-toc" class="chulapa-text-body-color">
+              Add a table of contents inside an article
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Insert heading links into the Markdown content</small>
+           </p></div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/docs/51-add-footnote" class="chulapa-text-body-color">
+              Add a footnote to an article
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Link a source note from a sentence in your text</small>
+           </p></div>
+     </div></nav>
+           </div>
+         </div>
+       </div></div>
+  <!-- Footer -->
+  <footer class="footer-chulapa text-center mt-0 pt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <!-- Include the script from  https://giscus.app/ -->
+<script src="https://giscus.app/client.js"
+        data-repo="dieghernan/chulapa"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTQ0NjMyOTg="
+        data-category="General"
+        data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyOTI0OTg2"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_high_contrast"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            <a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+            <a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">My blog</span>
+            </a>
+          </nav>
+          <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
+          <!-- Do not remove this in order to give attributions -->
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <!-- End attributions -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
+<!-- JS, Popper.js, and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/chulapa/assets/js/chulapa_navigation.js"></script>
+	<script src="/chulapa/assets/js/chulapa_script.js"></script>
+	<!-- start custom scripts to be placed at the bottom of the page -->
+    <script defer
+            src="https://chulapa-ai-prototype.dieghernan.workers.dev/widget.js"
+            data-endpoint="https://chulapa-ai-prototype.dieghernan.workers.dev/api/chat"
+            data-position="right"
+            data-menu-toggle="navi-toggle"
+            data-sidebar-toggle="demo"
+            data-search="/chulapa/search"></script>
+<!-- end custom bottom scripts -->
+	</body>
+</html>
