@@ -13,7 +13,7 @@ show_bottomnavs: true
 show_toc: true
 ---
 
-PhotoSwipe support is available in the development version after v2.1.0.
+PhotoSwipe support is available in v2.2.0 and later.
 Follow [Enable PhotoSwipe on a gallery](../docs/31-photoswipe) to add the viewer
 to an existing [gallery](../docs/29-add-gallery) or
 [carousel](../docs/30-add-carousel). No page YAML setting is needed. Each

@@ -88,7 +88,7 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "How do I enable Mermaid diagrams? Does this work with the v2.1.0 gem and what happens if the CDN fails?",
-    "expected": "Development after v2.1.0 only; mermaid: true YAML boolean and fenced mermaid block; no extra plugin; CDN loads only enabled diagrams; source remains on failure."
+    "expected": "v2.2.0 only; mermaid: true YAML boolean and fenced mermaid block; no extra plugin; CDN loads only enabled diagrams; source remains on failure."
   },
   {
     "id": "starter-1",
@@ -109,7 +109,7 @@
     "section": "layouts",
     "doc": "06_accessibility-performance.md",
     "question": "Does the keyboard update make the lateral TOC a modal or remove its Tab navigation? Is Chulapa now WCAG certified?",
-    "expected": "Development after v2.1.0; floating navbar update is separate; lateral TOC retains open/close and Tab behavior without focus trap or modal role; no WCAG certification or guaranteed production score."
+    "expected": "v2.2.0; floating navbar update is separate; lateral TOC retains open/close and Tab behavior without focus trap or modal role; no WCAG certification or guaranteed production score."
   },
   {
     "id": "resources-1",
@@ -121,20 +121,20 @@
   {
     "id": "toc-active-section",
     "question": "How do I highlight the current section in the sidebar table of contents? Does this change keyboard focus or need another YAML setting?",
-    "expected": "Development after v2.1.0: automatic highlighting for show_toc, show_sidetoc and kramdown TOCs with JavaScript and aria-current location. No additional YAML setting; only included, rendered headings (skip closed or hidden containers); sidebar Tab order and keyboard focus unchanged. Anchor links work without JavaScript.",
+    "expected": "v2.2.0: automatic highlighting for show_toc, show_sidetoc and kramdown TOCs with JavaScript and aria-current location. No additional YAML setting; only included, rendered headings (skip closed or hidden containers); sidebar Tab order and keyboard focus unchanged. Anchor links work without JavaScript.",
     "doc": "04_layouts.md"
   },
   {
     "id": "photoswipe-gallery",
     "doc": "04_layouts.md",
     "question": "How do I enable a PhotoSwipe lightbox on a masonry gallery? Is there a page YAML option or Jekyll plugin, and does this work in v2.1.0?",
-    "expected": "Development after v2.1.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel. Verify opening/closing an image and focus restoration after publishing."
+    "expected": "v2.2.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel. Verify opening/closing an image and focus restoration after publishing."
   },
   {
     "id": "goatcounter-analytics",
     "doc": "02_config.md",
     "question": "How do I add GoatCounter to Chulapa? Does setting it replace Google Analytics and track localhost development? Does it use canonical URLs, and should I also insert the tracker in a custom hook?",
-    "expected": "Development after v2.1.0: goatcounter is the complete public HTTPS /count endpoint, hosted or self-hosted. Create site in GoatCounter separately; no API key/plugin. Official async gc.zgo.at/count.js only in JEKYLL_ENV=production; default disabled, development excluded and upstream ignores localhost. Google unchanged; clear gtag_id and analytics_id to use only GoatCounter. No live counter widget/custom events. Not in v2.1.0. Prefers the path from a same-domain canonical URL (www equivalent); otherwise browser path. Ignores cross-domain canonicals. Chulapa provides canonical links including baseurl; no extra tag or duplicate tracker in custom hooks needed."
+    "expected": "v2.2.0: goatcounter is the complete public HTTPS /count endpoint, hosted or self-hosted. Create site in GoatCounter separately; no API key/plugin. Official async gc.zgo.at/count.js only in JEKYLL_ENV=production; default disabled, development excluded and upstream ignores localhost. Google unchanged; clear gtag_id and analytics_id to use only GoatCounter. No live counter widget/custom events. Not in v2.1.0. Prefers the path from a same-domain canonical URL (www equivalent); otherwise browser path. Ignores cross-domain canonicals. Chulapa provides canonical links including baseurl; no extra tag or duplicate tracker in custom hooks needed."
   },
   {
     "id": "collection-filename-order",
@@ -146,13 +146,13 @@
     "id": "javascript-resource-fallbacks",
     "doc": "04_layouts.md",
     "question": "Does deferred YouTube load the player API before I click? If the jQuery CDN fails, can I still copy code? Does pressing Enter in Lunr search reload the page? Does floating navigation work on the search layout?",
-    "expected": "v2.1.1-dev on main, not v2.1.0: deferred YouTube inserts a youtube-nocookie iframe on activation without loading player API beforehand; requests autoplay subject to browser policy; noscript link available. Native copying and accessible feedback work without jQuery/Bootstrap, graphical tooltips require them. Lunr index reused; input debounced 150ms, Enter immediately searches without reload. Floating navigation works on search pages using a shared navigation script."
+    "expected": "v2.2.0 on main, not v2.1.0: deferred YouTube inserts a youtube-nocookie iframe on activation without loading player API beforehand; requests autoplay subject to browser policy; noscript link available. Native copying and accessible feedback work without jQuery/Bootstrap, graphical tooltips require them. Lunr index reused; input debounced 150ms, Enter immediately searches without reload. Floating navigation works on search pages using a shared navigation script."
   },
   {
     "id": "custom-search-script-dependencies",
     "doc": "04_layouts.md",
     "question": "I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?",
-    "expected": "v2.1.1-dev: direct readable/minified Lunr and Fuse adapters require assets/js/chulapa_search.js before initialization, plus their provider library and generated store before the adapter. Standard search layout handles dependencies. Update local overrides together. Custom document shells should include components/scripts.html once for Bootstrap dependencies and chulapa_navigation.js for fab/dual; layouts inheriting minimal/search already handle it. No new YAML options. Link JavaScript assets and local overrides and complete demo sources."
+    "expected": "v2.2.0: direct readable/minified Lunr and Fuse adapters require assets/js/chulapa_search.js before initialization, plus their provider library and generated store before the adapter. Standard search layout handles dependencies. Update local overrides together. Custom document shells should include components/scripts.html once for Bootstrap dependencies and chulapa_navigation.js for fab/dual; layouts inheriting minimal/search already handle it. No new YAML options. Link JavaScript assets and local overrides and complete demo sources."
   },
   {
     "id": "assistant-session-history",
@@ -164,20 +164,20 @@
     "id": "semantic-html-accessibility",
     "section": "Accessibility",
     "question": "En la versión de desarrollo, ¿qué mejoras semánticas tiene Chulapa para lectores de pantalla y teclado? ¿Tengo que activar algo en YAML?",
-    "expected": "v2.1.1-dev changes after v2.1.0: logical list/search headings, named thumbnail links, current-page navbar destinations, native dropdown/carousel buttons supporting Enter/Space, search landmarks and polite Lunr/Fuse result-count announcements, labelled Welcomments comment field and no empty author aside when disabled. No new YAML settings and no WCAG certification. Link accessibility/performance guide. Do not claim announcements for Google, Algolia or Simple-Jekyll-Search.",
+    "expected": "v2.2.0 changes after v2.1.0: logical list/search headings, named thumbnail links, current-page navbar destinations, native dropdown/carousel buttons supporting Enter/Space, search landmarks and polite Lunr/Fuse result-count announcements, labelled Welcomments comment field and no empty author aside when disabled. No new YAML settings and no WCAG certification. Link accessibility/performance guide. Do not claim announcements for Google, Algolia or Simple-Jekyll-Search.",
     "doc": "06_accessibility-performance.md"
   },
   {
     "id": "carousel-accessibility-motion",
     "doc": "04_layouts.md",
     "question": "¿El carrusel respeta el movimiento reducido? ¿Cómo lo pauso y uso los indicadores con teclado? ¿Necesito YAML nuevo?",
-    "expected": "v2.1.1-dev after v2.1.0: positive interval and more than one slide show play/pause Font Awesome icon button with Bootstrap, accessible Start/Pause slideshow names and a visible symbol fallback when icons fail; interval=0 disables cycling and hides button. Reduced motion starts paused; keyboard/pointer interaction pauses until explicit start, hover pauses temporarily on hover-capable devices. Preference change to reduce stops rotation and change back does not restart. Indicators are named native buttons with current state and Enter/Space. New local controller loaded by standard layouts. No new YAML. Link carousel and accessibility guide. Carousel include owns its deferred ES module; repeated/cached includes share one fetch/execution, including custom layout-owned carousels. Custom shells still supply Bootstrap via components/scripts.html before closing body."
+    "expected": "v2.2.0 after v2.1.0: positive interval and more than one slide show play/pause Font Awesome icon button with Bootstrap, accessible Start/Pause slideshow names and a visible symbol fallback when icons fail; interval=0 disables cycling and hides button. Reduced motion starts paused; keyboard/pointer interaction pauses until explicit start, hover pauses temporarily on hover-capable devices. Preference change to reduce stops rotation and change back does not restart. Indicators are named native buttons with current state and Enter/Space. New local controller loaded by standard layouts. No new YAML. Link carousel and accessibility guide. Carousel include owns its deferred ES module; repeated/cached includes share one fetch/execution, including custom layout-owned carousels. Custom shells still supply Bootstrap via components/scripts.html before closing body."
   },
   {
     "id": "sidebar-accessibility-focus",
     "doc": "06_accessibility-performance.md",
     "question": "Con el TOC lateral cerrado, ¿sus enlaces siguen entrando en Tab? ¿Escape funciona? ¿Atrapa el foco al abrirse?",
-    "expected": "v2.1.1-dev: closed sidebar is inert and aria-hidden, so offscreen controls are outside focus order. Open sidebar keeps existing Tab order through close button and links. Escape from panel/trigger closes and returns focus to trigger; button/overlay close also restores focus. It is not modal and does not trap focus. No new YAML option. Link accessibility guide."
+    "expected": "v2.2.0: closed sidebar is inert and aria-hidden, so offscreen controls are outside focus order. Open sidebar keeps existing Tab order through close button and links. Escape from panel/trigger closes and returns focus to trigger; button/overlay close also restores focus. It is not modal and does not trap focus. No new YAML option. Link accessibility guide."
   },
   {
     "id": "pwa-offline-status",
@@ -281,7 +281,7 @@
     "section": "analytics",
     "doc": "18_goatcounter.md",
     "question": "How do I enable only GoatCounter for a published site under /my-blog? I am pinned to v2.1.0.",
-    "expected": "Not in v2.1.0; main after release required. Full HTTPS count URL with no blog baseurl, no API key; clear gtag_id/analytics_id and duplicate custom snippet; commit Actions production build, published visit/dashboard, blockers/CSP checks."
+    "expected": "Not in v2.1.0; v2.2.0 required. Full HTTPS count URL with no blog baseurl, no API key; clear gtag_id/analytics_id and duplicate custom snippet; commit Actions production build, published visit/dashboard, blockers/CSP checks."
   },
   {
     "id": "analytics-ga4-setup-1",
@@ -295,14 +295,14 @@
     "section": "navigation",
     "doc": "04_layouts.md",
     "question": "How do I hide build dates on related documentation cards? Do I need a new card setting?",
-    "expected": "In v2.1.1-dev use existing show_date: false on candidate documents or collection defaults. Hides their date footer in related and random cards. Controls candidate display not selection/ranking; no new option, other candidates keep existing display."
+    "expected": "In v2.2.0 use existing show_date: false on candidate documents or collection defaults. Hides their date footer in related and random cards. Controls candidate display not selection/ranking; no new option, other candidates keep existing display."
   },
   {
     "id": "install-remote-task-1",
     "section": "installation",
     "doc": "20_remote-theme.md",
     "question": "I have a working Jekyll site. How do I install Chulapa as a pinned remote theme without replacing my configuration?",
-    "expected": "Branch/backup, remote_theme dieghernan/chulapa@v2.1.0 remove conflicting theme/remote; merge Gemfile dependencies and plugins remote-theme/include-cache preserving existing. Remote does not install runtime deps; bundle install/serve, overrides, retain working deployment or adapt template Actions; verify published pages. Dev features absent from pin."
+    "expected": "Branch/backup, remote_theme dieghernan/chulapa@v2.2.0 remove conflicting theme/remote; merge Gemfile dependencies and plugins remote-theme/include-cache preserving existing. Remote does not install runtime deps; bundle install/serve, overrides, retain working deployment or adapt template Actions; verify published pages. Features marked v2.2.0 are included in this pin."
   },
   {
     "id": "install-gem-task-1",
@@ -344,35 +344,35 @@
     "section": "snippets",
     "doc": "29_add-gallery.md",
     "question": "I have uploaded 01-coast.jpg and 02-harbour.jpg. How do I display them in filename order as a gallery?",
-    "expected": "Link to /docs/29-add-gallery. Append a scoped defaults entry for the actual uploaded folder with image_col: gallery, preserve unrelated defaults, then include_cached snippets/masonry.html internal=\"gallery\" index_sort=\"basename\" index_sort_asc=true in Markdown body. Parameters are not page YAML; unquoted booleans. Commit, wait for build, check published gallery and folder/group if empty. Do not invent per-image alt/caption parameters. Selected index_sort filename ordering needs main after v2.1.0; explicitly warn that the v2.1.0 release does not correctly apply this sort field."
+    "expected": "Link to /docs/29-add-gallery. Append a scoped defaults entry for the actual uploaded folder with image_col: gallery, preserve unrelated defaults, then include_cached snippets/masonry.html internal=\"gallery\" index_sort=\"basename\" index_sort_asc=true in Markdown body. Parameters are not page YAML; unquoted booleans. Commit, wait for build, check published gallery and folder/group if empty. Do not invent per-image alt/caption parameters. Selected index_sort filename ordering needs v2.2.0; explicitly warn that the v2.1.0 release does not correctly apply this sort field."
   },
   {
     "id": "media-carousel-task-1",
     "section": "snippets",
     "doc": "30_add-carousel.md",
     "question": "How can I show my existing gallery as a slideshow that does not advance by itself?",
-    "expected": "Link to /docs/30-add-carousel. Reuse image_col group, include_cached snippets/carousel.html internal=\"gallery\" interval=0 controls=true indicators=true, retain desired ordering. Unquoted 0/booleans. Custom layouts need Bootstrap scripts. Publish and verify keyboard controls. No new YAML setting. Filename ordering and native keyboard-operable buttons/indicators require main after v2.1.0; v2.1.0 indicators are not focusable and previous/next links do not activate with Space."
+    "expected": "Link to /docs/30-add-carousel. Reuse image_col group, include_cached snippets/carousel.html internal=\"gallery\" interval=0 controls=true indicators=true, retain desired ordering. Unquoted 0/booleans. Custom layouts need Bootstrap scripts. Publish and verify keyboard controls. No new YAML setting. Filename ordering and native keyboard-operable buttons/indicators require v2.2.0; v2.1.0 indicators are not focusable and previous/next links do not activate with Space."
   },
   {
     "id": "media-photoswipe-task-1",
     "section": "snippets",
     "doc": "31_photoswipe.md",
     "question": "Where do I enable zooming on an existing carousel? I am pinned to v2.1.0.",
-    "expected": "Link to /docs/31-photoswipe. Feature absent from v2.1.0, needs main after that release or later release containing it. Add photoswipe=true to existing include, not page YAML. jsDelivr assets; check image opening, Escape/focus return. Original image link fallback."
+    "expected": "Link to /docs/31-photoswipe. Feature absent from v2.1.0, needs v2.2.0 or later. Add photoswipe=true to existing include, not page YAML. jsDelivr assets; check image opening, Escape/focus return. Original image link fallback."
   },
   {
     "id": "media-video-task-1",
     "section": "snippets",
     "doc": "32_embed-video.md",
     "question": "How do I insert a named YouTube video? Does nolazy mean the browser must load it immediately? My address is a youtu.be Share link or youtube.com/shorts URL. I am pinned to v2.1.0: does name label the player, and is there a link without JavaScript?",
-    "expected": "Link to /docs/32-embed-video and /docs/04-layouts#deferred-lazy-loading-of-youtube-videos. Include snippets/video.html provider=\"youtube\" id with video identifier and name with title in content body. Default click activation. nolazy=true removes activation requirement, but iframe loading=\"lazy\" can still defer browser loading. video_res changes preview; thumbnail_url metadata only. Publish and verify. Accessible player/play-button names derived from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but lacks those accessible names and fallback link. Extract the final path segment for youtu.be/ID and youtube.com/shorts/ID, or v= value for standard watch URLs; omit query parameters and fragments."
+    "expected": "Link to /docs/32-embed-video and /docs/04-layouts#deferred-lazy-loading-of-youtube-videos. Include snippets/video.html provider=\"youtube\" id with video identifier and name with title in content body. Default click activation. nolazy=true removes activation requirement, but iframe loading=\"lazy\" can still defer browser loading. video_res changes preview; thumbnail_url metadata only. Publish and verify. Accessible player/play-button names derived from name and the no-JavaScript YouTube link require v2.2.0; v2.1.0 supports name metadata but lacks those accessible names and fallback link. Extract the final path segment for youtu.be/ID and youtube.com/shorts/ID, or v= value for standard watch URLs; omit query parameters and fragments."
   },
   {
     "id": "media-diagram-task-1",
     "section": "snippets",
     "doc": "33_add-diagram.md",
     "question": "I want to add a simple accessible Mermaid workflow diagram to my page. Where do I start?",
-    "expected": "Link to /docs/33-add-diagram. Require main after v2.1.0; boolean mermaid: true in existing front matter, fenced mermaid flowchart in body, accTitle/accDescr plus prose for complex charts. Minimal-derived layout, no plugin. Modern modules/ES2024 Safari17.4+, jsDelivr; source fallback. Preserve other fields and publish/check. No claim it works on v2.1.0."
+    "expected": "Link to /docs/33-add-diagram. Require v2.2.0; boolean mermaid: true in existing front matter, fenced mermaid flowchart in body, accTitle/accDescr plus prose for complex charts. Minimal-derived layout, no plugin. Modern modules/ES2024 Safari17.4+, jsDelivr; source fallback. Preserve other fields and publish/check. No claim it works on v2.1.0."
   },
   {
     "id": "provider-lunr-task-1",
@@ -414,14 +414,14 @@
     "section": "comments",
     "doc": "39_cactus-comments.md",
     "question": "Can I configure any Matrix homeserver for Cactus comments?",
-    "expected": "No homeserver YAML field. Adapter uses Cactus-hosted service, registered cactus_shortname and provider cactus; enable show_comments true on default-layout post. Verify public article. Conditional Cactus resources only on comment-enabled pages is main after v2.1.0; do not claim improvement in release. Link /docs/39-cactus-comments. Development after v2.1.0 fixes conversation IDs; v2.1.0 requires local _includes/components/cactus.html correction using include.pageurl | url_encode | replace: underscore, percent5F (literal %5F), with no slash/underscore and distinct paths retained. Changing IDs may detach existing threads; record/verify mapping and provider migration before publishing. Fix absent from v2.1.0; local adapters override fixed development files. Do not double-encode an existing override using the same mapping."
+    "expected": "No homeserver YAML field. Adapter uses Cactus-hosted service, registered cactus_shortname and provider cactus; enable show_comments true on default-layout post. Verify public article. Conditional Cactus resources only on comment-enabled pages is v2.2.0; do not claim improvement in v2.1.0. Link /docs/39-cactus-comments. v2.2.0 fixes conversation IDs; v2.1.0 requires local _includes/components/cactus.html correction using include.pageurl | url_encode | replace: underscore, percent5F (literal %5F), with no slash/underscore and distinct paths retained. Changing IDs may detach existing threads; record/verify mapping and provider migration before publishing. Fix absent from v2.1.0; local adapters override v2.2.0 files. Do not double-encode an existing override using the same mapping."
   },
   {
     "id": "comments-welcomments-task-1",
     "section": "comments",
     "doc": "40_welcomments-comments.md",
     "question": "Is a Welcomments website_id sufficient? Should I accept its generated templates?",
-    "expected": "Needs provider welcomments, website_id, post show_comments true and external integration delivering _data/welcomments data. Review generated PR, retain customized theme templates; local files override theme. Publish and verify delivered data and rebuild, not only temporary browser placeholder. Check post slug matching old data; no automatic migration. Link /docs/40-welcomments-comments. Development after v2.1.0 fixes form permalink to include baseurl. v2.1.0 project sites need customized local form with page.url | absolute_url | escape on hidden permalink; verify full public URL and review old overrides."
+    "expected": "Needs provider welcomments, website_id, post show_comments true and external integration delivering _data/welcomments data. Review generated PR, retain customized theme templates; local files override theme. Publish and verify delivered data and rebuild, not only temporary browser placeholder. Check post slug matching old data; no automatic migration. Link /docs/40-welcomments-comments. v2.2.0 fixes form permalink to include baseurl. v2.1.0 project sites need customized local form with page.url | absolute_url | escape on hidden permalink; verify full public URL and review old overrides."
   },
   {
     "id": "comments-cusdis-task-1",
@@ -463,7 +463,7 @@
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",
     "question": "Do passing theme tests and a manifest mean my own site is accessible and works offline? Where are the limits versus the checks I should perform?",
-    "expected": "No compliance/offline/installability guarantee. /docs/06-accessibility-performance is practical checking; /docs/48-accessibility-reference documents expected dev behaviors, coverage and limits. Test actual content, colors, keyboard/mobile/enlarged text/widgets; improvements main after v2.1.0, not pinned release. No built-in service worker/cache/offline YAML, network-dependent comments/videos/chatbot. Representative checks not every browser/site/assistive technology; no invented scores."
+    "expected": "No compliance/offline/installability guarantee. /docs/06-accessibility-performance is practical checking; /docs/48-accessibility-reference documents expected v2.2.0 behaviors, coverage and limits. Test actual content, colors, keyboard/mobile/enlarged text/widgets; improvements v2.2.0, not v2.1.0. No built-in service worker/cache/offline YAML, network-dependent comments/videos/chatbot. Representative checks not every browser/site/assistive technology; no invented scores."
   },
   {
     "id": "format-alert-task-1",
@@ -498,7 +498,7 @@
     "section": "faq",
     "doc": "53_chulapa-font.md",
     "question": "Can I use the included Chulapa font with its ligatures without adding Google Fonts?",
-    "expected": "Cite /docs/53-chulapa-font. Already supplied. Set existing chulapa-skin.vars.headings-font-family to chulapa, sans-serif for headings, preserve skin/vars; optional ligature CSS in custom.scss with front matter retained. Or existing chulapa class on span/paragraph applies font/ligatures to selected content. Publish/restart local config preview; no new YAML flag. Local font baseurl/preload improvements belong to dev after v2.1.0, not released pin."
+    "expected": "Cite /docs/53-chulapa-font. Already supplied. Set existing chulapa-skin.vars.headings-font-family to chulapa, sans-serif for headings, preserve skin/vars; optional ligature CSS in custom.scss with front matter retained. Or existing chulapa class on span/paragraph applies font/ligatures to selected content. Publish/restart local config preview; no new YAML flag. Local font baseurl/preload improvements require v2.2.0, not v2.1.0."
   },
   {
     "id": "icon-task-1",
@@ -511,8 +511,8 @@
     "id": "version-task-1",
     "section": "version",
     "doc": "55_check-theme-version.md",
-    "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme? Does v2.2.0 (unreleased) mean I can already install a published 2.2.0 release?",
-    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build: 2.2.0 is an unpublished candidate, v2.1.1-dev labels refer to its planned features, and the latest published release remains v2.1.0. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; inspect remote_theme; tags select releases, unpinned/branch values can move. No documented exact-remote-commit procedure."
+    "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme? Does v2.2.0 mean I can already install a published 2.2.0 release?",
+    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build; a version marker or local gem alone does not prove publication. The documentation targets v2.2.0; verify the actual tag or RubyGems publication separately. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; inspect remote_theme; tags select releases, unpinned/branch values can move. No documented exact-remote-commit procedure."
   },
   {
     "id": "feed-coexistence-1",
@@ -568,7 +568,7 @@
     "section": "layouts",
     "doc": "63_tag-category-clouds.md",
     "question": "How do I connect post tag/category badges to grouped index pages on a project site?",
-    "expected": "Matching cloudtag/cloudcategory pages permalinks and posts defaults cloudtag_url/cloudcategory_url; show_tags/show_categories true; preserve defaults, no repository prefix, scope posts not standalone pages; collection output true for linked articles. Verify badge fragments and links; demos use demo/skins scopes. Dev after v2.1.0 respects candidate show_date: false in cloudtag/cloudcategory and aliases: no publication date/calendar/separator, reading time remains. v2.1.0 lacks this fix; do not invent a publication date for undated Docs."
+    "expected": "Matching cloudtag/cloudcategory pages permalinks and posts defaults cloudtag_url/cloudcategory_url; show_tags/show_categories true; preserve defaults, no repository prefix, scope posts not standalone pages; collection output true for linked articles. Verify badge fragments and links; demos use demo/skins scopes. v2.2.0 respects candidate show_date: false in cloudtag/cloudcategory and aliases: no publication date/calendar/separator, reading time remains. v2.1.0 lacks this fix; do not invent a publication date for undated Docs."
   },
   {
     "id": "sharing-task-1",
@@ -589,7 +589,7 @@
     "section": "layouts",
     "doc": "63_tag-category-clouds.md",
     "question": "Why does my demo category badge point to #demo but the cloud index has #dmo? What happens to demo topic when upgrading?",
-    "expected": "Development after v2.1.0 fixes the asymmetric demo-to-dmo rewrite: badge and cloud group both use #demo; demo topic uses #demo-topic (spaces become hyphens). Upgrade and update manually written old dmo fragments. Link /docs/63-tag-category-clouds. No new YAML option."
+    "expected": "v2.2.0 fixes the asymmetric demo-to-dmo rewrite: badge and cloud group both use #demo; demo topic uses #demo-topic (spaces become hyphens). Upgrade and update manually written old dmo fragments. Link /docs/63-tag-category-clouds. No new YAML option."
   },
   {
     "id": "starter-demo-versus-site",

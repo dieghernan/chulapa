@@ -183,7 +183,7 @@ chulapa-skin:
   skin: navi
   autothemer: true
 
-# Optional second skin (2.2.0, unreleased). Leave blank to disable.
+# Optional second skin (2.2.0). Leave blank to disable.
 chulapa-skin-dark:
   skin:
   highlight:

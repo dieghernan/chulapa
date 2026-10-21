@@ -14,7 +14,7 @@ Use this guide to check a published site after changing content, a skin or an
 integration. Have the home page, a representative article and search open, along
 with any galleries, videos or comments you use.
 
-Some expected controls require `main` after v2.1.0, not the v2.1.0 gem or pin.
+Some expected controls require v2.2.0, not the v2.1.0 gem or pin.
 Compare your installed version with [the behavior reference](./48-accessibility-reference).
 These checks do not establish WCAG compliance by themselves.
 

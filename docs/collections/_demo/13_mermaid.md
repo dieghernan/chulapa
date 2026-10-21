@@ -17,7 +17,7 @@ redirect_from:
   - /demo/mermaid
 ---
 
-Mermaid support is available in the development version after v2.1.0.
+Mermaid support is available in v2.2.0 and later.
 Follow [Add a Mermaid diagram](../docs/33-add-diagram) to enable diagrams on your
 page. See the [Mermaid reference](../docs/04-layouts#mermaid-diagrams) for browser
 requirements, security restrictions and fallback behavior. The diagrams below

@@ -13,7 +13,7 @@ same `image_col: gallery` group; a custom layout must load Bootstrap's scripts
 for slideshow controls to work.
 
 **Version requirement:** this recipe's filename ordering and keyboard-operable
-buttons and indicators require `main` after v2.1.0 (v2.1.1-dev), or a later release
+buttons and indicators require v2.2.0, or a later release
 containing those fixes. In v2.1.0, the sort field is not applied correctly,
 indicators cannot receive keyboard focus and previous/next links do not activate
 with Space.

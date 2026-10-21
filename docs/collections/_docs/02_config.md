@@ -264,7 +264,7 @@ the other. Custom copies of a tracker are not removed automatically.
 
 ### GoatCounter analytics
 
-**Available on `main` after v2.1.0; not in the v2.1.0 release.**
+**Available v2.2.0; not in the v2.1.0 release.**
 
 Setup: [Enable GoatCounter analytics](./18-goatcounter).
 
@@ -401,7 +401,7 @@ Provider identifiers and compatibility constraints are listed below.
   - `website_id`: Welcomments site id. Requires a separately configured integration delivering comment data under `_data/welcomments/`; setting the ID alone does not deliver data.
 
 Cactus uses the Cactus-hosted Matrix service; there is no configurable homeserver
-field in this adapter. In development after v2.1.0, conversation IDs URL-encode
+field in this adapter. In v2.2.0, conversation IDs URL-encode
 `page.url` and encode underscores as `%5F`; they exclude the forbidden `/` and `_`.
 The v2.1.0 adapter retains slashes. Its setup guide includes a legacy local
 correction and migration checks: changing IDs does not move existing threads. Comment-provider selection does not migrate comments,
@@ -410,16 +410,16 @@ and thread matching depends on the provider and page identifiers/addresses.
 For **giscus**, `_includes/custom/giscus.html` contains the embed script generated
 by [giscus setup](https://giscus.app/), including repository and category identifiers.
 
-In development after v2.1.0, the Cactus script and stylesheet load only on
+In v2.2.0, the Cactus script and stylesheet load only on
 pages with `show_comments: true`. Selecting the provider alone no longer loads
 these resources on every page.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
-In v2.1.1-dev, the Cusdis adapter accepts resize messages only from its own
+In v2.2.0, the Cusdis adapter accepts resize messages only from its own
 iframe and requires a finite, nonnegative numeric height. Existing provider
 settings are unchanged.
 
-**Welcomments compatibility:** in development after v2.1.0, form permalinks
+**Welcomments compatibility:** in v2.2.0, form permalinks
 include `baseurl`. The v2.1.0 form omits it; project sites on that release need
 the local correction in the setup guide. Local `_includes/welcomments/` files override
 the theme templates. Provider-generated templates can replace the customized

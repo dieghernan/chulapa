@@ -8,6 +8,12 @@ show_related: true
 cloudtag_url: /docs/tags
 ---
 
+**Publication pending:** the v2.2.0 instructions below are prepared for the next
+release; its tag is not available yet. Until publication, use `@v2.1.0` instead
+of `@v2.2.0` in `remote_theme`. Features marked v2.2.0, including Mermaid,
+PhotoSwipe and GoatCounter, are absent from v2.1.0.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Use this guide when you already have a working Jekyll site, a `Gemfile` and
 Bundler available. For your first website, use [the browser tutorial](./00-start).
 If you are replacing another theme, follow the [migration checklist](./07-migration)
@@ -19,12 +25,12 @@ Work in a branch or save a backup. In `_config.yml`, remove the old `theme` entr
 and replace any existing `remote_theme` entry with:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.1.0
+remote_theme: dieghernan/chulapa@v2.2.0
 ```
 
 This pins the released version. Use `dieghernan/chulapa` without the tag only
-when you want development updates from `main`. Features marked **v2.1.1-dev**
-are not included in v2.1.0.
+when you want development updates from `main`. Features marked **v2.2.0**
+require that release or later.
 
 In your existing `Gemfile`, add missing dependencies from the following list.
 Edit entries already present instead of declaring the same gem twice. Keep

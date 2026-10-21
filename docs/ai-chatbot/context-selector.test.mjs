@@ -10,8 +10,26 @@ test('light and dark selector questions receive activation, inheritance and vers
   assert.ok(selected.titles.includes('Light/dark/auto selector'));
   assert.match(selected.text, /Omitted dark highlight inherits light highlight/);
   assert.match(selected.text, /Absent dark mapping: no additional scripts or styles/);
-  assert.match(selected.text, /2\.2\.0 unreleased\/main only, absent v2\.1\.0/);
+  assert.match(selected.text, /2\.2\.0\+, absent v2\.1\.0/);
 });
+
+const releaseRoutes = [
+  ['¿Cómo agrego un diagrama?', 'Mermaid and clipboard (v2.2.0)', /Set mermaid: true/],
+  ['How do I enable PhotoSwipe?', 'PhotoSwipe galleries (v2.2.0)', /photoswipe=true/],
+  ['How do I enable GoatCounter?', 'GoatCounter analytics (v2.2.0)', /JEKYLL_ENV=production/],
+  ['¿Cómo uso el teclado?', 'Accessibility and resource loading in v2.2.0', /Escape closes/],
+  ['How does inherited h-feed work?', 'Inherited list microformats (v2.2.0)', /Keep the existing custom layout chain/],
+  ['How do I configure compress_html?', 'Generated HTML formatting (v2.2.0)', /compress_html.blanklines: true/]
+];
+
+for (const [question, title, recipe] of releaseRoutes) {
+  test(`release context retrieval: ${question}`, () => {
+    const selected = selectContext(context, question);
+    const section = splitSections(selected.text).find(item => item.title === title);
+    assert.ok(section, `Missing context for ${question}: ${title}`);
+    assert.match(section.text, recipe);
+  });
+}
 
 test('section extraction preserves headings inside fenced tutorial examples', () => {
   const sections = splitSections('intro\n## Tutorial\n```markdown\n## Inner heading\n```\n## Reference\nfields');
@@ -56,12 +74,12 @@ test('citation checking rejects invented paths/fragments but leaves code example
 
 test('layout regressions retain their own release constraints and caller inputs', () => {
   const inherited = selectContext(context, 'My custom2 inherits custom1 which inherits archive. Will it still be h-feed?');
-  assert.ok(inherited.titles.includes('Inherited list microformats (development only)'));
+  assert.ok(inherited.titles.includes('Inherited list microformats (v2.2.0)'));
   assert.match(inherited.text, /Keep the existing custom layout chain/);
   const formatting = selectContext(context, 'Can I keep head and footer readable with indentation?');
-  assert.ok(formatting.titles.includes('Generated HTML formatting (development only)'));
-  const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (development only)');
-  assert.match(section.text, /After v2.1.0, unreleased/);
+  assert.ok(formatting.titles.includes('Generated HTML formatting (v2.2.0)'));
+  const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (v2.2.0)');
+  assert.match(section.text, /In v2.2.0:/);
   const caching = selectContext(context, 'Can I replace every include with include_cached?');
   assert.match(caching.text, /Pass all page-dependent inputs/);
   const random = selectContext(context, 'My random article panel has only one eligible document.');

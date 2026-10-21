@@ -9,6 +9,12 @@ show_related: true
 cloudtag_url: /docs/tags
 ---
 
+**Publication pending:** the v2.2.0 instructions below are prepared for the next
+release; its tag is not available yet. Until publication, use `@v2.1.0` instead
+of `@v2.2.0` in `remote_theme`. Features marked v2.2.0, including Mermaid,
+PhotoSwipe and GoatCounter, are absent from v2.1.0.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
 Use this guide when you already work with Jekyll and want to run one of the
 [starter examples](./08-starter-examples). You need Ruby, Bundler and an internet
 connection for gem installation and the remote theme download. The supplied
@@ -30,8 +36,8 @@ the example's own skin and generates its own article/project links.
 3. Replace sample content and placeholder links. Blog posts go in
    `_posts/YYYY-MM-DD-title.md`; portfolio projects go in `_projects/`.
 4. Keep the supplied design, or follow [Choose a skin](./22-choose-skin).
-   To keep a released version, append a tag such as `@v2.1.0` to `remote_theme`;
-   Mermaid is unavailable in that release.
+   To keep a released version, append a tag such as `@v2.2.0` to `remote_theme`;
+   Mermaid is available in v2.2.0 and later; it is absent from v2.1.0.
 
 ## Preview the site
 

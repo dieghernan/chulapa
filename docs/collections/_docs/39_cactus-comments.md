@@ -11,7 +11,7 @@ Use this guide after registering your site with [Cactus](https://cactus.chat/).
 Have its registered site name ready. This adapter uses the Cactus-hosted Matrix
 service; there is no theme setting for selecting an arbitrary Matrix homeserver.
 
-**Version and migration:** in development after v2.1.0 (v2.1.1-dev), the adapter
+**Version and migration:** in v2.2.0, the adapter
 URL-encodes page paths and encodes underscores as `%5F`, meeting the
 [client requirements](https://cactus.chat/docs/client/introduction/) that exclude
 `/` and `_`. This fix is absent from v2.1.0; use the local correction below on
@@ -87,7 +87,7 @@ If the area is missing, check the registered site name, `show_comments`, layout
 and publishing run. Check external script/network failures and any Content
 Security Policy or browser blocker before changing the setup.
 
-In `main` after v2.1.0 (v2.1.1-dev), Cactus scripts and styles load only on
+In v2.2.0, Cactus scripts and styles load only on
 pages with `show_comments: true`. That loading improvement is not in v2.1.0;
 the identifier correction above is still required for this guide on that release.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}

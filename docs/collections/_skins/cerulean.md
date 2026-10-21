@@ -12,8 +12,7 @@ og_image: ./assets/img/skinspreview/cerulean.png
 skin_author: Bootswatch
 ---
 
-Developed by [Bootswatch](https://bootswatch.com/cerulean/). Added in **2.2.0
-(unreleased)** using the original [Bootswatch 4.6.2 Sass](https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/cerulean).
+Developed by [Bootswatch](https://bootswatch.com/cerulean/). Added in **2.2.0** using the original [Bootswatch 4.6.2 Sass](https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/cerulean).
 Original colors, typography and component styles are retained, including their
 contrast limitations. This skin has not received the button palette adjustments
 used by some other bundled skins.

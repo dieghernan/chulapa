@@ -8,9 +8,14 @@ show_tags: true
 cloudtag_url: /docs/tags
 ---
 
-The next release candidate is **2.2.0**, not yet published. Features labelled
-**v2.1.1-dev** are development changes planned for that release. Until publication,
-use `main` to try them; the released gem and `@v2.1.0` do not include them.
+**Publication pending:** the v2.2.0 instructions below are prepared for the next
+release; its tag is not available yet. Until publication, use `@v2.1.0` instead
+of `@v2.2.0` in `remote_theme`. Features marked v2.2.0, including Mermaid,
+PhotoSwipe and GoatCounter, are absent from v2.1.0.
+{: .alert .alert-info .p-3 .mx-2 .mb-3}
+
+This documentation targets **2.2.0**. Features labelled **v2.2.0** are not
+included in the v2.1.0 gem or remote-theme tag.
 
 Choose the route that matches your site. These are alternatives, not steps to
 complete in sequence.
@@ -23,5 +28,5 @@ complete in sequence.
 | A site moving from another theme | [Migration guide and checklist](./07-migration) |
 
 [Preview the personal-blog template](https://dieghernan.github.io/chulapa-101/).
-The remote-theme guide pins `@v2.1.0`; an unpinned remote theme follows
-`main`. Features marked **v2.1.1-dev** are not included in the v2.1.0 release.
+The remote-theme guide pins `@v2.2.0`; an unpinned remote theme follows
+`main`. Features marked **v2.2.0** are not included in the v2.1.0 release.

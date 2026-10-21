@@ -1,8 +1,4 @@
-## v2.2.0 (unreleased)
-
-Release candidate for review; not yet published. Development changes previously
-labelled `v2.1.1-dev` are included in this candidate. The latest published release
-remains v2.1.0 until publication is completed.
+## v2.2.0 (2026-10-21)
 
 ### Added
 

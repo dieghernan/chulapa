@@ -1,16 +1,13 @@
 # Release preparation: 16 October 2026
 
-## Current handoff — 21 October 2026
+## Current handoff — 21 October 2026, final preparation
 
-The original #163 evidence and candidate below remain historical. #164/#166/#168/#170/#172–#176 delivery work and the Flatly follow-up
-are integrated; the [new candidate record](release-candidate-after170-2026-10-19.md)
-identifies the rebuilt artifact and validation, exact-source Pages/Algolia checks
-for `4efd1e3e9`, and the separately retained #175 Worker deployment from
-`c698197c8` (run 39548857744). The Worker was not deployed from the #176 SHA.
-The expanded draft notes including these changes await review; the original
-approval below covers the original notes only. No test candidate is an
-authorized final upload. Finalize metadata and rebuild/validate the final artifact
-only with a separate publication instruction. 2.2.0 remains unpublished here.
+PR #171 is merged. The maintainer authorized preparation through final gem
+validation, excluding #177; publication is not authorized. The current work is
+on `codex/release-2.2.0-final`. See the
+[final preparation record](release-2.2.0-final-validation-2026-10-21.md) for
+artifact identity, checks and remaining publication steps. Earlier candidate
+records below are historical and must not be used as final upload identities.
 
 ## Scope and candidate
 
