@@ -41,6 +41,11 @@ records this known limitation. It is not fixed or counted as a passing
 visible-focus result here and needs triage before the final release decision.
 No skin/control implementation changes are made by this planning PR.
 
+### Current release-decision scope
+
+Review and approve the revised notes covering #164/#166/#168/#170, #172 and the
+Flatly follow-up, plus #173–#176 skin/catalog/asset/provenance changes. The
+16 October approval applies only to the original draft, not these additions.
 The revised notes remain pending review. Candidate markers, release metadata and
 publication authorization are unchanged; no tag, release or gem upload.
 
@@ -85,14 +90,14 @@ and validating after publication authorization. No release/tag/gem publication.
 Source: main `eeb161de61dd57aa95d957b05c0becd87299c1a7`, 19 October 2026.
 Local candidate only; no release, tag, upload, inference or manual deployment.
 
-## Exact-source checks
+### Exact-source checks
 
 - [Regressions 39261129553](https://github.com/dieghernan/chulapa/actions/runs/39261129553): all seven jobs succeeded, including Jekyll 3/4 behavior and installed-gem matrices, browser, chatbot and JavaScript. Connector job details checked.
 - [Pages 39261129472](https://github.com/dieghernan/chulapa/actions/runs/39261129472), [Algolia 39261129667](https://github.com/dieghernan/chulapa/actions/runs/39261129667), [branch publication 39261129492](https://github.com/dieghernan/chulapa/actions/runs/39261129492) and [profile 39261153418](https://github.com/dieghernan/chulapa/actions/runs/39261153418): successful in the public exact-commit Actions listing.
 - No new Worker deployment: `docs/ai-chatbot/` and its deployment workflow have no diff from #168 through this source. The valid Worker source remains `ed66ab4ac`, [run 39200007159](https://github.com/dieghernan/chulapa/actions/runs/39200007159), version `5cc044b1-b8a9-4135-a500-66c9bcb0db67`.
 - No new direct public HTTP/inference checks. Known proxy and Netlify-preview limitations are not resolved or reclassified by these successes.
 
-## Actual local artifact
+### Actual local artifact
 
 `chulapa-jekyll-2.2.0.gem`, SHA256:
 `d7bf62fb5867b6b6248d6ca8401181e13a431ac96c96965dcaab4ad342a0bb54`.
@@ -113,7 +118,11 @@ HTML5, real-parser microformats and responsive geometry checks. Current CI also
 runs the new Ruby/browser regression. Do not infer live human usability or
 chatbot accuracy from any of these tests.
 
-## Ready for a release decision
+### Historical release-decision status
+
+This is the 19 October snapshot, not the current approval scope. The current
+release decision must also include #172, the Flatly follow-up and #173–#176,
+as listed in the current revision above. No later approval is inferred.
 
 The default-semantics change is integrated. The current candidate supersedes
 #168's artifact for validation, but still contains unreleased markers. Revised
