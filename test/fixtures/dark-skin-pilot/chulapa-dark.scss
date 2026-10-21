@@ -1,0 +1,95 @@
+// GENERATED experimental chulapa dark study. Regenerate with test/generate_dark_skin_pilot.js.
+// Standalone stylesheet, not a catalog skin. Import once, without Bootstrap again.
+// Not an upstream dark theme; original source/credits remain in the imported skin.
+$body-bg: #222125 !default;
+$body-color: #e5e9ef !default;
+$link-color: #edc7b7 !default;
+$link-hover-color: #edc7b7 !default;
+$text-muted: #adb5bd !default;
+$card-bg: #2e2d31 !default;
+$card-cap-bg: #2e2d31 !default;
+$card-border-color: #535255 !default;
+$dropdown-bg: #2e2d31 !default;
+$dropdown-link-color: #e5e9ef !default;
+$dropdown-link-hover-color: #ffffff !default;
+$dropdown-link-hover-bg: #535255 !default;
+$list-group-bg: #2e2d31 !default;
+$list-group-color: #e5e9ef !default;
+$list-group-action-color: #e5e9ef !default;
+$list-group-hover-bg: #535255 !default;
+$input-bg: #2e2d31 !default;
+$input-color: #e5e9ef !default;
+$input-border-color: #535255 !default;
+$input-focus-bg: #2e2d31 !default;
+$input-focus-color: #ffffff !default;
+$input-placeholder-color: #adb5bd !default;
+$table-color: #e5e9ef !default;
+$table-border-color: #535255 !default;
+$modal-content-bg: #2e2d31 !default;
+$modal-content-border-color: #535255 !default;
+$jumbotron-bg: #2e2d31 !default;
+$breadcrumb-bg: #2e2d31 !default;
+$pagination-bg: #2e2d31 !default;
+$pagination-color: #e5e9ef !default;
+$pagination-hover-bg: #535255 !default;
+$pagination-hover-color: #ffffff !default;
+$pagination-disabled-bg: #2e2d31 !default;
+$pagination-disabled-color: #adb5bd !default;
+$pagination-border-color: #535255 !default;
+$navbar-chulapa-bg-color: #2e2d31 !default;
+$navbar-chulapa-text-color: #e5e9ef !default;
+$navbar-chulapa-hover-color: #ffffff !default;
+$navbar-chulapa-active-color: #ffffff !default;
+$navbar-chulapa-brand-color: #ffffff !default;
+$footer-chulapa-bg-color: #2e2d31 !default;
+$footer-chulapa-text-color: #adb5bd !default;
+$footer-chulapa-link-color: #edc7b7 !default;
+$footer-chulapa-hover-color: #edc7b7 !default;
+$thead-chulapa-text-color: #000000 !default;
+$blockquote-chulapa-bg-color: #2e2d31 !default;
+$blockquote-chulapa-text-color: #e5e9ef !default;
+$pre-chulapa-bg-color: #2e2d31 !default;
+$code-color: #ff9dcc !default;
+$alert-bg-level: 10 !default;
+$alert-border-level: 7 !default;
+$alert-color-level: -7 !default;
+$skin-button-labels: () !default;
+$skin-button-outlines: () !default;
+$skin-button-backgrounds: () !default;
+$skin-button-lighter-states: () !default;
+@import "skins/chulapa";
+@import "bootstrap/bootstrap";
+@import "chulapa-master";
+// Experimental shared control treatment. Original palette fills remain unchanged.
+@each $name, $fill in $theme-colors {
+  .btn.btn-#{$name} {
+    color: color-contrast($fill, #000, #fff, 4.5);
+    &:hover, &:focus {
+      background-color: darken($fill, 7.5%);
+      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5);
+    }
+    &:not(:disabled):not(.disabled):active {
+      background-color: darken($fill, 10%);
+      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5);
+    }
+  }
+}
+$pilot-outlines: (primary: #edc7b7, secondary: #828f7e, success: #88bdbc, info: #6292a9, warning: #fffe7a, danger: #e4634f, light: #fbf1ed, dark: #868f84);
+@each $name, $label in $pilot-outlines {
+  .btn.btn-outline-#{$name} {
+    color: $label;
+    border-color: $label;
+    &:hover, &:not(:disabled):not(.disabled):active {
+      background-color: theme-color($name);
+      color: color-contrast(theme-color($name), #000, #fff, 4.5);
+    }
+  }
+}
+.alert-primary { background-color: #2f2825; color: #e5e9ef; } .alert-primary .alert-link { color: #edc7b7; }
+.alert-secondary { background-color: #151814; color: #e5e9ef; } .alert-secondary .alert-link { color: #798775; }
+.alert-success { background-color: #1b2626; color: #e5e9ef; } .alert-success .alert-link { color: #88bdbc; }
+.alert-info { background-color: #0a161c; color: #e5e9ef; } .alert-info .alert-link { color: #5488a1; }
+.alert-warning { background-color: #333318; color: #e5e9ef; } .alert-warning .alert-link { color: #fffe7a; }
+.alert-danger { background-color: #2c0b06; color: #e5e9ef; } .alert-danger .alert-link { color: #e1533d; }
+.alert-light { background-color: #32302f; color: #e5e9ef; } .alert-light .alert-link { color: #fbf1ed; }
+.alert-dark { background-color: #10120f; color: #e5e9ef; } .alert-dark .alert-link { color: #7a8378; }

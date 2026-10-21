@@ -522,3 +522,41 @@ Cerulean, Litera and Pulse keep their existing original integrations. Sketchy
 stays on 4.5.0; the others retain 4.6.2. The new regression verifies legacy visual
 states, complete deduplicated CSS, source hashes and palette overrides. No public
 configuration, metadata or routing changes are introduced.
+
+### Experimental dark companions (three-skin pilot)
+
+```sh
+npm ci --prefix test/browser
+CHULAPA_CHROMIUM=/path/to/chromium node test/generate_dark_skin_pilot.js
+CHULAPA_CHROMIUM=/path/to/chromium node test/generate_dark_skin_pilot.js --check
+```
+
+This study generates **experimental** Sass under `test/fixtures/dark-skin-pilot/`,
+not built-in skins. These files compile as complete stylesheets (original skin,
+Bootstrap and Chulapa components once), rather than ordinary skin-variable
+partials. It selects Chulapa, Litera and Minco, one from each source family; existing pairs (including Flatly/Darkly) are recorded and excluded in
+`test/dark-skin-pilot.json`. The manifest is a reviewed pilot selection, not an
+automatic classifier of every theme's visual relationship.
+
+Open `/tmp/chulapa-dark-skin-pilot/index.html` for interactive light/dark pairs.
+Set `DARK_SKIN_PILOT_OUTPUT` to change the output directory. The same content,
+compiled theme components and embedded original fonts are used in both modes;
+no site build, CDN access or JavaScript is needed to view the resulting HTML.
+Use `--sass-only` to generate just Sass, or `--sass-only --check` for a fast
+drift check without launching a browser. Generation of previews requires font
+downloads on the first run. The original preview font helper is shared, with pinned font sources and local caching.
+
+The generator derives dark surfaces and readable link/outline colors from each
+original palette while retaining primary fill, typography and card radius.
+It checks source eligibility, existing-pair exclusions, generated Sass drift
+(`--check`), loaded fonts, keyboard focus and horizontal overflow at 390/1280px.
+It measures sampled text contrast, including normal/hover/focus/active buttons,
+and rejects generated dark text below 4.5:1. Original light palette exceptions
+are recorded without failing the experiment. This is not an accessibility
+certification; review `report.json` and the study boundaries.
+Screenshots include individual views and light/dark comparison sheets at
+390/640px per pane. These are component studies, not full-site validation.
+
+Do not set `chulapa.skin` to these experimental names: they are deliberately
+outside `_sass/skins/`, the public catalog and the gem. Promotion requires
+reviewing the report, remaining component states and real theme pages first.

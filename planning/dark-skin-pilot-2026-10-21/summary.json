@@ -1,0 +1,533 @@
+{
+  "date": "2026-10-21",
+  "base": "4efd1e3e9263759e6326474c260badc4580afe4e",
+  "experimental": true,
+  "tools": {
+    "chromium": "151.0.7922.173",
+    "dartSass": "1.100.0",
+    "rubySass": "3.7.4"
+  },
+  "individualViewportWidths": [
+    390,
+    1280
+  ],
+  "comparisonPaneWidths": [
+    390,
+    640
+  ],
+  "skins": [
+    {
+      "skin": "chulapa",
+      "primary": "#edc7b7",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(64, 61, 62)",
+          "primary": "rgb(237, 199, 183)",
+          "font": "\"Ibarra Real Nova\", serif",
+          "heading": "chulapa, sans-serif",
+          "radius": "0px",
+          "keyboardStops": 23,
+          "measurements": 77,
+          "minimumTextContrast": 1.11,
+          "contrastFailures": [
+            {
+              "selector": ".text-muted",
+              "state": "normal",
+              "ratio": 3.9,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 3.36,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.11,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.11,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(34, 33, 37)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(237, 199, 183)",
+          "font": "\"Ibarra Real Nova\", serif",
+          "heading": "chulapa, sans-serif",
+          "radius": "0px",
+          "keyboardStops": 23,
+          "measurements": 77,
+          "minimumTextContrast": 4.56,
+          "contrastFailures": []
+        }
+      }
+    },
+    {
+      "skin": "litera",
+      "primary": "#4582ec",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(52, 58, 64)",
+          "primary": "rgb(69, 130, 236)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "radius": "4px",
+          "keyboardStops": 23,
+          "measurements": 77,
+          "minimumTextContrast": 1.05,
+          "contrastFailures": [
+            {
+              "selector": "p a",
+              "state": "normal",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".text-muted",
+              "state": "normal",
+              "ratio": 3.32,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".lead",
+              "state": "normal",
+              "ratio": 3.32,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".navbar-brand",
+              "state": "normal",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 2.03,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".alert",
+              "state": "normal",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".alert-link",
+              "state": "normal",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": "th",
+              "state": "normal",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer",
+              "state": "normal",
+              "ratio": 2.78,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer a",
+              "state": "normal",
+              "ratio": 3.32,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "normal",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "normal",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "hover",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "focus",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "active",
+              "ratio": 3.71,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "normal",
+              "ratio": 2.07,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "hover",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "focus",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "active",
+              "ratio": 2.8,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-secondary",
+              "state": "normal",
+              "ratio": 2.07,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-secondary",
+              "state": "hover",
+              "ratio": 2.07,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-secondary",
+              "state": "focus",
+              "ratio": 2.07,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-secondary",
+              "state": "active",
+              "ratio": 2.07,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "normal",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "hover",
+              "ratio": 3.98,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "focus",
+              "ratio": 3.98,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "normal",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "hover",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "focus",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "active",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "normal",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "hover",
+              "ratio": 4.4,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "focus",
+              "ratio": 4.4,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "normal",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "hover",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "focus",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "active",
+              "ratio": 3.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "normal",
+              "ratio": 1.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "hover",
+              "ratio": 2.22,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "focus",
+              "ratio": 2.22,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "active",
+              "ratio": 2.33,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-warning",
+              "state": "normal",
+              "ratio": 1.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-warning",
+              "state": "hover",
+              "ratio": 1.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-warning",
+              "state": "focus",
+              "ratio": 1.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-warning",
+              "state": "active",
+              "ratio": 1.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "normal",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "normal",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "hover",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "focus",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "active",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.05,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.05,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(20, 28, 41)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(69, 130, 236)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "radius": "4px",
+          "keyboardStops": 23,
+          "measurements": 77,
+          "minimumTextContrast": 4.62,
+          "contrastFailures": []
+        }
+      }
+    },
+    {
+      "skin": "minco",
+      "primary": "#083358",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(33, 37, 41)",
+          "primary": "rgb(8, 51, 88)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "\"Crete Round\"",
+          "radius": "4px",
+          "keyboardStops": 23,
+          "measurements": 77,
+          "minimumTextContrast": 1.12,
+          "contrastFailures": [
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 4.39,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "hover",
+              "ratio": 4.48,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "focus",
+              "ratio": 4.48,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "active",
+              "ratio": 3.67,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "normal",
+              "ratio": 3.35,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "hover",
+              "ratio": 3.88,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "focus",
+              "ratio": 3.88,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "active",
+              "ratio": 3.99,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "normal",
+              "ratio": 3.33,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "hover",
+              "ratio": 3.8,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "focus",
+              "ratio": 3.8,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "active",
+              "ratio": 3.89,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.12,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.12,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(15, 22, 29)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(8, 51, 88)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "\"Crete Round\"",
+          "radius": "4px",
+          "keyboardStops": 23,
+          "measurements": 77,
+          "minimumTextContrast": 4.55,
+          "contrastFailures": []
+        }
+      }
+    }
+  ]
+}

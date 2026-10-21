@@ -1,0 +1,10 @@
+{
+  "experimental": true,
+  "skins": ["chulapa", "litera", "minco"],
+  "existingPairs": [
+    {"light": "gitdev", "dark": ["gitdev-dark"], "evidence": "docs/collections/_skins/gitdev-dark.md"},
+    {"light": "butterfly", "dark": ["butterfly-dim", "butterfly-dark"], "evidence": "docs/collections/_skins/butterfly-dark.md"},
+    {"light": "twitter", "dark": ["twitter-dim", "twitter-lights-out"], "evidence": "docs/collections/_skins/twitter-lights-out.md"},
+    {"light": "flatly", "dark": ["darkly"], "evidence": "docs/collections/_skins/darkly.md"}
+  ]
+}
