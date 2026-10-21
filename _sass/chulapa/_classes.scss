@@ -1401,35 +1401,3 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 .chulapa-carousel-symbol.has-icon-font i { display: inline-block; }
 .chulapa-carousel-symbol.has-icon-font .chulapa-carousel-fallback,
 .chulapa-carousel-symbol svg + .chulapa-carousel-fallback { display: none; }
-
-// Dark mode toggler
-.chulapa-theme-toggle .chulapa-theme-label {
-  display: none !important;
-}
-
-.chulapa-theme-toggle {
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-}
-
-// Default color (closed)
-.navbar-chulapa-fab-nav .chulapa-theme-toggle,
-.navbar-chulapa-fab-nav .chulapa-theme-toggle i,
-.navbar-chulapa .chulapa-theme-toggle,
-.navbar-chulapa .chulapa-theme-toggle i {
-  color: $navbar-chulapa-text-color !important;
-}
-
-// Remove focus outline
-.chulapa-theme-toggle:focus,
-.chulapa-theme-toggle:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-  color: $navbar-chulapa-text-color !important;
-}
-
-// Active color when dropdown is open
-.chulapa-theme-selector.show .chulapa-theme-toggle,
-.chulapa-theme-selector.show .chulapa-theme-toggle i {
-  color: $navbar-chulapa-active-color !important;
-}

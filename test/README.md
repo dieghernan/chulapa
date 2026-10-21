@@ -324,6 +324,8 @@ browser check covers classic/floating/dual menus with and without links, desktop
 and mobile, keyboard/Escape focus, automatic device changes, persisted dark first
 paint with delayed CSS, cross-tab synchronization, blocked storage, failed CSS,
 CSP blocking inline scripts and the no-JavaScript fallback. CI runs both checks.
+Selector styles are imported only when dark mode is configured, including in
+the documentation's standalone skin stylesheets.
 For a local run:
 
 ```sh
