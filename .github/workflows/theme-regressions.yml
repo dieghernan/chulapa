@@ -86,7 +86,7 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.62.1-noble@sha256:dcc5531e97840b9b5e794f2814476b21571c5124a3fca2267d73041f56e7580e
       options: --ipc=host
     env:
-      DARK_SKIN_PILOT_OUTPUT: ${{ runner.temp }}/chulapa-dark-skin-pilot
+      DARK_SKIN_PILOT_OUTPUT: /tmp/chulapa-dark-skin-pilot
     steps:
       - uses: actions/checkout@v7
       - name: Install locked pilot dependencies
