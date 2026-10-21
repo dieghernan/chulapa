@@ -6,7 +6,7 @@ Language: English.
 
 ## Implementation tracking
 
-Updated: 19 October 2026. The delivery table and active implementation order
+Updated: 21 October 2026. The delivery table and active implementation order
 track the current work. The diagnosis and inventory below describe the baseline
 after PR #106, not a continuously rescored view of the current documentation.
 Historical scores are unchanged. Older deployment observations are retained as
@@ -67,7 +67,10 @@ recorded; merge status alone does not establish a deployment or answer quality.
 | [#163](https://github.com/dieghernan/chulapa/pull/163) — 2.2.0 preparation | Merged; unpublished | Approved version and draft notes; final release artifact/publication remain separate. |
 | [#164](https://github.com/dieghernan/chulapa/pull/164) — chatbot corrections | Merged | Topic selection, recipe checks and citation integrity; revision-specific live evidence and two answer-quality limitations remain explicit. |
 | [#166](https://github.com/dieghernan/chulapa/pull/166) — appearance selector | Merged; exact-main Pages/Worker and regressions succeeded | Optional Light/Dark/Auto selector and reviewed recovery/metadata/attribution/blank-config fixes. [Post-merge record](post166-release-status-2026-10-19.md); no new inference result or release publication. |
-| [#168](https://github.com/dieghernan/chulapa/pull/168) — font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded | Verified CSS completion permits safe switching despite Google Fonts failures; reject missing/incomplete essential sheets. [Current candidate/handoff](release-candidate-after168-2026-10-19.md). |
+| [#168](https://github.com/dieghernan/chulapa/pull/168) — font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded | Verified CSS completion permits safe switching despite Google Fonts failures; reject missing/incomplete essential sheets. [Historical #168 candidate/handoff — superseded](release-candidate-after168-2026-10-19.md). |
+| [#170](https://github.com/dieghernan/chulapa/pull/170) — default semantics | Merged; exact-main Pages/regressions succeeded | Restores document keyboard links and scopes main/editorial content while preserving feeds. [Candidate revision history](release-candidate-after170-2026-10-19.md); no new Worker deployment was required for #170. |
+| [#172](https://github.com/dieghernan/chulapa/pull/172) and Flatly follow-up — skin contrast | Merged; historical source `58966b5dd` | Preserves original primary palettes, improves documented component pairs and fixes Flatly alerts; exceptions remain explicit. [Candidate revision history](release-candidate-after170-2026-10-19.md); Worker deployment from #172 is historical. |
+| #173–#176 — skins, previews and provenance | Merged; current source `4efd1e3e9` | Original Bootswatch choices, unified previews, dark asset path consistency and separately licensed upstream Sass/adapters. [Current candidate/checks](release-candidate-after170-2026-10-19.md); Worker lineage is separately #175. |
 
 For every subsequent delivery, record its PR, merge/deployment status, affected
 source links and remaining mixed content. Do not mark an open PR as implemented.
@@ -199,19 +202,23 @@ use it alongside the historical audit rather than treating old priorities as ope
 
 ### Active implementation order
 
-Updated: 19 October 2026. Editorial closeout #161, release preparation #163,
+Updated: 21 October 2026. Editorial closeout #161, release preparation #163,
 chatbot corrections #164, selector #166 and font-failure follow-up #168 are
-merged. Historical assessments,
+merged; #170 adds a bounded semantics correction. Historical assessments,
 thresholds and synthetic reviews retain their original evidence.
 
 1. **Keep the editorial scope closed.** No labels, new extractions or global
    navigation rollout without a concrete defect. Human research remains optional.
 2. **Finish release preparation.** Use the [current handoff](diataxis-closeout-plan.md)
-   and [current candidate evidence](release-candidate-after168-2026-10-19.md). Pages/Worker,
-   Jekyll 3/4 installation/regressions, browser and Algolia succeeded on current
-   main; public HTTP availability remains unverified from this environment.
-   A new local unreleased candidate is recorded after #168. Rebuild the final
-   artifact after publication authorization; do not upload a test candidate. No tag/gem/release publication is authorized here.
+   and [current candidate evidence](release-candidate-after170-2026-10-19.md).
+   The current source is `4efd1e3e9` after #176; use its recorded check status,
+   not earlier source passes. Pages and Algolia succeeded; the candidate record
+   separately reports the regression matrix and fresh local Jekyll 3/4 checks.
+   The Worker deployed #175's context from `c698197c8`, run 39548857744;
+   #176 does not modify Worker files. Public HTTP remains unverified here.
+   Triage #175's recorded selector visible-focus issue before the final release
+   decision. Final publication needs separate authorization and artifact validation.
+
 3. **Keep chatbot evidence revision-specific.** #164 has live observations;
    the current deployed revision has no new inference review in this update.
    Content-TOC and guide-discovery limitations are separate bounded follow-ups,

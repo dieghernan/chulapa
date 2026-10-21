@@ -1,47 +1,54 @@
 # Diataxis closeout and release preparation plan
 
-Updated: 19 October 2026. Current delivery baseline: main `ed66ab4ac`, after merged #168.
-Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Post-#168 deployment is verified separately below.
+Updated: 21 October 2026. Current delivery baseline: main `4efd1e3e9`, after merged #176.
+Status: agreed editorial/correction scope and final reassessment delivered in merged [PR #161](https://github.com/dieghernan/chulapa/pull/161). Release 2.2.0 is prepared but unpublished. Current-main checks and #175 Worker lineage are recorded below.
 See the [final reassessment](diataxis-final-reassessment-2026-10-16.md) for current scores; earlier tables remain historical.
 This is the current execution plan. Keep historical audits, scores, synthetic
 reviews and raw evaluations unchanged; update this plan with actual delivery
 status and links after each bounded PR. Documentation is written in English.
 
-## Current handoff after #168
+## Current handoff after #176
 
 The editorial/correction program is closed. #163 prepared 2.2.0 without publishing;
 #164 merged chatbot context/citation/answer checks; #166 merged the optional
 Light/Dark/Auto selector and its review fixes. #168 adds shared recovery for
 Google Fonts import failures while rejecting incomplete/unverified essential CSS.
-The current source is `ed66ab4ac2c7124086c218ada8b00abb7c813041`.
+#170 adds the bounded default-layout/keyboard/microformats correction.
+#172 and subsequent commits improve GitDev/skin contrast while preserving
+original primary colors; a pre-#173 follow-up corrects Flatly alert text/links.
+#173 adds original Bootswatch choices; #174 unifies previews and guidance;
+#175 fixes previews/dark asset paths; #176 separates upstream sources/licenses
+from Chulapa adapters without adding user setup.
+The current source is `4efd1e3e9263759e6326474c260badc4580afe4e`.
 
-[Post-#168 candidate evidence](release-candidate-after168-2026-10-19.md)
-confirms successful exact-source Pages, Pages-gated Worker, Jekyll 3/4 regression
-and installed-gem jobs, browser and Algolia workflows. Worker version:
-`5cc044b1-b8a9-4135-a500-66c9bcb0db67`. The prior
-[post-#166 record](post166-release-status-2026-10-19.md) remains historical evidence
-for that revision. Current deployment is not new live inference/availability
-evidence; proxy-restricted HTTP checks and the known Netlify failure are not
-claimed resolved.
+[Current candidate evidence](release-candidate-after170-2026-10-19.md) records
+the new artifact and exact-source checks without inheriting older passes.
+The Worker deployed separately from #175 (`c698197c8`), run 39548857744,
+version `ff91f0e4-da59-4de4-906a-9750284d14db`; #176 does not change Worker files.
+Older hashes/checks remain historical. Known Netlify/proxy limitations and
+#175's recorded selector visible-focus issue are not claimed resolved.
 
 Next steps:
 
-1. Review and approve the revised 2.2.0 release scope/notes including #164/#166/#168;
+1. Review and approve the revised 2.2.0 release scope/notes including the latest #173–#176 changes;
    the 16 October approval covers the original draft only. A new local candidate
    is recorded for this baseline; it still contains unreleased markers and must
    not be uploaded as the final release artifact.
-2. On separate publication authorization, finalize release metadata/date, build
+2. Triage the selector visible-focus limitation recorded in #175 before the final
+   release decision; the shared mixin removes outline and box-shadow on focus.
+3. On separate publication authorization, finalize release metadata/date, build
    and verify the exact final artifact, then publish the approved tag/gem/release.
    CI has already verified installed-gem compatibility on this baseline with
    Jekyll 3/4; later source changes require checks appropriate to those changes.
-3. If prioritized, address the two documented chatbot limitations (content TOC
+4. If prioritized, address the two documented chatbot limitations (content TOC
    recipes and guide discovery) in a separate bounded task. Do not reopen #164
    or require the full catalog/human research to close this editorial program.
 
 No publication, live inference or manual deployment is authorized by this status
 update. Earlier delivery rows below are dated delivery observations: their
 unverified-deployment wording is superseded for the current cumulative source
-by the exact current-source evidence, not retroactively for each historical revision.
+by exact-source site checks and the separately identified Worker lineage,
+not retroactively for each historical revision.
 
 ## Current state
 
@@ -59,7 +66,10 @@ by the exact current-source evidence, not retroactively for each historical revi
 | #154 cloud-entry dates | Closed by merged #159; head checks passed including Jekyll 3/4 and browser; branch deleted. See the [delivery record](cloud-date-fix-2026-10-16.md). |
 | #125 comment adapters | Closed by merged #160; all applicable head checks passed, including Jekyll 3/4, installation and browser; branch deleted. See the [delivery record](comment-adapters-fix-2026-10-16.md). |
 | #163 release preparation | Merged; 2.2.0 remains unreleased. Final artifact/publication requires a separate instruction. |
-| #164 chatbot corrections | Merged; revision-specific live evidence exists. Final changes have local/CI checks, not inherited live-answer passes. Current cumulative context includes #168 and was deployed by [post-#168 Worker run 39200007159](https://github.com/dieghernan/chulapa/actions/runs/39200007159) for `ed66ab4ac`; see the [current candidate evidence](release-candidate-after168-2026-10-19.md). |
+| #164 chatbot corrections | Merged; revision-specific live evidence exists. Final changes have local/CI checks, not inherited live-answer passes. Current cumulative context includes #175 and was deployed by [Worker run 39548857744](https://github.com/dieghernan/chulapa/actions/runs/39548857744) for `c698197c8`; see the [current candidate evidence](release-candidate-after170-2026-10-19.md). |
+| #172 skin contrast and Flatly follow-up | Merged; source-specific checks and Worker deployment remain historical. See the candidate record for current source and lineage. |
+| #173–#176 skins, previews and provenance | Merged; current source `4efd1e3e9`, rebuilt candidate, #175 Worker lineage and exact-source check limits are recorded in the candidate report. |
+| #170 default semantics | Merged; exact-main Pages/regressions succeeded. That revision's gem/unchanged #168 Worker lineage remain historical; the current candidate report records the newer baseline. |
 | #168 font-failure recovery | Merged; exact-main CI/Pages/Worker succeeded. New candidate validation and CSS-upgrade constraints are recorded in the current candidate report. |
 | #166 appearance selector | Merged with all review threads resolved; exact-main regression and Pages/Worker results verified. Netlify preview failure remains known. |
 | Broader navigation/integration draft | Archived outside the repo before restoring a clean main; its old local branch was deleted. Use relevant hunks selectively in future groups, not whole stale context/index files. It is not a delivered PR. |
@@ -189,9 +199,9 @@ performed revision-specific live evaluations and corrections; see its
 [closeout and limitations](../docs/ai-chatbot/evaluations/pr164-closeout-2026-10-18.md).
 Preserve raw outputs and version identities. The historical evidence manifest
 still points to an earlier manually deployed candidate; it is not the identity
-of the new Pages-gated Worker recorded above.
+of the newer #175 Pages-gated Worker deployment recorded above.
 
-The deployed #168 source has no new inference evaluation in this task. Known
+The deployed #175 Worker source has no new inference evaluation in this task. Known
 content-TOC and guide-discovery fallbacks mean an answer can be unavailable;
 containment is not successful task completion. If a follow-up is authorized,
 select focused cases, verify the exact deployed revision, retain raw outputs and
