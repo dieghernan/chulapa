@@ -11,7 +11,7 @@ Dir.mktmpdir('chulapa-font-source-') do |source|
   FileUtils.mkdir_p(File.join(source, 'assets/css/dark'))
   FileUtils.mkdir_p(File.join(source, 'assets/fonts/Chulapa'))
   FileUtils.cp(File.join(root, 'assets/fonts/Chulapa/Chulapa-Bold_vmod.otf'), File.join(source, 'assets/fonts/Chulapa'))
-  %w[main.scss dark/main.scss highlighter.scss highlighterdark.scss].each do |file|
+  %w[main.scss dark/main.scss highlighter.scss dark/highlighter.scss].each do |file|
     FileUtils.cp(File.join(root, 'assets/css', file), File.join(source, 'assets/css', file))
   end
   File.write(File.join(source, 'index.html'), "---\n---\n<!doctype html><html><head>{% include theme-styles.html %}</head><body><h1>Font probe</h1><p>Fallback text</p>{% include components/theme-selector.html %}</body></html>")

@@ -324,6 +324,11 @@ browser check covers classic/floating/dual menus with and without links, desktop
 and mobile, keyboard/Escape focus, automatic device changes, persisted dark first
 paint with delayed CSS, cross-tab synchronization, blocked storage, failed CSS,
 CSP blocking inline scripts and the no-JavaScript fallback. CI runs both checks.
+Live selector styles are imported only when dark mode is configured, including
+in standalone skin stylesheets. Component-demo selector styles are always
+available, scoped to `.bs-component`, and do not activate switching.
+Both dark stylesheets are generated under `assets/css/dark/`: `main.css` and
+`highlighter.css`. The tests cover their paired loading and failure fallback.
 For a local run:
 
 ```sh
@@ -431,8 +436,9 @@ CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_bootswatch_originals_browser.
 
 Cerulean, Litera and Pulse retain unmodified Bootswatch 4.6.2 source files and
 MIT attribution under `_sass/vendor/bootswatch`. The check validates source
-hashes and deferred wrappers, compares original typography and components against
-a reference compiled directly from upstream Sass at 390px and 1280px, exercises
+hashes and deferred wrappers, allowing Cerulean's explicit Chulapa navbar/hero
+text colors. It compares original typography and components against a reference
+compiled directly from upstream Sass at 390px and 1280px, exercises
 normal/hover/focus/active states and disabled buttons, with autothemer off and on, and verifies custom colors
 and a single Bootstrap grid import. These original skins keep their contrast
 limitations; reference equality is not a WCAG pass. Cerulean gradients are
@@ -457,6 +463,10 @@ YAML names and options do not change.
 ### Skin catalog previews
 
 All catalog images use `fixtures/skin-preview.html` and the actual skin Sass.
+The sample uses Chulapa's default classic navbar (`navbar-chulapa`), including
+its brand, right-aligned links and collapsed mobile layout. Keep its markup
+aligned with `_includes/components/navbar-classic.html`; each skin supplies
+the navbar colors rather than a generic Bootstrap `bg-primary` background.
 Regenerate PNG social images (960 × 540) and WebP catalog images from the root:
 
 ```sh

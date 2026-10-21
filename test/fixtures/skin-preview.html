@@ -18,12 +18,20 @@
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand navbar-dark bg-primary" aria-label="Sample navigation">
-  <a class="navbar-brand" href="#">{{title}}</a>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active"><a class="nav-link" href="#" aria-current="page">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Articles</a></li>
-  </ul>
+<!-- Keep this sample aligned with components/navbar-classic.html. -->
+<nav class="navbar navbar-expand-md sticky-top navbar-chulapa" aria-label="primary-navigation">
+  <div class="container-fluid mx-md-2">
+    <a class="navbar-brand font-weight-bold" href="/">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link active font-weight-bold" href="/" aria-current="page">Home<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/articles">Articles</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 <main class="preview">
   <h1 class="h2">{{title}}</h1>

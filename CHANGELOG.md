@@ -6,7 +6,7 @@ remains v2.1.0 until publication is completed.
 
 ### Added
 
--   Standardize skin catalog images and activation guidance with shared preview generation and documentation templates.
+-   Standardize skin catalog images and activation guidance with shared preview generation and documentation templates, showing each skin's default Chulapa navbar.
 
 -   Add Cerulean, Litera and Pulse using original Bootswatch 4.6.2 Sass, preserving their palettes, typography and component styling, with catalog previews and documented contrast limitations.
 
@@ -25,6 +25,10 @@ remains v2.1.0 until publication is completed.
 -   Render Mermaid diagrams with `mermaid: true`, loading the library only on enabled pages containing diagrams and preserving source when rendering fails.
 
 ### Fixed
+
+-   Keep live theme selector styles conditional on dark-mode configuration, including standalone skin preview stylesheets, while retaining the always-visible component demo.
+
+-   Generate both dark stylesheets under `assets/css/dark/`, moving the dark highlighter to `dark/highlighter.css` and updating paired loading and fallback checks.
 
 -   Limit button palette corrections to unchanged stock colors, respect configured semantic colors and page backgrounds, and keep Auto-specific button styles out of Autothemer palette filling for other skins.
 

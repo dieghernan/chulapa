@@ -32,3 +32,8 @@
 {% if site.search.provider == "algolia" %}
 @import "reset-algolia";
 {% endif %}
+
+{% include snippets/dark-skin-enabled.html %}
+{% if dark_skin_enabled %}
+@import "chulapa/theme-selector";
+{% endif %}

@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
   const dependency = url.pathname.match(/^\/dependency-(\d+)\.js$/);
   if (dependency) return send(200, 'application/javascript', fs.readFileSync([...dependencies.values()][Number(dependency[1])]));
   const main = url.pathname.endsWith('/dark/main.css');
-  const highlighter = url.pathname.endsWith('/highlighterdark.css');
+  const highlighter = url.pathname.endsWith('/dark/highlighter.css');
   if ((fault === 'main' && main) || (fault === 'highlighter' && highlighter)) return send(404, 'text/css', 'Missing essential CSS');
   if (fault === 'foreign' && main) return send(302, 'text/plain', '', {location: origin.replace('127.0.0.1', 'localhost') + '/foreign-main.css'});
   const directory = url.pathname.startsWith('/project/') || url.pathname === '/foreign-main.css' ? selectorDirectory : skinDirectory;
@@ -118,7 +118,7 @@ async function attempt(page, flow) {
     await page.reload();
   } else if (flow === 'auto-change') { await select(page, 'auto'); await scheme(page, 'dark'); }
   else await select(page, 'dark');
-  await page.waitForFunction(() => window.linkEvents.some(event => /\/(dark\/main|highlighterdark)\.css$/.test(event.href)));
+  await page.waitForFunction(() => window.linkEvents.some(event => /\/dark\/(main|highlighter)\.css$/.test(event.href)));
 }
 async function matrix(browser, intercepted) {
   const scenarios = intercepted ? ['available', 'fonts-css', 'fonts-disconnect', 'font-file', 'empty', 'main', 'highlighter',
@@ -143,7 +143,7 @@ async function matrix(browser, intercepted) {
     assert.equal(state.color === light, essentialFailure, `${scenario}/${flow}: computed skin`);
     assert.deepEqual(state.links, essentialFailure
       ? ['/project/assets/css/main.css', '/project/assets/css/highlighter.css']
-      : ['/project/assets/css/dark/main.css', '/project/assets/css/highlighterdark.css']);
+      : ['/project/assets/css/dark/main.css', '/project/assets/css/dark/highlighter.css']);
     if (scenario === 'fonts-css' || scenario === 'fonts-disconnect') assert.ok(state.events.some(e => e.type === 'error' && e.href.endsWith('/dark/main.css')));
     if (scenario === 'font-file') await page.waitForFunction(() => [...document.fonts].some(font => font.family === 'Inter' && font.status === 'error'));
     if (scenario === 'available') await page.waitForFunction(() => [...document.fonts].some(font => font.family === 'Inter' && font.status === 'loaded'));

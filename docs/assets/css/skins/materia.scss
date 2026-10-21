@@ -11,3 +11,8 @@
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 @import "reset-algolia";
+
+{% include snippets/dark-skin-enabled.html %}
+{% if dark_skin_enabled %}
+@import "chulapa/theme-selector";
+{% endif %}
