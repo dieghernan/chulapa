@@ -16,6 +16,8 @@ function publishArtifacts(report, output, destination, check) {
       }]))}))
   };
   const artifacts = new Map([['summary.json',Buffer.from(JSON.stringify(summary,null,2)+'\n')]]);
+  // Keep the candidate available even when the committed summary fails comparison.
+  fs.writeFileSync(path.join(output,'summary.json'),artifacts.get('summary.json'));
   for (const {skin} of report.skins) for (const width of [390,640]) {
     const name = `${skin}-comparison-${width}.png`;
     artifacts.set(name,fs.readFileSync(path.join(output,name)));
