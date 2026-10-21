@@ -457,6 +457,10 @@ YAML names and options do not change.
 ### Skin catalog previews
 
 All catalog images use `fixtures/skin-preview.html` and the actual skin Sass.
+The sample uses Chulapa's default classic navbar (`navbar-chulapa`), including
+its brand, right-aligned links and collapsed mobile layout. Keep its markup
+aligned with `_includes/components/navbar-classic.html`; each skin supplies
+the navbar colors rather than a generic Bootstrap `bg-primary` background.
 Regenerate PNG social images (960 × 540) and WebP catalog images from the root:
 
 ```sh

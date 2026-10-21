@@ -6,7 +6,7 @@ remains v2.1.0 until publication is completed.
 
 ### Added
 
--   Standardize skin catalog images and activation guidance with shared preview generation and documentation templates.
+-   Standardize skin catalog images and activation guidance with shared preview generation and documentation templates, showing each skin's default Chulapa navbar.
 
 -   Add Cerulean, Litera and Pulse using original Bootswatch 4.6.2 Sass, preserving their palettes, typography and component styling, with catalog previews and documented contrast limitations.
 
