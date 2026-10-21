@@ -1,0 +1,101 @@
+// GENERATED experimental academia dark study. Regenerate with test/generate_dark_skin_pilot.js.
+// Standalone stylesheet, not a catalog skin. Import once, without Bootstrap again.
+// Not an upstream dark theme; original source/credits remain in the imported skin.
+$body-bg: #101a25 !default;
+$body-color: #e5e9ef !default;
+$headings-color: #e5e9ef !default;
+$link-color: #4887ce !default;
+$link-hover-color: #4887ce !default;
+$text-muted: #adb5bd !default;
+$card-bg: #1d2731 !default;
+$card-cap-bg: #1d2731 !default;
+$card-border-color: #454c55 !default;
+$dropdown-bg: #1d2731 !default;
+$dropdown-link-color: #e5e9ef !default;
+$dropdown-link-hover-color: #ffffff !default;
+$dropdown-link-hover-bg: #454c55 !default;
+$list-group-bg: #1d2731 !default;
+$list-group-color: #e5e9ef !default;
+$list-group-action-color: #e5e9ef !default;
+$list-group-hover-bg: #454c55 !default;
+$input-bg: #1d2731 !default;
+$input-color: #e5e9ef !default;
+$input-border-color: #454c55 !default;
+$input-focus-bg: #1d2731 !default;
+$input-focus-color: #ffffff !default;
+$input-placeholder-color: #adb5bd !default;
+$table-color: #e5e9ef !default;
+$table-border-color: #454c55 !default;
+$modal-content-bg: #1d2731 !default;
+$modal-content-border-color: #454c55 !default;
+$jumbotron-bg: #1d2731 !default;
+$breadcrumb-bg: #1d2731 !default;
+$pagination-bg: #1d2731 !default;
+$pagination-color: #e5e9ef !default;
+$pagination-hover-bg: #454c55 !default;
+$pagination-hover-color: #ffffff !default;
+$pagination-disabled-bg: #1d2731 !default;
+$pagination-disabled-color: #adb5bd !default;
+$pagination-border-color: #454c55 !default;
+$navbar-chulapa-bg-color: #1d2731 !default;
+$navbar-chulapa-text-color: #e5e9ef !default;
+$navbar-chulapa-hover-color: #ffffff !default;
+$navbar-chulapa-active-color: #ffffff !default;
+$navbar-chulapa-brand-color: #ffffff !default;
+$footer-chulapa-bg-color: #1d2731 !default;
+$footer-chulapa-text-color: #adb5bd !default;
+$footer-chulapa-link-color: #5b93d3 !default;
+$footer-chulapa-hover-color: #5b93d3 !default;
+$thead-chulapa-text-color: #ffffff !default;
+$blockquote-chulapa-bg-color: #1d2731 !default;
+$blockquote-chulapa-text-color: #e5e9ef !default;
+$pre-chulapa-bg-color: #1d2731 !default;
+$code-color: #ff9dcc !default;
+$alert-bg-level: 10 !default;
+$alert-border-level: 7 !default;
+$alert-color-level: -7 !default;
+$skin-button-labels: () !default;
+$skin-button-outlines: () !default;
+$skin-button-lighter-states: () !default;
+@import "skins/academia";
+// Legacy sources may assign this unconditionally; keep the derived dark surface.
+$navbar-chulapa-bg-color: #1d2731;
+@import "bootstrap/bootstrap";
+@import "chulapa-master";
+// Experimental shared control treatment. Original palette fills remain unchanged.
+@each $name, $source-fill in $theme-colors {
+  // Keep existing reviewed button fills (which can differ from palette tokens).
+  $fill: if(map-has-key($skin-button-backgrounds, $name), map-get($skin-button-backgrounds, $name), $source-fill);
+  .btn.btn-#{$name} {
+    color: color-contrast($fill, #000, #fff, 4.5);
+    &:hover, &:focus {
+      background-color: darken($fill, 7.5%);
+      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5);
+    }
+    &:not(:disabled):not(.disabled):active {
+      background-color: darken($fill, 10%);
+      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5);
+    }
+  }
+}
+$pilot-outlines: (primary: #4887ce, secondary: #4d7dff, success: #28a745, info: #20a6bb, warning: #ffc107, danger: #e15361, light: #f8f9fa, dark: #818589);
+@each $name, $label in $pilot-outlines {
+  .btn.btn-outline-#{$name}:not(:disabled):not(.disabled) {
+    background-color: transparent;
+    color: $label !important;
+    border-color: $label !important;
+    &:hover, &:not(:disabled):not(.disabled):active {
+      background-color: theme-color($name);
+      color: color-contrast(theme-color($name), #000, #fff, 4.5) !important;
+    }
+  }
+}
+.table tbody td { background-color: $body-bg; color: $body-color; }
+.alert-primary { background-color: #041426; color: #e5e9ef; } .alert-primary .alert-link { color: #4484cd; }
+.alert-secondary { background-color: #081433; color: #e5e9ef; } .alert-secondary .alert-link { color: #497aff; }
+.alert-success { background-color: #08210e; color: #e5e9ef; } .alert-success .alert-link { color: #28a745; }
+.alert-info { background-color: #062125; color: #e5e9ef; } .alert-info .alert-link { color: #20a6bb; }
+.alert-warning { background-color: #332701; color: #e5e9ef; } .alert-warning .alert-link { color: #ffc107; }
+.alert-danger { background-color: #2c0b0e; color: #e5e9ef; } .alert-danger .alert-link { color: #e14f5d; }
+.alert-light { background-color: #323232; color: #e5e9ef; } .alert-light .alert-link { color: #f8f9fa; }
+.alert-dark { background-color: #0a0c0d; color: #e5e9ef; } .alert-dark .alert-link { color: #797d81; }

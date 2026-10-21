@@ -1,6 +1,6 @@
 {
   "experimental": true,
-  "skins": ["chulapa", "litera", "minco"],
+  "skins": ["chulapa", "litera", "minco", "academia", "pear", "lux", "minty", "sketchy"],
   "existingPairs": [
     {"light": "gitdev", "dark": ["gitdev-dark"], "evidence": "docs/collections/_skins/gitdev-dark.md"},
     {"light": "butterfly", "dark": ["butterfly-dim", "butterfly-dark"], "evidence": "docs/collections/_skins/butterfly-dark.md"},

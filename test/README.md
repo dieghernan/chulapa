@@ -523,7 +523,7 @@ stays on 4.5.0; the others retain 4.6.2. The new regression verifies legacy visu
 states, complete deduplicated CSS, source hashes and palette overrides. No public
 configuration, metadata or routing changes are introduced.
 
-### Experimental dark companions (three-skin pilot)
+### Experimental dark companion batches
 
 ```sh
 npm ci --prefix test/browser
@@ -534,7 +534,9 @@ CHULAPA_CHROMIUM=/path/to/chromium node test/generate_dark_skin_pilot.js --check
 This study generates **experimental** Sass under `test/fixtures/dark-skin-pilot/`,
 not built-in skins. These files compile as complete stylesheets (original skin,
 Bootstrap and Chulapa components once), rather than ordinary skin-variable
-partials. It selects Chulapa, Litera and Minco, one from each source family; existing pairs (including Flatly/Darkly) are recorded and excluded in
+partials. The initial batch selects Chulapa, Litera and Minco, one from each source
+family. The second adds Academia, Pear, Lux, Minty and Sketchy; existing pairs
+(including Flatly/Darkly) are recorded and excluded in
 `test/dark-skin-pilot.json`. The manifest is a reviewed pilot selection, not an
 automatic classifier of every theme's visual relationship.
 
@@ -544,12 +546,14 @@ compiled theme components and embedded original fonts are used in both modes;
 no site build, CDN access or JavaScript is needed to view the resulting HTML.
 Use `--sass-only` to generate just Sass, or `--sass-only --check` for a fast
 drift check without launching a browser. Generation of previews requires font
-downloads on the first run. The original preview font helper is shared, with pinned font sources and local caching.
+downloads on the first run. The original preview font helper is shared, with
+pinned font sources and local caching.
 
 The generator derives dark surfaces and readable link/outline colors from each
 original palette while retaining primary fill, typography and card radius.
 It checks source eligibility, existing-pair exclusions, generated Sass drift
-(`--check`), loaded fonts, keyboard focus and horizontal overflow at 390/1280px.
+(`--check`), all committed comparison PNGs and `summary.json`, loaded fonts,
+keyboard focus and horizontal overflow at 390/1280px.
 It measures sampled text contrast, including normal/hover/focus/active buttons,
 and rejects generated dark text below 4.5:1. Original light palette exceptions
 are recorded without failing the experiment. This is not an accessibility
@@ -557,6 +561,23 @@ certification; review `report.json` and the study boundaries.
 Screenshots include individual views and light/dark comparison sheets at
 390/640px per pane. These are component studies, not full-site validation.
 
-Do not set `chulapa.skin` to these experimental names: they are deliberately
+Do not set `chulapa-skin.skin` to these experimental names: they are deliberately
 outside `_sass/skins/`, the public catalog and the gem. Promotion requires
 reviewing the report, remaining component states and real theme pages first.
+
+The browser command without `--check` publishes all comparison PNGs and the
+compact summary to `planning/dark-skin-pilot-2026-10-21/`; no manual copy step is
+needed. Full `--check` regenerates them in the temporary output directory and
+compares every committed file byte-for-byte, including missing/unexpected files.
+`--sass-only --check` deliberately checks only Sass, not review artifacts. Use
+the Chromium version, OS/architecture recorded in `summary.json` (Debian 13,
+Linux x64 for this run), installed system fonts and pinned font downloads to
+reproduce screenshots. A browser/font environment change requires an intentional
+regeneration and review; the check does not hide it with a pixel tolerance.
+
+```sh
+node test/check_dark_skin_pilot_artifacts.js
+```
+
+This negative regression covers stale summaries, changed/missing PNGs, extra
+files and changed measurements even when Sass has not changed.

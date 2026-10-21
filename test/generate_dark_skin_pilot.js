@@ -4,9 +4,13 @@ const sass = require('./browser/node_modules/sass');
 const {chromium} = require('./browser/node_modules/playwright');
 const {inlineFonts} = require('./generate_skin_previews');
 const config = require('./dark-skin-pilot.json');
+const {publishArtifacts} = require('./dark_skin_pilot_artifacts');
 const root = path.resolve(__dirname, '..');
 const output = path.resolve(process.env.DARK_SKIN_PILOT_OUTPUT || '/tmp/chulapa-dark-skin-pilot');
 const fixtureRoot = path.join(__dirname, 'fixtures/dark-skin-pilot');
+const artifactRoot = path.join(root, 'planning/dark-skin-pilot-2026-10-21');
+assert.ok(output!==artifactRoot && !output.startsWith(artifactRoot+path.sep),
+  'Render output must be separate from committed review artifacts');
 const check = process.argv.includes('--check');
 const variants = ['primary','secondary','success','info','warning','danger','light','dark'];
 const cssOptions = {loadPaths: [root+'/_sass',fixtureRoot],logger:{warn(){},debug(){}}};
@@ -31,7 +35,7 @@ function tokens(skin) {
 function generate(skin,t) {
   const bg=rgb(hex(mix(rgb(t.primary),[16,19,24],.08))), panel=hex(mix([255,255,255],bg,.055)), border=hex(mix([255,255,255],bg,.22));
   const variables={
-    'body-bg':hex(bg),'body-color':'#e5e9ef','link-color':readable(rgb(t.primary),bg),'link-hover-color':readable(rgb(t.primary),bg),
+    'body-bg':hex(bg),'body-color':'#e5e9ef','headings-color':'#e5e9ef','link-color':readable(rgb(t.primary),bg),'link-hover-color':readable(rgb(t.primary),bg),
     'text-muted':'#adb5bd','card-bg':panel,'card-cap-bg':panel,'card-border-color':border,
     'dropdown-bg':panel,'dropdown-link-color':'#e5e9ef','dropdown-link-hover-color':'#ffffff','dropdown-link-hover-bg':border,
     'list-group-bg':panel,'list-group-color':'#e5e9ef','list-group-action-color':'#e5e9ef','list-group-hover-bg':border,
@@ -46,7 +50,7 @@ function generate(skin,t) {
     'thead-chulapa-text-color':contrast(rgb(t.primary),[255,255,255])>=4.5?'#ffffff':'#000000',
     'blockquote-chulapa-bg-color':panel,'blockquote-chulapa-text-color':'#e5e9ef','pre-chulapa-bg-color':panel,'code-color':'#ff9dcc',
     'alert-bg-level':'10','alert-border-level':'7','alert-color-level':'-7',
-    'skin-button-labels':'()','skin-button-outlines':'()','skin-button-backgrounds':'()','skin-button-lighter-states':'()'
+    'skin-button-labels':'()','skin-button-outlines':'()','skin-button-lighter-states':'()'
   };
   const declarations=Object.entries(variables).map(([k,v])=>`$${k}: ${v} !default;`).join('\n');
   // Derive outline labels independently; retain original fill colors and fonts.
@@ -56,10 +60,14 @@ function generate(skin,t) {
 // Not an upstream dark theme; original source/credits remain in the imported skin.
 ${declarations}
 @import "skins/${skin}";
+// Legacy sources may assign this unconditionally; keep the derived dark surface.
+$navbar-chulapa-bg-color: ${panel};
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
-@each $name, $fill in $theme-colors {
+@each $name, $source-fill in $theme-colors {
+  // Keep existing reviewed button fills (which can differ from palette tokens).
+  $fill: if(map-has-key($skin-button-backgrounds, $name), map-get($skin-button-backgrounds, $name), $source-fill);
   .btn.btn-#{$name} {
     color: color-contrast($fill, #000, #fff, 4.5);
     &:hover, &:focus {
@@ -74,15 +82,17 @@ ${declarations}
 }
 $pilot-outlines: (${outlines});
 @each $name, $label in $pilot-outlines {
-  .btn.btn-outline-#{$name} {
-    color: $label;
-    border-color: $label;
+  .btn.btn-outline-#{$name}:not(:disabled):not(.disabled) {
+    background-color: transparent;
+    color: $label !important;
+    border-color: $label !important;
     &:hover, &:not(:disabled):not(.disabled):active {
       background-color: theme-color($name);
-      color: color-contrast(theme-color($name), #000, #fff, 4.5);
+      color: color-contrast(theme-color($name), #000, #fff, 4.5) !important;
     }
   }
 }
+.table tbody td { background-color: $body-bg; color: $body-color; }
 ${variants.map(v=>`.alert-${v} { background-color: ${hex(mix([0,0,0],rgb(t[v]),.8))}; color: #e5e9ef; } .alert-${v} .alert-link { color: ${readable(rgb(t[v]),mix([0,0,0],rgb(t[v]),.8))}; }`).join('\n')}
 `;
 
@@ -105,7 +115,7 @@ function html(skin,mode,css) {return `<!doctype html><html lang="en" style="colo
   console.log('Experimental Sass '+(check?'verified':'generated'));return;
  }
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHULAPA_CHROMIUM});
- const report={experimental:true,existingPairs:config.existingPairs,skins:[]};
+ const report={experimental:true,tools:{chromium:browser.version(),dartSass:require('./browser/node_modules/sass/package.json').version,platform:process.platform,architecture:process.arch},existingPairs:config.existingPairs,skins:[]};
  try {
   const page=await browser.newPage();
   await page.route('**/*',route=>route.request().url().startsWith('data:')?route.continue():route.abort());
@@ -122,16 +132,17 @@ function html(skin,mode,css) {return `<!doctype html><html lang="en" style="colo
     await page.setViewportSize({width:1280,height:1000});await page.setContent(document);await page.evaluate(()=>document.fonts.ready);
     assert.deepEqual(await page.evaluate(()=>[...document.fonts].filter(f=>f.status==='error').map(f=>f.family)),[]);
     const styles=await page.evaluate(()=>{const style=s=>getComputedStyle(document.querySelector(s));return {body:style('body').backgroundColor,text:style('body').color,primary:style('.btn-primary').backgroundColor,font:style('p').fontFamily,heading:style('h1').fontFamily,radius:style('.card').borderRadius};});
+    styles.paletteFills=await page.evaluate(variants=>Object.fromEntries(variants.map(v=>[v,getComputedStyle(document.querySelector('.btn-'+v)).backgroundColor])),variants);
     record.modes[mode]=styles;
     const measurements=[];
-    for(const selector of ['body','p a','.text-muted','.lead','.navbar-brand','.nav-link','.card-text','.alert','.alert-link','.form-control','th','footer','footer a',...variants.flatMap(v=>['.btn-'+v,'.btn-outline-'+v])]) {
+    for(const selector of ['body','h1','h2','.card-title','.card-header','p a','.text-muted','.lead','.navbar-brand','.nav-link','.card-text','.alert','.alert-link','.form-control','th','td','footer','footer a',...variants.flatMap(v=>['.btn-'+v,'.btn-outline-'+v])]) {
      const target=page.locator(selector).first();
      for(const state of (selector.startsWith('.btn')?['normal','hover','focus','active']:['normal'])) {
       await page.mouse.move(0,0);await target.evaluate(e=>e.blur());
       if(state==='hover'||state==='active')await target.hover();
       if(state==='focus')await target.focus();
       if(state==='active')await page.mouse.down();
-      await page.waitForTimeout(180);
+      await target.evaluate(e=>{getComputedStyle(e).color;return Promise.all(e.getAnimations().map(a=>a.finished.catch(()=>{})));});
       const colors=await target.evaluate(e=>{let bg=[255,255,255];const ancestors=[];for(let a=e;a;a=a.parentElement)ancestors.unshift(a);for(const a of ancestors){const c=getComputedStyle(a).backgroundColor.match(/[\d.]+/g).map(Number),alpha=c[3]??1;bg=bg.map((x,i)=>c[i]*alpha+x*(1-alpha));}return {fg:getComputedStyle(e).color,bg};});
       const ratio=contrast(rgb(colors.fg),colors.bg);
       measurements.push({selector,state,ratio:Number(ratio.toFixed(2)),passesNormalText:ratio>=4.5});
@@ -153,10 +164,11 @@ function html(skin,mode,css) {return `<!doctype html><html lang="en" style="colo
     for(const width of [390,1280]) {
      await page.setViewportSize({width,height:1000});
      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${skin}/${mode}/${width}: overflow`);
-     await page.screenshot({path:output+`/${skin}-${mode}-${width}.png`,fullPage:true});
+     await page.screenshot({path:output+`/${skin}-${mode}-${width}.png`,fullPage:true,animations:'disabled'});
     }
    }
    assert.equal(record.modes.dark.primary,record.modes.light.primary,skin+': primary changed');
+   assert.deepEqual(record.modes.dark.paletteFills,record.modes.light.paletteFills,skin+': effective button fills changed');
    for(const key of ['font','heading','radius'])assert.equal(record.modes.dark[key],record.modes.light[key],`${skin}: ${key} changed`);
    report.skins.push(record);
    for(const width of [390,640]) {
@@ -166,12 +178,13 @@ function html(skin,mode,css) {return `<!doctype html><html lang="en" style="colo
     for(const frame of page.frames().slice(1))await frame.waitForFunction(()=>document.fonts.status==='loaded'&&document.querySelector('h1'));
     const height=Math.max(...await Promise.all(page.frames().slice(1).map(f=>f.evaluate(()=>document.documentElement.scrollHeight))));
     await page.locator('iframe').evaluateAll((frames,height)=>frames.forEach(f=>f.style.height=height+'px'),height);
-    await page.screenshot({path:output+`/${skin}-comparison-${width}.png`,fullPage:true});
+    await page.screenshot({path:output+`/${skin}-comparison-${width}.png`,fullPage:true,animations:'disabled'});
    }
    console.log('Generated pair:',skin,'dark contrast failures:',record.modes.dark.contrastFailures.length);
   }
  } finally {await browser.close();}
  fs.writeFileSync(output+'/report.json',JSON.stringify(report,null,2)+'\n');
- fs.writeFileSync(output+'/index.html',`<!doctype html><html lang="en"><meta charset="utf-8"><title>Experimental dark skin pilot</title><h1>Dark skin pilot</h1><p>Three experimental companions. Existing light/dark pairs are excluded.</p>${config.skins.map(s=>`<h2>${s}</h2><a href="${s}-light.html">Light</a> · <a href="${s}-dark.html">Dark</a><div style="display:flex;gap:1rem"><iframe title="${s} light" src="${s}-light.html" style="width:50%;height:950px"></iframe><iframe title="${s} dark" src="${s}-dark.html" style="width:50%;height:950px"></iframe></div>`).join('')}</html>`);
+ publishArtifacts(report,output,artifactRoot,check);
+ fs.writeFileSync(output+'/index.html',`<!doctype html><html lang="en"><meta charset="utf-8"><title>Experimental dark skin pilot</title><h1>Dark skin pilot</h1><p>${config.skins.length} experimental companions. Existing light/dark pairs are excluded.</p>${config.skins.map(s=>`<h2>${s}</h2><a href="${s}-light.html">Light</a> · <a href="${s}-dark.html">Dark</a><div style="display:flex;gap:1rem"><iframe title="${s} light" src="${s}-light.html" style="width:50%;height:950px"></iframe><iframe title="${s} dark" src="${s}-dark.html" style="width:50%;height:950px"></iframe></div>`).join('')}</html>`);
  console.log(output);
 })().catch(e=>{console.error(e);process.exitCode=1;});

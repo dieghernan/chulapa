@@ -3,6 +3,7 @@
 // Not an upstream dark theme; original source/credits remain in the imported skin.
 $body-bg: #0f161d !default;
 $body-color: #e5e9ef !default;
+$headings-color: #e5e9ef !default;
 $link-color: #6b859b !default;
 $link-hover-color: #6b859b !default;
 $text-muted: #adb5bd !default;
@@ -55,13 +56,16 @@ $alert-border-level: 7 !default;
 $alert-color-level: -7 !default;
 $skin-button-labels: () !default;
 $skin-button-outlines: () !default;
-$skin-button-backgrounds: () !default;
 $skin-button-lighter-states: () !default;
 @import "skins/minco";
+// Legacy sources may assign this unconditionally; keep the derived dark surface.
+$navbar-chulapa-bg-color: #1c2329;
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
-@each $name, $fill in $theme-colors {
+@each $name, $source-fill in $theme-colors {
+  // Keep existing reviewed button fills (which can differ from palette tokens).
+  $fill: if(map-has-key($skin-button-backgrounds, $name), map-get($skin-button-backgrounds, $name), $source-fill);
   .btn.btn-#{$name} {
     color: color-contrast($fill, #000, #fff, 4.5);
     &:hover, &:focus {
@@ -76,15 +80,17 @@ $skin-button-lighter-states: () !default;
 }
 $pilot-outlines: (primary: #6b859b, secondary: #f67280, success: #1c83e7, info: #74dbef, warning: #fc4c4c, danger: #ff475d, light: #f2f2f0, dark: #748398);
 @each $name, $label in $pilot-outlines {
-  .btn.btn-outline-#{$name} {
-    color: $label;
-    border-color: $label;
+  .btn.btn-outline-#{$name}:not(:disabled):not(.disabled) {
+    background-color: transparent;
+    color: $label !important;
+    border-color: $label !important;
     &:hover, &:not(:disabled):not(.disabled):active {
       background-color: theme-color($name);
-      color: color-contrast(theme-color($name), #000, #fff, 4.5);
+      color: color-contrast(theme-color($name), #000, #fff, 4.5) !important;
     }
   }
 }
+.table tbody td { background-color: $body-bg; color: $body-color; }
 .alert-primary { background-color: #020a12; color: #e5e9ef; } .alert-primary .alert-link { color: #637e96; }
 .alert-secondary { background-color: #31171a; color: #e5e9ef; } .alert-secondary .alert-link { color: #f67280; }
 .alert-success { background-color: #00172e; color: #e5e9ef; } .alert-success .alert-link { color: #1f85e7; }

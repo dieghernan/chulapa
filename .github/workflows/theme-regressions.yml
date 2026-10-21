@@ -35,6 +35,8 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
+      - name: Check experimental skin artifact drift detection
+        run: node test/check_dark_skin_pilot_artifacts.js
       - name: Check theme JavaScript and highlighting
         run: node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_photoswipe.mjs test/check_highlighting_security.js
 

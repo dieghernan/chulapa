@@ -1,5 +1,9 @@
 # Dark companion pilot — 2026-10-21
 
+The initial three-skin study below is retained as history. The follow-up section
+records the second batch and stricter artifact verification; the generated
+summary and comparison directory now cover all eight skins.
+
 ## Scope and selection
 
 A three-family feasibility study from main `4efd1e3e9`, not an expansion of the
@@ -42,7 +46,7 @@ Light is on the left and experimental dark on the right in every comparison:
 
 Regeneration produces standalone interactive HTML, full-page individual captures
 at 390/1280px, comparison sheets and a detailed `report.json`. See
-[test instructions](../test/README.md#experimental-dark-companions-three-skin-pilot).
+[test instructions](../test/README.md#experimental-dark-companion-batches).
 Full embedded-font HTML and detailed state measurements are generated locally,
 not committed; the compact [summary](dark-skin-pilot-2026-10-21/summary.json)
 records this run's results without duplicating those large artifacts.
@@ -68,7 +72,7 @@ no deployment or live PWA test is involved. Public documentation, `llms.txt` and
 the chatbot context need no update for an unshipped experiment. No chatbot tests
 or answer-quality claims are part of this pilot.
 
-## Validation completed
+## Initial validation completed
 
 - Generated Sass and regenerated with `--check`, including browser measurements;
   the fast `--sass-only --check` also passes without drift.
@@ -91,3 +95,72 @@ or answer-quality claims are part of this pilot.
 
 The result supports further visual review of this approach, not automatic
 conversion of every light skin or a claim that these companions are release-ready.
+
+## Second batch and review follow-up — 2026-10-21
+
+The second batch adds **Academia, Pear, Lux, Minty and Sketchy**. The catalog has
+no declared dark companions for these sources. Together they exercise own skins,
+a green accent, monochrome contrast, pastel colors and hand-drawn shapes. The
+original exclusion list remains unchanged. These five are additional studies,
+not catalog entries or production options.
+
+| Source | Narrow panes (390px each) | Wider panes (640px each) |
+| --- | --- | --- |
+| Academia | [Comparison](dark-skin-pilot-2026-10-21/academia-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/academia-comparison-640.png) |
+| Pear | [Comparison](dark-skin-pilot-2026-10-21/pear-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/pear-comparison-640.png) |
+| Lux | [Comparison](dark-skin-pilot-2026-10-21/lux-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/lux-comparison-640.png) |
+| Minty | [Comparison](dark-skin-pilot-2026-10-21/minty-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/minty-comparison-640.png) |
+| Sketchy | [Comparison](dark-skin-pilot-2026-10-21/sketchy-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/sketchy-comparison-640.png) |
+
+The PR review correctly identified that checking Sass alone could accept stale
+committed screenshots and summary data. A shared publication function now
+derives every committed PNG and `summary.json` from the current render run.
+Normal generation writes them; full `--check` compares them byte-for-byte and
+rejects missing or unexpected artifacts. The fast `--sass-only --check` remains
+explicitly limited to Sass. A focused negative regression rejects screenshot,
+summary and measurement drift without changing Sass.
+
+Heading, card-header and table-cell text are now included in the contrast sample; shared
+dark heading colors and outline specificity accommodate the additional skins.
+The original light rendering remains untouched. Existing reviewed solid-button
+fills are retained (Pear demonstrates that a visible fill can differ from the
+underlying palette token); all eight effective fills are compared between modes.
+Sketchy assigns a white navbar surface unconditionally, so the shared dark
+surface is made authoritative after importing the original source. Its original
+white table cells also need shared dark cell surfaces; the visual review caught
+this independently of the earlier measurements. Measurements now wait for actual
+CSS transitions to finish, and captures disable animations for reproducibility.
+Screenshot comparisons require
+the recorded browser/font environment; a different browser or system-font stack
+requires reviewed regeneration rather than silently accepting drift.
+
+Netlify's preview on the initial commit failed because the account quota was
+exhausted, as confirmed by the maintainer. No retry or manual deployment is part
+of this task; a local check cannot establish a successful hosted preview.
+
+### Follow-up validation
+
+- All eight generated stylesheets compile with Dart Sass 1.100.0 and Ruby Sass
+  3.7.4. These are stylesheet checks, not complete Jekyll builds.
+- Chromium 151: 82 text/state measurements per dark companion, 656 total; none
+  below 4.5:1. The five new minimums are Academia 4.53, Pear 4.53, Lux 4.57,
+  Minty 4.77 and Sketchy 4.52. Original light issues remain recorded unchanged.
+- All 23 Tab stops are reached in order in each of the 16 documents. No
+  horizontal overflow at 390/1280px. Original body/heading font families, card
+  radius and all eight effective solid-button fills match between modes.
+- Inspected the five new 390/640px comparison pairs and 1280px dark captures;
+  the final Sketchy comparison confirms the formerly white table cells are dark
+  and readable. Captures finish finite animations to avoid timing noise.
+- Original preview CSS is byte-for-byte unchanged against main `4efd1e3e9` for
+  all eight light sources. The fast Sass drift check and artifact negative
+  regression pass; the negative regression is wired into the JavaScript CI job.
+- The generator rejects rendering into the committed artifact directory. Workflow
+  YAML parses, JavaScript syntax and diff whitespace checks pass, and the gem's
+  file selection excludes the pilot tooling, fixtures and review artifacts.
+- Full browser `--check` passes from a separate temporary output directory:
+  all eight Sass files, all 16 comparison PNGs and the generated summary match
+  their committed counterparts; no artifact drift is accepted.
+
+No public documentation or chatbot context facts change: the expanded studies
+remain outside the public catalog and configuration. Context deployment and live
+chatbot evaluation are unrelated to this experiment and were not performed.
