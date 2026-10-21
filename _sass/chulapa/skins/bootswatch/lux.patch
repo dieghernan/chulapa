@@ -1,0 +1,97 @@
+--- a/upstream.scss
++++ b/chulapa.scss
+@@ -31,13 +31,13 @@
+ $primary:       $gray-900 !default;
+ $secondary:     $white !default;
+ $success:       $green !default;
+-$info:          $cyan !default;
++$info:          #279ed1 !default;
+ $warning:       $yellow !default;
+-$danger:        $red !default;
++$danger:        #db5a56 !default;
+ $light:         $white !default;
+ $dark:          $gray-800 !default;
+ 
+-$yiq-contrasted-threshold:  185 !default;
++$yiq-contrasted-threshold: 128 !default;
+ 
+ // Options
+ 
+@@ -65,7 +65,6 @@
+ 
+ $table-border-color:          rgba(0, 0, 0, .05) !default;
+ 
+-
+ // Buttons
+ 
+ $btn-line-height:             1.5rem !default;
+@@ -101,9 +100,14 @@
+ // Breadcrumbs
+ 
+ $breadcrumb-bg:                     transparent !default;
++
++// Import bootstrap
++@import "bootstrap/functions";
++@import "bootstrap/variables";
++@import "bootstrap/mixins";
++
+ // Lux 4.6.2
+ // Bootswatch
+-
+ 
+ // Variables ===================================================================
+ 
+@@ -111,6 +115,7 @@
+ @if $web-font-path {
+   @import url($web-font-path);
+ }
++
+ // Navbar ======================================================================
+ 
+ .navbar {
+@@ -292,3 +297,45 @@
+     color: inherit;
+   }
+ }
++
++.btn-outline-secondary {
++  border-color: $gray-600 !important;
++  color: $gray-600 !important;
++}
++
++.card.bg-primary {
++  color: $white;
++}
++
++.card.bg-secondary {
++  color: $black;
++}
++
++// Preserve the skin's original light labels on filled buttons.
++$skin-button-labels: (
++  success: #ffffff,
++  info: #ffffff,
++  warning: #ffffff,
++  danger: #ffffff,
++) !default;
++
++// Readable outline labels on this skin's page background.
++$skin-button-outlines: (
++  secondary: #51565a,
++  success: #317c4b,
++  info: #1f7ea7,
++  warning: #90682f,
++  danger: #ba4c49,
++) !default;
++
++// Upstream Secondary forces these properties with !important.
++$skin-button-outline-important: (secondary) !default;
++// Stock palette defaults; keep predeclared custom colors and vars authoritative.
++$skin-button-palette: (
++  danger: #db5a56,
++  info: #279ed1,
++  secondary: #fff,
++  success: #4bbf73,
++  warning: #f0ad4e,
++) !default;
++$skin-button-body-bg: #fff !default;

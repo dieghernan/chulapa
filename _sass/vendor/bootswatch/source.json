@@ -13,6 +13,74 @@
     "pulse": {
       "_variables.scss": "450c4276c4c008c7303e672b26e58f6bfe4d1785c05da4d7ecce20dbd335605a",
       "_bootswatch.scss": "85692f9f9a09926e5a06df74e38ce05b2008b1fc98a6dcfca09bf7670144ba36"
+    },
+    "cyborg": {
+      "_variables.scss": "ff415e6d8dea487b37e75521a01481747387b75099ea9593f503761fd9562159",
+      "_bootswatch.scss": "ad4d0bd77d7f5c280ff58d6af7a8c94d6a24d9f125a44223c2e4df164722f237"
+    },
+    "darkly": {
+      "_variables.scss": "b1312bcc71bfcff33d92115543164df14b8fad57da95421e68b61717174fc7b1",
+      "_bootswatch.scss": "a4238bb57821a0463d96dad2aad0285ca9ffc34c2bb07721704ef08b6b2f1ecb"
+    },
+    "flatly": {
+      "_variables.scss": "5026460f1bd8b1212858b9ac7df63fd37087d7496363c77bc1f0814e50187f70",
+      "_bootswatch.scss": "66375ff982521904d8451a411d9aef977829f8ce92305aae9c29c3d0533aecd8"
+    },
+    "journal": {
+      "_variables.scss": "2989a9cd53a320ef9c539f6955104c81368cd82a9f776f9077342a14621a8ab1",
+      "_bootswatch.scss": "6774ed78b8465f9bf48548118156b4c10c068dc7b81e2ed8bde19e2999b44c9b"
+    },
+    "lux": {
+      "_variables.scss": "26bdbba324e2bca5404c41b945d655eebed7a02f15b51c1a218aadb1e043f31a",
+      "_bootswatch.scss": "ea71990b57005cccbf230bf45be28ff9f7bd1fe686cf20ab99b29299b209d2c2"
+    },
+    "materia": {
+      "_variables.scss": "c6657a7b6a19dd94a316b509e17552bf36da964abdaeaaca97b0f08c1ec4d408",
+      "_bootswatch.scss": "596e08b7953dd87a921be3a171465af194418d85381c3cef0ad2b1a4811cb26e"
+    },
+    "minty": {
+      "_variables.scss": "f51aabd7112b7b27285297321b0b57fe56a7f07c3fc5127a097d1ad64505b741",
+      "_bootswatch.scss": "c4c356db6cd7b426dfc7c18f32ce73f61f6e5f59c7f1991ea452217a7e5e8e00"
+    },
+    "sketchy": {
+      "_variables.scss": "922dc9300d57cde4ff1e926c86104424e449cc47f91b020f4d44ffd2e99340ed",
+      "_bootswatch.scss": "34420fb3175f1fe8bf51bd504c7c8f8c593702737f866f07e5dda0d5e2da7b03"
+    },
+    "slate": {
+      "_variables.scss": "f6033f954a9d46448dcee1fe72c0aa700cad463d504435ca33abbca32bdf685c",
+      "_bootswatch.scss": "dfdbac6dca067b3dcd1108ed1a232407223e46e1e0526ebf984dc8bb5373f4c3"
+    },
+    "solar": {
+      "_variables.scss": "5f12c3c1facc749ca00011ae7cf43c9a8e102f39955d8010f15ac407997eaef8",
+      "_bootswatch.scss": "7292e0e5c3dca87cd4acfc69a858f8b4b5aefe7844a58cf946b90cf52f82f510"
+    },
+    "united": {
+      "_variables.scss": "d15c53b8c9b5c9c8560aafb86f3589f0e9240404144221d58e00ef9aaed2cd3f",
+      "_bootswatch.scss": "6f1363583e4a8c4d897c5510b97589e7330268bc3fc7c3c506ac850481342289"
+    },
+    "yeti": {
+      "_variables.scss": "131507f41092f5650e8675c06388946648cc77ef56448eb91cac250fbd770eb4",
+      "_bootswatch.scss": "e6b62b96daf9c42e5ebf7d4b2d55ad1f637ece7c7e314a8a38147f88e385244f"
+    }
+  },
+  "adaptations": [
+    "cyborg",
+    "darkly",
+    "flatly",
+    "journal",
+    "lux",
+    "materia",
+    "minty",
+    "sketchy",
+    "slate",
+    "solar",
+    "united",
+    "yeti"
+  ],
+  "versionOverrides": {
+    "sketchy": {
+      "version": "4.5.0",
+      "commit": "2a3e1c5ff57f200164d123ae0bfeeb32b0045a20"
     }
   }
 }

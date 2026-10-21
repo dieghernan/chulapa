@@ -492,3 +492,33 @@ Set `CHULAPA_PREVIEW_OUTPUT=/tmp/skin-previews` to retain sample HTML and deskto
 screenshots for visual review. Re-run after changing a skin or the sample template.
 The regular Ruby suite also checks every skin page's rendered activation YAML,
 shared component demo and documentation links (`check_skin_documentation.rb`).
+
+### TopHat source integrations
+
+```sh
+node test/generate_tophat.js --check
+CHULAPA_CHROMIUM=/path/to/chromium node test/check_tophat_browser.js
+```
+
+The twelve original TopHat sources, MIT license and pinned manifest live under
+`_sass/vendor/tophat/`. Regenerate derived variables/styles instead of editing
+them. Chulapa-specific adjustments remain separate. The regression checks source
+integrity, regenerated adapters, one Bootstrap grid, complete legacy CSS and
+rendered component states at 390/1280px with Autothemer off/on, plus custom
+palette overrides. Default palettes, contrast corrections, fonts and appearance
+remain unchanged. See the vendor README for the retained typography adaptations.
+
+### Adapted Bootswatch sources
+
+```sh
+node test/generate_bootswatch.js --check
+CHULAPA_CHROMIUM=/path/to/chromium node test/check_bootswatch_adaptations_browser.js
+```
+
+Original sources and licenses live in `_sass/vendor/bootswatch/`. The twelve
+older adaptations use reviewed patches and generated Sass under
+`_sass/chulapa/skins/bootswatch/`; see the vendor README for regeneration.
+Cerulean, Litera and Pulse keep their existing original integrations. Sketchy
+stays on 4.5.0; the others retain 4.6.2. The new regression verifies legacy visual
+states, complete deduplicated CSS, source hashes and palette overrides. No public
+configuration, metadata or routing changes are introduced.

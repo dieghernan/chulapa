@@ -1,52 +1,10 @@
-/*! Tophat `Graymor` Bootstrap 4.3.1 theme */
+/*! TopHat `Graymor` integration; original source and MIT license in vendor/tophat. */
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;700&family=Oswald:wght@200;300;400;700&display=swap');
 
-$headings-font-family: Oswald !default;
-$font-family-base: Muli !default;
-
-$primary: #2f3c48 !default;
-$yiq-contrasted-threshold: 130 !default;
+// Retain Chulapa palette and typography choices.
 $secondary: #687884 !default;
-$success: #3e4d59 !default;
-$danger: #cc330d !default;
 $info: #639498 !default;
-$warning: #6e9fa5 !default;
-$light: #eceeec !default;
-$dark: #1e2b37 !default;
-$enable-rounded: false !default;
-$white: #fff !default;
 
-// Add SASS theme customizations here..
-$link-color: mix($primary, #007bff, 70%) !default;
-
-// Custom hero
-$hero-chulapa-bg-color: $primary !default;
-$navbar-chulapa-toggler-color: rgba(white, 0.4) !default;
-$navbar-chulapa-toggler-border-color: rgba(white, 0.1) !default;
-$navbar-chulapa-toggler-color-bg: transparent !default;
-
-.card.bg-primary {
-  color: $white;
-}
-
-.card.bg-secondary {
-  color: $white;
-}
-
-// Preserve the skin's original light labels on filled buttons.
-$skin-button-labels: (
-  info: #ffffff,
-  warning: #ffffff,
-) !default;
-
-// Readable outline labels on this skin's page background.
-$skin-button-outlines: (
-  info: #4f767a,
-  warning: #52777c,
-) !default;
-// Stock palette defaults; keep predeclared custom colors and vars authoritative.
-$skin-button-palette: (
-  info: #639498,
-  warning: #6e9fa5,
-) !default;
-$skin-button-body-bg: #fff !default;
+@import "../vendor/tophat/graymor/variables";
+@import "../chulapa/skins/graymor";
+@import "../vendor/tophat/graymor/styles";

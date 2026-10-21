@@ -1,0 +1,49 @@
+/*! Tophat `Mickie` Bootstrap 4.3.1 theme */
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,700');
+
+$headings-font-family: Raleway;
+
+$primary: #f6648C;
+$yiq-contrasted-threshold: 128 !default;
+$secondary: #CACACA;
+$success: #035668;
+$danger: #ff4953;
+$info: #3b78ba;
+$warning: #0DE2EA;
+$light: #eAeAeA;
+$dark: #223322;
+$white:    #fff !default;
+
+// Disable ligatures
+:root {
+  font-variant-ligatures: none;
+}
+
+.card.bg-primary {
+  color: $white;
+}
+
+$min-contrast-ratio: 2 !default;
+$navbar-chulapa-text-color: $white;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #b84b69,
+  secondary: #6f6f6f,
+  warning: #077c81,
+  danger: #cc3a42,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #ff4953,
+  primary: #f6648C,
+  secondary: #CACACA,
+  warning: #0DE2EA,
+) !default;
+$skin-button-body-bg: #fff !default;

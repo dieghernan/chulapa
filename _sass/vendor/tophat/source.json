@@ -1,0 +1,57 @@
+{
+  "repository": "https://github.com/ThemesGuide/top-hat",
+  "commit": "2274176073d2e4783c78df080c6c3396e2abc2b4",
+  "bootstrapVersion": "4.3.1",
+  "skins": {
+    "deeply": {
+      "path": "dist/deeply/theme.scss",
+      "sha256": "ca517631a8c4ba8e452bd8a1ba0afabb8a304e8d029644a5a8611a94c055ad48"
+    },
+    "electro": {
+      "path": "dist/electro/theme.scss",
+      "sha256": "986526704ad8229a1db0c73f1c027eeac9d6238279da95f31704aff556425d4b"
+    },
+    "graymor": {
+      "path": "dist/graymor/theme.scss",
+      "sha256": "b73e1280a73151e7d37c5cceb7906b897cd03422f4b2fddb050b6f34cfa041df"
+    },
+    "lymcha": {
+      "path": "dist/lymcha/theme.scss",
+      "sha256": "b806341f3d9c7a4421b1fa9477756661b75175cd6e353cd5ad3a487168023e8b"
+    },
+    "mickie": {
+      "path": "dist/mickie/theme.scss",
+      "sha256": "32eb2063db5696aac8410f0852f6166a57ef0e86fc9f86d0011d5462ec867f28",
+      "omitStyles": "Retain Chulapa typography: the upstream responsive root font-size rules have never been included."
+    },
+    "minco": {
+      "path": "dist/minco/theme.scss",
+      "sha256": "5de4d4d3b26773e75b5d612e1771494d398d1007dc5e42ac8f04c11ffe0e0025",
+      "adaptation": "Retain the existing Bootstrap body font instead of upstream Nunito."
+    },
+    "monotone": {
+      "path": "dist/monotone/theme.scss",
+      "sha256": "d17cb96c5b9b97cc51333f0d3229dfcf099a910b4e568663777fbd1a54ec6077"
+    },
+    "preptor": {
+      "path": "dist/preptor/theme.scss",
+      "sha256": "6e1663a11a469a645959d24fe73e3f8d97e3fff752429f70aab9611fd6724dbe"
+    },
+    "skeeblu": {
+      "path": "dist/skeeblu/theme.scss",
+      "sha256": "eb60e7b881fc6b523343c40dfd249658b268a6e0d4cc2035499fc34914612a43"
+    },
+    "sunset": {
+      "path": "dist/sunset/theme.scss",
+      "sha256": "4332e922f5be477c66790186eb943efc5ac2951c5cff6cb0ef75a716281f52d4"
+    },
+    "wandoo": {
+      "path": "dist/wandoo/theme.scss",
+      "sha256": "f892f5dedd5e2e05fc6cd4cf1c150d9c55a91fea20dc694a39fc1cc622953a71"
+    },
+    "hootstrap": {
+      "path": "dist/hollar/theme.scss",
+      "sha256": "5d8df5cebae34d9cf954a7242bafaed7f8cb30f3bda6ed09006484a132440c76"
+    }
+  }
+}

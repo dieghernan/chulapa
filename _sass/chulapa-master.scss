@@ -8,6 +8,9 @@
 @if mixin-exists(chulapa-bootswatch) {
   @include chulapa-bootswatch;
 }
+@if mixin-exists(chulapa-tophat) {
+  @include chulapa-tophat;
+}
 
 @import "chulapa/_bootstrapv5";
 @import "chulapa/_mixins";

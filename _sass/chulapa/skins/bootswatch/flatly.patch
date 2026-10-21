@@ -1,0 +1,325 @@
+--- a/upstream.scss
++++ b/chulapa.scss
+@@ -4,6 +4,8 @@
+ //
+ // Color system
+ //
++
++@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+ 
+ $white:    #fff !default;
+ $gray-100: #f8f9fa !default;
+@@ -31,17 +33,17 @@
+ $primary:       $blue !default;
+ $secondary:     $gray-600 !default;
+ $success:       $green !default;
+-$info:          $cyan !default;
++$info:          #3598db !default;
+ $warning:       $yellow !default;
+-$danger:        $red !default;
++$danger:        #d04536 !default;
+ $light:         $gray-200 !default;
+ $dark:          $gray-700 !default;
+ 
+-$yiq-contrasted-threshold:  175 !default;
++$yiq-contrasted-threshold: 130 !default;
+ 
+ // Links
+ 
+-$link-color:                $success !default;
++$link-color:                #087e68 !default;
+ 
+ // Fonts
+ 
+@@ -65,9 +67,9 @@
+ 
+ // Navs
+ 
+-$nav-link-padding-y:                .5rem !default !default;
++$nav-link-padding-y:                .5rem !default;
+ $nav-link-padding-x:                2rem !default;
+-$nav-link-disabled-color:           $gray-600 !default !default;
++$nav-link-disabled-color:           $gray-600 !default;
+ $nav-tabs-border-color:             $gray-200 !default;
+ 
+ // Navbar
+@@ -104,16 +106,18 @@
+ 
+ $close-color:                       $white !default;
+ $close-text-shadow:                 none !default;
++
++$hero-chulapa-bg-color: white !default;
++$landingpage-chulapa-bg-color: $hero-chulapa-bg-color !default;
++
++// Import bootstrap
++@import "bootstrap/functions";
++@import "bootstrap/variables";
++@import "bootstrap/mixins";
++
+ // Flatly 4.6.2
+ // Bootswatch
+ 
+-
+-// Variables ===================================================================
+-
+-$web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" !default;
+-@if $web-font-path {
+-  @import url($web-font-path);
+-}
+ // Navbar =======================================================================
+ 
+ .bg-primary {
+@@ -154,7 +158,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $primary;
++      background-color: $primary !important;
+     }
+   }
+ 
+@@ -162,7 +166,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $secondary;
++      background-color: $secondary  !important;
+     }
+   }
+ 
+@@ -170,7 +174,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $light;
++      background-color: $light !important;
+     }
+   }
+ 
+@@ -178,7 +182,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $dark;
++      background-color: $dark !important;
+     }
+   }
+ 
+@@ -186,7 +190,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $success;
++      background-color: $success !important;
+     }
+   }
+ 
+@@ -194,7 +198,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $info;
++      background-color: $info !important;
+     }
+   }
+ 
+@@ -202,7 +206,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $danger;
++      background-color: $danger !important;
+     }
+   }
+ 
+@@ -210,7 +214,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $warning;
++      background-color: $warning !important;
+     }
+   }
+ 
+@@ -218,7 +222,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $table-active-bg;
++      background-color: $table-active-bg !important;
+     }
+   }
+ 
+@@ -227,7 +231,8 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($primary, 5%);
++        background-color: darken($primary, 5%) !important;
++        color:  $secondary !important;
+       }
+     }
+ 
+@@ -235,7 +240,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($secondary, 5%);
++        background-color: darken($secondary, 5%) !important;
+       }
+     }
+ 
+@@ -243,7 +248,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($light, 5%);
++        background-color: darken($light, 5%) !important;
+       }
+     }
+ 
+@@ -251,7 +256,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($dark, 5%);
++        background-color: darken($dark, 5%) !important;
+       }
+     }
+ 
+@@ -259,7 +264,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($success, 5%);
++        background-color: darken($success, 5%) !important;
+       }
+     }
+ 
+@@ -267,7 +272,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($info, 5%);
++        background-color: darken($info, 5%) !important;
+       }
+     }
+ 
+@@ -275,7 +280,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($danger, 5%);
++        background-color: darken($danger, 5%) !important;
+       }
+     }
+ 
+@@ -283,7 +288,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($warning, 5%);
++        background-color: darken($warning, 5%) !important;
+       }
+     }
+ 
+@@ -291,10 +296,9 @@
+       &,
+       > th,
+       > td {
+-        background-color: $table-active-bg;
+-      }
+-    }
+-
++        background-color: $table-active-bg !important;
++      }
++    }
+   }
+ }
+ 
+@@ -337,30 +341,30 @@
+ }
+ 
+ .alert {
+-  border: none;
+-  color: $white;
+-
++  border: none !important;
++
++  // Bootstrap supplies tinted backgrounds and matching contextual text.
++  // Keep ordinary links and inline code readable on the same background.
+   a,
+-  .alert-link {
+-    color: $white;
++  code {
++    color: inherit;
++  }
++
++  a {
+     text-decoration: underline;
+-  }
+-
+-  @each $color, $value in $theme-colors {
+-    &-#{$color} {
+-      @if $enable-gradients {
+-        background: $value linear-gradient(180deg, mix($body-bg, $value, 15%), $value) repeat-x;
+-      } @else {
+-        background-color: $value;
+-      }
+-    }
+-  }
+-
+-  &-light {
+-    &,
+-    a,
++
++    &:hover,
++    &:focus {
++      color: inherit;
++    }
++  }
++
++  // The default light variant's gray text is too faint on its pale fill.
++  &.alert-light {
++    color: $body-color;
++
+     .alert-link {
+-      color: $body-color;
++      color: inherit;
+     }
+   }
+ }
+@@ -378,3 +382,33 @@
+     }
+   }
+ }
++
++.card.bg-primary {
++  color: $white;
++}
++
++// Preserve the skin's original light labels on filled buttons.
++$skin-button-labels: (
++  secondary: #ffffff,
++  success: #ffffff,
++  info: #ffffff,
++  warning: #ffffff,
++  dark: #ffffff,
++) !default;
++
++// Readable outline labels on this skin's page background.
++$skin-button-outlines: (
++  secondary: #687374,
++  success: #11846d,
++  info: #2a7aaf,
++  warning: #9e650c,
++) !default;
++// Stock palette defaults; keep predeclared custom colors and vars authoritative.
++$skin-button-palette: (
++  dark: #7b8a8b,
++  info: #3598db,
++  secondary: #95a5a6,
++  success: #18bc9c,
++  warning: #f39c12,
++) !default;
++$skin-button-body-bg: #fff !default;

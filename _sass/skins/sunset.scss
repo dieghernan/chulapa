@@ -1,44 +1,9 @@
-/*! Tophat `Sunset` Bootstrap 4.3.1 theme */
+/*! TopHat `Sunset` integration; original source and MIT license in vendor/tophat. */
 @import url('https://fonts.googleapis.com/css2?family=Voltaire:wght@200;300;400;700&display=swap');
 
-$headings-font-family: Voltaire !default;
-
-$primary: #2F414A !default;
-$yiq-contrasted-threshold: 146 !default;
-$secondary: #F47B53 !default;
-$success: #420084 !default;
+// Retain Chulapa palette and typography choices.
 $danger: #d83e0c !default;
-$info: #7ebcfa !default;
-$warning: #ff9933 !default;
-$light: #eef0f2 !default;
-$dark: #000633 !default;
-$white: #fff !default;
 
-// Add SASS theme customizations here..
-
-a:not([class]) {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-}
-
-.chulapa-toc-reset a {
-  text-decoration: none;
-}
-
-.card.bg-primary {
-  color: $white;
-}
-
-// Readable outline labels on this skin's page background.
-$skin-button-outlines: (
-  secondary: #b75c3e,
-  info: #4c7196,
-  warning: #a66321,
-) !default;
-// Stock palette defaults; keep predeclared custom colors and vars authoritative.
-$skin-button-palette: (
-  info: #7ebcfa,
-  secondary: #F47B53,
-  warning: #ff9933,
-) !default;
-$skin-button-body-bg: #fff !default;
+@import "../vendor/tophat/sunset/variables";
+@import "../chulapa/skins/sunset";
+@import "../vendor/tophat/sunset/styles";
