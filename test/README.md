@@ -535,7 +535,8 @@ This study generates **experimental** Sass under `test/fixtures/dark-skin-pilot/
 not built-in skins. These files compile as complete stylesheets (original skin,
 Bootstrap and Chulapa components once), rather than ordinary skin-variable
 partials. The initial batch selects Chulapa, Litera and Minco, one from each source
-family. The second adds Academia, Pear, Lux, Minty and Sketchy; existing pairs
+family. The second adds Academia, Pear, Lux, Minty and Sketchy; the third adds
+Journal, Pulse, United, Yeti and Hootstrap. Existing pairs
 (including Flatly/Darkly) are recorded and excluded in
 `test/dark-skin-pilot.json`. The manifest is a reviewed pilot selection, not an
 automatic classifier of every theme's visual relationship.

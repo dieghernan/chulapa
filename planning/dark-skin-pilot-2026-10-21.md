@@ -1,8 +1,8 @@
 # Dark companion pilot — 2026-10-21
 
 The initial three-skin study below is retained as history. The follow-up section
-records the second batch and stricter artifact verification; the generated
-summary and comparison directory now cover all eight skins.
+records the later batches and stricter artifact verification; the generated
+summary and comparison directory now cover all thirteen skins.
 
 ## Scope and selection
 
@@ -164,3 +164,57 @@ of this task; a local check cannot establish a successful hosted preview.
 No public documentation or chatbot context facts change: the expanded studies
 remain outside the public catalog and configuration. Context deployment and live
 chatbot evaluation are unrelated to this experiment and were not performed.
+
+## Third batch — 2026-10-21
+
+This batch adds **Journal, Pulse, United, Yeti and Hootstrap**, all light sources
+without a declared dark companion in the catalog. It covers four further
+Bootswatch designs and a second TopHat integration. Existing light/dark families
+and previously generated companions remain excluded from selection. The public
+catalog and all original source skins are unchanged.
+
+| Source | Narrow panes (390px each) | Wider panes (640px each) |
+| --- | --- | --- |
+| Journal | [Comparison](dark-skin-pilot-2026-10-21/journal-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/journal-comparison-640.png) |
+| Pulse | [Comparison](dark-skin-pilot-2026-10-21/pulse-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/pulse-comparison-640.png) |
+| United | [Comparison](dark-skin-pilot-2026-10-21/united-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/united-comparison-640.png) |
+| Yeti | [Comparison](dark-skin-pilot-2026-10-21/yeti-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/yeti-comparison-640.png) |
+| Hootstrap | [Comparison](dark-skin-pilot-2026-10-21/hootstrap-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/hootstrap-comparison-640.png) |
+
+Yeti forces alert fills, labels and links with `!important` in its original
+integration. The shared experimental alert rules now use sufficient specificity
+and priority to keep the chosen dark alert treatment authoritative. This change
+applies only inside generated prototypes; it does not patch vendor sources or
+the public skin. Journal also assigns black footer text unconditionally; the
+shared dark footer text is reasserted after the source import, just as the
+navbar surface already is. The preliminary check covers all effective button fills and
+text states, followed by full browser checks and visual review.
+
+The PR discussion was checked again: the existing artifact-check thread is
+resolved, and the review of `f9259295b` reported no new findings. No new unresolved
+code comment was visible when this batch started. The Netlify quota limitation
+remains unchanged; no manual deploy or retry is part of the work.
+
+### Third-batch validation
+
+- All thirteen prototypes compile with Dart Sass 1.100.0 and Ruby Sass 3.7.4;
+  these remain stylesheet compilations, not full Jekyll builds.
+- All thirteen dark samples pass 82 text/state measurements each (1,066 total).
+  New minimums: Journal 4.59, Pulse 4.75, United 4.57, Yeti 4.57, Hootstrap 4.56.
+- Each of 26 light/dark documents reaches all 23 Tab stops in order and has no
+  horizontal overflow at 390/1280px. All eight effective button fills, font
+  families and card radius match their light originals.
+- Visually inspected all five new 390/640px light/dark comparison pairs and
+  individual 1280px dark captures. Journal's footer and Yeti's alert now retain
+  readable text on their dark surfaces.
+- Original preview CSS remains byte-for-byte unchanged against main `4efd1e3e9`
+  for all thirteen light sources. Fast Sass drift checks and artifact negative
+  regression pass. JavaScript syntax and diff whitespace checks pass; the
+  experiment remains excluded from the gem's packaged files.
+- Full `--check` passes from a separate temporary directory: all thirteen Sass
+  files, 26 comparison PNGs and the generated summary match byte-for-byte.
+
+The earlier component-study limitations still apply. No public skin catalog,
+configuration, `llms.txt`, chatbot context, SEO or PWA behavior is changed. No
+chatbot tests, live evaluation, context deployment or manual site deployment is
+part of this batch.

@@ -60,8 +60,9 @@ function generate(skin,t) {
 // Not an upstream dark theme; original source/credits remain in the imported skin.
 ${declarations}
 @import "skins/${skin}";
-// Legacy sources may assign this unconditionally; keep the derived dark surface.
+// Legacy sources may assign these unconditionally; keep the dark treatment.
 $navbar-chulapa-bg-color: ${panel};
+$footer-chulapa-text-color: #adb5bd;
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
@@ -93,7 +94,7 @@ $pilot-outlines: (${outlines});
   }
 }
 .table tbody td { background-color: $body-bg; color: $body-color; }
-${variants.map(v=>`.alert-${v} { background-color: ${hex(mix([0,0,0],rgb(t[v]),.8))}; color: #e5e9ef; } .alert-${v} .alert-link { color: ${readable(rgb(t[v]),mix([0,0,0],rgb(t[v]),.8))}; }`).join('\n')}
+${variants.map(v=>`.alert.alert-${v} { background-color: ${hex(mix([0,0,0],rgb(t[v]),.8))} !important; color: #e5e9ef !important; } .alert.alert-${v} .alert-link { color: ${readable(rgb(t[v]),mix([0,0,0],rgb(t[v]),.8))} !important; }`).join('\n')}
 `;
 
 }

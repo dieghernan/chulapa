@@ -1286,6 +1286,957 @@
           "contrastFailures": []
         }
       }
+    },
+    {
+      "skin": "journal",
+      "primary": "#eb6864",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(34, 34, 34)",
+          "primary": "rgb(235, 104, 100)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "\"News Cycle\", \"Arial Narrow Bold\", sans-serif",
+          "radius": "4px",
+          "paletteFills": {
+            "primary": "rgb(235, 104, 100)",
+            "secondary": "rgb(170, 170, 170)",
+            "success": "rgb(34, 178, 76)",
+            "info": "rgb(51, 102, 153)",
+            "warning": "rgb(245, 230, 37)",
+            "danger": "rgb(245, 122, 0)",
+            "light": "rgb(248, 249, 250)",
+            "dark": "rgb(34, 34, 34)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 1.05,
+          "contrastFailures": [
+            {
+              "selector": ".text-muted",
+              "state": "normal",
+              "ratio": 4.48,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 3.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": "th",
+              "state": "normal",
+              "ratio": 3.14,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "normal",
+              "ratio": 3.14,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "hover",
+              "ratio": 3.9,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "focus",
+              "ratio": 3.9,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "active",
+              "ratio": 4.17,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "normal",
+              "ratio": 2.78,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "hover",
+              "ratio": 4.01,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "focus",
+              "ratio": 4.01,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "normal",
+              "ratio": 2.74,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "hover",
+              "ratio": 3.75,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "focus",
+              "ratio": 3.75,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "active",
+              "ratio": 4.2,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.05,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.05,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(34, 26, 30)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(235, 104, 100)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "\"News Cycle\", \"Arial Narrow Bold\", sans-serif",
+          "radius": "4px",
+          "paletteFills": {
+            "primary": "rgb(235, 104, 100)",
+            "secondary": "rgb(170, 170, 170)",
+            "success": "rgb(34, 178, 76)",
+            "info": "rgb(51, 102, 153)",
+            "warning": "rgb(245, 230, 37)",
+            "danger": "rgb(245, 122, 0)",
+            "light": "rgb(248, 249, 250)",
+            "dark": "rgb(34, 34, 34)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 4.59,
+          "contrastFailures": []
+        }
+      }
+    },
+    {
+      "skin": "pulse",
+      "primary": "#593196",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(68, 68, 68)",
+          "primary": "rgb(89, 49, 150)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "radius": "0px",
+          "paletteFills": {
+            "primary": "rgb(89, 49, 150)",
+            "secondary": "rgb(255, 255, 255)",
+            "success": "rgb(19, 185, 85)",
+            "info": "rgb(0, 156, 220)",
+            "warning": "rgb(239, 163, 29)",
+            "danger": "rgb(252, 57, 57)",
+            "light": "rgb(249, 248, 252)",
+            "dark": "rgb(23, 20, 31)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 1.06,
+          "contrastFailures": [
+            {
+              "selector": ".text-muted",
+              "state": "normal",
+              "ratio": 3.32,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 3.52,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "focus",
+              "ratio": 3.69,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "active",
+              "ratio": 4.14,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-secondary",
+              "state": "normal",
+              "ratio": 2.73,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-secondary",
+              "state": "focus",
+              "ratio": 2.73,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "normal",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "hover",
+              "ratio": 3.84,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "focus",
+              "ratio": 3.84,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "active",
+              "ratio": 4.39,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "normal",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "hover",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "focus",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-success",
+              "state": "active",
+              "ratio": 2.59,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "normal",
+              "ratio": 3.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "hover",
+              "ratio": 4.36,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "focus",
+              "ratio": 4.36,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "normal",
+              "ratio": 3.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "hover",
+              "ratio": 3.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "focus",
+              "ratio": 3.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-info",
+              "state": "active",
+              "ratio": 3.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "normal",
+              "ratio": 2.12,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "hover",
+              "ratio": 2.7,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "focus",
+              "ratio": 2.7,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "active",
+              "ratio": 3,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-warning",
+              "state": "normal",
+              "ratio": 2.12,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-warning",
+              "state": "focus",
+              "ratio": 2.12,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "normal",
+              "ratio": 3.63,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "hover",
+              "ratio": 4.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "focus",
+              "ratio": 4.04,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-danger",
+              "state": "active",
+              "ratio": 4.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "normal",
+              "ratio": 3.63,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "hover",
+              "ratio": 3.63,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "focus",
+              "ratio": 3.63,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-danger",
+              "state": "active",
+              "ratio": 3.63,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.06,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.06,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(22, 21, 34)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(89, 49, 150)",
+          "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "heading": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "radius": "0px",
+          "paletteFills": {
+            "primary": "rgb(89, 49, 150)",
+            "secondary": "rgb(255, 255, 255)",
+            "success": "rgb(19, 185, 85)",
+            "info": "rgb(0, 156, 220)",
+            "warning": "rgb(239, 163, 29)",
+            "danger": "rgb(252, 57, 57)",
+            "light": "rgb(249, 248, 252)",
+            "dark": "rgb(23, 20, 31)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 4.75,
+          "contrastFailures": []
+        }
+      }
+    },
+    {
+      "skin": "united",
+      "primary": "#e95420",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(51, 51, 51)",
+          "primary": "rgb(233, 84, 32)",
+          "font": "Ubuntu, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "heading": "Ubuntu, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "radius": "4px",
+          "paletteFills": {
+            "primary": "rgb(233, 84, 32)",
+            "secondary": "rgb(174, 167, 159)",
+            "success": "rgb(56, 180, 74)",
+            "info": "rgb(32, 166, 187)",
+            "warning": "rgb(239, 183, 62)",
+            "danger": "rgb(219, 55, 43)",
+            "light": "rgb(233, 236, 239)",
+            "dark": "rgb(119, 41, 83)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 1.19,
+          "contrastFailures": [
+            {
+              "selector": "p a",
+              "state": "normal",
+              "ratio": 3.65,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".text-muted",
+              "state": "normal",
+              "ratio": 3.32,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".navbar-brand",
+              "state": "normal",
+              "ratio": 3.65,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 1.91,
+              "passesNormalText": false
+            },
+            {
+              "selector": "th",
+              "state": "normal",
+              "ratio": 3.65,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer",
+              "state": "normal",
+              "ratio": 2.66,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer a",
+              "state": "normal",
+              "ratio": 3.23,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "normal",
+              "ratio": 3.65,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "hover",
+              "ratio": 4.23,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "active",
+              "ratio": 4.23,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "normal",
+              "ratio": 2.38,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "hover",
+              "ratio": 2.99,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "focus",
+              "ratio": 2.99,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-secondary",
+              "state": "active",
+              "ratio": 3.22,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "normal",
+              "ratio": 2.69,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "hover",
+              "ratio": 3.74,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "focus",
+              "ratio": 3.74,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "active",
+              "ratio": 4.22,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "normal",
+              "ratio": 2.9,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "hover",
+              "ratio": 4.13,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "focus",
+              "ratio": 4.13,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "normal",
+              "ratio": 1.82,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "hover",
+              "ratio": 2.03,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "focus",
+              "ratio": 2.03,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "active",
+              "ratio": 2.16,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.19,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.19,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(33, 24, 25)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(233, 84, 32)",
+          "font": "Ubuntu, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "heading": "Ubuntu, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "radius": "4px",
+          "paletteFills": {
+            "primary": "rgb(233, 84, 32)",
+            "secondary": "rgb(174, 167, 159)",
+            "success": "rgb(56, 180, 74)",
+            "info": "rgb(32, 166, 187)",
+            "warning": "rgb(239, 183, 62)",
+            "danger": "rgb(219, 55, 43)",
+            "light": "rgb(233, 236, 239)",
+            "dark": "rgb(119, 41, 83)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 4.57,
+          "contrastFailures": []
+        }
+      }
+    },
+    {
+      "skin": "yeti",
+      "primary": "#008cba",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(34, 34, 34)",
+          "primary": "rgb(0, 140, 186)",
+          "font": "\"Open Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "heading": "\"Open Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "radius": "0px",
+          "paletteFills": {
+            "primary": "rgb(0, 140, 186)",
+            "secondary": "rgb(204, 204, 204)",
+            "success": "rgb(67, 172, 106)",
+            "info": "rgb(91, 192, 222)",
+            "warning": "rgb(233, 144, 2)",
+            "danger": "rgb(217, 59, 33)",
+            "light": "rgb(238, 238, 238)",
+            "dark": "rgb(34, 34, 34)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 1.16,
+          "contrastFailures": [
+            {
+              "selector": "p a",
+              "state": "normal",
+              "ratio": 3.85,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".text-muted",
+              "state": "normal",
+              "ratio": 3.54,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".navbar-brand",
+              "state": "normal",
+              "ratio": 3.85,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 2.02,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".alert",
+              "state": "normal",
+              "ratio": 2.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".alert-link",
+              "state": "normal",
+              "ratio": 2.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": "th",
+              "state": "normal",
+              "ratio": 3.85,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer",
+              "state": "normal",
+              "ratio": 2.81,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer a",
+              "state": "normal",
+              "ratio": 3.42,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-primary",
+              "state": "normal",
+              "ratio": 3.85,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "hover",
+              "ratio": 3.85,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "active",
+              "ratio": 3.85,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "normal",
+              "ratio": 2.86,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "hover",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "focus",
+              "ratio": 3.96,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-success",
+              "state": "active",
+              "ratio": 4.43,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "normal",
+              "ratio": 2.09,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "hover",
+              "ratio": 2.41,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "focus",
+              "ratio": 2.41,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-info",
+              "state": "active",
+              "ratio": 2.53,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "normal",
+              "ratio": 2.48,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "hover",
+              "ratio": 3.47,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "focus",
+              "ratio": 3.47,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-warning",
+              "state": "active",
+              "ratio": 3.92,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.16,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.16,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(15, 29, 37)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(0, 140, 186)",
+          "font": "\"Open Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "heading": "\"Open Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+          "radius": "0px",
+          "paletteFills": {
+            "primary": "rgb(0, 140, 186)",
+            "secondary": "rgb(204, 204, 204)",
+            "success": "rgb(67, 172, 106)",
+            "info": "rgb(91, 192, 222)",
+            "warning": "rgb(233, 144, 2)",
+            "danger": "rgb(217, 59, 33)",
+            "light": "rgb(238, 238, 238)",
+            "dark": "rgb(34, 34, 34)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 4.57,
+          "contrastFailures": []
+        }
+      }
+    },
+    {
+      "skin": "hootstrap",
+      "primary": "#528078",
+      "modes": {
+        "light": {
+          "body": "rgb(255, 255, 255)",
+          "text": "rgb(33, 37, 41)",
+          "primary": "rgb(81, 126, 119)",
+          "font": "\"Open Sans\"",
+          "heading": "\"Autour One\"",
+          "radius": "4px",
+          "paletteFills": {
+            "primary": "rgb(81, 126, 119)",
+            "secondary": "rgb(238, 215, 90)",
+            "success": "rgb(254, 193, 0)",
+            "info": "rgb(99, 231, 146)",
+            "warning": "rgb(255, 232, 105)",
+            "danger": "rgb(112, 59, 59)",
+            "light": "rgb(253, 251, 247)",
+            "dark": "rgb(85, 85, 85)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 1.03,
+          "contrastFailures": [
+            {
+              "selector": "p a",
+              "state": "normal",
+              "ratio": 4.45,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".navbar-brand",
+              "state": "normal",
+              "ratio": 4.45,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".nav-link",
+              "state": "normal",
+              "ratio": 2.32,
+              "passesNormalText": false
+            },
+            {
+              "selector": "th",
+              "state": "normal",
+              "ratio": 4.45,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer",
+              "state": "normal",
+              "ratio": 3.26,
+              "passesNormalText": false
+            },
+            {
+              "selector": "footer a",
+              "state": "normal",
+              "ratio": 3.95,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "hover",
+              "ratio": 4.45,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-primary",
+              "state": "active",
+              "ratio": 4.45,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "normal",
+              "ratio": 1.03,
+              "passesNormalText": false
+            },
+            {
+              "selector": ".btn-outline-light",
+              "state": "focus",
+              "ratio": 1.03,
+              "passesNormalText": false
+            }
+          ]
+        },
+        "dark": {
+          "body": "rgb(21, 28, 32)",
+          "text": "rgb(229, 233, 239)",
+          "primary": "rgb(81, 126, 119)",
+          "font": "\"Open Sans\"",
+          "heading": "\"Autour One\"",
+          "radius": "4px",
+          "paletteFills": {
+            "primary": "rgb(81, 126, 119)",
+            "secondary": "rgb(238, 215, 90)",
+            "success": "rgb(254, 193, 0)",
+            "info": "rgb(99, 231, 146)",
+            "warning": "rgb(255, 232, 105)",
+            "danger": "rgb(112, 59, 59)",
+            "light": "rgb(253, 251, 247)",
+            "dark": "rgb(85, 85, 85)"
+          },
+          "keyboardStops": 23,
+          "measurements": 82,
+          "minimumTextContrast": 4.56,
+          "contrastFailures": []
+        }
+      }
     }
   ]
 }

@@ -58,8 +58,9 @@ $skin-button-labels: () !default;
 $skin-button-outlines: () !default;
 $skin-button-lighter-states: () !default;
 @import "skins/minco";
-// Legacy sources may assign this unconditionally; keep the derived dark surface.
+// Legacy sources may assign these unconditionally; keep the dark treatment.
 $navbar-chulapa-bg-color: #1c2329;
+$footer-chulapa-text-color: #adb5bd;
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
@@ -91,11 +92,11 @@ $pilot-outlines: (primary: #6b859b, secondary: #f67280, success: #1c83e7, info: 
   }
 }
 .table tbody td { background-color: $body-bg; color: $body-color; }
-.alert-primary { background-color: #020a12; color: #e5e9ef; } .alert-primary .alert-link { color: #637e96; }
-.alert-secondary { background-color: #31171a; color: #e5e9ef; } .alert-secondary .alert-link { color: #f67280; }
-.alert-success { background-color: #00172e; color: #e5e9ef; } .alert-success .alert-link { color: #1f85e7; }
-.alert-info { background-color: #172c30; color: #e5e9ef; } .alert-info .alert-link { color: #74dbef; }
-.alert-warning { background-color: #320f0f; color: #e5e9ef; } .alert-warning .alert-link { color: #fc4c4c; }
-.alert-danger { background-color: #330e13; color: #e5e9ef; } .alert-danger .alert-link { color: #ff475d; }
-.alert-light { background-color: #303030; color: #e5e9ef; } .alert-light .alert-link { color: #f2f2f0; }
-.alert-dark { background-color: #01070e; color: #e5e9ef; } .alert-dark .alert-link { color: #6d7d92; }
+.alert.alert-primary { background-color: #020a12 !important; color: #e5e9ef !important; } .alert.alert-primary .alert-link { color: #637e96 !important; }
+.alert.alert-secondary { background-color: #31171a !important; color: #e5e9ef !important; } .alert.alert-secondary .alert-link { color: #f67280 !important; }
+.alert.alert-success { background-color: #00172e !important; color: #e5e9ef !important; } .alert.alert-success .alert-link { color: #1f85e7 !important; }
+.alert.alert-info { background-color: #172c30 !important; color: #e5e9ef !important; } .alert.alert-info .alert-link { color: #74dbef !important; }
+.alert.alert-warning { background-color: #320f0f !important; color: #e5e9ef !important; } .alert.alert-warning .alert-link { color: #fc4c4c !important; }
+.alert.alert-danger { background-color: #330e13 !important; color: #e5e9ef !important; } .alert.alert-danger .alert-link { color: #ff475d !important; }
+.alert.alert-light { background-color: #303030 !important; color: #e5e9ef !important; } .alert.alert-light .alert-link { color: #f2f2f0 !important; }
+.alert.alert-dark { background-color: #01070e !important; color: #e5e9ef !important; } .alert.alert-dark .alert-link { color: #6d7d92 !important; }
