@@ -1,0 +1,33 @@
+// Chulapa-specific components and retained accessibility corrections.
+$yiq-contrasted-threshold: 146 !default;
+
+$white: #fff !default;
+
+// Add SASS theme customizations here..
+
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.chulapa-toc-reset a {
+  text-decoration: none;
+}
+
+.card.bg-primary {
+  color: $white;
+}
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #b75c3e,
+  info: #4c7196,
+  warning: #a66321,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  info: #7ebcfa,
+  secondary: #F47B53,
+  warning: #ff9933,
+) !default;
+$skin-button-body-bg: #fff !default;

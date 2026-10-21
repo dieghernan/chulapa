@@ -1,0 +1,45 @@
+// Chulapa-specific components and retained accessibility corrections.
+// Import Google Fonts
+// Font Family
+
+// Color Variables
+
+$yiq-contrasted-threshold: 128 !default;
+
+$white: #ffffff !default;
+
+// Styles
+a:not([class]) {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}
+
+.card.bg-primary {
+    color: $white;
+}
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  warning: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #b85660,
+  info: #407883,
+  warning: #ca3d3d,
+  danger: #cc394a,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #ff475d,
+  info: #74DBEF,
+  secondary: #F67280,
+  warning: #fc4c4c,
+) !default;
+$skin-button-body-bg: #ffffff !default;

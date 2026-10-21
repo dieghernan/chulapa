@@ -1,0 +1,55 @@
+/*! Tophat `Minco` Bootstrap 4.3.1 theme */
+
+// Import Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Crete+Round:200,300,400,700);
+
+// Font Family
+$headings-font-family: 'Crete Round';
+
+// Color Variables
+$primary: #083358;
+$yiq-contrasted-threshold: 128 !default;
+$secondary: #F67280;
+$success: #0074E4;
+$danger: #ff475d;
+$info: #74DBEF;
+$warning: #fc4c4c;
+$light: #F2F2F0;
+$dark: #072247;
+$white: #ffffff !default;
+
+// Styles
+a:not([class]) {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}
+
+.card.bg-primary {
+    color: $white;
+}
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  warning: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #b85660,
+  info: #407883,
+  warning: #ca3d3d,
+  danger: #cc394a,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #ff475d,
+  info: #74DBEF,
+  secondary: #F67280,
+  warning: #fc4c4c,
+) !default;
+$skin-button-body-bg: #ffffff !default;

@@ -27,6 +27,19 @@ raise "Non-theme files packaged: #{leaked.join(', ')}" unless leaked.empty?
   raise "Missing packaged file: #{path}" unless package.spec.files.include?(path)
 end
 Dir.mktmpdir("chulapa-install-") do |work|
+  manifest = JSON.parse(File.read(File.join(root, "_sass/vendor/tophat/source.json")))
+  required_tophat = %w[_sass/vendor/tophat/LICENSE _sass/vendor/tophat/source.json]
+  manifest.fetch("skins").each_key do |skin|
+    required_tophat.concat(%W[
+      _sass/vendor/tophat/#{skin}/theme.scss
+      _sass/vendor/tophat/#{skin}/_variables.scss
+      _sass/vendor/tophat/#{skin}/_styles.scss
+      _sass/chulapa/skins/_#{skin}.scss
+    ])
+  end
+  required_tophat.each do |path|
+    raise "Missing packaged TopHat source or integration: #{path}" unless package.spec.files.include?(path)
+  end
   gem_home = File.join(work, "gems")
   installed = Gem::Installer.at(package_path, install_dir: gem_home, ignore_dependencies: true, wrappers: false).install
   Gem::Specification.add_spec(installed)

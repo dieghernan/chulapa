@@ -1,0 +1,22 @@
+// Chulapa-specific components and retained accessibility corrections.
+$link-color: #cc2640 !default;
+$yiq-contrasted-threshold: 113 !default;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #d92943,
+  secondary: #6f6f6f,
+  warning: #077c81,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  primary: #FF304F,
+  secondary: #CACACA,
+  warning: #0DE2EA,
+) !default;
+$skin-button-body-bg: #fff !default;

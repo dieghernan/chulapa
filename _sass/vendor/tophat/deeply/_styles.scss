@@ -1,0 +1,6 @@
+// Generated from theme.scss by test/generate_tophat.js.
+// Fonts and the single Bootstrap grid are supplied by Chulapa.
+@mixin chulapa-tophat {
+// Add SASS theme customizations here..
+.navbar-dark.bg-primary {background-color:#111111 !important;}
+}

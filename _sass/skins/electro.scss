@@ -1,49 +1,6 @@
-/*! Tophat `Electro` Bootstrap 4.3.1 theme */
+/*! TopHat `Electro` integration; original source and MIT license in vendor/tophat. */
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,700');
 
-$headings-font-family: Nunito;
-
-$primary: #1633ff;
-$yiq-contrasted-threshold: 140 !default;
-$secondary: #a0b7bc;
-$success: #1633ff;
-$danger: #00f900;
-$info: #7ebcfa;
-$warning: #00f900;
-$light: #eef0f2;
-$dark: #000633;
-$white: #fff !default;
-
-$body-bg: #ffffff;
-$display1-weight: 600;
-$display2-weight: 600;
-$display3-weight: 600;
-$btn-border-radius: 1.3rem;
-$btn-border-radius-lg: 1.6rem;
-$btn-border-radius-sm: .8rem;
-
-.card.bg-primary {
-    color: $white;
-}
-
-// Preserve the skin's original light labels on filled buttons.
-$skin-button-labels: (
-  warning: #ffffff,
-  danger: #ffffff,
-) !default;
-
-// Readable outline labels on this skin's page background.
-$skin-button-outlines: (
-  secondary: #68777a,
-  info: #4c7196,
-  warning: #008900,
-  danger: #008900,
-) !default;
-// Stock palette defaults; keep predeclared custom colors and vars authoritative.
-$skin-button-palette: (
-  danger: #00f900,
-  info: #7ebcfa,
-  secondary: #a0b7bc,
-  warning: #00f900,
-) !default;
-$skin-button-body-bg: #ffffff !default;
+@import "../vendor/tophat/electro/variables";
+@import "../chulapa/skins/electro";
+@import "../vendor/tophat/electro/styles";

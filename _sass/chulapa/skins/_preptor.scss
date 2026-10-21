@@ -1,0 +1,30 @@
+// Chulapa-specific components and retained accessibility corrections.
+$yiq-contrasted-threshold: 128 !default;
+
+// Add SASS theme customizations here..
+$hero-chulapa-bg-color: $primary !default;
+$blockquote-chulapa-bg-color: mix(white, $primary, 80%) !default;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  info: #ffffff,
+  danger: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  secondary: #6e6e6e,
+  success: #2b841e,
+  info: #007a9c,
+  warning: #7a781a,
+  danger: #c83b4a,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  danger: #fa4a5c,
+  info: #00BBF0,
+  secondary: #dddddd,
+  success: #4EF037,
+  warning: #f4f133,
+) !default;
+$skin-button-body-bg: #fff !default;

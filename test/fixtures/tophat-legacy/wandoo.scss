@@ -1,0 +1,36 @@
+/*! Tophat `Wandoo` Bootstrap 4.3.1 theme */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&family=Comfortaa:wght@200;300;400;700&display=swap');
+
+$font-family-base: Nunito !default;
+$headings-font-family: Comfortaa !default;
+
+$primary: #FF304F !default;
+$link-color: #cc2640 !default;
+$yiq-contrasted-threshold: 113 !default;
+$secondary: #CACACA !default;
+$success: #015668 !default;
+$danger: #06648C !default;
+$info: #0e7bbe !default;
+$warning: #0DE2EA !default;
+$light: #ececec !default;
+$dark: #222222 !default;
+$gray-300: #e0e0e0 !default;
+
+// Preserve the skin's original light labels on filled buttons.
+$skin-button-labels: (
+  primary: #ffffff,
+) !default;
+
+// Readable outline labels on this skin's page background.
+$skin-button-outlines: (
+  primary: #d92943,
+  secondary: #6f6f6f,
+  warning: #077c81,
+) !default;
+// Stock palette defaults; keep predeclared custom colors and vars authoritative.
+$skin-button-palette: (
+  primary: #FF304F,
+  secondary: #CACACA,
+  warning: #0DE2EA,
+) !default;
+$skin-button-body-bg: #fff !default;

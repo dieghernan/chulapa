@@ -1,0 +1,15 @@
+// Chulapa-specific components and retained accessibility corrections.
+$white: #ffffff !default;
+
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.chulapa-toc-reset a {
+    text-decoration: none;
+}
+
+.card.bg-primary, .card.bg-secondary {
+  color: $white;
+}

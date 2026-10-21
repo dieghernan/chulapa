@@ -29,7 +29,10 @@ const root = require("path").resolve(__dirname, ".."),
       .readdirSync(root + "/_sass/skins")
       .filter((f) => f.endsWith(".scss") && f !== "dark-bg.scss")) {
       const skin = f.slice(0, -5);
-      const src = fs.readFileSync(root + "/_sass/skins/" + f, "utf8");
+      const adaptation = root + "/_sass/chulapa/skins/_" + f;
+      // TopHat's explicit card text adjustments now live in a separate partial.
+      const src = fs.readFileSync(root + "/_sass/skins/" + f, "utf8") +
+        (fs.existsSync(adaptation) ? fs.readFileSync(adaptation, "utf8") : "");
       let css = sass
         .compileString(
           `@import "skins/${skin}"; @import "bootstrap/bootstrap"; @import "chulapa-master";`,

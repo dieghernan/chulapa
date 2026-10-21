@@ -1,55 +1,13 @@
-/*! Tophat `Minco` Bootstrap 4.3.1 theme */
-
-// Import Google Fonts
+/*! TopHat `Minco` integration; original source and MIT license in vendor/tophat. */
 @import url(https://fonts.googleapis.com/css?family=Crete+Round:200,300,400,700);
 
-// Font Family
-$headings-font-family: 'Crete Round';
+// Retain Chulapa palette and typography choices.
+$headings-font-family: 'Crete Round' !default;
+$danger: #ff475d !default;
+$warning: #fc4c4c !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-base: $font-family-sans-serif !default;
 
-// Color Variables
-$primary: #083358;
-$yiq-contrasted-threshold: 128 !default;
-$secondary: #F67280;
-$success: #0074E4;
-$danger: #ff475d;
-$info: #74DBEF;
-$warning: #fc4c4c;
-$light: #F2F2F0;
-$dark: #072247;
-$white: #ffffff !default;
-
-// Styles
-a:not([class]) {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-}
-
-.chulapa-toc-reset a {
-    text-decoration: none;
-}
-
-.card.bg-primary {
-    color: $white;
-}
-
-// Preserve the skin's original light labels on filled buttons.
-$skin-button-labels: (
-  warning: #ffffff,
-  danger: #ffffff,
-) !default;
-
-// Readable outline labels on this skin's page background.
-$skin-button-outlines: (
-  secondary: #b85660,
-  info: #407883,
-  warning: #ca3d3d,
-  danger: #cc394a,
-) !default;
-// Stock palette defaults; keep predeclared custom colors and vars authoritative.
-$skin-button-palette: (
-  danger: #ff475d,
-  info: #74DBEF,
-  secondary: #F67280,
-  warning: #fc4c4c,
-) !default;
-$skin-button-body-bg: #ffffff !default;
+@import "../vendor/tophat/minco/variables";
+@import "../chulapa/skins/minco";
+@import "../vendor/tophat/minco/styles";
