@@ -1,6 +1,50 @@
 # Candidate revisions after merged #170
 
-## Current revision — 20 October 2026
+## Current revision — 21 October 2026
+
+Baseline: main `4efd1e3e9263759e6326474c260badc4580afe4e`, after #176.
+Rebase replayed all four planning commits without conflicts. New runtime work
+includes #173 original Bootswatch choices, #174 consistent previews/guidance,
+#175 preview and dark-asset fixes, and #176 pinned/licensed upstream sources with
+separate Chulapa adapters. The older revisions below retain only their own checks.
+
+Current local gem SHA256:
+`a755a9c157a3a4e6a6cdde38ea2a189916ec508899c91cf6878481cf52190e90`.
+All 450 extracted package files match source bytes. Vendor sources and TopHat/
+Bootswatch licenses are included; the installed-gem regression now explicitly
+checks their packaged presence. Earlier artifacts are retained locally by hash.
+Fresh installed-gem checks pass on this exact hash with Jekyll 3.10.0 and
+4.4.1, including package provenance/exclusions, root/project pagination, canonical
+URLs, sitemap and complete documentation builds.
+
+Pages [39552038892](https://github.com/dieghernan/chulapa/actions/runs/39552038892)
+and Algolia [39552038856](https://github.com/dieghernan/chulapa/actions/runs/39552038856)
+succeeded for this exact source. Regression run
+[39552038890](https://github.com/dieghernan/chulapa/actions/runs/39552038890)
+has six successful jobs (both Ruby/Jekyll versions, both installation versions,
+JavaScript and chatbot); the browser job is still running at this checkpoint.
+Older browser passes are not transferred.
+
+Worker [run 39548857744](https://github.com/dieghernan/chulapa/actions/runs/39548857744)
+succeeded from #175, `c698197c8b33ea656f89f3bfa64d2479be8a2b61`, after its
+matching-Pages gate. Job 119053185631 logs identify version
+`ff91f0e4-da59-4de4-906a-9750284d14db`. #176 has no Worker-file/workflow diff;
+this is retained #175 lineage, not an exact-current-source Worker deployment.
+No new live inference/public HTTP checks or manual deployments in this update.
+
+Upgrade notes now include the dark highlighter path
+`assets/css/dark/highlighter.css`, paired-asset publication and the vendor-source
+separation without extra site-user tooling. Keep the existing CSS completion
+marker constraint and documented contrast exceptions. The selector's shared
+mixin removes outline and box-shadow on focus/focus-visible; #175 explicitly
+records this known limitation. It is not fixed or counted as a passing
+visible-focus result here and needs triage before the final release decision.
+No skin/control implementation changes are made by this planning PR.
+
+The revised notes remain pending review. Candidate markers, release metadata and
+publication authorization are unchanged; no tag, release or gem upload.
+
+## Historical revision — 20 October 2026
 
 Baseline: main `58966b5ddf1f8bd9059c8ea7e466c5ba4a700884`, after GitDev changes,
 #172 skin contrast and the Flatly alert correction. PR #171 was rebased on this
