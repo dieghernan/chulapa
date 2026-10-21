@@ -538,7 +538,8 @@ partials. The initial batch selects Chulapa, Litera and Minco, one from each sou
 family. The second adds Academia, Pear, Lux, Minty and Sketchy; the third adds
 Journal, Pulse, United, Yeti and Hootstrap. The fourth adds Materia, Universal,
 Lymcha, Preptor and Wandoo. The fifth adds Electro, Graymor, Mickie, Monotone
-and Sunset. Existing pairs
+and Sunset. The final batch adds Cerulean, Focal, Media, Navi, Skeeblu and
+Towards, covering all 29 reviewed unpaired light sources. Existing pairs
 (including Flatly/Darkly) are recorded and excluded in
 `test/dark-skin-pilot.json`. The manifest is a reviewed pilot selection, not an
 automatic classifier of every theme's visual relationship.
@@ -559,8 +560,13 @@ It checks source eligibility, existing-pair exclusions, generated Sass drift
 keyboard focus and horizontal overflow at 390/1280px.
 It measures sampled text contrast, including normal/hover/focus/active buttons,
 and rejects generated dark text below 4.5:1. Original light palette exceptions
-are recorded without failing the experiment. This is not an accessibility
-certification; review `report.json` and the study boundaries.
+are recorded without failing the experiment. Foreground alpha is composited over
+the measured background. Source button gradients and translucent fills remain;
+computed-color measurements do not audit every pixel of those gradients or
+promise identical perceived fills on different surfaces. Media also retains its
+original body-font fallback (`Source Serif` versus the requested `Source Serif 4`).
+This is not an accessibility certification; review `report.json` and the study
+boundaries.
 Screenshots include individual views and light/dark comparison sheets at
 390/640px per pane. These are component studies, not full-site validation.
 

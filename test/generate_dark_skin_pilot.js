@@ -27,7 +27,7 @@ function readable(accent,bg) {
   throw Error('Cannot derive readable color');
 }
 function tokens(skin) {
-  const source=`@import "skins/${skin}"; @import "bootstrap/functions"; @import "bootstrap/variables"; .pilot-tokens {${variants.map(v=>`--${v}: #{${'$'+v}};`).join('')} --body-bg: #{$body-bg};}`;
+  const source=`@import "skins/${skin}"; @import "bootstrap/functions"; @import "bootstrap/variables"; $thead-chulapa-bg-color: $primary !default; .pilot-tokens {${variants.map(v=>`--${v}: #{${'$'+v}};`).join('')} --body-bg: #{$body-bg}; --thead-bg: #{$thead-chulapa-bg-color};}`;
   const css=sass.compileString(source,cssOptions).css;
   const block=css.slice(css.lastIndexOf('.pilot-tokens'));
   return Object.fromEntries([...block.matchAll(/--([\w-]+): ([^;]+);/g)].map(m=>[m[1],m[2]]));
@@ -47,12 +47,22 @@ function generate(skin,t) {
     'navbar-chulapa-bg-color':panel,'navbar-chulapa-text-color':'#e5e9ef','navbar-chulapa-hover-color':'#ffffff',
     'navbar-chulapa-active-color':'#ffffff','navbar-chulapa-brand-color':'#ffffff',
     'footer-chulapa-bg-color':panel,'footer-chulapa-text-color':'#adb5bd','footer-chulapa-link-color':readable(rgb(t.primary),rgb(panel)),'footer-chulapa-hover-color':readable(rgb(t.primary),rgb(panel)),
-    'thead-chulapa-text-color':contrast(rgb(t.primary),[255,255,255])>=4.5?'#ffffff':'#000000',
+    'thead-chulapa-text-color':contrast(rgb(t['thead-bg']),[255,255,255])>=4.5?'#ffffff':'#000000',
     'blockquote-chulapa-bg-color':panel,'blockquote-chulapa-text-color':'#e5e9ef','pre-chulapa-bg-color':panel,'code-color':'#ff9dcc',
     'alert-bg-level':'10','alert-border-level':'7','alert-color-level':'-7',
     'skin-button-labels':'()','skin-button-outlines':'()','skin-button-lighter-states':'()'
   };
   const declarations=Object.entries(variables).map(([k,v])=>`$${k}: ${v} !default;`).join('\n');
+  const source=[root+'/_sass/skins/'+skin+'.scss',root+'/_sass/chulapa/skins/_'+skin+'.scss']
+    .filter(file=>fs.existsSync(file)).map(file=>fs.readFileSync(file,'utf8')).join('\n');
+  // Reassert derived text tokens only where the source assigns them without !default.
+  const textResets=['body-color','link-color','link-hover-color','navbar-chulapa-text-color','navbar-chulapa-brand-color'].filter(name=>
+    new RegExp('^\\$'+name+':[^;]*;', 'm').test(source) &&
+    !new RegExp('^\\$'+name+':[^;]*!default[^;]*;', 'm').test(source))
+    .map(name=>`$${name}: ${variables[name]};`).join('\n');
+  const plainLink=/a:not\(\[class\]\)\s*\{[^}]*\bcolor:/.test(source)
+    ? 'a:not([class]) { color: $link-color; &:hover, &:focus { color: $link-hover-color; } }\n' : '';
+
   // Derive outline labels independently; retain original fill colors and fonts.
   const outlines=variants.map(v=>`${v}: ${readable(rgb(t[v]),bg)}`).join(', ');
   return `// GENERATED experimental ${skin} dark study. Regenerate with test/generate_dark_skin_pilot.js.
@@ -63,7 +73,7 @@ ${declarations}
 // Legacy sources may assign these unconditionally; keep the dark treatment.
 $navbar-chulapa-bg-color: ${panel};
 $footer-chulapa-text-color: #adb5bd;
-@import "bootstrap/bootstrap";
+${textResets}${textResets?'\n':''}@import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
 // Some source integrations force labels with !important (for example Materia).
@@ -94,7 +104,7 @@ $pilot-outlines: (${outlines});
     }
   }
 }
-.table tbody td { background-color: $body-bg; color: $body-color; }
+${plainLink}.table tbody td { background-color: $body-bg; color: $body-color; }
 ${variants.map(v=>`.alert.alert-${v} { background: ${hex(mix([0,0,0],rgb(t[v]),.8))} !important; color: #e5e9ef !important; } .alert.alert-${v} .alert-link { color: ${readable(rgb(t[v]),mix([0,0,0],rgb(t[v]),.8))} !important; }`).join('\n')}
 `;
 
@@ -146,7 +156,8 @@ function html(skin,mode,css) {return `<!doctype html><html lang="en" style="colo
       if(state==='active')await page.mouse.down();
       await target.evaluate(e=>{getComputedStyle(e).color;return Promise.all(e.getAnimations().map(a=>a.finished.catch(()=>{})));});
       const colors=await target.evaluate(e=>{let bg=[255,255,255];const ancestors=[];for(let a=e;a;a=a.parentElement)ancestors.unshift(a);for(const a of ancestors){const c=getComputedStyle(a).backgroundColor.match(/[\d.]+/g).map(Number),alpha=c[3]??1;bg=bg.map((x,i)=>c[i]*alpha+x*(1-alpha));}return {fg:getComputedStyle(e).color,bg};});
-      const ratio=contrast(rgb(colors.fg),colors.bg);
+      const fg=colors.fg.match(/[\d.]+/g).map(Number),alpha=fg[3]??1;
+      const ratio=contrast(fg.slice(0,3).map((c,i)=>c*alpha+colors.bg[i]*(1-alpha)),colors.bg);
       measurements.push({selector,state,ratio:Number(ratio.toFixed(2)),passesNormalText:ratio>=4.5});
       if(state==='active')await page.mouse.up();
      }

@@ -2,7 +2,9 @@
 
 The initial three-skin study below is retained as history. The follow-up section
 records the later batches and stricter artifact verification; the generated
-summary and comparison directory now cover all twenty-three skins.
+summary and comparison directory now cover all twenty-nine skins. The final
+section closes experimental candidate coverage; catalog promotion and the
+deferred canonical CI baseline remain separate work.
 
 ## Scope and selection
 
@@ -340,3 +342,85 @@ The accumulated report now contains 1,886 dark measurements. A full unfiltered
 Cerulean, Focal, Media, Navi, Skeeblu and Towards. These remain studies rather
 than released skins; the previous component, CI and Netlify limitations still
 apply. No public documentation, chatbot context, SEO or PWA behavior changes.
+
+
+## Final coverage batch — 2026-10-21
+
+The final six additions are **Cerulean, Focal, Media, Navi, Skeeblu and Towards**.
+Together with the earlier batches, these cover all **29 reviewed unpaired light
+sources** in the current public skin catalog. The four established light/dark
+families remain excluded, as do existing standalone dark skins. Completing this
+experimental selection does not promote any companion to the public catalog.
+
+| Source | Narrow panes (390px each) | Wider panes (640px each) |
+| --- | --- | --- |
+| Cerulean | [Comparison](dark-skin-pilot-2026-10-21/cerulean-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/cerulean-comparison-640.png) |
+| Focal | [Comparison](dark-skin-pilot-2026-10-21/focal-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/focal-comparison-640.png) |
+| Media | [Comparison](dark-skin-pilot-2026-10-21/media-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/media-comparison-640.png) |
+| Navi | [Comparison](dark-skin-pilot-2026-10-21/navi-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/navi-comparison-640.png) |
+| Skeeblu | [Comparison](dark-skin-pilot-2026-10-21/skeeblu-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/skeeblu-comparison-640.png) |
+| Towards | [Comparison](dark-skin-pilot-2026-10-21/towards-comparison-390.png) | [Comparison](dark-skin-pilot-2026-10-21/towards-comparison-640.png) |
+
+### Source-specific behavior and measurement corrections
+
+Focal and Towards assign body text without `!default`; Media also forces its
+link color. The generator reasserts derived text tokens after imports only when
+it detects those unconditional assignments in the skin or its conventional
+Chulapa integration partial. Skeeblu also reuses the page background for navbar
+text; those assignments are reasserted to keep navigation readable. Focal's explicit
+plain-link rule receives a derived dark link rule as well. These adjustments
+remain confined to experimental Sass; original skin sources are untouched.
+
+Table-header text is now derived from the source's actual header background,
+rather than assuming it equals the primary palette color. Focal, Media and Navi
+exercise that distinction. The browser still measures the resulting header text.
+Foreground alpha is composited against the measured background before contrast
+is calculated. This corrects the earlier omission for translucent text; it does
+not turn the study into a pixel-based audit of gradients or images. Earlier
+contrast numbers remain as history; the final regeneration supersedes their
+foreground-alpha measurement method.
+
+Cerulean's original button gradients are retained. Media's translucent palette
+values are also retained: equality of computed CSS fills does not promise equal
+perceived color over different surfaces. Its source requests `Source Serif 4`
+but declares `Source Serif` for body text; the experiment preserves the original
+fallback behavior rather than repairing production typography in this PR.
+
+Original author credits and licenses remain unchanged. Experimental adaptations
+are maintained by dieghernan with assistance from OpenAI's ChatGPT, as recorded
+in the fifth batch. No release-ready or comprehensive accessibility claim is made.
+
+
+### Final coverage validation
+
+- Fresh full generation of all 29 prototypes passes, with 82 sampled dark
+  text/state measurements each: **2,378 total**, none below 4.5:1. New minimums:
+  Cerulean 4.51, Focal 4.56, Media 4.53, Navi 4.58, Skeeblu 4.55, Towards 4.57.
+- All 58 light/dark documents reach 23 Tab stops in order with no horizontal
+  overflow at 390/1280px. Declared font families, card radii and all eight
+  computed button fills match between modes; no font-loading errors are reported.
+- All 58 comparison PNGs were independently rerendered from the freshly generated
+  HTML in new Chromium instances and match byte-for-byte. The generated summary
+  and complete artifact set also match the detailed report. Fast Sass drift and
+  the artifact-helper negative regression pass. A second full CLI `--check`
+  browser run was not performed; the independent checks above were executed.
+- All 29 final stylesheets compile with Dart Sass 1.100.0 and Ruby Sass 3.7.4.
+  The regenerated Mickie fixture was rechecked with Ruby Sass after its update.
+- Visually inspected the six new 390/640px comparison pairs and individual 1280px
+  dark captures. The derived navbar policy also changes Mickie's forced white
+  navigation text to the shared light text color; its two comparison images were
+  refreshed and visually checked. The other 44 earlier images remain unchanged.
+  One detailed prior measurement changes with that navbar text policy.
+- Original preview CSS for all six additions remains byte-for-byte unchanged
+  versus main `4efd1e3e9`. Diff whitespace, local study links and gem exclusions
+  are checked before commit. Original author credits and licenses remain intact.
+
+### Coverage closed; promotion remains separate
+
+No reviewed unpaired light source remains without an experimental companion.
+Production integration still requires review on complete theme layouts and
+remaining component states, configurable palettes/Autothemer, focus and border
+contrast, disabled controls and gradients. Media's original font-name mismatch
+is recorded above. The canonical CI baseline job remains deferred by the
+maintainer, and Netlify previews remain blocked by quota. No catalog promotion,
+manual deployment, public documentation or chatbot-context change is included.

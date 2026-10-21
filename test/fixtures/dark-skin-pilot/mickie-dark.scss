@@ -61,6 +61,7 @@ $skin-button-lighter-states: () !default;
 // Legacy sources may assign these unconditionally; keep the dark treatment.
 $navbar-chulapa-bg-color: #2e262d;
 $footer-chulapa-text-color: #adb5bd;
+$navbar-chulapa-text-color: #e5e9ef;
 @import "bootstrap/bootstrap";
 @import "chulapa-master";
 // Experimental shared control treatment. Original palette fills remain unchanged.
