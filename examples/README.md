@@ -11,4 +11,4 @@ Choose a complete small site to copy into your own repository:
 
 Each directory has its own Gemfile, configuration and home page. Use [Run and publish a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter)
 for preparation, preview and publishing; the individual READMEs describe the samples. These are examples built from existing theme options,
-not new layouts. Mermaid requires development changes after v2.1.0.
+not new layouts. Mermaid requires v2.2.0.

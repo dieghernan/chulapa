@@ -38,7 +38,7 @@ comments:
 
 ## Check the form URL on a project site
 
-In development after v2.1.0 (v2.1.1-dev), the theme form uses the full published
+In v2.2.0, the theme form uses the full published
 article URL, including `baseurl`. The v2.1.0 form omits that path: for a site
 such as `https://ana.github.io/my-blog`, its submitted URL can point outside
 `/my-blog`. Use the local correction below on v2.1.0 and review existing overrides

@@ -15,7 +15,7 @@ Each skin already has a font choice; changing fonts is optional. For the bundled
 font rather than an external stylesheet, use [the bundled-font guide](./53-chulapa-font).
 
 The skins keep their default web-font imports in CSS, including standalone skin
-previews. In **2.2.0 (unreleased)**, a failed Google Fonts import leaves fallback
+previews. In **2.2.0**, a failed Google Fonts import leaves fallback
 text and does not prevent [Light/Dark/Auto switching](./22-choose-skin#let-visitors-switch-between-light-and-dark)
 when the generated skin and highlighter CSS are complete. No additional font
 configuration is needed for those defaults.

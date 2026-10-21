@@ -26,17 +26,16 @@ The `default` layout works for ordinary articles and pages. Use
 prominent introduction. The reference below covers page options, indexes,
 galleries and custom layouts; you do not need to configure them all.
 
-Features marked **v2.1.1-dev** are planned for the unpublished **2.2.0** release
-candidate. They are available on `main`, but are not included in
+Features marked **v2.2.0** require that version or later; they are absent from
 v2.1.0. An unpinned remote theme follows `main`; a pinned release or installed
 gem only provides the features included in that version.
 
 | Recent feature | How to enable it | Availability |
 | --- | --- | --- |
-| [Mermaid diagrams](#mermaid-diagrams) | Page front matter: `mermaid: true`, plus Mermaid code blocks | v2.1.1-dev |
-| [PhotoSwipe galleries](#photoswipe-lightbox) | Liquid include parameter: `photoswipe=true` | v2.1.1-dev |
-| [Active TOC section](#options) | Automatic with an in-page, sidebar or kramdown TOC and JavaScript | v2.1.1-dev |
-| [GoatCounter analytics](./02-config#goatcounter-analytics) | Site setting: `goatcounter`, plus a production build | v2.1.1-dev |
+| [Mermaid diagrams](#mermaid-diagrams) | Page front matter: `mermaid: true`, plus Mermaid code blocks | v2.2.0 |
+| [PhotoSwipe galleries](#photoswipe-lightbox) | Liquid include parameter: `photoswipe=true` | v2.2.0 |
+| [Active TOC section](#options) | Automatic with an in-page, sidebar or kramdown TOC and JavaScript | v2.2.0 |
+| [GoatCounter analytics](./02-config#goatcounter-analytics) | Site setting: `goatcounter`, plus a production build | v2.2.0 |
 
 ## A. Layouts
 
@@ -168,7 +167,7 @@ author:
 		<i class="fa-solid fa-plus"></i><span class="sr-only">Example button</span>
 	</button> on the left side of your page, click it to expand the sidebar table of contents. See the implementation on the [Current skin](https://dieghernan.github.io/chulapa/skins/current).
 
-In v2.1.1-dev, the in-page TOC, sidebar TOC and
+In v2.2.0, the in-page TOC, sidebar TOC and
 kramdown's `{:toc}` highlight the current section as you scroll, with
 `aria-current="location"` on its link. Each TOC tracks only its included, rendered headings; headings inside closed or
 hidden containers are skipped until shown.
@@ -191,12 +190,12 @@ id="aa">My heading</h1>`) don't forget to include the `id`.
   same collection or at least three tags otherwise. More matches rank first,
   with newer dates used within each score.
 
-In v2.1.1-dev, a candidate with `show_date: false` has no date footer in
+In v2.2.0, a candidate with `show_date: false` has no date footer in
 related or random cards. Other candidates retain the existing date display.
 
 - `show_random`: Display up to three randomly selected documents from the same
   candidate pool as `show_related`. Selection happens at build time, so the
-  cards do not change on every page load. In v2.1.1-dev, a
+  cards do not change on every page load. In v2.2.0, a
   pool with one eligible document renders that document instead of empty cards.
 
 **Related and random cards require tags.** Both components use collection
@@ -288,7 +287,7 @@ added automatically.
 Unlike `default` and `landingpage`, `minimal` does not automatically declare a
 Microformats2 `h-entry`. Custom content can provide its own `h-entry` wrapper,
 with `p-name`, `u-url` and `e-content` properties, without including the navbar
-or footer in the entry. This behavior is available in v2.1.1-dev.
+or footer in the entry. This behavior is available in v2.2.0.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ```yaml
@@ -369,7 +368,7 @@ required.
 
 `include_collection` is optional; see the [Archive](#archive) layout.
 
-In v2.1.1-dev after v2.1.0, cloud entries respect each document's
+In v2.2.0, cloud entries respect each document's
 `show_date: false`: the publication date, calendar icon and date separator are
 hidden, while reading time remains. This also applies to the compatibility
 aliases and prevents undated guides from displaying Jekyll's fallback build date.
@@ -489,7 +488,7 @@ Setup: [Add a photo gallery](./29-add-gallery).
 | `photoswipe` | `false` | Boolean `true` enables the optional viewer; see [PhotoSwipe](#photoswipe-lightbox). |
 
 **Version constraint:** applying the selected `index_sort` field to internal
-galleries and carousels is fixed in v2.1.1-dev on `main`. It does not work
+galleries and carousels is fixed in v2.2.0. It does not work
 correctly in v2.1.0; the filename-order guides require the fix.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
@@ -526,7 +525,7 @@ also apply. Additional parameters:
 | `indicators` | `false` | Boolean `true` displays slide indicators. |
 | `controls` | `false` | Boolean `true` displays previous/next controls. |
 
-In v2.1.1-dev, a multi-image slideshow has a play/pause icon button with an
+In v2.2.0, a multi-image slideshow has a play/pause icon button with an
 action-specific accessible name and a symbol fallback if Font Awesome is missing.
 Reduced-motion visitors start paused. Keyboard control use pauses cycling;
 Enter and Space activate controls. Hovering pauses temporarily. Custom layouts
@@ -550,7 +549,7 @@ Automatic-cycling specimen, for a configured `gallery` group:
 
 Setup: [Enable PhotoSwipe on a gallery](./31-photoswipe).
 
-Available in v2.1.1-dev, not in v2.1.0. `photoswipe` is a boolean include parameter
+Available in v2.2.0, not in v2.1.0. `photoswipe` is a boolean include parameter
 on masonry and carousel snippets, **not** a page YAML setting. Default: `false`;
 only `photoswipe=true` enables it. It accepts internal image groups and external
 image lists; each gallery opens its own sequence.
@@ -583,8 +582,7 @@ Setup: [Embed a video](./32-embed-video).
 | `nolazy` | Off | YouTube only; boolean `true` creates an iframe without activation. The browser may still defer the iframe through `loading="lazy"`. |
 | `video_res` | `maxresdefault` | Deferred YouTube preview resolution; see [preview behavior](#deferred-lazy-loading-of-youtube-videos). |
 
-The accessible player and play-button names derived from `name` require `main`
-after v2.1.0 (v2.1.1-dev); v2.1.0 supports `name` in video metadata but does not
+The accessible player and play-button names derived from `name` require v2.2.0; v2.1.0 supports `name` in video metadata but does not
 use it for those accessible names.
 
 For `fileurl`, browser-supported formats include MP4, Ogg and WebM. Playback
@@ -637,8 +635,7 @@ External-file specimen:
 
 #### Deferred (lazy) loading of YouTube videos
 
-Default: a preview loads first; activation loads the player. In `main` after
-v2.1.0 (v2.1.1-dev), a link opens YouTube when JavaScript is disabled; v2.1.0
+Default: a preview loads first; activation loads the player. In v2.2.0, a link opens YouTube when JavaScript is disabled; v2.1.0
 does not provide that fallback link. Autoplay remains subject to browser policy.
 The iframe uses `https://www.youtube-nocookie.com`, which must be allowed by a restrictive
 Content Security Policy.
@@ -792,7 +789,7 @@ fallback. Their fixed date makes the translation differences comparable.
 Setup: [Add a Mermaid diagram](./33-add-diagram).
 Live specimens: [Mermaid demo](../demo/13-mermaid).
 
-Available in v2.1.1-dev on `main`, not in v2.1.0. Use the updated default
+Available in v2.2.0, not in v2.1.0. Use the updated default
 branch or a later release containing this feature; the v2.1.0 gem does not
 include it.
 
@@ -837,7 +834,7 @@ supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.h
 
 Code blocks have a copy button. Use HTTPS on your published website so the
 browser can copy text. If copying fails or permission is denied, visitors can
-still select and copy the code themselves. In v2.1.1-dev, the button confirms
+still select and copy the code themselves. In v2.2.0, the button confirms
 success or reports failure. Rendered Mermaid diagrams have no code copy button.
 
 ## Advanced page settings
@@ -1082,7 +1079,7 @@ examples at the start of this guide.
 
 ### Layout structure and components
 
-In the unpublished 2.2.0 development version, `default` places its page heading
+In v2.2.0, `default` places its page heading
 and body in one `main` landmark. Its `e-content` property wraps the editorial
 body, excluding the theme's optional sidebar and integrated TOCs. Lists or a
 Markdown TOC written in the page body remain editorial content. Inherited

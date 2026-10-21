@@ -19,12 +19,12 @@ Work in a branch or save a backup. In `_config.yml`, remove the old `theme` entr
 and replace any existing `remote_theme` entry with:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.1.0
+remote_theme: dieghernan/chulapa@v2.2.0
 ```
 
 This pins the released version. Use `dieghernan/chulapa` without the tag only
-when you want development updates from `main`. Features marked **v2.1.1-dev**
-are not included in v2.1.0.
+when you want development updates from `main`. Features marked **v2.2.0**
+require that release or later.
 
 In your existing `Gemfile`, add missing dependencies from the following list.
 Edit entries already present instead of declaring the same gem twice. Keep

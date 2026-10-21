@@ -10,8 +10,7 @@ cloudtag_url: /docs/tags
 Use this guide for an existing [gallery](./29-add-gallery) or
 [carousel](./30-add-carousel).
 
-**Version requirement:** PhotoSwipe is available on `main` after v2.1.0
-(v2.1.1-dev), not in the v2.1.0 gem or a remote theme pinned to that release.
+**Version requirement:** PhotoSwipe is available in v2.2.0, not in the v2.1.0 gem or a remote theme pinned to that release.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## Enable the viewer

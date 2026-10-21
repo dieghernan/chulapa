@@ -70,8 +70,7 @@ If the font appears as ordinary letters without the distinctive ligatures,
 check the CSS rules/class and any later overrides. Without ligatures it looks
 like <span class="chulapa" style="font-feature-settings: 'liga', 'dlig' 0;">Chulapa</span>;
 with the class it looks like <span class="chulapa">Chulapa</span>.
-Check the compiled CSS and font requests in your browser. On `main` after
-v2.1.0 (v2.1.1-dev), preload/CSS use theme-local font assets with `baseurl`; that
+Check the compiled CSS and font requests in your browser. In v2.2.0, preload/CSS use theme-local font assets with `baseurl`; that
 loading improvement is not in the v2.1.0 release. For an older theme version,
 check the font URL its own stylesheet uses.
 For old public content, use [publishing checks](./42-unpublished-changes).

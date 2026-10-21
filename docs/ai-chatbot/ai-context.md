@@ -1,8 +1,8 @@
 # Chulapa documentation context
 
-2.2.0 unpublished; v2.1.1-dev=planned. Released: v2.1.0.
+Target: v2.2.0; new features absent from v2.1.0. Verify tag/gem publication separately.
 
-18 Oct 2026 review. docs/llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching. Dev=main after v2.1.0, not gem/pin.
+21 Oct 2026. llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
 Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other Jekyll hosts. Search, SEO, multi-author, code highlighting, MathJax, galleries, comments.
@@ -41,14 +41,14 @@ Selected Bootstrap inputs: primary, secondary, success, info, warning, danger, l
 
 ## Remote-theme installation
 Source: https://dieghernan.github.io/chulapa/docs/20-remote-theme
-Existing working Jekyll site: branch/backup; set remote_theme: dieghernan/chulapa@v2.1.0, remove conflicting theme/remote_theme entries. Unpinned dieghernan/chulapa follows main. Merge required runtime dependencies into Gemfile; enable jekyll-remote-theme and jekyll-include-cache in Gemfile/plugins. A remote theme downloads files, not dependencies; consult gemspec/example Gemfile for custom builds. Run bundle install. Retain a working deployment or adapt Chulapa 101's GitHub Actions workflow to branch/source/dependencies.
+Existing working Jekyll site: branch/backup; set remote_theme: dieghernan/chulapa@v2.2.0, remove conflicting theme/remote_theme entries. Unpinned dieghernan/chulapa follows main. Merge required runtime dependencies into Gemfile; enable jekyll-remote-theme and jekyll-include-cache in Gemfile/plugins. A remote theme downloads files, not dependencies; consult gemspec/example Gemfile for custom builds. Run bundle install. Retain a working deployment or adapt Chulapa 101's GitHub Actions workflow to branch/source/dependencies.
 ## Gem-theme installation
 Source: https://dieghernan.github.io/chulapa/docs/21-gem-theme
 Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll in _config.yml; remove remote_theme and unused remote-theme plugin/dependency. Enable jekyll-include-cache in plugins. bundle update chulapa-jekyll updates theme/dependencies within existing constraints. Preview with bundle exec jekyll serve. Local matching files override theme files; review/merge them during upgrades. Unknown include_cached: install/enable jekyll-include-cache and restart build.
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
 Source: https://dieghernan.github.io/chulapa/docs/46-migration-fields
-Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.1.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
+Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.2.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
 Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
 Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
 ## Basic editing and publishing
@@ -109,7 +109,7 @@ Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4.
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
 Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
 Set existing gtag_id to G- measurement ID from GA4 property's web stream. analytics_id is retired Universal Analytics; leave unused values blank. Both independently load snippets. Google tag is NOT production-gated: enabled ID loads during local preview too. Avoid duplicate scripts/custom includes; clear goatcounter for Google-only or gtag_id to disable GA4. Publish; verify matching property's Realtime report. Browser blockers/custom consent may block requests.
-## GoatCounter analytics (development after v2.1.0)
+## GoatCounter analytics (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/18-goatcounter
 Source: https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics
 Set goatcounter: "https://YOUR-CODE.goatcounter.com/count" to the full public HTTPS counting endpoint, not code/dashboard alone. Self-hosted https://stats.example.org/count also works; do not add site's baseurl. Separate GoatCounter account/site required, no API key/plugin. Async https://gc.zgo.at/count.js loads only for nonempty HTTPS endpoint in JEKYLL_ENV=production; normal local preview does not load it, upstream ignores localhost.
@@ -120,7 +120,7 @@ Source: https://dieghernan.github.io/chulapa/docs/03-theming
 chulapa-skin.skin: exact case-sensitive filename without .scss; unknown names fail Sass import. Default none; auto selects generated-palette skin. chulapa-skin.highlight defaults to default; Rouge supplies syntax highlighting. vars maps Sass names/expressions without $ or semicolons.
 ## Light/dark/auto selector
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark
-2.2.0 unreleased/main only, absent v2.1.0. chulapa-skin=Light; add chulapa-skin-dark: {skin: gitdev-dark, highlight: github.dark}. Omitted dark highlight inherits light highlight, then default; other fields independent; copy shared vars. Dropdown: classic/fab/dual, empty menus too. Blank disables. Default Light; Auto tracks device. theme-color: active vars.primary or browser default; custom tags kept. Both credited. chulapa-theme localStorage: pages/tabs/sites on same origin; blocked: page only. No JS/blocked inline: Light, hidden selector. Absent dark mapping: no additional scripts or styles. Custom CSS overrides both; check widgets/images/diagrams. Failed CSS: initial Light, later previous appearance; mode persists, Auto tracks device changes. Restart Jekyll on config edits.
+2.2.0+, absent v2.1.0. chulapa-skin=Light; add chulapa-skin-dark: {skin: gitdev-dark, highlight: github.dark}. Omitted dark highlight inherits light highlight, then default; other fields independent; copy shared vars. Dropdown: classic/fab/dual, empty menus too. Blank disables. Default Light; Auto tracks device. theme-color: active vars.primary or browser default; custom tags kept. Both credited. chulapa-theme localStorage: pages/tabs/sites on same origin; blocked: page only. No JS/blocked inline: Light, hidden selector. Absent dark mapping: no additional scripts or styles. Custom CSS overrides both; check widgets/images/diagrams. Failed CSS: initial Light, later previous appearance; mode persists, Auto tracks device changes. Restart Jekyll on config edits.
 Font imports stay; Google Fonts failures use fallbacks. Missing/incomplete CSS keeps appearance. Demo selector never enables switching.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
@@ -142,11 +142,13 @@ Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
 Order: skin → vars → autothemer → Bootstrap → components. vars overrides skins; Autothemer fills only undefined colors from primary. Put autothemer: true beside vars under chulapa-skin; primary inside vars. none has no palette assignments; named skins retain theirs. false/omission disables the later step only; skin: auto imports the generator independently.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
+v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. /docs/48-accessibility-reference.
+
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
 Named skins: academia,cerulean,litera,pulse,butterfly,butterfly-dark,butterfly-dim,chulapa,cyborg,dark-bg,darkly,deeply,electro,flatly,focal,gitdev,gitdev-dark,graymor,hootstrap,journal,listen,lux,lymcha,materia,media,mickie,minco,minty,monotone,navi,pear,preptor,skeeblu,sketchy,slate,solar,sunset,towards,twitter,twitter-dim,twitter-lights-out,united,universal,wandoo,yeti.
 Examples+catalog; full list on request. auto/none special; current not a skin.
-cerulean/litera/pulse: 2.2.0 unreleased; original Bootswatch 4.6.2, contrast limits retained.
+cerulean/litera/pulse: 2.2.0; original Bootswatch 4.6.2, contrast limits retained.
 ## Layouts
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 default is for posts/pages/collection documents, via front matter or Jekyll defaults. Markdown content uses YAML front matter. Optional components use front matter/defaults; demos show output.
@@ -157,7 +159,7 @@ Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, goog
 {% include snippets/video.html id="YOUR_VIDEO_ID" provider="youtube" %}
 fileurl wins: local=root-relative path, no relative_url/baseurl prefix; external=full HTTPS URL. Snippet applies absolute_url:
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
-YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). Accessible player/play-button names from name and the no-JavaScript YouTube link require main after v2.1.0 (v2.1.1-dev); v2.1.0 supports name metadata but not those accessible names or fallback link. After publishing local MP4, open the public page and verify playback (including project baseurl). This embeds website video, not uploads into chat.
+YouTube defaults to click-to-load; nolazy=true removes click activation (iframe still has browser lazy loading). video_res="hqdefault" replaces unavailable maxresdefault preview. thumbnail_url is structured metadata only, not preview/player/poster. Metadata inputs name, thumbnail_url, upload_date, description, duration must be accurate; no inference/validation/cropping/fetching. ISO 8601 examples: duration="PT5M", upload_date="2026-10-08T12:00:00Z" (not 5:00). Accessible player/play-button names from name and the no-JavaScript YouTube link require v2.2.0; v2.1.0 supports name metadata but not those accessible names or fallback link. After publishing local MP4, open the public page and verify playback (including project baseurl). This embeds website video, not uploads into chat.
 ## Image galleries and carousels
 Source: https://dieghernan.github.io/chulapa/docs/30-add-carousel
 Source: https://dieghernan.github.io/chulapa/docs/29-add-gallery
@@ -171,10 +173,10 @@ Upload images to assets/img/gallery/. Append to existing _config.yml defaults (d
     image_col: gallery
 ```
 A gallery task answer needs BOTH the scoped defaults YAML and the Liquid invocation, not a scope mention alone. In article content: {% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true random=false %}. Group must match image_col; publish and check images/order.
-External source: assign comma-separated URLs to Liquid variable, pass external=that_variable. Internal wins if both supplied. Options: index_sort (internal only; modified_time default), index_sort_asc, index_items (100), random. Boolean random=true shuffles at build time and overrides sort; false disables, quoted "false" is truthy. Filename order: index_sort="basename" index_sort_asc=true random=false. Selected index_sort fields in galleries/carousels are fixed only on main after v2.1.0; the released v2.1.0 does not correctly apply the field. Filename-order and native-button/keyboard-indicator recipes require these dev fixes.
+External source: assign comma-separated URLs to Liquid variable, pass external=that_variable. Internal wins if both supplied. Options: index_sort (internal only; modified_time default), index_sort_asc, index_items (100), random. Boolean random=true shuffles at build time and overrides sort; false disables, quoted "false" is truthy. Filename order: index_sort="basename" index_sort_asc=true random=false. Selected index_sort fields in galleries/carousels are fixed in v2.2.0; the released v2.1.0 does not correctly apply the field. Filename-order and native-button/keyboard-indicator recipes require v2.2.0.
 Carousel uses snippets/carousel.html, same sources/order options, plus interval (5000 ms), controls/indicators (false). Example:
 {% include_cached snippets/carousel.html internal="gallery" interval=2000 controls=true indicators=true %}
-## PhotoSwipe galleries (development after v2.1.0)
+## PhotoSwipe galleries (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/31-photoswipe
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#photoswipe-lightbox
 Demo: https://dieghernan.github.io/chulapa/demo/14-photoswipe
@@ -185,7 +187,7 @@ Internal/external sources and isolated sequences. Cached variants remain separat
 ## Mathematical notation and tables of contents
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 mathjax: true works in default, minimal and landingpage via the shared head. Only author panels/TOCs are absent from minimal; do not apply that limit to MathJax. Page front matter: show_toc: true adds in-page TOC; show_sidetoc: true adds sidebar. For sidebar h2–h5 set show_sidetoc: true, h_min: 2, h_max: 5 in page front matter, NOT config root. Defaults 2/4. kramdown.toc_levels does not control theme TOCs. Only headings with IDs appear: Markdown generates IDs; HTML needs explicit IDs. default supports panels/TOCs; minimal does not add them.
-Dev after v2.1.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria-current="location"; only included/rendered headings (skip hidden/closed). No new YAML or focus/Tab changes; anchors work without JS.
+v2.2.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria-current="location"; only included/rendered headings (skip hidden/closed). No new YAML or focus/Tab changes; anchors work without JS.
 ## More layouts and content navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#minimal
@@ -195,13 +197,13 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
 landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chulapa-text-color under chulapa-skin.vars.
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
 Dev: minimal omits h-entry; custom wrappers may use h-entry/p-name/u-url/e-content. default/landingpage retain it. Visible h-card uses selected author.url, resolves url/baseurl, never inherits site URL for guest. show_date retains dt-published alongside dt-updated.
-archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory: match permalink to cloudtag_url/cloudcategory_url; show_tags/show_categories show badges; include_collection scopes. Dev clouds honor candidate show_date: false: hide publication date/icon/separator; keep reading time. Dev keeps demo (formerly dmo); spaces→hyphens; update old manual dmo links.
+archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory: match permalink to cloudtag_url/cloudcategory_url; show_tags/show_categories show badges; include_collection scopes. v2.2.0 clouds honor candidate show_date: false: hide publication date/icon/separator; keep reading time. v2.2.0 keeps demo (formerly dmo); spaces→hyphens; update old manual dmo links.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
 Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
 Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
 ## Related and random article cards
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
-show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On main after v2.1.0 (unreleased), a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
+show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On v2.2.0, a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
 ## Configuring site search
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/12-fusejs-search
@@ -369,7 +371,7 @@ Missing include: bundle install, bundle exec jekyll serve, verify theme/remote_t
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml
 Give this subscription URL when asked. Feed entries are not in context; assistant does not fetch URLs or know latest feed posts.
-## Mermaid and clipboard (development version after v2.1.0)
+## Mermaid and clipboard (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/33-add-diagram
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#mermaid-diagrams
 Demo: https://dieghernan.github.io/chulapa/demo/13-mermaid
@@ -382,10 +384,10 @@ Sources: https://dieghernan.github.io/chulapa/docs/08-starter-examples
 https://dieghernan.github.io/chulapa/docs/09-run-starter
 Four folders: personal-blog (posts/cards), technical-blog (code/Mermaid/MathJax/TOC), portfolio (two projects/cards, no filtering), project (landing/buttons, no docs sidebar). Each: Gemfile/_config.yml/index.md/README; no workflow (chulapa-101 has publishing). Copy contents; edit title/description/repository/url/baseurl/content/links. Jekyll ~>4.4; dependencies explicit; unpinned main; Mermaid absent v2.1.0. Preview: bundle install; bundle exec jekyll serve --url http://localhost:4000 --baseurl "". Setup/publication: /docs/09-run-starter. Demos: annotated source, docs skin, not standalone home pages. Project Get started is sample copy, not theme setup.
 Demo paths: /demo/starter-personal-blog, /demo/starter-technical-blog, /demo/starter-portfolio, /demo/starter-project.
-## Accessibility and resource loading in development
+## Accessibility and resource loading in v2.2.0
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
 Source: https://dieghernan.github.io/chulapa/docs/48-accessibility-reference
-Dev after v2.1.0; absent from v2.1.0 gem/pin. Skip link first Tab stop. Floating fab/dual uses button: Enter/Space opens/focuses first link, Escape closes/returns focus, closed links outside Tab order. Sidebar TOC is not modal/no focus trap: closed inert/aria-hidden excludes offscreen controls; Escape from trigger/panel and button/overlay close return trigger focus; 44px minimum controls. Existing open-panel Tab order preserved.
+v2.2.0; absent from v2.1.0 gem/pin. Skip link first Tab stop. Floating fab/dual uses button: Enter/Space opens/focuses first link, Escape closes/returns focus, closed links outside Tab order. Sidebar TOC is not modal/no focus trap: closed inert/aria-hidden excludes offscreen controls; Escape from trigger/panel and button/overlay close return trigger focus; 44px minimum controls. Existing open-panel Tab order preserved.
 Visible focus/permalinks, underlined prose links, article-title names on thumbnail links, reduced-motion navigation/icon transitions. Navbar current destinations aria-current="page"; dropdown and carousel navigation native Enter/Space buttons. List/local search headings h2; tag/category h2/h3; archives year h2, month h3, entry h4. Without show_author, spacing remains without empty aside.
 Search landmarks: Lunr, Fuse, Simple-Jekyll-Search, Google. Lunr/Fuse polite result count, clear status on cleared query, paragraph for no results, no focus movement. Welcomments labels field, aria-describedby links Markdown help, paragraph config warnings. No new YAML or WCAG certification.
 Carousel: >1 slide and positive interval with Bootstrap yields play/pause icon button (accessible action name, symbol fallback). interval=0 disables cycling/hides button. Reduced motion starts paused; keyboard/pointer slide/navigation stops until explicit start; hover temporarily pauses on hover-capable devices. Turning reduced motion on stops rotation, turning off does not restart; explicit start allowed. Modern/legacy media-query listeners supported. Named indicators (24px minimum), current state, Enter/Space. aria-live=polite stopped/off running.
@@ -393,15 +395,15 @@ Carousel include owns deferred ES module assets/js/chulapa_carousel.js; repeated
 Long headings wrap; regressions cover 320px reflow/200% text, not all sites or screen-reader behavior. Video name supplies accessible player/play-button title; empty/whitespace falls back to generic name. Gallery includes still use generic alt text: descriptive alternatives need custom markup; captions/transcripts are author content. Do not invent gallery alt/caption/transcript parameters.
 PWA: no built-in service worker, offline cache or YAML enable switch. Docs favicon manifest display standalone, 192px/384px icons; no explicit start_url/scope/512 icon. Manifest alone guarantees neither installability nor offline. Site-specific setup must review HTTPS/baseurl, manifest identity/start URL/scope/icons and service-worker update/cache/fallback if added. External libraries/comments/video/chatbot require network; no offline AI.
 Local Chulapa font assets use baseurl in CSS/preload; Google Fonts/Font Awesome external. Cactus JS/CSS only show_comments: true pages. Tests cover representative six skins/layouts, not WCAG certification, guaranteed PageSpeed/Core Web Vitals or all customizations.
-## Inherited list microformats (development only)
+## Inherited list microformats (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
-After v2.1.0, unreleased: archive uses h-feed. Custom layouts inheriting archive through any number of layers retain h-feed. Keep the existing custom layout chain; no page YAML flag or layout change is needed.
+In v2.2.0: archive uses h-feed. Custom layouts inheriting archive through any number of layers retain h-feed. Keep the existing custom layout chain; no page YAML flag or layout change is needed.
 indexcategory, cloudtag and cloudcategory also use h-feed (cloudtag2/cloudcategory2 aliases). All inherit default.
 Feed heading/canonical identify the feed; visible author p-author; entries h-entry with title/URL/date. Groups can repeat docs. indexcards/simplelist mark entries; indexcards excerpts use p-summary. docs/blog/index.html pagination wraps each page in h-feed; custom component users supply their wrapper.
-## Generated HTML formatting (development only)
+## Generated HTML formatting (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
-After v2.1.0, unreleased: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries.
-## JavaScript maintenance (v2.1.1-dev, main only)
+In v2.2.0: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries.
+## JavaScript maintenance (v2.2.0)
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/04-layouts#deferred-lazy-loading-of-youtube-videos
 https://dieghernan.github.io/chulapa/docs/04-layouts#copying-code
@@ -461,4 +463,4 @@ algolia:
 ```
 Indexing secret ALGOLIA_API_KEY goes only in environment/Actions secrets. Use algolia.files_to_exclude for exclusions and upload the index; include_on_search affects ranking only if customRanking uses it. jekyll-algolia is deprecated/unmaintained; a Gemfile group is :jekyll_plugins, not :plugins. Verify the uploaded index and live search result.
 
-2.2.0 unreleased: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.
+2.2.0: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.

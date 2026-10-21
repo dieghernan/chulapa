@@ -42,7 +42,7 @@ over copying a complete theme layout.
 In `_config.yml`, remove the old `theme` and replace any existing `remote_theme`:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.1.0
+remote_theme: dieghernan/chulapa@v2.2.0
 ```
 
 Add these entries to your existing `plugins` list, keeping unrelated plugins:
@@ -66,9 +66,8 @@ needed by your content or publishing workflow. The
 provides a dependency reference; merge it with your file rather than replacing it.
 Run `bundle install`.
 
-Pinning `@v2.1.0` keeps the migration on a released version. Omitting the tag
-follows development updates. Features documented as v2.1.1-dev, including
-Mermaid, PhotoSwipe and GoatCounter, are not in v2.1.0.
+Pin `@v2.2.0` for the features described here. Omitting the tag follows
+development updates. Mermaid, PhotoSwipe and GoatCounter are absent from v2.1.0.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## 3. Adapt layouts and front matter
@@ -141,7 +140,7 @@ builds your site successfully. If you need GitHub Actions publishing:
 2. Add a workflow under `.github/workflows/`, using the
    [template workflow](https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml)
    as a starting point. Adapt its branch and build settings to your repository.
-3. Keep the `@v2.1.0` pin in `_config.yml`. Merge the migration when the preview
+3. Keep the `@v2.2.0` pin in `_config.yml`. Merge the migration when the preview
    is ready, then check the publishing run in **Actions**.
 4. Open the address in **Settings > Pages** and repeat the checklist's live checks.
    Analytics may load only in production; verify it there.
@@ -161,7 +160,7 @@ builds your site successfully. If you need GitHub Actions publishing:
 
 - [ ] Save a backup or migration branch and record important URLs.
 - [ ] Review local layouts, includes and assets for old theme overrides.
-- [ ] Set `remote_theme: dieghernan/chulapa@v2.1.0`; remove conflicting theme settings.
+- [ ] Set `remote_theme: dieghernan/chulapa@v2.2.0`; remove conflicting theme settings.
 - [ ] Install and enable both remote-theme and include-cache plugins.
 - [ ] Translate layouts and front matter, including `_config.yml` defaults.
 - [ ] Replace old theme-specific includes and classes used in content.

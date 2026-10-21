@@ -10,7 +10,7 @@ test('light and dark selector questions receive activation, inheritance and vers
   assert.ok(selected.titles.includes('Light/dark/auto selector'));
   assert.match(selected.text, /Omitted dark highlight inherits light highlight/);
   assert.match(selected.text, /Absent dark mapping: no additional scripts or styles/);
-  assert.match(selected.text, /2\.2\.0 unreleased\/main only, absent v2\.1\.0/);
+  assert.match(selected.text, /2\.2\.0\+, absent v2\.1\.0/);
 });
 
 test('section extraction preserves headings inside fenced tutorial examples', () => {
@@ -56,12 +56,12 @@ test('citation checking rejects invented paths/fragments but leaves code example
 
 test('layout regressions retain their own release constraints and caller inputs', () => {
   const inherited = selectContext(context, 'My custom2 inherits custom1 which inherits archive. Will it still be h-feed?');
-  assert.ok(inherited.titles.includes('Inherited list microformats (development only)'));
+  assert.ok(inherited.titles.includes('Inherited list microformats (v2.2.0)'));
   assert.match(inherited.text, /Keep the existing custom layout chain/);
   const formatting = selectContext(context, 'Can I keep head and footer readable with indentation?');
-  assert.ok(formatting.titles.includes('Generated HTML formatting (development only)'));
-  const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (development only)');
-  assert.match(section.text, /After v2.1.0, unreleased/);
+  assert.ok(formatting.titles.includes('Generated HTML formatting (v2.2.0)'));
+  const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (v2.2.0)');
+  assert.match(section.text, /In v2.2.0:/);
   const caching = selectContext(context, 'Can I replace every include with include_cached?');
   assert.match(caching.text, /Pass all page-dependent inputs/);
   const random = selectContext(context, 'My random article panel has only one eligible document.');

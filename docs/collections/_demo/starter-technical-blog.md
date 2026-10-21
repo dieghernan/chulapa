@@ -21,7 +21,7 @@ it is not the standalone example's home page. The full folder includes its own
 For preparation, preview and publication, follow
 [Run and publish a starter example](../docs/09-run-starter).
 
-Mermaid requires development changes after v2.1.0 and is absent from that release.
+Mermaid requires v2.2.0 and is absent from that release.
 
 ## Home-page header
 

@@ -40,7 +40,7 @@ For an individual adjustment, use [Change a color](./23-change-color) instead.
 
 ## Let visitors switch between light and dark
 
-Available in the development version for **2.2.0 (unreleased)**, after v2.1.0.
+Available in **2.2.0** and later.
 The v2.1.0 gem and pinned remote theme do not include this feature.
 
 In `_config.yml`, keep your existing `chulapa-skin` section for the light
@@ -92,7 +92,7 @@ If a skin fails to load, the previous appearance stays available, or Light when
 opening a page. Your choice is still remembered. Auto continues to follow device
 changes, and opening another page retries your chosen appearance.
 
-In **2.2.0 (unreleased)**, the bundled skins keep their font imports and can
+In **2.2.0**, the bundled skins keep their font imports and can
 still switch using fallback fonts when Google Fonts is blocked or unavailable.
 Missing or incomplete skin/highlighter CSS keeps the safe fallback above.
 Rebuild and publish all theme CSS together when upgrading. Custom replacements

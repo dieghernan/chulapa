@@ -16,10 +16,10 @@ upgrade the theme.
 For a remote-theme installation, open `_config.yml` and find `remote_theme`:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.1.0
+remote_theme: dieghernan/chulapa@v2.2.0
 ```
 
-Here, `@v2.1.0` selects that release. An unpinned value such as
+Here, `@v2.2.0` selects that release. An unpinned value such as
 `dieghernan/chulapa` follows the repository's default branch; it does not select
 a fixed release. An explicit branch can move too. Record the value you actually
 have rather than replacing it with this example.
@@ -39,8 +39,8 @@ beginning, replacing the example text with the version displayed:
 ```
 
 An `unreleased` suffix identifies a development build, not a published release.
-For example, the 2.2.0 candidate is not yet published even though its source and
-locally built gem use that version number.
+A locally built gem or version marker alone does not prove that a version has
+been published to RubyGems or tagged on GitHub.
 
 This marker is present on pages using the theme's head include. If it is absent,
 check whether a local layout or head include replaced it. If the page is old,

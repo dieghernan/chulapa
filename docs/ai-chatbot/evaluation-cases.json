@@ -4,13 +4,13 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "My random article panel has only one eligible document. Should it show three empty cards?",
-    "expected": "No. In the v2.1.1 development version the singleton sampling bug is fixed: one eligible document renders one card. show_random selects up to three from the existing tag-based pool at build time; eligibility thresholds and settings are unchanged. No new YAML option and no claim the fix is already in v2.1.0."
+    "expected": "No. In the v2.2.0 the singleton sampling bug is fixed: one eligible document renders one card. show_random selects up to three from the existing tag-based pool at build time; eligibility thresholds and settings are unchanged. No new YAML option and no claim the fix is already in v2.1.0."
   },
   {
     "id": "layouts-include-cache-1",
     "section": "layouts",
     "doc": "04_layouts.md",
-    "question": "Can I replace every include with include_cached to speed up builds? How are the layout components organized in the v2.1.1 development version?",
+    "question": "Can I replace every include with include_cached to speed up builds? How are the layout components organized in the v2.2.0?",
     "expected": "No blanket replacement. Pass all page-dependent inputs as include parameters; keep helpers that assign caller variables and custom hooks reading page context uncached. compress wraps minimal, then default or landingpage; archive/cloud/index layouts inherit default, search is standalone. Collection indexes share collection-documents and related/random share recommendations. Development caching reuses fixed footer content and cloud entries; comments keep page-specific inputs. No new configuration settings or claim this is released in v2.1.0."
   },
   {
@@ -18,28 +18,28 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Can I keep the generated head and footer readable with indentation? Do I need a new YAML setting? What happens to my custom snippets and the body?",
-    "expected": "In v2.1.1-dev (main, not released v2.1.0) the theme emits separate document opening and head lines with consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true, already in configuration examples, preserves head and theme footer indentation while removing blank lines and clipping the rest of the body. Fixed footer content uses two spaces per nesting level. No new setting is needed. Other compression modes follow existing site settings. Custom head includes and embedded comment integrations retain their own formatting; avoid Liquid trims across HTML boundaries. These are development changes, not already released in v2.1.0."
+    "expected": "In v2.2.0 (not in v2.1.0) the theme emits separate document opening and head lines with consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true, already in configuration examples, preserves head and theme footer indentation while removing blank lines and clipping the rest of the body. Fixed footer content uses two spaces per nesting level. No new setting is needed. Other compression modes follow existing site settings. Custom head includes and embedded comment integrations retain their own formatting; avoid Liquid trims across HTML boundaries. These changes are included in v2.2.0, not v2.1.0."
   },
   {
     "id": "layouts-microformats-nested-feed-1",
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "My page uses custom2, which inherits custom1, which inherits archive. Will it still be h-feed? Do I need a YAML flag in my page?",
-    "expected": "In v2.1.1-dev (main, not released v2.1.0) custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
+    "expected": "In v2.2.0 (not in v2.1.0) custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
   },
   {
     "id": "layouts-microformats-feed-1",
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Which Chulapa list layouts provide h-feed? Do I need new YAML options or does including indexcards automatically create a feed?",
-    "expected": "In v2.1.1-dev (main, not released v2.1.0) archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
+    "expected": "In v2.2.0 (not in v2.1.0) archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
   },
   {
     "id": "config-author-profile-1",
     "section": "config",
     "doc": "02_config.md",
     "question": "Where do I configure my site author's profile URL? Can I use /about/ and will guest authors inherit it?",
-    "expected": "Use author.url in _config.yml, alongside name, avatar, location and links. It accepts a profile URL or site-relative path such as /about/; paths resolve with site url/baseurl. It supplies the default article:author URL for posts and, from v2.1.1, u-url in visible Microformats2 author cards. A page author does not inherit the site author's profile URL. Social links remain in author.links."
+    "expected": "Use author.url in _config.yml, alongside name, avatar, location and links. It accepts a profile URL or site-relative path such as /about/; paths resolve with site url/baseurl. It supplies the default article:author URL for posts and, from v2.2.0, u-url in visible Microformats2 author cards. A page author does not inherit the site author's profile URL. Social links remain in author.links."
   },
   {
     "id": "layouts-label-headings-1",
@@ -52,7 +52,7 @@
     "id": "layouts-microformats-1",
     "section": "layouts",
     "doc": "04_layouts.md",
-    "question": "In v2.1.1, does minimal create a Microformats entry? How do updated dates and guest author URLs work?",
+    "question": "In v2.2.0, does minimal create a Microformats entry? How do updated dates and guest author URLs work?",
     "expected": "Minimal does not declare an automatic h-entry; custom content can supply its own wrapper with p-name, u-url and e-content. Default and landingpage retain automatic entry markup. With show_date enabled, updated pages retain dt-published and dt-updated. Visible h-card uses the selected author.url, resolves relative paths with url/baseurl and does not inherit a site profile URL for a guest."
   },
   {
@@ -88,7 +88,7 @@
     "section": "installation",
     "doc": "01_install.md",
     "question": "Does remote_theme: dieghernan/chulapa select v2.1.0? How can I pin that version?",
-    "expected": "Unpinned default branch versus @v2.1.0; rebuild."
+    "expected": "Unpinned default branch versus @v2.2.0; rebuild."
   },
   {
     "id": "installation-6",
@@ -396,21 +396,21 @@
     "section": "installation",
     "doc": "07_migration.md",
     "question": "I already have a Jekyll site with layout: post, a local _layouts/default.html and subscribers using /feed.xml. How do I migrate safely to Chulapa using a released remote theme?",
-    "expected": "Link the migration guide /docs/07-migration and its checklist. Back up/use a branch; preserve url/baseurl/permalink and existing public URLs. Set remote_theme: dieghernan/chulapa@v2.1.0, remove conflicting theme settings, install and enable jekyll-remote-theme and jekyll-include-cache. Review local overrides rather than blindly deleting custom files: _layouts/default.html takes precedence. Translate post front matter to layout: default and header_type: post; explicit page values override defaults. Preserve /feed.xml using jekyll-feed; it can coexist with built-in atom.xml/rss.xml without an output collision. Built-in feeds need dated documents and include_on_feed: true. Check navigation, search page/provider, comments, analytics duplicates, build and live URLs. Do not claim development Mermaid, PhotoSwipe or GoatCounter are in v2.1.0. Adapt author.name and chulapa-skin.skin; useful local customizations should be adapted, not deleted indiscriminately. The guide includes GitHub Actions setup steps and six common migration problems."
+    "expected": "Link the migration guide /docs/07-migration and its checklist. Back up/use a branch; preserve url/baseurl/permalink and existing public URLs. Set remote_theme: dieghernan/chulapa@v2.2.0, remove conflicting theme settings, install and enable jekyll-remote-theme and jekyll-include-cache. Review local overrides rather than blindly deleting custom files: _layouts/default.html takes precedence. Translate post front matter to layout: default and header_type: post; explicit page values override defaults. Preserve /feed.xml using jekyll-feed; it can coexist with built-in atom.xml/rss.xml without an output collision. Built-in feeds need dated documents and include_on_feed: true. Check navigation, search page/provider, comments, analytics duplicates, build and live URLs. Mermaid, PhotoSwipe and GoatCounter require v2.2.0, not v2.1.0. Adapt author.name and chulapa-skin.skin; useful local customizations should be adapted, not deleted indiscriminately. The guide includes GitHub Actions setup steps and six common migration problems."
   },
   {
     "id": "skin-font-failure-1",
     "section": "theming",
     "doc": "22_choose-skin.md",
     "question": "In main/2.2.0, can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?",
-    "expected": "2.2.0 unreleased/main keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if the generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider."
+    "expected": "2.2.0 keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if the generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider."
   },
   {
     "id": "skin-palette-contrast-1",
     "section": "appearance",
     "doc": "23_change-color.md",
     "question": "Do the improved skin palettes guarantee that my custom colors and whole website meet accessibility requirements? Are they in v2.1.0?",
-    "expected": "No. 2.2.0 unreleased makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
+    "expected": "No. 2.2.0 makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
   },
   {
     "id": "theme-selector-demo-1",
@@ -424,6 +424,6 @@
     "section": "skins",
     "doc": "23_change-color.md",
     "question": "Can I use Cerulean, Litera or Pulse, and have their original Bootswatch colors been changed for AA?",
-    "expected": "Added in 2.2.0 unreleased, not guaranteed available in v2.1.0. Set chulapa-skin.skin to cerulean, litera or pulse; preserve existing vars and other settings. Original Bootswatch 4.6.2 palettes/typography/components retained, with original contrast limitations; do not claim AA or replace Bootstrap CSS. Link the skins catalog and relevant preview. Restart local preview for config changes."
+    "expected": "Added in 2.2.0, not guaranteed available in v2.1.0. Set chulapa-skin.skin to cerulean, litera or pulse; preserve existing vars and other settings. Original Bootswatch 4.6.2 palettes/typography/components retained, with original contrast limitations; do not claim AA or replace Bootstrap CSS. Link the skins catalog and relevant preview. Restart local preview for config changes."
   }
 ]

@@ -32,7 +32,7 @@ preview is not a skin named `current`. Procedure: [Choose a skin](./22-choose-sk
 
 ### Optional light/dark selector
 
-In **2.2.0 (unreleased)**, a separate `chulapa-skin-dark` mapping enables a
+In **2.2.0**, a separate `chulapa-skin-dark` mapping enables a
 Light/Dark/Auto dropdown in all navigation styles. It accepts the same `skin`,
 `highlight`, `vars` and `autothemer` fields. An omitted dark `highlight` inherits
 `chulapa-skin.highlight`, falling back to `default` if neither is set. Other

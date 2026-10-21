@@ -11,8 +11,7 @@ Use this guide for an existing post or page that uses a theme layout and can
 already display an image. To upload a single photograph first, see
 [Add an image](./17-add-image).
 
-**Version requirement:** this filename-order recipe requires `main` after
-v2.1.0 (v2.1.1-dev), or a later release containing the sorting fix. The v2.1.0
+**Version requirement:** this filename-order recipe requires v2.2.0, or a later release containing the sorting fix. The v2.1.0
 gem and pinned remote theme do not correctly apply the selected `index_sort`
 field, so numbered filenames alone do not guarantee this order.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}

@@ -11,8 +11,7 @@ Use this guide for an existing Markdown post or page that uses a theme layout.
 Have the YouTube video's address and title ready.
 
 **Version:** accessible player and play-button names derived from `name`, and the
-YouTube link shown when JavaScript is disabled, require `main` after v2.1.0
-(v2.1.1-dev). In v2.1.0, `name` supplies video metadata but not those accessible
+YouTube link shown when JavaScript is disabled, require v2.2.0. In v2.1.0, `name` supplies video metadata but not those accessible
 names, and the no-JavaScript link is absent. The basic embed works in both
 versions.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}

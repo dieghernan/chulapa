@@ -10,18 +10,16 @@ cloudtag_url: /docs/tags
 Lookup for the theme's behavior and limits. Practical verification steps are in
 [Check accessibility and performance](./06-accessibility-performance).
 
-The improvements listed here are available on `main` after v2.1.0
-(v2.1.1-dev), not in the v2.1.0 gem or pinned remote theme. Actual results depend
+The improvements listed here are available in v2.2.0, not in the v2.1.0 gem or pinned remote theme. Actual results depend
 on content, colors, integrations and local overrides. No theme setting or test
 score establishes WCAG compliance for a complete site.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## Keyboard navigation
 
-**Version:** the keyboard/focus improvements below and PhotoSwipe require `main`
-after v2.1.0 (v2.1.1-dev); they are not included in the v2.1.0 gem or pin.
+**Version:** the keyboard/focus improvements below and PhotoSwipe require v2.2.0; they are not included in the v2.1.0 gem or pin.
 
-| Component | Expected behavior in the development version |
+| Component | Expected behavior in v2.2.0 |
 | --- | --- |
 | Skip link | First Tab stop, bypassing repeated navigation. On `default` pages, the main landmark includes the page heading and body. |
 | Previous/Next documents | Available destinations are Tab-reachable; missing neighbors have no interactive link. |
@@ -36,27 +34,32 @@ Interactive integrations can still depend on JavaScript and network access.
 Custom layouts/widgets only have the semantics and controls their own markup
 preserves.
 
+The optional light/dark/auto selector has a known limitation in v2.2.0: its
+toggle suppresses the keyboard focus outline and shadow. Sites requiring a
+visible focus indicator for this control need a local CSS override, or can
+leave the optional selector disabled. Other navigation focus checks do not
+establish visible focus for this toggle.
+
 ## Colors, content and motion
 
-The link/focus improvements here require `main` after v2.1.0 (v2.1.1-dev), not
+The link/focus improvements here require v2.2.0, not
 the v2.1.0 gem or pin. Article links are underlined and keyboard focus is visible.
 Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.
 
-The carousel motion/control improvements in this paragraph require `main` after
-v2.1.0 (v2.1.1-dev), not the v2.1.0 gem or pin. Automatically cycling multi-image
+The carousel motion/control improvements in this paragraph require v2.2.0, not the v2.1.0 gem or pin. Automatically cycling multi-image
 carousels have a play/pause control with an
 action-specific accessible name and a plain-symbol fallback when icon assets
 are unavailable. Reduced motion starts them paused. Slide/navigation interaction
 stops rotation until explicit restart; hovering pauses temporarily. `interval=0`
 disables cycling. [Carousel reference](./04-layouts#bootstrap-carousel).
 
-In `main` after v2.1.0 (v2.1.1-dev), video `name` supplies descriptive player and
+In v2.2.0, video `name` supplies descriptive player and
 play-button names. In v2.1.0, it supplies video metadata but not those accessible
-names. Neither version creates captions or transcripts. The development version
+names. Neither version creates captions or transcripts. Version 2.2.0
 also provides a YouTube link when JavaScript is disabled; v2.1.0 lacks that link.
-Mermaid (available on `main` after v2.1.0, not in the v2.1.0 gem or pin) uses
+Mermaid (available in v2.2.0, not in the v2.1.0 gem or pin) uses
 `accTitle` and `accDescr` to describe a diagram; complex content still
 needs a prose equivalent. Gallery snippets use generic image descriptions;
 individual informative photographs need descriptive custom image markup.
@@ -69,12 +72,12 @@ promise about every custom layout or widget.
 
 | Integration or resource | Loading behavior or constraint |
 | --- | --- |
-| PhotoSwipe | Available on `main` after v2.1.0, not in the v2.1.0 gem or pin; viewer loads when an image is opened. |
+| PhotoSwipe | Available in v2.2.0, not in the v2.1.0 gem or pin; viewer loads when an image is opened. |
 | Deferred YouTube | Preview first, player on activation; [loading reference](./04-layouts#deferred-lazy-loading-of-youtube-videos). |
 | MathJax | Page opt-in; unnecessary enabled integrations can add resources. |
-| Mermaid | Page opt-in; available on `main` after v2.1.0, not in the v2.1.0 gem or pin. |
-| Cactus | Conditional scripts/styles on `show_comments: true` pages require `main` after v2.1.0; v2.1.0 loads those resources more broadly. |
-| Analytics | Optional; configuring GA and GoatCounter enables both counters. GoatCounter requires `main` after v2.1.0 (absent from the v2.1.0 gem/pin) and has [production requirements](./02-config#goatcounter-analytics). |
+| Mermaid | Page opt-in; available in v2.2.0, not in the v2.1.0 gem or pin. |
+| Cactus | Conditional scripts/styles on `show_comments: true` pages require v2.2.0; v2.1.0 loads those resources more broadly. |
+| Analytics | Optional; configuring GA and GoatCounter enables both counters. GoatCounter requires v2.2.0 (absent from the v2.1.0 gem/pin) and has [production requirements](./02-config#goatcounter-analytics). |
 
 Large images, additional fonts/icons and external services affect requests and
 loading time. Demo measurements do not predict another site's performance.

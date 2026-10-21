@@ -57,7 +57,7 @@ include_on_feed: true
 | Comments | `comments.provider`, provider identifiers; page/default `show_comments` | No automatic provider migration; existing discussion IDs and URLs affect matching. Cactus ID migration, corrected development Welcomments URLs and legacy local corrections are in [Comments](./02-config#comments). |
 | Existing subscriber addresses | `/atom.xml`, `/rss.xml`, optional jekyll-feed `/feed.xml` | Built-in feeds select dated posts/collection documents with `include_on_feed: true`; collection output must publish linked articles. jekyll-feed's default path can coexist; two generators must not write the same path. |
 | Google Analytics 4 | `gtag_id` | Existing measurement ID; duplicate custom tracking scripts can count twice. [GA reference](./02-config#google-analytics). |
-| GoatCounter | `goatcounter` | Requires main after v2.1.0; [version and production constraints](./02-config#goatcounter-analytics). |
+| GoatCounter | `goatcounter` | Requires v2.2.0; [version and production constraints](./02-config#goatcounter-analytics). |
 
 Site-author and skin specimen (independent of page front matter):
 

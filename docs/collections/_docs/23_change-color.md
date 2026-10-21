@@ -43,7 +43,7 @@ are compiled into CSS during the build. If changes are missing, use
 The [appearance reference](./03-theming#variables) covers supported value syntax
 and calculated values that cannot be changed through `vars`.
 
-## Palette contrast (2.2.0, unreleased)
+## Palette contrast (2.2.0)
 
 The bundled palettes receive small color and YIQ threshold adjustments while
 preserving their original primary colors and visual identity. Dark dim skins
@@ -70,7 +70,7 @@ generated palettes, fixed white text, translucent backgrounds or hover/focus
 states. Preserving a skin's identity can require accepting a contrast limitation
 or choosing different text colors for your site's components.
 
-### Original Bootswatch skins (2.2.0, unreleased)
+### Original Bootswatch skins (2.2.0)
 
 `cerulean`, `litera` and `pulse` retain Bootswatch 4.6.2's original palettes,
 typography and component styles. Select one using the existing `chulapa-skin.skin`

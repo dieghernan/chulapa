@@ -11,8 +11,7 @@ cloudtag_url: /docs/tags
 Use this guide when your site is already published and you have created a site
 in [GoatCounter](https://www.goatcounter.com/).
 
-This integration requires <span class="chulapa">Chulapa</span> on `main` after
-v2.1.0. It is not included in the v2.1.0 release or gem.
+This integration requires <span class="chulapa">Chulapa</span> v2.2.0. It is not included in the v2.1.0 release or gem.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## Set the counting address

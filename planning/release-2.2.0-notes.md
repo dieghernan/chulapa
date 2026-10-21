@@ -1,9 +1,9 @@
 # Chulapa 2.2.0 release notes draft
 
-Status: version 2.2.0 and the original notes were approved on 16 October 2026
-for preparation only. This revised draft includes subsequent #164–#176 delivery work and the Flatly follow-up
-and is pending maintainer review; the historical approval does not approve
-these additions. Not published.
+Status: final preparation authorized on 21 October 2026 through artifact validation.
+PR #171 is merged; #177 is excluded. Publication remains pending.
+The changelog date is the proposed publication date; refresh it and rebuild if
+publication happens on another day.
 
 ## New capabilities
 
@@ -45,11 +45,14 @@ The declared gem dependency is Jekyll >=3.7 and <5.0. Release validation targets
 
 Accessibility checks are representative, not WCAG certification. The theme supplies no service worker or offline cache; a favicon manifest does not establish PWA installability. Live comment posting/migration and chatbot answer quality are not established by builds or deployments.
 
-A visible-focus limitation on the selector is recorded in #175 and remains to
-be triaged before the final release decision; this draft does not claim it fixed.
+Known accessibility limitation: the optional selector toggle suppresses its
+keyboard focus outline and shadow. This release retains that behavior; sites
+requiring visible focus must provide a local CSS override or leave it disabled.
 
 ## Publication gate
 
-Version 2.2.0 remains the approved target. Review and approve this revised draft,
-including the latest skin/catalog/provenance additions and the Flatly follow-up, and obtain separate publication authorization
-before proceeding. Finalize the release date, remove the `unreleased` marker and reconcile public development labels/data with the published release. Build and verify the final gem, create the reviewed tag, publish the gem and GitHub release, then verify Pages and Worker deployment separately. Do not publish the current candidate artifact as a final release: its HTML marker and changelog intentionally identify it as unreleased.
+The prepared files target v2.2.0, but no tag, gem upload or GitHub release is
+created by this preparation. Review the final validation record and notes before
+publication. Publish only the verified final artifact, then verify Pages and
+Worker deployment separately. The updated chatbot context is not deployed by
+local validation.

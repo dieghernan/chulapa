@@ -56,7 +56,7 @@ Each minimal example includes configuration, dependencies and editable content.
 They are smaller examples, not the ready-to-publish chulapa-101 template.
 [Run and publish a copied example](https://dieghernan.github.io/chulapa/docs/09-run-starter)
 if you already use Jekyll. Examples follow the default branch; Mermaid requires
-development changes after v2.1.0.
+v2.2.0.
 
 ## Notable features
 
@@ -73,11 +73,11 @@ development changes after v2.1.0.
 - **Search and sharing metadata** generated from your content
 - **Styles for code blocks**
 - **Mathematical notation** with MathJax
-- **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (development version after v2.1.0)
-- **[Light/dark/auto selector](https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark)** - optional second skin with remembered preferences (2.2.0, unreleased)
-- **[PhotoSwipe galleries](https://dieghernan.github.io/chulapa/demo/14-photoswipe)** - opt-in lightboxes for masonry and carousels (v2.1.1-dev, available on `main`; not in v2.1.0)
-- **Active TOC sections** - current-section indicators while scrolling (v2.1.1-dev, available on `main`; not in v2.1.0)
-- **Google Analytics** and **[GoatCounter](https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics)** - GoatCounter is optional and production-only (v2.1.1-dev, available on `main`; not in v2.1.0)
+- **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (v2.2.0)
+- **[Light/dark/auto selector](https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark)** - optional second skin with remembered preferences (2.2.0)
+- **[PhotoSwipe galleries](https://dieghernan.github.io/chulapa/demo/14-photoswipe)** - opt-in lightboxes for masonry and carousels (v2.2.0)
+- **Active TOC sections** - current-section indicators while scrolling (v2.2.0)
+- **Google Analytics** and **[GoatCounter](https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics)** - GoatCounter is optional and production-only (v2.2.0)
 - **Twitter/X Cards** and **Open Graph** data valid for Facebook, LinkedIn and
   WhatsApp
 - **40+ preinstalled skins**
@@ -93,9 +93,8 @@ more.
 
 ## Installation
 
-The next release candidate is **2.2.0**, not yet published. Documentation labels
-`v2.1.1-dev` identify development features planned for that release; they remain
-unavailable in the published v2.1.0 gem and remote-theme tag.
+This documentation targets **2.2.0**. Mermaid, PhotoSwipe, GoatCounter and the
+light/dark/auto selector require this version; they are absent from v2.1.0.
 
 Choose an installation guide for your situation. For version pins and method
 constraints, use [Installation](https://dieghernan.github.io/chulapa/docs/01-install).
@@ -110,7 +109,7 @@ and guides you through editing and publication in your browser.
 
 For an existing site, use the [migration guide](https://dieghernan.github.io/chulapa/docs/07-migration)
 or go directly to [remote-theme setup](https://dieghernan.github.io/chulapa/docs/20-remote-theme).
-An unpinned remote theme follows development; `@v2.1.0` selects that release.
+An unpinned remote theme follows development; `@v2.2.0` selects that release.
 
 ### C. Gem-based method 💎
 
