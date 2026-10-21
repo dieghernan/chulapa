@@ -80,7 +80,13 @@ fixtures.each do |name, style, links, enabled|
     raise 'Missing dark completion marker' if enabled && !dark.match?(/--chulapa-css-ready:\s*main-dark/)
     raise 'Dark settings ignored' if enabled && (!dark.include?('1.1rem') || dark == css)
     raise 'Disabled dark CSS compiled' if !enabled && dark.include?('font-face')
-    raise 'Disabled selector CSS compiled' if !enabled && css.include?('chulapa-theme-toggle')
+    selector_rules = css.scan(/([^{}]+)\{/).flatten.flat_map { |group| group.split(',') }
+      .map(&:strip).select { |selector| selector.include?('.chulapa-theme-toggle') }
+    raise 'Missing component-demo selector styles' unless selector_rules.any? { |selector| selector.start_with?('.bs-component ') }
+    raise 'Disabled managed selector CSS compiled' if !enabled && selector_rules.any? { |selector| !selector.start_with?('.bs-component ') }
+    highlighter = File.join(config['destination'], 'assets/css/dark/highlighter.css')
+    raise 'Missing dark highlighter at the shared dark asset path' unless File.file?(highlighter)
+    raise 'Legacy dark highlighter path still generated' if File.exist?(File.join(config['destination'], 'assets/css/highlighterdark.css'))
     raise 'Incorrect baseurl' unless html.include?("#{baseurl}/assets/css/main.css")
     raise 'Unexpected selector controller' if !enabled && html.include?("var key = 'chulapa-theme'")
     if name == 'root'
@@ -89,7 +95,7 @@ fixtures.each do |name, style, links, enabled|
         config['chulapa-skin']['highlight'] = light_highlight
         Jekyll::Site.new(Jekyll.configuration(config)).process
         expected = dark_highlight || light_highlight || 'default'
-        actual = File.read(File.join(config['destination'], 'assets/css/highlighterdark.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
+        actual = File.read(File.join(config['destination'], 'assets/css/dark/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
         baseline = File.read(File.join(config['destination'], 'assets/css/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
         raise "Dark highlighter fallback failed: #{expected}" if !dark_highlight && actual != baseline
         raise 'Explicit dark highlighter ignored' if dark_highlight && actual == baseline

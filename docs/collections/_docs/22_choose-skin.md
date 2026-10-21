@@ -63,7 +63,7 @@ uses `chulapa-skin.highlight` when `chulapa-skin-dark.highlight` is omitted,
 then `default` if neither is set. Other settings are independent. An unknown
 skin or highlighter name fails the build.
 
-After publishing, the navigation shows a sun/moon icon and the current mode,
+After publishing, the navigation shows an icon for the current mode,
 with **Light**, **Dark** and **Auto** choices in a dropdown. This works with
 classic, floating and dual navigation, including sites without menu links.
 If you set `vars.primary` in either skin, its value also supplies the browser's
@@ -82,6 +82,8 @@ Without JavaScript, the site uses `chulapa-skin` and hides the selector. Remove
 No additional scripts or styles are loaded when switching is disabled. Existing custom CSS still overrides
 both skins; check fixed colors, images, diagrams and embedded comments in both
 modes. External widgets do not automatically follow the selector.
+
+The component demo shows a sample selector even when dark mode is disabled.
 
 If your site's security settings block the selector, visitors still see the
 light appearance.

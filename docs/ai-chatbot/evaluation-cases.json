@@ -413,6 +413,13 @@
     "expected": "No. 2.2.0 unreleased makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
   },
   {
+    "id": "theme-selector-demo-1",
+    "section": "theming",
+    "doc": "22_choose-skin.md",
+    "question": "The component demo shows a theme selector, but I have not enabled dark mode. Does seeing that example activate dark mode on my site?",
+    "expected": "No. The component demo shows a sample selector even when dark mode is disabled. Enable site switching through chulapa-skin-dark as described in /docs/22-choose-skin, preserving existing settings. Do not claim that displaying the demo enables switching or introduce technical asset-path explanations."
+  },
+  {
     "id": "skins-bootswatch-originals-1",
     "section": "skins",
     "doc": "23_change-color.md",

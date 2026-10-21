@@ -26,7 +26,9 @@ remains v2.1.0 until publication is completed.
 
 ### Fixed
 
--   Keep theme selector styles conditional on dark-mode configuration, including standalone skin preview stylesheets.
+-   Keep live theme selector styles conditional on dark-mode configuration, including standalone skin preview stylesheets, while retaining the always-visible component demo.
+
+-   Generate both dark stylesheets under `assets/css/dark/`, moving the dark highlighter to `dark/highlighter.css` and updating paired loading and fallback checks.
 
 -   Limit button palette corrections to unchanged stock colors, respect configured semantic colors and page backgrounds, and keep Auto-specific button styles out of Autothemer palette filling for other skins.
 

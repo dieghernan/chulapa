@@ -7,7 +7,7 @@
       'use strict';
       var paths = {
         light: [{{ '/assets/css/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighter.css' | relative_url | jsonify }}],
-        dark: [{{ '/assets/css/dark/main.css' | relative_url | jsonify }}, {{ '/assets/css/highlighterdark.css' | relative_url | jsonify }}]
+        dark: [{{ '/assets/css/dark/main.css' | relative_url | jsonify }}, {{ '/assets/css/dark/highlighter.css' | relative_url | jsonify }}]
       };
       var themeColors = {
         light: {{ site.chulapa-skin.vars.primary | default: '' | jsonify }},

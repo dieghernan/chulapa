@@ -36,6 +36,9 @@ Dir.mktmpdir("chulapa-skin-docs-") do |source|
       raise "Missing autothemer guide #{skin}" unless html.at_css('a[href="/chulapa/docs/27-autothemer"]')
     end
     raise "Missing shared demo #{skin}" unless html.css("button.btn").size > 10
+    demo = html.at_css('.bs-component .chulapa-theme-selector')
+    raise "Missing demo selector without dark configuration #{skin}" unless demo && !demo.key?('hidden')
+    raise "Missing demo theme choices #{skin}" unless demo.css('[data-theme-mode]').map { |node| node['data-theme-mode'] } == %w[light dark auto]
     if ARGV.first
       target = File.join(ARGV.first, "#{skin}.html")
       FileUtils.mkdir_p(File.dirname(target))

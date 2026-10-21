@@ -1401,3 +1401,8 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 .chulapa-carousel-symbol.has-icon-font i { display: inline-block; }
 .chulapa-carousel-symbol.has-icon-font .chulapa-carousel-fallback,
 .chulapa-carousel-symbol svg + .chulapa-carousel-fallback { display: none; }
+
+// Component demos show the selector even without dark-mode configuration.
+.bs-component {
+  @include chulapa-theme-selector-styles;
+}

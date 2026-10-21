@@ -324,8 +324,11 @@ browser check covers classic/floating/dual menus with and without links, desktop
 and mobile, keyboard/Escape focus, automatic device changes, persisted dark first
 paint with delayed CSS, cross-tab synchronization, blocked storage, failed CSS,
 CSP blocking inline scripts and the no-JavaScript fallback. CI runs both checks.
-Selector styles are imported only when dark mode is configured, including in
-the documentation's standalone skin stylesheets.
+Live selector styles are imported only when dark mode is configured, including
+in standalone skin stylesheets. Component-demo selector styles are always
+available, scoped to `.bs-component`, and do not activate switching.
+Both dark stylesheets are generated under `assets/css/dark/`: `main.css` and
+`highlighter.css`. The tests cover their paired loading and failure fallback.
 For a local run:
 
 ```sh

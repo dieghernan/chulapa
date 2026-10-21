@@ -36,7 +36,7 @@ async function main() {
         if (dependencies.has(url.href)) return route.fulfill({path: dependencies.get(url.href), contentType: 'application/javascript', headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === `${name}.localhost`) {
           requests.push(url.pathname);
-          if (failDark && url.pathname.endsWith(failDark === 'highlighter' ? '/highlighterdark.css' : '/dark/main.css')) return route.fulfill({status: 404, body: 'Missing CSS'});
+          if (failDark && url.pathname.endsWith(failDark === 'highlighter' ? '/dark/highlighter.css' : '/dark/main.css')) return route.fulfill({status: 404, body: 'Missing CSS'});
           const filename = path.join(directory, name, url.pathname);
           return fs.existsSync(filename) && fs.statSync(filename).isFile()
             ? route.fulfill({path: filename, headers: blockInline && filename.endsWith('.html') ? {'content-security-policy': "script-src 'self'"} : {}}) : route.fulfill({status: 404, body: 'Missing'});
@@ -120,6 +120,7 @@ async function main() {
       await page.goto(`${base}/second.html`);
       await waitTheme('dark');
       assert.equal(await page.locator('#maincss').getAttribute('href'), `${name === 'root' ? '' : '/project'}/assets/css/dark/main.css`);
+      assert.equal(await page.locator('#csshigh').getAttribute('href'), `${name === 'root' ? '' : '/project'}/assets/css/dark/highlighter.css`);
       // Reload with slow dark CSS: no first paint may use the light skin.
       await page.addInitScript(() => {
         window.__paints = [];
