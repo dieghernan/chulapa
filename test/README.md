@@ -590,3 +590,9 @@ node test/check_dark_skin_pilot_artifacts.js
 
 This negative regression covers stale summaries, changed/missing PNGs, extra
 files and changed measurements even when Sass has not changed.
+
+
+The pilot's full browser/PNG check is local-only in this experimental PR. Its
+container job was removed because that environment differed from the committed
+local baseline. JavaScript CI retains the fast helper test above; it checks drift
+detection logic without regenerating the real pilot screenshots.

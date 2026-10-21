@@ -3,8 +3,8 @@
 The initial three-skin study below is retained as history. The follow-up section
 records the later batches and stricter artifact verification; the generated
 summary and comparison directory now cover all twenty-nine skins. The final
-section closes experimental candidate coverage; catalog promotion and the
-deferred canonical CI baseline remain separate work.
+section closes experimental candidate coverage. Catalog promotion remains
+separate work; the experimental container CI job was subsequently removed.
 
 ## Scope and selection
 
@@ -245,7 +245,9 @@ button labels authoritative and reset alert backgrounds completely. A browser
 assertion rejects a retained gradient on the dark sample alert. These overrides
 are confined to prototypes; original skins and vendor sources remain unchanged.
 
-### Deferred CI baseline alignment
+### Deferred CI baseline alignment (historical)
+
+The later CI removal decision below supersedes this pending-work status.
 
 Review 5599909943 correctly identified that the artifact helper's unit test did
 not regenerate real pilot outputs in CI. Commits `d91af80eb` and `861b94b12` add
@@ -421,6 +423,22 @@ No reviewed unpaired light source remains without an experimental companion.
 Production integration still requires review on complete theme layouts and
 remaining component states, configurable palettes/Autothemer, focus and border
 contrast, disabled controls and gradients. Media's original font-name mismatch
-is recorded above. The canonical CI baseline job remains deferred by the
-maintainer, and Netlify previews remain blocked by quota. No catalog promotion,
+is recorded above. The experimental canonical CI job has been removed at the
+maintainer's request, and Netlify previews remain blocked by quota. No catalog promotion,
 manual deployment, public documentation or chatbot-context change is included.
+
+
+### Experimental CI job removed — 2026-10-21
+
+At the maintainer's request, remove the `dark-skin-pilot` job from the theme
+regression workflow. It compared Debian-generated local baselines against a
+different pinned Ubuntu browser environment, so its known mismatch is outside
+this experimental PR's scope. The historical run and observations above remain
+as evidence; container baseline alignment is no longer a pending task in this PR.
+
+The local generator, full `--check`, committed artifacts and fast negative
+regression remain available. The JavaScript CI job still runs the fast helper
+test, which verifies drift detection logic without regenerating real screenshots.
+Any future browser-baseline CI should establish a reproducible environment and
+review its initial baselines before being added. This removal changes no theme,
+public documentation, accessibility, SEO or PWA behavior.

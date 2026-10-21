@@ -76,35 +76,6 @@ jobs:
         working-directory: test
         run: bundle exec ruby check_theme_installation.rb
 
-  dark-skin-pilot:
-    name: Experimental dark skin artifact drift
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
-    # Playwright 1.62.1, Ubuntu Noble, browser binaries and system fonts together.
-    # Keep this digest in sync with the documented snapshot environment.
-    container:
-      image: mcr.microsoft.com/playwright:v1.62.1-noble@sha256:dcc5531e97840b9b5e794f2814476b21571c5124a3fca2267d73041f56e7580e
-      options: --ipc=host
-    env:
-      DARK_SKIN_PILOT_OUTPUT: /tmp/chulapa-dark-skin-pilot
-    steps:
-      - uses: actions/checkout@v7
-      - name: Install locked pilot dependencies
-        run: npm ci --prefix test/browser
-      - name: Regenerate and compare real pilot artifacts
-        run: node test/generate_dark_skin_pilot.js --check
-      - name: Retain rendered candidates for drift diagnosis
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: dark-skin-pilot-candidates
-          path: |
-            ${{ env.DARK_SKIN_PILOT_OUTPUT }}/*-comparison-*.png
-            ${{ env.DARK_SKIN_PILOT_OUTPUT }}/summary.json
-            ${{ env.DARK_SKIN_PILOT_OUTPUT }}/report.json
-          if-no-files-found: ignore
-          retention-days: 7
-
   browser:
     runs-on: ubuntu-latest
     env:
