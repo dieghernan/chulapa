@@ -2,6 +2,11 @@
 // Defer component styles until after the theme imports Bootstrap once.
 @import "../vendor/bootswatch/cerulean/variables";
 
+
+$navbar-chulapa-text-color: $white !default;
+$navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
+$hero-chulapa-text-color: $white !default;
+
 // Keep stock button choices when optional autothemer defaults are imported.
 $skin-button-labels: () !default;
 $skin-button-outlines: () !default;
