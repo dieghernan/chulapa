@@ -1,0 +1,71 @@
+--- a/upstream.scss
++++ b/chulapa.scss
+@@ -29,6 +29,7 @@
+ $cyan:    #369 !default;
+ 
+ $primary:       $blue !default;
++$yiq-contrasted-threshold: 123 !default;
+ $secondary:     $gray-500 !default;
+ $success:       $green !default;
+ $info:          $cyan !default;
+@@ -58,9 +59,22 @@
+ $pagination-hover-color:            $white !default;
+ $pagination-hover-bg:               $primary !default;
+ $pagination-hover-border-color:     $primary !default;
++
++$navbar-chulapa-bg-color: $white;
++$navbar-chulapa-hover-color: lighten($primary, 10%);
++$footer-chulapa-text-color: $black;
++$navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
++// Keep text links readable on the white body and footer backgrounds.
++$link-color: #b33935 !default;
++$footer-chulapa-link-color: #b33935 !default;
++
++// Import bootstrap
++@import "bootstrap/functions";
++@import "bootstrap/variables";
++@import "bootstrap/mixins";
++
+ // Journal 4.6.2
+ // Bootswatch
+-
+ 
+ // Variables ===================================================================
+ 
+@@ -68,6 +82,7 @@
+ @if $web-font-path {
+   @import url($web-font-path);
+ }
++
+ // Navbar ======================================================================
+ 
+ .bg-dark {
+@@ -120,3 +135,28 @@
+     text-decoration: none;
+   }
+ }
++
++// Preserve the skin's original light labels on filled buttons.
++$skin-button-labels: (
++  primary: #ffffff,
++  success: #ffffff,
++  danger: #ffffff,
++) !default;
++
++// Readable outline labels on this skin's page background.
++$skin-button-outlines: (
++  primary: #bc5350,
++  secondary: #6e6e6e,
++  success: #1a8639,
++  warning: #7a7312,
++  danger: #b85c00,
++) !default;
++// Stock palette defaults; keep predeclared custom colors and vars authoritative.
++$skin-button-palette: (
++  danger: #f57a00,
++  primary: #eb6864,
++  secondary: #aaa,
++  success: #22b24c,
++  warning: #f5e625,
++) !default;
++$skin-button-body-bg: #fff !default;

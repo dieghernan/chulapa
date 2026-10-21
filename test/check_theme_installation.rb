@@ -40,6 +40,17 @@ Dir.mktmpdir("chulapa-install-") do |work|
   required_tophat.each do |path|
     raise "Missing packaged TopHat source or integration: #{path}" unless package.spec.files.include?(path)
   end
+  bootswatch = JSON.parse(File.read(File.join(root, "_sass/vendor/bootswatch/source.json")))
+  required_bootswatch = %w[_sass/vendor/bootswatch/LICENSE _sass/vendor/bootswatch/LICENSE-4.5.0 _sass/vendor/bootswatch/source.json]
+  bootswatch.fetch("skins").each do |skin, files|
+    required_bootswatch.concat(files.keys.map { |name| "_sass/vendor/bootswatch/#{skin}/#{name}" })
+  end
+  bootswatch.fetch("adaptations").each do |skin|
+    required_bootswatch.concat(%W[_sass/chulapa/skins/bootswatch/_#{skin}.scss _sass/chulapa/skins/bootswatch/#{skin}.patch])
+  end
+  required_bootswatch.each do |path|
+    raise "Missing packaged Bootswatch source or integration: #{path}" unless package.spec.files.include?(path)
+  end
   gem_home = File.join(work, "gems")
   installed = Gem::Installer.at(package_path, install_dir: gem_home, ignore_dependencies: true, wrappers: false).install
   Gem::Specification.add_spec(installed)

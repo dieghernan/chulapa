@@ -1,0 +1,552 @@
+--- a/upstream.scss
++++ b/chulapa.scss
+@@ -1,10 +1,6 @@
+-// Yeti 4.6.2
+-// Bootswatch
+-
+-//
++// Yeti 4.6.2 - Bootswatch
++
+ // Color system
+-//
+-
+ $white:    #fff !default;
+ $gray-100: #f8f9fa !default;
+ $gray-200: #eee !default;
+@@ -29,97 +25,92 @@
+ $cyan:    #5bc0de !default;
+ 
+ $primary:       $blue !default;
+-$secondary:     $gray-200 !default;
++$secondary:     $gray-400 !default;
+ $success:       $green !default;
+ $info:          $cyan !default;
+ $warning:       $yellow !default;
+-$danger:        $red !default;
++$danger:        #d93b21 !default;
+ $light:         $gray-200 !default;
+ $dark:          $gray-900 !default;
+ 
+-$yiq-contrasted-threshold: 200 !default;
++$yiq-contrasted-threshold: 130 !default;
+ 
+ // Components
+-
+ $border-radius:               0 !default;
+ $border-radius-lg:            0 !default;
+ $border-radius-sm:            0 !default;
+ 
+ // Fonts
+-
+-// stylelint-disable-next-line value-keyword-case
+ $font-family-sans-serif:      "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+ $font-size-base:              .9375rem !default;
+ $font-size-sm:                $font-size-base * .88 !default;
+ $headings-font-weight:        300 !default;
+ 
+ // Buttons
+-
+ $input-btn-padding-x:         .5rem !default;
+ $btn-font-weight:             300 !default;
+ 
+ // Dropdowns
+-
+ $dropdown-border-color:             rgba($black, .1) !default;
+ $dropdown-divider-bg:               rgba($black, .1) !default;
+ 
+ // Navs
+-
+ $nav-link-disabled-color:           $gray-400 !default;
+ $nav-tabs-border-color:             $dropdown-border-color !default;
+ $nav-tabs-link-hover-border-color:  $nav-tabs-border-color !default;
+ $nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
+ 
+ // Navbar
+-
+ $navbar-dark-color:                 rgba($white, .7) !default;
+ $navbar-dark-hover-color:           $white !default;
+ 
+ // Pagination
+-
+ $pagination-color:                  $gray-600 !default;
+ $pagination-border-color:           $nav-tabs-border-color !default;
+ $pagination-active-border-color:    darken($primary, 5%) !default;
+ $pagination-disabled-color:         $gray-200 !default;
+ 
+ // Jumbotron
+-
+ $jumbotron-padding:                 4rem !default;
+ 
+ // Cards
+-
+ $card-inner-border-radius:          0 !default;
+ 
+ // Badges
+-
+ $badge-font-weight:                 300 !default;
+ $badge-padding-x:                   1rem !default;
+ 
+ // Progress bars
+-
+ $progress-bg:                       $gray-400 !default;
+ $progress-bar-color:                $white !default;
+ 
+ // List group
+-
+ $list-group-disabled-bg:            $gray-200 !default;
+ 
+ // Close
+-
+ $close-color:                       $gray-600 !default;
+ $close-text-shadow:                 none !default;
+-// Yeti 4.6.2
+-// Bootswatch
+-
+-
+-// Variables ===================================================================
+-
++
++// Variables
+ $web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" !default;
+ @if $web-font-path {
+   @import url($web-font-path);
+ }
+-// Navbar ======================================================================
+-
++
++@import "bootstrap/functions";
++@import "bootstrap/variables";
++@import "bootstrap/mixins";
++
++// Typography
++.text-secondary {
++  color: $gray-700 !important;
++}
++
++.blockquote-footer {
++  color: $gray-600 !important;
++}
++
++// Navbar
+ .navbar {
+   font-size: $font-size-sm;
+   font-weight: $headings-font-weight;
+@@ -156,7 +147,7 @@
+ 
+     .dropdown-item.active,
+     .dropdown-item:hover,
+-    .dropdown-item:focus  {
++    .dropdown-item:focus {
+       background-color: darken($gray-800, 5%);
+       color: $white;
+     }
+@@ -174,15 +165,14 @@
+ 
+     .dropdown-item.active,
+     .dropdown-item:hover,
+-    .dropdown-item:focus  {
++    .dropdown-item:focus {
+       background-color: lighten($gray-200, 5%);
+       color: $navbar-light-hover-color;
+     }
+   }
+ }
+ 
+-// Buttons =====================================================================
+-
++// Buttons
+ .btn {
+   &-primary {
+     border-color: darken($primary, 5%);
+@@ -311,20 +301,9 @@
+   }
+ }
+ 
+-// Typography ==================================================================
+-
+-.text-secondary {
+-  color: $gray-700 !important;
+-}
+-
+-.blockquote-footer {
+-  color: $gray-600;
+-}
+-
+-// Tables ======================================================================
+-
++// Tables
+ table {
+-  font-size: $font-size-sm;
++  font-size: $font-size-sm !important;
+ }
+ 
+ .table {
+@@ -333,14 +312,14 @@
+   &-info,
+   &-warning,
+   &-danger {
+-    color: $white;
++    color: $white !important;
+   }
+ 
+   &-primary {
+     &,
+     > th,
+     > td {
+-      background-color: $primary;
++      background-color: $primary !important;
+     }
+   }
+ 
+@@ -348,7 +327,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $secondary;
++      background-color: $secondary !important;
+     }
+   }
+ 
+@@ -356,7 +335,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $light;
++      background-color: $light !important;
+     }
+   }
+ 
+@@ -364,7 +343,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $dark;
++      background-color: $dark !important;
+     }
+   }
+ 
+@@ -372,7 +351,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $success;
++      background-color: $success !important;
+     }
+   }
+ 
+@@ -380,7 +359,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $info;
++      background-color: $info !important;
+     }
+   }
+ 
+@@ -388,7 +367,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $danger;
++      background-color: $danger !important;
+     }
+   }
+ 
+@@ -396,7 +375,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $warning;
++      background-color: $warning !important;
+     }
+   }
+ 
+@@ -404,7 +383,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $table-active-bg;
++      background-color: $table-active-bg !important;
+     }
+   }
+ 
+@@ -413,7 +392,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($primary, 5%);
++        background-color: darken($primary, 5%) !important;
+       }
+     }
+ 
+@@ -421,7 +400,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($secondary, 5%);
++        background-color: darken($secondary, 5%) !important;
+       }
+     }
+ 
+@@ -429,7 +408,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($light, 5%);
++        background-color: darken($light, 5%) !important;
+       }
+     }
+ 
+@@ -437,7 +416,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($dark, 5%);
++        background-color: darken($dark, 5%) !important;
+       }
+     }
+ 
+@@ -445,7 +424,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($success, 5%);
++        background-color: darken($success, 5%) !important;
+       }
+     }
+ 
+@@ -453,7 +432,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($info, 5%);
++        background-color: darken($info, 5%) !important;
+       }
+     }
+ 
+@@ -461,7 +440,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($danger, 5%);
++        background-color: darken($danger, 5%) !important;
+       }
+     }
+ 
+@@ -469,7 +448,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($warning, 5%);
++        background-color: darken($warning, 5%) !important;
+       }
+     }
+ 
+@@ -477,15 +456,13 @@
+       &,
+       > th,
+       > td {
+-        background-color: $table-active-bg;
+-      }
+-    }
+-
+-  }
+-}
+-
+-// Forms =======================================================================
+-
++        background-color: $table-active-bg !important;
++      }
++    }
++  }
++}
++
++// Forms
+ label,
+ .control-label,
+ .help-block,
+@@ -495,8 +472,7 @@
+   font-size: $font-size-sm;
+ }
+ 
+-// Navs ========================================================================
+-
++// Navs
+ .dropdown-item {
+   padding-top: .75rem;
+   padding-bottom: .75rem;
+@@ -571,8 +547,7 @@
+   font-weight: 300;
+ }
+ 
+-// Indicators ==================================================================
+-
++// Indicators
+ .close {
+   opacity: .6;
+   text-shadow: none;
+@@ -584,15 +559,15 @@
+ }
+ 
+ .alert {
+-  font-size: $font-size-sm;
+-  font-weight: 300;
+-  color: $white;
++  font-size: $font-size-sm !important;
++  font-weight: 300 !important;
++  color: $white !important;
+ 
+   &-primary {
+     &,
+     > th,
+     > td {
+-      background-color: $primary;
++      background-color: $primary !important;
+     }
+   }
+ 
+@@ -600,7 +575,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $secondary;
++      background-color: $secondary !important;
+     }
+   }
+ 
+@@ -608,7 +583,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $success;
++      background-color: $success !important;
+     }
+   }
+ 
+@@ -616,7 +591,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $info;
++      background-color: $info !important;
+     }
+   }
+ 
+@@ -624,7 +599,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $danger;
++      background-color: $danger !important;
+     }
+   }
+ 
+@@ -632,7 +607,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $warning;
++      background-color: $warning !important;
+     }
+   }
+ 
+@@ -640,7 +615,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $dark;
++      background-color: $dark !important;
+     }
+   }
+ 
+@@ -648,14 +623,14 @@
+     &,
+     > th,
+     > td {
+-      background-color: $light;
++      background-color: $light !important;
+     }
+   }
+ 
+   .alert-link {
+-    font-weight: 400;
+-    color: $white;
+-    text-decoration: underline;
++    font-weight: 400 !important;
++    color: $white !important;
++    text-decoration: underline !important;
+   }
+ 
+   &-secondary,
+@@ -663,22 +638,21 @@
+     &,
+     a:not(.btn),
+     .alert-link {
+-      color: $body-color;
++      color: $body-color !important;
+     }
+   }
+ }
+ 
+ .badge {
+-  padding-bottom: .3em;
++  padding-bottom: .3em !important;
+ 
+   &-warning,
+   &-info {
+-    color: $white;
+-  }
+-}
+-
+-// Progress bars ===============================================================
+-
++    color: $white !important;
++  }
++}
++
++// Progress bars
+ .progress[value] {
+   height: 22px;
+   padding: 2px;
+@@ -687,10 +661,38 @@
+   @include box-shadow(none);
+ }
+ 
+-
+-// Popovers      ===============================================================
+-
++// Popovers
+ .popover-header {
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+ }
++
++// Cards
++.card.bg-primary {
++  color: $white;
++}
++
++// Preserve the skin's original light labels on filled buttons.
++$skin-button-labels: (
++  success: #ffffff,
++  info: #ffffff,
++  warning: #ffffff,
++) !default;
++
++// Readable outline labels on this skin's page background.
++$skin-button-outlines: (
++  primary: #007ea7,
++  secondary: #707070,
++  success: #328150,
++  info: #3b7d90,
++  warning: #a36501,
++) !default;
++// Stock palette defaults; keep predeclared custom colors and vars authoritative.
++$skin-button-palette: (
++  info: #5bc0de,
++  primary: #008cba,
++  secondary: #ccc,
++  success: #43ac6a,
++  warning: #e99002,
++) !default;
++$skin-button-body-bg: #fff !default;

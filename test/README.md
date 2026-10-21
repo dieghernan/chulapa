@@ -507,3 +507,18 @@ integrity, regenerated adapters, one Bootstrap grid, complete legacy CSS and
 rendered component states at 390/1280px with Autothemer off/on, plus custom
 palette overrides. Default palettes, contrast corrections, fonts and appearance
 remain unchanged. See the vendor README for the retained typography adaptations.
+
+### Adapted Bootswatch sources
+
+```sh
+node test/generate_bootswatch.js --check
+CHULAPA_CHROMIUM=/path/to/chromium node test/check_bootswatch_adaptations_browser.js
+```
+
+Original sources and licenses live in `_sass/vendor/bootswatch/`. The twelve
+older adaptations use reviewed patches and generated Sass under
+`_sass/chulapa/skins/bootswatch/`; see the vendor README for regeneration.
+Cerulean, Litera and Pulse keep their existing original integrations. Sketchy
+stays on 4.5.0; the others retain 4.6.2. The new regression verifies legacy visual
+states, complete deduplicated CSS, source hashes and palette overrides. No public
+configuration, metadata or routing changes are introduced.

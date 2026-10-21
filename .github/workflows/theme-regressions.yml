@@ -101,6 +101,7 @@ jobs:
           node test/check_skin_contrast_states_browser.js
           node test/check_flatly_alerts_browser.js
           node test/check_bootswatch_originals_browser.js
+          node test/check_bootswatch_adaptations_browser.js
           node test/check_tophat_browser.js
           node test/check_skin_button_overrides_browser.js
       - name: Build actual theme fixtures

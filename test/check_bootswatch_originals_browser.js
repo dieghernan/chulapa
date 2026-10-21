@@ -20,6 +20,7 @@ const properties = ['color','backgroundColor','backgroundImage','borderTopColor'
  let checks=0;
  try {
   for (const [skin, hashes] of Object.entries(manifest.skins)) {
+   if (manifest.adaptations.includes(skin)) continue;
    for (const [file, hash] of Object.entries(hashes))
     assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(vendor,skin,file))).digest('hex'),hash,`${skin}/${file}: unmodified upstream source`);
    const originalStyles = fs.readFileSync(path.join(vendor,skin,'_bootswatch.scss'),'utf8');

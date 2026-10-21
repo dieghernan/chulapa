@@ -1,0 +1,307 @@
+--- a/upstream.scss
++++ b/chulapa.scss
+@@ -4,6 +4,8 @@
+ //
+ // Color system
+ //
++
++@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+ 
+ // stylelint-disable
+ $white:    #fff !default;
+@@ -30,6 +32,7 @@
+ $cyan:    #268bd2 !default;
+ 
+ $primary:       $blue !default;
++$yiq-contrasted-threshold: 116 !default;
+ $secondary:     $gray-600 !default;
+ $success:       $green !default;
+ $info:          $cyan !default;
+@@ -57,7 +60,7 @@
+ 
+ // Fonts
+ 
+-$font-family-sans-serif:      "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default !default;
++$font-family-sans-serif:      "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+ 
+ // Tables
+ 
+@@ -95,8 +98,8 @@
+ 
+ // Navbars
+ 
+-$navbar-light-color:                rgba($black, .4) !default !default;
+-$navbar-light-active-color:         rgba($black, .7) !default !default;
++$navbar-light-color:                rgba($black, .4) !default;
++$navbar-light-active-color:         rgba($black, .7) !default;
+ 
+ // Pagination
+ 
+@@ -169,16 +172,16 @@
+ // Code
+ 
+ $pre-color:                         inherit !default;
++$navbar-chulapa-bg-color: $dark !default;
++$indexcards-chulapa-border-color: $body-bg !default;
++
++// Import bootstrap
++@import "bootstrap/functions";
++@import "bootstrap/variables";
++@import "bootstrap/mixins";
++
+ // Solar 4.6.2
+ // Bootswatch
+-
+-
+-// Variables ===================================================================
+-
+-$web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" !default;
+-@if $web-font-path {
+-  @import url($web-font-path);
+-}
+ 
+ // Buttons =====================================================================
+ 
+@@ -211,7 +214,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $primary;
++      background-color: $primary  !important;
+     }
+   }
+ 
+@@ -219,7 +222,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $secondary;
++      background-color: $secondary !important;
+     }
+   }
+ 
+@@ -227,7 +230,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $light;
++      background-color: $light !important;
+     }
+   }
+ 
+@@ -235,7 +238,8 @@
+     &,
+     > th,
+     > td {
+-      background-color: $dark;
++      background-color: $dark !important;
++      color: $white !important;
+     }
+   }
+ 
+@@ -243,7 +247,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $success;
++      background-color: $success !important;
+     }
+   }
+ 
+@@ -251,7 +255,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $info;
++      background-color: $info !important;
+     }
+   }
+ 
+@@ -259,7 +263,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $danger;
++      background-color: $danger !important;
+     }
+   }
+ 
+@@ -267,7 +271,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $warning;
++      background-color: $warning !important;
+     }
+   }
+ 
+@@ -275,7 +279,7 @@
+     &,
+     > th,
+     > td {
+-      background-color: $table-active-bg;
++      background-color: $table-active-bg !important;
+     }
+   }
+ 
+@@ -284,7 +288,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($primary, 5%);
++        background-color: darken($primary, 5%) !important;
+       }
+     }
+ 
+@@ -292,7 +296,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($secondary, 5%);
++        background-color: darken($secondary, 5%) !important;
+       }
+     }
+ 
+@@ -300,7 +304,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($light, 5%);
++        background-color: darken($light, 5%) !important;
+       }
+     }
+ 
+@@ -308,7 +312,8 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($dark, 5%);
++        background-color: darken($dark, 5%) !important;
++        color: $gray-600 !important;
+       }
+     }
+ 
+@@ -316,7 +321,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($success, 5%);
++        background-color: darken($success, 5%) !important;
+       }
+     }
+ 
+@@ -324,7 +329,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($info, 5%);
++        background-color: darken($info, 5%) !important;
+       }
+     }
+ 
+@@ -332,7 +337,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($danger, 5%);
++        background-color: darken($danger, 5%) !important;
+       }
+     }
+ 
+@@ -340,7 +345,7 @@
+       &,
+       > th,
+       > td {
+-        background-color: darken($warning, 5%);
++        background-color: darken($warning, 5%) !important;
+       }
+     }
+ 
+@@ -348,10 +353,9 @@
+       &,
+       > th,
+       > td {
+-        background-color: $table-active-bg;
+-      }
+-    }
+-
++        background-color: $table-active-bg !important;
++      }
++    }
+   }
+ }
+ 
+@@ -385,21 +389,21 @@
+ // Indicators ==================================================================
+ 
+ .alert {
+-  border: none;
+-  color: $white;
++  border: none !important;
++  color: $white !important;
+ 
+   a,
+   .alert-link {
+-    color: $white;
++    color: $white !important;
+     text-decoration: underline;
+   }
+ 
+   @each $color, $value in $theme-colors {
+     &-#{$color} {
+       @if $enable-gradients {
+-        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
++        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x !important;
+       } @else {
+-        background-color: $value;
++        background-color: $value !important;
+       }
+     }
+   }
+@@ -408,7 +412,42 @@
+     &,
+     a:not(.btn),
+     .alert-link {
+-      color: $body-bg;
+-    }
+-  }
+-}
++      color: $body-bg !important;
++    }
++  }
++}
++
++.card.bg-primary {
++  color: $white;
++}
++
++.card.bg-secondary {
++  color: $white;
++}
++
++$chulapa-toc-bg: lighten($body-bg, 5%);
++
++// Preserve the skin's original light labels on filled buttons.
++$skin-button-labels: (
++  primary: #ffffff,
++  secondary: #ffffff,
++  success: #ffffff,
++  info: #ffffff,
++) !default;
++
++// Readable outline labels on this skin's page background.
++$skin-button-outlines: (
++  info: #3c97d6,
++  warning: #d87850,
++  danger: #de68a1,
++) !default;
++// Stock palette defaults; keep predeclared custom colors and vars authoritative.
++$skin-button-palette: (
++  danger: #d33682,
++  info: #268bd2,
++  primary: #b58900,
++  secondary: #839496,
++  success: #2aa198,
++  warning: #cb4b16,
++) !default;
++$skin-button-body-bg: #002b36 !default;

@@ -1,0 +1,2 @@
+# Unified patches retain the leading context marker on otherwise empty lines.
+_sass/chulapa/skins/bootswatch/*.patch whitespace=-blank-at-eol

@@ -1,0 +1,91 @@
+--- a/upstream.scss
++++ b/chulapa.scss
+@@ -1,10 +1,12 @@
+-// United 4.6.2
+-// Bootswatch
++// United 4.6.2 - Bootswatch
+ 
+-//
++// Variables
++$web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" !default;
++@if $web-font-path {
++  @import url($web-font-path);
++}
++
+ // Color system
+-//
+-
+ $white:    #fff !default;
+ $gray-100: #f8f9fa !default;
+ $gray-200: #e9ecef !default;
+@@ -31,34 +33,52 @@
+ $primary:       $orange !default;
+ $secondary:     $gray-500 !default;
+ $success:       $green !default;
+-$info:          $cyan !default;
++$info:          #20a6bb !default;
+ $warning:       $yellow !default;
+-$danger:        $red !default;
++$danger:        #db372b !default;
+ $light:         $gray-200 !default;
+ $dark:          $purple !default;
+ 
+-$yiq-contrasted-threshold: 200 !default;
++$yiq-contrasted-threshold: 122 !default;
+ 
+ // Body
+-
+-$body-color:                $gray-800 !default;
++$body-color: $gray-800 !default;
+ 
+ // Fonts
+-
+-// stylelint-disable-next-line value-keyword-case
+-$font-family-sans-serif:      Ubuntu, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
++$font-family-sans-serif: Ubuntu, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+ 
+ // Tables
++$table-dark-bg:           $dark !default;
++$table-dark-border-color: darken($dark, 5%) !default;
+ 
+-$table-dark-bg:               $dark !default;
+-$table-dark-border-color:     darken($dark, 5%) !default;
+-// United 4.6.2
+-// Bootswatch
++// Card background colors
++.card.bg-primary, .card.bg-secondary {
++  color: $white;
++}
+ 
++// Preserve the skin's original light labels on filled buttons.
++$skin-button-labels: (
++  primary: #ffffff,
++  secondary: #ffffff,
++  success: #ffffff,
++  info: #ffffff,
++  warning: #ffffff,
++) !default;
+ 
+-// Variables ===================================================================
+-
+-$web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" !default;
+-@if $web-font-path {
+-  @import url($web-font-path);
+-}
++// Readable outline labels on this skin's page background.
++$skin-button-outlines: (
++  primary: #c6471b,
++  secondary: #7a756f,
++  success: #277e34,
++  info: #187c8c,
++  warning: #8f6e25,
++) !default;
++// Stock palette defaults; keep predeclared custom colors and vars authoritative.
++$skin-button-palette: (
++  info: #20a6bb,
++  primary: #e95420,
++  secondary: #aea79f,
++  success: #38b44a,
++  warning: #efb73e,
++) !default;
++$skin-button-body-bg: #fff !default;
