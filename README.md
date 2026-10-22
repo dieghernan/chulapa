@@ -34,7 +34,7 @@ Choose the route that matches your situation:
 | --- | --- |
 | Publish your first website | [Browser-only publishing tutorial](https://dieghernan.github.io/chulapa/docs/00-start), using the chulapa-101 template; no local installation needed. |
 | Move an existing Jekyll site | [Migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration), preserving your content and public URLs. |
-| Change something on a published site | [How-To Guides](https://dieghernan.github.io/chulapa/docs#how-to-guides) for individual tasks. |
+| Change something on a published site | [How-to guides](https://dieghernan.github.io/chulapa/docs#how-to-guides) for individual tasks. |
 | Look up a setting or layout | [Reference](https://dieghernan.github.io/chulapa/docs#reference) for options, syntax and constraints. |
 | Understand how publishing works | [Publishing explained](https://dieghernan.github.io/chulapa/docs/47-publishing-explained). |
 
@@ -122,7 +122,7 @@ local overrides when upgrading: they take precedence over installed theme files.
 Use the [documentation directory](https://dieghernan.github.io/chulapa/docs) to
 choose a tutorial, task guide, reference or explanation. Configuration lookup:
 [Global settings](https://dieghernan.github.io/chulapa/docs/02-config),
-[layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts), and
+[layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts) and
 [the sample configuration](https://github.com/dieghernan/chulapa/blob/main/_config.yml).
 Add optional integrations when you need them.
 

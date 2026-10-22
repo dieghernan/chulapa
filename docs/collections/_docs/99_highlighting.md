@@ -30,7 +30,8 @@ style="max-height: 30vh;overflow-y: auto;">
 </div>
 
 <p><span id="config">None</span></p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span> <br><span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">chulapa-skin</span><span class="pi">:</span>
+<span class="na">  highlight</span><span class="pi">:</span>  <span class="s" id="selected"></span></code></pre></div></div>
 
 <script>
   var styles = ['abap','algol','algol_nu','arduino','autumn','base16','borland',

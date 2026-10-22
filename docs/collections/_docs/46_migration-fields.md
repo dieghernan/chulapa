@@ -54,7 +54,7 @@ include_on_feed: true
 | Navbar | `navbar.nav` entries: `title`, `url`, optional `child` | One dropdown level; old links are not imported. [Navbar](./02-config#navbar). |
 | Footer | `footer.links` entries: `label`, `icon`, `url`; `footer.copyright` | Old links/copyright are not translated. [Footer](./02-config#footer). |
 | Search | `search.provider`, `search.landing_page`; page `layout: search`, matching `permalink` | Default path `/search`; provider selection creates neither page nor hosted index. [Search reference](./02-config#search-engines). |
-| Comments | `comments.provider`, provider identifiers; page/default `show_comments` | No automatic provider migration; existing discussion IDs and URLs affect matching. Cactus ID migration, corrected development Welcomments URLs and legacy local corrections are in [Comments](./02-config#comments). |
+| Comments | `comments.provider`, provider identifiers; page/default `show_comments` | No automatic provider migration; existing discussion IDs and URLs affect matching. Cactus ID migration, corrected Welcomments URLs in v2.2.0 and legacy local corrections are in [Comments](./02-config#comments). |
 | Existing subscriber addresses | `/atom.xml`, `/rss.xml`, optional jekyll-feed `/feed.xml` | Built-in feeds select dated posts/collection documents with `include_on_feed: true`; collection output must publish linked articles. jekyll-feed's default path can coexist; two generators must not write the same path. |
 | Google Analytics 4 | `gtag_id` | Existing measurement ID; duplicate custom tracking scripts can count twice. [GA reference](./02-config#google-analytics). |
 | GoatCounter | `goatcounter` | Requires v2.2.0; [version and production constraints](./02-config#goatcounter-analytics). |

@@ -88,7 +88,7 @@ are not part of these collection indexes. Full scope/alias details remain in the
 
 To hide dates for a collection's entries in these indexes, set `show_date: false`
 on its documents or in its existing defaults. Cloud entries honor this setting
-in the v2.2.0; reading time remains visible. The
+in v2.2.0 and later; reading time remains visible. The
 v2.1.0 release does not include this fix.
 
 ## Publish and verify
@@ -105,7 +105,7 @@ permalink, badge URL, exact labels and collection scope. Both the page and badge
 settings are needed; a menu link does not create the page. Use
 [publishing checks](./42-unpublished-changes) for old output.
 
-In the v2.2.0, group fragments preserve tag/category
+In v2.2.0, group fragments preserve tag/category
 names and replace spaces with hyphens: `demo` links to `#demo`, and `demo topic`
 to `#demo-topic`. This also fixes badge links for names containing `demo`, which
 older versions rewrote only in the cloud index. Update any manually written

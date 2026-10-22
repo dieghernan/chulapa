@@ -45,7 +45,7 @@ provider, browser policy and dependency order.
 
 ## Integration constraints
 
-Google Analytics and development GoatCounter have [built-in settings](./02-config#google-analytics);
+Google Analytics and GoatCounter have [built-in settings](./02-config#google-analytics);
 a duplicate custom embed can count twice. GoatCounter is absent from v2.1.0.
 Favicons need URLs matching the site's deployed `baseurl`; see
 [the favicon task](./52-add-favicon).

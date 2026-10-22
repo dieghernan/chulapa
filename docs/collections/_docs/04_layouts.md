@@ -90,13 +90,15 @@ see [Optional header](#optional-header).
 - `title`, `subtitle`: Visible heading and subtitle for supported header types;
   also used when generating metadata.
 - `date`, `last_modified_at`: Date of the page and last modification date. See [here](https://jekyllrb.com/docs/variables/#page-variables) to learn the accepted format of dates.
-- `excerpt`: Brief description of the content. If not provided <span class="chulapa">Chulapa</span> would create it as the first paragraph of the content. Note that in the case of documents under `posts` Jekyll allows [additional options](https://jekyllrb.com/docs/posts/#post-excerpts).
+- `excerpt`: A summary of the content. For posts, Jekyll generates an excerpt
+  using its [post excerpt settings](https://jekyllrb.com/docs/posts/#post-excerpts).
+  For metadata when no excerpt is available, see [description fallbacks](#seo-metadata).
 - `description`: Explicit metadata description, independent of the visible subtitle and excerpt. See [SEO metadata](#seo-metadata) for precedence.
 - `mathjax`: Set to `true` to load MathJax for mathematical notation.
 - `mermaid`: Set to `true` to render Mermaid diagrams. Disabled by default; see
   [Mermaid diagrams](#mermaid-diagrams).
 - `og_image`: Open Graph image displayed on the web and social networks when
-  sharing the page. This image would not be displayed on the page.
+  sharing the page. This field does not insert an image into the page body.
 - `schema_image`: A representative image URL or list of image URLs for a post's
   `BlogPosting` JSON-LD. It overrides the article image without changing Open
   Graph, Twitter cards or the visible header. See [Article
@@ -107,7 +109,7 @@ see [Optional header](#optional-header).
 - `header_type`: Choose `base`, `post`, `hero`, `image` or `splash`. Leave it
   unset or use an unrecognized value for no header.
 - `header_img`: Image to be displayed on the header. If `og_image` is not set,
-  this would be also the image to be displayed when sharing the page.
+  it also supplies the sharing image before site-level fallbacks.
 
 **Image previews** depend on each social platform's requirements. Use an
 accessible image URL and check the resulting preview. You can use a
@@ -135,7 +137,9 @@ project_links:
   if provided.
 - `show_sociallinks`: Display sharing links for Facebook, Twitter/X, WhatsApp
   and LinkedIn.
-- `show_author`: Set it to `true` to display the author of the page. By default it would display the `author` set on your [global settings](https://dieghernan.github.io/chulapa/docs/02-config), but you can override it via the page front matter:
+- `show_author`: Set it to `true` to display the page author. It uses the site
+  [author settings](https://dieghernan.github.io/chulapa/docs/02-config) unless
+  the page supplies its own author mapping:
 
   For a guest author, set their own profile URL; it does not inherit the site
   author's URL.
@@ -156,7 +160,9 @@ author:
 ---
 ```
 
-- `show_toc`: Would display a table of contents of the page (thanks to [@allejo](https://github.com/allejo/jekyll-toc)). Headings with the `no_toc` class are excluded, as they are from kramdown content indexes.
+- `show_toc`: Displays a table of contents using [jekyll-toc](https://github.com/allejo/jekyll-toc).
+  Headings with the `no_toc` class are excluded, as they are from kramdown
+  content indexes.
 
 - `show_sidetoc`: Alternative implementation of `show_toc` where the table of
   contents is displayed in a sliding off-canvas sidebar. This adds a
@@ -178,8 +184,8 @@ keyboard focus or change the sidebar's Tab order, and needs no extra YAML settin
 
 **Table of contents requires heading IDs.** Only headings with an `id` are displayed. If you are
 including headers via markdown (`### Title`) you don't have to worry, as
-**kramdown** would do it for you. However if you are using `html` (`<h1
-id="aa">My heading</h1>`) don't forget to include the `id`.
+**kramdown** generates the IDs. For HTML headings such as
+`<h1 id="aa">My heading</h1>`, supply the `id` yourself.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 - `h_min` and `h_max`: Minimum and maximum heading level to be included in the
@@ -212,9 +218,9 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
   page when Jekyll supplies `page.previous` and `page.next`. This does not
   create navigation between arbitrary standalone pages.
 
-- `show_categories` and `show_tags` would display badges at the bottom with the
+- `show_categories` and `show_tags` display badges at the bottom with the
   `categories` and `tags` set for the page. These badges could be set as links
-  to a cloud tag page, with the landing page url defined on `cloudtag_url` and
+  to a cloud index, with the destination URL defined by `cloudtag_url` and
   `cloudcategory_url`. See [Cloud tags](#cloud-tags-and-categories) layouts.
 - `include_on_search`: Set to `false` to exclude a page from the Lunr, Fuse.js and Simple-Jekyll-Search indexes. Pages are included unless this value is explicitly `false`. For Algolia, this setting affects ranking only when configured in `customRanking`; it does not exclude records. Use [Algolia's `files_to_exclude`](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md#files_to_exclude) to exclude files. This option does not control external search crawlers; use `robots` for crawler directives.
 
@@ -349,9 +355,11 @@ There are two layouts you can use to create clouds of tags and categories:
 ---
 layout: cloudtag
 ---
+```
 
-OR
+For a category cloud, use:
 
+```yaml
 ---
 layout: cloudcategory
 ---
@@ -454,7 +462,7 @@ for other content types.
 Look up content snippet parameters here. For setup, use the
 [gallery](./29-add-gallery), [carousel](./30-add-carousel),
 [PhotoSwipe](./31-photoswipe), [video](./32-embed-video) or
-[Mermaid](./33-add-diagram) How-To Guide.
+[Mermaid](./33-add-diagram) how-to guide.
 
 These are the content snippets and their parameters.
 Parameters belong in the include call, not in page YAML:
@@ -789,9 +797,8 @@ fallback. Their fixed date makes the translation differences comparable.
 Setup: [Add a Mermaid diagram](./33-add-diagram).
 Live specimens: [Mermaid demo](../demo/13-mermaid).
 
-Available in v2.2.0, not in v2.1.0. Use the updated default
-branch or a later release containing this feature; the v2.1.0 gem does not
-include it.
+Available in v2.2.0 and later. Use the v2.2.0 gem or remote-theme tag for
+this feature; the v2.1.0 release does not include it.
 
 `mermaid` is a boolean page/front matter default, disabled when unset.
 `true` enables fenced `mermaid` blocks. Complete page specimen:

@@ -11,7 +11,8 @@ Use this guide for an existing Markdown post or page with the `default` layout
 or another layout based on `minimal`. The `search` layout does not display page
 content.
 
-**Version requirement:** Mermaid is available in v2.2.0, not in the v2.1.0 gem or a remote theme pinned to that release.
+**Version requirement:** Mermaid is available in v2.2.0 and later. It is
+absent from the v2.1.0 gem or a remote theme pinned to that release.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## Enable and insert the diagram

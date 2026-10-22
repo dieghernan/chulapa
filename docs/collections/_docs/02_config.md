@@ -99,7 +99,7 @@ classic (sticky top), `fab` (floating button) and `dual` (floating/classic at a 
 For an editing procedure, use [Add or change a menu link](./10-edit-menu).
 The options and examples below are the configuration reference.
 
-For keyboard behavior of the development floating menu, see
+For keyboard behavior of the floating menu in v2.2.0, see
 [Keyboard navigation](./06-accessibility-performance#keyboard-navigation).
 
 Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
@@ -243,7 +243,7 @@ your site; they do not guarantee a special appearance in search results.
 ### Font Awesome
 
 Icons are available by default through Font Awesome 6. Use an icon from its
-[catalogue](https://fontawesome.com/icons) in your menu or footer settings.
+[catalog](https://fontawesome.com/icons) in your menu or footer settings.
 To use your own Font Awesome kit, set `fa_kit_code` in `_config.yml`.
 
 For older icons, `fa_version: 5` selects version 5 and `fa_v4_support: true`
@@ -264,7 +264,7 @@ the other. Custom copies of a tracker are not removed automatically.
 
 ### GoatCounter analytics
 
-**Available v2.2.0; not in the v2.1.0 release.**
+**Available in v2.2.0; not in the v2.1.0 release.**
 
 Setup: [Enable GoatCounter analytics](./18-goatcounter).
 

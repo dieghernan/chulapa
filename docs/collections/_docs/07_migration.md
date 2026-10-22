@@ -124,7 +124,7 @@ remain separate.
 - Open existing subscriber feed URLs. Keep `jekyll-feed` for an established
   `/feed.xml` if needed, and avoid duplicate outputs using [the feed guidance](./57-jekyll-feed).
 - Keep the [Google Analytics ID](./19-google-analytics) and remove duplicate custom
-  tracking scripts. [GoatCounter](./18-goatcounter) is not in the pinned v2.1.0 release.
+  tracking scripts. [GoatCounter](./18-goatcounter) is available in v2.2.0 and requires a production build.
 
 ## 5. Preview, then publish
 

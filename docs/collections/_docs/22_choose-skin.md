@@ -100,6 +100,11 @@ for the generated CSS must keep its completion marker as the last rule;
 unverified sheets are not activated. Only Google Fonts import errors are
 eligible for recovery; other import errors keep the safe fallback.
 
+The selector toggle in v2.2.0 suppresses its visible keyboard focus outline
+and shadow. If your site requires a visible focus indicator on this control,
+add a local CSS override or leave switching disabled. See the
+[accessibility limits](./48-accessibility-reference#keyboard-navigation).
+
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should
 start with the dark appearance. Choose Auto and change your device preference

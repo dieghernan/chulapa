@@ -26,7 +26,8 @@ the **HTML** panel for comparing navbar styles.
 
 ### Step-by-step example
 
-Let's say we want to implement the [Sunset theme](https://themesguide.github.io/top-hat/dist/sunset/) by TopHat on our site. Having a look to the `theme.scss`, it looks like this:
+For example, the [Sunset theme](https://themesguide.github.io/top-hat/dist/sunset/)
+by TopHat uses the following font import and palette assignments in `theme.scss`:
 
 ```scss
 /*! Tophat `Sunset` Bootstrap 4.3.1 theme */
@@ -48,7 +49,7 @@ $dark: #000633;
 
 ```
 
-#### 1. On the tool
+#### 1. In the sandbox
 
 1. Open the sandbox and paste the font import and variable assignments above
    its existing imports in the **CSS** panel.
@@ -87,7 +88,7 @@ translating assignments, quote hex colors and leave a space after `:`.
 
 Autothemer is already installed in the **ply**. To activate it,
 uncomment the lines between `/* Start autothemer */` and `/* End autothemer */`
-on the **CSS** window.
+in the **CSS** panel.
 
 **Keep the theme's Bootstrap import and grid enabled.** Do not add another
 `@import "bootstrap";` to your skin. Setting `$enable-grid-classes: false`

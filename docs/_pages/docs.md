@@ -1,6 +1,6 @@
 ---
 layout: default
-title: '<span class="chulapa">Chulapa</span> Documentation'
+title: '<span class="chulapa">Chulapa</span> documentation'
 subtitle: Start a site, complete a task or look up a setting
 permalink: /docs
 header_type: "hero"
@@ -23,7 +23,7 @@ Follow a guided path to your first result.
 - [Publish your first site](./docs/00-start): create a blog, change its title and publish an edited article.
 - [Publish an illustrated page](./docs/59-photo-page-tutorial): continue with your published starter blog, create a photo page and link it from the menu.
 
-## How-To Guides
+## How-to guides
 
 Choose a task for a site you already have. Basic changes come first;
 search and comments are optional.

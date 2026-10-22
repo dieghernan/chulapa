@@ -146,32 +146,31 @@ end
 ```
 
 ```markdown
-* This is an unordered list.
-* This is an unordered list.
-* This is an unordered list.
+* First unordered item.
+* Second unordered item.
+* Third unordered item.
 
 A two-level ordered list:
 
-1.  This is an ordered list.
-2.  This is an ordered list.
-    * Unordered sub-list.
-    * Unordered sub-list.
-12. The starting number matters; subsequent items are numbered automatically.
-4.  And another item.
+1. First ordered item.
+2. Second ordered item.
+    * First unordered sub-item.
+    * Second unordered sub-item.
+12. Subsequent items are numbered automatically, regardless of their source number.
+4. Another ordered item.
 
-    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces.
+    You can indent a paragraph to keep it inside a list item. Keep the blank
+    line above and the indentation on every line.
 
-    # And a header
-    
-Unordered list can use asterisks:
+Unordered lists can use different markers:
 
-* Like this
-- Or minuses
-   -  Minus
-      1. One
-      2. Two
-         + Or pluses
-         
+* Asterisks
+- Minuses
+   - A nested item
+      1. First ordered sub-item
+      2. Second ordered sub-item
+         + Pluses
+
 And a task list:
 
 - [x] This is a complete item
@@ -179,30 +178,30 @@ And a task list:
 
 ```
 
-* This is an unordered list.
+* First unordered item.
+* Second unordered item.
+* Third unordered item.
 
 A two-level ordered list:
 
-1. This is an ordered list.
-2. This is an ordered list.
-    * Unordered sub-list.
-    * Unordered sub-list.
-12. The starting number matters; subsequent items are numbered automatically.
-4. And another item.
+1. First ordered item.
+2. Second ordered item.
+    * First unordered sub-item.
+    * Second unordered sub-item.
+12. Subsequent items are numbered automatically, regardless of their source number.
+4. Another ordered item.
 
-    You can have properly indented paragraphs within list items. Notice the
-blank line above, and the leading spaces.
+    You can indent a paragraph to keep it inside a list item. Keep the blank
+    line above and the indentation on every line.
 
-    # And a header
-    
-Unordered list can use asterisks:
+Unordered lists can use different markers:
 
-* Like this
-- Or minuses
-   - Minus
-      1. One
-      2. Two
-         + Or pluses
+* Asterisks
+- Minuses
+   - A nested item
+      1. First ordered sub-item
+      2. Second ordered sub-item
+         + Pluses
 
 And a task list:
 
