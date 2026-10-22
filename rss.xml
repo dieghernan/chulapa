@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Thu, 22 Oct 2026 07:37:30 +0200</pubDate>
-		<lastBuildDate>Thu, 22 Oct 2026 07:37:30 +0200</lastBuildDate>
+		<pubDate>Thu, 22 Oct 2026 12:24:22 +0200</pubDate>
+		<lastBuildDate>Thu, 22 Oct 2026 12:24:22 +0200</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -18,6 +18,149 @@
 			<link>https://dieghernan.github.io/chulapa</link>
 			<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		</image><item>
+			<title>Chulapa v2.2.0: more ways to make your site yours</title>
+			<description>
+				<![CDATA[	
+ 				<h3>Dark mode, diagrams, galleries and new starter examples</h3>
+    		<p>2 min.</p>
+				<div><p><a href="https://github.com/dieghernan/chulapa/releases/tag/v2.2.0"><span class="chulapa">Chulapa</span> v2.2.0</a>
+is out.</p>
+
+<p>This release adds a few features that I have wanted to bring to the theme for
+some time: a light/dark skin selector, Mermaid diagrams, PhotoSwipe galleries
+and complete starter examples. There are also several smaller changes around
+navigation, accessibility and the bundled skins.</p>
+
+<p>Here is a quick overview of what is new.</p>
+
+<h2 id="light-and-dark-skins">Light and dark skins</h2>
+
+<p><span class="chulapa">Chulapa</span> can now let visitors choose between light,
+dark and automatic appearances.</p>
+
+<p>You just need to configure a second skin. The theme then adds a selector to the
+classic, floating and dual navigation bars. The selected appearance is
+remembered across pages and tabs and, importantly, it is applied before the
+page is displayed.</p>
+
+<p>This is completely opt-in. If you do not configure a dark skin, your site works
+as before and no additional styles or scripts for the selector are loaded.</p>
+
+<p>See <a href="/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark">how to configure light and dark skins</a>.</p>
+
+<h2 id="mermaid-diagrams">Mermaid diagrams</h2>
+
+<p>Another addition in v2.2.0 is support for
+<a href="https://mermaid.js.org/">Mermaid</a> diagrams.</p>
+
+<p>Mermaid can be enabled per page, so the library is only loaded when it is
+actually needed. Once enabled, diagrams can be added using fenced blocks
+directly in your Markdown content.</p>
+
+<p>There is also a fallback: if Mermaid cannot render a diagram, the original
+source remains available.</p>
+
+<p>The <a href="/chulapa/docs/33-add-diagram">Mermaid guide</a> has all the
+details.</p>
+
+<h2 id="photoswipe-galleries">PhotoSwipe galleries</h2>
+
+<p>Masonry galleries and carousels can now use PhotoSwipe to provide a zoomable
+image viewer.</p>
+
+<p>PhotoSwipe is optional and supports keyboard and touch controls, reduced-motion
+preferences and the original image link as a fallback.</p>
+
+<p>You can see how to
+<a href="/chulapa/docs/31-photoswipe">enable PhotoSwipe</a> or check the
+<a href="/chulapa/demo/14-photoswipe">live demo</a>.</p>
+
+<h2 id="goatcounter-analytics">GoatCounter analytics</h2>
+
+<p>v2.2.0 also adds support for
+<a href="https://www.goatcounter.com/">GoatCounter</a> as a lightweight analytics option.</p>
+
+<p>It is disabled by default and, when configured, the script is loaded
+asynchronously only in production builds.</p>
+
+<p>See the <a href="/chulapa/docs/18-goatcounter">GoatCounter setup guide</a>
+for the configuration details.</p>
+
+<h2 id="navigation-and-new-skins">Navigation and new skins</h2>
+
+<p>There are a few other visible changes.</p>
+
+<p>Tables of contents now highlight the section currently being viewed. This is
+particularly useful on longer documentation pages and posts.</p>
+
+<p>The release also adds three new skins: <strong>Cerulean</strong>, <strong>Litera</strong> and <strong>Pulse</strong>.
+I have also reviewed text contrast across many components of the bundled skins.
+Some upstream color combinations still fall below the WCAG 4.5:1 contrast
+benchmark, so it is worth checking the result if you use one of these skins or
+custom colors.</p>
+
+<p>You can compare all of them in the
+<a href="/chulapa/skins">skin previews</a>.</p>
+
+<h2 id="starter-examples">Starter examples</h2>
+
+<p>One thing that was missing from the documentation was a simple way to see how a
+complete <span class="chulapa">Chulapa</span> site fits together.</p>
+
+<p>v2.2.0 adds four starter examples:</p>
+
+<ul>
+  <li>personal blog</li>
+  <li>technical blog</li>
+  <li>portfolio</li>
+  <li>project site</li>
+</ul>
+
+<p>Each example includes the configuration and content files needed to reproduce
+the site, together with a working demo.</p>
+
+<p>See the <a href="/chulapa/docs/08-starter-examples">starter examples</a> or
+browse the <a href="/chulapa/demo">demos</a>.</p>
+
+<h2 id="updating-to-v220">Updating to v2.2.0</h2>
+
+<p>For sites using the remote theme, update <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.2.0</span>
+</code></pre></div></div>
+
+<p>For gem-based installations, update the version in your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"chulapa-jekyll"</span><span class="p">,</span> <span class="s2">"~&gt; 2.2.0"</span>
+</code></pre></div></div>
+
+<p>and run:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle update chulapa-jekyll
+</code></pre></div></div>
+
+<p>The <a href="/chulapa/docs/01-install">installation guide</a> covers both
+methods.</p>
+
+<p>If you are upgrading an existing site, especially one with local overrides of
+layouts or includes, I recommend previewing it locally before publishing.</p>
+
+<p>The <a href="https://github.com/dieghernan/chulapa/releases/tag/v2.2.0">full release notes</a>
+have the complete list of changes.</p>
+
+<p>As always, issues, suggestions and examples of sites built with
+<span class="chulapa">Chulapa</span> are welcome in
+<a href="https://github.com/dieghernan/chulapa/discussions">GitHub Discussions</a>.</p>
+</div>
+				]]>
+			</description>
+			<link>https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</link>
+			<category>posts</category>
+		    <category>jekyll</category><category>news</category><category>release</category><media:title type="html"><![CDATA[<span class="chulapa">Chulapa</span> v2.2.0: more ways to make your site yours ]]></media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</guid>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
+		</item><item>
 			<title>Chulapa v2.1.0: more control over your site</title>
 			<description>
 				<![CDATA[	
