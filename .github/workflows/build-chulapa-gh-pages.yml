@@ -57,6 +57,12 @@ jobs:
         shell: bash
         env:
           JEKYLL_ENV: production
+      - name: Sync docs to Cloudflare AI Search
+        run: node scripts/sync-ai-search.mjs docs/_site/docs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_AI_SEARCH_INSTANCE: chulapa-ai-search
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v5
