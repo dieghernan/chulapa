@@ -47,7 +47,7 @@ async function listItems() {
   const items = [];
   let page = 1;
   while (true) {
-    const body = await cf(`/items?source=builtin&page=${page}&per_page=100`);
+    const body = await cf(`/items?source=builtin&page=${page}&per_page=50`);
     const result = resultOf(body);
     const batch = Array.isArray(result) ? result : (result?.items || []);
     items.push(...batch);
