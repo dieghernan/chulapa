@@ -96,6 +96,11 @@ function pageTitle(html) {
   return match ? match[1].trim() : '';
 }
 
+function isRedirect(html) {
+  return /<meta\b[^>]*\bhttp-equiv=["']refresh["']/i.test(html) ||
+    /<meta\b[^>]*\bname=["']robots["'][^>]*\bcontent=["'][^"']*\bnoindex\b/i.test(html);
+}
+
 function extractClassElement(html, className) {
   const opening = /<([a-z][\w:-]*)\b[^>]*\bclass=["']([^"']*)["'][^>]*>/gi;
   let match;
@@ -159,7 +164,19 @@ async function remove(id) {
 const files = await htmlFiles(ROOT);
 if (!files.length) throw new Error(`No HTML files found under ${ROOT}.`);
 
-const wanted = new Map(files.map(file => [relative(ROOT, file).split(sep).join('/'), file]));
+const wanted = new Map();
+let skipped = 0;
+for (const file of files) {
+  const key = relative(ROOT, file).split(sep).join('/');
+  const html = await readFile(file, 'utf8');
+  if (isRedirect(html)) {
+    skipped++;
+    console.log(`skipped redirect ${key}`);
+    continue;
+  }
+  wanted.set(key, file);
+}
+
 const existing = await listItems();
 const builtin = new Map(existing
   .filter(item => !item.source || item.source === 'builtin')
@@ -175,7 +192,8 @@ for (const [key, file] of wanted) {
   console.log(`uploaded ${key}`);
 }
 
-// Keep the instance aligned with the generated docs tree.
+// Keep the instance aligned with the generated docs tree. Redirects are intentionally
+// absent from wanted, so previously indexed redirect pages are removed as stale.
 for (const [key, item] of builtin) {
   if (key && !wanted.has(key) && item.id) {
     await remove(item.id);
@@ -184,4 +202,4 @@ for (const [key, item] of builtin) {
   }
 }
 
-console.log(`AI Search sync complete: ${uploaded} uploaded, ${deleted} stale deleted.`);
+console.log(`AI Search sync complete: ${uploaded} uploaded, ${skipped} redirects skipped, ${deleted} stale deleted.`);
