@@ -47,18 +47,27 @@ function resultOf(body) {
 async function listItems() {
   const items = [];
   let page = 1;
+
   while (true) {
-    const body = await cf(`/items?source=builtin&page=${page}&per_page=50`);
+    const body = await cf(`/items?source=builtin&page=${page}`);
     const result = resultOf(body);
     const batch = Array.isArray(result) ? result : (result?.items || []);
+
     items.push(...batch);
+
     const info = body?.result_info || result?.result_info;
-    if (!info || page >= (info.total_pages || 1)) break;
+    if (!info) break;
+
+    const totalCount = info.total_count ?? items.length;
+    const perPage = info.per_page ?? batch.length;
+
+    if (items.length >= totalCount || batch.length < perPage) break;
+
     page++;
   }
+
   return items;
 }
-
 function escapeHtml(value) {
   return value
     .replaceAll('&', '&amp;')
@@ -167,7 +176,8 @@ async function remove(id) {
   await cf(`/items/${encodeURIComponent(id)}`, { method: 'DELETE' });
 }
 
-const files = await htmlFiles(ROOT);
+const files = (await htmlFiles(ROOT))
+  .filter(file => relative(ROOT, file).split(sep).join('/') !== 'tags.html');
 if (!files.length) throw new Error(`No HTML files found under ${ROOT}.`);
 
 const wanted = new Map();
@@ -185,8 +195,8 @@ for (const file of files) {
 
 const existing = await listItems();
 const builtin = new Map(existing
-  .filter(item => !item.source || item.source === 'builtin')
-  .map(item => [item.key || item.name, item]));
+  .filter(item => item.source_id === 'builtin' || item.source_id == null)
+  .map(item => [item.key, item]));
 
 let uploaded = 0;
 let deleted = 0;
