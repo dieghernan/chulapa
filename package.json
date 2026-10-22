@@ -1,0 +1,8 @@
+{
+  "name": "chulapa-ai-search",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sanitize-html": "^2.18.1"
+  }
+}
