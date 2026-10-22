@@ -18,8 +18,8 @@
         "description": "Apply a predefined design to your site - Use this guide for an already published site. In your repository’s Code tab, open _config.yml and click the pencil. Edit existing entries and preserve unrelated settings; do not add a second chulapa-skin section.",
         "headline": "Choose a skin",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-22T07:17:06+02:00",
-        "dateModified": "2026-10-22T07:17:06+02:00",
+        "datePublished": "2026-10-22T07:37:30+02:00",
+        "dateModified": "2026-10-22T07:37:30+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -330,6 +330,10 @@ Rebuild and publish all theme CSS together when upgrading. Custom replacements
 for the generated CSS must keep its completion marker as the last rule;
 unverified sheets are not activated. Only Google Fonts import errors are
 eligible for recovery; other import errors keep the safe fallback.</p>
+<p>The selector toggle in v2.2.0 suppresses its visible keyboard focus outline
+and shadow. If your site requires a visible focus indicator on this control,
+add a local CSS override or leave switching disabled. See the
+<a href="./48-accessibility-reference#keyboard-navigation">accessibility limits</a>.</p>
 <p>Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should
 start with the dark appearance. Choose Auto and change your device preference

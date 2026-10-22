@@ -18,8 +18,8 @@
         "description": "Preview existing Sass assignments and apply them to your site - Use this guide when you already work with Sass/SCSS and have an existing Jekyll site. Work in a branch or save a backup. For a built-in design, use Choose a skin; for one value, use Change a color.",
         "headline": "Adapt a Sass skin",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-22T07:17:06+02:00",
-        "dateModified": "2026-10-22T07:17:06+02:00",
+        "datePublished": "2026-10-22T07:37:30+02:00",
+        "dateModified": "2026-10-22T07:37:30+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -256,7 +256,7 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Adapt a Sass skin</a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#preview-the-assignments" class="nav-link">Preview the assignments</a><ul><li class="nav-item nav d-block"><a href="#step-by-step-example" class="nav-link">Step-by-step example</a><ul><li class="nav-item nav d-block"><a href="#1-on-the-tool" class="nav-link">1. On the tool</a></li><li class="nav-item nav d-block"><a href="#step-2" class="nav-link">2. On your<code> _config.yml</code></a></li></ul></li><li class="nav-item nav d-block"><a href="#using-autothemer-on-codeply" class="nav-link">Using autothemer on Codeply</a></li></ul></li><li class="nav-item nav d-block"><a href="#publish-and-check" class="nav-link">Publish and check</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#preview-the-assignments" class="nav-link">Preview the assignments</a><ul><li class="nav-item nav d-block"><a href="#step-by-step-example" class="nav-link">Step-by-step example</a><ul><li class="nav-item nav d-block"><a href="#1-in-the-sandbox" class="nav-link">1. In the sandbox</a></li><li class="nav-item nav d-block"><a href="#step-2" class="nav-link">2. On your<code> _config.yml</code></a></li></ul></li><li class="nav-item nav d-block"><a href="#using-autothemer-on-codeply" class="nav-link">Using autothemer on Codeply</a></li></ul></li><li class="nav-item nav d-block"><a href="#publish-and-check" class="nav-link">Publish and check</a></li></ul>
 		</nav>   
 	</div>
 			<div class="e-content"><p>Use this guide when you already work with Sass/SCSS and have an existing Jekyll
@@ -272,7 +272,8 @@ directly and use your existing local Jekyll preview.</p>
 <p>The sandbox example includes <strong>INDEX</strong> and <strong>CLASSICNAVBARDEMO</strong> sections in
 the <strong>HTML</strong> panel for comparing navbar styles.</p>
 <h3 id="step-by-step-example">Step-by-step example</h3>
-<p>Let’s say we want to implement the <a href="https://themesguide.github.io/top-hat/dist/sunset/">Sunset theme</a> by TopHat on our site. Having a look to the <code class="language-plaintext highlighter-rouge">theme.scss</code>, it looks like this:</p>
+<p>For example, the <a href="https://themesguide.github.io/top-hat/dist/sunset/">Sunset theme</a>
+by TopHat uses the following font import and palette assignments in <code class="language-plaintext highlighter-rouge">theme.scss</code>:</p>
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*! Tophat `Sunset` Bootstrap 4.3.1 theme */</span>
 <span class="k">@import</span> <span class="sx">url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700)</span><span class="p">;</span>
 <span class="nv">$headings-font-family</span><span class="p">:</span><span class="n">Voltaire</span><span class="p">;</span>
@@ -291,7 +292,7 @@ the <strong>HTML</strong> panel for comparing navbar styles.</p>
 <span class="c1">// Add custom Sass rules here.</span>
 
 </code></pre></div></div>
-<h4 id="1-on-the-tool">1. On the tool</h4>
+<h4 id="1-in-the-sandbox">1. In the sandbox</h4>
 <ol>
  <li>Open the sandbox and paste the font import and variable assignments above
 its existing imports in the <strong>CSS</strong> panel.</li>
@@ -323,7 +324,7 @@ translating assignments, quote hex colors and leave a space after <code class="l
 <h3 id="using-autothemer-on-codeply">Using autothemer on Codeply</h3>
 <p>Autothemer is already installed in the <strong>ply</strong>. To activate it,
 uncomment the lines between <code class="language-plaintext highlighter-rouge">/* Start autothemer */</code> and <code class="language-plaintext highlighter-rouge">/* End autothemer */</code>
-on the <strong>CSS</strong> window.</p>
+in the <strong>CSS</strong> panel.</p>
 <p class="alert alert-warning p-3 mx-2 mb-3"><strong>Keep the theme’s Bootstrap import and grid enabled.</strong> Do not add another
 <code class="language-plaintext highlighter-rouge">@import "bootstrap";</code> to your skin. Setting <code class="language-plaintext highlighter-rouge">$enable-grid-classes: false</code>
 removes grid classes used by the theme and breaks its layouts.</p>

@@ -18,8 +18,8 @@
         "description": "Syntax specimens and rendered output - Reference examples for Markdown formatting and kramdown extensions.",
         "headline": "Markdown cheatsheet",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-22T07:17:06+02:00",
-        "dateModified": "2026-10-22T07:17:06+02:00",
+        "datePublished": "2026-10-22T07:37:30+02:00",
+        "dateModified": "2026-10-22T07:37:30+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -362,32 +362,31 @@ favor.</p>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> This is an unordered list.
-<span class="p">*</span> This is an unordered list.
-<span class="p">*</span> This is an unordered list.
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> First unordered item.
+<span class="p">*</span> Second unordered item.
+<span class="p">*</span> Third unordered item.
 
 A two-level ordered list:
 <span class="p">
-1.</span>  This is an ordered list.
-<span class="p">2.</span>  This is an ordered list.
-<span class="p">    *</span> Unordered sub-list.
-<span class="p">    *</span> Unordered sub-list.
-<span class="p">12.</span> The starting number matters; subsequent items are numbered automatically.
-<span class="p">4.</span>  And another item.<span class="sb">
+1.</span> First ordered item.
+<span class="p">2.</span> Second ordered item.
+<span class="p">    *</span> First unordered sub-item.
+<span class="p">    *</span> Second unordered sub-item.
+<span class="p">12.</span> Subsequent items are numbered automatically, regardless of their source number.
+<span class="p">4.</span> Another ordered item.<span class="sb">
 
-    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces.
+    You can indent a paragraph to keep it inside a list item. Keep the blank
+    line above and the indentation on every line.
 
-    # And a header
-    
-</span>Unordered list can use asterisks:
+</span>Unordered lists can use different markers:
 <span class="p">
-*</span> Like this
-<span class="p">-</span> Or minuses
-<span class="p">   -</span>  Minus
-<span class="p">      1.</span> One
-<span class="p">      2.</span> Two
-<span class="p">         +</span> Or pluses
-         
+*</span> Asterisks
+<span class="p">-</span> Minuses
+<span class="p">   -</span> A nested item
+<span class="p">      1.</span> First ordered sub-item
+<span class="p">      2.</span> Second ordered sub-item
+<span class="p">         +</span> Pluses
+
 And a task list:
 <span class="p">
 -</span> [x] This is a complete item
@@ -395,36 +394,37 @@ And a task list:
 
 </code></pre></div></div>
 <ul>
- <li>This is an unordered list.</li>
+ <li>First unordered item.</li>
+ <li>Second unordered item.</li>
+ <li>Third unordered item.</li>
 </ul>
 <p>A two-level ordered list:</p>
 <ol>
- <li>This is an ordered list.</li>
- <li>This is an ordered list.
+ <li>First ordered item.</li>
+ <li>Second ordered item.
    <ul>
-     <li>Unordered sub-list.</li>
-     <li>Unordered sub-list.</li>
+     <li>First unordered sub-item.</li>
+     <li>Second unordered sub-item.</li>
    </ul>
  </li>
- <li>The starting number matters; subsequent items are numbered automatically.</li>
+ <li>Subsequent items are numbered automatically, regardless of their source number.</li>
  <li>
-   <p>And another item.</p>
-   <p>You can have properly indented paragraphs within list items. Notice the
-blank line above, and the leading spaces.</p>
-   <p># And a header</p>
+   <p>Another ordered item.</p>
+   <p>You can indent a paragraph to keep it inside a list item. Keep the blank
+ line above and the indentation on every line.</p>
  </li>
 </ol>
-<p>Unordered list can use asterisks:</p>
+<p>Unordered lists can use different markers:</p>
 <ul>
- <li>Like this</li>
- <li>Or minuses
+ <li>Asterisks</li>
+ <li>Minuses
    <ul>
-     <li>Minus
+     <li>A nested item
        <ol>
-         <li>One</li>
-         <li>Two
+         <li>First ordered sub-item</li>
+         <li>Second ordered sub-item
            <ul>
-             <li>Or pluses</li>
+             <li>Pluses</li>
            </ul>
          </li>
        </ol>
