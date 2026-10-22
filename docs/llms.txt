@@ -50,7 +50,8 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 
 ## Optional
 
-- [Chulapa v2.1.0 overview](https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0): Released features, configuration examples and upgrade steps, with a separately labeled development preview.
+- [Chulapa v2.1.0 overview](https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0): Historical release features, configuration examples and upgrade steps; its preview of later features points to v2.2.0.
+- [Chulapa v2.2.0 overview](https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0): Current release features, installation instructions and upgrade guidance.
 - [Demos](https://dieghernan.github.io/chulapa/demo): Working examples of layouts and integrations.
 - [Skins](https://dieghernan.github.io/chulapa/skins): Skin previews and available choices.
 - [Chulapa 101](https://github.com/dieghernan/chulapa-101): Editable personal-blog template with GitHub Pages publishing workflows.
