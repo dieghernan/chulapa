@@ -58,10 +58,95 @@ async function listItems() {
   return items;
 }
 
+function escapeHtml(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
+function metaContent(html, name) {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const patterns = [
+    new RegExp(`<meta\\b[^>]*\\bname=["']${escaped}["'][^>]*\\bcontent=["']([^"']*)["'][^>]*>`, 'i'),
+    new RegExp(`<meta\\b[^>]*\\bcontent=["']([^"']*)["'][^>]*\\bname=["']${escaped}["'][^>]*>`, 'i'),
+  ];
+  for (const pattern of patterns) {
+    const match = html.match(pattern);
+    if (match) return match[1];
+  }
+  return '';
+}
+
+function canonicalUrl(html) {
+  const patterns = [
+    /<link\b[^>]*\brel=["']canonical["'][^>]*\bhref=["']([^"']*)["'][^>]*>/i,
+    /<link\b[^>]*\bhref=["']([^"']*)["'][^>]*\brel=["']canonical["'][^>]*>/i,
+  ];
+  for (const pattern of patterns) {
+    const match = html.match(pattern);
+    if (match) return match[1];
+  }
+  return '';
+}
+
+function pageTitle(html) {
+  const match = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
+  return match ? match[1].trim() : '';
+}
+
+function extractClassElement(html, className) {
+  const opening = new RegExp(`<([a-z][\\w:-]*)\\b[^>]*\\bclass=["'][^"']*(?:^|\\s)${className}(?:\\s|$)[^"']*["'][^>]*>`, 'i');
+  const match = opening.exec(html);
+  if (!match) return '';
+
+  const tag = match[1];
+  const start = match.index;
+  const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+  tags.lastIndex = start;
+  let depth = 0;
+  let token;
+
+  while ((token = tags.exec(html))) {
+    if (/^<\//.test(token[0])) depth--;
+    else if (!/\/>$/.test(token[0])) depth++;
+    if (depth === 0) return html.slice(start, tags.lastIndex);
+  }
+  return '';
+}
+
+function cleanForIndex(html, key) {
+  const content = extractClassElement(html, 'e-content');
+  if (!content) throw new Error(`Could not find .e-content in ${key}.`);
+
+  const cleaned = content
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+
+  const title = pageTitle(html);
+  const description = metaContent(html, 'description');
+  const canonical = canonicalUrl(html);
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+${title ? `<title>${title}</title>` : ''}
+${description ? `<meta name="description" content="${escapeHtml(description)}">` : ''}
+${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}">` : ''}
+</head>
+<body>
+${cleaned}
+</body>
+</html>\n`;
+}
+
 async function upload(file, key) {
-  const html = await readFile(file);
+  const html = await readFile(file, 'utf8');
+  const cleaned = cleanForIndex(html, key);
   const form = new FormData();
-  form.append('file', new Blob([html], { type: 'text/html' }), key);
+  form.append('file', new Blob([cleaned], { type: 'text/html; charset=utf-8' }), key);
   await cf('/items', { method: 'POST', body: form });
 }
 
