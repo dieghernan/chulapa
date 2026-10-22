@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
+import sanitizeHtml from 'sanitize-html';
 
 const ROOT = process.argv[2] || 'docs/_site/docs';
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
@@ -127,14 +128,14 @@ function cleanForIndex(html, key) {
   const content = extractClassElement(html, 'e-content');
   if (!content) throw new Error(`Could not find .e-content in ${key}.`);
 
-  let cleaned = content;
-  while (true) {
-    const next = cleaned
-      .replace(/<!--[\s\S]*?-->/g, '')
-      .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
-    if (next === cleaned) break;
-    cleaned = next;
-  }
+  const cleaned = sanitizeHtml(content, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.filter(
+      tag => !['script', 'style', 'noscript'].includes(tag)
+    ),
+    allowedAttributes: sanitizeHtml.defaults.allowedAttributes,
+    disallowedTagsMode: 'discard',
+    enforceHtmlBoundary: true
+  });
 
   const title = pageTitle(html);
   const description = metaContent(html, 'description');
