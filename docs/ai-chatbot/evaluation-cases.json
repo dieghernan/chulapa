@@ -193,7 +193,7 @@
     "section": "theming",
     "doc": "03_theming.md",
     "question": "How do I enable Autothemer using a purple primary color? Show YAML.",
-    "expected": "chulapa-skin.autothemer true is a sibling of vars, never nested inside vars; vars.primary is a quoted hex color."
+    "expected": "Enable chulapa-skin.autothemer: true as a sibling of vars, with skin: auto under chulapa-skin; vars.primary is the quoted requested hex color. No unrelated include-cache advice."
   },
   {
     "id": "theming-3",
@@ -403,7 +403,7 @@
     "section": "theming",
     "doc": "22_choose-skin.md",
     "question": "In main/2.2.0, can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?",
-    "expected": "2.2.0 keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if the generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider."
+    "expected": "2.2.0 keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider. For changing skins, show skin nested under chulapa-skin and preserve other mappings."
   },
   {
     "id": "skin-palette-contrast-1",
@@ -417,13 +417,13 @@
     "section": "theming",
     "doc": "22_choose-skin.md",
     "question": "The component demo shows a theme selector, but I have not enabled dark mode. Does seeing that example activate dark mode on my site?",
-    "expected": "No. The component demo shows a sample selector even when dark mode is disabled. Enable site switching through chulapa-skin-dark as described in /docs/22-choose-skin, preserving existing settings. Do not claim that displaying the demo enables switching or introduce technical asset-path explanations."
+    "expected": "No. The component demo shows a sample selector even when dark mode is disabled. Enable site switching through a separate top-level chulapa-skin-dark mapping as described in /docs/22-choose-skin, preserving existing settings. Do not show chulapa-skin as a scalar, nest the dark mapping, or add technical asset-path explanations."
   },
   {
     "id": "skins-bootswatch-originals-1",
     "section": "skins",
     "doc": "23_change-color.md",
     "question": "Can I use Cerulean, Litera or Pulse, and have their original Bootswatch colors been changed for AA?",
-    "expected": "Added in 2.2.0, not guaranteed available in v2.1.0. Set chulapa-skin.skin to cerulean, litera or pulse; preserve existing vars and other settings. Original Bootswatch 4.6.2 palettes/typography/components retained, with original contrast limitations; do not claim AA or replace Bootstrap CSS. Link the skins catalog and relevant preview. Restart local preview for config changes."
+    "expected": "Added in 2.2.0, not guaranteed available in v2.1.0. Set chulapa-skin.skin to cerulean, litera or pulse; preserve existing vars and other settings. Original Bootswatch 4.6.2 palettes/typography/components retained unchanged, with original contrast limitations; do not claim AA, palette adjustments or replace Bootstrap CSS. Link the skins catalog and relevant preview. Restart local preview for config changes."
   }
 ]

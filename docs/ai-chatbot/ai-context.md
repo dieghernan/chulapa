@@ -115,26 +115,44 @@ Source: https://dieghernan.github.io/chulapa/docs/03-theming
 chulapa-skin.skin: exact case-sensitive filename without .scss; unknown names fail Sass import. Default none; auto selects generated-palette skin. chulapa-skin.highlight defaults to default; Rouge supplies syntax highlighting. vars maps Sass names/expressions without $ or semicolons.
 ## Light/dark/auto selector
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark
-2.2.0+, absent v2.1.0. chulapa-skin=Light; add chulapa-skin-dark: {skin: gitdev-dark, highlight: github.dark}. Omitted dark highlight inherits light highlight, then default; other fields independent; copy shared vars. Dropdown: classic/fab/dual, empty menus too. Blank disables. Default Light; Auto tracks device. theme-color: active vars.primary or browser default; custom tags kept. Both credited. chulapa-theme localStorage: pages/tabs/sites on same origin; blocked: page only. No JS/blocked inline: Light, hidden selector. Absent dark mapping: no additional scripts or styles. Custom CSS overrides both; check widgets/images/diagrams. Failed CSS: initial Light, later previous appearance; mode persists, Auto tracks device changes. Restart Jekyll on config edits.
-Font imports stay; Google Fonts failures use fallbacks. Missing/incomplete CSS keeps appearance. Demo selector never enables switching.
+2.2.0+ only, not v2.1.0. Keep/merge the existing top-level chulapa-skin mapping; chulapa-skin-dark is a separate top-level mapping, never nested or scalar:
+```yaml
+chulapa-skin:
+  skin: gitdev
+  highlight: github
+chulapa-skin-dark:
+  skin: gitdev-dark
+  highlight: github.dark
+```
+Mappings are independent; copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Preference persists same-origin; without storage, current page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; preserve custom tags. Both skins credited. Custom CSS overrides both; check widgets/images/diagrams. Incomplete skin/highlighter CSS: Light initially, prior appearance later; mode persists.
+Font imports remain. Google Fonts failure falls back; switching needs complete skin/highlighter CSS. Other import errors do not recover. Replacement CSS keeps its completion marker. Not v2.1.0. Demo selector is illustrative only.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
 Source: https://dieghernan.github.io/chulapa/docs/23-change-color
-_config.yml, existing chulapa-skin mapping: replace only:
+In _config.yml change skin inside the existing chulapa-skin mapping; preserve vars/highlight:
 ```yaml
-skin: journal
+chulapa-skin:
+  skin: journal
 ```
-Keep vars, highlight and other settings; no sample overrides or duplicate mappings. Quote hex. Publish via configured branch/Actions; check home/article/menu, mobile/contrast. Restart after config edits. Preview does not save.
+Never use root-level skin or scalar chulapa-skin. Preserve settings; no duplicates. Restart Jekyll, publish and verify. Preview does not save.
 ## Changing fonts and highlighting
 Source: https://dieghernan.github.io/chulapa/docs/24-change-fonts
 Source: https://dieghernan.github.io/chulapa/docs/25-code-highlighting
-Load googlefonts URL stylesheets AND apply families through chulapa-skin.vars.font-family-base/headings-font-family; loading alone is insufficient. Quote family lists with fallbacks. Other providers use _includes/custom/custom_head.html. Check published body/headings and external stylesheet availability after rebuild.
-chulapa-skin.highlight: zenburn changes code appearance, not article typography. Check a language-labelled fenced code block; demo selection alone is not saved.
+Load googlefonts URL AND set chulapa-skin.vars.font-family-base/headings-font-family; loading alone is insufficient. Quote family lists. Other providers: _includes/custom/custom_head.html. Check published body/headings and stylesheet.
+highlight: zenburn styles code only; demo selection is not saved.
 ## Palette precedence and custom skins
 Source: https://dieghernan.github.io/chulapa/docs/26-appearance-precedence
 Source: https://dieghernan.github.io/chulapa/docs/27-autothemer
 Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
-Order: skin → vars → autothemer → Bootstrap → components. vars overrides skin; Autothemer fills undefined colors from primary. Scope: chulapa-skin.autothemer is a sibling of vars; chulapa-skin.vars.primary holds the color. Never nest autothemer inside vars. none assigns no palette; named skins retain theirs. Omit/false disables Autothemer; skin: auto imports the generator separately.
+Order: skin → vars → autothemer → Bootstrap → components. vars overrides skin; Autothemer fills undefined colors from primary. chulapa-skin.autothemer is a sibling of vars: set it true; primary belongs inside vars. Example:
+```yaml
+chulapa-skin:
+  skin: auto
+  autothemer: true
+  vars:
+    primary: "#800080"
+```
+Never nest autothemer inside vars. none assigns no palette; named skins retain theirs. Omit/false disables Autothemer; skin: auto selects the generated-palette skin.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
 v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. /docs/48-accessibility-reference.
@@ -143,7 +161,7 @@ v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable sele
 Source: https://dieghernan.github.io/chulapa/skins
 Named skins: academia,cerulean,litera,pulse,butterfly,butterfly-dark,butterfly-dim,chulapa,cyborg,dark-bg,darkly,deeply,electro,flatly,focal,gitdev,gitdev-dark,graymor,hootstrap,journal,listen,lux,lymcha,materia,media,mickie,minco,minty,monotone,navi,pear,preptor,skeeblu,sketchy,slate,solar,sunset,towards,twitter,twitter-dim,twitter-lights-out,united,universal,wandoo,yeti.
 Examples+catalog; full list on request. auto/none special; current not a skin.
-cerulean/litera/pulse: 2.2.0; original Bootswatch 4.6.2, contrast limits retained.
+cerulean/litera/pulse: 2.2.0 only; retain original Bootswatch 4.6.2 palettes/typography/components and contrast limits. Not included in AA adjustments; vars still override. /docs/23-change-color#original-bootswatch-skins.
 ## Layouts
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 default is for posts/pages/collection documents, via front matter or Jekyll defaults. Markdown content uses YAML front matter. Optional components use front matter/defaults; demos show output.

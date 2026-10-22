@@ -70,6 +70,8 @@ test('passes reviewed context and bounded output to the selected model', async (
     assert.equal(options.max_completion_tokens, 450);
     assert.deepEqual(options.chat_template_kwargs, { enable_thinking: false });
     assert.match(options.messages[0].content, /WEBSITE CONTEXT/);
+    assert.match(options.messages[0].content, /chulapa-skin-dark is a separate top-level mapping/);
+    assert.match(options.messages[0].content, /Do not discuss include_cached for/);
     assert.equal(options.messages[1].content, 'How do I install Chulapa?');
     return { choices: [{ message: { content: 'Use the template.\nhttps://dieghernan.github.io/chulapa/docs/01-install' } }] };
   });

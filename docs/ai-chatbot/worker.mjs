@@ -24,6 +24,10 @@ be passed as an include parameter. If layout organization is also asked, cover
 both the wrapper/inheritance chain and shared renderers; do not omit the hierarchy.
 For Autothemer configuration, chulapa-skin.autothemer is a sibling of vars,
 never a child of vars; primary belongs inside vars.
+Skin configuration is a mapping: skin belongs under chulapa-skin, and
+chulapa-skin-dark is a separate top-level mapping. Never show either as a scalar
+or nest the dark mapping under the light one. Do not discuss include_cached for
+skin, font or palette questions unless asked.
 For Google Analytics, gtag_id and analytics_id are independent settings;
 both configured values load both snippets. Do not claim that analytics_id
 conflicts with or breaks GA4.

@@ -1,0 +1,72 @@
+{
+  "worker_version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T13:28:23.982679Z",
+  "raw": [
+    "oct18-pass10-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 10,
+    "pass": 5,
+    "partial": 5,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 10
+  },
+  "reviews": [
+    {
+      "id": "installation-3",
+      "status": "partial",
+      "evidence": "Correctly recommends installing/enabling jekyll-include-cache and restarting the build; adds confusing, irrelevant advice telling the user not to discuss include_cached in skin/font/palette contexts."
+    },
+    {
+      "id": "configuration-2",
+      "status": "pass",
+      "evidence": "Correctly distinguishes HTML language metadata from full UI translation and gives a usable datetranslate example with the site-locale default and supported-language behavior."
+    },
+    {
+      "id": "search-comments-1",
+      "status": "pass",
+      "evidence": "Correctly explains that provider selection does not create the search page and gives the matching layout, title, permalink and publication check."
+    },
+    {
+      "id": "theming-1",
+      "status": "pass",
+      "evidence": "Names actual skins, links the visual catalog and explains that the selected skin belongs inside the existing chulapa-skin mapping."
+    },
+    {
+      "id": "layouts-1",
+      "status": "partial",
+      "evidence": "Correctly says explicit page front matter overrides defaults and identifies the posts scope, but omits the complete defaults YAML showing values.layout: default and the scope structure."
+    },
+    {
+      "id": "snippets-3",
+      "status": "pass",
+      "evidence": "Correctly states thumbnail_url is metadata rather than a visual poster, says values are not inferred, and gives ISO 8601 upload_date guidance."
+    },
+    {
+      "id": "faq-2",
+      "status": "pass",
+      "evidence": "Correctly names the before-CSS and end-of-body custom hooks, their include paths, and explains that the starter files are comment-only templates."
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "status": "partial",
+      "evidence": "Gives the embed path, provider, show_comments setting and publication check, but omits the public-repository/Discussions/app setup requirements and existing repo/category/thread mapping considerations."
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "status": "partial",
+      "evidence": "Correctly changes skin under the existing chulapa-skin mapping and preserves vars, but does not cover all requested checks for preserving other settings, duplicate mappings, existing overrides and mobile navigation."
+    },
+    {
+      "id": "format-alert-task-1",
+      "status": "partial",
+      "evidence": "Provides the correct alert class syntax and source, but does not clearly explain how to keep the alert from wrapping the preceding list; prose about a blank line before the attribute line conflicts with the required immediate placement."
+    }
+  ],
+  "limits": "Ten cases previously marked pass on 18 October were each sent once to Worker 8b59f0a7. All returned HTTP 200. This is a reviewed sample, not a measure of general accuracy or repeatability."
+}

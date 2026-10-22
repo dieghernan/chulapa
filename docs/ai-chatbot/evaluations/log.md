@@ -44,6 +44,9 @@ and detailed per-case evidence remain in the linked records.
 | 2026-10-22 | Previously untested batch 1 of 3 | 1 pass, 7 partial, 2 fail, 0 unavailable. All 10 returned HTTP 200. | Correct collection output advice; feed-selection and footnote return-link answers were inaccurate or incomplete. | [32-case review](untested32-2026-10-22-review.md#batch-1); [raw answers](untested-batch1-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
 | 2026-10-22 | Previously untested batch 2 of 3 | 2 pass, 7 partial, 1 fail, 0 unavailable. All 10 returned HTTP 200. | Installation and PhotoSwipe answers were sound; the carousel answer omitted keyboard/version guidance, and the migration mapping misstated local-search exclusion behavior. | [32-case review](untested32-2026-10-22-review.md#batch-2); [raw answers](untested-batch2-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
 | 2026-10-22 | Previously untested batch 3 of 3 | 2 pass, 6 partial, 4 fail, 0 unavailable. All 12 returned HTTP 200. | Search, site-details and SEO answers often missed required setup steps; YAML and sharing-image examples contained actionable errors. | [32-case review](untested32-2026-10-22-review.md#batch-3); [raw answers](untested-batch3-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
+| 2026-10-22 | Skin-context post-deployment retest | 0 pass, 4 partial, 0 fail, 1 unavailable. Four HTTP 200 and one HTTP 503. | Corrected configuration examples were mostly recovered, but Autothemer still omitted `skin: auto`; the floating-navigation answer added an unsupported search-page limit. The 503 answer was not retried. | [Review](skins-postdeploy-2026-10-22-review.md); [raw answers](skins-postdeploy-2026-10-22.jsonl). Worker `8b59f0a7-006b-45b4-a325-c84c43505ce5` served 100% of traffic. |
+| 2026-10-22 | Historical pass retest (latest pass dated 16 October or earlier) | 7 pass, 0 partial, 1 fail, 0 unavailable. All eight returned HTTP 200. | Seven answers passed; one older pass regressed by recommending root-level `highlight: dracula` rather than `chulapa-skin.highlight`. | [Review](historical-pass8-2026-10-22-review.md); [raw answers](historical-pass8-2026-10-22.jsonl). Worker `8b59f0a7-006b-45b4-a325-c84c43505ce5` served 100% of traffic. |
+| 2026-10-22 | Retest of ten 18 October pass cases | 5 pass, 5 partial, 0 fail, 0 unavailable. All 10 returned HTTP 200. | Search, theming catalog, localized dates, video metadata and custom hooks passed. Remaining omissions concern defaults YAML, Giscus prerequisites, skin-preservation checks and alert/list boundaries. | [Review](oct18-pass10-2026-10-22-review.md); [raw answers](oct18-pass10-2026-10-22.jsonl). Worker `8b59f0a7-006b-45b4-a325-c84c43505ce5` served 100% of traffic. |
 
 ## Updating this log
 
@@ -89,7 +92,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `appearance-auto-task-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `appearance-font-task-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `appearance-sass-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `appearance-skin-task-1` | pass | `65bb328b…` | 2026-10-18 |
+| `appearance-skin-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `assistant-session-history` | pass | `47cc2e30…` | 2026-10-22 |
 | `beginner-image-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `beginner-post-1` | pass | `738414cb…` | 2026-10-22 |
@@ -103,17 +106,17 @@ cells mean no live response for that case is present in the evaluation logs.
 | `comments-cactus-task-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `comments-cusdis-task-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-giscus-setup-1` | pass | `65bb328b…` | 2026-10-18 |
+| `comments-giscus-setup-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `comments-welcomments-task-1` | partial | `15036755…` | 2026-10-22 |
 | `community-1` | pass | `5266df62…` | 2026-10-22 |
-| `community-165` | fail | `15036755…` | 2026-10-22 |
+| `community-165` | partial | `8b59f0a7…` | 2026-10-22 |
 | `community-2` | pass | `5266df62…` | 2026-10-22 |
 | `community-3` | pass | `5266df62…` | 2026-10-22 |
 | `community-4` | partial | `5266df62…` | 2026-10-22 |
 | `community-5` | partial | `5266df62…` | 2026-10-22 |
 | `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 |
 | `configuration-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `configuration-2` | pass | `65bb328b…` | 2026-10-18 |
+| `configuration-2` | pass | `8b59f0a7…` | 2026-10-22 |
 | `configuration-3` | pass | `65bb328b…` | 2026-10-18 |
 | `configuration-4` | pass | `15036755…` | 2026-10-22 |
 | `configuration-5` | pass | `65bb328b…` | 2026-10-18 |
@@ -130,7 +133,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `documentation-installation-topics` | partial | `15036755…` | 2026-10-22 |
 | `documentation-search-topics` | unavailable | `d0e281c2…` | 2026-10-22 |
 | `faq-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `faq-2` | pass | `65bb328b…` | 2026-10-18 |
+| `faq-2` | pass | `8b59f0a7…` | 2026-10-22 |
 | `faq-3` | partial | `47cc2e30…` | 2026-10-22 |
 | `faq-4` | pass | `d0e281c2…` | 2026-10-22 |
 | `faq-5` | pass | `223eaf7d…` | 2026-10-18 |
@@ -140,7 +143,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `feed-collection-output-1` | pass | `15036755…` | 2026-10-22 |
 | `feed-selection-1` | fail | `15036755…` | 2026-10-22 |
 | `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 |
-| `format-alert-task-1` | pass | `65bb328b…` | 2026-10-18 |
+| `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `format-caption-task-1` | partial | `15036755…` | 2026-10-22 |
 | `format-footnote-task-1` | fail | `15036755…` | 2026-10-22 |
 | `goatcounter-analytics` | fail | `47cc2e30…` | 2026-10-22 |
@@ -149,18 +152,18 @@ cells mean no live response for that case is present in the evaluation logs.
 | `install-remote-task-1` | pass | `15036755…` | 2026-10-22 |
 | `installation-1` | pass | `d0e281c2…` | 2026-10-22 |
 | `installation-2` | pass | `d0e281c2…` | 2026-10-22 |
-| `installation-3` | pass | `65bb328b…` | 2026-10-18 |
+| `installation-3` | partial | `8b59f0a7…` | 2026-10-22 |
 | `installation-4` | pass | `65bb328b…` | 2026-10-18 |
 | `installation-5` | pass | `65bb328b…` | 2026-10-18 |
 | `installation-6` | pass | `223eaf7d…` | 2026-10-18 |
 | `javascript-resource-fallbacks` | partial | `47cc2e30…` | 2026-10-22 |
-| `layouts-1` | pass | `65bb328b…` | 2026-10-18 |
+| `layouts-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `layouts-2` | pass | `65bb328b…` | 2026-10-18 |
 | `layouts-3` | pass | `64ee01ab…` | 2026-10-18 |
 | `layouts-4` | pass | `65bb328b…` | 2026-10-18 |
 | `layouts-5` | pass | `65bb328b…` | 2026-10-18 |
 | `layouts-6` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-7` | pass | `7abff4f0…` | 2026-10-08 |
+| `layouts-7` | pass | `8b59f0a7…` | 2026-10-22 |
 | `layouts-head-formatting-1` | pass | `65bb328b…` | 2026-10-18 |
 | `layouts-include-cache-1` | pass | `5266df62…` | 2026-10-22 |
 | `layouts-label-headings-1` | partial | `5266df62…` | 2026-10-22 |
@@ -174,7 +177,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `media-gallery-task-1` | partial | `15036755…` | 2026-10-22 |
 | `media-photoswipe-task-1` | pass | `15036755…` | 2026-10-22 |
 | `media-video-task-1` | partial | `15036755…` | 2026-10-22 |
-| `mermaid-1` | pass | `013cd5dc…` | 2026-10-08 |
+| `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 |
 | `migration-fields-lookup-1` | fail | `15036755…` | 2026-10-22 |
 | `migration-theme-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `navigation-1` | pass | `5266df62…` | 2026-10-22 |
@@ -191,12 +194,12 @@ cells mean no live response for that case is present in the evaluation logs.
 | `reference-edge-cases-1` | pass | `cd95fb43…` | 2026-10-18 |
 | `reference-edge-cases-2` | pass | `cd95fb43…` | 2026-10-18 |
 | `reference-edge-cases-3` | pass | `5266df62…` | 2026-10-22 |
-| `reference-edge-cases-4` | pass | `82e28155…` | 2026-10-16 |
-| `reference-edge-cases-5` | pass | `82e28155…` | 2026-10-16 |
-| `reference-edge-cases-6` | pass | `82e28155…` | 2026-10-16 |
+| `reference-edge-cases-4` | pass | `8b59f0a7…` | 2026-10-22 |
+| `reference-edge-cases-5` | fail | `8b59f0a7…` | 2026-10-22 |
+| `reference-edge-cases-6` | pass | `8b59f0a7…` | 2026-10-22 |
 | `related-card-dates-1` | pass | `15036755…` | 2026-10-22 |
 | `resources-1` | partial | `5266df62…` | 2026-10-22 |
-| `search-comments-1` | pass | `65bb328b…` | 2026-10-18 |
+| `search-comments-1` | pass | `8b59f0a7…` | 2026-10-22 |
 | `search-comments-2` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 |
 | `search-comments-4` | partial | `5266df62…` | 2026-10-22 |
@@ -214,22 +217,22 @@ cells mean no live response for that case is present in the evaluation logs.
 | `sharing-task-1` | fail | `15036755…` | 2026-10-22 |
 | `sidebar-accessibility-focus` | partial | `47cc2e30…` | 2026-10-22 |
 | `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
-| `skin-font-failure-1` | fail | `15036755…` | 2026-10-22 |
+| `skin-font-failure-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `skin-palette-contrast-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `skins-bootswatch-originals-1` | fail | `47cc2e30…` | 2026-10-22 |
+| `skins-bootswatch-originals-1` | unavailable | `8b59f0a7…` | 2026-10-22 |
 | `snippet-parameter-reference` | pass | `47cc2e30…` | 2026-10-22 |
 | `snippets-1` | pass | `d0e281c2…` | 2026-10-22 |
 | `snippets-2` | pass | `47cc2e30…` | 2026-10-22 |
-| `snippets-3` | pass | `65bb328b…` | 2026-10-18 |
+| `snippets-3` | pass | `8b59f0a7…` | 2026-10-22 |
 | `snippets-4` | pass | `d0e281c2…` | 2026-10-22 |
 | `snippets-5` | pass | `65bb328b…` | 2026-10-18 |
 | `snippets-6` | pass | `65bb328b…` | 2026-10-18 |
 | `starter-1` | fail | `5266df62…` | 2026-10-22 |
 | `starter-2` | partial | `5266df62…` | 2026-10-22 |
 | `starter-demo-versus-site` | partial | `15036755…` | 2026-10-22 |
-| `theme-selector-demo-1` | fail | `15036755…` | 2026-10-22 |
-| `theming-1` | pass | `65bb328b…` | 2026-10-18 |
-| `theming-2` | partial | `15036755…` | 2026-10-22 |
+| `theme-selector-demo-1` | partial | `8b59f0a7…` | 2026-10-22 |
+| `theming-1` | pass | `8b59f0a7…` | 2026-10-22 |
+| `theming-2` | partial | `8b59f0a7…` | 2026-10-22 |
 | `theming-3` | pass | `65bb328b…` | 2026-10-18 |
 | `theming-4` | pass | `47cc2e30…` | 2026-10-22 |
 | `theming-5` | pass | `65bb328b…` | 2026-10-18 |
@@ -237,8 +240,8 @@ cells mean no live response for that case is present in the evaluation logs.
 | `toc-active-section` | pass | `47cc2e30…` | 2026-10-22 |
 | `troubleshoot-publishing-task-1` | partial | `15036755…` | 2026-10-22 |
 | `troubleshoot-yaml-task-1` | fail | `15036755…` | 2026-10-22 |
-| `variables-1` | pass | `d0becc8d…` | 2026-10-08 |
-| `variables-2` | pass | `d0becc8d…` | 2026-10-08 |
-| `variables-3` | pass | `d0becc8d…` | 2026-10-08 |
+| `variables-1` | pass | `8b59f0a7…` | 2026-10-22 |
+| `variables-2` | pass | `8b59f0a7…` | 2026-10-22 |
+| `variables-3` | pass | `8b59f0a7…` | 2026-10-22 |
 | `variables-unsupported` | pass | `5266df62…` | 2026-10-22 |
 | `version-task-1` | partial | `5266df62…` | 2026-10-22 |
