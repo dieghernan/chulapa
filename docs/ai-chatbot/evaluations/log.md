@@ -40,6 +40,7 @@ and detailed per-case evidence remain in the linked records.
 | 2026-10-22 | Post-deployment regression retest of 10 non-pass cases | 1 pass, 3 partial, 6 fail, 0 unavailable. All 10 returned HTTP 200. | GA4 guidance now correctly explains the independent legacy ID. Autothemer and Welcomments improved but still omit requested steps; publisher guidance still risks replacing existing fields. Six cases retain material errors. | [Review](retest10-postdeploy-2026-10-22-review.md); [raw answers](retest10-postdeploy-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
 | 2026-10-22 | Layout-focused post-deployment regression | 1 pass, 5 partial, 1 fail, 0 unavailable. All 7 returned HTTP 200. | The new-post workflow is corrected and cloud setup is substantially improved. Cloud fragment explanation remains materially inaccurate; other layout answers have narrower omissions. | [Review](layouts-postdeploy-2026-10-22-review.md); [raw answers](layouts-postdeploy-2026-10-22.jsonl). Worker `738414cb-3f77-4c67-a61f-25ca00f5c018` served 100% of traffic. |
 | 2026-10-22 | Final layout-focused post-deployment pass | 1 pass, 5 partial, 0 fail, 0 unavailable. All 6 returned HTTP 200. | The include-caching answer now covers page-specific inputs and development-only refactoring. The feed, heading-label, microformat, cloud setup and demo-fragment answers improved but still omit requested details. | [Review](layouts-final-2026-10-22-review.md); [raw answers](layouts-final-2026-10-22.jsonl). Worker `5266df62-1349-482e-a687-101e675c7721` served 100% of traffic. |
+| 2026-10-22 | Retest of 20 older non-pass cases | 10 pass, 8 partial, 2 fail, 0 unavailable. All 20 returned HTTP 200. | Social metadata, layout options, accessibility and community guidance improved. Navigation's GitHub-button advice and the portfolio starter workflow remain materially wrong; several other answers omit requested details. | [Review](older-nonpass20-2026-10-22-review.md); [raw answers](older-nonpass20-2026-10-22.jsonl). Worker `5266df62-1349-482e-a687-101e675c7721` served 100% of traffic. |
 | 2026-10-22 | Previously untested batch 1 of 3 | 1 pass, 7 partial, 2 fail, 0 unavailable. All 10 returned HTTP 200. | Correct collection output advice; feed-selection and footnote return-link answers were inaccurate or incomplete. | [32-case review](untested32-2026-10-22-review.md#batch-1); [raw answers](untested-batch1-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
 | 2026-10-22 | Previously untested batch 2 of 3 | 2 pass, 7 partial, 1 fail, 0 unavailable. All 10 returned HTTP 200. | Installation and PhotoSwipe answers were sound; the carousel answer omitted keyboard/version guidance, and the migration mapping misstated local-search exclusion behavior. | [32-case review](untested32-2026-10-22-review.md#batch-2); [raw answers](untested-batch2-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
 | 2026-10-22 | Previously untested batch 3 of 3 | 2 pass, 6 partial, 4 fail, 0 unavailable. All 12 returned HTTP 200. | Search, site-details and SEO answers often missed required setup steps; YAML and sharing-image examples contained actionable errors. | [32-case review](untested32-2026-10-22-review.md#batch-3); [raw answers](untested-batch3-2026-10-22.jsonl). Worker `15036755-2e9b-4112-8c0a-01b9348d7c62` served 100% of traffic. |
@@ -81,7 +82,7 @@ cells mean no live response for that case is present in the evaluation logs.
 
 | Case | Latest result | Worker version | Latest test (UTC) |
 | --- | --- | --- | --- |
-| `accessibility-1` | partial | `76f6dc51…` | 2026-10-08 |
+| `accessibility-1` | pass | `5266df62…` | 2026-10-22 |
 | `accessibility-task-reference-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `analytics-ga4-setup-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `analytics-goat-setup-1` | pass | `47cc2e30…` | 2026-10-22 |
@@ -104,12 +105,12 @@ cells mean no live response for that case is present in the evaluation logs.
 | `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `comments-giscus-setup-1` | pass | `65bb328b…` | 2026-10-18 |
 | `comments-welcomments-task-1` | partial | `15036755…` | 2026-10-22 |
-| `community-1` | pending review | `7abff4f0…` | 2026-10-08 |
+| `community-1` | pass | `5266df62…` | 2026-10-22 |
 | `community-165` | fail | `15036755…` | 2026-10-22 |
-| `community-2` | pending review | `7abff4f0…` | 2026-10-08 |
-| `community-3` | pending review | `343b7fbd…` | 2026-10-08 |
-| `community-4` | pending review | `343b7fbd…` | 2026-10-08 |
-| `community-5` | pending review | `7abff4f0…` | 2026-10-08 |
+| `community-2` | pass | `5266df62…` | 2026-10-22 |
+| `community-3` | pass | `5266df62…` | 2026-10-22 |
+| `community-4` | partial | `5266df62…` | 2026-10-22 |
+| `community-5` | partial | `5266df62…` | 2026-10-22 |
 | `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 |
 | `configuration-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `configuration-2` | pass | `65bb328b…` | 2026-10-18 |
@@ -176,9 +177,9 @@ cells mean no live response for that case is present in the evaluation logs.
 | `mermaid-1` | pass | `013cd5dc…` | 2026-10-08 |
 | `migration-fields-lookup-1` | fail | `15036755…` | 2026-10-22 |
 | `migration-theme-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `navigation-1` | pending review | `343b7fbd…` | 2026-10-08 |
-| `navigation-2` | pending review | `7abff4f0…` | 2026-10-08 |
-| `navigation-3` | pending review | `7abff4f0…` | 2026-10-08 |
+| `navigation-1` | pass | `5266df62…` | 2026-10-22 |
+| `navigation-2` | fail | `5266df62…` | 2026-10-22 |
+| `navigation-3` | partial | `5266df62…` | 2026-10-22 |
 | `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `person-publisher-task-1` | partial | `15036755…` | 2026-10-22 |
 | `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 |
@@ -189,16 +190,16 @@ cells mean no live response for that case is present in the evaluation logs.
 | `pwa-offline-status` | partial | `47cc2e30…` | 2026-10-22 |
 | `reference-edge-cases-1` | pass | `cd95fb43…` | 2026-10-18 |
 | `reference-edge-cases-2` | pass | `cd95fb43…` | 2026-10-18 |
-| `reference-edge-cases-3` | fail | `82e28155…` | 2026-10-16 |
+| `reference-edge-cases-3` | pass | `5266df62…` | 2026-10-22 |
 | `reference-edge-cases-4` | pass | `82e28155…` | 2026-10-16 |
 | `reference-edge-cases-5` | pass | `82e28155…` | 2026-10-16 |
 | `reference-edge-cases-6` | pass | `82e28155…` | 2026-10-16 |
 | `related-card-dates-1` | pass | `15036755…` | 2026-10-22 |
-| `resources-1` | fail | `76f6dc51…` | 2026-10-08 |
+| `resources-1` | partial | `5266df62…` | 2026-10-22 |
 | `search-comments-1` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-2` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 |
-| `search-comments-4` | partial | `65bb328b…` | 2026-10-18 |
+| `search-comments-4` | partial | `5266df62…` | 2026-10-22 |
 | `search-comments-5` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
 | `search-fusejs-setup-1` | partial | `15036755…` | 2026-10-22 |
@@ -206,10 +207,10 @@ cells mean no live response for that case is present in the evaluation logs.
 | `search-visibility-task-1` | fail | `15036755…` | 2026-10-22 |
 | `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 |
 | `semantic-html-accessibility` | fail | `47cc2e30…` | 2026-10-22 |
-| `seo-1` | pending review | `7abff4f0…` | 2026-10-08 |
-| `seo-2` | pending review | `7abff4f0…` | 2026-10-08 |
-| `seo-3` | pending review | `7abff4f0…` | 2026-10-08 |
-| `seo-4` | pending review | `7abff4f0…` | 2026-10-08 |
+| `seo-1` | partial | `5266df62…` | 2026-10-22 |
+| `seo-2` | pass | `5266df62…` | 2026-10-22 |
+| `seo-3` | pass | `5266df62…` | 2026-10-22 |
+| `seo-4` | pass | `5266df62…` | 2026-10-22 |
 | `sharing-task-1` | fail | `15036755…` | 2026-10-22 |
 | `sidebar-accessibility-focus` | partial | `47cc2e30…` | 2026-10-22 |
 | `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
@@ -223,8 +224,8 @@ cells mean no live response for that case is present in the evaluation logs.
 | `snippets-4` | pass | `d0e281c2…` | 2026-10-22 |
 | `snippets-5` | pass | `65bb328b…` | 2026-10-18 |
 | `snippets-6` | pass | `65bb328b…` | 2026-10-18 |
-| `starter-1` | partial | `140f5ab5…` | 2026-10-08 |
-| `starter-2` | partial | `fcb9e885…` | 2026-10-22 |
+| `starter-1` | fail | `5266df62…` | 2026-10-22 |
+| `starter-2` | partial | `5266df62…` | 2026-10-22 |
 | `starter-demo-versus-site` | partial | `15036755…` | 2026-10-22 |
 | `theme-selector-demo-1` | fail | `15036755…` | 2026-10-22 |
 | `theming-1` | pass | `65bb328b…` | 2026-10-18 |
@@ -239,5 +240,5 @@ cells mean no live response for that case is present in the evaluation logs.
 | `variables-1` | pass | `d0becc8d…` | 2026-10-08 |
 | `variables-2` | pass | `d0becc8d…` | 2026-10-08 |
 | `variables-3` | pass | `d0becc8d…` | 2026-10-08 |
-| `variables-unsupported` | unavailable | `d0becc8d…` | 2026-10-08 |
-| `version-task-1` | partial | `fcb9e885…` | 2026-10-22 |
+| `variables-unsupported` | pass | `5266df62…` | 2026-10-22 |
+| `version-task-1` | partial | `5266df62…` | 2026-10-22 |
