@@ -201,7 +201,7 @@ test('bundled deployment sends relevant bounded context and serves the widget', 
   const { default: bundled } = await import('./dashboard-worker.mjs');
   const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
   const env = environment(async (_, options) => {
-    assert.match(options.messages[0].content, /Pass all page-dependent inputs to include_cached/);
+    assert.match(options.messages[0].content, /Pass every page-dependent input to include_cached/);
     assert.doesNotMatch(options.messages[0].content, /comments\.website_id belongs ONLY/);
     assert.ok(options.messages[0].content.length < context.length, 'Task selection must not send the full library');
     assert.equal(options.messages[1].content, 'Explain include caching.');

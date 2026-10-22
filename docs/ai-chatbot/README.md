@@ -239,7 +239,9 @@ questions, malformed and oversized requests, missing bindings and inference
 failure. Test narrow screens, keyboard navigation, Escape and long answers.
 Mock tests verify failure handling; only live inference can establish model quality.
 See `evaluation.md` for recorded live questions, rate-limit observations and the
-context update procedure.
+context update procedure. The [consolidated evaluation log](evaluations/log.md)
+indexes reviewed historical batches and is updated after each completed,
+manually reviewed live run.
 
 Run the documented and community question batches with
 `node evaluate-live.mjs RUN-NAME`. To repeat selected cases, append comma-separated

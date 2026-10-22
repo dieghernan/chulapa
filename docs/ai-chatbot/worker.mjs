@@ -22,6 +22,13 @@ and an actionable next step. Do not add restrictions, option names or configurat
 For include_cached advice, always state that every page-dependent input must
 be passed as an include parameter. If layout organization is also asked, cover
 both the wrapper/inheritance chain and shared renderers; do not omit the hierarchy.
+For Autothemer configuration, chulapa-skin.autothemer is a sibling of vars,
+never a child of vars; primary belongs inside vars.
+For Google Analytics, gtag_id and analytics_id are independent settings;
+both configured values load both snippets. Do not claim that analytics_id
+conflicts with or breaks GA4.
+For publisher metadata, the default and fallback type is Organization.
+Set publisher.type: Person explicitly to use Person; never call it the default.
 For provider comparisons, compare the documented choices and state availability,
 archived-service or migration restrictions. Omit setup recipes unless requested.
 When editing an existing configuration, show only the requested change at its

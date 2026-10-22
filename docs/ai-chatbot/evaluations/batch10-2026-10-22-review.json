@@ -1,0 +1,76 @@
+{
+  "source_commit": "1c939433130ef8bb9ffc4f45320ca333ccf06208",
+  "worker_version": "d0e281c2-1481-4e8f-b134-76019808b140",
+  "script_etag": "7b5c40a58903cfe379d20cc0b2eb6ed705ef7da814dd8405d60dc50acabb7748",
+  "raw": [
+    "batch10-01-2026-10-22.jsonl",
+    "batch10-02-2026-10-22.jsonl",
+    "batch10-03-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "quota_before": "Cloudflare dashboard showed 81.13/10k neurons used today before the run. It still showed 81.13/10k after the run; dashboard reporting may lag.",
+  "totals": {
+    "requests": 10,
+    "pass": 6,
+    "partial": 3,
+    "fail": 0,
+    "unavailable": 1
+  },
+  "http_status_counts": {
+    "200": 9,
+    "503": 1
+  },
+  "reviews": [
+    {
+      "id": "installation-1",
+      "status": "pass",
+      "evidence": "Recommends the Chulapa 101 template, GitHub Actions publishing, required identity settings, home title and existing sample post edits; correctly explains baseurl handling and links the first-site tutorial."
+    },
+    {
+      "id": "snippets-1",
+      "status": "pass",
+      "evidence": "Complete local-video include uses fileurl without relative_url/baseurl duplication; includes a public playback check and the video guide."
+    },
+    {
+      "id": "photoswipe-gallery",
+      "status": "partial",
+      "evidence": "Correctly identifies v2.2.0, the boolean photoswipe=true include parameter, and that neither page YAML nor a plugin enables it. Adds a new gallery/image_col configuration although the question asks to enable an existing gallery; omits the default-off behavior and useful loading/fallback details."
+    },
+    {
+      "id": "second-photo-tutorial-1",
+      "status": "partial",
+      "evidence": "Correctly identifies the tutorial, page file, image, additive navbar entry, retained menu items and publishing check. Omits the published-starter prerequisite and relative_url behavior for the image; the suggested Settings > Pages navigation does not directly identify a Photo walk link there."
+    },
+    {
+      "id": "snippets-4",
+      "status": "pass",
+      "evidence": "Gives the required image_col defaults and complete masonry include with basename sorting, ascending order and random=false; correctly notes the v2.2.0 filename-sort fix and cites the gallery guides."
+    },
+    {
+      "id": "faq-4",
+      "status": "pass",
+      "evidence": "Provides usable alert attributes, image caption markup and kramdown footnote syntax with relevant source links."
+    },
+    {
+      "id": "content-toc-task-1",
+      "status": "partial",
+      "evidence": "Correctly distinguishes the content TOC from theme TOC and provides the no_toc and toc_levels syntax. Omits that eligible headings before the marker are included and does not tell the reader to preserve/merge an existing kramdown mapping."
+    },
+    {
+      "id": "documentation-search-topics",
+      "status": "unavailable",
+      "evidence": "HTTP 503 returned the fixed answer-verification fallback. Rejected model text is not available and is not scored as an answer or pass."
+    },
+    {
+      "id": "installation-2",
+      "status": "pass",
+      "evidence": "Correctly pins remote_theme to v2.2.0, removes conflicting theme settings, enables remote-theme/include-cache in Gemfile and plugins, preserves URL/search settings, reviews overrides and links migration guidance."
+    },
+    {
+      "id": "faq-1",
+      "status": "pass",
+      "evidence": "Correctly distinguishes remote_theme, Gemfile.lock and the published HTML marker; explains that the marker does not identify local overrides and links the version guide."
+    }
+  ],
+  "limits": "Ten independent requests on one deployed source are observations, not a general accuracy, repeatability, latency or human-usability result. The search-guide rejection is an unavailable answer. No retries were made."
+}

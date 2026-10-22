@@ -116,14 +116,14 @@
     "section": "configuration",
     "doc": "02_config.md",
     "question": "How do I configure a Person publisher? Does it change guest article authors?",
-    "expected": "publisher type Person name image; independent authors; logo ignored."
+    "expected": "Person is not the default: publisher defaults/falls back to Organization. Explicitly set type: Person in the existing publisher mapping and preserve other fields; logo ignored, image used; guest article authors unchanged."
   },
   {
     "id": "configuration-4",
     "section": "configuration",
     "doc": "02_config.md",
     "question": "How do I enable Google Analytics 4? Should I set analytics_id too?",
-    "expected": "gtag_id G-; analytics_id legacy; leave unused empty; both loads both."
+    "expected": "gtag_id G-; analytics_id is separate retired Universal Analytics; blank for a new GA4-only setup. If both are configured, both snippets load independently; do not claim conflict or breakage."
   },
   {
     "id": "configuration-5",
@@ -193,7 +193,7 @@
     "section": "theming",
     "doc": "03_theming.md",
     "question": "How do I enable Autothemer using a purple primary color? Show YAML.",
-    "expected": "autothemer true; vars.primary quotedhex."
+    "expected": "chulapa-skin.autothemer true is a sibling of vars, never nested inside vars; vars.primary is a quoted hex color."
   },
   {
     "id": "theming-3",

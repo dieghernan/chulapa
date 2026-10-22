@@ -1,5 +1,12 @@
 # Live evaluation
 
+## Consolidated batch log
+
+See the [consolidated live evaluation log](evaluations/log.md) for reviewed
+batch outcomes across historical and current Worker versions. Update it after
+manually reviewing each authorized live batch; keep results tied to their
+source revision and do not treat HTTP 200 as evidence of correctness.
+
 ## Launcher above the FAB, October 9, 2026
 
 Below 992 px, the launcher is stacked above the navbar FAB with a 1rem gap,

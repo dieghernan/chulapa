@@ -10,14 +10,8 @@ Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/
 ## First-site tutorial
 Source: https://dieghernan.github.io/chulapa/docs/00-start
 Methods: https://dieghernan.github.io/chulapa/docs/01-install
-1. Public repo: https://github.com/dieghernan/chulapa-101/generate . Demo: https://dieghernan.github.io/chulapa-101/ . Settings > Pages > GitHub Actions. No token/local install; workflow sets baseurl.
-2. _config.yml section A: title/description/author/repository/url; keep other settings.
-3. index.html: change ONLY home title, keep filename/content.
-4. Edit an EXISTING _posts/ sample: change title/body, keep filename/front matter. NOT a new post.
-5. Commit main/master; wait for Actions. Settings > Pages website: verify home title AND open edited article, verify title/body.
-Replace samples/photo/alt/credit/About contacts before sharing.
-Chulapa 101: one butterfly/butterfly-dim blog pinned @v2.2.0, three posts, credited photo, About, year/category/tag archives, Fuse.js/RSS. Keep index.html for pagination (5/page); _posts/, _pages/, assets/img/. Fuse indexes posts/About only. Navbar/footer: _config.yml.
-Starter: commented/empty sample fields, blog defaults/collections. _includes/custom/: comment-only custom_head_before_css.html, custom_head.html, custom_bottomscripts.html, giscus.html; skin unchanged. assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
+Use the public https://github.com/dieghernan/chulapa-101/generate template; demo: https://dieghernan.github.io/chulapa-101/. Enable Settings > Pages > GitHub Actions; no token/local install, workflow sets baseurl. Edit _config.yml title/description/author/repository/url, change only index.html's title, and edit an existing _posts sample's title/body while keeping filename/front matter. Commit main/master; wait for Actions and verify home/article via Settings > Pages. Replace sample content before sharing.
+Chulapa 101 is pinned @v2.2.0 with Butterfly/Butterfly Dim, three posts, About, archives, Fuse.js and RSS; keep index.html for pagination (5/page). Fuse indexes posts/About only; navbar/footer use _config.yml. Starter has commented/empty sample fields and blog defaults. _includes/custom/custom_head_before_css.html, custom_head.html, custom_bottomscripts.html and giscus.html are comment-only; assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
 Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. References/FAQ/tutorials retain direct routes. Providers are alternatives; analytics/distinct feed URLs can coexist. Badges link here; up to three optional cards. Blog tags separate.
@@ -59,7 +53,7 @@ https://dieghernan.github.io/chulapa/docs/16-create-page
 https://dieghernan.github.io/chulapa/docs/17-add-image
 https://dieghernan.github.io/chulapa/docs/42-unpublished-changes
 GitHub editing: Code > pencil (existing file), or Add file > Create new file. Save with Commit changes on publishing branch; Actions must succeed before checking Settings > Pages website. For missing changes check branch/build errors/site address and post dates, not just GitHub source preview.
-Post: _posts/YYYY-MM-DD-title.md, real non-future date. Complete example:
+For a new post, follow https://dieghernan.github.io/chulapa/docs/15-create-post: Code > Add file > Create new file; create _posts/YYYY-MM-DD-title.md with a real non-future date. Example:
 ```markdown
 ---
 layout: default
@@ -69,7 +63,7 @@ show_date: true
 ---
 My story begins here.
 ```
-Use ## inside article; layout supplies main heading. Public post URL follows permalink, not _posts path. Chulapa 101/personal-blog list posts on home; other designs need an index/link.
+Use ## inside article; layout supplies main heading. Public post URL follows permalink, not _posts path. Chulapa 101/personal-blog list posts on home; other designs need an index/link. The first-site tutorial edits its sample; use this new-file workflow when asked to create an article.
 Standalone page: _pages/contact.md in Chulapa 101, or root contact.md without _pages setup; front matter layout: default, header_type: base, title: Contact, permalink: /contact/. Preserve existing settings/address and avoid duplicate output paths. Add /contact/ to existing navbar.nav without baseurl; neither creating a file nor adding a menu entry creates the other.
 Images: Add file > Upload files into assets/img/, commit image and article edits. In content below front matter:
 ```liquid
@@ -100,16 +94,16 @@ Match indentation, retain all entries/settings; no second navbar or repository p
 Sources: https://dieghernan.github.io/chulapa/docs/02-config
 https://dieghernan.github.io/chulapa/docs/14-site-details
 Edit existing _config.yml fields, preserving unrelated config; restart local Jekyll after changes. Rename via title/description/author.name without changing url/baseurl/repository/permalinks. Chulapa 101's visible home heading separately uses index.html title; do not rename that file. Check browser title and heading. Page authors and custom footer.copyright are not rewritten; description metadata is not page prose.
-url is origin (https://username.github.io); baseurl is /repository or "" for root; repository is username/repository. Explicit values help custom/local canonical/feed/image URLs. locale controls HTML language; page can override. author mapping: name, url, avatar, location, links. author.url accepts profile URL or site-relative /about/, resolving with url/baseurl; default post article:author and dev u-url in visible author cards. Guest authors do not inherit site profile URL. Social profiles use author.links.
+url is origin (https://username.github.io); baseurl is /repository or "" for root; repository is username/repository. Explicit values help custom/local canonical/feed/image URLs. locale controls HTML language; page can override. author mapping: name, url, avatar, location, links. author.url accepts profile URL or site-relative /about/, resolving with url/baseurl. Visible author cards use the selected author's URL; a page-level guest author does not inherit the site author's URL. Social profiles use author.links.
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
-Since v2.1.0: publisher.type Person or Organization (default/fallback); name/url identify it. Organization uses logo; Person uses image, ignores logo. Paths use url/baseurl. Article authors unchanged. Verify publisher in the published application/ld+json publisher object, NOT the visible header/footer.
+Since v2.1.0: publisher.type accepts Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping and preserve other fields. name/url identify it. Organization uses logo; Person uses image and ignores logo. Paths use url/baseurl. Article authors unchanged. Verify published application/ld+json publisher, not header/footer.
 Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4. fa_kit_code replaces hosted CSS with kit. Legacy fa5_kit_code wins: remove on migration.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
 Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
-Set existing gtag_id to G- measurement ID from GA4 property's web stream. analytics_id is retired Universal Analytics; leave unused values blank. Both independently load snippets. Google tag is NOT production-gated: enabled ID loads during local preview too. Avoid duplicate scripts/custom includes; clear goatcounter for Google-only or gtag_id to disable GA4. Publish; verify matching property's Realtime report. Browser blockers/custom consent may block requests.
+Set gtag_id to GA4's G- measurement ID. analytics_id is separate, retired Universal Analytics; blank for GA4-only. Both are independent and, when set, load both snippets; no conflict. gtag_id loads in previews too. Avoid duplicate scripts; clear goatcounter for Google-only or gtag_id to disable GA4. Verify Realtime; blockers/consent may block requests.
 ## GoatCounter analytics (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/18-goatcounter
 Source: https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics
@@ -140,7 +134,7 @@ chulapa-skin.highlight: zenburn changes code appearance, not article typography.
 Source: https://dieghernan.github.io/chulapa/docs/26-appearance-precedence
 Source: https://dieghernan.github.io/chulapa/docs/27-autothemer
 Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
-Order: skin → vars → autothemer → Bootstrap → components. vars overrides skins; Autothemer fills only undefined colors from primary. Put autothemer: true beside vars under chulapa-skin; primary inside vars. none has no palette assignments; named skins retain theirs. false/omission disables the later step only; skin: auto imports the generator independently.
+Order: skin → vars → autothemer → Bootstrap → components. vars overrides skin; Autothemer fills undefined colors from primary. Scope: chulapa-skin.autothemer is a sibling of vars; chulapa-skin.vars.primary holds the color. Never nest autothemer inside vars. none assigns no palette; named skins retain theirs. Omit/false disables Autothemer; skin: auto imports the generator separately.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
 v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. /docs/48-accessibility-reference.
@@ -193,18 +187,17 @@ v2.2.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#minimal
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#archive
-Source: https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
 landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chulapa-text-color under chulapa-skin.vars.
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
-Dev: minimal omits h-entry; custom wrappers may use h-entry/p-name/u-url/e-content. default/landingpage retain it. Visible h-card uses selected author.url, resolves url/baseurl, never inherits site URL for guest. show_date retains dt-published alongside dt-updated.
-archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory: match permalink to cloudtag_url/cloudcategory_url; show_tags/show_categories show badges; include_collection scopes. v2.2.0 clouds honor candidate show_date: false: hide publication date/icon/separator; keep reading time. v2.2.0 keeps demo (formerly dmo); spaces→hyphens; update old manual dmo links.
+archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
 Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
 Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
 ## Related and random article cards
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On v2.2.0, a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
+related_label/random_label accept raw HTML rendered unchanged. Choose heading level by the section's place in the document hierarchy, not article heading levels; use class h5 for small text, e.g. <h2 class="h5">Related posts</h2>.
 ## Configuring site search
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/12-fusejs-search
@@ -327,8 +320,8 @@ Hooks (minimal/search too): _includes/custom/custom_head_before_css.html before 
 ## Layout structure and include caching
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
-jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments remain page-specific in footer.html. Pass all page-dependent inputs to include_cached; use ordinary include for helpers assigning caller variables (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
-Hierarchy (also v2.1.0): compress -> minimal -> default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
+jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments retain page-specific inputs in footer.html. Pass every page-dependent input to include_cached; use ordinary include for caller-assigning helpers (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
+Hierarchy: compress -> minimal -> default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring only: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
 Custom shells: components/scripts.html supplies common jQuery/Popper/Bootstrap and fab/dual chulapa_navigation.js once; inherited minimal/search handle this, minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters require assets/js/chulapa_search.js, provider library and generated store before adapter. Review overrides together during upgrades; standard layouts order dependencies.
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
@@ -360,7 +353,7 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dat
 locale sets HTML language, not full UI translation. datetranslate accepts English-formatted date; lang defaults site.locale, not page locale:
 {% assign formatted = page.date | date: "%A %d, %B %Y" %}
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
-English/French/Spanish/German/Italian; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English. Related/random labels allow raw HTML: preserve heading hierarchy, e.g. <h2 class="h5">Related posts</h2>.
+English/French/Spanish/German/Italian; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English.
 ## Additional navigation and community questions
 Published files stay public: robots.txt, robots noindex and sitemap: false are not access control. Privacy needs hosting authentication or not publishing.
 Header types: base, post, hero, image, splash (hero is not splash). project_links entries url/icon/label become header buttons. words_per_minute defaults 200. paginator_maxnum numbered window defaults 3, clamped 2..total; first/last/previous/next are separate.
@@ -398,9 +391,8 @@ PWA: no built-in service worker, offline cache or YAML enable switch. Docs favic
 Local Chulapa font assets use baseurl in CSS/preload; Google Fonts/Font Awesome external. Cactus JS/CSS only show_comments: true pages. Tests cover representative six skins/layouts, not WCAG certification, guaranteed PageSpeed/Core Web Vitals or all customizations.
 ## Inherited list microformats (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
-In v2.2.0: archive uses h-feed. Custom layouts inheriting archive through any number of layers retain h-feed. Keep the existing custom layout chain; no page YAML flag or layout change is needed.
-indexcategory, cloudtag and cloudcategory also use h-feed (cloudtag2/cloudcategory2 aliases). All inherit default.
-Feed heading/canonical identify the feed; visible author p-author; entries h-entry with title/URL/date. Groups can repeat docs. indexcards/simplelist mark entries; indexcards excerpts use p-summary. docs/blog/index.html pagination wraps each page in h-feed; custom component users supply their wrapper.
+v2.2.0 (not v2.1.0): archive/indexcategory/cloudtag/cloudcategory and deprecated cloudtag2/cloudcategory2 wrap h-entry items in h-feed. Inherited lists retain it. Keep the existing custom layout chain; no page setting. indexcards/simplelist mark entries only; custom pages need an h-feed wrapper. docs/blog/index.html wraps each paginated page; clouds may repeat documents.
+Article: minimal has no automatic h-entry; custom content may use h-entry with p-name/u-url/e-content. default/landingpage retain h-entry. Updated articles with show_date retain dt-published/dt-updated.
 ## Generated HTML formatting (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
 In v2.2.0: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries.
@@ -421,12 +413,21 @@ https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets
 Jekyll/plugin settings (not new theme API): include/exclude, collections_dir, permalink, defaults, pagination, excerpt_separator, kramdown, sass, compress_html. Usually retain starter values. Reference lists content snippets/parameters and separate metadata-helper inventory for custom layouts; ordinary posts need not invoke helpers.
 Gallery internal=image_col group, external=comma-separated URLs (internal wins). video fileurl wins; hosted videos need provider/id. Direct youtube.html is always deferred, has no nolazy; for immediate use video.html provider="youtube" nolazy=true. bootstrapdemo.html has no parameters, samples components for skins. Include booleans unquoted (photoswipe=true); quoted "false" can enable features.
 
+## Tag/category cloud setup
+Source: https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds
+Cloud index pages use layout cloudtag/cloudcategory, matching permalink /tags/ or /categories/, and include_collection: posts. Merge badge settings into existing _config.yml posts defaults:
+```yaml
+defaults:
+  - scope: {path: "", type: posts}
+    values: {cloudtag_url: /tags/, cloudcategory_url: /categories/, show_tags: true, show_categories: true}
+```
+These defaults affect posts, not cloud pages; omit repo prefix (baseurl is added). Other collections need matching scope/page and output: true; standalone pages are excluded. v2.2.0 cloud entries with show_date: false hide date/calendar/separator but retain reading time; v2.1.0 lacks this fix.
+The old demo bug was asymmetric: badges already linked to #demo while the cloud group was #dmo. v2.2.0 makes both #demo; spaces hyphenate (#demo-topic). Update only manually written old #dmo links; no YAML change fixes fragments.
 ## Correct file and option scopes
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults
 Source: https://dieghernan.github.io/chulapa/docs/03-theming#variables
 minimal can have a hero with show_header: true, header_type: hero and header_img, but show_author does not add an author panel to minimal.
-Related/random labels: user-supplied related_label/random_label HTML is rendered unchanged, not a hardcoded heading. Use <h2 class="h5">Related posts</h2> for small-looking level-2 text. Eligibility uses tags, not categories. show_random is an on/off switch, not a count; up to three from the eligible pool.
 Archive page front matter, NOT an archive mapping in _config.yml:
 ```yaml
 ---
@@ -436,18 +437,6 @@ include_missdates: true
 ---
 ```
 Five newest post cards need layout: indexcategory, include_collection: posts, index_sort: date, index_sort_asc: false, index_items: 5 in page front matter. Default sorting is name, not date.
-Tag indexes: cloudtag_url and show_tags belong to documents or defaults.values, not the root _config.yml. No cloudtag_label field.
-Merge into existing _config.yml defaults:
-```yaml
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      cloudtag_url: /tags/
-      show_tags: true
-```
-The index page needs layout: cloudtag and matching permalink; scope with include_collection. Use /docs/63-tag-category-clouds.
 Sass switches including enable-rounded belong under chulapa-skin.vars, never _config.yml root. Fonts already loaded via googlefonts do not also require custom_head.html; loading alone still needs font-family-base/headings-font-family vars.
 include_on_feed controls theme feeds only, NOT jekyll-feed. Plugin /feed.xml can coexist; /atom.xml or /rss.xml collisions must be resolved, never recommend replacing them with include_on_feed.
 ## Algolia search

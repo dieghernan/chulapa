@@ -1,0 +1,73 @@
+{
+  "source_commit": "d68277ec2461f813cbe0acf61a5901cf3d1906f5",
+  "worker_version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+  "script_etag": "7b5c40a58903cfe379d20cc0b2eb6ed705ef7da814dd8405d60dc50acabb7748",
+  "raw": [
+    "batch10b-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "quota_before": "Cloudflare dashboard showed 81.13/10k neurons used today before the run; the displayed figure may lag.",
+  "totals": {
+    "requests": 10,
+    "pass": 3,
+    "partial": 4,
+    "fail": 3,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 10
+  },
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "partial",
+      "evidence": "Correctly rejects blanket conversion to include_cached, identifies uncached caller-context helpers, explains passed page-dependent parameters and names shared index/recommendation components. Omits key layout details: landingpage inheritance/position, cached footer/cloud behavior and page-specific comments. Uses LaTeX arrows despite the plain-text-arrow instruction."
+    },
+    {
+      "id": "configuration-1",
+      "status": "pass",
+      "evidence": "In Spanish, gives url as the site origin and baseurl as /blog, with valid YAML."
+    },
+    {
+      "id": "configuration-4",
+      "status": "fail",
+      "evidence": "Correctly gives the GA4 gtag_id code, but falsely says a populated analytics_id may cause issues and should not be set. The documented behavior is that analytics_id is independent and both configured IDs load both snippets."
+    },
+    {
+      "id": "search-comments-3",
+      "status": "partial",
+      "evidence": "Correctly keeps ALGOLIA_API_KEY out of public configuration and its YAML places search_only_api_key under algolia. Contradictory prose says that key is a top-level sibling of search, which is the wrong nesting; the code is correct."
+    },
+    {
+      "id": "theming-2",
+      "status": "fail",
+      "evidence": "Places autothemer under chulapa-skin.vars, but the documented setting is chulapa-skin.autothemer alongside vars. The provided configuration therefore does not enable the requested feature. Also uses LaTeX arrows."
+    },
+    {
+      "id": "theming-4",
+      "status": "pass",
+      "evidence": "Correctly distinguishes loading the font stylesheet from assigning font-family-base and headings-font-family, with complete quoted YAML and a rebuild/check."
+    },
+    {
+      "id": "snippets-2",
+      "status": "pass",
+      "evidence": "Correctly uses video_res=hqdefault for a missing maxresdefault preview and nolazy=true to remove click-to-load activation, while noting browser lazy loading remains. Correctly distinguishes metadata thumbnail_url from the preview."
+    },
+    {
+      "id": "faq-3",
+      "status": "partial",
+      "evidence": "Identifies the custom_head include, generated favicon assets and baseurl requirement. The opening says explicit links belong in configuration, which is imprecise, and it omits a concrete baseurl-aware link specimen and preservation of existing favicon links."
+    },
+    {
+      "id": "provider-lunr-task-1",
+      "status": "partial",
+      "evidence": "Correct provider setting, local build-time indexing, legacy max-word caveat and Lunr link. Omits preserving other search settings, checking/reusing or creating the matching search page/permalink, avoiding duplicate output/baseurl and a concrete result verification."
+    },
+    {
+      "id": "person-publisher-task-1",
+      "status": "fail",
+      "evidence": "Falsely states Person is the default/fallback publisher type; documentation defaults to Organization and unsupported types fall back to Organization. The example also presents a replacement publisher mapping without instructing the reader to preserve existing fields."
+    }
+  ],
+  "limits": "Ten independent observations of this deployed source do not establish general answer accuracy, repeatability, latency distributions or human usability. All requests returned HTTP 200; that is not itself evidence of correctness. No retries were made."
+}
