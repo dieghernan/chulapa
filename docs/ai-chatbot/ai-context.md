@@ -1,9 +1,9 @@
 # Chulapa documentation context
 
-Tag v2.2.0 pending: use @v2.1.0 until published; 2.2.0 features absent there.
-Target: v2.2.0; new features absent from v2.1.0. Verify tag/gem publication separately.
+v2.2.0 published on GitHub/RubyGems 21 Oct 2026; use @v2.2.0 for remote_theme.
+Current release: v2.2.0; new features absent from v2.1.0. Verify the installed tag/gem version.
 
-21 Oct 2026. llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
+22 Oct 2026. llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
 Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other Jekyll hosts. Search, SEO, multi-author, code highlighting, MathJax, galleries, comments.
@@ -16,7 +16,7 @@ Methods: https://dieghernan.github.io/chulapa/docs/01-install
 4. Edit an EXISTING _posts/ sample: change title/body, keep filename/front matter. NOT a new post.
 5. Commit main/master; wait for Actions. Settings > Pages website: verify home title AND open edited article, verify title/body.
 Replace samples/photo/alt/credit/About contacts before sharing.
-Chulapa 101: one gitdev blog, three posts, credited photo, About, year/category/tag archives, Fuse.js/RSS. Keep index.html for pagination (5/page); _posts/, _pages/, assets/img/. Fuse indexes posts/About only. Navbar/footer: _config.yml.
+Chulapa 101: one butterfly/butterfly-dim blog pinned @v2.2.0, three posts, credited photo, About, year/category/tag archives, Fuse.js/RSS. Keep index.html for pagination (5/page); _posts/, _pages/, assets/img/. Fuse indexes posts/About only. Navbar/footer: _config.yml.
 Starter: commented/empty sample fields, blog defaults/collections. _includes/custom/: comment-only custom_head_before_css.html, custom_head.html, custom_bottomscripts.html, giscus.html; skin unchanged. assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags

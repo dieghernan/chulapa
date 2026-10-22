@@ -8,12 +8,6 @@ show_related: true
 cloudtag_url: /docs/tags
 ---
 
-**Publication pending:** the v2.2.0 instructions below are prepared for the next
-release; its tag is not available yet. Until publication, use `@v2.1.0` instead
-of `@v2.2.0` in `remote_theme`. Features marked v2.2.0, including Mermaid,
-PhotoSwipe and GoatCounter, are absent from v2.1.0.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
 Use this guide when you already have a working Jekyll site, a `Gemfile` and
 Bundler available. For your first website, use [the browser tutorial](./00-start).
 If you are replacing another theme, follow the [migration checklist](./07-migration)

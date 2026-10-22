@@ -102,7 +102,7 @@
     "section": "installation",
     "doc": "00_start.md",
     "question": "What does chulapa-101 include, where do I edit it and does it select one of four starter profiles?",
-    "expected": "One personal blog with three sample posts, About, local credited photo, year/category/tag archives, Fuse.js search and RSS, using predefined gitdev. Root index.html is paginated at five posts per page; content in _posts, _pages and assets/img, navigation in _config.yml, which follows full theme sections/comments with empty unused options and blog-specific defaults. Optional comment-only _includes/custom hooks and assets/css/custom.scss with front matter are included, without changing the skin. No profile selector or extra build script. Existing publishing workflows are included; distinct from four minimal examples without workflows."
+    "expected": "One personal blog with three sample posts, About, local credited photo, year/category/tag archives, Fuse.js search and RSS, using predefined Butterfly/Butterfly Dim with the Light/Dark/Auto selector, pinned to v2.2.0. Root index.html is paginated at five posts per page; content in _posts, _pages and assets/img, navigation in _config.yml, which follows full theme sections/comments with empty unused options and blog-specific defaults. Optional comment-only _includes/custom hooks and assets/css/custom.scss with front matter are included, without changing the skin. No profile selector or extra build script. Existing publishing workflows are included; distinct from four minimal examples without workflows."
   },
   {
     "id": "accessibility-1",
@@ -512,7 +512,7 @@
     "section": "version",
     "doc": "55_check-theme-version.md",
     "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme? Does v2.2.0 mean I can already install a published 2.2.0 release?",
-    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build; a version marker or local gem alone does not prove publication. The documentation targets v2.2.0; verify the actual tag or RubyGems publication separately. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; inspect remote_theme; tags select releases, unpinned/branch values can move. No documented exact-remote-commit procedure."
+    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The unreleased suffix marks a development build; a version marker or local gem alone does not prove publication. Version v2.2.0 is published on GitHub and RubyGems; verify the tag or resolved installed gem separately. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; inspect remote_theme; tags select releases, unpinned/branch values can move. No documented exact-remote-commit procedure."
   },
   {
     "id": "feed-coexistence-1",
