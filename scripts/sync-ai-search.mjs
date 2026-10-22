@@ -127,9 +127,14 @@ function cleanForIndex(html, key) {
   const content = extractClassElement(html, 'e-content');
   if (!content) throw new Error(`Could not find .e-content in ${key}.`);
 
-  const cleaned = content
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+  let cleaned = content;
+  while (true) {
+    const next = cleaned
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+    if (next === cleaned) break;
+    cleaned = next;
+  }
 
   const title = pageTitle(html);
   const description = metaContent(html, 'description');
