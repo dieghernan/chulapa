@@ -97,21 +97,23 @@ function pageTitle(html) {
 }
 
 function extractClassElement(html, className) {
-  const opening = new RegExp(`<([a-z][\\w:-]*)\\b[^>]*\\bclass=["'][^"']*(?:^|\\s)${className}(?:\\s|$)[^"']*["'][^>]*>`, 'i');
-  const match = opening.exec(html);
-  if (!match) return '';
+  const opening = /<([a-z][\w:-]*)\b[^>]*\bclass=["']([^"']*)["'][^>]*>/gi;
+  let match;
+  while ((match = opening.exec(html))) {
+    if (!match[2].split(/\s+/).includes(className)) continue;
 
-  const tag = match[1];
-  const start = match.index;
-  const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
-  tags.lastIndex = start;
-  let depth = 0;
-  let token;
+    const tag = match[1];
+    const start = match.index;
+    const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+    tags.lastIndex = start;
+    let depth = 0;
+    let token;
 
-  while ((token = tags.exec(html))) {
-    if (/^<\//.test(token[0])) depth--;
-    else if (!/\/>$/.test(token[0])) depth++;
-    if (depth === 0) return html.slice(start, tags.lastIndex);
+    while ((token = tags.exec(html))) {
+      if (/^<\//.test(token[0])) depth--;
+      else if (!/\/>$/.test(token[0])) depth++;
+      if (depth === 0) return html.slice(start, tags.lastIndex);
+    }
   }
   return '';
 }
