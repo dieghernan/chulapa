@@ -1,3 +1,6 @@
+# Example for sites using Algolia: copy this workflow and adapt the branches,
+# Ruby version and jekyll_src. Configure the ALGOLIA_API_KEY repository secret.
+# Installing the theme does not install or enable this workflow in another repo.
 on:
   push:
     branches:

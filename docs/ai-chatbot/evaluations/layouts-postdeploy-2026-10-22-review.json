@@ -1,0 +1,57 @@
+{
+  "worker_version": "738414cb-3f77-4c67-a61f-25ca00f5c018",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T12:45:19.21063Z",
+  "raw": [
+    "layouts-postdeploy-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 7,
+    "pass": 1,
+    "partial": 5,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 7
+  },
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "partial",
+      "evidence": "Correctly rejects blanket include_cached replacement, distinguishes caller-assigning helpers and context-reading hooks, explains parameter passing, identifies the hierarchy and shared components. Omits that comments retain page-specific inputs and needs a clearer version caveat for development refactoring."
+    },
+    {
+      "id": "layouts-microformats-feed-1",
+      "status": "partial",
+      "evidence": "Correctly lists the four layouts and aliases, says indexcards alone does not create h-feed, requires a wrapper for custom pages, and avoids inventing YAML. Omits simplelist, the v2.1.0 availability caveat, the pagination example and repeated cloud entries."
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "status": "partial",
+      "evidence": "Correctly says the heading level follows document hierarchy and uses h5 for visual sizing. Does not explain that related_label/random_label accept unchanged HTML, suggests manually adding content instead of configuring the label, and cites the unrelated date-localization anchor."
+    },
+    {
+      "id": "layouts-microformats-1",
+      "status": "partial",
+      "evidence": "Correctly explains minimal versus default/landingpage h-entry behavior, custom properties, updated dates and no guest URL inheritance. Omits relative author URL resolution through url/baseurl."
+    },
+    {
+      "id": "beginner-post-1",
+      "status": "pass",
+      "evidence": "Gives the GitHub create-file path, dated _posts filename, complete valid front matter/body, publishing-branch commit, Actions wait and published-site verification. Links the create-post guide without requiring local tools."
+    },
+    {
+      "id": "cloud-task-1",
+      "status": "partial",
+      "evidence": "Provides matching cloud layouts, permalinks, posts scope, badge defaults, include_collection and output requirements. Omits the baseurl/no-repository-prefix rule, preserve-existing-defaults guidance, published-link verification, and v2.2.0 show_date false behavior/version distinction."
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "status": "fail",
+      "evidence": "The answer still misstates the original asymmetric bug as both badges and groups using #dmo. Its unrelated defaults YAML cannot fix fragments and falsely implies it should be changed; despite naming the corrected #demo and #demo-topic targets, it gives materially inaccurate explanation and remediation."
+    }
+  ],
+  "limits": "Seven selected observations on Worker 738414cb do not establish general answer accuracy, repeatability, latency distributions or usability. All seven returned HTTP 200; review labels are based on answer content."
+}

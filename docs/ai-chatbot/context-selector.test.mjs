@@ -8,9 +8,9 @@ const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8'
 test('light and dark selector questions receive activation, inheritance and version limits', () => {
   const selected = selectContext(context, 'How do I add the Light, Dark and Auto dropdown to my Chulapa site?');
   assert.ok(selected.titles.includes('Light/dark/auto selector'));
-  assert.match(selected.text, /Omitted dark highlight inherits light highlight/);
-  assert.match(selected.text, /Absent dark mapping: no additional scripts or styles/);
-  assert.match(selected.text, /2\.2\.0\+, absent v2\.1\.0/);
+  assert.match(selected.text, /Omitted dark highlight inherits light, then default/);
+  assert.match(selected.text, /Blank dark disables/);
+  assert.match(selected.text, /2\.2\.0\+ only, not v2\.1\.0/);
 });
 
 const releaseRoutes = [
@@ -54,6 +54,57 @@ test('Spanish queries and scoped parameters retrieve the matching recipe', () =>
   assert.ok(selectContext(context, 'How do I disable rounded buttons?').titles.includes('Correct file and option scopes'));
 });
 
+test('high-risk configuration answers select explicit nesting, independence and defaults', () => {
+  const autothemer = selectContext(context, 'How do I enable Autothemer using a purple primary color? Show YAML.');
+  assert.match(autothemer.text, /chulapa-skin\.autothemer is a sibling of vars/);
+  assert.match(autothemer.text, /primary belongs inside vars/);
+  assert.match(autothemer.text, /Never nest autothemer inside vars/);
+  assert.match(autothemer.text, /Preserve current skin unless asked/);
+  const paletteExample = [...autothemer.text.matchAll(/```yaml\r?\n([\s\S]*?)```/g)]
+    .map(match => match[1]).find(code => /autothemer: true/.test(code));
+  assert.ok(paletteExample, 'Autothemer setup includes a complete YAML example');
+  assert.match(paletteExample, /primary: "#800080"/);
+  assert.doesNotMatch(paletteExample, /^\s*skin:/m, 'Enabling Autothemer must not replace the selected skin');
+  assert.match(autothemer.text, /autothemer: true/);
+
+  const analytics = selectContext(context, 'How do I enable Google Analytics 4? Should I set analytics_id too?');
+  assert.match(analytics.text, /analytics_id is separate, retired Universal Analytics/);
+  assert.match(analytics.text, /Both are independent and, when set, load both snippets; no conflict/);
+
+  const publisher = selectContext(context, 'How do I make my personal blog publisher a Person?');
+  assert.match(publisher.text, /default\/fallback is Organization/);
+  assert.match(publisher.text, /Set type: Person explicitly in the existing mapping/);
+});
+
+test('skin answers retrieve valid nesting, release boundaries and original palette behavior', () => {
+  const selector = selectContext(context, 'The component demo shows a theme selector, but I have not enabled dark mode. Does seeing that example activate it?');
+  assert.ok(selector.titles.includes('Light/dark/auto selector'));
+  assert.match(selector.text, /chulapa-skin-dark is a separate top-level mapping, never nested or scalar/);
+  assert.match(selector.text, /chulapa-skin-dark:\n  skin: gitdev-dark/);
+  assert.doesNotMatch(selector.text, /chulapa-skin:\s*Light/);
+
+  const community = selectContext(context, 'How can I add the Light, Dark and Auto dropdown? Does it work in v2.1.0?');
+  assert.match(community.text, /2\.2\.0\+ only, not v2\.1\.0/);
+  assert.match(community.text, /chulapa-skin-dark is a separate top-level mapping/);
+
+  const fonts = selectContext(context, 'Can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?');
+  assert.match(fonts.text, /Google Fonts failure falls back/);
+  assert.match(fonts.text, /switching needs complete skin\/highlighter CSS/);
+  assert.match(fonts.text, /completion marker/);
+
+  const boot = selectContext(context, 'Can I use Cerulean, Litera or Pulse, and have their original Bootswatch colors been changed for AA?');
+  assert.match(boot.text, /original Bootswatch 4\.6\.2 palettes\/typography\/components/);
+  assert.match(boot.text, /Not included in AA adjustments/);
+
+  const skin = selectContext(context, 'How do I change the current skin to journal and preserve my other settings?');
+  assert.match(skin.text, /chulapa-skin:\n  skin: journal/);
+  assert.doesNotMatch(skin.text, /```yaml\nskin: journal/);
+
+  const auto = selectContext(context, 'How do I enable Autothemer using a purple primary color? Show YAML.');
+  assert.match(auto.text, /chulapa-skin\.autothemer is a sibling of vars/);
+  assert.match(auto.text, /autothemer: true/);
+});
+
 test('all catalog questions stay within the input cap without cutting source sections', () => {
   const cases = ['evaluation-cases.json', 'evaluation-extra-cases.json', 'evaluation-community-cases.json']
     .flatMap(file => JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')));
@@ -76,14 +127,40 @@ test('layout regressions retain their own release constraints and caller inputs'
   const inherited = selectContext(context, 'My custom2 inherits custom1 which inherits archive. Will it still be h-feed?');
   assert.ok(inherited.titles.includes('Inherited list microformats (v2.2.0)'));
   assert.match(inherited.text, /Keep the existing custom layout chain/);
+  assert.match(inherited.text, /and deprecated cloudtag2\/cloudcategory2 wrap h-entry items/);
   const formatting = selectContext(context, 'Can I keep head and footer readable with indentation?');
   assert.ok(formatting.titles.includes('Generated HTML formatting (v2.2.0)'));
   const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (v2.2.0)');
   assert.match(section.text, /In v2.2.0:/);
   const caching = selectContext(context, 'Can I replace every include with include_cached?');
-  assert.match(caching.text, /Pass all page-dependent inputs/);
+  assert.ok(caching.titles.includes('Layout structure and include caching'));
+  assert.match(caching.text, /Pass every page-dependent input to include_cached/);
+  assert.match(caching.text, /Dev caches fixed footer\/cloud entries/);
   const random = selectContext(context, 'My random article panel has only one eligible document.');
   assert.match(random.text, /singleton pool renders exactly one card/);
+  const labels = selectContext(context, 'W3C says my Related posts h5 skips heading levels. Does Chulapa choose that heading?');
+  assert.match(labels.text, /related_label\/random_label accept raw HTML rendered unchanged/);
+  assert.match(labels.text, /Choose heading level by the section's place/);
+});
+
+test('content answers distinguish editing the starter sample from creating a new post', () => {
+  const selected = selectContext(context, 'I have never used Jekyll. How do I add my first blog post using only GitHub in the browser?');
+  assert.match(selected.text, /Code > Add file > Create new file/);
+  assert.match(selected.text, /The first-site tutorial edits its sample; use this new-file workflow/);
+  assert.match(selected.text, /15-create-post/);
+});
+
+test('cloud setup context separates post defaults from index-page collection scope', () => {
+  const selected = selectContext(context, 'How do I connect post tag/category badges to grouped index pages on a project site?');
+  assert.ok(selected.titles.includes('Tag/category cloud setup'));
+  assert.match(selected.text, /type: posts/);
+  assert.match(selected.text, /cloudtag_url: \/tags\//);
+  assert.match(selected.text, /cloudcategory_url: \/categories\//);
+  assert.match(selected.text, /include_collection: posts/);
+  assert.match(selected.text, /#demo-topic/);
+  assert.match(selected.text, /badges already linked to #demo while the cloud group was #dmo/);
+  assert.match(selected.text, /no YAML change fixes fragments/);
+  assert.match(selected.text, /v2.1.0 lacks this fix/);
 });
 
 test('catalog questions select task sections when only a documented body value names the topic', () => {
@@ -106,7 +183,7 @@ test('catalog questions select task sections when only a documented body value n
     const selected = selectContext(context, cases.find(item => item.id === id).question);
     for (const title of required) assert.ok(selected.titles.includes(title), `${id}: ${title}`);
   }
-  assert.match(selectContext(context, cases.find(item => item.id === 'appearance-skin-task-1').question).text, /Keep vars, highlight and other settings/);
+  assert.match(selectContext(context, cases.find(item => item.id === 'appearance-skin-task-1').question).text, /preserve vars\/highlight/);
 });
 
 test('citation validation covers prose URL forms and ignores literal code examples', () => {

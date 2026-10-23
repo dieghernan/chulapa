@@ -1,0 +1,245 @@
+{
+  "worker_version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+  "worker_traffic_percent": 100,
+  "response_window": {
+    "start": "2026-10-22T12:12:07.403Z",
+    "end": "2026-10-22T12:20:30.921Z"
+  },
+  "raw": [
+    "untested-batch1-2026-10-22.jsonl",
+    "untested-batch2-2026-10-22.jsonl",
+    "untested-batch3-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 32,
+    "pass": 5,
+    "partial": 20,
+    "fail": 7,
+    "unavailable": 0
+  },
+  "batches": [
+    {
+      "name": "untested-batch1-2026-10-22",
+      "requests": 10,
+      "pass": 1,
+      "partial": 7,
+      "fail": 2,
+      "unavailable": 0
+    },
+    {
+      "name": "untested-batch2-2026-10-22",
+      "requests": 10,
+      "pass": 2,
+      "partial": 7,
+      "fail": 1,
+      "unavailable": 0
+    },
+    {
+      "name": "untested-batch3-2026-10-22",
+      "requests": 12,
+      "pass": 2,
+      "partial": 6,
+      "fail": 4,
+      "unavailable": 0
+    }
+  ],
+  "http_status_counts": {
+    "200": 32
+  },
+  "reviews": [
+    {
+      "id": "footer-edit-existing-1",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Gives the correct additive footer.links entry and preserves existing links/copyright, but the verification is vague and does not tell the reader to follow the contact link after publication."
+    },
+    {
+      "id": "format-caption-task-1",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Shows descriptive alt text, a relative_url image, blank line, caption and immediate .caption attribute. Omits checking the actual published image/caption."
+    },
+    {
+      "id": "format-footnote-task-1",
+      "batch": 1,
+      "status": "fail",
+      "evidence": "Gives valid footnote syntax but falsely says the context lacks return-link guidance; does not verify the generated backlink or keyboard operation."
+    },
+    {
+      "id": "favicon-task-1",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Correctly distinguishes project sites and calls for a custom-head hook plus baseurl, but omits a complete relative_url link, preservation of existing head content and checking the actual icon URL."
+    },
+    {
+      "id": "feed-coexistence-1",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Correctly distinguishes built-in feeds from jekyll-feed and warns about same-path collisions. Omits preserving the existing subscription address and the theme's standard feed links in the document head."
+    },
+    {
+      "id": "feed-selection-1",
+      "batch": 1,
+      "status": "fail",
+      "evidence": "Correctly covers post inclusion and exclusion, but claims a standalone page can be added to the feed with layout/permalink. Ordinary pages outside collections are not selected this way; collection date requirements are also omitted."
+    },
+    {
+      "id": "feed-collection-output-1",
+      "batch": 1,
+      "status": "pass",
+      "evidence": "Correctly distinguishes feed selection from collection publication and gives output: true for a collection document."
+    },
+    {
+      "id": "documentation-content-publishing-topics",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Links relevant task guides and correctly distinguishes blog tags, but omits that topic coverage is partial and the full /docs destination."
+    },
+    {
+      "id": "documentation-installation-topics",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Correctly says installation methods are alternatives and links starter/version material. The generic topic link is mislabeled as a dedicated installation topic, and the method directory and first-site tutorial destinations are missing."
+    },
+    {
+      "id": "documentation-identity-topics",
+      "batch": 1,
+      "status": "partial",
+      "evidence": "Gives relevant favicon, fonts, icons and publisher pages, but omits the full documentation index and that topic coverage is partial."
+    },
+    {
+      "id": "install-remote-task-1",
+      "batch": 2,
+      "status": "pass",
+      "evidence": "Gives the pinned remote-theme path, preserves dependencies, enables both required plugins, installs dependencies, reviews overrides and retains or adapts the publishing workflow."
+    },
+    {
+      "id": "install-gem-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Gives the gem, theme setting, cache plugin, update command and override review, but does not explicitly remove the unused remote-theme plugin or explain how to publish and verify the migrated site."
+    },
+    {
+      "id": "media-gallery-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Gives a scoped image group, valid masonry include, filename ordering and published check. Omits the required v2.2.0 limitation for filename sorting and the instruction to append only to an existing defaults list."
+    },
+    {
+      "id": "media-carousel-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Correctly uses interval=0 and explains the play/pause control behavior, but omits the v2.2.0 keyboard-control limitation and the requested keyboard check."
+    },
+    {
+      "id": "media-photoswipe-task-1",
+      "batch": 2,
+      "status": "pass",
+      "evidence": "Correctly identifies the v2.2.0 requirement, the photoswipe=true include parameter, upgrade path and published lightbox check."
+    },
+    {
+      "id": "media-video-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Correctly explains the video include, nolazy, browser lazy loading and v2.2.0 accessible names/fallback. Omits that click-to-load is the default activation behavior."
+    },
+    {
+      "id": "media-diagram-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Correctly covers the boolean setting, fenced diagram, version and accessibility labels, but omits the supported layout/plugin boundaries and visible source fallback behavior."
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "batch": 2,
+      "status": "fail",
+      "evidence": "Links the reference and distinguishes Algolia exclusions, but incorrectly says include_on_search: false affects ranking rather than local-index inclusion and provides none of the requested field mappings."
+    },
+    {
+      "id": "icon-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Gives an accessible decorative icon example and supported Font Awesome version settings, but omits placement below front matter, avoiding duplicate loaders and verifying blocked resources/published output."
+    },
+    {
+      "id": "localized-date-task-1",
+      "batch": 2,
+      "status": "partial",
+      "evidence": "Gives a valid Spanish date include and correctly says locale is not a full UI translation, but omits supported languages and date-format limitations."
+    },
+    {
+      "id": "search-fusejs-setup-1",
+      "batch": 3,
+      "status": "partial",
+      "evidence": "Correctly configures Fuse.js at /find, requires a matching search page and handles baseurl, but omits a concrete page example and published known-title verification."
+    },
+    {
+      "id": "search-no-navbar-links-1",
+      "batch": 3,
+      "status": "pass",
+      "evidence": "Correctly distinguishes the provider, search page and classic/desktop-dual navigation link, with a usable menu entry and publication check."
+    },
+    {
+      "id": "site-details-edit-1",
+      "batch": 3,
+      "status": "partial",
+      "evidence": "Correctly preserves URLs, edits the existing home page and protects author fields, but omits the publishing-branch/Actions workflow and browser-title/home-heading verification."
+    },
+    {
+      "id": "related-card-dates-1",
+      "batch": 3,
+      "status": "pass",
+      "evidence": "Correctly uses existing show_date: false on candidate documents/defaults and states that reading time remains visible."
+    },
+    {
+      "id": "provider-simplesearch-task-1",
+      "batch": 3,
+      "status": "partial",
+      "evidence": "Correctly says no hosted account is needed and gives provider/page configuration. Omits preserving existing settings, a published result/clear check and a direct setup guide."
+    },
+    {
+      "id": "provider-google-task-1",
+      "batch": 3,
+      "status": "fail",
+      "evidence": "Correctly says a Jekyll rebuild does not upload pages to Google, but omits search.provider: google, the matching search page and any actionable verification."
+    },
+    {
+      "id": "provider-algolia-task-1",
+      "batch": 3,
+      "status": "partial",
+      "evidence": "Correctly separates public and indexing keys, explains exclusions, plugin setup and upload verification, but omits the required application/index/public-key configuration and matching search page."
+    },
+    {
+      "id": "troubleshoot-publishing-task-1",
+      "batch": 3,
+      "status": "partial",
+      "evidence": "Gives useful branch, Actions, Pages address and date/build checks, but omits checking the actual permalink and restarting local Jekyll after config edits."
+    },
+    {
+      "id": "troubleshoot-yaml-task-1",
+      "batch": 3,
+      "status": "fail",
+      "evidence": "Responds with unrelated skin-switch instructions instead of diagnosing the failed file/line, YAML structure or duplicate mappings."
+    },
+    {
+      "id": "sharing-task-1",
+      "batch": 3,
+      "status": "fail",
+      "evidence": "Adds header_img despite the request not to change the visible article and shows unquoted Liquid expressions in YAML, making the example invalid. It also misses the upload and source/URL verification steps."
+    },
+    {
+      "id": "search-visibility-task-1",
+      "batch": 3,
+      "status": "fail",
+      "evidence": "Covers crawler noindex, sitemap and Algolia, but omits include_on_search: false for local indexes and says only that local exclusions do not control Google; the requested local exclusion is not provided."
+    },
+    {
+      "id": "starter-demo-versus-site",
+      "batch": 3,
+      "status": "partial",
+      "evidence": "Correctly distinguishes starter material from installation and links first-site/remote-theme guides, but omits the /docs/09-run-starter setup, its Jekyll/Gemfile limitations and the lack of an included deployment workflow."
+    }
+  ],
+  "limits": "Thirty-two observations on one deployed Worker do not establish general answer accuracy, repeatability, latency distributions or human usability. All requests returned HTTP 200; review labels are based on answer content."
+}

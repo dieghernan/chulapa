@@ -44,6 +44,8 @@ const routes = [
   [/goatcounter/i, ['GoatCounter analytics (v2.2.0)']],
   [/font awesome|fa_kit|fa5_|icono|icons?/i, ['Font Awesome', 'Publisher, analytics and icon configuration']],
   [/chulapa.*font|logo.*font|bundled.*font|ligatur|fuente.*chulapa/i, ['Bundled font']],
+  [/dark mode|light.*dark|theme selector|dark.*skin/i, ['Light/dark/auto selector']],
+  [/cerulean|litera|pulse|bootswatch/i, ['Available skins', 'Changing skins and colors']],
   [/googlefonts|rubik|fuentes|fonts?|typograph/i, ['Bundled font', 'Changing fonts and highlighting', 'Appearance reference']],
   [/skin|autothemer|codeply|palette|color|rounded|sass/i, ['Palette precedence and custom skins', 'Variables dictionary', 'Changing skins and colors']],
   [/skins.*available|available.*skins|what skins|qu[eé].*skins/i, ['Available skins']],

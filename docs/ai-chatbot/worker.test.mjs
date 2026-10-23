@@ -70,6 +70,8 @@ test('passes reviewed context and bounded output to the selected model', async (
     assert.equal(options.max_completion_tokens, 450);
     assert.deepEqual(options.chat_template_kwargs, { enable_thinking: false });
     assert.match(options.messages[0].content, /WEBSITE CONTEXT/);
+    assert.match(options.messages[0].content, /chulapa-skin-dark is a separate top-level mapping/);
+    assert.match(options.messages[0].content, /Do not discuss include_cached for/);
     assert.equal(options.messages[1].content, 'How do I install Chulapa?');
     return { choices: [{ message: { content: 'Use the template.\nhttps://dieghernan.github.io/chulapa/docs/01-install' } }] };
   });
@@ -201,7 +203,7 @@ test('bundled deployment sends relevant bounded context and serves the widget', 
   const { default: bundled } = await import('./dashboard-worker.mjs');
   const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
   const env = environment(async (_, options) => {
-    assert.match(options.messages[0].content, /Pass all page-dependent inputs to include_cached/);
+    assert.match(options.messages[0].content, /Pass every page-dependent input to include_cached/);
     assert.doesNotMatch(options.messages[0].content, /comments\.website_id belongs ONLY/);
     assert.ok(options.messages[0].content.length < context.length, 'Task selection must not send the full library');
     assert.equal(options.messages[1].content, 'Explain include caching.');
@@ -248,7 +250,8 @@ test('chatbot deployment waits for successful Pages for the exact commit', async
 set -eu
 case "$2" in
   list)
-    [[ "$*" == *"--workflow build-chulapa-gh-pages.yml --commit test-commit --event push"* ]] || exit 99
+    [[ "$*" == *"--workflow build-chulapa-gh-pages.yml --commit test-commit"* ]] || exit 99
+    [[ "$*" != *"--event push"* ]] || exit 99
     [[ "$CASE" != missing ]] || exit 0
     echo 123 ;;
   watch) [[ "$CASE" != failed ]] ;;

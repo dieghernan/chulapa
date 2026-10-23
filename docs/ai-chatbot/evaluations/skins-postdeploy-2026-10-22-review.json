@@ -1,0 +1,48 @@
+{
+  "worker_version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T13:28:23.982679Z",
+  "raw": [
+    "skins-postdeploy-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 5,
+    "pass": 0,
+    "partial": 4,
+    "fail": 0,
+    "unavailable": 1
+  },
+  "http_status_counts": {
+    "200": 4,
+    "503": 1
+  },
+  "reviews": [
+    {
+      "id": "theming-2",
+      "status": "partial",
+      "evidence": "Correctly nests autothemer beside vars and quotes the requested purple primary; the YAML omits skin: auto, which the case requires to select the generated-palette skin."
+    },
+    {
+      "id": "skin-font-failure-1",
+      "status": "partial",
+      "evidence": "Correctly says font imports remain, Google Fonts failures fall back, and switching needs complete skin/highlighter CSS. Omits the v2.1.0 limitation and the safe behavior for incomplete essential CSS; adds unnecessary font-family setup advice."
+    },
+    {
+      "id": "theme-selector-demo-1",
+      "status": "partial",
+      "evidence": "Correctly says the demo is illustrative and provides valid independent top-level mappings with the v2.2.0 limit. It does not tell the reader to merge with existing settings and adds an unsupported search-page qualification to floating navigation."
+    },
+    {
+      "id": "skins-bootswatch-originals-1",
+      "status": "unavailable",
+      "evidence": "The request returned HTTP 503 with the fixed unsupported-source fallback; there is no answer to assess. No retry was made."
+    },
+    {
+      "id": "community-165",
+      "status": "partial",
+      "evidence": "Correctly states the v2.2.0 requirement and gives the separate top-level light/dark mappings. The floating-navigation claim is imprecisely restricted to search pages, and the answer omits the documented navigation variants and other requested compatibility details."
+    }
+  ],
+  "limits": "Five single observations on Worker 8b59f0a7. Four requests returned HTTP 200 and one returned HTTP 503; the unavailable request was not retried. Review labels reflect answer content, not transport."
+}

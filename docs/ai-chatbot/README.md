@@ -134,15 +134,18 @@ and verifying deployment. Regenerating the plan sends no requests.
 
 ## Automatic deployment
 
-The `Deploy chatbot` workflow deploys the Worker on pushes to `main` that
-change `docs/ai-chatbot/` or the workflow itself. It installs dependencies and
-runs `npm test`, which rebuilds the context and widget, before deploying with
-Wrangler. After tests pass, `wait-for-pages.sh` waits for a successful Pages
-push run for the exact same commit before the Worker is deployed. Missing,
-failed or cancelled Pages runs prevent deployment, keeping new context citations
-from going live before their documentation. The workflow uses the built-in
-GitHub token with `actions: read` for this check. It can also be run manually from
-GitHub Actions for a commit with a successful Pages push run. Pull requests do not deploy.
+The `Deploy chatbot` workflow runs after `Deploy Chulapa Jekyll site to Pages`
+completes successfully on `main`, including the Pages deployment. It checks out
+the triggering run's exact commit, installs dependencies and runs `npm test`,
+which rebuilds the context and widget, before deploying with Wrangler. Failed
+or cancelled Pages workflows do not deploy the Worker. Pull requests do not
+deploy. A separate concurrency group serializes chatbot deployments.
+
+It can also be run with `workflow_dispatch` on `main`. In that case,
+`wait-for-pages.sh` requires a successful Pages workflow for the selected
+commit, whether triggered by push, schedule or dispatch. The built-in GitHub
+token needs `actions: read` for this check. Both workflows must exist on the
+default branch before automatic chaining takes effect.
 
 Configure repository Actions secrets `CLOUDFLARE_API_TOKEN` (Cloudflare account
 permission **Workers Scripts: Edit**) and `CLOUDFLARE_ACCOUNT_ID` for the account
@@ -150,6 +153,62 @@ hosting the existing Worker. Deployment uses `wrangler.jsonc`, including the AI
 and rate-limiter bindings, and does not invoke live AI. Jekyll deployment remains
 separate; documentation changes outside this directory require reviewing and
 updating `ai-context.md` to update the chatbot's knowledge.
+
+## AI Search indexing workflow
+
+`Index docs in Cloudflare AI Search` also runs after the successful Pages
+workflow on `main`, independently of the chatbot deployment. It checks out
+the triggering commit and downloads that run's `github-pages` artifact using
+the run ID and an `actions: read` token. It unpacks the site and synchronizes
+`docs/_site/docs` without rebuilding Jekyll. This indexes the same HTML that
+was published. An expired or missing artifact fails the indexing run.
+
+A manual dispatch on `main` builds the checked-out docs with Ruby 3.4 and
+`baseurl: /chulapa` before syncing. Configure `CLOUDFLARE_ACCOUNT_ID` and
+`CLOUDFLARE_API_TOKEN_SEARCH` with the permissions required by the sync script.
+The indexing concurrency group prevents simultaneous synchronizations. A
+failed chatbot or indexing workflow does not undo a successful Pages deployment.
+
+The sync script validates and cleans every page before any remote request.
+It requires the core guides and the sibling generated `sitemap.xml`, and checks
+that all documentation URLs listed there have local HTML files. Use a complete
+site build or unpacked Pages artifact, not a selection of HTML files. Pages
+excluded from the sitemap cannot be checked for absence through that manifest;
+retain the complete build when preparing an upload.
+
+From the repository root, validate without credentials or network access:
+
+```sh
+npm test
+node scripts/sync-ai-search.mjs docs/_site/docs --dry-run
+```
+
+Normal synchronization uploads documents but does not delete stale items.
+After deliberately removing or excluding documentation, inspect the complete
+generated tree and use `--prune` to delete absent items whose source is explicitly
+`builtin`. Legacy items with unknown source and external-source items are
+preserved. Pruning affects all absent built-in keys in this instance, so do not
+share it with unrelated uploads. The dry run validates local content only; it
+does not list remote deletion candidates.
+
+```sh
+node --env-file=.env scripts/sync-ai-search.mjs docs/_site/docs --prune
+```
+
+The `.env` file belongs at the repository root and needs
+`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`; the latter needs the same
+AI Search permissions as the indexing workflow. Both indexing and regression
+workflows run the offline sync tests. The sync refuses incomplete or inconsistent
+API pagination, bounds each request to 120 seconds and reports errors without
+printing API payloads. A 409 conflict stops the run without deleting and
+re-uploading the existing item. All uploads must succeed before pruning starts;
+an upload failure can still leave earlier uploads applied, and a pruning
+failure can leave earlier deletions applied. Neither operation is transactional.
+
+The main Pages workflow builds once and reuses its artifact for Pages and a
+best-effort `gh-pages` branch copy, matching the Chulapa 101 structure with
+`docs` as the source directory. `Push pages to branch` remains available only
+through manual dispatch for a separate rebuild and branch publication.
 
 ## Cloudflare setup
 
@@ -239,7 +298,9 @@ questions, malformed and oversized requests, missing bindings and inference
 failure. Test narrow screens, keyboard navigation, Escape and long answers.
 Mock tests verify failure handling; only live inference can establish model quality.
 See `evaluation.md` for recorded live questions, rate-limit observations and the
-context update procedure.
+context update procedure. The [consolidated evaluation log](evaluations/log.md)
+indexes reviewed historical batches and is updated after each completed,
+manually reviewed live run.
 
 Run the documented and community question batches with
 `node evaluate-live.mjs RUN-NAME`. To repeat selected cases, append comma-separated

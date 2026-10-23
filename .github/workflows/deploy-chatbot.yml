@@ -1,11 +1,10 @@
 name: Deploy chatbot
 
 on:
-  push:
+  workflow_run:
+    workflows: [Deploy Chulapa Jekyll site to Pages]
+    types: [completed]
     branches: [main]
-    paths:
-      - 'docs/ai-chatbot/**'
-      - '.github/workflows/deploy-chatbot.yml'
   workflow_dispatch:
 
 permissions:
@@ -18,12 +17,18 @@ concurrency:
 
 jobs:
   deploy:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: docs/ai-chatbot
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
@@ -34,6 +39,7 @@ jobs:
       - name: Build and test
         run: npm test
       - name: Wait for the matching Pages deployment
+        if: github.event_name == 'workflow_dispatch'
         timeout-minutes: 15
         run: bash wait-for-pages.sh
         env:

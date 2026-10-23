@@ -6,7 +6,7 @@ set -euo pipefail
 
 for attempt in {1..24}; do
   pages_run_id="$(gh run list --repo "$GITHUB_REPOSITORY" \
-    --workflow build-chulapa-gh-pages.yml --commit "$GITHUB_SHA" --event push \
+    --workflow build-chulapa-gh-pages.yml --commit "$GITHUB_SHA" \
     --json databaseId --jq '.[0].databaseId // empty')"
   if [[ -n "$pages_run_id" ]]; then
     gh run watch "$pages_run_id" --repo "$GITHUB_REPOSITORY" --exit-status
@@ -22,5 +22,5 @@ for attempt in {1..24}; do
   sleep 5
 done
 
-echo "No Pages push run found for commit $GITHUB_SHA; chatbot deployment stopped." >&2
+echo "No Pages run found for commit $GITHUB_SHA; chatbot deployment stopped." >&2
 exit 1

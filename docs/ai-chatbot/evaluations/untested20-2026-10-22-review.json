@@ -1,0 +1,123 @@
+{
+  "source_commit": "d68277ec2461f813cbe0acf61a5901cf3d1906f5",
+  "worker_version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+  "script_etag": "7b5c40a58903cfe379d20cc0b2eb6ed705ef7da814dd8405d60dc50acabb7748",
+  "raw": [
+    "untested20-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "quota_before": "Cloudflare dashboard displayed 81.13/10k neurons used today before the run; dashboard reporting may lag.",
+  "totals": {
+    "requests": 20,
+    "pass": 6,
+    "partial": 10,
+    "fail": 4,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 20
+  },
+  "reviews": [
+    {
+      "id": "content-post-1",
+      "status": "partial",
+      "evidence": "Correct GitHub create-file workflow, dated _posts filename, front matter and publishing check. Omits that the public URL follows the permalink rather than the source filename."
+    },
+    {
+      "id": "content-page-1",
+      "status": "pass",
+      "evidence": "Gives valid page front matter, an additive /contact/ menu item without baseurl, and explains that creating the page and adding the menu entry are separate."
+    },
+    {
+      "id": "content-image-1",
+      "status": "partial",
+      "evidence": "Correct upload location, descriptive alt text, relative_url syntax and filename check. Omits committing both edits to the publishing branch and checking Actions."
+    },
+    {
+      "id": "analytics-goat-setup-1",
+      "status": "pass",
+      "evidence": "Correctly requires v2.2.0, a full public HTTPS endpoint, cleared Google IDs for GoatCounter-only use and production publishing; does not prepend baseurl to the endpoint."
+    },
+    {
+      "id": "analytics-ga4-setup-1",
+      "status": "pass",
+      "evidence": "Correct GA4 gtag_id, clears legacy analytics_id, avoids duplicate custom snippets, explains that local preview is not production-gated and recommends Realtime verification."
+    },
+    {
+      "id": "appearance-font-task-1",
+      "status": "pass",
+      "evidence": "Correctly distinguishes loading a font stylesheet from applying body/heading font families through chulapa-skin.vars and gives fallback families with relevant sources."
+    },
+    {
+      "id": "appearance-auto-task-1",
+      "status": "partial",
+      "evidence": "Correctly says Autothemer fills undefined colors and skin: auto is independent. Omits the none/autothemer: true behavior and that existing assigned colors persist."
+    },
+    {
+      "id": "appearance-sass-task-1",
+      "status": "partial",
+      "evidence": "Gives valid custom-skin and vars approaches, !default, Codeply and import cautions. Omits some preview-to-Sass and post-change contrast/mobile verification details."
+    },
+    {
+      "id": "comments-disqus-task-1",
+      "status": "pass",
+      "evidence": "Correct provider and shortname, page-level show_comments, preservation of unrelated configuration and published verification."
+    },
+    {
+      "id": "comments-cactus-task-1",
+      "status": "partial",
+      "evidence": "Correctly rejects arbitrary Matrix homeservers and gives the Cactus provider setup. Omits the v2.1.0 identifier correction, thread-matching risk and v2.2.0 resource-loading distinction."
+    },
+    {
+      "id": "comments-welcomments-task-1",
+      "status": "fail",
+      "evidence": "Says to keep provider templates and that only data files need delivering. This contradicts the guide to review the generated PR, retain Chulapa-customized templates and verify the service-side repository integration."
+    },
+    {
+      "id": "comments-cusdis-task-1",
+      "status": "pass",
+      "evidence": "Does not invent a new hosted account; distinguishes unavailable original hosting from an existing self-hosted setup and gives required fields and show_comments."
+    },
+    {
+      "id": "custom-head-task-1",
+      "status": "partial",
+      "evidence": "Uses a supported head hook and valid meta element, but chooses the before-CSS hook instead of the documented custom_head.html destination and omits an explicit published-source check."
+    },
+    {
+      "id": "accessibility-task-reference-1",
+      "status": "partial",
+      "evidence": "Correctly rejects accessibility/PWA guarantees and built-in offline support. Omits practical checks for actual content, color, keyboard/mobile behavior, assistive technology and network-dependent features."
+    },
+    {
+      "id": "bundled-font-task-1",
+      "status": "partial",
+      "evidence": "Gives the correct bundled-font setting and a usable ligature example. Omits local-preview/rebuild guidance and the v2.1.0 versus v2.2.0 asset-loading limitation."
+    },
+    {
+      "id": "canonical-article-task-1",
+      "status": "partial",
+      "evidence": "Correctly distinguishes canonical metadata from redirects and includes sitemap: false. Allows a site-relative canonical where the criterion calls for the original absolute URL and does not qualify sitemap exclusion by plugin."
+    },
+    {
+      "id": "cloud-task-1",
+      "status": "fail",
+      "evidence": "The example is not a working page/defaults recipe: it omits the matching index page layout/permalink and post defaults that connect badges to those pages. It does not explain output: true for another collection."
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "status": "fail",
+      "evidence": "Misstates the cause as a collection rename and invents an include_cached components/indexcards.html recipe. The documented v2.2.0 fix makes both fragments use #demo and replaces topic spaces with hyphens."
+    },
+    {
+      "id": "documentation-appearance-topics",
+      "status": "partial",
+      "evidence": "Correctly links the topic index and says related/random cards are optional. Omits limited topic coverage, the complete /docs destination and distinction from blog tags."
+    },
+    {
+      "id": "community-165",
+      "status": "fail",
+      "evidence": "The YAML example replaces chulapa-skin with a scalar and does not preserve the existing skin mapping; the dark mapping should remain a separate top-level setting."
+    }
+  ],
+  "limits": "Twenty observations of this deployed Worker do not establish general answer accuracy, repeatability, latency distributions or human usability. All requests returned HTTP 200; this is not evidence of correctness. Local chatbot corrections not deployed in this Worker were not evaluated. No retries were made."
+}

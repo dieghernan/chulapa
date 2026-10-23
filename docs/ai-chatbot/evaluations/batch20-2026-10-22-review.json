@@ -1,0 +1,123 @@
+{
+  "source_commit": "d68277ec2461f813cbe0acf61a5901cf3d1906f5",
+  "worker_version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+  "script_etag": "7b5c40a58903cfe379d20cc0b2eb6ed705ef7da814dd8405d60dc50acabb7748",
+  "raw": [
+    "batch20-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "quota_before": "Cloudflare dashboard displayed 81.13/10k neurons used today before the run; dashboard reporting may lag.",
+  "totals": {
+    "requests": 20,
+    "pass": 6,
+    "partial": 7,
+    "fail": 7,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 20
+  },
+  "reviews": [
+    {
+      "id": "migration-theme-1",
+      "status": "partial",
+      "evidence": "Gives sound backup, version pin, dependency, override and URL/feed guidance. Omits migration-specific checks including front-matter conversion, author/skin changes, navigation/search/comments/analytics review, built-in feed requirements and the Actions setup; the release-restriction note is vague."
+    },
+    {
+      "id": "skin-font-failure-1",
+      "status": "fail",
+      "evidence": "Correctly says bundled skins remain switchable and font imports remain, but the example uses top-level skin: journal instead of chulapa-skin.skin. It omits the documented behavior for incomplete essential CSS and the v2.1.0 limitation."
+    },
+    {
+      "id": "skin-palette-contrast-1",
+      "status": "partial",
+      "evidence": "Correctly says the palette adjustments do not guarantee whole-site accessibility and are absent from v2.1.0. Omits that primary colors are preserved, dark dim skins retain bright link/navigation accents, and fixed text colors, interaction states and content require review."
+    },
+    {
+      "id": "theme-selector-demo-1",
+      "status": "fail",
+      "evidence": "Correctly says the demo alone does not enable dark mode, but places chulapa-skin-dark inside chulapa-skin. The documented configuration uses a separate top-level chulapa-skin-dark mapping."
+    },
+    {
+      "id": "skins-bootswatch-originals-1",
+      "status": "fail",
+      "evidence": "Correctly identifies the skins and v2.2.0 release, and does not claim AA compliance. The example uses invalid top-level skin: cerulean rather than chulapa-skin.skin. It also says original Bootswatch colors receive palette/YIQ adjustments, whereas the expected guidance is that original palettes are retained with their original contrast limitations."
+    },
+    {
+      "id": "toc-active-section",
+      "status": "pass",
+      "evidence": "Correctly explains automatic highlighting for included/rendered headings, aria-current=location, no extra setting and unchanged keyboard focus. The show_sidetoc example is conditional enablement, not a new active-highlighting option."
+    },
+    {
+      "id": "goatcounter-analytics",
+      "status": "fail",
+      "evidence": "Correctly covers the public endpoint, production-only loading and same-domain canonical behavior, but says clearing gtag_id or analytics_id achieves a Google-only setup. Clearing both while GoatCounter is configured leaves GoatCounter as the sole configured analytics service."
+    },
+    {
+      "id": "collection-filename-order",
+      "status": "pass",
+      "evidence": "Correctly uses indexcategory with ascending name order (name is the default document field), and distinguishes gallery sorting via basename and index_sort_asc."
+    },
+    {
+      "id": "javascript-resource-fallbacks",
+      "status": "partial",
+      "evidence": "Correctly answers deferred YouTube player loading, native code-copy functionality, immediate Enter search and floating navigation. Omits the youtube-nocookie/no-script behavior, tooltip dependency, Lunr index reuse/debounce, and v2.1.0 caveat."
+    },
+    {
+      "id": "custom-search-script-dependencies",
+      "status": "fail",
+      "evidence": "Identifies the needed adapter and provider/store, but the example loads chulapa_search.js before the provider library and generated store. The expected dependency order is provider library and generated store before the adapter."
+    },
+    {
+      "id": "assistant-session-history",
+      "status": "pass",
+      "evidence": "Clearly distinguishes sessionStorage-restored display state from model context and advises including relevant details in each question."
+    },
+    {
+      "id": "semantic-html-accessibility",
+      "status": "fail",
+      "evidence": "Adds several unrelated or unsupported claims, including skip-link ordering, focus restoration, 44px controls, carousel aria-live and reduced-motion behavior. Omits requested search landmarks/result announcements and the labelled Welcomments field; does not state the limits on which search providers announce results."
+    },
+    {
+      "id": "carousel-accessibility-motion",
+      "status": "partial",
+      "evidence": "Covers reduced motion, pause behavior, keyboard indicators and no new setting for carousel accessibility. Omits the named play/pause button and icon fallback, hover/interactions and preference-change details; adds distracting collection image YAML advice."
+    },
+    {
+      "id": "sidebar-accessibility-focus",
+      "status": "partial",
+      "evidence": "Correctly says closed controls are excluded from tab order, Escape closes and restores focus, and the panel does not trap focus. Omits open-panel Tab order and focus restoration after button/overlay close."
+    },
+    {
+      "id": "pwa-offline-status",
+      "status": "partial",
+      "evidence": "Correctly says there is no built-in offline PWA or chatbot support and names site-specific HTTPS/baseurl/manifest/service-worker work. Omits that the current favicon manifest alone does not establish cross-browser installability or offline support, including its missing start_url/scope and 512px icon."
+    },
+    {
+      "id": "beginner-post-1",
+      "status": "fail",
+      "evidence": "Advises editing an existing sample and explicitly says not to create a new file, instead of giving the requested GitHub browser workflow for creating _posts/YYYY-MM-DD-title.md."
+    },
+    {
+      "id": "beginner-image-1",
+      "status": "pass",
+      "evidence": "Gives a GitHub upload workflow, relative_url image syntax, descriptive alt-text guidance and filename case verification."
+    },
+    {
+      "id": "beginner-publishing-1",
+      "status": "partial",
+      "evidence": "Correctly directs the reader to check Actions and Settings > Pages. Adds potentially confusing distinctions between the global title and starter index.html heading, and omits a simple browser refresh check."
+    },
+    {
+      "id": "snippet-parameter-reference",
+      "status": "pass",
+      "evidence": "Correctly distinguishes PhotoSwipe's Liquid include parameter from page YAML, nolazy support in video.html and required provider/ID for hosted video."
+    },
+    {
+      "id": "navigation-edit-existing-1",
+      "status": "pass",
+      "evidence": "Correctly adds a site-relative /contact/ entry to existing navbar.nav without repeating baseurl, preserves the additive approach and notes that the destination page must already exist."
+    }
+  ],
+  "limits": "Twenty observations of this deployed Worker do not establish general answer accuracy, repeatability, latency distributions or human usability. All requests returned HTTP 200; this is not evidence of correctness. The uncommitted local chatbot corrections were not deployed and were not evaluated by this batch. No retries were made."
+}

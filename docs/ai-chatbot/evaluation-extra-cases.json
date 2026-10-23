@@ -102,11 +102,11 @@
     "section": "installation",
     "doc": "00_start.md",
     "question": "What does chulapa-101 include, where do I edit it and does it select one of four starter profiles?",
-    "expected": "One personal blog with three sample posts, About, local credited photo, year/category/tag archives, Fuse.js search and RSS, using predefined Butterfly/Butterfly Dim with the Light/Dark/Auto selector, pinned to v2.2.0. Root index.html is paginated at five posts per page; content in _posts, _pages and assets/img, navigation in _config.yml, which follows full theme sections/comments with empty unused options and blog-specific defaults. Optional comment-only _includes/custom hooks and assets/css/custom.scss with front matter are included, without changing the skin. No profile selector or extra build script. Existing publishing workflows are included; distinct from four minimal examples without workflows."
+    "expected": "One personal blog with three sample posts, About, local credited photo, year/category/tag archives, Fuse.js search and RSS, using predefined Butterfly/Butterfly Dim with the Light/Dark/Auto selector. Uses remote_theme: dieghernan/chulapa without a pin, following main. Root index.html is paginated at five posts per page; content in _posts, _pages and assets/img, navigation in _config.yml, which follows full theme sections/comments with empty unused options and blog-specific defaults. Optional comment-only _includes/custom hooks and assets/css/custom.scss with front matter are included, without changing the skin. No profile selector or extra build script. Existing publishing workflows are included; distinct from four minimal examples without workflows."
   },
   {
     "id": "accessibility-1",
-    "section": "layouts",
+    "section": "accessibility",
     "doc": "06_accessibility-performance.md",
     "question": "Does the keyboard update make the lateral TOC a modal or remove its Tab navigation? Is Chulapa now WCAG certified?",
     "expected": "v2.2.0; floating navbar update is separate; lateral TOC retains open/close and Tab behavior without focus trap or modal role; no WCAG certification or guaranteed production score."
@@ -187,15 +187,15 @@
   },
   {
     "id": "beginner-post-1",
-    "section": "layouts",
-    "doc": "04_layouts.md",
+    "section": "content",
+    "doc": "15_create-post.md",
     "question": "I have never used Jekyll. How do I add my first blog post using only GitHub in the browser?",
     "expected": "Explain Code > Add file > Create new file; _posts/YYYY-MM-DD-title.md with a real non-future date; one complete example with --- front matter, layout default, header_type post, title and body. Commit changes to publishing branch, wait for Actions, open published website. Starter lists posts; do not require terminal, Ruby installation or copying theme layouts."
   },
   {
     "id": "beginner-image-1",
-    "section": "layouts",
-    "doc": "04_layouts.md",
+    "section": "content",
+    "doc": "17_add-image.md",
     "question": "My blog is at https://ana.github.io/my-blog. How do I upload a photograph and put it in a post?",
     "expected": "Upload and commit assets/img/river.jpg using GitHub Add file > Upload files. Complete Markdown image with descriptive alt text and Liquid relative_url filter for /assets/img/river.jpg, no hardcoded domain or lost repository prefix. Save post, wait for publishing; check filename case if missing."
   },
@@ -400,7 +400,7 @@
     "section": "search",
     "doc": "37_algolia-search.md",
     "question": "I configured Algolia in YAML but have no results. How do I upload the index and exclude a page?",
-    "expected": "Browser configuration does not upload index or create search page. Need application_id/index_name/public search_only_api_key plus matching layout search page. jekyll-algolia indexing plugin deprecated/unmaintained; dependency in plugin Gemfile group, bundle install, workflow step bundle exec jekyll algolia in actual site folder with separate ALGOLIA_API_KEY environment secret, never public config. Use algolia.files_to_exclude, not include_on_search false which sample uses for ranking. Check uploaded records and browser/index settings match. Link /docs/37-algolia-search."
+    "expected": "Browser configuration does not upload index or create search page. Need application_id/index_name/public search_only_api_key plus matching layout search page. jekyll-algolia indexing plugin deprecated/unmaintained; dependency in plugin Gemfile group, bundle install. Use bundle exec jekyll algolia in the actual site folder or adapt the repository's .github/workflows/algolia-search.yml example (jekyll_src: docs); do not run both upload methods. Theme installation does not copy or enable the workflow. Separate ALGOLIA_API_KEY environment/Actions secret, never public config. Use algolia.files_to_exclude, not include_on_search false which sample uses for ranking. Check uploaded records and browser/index settings match. Link /docs/37-algolia-search."
   },
   {
     "id": "comments-disqus-task-1",
@@ -547,7 +547,7 @@
     "section": "seo",
     "doc": "60_person-publisher.md",
     "question": "How do I make my personal blog publisher a Person? Will it replace a guest author, and do I need a logo?",
-    "expected": "Since v2.1.0; edit existing publisher mapping type: Person exact case/name; no duplicates. Person ignores logo and uses image/site avatar. Publish/check JSON-LD publisher on home/post, URLs with baseurl; guest article authors unchanged. Does not guarantee search appearance."
+    "expected": "Since v2.1.0. Default/fallback is Organization, not Person. Explicitly set type: Person in the existing publisher mapping, preserving fields and avoiding duplicates. Person ignores logo and uses image/site avatar. Publish/check JSON-LD publisher on home/post, URLs with baseurl; guest article authors unchanged. Does not guarantee search appearance."
   },
   {
     "id": "localized-date-task-1",

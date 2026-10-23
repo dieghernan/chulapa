@@ -1,0 +1,147 @@
+{
+  "worker_version": "5266df62-1349-482e-a687-101e675c7721",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T12:57:35.400125Z",
+  "response_window_utc": {
+    "start": "2026-10-22T13:06:11.982Z",
+    "end": "2026-10-22T13:11:39.447Z"
+  },
+  "raw": [
+    "older-nonpass20-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "selection": "The 18 oldest catalogued non-pass cases with evidence before 2026-10-22, plus the next two oldest on 2026-10-22; excludes the six cases in the preceding layout pass.",
+  "totals": {
+    "requests": 20,
+    "pass": 10,
+    "partial": 8,
+    "fail": 2,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 20
+  },
+  "reviews": [
+    {
+      "id": "search-comments-4",
+      "previous_status": "partial",
+      "status": "partial",
+      "evidence": "Gives show_attrib false and correctly says the legacy word limit takes precedence; omits the recommendation to use shared maxwords and the separate Algolia logo setting."
+    },
+    {
+      "id": "reference-edge-cases-3",
+      "previous_status": "fail",
+      "status": "pass",
+      "evidence": "Provides both Sass variables under chulapa-skin.vars, quotes the font stack and gives applicable steps and sources."
+    },
+    {
+      "id": "seo-1",
+      "previous_status": "pending review",
+      "status": "partial",
+      "evidence": "Correctly explains canonical URL syntax and that it does not redirect visitors; omits sitemap: false for excluding a duplicate URL from jekyll-sitemap."
+    },
+    {
+      "id": "seo-2",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Correctly separates browser/structured title, social title, visible title and description metadata."
+    },
+    {
+      "id": "seo-3",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Correctly maps zh-Hant to explicit og_locale: zh_TW, handles alternate locales and disclaims automatic translations or hreflang."
+    },
+    {
+      "id": "seo-4",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Correctly distinguishes schema_image, og_image and header_img and says there is no cropping or validation."
+    },
+    {
+      "id": "navigation-1",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Gives the tag thresholds, build-time random selection, singleton behavior and the date-footer option."
+    },
+    {
+      "id": "navigation-2",
+      "previous_status": "pending review",
+      "status": "fail",
+      "evidence": "Breadcrumb guidance is broadly correct, but recommends navbar.nav rather than project_links for the requested GitHub header button and omits the required label."
+    },
+    {
+      "id": "navigation-3",
+      "previous_status": "pending review",
+      "status": "partial",
+      "evidence": "Correctly names words_per_minute and paginator_maxnum with defaults/clamping; omits that the latter only controls a window when pagination is otherwise enabled and cites an unrelated topics page."
+    },
+    {
+      "id": "variables-unsupported",
+      "previous_status": "unavailable",
+      "status": "pass",
+      "evidence": "Does not invent a temperature variable and clearly says the documentation has no such setting."
+    },
+    {
+      "id": "starter-1",
+      "previous_status": "partial",
+      "status": "fail",
+      "evidence": "Correctly notes portfolio cards do not filter, but confuses Chulapa 101's publishing workflow with the portfolio example and fails to state that the four examples have no deployment workflow."
+    },
+    {
+      "id": "starter-2",
+      "previous_status": "partial",
+      "status": "partial",
+      "evidence": "Identifies the template, sample counts, archives, search, RSS, pagination and absence of a profile selector; omits the Light/Dark/Auto selector, content/assets locations, optional hooks/custom CSS and publishing-workflow distinction."
+    },
+    {
+      "id": "accessibility-1",
+      "previous_status": "partial",
+      "status": "pass",
+      "evidence": "Correctly says the sidebar TOC is not modal, preserves Tab navigation without a focus trap, returns focus on Escape and makes no WCAG-certification claim."
+    },
+    {
+      "id": "resources-1",
+      "previous_status": "fail",
+      "status": "partial",
+      "evidence": "Correctly says the bundled font needs no external loading and does not invent Cactus behavior; omits theme-local font paths/baseurl and the documented show_comments: true condition for Cactus resources."
+    },
+    {
+      "id": "version-task-1",
+      "previous_status": "partial",
+      "status": "partial",
+      "evidence": "Correctly says the marker is not an exact commit/override inventory and confirms v2.2.0 can be pinned; omits the resolved gem version check and broader limits of what a remote marker can establish."
+    },
+    {
+      "id": "community-1",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Clearly distinguishes header_type: splash from hero and gives a usable front matter example."
+    },
+    {
+      "id": "community-2",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Correctly distinguishes collection filtering from category selection and gives a site.categories.music Liquid/index-card example."
+    },
+    {
+      "id": "community-3",
+      "previous_status": "pending review",
+      "status": "pass",
+      "evidence": "Gives valid Markdown alert attributes and both HTML and Markdown button examples without requiring a theme change."
+    },
+    {
+      "id": "community-4",
+      "previous_status": "pending review",
+      "status": "partial",
+      "evidence": "Correctly covers include_on_feed, collection output and plugin collisions; incorrectly implies every post needs an explicit date, while Jekyll can resolve dates from post filenames."
+    },
+    {
+      "id": "community-5",
+      "previous_status": "pending review",
+      "status": "partial",
+      "evidence": "Includes dependency installation, theme/plugin configuration and the preview command; omits the remote-theme alternative and speculates about an unknown include without first asking for configuration/version details."
+    }
+  ],
+  "limits": "Twenty selected observations on one deployed Worker do not establish general accuracy, repeatability, latency distributions or usability. All twenty returned HTTP 200; review labels are based on answer content."
+}

@@ -1,0 +1,73 @@
+{
+  "worker_version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T11:56:23Z",
+  "quota_before": "Cloudflare dashboard displayed 81.13/10k neurons used today; dashboard reporting may lag.",
+  "raw": [
+    "retest10-postdeploy-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 10,
+    "pass": 1,
+    "partial": 3,
+    "fail": 6,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 10
+  },
+  "reviews": [
+    {
+      "id": "configuration-4",
+      "status": "pass",
+      "evidence": "Correctly identifies gtag_id, explains analytics_id is the independent retired Universal Analytics setting and both configured IDs load independent snippets without conflict. Includes a valid GA4-only example, Realtime verification and relevant sources."
+    },
+    {
+      "id": "theming-2",
+      "status": "partial",
+      "evidence": "Gives a usable skin: auto approach and correctly locates the optional autothemer setting as a sibling of vars, but omits autothemer: true from the requested YAML and adds unrelated include-cache advice."
+    },
+    {
+      "id": "skin-font-failure-1",
+      "status": "fail",
+      "evidence": "Uses unsupported top-level skin: journal instead of chulapa-skin.skin, and omits essential-CSS failure behavior and the v2.1.0 limitation."
+    },
+    {
+      "id": "theme-selector-demo-1",
+      "status": "fail",
+      "evidence": "Correctly says the demo does not enable switching but gives chulapa-skin: Light as a scalar instead of preserving the documented skin mapping."
+    },
+    {
+      "id": "custom-search-script-dependencies",
+      "status": "fail",
+      "evidence": "Does not provide the required dependency order of provider library and generated store before chulapa_search.js; lists the adapter first."
+    },
+    {
+      "id": "comments-welcomments-task-1",
+      "status": "partial",
+      "evidence": "Correctly says to keep theme templates, use provider: welcomments, enable comments on the page and deliver _data/welcomments/. Omits reviewing the generated PR, checking local template overrides and verifying a rebuild displays the delivered data."
+    },
+    {
+      "id": "person-publisher-task-1",
+      "status": "partial",
+      "evidence": "Correctly sets type Person, preserves guest-author independence and explains image versus logo. The replacement-shaped mapping does not say to preserve other existing publisher fields."
+    },
+    {
+      "id": "cloud-task-1",
+      "status": "fail",
+      "evidence": "Omits matching cloud index pages/permalinks and post defaults, misuses include_collection to scope posts, and does not provide a complete working setup."
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "status": "fail",
+      "evidence": "Incorrectly claims the demo collection was renamed to dmo; the documented fix keeps #demo consistent and hyphenates topic fragments. Cites an unrelated anchor."
+    },
+    {
+      "id": "community-165",
+      "status": "fail",
+      "evidence": "Uses a scalar chulapa-skin and nests chulapa-skin-dark inside it, rather than using a separate top-level dark mapping while preserving the existing skin configuration."
+    }
+  ],
+  "limits": "Ten selected observations on this deployed Worker do not establish general answer accuracy, repeatability, latency distributions or usability. All ten returned HTTP 200; review labels are based on answer content."
+}

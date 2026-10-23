@@ -1,0 +1,62 @@
+{
+  "worker_version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T13:28:23.982679Z",
+  "raw": [
+    "historical-pass8-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 8,
+    "pass": 7,
+    "partial": 0,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 8
+  },
+  "reviews": [
+    {
+      "id": "reference-edge-cases-4",
+      "status": "pass",
+      "evidence": "Correctly identifies all three variables, places them under chulapa-skin.vars, quotes the color values and warns that the highlighting style may override pre-chulapa-bg-color."
+    },
+    {
+      "id": "reference-edge-cases-5",
+      "status": "fail",
+      "evidence": "Correctly says the demo does not save the choice and gives publication steps, but the YAML example puts highlight: dracula at the root instead of under chulapa-skin. The prescribed configuration is invalid for this setting."
+    },
+    {
+      "id": "reference-edge-cases-6",
+      "status": "pass",
+      "evidence": "Correctly distinguishes noindex from access control, does not claim to fetch the RSS feed and acknowledges that the context does not describe a shopping-cart feature."
+    },
+    {
+      "id": "layouts-7",
+      "status": "pass",
+      "evidence": "Correctly describes landingpage as a default variation, names both landing-page color variables and shows header_type: none in page front matter."
+    },
+    {
+      "id": "variables-1",
+      "status": "pass",
+      "evidence": "Correctly names and nests both requested variables, quotes the hex colors, preserves existing settings and recommends restarting Jekyll."
+    },
+    {
+      "id": "variables-2",
+      "status": "pass",
+      "evidence": "Correctly explains that landingpage-card-bg is calculated rather than overridden through vars, points to exposed variables/custom CSS and clarifies that blue does not override an explicit primary."
+    },
+    {
+      "id": "variables-3",
+      "status": "pass",
+      "evidence": "Correctly maps each toggler variable to its purpose, gives the Sass url(...) form for a replacement icon, and includes the optional border variable and restart guidance."
+    },
+    {
+      "id": "mermaid-1",
+      "status": "pass",
+      "evidence": "Provides the boolean mermaid setting and fenced block, states the v2.1.0 limitation and no-plugin behavior, and explains that source remains visible if the CDN or rendering fails."
+    }
+  ],
+  "limits": "Eight previously passing cases, each sent once to Worker 8b59f0a7. All returned HTTP 200. This sample does not establish general accuracy or repeatability."
+}

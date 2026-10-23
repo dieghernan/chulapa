@@ -1,0 +1,56 @@
+{
+  "worker_version": "5266df62-1349-482e-a687-101e675c7721",
+  "worker_traffic_percent": 100,
+  "deployment_time": "2026-10-22T12:57:35.400125Z",
+  "response_window_utc": {
+    "start": "2026-10-22T12:59:41.044Z",
+    "end": "2026-10-22T13:00:52.141Z"
+  },
+  "raw": [
+    "layouts-final-2026-10-22.jsonl"
+  ],
+  "status": "reviewed",
+  "totals": {
+    "requests": 6,
+    "pass": 1,
+    "partial": 5,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "http_status_counts": {
+    "200": 6
+  },
+  "reviews": [
+    {
+      "id": "layouts-include-cache-1",
+      "status": "pass",
+      "evidence": "Rejects blanket replacement; distinguishes ordinary includes from cached includes; preserves page-specific comment inputs; explains hierarchy and labels the component refactor development-only."
+    },
+    {
+      "id": "layouts-microformats-feed-1",
+      "status": "partial",
+      "evidence": "Correctly lists the four layouts and aliases, the custom wrapper requirement and no new YAML. Omits simplelist, the v2.1.0 limitation, pagination and repeated cloud entries."
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "status": "partial",
+      "evidence": "Correctly explains heading hierarchy and the h5 visual class. Omits that related_label and random_label render supplied HTML unchanged."
+    },
+    {
+      "id": "layouts-microformats-1",
+      "status": "partial",
+      "evidence": "Correctly explains minimal, updated dates and guest-author URL inheritance. Omits default/landingpage behavior and relative URL resolution through url/baseurl."
+    },
+    {
+      "id": "cloud-task-1",
+      "status": "partial",
+      "evidence": "Gives the basic cloud layouts, post defaults, include_collection and baseurl guidance. Omits preserving existing defaults, collection output, link verification and the v2.1.0/date-separator caveats."
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "status": "partial",
+      "evidence": "Correctly explains the asymmetric #demo/#dmo issue and manual link update without suggesting a YAML change. Omits the upgraded #demo-topic fragment."
+    }
+  ],
+  "limits": "This is one six-case sample on the deployed Worker. It does not establish general answer accuracy, repeatability, latency distributions or usability. All six requests returned HTTP 200; review labels are based on answer content."
+}
