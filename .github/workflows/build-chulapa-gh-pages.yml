@@ -31,6 +31,7 @@ concurrency:
 jobs:
   # Build job
   build:
+    name: Build site with Jekyll
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -53,7 +54,7 @@ jobs:
         # Outputs to the './_site' directory by default
         run: |
           cd  docs # Omit when site is in the root folder
-          bundle exec jekyll build --incremental --baseurl "${{ steps.pages.outputs.base_path }}"
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         shell: bash
         env:
           JEKYLL_ENV: production
@@ -65,6 +66,7 @@ jobs:
 
   # Deployment job
   deploy:
+    name: Deploy to web
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -74,3 +76,27 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  push-gh-pages:
+    name: Push site to gh-pages branch
+    needs: build
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download the built site
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          path: pages-artifact
+      - name: Unpack site
+        run: |
+          mkdir -p published-site
+          tar -xf pages-artifact/artifact.tar -C published-site
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
+        with:
+          branch: gh-pages
+          folder: published-site

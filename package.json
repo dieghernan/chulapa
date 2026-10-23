@@ -1,7 +1,9 @@
 {
   "name": "chulapa-ai-search",
   "private": true,
-  "type": "module",
+  "scripts": {
+    "test": "node --test scripts/sync-ai-search.test.mjs"
+  },
   "dependencies": {
     "sanitize-html": "^2.18.1"
   }

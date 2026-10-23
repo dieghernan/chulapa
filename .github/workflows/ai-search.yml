@@ -2,9 +2,14 @@ name: Index docs in Cloudflare AI Search
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: [Deploy Chulapa Jekyll site to Pages]
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: ai-search-indexing
@@ -12,6 +17,10 @@ concurrency:
 
 jobs:
   index:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -19,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -29,7 +40,11 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Test AI Search synchronization
+        run: npm test
+
       - name: Setup Ruby
+        if: github.event_name == 'workflow_dispatch'
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4'
@@ -38,10 +53,26 @@ jobs:
           working-directory: docs
 
       - name: Build docs with Jekyll
+        if: github.event_name == 'workflow_dispatch'
         run: bundle exec jekyll build --baseurl "/chulapa"
         working-directory: docs
         env:
           JEKYLL_ENV: production
+
+      - name: Download the published site
+        if: github.event_name == 'workflow_run'
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          path: pages-artifact
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Unpack the published site
+        if: github.event_name == 'workflow_run'
+        run: |
+          mkdir -p docs/_site
+          tar -xf pages-artifact/artifact.tar -C docs/_site
 
       - name: Sync docs to Cloudflare AI Search
         run: node scripts/sync-ai-search.mjs docs/_site/docs

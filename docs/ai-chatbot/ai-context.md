@@ -11,7 +11,7 @@ Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/
 Source: https://dieghernan.github.io/chulapa/docs/00-start
 Methods: https://dieghernan.github.io/chulapa/docs/01-install
 Use the public https://github.com/dieghernan/chulapa-101/generate template; demo: https://dieghernan.github.io/chulapa-101/. Enable Settings > Pages > GitHub Actions; no token/local install, workflow sets baseurl. Edit _config.yml title/description/author/repository/url, change only index.html's title, and edit an existing _posts sample's title/body while keeping filename/front matter. Commit main/master; wait for Actions and verify home/article via Settings > Pages. Replace sample content before sharing.
-Chulapa 101 is pinned @v2.2.0 with Butterfly/Butterfly Dim, three posts, About, archives, Fuse.js and RSS; keep index.html for pagination (5/page). Fuse indexes posts/About only; navbar/footer use _config.yml. Starter has commented/empty sample fields and blog defaults. _includes/custom/custom_head_before_css.html, custom_head.html, custom_bottomscripts.html and giscus.html are comment-only; assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
+Chulapa 101 follows main (remote_theme: dieghernan/chulapa, no pin), with Butterfly/Butterfly Dim, three posts, About, archives, Fuse.js and RSS; keep index.html for pagination (5/page). Fuse indexes posts/About only; navbar/footer use _config.yml. Starter has commented/empty sample fields and blog defaults. _includes/custom/custom_head_before_css.html, custom_head.html, custom_bottomscripts.html and giscus.html are comment-only; assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
 Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. References/FAQ/tutorials retain direct routes. Providers are alternatives; analytics/distinct feed URLs can coexist. Badges link here; up to three optional cards. Blog tags separate.
@@ -469,6 +469,6 @@ algolia:
   index_name: YOUR_INDEX_NAME
   search_only_api_key: YOUR_PUBLIC_SEARCH_ONLY_KEY
 ```
-Indexing secret ALGOLIA_API_KEY goes only in environment/Actions secrets. Use algolia.files_to_exclude for exclusions and upload the index; include_on_search affects ranking only if customRanking uses it. jekyll-algolia is deprecated/unmaintained; a Gemfile group is :jekyll_plugins, not :plugins. Verify the uploaded index and live search result.
+ALGOLIA_API_KEY: environment/Actions secret only. Adapt .github/workflows/algolia-search.yml (jekyll_src: docs) OR bundle exec jekyll algolia, not both. Theme installation does not enable uploads. Exclude with algolia.files_to_exclude; include_on_search only ranks via customRanking. jekyll-algolia deprecated/unmaintained; Gemfile group :jekyll_plugins. Verify index/live search.
 
 2.2.0: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.

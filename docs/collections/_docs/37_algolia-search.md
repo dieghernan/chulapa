@@ -89,9 +89,15 @@ Use `algolia.files_to_exclude` for content that must stay out of this index;
 `customRanking` merely uses that field for ranking. See the
 [indexing option reference](./02-config#search-engines) and
 [plugin options](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md).
-An alternative workflow is the [Algolia Jekyll action](https://github.com/marketplace/actions/algolia-jekyll-action);
-adapt its source directory and credentials to your site rather than running
-both upload methods.
+As an alternative, the theme repository provides a working
+[example indexing workflow](https://github.com/dieghernan/chulapa/blob/main/.github/workflows/algolia-search.yml)
+using the [Algolia Jekyll action](https://github.com/marketplace/actions/algolia-jekyll-action).
+Copy it to `.github/workflows/algolia-search.yml` in your own repository and
+adapt its branch triggers, Ruby version and `jekyll_src` directory: the example
+uses `docs`, while a site at the repository root uses `.`. Add the
+`ALGOLIA_API_KEY` repository secret before running it. Installing the theme
+does not copy or enable this workflow. Choose this action or the upload step
+above rather than running both upload methods.
 
 ## Publish and verify
 

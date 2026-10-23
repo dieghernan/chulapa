@@ -250,7 +250,8 @@ test('chatbot deployment waits for successful Pages for the exact commit', async
 set -eu
 case "$2" in
   list)
-    [[ "$*" == *"--workflow build-chulapa-gh-pages.yml --commit test-commit --event push"* ]] || exit 99
+    [[ "$*" == *"--workflow build-chulapa-gh-pages.yml --commit test-commit"* ]] || exit 99
+    [[ "$*" != *"--event push"* ]] || exit 99
     [[ "$CASE" != missing ]] || exit 0
     echo 123 ;;
   watch) [[ "$CASE" != failed ]] ;;

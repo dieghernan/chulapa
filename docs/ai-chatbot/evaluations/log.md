@@ -1,5 +1,79 @@
 # Consolidated live evaluation log
 
+## Final integration checks — 23 October 2026
+
+Cloudflare confirms 69 completed documents, 0 queued, 0 running and 0 errors
+after the hardened synchronization run. Local checks passed: 12 sync tests,
+99 chatbot tests, 52 theme JavaScript tests, workflow validation with
+actionlint and the 69-document offline extraction check. Changed files were
+checked against the local API token without exposing it; JSONL evidence parses.
+
+The broader JavaScript check exposed an inherited package-scope regression:
+root `type: module` made existing CommonJS tests fail before running. Removed
+that setting; indexing scripts already use `.mjs` and retain ES module semantics.
+No production backend migration or additional live inference was performed.
+
+## Five versus ten context chunks — 23 October 2026
+
+Ran exactly two chat-completions requests for `configuration-4`, with
+`max_num_results` 5 and 10, similarity cache disabled per request, the same
+explicit current instance system prompt and pinned
+`@cf/meta/llama-3.3-70b-instruct-fp8-fast` model. No separate Search calls or
+retries were made. Evidence:
+[paired context-limit check](ai-search-context-5-vs-10-2026-10-23T15-59-48-463Z.jsonl).
+
+Both requests returned HTTP 200, the same three source chunks and identical
+answers, with finish reason `stop`. Each reported 1,771 prompt tokens,
+124 completion tokens, 1,895 total tokens, zero cached prompt tokens and
+72.6243 neurons. Summed reported usage was 145.2486 neurons; response cache
+headers were not recorded, so these numbers are reported usage rather than
+independently verified billing. Reranking/thresholding returned fewer than
+either requested maximum: this pair cannot establish savings from a five-chunk
+limit and does not justify changing the instance default.
+
+The answer correctly places `gtag_id` in `_config.yml`, identifies `G-` IDs,
+leaves `analytics_id` empty for GA4-only use and explains the independent
+Universal Analytics snippet. It gives a complete small configuration example
+but omits source citations. No production configuration was changed.
+
+## Hardened index sync live check — 23 October 2026
+
+Ran `node --env-file=.env scripts/sync-ai-search.mjs docs/_site/docs` against
+the populated `chulapa-ai-search` instance with the hardened sync script.
+Local tree/sitemap validation and strict remote pagination completed before
+uploads. The command exited successfully with 69 uploads, 1 redirect/noindex
+skipped and 0 stale deletions. No duplicate-key 409 occurred and `--prune`
+was not enabled. This confirms the upload path on this instance at this time;
+the 409 and deletion failure paths remain covered by offline tests, not by
+destructive live testing.
+
+The immediate Cloudflare status was 69 queued, 0 running, 0 completed and
+0 errors. Upload acceptance does not establish completed ingestion or answer
+quality; no chat-generation request was sent. No Git push was made.
+
+## Local context deployment and index upload — 23 October 2026
+
+At the user's request, deployed the local Worker with the unpinned Chulapa 101
+and Algolia example-action guidance, without pushing Git changes. Wrangler
+4.150.0 dry-run succeeded; deployment version is
+`4577d411-8e64-4001-938d-1d1ab64df64b`. The widget endpoint returned HTTP 200.
+The preceding local suite passed all 99 tests. No answer-quality inference
+was made as part of this deployment check.
+
+Built local documentation with production Jekyll and `/chulapa` baseurl,
+verified the two edited guides in generated HTML and ran the existing AI Search
+sync script. It reported 69 uploads, 1 redirect skipped and 0 stale deletions.
+Initial ingestion status showed 40 queued, 29 running and 0 errors; uploading
+alone does not establish that all updated chunks are searchable yet.
+Follow-up confirmed `00-start.html` and `37-algolia-search.html` completed
+without errors. The last overall check showed 68 completed, 1 running,
+0 queued and 0 errors; full-corpus completion remains pending.
+
+Public Pages and GitHub workflows have not been updated remotely. Until the
+local documentation changes are published, chatbot/index content can be ahead
+of the public guides. The Worker still uses its existing manual context
+backend; this was a content update, not an AI Search backend migration.
+
 This index consolidates the recorded live question batches and focused
 regression runs through 22 October 2026. Each outcome belongs only to the
 Worker/source identified in its linked review. A pass on one version is not
@@ -245,3 +319,219 @@ cells mean no live response for that case is present in the evaluation logs.
 | `variables-3` | pass | `8b59f0a7…` | 2026-10-22 |
 | `variables-unsupported` | pass | `5266df62…` | 2026-10-22 |
 | `version-task-1` | partial | `5266df62…` | 2026-10-22 |
+
+## AI Search comparison — 22 October 2026
+
+Evaluated the same catalog cases with the current Worker baseline and the
+Cloudflare AI Search instance `chulapa-ai-search` / `default`. No Worker or
+index changes were made. Search retrieval and chat generation each returned
+HTTP 200 for all 9 AI Search cases; the first 3 were also sent to the current
+Worker, all HTTP 200. These are single observations, not accuracy or
+performance guarantees.
+
+Evidence: [AI Search three-case smoke](ai-search-smoke.jsonl),
+[matching current-Worker baseline](chatbot-baseline-smoke.jsonl) and
+[six additional #179 correction cases](ai-search-pr179-corrections.jsonl).
+The AI Search REST responses wrapped results in `{success, result}` for search;
+chat returned model output and `usage`. The 3-case AI Search smoke reported
+18,955 total chat tokens, 566.587 neurons and 6,683 ms combined measured
+search-plus-chat request time. The matching Worker responses exposed no usage
+field and took 11,927 ms combined. These small sequential runs are not
+comparable latency benchmarks; the Worker does not provide token data here.
+The six additional AI Search-only cases reported 38,129 chat tokens and
+1,250.884 neurons; they have no matching new Worker run.
+
+| Case | Current Worker baseline | AI Search |
+| --- | --- | --- |
+| `theming-2` | Correct sibling nesting in the YAML, but contradictory prose says `primary` belongs inside `vars`; no `skin: auto`. | Uses `skin: none`; retrieved docs also contain the separate `skin: auto` guidance. Clarify the intended recipe rather than deciding from this run. |
+| `skin-font-failure-1` | Gives a nested `chulapa-skin.skin` example and mentions complete CSS/fallbacks, but omits some release and failure details. | Similar partial answer; the retrieval chunks omit `22-choose-skin.html`, despite citing it. |
+| `theme-selector-demo-1` | Correctly denies activation, supplies a valid independent Light/Dark mapping and v2.2.0 limit. | Correctly denies activation and links the guide, but does not show the configuration or version limit. |
+
+### #179 case assessment
+
+`A` means the published source was retrieved with the needed information;
+`B` means the answer exists in published docs but key chunks were not
+retrieved; `C` means the published guidance is ambiguous or incomplete and
+should be clarified in the docs; `D` means the specific manual context
+correction duplicates explicit, retrieved documentation. These labels assess
+the source/retrieval, not answer quality: generation can still omit or
+contradict retrieved facts.
+
+| Case | Class | Retrieval and generation observation |
+| --- | --- | --- |
+| `theming-2` | C | Retrieved `27-autothemer.html` and `03-theming.html`; generated `skin: none`, while the case expects `skin: auto`. The public guide recommends `none` for an unassigned palette and separately describes `auto`; clarify when to use each and align the case before treating either answer as wrong. |
+| `configuration-3` | A | `60-person-publisher.html` ranked first (0.756). The answer covered Person, image/URL and guest authors, but omitted the Organization default and preserving an existing mapping. |
+| `configuration-4` | A | `19-google-analytics.html` ranked first (0.785). The answer correctly distinguished `gtag_id` and retired `analytics_id` but incorrectly warned that configuring both may create a duplicate-script issue; the documentation says the snippets load independently. This is a generation error, not a missing-source result. |
+| `accessibility-1` | A | `48-accessibility-reference.html` ranked first (0.630); answer correctly retained TOC Tab navigation, rejected modal/focus-trap behavior and WCAG certification. |
+| `beginner-post-1` | A | Starter and post guides ranked in the top results; answer gave the GitHub file workflow and a complete post example. |
+| `beginner-image-1` | A | `17-add-image.html` ranked first (0.704); answer included upload instructions, descriptive alt text and `relative_url`. |
+| `person-publisher-task-1` | A | `60-person-publisher.html` ranked first (0.626); answer covered ignored logo, image and independent guest authors. |
+| `skin-font-failure-1` | B | Retrieved `24-change-fonts.html`, but not `22-choose-skin.html`, which contains the full failure/recovery behavior. The answer cited that unreturned page and omitted the v2.1.0 boundary and incomplete-CSS fallback details. |
+| `theme-selector-demo-1` | D | `22-choose-skin.html` ranked first and explicitly says the component demo is illustrative. The answer correctly denied that the demo enables dark mode; its specific context reminder is redundant, though the answer omitted the guide's merge/preserve instructions. |
+
+### Context recommendation
+
+Keep `ai-context.md` for now; do not remove it based on these one-shot results.
+Clarify the `skin: auto` versus `skin: none` distinction in the published
+Autothemer guide and align `theming-2`. Keep the short font-failure summary
+until retrieval reliably includes the selector guide for that question; do not
+duplicate the full guide in context. The demo-selector reminder is a candidate
+for eventual removal because the public guide already states it and retrieval
+found it. Person, GA4, accessibility and beginner instructions are also
+available in retrieved public pages, but the GA4 generation error and omissions
+in other answers warrant repeated evaluation before removing their compact
+guardrails. No public Chulapa guide, `ai-context.md` or index content was
+changed in this run.
+
+## Retest of ten previous chatbot failures — 22 October 2026
+
+Selected ten distinct catalog questions that had prior manual `fail`
+assessments, spanning skins, analytics, custom search, accessibility,
+navigation, starter projects, Google search, YAML, social metadata and search
+visibility. The prior labels came from several Worker versions, so they are
+historical failure evidence, not claims about one identical runtime.
+
+The same questions were then sent to the live chatbot endpoint and to AI Search
+retrieval plus chat. All 10 chatbot requests and all 20 AI Search phase requests
+returned HTTP 200. The live baseline JSONL records status, Cloudflare Ray and
+duration, but not a Worker version; attribute it only to the endpoint response
+at this run time. No retries were made.
+
+Evidence: [live chatbot responses](chatbot-failure10-20261022.jsonl) and
+[AI Search retrieval and generation](ai-search-failure10-20261022.jsonl).
+Manual outcome counts against each case's current expected answer:
+
+| System | Pass | Partial | Fail | Measured duration | Usage |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Live chatbot | 2 | 4 | 4 | 49,125 ms across 10 requests | No token usage in response |
+| AI Search | 1 | 6 | 3 | 117,335 ms across 20 Search + chat requests | 58,283 chat tokens; 1,910.725 neurons |
+
+The elapsed totals are not a latency comparison: AI Search makes two API
+requests per question, runs sequentially, and includes cooling pauses between
+batches. Neuron/token use is not comparable to the Worker response because
+the latter exposes no usage data.
+
+| Case | Prior failure | Live chatbot retest | AI Search retest | Retrieval / main observation |
+| --- | --- | --- | --- | --- |
+| `skins-bootswatch-originals-1` | Invalid skin-setting example and inaccurate palette claim. | **Pass** — correctly describes the original Bootswatch palette and contrast limitation. | **Pass** — correctly says the original palettes remain unchanged. | `23-change-color.html` ranked first (0.574); the source supported both answers. |
+| `goatcounter-analytics` | Incorrect advice about switching to Google-only analytics. | **Pass** — clarifies the services are independent and that GoatCounter is not automatic replacement. | **Partial** — says leaving `gtag_id` empty gives GoatCounter-only, but fails to account for `analytics_id` also loading independently. | Retrieved `18-goatcounter.html` (0.712) and `19-google-analytics.html` (0.621); generation still omitted a required distinction. |
+| `custom-search-script-dependencies` | Wrong script load order. | **Partial** — names adapter, provider/store and FAB dependency, but does not state the required load order. | **Partial** — identifies the current search page/provider setup and FAB style, but omits the provider/store-before-adapter sequence. | Search-provider guides ranked first; `04-layouts.html`, which documents shared script dependencies and custom shells, was not among the top retrieved chunks. |
+| `semantic-html-accessibility` | Unsupported claims and missing requested search/Welcomments details. | **Fail** — repeats unsupported accessibility assertions and omits required provider limits. | **Fail** — switches to unrelated font/video guidance and does not answer the requested semantic changes. | The accessibility reference was only rank 8; the answer did not use it to cover the question. |
+| `navigation-2` | Recommended navbar configuration instead of the page-header button. | **Fail** — still recommends `navbar.nav` rather than `project_links`. | **Fail** — gives a valid `project_links` button, but incorrectly proposes a table of contents as breadcrumbs. | `04-layouts.html` was retrieved at rank 2; generation contradicted the source for breadcrumbs. |
+| `starter-1` | Confused starter deployment capabilities. | **Partial** — states there is no included workflow and no filtering, but blurs the portfolio example with the Chulapa 101 workflow. | **Partial** — correctly identifies the project collection, two projects, no filtering and no included workflow, but does not recommend Chulapa 101 as the ready-publishing path. | `08-starter-examples.html` was retrieved; most core facts were present. |
+| `provider-google-task-1` | Omitted actionable Google CSE setup. | **Partial** — correctly says rebuilds do not upload to Google and names `google_cse_id`, but omits `search.provider: google` and the matching search page. | **Fail** — incorrectly suggests a Jekyll Algolia plugin as a separate way to upload an index to Google; omits the Google provider setup. | `36-google-search.html` ranked first (0.726); this was a generation error despite relevant retrieval. |
+| `troubleshoot-yaml-task-1` | Answered with unrelated skin instructions. | **Partial** — rejects replacing the config and mentions duplicate mappings/field placement, but lacks a focused check of the failed file/line and nearby edit. | **Partial** — correctly distinguishes valid YAML syntax from invalid theme settings and links the YAML guide, but remains generic and omits the failed line/edit workflow. | `43-yaml-errors.html` ranked first (0.665); substantial source content was retrieved but incompletely applied. |
+| `sharing-task-1` | Invalid Liquid-in-YAML and unwanted visible header image. | **Fail** — repeats unquoted Liquid expressions and adds `header_img` despite the requested constraint. | **Partial** — uses appropriate social/article metadata fields, avoids `header_img` and advises uploading/checking the image, but omits `og_image_alt` and some URL/baseurl checks. | `64-post-sharing.html` ranked first (0.718), followed by the image guide; retrieval was strong. |
+| `search-visibility-task-1` | Omitted the local-search exclusion. | **Fail** — omits `include_on_search: false`. | **Partial** — includes independent `robots`, sitemap, local-search and Algolia exclusions, but omits verification/re-upload details and some indexing limitations. | `65-search-visibility.html` ranked first (0.796); retrieval found the right documentation. |
+
+### Follow-up
+
+The live retest shows some prior errors have improved, but 8 of these 10
+answers remain partial or incorrect. AI Search resolved the skin example and
+included the local-search exclusion setting, though its answer omitted
+verification and indexing limitations; it still failed or partially answered
+9 of 10.
+The primary next improvements are better retrieval coverage for custom
+JavaScript dependencies/accessibility and stronger generation checks for
+answering only from retrieved sources, preserving configuration distinctions,
+and avoiding invalid or out-of-scope examples. Keep the existing chatbot
+baseline and do not migrate the production Worker based on this single batch.
+
+## Additional ten historical failures — chatbot unavailable, 22 October 2026
+
+A second set of ten distinct cases with prior chatbot failures was submitted
+to the live chatbot endpoint. All ten requests returned HTTP 503 with
+`{"error":"AI is unavailable. Please use site search."}`. These are
+unavailable responses, not answer-quality failures, and cannot be compared
+with AI Search answer quality. A separate partial AI Search evidence file
+exists for `layouts-3`: retrieval returned HTTP 200 and generation HTTP 429.
+It contains no usable answer and does not establish results for the other
+nine questions. See [partial AI Search evidence](ai-search-failure10b-20261022.jsonl).
+
+Evidence: [chatbot responses](chatbot-failure10b-20261022.jsonl).
+
+| Case | Chatbot result |
+| --- | --- |
+| `comments-welcomments-task-1` | Unavailable (503) |
+| `cloud-task-1` | Unavailable (503) |
+| `cloud-demo-fragments` | Unavailable (503) |
+| `community-165` | Unavailable (503) |
+| `feed-selection-1` | Unavailable (503) |
+| `migration-fields-lookup-1` | Unavailable (503) |
+| `format-footnote-task-1` | Unavailable (503) |
+| `layouts-3` | Unavailable (503) |
+| `reference-edge-cases-5` | Unavailable (503) |
+| `documentation-search-topics` | Unavailable (503) |
+
+All requests returned the same service-level error, including those after the
+first response; this establishes that the chatbot was unavailable during this
+run, but does not establish whether its cause was quota exhaustion, a
+temporary upstream issue or another service condition. The last known dashboard
+usage from the earlier run is not a live balance. Further paired evaluation
+should wait until both services are available.
+
+## Evaluator verification and migration follow-up — 22 October 2026
+
+See the [additional ten-case historical review](review-additional10-20261022.md)
+for layout, author and installation findings. A live Chrome check confirmed
+11.02k/10k daily neurons used and an exceeded-limit notice, resetting at
+00:00 UTC. Further live inference was deferred; no fresh answer-quality
+results are claimed for those ten cases.
+
+Reused the existing three-case paired smoke evidence rather than repeating
+quota-consuming requests after the recorded 503/429 responses. Verified the
+current namespace-scoped endpoints and messages payload against Cloudflare's
+REST documentation. New runs retain generation finish reasons and total
+returned chunk counts before clipping. Historical evidence is unchanged.
+
+The nine-case A/B/C/D table above covers the initial correction sample, not
+every change in #179. The PR also changes layout scope, cloud setup,
+related/random headings, inherited microformats and include caching. Those
+corrections remain unclassified pending focused retrieval and generation
+checks; do not treat absence from the table as evidence of redundancy.
+
+Before migrating the Worker:
+
+1. Clarify the Autothemer recipe in published docs and align its evaluation
+   expectation, then sync through the existing indexing workflow.
+2. Repeat the affected cases with both services available, including the
+   remaining layout/cloud/microformat corrections. Inspect the chat request's
+   own context chunks: its retrieval can differ from the separate Search call.
+3. Record the source revision, instance settings, model and index state with
+   the next run. Add comparable baseline usage instrumentation only in a
+   separately scoped Worker change; the current baseline cannot establish cost.
+4. Resolve generation errors and source omissions before choosing migration
+   criteria. Then prepare an isolated Worker integration preserving validation,
+   source-link restrictions, rate limiting and failure handling.
+
+Only internal evaluation tooling and records changed. Public theme behavior,
+accessibility, SEO and PWA behavior are unaffected; no browser audit or public
+guide/llms.txt update is needed. The context remains intact and no Worker was
+deployed.
+
+## AI Search configuration tuning — 23 October 2026
+
+Enabled `@cf/baai/bge-reranker-base` reranking and configured a concise Chulapa
+generation prompt requiring retrieved evidence, version distinctions, correct
+configuration scope and complete examples. The prompt treats retrieved text as
+reference data and prohibits invented citations. Saved the prior settings and
+applied values in [configuration snapshot](ai-search-tuning-20261023.json).
+Read-back through the API confirmed both settings. Index methods, chunk size,
+overlap, query rewriting and instance caching were retained.
+
+Ran `evaluate-ai-search-tuning.mjs` with caching disabled per request and a
+pinned `@cf/meta/llama-3.3-70b-instruct-fp8-fast` generation model. The first
+case, `configuration-4`, returned Search HTTP 200 and chat HTTP 429. The runner
+stopped without sending the remaining two cases. Evidence is saved in
+[partial tuning smoke](ai-search-tuned-20261023.jsonl).
+
+The first retrieved source was `19-google-analytics.html`, with vector score
+0.785 and reranking score 0.995. These scores measure different stages and are
+not comparable quality percentages. A chunk from `07-migration.html` moved
+from vector rank 9 into the third returned position. Reranking is operational,
+but no generated answer was available: no answer-quality improvement is
+claimed. The HTTP 429 alone does not establish its cause.
+
+All nine evaluator unit tests passed. Public documentation, llms.txt,
+ai-context.md, production Worker and the indexed documents were unchanged;
+the experiment does not change public accessibility, SEO or PWA behavior.

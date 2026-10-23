@@ -1,19 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
-import { join, relative, sep } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import sanitizeHtml from 'sanitize-html';
-
-const ROOT = process.argv[2] || 'docs/_site/docs';
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
-const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
-const INSTANCE = process.env.CLOUDFLARE_AI_SEARCH_INSTANCE || 'chulapa-ai-search';
-const NAMESPACE = process.env.CLOUDFLARE_AI_SEARCH_NAMESPACE || 'default';
-
-if (!ACCOUNT_ID || !API_TOKEN) {
-  throw new Error('CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN are required.');
-}
-
-const base = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/ai-search/namespaces/${NAMESPACE}/instances/${INSTANCE}`;
-const auth = { Authorization: `Bearer ${API_TOKEN}` };
 
 async function htmlFiles(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -26,42 +14,62 @@ async function htmlFiles(dir) {
   return files;
 }
 
-async function cf(path, options = {}) {
-  const response = await fetch(base + path, {
-    ...options,
-    headers: { ...auth, ...options.headers },
-  });
-  const text = await response.text();
-  let body;
-  try { body = text ? JSON.parse(text) : null; } catch { body = text; }
-  if (!response.ok || (body && body.success === false)) {
-    throw new Error(`Cloudflare ${response.status}: ${typeof body === 'string' ? body : JSON.stringify(body)}`);
+export function createClient({ accountId, apiToken, instance = 'chulapa-ai-search', namespace = 'default', fetchImpl = fetch }) {
+  if (!accountId || !apiToken) {
+    throw new Error('CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN are required.');
   }
-  return body;
+  const base = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai-search/namespaces/${encodeURIComponent(namespace)}/instances/${encodeURIComponent(instance)}`;
+  return async (path, options = {}) => {
+    let response;
+    let body;
+    try {
+      response = await fetchImpl(base + path, {
+        ...options,
+        headers: { Authorization: `Bearer ${apiToken}`, ...options.headers },
+        signal: AbortSignal.timeout(120000)
+      });
+      body = await response.json();
+    } catch {
+      throw new Error('Cloudflare request timed out, failed or returned invalid JSON.');
+    }
+    if (!response.ok || body?.success === false || !body || typeof body !== 'object') {
+      const conflict = response.status === 409 ? ' No automatic deletion or retry was attempted.' : '';
+      throw new Error(`Cloudflare request failed (${response.status}).${conflict}`);
+    }
+    return body;
+  };
 }
 
 function resultOf(body) {
   return body?.result ?? body;
 }
 
-async function listItems() {
+export async function listItems(cf) {
   const items = [];
+  const ids = new Set();
+  let expectedCount;
   let page = 1;
 
   while (true) {
-    const body = await cf(`/items?source=builtin&page=${page}`);
+    const body = await cf(`/items?source=builtin&page=${page}&per_page=50`);
     const result = resultOf(body);
-    const batch = Array.isArray(result) ? result : (result?.items || []);
-
-    items.push(...batch);
-
+    const batch = Array.isArray(result) ? result : result?.items;
     const info = body?.result_info || result?.result_info;
-    if (!info) break;
-
-    const totalCount = info.total_count ?? items.length;
-    const perPage = info.per_page ?? batch.length;
-
-    if (items.length >= totalCount || batch.length < perPage) break;
+    if (!Array.isArray(batch) || !Number.isSafeInteger(info?.total_count) || info.total_count < 0) {
+      throw new Error('Invalid item listing or missing pagination information; refusing to sync.');
+    }
+    expectedCount ??= info.total_count;
+    if (info.total_count !== expectedCount) throw new Error('Item count changed during pagination; refusing to sync.');
+    for (const item of batch) {
+      if (!item || typeof item.id !== 'string' || !item.id || typeof item.key !== 'string' || !item.key || ids.has(item.id)) {
+        throw new Error('Invalid or repeated item in listing; refusing to sync.');
+      }
+      ids.add(item.id);
+      items.push(item);
+    }
+    if (items.length > expectedCount) throw new Error('Inconsistent item count; refusing to sync.');
+    if (items.length === expectedCount) break;
+    if (!batch.length) throw new Error('Incomplete item listing; refusing to sync.');
 
     page++;
   }
@@ -108,7 +116,7 @@ function pageTitle(html) {
 
 function isRedirect(html) {
   return /<meta\b[^>]*\bhttp-equiv=["']refresh["']/i.test(html) ||
-    /<meta\b[^>]*\bname=["']robots["'][^>]*\bcontent=["'][^"']*\bnoindex\b/i.test(html);
+    /\bnoindex\b/i.test(metaContent(html, 'robots'));
 }
 
 function extractClassElement(html, className) {
@@ -133,7 +141,7 @@ function extractClassElement(html, className) {
   return '';
 }
 
-function cleanForIndex(html, key) {
+export function cleanForIndex(html, key) {
   const content = extractClassElement(html, 'e-content');
   if (!content) throw new Error(`Could not find .e-content in ${key}.`);
 
@@ -164,58 +172,95 @@ ${cleaned}
 </html>\n`;
 }
 
-async function upload(file, key) {
-  const html = await readFile(file, 'utf8');
-  const cleaned = cleanForIndex(html, key);
+async function upload(cf, key, cleaned) {
   const form = new FormData();
   form.append('file', new Blob([cleaned], { type: 'text/html; charset=utf-8' }), key);
   await cf('/items', { method: 'POST', body: form });
 }
 
-async function remove(id) {
+async function remove(cf, id) {
   await cf(`/items/${encodeURIComponent(id)}`, { method: 'DELETE' });
 }
 
-const files = (await htmlFiles(ROOT))
-  .filter(file => relative(ROOT, file).split(sep).join('/') !== 'tags.html');
-if (!files.length) throw new Error(`No HTML files found under ${ROOT}.`);
-
-const wanted = new Map();
-let skipped = 0;
-for (const file of files) {
-  const key = relative(ROOT, file).split(sep).join('/');
-  const html = await readFile(file, 'utf8');
-  if (isRedirect(html)) {
-    skipped++;
-    console.log(`skipped redirect ${key}`);
-    continue;
+export async function prepareDocuments(root) {
+  const files = await htmlFiles(root);
+  const keys = new Set(files.map(file => relative(root, file).split(sep).join('/')));
+  for (const key of ['00-start.html', '01-install.html', '04-layouts.html']) {
+    if (!keys.has(key)) throw new Error(`Incomplete documentation tree: missing ${key}.`);
   }
-  wanted.set(key, file);
+  const starter = await readFile(join(root, '00-start.html'), 'utf8');
+  const canonical = new URL(canonicalUrl(starter));
+  const prefix = canonical.pathname.slice(0, canonical.pathname.lastIndexOf('/') + 1);
+  const sitemap = await readFile(join(root, '..', 'sitemap.xml'), 'utf8');
+  if (!/<urlset\b/.test(sitemap) || !/<\/urlset>/.test(sitemap)) throw new Error('Invalid sitemap; refusing to sync.');
+  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(match => new URL(match[1].replaceAll('&amp;', '&')));
+  let expectedPages = 0;
+  for (const url of locations) {
+    if (url.origin !== canonical.origin || !url.pathname.startsWith(prefix)) continue;
+    const path = decodeURIComponent(url.pathname.slice(prefix.length));
+    const candidates = [path, `${path}.html`, `${path.replace(/\/$/, '')}/index.html`];
+    if (!candidates.some(key => keys.has(key))) throw new Error(`Incomplete documentation tree: sitemap page ${path} is missing.`);
+    expectedPages++;
+  }
+  if (!expectedPages) throw new Error('Sitemap contains no documentation pages; refusing to sync.');
+
+  const documents = new Map();
+  let skipped = 0;
+  for (const file of files.sort()) {
+    const key = relative(root, file).split(sep).join('/');
+    if (key === 'tags.html') continue;
+    const html = await readFile(file, 'utf8');
+    if (isRedirect(html)) { skipped++; continue; }
+    documents.set(key, cleanForIndex(html, key));
+  }
+  if (!documents.size) throw new Error('No indexable documentation found; refusing to sync.');
+  return { documents, skipped };
 }
 
-const existing = await listItems();
-const builtin = new Map(existing
-  .filter(item => item.source_id === 'builtin' || item.source_id == null)
-  .map(item => [item.key, item]));
-
-let uploaded = 0;
-let deleted = 0;
-
-// Uploading an existing key updates/replaces that built-in-storage document.
-for (const [key, file] of wanted) {
-  await upload(file, key);
-  uploaded++;
-  console.log(`uploaded ${key}`);
+export async function syncDocuments(root, { cf, prune = false, dryRun = false, log = console.log } = {}) {
+  const { documents, skipped } = await prepareDocuments(root);
+  if (dryRun) {
+    log(`Validated ${documents.size} documents, ${skipped} redirects/noindex skipped; no remote requests. Pruning ${prune ? 'requested but not executed' : 'disabled'}.`);
+    return { uploaded: 0, deleted: 0, skipped, validated: documents.size };
+  }
+  const existing = await listItems(cf);
+  let uploaded = 0;
+  let deleted = 0;
+  for (const [key, cleaned] of documents) {
+    await upload(cf, key, cleaned);
+    uploaded++;
+    log(`uploaded ${key}`);
+  }
+  if (prune) {
+    for (const item of existing) {
+      // Unknown legacy ownership is not sufficient permission to delete.
+      if (item.source_id === 'builtin' && !documents.has(item.key)) {
+        await remove(cf, item.id);
+        deleted++;
+        log(`deleted ${item.key}`);
+      }
+    }
+  }
+  log(`AI Search sync complete: ${uploaded} uploaded, ${skipped} redirects/noindex skipped, ${deleted} stale deleted. Indexing continues asynchronously.`);
+  return { uploaded, deleted, skipped };
 }
 
-// Keep the instance aligned with the generated docs tree. Redirects are intentionally
-// absent from wanted, so previously indexed redirect pages are removed as stale.
-for (const [key, item] of builtin) {
-  if (key && !wanted.has(key) && item.id) {
-    await remove(item.id);
-    deleted++;
-    console.log(`deleted ${key}`);
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  try {
+    const args = process.argv.slice(2);
+    const flags = args.filter(arg => arg.startsWith('--'));
+    const paths = args.filter(arg => !arg.startsWith('--'));
+    if (paths.length > 1 || flags.some(flag => !['--prune', '--dry-run'].includes(flag))) {
+      throw new Error('Usage: node scripts/sync-ai-search.mjs [docs/_site/docs] [--dry-run] [--prune]');
+    }
+    const dryRun = flags.includes('--dry-run');
+    const cf = dryRun ? undefined : createClient({
+      accountId: process.env.CLOUDFLARE_ACCOUNT_ID, apiToken: process.env.CLOUDFLARE_API_TOKEN,
+      instance: process.env.CLOUDFLARE_AI_SEARCH_INSTANCE, namespace: process.env.CLOUDFLARE_AI_SEARCH_NAMESPACE
+    });
+    await syncDocuments(paths[0] || 'docs/_site/docs', { cf, dryRun, prune: flags.includes('--prune') });
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
   }
 }
-
-console.log(`AI Search sync complete: ${uploaded} uploaded, ${skipped} redirects skipped, ${deleted} stale deleted.`);

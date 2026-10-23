@@ -14,7 +14,8 @@ and add photographs after publishing.
 Sign in to a free [GitHub account](https://github.com/signup) and use your browser,
 preferably on a computer. No software installation is needed.
 The [<span class="chulapa">Chulapa</span> 101 example](https://dieghernan.github.io/chulapa-101/)
-shows the blog you will personalize. The template uses release **v2.2.0**,
+shows the blog you will personalize. The template follows the theme's `main`
+branch through `remote_theme: dieghernan/chulapa`, without pinning a release,
 with Butterfly for light mode and Butterfly Dim for dark mode. Visitors can
 choose Light, Dark or Auto from the navigation.
 

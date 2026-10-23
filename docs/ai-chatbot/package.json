@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "test": "npm run build && node --test worker.test.mjs render-answer.test.mjs widget.test.mjs build.test.mjs context-selector.test.mjs answer-validation.test.mjs evaluation-batches.test.mjs"
+    "test": "npm run build && node --test worker.test.mjs render-answer.test.mjs widget.test.mjs build.test.mjs context-selector.test.mjs answer-validation.test.mjs evaluation-batches.test.mjs ai-search-evaluation.test.mjs",
+    "evaluate:ai-search": "node --env-file=../../.env evaluate-ai-search.mjs"
   },
   "dependencies": {
     "dompurify": "3.4.16",

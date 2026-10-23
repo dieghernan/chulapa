@@ -82,7 +82,7 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 - [Enable Lunr.js](https://dieghernan.github.io/chulapa/docs/34-lunr-search): Configure a local provider, reuse the search page and verify the built index.
 - [Enable Simple-Jekyll-Search](https://dieghernan.github.io/chulapa/docs/35-simplesearch-search): Switch local search without a service account or extra plugin.
 - [Connect Google Custom Search](https://dieghernan.github.io/chulapa/docs/36-google-search): Use an existing engine ID and verify scope and external indexing.
-- [Connect Algolia](https://dieghernan.github.io/chulapa/docs/37-algolia-search): Configure browser credentials and separate index uploads; indexing keys stay private and the indexing plugin is deprecated.
+- [Connect Algolia](https://dieghernan.github.io/chulapa/docs/37-algolia-search): Configure browser credentials and separate index uploads using a step or the repository's example action; indexing keys stay private and the indexing plugin is deprecated.
 
 ## Comment-provider tasks
 

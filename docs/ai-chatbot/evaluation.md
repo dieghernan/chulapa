@@ -1,6 +1,66 @@
 # Live evaluation
 
+## AI Search comparison
+
+`evaluate-live.mjs` remains the production-chatbot baseline. To evaluate the
+Cloudflare AI Search instance without changing the Worker, put
+`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` in the repository-root
+`.env`, then run from `docs/ai-chatbot`:
+
+```sh
+npm run evaluate:ai-search -- ai-search-baseline
+npm run evaluate:ai-search -- ai-search-smoke-new theming-2,skin-font-failure-1,theme-selector-demo-1
+```
+
+Use Node.js 20.6 or newer for native `--env-file` support (validated locally
+with Node.js 24.22.1). The path resolves from `docs/ai-chatbot`; from the
+repository root use `npm --prefix docs/ai-chatbot run evaluate:ai-search -- RUN-NAME CASE-ID,CASE-ID`.
+Choose a fresh run name for each execution. For a matching Worker baseline,
+run `node evaluate-live.mjs chatbot-smoke-new theming-2,skin-font-failure-1,theme-selector-demo-1`
+from `docs/ai-chatbot`.
+
+The evaluator runs the same three case catalogs, first calling the Search API
+and then chat completions for each case. It stores bounded chunk text, source
+keys, scores, answer, model, duration, status and any usage field actually
+returned by the API in a new `evaluations/<run>.jsonl` file. It never stores
+the token or full API payloads; an existing run name is rejected. API usage
+is recorded when returned, including numeric usage details and neurons.
+Do not infer token costs when it is absent. New records also retain the total
+returned chunk count and generation finish reason when available; stored
+chunks are limited to eight with 1,800 characters of text each. The separate
+Search request and the chat request each perform retrieval: inspect
+`generation.contextChunks` before attributing a generation error to the chunks
+in `retrieval.chunks`. Neither request pins the instance settings or index,
+so this is a reproducible procedure rather than deterministic output.
+No live requests are made by `npm test`.
+The API token needs the Cloudflare account permissions **AI Search:Edit** and
+**AI Search:Run**.
+
+Endpoints and message payloads follow the current
+[Cloudflare REST API documentation](https://developers.cloudflare.com/ai-search/api/search/rest-api/).
+
 ## Consolidated batch log
+
+### AI Search tuning check
+
+The experimental instance now enables `@cf/baai/bge-reranker-base` reranking
+and a source-grounded Chulapa generation prompt. The configuration before the
+change and the applied values are in
+`evaluations/ai-search-tuning-20261023.json`; restore its previous reranking,
+reranking model and generation prompt fields to undo the change.
+
+From this directory, repeat the three-case check with a fresh run name:
+
+```sh
+node --env-file=../../.env evaluate-ai-search-tuning.mjs ai-search-tuned-repeat-01
+```
+
+This check disables similarity caching per request and pins generation to
+`@cf/meta/llama-3.3-70b-instruct-fp8-fast`. It stops at the first unavailable
+phase and retains partial evidence. The runner records the intended tuning
+snapshot and does not read or apply instance settings, so confirm the live
+settings still match before repeating.
+The production chatbot and its baseline evaluator are unchanged.
 
 See the [consolidated live evaluation log](evaluations/log.md) for reviewed
 batch outcomes across historical and current Worker versions. Update it after
