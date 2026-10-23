@@ -59,6 +59,12 @@ test('high-risk configuration answers select explicit nesting, independence and 
   assert.match(autothemer.text, /chulapa-skin\.autothemer is a sibling of vars/);
   assert.match(autothemer.text, /primary belongs inside vars/);
   assert.match(autothemer.text, /Never nest autothemer inside vars/);
+  assert.match(autothemer.text, /Preserve current skin unless asked/);
+  const paletteExample = [...autothemer.text.matchAll(/```yaml\r?\n([\s\S]*?)```/g)]
+    .map(match => match[1]).find(code => /autothemer: true/.test(code));
+  assert.ok(paletteExample, 'Autothemer setup includes a complete YAML example');
+  assert.match(paletteExample, /primary: "#800080"/);
+  assert.doesNotMatch(paletteExample, /^\s*skin:/m, 'Enabling Autothemer must not replace the selected skin');
   assert.match(autothemer.text, /autothemer: true/);
 
   const analytics = selectContext(context, 'How do I enable Google Analytics 4? Should I set analytics_id too?');

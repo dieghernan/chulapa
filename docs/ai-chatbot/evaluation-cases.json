@@ -193,7 +193,7 @@
     "section": "theming",
     "doc": "03_theming.md",
     "question": "How do I enable Autothemer using a purple primary color? Show YAML.",
-    "expected": "Enable chulapa-skin.autothemer: true as a sibling of vars, with skin: auto under chulapa-skin; vars.primary is the quoted requested hex color. No unrelated include-cache advice."
+    "expected": "Enable chulapa-skin.autothemer: true as a sibling of vars; vars.primary is the quoted requested purple hex color. Preserve the existing skin: omit skin from a generic change example unless a skin change was requested. skin: auto independently loads the generator and is not required for the later autothemer step. No unrelated include-cache advice."
   },
   {
     "id": "theming-3",

@@ -147,12 +147,11 @@ Source: https://dieghernan.github.io/chulapa/docs/28-custom-skin
 Order: skin → vars → autothemer → Bootstrap → components. vars overrides skin; Autothemer fills undefined colors from primary. chulapa-skin.autothemer is a sibling of vars: set it true; primary belongs inside vars. Example:
 ```yaml
 chulapa-skin:
-  skin: auto
   autothemer: true
   vars:
     primary: "#800080"
 ```
-Never nest autothemer inside vars. none assigns no palette; named skins retain theirs. Omit/false disables Autothemer; skin: auto selects the generated-palette skin.
+Never nest autothemer inside vars. Preserve current skin unless asked. none has no palette. Omit/false disables later step; skin: auto independently imports the generator.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
 v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. /docs/48-accessibility-reference.

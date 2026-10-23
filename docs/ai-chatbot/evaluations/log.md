@@ -1,5 +1,20 @@
 # Consolidated live evaluation log
 
+## Autothemer review correction — 23 October 2026
+
+Addressed PR review comment
+[preserve the current skin](https://github.com/dieghernan/chulapa/pull/179#discussion_r4361606971).
+Removed `skin: auto` from the generic context example and aligned `theming-2`
+with the existing published guides: preserve the current skin unless a skin
+change is requested. The independent `skin: auto` generator is not required
+to enable the later `autothemer` step. Added a context-selection regression
+requiring a complete purple-primary example without a skin replacement.
+
+The earlier C assessment for `theming-2` reflects its then-incorrect rubric;
+it is not evidence that the public guide needed to mandate `skin: auto`.
+Historical API evidence is unchanged. No new live inference was made for this
+correction, and its Worker deployment is pending the corrected PR publication.
+
 ## Final integration checks — 23 October 2026
 
 Cloudflare confirms 69 completed documents, 0 queued, 0 running and 0 errors
