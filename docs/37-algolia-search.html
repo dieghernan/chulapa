@@ -18,8 +18,8 @@
         "description": "Configure browser search and a separate indexing step - Use this guide if you already have an Algolia application/index and maintain your site’s Jekyll build workflow. Have the application ID, index name, public search-only key and separate indexing key ready. For a simpler search without an account or index-upload workflow, use Fuse.js.",
         "headline": "Connect Algolia search and upload its index",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-23T15:21:00+02:00",
-        "dateModified": "2026-10-23T15:21:00+02:00",
+        "datePublished": "2026-10-23T18:33:22+02:00",
+        "dateModified": "2026-10-23T18:33:22+02:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -318,9 +318,15 @@ index-upload step sends site content to Algolia: review exclusions first.</p>
 <code class="language-plaintext highlighter-rouge">customRanking</code> merely uses that field for ranking. See the
 <a href="./02-config#search-engines">indexing option reference</a> and
 <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">plugin options</a>.
-An alternative workflow is the <a href="https://github.com/marketplace/actions/algolia-jekyll-action">Algolia Jekyll action</a>;
-adapt its source directory and credentials to your site rather than running
-both upload methods.</p>
+As an alternative, the theme repository provides a working
+<a href="https://github.com/dieghernan/chulapa/blob/main/.github/workflows/algolia-search.yml">example indexing workflow</a>
+using the <a href="https://github.com/marketplace/actions/algolia-jekyll-action">Algolia Jekyll action</a>.
+Copy it to <code class="language-plaintext highlighter-rouge">.github/workflows/algolia-search.yml</code> in your own repository and
+adapt its branch triggers, Ruby version and <code class="language-plaintext highlighter-rouge">jekyll_src</code> directory: the example
+uses <code class="language-plaintext highlighter-rouge">docs</code>, while a site at the repository root uses <code class="language-plaintext highlighter-rouge">.</code>. Add the
+<code class="language-plaintext highlighter-rouge">ALGOLIA_API_KEY</code> repository secret before running it. Installing the theme
+does not copy or enable this workflow. Choose this action or the upload step
+above rather than running both upload methods.</p>
 <h2 id="publish-and-verify">Publish and verify</h2>
 <p>Commit to the publishing branch. Confirm that the publishing workflow and index
 upload both succeed. In Algolia, verify that the expected index contains records
