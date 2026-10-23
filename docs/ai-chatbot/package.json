@@ -8,7 +8,7 @@
     "evaluate:ai-search": "node --env-file=../../.env evaluate-ai-search.mjs"
   },
   "dependencies": {
-    "dompurify": "3.4.16",
+    "dompurify": "3.4.17",
     "marked": "18.1.0",
     "parse5": "8.0.1"
   },
