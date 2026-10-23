@@ -1,0 +1,103 @@
+// GENERATED experimental chulapa dark study. Regenerate with test/generate_dark_skin_pilot.js.
+// Standalone stylesheet, not a catalog skin. Import once, without Bootstrap again.
+// Not an upstream dark theme; original source/credits remain in the imported skin.
+$body-bg: #222125 !default;
+$body-color: #e5e9ef !default;
+$headings-color: #e5e9ef !default;
+$link-color: #edc7b7 !default;
+$link-hover-color: #edc7b7 !default;
+$text-muted: #adb5bd !default;
+$card-bg: #2e2d31 !default;
+$card-cap-bg: #2e2d31 !default;
+$card-border-color: #535255 !default;
+$dropdown-bg: #2e2d31 !default;
+$dropdown-link-color: #e5e9ef !default;
+$dropdown-link-hover-color: #ffffff !default;
+$dropdown-link-hover-bg: #535255 !default;
+$list-group-bg: #2e2d31 !default;
+$list-group-color: #e5e9ef !default;
+$list-group-action-color: #e5e9ef !default;
+$list-group-hover-bg: #535255 !default;
+$input-bg: #2e2d31 !default;
+$input-color: #e5e9ef !default;
+$input-border-color: #535255 !default;
+$input-focus-bg: #2e2d31 !default;
+$input-focus-color: #ffffff !default;
+$input-placeholder-color: #adb5bd !default;
+$table-color: #e5e9ef !default;
+$table-border-color: #535255 !default;
+$modal-content-bg: #2e2d31 !default;
+$modal-content-border-color: #535255 !default;
+$jumbotron-bg: #2e2d31 !default;
+$breadcrumb-bg: #2e2d31 !default;
+$pagination-bg: #2e2d31 !default;
+$pagination-color: #e5e9ef !default;
+$pagination-hover-bg: #535255 !default;
+$pagination-hover-color: #ffffff !default;
+$pagination-disabled-bg: #2e2d31 !default;
+$pagination-disabled-color: #adb5bd !default;
+$pagination-border-color: #535255 !default;
+$navbar-chulapa-bg-color: #2e2d31 !default;
+$navbar-chulapa-text-color: #e5e9ef !default;
+$navbar-chulapa-hover-color: #ffffff !default;
+$navbar-chulapa-active-color: #ffffff !default;
+$navbar-chulapa-brand-color: #ffffff !default;
+$footer-chulapa-bg-color: #2e2d31 !default;
+$footer-chulapa-text-color: #adb5bd !default;
+$footer-chulapa-link-color: #edc7b7 !default;
+$footer-chulapa-hover-color: #edc7b7 !default;
+$thead-chulapa-text-color: #000000 !default;
+$blockquote-chulapa-bg-color: #2e2d31 !default;
+$blockquote-chulapa-text-color: #e5e9ef !default;
+$pre-chulapa-bg-color: #2e2d31 !default;
+$code-color: #ff9dcc !default;
+$alert-bg-level: 10 !default;
+$alert-border-level: 7 !default;
+$alert-color-level: -7 !default;
+$skin-button-labels: () !default;
+$skin-button-outlines: () !default;
+$skin-button-lighter-states: () !default;
+@import "skins/chulapa";
+// Legacy sources may assign these unconditionally; keep the dark treatment.
+$navbar-chulapa-bg-color: #2e2d31;
+$footer-chulapa-text-color: #adb5bd;
+@import "bootstrap/bootstrap";
+@import "chulapa-master";
+// Experimental shared control treatment. Original palette fills remain unchanged.
+// Some source integrations force labels with !important (for example Materia).
+@each $name, $source-fill in $theme-colors {
+  // Keep existing reviewed button fills (which can differ from palette tokens).
+  $fill: if(map-has-key($skin-button-backgrounds, $name), map-get($skin-button-backgrounds, $name), $source-fill);
+  .btn.btn-#{$name} {
+    color: color-contrast($fill, #000, #fff, 4.5) !important;
+    &:hover, &:focus {
+      background-color: darken($fill, 7.5%);
+      color: color-contrast(darken($fill, 7.5%), #000, #fff, 4.5) !important;
+    }
+    &:not(:disabled):not(.disabled):active {
+      background-color: darken($fill, 10%);
+      color: color-contrast(darken($fill, 10%), #000, #fff, 4.5) !important;
+    }
+  }
+}
+$pilot-outlines: (primary: #edc7b7, secondary: #828f7e, success: #88bdbc, info: #6292a9, warning: #fffe7a, danger: #e4634f, light: #fbf1ed, dark: #868f84);
+@each $name, $label in $pilot-outlines {
+  .btn.btn-outline-#{$name}:not(:disabled):not(.disabled) {
+    background-color: transparent;
+    color: $label !important;
+    border-color: $label !important;
+    &:hover, &:not(:disabled):not(.disabled):active {
+      background-color: theme-color($name);
+      color: color-contrast(theme-color($name), #000, #fff, 4.5) !important;
+    }
+  }
+}
+.table tbody td { background-color: $body-bg; color: $body-color; }
+.alert.alert-primary { background: #2f2825 !important; color: #e5e9ef !important; } .alert.alert-primary .alert-link { color: #edc7b7 !important; }
+.alert.alert-secondary { background: #151814 !important; color: #e5e9ef !important; } .alert.alert-secondary .alert-link { color: #798775 !important; }
+.alert.alert-success { background: #1b2626 !important; color: #e5e9ef !important; } .alert.alert-success .alert-link { color: #88bdbc !important; }
+.alert.alert-info { background: #0a161c !important; color: #e5e9ef !important; } .alert.alert-info .alert-link { color: #5488a1 !important; }
+.alert.alert-warning { background: #333318 !important; color: #e5e9ef !important; } .alert.alert-warning .alert-link { color: #fffe7a !important; }
+.alert.alert-danger { background: #2c0b06 !important; color: #e5e9ef !important; } .alert.alert-danger .alert-link { color: #e1533d !important; }
+.alert.alert-light { background: #32302f !important; color: #e5e9ef !important; } .alert.alert-light .alert-link { color: #fbf1ed !important; }
+.alert.alert-dark { background: #10120f !important; color: #e5e9ef !important; } .alert.alert-dark .alert-link { color: #7a8378 !important; }
