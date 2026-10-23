@@ -1,0 +1,104 @@
+name: Send outgoing Webmentions
+
+on:
+  workflow_run:
+    workflows: [Deploy Chulapa Jekyll site to Pages]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  webmentions:
+    name: Send outgoing Webmentions
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      actions: read
+    concurrency:
+      group: outgoing-webmentions
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Test outgoing Webmentions
+        run: python -m unittest discover -s scripts -p 'test_webmentions.py'
+      - name: Setup Ruby for a manual run
+        if: github.event_name == 'workflow_dispatch'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+          working-directory: docs
+      - name: Build docs for a manual run
+        if: github.event_name == 'workflow_dispatch'
+        run: bundle exec jekyll build --baseurl "/chulapa"
+        working-directory: docs
+        env:
+          JEKYLL_ENV: production
+      - name: Download the deployed site
+        if: github.event_name == 'workflow_run'
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/pages-artifact
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Unpack site
+        if: github.event_name == 'workflow_run'
+        run: |
+          mkdir -p "$RUNNER_TEMP/published-site"
+          tar -xf "$RUNNER_TEMP/pages-artifact/artifact.tar" -C "$RUNNER_TEMP/published-site"
+      - name: Use the manual build
+        if: github.event_name == 'workflow_dispatch'
+        run: mv docs/_site "$RUNNER_TEMP/published-site"
+      - name: Load durable delivery state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh auth setup-git
+          git init -b webmention-state "$RUNNER_TEMP/webmention-state"
+          cd "$RUNNER_TEMP/webmention-state"
+          git remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
+          if git ls-remote --exit-code --heads origin webmention-state; then
+            git fetch --depth=1 origin webmention-state
+            git reset --hard FETCH_HEAD
+            test -f state.json
+          else
+            status=$?
+            # ls-remote returns 2 only when the branch does not exist.
+            test "$status" -eq 2
+          fi
+      - name: Send mentions for published content pages
+        run: >-
+          python scripts/webmentions.py
+          --site "$RUNNER_TEMP/published-site"
+          --state "$RUNNER_TEMP/webmention-state/state.json"
+      - name: Save delivery state
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd "$RUNNER_TEMP/webmention-state"
+          if test -f state.json; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add state.json
+            if ! git diff --cached --quiet; then
+              git commit -m 'Record outgoing Webmention deliveries'
+              git push origin HEAD:refs/heads/webmention-state
+            fi
+          fi

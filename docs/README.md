@@ -37,3 +37,33 @@ independent: the request sends only the current question. The reviewed context a
 `ai-chatbot/`; context changes require rebuilding and redeploying that
 Worker separately from the Jekyll site. This integration is specific to this
 documentation site and is not a theme feature.
+
+## Webmentions
+
+This documentation site advertises its receiving endpoint in
+`_includes/custom/custom_head.html`. Receiving mentions does not display them
+on the site automatically.
+
+The standalone `webmentions.yml` workflow runs after a successful Pages workflow,
+using that run's generated site and commit. A manual run builds the docs and also
+checks each source against the live site before sending.
+
+Outgoing [Webmentions](https://www.w3.org/TR/webmention/) use canonical pages under
+`https://dieghernan.github.io/chulapa` with an `e-content` region or the minimal
+layout content boundaries, including guides, posts, demos and skin previews.
+Only content links are considered, excluding shared
+navigation and footers. Internal `/chulapa` links, non-HTTP links and `fed.brid.gy`
+are excluded; links to the author's blog remain eligible.
+
+The first run sends all existing eligible mentions. Later runs process new or
+edited content. The `webmention-state` branch records successful deliveries and
+destinations without an endpoint; network failures remain pending. Progress is
+saved after each destination, so another run can continue after a timeout.
+The workflow uses `GITHUB_TOKEN` with write permission for that state branch.
+It does not currently notify receivers about removed links or deleted pages.
+
+To inspect a built site without requests or state changes, run from the repository root:
+
+```sh
+python scripts/webmentions.py --site docs/_site --state state.json --dry-run
+```
