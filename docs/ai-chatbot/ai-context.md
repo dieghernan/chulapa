@@ -42,10 +42,16 @@ Source: https://dieghernan.github.io/chulapa/docs/21-gem-theme
 Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll in _config.yml; remove remote_theme and unused remote-theme plugin/dependency. Enable jekyll-include-cache in plugins. bundle update chulapa-jekyll updates theme/dependencies within existing constraints. Preview with bundle exec jekyll serve. Local matching files override theme files; review/merge them during upgrades. Unknown include_cached: install/enable jekyll-include-cache and restart build.
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
+Branch/backup; record URLs. Preserve url/baseurl/permalink/domain. Set remote_theme: dieghernan/chulapa@v2.2.0; remove conflicting theme settings. Install jekyll-remote-theme and jekyll-include-cache in Gemfile AND enable both in existing plugins; bundle install. Local _layouts/, _includes/ and assets/ override theme paths: _layouts/default.html wins; adapt useful files, no blanket deletion. Old layout: post is NOT a built-in layout; replace it in existing posts:
+```yaml
+layout: default
+header_type: post
+```
+Pages use default/base; explicit page values beat defaults.
+Adapt author.name/chulapa-skin.skin, navbar/footer, matching search provider/page/permalink, existing comment IDs and duplicate analytics. Keep jekyll-feed /feed.xml for subscribers, separate from built-in /atom.xml and /rss.xml; built-in feeds need dates/include_on_feed: true. Mermaid/PhotoSwipe/GoatCounter need v2.2.0, not v2.1.0. Guide has twelve-check checklist, Actions setup and six problems. Keep/adapt working deployment; restart local Jekyll after config edits; preview/publish/check old URLs, metadata, mobile/keyboard.
+## Migration field mappings
 Source: https://dieghernan.github.io/chulapa/docs/46-migration-fields
-Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.2.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
-Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
-Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
+Lookup separate from /docs/07-migration procedure; patterns, not automatic conversions. Old toc: true uses show_toc: true. Page comments: true uses show_comments: true plus configured provider/comment-capable layout. Page search: false uses include_on_search: false (local Lunr/Fuse/Simple only). Algolia: algolia.files_to_exclude plus reupload, not that flag; Google indexing independent. Explicit page front matter wins over defaults. No new options.
 ## Basic editing and publishing
 Sources: https://dieghernan.github.io/chulapa/docs/00-start
 https://dieghernan.github.io/chulapa/docs/15-create-post
@@ -98,7 +104,11 @@ url is origin (https://username.github.io); baseurl is /repository or "" for roo
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
-Since v2.1.0: publisher.type accepts Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping and preserve other fields. name/url identify it. Organization uses logo; Person uses image and ignores logo. Paths use url/baseurl. Article authors unchanged. Verify published application/ld+json publisher, not header/footer.
+Since v2.1.0: publisher.type accepts Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping; preserve other fields. name/url identify it. Organization uses logo; Person uses image (fallback site author.avatar), ignores logo. Paths use url/baseurl. Article authors unchanged. Change only this field inside existing publisher (keep name/url/image):
+```yaml
+  type: Person
+```
+Restart local Jekyll if used; publish/check JSON-LD publisher on home/post and image/url with baseurl. No search guarantee.
 Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4. fa_kit_code replaces hosted CSS with kit. Legacy fa5_kit_code wins: remove on migration.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
@@ -109,7 +119,7 @@ Source: https://dieghernan.github.io/chulapa/docs/18-goatcounter
 Source: https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics
 Set goatcounter: "https://YOUR-CODE.goatcounter.com/count" to the full public HTTPS counting endpoint, not code/dashboard alone. Self-hosted https://stats.example.org/count also works; do not add site's baseurl. Separate GoatCounter account/site required, no API key/plugin. Async https://gc.zgo.at/count.js loads only for nonempty HTTPS endpoint in JEKYLL_ENV=production; normal local preview does not load it, upstream ignores localhost.
 Use built-in config, not duplicate custom scripts. Clear gtag_id/analytics_id for GoatCounter-only; otherwise both services count. Publish; visit live page and allow dashboard reporting time. For missing visits check environment, endpoint, blockers and CSP allowances for script/counting address. No visible visitor counter/custom events.
-Same-domain canonical path is preferred (www/non-www equivalent); cross-domain canonicals ignored in favor of browser path. Existing canonical includes baseurl; no extra canonical tag needed. Not in v2.1.0.
+GoatCounter tracking only, not canonical metadata: same-domain canonical path is preferred (www/non-www equivalent); cross-domain canonicals ignored for counting in favor of browser path. Existing canonical includes baseurl; no extra canonical tag needed. Not in v2.1.0.
 ## Appearance reference
 Source: https://dieghernan.github.io/chulapa/docs/03-theming
 chulapa-skin.skin: exact case-sensitive filename without .scss; unknown names fail Sass import. Default none; auto selects generated-palette skin. chulapa-skin.highlight defaults to default; Rouge supplies syntax highlighting. vars maps Sass names/expressions without $ or semicolons.
@@ -201,16 +211,26 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 mathjax: true works in default, minimal and landingpage via the shared head. Only author panels/TOCs are absent from minimal; do not apply that limit to MathJax. Page front matter: show_toc: true adds in-page TOC; show_sidetoc: true adds sidebar. For sidebar h2–h5 set show_sidetoc: true, h_min: 2, h_max: 5 in page front matter, NOT config root. Defaults 2/4. kramdown.toc_levels does not control theme TOCs. Only headings with IDs appear: Markdown generates IDs; HTML needs explicit IDs. default supports panels/TOCs; minimal does not add them.
 v2.2.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria-current="location"; only included/rendered headings (skip hidden/closed). No new YAML or focus/Tab changes; anchors work without JS.
 ## More layouts and content navigation
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#minimal
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#archive
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
-landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chulapa-text-color under chulapa-skin.vars.
-minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
-archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
-indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
-Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
-Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
+landingpage: default options + chulapa-skin.vars landingpage-chulapa-bg-color/landingpage-chulapa-text-color.
+minimal: navbar/content/footer; header needs show_header: true + header_type base/post/hero/image/splash; header_img image. default/landingpage hide header with header_type: none.
+archive: dated collection docs; include_collection: posts,demo (no underscores/spaces), unset=all; include_missdates: true adds undated. cloudtag/cloudcategory: tagged/categorized collection docs.
+indexcategory cards: index_sort default name descending; index_sort_asc: true ascending; index_items default 10.
+Page: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges. show_bottomnavs: page.previous/page.next, not arbitrary pages.
+Merge in page front matter; keep layout/title/lists:
+```yaml
+show_breadcrumb: true
+breadcrumb_list:
+  - {label: Home, url: /}
+project_links:
+  - {url: "https://github.com/a/b", icon: fab fa-github, label: GitHub}
+```
+project_links: page, not _config.yml root.
+defaults: scope.path: "", scope.type: posts, values.layout: default. Page values win; boolean false, not "false".
 ## Related and random article cards
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On v2.2.0, a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
@@ -222,8 +242,15 @@ https://dieghernan.github.io/chulapa/docs/34-lunr-search
 https://dieghernan.github.io/chulapa/docs/35-simplesearch-search
 https://dieghernan.github.io/chulapa/docs/36-google-search
 https://dieghernan.github.io/chulapa/docs/37-algolia-search
-search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search link also needs navbar.nav; otherwise visit landing path including actual baseurl or add navbar links.
-Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false is DOCUMENT FRONT MATTER (or defaults.values), NEVER nested under search; excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
+search.provider: lunr/fusejs/simplesearch/algolia/google. Reuse ONE page: layout: search, title: Search; permalink = search.landing_page (default /search). Provider creates no page. Local engines need no account/key/plugin; Chulapa 101 has Fuse. /find under baseurl /my-blog:
+```yaml
+# _config.yml
+search:
+  provider: fusejs
+  landing_page: /find
+```
+Page front matter: layout: search, title: Search, permalink: /find. Public path /my-blog/find; NEVER /my-blog/find in landing_page/permalink. Classic/desktop dual Search link needs navbar.nav; otherwise visit public path.
+Local indexes combine site.pages and site.documents at build time, not just posts/About. include_on_search: false: document front matter/defaults.values, NEVER inside search. search.maxwords: 30 content words/document. Legacy lunr_maxwords/simplesearch_maxwords/fusejs_maxwords override maxwords. search.show_attrib: false hides local attribution; algolia_logo is separate (check plan).
 Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Browser fields algolia.application_id, index_name, search_only_api_key; indexing secret ALGOLIA_API_KEY belongs in environment/secrets, never public config. Docs site uses Algolia. jekyll-algolia is deprecated/unmaintained; install in Gemfile plugin group and upload via bundle exec jekyll algolia after dependency installation, with ALGOLIA_API_KEY secret environment binding (source directory must match). Google needs google_cse_id for an existing configured engine; build/local exclusions do not control Google indexing.
 ## Comments
 Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
@@ -270,17 +297,38 @@ navbar:
 footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
-Guide discovery: link /docs/65-search-visibility; cards on selected docs pages are optional alternatives, not setup steps. No config recipe is needed for a guide-discovery question. robots: "noindex, follow" controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy. og_image social image; header_img visible header; schema_image post JSON-LD image.
+Guide discovery: /docs/65-search-visibility; cards are alternatives, no setup recipe. robots controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy.
+For search exclusion merge into existing page front matter; preserve layout/title/permalink:
+```yaml
+robots: "noindex, follow"
+sitemap: false
+include_on_search: false
+```
+sitemap: false requires jekyll-sitemap; include_on_search: false excludes Lunr/Fuse/Simple-Jekyll-Search. Algolia: set algolia.files_to_exclude for the source file in existing _config.yml and reupload the index; local flag is not exclusion. Google Custom Search uses external indexing. Page remains public; no automatic exclusions/instant removal. Let crawlers read noindex; do not block in robots.txt. Publish/rebuild; check page loads, HTML robots, sitemap absence and local results; verify Algolia uploaded records.
 ## Page metadata and article images
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images
 Source: https://dieghernan.github.io/chulapa/docs/64-post-sharing
 Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
-canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
-seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
+canonical_url: original HTTP(S) URL or /site-path; external originals supported. No redirect; updates canonical/og:url/JSON-LD/feed, not sitemap. jekyll-sitemap lists COPY URL, not canonical target; sitemap: false excludes COPY, not original. Merge into the copy's existing front matter, preserving layout/permalink/content:
+```yaml
+canonical_url: https://example.com/original-article/
+sitemap: false
+```
+Keep pagination canonicals. Publish; inspect canonical/og:url/JSON-LD/feed and COPY URL absence from sitemap. GoatCounter counting rules do NOT apply to canonical metadata.
+seo_title replaces complete browser/structured title; inspect HTML <title>, not a seo_title tag; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt, og_image_width, og_image_height, og_image_type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
 locale sets HTML language; zh-Hant needs separate og_locale: zh_TW. og_locale_alternate lists real translated locales; [] clears inherited alternates; no translations/hreflang generation. og_type: article enables article metadata for another collection. og_article_author/og_article_section override author URL/first category; guest authors without URL do not inherit site's URL.
 schema_image: URL/list for post BlogPosting, fallback page og_image then header_img. Relative images use url/baseurl; no cropping/validation or visible/social image changes.
+Sharing-image task: upload/use real assets/img/article.jpg; merge into existing post front matter (plain paths, no Liquid in YAML):
+```yaml
+description: An evening walk in Madrid.
+og_title: An evening walk
+og_image: /assets/img/article.jpg
+og_image_alt: A street in Madrid at night
+schema_image: /assets/img/article.jpg
+```
+Preserve title/layout/permalink; do not add header_img for metadata-only tasks or insert a body image. Theme resolves paths using url/baseurl. Publish image/post; inspect og:title, description, og:image, og:image:alt and BlogPosting image array; open image URLs with baseurl; check unchanged heading. No crops or guaranteed previews/ranking; sharing previews can be cached.
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
@@ -316,8 +364,8 @@ Source: https://dieghernan.github.io/chulapa/docs/43-yaml-errors
 Read failed build filename/line and preceding edits; check indentation, quotes and duplicate sections. YAML Lint or bundle exec jekyll build checks syntax, not valid skin/provider names or field locations. Compare reference; rebuild. Skin previews do not save own site settings; use the skin task.
 ## Subscription feeds
 Source: https://dieghernan.github.io/chulapa/docs/56-publish-feeds
-Source: https://dieghernan.github.io/chulapa/docs/57-jekyll-feed
-For all posts, merge this default with existing defaults; date also required:
+Built-in /atom.xml and /rss.xml select ONLY posts/collection documents with boolean include_on_feed: true AND date. Standalone pages outside collections are NOT selected by layout/permalink/date/feed flags.
+Merge into existing posts scope values; preserve defaults; append only if scope missing:
 ```yaml
 defaults:
   - scope:
@@ -326,7 +374,11 @@ defaults:
     values:
       include_on_feed: true
 ```
-jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Collections need output: true for linked articles to exist; feed opt-in does not publish them. Set dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
+Exclude one post: include_on_feed: false in its front matter overrides true defaults; no plugin needed. Posts get filename dates; explicitly date collections for Jekyll 3/4 consistency (4 can infer dates).
+Collection 404: output: true inside that collection's existing _config.yml collections mapping; preserve settings. Feed opt-in does not publish articles; build/publish does. Opening the URL only verifies publication. Publish/check /atom.xml and /rss.xml with baseurl in a reader; follow recent links. Empty feed: check include_on_feed/date, specific defaults/latest build.
+## Feed coexistence
+Source: https://dieghernan.github.io/chulapa/docs/57-jekyll-feed
+Keep jekyll-feed /feed.xml address/dependency/plugin for subscribers; /atom.xml or /rss.xml collisions are unsafe; no theme YAML disable switch. include_on_feed controls theme feeds ONLY, never plugin selection. Standard head still advertises built-in Atom/RSS when plugin/footer uses /feed.xml.
 ## Check theme version
 Source: https://dieghernan.github.io/chulapa/docs/55-check-theme-version
 Remote: inspect remote_theme; tag=release, unpinned/branch can move. No exact commit check. Gem: chulapa-jekyll in Gemfile.lock. Published HTML source: search <!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->; marker gives version, unreleased means development. Missing marker: inspect local _layouts/ and _includes/ overrides. It identifies neither unpinned commit nor local overrides; review overrides manually. Cite this guide, not custom-head/docs index.
@@ -372,13 +424,14 @@ locale sets HTML language, not full UI translation. datetranslate accepts Englis
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
 English/French/Spanish/German/Italian; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English.
 ## Additional navigation and community questions
-Published files stay public: robots.txt, robots noindex and sitemap: false are not access control. Privacy needs hosting authentication or not publishing.
-Header types: base, post, hero, image, splash (hero is not splash). project_links entries url/icon/label become header buttons. words_per_minute defaults 200. paginator_maxnum numbered window defaults 3, clamped 2..total; first/last/previous/next are separate.
-include_collection filters collections, not categories. For custom category cards:
+Source: https://dieghernan.github.io/chulapa/docs/02-config
+robots.txt/noindex/sitemap: false are not access control. Privacy needs hosting auth or not publishing.
+_config.yml root: words_per_minute default 200; paginator_maxnum default 3 (numbered window, clamp 2..total; does NOT enable pagination). First/last/previous/next separate. hero is not splash.
+include_collection filters collections, not categories; category cards:
 {% assign music_posts = site.categories.music %}
 {% include_cached components/indexcards.html cacheddocs=music_posts cachedlimit=5 %}
-Not a built-in category front-matter setting. Bootstrap HTML <button class="btn btn-primary">Example</button> works; Markdown button link [Docs](/docs/){: .btn .btn-primary} needs (URL).
-Missing include: bundle install, bundle exec jekyll serve, verify theme/remote_theme/plugins. An error alone is not a diagnosis; request config/versions if unresolved.
+Not a built-in category option. Bootstrap <button class="btn btn-primary">Example</button> works; Markdown button link [Docs](/docs/){: .btn .btn-primary} needs (URL).
+Missing include: bundle install; bundle exec jekyll serve; check theme/remote_theme/plugins; if unresolved ask config/version before diagnosis.
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml
 Give this subscription URL when asked. Feed entries are not in context; assistant does not fetch URLs or know latest feed posts.
@@ -455,7 +508,6 @@ include_missdates: true
 ```
 Five newest post cards need layout: indexcategory, include_collection: posts, index_sort: date, index_sort_asc: false, index_items: 5 in page front matter. Default sorting is name, not date.
 Sass switches including enable-rounded belong under chulapa-skin.vars, never _config.yml root. Fonts already loaded via googlefonts do not also require custom_head.html; loading alone still needs font-family-base/headings-font-family vars.
-include_on_feed controls theme feeds only, NOT jekyll-feed. Plugin /feed.xml can coexist; /atom.xml or /rss.xml collisions must be resolved, never recommend replacing them with include_on_feed.
 ## Algolia search
 Source: https://dieghernan.github.io/chulapa/docs/37-algolia-search
 Source: https://dieghernan.github.io/chulapa/docs/02-config#search-engines

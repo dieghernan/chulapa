@@ -1,56 +1,56 @@
 [
   {
     "id": "layouts-random-singleton-1",
-    "section": "layouts",
+    "section": "recommendations",
     "doc": "04_layouts.md",
     "question": "My random article panel has only one eligible document. Should it show three empty cards?",
     "expected": "No. In the v2.2.0 the singleton sampling bug is fixed: one eligible document renders one card. show_random selects up to three from the existing tag-based pool at build time; eligibility thresholds and settings are unchanged. No new YAML option and no claim the fix is already in v2.1.0."
   },
   {
     "id": "layouts-include-cache-1",
-    "section": "layouts",
+    "section": "include-cache",
     "doc": "04_layouts.md",
     "question": "Can I replace every include with include_cached to speed up builds? How are the layout components organized in the v2.2.0?",
     "expected": "No blanket replacement. Pass all page-dependent inputs as include parameters; keep helpers that assign caller variables and custom hooks reading page context uncached. compress wraps minimal, then default or landingpage; archive/cloud/index layouts inherit default, search is standalone. Collection indexes share collection-documents and related/random share recommendations. Development caching reuses fixed footer content and cloud entries; comments keep page-specific inputs. No new configuration settings or claim this is released in v2.1.0."
   },
   {
     "id": "layouts-head-formatting-1",
-    "section": "layouts",
+    "section": "html-output",
     "doc": "04_layouts.md",
     "question": "Can I keep the generated head and footer readable with indentation? Do I need a new YAML setting? What happens to my custom snippets and the body?",
     "expected": "In v2.2.0 (not in v2.1.0) the theme emits separate document opening and head lines with consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true, already in configuration examples, preserves head and theme footer indentation while removing blank lines and clipping the rest of the body. Fixed footer content uses two spaces per nesting level. No new setting is needed. Other compression modes follow existing site settings. Custom head includes and embedded comment integrations retain their own formatting; avoid Liquid trims across HTML boundaries. These changes are included in v2.2.0, not v2.1.0."
   },
   {
     "id": "layouts-microformats-nested-feed-1",
-    "section": "layouts",
+    "section": "microformats",
     "doc": "04_layouts.md",
     "question": "My page uses custom2, which inherits custom1, which inherits archive. Will it still be h-feed? Do I need a YAML flag in my page?",
     "expected": "In v2.2.0 (not in v2.1.0) custom layouts inheriting archive, indexcategory, cloudtag or cloudcategory retain h-feed through multiple layout layers. No additional page YAML setting or configuration option is needed; the built-in list layouts propagate the internal feed metadata automatically."
   },
   {
     "id": "layouts-microformats-feed-1",
-    "section": "layouts",
+    "section": "microformats",
     "doc": "04_layouts.md",
     "question": "Which Chulapa list layouts provide h-feed? Do I need new YAML options or does including indexcards automatically create a feed?",
     "expected": "In v2.2.0 (not in v2.1.0) archive, indexcategory, cloudtag and cloudcategory and their deprecated aliases use h-feed with nested h-entry items. No new YAML options. indexcards and simplelist mark entries only; custom pages need their own feed wrapper. The pagination example provides h-feed per page. Cloud lists can repeat entries across groups."
   },
   {
     "id": "config-author-profile-1",
-    "section": "config",
+    "section": "configuration",
     "doc": "02_config.md",
     "question": "Where do I configure my site author's profile URL? Can I use /about/ and will guest authors inherit it?",
     "expected": "Use author.url in _config.yml, alongside name, avatar, location and links. It accepts a profile URL or site-relative path such as /about/; paths resolve with site url/baseurl. It supplies the default article:author URL for posts and, from v2.2.0, u-url in visible Microformats2 author cards. A page author does not inherit the site author's profile URL. Social links remain in author.links."
   },
   {
     "id": "layouts-label-headings-1",
-    "section": "layouts",
+    "section": "accessibility",
     "doc": "04_layouts.md",
     "question": "W3C says my Related posts h5 skips heading levels. Does Chulapa choose that heading? How can I keep small text?",
     "expected": "related_label and random_label render the user's HTML unchanged. Choose a heading matching the page hierarchy, such as h2 for a separate section, and use class h5 for its visual size. No new configuration option is needed."
   },
   {
     "id": "layouts-microformats-1",
-    "section": "layouts",
+    "section": "microformats",
     "doc": "04_layouts.md",
     "question": "In v2.2.0, does minimal create a Microformats entry? How do updated dates and guest author URLs work?",
     "expected": "Minimal does not declare an automatic h-entry; custom content can supply its own wrapper with p-name, u-url and e-content. Default and landingpage retain automatic entry markup. With show_date enabled, updated pages retain dt-published and dt-updated. Visible h-card uses the selected author.url, resolves relative paths with url/baseurl and does not inherit a site profile URL for a guest."
@@ -64,7 +64,7 @@
   },
   {
     "id": "installation-2",
-    "section": "installation",
+    "section": "migration",
     "doc": "01_install.md",
     "question": "How do I migrate an existing Jekyll site to Chulapa using remote_theme?",
     "expected": "Remove conflicting theme; add remote-theme and include-cache to Gemfile/plugins."
@@ -85,7 +85,7 @@
   },
   {
     "id": "installation-5",
-    "section": "installation",
+    "section": "version",
     "doc": "01_install.md",
     "question": "Does remote_theme: dieghernan/chulapa select v2.1.0? How can I pin that version?",
     "expected": "Unpinned default branch versus @v2.2.0; rebuild."
@@ -106,119 +106,119 @@
   },
   {
     "id": "configuration-2",
-    "section": "configuration",
+    "section": "localization",
     "doc": "02_config.md",
     "question": "Does locale: es translate the whole interface? How do I translate date names?",
     "expected": "locale HTML language, not full translation; datetranslate details from layouts."
   },
   {
     "id": "configuration-3",
-    "section": "configuration",
+    "section": "seo",
     "doc": "02_config.md",
     "question": "How do I configure a Person publisher? Does it change guest article authors?",
     "expected": "Person is not the default: publisher defaults/falls back to Organization. Explicitly set type: Person in the existing publisher mapping and preserve other fields; logo ignored, image used; guest article authors unchanged."
   },
   {
     "id": "configuration-4",
-    "section": "configuration",
+    "section": "analytics",
     "doc": "02_config.md",
     "question": "How do I enable Google Analytics 4? Should I set analytics_id too?",
     "expected": "gtag_id G-; analytics_id is separate retired Universal Analytics; blank for a new GA4-only setup. If both are configured, both snippets load independently; do not claim conflict or breakage."
   },
   {
     "id": "configuration-5",
-    "section": "configuration",
+    "section": "icons",
     "doc": "02_config.md",
     "question": "How do I use a Font Awesome kit? What if fa5_kit_code is already set?",
     "expected": "fa_kit_code; legacy takes precedence; remove legacy; default FA6."
   },
   {
     "id": "configuration-6",
-    "section": "configuration",
+    "section": "navbar",
     "doc": "02_config.md",
     "question": "Show a minimal dual navbar configuration with a submenu and expansion at lg.",
     "expected": "navbar.style dual expand lg; nav child list; one nesting level."
   },
   {
     "id": "search-comments-1",
-    "section": "search-comments",
+    "section": "search",
     "doc": "02_config.md",
     "question": "I set search.provider: lunr but /search is missing. Why?",
     "expected": "Create layout search page with matching permalink."
   },
   {
     "id": "search-comments-2",
-    "section": "search-comments",
+    "section": "search",
     "doc": "02_config.md",
     "question": "Does include_on_search: false exclude pages from both Lunr and Algolia?",
     "expected": "Yes local indices; Algolia ranking only; files_to_exclude."
   },
   {
     "id": "search-comments-3",
-    "section": "search-comments",
+    "section": "search",
     "doc": "02_config.md",
     "question": "Where should I put my Algolia indexing key and search key?",
     "expected": "Public search_only_api_key versus private ALGOLIA_API_KEY env; no indexing secret inconfig."
   },
   {
     "id": "search-comments-4",
-    "section": "search-comments",
+    "section": "search",
     "doc": "02_config.md",
     "question": "How do I hide search attribution? Is lunr_maxwords still recommended?",
     "expected": "show_attrib false; prefer maxwords; deprecated provider fields precedence; Algolia separatelogo."
   },
   {
     "id": "search-comments-5",
-    "section": "search-comments",
+    "section": "comments",
     "doc": "02_config.md",
     "question": "How do I enable giscus comments on my posts?",
     "expected": "comments.provider giscus; show_comments true; custom/giscus.html generatedembed."
   },
   {
     "id": "search-comments-6",
-    "section": "search-comments",
+    "section": "footer",
     "doc": "02_config.md",
     "question": "How do I add an email link and custom copyright text to the footer?",
     "expected": "footer.links label icon plainemailurl; footer.copyright."
   },
   {
     "id": "theming-1",
-    "section": "theming",
+    "section": "skins",
     "doc": "03_theming.md",
     "question": "What skins are available?",
     "expected": "Actual names and /skins visual catalog."
   },
   {
     "id": "theming-2",
-    "section": "theming",
+    "section": "autothemer",
     "doc": "03_theming.md",
     "question": "How do I enable Autothemer using a purple primary color? Show YAML.",
     "expected": "Enable chulapa-skin.autothemer: true as a sibling of vars; vars.primary is the quoted requested purple hex color. Preserve the existing skin: omit skin from a generic change example unless a skin change was requested. skin: auto independently loads the generator and is not required for the later autothemer step. No unrelated include-cache advice."
   },
   {
     "id": "theming-3",
-    "section": "theming",
+    "section": "autothemer",
     "doc": "03_theming.md",
     "question": "Does Autothemer replace every color defined by my chosen skin?",
     "expected": "No !default fills undefined; vars override skin."
   },
   {
     "id": "theming-4",
-    "section": "theming",
+    "section": "fonts",
     "doc": "03_theming.md",
     "question": "I loaded Rubik with googlefonts but the page font did not change. Why?",
     "expected": "Apply font-family-base/headings-font-family undervars; rebuild."
   },
   {
     "id": "theming-5",
-    "section": "theming",
+    "section": "skins",
     "doc": "03_theming.md",
     "question": "How do I add a custom skin named myskin? Should it import Bootstrap?",
     "expected": "_sass/skins/myskin.scss; skinmyskin; !default variables; no secondBootstrapimport."
   },
   {
     "id": "theming-6",
-    "section": "theming",
+    "section": "skins",
     "doc": "03_theming.md",
     "question": "How do I transfer a Codeply theme preview to my site?",
     "expected": "PreviewSCSS translatevars no$semicolon quotedhex; don'tdisablegrid."
@@ -239,182 +239,182 @@
   },
   {
     "id": "layouts-3",
-    "section": "layouts",
+    "section": "toc",
     "doc": "04_layouts.md",
     "question": "How do I add a sidebar TOC that includes h2 through h5?",
     "expected": "show_sidetoc true h_min2 h_max5 headingsIDs."
   },
   {
     "id": "layouts-4",
-    "section": "layouts",
+    "section": "collections",
     "doc": "04_layouts.md",
     "question": "How do I archive only posts and demo, including documents without dates?",
     "expected": "layoutarchive include_collection posts,demo no_ no spaces include_missdatestrue; no standalonepages."
   },
   {
     "id": "layouts-5",
-    "section": "layouts",
+    "section": "collections",
     "doc": "04_layouts.md",
     "question": "How do I create a tag cloud and link tags in my posts to it?",
     "expected": "layoutcloudtag permalink /tags; cloudtag_url; show_tags; collectionrestriction."
   },
   {
     "id": "layouts-6",
-    "section": "layouts",
+    "section": "collections",
     "doc": "04_layouts.md",
     "question": "How do I show five newest posts as cards? Will show_bottomnavs also link arbitrary pages?",
     "expected": "indexcategory index_sortdate descending index_items5; bottomnavusespreviousnext notarbitrary."
   },
   {
     "id": "snippets-1",
-    "section": "snippets",
+    "section": "video",
     "doc": "04_layouts.md",
     "question": "How do I embed a local MP4 video? Give the Liquid include.",
     "expected": "snippets/video.html fileurl. Use a root-relative fileurl without relative_url or a manually added baseurl; the snippet applies absolute_url. Include a public playback check and /docs/32-embed-video."
   },
   {
     "id": "snippets-2",
-    "section": "snippets",
+    "section": "video",
     "doc": "04_layouts.md",
     "question": "My YouTube preview is blank. How do I change its resolution or load the player immediately?",
     "expected": "video_res versus nolazy true; no metadata thumbnailconfusion."
   },
   {
     "id": "snippets-3",
-    "section": "snippets",
+    "section": "video",
     "doc": "04_layouts.md",
     "question": "Does thumbnail_url change the video preview? Can Chulapa infer upload_date and duration?",
     "expected": "Metadataonly no visualposter; no infer; ISO8601inputs."
   },
   {
     "id": "snippets-4",
-    "section": "snippets",
+    "section": "galleries",
     "doc": "04_layouts.md",
     "question": "How do I make an internal masonry gallery sorted by filename without shuffling?",
     "expected": "defaultsimage_col internalgallery; index_sortbasename index_sort_asctrue randombooleanfalse."
   },
   {
     "id": "snippets-5",
-    "section": "snippets",
+    "section": "galleries",
     "doc": "04_layouts.md",
     "question": "How do I add an external-image carousel with controls and a 2-second interval?",
     "expected": "assigncommaseparatedurls externalvariable interval2000 controlstrue indicatorstrue."
   },
   {
     "id": "snippets-6",
-    "section": "snippets",
+    "section": "math",
     "doc": "04_layouts.md",
     "question": "How do I enable mathematical formulas on a page?",
     "expected": "mathjax true in frontmatter; example correct."
   },
   {
     "id": "faq-1",
-    "section": "faq",
+    "section": "version",
     "doc": "05_faq.md",
     "question": "How do I check my installed theme version, including local overrides?",
     "expected": "remote suffix Gemfile.lock markerlimitations notexactunpinnedcommit."
   },
   {
     "id": "faq-2",
-    "section": "faq",
+    "section": "custom-hooks",
     "doc": "05_faq.md",
     "question": "Where do I add analytics HTML before the theme CSS and JavaScript at the end of body?",
     "expected": "custom_head_before_css.html versus custom_bottomscripts.html relative _includes."
   },
   {
     "id": "faq-3",
-    "section": "faq",
+    "section": "favicons",
     "doc": "05_faq.md",
     "question": "How do I configure favicons for a GitHub Pages project under /blog?",
     "expected": "expliciticonlinks generated assets custom_head URLsrespectbaseurl."
   },
   {
     "id": "faq-4",
-    "section": "faq",
+    "section": "formatting",
     "doc": "05_faq.md",
     "question": "How do I add an info alert, an image caption and a footnote in Markdown?",
     "expected": "kramdownalertattributes captionparagraph footnoterefdefinition."
   },
   {
     "id": "faq-5",
-    "section": "faq",
+    "section": "fonts",
     "doc": "05_faq.md",
     "question": "How do I render the Chulapa logo font with its ligatures in a heading?",
     "expected": "classchulapa or font-family headings plusliga,dlig; preservebrandingcode."
   },
   {
     "id": "faq-6",
-    "section": "faq",
+    "section": "feeds",
     "doc": "57_jekyll-feed.md",
     "question": "Can jekyll-feed replace /atom.xml without conflicting with Chulapa?",
     "expected": "Pointing jekyll-feed at /atom.xml conflicts with the built-in Atom feed. Recommend keeping theme feeds or using the plugin default /feed.xml with its setup guide. Do not invent a disable-feed YAML setting or claim the guide provides a replacement Ruby recipe."
   },
   {
     "id": "reference-edge-cases-1",
-    "section": "reference-edge-cases",
+    "section": "formatting",
     "doc": "99_markdown-cheatsheet.md",
     "question": "How do I write a Markdown table with right-aligned numbers and a fenced YAML example?",
     "expected": "pipetable alignment ---: fence yaml; compactcompleteexample."
   },
   {
     "id": "reference-edge-cases-2",
-    "section": "reference-edge-cases",
+    "section": "formatting",
     "doc": "58_content-toc.md",
     "question": "Does kramdown GFM support every Kramdown extension? How do I make a Markdown TOC?",
     "expected": "GFM does not support every Kramdown extension. Guide /docs/58-content-toc uses two separate lines * Contents and {:toc}, outside a code fence in article content; verified on sample GFM. kramdown.toc_levels is site-wide and separate from show_toc/h_min/h_max. Preserve parser/options; publish and check generated links. Syntax specimens remain /docs/markdown-cheatsheet. Marker location only controls index position; .no_toc is shared by content and theme TOCs."
   },
   {
     "id": "reference-edge-cases-3",
-    "section": "reference-edge-cases",
+    "section": "variables",
     "doc": "99_markdown-cheatsheet.md",
     "question": "How do I disable rounded buttons and make headings use a different font?",
     "expected": "enable-rounded false and headings-font-family undervars quotedlist."
   },
   {
     "id": "reference-edge-cases-4",
-    "section": "reference-edge-cases",
+    "section": "variables",
     "doc": "99_markdown-cheatsheet.md",
     "question": "How do I change navbar, footer and code-block background colors?",
     "expected": "correctvars; highlighting canoverridepre-chulapa-bg-color."
   },
   {
     "id": "reference-edge-cases-5",
-    "section": "reference-edge-cases",
+    "section": "highlighting",
     "doc": "25_code-highlighting.md",
     "question": "Does choosing dracula in the syntax-highlighting demo save it to my site?",
     "expected": "Preview only; use /docs/25-code-highlighting to edit existing chulapa-skin.highlight: dracula, preserve other settings, commit/rebuild and check publication. Catalog /docs/syntax-highlighting lists identifiers and specimens."
   },
   {
     "id": "reference-edge-cases-6",
-    "section": "reference-edge-cases",
+    "section": "seo",
     "doc": "99_markdown-cheatsheet.md",
     "question": "Can robots: noindex make a page private? Can you read my latest RSS post or add a shopping cart?",
     "expected": "Noindexnotaccesscontrol; nofetchlatestRSS; unsupportedcart acknowledged."
   },
   {
     "id": "migration-theme-1",
-    "section": "installation",
+    "section": "migration",
     "doc": "07_migration.md",
     "question": "I already have a Jekyll site with layout: post, a local _layouts/default.html and subscribers using /feed.xml. How do I migrate safely to Chulapa using a released remote theme?",
-    "expected": "Link the migration guide /docs/07-migration and its checklist. Back up/use a branch; preserve url/baseurl/permalink and existing public URLs. Set remote_theme: dieghernan/chulapa@v2.2.0, remove conflicting theme settings, install and enable jekyll-remote-theme and jekyll-include-cache. Review local overrides rather than blindly deleting custom files: _layouts/default.html takes precedence. Translate post front matter to layout: default and header_type: post; explicit page values override defaults. Preserve /feed.xml using jekyll-feed; it can coexist with built-in atom.xml/rss.xml without an output collision. Built-in feeds need dated documents and include_on_feed: true. Check navigation, search page/provider, comments, analytics duplicates, build and live URLs. Mermaid, PhotoSwipe and GoatCounter require v2.2.0, not v2.1.0. Adapt author.name and chulapa-skin.skin; useful local customizations should be adapted, not deleted indiscriminately. The guide includes GitHub Actions setup steps and six common migration problems."
+    "expected": "Link the migration guide/checklist. Branch/backup, explicitly preserve url/baseurl/permalink and public addresses. Pin remote_theme: dieghernan/chulapa@v2.2.0, remove conflicting theme settings, install AND enable remote-theme/include-cache plugins. Local _layouts/default.html overrides the theme: review/adapt useful files, never blanket-delete. Replace old layout: post with layout: default and header_type: post. Preserve existing jekyll-feed /feed.xml subscribers without built-in path collisions. Preview/publish and verify old URLs. Exhaustive unrelated integration/feature/release inventories are optional unless asked; any added facts must be correct."
   },
   {
     "id": "skin-font-failure-1",
-    "section": "theming",
+    "section": "skins",
     "doc": "22_choose-skin.md",
     "question": "In main/2.2.0, can I switch bundled skins if Google Fonts is blocked? Are CSS font imports removed?",
     "expected": "2.2.0 keeps font imports in CSS, including standalone skin previews, with no new option or dependency. Failed Google Fonts imports use fallback fonts while switching works if generated skin/highlighter CSS are complete. Missing/incomplete essential CSS retains the previous appearance or Light at startup and preserves mode; Auto follows later system changes. Rebuild and publish all CSS together on upgrade; custom replacement sheets must preserve completion markers. Do not claim this fix for released v2.1.0 or every external font provider. For changing skins, show skin nested under chulapa-skin and preserve other mappings."
   },
   {
     "id": "skin-palette-contrast-1",
-    "section": "appearance",
+    "section": "accessibility",
     "doc": "23_change-color.md",
     "question": "Do the improved skin palettes guarantee that my custom colors and whole website meet accessibility requirements? Are they in v2.1.0?",
     "expected": "No. 2.2.0 makes small palette/YIQ threshold adjustments while preserving original primary colors and skin identity. Some combinations remain below 4.5:1; do not claim every palette passes WCAG AA. Dark dim skins retain bright link/navigation accents. Custom vars/generated palettes, transparency, fixed text colors, interaction states and actual content still need checks. No whole-page guarantee; not included in v2.1.0. Link /docs/23-change-color."
   },
   {
     "id": "theme-selector-demo-1",
-    "section": "theming",
+    "section": "skins",
     "doc": "22_choose-skin.md",
     "question": "The component demo shows a theme selector, but I have not enabled dark mode. Does seeing that example activate dark mode on my site?",
     "expected": "No. The component demo shows a sample selector even when dark mode is disabled. Enable site switching through a separate top-level chulapa-skin-dark mapping as described in /docs/22-choose-skin, preserving existing settings. Do not show chulapa-skin as a scalar, nest the dark mapping, or add technical asset-path explanations."

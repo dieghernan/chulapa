@@ -1,0 +1,21 @@
+{
+  "worker_version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+  "traffic_percent": 100,
+  "source_reference": "ceaa258da plus uncommitted feeds/migration and essential follow-up changes",
+  "local_tests": 106,
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "max_completion_tokens": 450,
+  "max_selected_bytes": 18000,
+  "context_bytes": 56955,
+  "library_budget": 57000,
+  "sha256": {
+    "worker.mjs": "036c880d603fe60edb7b8f0eb99f4e239c1a588ad0b5c204823be0862f7c39ef",
+    "ai-context.md": "e945550f2c80cd5692c7046842d005c1bb672bdf547009d4b3db9987faa2bc31",
+    "context-selector.mjs": "cf941a28d172681f6cb17d4b091c9402affcba6e13b868d5188f98a826f13801",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "8b35e21fa8f6d4eeccbeaaf0c1e67b99d84cfe2d7679ab1306541e033c46e875",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "ad3c59e93c0c7e8dde08a8c2bc0b66711857deae59d08818f04d16bafb013b60",
+    "dashboard-worker.mjs": "dddf4aaf4db3f3fe0a4c26e011d1a9a01a15240236ad4d3618276a1d1875c5e6"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "run": "seo-batch1-final-20261024",
+  "worker_version": "ac010481-bedc-448a-94be-7512e5825e92",
+  "traffic_percent": 100,
+  "raw": "seo-batch1-final-20261024.jsonl",
+  "totals": {
+    "requests": 7,
+    "pass": 1,
+    "partial": 6,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "original_five": {
+    "pass": 0,
+    "partial": 5,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "regression_two": {
+    "pass": 1,
+    "partial": 1,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "review_note": "Existing rubrics are retained. Partial can mean omitted secondary constraints even where requested core task is correctly answered. No result is generalized to other versions or unseen questions.",
+  "reviews": [
+    {
+      "id": "seo-1",
+      "result": "partial",
+      "finding": "Correct copy exclusion/no redirect/metadata checks and valid YAML. Overstates that the original target remains included in a sitemap; that depends on the original site, not this setting."
+    },
+    {
+      "id": "seo-2",
+      "result": "partial",
+      "finding": "Correct four title/description keys and example. Verification incorrectly asks to find seo_title in generated HTML instead of inspecting the rendered title element; core configuration rubric is met, but added advice is imprecise."
+    },
+    {
+      "id": "seo-3",
+      "result": "pass",
+      "finding": "Correct locale zh-Hant, og_locale zh_TW, real alternate locales, clearing inheritance and no automatic translations/hreflang; valid YAML and source."
+    },
+    {
+      "id": "person-publisher-task-1",
+      "result": "partial",
+      "finding": "Correct minimal type-only edit, independent guest author, image/avatar, ignored logo and published checks. Omits v2.1.0 availability, Organization default and explicit preservation of other fields."
+    },
+    {
+      "id": "canonical-article-task-1",
+      "result": "partial",
+      "finding": "Correct minimal fields, preserves layout/title/permalink, no redirect, correct copy-versus-target distinction and metadata/feed/sitemap checks. Omits pagination-canonical caveat in the full existing rubric; requested core task is answered."
+    },
+    {
+      "id": "sharing-task-1",
+      "result": "partial",
+      "finding": "Correct five plain-path metadata fields, no header/body mutation, published image/post and exact tag/JSON/baseurl checks. Omits explicit no-cropping/no-inspection and no-guaranteed-preview/ranking limits from the full rubric."
+    },
+    {
+      "id": "search-visibility-task-1",
+      "result": "partial",
+      "finding": "Correct independent three-field recipe plus Algolia exclusion/reupload and result checks. Omits jekyll-sitemap prerequisite and robots.txt/public-access/delayed-removal caveats."
+    }
+  ]
+}

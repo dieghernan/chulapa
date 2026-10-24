@@ -5,6 +5,246 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('focused TOC questions retain requested provider inventories and comparisons', () => {
+  for (const question of [
+    'How do I enable show_toc, and which comment providers are available?',
+    '¿Cómo activo show_toc y qué proveedores de comentarios hay disponibles?',
+    'How do I enable show_toc and compare Giscus versus Disqus?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Mathematical notation and tables of contents'));
+    assert.ok(selected.titles.includes('Comments'));
+    for (const title of ['Giscus comments', 'Disqus comments', 'Cactus comments', 'Welcomments comments', 'Cusdis comments']) {
+      assert.ok(selected.titles.includes(title), `${question}: ${title}`);
+    }
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+});
+
+test('subscription and link questions retain the documented public feed URL', () => {
+  for (const question of [
+    'Where can I subscribe to the RSS feed?',
+    '¿Cuál es vuestro feed RSS?',
+    '¿Dónde me suscribo al RSS?',
+    'Give me the RSS link'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Public RSS feed'));
+    assert.match(selected.text, /https:\/\/dieghernan\.github\.io\/chulapa\/rss\.xml/);
+  }
+});
+
+test('focused navigation questions retain explicitly requested title metadata', () => {
+  for (const question of [
+    'How do I change seo_title and enable show_toc?',
+    '¿Cómo cambio seo_title y activo show_toc?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Page metadata and article images'));
+    assert.ok(selected.titles.includes('Mathematical notation and tables of contents'));
+    assert.match(selected.text, /seo_title replaces complete browser\/structured title/);
+  }
+});
+
+test('custom search dependency failures retrieve the actual adapter and navigation references', () => {
+  const selected = selectContext(context, 'I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?');
+  assert.ok(selected.titles.includes('Layout structure and include caching'));
+  assert.ok(!selected.titles.includes('Configuring site search'));
+  assert.match(selected.text, /assets\/js\/chulapa_search\.js, provider library and generated store before adapter/);
+  assert.match(selected.text, /chulapa_navigation\.js once/);
+  assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  const setup = selectContext(context, 'ChulapaSearch is not defined; how do I configure Fuse search.landing_page too?');
+  assert.ok(setup.titles.includes('Layout structure and include caching'));
+  assert.ok(setup.titles.includes('Configuring site search'));
+});
+
+test('Fuse custom paths keep baseurl outside both configured paths', () => {
+  const selected = selectContext(context, 'I want Fuse.js search at /find on my site under /my-blog. Is setting search.provider enough?');
+  assert.match(selected.text, /landing_page: \/find/);
+  assert.match(selected.text, /permalink: \/find/);
+  assert.match(selected.text, /Public path \/my-blog\/find/);
+  assert.match(selected.text, /site\.pages and site\.documents/);
+});
+
+test('focused SEO questions retain explicitly requested analytics and galleries', () => {
+  const publisher = selectContext(context, 'How do I configure my publisher as a Person and enable GA4?');
+  assert.ok(publisher.titles.includes('Publisher, analytics and icon configuration'));
+  assert.ok(publisher.titles.includes('Google Analytics 4'));
+  const gallery = selectContext(context, 'How do I configure og_image and a PhotoSwipe gallery?');
+  assert.ok(gallery.titles.includes('Page metadata and article images'));
+  assert.ok(gallery.titles.includes('PhotoSwipe galleries (v2.2.0)'));
+  assert.ok(gallery.titles.includes('Image galleries and carousels'));
+});
+
+test('migration questions about custom fields retain the procedure and requested installation method', () => {
+  for (const question of [
+    'How do I migrate an existing site and keep my custom front matter fields?',
+    '¿Cómo migrar un sitio existente conservando mis campos personalizados?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Migrating an existing Jekyll site'));
+    assert.ok(selected.titles.includes('Remote-theme installation'));
+    assert.ok(selected.titles.includes('Migration field mappings'));
+  }
+  const gem = selectContext(context, 'How do I migrate my existing site using the theme gem instead of a remote theme?');
+  assert.ok(gem.titles.includes('Migrating an existing Jekyll site'));
+  assert.ok(gem.titles.includes('Gem-theme installation'));
+  assert.ok(!gem.titles.includes('Remote-theme installation'));
+  assert.ok(Buffer.byteLength(gem.text, 'utf8') <= MAX_SELECTED_BYTES);
+});
+
+test('mixed feed and migration questions retain explicitly requested navigation and search', () => {
+  for (const question of [
+    'How do I add my RSS feed to the navbar?',
+    '¿Cómo añado mi feed RSS al menú?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Subscription feeds'));
+    assert.ok(selected.titles.includes('Navbar and footer'));
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+  const migration = selectContext(context, 'How do I migrate to Chulapa and configure Lunr search?');
+  assert.ok(migration.titles.includes('Migrating an existing Jekyll site'));
+  assert.ok(migration.titles.includes('Configuring site search'));
+  assert.match(migration.text, /search\.provider/);
+  assert.ok(Buffer.byteLength(migration.text, 'utf8') <= MAX_SELECTED_BYTES);
+});
+
+test('feed selection and plugin coexistence retain both recipes when requested together', () => {
+  for (const question of [
+    'How do I enable all posts in the built-in feed while keeping jekyll-feed?',
+    'How do I exclude one post from the built-in feed while keeping jekyll-feed?',
+    '¿Cómo incluir todos los artículos en el feed manteniendo jekyll-feed?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Subscription feeds'));
+    assert.ok(selected.titles.includes('Feed coexistence'));
+    assert.match(selected.text, /type: posts/);
+    assert.match(selected.text, /include_on_feed: true/);
+    assert.match(selected.text, /include_on_feed: false/);
+    assert.match(selected.text, /explicitly date collections/);
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+  const coexistence = selectContext(context, 'Can I make jekyll-feed overwrite atom.xml, and will include_on_feed control the plugin?');
+  assert.ok(coexistence.titles.includes('Feed coexistence'));
+  assert.ok(!coexistence.titles.includes('Subscription feeds'));
+});
+
+test('header navigation selects complete page-level breadcrumbs/buttons without navbar recipes', () => {
+  const selected = selectContext(context, 'How do I add breadcrumb links and a GitHub button in my page header?');
+  assert.match(selected.text, /show_breadcrumb: true\nbreadcrumb_list:/);
+  assert.match(selected.text, /project_links:\n  - \{url: "https:\/\/github.com\/a\/b", icon: fab fa-github, label: GitHub\}/);
+  assert.match(selected.text, /project_links: page, not _config.yml root/);
+  assert.ok(!selected.titles.includes('Navbar and footer'));
+  const reading = selectContext(context, 'How do I configure reading speed and the numbered blog pagination window?');
+  assert.match(reading.text, /words_per_minute default 200/);
+  assert.match(reading.text, /paginator_maxnum default 3/);
+  assert.match(reading.text, /does NOT enable pagination/);
+  assert.ok(!reading.titles.includes('First-site tutorial'));
+});
+
+test('focused TOC recipes preserve article syntax and sidebar keyboard/version rules', () => {
+  const content = selectContext(context, 'How do I insert a TOC inside an existing article, skip one heading, and show only levels 2 to 6? Does that configure the theme TOC?');
+  assert.match(content.text, /\* Placeholder\n\{:toc\}/);
+  assert.match(content.text, /\{:\.no_toc\}/);
+  assert.match(content.text, /kramdown:\n  toc_levels: 2\.\.6/);
+  assert.ok(!content.titles.includes('Basic editing and publishing'));
+  const sidebar = selectContext(context, 'Con el TOC lateral cerrado, ¿sus enlaces siguen entrando en Tab? ¿Escape funciona? ¿Atrapa el foco al abrirse?');
+  assert.ok(sidebar.titles.includes('Accessibility and resource loading in v2.2.0'));
+  assert.match(sidebar.text, /Existing open-panel Tab order preserved/);
+  assert.match(sidebar.text, /closed inert\/aria-hidden/);
+  assert.ok(!sidebar.titles.includes('Markdown formatting'));
+});
+
+test('essential follow-up retains HTML title inspection and build versus link verification', () => {
+  const title = selectContext(context, 'Can I set different browser, social and visible titles?');
+  assert.match(title.text, /inspect HTML <title>, not a seo_title tag/);
+  const feed = selectContext(context, 'How do I include all posts in the feed and exclude one?');
+  assert.match(feed.text, /Opening the URL only verifies publication/);
+  const migration = selectContext(context, 'How do I migrate my existing site?');
+  assert.match(migration.text, /Preserve url\/baseurl\/permalink\/domain/);
+});
+
+test('feed tasks retain false overrides, date/collection boundaries and coexistence metadata', () => {
+  const selected = selectContext(context, 'How do I include all posts in the built-in feed, exclude one, and include a standalone page?');
+  assert.ok(selected.titles.includes('Subscription feeds'));
+  assert.ok(!selected.titles.includes('Basic editing and publishing'));
+  assert.match(selected.text, /include_on_feed: false in its front matter overrides true defaults/);
+  assert.match(selected.text, /Standalone pages outside collections are NOT selected/);
+  assert.match(selected.text, /explicitly date collections for Jekyll 3\/4 consistency/);
+  assert.match(selected.text, /output: true inside that collection's existing _config.yml collections mapping/);
+  const coexistence = selectContext(context, 'Can I make jekyll-feed overwrite atom.xml, and will include_on_feed control the plugin?');
+  assert.match(coexistence.text, /Standard head still advertises built-in Atom\/RSS/);
+  assert.match(coexistence.text, /include_on_feed controls theme feeds ONLY, never plugin selection/);
+  assert.doesNotMatch(coexistence.text, /```yaml/);
+});
+
+test('migration lookup selects concrete field mappings without an unrelated SEO procedure', () => {
+  const selected = selectContext(context, 'Where can I look up old toc/comments/search front matter equivalents without following the whole migration procedure? Does search: false exclude Algolia records?');
+  assert.ok(selected.titles.includes('Migration field mappings'));
+  assert.ok(!selected.titles.includes('SEO controls'));
+  assert.ok(!selected.titles.includes('Migrating an existing Jekyll site'));
+  assert.match(selected.text, /toc: true uses show_toc: true/);
+  assert.match(selected.text, /comments: true uses show_comments: true/);
+  assert.match(selected.text, /search: false uses include_on_search: false/);
+  assert.match(selected.text, /algolia.files_to_exclude plus reupload/);
+  assert.match(selected.text, /Explicit page front matter wins over defaults/);
+});
+
+test('feed and migration focus preserves Spanish, mixed canonical and microformat questions', () => {
+  const spanish = selectContext(context, 'Mi feed Atom está vacío aunque hay artículos. ¿Qué compruebo?');
+  assert.ok(spanish.titles.includes('Subscription feeds'));
+  const mixed = selectContext(context, 'Does a canonical URL affect my feed links?');
+  assert.ok(mixed.titles.includes('Subscription feeds'));
+  assert.ok(mixed.titles.includes('Page metadata and article images'));
+  const microformats = selectContext(context, 'How does inherited h-feed work?');
+  assert.ok(microformats.titles.includes('Inherited list microformats (v2.2.0)'));
+  const publicFeed = selectContext(context, 'What is your RSS feed URL?');
+  assert.ok(publicFeed.titles.includes('Public RSS feed'));
+});
+
+test('full migration retains replacement layout and both feed selection and coexistence', () => {
+  const selected = selectContext(context, 'I have layout: post and subscribers at /feed.xml. How do I migrate safely?');
+  assert.ok(selected.titles.includes('Migrating an existing Jekyll site'));
+  assert.ok(selected.titles.includes('Subscription feeds'));
+  assert.ok(selected.titles.includes('Feed coexistence'));
+  assert.match(selected.text, /Old layout: post is NOT a built-in layout/);
+  assert.match(selected.text, /```yaml\nlayout: default\nheader_type: post\n```/);
+  const collection = selectContext(context, 'My collection appears in atom.xml but its article returns 404.');
+  assert.ok(collection.titles.includes('Subscription feeds'));
+  assert.ok(!collection.titles.includes('Feed coexistence'));
+  assert.match(collection.text, /Feed opt-in does not publish articles/);
+});
+
+test('SEO editing tasks retain independent controls and plain-path metadata recipes', () => {
+  const visibility = selectContext(context, 'Can I hide my auxiliary page from crawlers, sitemap and local search just with noindex? What about Algolia?');
+  assert.match(visibility.text, /robots: "noindex, follow"\nsitemap: false\ninclude_on_search: false/);
+  assert.match(visibility.text, /reupload the index/);
+  const sharing = selectContext(context, 'How do I set a post sharing image and article illustration without changing its visible heading?');
+  assert.match(sharing.text, /og_image: \/assets\/img\/article.jpg\nog_image_alt: A street in Madrid at night\nschema_image: \/assets\/img\/article.jpg/);
+  assert.match(sharing.text, /do not add header_img for metadata-only tasks/);
+  const canonical = selectContext(context, 'How do I use a canonical URL for a republished article?');
+  assert.match(canonical.text, /external originals supported/);
+  for (const selected of [visibility, sharing, canonical]) {
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+});
+
+test('focused SEO selection excludes analytics contamination but preserves explicit combined scopes', () => {
+  const canonical = selectContext(context, 'How do I use a canonical URL for a republished article? Does it change the sitemap?');
+  assert.ok(canonical.titles.includes('Page metadata and article images'));
+  assert.ok(!canonical.titles.includes('GoatCounter analytics (v2.2.0)'));
+  assert.ok(!canonical.titles.includes('First-site tutorial'));
+  const publisher = selectContext(context, 'How do I make my personal blog publisher a Person?');
+  assert.ok(publisher.titles.includes('Publisher, analytics and icon configuration'));
+  assert.ok(!publisher.titles.includes('Image galleries and carousels'));
+  const combined = selectContext(context, 'How do canonical URLs affect GoatCounter analytics?');
+  assert.ok(combined.titles.includes('GoatCounter analytics (v2.2.0)'));
+  assert.ok(combined.titles.includes('Page metadata and article images'));
+  const spanish = selectContext(context, '¿Cómo configuro una imagen para compartir en redes sociales sin cambiar la cabecera?');
+  assert.ok(spanish.titles.includes('Page metadata and article images'));
+});
+
 test('light and dark selector questions receive activation, inheritance and version limits', () => {
   const selected = selectContext(context, 'How do I add the Light, Dark and Auto dropdown to my Chulapa site?');
   assert.ok(selected.titles.includes('Light/dark/auto selector'));
@@ -272,7 +512,7 @@ test('navigation retains its complete child-list recipe and upgrade advice requi
 
 test('search exclusion and heading omission preserve exact syntax and scope', () => {
   const search = selectContext(context, 'Where are guides for site search and excluding pages?');
-  assert.match(search.text, /DOCUMENT FRONT MATTER .*NEVER nested under search/);
+  assert.match(search.text, /include_on_search: false: document front matter\/defaults.values, NEVER inside search/);
   const toc = selectContext(context, 'How do I insert a TOC inside an article and skip a heading?');
   assert.match(toc.text, /## Omitted heading\n\{:\.no_toc\}/);
 });

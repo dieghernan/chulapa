@@ -1,0 +1,45 @@
+{
+  "run": "feeds-migration-before-20261024",
+  "worker_version": "ac010481-bedc-448a-94be-7512e5825e92",
+  "traffic_percent": 100,
+  "raw": "feeds-migration-before-20261024.jsonl",
+  "totals": {
+    "requests": 6,
+    "pass": 1,
+    "partial": 4,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "reviews": [
+    {
+      "id": "migration-theme-1",
+      "result": "partial",
+      "finding": "Correct backup/pin/dependencies/URLs/override advice; omits layout: default plus header_type: post, enabling both plugins, explicit override precedence, preservation of /feed.xml and integration checklist."
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "result": "partial",
+      "finding": "Correct reference link and local/Algolia exclusions, but omits requested toc/comments mappings and front-matter precedence; adds unrelated sitemap/crawler editing instructions."
+    },
+    {
+      "id": "feed-coexistence-1",
+      "result": "partial",
+      "finding": "Correct collision warning and independent plugin selection; omits preserving subscriber URL and built-in head advertisement, and adds an unrequested posts-default recipe."
+    },
+    {
+      "id": "feed-selection-1",
+      "result": "fail",
+      "finding": "Claims no single-post exclusion is documented and directs to plugin logic; wrongly proposes an ordinary Contact page for feed inclusion instead of rejecting standalone non-collection pages."
+    },
+    {
+      "id": "feed-collection-output-1",
+      "result": "partial",
+      "finding": "Correct output:true diagnosis; omits explicit existing collections mapping, preservation and rebuild/open-article verification."
+    },
+    {
+      "id": "community-4",
+      "result": "pass",
+      "finding": "Correct include_on_feed:true/date diagnosis and independent plugin/collision warning; no recommendation to overwrite the built-in feed."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "worker_version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+  "traffic_percent": 100,
+  "source_reference": "d636dc099 plus uncommitted navigation/TOC source, selector and prompt changes",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "max_completion_tokens": 450,
+  "temperature": 0.2,
+  "local_tests": 108,
+  "context_bytes": 56995,
+  "library_budget": 57000,
+  "max_selected_bytes": 18000,
+  "sha256": {
+    "worker.mjs": "ded8490f1208914574e0c3f7bcdb3c0ebf61538b8bbfd6b74cd710f640bcf97f",
+    "ai-context.md": "8bdc58685b9c5d77a1ee3b0e76a6a77d8e2d2822f2d9ae51432511a58388a303",
+    "context-selector.mjs": "ec669113e647c3295eb010dcf31144d5325388cf49ec9f3d383d7c7ce047a321",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "8b35e21fa8f6d4eeccbeaaf0c1e67b99d84cfe2d7679ab1306541e033c46e875",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "f03316d4eb98f1c7b6a9cf6219df0f5e8d5d2cf6c1cabb12513a1e4d59e4f42e",
+    "dashboard-worker.mjs": "17c6d4205b61e8abd32cc18b333c66481c58b68d4e64a1e81c455bce1dc2ab9f"
+  },
+  "selected_bytes": {
+    "navigation-2": 3648,
+    "navigation-3": 3017,
+    "sidebar-accessibility-focus": 6260,
+    "content-toc-task-1": 3962
+  }
+}

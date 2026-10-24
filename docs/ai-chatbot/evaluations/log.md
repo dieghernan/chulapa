@@ -1,5 +1,489 @@
 # Consolidated live evaluation log
 
+## Historical status reconciliation — 24 October 2026
+
+Reconciled all 167 cases with saved Worker responses and their recorded reviews.
+Nine status rows now reflect newer assessments; four additional rows correct
+response/version attribution. Latest attempts and assessed answers are separate,
+including nine unavailable attempts, six with an earlier assessed response.
+Unknown Worker versions are no longer inherited from older results.
+
+Last assessed inventory: 95 pass, 64 partial, 5 fail and 3 without an assessed
+answer. These mixed-version counts are not current-runtime accuracy.
+[Change audit](status-reconciliation-20261024.md),
+[per-case provenance](status-reconciliation-20261024.json) and
+[updated section summary](section-status-reconciled-20261024.md).
+Historical responses/reviews and rubric qualifications remain intact. No new
+queries, context changes or deployment; structural provenance checks only.
+
+## Mixed-topic ten-question batch: reviewed results — 24 October 2026
+
+Worker `1686b41b-51ff-438f-a2b6-cec0fd60fe8f`: **4 pass, 2 partial, 2 fail,
+2 unavailable**. Ten requests, eight HTTP 200 and two HTTP 503 unsupported-source
+fallbacks. No retries or AI Search. [Raw answers](mixed-topics-batch10-20261024.jsonl),
+[case-level review](mixed-topics-batch10-review-20261024.md) and
+[manifest](mixed-topics-deployment-20261024.json).
+
+Passes cover TOC/comment inventory, title/TOC, feed/navbar and gem migration.
+Failures are invented google_analytics nesting for gtag_id and Algolia's hardcoded
+docs source folder plus missing private indexing-key prerequisite. Giscus setup
+and maxwords migration remain partial. Both public RSS subscription requests
+were rejected by citation validation despite receiving the correct URL in
+context; no raw answer or rejected URL is available to assess. Do not infer
+quota exhaustion from these 503s.
+
+No further context/prompt edits or live round after this review. Seven new cases
+bring the catalog to 167 unique questions; historical raw answers and labels
+remain intact. Latest-status table updated only for these ten cases. 117 tests
+and dry-run passed before deployment; README now records its deployed status.
+
+## Mixed-topic ten-question batch: deployment — 24 October 2026
+
+Deployed source revision `8c33cf69c` as Worker
+`1686b41b-51ff-438f-a2b6-cec0fd60fe8f`, verified at 100% traffic. All 117
+local tests and Wrangler dry-run passed. Source library 56,998/57,000 bytes;
+selected-context cap 18,000; model/output/bindings unchanged.
+[Artifact manifest](mixed-topics-deployment-20261024.json).
+
+Seven new mixed-topic cases were added with expectations before live queries;
+catalog now has 167 unique IDs. Three previously partial cases are repeated
+without changing their captured expectations. Ten requests authorized, Worker
+only, no AI Search. Results and per-case assessments follow in the next entry.
+
+## Mixed-topic PR review fixes — 24 October 2026
+
+Addressed [provider inventories](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366373627),
+[RSS subscription URLs](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366343475)
+and [metadata with navigation](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366343476).
+Inventories/comparisons now populate the allowed focused scope as well as scores;
+explicit metadata keys and subscription/link intent retain their source sections.
+English/Spanish regressions and the complete local build/test suite pass:
+117 tests, zero failures. Context facts and byte budgets are unchanged.
+
+No live requests or deployment in this review round; current production remains
+dfb48928. README updated. Public docs, llms.txt and ai-context.md need no changes
+because this fixes retrieval of existing facts. No theme accessibility, SEO
+metadata or PWA behavior changes.
+
+Proposed next ten-question batch (not executed): three previous partials
+(search-comments-4, comments-giscus-setup-1, provider-algolia-task-1), plus TOC with
+comment inventory, TOC with seo_title, Person publisher with GA4, RSS in navbar,
+English subscription link, Spanish subscription link and gem-based migration.
+Record new mixed-case expectations before querying; retain all historical labels.
+
+## Search dependencies: focused validation and closeout — 24 October 2026
+
+Worker `dfb48928-319f-4cfe-ba33-e2b77822f968`, confirmed 100% traffic.
+[One raw answer](search-dependency-focus-after-20261024.jsonl): HTTP 200, pass.
+It names the shared helper/provider/store before the adapter, identifies the
+single common-script include for navigation and cites the exact JavaScript
+reference without changing the user's layout or URL. No version-specific
+installation or exhaustive upgrade inventory was asked.
+
+Both original failed tasks now have successful samples: Fuse on fd7168ad and
+dependencies on dfb48928. Do not transfer the earlier Fuse result to this latest
+deployment. Three follow-up requests total, no automatic retries or AI Search;
+the ten-question baseline remains separate. 114 tests passed after the final
+selector change; the first deployment also passed Wrangler dry-run.
+[Final artifact manifest](search-dependency-deployment-20261024.json).
+
+README and selective context updated; public guides and llms.txt need no edits
+because their documented facts were already correct. No theme accessibility,
+SEO metadata or PWA behavior changes. Existing model/output and context budgets
+are unchanged. Earlier review fixes in #182 are also deployed, but their live
+regressions were not rerun. The three partial tasks remain for the next batch.
+
+## Search paths and dependencies: first validation — 24 October 2026
+
+Worker `fd7168ad-bc0b-412f-a224-7fb0840622e0`, confirmed 100% traffic.
+[Two raw answers](search-paths-dependencies-after-20261024.jsonl): two HTTP 200,
+one pass (Fuse paths) and one partial (custom dependency troubleshooting).
+Fuse now uses /find for both settings and correctly describes the local index.
+The dependency answer names the shared helper/provider/store and navigation
+script, but omits load ordering and invents an unrequested /find page example.
+Its JavaScript source label also points at the generic search reference.
+
+Added a focused dependency scope to retain the existing layout reference while
+excluding generic setup examples unless configuration is explicitly requested.
+114 tests pass after this adjustment. Library remains 56,998/57,000 bytes;
+per-request cap remains 18,000 bytes. Only the partial case needs another query.
+Fuse's pass belongs to fd7168ad, not to a subsequent deployment.
+
+## Search and comments: ten-question review — 24 October 2026
+
+Seven search and three comments questions on Worker
+`09e75972-8ede-4630-ba6e-c5a504bc709c` (100% traffic): **5 pass, 3 partial,
+2 fail, 0 unavailable**. Ten HTTP 200 responses; no retries or AI Search calls.
+Review uses the actual task rather than requiring unasked setup/version details.
+No historical answer labels were rewritten.
+
+[Raw answers](search-comments-batch10-20261024.jsonl) and
+[case-level review and proposed adjustments](search-comments-batch10-review-20261024.md).
+Primary blockers are repeated baseurl in Fuse paths and missing custom-search
+JavaScript dependency guidance. Partial answers concern maxwords recommendation,
+Giscus prerequisites and Algolia installation/preservation steps. Review fixes
+at local revision `63cc495d3` are not deployed; these results cannot validate them.
+No code/context edits, deployment or second query round in this batch.
+
+## PR review corrections: local validation — 24 October 2026
+
+Ran one complete `npm test` round after authorization: build succeeded with
+56,995/57,000 source-context bytes and all 112 tests passed, with no failures or
+skips. This includes the new mixed-topic, feed coexistence/selection, custom-field
+migration and gem-installation regressions for comments on #182 and #183.
+
+Changes are being committed and pushed to the existing #182 branch. No live
+queries or Worker deployment were performed; historical model-answer assessments
+and deployed behavior are unchanged. These internal selection changes do not
+alter theme accessibility, SEO metadata or PWA behavior.
+
+## PR review corrections: local, awaiting validation — 24 October 2026
+
+Addressed selector comments from PRs #182 and #183 locally: preserve explicitly
+requested secondary topics in focused SEO/workflow/navigation questions, retain
+both built-in feed selection and plugin coexistence recipes when requested,
+avoid treating custom-field mentions as mapping-only lookups and include gem
+installation for explicitly requested gem migrations. Replaced the URL-substring
+test assertion flagged by CodeQL with an exact section-title assertion.
+
+Prepared regression cases without running them. No tests, live queries, build,
+commit, push or deployment were performed, as requested. Historical assessments
+and the deployed Worker version remain unchanged; these edits have no new live
+results. Public theme documentation, llms.txt and ai-context.md need no changes
+because the supported settings and source facts are unchanged.
+
+Review references: [#182 comments](https://github.com/dieghernan/chulapa/pull/182/files)
+and [#183 comments](https://github.com/dieghernan/chulapa/pull/183/files).
+
+## Navigation and TOC: validation and single-PR closeout — 24 October 2026
+
+Four HTTP 200 answers on `09e75972-8ede-4630-ba6e-c5a504bc709c`:
+**1 pass, 3 partial, 0 fail, 0 unavailable**. Header fields now use page front
+matter with breadcrumb_list and complete icon classes; reading/pagination has
+the correct source, clamp and non-enablement rule; the previously rejected
+content TOC now delivers valid syntax. Remaining issues are task-specific
+header verification, existing kramdown/parser preservation/site-wide scope,
+and fuller open-panel keyboard explanation. No complete-resolution claim.
+
+[Review](navigation-toc-after-20261024-review.md),
+[structured review](navigation-toc-after-20261024-review.json),
+[raw answers](navigation-toc-after-20261024.jsonl) and
+[artifact hashes](navigation-toc-deployment-20261024.json).
+Eight Worker requests in this navigation batch, no retries or AI Search.
+This task's rubric follow-up plus navigation used 18 Worker requests; their
+counts are not combined into an accuracy measure across criteria/versions.
+108 tests passed; all three final YAML examples parsed and all four answers
+passed source-URL/recipe guards. Deployed artifact hashes match; Wrangler
+reconfirmed the same final version at 100% after review.
+All work is consolidated into PR #182; #183 was integrated
+only into its head branch, not main. Public guides/llms.txt already cover these
+facts; internal README/evaluation policy updated, no theme UI/SEO/PWA changes.
+
+## Navigation and TOC: deployment and PR consolidation — 24 October 2026
+
+Deployed `09e75972-8ede-4630-ba6e-c5a504bc709c` after 108 tests, header
+YAML parsing and Wrangler dry-run passed. Added a complete page-front-matter
+breadcrumb/project_links recipe and accurate option/config sources. Focused
+navigation selection separates header, reading/pagination, article TOC and
+sidebar keyboard questions; prompt preserves version/Tab/Escape semantics and
+permits the small separate code fragments required by a compound task.
+
+[Artifact/version manifest](navigation-toc-deployment-20261024.json).
+Context is 56,995 bytes within the unchanged 57,000 budget; selection cap/model/
+output budget/bindings are unchanged. Existing guides already document the
+facts; no theme behavior, public guide/llms.txt or UI/SEO/PWA changes. No AI
+Search requests. Live four-case validation follows separately.
+
+At the user's request all work is consolidated into PR #182. Pushing commit
+d636dc099 into its head branch caused GitHub to mark stacked PR #183 merged
+into fix/chatbot-case-sections; this did not merge anything into main. PR #182
+is the only open PR for this work. Historical PR/evaluation records are retained.
+
+## Navigation and TOC: baseline — 24 October 2026
+
+Four requests on closeout Worker `09b4517c-3705-4009-a1bf-af30be43b5b5`:
+**0 pass, 2 partial, 1 fail, 1 unavailable**. Header guidance misplaces
+project_links in _config.yml and omits breadcrumb_list. Pagination points to
+the wrong guide. Sidebar focus advice is correct at its core but misses the
+release boundary. Content TOC returns a task-validation 503 fallback; no answer
+was delivered, so no factual assessment or quota-exhaustion claim is made.
+[Review](navigation-toc-before-20261024-review.md),
+[raw](navigation-toc-before-20261024.jsonl) and
+[structured review](navigation-toc-before-20261024-review.json).
+No retry or AI Search calls. Work is isolated on fix/chatbot-navigation-toc;
+feeds/migration and rubric audit are now in stacked PR #183, based on #182.
+
+## Essential follow-up: validation and closeout — 24 October 2026
+
+Four HTTP 200 answers on `09b4517c-3705-4009-a1bf-af30be43b5b5` under
+the audited rubric: **2 pass, 2 partial, 0 fail**. Browser-title verification
+and the sitemap-plugin prerequisite now pass; migration URL preservation is
+explicit, but override/preview instructions remain incomplete. Feed selection
+still omits date/defaults preservation despite correct include/exclude advice.
+[Review](scoped-followup-after-20261024-review.md),
+[raw](scoped-followup-after-20261024.jsonl) and
+[structured review](scoped-followup-after-20261024-review.json).
+
+Only four were repeated; two baseline canonical passes remain tied to the
+prior Worker. Ten Worker requests in this scoped follow-up, no retries or
+AI Search. 106 local tests passed. Historical broad-rubric records remain
+unchanged; no changed-rubric or cross-version aggregate accuracy claim.
+Source context stays within 57,000 bytes; no further inference is scheduled
+for cosmetic or unasked background details. Public docs/llms.txt already
+contain the facts; internal evaluation policy is documented in evaluation.md.
+
+## Essential follow-up: deployment — 24 October 2026
+
+Deployed `09b4517c-3705-4009-a1bf-af30be43b5b5` after 106 tests and a
+Wrangler dry-run passed. Clarified rendered HTML title inspection and that
+opening article URLs only verifies publication; prompt prioritizes migration
+URL/override preservation, merging defaults, dates/link checks and the sitemap
+plugin prerequisite. Consolidated duplicate context wording: 56,955 bytes,
+within the existing 57,000 budget. No selection/output-budget/model changes.
+[Artifact manifest](scoped-followup-deployment-20261024.json).
+Only four still-partial cases are repeated. Existing public guides already
+contain these facts; internal evaluation.md records the rubric policy, with no
+public guide/llms.txt, theme UI/SEO/PWA or AI Search changes.
+
+## Essential follow-up: scoped baseline — 24 October 2026
+
+Six fresh HTTP 200 answers on `253c4a59-bd7d-4336-b3f3-c407f11f81e0`
+under the audited task-scoped rubrics: **2 pass, 4 partial, 0 fail**. Canonical
+cases now complete their actual task; four still miss essential migration URL
+preservation, title verification, defaults preservation/link checks or the
+sitemap prerequisite. Only these four will receive another live request.
+[Review](scoped-followup-before-20261024-review.md),
+[raw](scoped-followup-before-20261024.jsonl) and
+[structured review](scoped-followup-before-20261024-review.json).
+No AI Search queries or retries. Counts are not directly comparable to earlier
+broader rubrics; the audit itself is not evidence of generation improvement.
+
+## Task-scope rubric audit — 24 October 2026
+
+Reviewed 11 partial cases against their actual questions and current guides.
+Six retain essential-error/prerequisite follow-up; four complete the asked task
+but were penalized for optional background, and one has a presentation-only
+LaTeX issue. Updated catalog expectations with explicit task boundaries and
+accuracy guards. Prior expectations, reasons and exact evidence versions/hashes
+are recorded in the [audit](task-scope-audit-20261024.md) and
+[audit JSON](task-scope-audit-20261024.json). Historical raw answers, reviews,
+labels and counts are unchanged; no new live passes are claimed by this audit.
+No inference, deployment, public guide or llms.txt change in this step.
+
+## Feeds and migration: final validation — 24 October 2026
+
+Six HTTP 200 answers on `253c4a59-bd7d-4336-b3f3-c407f11f81e0`:
+**1 pass, 5 partial, 0 fail, 0 unavailable**. Baseline was 1 pass/4 partial/1 fail;
+the intermediate round retained those six-case totals but introduced a different
+layout error. Final answers now correctly use default/header_type: post,
+exclude a single post with false, reject ordinary pages for built-in feeds and
+separate output:true publication from feed selection. Coexistence no longer
+adds an unrequested defaults recipe. Missing head-link/date/preservation details,
+LaTeX arrows and imprecise opening-versus-publishing wording remain partial.
+
+[Review](feeds-migration-final-20261024-review.md),
+[structured review](feeds-migration-final-20261024-review.json),
+[raw answers](feeds-migration-final-20261024.jsonl) and
+[artifact/version manifest](feeds-migration-final-deployment-20261024.json).
+Latest-status rows update six cases to this version and two SEO controls to the
+intermediate version, preserving their earlier evidence. Total: 20 Worker
+queries, zero retries and no AI Search calls. No measured neuron-savings claim.
+105 local tests passed; all four final YAML examples parsed, all six answer
+source-URL checks passed and artifact hashes match the deployment manifest.
+Wrangler reconfirmed the same final version at 100% after review.
+No public guide/llms.txt or theme UI/SEO/PWA change is
+needed. Sections remain partially resolved; no further live queries in this batch.
+
+## Feeds and migration: layout/coexistence deployment — 24 October 2026
+
+Deployed `253c4a59-bd7d-4336-b3f3-c407f11f81e0` after 105 local tests
+and Wrangler dry-run passed. Migration explicitly rejects the old layout: post
+and supplies default/header_type: post YAML. Plugin coexistence now has a
+separate section without a defaults recipe; ordinary feed selection keeps date,
+false override and output rules. Both feed sections remain available for whole
+migration; mapping examples use plain prose instead of arrow notation.
+
+[Artifact/version manifest](feeds-migration-final-deployment-20261024.json).
+Library is 56,996 bytes within the already reviewed 57,000 budget. Per-query
+cap and inference settings are unchanged. README documents the section split.
+No AI Search requests or public theme changes. Six-case live validation follows;
+the two earlier SEO controls remain evidence only for their recorded version.
+
+## Feeds and migration: first validation — 24 October 2026
+
+Eight HTTP 200 responses on `98c97e53-138a-4460-922f-b5487c2a3c82`:
+**1 pass, 6 partial, 1 fail**. The original six yield 1 pass/4 partial/1 fail;
+two SEO controls remain partial without reintroducing invalid image YAML or
+incorrect canonical exclusion. Feed selection now correctly excludes a post
+with false and rejects ordinary pages. Full migration introduces a different
+error: it treats layout: post as a built-in layout adding header_type. The
+coexistence answer still omits subscriber/head-link details and adds a recipe.
+These results do not establish overall quality improvement for the six.
+
+[Review](feeds-migration-after-20261024-review.md),
+[structured review](feeds-migration-after-20261024-review.json) and
+[raw answers](feeds-migration-after-20261024.jsonl).
+No retries or AI Search requests. A second focused correction will address the
+layout claim and isolate plugin coexistence from the posts-default recipe.
+
+## Feeds and migration: context deployment — 24 October 2026
+
+Deployed `98c97e53-138a-4460-922f-b5487c2a3c82` after 104 local tests
+and Wrangler dry-run passed. Added explicit single-post false override,
+standalone-page/date/collection-output constraints, built-in head advertisement
+and a separate migration-field reference with toc/comments/search mappings.
+Feed/mapping queries now select focused sections; mixed canonical/feed,
+Spanish, public RSS and inherited h-feed cases have offline regression coverage.
+
+[Deployed artifact manifest](feeds-migration-deployment-20261024.json).
+Reviewed source-library budget grows by 1,000 bytes to 57,000 (actual 56,987),
+including consolidation of a repeated feed warning. The per-query cap stays
+18,000; six selected contexts are 2,638–6,079 bytes. This does not establish
+measured neuron savings. Model, output budget, bindings, limiter and compatibility
+date are unchanged. README records selection/budget changes. Existing public
+guides already document these facts; no public guide/llms.txt or theme
+accessibility, generated SEO or PWA changes are needed. Live validation follows
+separately, with two SEO controls. No AI Search calls or paid fallback.
+
+## Feeds and migration: baseline — 24 October 2026
+
+Six cases, including collection-output regression control, were sent to Worker
+`ac010481-bedc-448a-94be-7512e5825e92` (100% traffic verified before queries).
+All returned HTTP 200: **1 pass, 4 partial, 1 fail**. Feed selection still
+incorrectly proposes a standalone page and denies the documented per-post
+false flag. Migration field lookup omits toc/comments mappings; coexistence
+and full migration answers omit required constraints. Collection-output advice
+is correct at its core but misses preservation and validation steps.
+
+[Review](feeds-migration-before-20261024-review.md),
+[structured review](feeds-migration-before-20261024-review.json) and
+[raw answers](feeds-migration-before-20261024.jsonl).
+No retries, AI Search queries or deployment in this round. Work continues on
+`fix/chatbot-feeds-migration`, based on the first SEO batch; PR #182 is unchanged.
+
+## SEO batch 1: final validation — 24 October 2026
+
+Validated `ac010481-bedc-448a-94be-7512e5825e92` (100% traffic): seven
+HTTP 200 answers, **1 pass, 6 partial, 0 fail, 0 unavailable**. The five original
+fail/partial cases are now all partial (previous baseline: 3 fail, 2 partial).
+Two regression cases yielded one pass and one partial. Valid image YAML,
+unchanged visible content, correct copy exclusion and local/Algolia controls
+are observed improvements; the original-target sitemap overclaim, HTML title
+inspection advice and remaining caveats prevent declaring SEO complete.
+
+[Case review](seo-batch1-final-20261024-review.md),
+[structured review](seo-batch1-final-20261024-review.json),
+[raw answers](seo-batch1-final-20261024.jsonl) and
+[deployed artifact hashes](seo-batch1-final-deployment-20261024.json).
+Latest-status rows below are updated only for these seven cases; older evidence
+is retained. Total for this SEO batch: 17 Worker inference requests across three
+rounds, no retries or AI Search calls. Per-answer neuron use is unavailable.
+101 local tests passed. All seven final YAML examples parsed with Ruby/Psych;
+source-URL checks passed for all seven answers and artifact hashes match the
+deployment manifest. Wrangler reconfirmed the same version at 100% after review.
+Public docs/llms.txt already cover the facts; theme
+accessibility, generated SEO and PWA behavior did not change. No further queries
+were made to turn remaining partial answers into unsupported success claims.
+
+## SEO batch 1: focused-context deployment — 24 October 2026
+
+Deployed `ac010481-bedc-448a-94be-7512e5825e92` to 100% traffic after
+101 local tests and Wrangler dry-run passed. Clarified that sitemap exclusion
+targets the copy, supplied a type-only publisher edit and corrected exact social
+metadata names. Focused SEO selection now removes irrelevant tutorials,
+analytics and media sections; combined analytics/feed and documentation-discovery
+questions keep broader selection. English/Spanish and combined-scope regressions
+are covered locally. Five task contexts now contain 3,002–6,203 UTF-8 bytes;
+this does not independently establish neuron savings.
+
+[Artifact/version manifest](seo-batch1-final-deployment-20261024.json).
+Library is 55,983 bytes under the reviewed 56,000 budget; per-query cap stays
+18,000. Model, bindings, rate limit and compatibility date are unchanged.
+README describes selection behavior. Public guides already contain the facts;
+no llms.txt or theme UI/SEO/PWA change is needed. No AI Search requests.
+Live validation follows separately, including two previously passing SEO cases.
+
+## SEO batch 1: first validation — 24 October 2026
+
+Five post-deployment requests on `87bf899e-cfd1-47e7-b20c-523fa693a92b`
+returned HTTP 200: **0 pass, 4 partial, 1 fail**. Social-image YAML and local
+search exclusion improved. Canonical explanation now wrongly calls the original
+URL the sitemap exclusion target; the copy must be excluded. Other answers
+still omit rubric details; metadata guidance invents an `og:image/alt` tag.
+Do not treat these partial responses as completed corrections.
+
+[Review](seo-batch1-after-20261024-review.md),
+[structured review](seo-batch1-after-20261024-review.json) and
+[raw responses](seo-batch1-after-20261024.jsonl).
+No retries or AI Search requests. Next correction stays within this SEO batch.
+
+## SEO batch 1: context deployment — 24 October 2026
+
+Deployed Worker `87bf899e-cfd1-47e7-b20c-523fa693a92b` to 100% traffic
+with Wrangler 4.150.0, retaining existing variables, AI binding, rate limiter,
+model and compatibility date. Added plain-path social-image YAML, independent
+crawler/sitemap/local/Algolia controls, publisher avatar/check guidance and an
+explicit canonical-versus-GoatCounter boundary. Prompt reinforces these rules.
+
+All 100 local tests and Wrangler dry-run passed. Reviewed library budget grows
+from 54,000 to 56,000 UTF-8 bytes (actual 55,992); selected context remains capped
+at 18,000 bytes per request. The [artifact manifest](seo-batch1-deployment-20261024.json)
+records source hashes and deployed version. README documents the budget change.
+The existing public guides already contain these facts, so no public guide or
+llms.txt update is needed. Theme accessibility, rendered SEO and PWA behavior
+are unchanged. Live answer validation is recorded separately; deployment alone
+is not answer-quality evidence. No AI Search calls or configuration changes.
+
+## SEO batch 1: baseline — 24 October 2026
+
+Reevaluated the five SEO cases previously marked fail/partial on Worker
+`810c8961-e548-43e5-adb7-0a7e2501d65e` (100% traffic, verified before
+queries). All five requests returned HTTP 200; manual review found **0 pass,
+2 partial and 3 fail**. Canonical guidance incorrectly borrowed GoatCounter's
+cross-domain rule, social-image YAML was invalid and changed visible content,
+and search visibility omitted the local exclusion flag. Publisher/canonical
+recipes omitted preservation and verification details.
+
+[Review](seo-batch1-before-20261024-review.md),
+[structured review](seo-batch1-before-20261024-review.json) and
+[raw responses](seo-batch1-before-20261024.jsonl).
+No retries, deployment or AI Search requests in this round. These observations
+apply to the recorded version, not all SEO answers.
+
+## Response status by section — 24 October 2026
+
+Added a [section-level evidence summary](section-status-2026-10-24.md) using the
+corrected catalog sections, the per-case historical table and later explicit
+retests/manual reassessments. Unavailable retries are tracked separately from
+answer quality. Worker and AI Search results remain separate. This is a backlog
+inventory across historical revisions, not a current-runtime accuracy measure.
+No live requests, deployment or public documentation/context changes were made.
+
+## Catalog section review — 24 October 2026
+
+Reviewed the functional `section` of all 160 questions in the three evaluation
+catalogs and corrected 109 assignments. Replaced source-based groups (`faq`,
+`community`, `reference-edge-cases`) and mixed groups (`search-comments`) with
+functional topics. Filled missing sections and normalized capitalization.
+Split broad appearance, layout and configuration groups into areas such as
+`seo`, `layouts`, `include-cache`, `microformats`, `toc`, `navbar`, `footer`,
+`skins`, `autothemer`, `fonts`, `analytics`, `search` and `comments`.
+
+Use `section` as the primary subject of the requested task, rather than the
+source page or case-ID prefix. Cross-topic cases keep one primary section:
+search visibility spanning crawlers and indexes belongs to `seo`, snippet
+parameter comparisons to `snippets`, and guide-discovery questions to
+`documentation`. Community provenance remains in the catalog filename and
+source URL. IDs, questions, expected answers and historical evidence are
+unchanged; historical section labels in recorded runs are not rewritten.
+
+All 99 chatbot tests passed. A comparison against HEAD confirmed that only
+section fields changed in the catalogs. This is catalog maintenance, not an
+answer-quality correction or reevaluation. No live inference or deployment
+was performed. Public documentation, llms.txt and ai-context.md need no changes
+because supported behavior and advice are unchanged. Accessibility, SEO output
+and PWA behavior are unaffected.
+
 ## Autothemer review correction — 23 October 2026
 
 Addressed PR review comment
@@ -161,179 +645,187 @@ are not completed evaluation results.
 
 ## Latest status per tested catalog case
 
-This table lists the latest known outcome for all 160 catalog cases, based on
-the records available on 22 October 2026. The test date is taken from the latest
-timestamped live response in the JSONL evidence (UTC); blank dates mean no
-timestamped live response is recorded.
-Statuses are tied to the Worker version shown; a result from an older Worker
-does not describe the currently deployed one. Worker values are the first
-eight characters of the version UUID. `pending review` means a raw response
-exists but no case-level review is recorded. `unavailable` means the request
-returned no answer to assess; it is not a pass or fail. Blank result and Worker
-cells mean no live response for that case is present in the evaluation logs.
+Reconciled against all timestamped Worker evidence for 167 catalog cases on
+24 October 2026. AI Search records are excluded. The latest assessed answer
+and latest request are separate: a later 503 does not erase an earlier quality
+finding. Answer dates belong to the assessed response, not to the latest retry.
+Worker versions are only those recorded with the evidence; `not recorded`
+means unknown, never the current production version. Different versions and
+expectations are mixed here for backlog tracking, not an accuracy estimate.
 
-| Case | Latest result | Worker version | Latest test (UTC) |
-| --- | --- | --- | --- |
-| `accessibility-1` | pass | `5266df62…` | 2026-10-22 |
-| `accessibility-task-reference-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `analytics-ga4-setup-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `analytics-goat-setup-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `appearance-auto-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `appearance-font-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `appearance-sass-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `appearance-skin-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `assistant-session-history` | pass | `47cc2e30…` | 2026-10-22 |
-| `beginner-image-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `beginner-post-1` | pass | `738414cb…` | 2026-10-22 |
-| `beginner-publishing-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `bundled-font-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `canonical-article-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `carousel-accessibility-motion` | partial | `47cc2e30…` | 2026-10-22 |
-| `cloud-demo-fragments` | partial | `5266df62…` | 2026-10-22 |
-| `cloud-task-1` | partial | `5266df62…` | 2026-10-22 |
-| `collection-filename-order` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-cactus-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `comments-cusdis-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-giscus-setup-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `comments-welcomments-task-1` | partial | `15036755…` | 2026-10-22 |
-| `community-1` | pass | `5266df62…` | 2026-10-22 |
-| `community-165` | partial | `8b59f0a7…` | 2026-10-22 |
-| `community-2` | pass | `5266df62…` | 2026-10-22 |
-| `community-3` | pass | `5266df62…` | 2026-10-22 |
-| `community-4` | partial | `5266df62…` | 2026-10-22 |
-| `community-5` | partial | `5266df62…` | 2026-10-22 |
-| `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 |
-| `configuration-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `configuration-2` | pass | `8b59f0a7…` | 2026-10-22 |
-| `configuration-3` | pass | `65bb328b…` | 2026-10-18 |
-| `configuration-4` | pass | `15036755…` | 2026-10-22 |
-| `configuration-5` | pass | `65bb328b…` | 2026-10-18 |
-| `configuration-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `content-image-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `content-page-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `content-post-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `content-toc-task-1` | partial | `d0e281c2…` | 2026-10-22 |
-| `custom-head-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `custom-search-script-dependencies` | fail | `15036755…` | 2026-10-22 |
-| `documentation-appearance-topics` | partial | `47cc2e30…` | 2026-10-22 |
-| `documentation-content-publishing-topics` | partial | `15036755…` | 2026-10-22 |
-| `documentation-identity-topics` | partial | `15036755…` | 2026-10-22 |
-| `documentation-installation-topics` | partial | `15036755…` | 2026-10-22 |
-| `documentation-search-topics` | unavailable | `d0e281c2…` | 2026-10-22 |
-| `faq-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `faq-2` | pass | `8b59f0a7…` | 2026-10-22 |
-| `faq-3` | partial | `47cc2e30…` | 2026-10-22 |
-| `faq-4` | pass | `d0e281c2…` | 2026-10-22 |
-| `faq-5` | pass | `223eaf7d…` | 2026-10-18 |
-| `faq-6` | pass | `cd95fb43…` | 2026-10-18 |
-| `favicon-task-1` | partial | `15036755…` | 2026-10-22 |
-| `feed-coexistence-1` | partial | `15036755…` | 2026-10-22 |
-| `feed-collection-output-1` | pass | `15036755…` | 2026-10-22 |
-| `feed-selection-1` | fail | `15036755…` | 2026-10-22 |
-| `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 |
-| `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `format-caption-task-1` | partial | `15036755…` | 2026-10-22 |
-| `format-footnote-task-1` | fail | `15036755…` | 2026-10-22 |
-| `goatcounter-analytics` | fail | `47cc2e30…` | 2026-10-22 |
-| `icon-task-1` | partial | `15036755…` | 2026-10-22 |
-| `install-gem-task-1` | partial | `15036755…` | 2026-10-22 |
-| `install-remote-task-1` | pass | `15036755…` | 2026-10-22 |
-| `installation-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `installation-2` | pass | `d0e281c2…` | 2026-10-22 |
-| `installation-3` | partial | `8b59f0a7…` | 2026-10-22 |
-| `installation-4` | pass | `65bb328b…` | 2026-10-18 |
-| `installation-5` | pass | `65bb328b…` | 2026-10-18 |
-| `installation-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `javascript-resource-fallbacks` | partial | `47cc2e30…` | 2026-10-22 |
-| `layouts-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `layouts-2` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-3` | pass | `64ee01ab…` | 2026-10-18 |
-| `layouts-4` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-5` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-6` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-7` | pass | `8b59f0a7…` | 2026-10-22 |
-| `layouts-head-formatting-1` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-include-cache-1` | pass | `5266df62…` | 2026-10-22 |
-| `layouts-label-headings-1` | partial | `5266df62…` | 2026-10-22 |
-| `layouts-microformats-1` | partial | `5266df62…` | 2026-10-22 |
-| `layouts-microformats-feed-1` | partial | `5266df62…` | 2026-10-22 |
-| `layouts-microformats-nested-feed-1` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-random-singleton-1` | pass | `65bb328b…` | 2026-10-18 |
-| `localized-date-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-carousel-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-diagram-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-gallery-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-photoswipe-task-1` | pass | `15036755…` | 2026-10-22 |
-| `media-video-task-1` | partial | `15036755…` | 2026-10-22 |
-| `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `migration-fields-lookup-1` | fail | `15036755…` | 2026-10-22 |
-| `migration-theme-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `navigation-1` | pass | `5266df62…` | 2026-10-22 |
-| `navigation-2` | fail | `5266df62…` | 2026-10-22 |
-| `navigation-3` | partial | `5266df62…` | 2026-10-22 |
-| `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `person-publisher-task-1` | partial | `15036755…` | 2026-10-22 |
-| `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 |
-| `provider-algolia-task-1` | partial | `15036755…` | 2026-10-22 |
-| `provider-google-task-1` | fail | `15036755…` | 2026-10-22 |
-| `provider-lunr-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `provider-simplesearch-task-1` | partial | `15036755…` | 2026-10-22 |
-| `pwa-offline-status` | partial | `47cc2e30…` | 2026-10-22 |
-| `reference-edge-cases-1` | pass | `cd95fb43…` | 2026-10-18 |
-| `reference-edge-cases-2` | pass | `cd95fb43…` | 2026-10-18 |
-| `reference-edge-cases-3` | pass | `5266df62…` | 2026-10-22 |
-| `reference-edge-cases-4` | pass | `8b59f0a7…` | 2026-10-22 |
-| `reference-edge-cases-5` | fail | `8b59f0a7…` | 2026-10-22 |
-| `reference-edge-cases-6` | pass | `8b59f0a7…` | 2026-10-22 |
-| `related-card-dates-1` | pass | `15036755…` | 2026-10-22 |
-| `resources-1` | partial | `5266df62…` | 2026-10-22 |
-| `search-comments-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `search-comments-2` | pass | `65bb328b…` | 2026-10-18 |
-| `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 |
-| `search-comments-4` | partial | `5266df62…` | 2026-10-22 |
-| `search-comments-5` | pass | `65bb328b…` | 2026-10-18 |
-| `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `search-fusejs-setup-1` | partial | `15036755…` | 2026-10-22 |
-| `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 |
-| `search-visibility-task-1` | fail | `15036755…` | 2026-10-22 |
-| `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 |
-| `semantic-html-accessibility` | fail | `47cc2e30…` | 2026-10-22 |
-| `seo-1` | partial | `5266df62…` | 2026-10-22 |
-| `seo-2` | pass | `5266df62…` | 2026-10-22 |
-| `seo-3` | pass | `5266df62…` | 2026-10-22 |
-| `seo-4` | pass | `5266df62…` | 2026-10-22 |
-| `sharing-task-1` | fail | `15036755…` | 2026-10-22 |
-| `sidebar-accessibility-focus` | partial | `47cc2e30…` | 2026-10-22 |
-| `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
-| `skin-font-failure-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `skin-palette-contrast-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `skins-bootswatch-originals-1` | unavailable | `8b59f0a7…` | 2026-10-22 |
-| `snippet-parameter-reference` | pass | `47cc2e30…` | 2026-10-22 |
-| `snippets-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `snippets-2` | pass | `47cc2e30…` | 2026-10-22 |
-| `snippets-3` | pass | `8b59f0a7…` | 2026-10-22 |
-| `snippets-4` | pass | `d0e281c2…` | 2026-10-22 |
-| `snippets-5` | pass | `65bb328b…` | 2026-10-18 |
-| `snippets-6` | pass | `65bb328b…` | 2026-10-18 |
-| `starter-1` | fail | `5266df62…` | 2026-10-22 |
-| `starter-2` | partial | `5266df62…` | 2026-10-22 |
-| `starter-demo-versus-site` | partial | `15036755…` | 2026-10-22 |
-| `theme-selector-demo-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `theming-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `theming-2` | partial | `8b59f0a7…` | 2026-10-22 |
-| `theming-3` | pass | `65bb328b…` | 2026-10-18 |
-| `theming-4` | pass | `47cc2e30…` | 2026-10-22 |
-| `theming-5` | pass | `65bb328b…` | 2026-10-18 |
-| `theming-6` | pass | `65bb328b…` | 2026-10-18 |
-| `toc-active-section` | pass | `47cc2e30…` | 2026-10-22 |
-| `troubleshoot-publishing-task-1` | partial | `15036755…` | 2026-10-22 |
-| `troubleshoot-yaml-task-1` | fail | `15036755…` | 2026-10-22 |
-| `variables-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `variables-2` | pass | `8b59f0a7…` | 2026-10-22 |
-| `variables-3` | pass | `8b59f0a7…` | 2026-10-22 |
-| `variables-unsupported` | pass | `5266df62…` | 2026-10-22 |
-| `version-task-1` | partial | `5266df62…` | 2026-10-22 |
+[Full per-case provenance and attempt versions](status-reconciliation-20261024.json)
+and [reconciliation notes](status-reconciliation-20261024.md). Historical raw
+responses, review labels and rubric audits remain unchanged.
+
+| Case | Latest assessed result | Answer Worker | Answer date (UTC) | Latest request | Request date (UTC) |
+| --- | --- | --- | --- | --- | --- |
+| `accessibility-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `accessibility-task-reference-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `analytics-ga4-setup-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `analytics-goat-setup-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-auto-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-font-task-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-sass-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-skin-task-1` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `assistant-session-history` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `beginner-image-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `beginner-post-1` | pass | `738414cb…` | 2026-10-22 | 200 | 2026-10-22 |
+| `beginner-publishing-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `bundled-font-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `canonical-article-task-1` | pass | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `carousel-accessibility-motion` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `cloud-demo-fragments` | partial | `5266df62…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `cloud-task-1` | partial | `5266df62…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `collection-filename-order` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `comments-cactus-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `comments-cusdis-task-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `comments-giscus-setup-1` | partial | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `comments-welcomments-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `community-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `community-165` | partial | `8b59f0a7…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `community-2` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `community-3` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `community-4` | pass | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `community-5` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `configuration-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `configuration-2` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `configuration-3` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `configuration-4` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `configuration-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `configuration-6` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `content-image-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `content-page-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `content-post-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `content-toc-task-1` | partial | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `custom-head-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `custom-search-script-dependencies` | pass | `dfb48928…` | 2026-10-24 | 200 | 2026-10-24 |
+| `documentation-appearance-topics` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-content-publishing-topics` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-identity-topics` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-installation-topics` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-search-topics` | no assessed answer | — | — | 503 / unavailable | 2026-10-22 |
+| `faq-1` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-2` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-3` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-4` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-5` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `faq-6` | pass | `cd95fb43…` | 2026-10-18 | 200 | 2026-10-18 |
+| `favicon-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `feed-coexistence-1` | partial | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `feed-collection-output-1` | partial | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `feed-selection-1` | partial | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `feed-subscribe-link-en-1` | no assessed answer | — | — | 503 / unavailable | 2026-10-24 |
+| `feed-subscribe-link-es-1` | no assessed answer | — | — | 503 / unavailable | 2026-10-24 |
+| `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `format-caption-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `format-footnote-task-1` | fail | `15036755…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `goatcounter-analytics` | pass | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `icon-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `install-gem-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `install-remote-task-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-1` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-2` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-3` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-4` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `installation-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `installation-6` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `javascript-resource-fallbacks` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-1` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-2` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-3` | pass | `64ee01ab…` | 2026-10-18 | 503 / unavailable | 2026-10-22 |
+| `layouts-4` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-6` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-7` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-head-formatting-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-include-cache-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-label-headings-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-microformats-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-microformats-feed-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-microformats-nested-feed-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-random-singleton-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `localized-date-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-carousel-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-diagram-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-gallery-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-photoswipe-task-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-video-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `migration-fields-lookup-1` | partial | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `migration-gem-choice-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `migration-theme-1` | partial | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-feed-navbar-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-person-ga4-1` | fail | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-toc-comments-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-toc-title-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `navigation-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `navigation-2` | partial | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `navigation-3` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `person-publisher-task-1` | partial | `ac010481…` | 2026-10-24 | 200 | 2026-10-24 |
+| `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `provider-algolia-task-1` | fail | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `provider-google-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `provider-lunr-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `provider-simplesearch-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `pwa-offline-status` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `reference-edge-cases-1` | pass | `cd95fb43…` | 2026-10-18 | 200 | 2026-10-18 |
+| `reference-edge-cases-2` | pass | `cd95fb43…` | 2026-10-18 | 200 | 2026-10-18 |
+| `reference-edge-cases-3` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `reference-edge-cases-4` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `reference-edge-cases-5` | fail | `8b59f0a7…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `reference-edge-cases-6` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `related-card-dates-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `resources-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-comments-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-comments-2` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-comments-4` | partial | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `search-comments-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `search-fusejs-setup-1` | pass | `fd7168ad…` | 2026-10-24 | 200 | 2026-10-24 |
+| `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-visibility-task-1` | pass | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `semantic-html-accessibility` | fail | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `seo-1` | pass | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `seo-2` | pass | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `seo-3` | pass | `ac010481…` | 2026-10-24 | 200 | 2026-10-24 |
+| `seo-4` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `sharing-task-1` | partial | `98c97e53…` | 2026-10-24 | 200 | 2026-10-24 |
+| `sidebar-accessibility-focus` | partial | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `site-details-edit-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `skin-font-failure-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `skin-palette-contrast-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `skins-bootswatch-originals-1` | pass | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `snippet-parameter-reference` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-1` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-2` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-3` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-4` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `snippets-6` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `starter-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `starter-2` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `starter-demo-versus-site` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `theme-selector-demo-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-2` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-3` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `theming-4` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `theming-6` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `toc-active-section` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `troubleshoot-publishing-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `troubleshoot-yaml-task-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-2` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-3` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-unsupported` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `version-task-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
 
 ## AI Search comparison — 22 October 2026
 

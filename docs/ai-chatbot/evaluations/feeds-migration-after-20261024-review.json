@@ -1,0 +1,67 @@
+{
+  "run": "feeds-migration-after-20261024",
+  "worker_version": "98c97e53-138a-4460-922f-b5487c2a3c82",
+  "traffic_percent": 100,
+  "raw": "feeds-migration-after-20261024.jsonl",
+  "totals": {
+    "requests": 8,
+    "pass": 1,
+    "partial": 6,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "batch_six": {
+    "pass": 1,
+    "partial": 4,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "seo_controls": {
+    "pass": 0,
+    "partial": 2,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "reviews": [
+    {
+      "id": "migration-theme-1",
+      "result": "fail",
+      "finding": "Adds plugin enablement and local override precedence, but incorrectly recommends layout: post as a built-in layout automatically adding header_type; Chulapa requires default plus header_type: post."
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "result": "partial",
+      "finding": "Now gives all three mappings and independent Algolia/Google behavior; omits explicit-front-matter precedence and nonautomatic conversion caveat, and renders arrows as unrequested LaTeX."
+    },
+    {
+      "id": "feed-coexistence-1",
+      "result": "partial",
+      "finding": "Correct collision/plugin-boundary answer, but still adds a defaults recipe and omits preservation of subscriber URL and built-in head advertisement."
+    },
+    {
+      "id": "feed-selection-1",
+      "result": "partial",
+      "finding": "Fixes false override and rejects ordinary standalone pages; valid defaults recipe. Omits preserving existing defaults, explicit collection dates/output and baseurl/entry-link checks."
+    },
+    {
+      "id": "feed-collection-output-1",
+      "result": "partial",
+      "finding": "Correct existing collections mapping, output:true example and rebuild/live article check. Does not explicitly preserve other collection settings; second source is mislabeled as Subscription feeds."
+    },
+    {
+      "id": "canonical-article-task-1",
+      "result": "partial",
+      "finding": "SEO control retains valid canonical/sitemap YAML, no redirect and copy exclusion checks; still omits jekyll-sitemap condition and some full-rubric preservation/pagination details."
+    },
+    {
+      "id": "sharing-task-1",
+      "result": "partial",
+      "finding": "SEO control retains plain-path image YAML, no header/body mutation and exact source/baseurl checks; still omits full-rubric preview/cropping limits."
+    },
+    {
+      "id": "community-4",
+      "result": "pass",
+      "finding": "Correct boolean/date diagnosis and no plugin replacement; includes published feed/baseurl/entry-link checks."
+    }
+  ]
+}

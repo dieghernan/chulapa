@@ -32,12 +32,18 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects a source library larger than **54,000 UTF-8 bytes**, before
+The build rejects a source library larger than **57,000 UTF-8 bytes**, before
 generating artifacts. This replaces the former 47,000-byte editorial budget: the
 reviewed increase preserves explicit provider boundaries and complete recipes
 rather than compressing instructions into ambiguous phrases. It is not the
 per-request input budget or a model token limit. The additional 1,000 bytes
-cover the optional skin selector, independent settings and release limitations. Keep
+cover the optional skin selector, independent settings and release limitations.
+The October 24 increase from 54,000 to 56,000 bytes adds complete SEO exclusion
+and sharing-image recipes, verification steps and canonical/analytics boundaries
+after live failures. The feed/migration batch adds a further 1,000 bytes for
+explicit per-post exclusion, collection/date eligibility, plugin coexistence and
+legacy-field mappings, consolidating the duplicated feed warning. Selected
+context remains capped at 18,000 bytes per request. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the
 budget requires an explicit review of the reason and coverage. Byte reduction
@@ -63,8 +69,36 @@ aliases, heading/parameter matches and uncommon body terms, including common Spa
 keeps the version/preservation instructions and documentation directory, adds
 relevant task/reference sections and caps the selected source context at 18,000
 UTF-8 bytes. Code fences are not split, including headings inside tutorial code.
+Focused canonical, publisher, social-image and search-exclusion tasks retain only
+relevant SEO/reference sections plus global settings. Explicit analytics/feed
+combinations and guide-discovery questions retain the broader selection.
 No embedding service, extra model call, network retrieval or conversation history
 is used. The full source library remains bundled for other questions.
+
+Header, reading/pagination and TOC questions select focused references too.
+Header recipes use page front matter; content TOC syntax stays separate from
+sidebar keyboard/version guidance. Existing theme interactions are unchanged.
+
+Local review corrections preserve explicitly requested additional topics in
+focused questions, including SEO with GA4 or PhotoSwipe and RSS with navigation.
+Combined feed selection and plugin coexistence retain both recipes. Migration
+questions about custom fields retain the procedure; explicit gem migrations
+include gem installation. These corrections are included in Worker dfb48928
+(24 October 2026); 114 local tests pass. This deployment has a live dependency
+troubleshooting check, not a new live result for every prior review case.
+
+Custom search dependency errors select the layout/script reference without
+unrequested search-path examples. The search context gives explicit /find paths
+under baseurl /my-blog and identifies the local index's pages/documents scope.
+Fuse paths passed on the preceding fd7168ad deployment; see the evaluation log
+for exact answers and version boundaries.
+
+Additional review fixes retain comment inventories in focused TOC queries,
+explicit title metadata alongside navigation and the public RSS URL for
+subscription/link questions in English and Spanish. All 117 tests pass; these
+additional fixes were deployed as Worker 1686b41b on 24 October 2026. The
+ten-question mixed-topic run and artifact manifest are recorded in the evaluation
+log; individual outcomes remain tied to that Worker version.
 
 Single-provider setup questions exclude other providers' specific sections.
 Comparison, alternative-provider and plain inventory questions retain all supported provider

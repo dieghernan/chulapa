@@ -1,0 +1,4566 @@
+{
+  "date": "2026-10-24",
+  "scope": "Historical Worker evidence only; AI Search excluded; no new queries or factual regrading",
+  "totals": {
+    "pass": 95,
+    "partial": 64,
+    "fail": 5,
+    "no_assessed_answer": 3,
+    "latest_unavailable": 9
+  },
+  "assessment_changes": [
+    "theming-2",
+    "skin-font-failure-1",
+    "theme-selector-demo-1",
+    "skins-bootswatch-originals-1",
+    "starter-1",
+    "goatcounter-analytics",
+    "semantic-html-accessibility",
+    "provider-lunr-task-1",
+    "provider-simplesearch-task-1",
+    "provider-google-task-1",
+    "comments-cactus-task-1",
+    "comments-welcomments-task-1",
+    "troubleshoot-yaml-task-1"
+  ],
+  "entries": [
+    {
+      "id": "layouts-random-singleton-1",
+      "section": "recommendations",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "combined-worktree-981dd71ee196-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:11:44.618Z",
+        "raw": "precommit-worktree-981dd71ee196-layouts.jsonl",
+        "answer_sha256": "42ef1bbfe1126e39464784771d0e2f0262ec47f9c3d5bdfb428fe679bf68e0e6"
+      },
+      "latest_attempt": {
+        "raw": "precommit-worktree-981dd71ee196-layouts.jsonl",
+        "time": "2026-10-18T08:11:44.618Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-include-cache-1",
+      "section": "include-cache",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "layouts-final-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T12:59:41.044Z",
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "answer_sha256": "2a3685556cff549b3b1afa46c2821cf7e2e5fc2a843baf3b829472cd4c042669"
+      },
+      "latest_attempt": {
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "time": "2026-10-22T12:59:41.044Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-head-formatting-1",
+      "section": "html-output",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "combined-worktree-981dd71ee196-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:11:58.981Z",
+        "raw": "precommit-worktree-981dd71ee196-layouts.jsonl",
+        "answer_sha256": "b8ba69b40f72fde2fef5635159a56c7b16b040d5ea2607d5173cd4f970d40dea"
+      },
+      "latest_attempt": {
+        "raw": "precommit-worktree-981dd71ee196-layouts.jsonl",
+        "time": "2026-10-18T08:11:58.981Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-microformats-nested-feed-1",
+      "section": "microformats",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "combined-worktree-981dd71ee196-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:12:01.526Z",
+        "raw": "precommit-worktree-981dd71ee196-layouts.jsonl",
+        "answer_sha256": "b9690721692f69eab870a0e513701e42620fbcbba1d605052f35024b0e97dacf"
+      },
+      "latest_attempt": {
+        "raw": "precommit-worktree-981dd71ee196-layouts.jsonl",
+        "time": "2026-10-18T08:12:01.526Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-microformats-feed-1",
+      "section": "microformats",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "layouts-final-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T12:59:45.652Z",
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "answer_sha256": "6ae8ef0e82a5064a42c956adbc7139d4c8a7e24760b764a5857823c8c7532bee"
+      },
+      "latest_attempt": {
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "time": "2026-10-22T12:59:45.652Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "config-author-profile-1",
+      "section": "configuration",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional20-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:15:38.626Z",
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "e56f5d309eb140715f1b1fb3d588397333ad3b5fc765caf7e5b066b8f7965745"
+      },
+      "latest_attempt": {
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:15:38.626Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-label-headings-1",
+      "section": "accessibility",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "layouts-final-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T12:59:49.165Z",
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "answer_sha256": "c5cbb85fe4b94c0dbd6aa653932f09bc93595a2285d22182603fba5e3e12f19b"
+      },
+      "latest_attempt": {
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "time": "2026-10-22T12:59:49.165Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-microformats-1",
+      "section": "microformats",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "layouts-final-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T12:59:53.085Z",
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "answer_sha256": "67509df489a89083e65332b7a274a4c9c4656c984408676933275fa94c52480e"
+      },
+      "latest_attempt": {
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "time": "2026-10-22T12:59:53.085Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "installation-1",
+      "section": "installation",
+      "previous_row": {
+        "result": "pass",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:00:27.746Z",
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "answer_sha256": "614426a1bacab16bd709056bfc3dae79de0aa6412c664fa1b03b9956a6ddd890"
+      },
+      "latest_attempt": {
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "time": "2026-10-22T11:00:27.746Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "installation-2",
+      "section": "migration",
+      "previous_row": {
+        "result": "pass",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:03:24.407Z",
+        "raw": "batch10-03-2026-10-22.jsonl",
+        "answer_sha256": "2d02895970d89e0f4a925b47f51b59712982ff022862e44986d138b1b750dacf"
+      },
+      "latest_attempt": {
+        "raw": "batch10-03-2026-10-22.jsonl",
+        "time": "2026-10-22T11:03:24.407Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "installation-3",
+      "section": "installation",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:37:46.225Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "08f38463020c943bc5bd9a4167e70e1ff03afbfd47634ad3873d62669926f5dd"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:37:46.225Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "installation-4",
+      "section": "installation",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional20-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:17:11.108Z",
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "89f86baccfb62e9c7eb406642a072b9bf71fa169fc58f11d948b1b9605c18441"
+      },
+      "latest_attempt": {
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:17:11.108Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "installation-5",
+      "section": "version",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional20-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:18:04.369Z",
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "81e07c2880b83c78ad53e2e2df8f9a0dbe1e7168f010a5b5d5a54ac7d55bb19b"
+      },
+      "latest_attempt": {
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:18:04.369Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "installation-6",
+      "section": "installation",
+      "previous_row": {
+        "result": "pass",
+        "version": "223eaf7d…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "taskfix-640ce7555-review.json",
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "time": "2026-10-18T12:57:31.768Z",
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "answer_sha256": "b5c37dd84442773d9a743275c9dab7c3a764a23cd367f7337c9900b59b0b2f55"
+      },
+      "latest_attempt": {
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "time": "2026-10-18T12:57:31.768Z",
+        "http_status": 200,
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "configuration-1",
+      "section": "configuration",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10b-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:07:18.447Z",
+        "raw": "batch10b-2026-10-22.jsonl",
+        "answer_sha256": "413df8e96633a8ffe8b8043f3a2832d72a89168c70c39a9f02df69777dcea535"
+      },
+      "latest_attempt": {
+        "raw": "batch10b-2026-10-22.jsonl",
+        "time": "2026-10-22T11:07:18.447Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "configuration-2",
+      "section": "localization",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:37:50.562Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "d6c2ebc44a229a186e0c9d89586e0c6462a9f620ba5f758907b208b2c020e42c"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:37:50.562Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "configuration-3",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional20-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:19:22.541Z",
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "1754c333e33927ad24412588d8fe80a6c1bba0ef9a0823f8f4851941fe371b29"
+      },
+      "latest_attempt": {
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:19:22.541Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "configuration-4",
+      "section": "analytics",
+      "previous_row": {
+        "result": "pass",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "retest10-postdeploy-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:04:04.377Z",
+        "raw": "retest10-postdeploy-2026-10-22.jsonl",
+        "answer_sha256": "207efbd2a1dd082209dc6c0fe54db2b7ae5366d1114f060aaacb9fb1dfe5c4fd"
+      },
+      "latest_attempt": {
+        "raw": "retest10-postdeploy-2026-10-22.jsonl",
+        "time": "2026-10-22T12:04:04.377Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "configuration-5",
+      "section": "icons",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional20-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:19:28.638Z",
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "da048dcf393ea9883a5870d2dfc366ce79d18f1d4870accc40f0f764e078505a"
+      },
+      "latest_attempt": {
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:19:28.638Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "configuration-6",
+      "section": "navbar",
+      "previous_row": {
+        "result": "pass",
+        "version": "223eaf7d…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "taskfix-640ce7555-review.json",
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "time": "2026-10-18T12:57:32.919Z",
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "answer_sha256": "054d08a738550bf4915b063691a2f620902a6940923204f0dbafd7e0f984aef8"
+      },
+      "latest_attempt": {
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "time": "2026-10-18T12:57:32.919Z",
+        "http_status": 200,
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-comments-1",
+      "section": "search",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:37:56.676Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "f4709ad89f0c25be1fc770de6e5e06a5d83ebe8cf2968ba3364147a74254d972"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:37:56.676Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-comments-2",
+      "section": "search",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional20-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:20:35.486Z",
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "1a524b9d82bb9990eb7176bed14b10d5ba4acd99d1a3e748389047f6cc88d10d"
+      },
+      "latest_attempt": {
+        "raw": "additional20-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:20:35.486Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-comments-3",
+      "section": "search",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch10b-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:07:25.137Z",
+        "raw": "batch10b-2026-10-22.jsonl",
+        "answer_sha256": "c90a4aeae98bb7801238e1e577e3ca57abea7055b1ada6cc509e74dfa72ac0e7"
+      },
+      "latest_attempt": {
+        "raw": "batch10b-2026-10-22.jsonl",
+        "time": "2026-10-22T11:07:25.137Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-comments-4",
+      "section": "search",
+      "previous_row": {
+        "result": "partial",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:14:04.969Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "4bff63d01604269f41031f696d6f3133e013c8a6c604afe4da30447e9f518ddd"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:14:04.969Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-comments-5",
+      "section": "comments",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional10-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:23:46.534Z",
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "0aec4d3e12ae94a985a743585f0caa93076bee6d92c571de7e76a0602b2136b9"
+      },
+      "latest_attempt": {
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:23:46.534Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-comments-6",
+      "section": "footer",
+      "previous_row": {
+        "result": "pass",
+        "version": "223eaf7d…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "taskfix-640ce7555-review.json",
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "time": "2026-10-18T12:57:37.547Z",
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "answer_sha256": "ec8f28992244aa700c81c03559d24b60f297f7d0013e480dbaacb0c4f66a79ca"
+      },
+      "latest_attempt": {
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "time": "2026-10-18T12:57:37.547Z",
+        "http_status": 200,
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "theming-1",
+      "section": "skins",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:37:59.975Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "4d2ce399712ca0dcbf0dfbaf1bae18dafc4644119fe44fa4bd3ff16cf8192614"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:37:59.975Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "theming-2",
+      "section": "autothemer",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "log.md#ai-search-comparison--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:48:43.286Z",
+        "raw": "chatbot-baseline-smoke.jsonl",
+        "answer_sha256": "3463c6f85a675fe18d5ee32655a01e823d8ed5418c420f7a258c2f73773a1436"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-baseline-smoke.jsonl",
+        "time": "2026-10-22T17:48:43.286Z",
+        "http_status": 200,
+        "version": null,
+        "result": "partial"
+      },
+      "notes": [
+        "The 23 October Autothemer correction rejects requiring skin: auto; retained partial is supported by contradictory primary/vars prose, not the corrected requirement.",
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "theming-3",
+      "section": "autothemer",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional10-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:24:56.659Z",
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "5f2089486eb8c135b45c4407c67195b7a7fca910afa74691269c095331f344b0"
+      },
+      "latest_attempt": {
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:24:56.659Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "theming-4",
+      "section": "fonts",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10b-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:08:30.795Z",
+        "raw": "batch10b-2026-10-22.jsonl",
+        "answer_sha256": "38b3b8474f14ec89e37608e20e39b42b97b4c817cbd602b23831b6e06beae9d9"
+      },
+      "latest_attempt": {
+        "raw": "batch10b-2026-10-22.jsonl",
+        "time": "2026-10-22T11:08:30.795Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "theming-5",
+      "section": "skins",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional10-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:25:05.657Z",
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "664b9eabf96acb895a06344e3bf38810ed1e910e5290277a225bb06b72f6013b"
+      },
+      "latest_attempt": {
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:25:05.657Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "theming-6",
+      "section": "skins",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional10-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:25:09.467Z",
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "4966d0af0938027c16b39f1cd79119d9c4d0810c8ace4c28e786cd9a632f148d"
+      },
+      "latest_attempt": {
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:25:09.467Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-1",
+      "section": "layouts",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:39:02.530Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "c806a3808af9c5968b48a35a650630a5aa1f0062f1a6a81a00fddf06b08192fb"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:39:02.530Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-2",
+      "section": "layouts",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional10-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:26:17.472Z",
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "673eb3ef9b88c72a879d0546e2ee09f01496cd1fc51db7c82d1df0fd6e53870d"
+      },
+      "latest_attempt": {
+        "raw": "additional10-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:26:17.472Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-3",
+      "section": "toc",
+      "previous_row": {
+        "result": "pass",
+        "version": "64ee01ab…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "version": "64ee01ab-3f43-4d32-b90b-df0264e04cfb",
+        "time": "2026-10-18T13:30:55.736Z",
+        "raw": "validation-dd9e23b90-20261018.jsonl",
+        "review": "validation-dd9e23b90-review.json",
+        "answer_sha256": "4b21cd8e42378c4ad040b0450d26aef2bee3281769bcedd2f124b5f807c8c9fc"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:12:00.166Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "layouts-4",
+      "section": "collections",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional5-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:27:53.858Z",
+        "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "7e2c6b24f9532e70a088c0d0d604b2929b88ef754867891ad366a961bdd8183a"
+      },
+      "latest_attempt": {
+        "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:27:53.858Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-5",
+      "section": "collections",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional5-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:27:59.219Z",
+        "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "59252816856cd6e3a9abe4b1114eac50423a9b4ac56fb08559faf58dda7a0a51"
+      },
+      "latest_attempt": {
+        "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:27:59.219Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-6",
+      "section": "collections",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional5-2026-10-18-review.json",
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "time": "2026-10-18T08:28:02.718Z",
+        "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "04e9c8b4c650daa5e727b38018ff43b0449efc9b340329b852c4ad66456102b7"
+      },
+      "latest_attempt": {
+        "raw": "additional5-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:28:02.718Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippets-1",
+      "section": "video",
+      "previous_row": {
+        "result": "pass",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:00:38.236Z",
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "answer_sha256": "1fd6380d1a39c5e362d2b803fc6ff3e197def6af06c5704c343df259bdcf36c3"
+      },
+      "latest_attempt": {
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "time": "2026-10-22T11:00:38.236Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippets-2",
+      "section": "video",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10b-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:08:37.181Z",
+        "raw": "batch10b-2026-10-22.jsonl",
+        "answer_sha256": "0dcd7218561878da3d987ad6d6aa8dded6a6b230a241f5a03f6ec8a1d4da993e"
+      },
+      "latest_attempt": {
+        "raw": "batch10b-2026-10-22.jsonl",
+        "time": "2026-10-22T11:08:37.181Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippets-3",
+      "section": "video",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:39:05.717Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "8b7652c1bb5c2dee9090489b060aec9e057651d3a97a91ef27f5fbcd683d3210"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:39:05.717Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippets-4",
+      "section": "galleries",
+      "previous_row": {
+        "result": "pass",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:01:29.925Z",
+        "raw": "batch10-02-2026-10-22.jsonl",
+        "answer_sha256": "e1f881802559a3788ce2495c0a4a451e89bccaa4c17e6bcbd24ff7e1a396e39f"
+      },
+      "latest_attempt": {
+        "raw": "batch10-02-2026-10-22.jsonl",
+        "time": "2026-10-22T11:01:29.925Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippets-5",
+      "section": "galleries",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional13-2026-10-18-review.json",
+        "version": "65bb328b…",
+        "time": "2026-10-18T08:32:46.478Z",
+        "raw": "additional13-first8-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "3cd03d0307e4a6a9dfb407fb985f52c88f24f022f0c3dd9d79841b4e86745594"
+      },
+      "latest_attempt": {
+        "raw": "additional13-first8-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:32:46.478Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippets-6",
+      "section": "math",
+      "previous_row": {
+        "result": "pass",
+        "version": "65bb328b…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional13-2026-10-18-review.json",
+        "version": "65bb328b…",
+        "time": "2026-10-18T08:33:44.958Z",
+        "raw": "additional13-first8-worktree-981dd71ee196-20261018.jsonl",
+        "answer_sha256": "94d9cd2761bc535906345c9fde4a00e95d15d97caafbb928e581651dda3c501e"
+      },
+      "latest_attempt": {
+        "raw": "additional13-first8-worktree-981dd71ee196-20261018.jsonl",
+        "time": "2026-10-18T08:33:44.958Z",
+        "http_status": 200,
+        "version": "65bb328b-a4ed-4828-9218-9c36553b2306",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "faq-1",
+      "section": "version",
+      "previous_row": {
+        "result": "pass",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:03:29.146Z",
+        "raw": "batch10-03-2026-10-22.jsonl",
+        "answer_sha256": "23979a8ea1f73a866062d8d2a6d8fb851ed4ffe723ff53e67b446fd620b2c580"
+      },
+      "latest_attempt": {
+        "raw": "batch10-03-2026-10-22.jsonl",
+        "time": "2026-10-22T11:03:29.146Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "faq-2",
+      "section": "custom-hooks",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:39:09.867Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "698bac0f07f04cb5f510bb7b93f8f8fbc0e9a15e89265f040d8cdfdb624b679a"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:39:09.867Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "faq-3",
+      "section": "favicons",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch10b-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:08:39.254Z",
+        "raw": "batch10b-2026-10-22.jsonl",
+        "answer_sha256": "455e942cb14887cd687f94be03c5beb1630215199494e06bba9c63d2a939e109"
+      },
+      "latest_attempt": {
+        "raw": "batch10b-2026-10-22.jsonl",
+        "time": "2026-10-22T11:08:39.254Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "faq-4",
+      "section": "formatting",
+      "previous_row": {
+        "result": "pass",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:01:33.695Z",
+        "raw": "batch10-02-2026-10-22.jsonl",
+        "answer_sha256": "6a84a29a811de4842bd3a999f9cc749d498432bc5ae04760ee0a4a5c9e9a19c3"
+      },
+      "latest_attempt": {
+        "raw": "batch10-02-2026-10-22.jsonl",
+        "time": "2026-10-22T11:01:33.695Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "faq-5",
+      "section": "fonts",
+      "previous_row": {
+        "result": "pass",
+        "version": "223eaf7d…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "taskfix-640ce7555-review.json",
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "time": "2026-10-18T13:00:07.147Z",
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "answer_sha256": "43b5e8534be459e769ca422816924162ce510e91e9bc2123aea79593843b96ce"
+      },
+      "latest_attempt": {
+        "raw": "taskfix-640ce7555-20261018.jsonl",
+        "time": "2026-10-18T13:00:07.147Z",
+        "http_status": 200,
+        "version": "223eaf7d-2da4-4406-8c39-c7628cef631e",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "faq-6",
+      "section": "feeds",
+      "previous_row": {
+        "result": "pass",
+        "version": "cd95fb43…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional13-2026-10-18-review.json",
+        "version": "cd95fb43…",
+        "time": "2026-10-18T08:35:45.968Z",
+        "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+        "answer_sha256": "0fd7601e8d05cb692de110f124e5ed018ef75ad04cadbea49f14fc11c9c651a4"
+      },
+      "latest_attempt": {
+        "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+        "time": "2026-10-18T08:35:45.968Z",
+        "http_status": 200,
+        "version": "cd95fb43…",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "reference-edge-cases-1",
+      "section": "formatting",
+      "previous_row": {
+        "result": "pass",
+        "version": "cd95fb43…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional13-2026-10-18-review.json",
+        "version": "cd95fb43…",
+        "time": "2026-10-18T08:35:54.123Z",
+        "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+        "answer_sha256": "bfd3eacbd5c1806c5863aa54b3dc2786233ff31bda5f7ce78a7239c9562958fd"
+      },
+      "latest_attempt": {
+        "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+        "time": "2026-10-18T08:35:54.123Z",
+        "http_status": 200,
+        "version": "cd95fb43…",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "reference-edge-cases-2",
+      "section": "formatting",
+      "previous_row": {
+        "result": "pass",
+        "version": "cd95fb43…",
+        "date": "2026-10-18"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "additional13-2026-10-18-review.json",
+        "version": "cd95fb43…",
+        "time": "2026-10-18T08:36:47.188Z",
+        "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+        "answer_sha256": "be106d76cc92199a845a463d4e19653b16abff350e8182f270ab471faee4f06a"
+      },
+      "latest_attempt": {
+        "raw": "additional13-last5-cd95fb43-20261018.jsonl",
+        "time": "2026-10-18T08:36:47.188Z",
+        "http_status": 200,
+        "version": "cd95fb43…",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "reference-edge-cases-3",
+      "section": "variables",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:06:20.903Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "f41b7d12eb5df37c4be1056140f5b3a3fc10db0bee19ff63ed328d1326fb684a"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:06:20.903Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "reference-edge-cases-4",
+      "section": "variables",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:31:39.699Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "a577dd1b4f4a26ebf0f6f6ea9f676f294d1dfe9f8148101d3baf42c47d55d3fe"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:31:39.699Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "reference-edge-cases-5",
+      "section": "highlighting",
+      "previous_row": {
+        "result": "fail",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "fail",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:31:42.234Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "answer_sha256": "8e8bc14b3d102c8dcece69e7cc8155c0eb03777228050c17665d3657ee57a6de"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:13:15.299Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "reference-edge-cases-6",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:31:45.556Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "2bd8c36c5d6f3798cf369b9a9ccb7beeab9d9ff149d063130167af2d0fc52a82"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:31:45.556Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "migration-theme-1",
+      "section": "migration",
+      "previous_row": {
+        "result": "partial",
+        "version": "09b4517c…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "scoped-followup-after-20261024-review.json",
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "time": "2026-10-24T06:43:08.272Z",
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "answer_sha256": "41f195254f109986056686d72b79d8c8b21217a4ada5d541bc7c1e6ea55784a9"
+      },
+      "latest_attempt": {
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "time": "2026-10-24T06:43:08.272Z",
+        "http_status": 200,
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "skin-font-failure-1",
+      "section": "skins",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "log.md#ai-search-comparison--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:48:46.064Z",
+        "raw": "chatbot-baseline-smoke.jsonl",
+        "answer_sha256": "1e70be6dc801aa8236f4887b506074143f70214ecada013289921b1ffab6b9bb"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-baseline-smoke.jsonl",
+        "time": "2026-10-22T17:48:46.064Z",
+        "http_status": 200,
+        "version": null,
+        "result": "partial"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "skin-palette-contrast-1",
+      "section": "accessibility",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:21:14.360Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "fe628c6352d9f10a279afd9e1b416a5295a290d4af5b13cf898fefea02c11552"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:21:14.360Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "theme-selector-demo-1",
+      "section": "skins",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "log.md#ai-search-comparison--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:48:50.316Z",
+        "raw": "chatbot-baseline-smoke.jsonl",
+        "answer_sha256": "1724aeb4b3fa57ccb4b0ec9e868f5b8f40ad3a1543ac2c02f4bc5b7f1935459f"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-baseline-smoke.jsonl",
+        "time": "2026-10-22T17:48:50.316Z",
+        "http_status": 200,
+        "version": null,
+        "result": "partial"
+      },
+      "notes": [
+        "Latest prose describes correct core behavior without an explicit pass grade; partial retained, no new pass invented.",
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "skins-bootswatch-originals-1",
+      "section": "skins",
+      "previous_row": {
+        "result": "unavailable",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "log.md#retest-of-ten-previous-chatbot-failures--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:57:13.247Z",
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "answer_sha256": "86ae4137209f9fd4bf7af1e0f6e6c86e462db9ad3257649226eda191894e518a"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "time": "2026-10-22T17:57:13.247Z",
+        "http_status": 200,
+        "version": null,
+        "result": "pass"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "mixed-toc-comments-1",
+      "section": "comments",
+      "previous_row": {
+        "result": "pass",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:14:11.461Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "6ead6bf684100a97252ea2a9a8564953b5f719464c885ee069b3ca0df2da030a"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:14:11.461Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "mixed-toc-title-1",
+      "section": "navigation",
+      "previous_row": {
+        "result": "pass",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:14:15.074Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "13f42dc6ae167063c19ddfb016ed9896bfc0ee962b8968378716cdced121a9cb"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:14:15.074Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "mixed-person-ga4-1",
+      "section": "seo",
+      "previous_row": {
+        "result": "fail",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "fail",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:14:19.998Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "7a14eaa404b8aad65c9c9353792a4da59877197d84dd1cbf9f75955abb8fde9f"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:14:19.998Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "fail"
+      },
+      "notes": []
+    },
+    {
+      "id": "mixed-feed-navbar-1",
+      "section": "navigation",
+      "previous_row": {
+        "result": "pass",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:15:21.519Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "c2c842858291a7444d5f9dfcf0af4364377d1cb314c501e723b26ebba5417249"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:15:21.519Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "feed-subscribe-link-en-1",
+      "section": "feeds",
+      "previous_row": {
+        "result": "unavailable",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": null,
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:15:22.797Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "feed-subscribe-link-es-1",
+      "section": "feeds",
+      "previous_row": {
+        "result": "unavailable",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": null,
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:16:38.693Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "migration-gem-choice-1",
+      "section": "migration",
+      "previous_row": {
+        "result": "pass",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:17:56.531Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "9ad9d7d0e574876919d1b1c3c72208d2d9017f845c348ca5af459917405863fe"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:17:56.531Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "seo-1",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "253c4a59…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "scoped-followup-before-20261024-review.json",
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "time": "2026-10-24T06:39:34.369Z",
+        "raw": "scoped-followup-before-20261024.jsonl",
+        "answer_sha256": "20ad16b376acd5d4e4144a43184b8e971873d0fb27d3b31f856df18acad142ea"
+      },
+      "latest_attempt": {
+        "raw": "scoped-followup-before-20261024.jsonl",
+        "time": "2026-10-24T06:39:34.369Z",
+        "http_status": 200,
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "seo-2",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "09b4517c…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "scoped-followup-after-20261024-review.json",
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "time": "2026-10-24T06:43:13.359Z",
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "answer_sha256": "01d99ee1492159d4918185faed0f7b453e569f00947d8872024b9ca8a7116abc"
+      },
+      "latest_attempt": {
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "time": "2026-10-24T06:43:13.359Z",
+        "http_status": 200,
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "seo-3",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "ac010481…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "seo-batch1-final-20261024-review.json",
+        "version": "ac010481-bedc-448a-94be-7512e5825e92",
+        "time": "2026-10-24T06:16:13.545Z",
+        "raw": "seo-batch1-final-20261024.jsonl",
+        "answer_sha256": "424edfdfa9311c4593ab05545522d36a3140f74521ed36bf997f95bcfb94aae1"
+      },
+      "latest_attempt": {
+        "raw": "seo-batch1-final-20261024.jsonl",
+        "time": "2026-10-24T06:16:13.545Z",
+        "http_status": 200,
+        "version": "ac010481-bedc-448a-94be-7512e5825e92",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "seo-4",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:07:33.643Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "2ccd956d0ccda905973ae1dd0206bfef0807c132d32ceb0e23ea742d346bf020"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:07:33.643Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "navigation-1",
+      "section": "recommendations",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:07:37.977Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "33ec3a6038a0c2d00d562bc1a171d2d16fad0d7fcadc4d3b1e405872d55bc93a"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:07:37.977Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "navigation-2",
+      "section": "navigation",
+      "previous_row": {
+        "result": "partial",
+        "version": "09e75972…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "navigation-toc-after-20261024-review.json",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T06:51:06.222Z",
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "answer_sha256": "9338eda72d7e7dd57e766084bf44e02ed0a92e4e4f0c4d3c8fcf22f4854eea22"
+      },
+      "latest_attempt": {
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "time": "2026-10-24T06:51:06.222Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "navigation-3",
+      "section": "navigation",
+      "previous_row": {
+        "result": "pass",
+        "version": "09e75972…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "navigation-toc-after-20261024-review.json",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T06:51:07.785Z",
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "answer_sha256": "dbedcbbba96b175ef5218fba2123e7019807e2427a78e2b9040638cedbcfb504"
+      },
+      "latest_attempt": {
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "time": "2026-10-24T06:51:07.785Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "layouts-7",
+      "section": "layouts",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:31:56.957Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "efa3c1b1271c1aef23e8553be213bcf1a2cf9561f6352ced66dc4f05b724d4d7"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:31:56.957Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "variables-1",
+      "section": "variables",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:32:56.430Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "ded198e7d296d815e8e8c19aa60be7aaf544159d708e4a39b195fe0c71a403e9"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:32:56.430Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "variables-2",
+      "section": "variables",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:33:00.215Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "9aa7941f0427fbafb16938f6108095128a8f3344cf596bfe318fb863b8dfa8f7"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:33:00.215Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "variables-3",
+      "section": "variables",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:33:02.902Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "83b7e356992c14b9cc94810d031849fe83209f35d0ae622cce137dc7b147067e"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:33:02.902Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "variables-unsupported",
+      "section": "chatbot",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:08:41.892Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "aab20ceff72ce17883bb6f4e55b6a5a9c15e29bf4996d0f9fb4de22201381a1e"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:08:41.892Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "mermaid-1",
+      "section": "mermaid",
+      "previous_row": {
+        "result": "pass",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "historical-pass8-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:33:08.982Z",
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "answer_sha256": "7a6055d5b8f4bd58908fc45c052855a5cd948398ba9e0f850a4762631b6d9e57"
+      },
+      "latest_attempt": {
+        "raw": "historical-pass8-2026-10-22.jsonl",
+        "time": "2026-10-22T13:33:08.982Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "starter-1",
+      "section": "installation",
+      "previous_row": {
+        "result": "fail",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "log.md#retest-of-ten-previous-chatbot-failures--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:57:24.622Z",
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "answer_sha256": "5c2fbfc29c64049a4721c90ec1ba6898053a6da847c60d6a113a82fb6019024a"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "time": "2026-10-22T17:57:24.622Z",
+        "http_status": 200,
+        "version": null,
+        "result": "partial"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "starter-2",
+      "section": "installation",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:08:52.169Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "4331646c1f0b0b1520aeeafedd1e94e110bc8b5244f1e6b8aafce80a7eb49491"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:08:52.169Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "accessibility-1",
+      "section": "accessibility",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:09:57.021Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "67a7192d23d1f0b8a0b1ce9466f038e7cbe897d773656c0382b48abd0804edd9"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:09:57.021Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "resources-1",
+      "section": "resources",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:10:01.907Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "bdeed303e757250eb39a154ce5752f45f5e9c6f1d11cc846741f5cb1bc67f476"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:10:01.907Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "toc-active-section",
+      "section": "toc",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:22:24.150Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "d4431061850373cba6098562f9e0b06b1b7cae0b5415ac842cc6adcb35069632"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:22:24.150Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "photoswipe-gallery",
+      "section": "galleries",
+      "previous_row": {
+        "result": "partial",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:00:46.862Z",
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "answer_sha256": "a1739d5c77220826173dee308affd5e752d637b559a1e9bd7733c812115a0f63"
+      },
+      "latest_attempt": {
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "time": "2026-10-22T11:00:46.862Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "goatcounter-analytics",
+      "section": "analytics",
+      "previous_row": {
+        "result": "fail",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "log.md#retest-of-ten-previous-chatbot-failures--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:57:30.250Z",
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "answer_sha256": "fe06ff3501654221576f5598d041665e0a89772d84b037968402cf346420e61a"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "time": "2026-10-22T17:57:30.250Z",
+        "http_status": 200,
+        "version": null,
+        "result": "pass"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "collection-filename-order",
+      "section": "collections",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:22:33.904Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "a31af8564102d7b2693ad56c35eb3665c215aab1be383197295975d550d6cd33"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:22:33.904Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "javascript-resource-fallbacks",
+      "section": "resources",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:23:32.225Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "15c302ec0a0cd72e56dda22b614c807e2e21a1ddc81daaa5b71734474b8bf05d"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:23:32.225Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "custom-search-script-dependencies",
+      "section": "search",
+      "previous_row": {
+        "result": "pass",
+        "version": "dfb48928…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-paths-dependencies-review-20261024.md",
+        "version": "dfb48928-319f-4cfe-ba33-e2b77822f968",
+        "time": "2026-10-24T07:17:55.861Z",
+        "raw": "search-dependency-focus-after-20261024.jsonl",
+        "answer_sha256": "c9f714b8dd07e84b0919bdcf4acdc95439153b9ec3a2aa3cf5549a148b72a540"
+      },
+      "latest_attempt": {
+        "raw": "search-dependency-focus-after-20261024.jsonl",
+        "time": "2026-10-24T07:17:55.861Z",
+        "http_status": 200,
+        "version": "dfb48928-319f-4cfe-ba33-e2b77822f968",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "assistant-session-history",
+      "section": "chatbot",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:23:41.066Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "0d04c44f9438935c0daf91cc9c0b7f5edaef135f111b0f84ffe8ae56dfda220b"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:23:41.066Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "semantic-html-accessibility",
+      "section": "accessibility",
+      "previous_row": {
+        "result": "fail",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "fail",
+        "review": "log.md#retest-of-ten-previous-chatbot-failures--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:58:38.470Z",
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "answer_sha256": "dbfe67320aa1d132e463c1185cd8f51c14dbde105da537d649e71457f948aeaf"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "time": "2026-10-22T17:58:38.470Z",
+        "http_status": 200,
+        "version": null,
+        "result": "fail"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "carousel-accessibility-motion",
+      "section": "galleries",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:24:53.474Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "a1db760062cb51fcf6ed5ea055c3221d4bac81bbb4cbf2c60887e7ba328d5420"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:24:53.474Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "sidebar-accessibility-focus",
+      "section": "toc",
+      "previous_row": {
+        "result": "partial",
+        "version": "09e75972…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "navigation-toc-after-20261024-review.json",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T06:51:11.065Z",
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "answer_sha256": "3c4c7d19497a8656fa83fcaaca574ff9d7d4c2ecfcf3f124cb6f357c2ff0fdd9"
+      },
+      "latest_attempt": {
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "time": "2026-10-24T06:51:11.065Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "pwa-offline-status",
+      "section": "pwa",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:24:58.444Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "899062201bc1161e707ad466d15b4fcd732f00b45241c09c5bfa4d7344e584d7"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:24:58.444Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "beginner-post-1",
+      "section": "content",
+      "previous_row": {
+        "result": "pass",
+        "version": "738414cb…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "layouts-postdeploy-2026-10-22-review.json",
+        "version": "738414cb-3f77-4c67-a61f-25ca00f5c018",
+        "time": "2026-10-22T12:47:21.444Z",
+        "raw": "layouts-postdeploy-2026-10-22.jsonl",
+        "answer_sha256": "1f735f042f686a6769549ff6b0837a497eb96328488fb3751c28cd3424df642b"
+      },
+      "latest_attempt": {
+        "raw": "layouts-postdeploy-2026-10-22.jsonl",
+        "time": "2026-10-22T12:47:21.444Z",
+        "http_status": 200,
+        "version": "738414cb-3f77-4c67-a61f-25ca00f5c018",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "beginner-image-1",
+      "section": "content",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:26:04.421Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "af2471757209ba35d9f69153759f83f3354f7fdd42dcdc15ace7f33103185ecc"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:26:04.421Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "beginner-publishing-1",
+      "section": "publishing",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:26:09.423Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "bbefaa5ac69a111665e96e751cdad9c6a451edd11ca6529e7e71917241804562"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:26:09.423Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "snippet-parameter-reference",
+      "section": "snippets",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:26:15.105Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "07b9f5905431ff75fe91c6d39e73f1bc9037a1d7a340005d36cc0f7a50039282"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:26:15.105Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "navigation-edit-existing-1",
+      "section": "navbar",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "batch20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:26:19.195Z",
+        "raw": "batch20-2026-10-22.jsonl",
+        "answer_sha256": "cd00cc3a2115becee4d7601937386c74a55e7cced35ccd7f10d081714e4744f9"
+      },
+      "latest_attempt": {
+        "raw": "batch20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:26:19.195Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "footer-edit-existing-1",
+      "section": "footer",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:12:07.403Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "answer_sha256": "8db99fa4c7b5f3ac8094e138a5e9a711f4a01cc05a50957d1887554bc52959f4"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "time": "2026-10-22T12:12:07.403Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-fusejs-setup-1",
+      "section": "search",
+      "previous_row": {
+        "result": "pass",
+        "version": "fd7168ad…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-paths-dependencies-review-20261024.md",
+        "version": "fd7168ad-bc0b-412f-a224-7fb0840622e0",
+        "time": "2026-10-24T07:16:57.622Z",
+        "raw": "search-paths-dependencies-after-20261024.jsonl",
+        "answer_sha256": "3113555c353142e6a99989cad98b2ba32c643150c2978e6d64533440f4ba12ff"
+      },
+      "latest_attempt": {
+        "raw": "search-paths-dependencies-after-20261024.jsonl",
+        "time": "2026-10-24T07:16:57.622Z",
+        "http_status": 200,
+        "version": "fd7168ad-bc0b-412f-a224-7fb0840622e0",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "comments-giscus-setup-1",
+      "section": "comments",
+      "previous_row": {
+        "result": "partial",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:18:00.986Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "819fa770592bc10e3fd6d17f1c1ca1c4fdd202595ce5365b94099d1a2e48e5da"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:18:00.986Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "search-no-navbar-links-1",
+      "section": "search",
+      "previous_row": {
+        "result": "pass",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:17:43.875Z",
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "answer_sha256": "cc9e07d9bfc3848960839b6d6992d1db33dabd4f643796b5162431b12c395e22"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "time": "2026-10-22T12:17:43.875Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "site-details-edit-1",
+      "section": "configuration",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:17:53.757Z",
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "answer_sha256": "b1d497973893996062a1170e53a86a11a1955399fc32b5bef0687562f0e33474"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "time": "2026-10-22T12:17:53.757Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "content-post-1",
+      "section": "content",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:37:05.517Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "546c22d0c4b8ad5ee4b678e17c33fbd11667f1abb0479134bbefdfe346978eb1"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:37:05.517Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "content-page-1",
+      "section": "content",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:37:10.322Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "c90a73c5bc1983268b134644d6497171fd7e8ddadaf53d6cb7736fa93b698279"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:37:10.322Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "content-image-1",
+      "section": "content",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:37:12.344Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "4a8f6be6581d16d469cf65b224808ee863c58383e0f0184414d093535da897e0"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:37:12.344Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "analytics-goat-setup-1",
+      "section": "analytics",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:37:18.203Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "de781aa5febb836487ed65fe68c2299ba15bf0e26808fab2f103160da29c9de6"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:37:18.203Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "analytics-ga4-setup-1",
+      "section": "analytics",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:38:18.998Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "836136daac58770b90ad5481a36317e4d481da8d1d70b7f11d3a3ed1e49bf6d7"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:38:18.998Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "related-card-dates-1",
+      "section": "recommendations",
+      "previous_row": {
+        "result": "pass",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:18:00.739Z",
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "answer_sha256": "685de02d75463f68db096e0c8415a677931b4dd397bb81c792264e8a3b6c3afa"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "time": "2026-10-22T12:18:00.739Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "install-remote-task-1",
+      "section": "installation",
+      "previous_row": {
+        "result": "pass",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:14:46.544Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "33c1ad709f77010e12e9ff691ca02c164d2a0e25f2be6edb5cb7e3b54c8d77b2"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:14:46.544Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "install-gem-task-1",
+      "section": "installation",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:15:11.291Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "67bb767e17a8930395810896a0546afaeb5d5af1bfe3e8aae0a526dfa7051d42"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:15:11.291Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "appearance-skin-task-1",
+      "section": "skins",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:40:24.746Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "22ab40bb7e23c928ae9bb816a099c40540313cf3bcff02e225372c127e74e07d"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:40:24.746Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "appearance-font-task-1",
+      "section": "fonts",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:38:23.206Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "62c3885fd6d8833a3c1ba08b8305523d3b316197c1181bfb9a774210514004b8"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:38:23.206Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "appearance-auto-task-1",
+      "section": "autothemer",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:38:26.380Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "52588d0d10d65e0b6f9ec6bfd760c465a9988d6ef26d0bc97b4a52e146fab746"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:38:26.380Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "appearance-sass-task-1",
+      "section": "skins",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:38:32.454Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "43e381f1158bd95f11996decef299b1e028270881b1a7e7f835a1e9be30d8411"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:38:32.454Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "media-gallery-task-1",
+      "section": "galleries",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:15:16.271Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "f2787c17ef3d13748586e48b61dc5989ce68a5474c57fb5a7f91a03bb1eaba76"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:15:16.271Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "media-carousel-task-1",
+      "section": "galleries",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:15:18.201Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "edfe38e2a3ef039f43512727f0074abae0623748646f7b1516c4f67e6fff5b38"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:15:18.201Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "media-photoswipe-task-1",
+      "section": "galleries",
+      "previous_row": {
+        "result": "pass",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:16:00.206Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "b66d93497fde30e76cba7c4e9bc06fb596aa55c5f0b98e4aeee457a9d3fd41ca"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:16:00.206Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "media-video-task-1",
+      "section": "video",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:16:07.552Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "506451ee6d8bbecb37d9ac5345c31159b8f22e988837734bb059bf6f470f2fff"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:16:07.552Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "media-diagram-task-1",
+      "section": "mermaid",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:16:11.200Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "c489a8a3621abf5f1473b0a8c674a083cb4ea09f947768f49ec5dc195e731757"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:16:11.200Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "provider-lunr-task-1",
+      "section": "search",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-comments-batch10-review-20261024.md",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T07:08:08.893Z",
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "answer_sha256": "ab176434e228b2e4706201530978c7fd0f9c925eb3fd31f7720ce6f174dc350f"
+      },
+      "latest_attempt": {
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "time": "2026-10-24T07:08:08.893Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "provider-simplesearch-task-1",
+      "section": "search",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-comments-batch10-review-20261024.md",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T07:08:14.492Z",
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "answer_sha256": "6dee2954b4ca0cfc46958ecf36e5124af76ef40903acc74067478ce7b61cbc22"
+      },
+      "latest_attempt": {
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "time": "2026-10-24T07:08:14.492Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "provider-google-task-1",
+      "section": "search",
+      "previous_row": {
+        "result": "fail",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-comments-batch10-review-20261024.md",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T07:08:16.620Z",
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "answer_sha256": "193f24e0b32d4cab537de5340f5b3bbdf0ad505a039556fbb97b02f4960df92b"
+      },
+      "latest_attempt": {
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "time": "2026-10-24T07:08:16.620Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "provider-algolia-task-1",
+      "section": "search",
+      "previous_row": {
+        "result": "fail",
+        "version": "1686b41b…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "fail",
+        "review": "mixed-topics-batch10-review-20261024.md",
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "time": "2026-10-24T11:18:07.177Z",
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "answer_sha256": "e542685b4d3520322fb097212bb75da96cb31783e63361783cab6e4104261cdd"
+      },
+      "latest_attempt": {
+        "raw": "mixed-topics-batch10-20261024.jsonl",
+        "time": "2026-10-24T11:18:07.177Z",
+        "http_status": 200,
+        "version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "result": "fail"
+      },
+      "notes": []
+    },
+    {
+      "id": "comments-disqus-task-1",
+      "section": "comments",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:39:31.537Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "84b3ca15316f7d4a63f076839176b0af4d0033e0fca8afc303b0962dd0d6f719"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:39:31.537Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "comments-cactus-task-1",
+      "section": "comments",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-comments-batch10-review-20261024.md",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T07:09:19.439Z",
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "answer_sha256": "841bede6ebe03b4dec524cafab31e0038f3652227c26e4360fbec0c4b4e86c51"
+      },
+      "latest_attempt": {
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "time": "2026-10-24T07:09:19.439Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "comments-welcomments-task-1",
+      "section": "comments",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "search-comments-batch10-review-20261024.md",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T07:09:23.197Z",
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "answer_sha256": "5673b2f64d21e0301aa58d3abfff02805a769da78ada3ddbfb59acaa14744702"
+      },
+      "latest_attempt": {
+        "raw": "search-comments-batch10-20261024.jsonl",
+        "time": "2026-10-24T07:09:23.197Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "comments-cusdis-task-1",
+      "section": "comments",
+      "previous_row": {
+        "result": "pass",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:39:43.158Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "aaf07f9cbeb9ea0aeab7ca621edc5c7069224cdb8baa41ffb4c787266053edab"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:39:43.158Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "troubleshoot-publishing-task-1",
+      "section": "publishing",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:19:14.414Z",
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "answer_sha256": "8a6f137c35e640afb32a5fb51027cdaa28c0283c30afabe7ddd043318849af09"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "time": "2026-10-22T12:19:14.414Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "troubleshoot-yaml-task-1",
+      "section": "yaml",
+      "previous_row": {
+        "result": "fail",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "log.md#retest-of-ten-previous-chatbot-failures--22-october-2026",
+        "version": null,
+        "time": "2026-10-22T17:58:44.305Z",
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "answer_sha256": "6dc19f0565e26064cf1cfd54703c0bfefa37a69103a438a3f2ec15db489206c1"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10-20261022.jsonl",
+        "time": "2026-10-22T17:58:44.305Z",
+        "http_status": 200,
+        "version": null,
+        "result": "partial"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "custom-head-task-1",
+      "section": "custom-hooks",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:40:48.803Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "e3d74a75fd8ba03cbdaa121b9e988cda48e10e0490b7c6e4049e3349c11dcacc"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:40:48.803Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "section": "migration",
+      "previous_row": {
+        "result": "partial",
+        "version": "253c4a59…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "feeds-migration-final-20261024-review.json",
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "time": "2026-10-24T06:31:31.407Z",
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "answer_sha256": "b9d934f239b8b25f65b52986ae30f324336da3e8593654d005ab1379ff56cc32"
+      },
+      "latest_attempt": {
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "time": "2026-10-24T06:31:31.407Z",
+        "http_status": 200,
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "result": "partial"
+      },
+      "notes": [
+        "task-scope-audit-20261024.md: presentation-only; no live re-query needed solely for this."
+      ]
+    },
+    {
+      "id": "accessibility-task-reference-1",
+      "section": "accessibility",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:40:54.827Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "1a6b0f755cb4a5b5584793aacecd9b0e3ae407062dcef2d6874f46dbdee35d7d"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:40:54.827Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "format-alert-task-1",
+      "section": "formatting",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "oct18-pass10-2026-10-22-review.json",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:40:29.041Z",
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "answer_sha256": "110f49c2b026e72f196a05c6f4e811c4f241af17222f147ca27fd3871e21ea61"
+      },
+      "latest_attempt": {
+        "raw": "oct18-pass10-2026-10-22.jsonl",
+        "time": "2026-10-22T13:40:29.041Z",
+        "http_status": 200,
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "format-caption-task-1",
+      "section": "formatting",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:12:11.876Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "answer_sha256": "1ed8925ee31567051c21211429488f1ee1e33e9beab04afff79baf860fa8d0c6"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "time": "2026-10-22T12:12:11.876Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "format-footnote-task-1",
+      "section": "formatting",
+      "previous_row": {
+        "result": "fail",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "fail",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:12:35.268Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "review": "untested32-2026-10-22-review.json",
+        "answer_sha256": "b1846ca656189382e653d03891fabbd940d36a65f486ae20d4dc011baa65c7af"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:17:00.901Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "favicon-task-1",
+      "section": "favicons",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:12:40.772Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "answer_sha256": "f8c3a8518c85c93d649d692af3f1f30ca18276be81b3930b0bbe82a40569b2ba"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "time": "2026-10-22T12:12:40.772Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "bundled-font-task-1",
+      "section": "fonts",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:41:00.529Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "8df6bd38d0a18590cb46607d510d561884aa509a26a015cc67ac67e3a9e58793"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:41:00.529Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "icon-task-1",
+      "section": "icons",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:17:12.940Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "09573c48a870577e41c5c8c2825d167de6e87747ef6aa1adb016112803a2448d"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:17:12.940Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "version-task-1",
+      "section": "version",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:10:04.912Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "85f153e59a30bf4a78b5879914bef368fe5779b2b19a514c7f29ad98087e7f8d"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:10:04.912Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "feed-coexistence-1",
+      "section": "feeds",
+      "previous_row": {
+        "result": "partial",
+        "version": "253c4a59…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "feeds-migration-final-20261024-review.json",
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "time": "2026-10-24T06:31:34.840Z",
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "answer_sha256": "e623bbc93f5addaecdc34854ea8fa1957e7b5a693c6f0d0dd64fc342a7b361c4"
+      },
+      "latest_attempt": {
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "time": "2026-10-24T06:31:34.840Z",
+        "http_status": 200,
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "result": "partial"
+      },
+      "notes": [
+        "task-scope-audit-20261024.md qualifies prior rubric: core task complete, optional omissions; historical live label retained."
+      ]
+    },
+    {
+      "id": "feed-selection-1",
+      "section": "feeds",
+      "previous_row": {
+        "result": "partial",
+        "version": "09b4517c…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "scoped-followup-after-20261024-review.json",
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "time": "2026-10-24T06:43:18.645Z",
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "answer_sha256": "bcfa8c8923b2beb1be8faa5bd7beaf4842ad6dce044d832a71d41d234301f4c6"
+      },
+      "latest_attempt": {
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "time": "2026-10-24T06:43:18.645Z",
+        "http_status": 200,
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "feed-collection-output-1",
+      "section": "feeds",
+      "previous_row": {
+        "result": "partial",
+        "version": "253c4a59…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "feeds-migration-final-20261024-review.json",
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "time": "2026-10-24T06:32:41.135Z",
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "answer_sha256": "7098cf4ec0f6f435d424daa388ef5d97e280376b10f8a8b34eb7721a9512bd0d"
+      },
+      "latest_attempt": {
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "time": "2026-10-24T06:32:41.135Z",
+        "http_status": 200,
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "result": "partial"
+      },
+      "notes": [
+        "task-scope-audit-20261024.md qualifies prior rubric: core task complete, optional omissions; historical live label retained."
+      ]
+    },
+    {
+      "id": "content-toc-task-1",
+      "section": "toc",
+      "previous_row": {
+        "result": "partial",
+        "version": "09e75972…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "navigation-toc-after-20261024-review.json",
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "time": "2026-10-24T06:51:17.486Z",
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "answer_sha256": "f41dd829d94cde2a5e9ee4e7fef25cab1b2a8e49c9420dda9781bacf046b3e16"
+      },
+      "latest_attempt": {
+        "raw": "navigation-toc-after-20261024.jsonl",
+        "time": "2026-10-24T06:51:17.486Z",
+        "http_status": 200,
+        "version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "person-publisher-task-1",
+      "section": "seo",
+      "previous_row": {
+        "result": "partial",
+        "version": "ac010481…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "seo-batch1-final-20261024-review.json",
+        "version": "ac010481-bedc-448a-94be-7512e5825e92",
+        "time": "2026-10-24T06:16:16.232Z",
+        "raw": "seo-batch1-final-20261024.jsonl",
+        "answer_sha256": "c9e8493e7d03bcfd61664cb42b83ee924eaf62df89f787a8de6a793045dbbdef"
+      },
+      "latest_attempt": {
+        "raw": "seo-batch1-final-20261024.jsonl",
+        "time": "2026-10-24T06:16:16.232Z",
+        "http_status": 200,
+        "version": "ac010481-bedc-448a-94be-7512e5825e92",
+        "result": "partial"
+      },
+      "notes": [
+        "task-scope-audit-20261024.md qualifies prior rubric: core task complete, optional omissions; historical live label retained."
+      ]
+    },
+    {
+      "id": "localized-date-task-1",
+      "section": "localization",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:17:32.694Z",
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "answer_sha256": "ded48cb07048da87f866f7ececd39ca6938b8b3d9393489e6901a88871b46eca"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch2-2026-10-22.jsonl",
+        "time": "2026-10-22T12:17:32.694Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "canonical-article-task-1",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "253c4a59…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "scoped-followup-before-20261024-review.json",
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "time": "2026-10-24T06:40:44.694Z",
+        "raw": "scoped-followup-before-20261024.jsonl",
+        "answer_sha256": "365302ba5316e451afb3184214ed508890c1253caf60de11080f293fea5e55ab"
+      },
+      "latest_attempt": {
+        "raw": "scoped-followup-before-20261024.jsonl",
+        "time": "2026-10-24T06:40:44.694Z",
+        "http_status": 200,
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "cloud-task-1",
+      "section": "collections",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:00:49.457Z",
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "review": "layouts-final-2026-10-22-review.json",
+        "answer_sha256": "fae184eb8b4e32c5392f5562d44bbb3ca5f968df449aa9417a04e0d62dd10782"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:19:31.135Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "sharing-task-1",
+      "section": "seo",
+      "previous_row": {
+        "result": "partial",
+        "version": "98c97e53…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "feeds-migration-after-20261024-review.json",
+        "version": "98c97e53-138a-4460-922f-b5487c2a3c82",
+        "time": "2026-10-24T06:29:17.308Z",
+        "raw": "feeds-migration-after-20261024.jsonl",
+        "answer_sha256": "d805f2f623f7791cf9102a3bd5acfd689152aa40e50c02ef4a08804f9d1d3df7"
+      },
+      "latest_attempt": {
+        "raw": "feeds-migration-after-20261024.jsonl",
+        "time": "2026-10-24T06:29:17.308Z",
+        "http_status": 200,
+        "version": "98c97e53-138a-4460-922f-b5487c2a3c82",
+        "result": "partial"
+      },
+      "notes": [
+        "task-scope-audit-20261024.md qualifies prior rubric: core task complete, optional omissions; historical live label retained."
+      ]
+    },
+    {
+      "id": "search-visibility-task-1",
+      "section": "seo",
+      "previous_row": {
+        "result": "pass",
+        "version": "09b4517c…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "scoped-followup-after-20261024-review.json",
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "time": "2026-10-24T06:43:25.562Z",
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "answer_sha256": "8851249cf35c9941a6099eae9fb9fd0321452aed18f2346fc1245da59ee92fad"
+      },
+      "latest_attempt": {
+        "raw": "scoped-followup-after-20261024.jsonl",
+        "time": "2026-10-24T06:43:25.562Z",
+        "http_status": 200,
+        "version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "cloud-demo-fragments",
+      "section": "collections",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:00:52.141Z",
+        "raw": "layouts-final-2026-10-22.jsonl",
+        "review": "layouts-final-2026-10-22-review.json",
+        "answer_sha256": "bd4c33934ce721efeeb64a16180cc9ffaa3392827ecb00d11e1f547e67914753"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:20:46.339Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "starter-demo-versus-site",
+      "section": "installation",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:20:30.921Z",
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "answer_sha256": "138c5c99eb6be0bfa6983e3545916893f22221626d18295e7e28ea41fe85f7b0"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch3-2026-10-22.jsonl",
+        "time": "2026-10-22T12:20:30.921Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "documentation-appearance-topics",
+      "section": "documentation",
+      "previous_row": {
+        "result": "partial",
+        "version": "47cc2e30…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested20-2026-10-22-review.json",
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "time": "2026-10-22T11:42:10.772Z",
+        "raw": "untested20-2026-10-22.jsonl",
+        "answer_sha256": "057709ff30d01711a535d63e4ea6b7a1e1621692cfe6060fcc10d2b736c9b277"
+      },
+      "latest_attempt": {
+        "raw": "untested20-2026-10-22.jsonl",
+        "time": "2026-10-22T11:42:10.772Z",
+        "http_status": 200,
+        "version": "47cc2e30-ad86-4f26-964c-8fce98939b3c",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "documentation-content-publishing-topics",
+      "section": "documentation",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:13:39.981Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "answer_sha256": "19fa92143daa3ac838e3e32880fbd085bfb8e05d31b470e8f151ba3b646fda9b"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "time": "2026-10-22T12:13:39.981Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "second-photo-tutorial-1",
+      "section": "installation",
+      "previous_row": {
+        "result": "partial",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "batch10-2026-10-22-review.json",
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "time": "2026-10-22T11:00:52.089Z",
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "answer_sha256": "68f3ff5556806f6da2e1b875def505156c926a1552b0b94c685d300931f4b77d"
+      },
+      "latest_attempt": {
+        "raw": "batch10-01-2026-10-22.jsonl",
+        "time": "2026-10-22T11:00:52.089Z",
+        "http_status": 200,
+        "version": "d0e281c2-1481-4e8f-b134-76019808b140",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "documentation-search-topics",
+      "section": "documentation",
+      "previous_row": {
+        "result": "unavailable",
+        "version": "d0e281c2…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": null,
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:22:01.491Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    },
+    {
+      "id": "documentation-installation-topics",
+      "section": "documentation",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:14:33.332Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "answer_sha256": "f4b1c812fc81456c833667a9054f0c8a5e9c7dc1b7a636af6f37da463c5fa5b5"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "time": "2026-10-22T12:14:33.332Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "documentation-identity-topics",
+      "section": "documentation",
+      "previous_row": {
+        "result": "partial",
+        "version": "15036755…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "untested32-2026-10-22-review.json",
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "time": "2026-10-22T12:14:39.266Z",
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "answer_sha256": "d21879aa3b825ce134b745fd37243386b39b4c3c27f78327aec62697d90fb73f"
+      },
+      "latest_attempt": {
+        "raw": "untested-batch1-2026-10-22.jsonl",
+        "time": "2026-10-22T12:14:39.266Z",
+        "http_status": 200,
+        "version": "15036755-2e9b-4112-8c0a-01b9348d7c62",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "community-1",
+      "section": "layouts",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:10:09.333Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "a4578dd04fb046ac9e3e57668ba30e1b49451263b4a46e8e2c266842657bd1ac"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:10:09.333Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "community-2",
+      "section": "collections",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:11:14.632Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "6e90b00a1692aab19acc2f5de27226c8e395ac643e2ed1e5118f27928e6938dc"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:11:14.632Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "community-3",
+      "section": "formatting",
+      "previous_row": {
+        "result": "pass",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:11:19.596Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "b6000497f909571c21c081e44c1c313fc805655b500537a026fd5e1d55973c4d"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:11:19.596Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "community-4",
+      "section": "feeds",
+      "previous_row": {
+        "result": "pass",
+        "version": "253c4a59…",
+        "date": "2026-10-24"
+      },
+      "last_assessment": {
+        "result": "pass",
+        "review": "feeds-migration-final-20261024-review.json",
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "time": "2026-10-24T06:32:47.567Z",
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "answer_sha256": "3364f2ca31c8ca9ed1ecba57295f725caf16228d043ad20cd602c7474ba567ec"
+      },
+      "latest_attempt": {
+        "raw": "feeds-migration-final-20261024.jsonl",
+        "time": "2026-10-24T06:32:47.567Z",
+        "http_status": 200,
+        "version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+        "result": "pass"
+      },
+      "notes": []
+    },
+    {
+      "id": "community-5",
+      "section": "installation",
+      "previous_row": {
+        "result": "partial",
+        "version": "5266df62…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "review": "older-nonpass20-2026-10-22-review.json",
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "time": "2026-10-22T13:11:39.447Z",
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "answer_sha256": "907639e9366e213ffd92136b286c32e6826d414e52ee6a5e978f72d2126caefa"
+      },
+      "latest_attempt": {
+        "raw": "older-nonpass20-2026-10-22.jsonl",
+        "time": "2026-10-22T13:11:39.447Z",
+        "http_status": 200,
+        "version": "5266df62-1349-482e-a687-101e675c7721",
+        "result": "partial"
+      },
+      "notes": []
+    },
+    {
+      "id": "community-165",
+      "section": "skins",
+      "previous_row": {
+        "result": "partial",
+        "version": "8b59f0a7…",
+        "date": "2026-10-22"
+      },
+      "last_assessment": {
+        "result": "partial",
+        "version": "8b59f0a7-006b-45b4-a325-c84c43505ce5",
+        "time": "2026-10-22T13:30:52.063Z",
+        "raw": "skins-postdeploy-2026-10-22.jsonl",
+        "review": "skins-postdeploy-2026-10-22-review.json",
+        "answer_sha256": "4c3337b6ada6cf4310b76f46b3fb18221d9205b98b181da8af16f641ac12d96b"
+      },
+      "latest_attempt": {
+        "raw": "chatbot-failure10b-20261022.jsonl",
+        "time": "2026-10-22T18:23:16.668Z",
+        "http_status": 503,
+        "version": null,
+        "result": "unavailable"
+      },
+      "notes": [
+        "Latest attempt Worker version was not recorded; do not inherit an older version."
+      ]
+    }
+  ],
+  "by_section": {
+    "recommendations": {
+      "cases": 3,
+      "pass": 3,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "include-cache": {
+      "cases": 1,
+      "pass": 1,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "html-output": {
+      "cases": 1,
+      "pass": 1,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "microformats": {
+      "cases": 3,
+      "pass": 1,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "configuration": {
+      "cases": 3,
+      "pass": 2,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "accessibility": {
+      "cases": 5,
+      "pass": 1,
+      "partial": 3,
+      "fail": 1,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "installation": {
+      "cases": 11,
+      "pass": 4,
+      "partial": 7,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "migration": {
+      "cases": 4,
+      "pass": 2,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "version": {
+      "cases": 3,
+      "pass": 2,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "localization": {
+      "cases": 2,
+      "pass": 1,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "seo": {
+      "cases": 11,
+      "pass": 8,
+      "partial": 2,
+      "fail": 1,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "analytics": {
+      "cases": 4,
+      "pass": 4,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "icons": {
+      "cases": 2,
+      "pass": 1,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "navbar": {
+      "cases": 2,
+      "pass": 2,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "search": {
+      "cases": 11,
+      "pass": 8,
+      "partial": 2,
+      "fail": 1,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "comments": {
+      "cases": 7,
+      "pass": 6,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "footer": {
+      "cases": 2,
+      "pass": 1,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "skins": {
+      "cases": 9,
+      "pass": 4,
+      "partial": 5,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 1
+    },
+    "autothemer": {
+      "cases": 3,
+      "pass": 1,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "fonts": {
+      "cases": 4,
+      "pass": 3,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "layouts": {
+      "cases": 4,
+      "pass": 3,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "toc": {
+      "cases": 4,
+      "pass": 2,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 1
+    },
+    "collections": {
+      "cases": 7,
+      "pass": 5,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 2
+    },
+    "video": {
+      "cases": 4,
+      "pass": 3,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "galleries": {
+      "cases": 7,
+      "pass": 3,
+      "partial": 4,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "math": {
+      "cases": 1,
+      "pass": 1,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "custom-hooks": {
+      "cases": 2,
+      "pass": 1,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "favicons": {
+      "cases": 2,
+      "pass": 0,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "formatting": {
+      "cases": 7,
+      "pass": 4,
+      "partial": 2,
+      "fail": 1,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 1
+    },
+    "feeds": {
+      "cases": 7,
+      "pass": 2,
+      "partial": 3,
+      "fail": 0,
+      "no_assessed_answer": 2,
+      "latest_unavailable": 2
+    },
+    "variables": {
+      "cases": 5,
+      "pass": 5,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "highlighting": {
+      "cases": 1,
+      "pass": 0,
+      "partial": 0,
+      "fail": 1,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 1
+    },
+    "navigation": {
+      "cases": 4,
+      "pass": 3,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "chatbot": {
+      "cases": 2,
+      "pass": 2,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "mermaid": {
+      "cases": 2,
+      "pass": 1,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "resources": {
+      "cases": 2,
+      "pass": 0,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "pwa": {
+      "cases": 1,
+      "pass": 0,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "content": {
+      "cases": 5,
+      "pass": 3,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "publishing": {
+      "cases": 2,
+      "pass": 0,
+      "partial": 2,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "snippets": {
+      "cases": 1,
+      "pass": 1,
+      "partial": 0,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "yaml": {
+      "cases": 1,
+      "pass": 0,
+      "partial": 1,
+      "fail": 0,
+      "no_assessed_answer": 0,
+      "latest_unavailable": 0
+    },
+    "documentation": {
+      "cases": 5,
+      "pass": 0,
+      "partial": 4,
+      "fail": 0,
+      "no_assessed_answer": 1,
+      "latest_unavailable": 1
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "worker_version": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+  "traffic_percent": 100,
+  "source_reference": "8c33cf69c; only evaluation catalog additions uncommitted at deployment",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "max_completion_tokens": 450,
+  "temperature": 0.2,
+  "local_tests": 117,
+  "context_bytes": 56998,
+  "library_budget": 57000,
+  "max_selected_bytes": 18000,
+  "case_ids": [
+    "search-comments-4",
+    "comments-giscus-setup-1",
+    "provider-algolia-task-1",
+    "mixed-toc-comments-1",
+    "mixed-toc-title-1",
+    "mixed-person-ga4-1",
+    "mixed-feed-navbar-1",
+    "feed-subscribe-link-en-1",
+    "feed-subscribe-link-es-1",
+    "migration-gem-choice-1"
+  ],
+  "sha256": {
+    "worker.mjs": "374fb96dcafd246fbfc047790bb8d2555bb01164e516c134f0d0c27cb8c4a305",
+    "ai-context.md": "2af428d7aae97027e75ee9de89ee0b304f74fd24b317e7e51561b673c1b111eb",
+    "context-selector.mjs": "5662c794c1568b1e841fcc9c4bd15853319f6c9abd92671e3d03d1d72d673de9",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "4b3f1f4d46f2e18302c10dff526659b043a159094f75e6e3dd725dea431957f5",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "824becbba30e882e630f7ac6551b7f1d0e9a650d0ffd550114ab99e07424e7af",
+    "dashboard-worker.mjs": "3fd557734b3d08ccdda6ce14e9aafadca1ea9d90f12aa8e75aa2180be8f1511d"
+  },
+  "selected_bytes": {
+    "search-comments-4": 12429,
+    "mixed-toc-comments-1": 5289,
+    "mixed-toc-title-1": 6592,
+    "mixed-person-ga4-1": 3527,
+    "mixed-feed-navbar-1": 4217,
+    "feed-subscribe-link-en-1": 3365,
+    "feed-subscribe-link-es-1": 3365,
+    "migration-gem-choice-1": 4420,
+    "comments-giscus-setup-1": 5108,
+    "provider-algolia-task-1": 12086
+  },
+  "post_run_deployment": {
+    "id": "c294acb3-cc69-4b52-902a-2475a4232d8c",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "annotations": {
+      "workers/message": "mixed-topics-batch10-20261024",
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "1686b41b-51ff-438f-a2b6-cec0fd60fe8f",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-24T11:13:35.077833Z"
+  }
+}

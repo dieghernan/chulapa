@@ -1,0 +1,42 @@
+{
+  "run": "seo-batch1-before-20261024",
+  "worker_version": "810c8961-e548-43e5-adb7-0a7e2501d65e",
+  "traffic_percent": 100,
+  "source_commit_reference": "f31f063f434ee9953853fe2b6ac6157b4ebbfbdf",
+  "source_note": "Commit is local reference, not proof of deployed source equality. Version verified with Wrangler before this run.",
+  "raw": "seo-batch1-before-20261024.jsonl",
+  "totals": {
+    "requests": 5,
+    "pass": 0,
+    "partial": 2,
+    "fail": 3,
+    "unavailable": 0
+  },
+  "reviews": [
+    {
+      "id": "seo-1",
+      "result": "fail",
+      "finding": "Core canonical/sitemap distinction is correct, but falsely applies GoatCounter cross-domain tracking restrictions to canonical metadata."
+    },
+    {
+      "id": "person-publisher-task-1",
+      "result": "partial",
+      "finding": "Correct Person/image/guest separation; omits Organization default, avatar fallback and home/post URL checks; adds unrequested name/URL/image overrides."
+    },
+    {
+      "id": "canonical-article-task-1",
+      "result": "partial",
+      "finding": "Correct canonical and sitemap settings/no redirect; adds layout override and omits preservation/published metadata, feed and sitemap checks."
+    },
+    {
+      "id": "sharing-task-1",
+      "result": "fail",
+      "finding": "Unquoted Liquid in YAML is invalid; adds header_img and layout/title overrides contrary to the task, and omits alt metadata/source checks."
+    },
+    {
+      "id": "search-visibility-task-1",
+      "result": "fail",
+      "finding": "Omits include_on_search: false for local engines, Algolia reupload and published checks; does not complete the requested local exclusion."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "worker_version": "87bf899e-cfd1-47e7-b20c-523fa693a92b",
+  "traffic_percent": 100,
+  "source_reference": "f31f063f434ee9953853fe2b6ac6157b4ebbfbdf plus uncommitted SEO context/prompt changes",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "sha256": {
+    "worker.mjs": "504ef9ab02af4dc3e86431306ec6d1e37467810ee01245c214d12b883192dfb8",
+    "ai-context.md": "4ac1e1070b85857cd7ed36866a4d36c29371b85f9a8e17cd691dc2d461fad2b5",
+    "context-selector.mjs": "9291fb9baad3efe1b644c6d89d324a76aa2c0a1b3d97dfbc0672ed73e55a4d81",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "74ebef9eb4b70eacbaa90b4b7d283e5387f36b64fabe5e5016145aff8b265793",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "6dacc539dbf92cd6376b3b24e6771004f23a0ab7330b2b896650cd24792c47ce",
+    "dashboard-worker.mjs": "546fffc5bb3d940eadb7dd475c856d86a355d2be2459cb6b0685690c985c810c"
+  },
+  "local_tests": 100,
+  "context_bytes": 55992,
+  "max_selected_bytes": 18000,
+  "deployment": "Wrangler 4.150.0 deploy --keep-vars; configured bindings retained; no AI Search or paid fallback changes"
+}

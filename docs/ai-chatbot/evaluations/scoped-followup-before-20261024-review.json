@@ -1,0 +1,46 @@
+{
+  "run": "scoped-followup-before-20261024",
+  "worker_version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+  "traffic_percent": 100,
+  "rubric": "task-scope-audit-20261024.json",
+  "raw": "scoped-followup-before-20261024.jsonl",
+  "totals": {
+    "requests": 6,
+    "pass": 2,
+    "partial": 4,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "reviews": [
+    {
+      "id": "migration-theme-1",
+      "result": "partial",
+      "finding": "Correct pin/plugins/layout/override/feed workflow, but omits explicit preservation of url/baseurl/permalink and adapting useful override files."
+    },
+    {
+      "id": "seo-1",
+      "result": "pass",
+      "finding": "Correct canonical/no redirect and copy-only sitemap behavior; no unsupported original-target inclusion claim in this run."
+    },
+    {
+      "id": "seo-2",
+      "result": "partial",
+      "finding": "Correct title/description keys. Added verification omits the actual rendered browser title and instead includes an irrelevant og:image check."
+    },
+    {
+      "id": "feed-selection-1",
+      "result": "partial",
+      "finding": "Correct true/false/date and standalone-page rejection. Does not clearly merge/preserve existing defaults or verify article URLs; prior opening-as-publication error is absent."
+    },
+    {
+      "id": "canonical-article-task-1",
+      "result": "pass",
+      "finding": "Correct existing-front-matter merge, no redirect, jekyll-sitemap prerequisite and published canonical/copy exclusion checks under scoped rubric."
+    },
+    {
+      "id": "search-visibility-task-1",
+      "result": "partial",
+      "finding": "Correct independent controls and Algolia reupload/checks; still omits jekyll-sitemap prerequisite."
+    }
+  ]
+}

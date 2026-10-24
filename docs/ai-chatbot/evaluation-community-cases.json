@@ -1,42 +1,42 @@
 [
   {
     "id": "community-1",
-    "section": "community",
+    "section": "layouts",
     "doc": "https://github.com/dieghernan/chulapa/discussions/31",
     "question": "My landing page looks like a jumbotron with hero. How do I get a full splash header?",
     "expected": "Use header_type splash; distinguish hero; current docs."
   },
   {
     "id": "community-2",
-    "section": "community",
+    "section": "collections",
     "doc": "https://github.com/dieghernan/chulapa/discussions/24",
     "question": "I used include_collection: music but my music category posts disappeared. How can I show cards only for that category?",
     "expected": "include_collection filters collections not categories; custom Liquid site.categories.music plus indexcards, no invented category option."
   },
   {
     "id": "community-3",
-    "section": "community",
+    "section": "formatting",
     "doc": "https://github.com/dieghernan/chulapa/issues/27",
     "question": "Can I add Bootstrap buttons and alerts in Markdown, or must I change the theme?",
     "expected": "Bootstrap4 HTML/classes or kramdown attributes; concrete example; no theme fork necessary."
   },
   {
     "id": "community-4",
-    "section": "community",
+    "section": "feeds",
     "doc": "https://github.com/dieghernan/chulapa/issues/39",
     "question": "My Atom feed is empty although posts appear on the site. What should I check?",
     "expected": "include_on_feed true and date; not blindly replace custom feed with conflicting jekyll-feed."
   },
   {
     "id": "community-5",
-    "section": "community",
+    "section": "installation",
     "doc": "https://github.com/dieghernan/chulapa/discussions/49",
     "question": "jekyll serve says components/nav.html is missing after installing Chulapa. What should I check first?",
     "expected": "bundle install bundle exec jekyll serve theme/remote_theme and include-cache configuration; don't invent definitive fix from unanswered discussion."
   },
   {
     "id": "community-165",
-    "section": "community",
+    "section": "skins",
     "doc": "https://github.com/dieghernan/chulapa/issues/165",
     "question": "How can I add the Light, Dark and Auto dropdown to my Chulapa site? Does it work with the v2.1.0 gem and floating navigation?",
     "expected": "2.2.0 only, not v2.1.0. Preserve existing top-level chulapa-skin and add independent top-level chulapa-skin-dark mapping with skin gitdev-dark and highlight github.dark; do not nest it. Works classic/fab/dual. Default Light, Auto tracks system; browser remembers choice when storage available; no JS uses Light. Shared vars need copying, custom CSS/widgets may need adjustment. Cite choose-skin guide. Omitted dark highlight inherits chulapa-skin.highlight, then default; other fields remain independent. Blank dark fields disable switching. Initial dark CSS failures restore Light; later failures retain current appearance and preserve the requested mode, including Auto. If security policy blocks inline scripts, ordinary light stylesheet links keep the page styled and the selector stays hidden."

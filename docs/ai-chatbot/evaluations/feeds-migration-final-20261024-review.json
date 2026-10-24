@@ -1,0 +1,46 @@
+{
+  "run": "feeds-migration-final-20261024",
+  "worker_version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+  "traffic_percent": 100,
+  "raw": "feeds-migration-final-20261024.jsonl",
+  "totals": {
+    "requests": 6,
+    "pass": 1,
+    "partial": 5,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "review_note": "Existing expectations retained. Core-task improvement does not turn omitted constraints into a pass. No outcome is transferred across Worker versions.",
+  "reviews": [
+    {
+      "id": "migration-theme-1",
+      "result": "partial",
+      "finding": "Fixes unsupported layout: post; gives default/header_type:post YAML, plugin install/enablement, override precedence and preserved /feed.xml. Omits explicit url/baseurl/permalink preservation, adapting rather than deleting overrides, and parts of the broader integration/version/checklist rubric."
+    },
+    {
+      "id": "migration-fields-lookup-1",
+      "result": "partial",
+      "finding": "Correct requested toc/comments/search mappings and independent Algolia/Google behavior with reference link. Omits front-matter precedence/nonautomatic conversion caveat and still emits unrequested LaTeX arrows."
+    },
+    {
+      "id": "feed-coexistence-1",
+      "result": "partial",
+      "finding": "Correct unsafe collision warning, preserved /feed.xml dependency/plugin/address and independent include_on_feed semantics; removes unrelated defaults recipe. Still omits standard head advertisement of built-in feeds."
+    },
+    {
+      "id": "feed-selection-1",
+      "result": "partial",
+      "finding": "Correct posts defaults, per-post false override and rejection of ordinary standalone pages; includes collection publication and reader/baseurl checks. Omits resolved-date/explicit collection-date requirements, preserving existing defaults and following article links; wording incorrectly implies opening an article participates in publication."
+    },
+    {
+      "id": "feed-collection-output-1",
+      "result": "partial",
+      "finding": "Correct output:true inside existing collections mapping, independent feed selection and rebuild/direct article check; does not explicitly preserve other collection settings as required by existing rubric."
+    },
+    {
+      "id": "community-4",
+      "result": "pass",
+      "finding": "Correct true/date eligibility and per-post false override diagnosis; no conflicting plugin replacement; published feed/baseurl/reader checks."
+    }
+  ]
+}
