@@ -59,6 +59,7 @@ const routes = [
   [/layout|minimal|archive|cloudtag|categor|related|random|indexcards|indexcategory|h.feed|microformat/i, ['More layouts and content navigation', 'Layout structure and include caching']],
   [/layout|minimal|archive|cloudtag|related|random|indexcards|indexcategory|rounded|enable.rounded|skin|font|feed|mathjax|label/i, ['Correct file and option scopes']],
   [/include.cached|include cache|inherit|herencia/i, ['Layout structure and include caching']],
+  [/ChulapaSearch|chulapa_search|chulapa_navigation|(?:custom|old|copied).*(?:search|shell)|(?:search|fab).*(?:dependenc|scripts?)/i, ['Layout structure and include caching']],
   [/compress_html|indent|head.*readable|footer.*readable/i, ['Generated HTML formatting (v2.2.0)']],
   [/h.feed|microformat|inherit.*archive|hered.*archive/i, ['Inherited list microformats (v2.2.0)']],
   [/navbar|footer|menu|men[uú]|copyright|email/i, ['Navbar and footer']],
@@ -123,7 +124,9 @@ export function selectContext(context, question) {
   }
   const focusedNavigation = navigationScope.size > 0 && !/mermaid|photoswipe|carousel|galer|mathjax|fonts?|skins?|analytics|browse|documentation|guides|gu[ií]as/i.test(question);
   if (focusedNavigation) for (const title of navigationScope) seoScope.add(title);
-  const focusedContext = focusedSeo || focusedWorkflow || focusedNavigation;
+  const focusedDependencies = /ChulapaSearch|chulapa_search|chulapa_navigation|(?:search|fab).*(?:dependenc|scripts?)/i.test(question);
+  if (focusedDependencies) seoScope.add('Layout structure and include caching');
+  const focusedContext = focusedSeo || focusedWorkflow || focusedNavigation || focusedDependencies;
   seoScope.add('Global settings');
   // Broad routes also match incidental words such as "post", "feed" or an
   // old layout name. Preserve other explicitly routed topics in focused tasks.
@@ -145,6 +148,7 @@ export function selectContext(context, question) {
     for (const title of titles) {
       scores.set(title, (scores.get(title) || 0) + 10);
       if (focusedContext && !workflowReferences.has(title) &&
+          (!focusedDependencies || title !== 'Configuring site search' || requestsSetup || /landing_page|permalink|search\.provider/i.test(question)) &&
           (!mappingLookup || !lookupReferences.has(title) || requestsSetup)) {
         seoScope.add(title);
       }

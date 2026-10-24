@@ -5,6 +5,26 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('custom search dependency failures retrieve the actual adapter and navigation references', () => {
+  const selected = selectContext(context, 'I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?');
+  assert.ok(selected.titles.includes('Layout structure and include caching'));
+  assert.ok(!selected.titles.includes('Configuring site search'));
+  assert.match(selected.text, /assets\/js\/chulapa_search\.js, provider library and generated store before adapter/);
+  assert.match(selected.text, /chulapa_navigation\.js once/);
+  assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  const setup = selectContext(context, 'ChulapaSearch is not defined; how do I configure Fuse search.landing_page too?');
+  assert.ok(setup.titles.includes('Layout structure and include caching'));
+  assert.ok(setup.titles.includes('Configuring site search'));
+});
+
+test('Fuse custom paths keep baseurl outside both configured paths', () => {
+  const selected = selectContext(context, 'I want Fuse.js search at /find on my site under /my-blog. Is setting search.provider enough?');
+  assert.match(selected.text, /landing_page: \/find/);
+  assert.match(selected.text, /permalink: \/find/);
+  assert.match(selected.text, /Public path \/my-blog\/find/);
+  assert.match(selected.text, /site\.pages and site\.documents/);
+});
+
 test('focused SEO questions retain explicitly requested analytics and galleries', () => {
   const publisher = selectContext(context, 'How do I configure my publisher as a Person and enable GA4?');
   assert.ok(publisher.titles.includes('Publisher, analytics and icon configuration'));
@@ -451,7 +471,7 @@ test('navigation retains its complete child-list recipe and upgrade advice requi
 
 test('search exclusion and heading omission preserve exact syntax and scope', () => {
   const search = selectContext(context, 'Where are guides for site search and excluding pages?');
-  assert.match(search.text, /DOCUMENT FRONT MATTER .*NEVER nested under search/);
+  assert.match(search.text, /include_on_search: false: document front matter\/defaults.values, NEVER inside search/);
   const toc = selectContext(context, 'How do I insert a TOC inside an article and skip a heading?');
   assert.match(toc.text, /## Omitted heading\n\{:\.no_toc\}/);
 });

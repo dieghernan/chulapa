@@ -83,8 +83,15 @@ Local review corrections preserve explicitly requested additional topics in
 focused questions, including SEO with GA4 or PhotoSwipe and RSS with navigation.
 Combined feed selection and plugin coexistence retain both recipes. Migration
 questions about custom fields retain the procedure; explicit gem migrations
-include gem installation. These corrections passed the local build and all 112
-tests on 24 October 2026; Worker deployment and live evaluation remain pending.
+include gem installation. These corrections are included in Worker dfb48928
+(24 October 2026); 114 local tests pass. This deployment has a live dependency
+troubleshooting check, not a new live result for every prior review case.
+
+Custom search dependency errors select the layout/script reference without
+unrequested search-path examples. The search context gives explicit /find paths
+under baseurl /my-blog and identifies the local index's pages/documents scope.
+Fuse paths passed on the preceding fd7168ad deployment; see the evaluation log
+for exact answers and version boundaries.
 
 Single-provider setup questions exclude other providers' specific sections.
 Comparison, alternative-provider and plain inventory questions retain all supported provider

@@ -1,0 +1,36 @@
+{
+  "worker_version": "dfb48928-319f-4cfe-ba33-e2b77822f968",
+  "traffic_percent": 100,
+  "source_reference": "63cc495d3 plus uncommitted search context and dependency-selection changes",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "max_completion_tokens": 450,
+  "temperature": 0.2,
+  "local_tests": 114,
+  "context_bytes": 56998,
+  "library_budget": 57000,
+  "max_selected_bytes": 18000,
+  "sha256": {
+    "worker.mjs": "ded8490f1208914574e0c3f7bcdb3c0ebf61538b8bbfd6b74cd710f640bcf97f",
+    "ai-context.md": "2af428d7aae97027e75ee9de89ee0b304f74fd24b317e7e51561b673c1b111eb",
+    "context-selector.mjs": "1b4ded04f2acdb87628e51cbb25de3ee78c0d95cdb268c6adfc3acf2212960c4",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "8b35e21fa8f6d4eeccbeaaf0c1e67b99d84cfe2d7679ab1306541e033c46e875",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "73e587a0e45f0f285c39ced43abd6e5ca998b16bfe0aa2facd719a274b6469a2",
+    "dashboard-worker.mjs": "db751b1f92369cf7742ccf7602f4aefbb7456f652f48ff54df266dd960ef86cf"
+  },
+  "selected_bytes": {
+    "custom-search-script-dependencies": 3974,
+    "search-fusejs-setup-1": 13602
+  },
+  "evidence": [
+    {
+      "file": "search-paths-dependencies-after-20261024.jsonl",
+      "worker_version": "fd7168ad-bc0b-412f-a224-7fb0840622e0"
+    },
+    {
+      "file": "search-dependency-focus-after-20261024.jsonl",
+      "worker_version": "dfb48928-319f-4cfe-ba33-e2b77822f968"
+    }
+  ]
+}

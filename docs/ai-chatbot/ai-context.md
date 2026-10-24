@@ -242,8 +242,15 @@ https://dieghernan.github.io/chulapa/docs/34-lunr-search
 https://dieghernan.github.io/chulapa/docs/35-simplesearch-search
 https://dieghernan.github.io/chulapa/docs/36-google-search
 https://dieghernan.github.io/chulapa/docs/37-algolia-search
-search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search link also needs navbar.nav; otherwise visit landing path including actual baseurl or add navbar links.
-Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false is DOCUMENT FRONT MATTER (or defaults.values), NEVER nested under search; excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
+search.provider: lunr/fusejs/simplesearch/algolia/google. Reuse ONE page: layout: search, title: Search; permalink = search.landing_page (default /search). Provider creates no page. Local engines need no account/key/plugin; Chulapa 101 has Fuse. /find under baseurl /my-blog:
+```yaml
+# _config.yml
+search:
+  provider: fusejs
+  landing_page: /find
+```
+Page front matter: layout: search, title: Search, permalink: /find. Public path /my-blog/find; NEVER /my-blog/find in landing_page/permalink. Classic/desktop dual Search link needs navbar.nav; otherwise visit public path.
+Local indexes combine site.pages and site.documents at build time, not just posts/About. include_on_search: false: document front matter/defaults.values, NEVER inside search. search.maxwords: 30 content words/document. Legacy lunr_maxwords/simplesearch_maxwords/fusejs_maxwords override maxwords. search.show_attrib: false hides local attribution; algolia_logo is separate (check plan).
 Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Browser fields algolia.application_id, index_name, search_only_api_key; indexing secret ALGOLIA_API_KEY belongs in environment/secrets, never public config. Docs site uses Algolia. jekyll-algolia is deprecated/unmaintained; install in Gemfile plugin group and upload via bundle exec jekyll algolia after dependency installation, with ALGOLIA_API_KEY secret environment binding (source directory must match). Google needs google_cse_id for an existing configured engine; build/local exclusions do not control Google indexing.
 ## Comments
 Source: https://dieghernan.github.io/chulapa/docs/02-config#comments

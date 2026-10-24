@@ -1,5 +1,59 @@
 # Consolidated live evaluation log
 
+## Search dependencies: focused validation and closeout — 24 October 2026
+
+Worker `dfb48928-319f-4cfe-ba33-e2b77822f968`, confirmed 100% traffic.
+[One raw answer](search-dependency-focus-after-20261024.jsonl): HTTP 200, pass.
+It names the shared helper/provider/store before the adapter, identifies the
+single common-script include for navigation and cites the exact JavaScript
+reference without changing the user's layout or URL. No version-specific
+installation or exhaustive upgrade inventory was asked.
+
+Both original failed tasks now have successful samples: Fuse on fd7168ad and
+dependencies on dfb48928. Do not transfer the earlier Fuse result to this latest
+deployment. Three follow-up requests total, no automatic retries or AI Search;
+the ten-question baseline remains separate. 114 tests passed after the final
+selector change; the first deployment also passed Wrangler dry-run.
+[Final artifact manifest](search-dependency-deployment-20261024.json).
+
+README and selective context updated; public guides and llms.txt need no edits
+because their documented facts were already correct. No theme accessibility,
+SEO metadata or PWA behavior changes. Existing model/output and context budgets
+are unchanged. Earlier review fixes in #182 are also deployed, but their live
+regressions were not rerun. The three partial tasks remain for the next batch.
+
+## Search paths and dependencies: first validation — 24 October 2026
+
+Worker `fd7168ad-bc0b-412f-a224-7fb0840622e0`, confirmed 100% traffic.
+[Two raw answers](search-paths-dependencies-after-20261024.jsonl): two HTTP 200,
+one pass (Fuse paths) and one partial (custom dependency troubleshooting).
+Fuse now uses /find for both settings and correctly describes the local index.
+The dependency answer names the shared helper/provider/store and navigation
+script, but omits load ordering and invents an unrequested /find page example.
+Its JavaScript source label also points at the generic search reference.
+
+Added a focused dependency scope to retain the existing layout reference while
+excluding generic setup examples unless configuration is explicitly requested.
+114 tests pass after this adjustment. Library remains 56,998/57,000 bytes;
+per-request cap remains 18,000 bytes. Only the partial case needs another query.
+Fuse's pass belongs to fd7168ad, not to a subsequent deployment.
+
+## Search and comments: ten-question review — 24 October 2026
+
+Seven search and three comments questions on Worker
+`09e75972-8ede-4630-ba6e-c5a504bc709c` (100% traffic): **5 pass, 3 partial,
+2 fail, 0 unavailable**. Ten HTTP 200 responses; no retries or AI Search calls.
+Review uses the actual task rather than requiring unasked setup/version details.
+No historical answer labels were rewritten.
+
+[Raw answers](search-comments-batch10-20261024.jsonl) and
+[case-level review and proposed adjustments](search-comments-batch10-review-20261024.md).
+Primary blockers are repeated baseurl in Fuse paths and missing custom-search
+JavaScript dependency guidance. Partial answers concern maxwords recommendation,
+Giscus prerequisites and Algolia installation/preservation steps. Review fixes
+at local revision `63cc495d3` are not deployed; these results cannot validate them.
+No code/context edits, deployment or second query round in this batch.
+
 ## PR review corrections: local validation — 24 October 2026
 
 Ran one complete `npm test` round after authorization: build succeeded with
@@ -575,7 +629,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `content-post-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `content-toc-task-1` | partial | `09e75972…` | 2026-10-24 |
 | `custom-head-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `custom-search-script-dependencies` | fail | `15036755…` | 2026-10-22 |
+| `custom-search-script-dependencies` | pass | `dfb48928…` | 2026-10-24 |
 | `documentation-appearance-topics` | partial | `47cc2e30…` | 2026-10-22 |
 | `documentation-content-publishing-topics` | partial | `15036755…` | 2026-10-22 |
 | `documentation-identity-topics` | partial | `15036755…` | 2026-10-22 |
@@ -654,7 +708,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `search-comments-4` | partial | `5266df62…` | 2026-10-22 |
 | `search-comments-5` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `search-fusejs-setup-1` | partial | `15036755…` | 2026-10-22 |
+| `search-fusejs-setup-1` | pass | `fd7168ad…` | 2026-10-24 |
 | `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 |
 | `search-visibility-task-1` | pass | `09b4517c…` | 2026-10-24 |
 | `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 |
