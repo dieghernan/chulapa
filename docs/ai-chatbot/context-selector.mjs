@@ -94,18 +94,20 @@ export function selectContext(context, question) {
   const focusedSeo = seoScope.size > 0 && !/analytics|goatcounter|gtag|fa_kit|font awesome|rss|feeds?|shopping|carrito|browse|guides|documentation|gu[ií]as/i.test(question);
   const workflowScope = new Set();
   const migration = /migrat|migrar|migraci[oó]n/i.test(question);
-  const mappingLookup = migration && /lookup|look up|equivalent|equivalen|mappings?|field|campos/i.test(question);
+  const mappingLookup = migration && /lookup|look up|equivalent|equivalen|mappings?|consultar|consulta.*tabla/i.test(question);
+  const gemMigration = migration && /gem.based|theme gem|gema|gemfile/i.test(question);
   const subscription = /\bfeeds?\b|\batom\b|\brss\b|include_on_feed/i.test(question) && !/h-feed|microformat/i.test(question);
   if (mappingLookup) workflowScope.add('Migration field mappings');
   else if (migration) {
     workflowScope.add('Migrating an existing Jekyll site');
-    workflowScope.add('Remote-theme installation');
+    workflowScope.add(gemMigration ? 'Gem-theme installation' : 'Remote-theme installation');
     workflowScope.add('Migration field mappings');
   }
   if (subscription) {
     const coexistence = /jekyll.feed|feed\.xml|overwrite|coexist|collis|sobrescrib/i.test(question);
+    const feedSelection = /all\s+posts|todos\s+los\s+(?:posts|art[ií]culos)|(?:include|exclude|enable|select|incluir|excluir|activar|seleccionar).*(?:posts?|articles?|documents?|collection|art[ií]culos|documentos|colecci[oó]n)|(?:enable|configure|activar|configurar).*built.?in.*feed|(?:set|configure|configurar).*include_on_feed/i.test(question);
     workflowScope.add(coexistence ? 'Feed coexistence' : 'Subscription feeds');
-    if (coexistence && migration) workflowScope.add('Subscription feeds');
+    if (coexistence && (migration || feedSelection)) workflowScope.add('Subscription feeds');
     if (/your|this site|chulapa|latest|actual|[uú]ltim/i.test(question)) workflowScope.add('Public RSS feed');
   }
   const focusedWorkflow = workflowScope.size > 0 && !/analytics|goatcounter|font|skin|mermaid|photoswipe|microformat|h-feed|giscus|disqus|cactus|welcomments|cusdis|browse|documentation|guides|gu[ií]as/i.test(question);
@@ -123,9 +125,30 @@ export function selectContext(context, question) {
   if (focusedNavigation) for (const title of navigationScope) seoScope.add(title);
   const focusedContext = focusedSeo || focusedWorkflow || focusedNavigation;
   seoScope.add('Global settings');
+  // Broad routes also match incidental words such as "post", "feed" or an
+  // old layout name. Preserve other explicitly routed topics in focused tasks.
+  const workflowReferences = new Set([
+    'Global settings', 'Basic editing and publishing', 'Correct file and option scopes',
+    'More layouts and content navigation', 'Layout structure and include caching',
+    'Remote-theme installation', 'Migrating an existing Jekyll site', 'Check theme version',
+    'Subscription feeds', 'Public RSS feed', 'Feed coexistence',
+    'SEO controls', 'Page metadata and article images'
+  ]);
+  const lookupReferences = new Set([
+    'Configuring site search', 'Algolia search',
+    'Mathematical notation and tables of contents', 'Markdown formatting'
+  ]);
+  const requestsSetup = /(?:set\s*up|configure|enable|add|insert|configur|activ|a[nñ]ad|insert)/i.test(question);
   const scores = new Map();
   for (const [pattern, titles] of routes) {
-    if (pattern.test(question)) for (const title of titles) scores.set(title, (scores.get(title) || 0) + 10);
+    if (!pattern.test(question)) continue;
+    for (const title of titles) {
+      scores.set(title, (scores.get(title) || 0) + 10);
+      if (focusedContext && !workflowReferences.has(title) &&
+          (!mappingLookup || !lookupReferences.has(title) || requestsSetup)) {
+        seoScope.add(title);
+      }
+    }
   }
   if (/\bfonts?\b|\bfuentes?\b/i.test(question)) scores.set('Bundled font', (scores.get('Bundled font') || 0) + 20);
   if (/\bicons?\b|\biconos?\b/i.test(question)) scores.set('Font Awesome', (scores.get('Font Awesome') || 0) + 20);

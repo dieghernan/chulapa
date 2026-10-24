@@ -79,6 +79,13 @@ Header, reading/pagination and TOC questions select focused references too.
 Header recipes use page front matter; content TOC syntax stays separate from
 sidebar keyboard/version guidance. Existing theme interactions are unchanged.
 
+Local review corrections preserve explicitly requested additional topics in
+focused questions, including SEO with GA4 or PhotoSwipe and RSS with navigation.
+Combined feed selection and plugin coexistence retain both recipes. Migration
+questions about custom fields retain the procedure; explicit gem migrations
+include gem installation. These corrections passed the local build and all 112
+tests on 24 October 2026; Worker deployment and live evaluation remain pending.
+
 Single-provider setup questions exclude other providers' specific sections.
 Comparison, alternative-provider and plain inventory questions retain all supported provider
 sections, including their restrictions. Information-box synonyms route to the

@@ -1,5 +1,35 @@
 # Consolidated live evaluation log
 
+## PR review corrections: local validation — 24 October 2026
+
+Ran one complete `npm test` round after authorization: build succeeded with
+56,995/57,000 source-context bytes and all 112 tests passed, with no failures or
+skips. This includes the new mixed-topic, feed coexistence/selection, custom-field
+migration and gem-installation regressions for comments on #182 and #183.
+
+Changes are being committed and pushed to the existing #182 branch. No live
+queries or Worker deployment were performed; historical model-answer assessments
+and deployed behavior are unchanged. These internal selection changes do not
+alter theme accessibility, SEO metadata or PWA behavior.
+
+## PR review corrections: local, awaiting validation — 24 October 2026
+
+Addressed selector comments from PRs #182 and #183 locally: preserve explicitly
+requested secondary topics in focused SEO/workflow/navigation questions, retain
+both built-in feed selection and plugin coexistence recipes when requested,
+avoid treating custom-field mentions as mapping-only lookups and include gem
+installation for explicitly requested gem migrations. Replaced the URL-substring
+test assertion flagged by CodeQL with an exact section-title assertion.
+
+Prepared regression cases without running them. No tests, live queries, build,
+commit, push or deployment were performed, as requested. Historical assessments
+and the deployed Worker version remain unchanged; these edits have no new live
+results. Public theme documentation, llms.txt and ai-context.md need no changes
+because the supported settings and source facts are unchanged.
+
+Review references: [#182 comments](https://github.com/dieghernan/chulapa/pull/182/files)
+and [#183 comments](https://github.com/dieghernan/chulapa/pull/183/files).
+
 ## Navigation and TOC: validation and single-PR closeout — 24 October 2026
 
 Four HTTP 200 answers on `09e75972-8ede-4630-ba6e-c5a504bc709c`:

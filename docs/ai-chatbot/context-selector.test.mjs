@@ -5,6 +5,70 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('focused SEO questions retain explicitly requested analytics and galleries', () => {
+  const publisher = selectContext(context, 'How do I configure my publisher as a Person and enable GA4?');
+  assert.ok(publisher.titles.includes('Publisher, analytics and icon configuration'));
+  assert.ok(publisher.titles.includes('Google Analytics 4'));
+  const gallery = selectContext(context, 'How do I configure og_image and a PhotoSwipe gallery?');
+  assert.ok(gallery.titles.includes('Page metadata and article images'));
+  assert.ok(gallery.titles.includes('PhotoSwipe galleries (v2.2.0)'));
+  assert.ok(gallery.titles.includes('Image galleries and carousels'));
+});
+
+test('migration questions about custom fields retain the procedure and requested installation method', () => {
+  for (const question of [
+    'How do I migrate an existing site and keep my custom front matter fields?',
+    '¿Cómo migrar un sitio existente conservando mis campos personalizados?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Migrating an existing Jekyll site'));
+    assert.ok(selected.titles.includes('Remote-theme installation'));
+    assert.ok(selected.titles.includes('Migration field mappings'));
+  }
+  const gem = selectContext(context, 'How do I migrate my existing site using the theme gem instead of a remote theme?');
+  assert.ok(gem.titles.includes('Migrating an existing Jekyll site'));
+  assert.ok(gem.titles.includes('Gem-theme installation'));
+  assert.ok(!gem.titles.includes('Remote-theme installation'));
+  assert.ok(Buffer.byteLength(gem.text, 'utf8') <= MAX_SELECTED_BYTES);
+});
+
+test('mixed feed and migration questions retain explicitly requested navigation and search', () => {
+  for (const question of [
+    'How do I add my RSS feed to the navbar?',
+    '¿Cómo añado mi feed RSS al menú?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Subscription feeds'));
+    assert.ok(selected.titles.includes('Navbar and footer'));
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+  const migration = selectContext(context, 'How do I migrate to Chulapa and configure Lunr search?');
+  assert.ok(migration.titles.includes('Migrating an existing Jekyll site'));
+  assert.ok(migration.titles.includes('Configuring site search'));
+  assert.match(migration.text, /search\.provider/);
+  assert.ok(Buffer.byteLength(migration.text, 'utf8') <= MAX_SELECTED_BYTES);
+});
+
+test('feed selection and plugin coexistence retain both recipes when requested together', () => {
+  for (const question of [
+    'How do I enable all posts in the built-in feed while keeping jekyll-feed?',
+    'How do I exclude one post from the built-in feed while keeping jekyll-feed?',
+    '¿Cómo incluir todos los artículos en el feed manteniendo jekyll-feed?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Subscription feeds'));
+    assert.ok(selected.titles.includes('Feed coexistence'));
+    assert.match(selected.text, /type: posts/);
+    assert.match(selected.text, /include_on_feed: true/);
+    assert.match(selected.text, /include_on_feed: false/);
+    assert.match(selected.text, /explicitly date collections/);
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+  const coexistence = selectContext(context, 'Can I make jekyll-feed overwrite atom.xml, and will include_on_feed control the plugin?');
+  assert.ok(coexistence.titles.includes('Feed coexistence'));
+  assert.ok(!coexistence.titles.includes('Subscription feeds'));
+});
+
 test('header navigation selects complete page-level breadcrumbs/buttons without navbar recipes', () => {
   const selected = selectContext(context, 'How do I add breadcrumb links and a GitHub button in my page header?');
   assert.match(selected.text, /show_breadcrumb: true\nbreadcrumb_list:/);
@@ -15,7 +79,7 @@ test('header navigation selects complete page-level breadcrumbs/buttons without 
   assert.match(reading.text, /words_per_minute default 200/);
   assert.match(reading.text, /paginator_maxnum default 3/);
   assert.match(reading.text, /does NOT enable pagination/);
-  assert.ok(!reading.text.includes('https://dieghernan.github.io/chulapa/docs/00-start'));
+  assert.ok(!reading.titles.includes('First-site tutorial'));
 });
 
 test('focused TOC recipes preserve article syntax and sidebar keyboard/version rules', () => {
