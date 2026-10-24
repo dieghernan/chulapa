@@ -75,6 +75,10 @@ combinations and guide-discovery questions retain the broader selection.
 No embedding service, extra model call, network retrieval or conversation history
 is used. The full source library remains bundled for other questions.
 
+Header, reading/pagination and TOC questions select focused references too.
+Header recipes use page front matter; content TOC syntax stays separate from
+sidebar keyboard/version guidance. Existing theme interactions are unchanged.
+
 Single-provider setup questions exclude other providers' specific sections.
 Comparison, alternative-provider and plain inventory questions retain all supported provider
 sections, including their restrictions. Information-box synonyms route to the

@@ -110,9 +110,19 @@ export function selectContext(context, question) {
   }
   const focusedWorkflow = workflowScope.size > 0 && !/analytics|goatcounter|font|skin|mermaid|photoswipe|microformat|h-feed|giscus|disqus|cactus|welcomments|cusdis|browse|documentation|guides|gu[ií]as/i.test(question);
   if (focusedWorkflow) for (const title of workflowScope) seoScope.add(title);
-  const focusedContext = focusedSeo || focusedWorkflow;
-  seoScope.add('Global settings');
   const sidebarOnly = /sidebar|sidetoc|lateral/i.test(question) && !/markdown|kramdown|gfm|content.?toc/i.test(question);
+  const navigationScope = new Set();
+  if (/breadcrumb|project_links|header.*(?:github|button)|(?:github|button).*header|migas.*pan/i.test(question)) navigationScope.add('More layouts and content navigation');
+  if (/words_per_minute|paginator_maxnum|reading speed|pagination window|velocidad.*lectura/i.test(question)) navigationScope.add('Additional navigation and community questions');
+  if (!migration && /toc|table of contents|[ií]ndice.*contenido/i.test(question)) {
+    navigationScope.add('Mathematical notation and tables of contents');
+    if (!sidebarOnly) navigationScope.add('Markdown formatting');
+    if (/keyboard|focus|escape|\btab\b|teclado|foco/i.test(question)) navigationScope.add('Accessibility and resource loading in v2.2.0');
+  }
+  const focusedNavigation = navigationScope.size > 0 && !/mermaid|photoswipe|carousel|galer|mathjax|fonts?|skins?|analytics|browse|documentation|guides|gu[ií]as/i.test(question);
+  if (focusedNavigation) for (const title of navigationScope) seoScope.add(title);
+  const focusedContext = focusedSeo || focusedWorkflow || focusedNavigation;
+  seoScope.add('Global settings');
   const scores = new Map();
   for (const [pattern, titles] of routes) {
     if (pattern.test(question)) for (const title of titles) scores.set(title, (scores.get(title) || 0) + 10);

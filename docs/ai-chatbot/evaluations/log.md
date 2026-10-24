@@ -1,5 +1,63 @@
 # Consolidated live evaluation log
 
+## Navigation and TOC: validation and single-PR closeout — 24 October 2026
+
+Four HTTP 200 answers on `09e75972-8ede-4630-ba6e-c5a504bc709c`:
+**1 pass, 3 partial, 0 fail, 0 unavailable**. Header fields now use page front
+matter with breadcrumb_list and complete icon classes; reading/pagination has
+the correct source, clamp and non-enablement rule; the previously rejected
+content TOC now delivers valid syntax. Remaining issues are task-specific
+header verification, existing kramdown/parser preservation/site-wide scope,
+and fuller open-panel keyboard explanation. No complete-resolution claim.
+
+[Review](navigation-toc-after-20261024-review.md),
+[structured review](navigation-toc-after-20261024-review.json),
+[raw answers](navigation-toc-after-20261024.jsonl) and
+[artifact hashes](navigation-toc-deployment-20261024.json).
+Eight Worker requests in this navigation batch, no retries or AI Search.
+This task's rubric follow-up plus navigation used 18 Worker requests; their
+counts are not combined into an accuracy measure across criteria/versions.
+108 tests passed; all three final YAML examples parsed and all four answers
+passed source-URL/recipe guards. Deployed artifact hashes match; Wrangler
+reconfirmed the same final version at 100% after review.
+All work is consolidated into PR #182; #183 was integrated
+only into its head branch, not main. Public guides/llms.txt already cover these
+facts; internal README/evaluation policy updated, no theme UI/SEO/PWA changes.
+
+## Navigation and TOC: deployment and PR consolidation — 24 October 2026
+
+Deployed `09e75972-8ede-4630-ba6e-c5a504bc709c` after 108 tests, header
+YAML parsing and Wrangler dry-run passed. Added a complete page-front-matter
+breadcrumb/project_links recipe and accurate option/config sources. Focused
+navigation selection separates header, reading/pagination, article TOC and
+sidebar keyboard questions; prompt preserves version/Tab/Escape semantics and
+permits the small separate code fragments required by a compound task.
+
+[Artifact/version manifest](navigation-toc-deployment-20261024.json).
+Context is 56,995 bytes within the unchanged 57,000 budget; selection cap/model/
+output budget/bindings are unchanged. Existing guides already document the
+facts; no theme behavior, public guide/llms.txt or UI/SEO/PWA changes. No AI
+Search requests. Live four-case validation follows separately.
+
+At the user's request all work is consolidated into PR #182. Pushing commit
+d636dc099 into its head branch caused GitHub to mark stacked PR #183 merged
+into fix/chatbot-case-sections; this did not merge anything into main. PR #182
+is the only open PR for this work. Historical PR/evaluation records are retained.
+
+## Navigation and TOC: baseline — 24 October 2026
+
+Four requests on closeout Worker `09b4517c-3705-4009-a1bf-af30be43b5b5`:
+**0 pass, 2 partial, 1 fail, 1 unavailable**. Header guidance misplaces
+project_links in _config.yml and omits breadcrumb_list. Pagination points to
+the wrong guide. Sidebar focus advice is correct at its core but misses the
+release boundary. Content TOC returns a task-validation 503 fallback; no answer
+was delivered, so no factual assessment or quota-exhaustion claim is made.
+[Review](navigation-toc-before-20261024-review.md),
+[raw](navigation-toc-before-20261024.jsonl) and
+[structured review](navigation-toc-before-20261024-review.json).
+No retry or AI Search calls. Work is isolated on fix/chatbot-navigation-toc;
+feeds/migration and rubric audit are now in stacked PR #183, based on #182.
+
 ## Essential follow-up: validation and closeout — 24 October 2026
 
 Four HTTP 200 answers on `09b4517c-3705-4009-a1bf-af30be43b5b5` under
@@ -485,7 +543,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `content-image-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `content-page-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `content-post-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `content-toc-task-1` | partial | `d0e281c2…` | 2026-10-22 |
+| `content-toc-task-1` | partial | `09e75972…` | 2026-10-24 |
 | `custom-head-task-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `custom-search-script-dependencies` | fail | `15036755…` | 2026-10-22 |
 | `documentation-appearance-topics` | partial | `47cc2e30…` | 2026-10-22 |
@@ -542,8 +600,8 @@ cells mean no live response for that case is present in the evaluation logs.
 | `migration-fields-lookup-1` | partial | `253c4a59…` | 2026-10-24 |
 | `migration-theme-1` | partial | `09b4517c…` | 2026-10-24 |
 | `navigation-1` | pass | `5266df62…` | 2026-10-22 |
-| `navigation-2` | fail | `5266df62…` | 2026-10-22 |
-| `navigation-3` | partial | `5266df62…` | 2026-10-22 |
+| `navigation-2` | partial | `09e75972…` | 2026-10-24 |
+| `navigation-3` | pass | `09e75972…` | 2026-10-24 |
 | `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `person-publisher-task-1` | partial | `ac010481…` | 2026-10-24 |
 | `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 |
@@ -576,7 +634,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `seo-3` | pass | `ac010481…` | 2026-10-24 |
 | `seo-4` | pass | `5266df62…` | 2026-10-22 |
 | `sharing-task-1` | partial | `98c97e53…` | 2026-10-24 |
-| `sidebar-accessibility-focus` | partial | `47cc2e30…` | 2026-10-22 |
+| `sidebar-accessibility-focus` | partial | `09e75972…` | 2026-10-24 |
 | `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
 | `skin-font-failure-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `skin-palette-contrast-1` | partial | `47cc2e30…` | 2026-10-22 |

@@ -1,5 +1,15 @@
 # Response status by section — 24 October 2026
 
+## Navigation and TOC update
+
+Four fresh answers on `09e75972-8ede-4630-ba6e-c5a504bc709c`: 1 pass,
+3 partial, 0 fail/unavailable. [Case review](navigation-toc-after-20261024-review.md).
+Navigation and TOC rows reflect this sample; other rows remain tied to their
+recorded versions. Task-specific header verification and preserving existing
+kramdown options remain necessary follow-ups; sidebar core behavior is correct
+but the captured full rubric still has explanatory omissions. All work is in
+PR #182; no AI Search calls were made.
+
 ## Scoped-rubric follow-up
 
 The [task-scope audit](task-scope-audit-20261024.md) preserves old rubrics and
@@ -82,7 +92,7 @@ URL/guest-author answer is correct; this is a rubric-scope issue to review.
 | `microformats` | 3 | 0 | 3 | 0 | 0 | 0 |
 | `migration` | 3 | 1 | 2 | 0 | 0 | 0 |
 | `navbar` | 2 | 2 | 0 | 0 | 0 | 0 |
-| `navigation` | 2 | 0 | 1 | 1 | 0 | 0 |
+| `navigation` | 2 | 1 | 1 | 0 | 0 | 0 |
 | `publishing` | 2 | 0 | 2 | 0 | 0 | 0 |
 | `pwa` | 1 | 0 | 1 | 0 | 0 | 0 |
 | `recommendations` | 3 | 2 | 1 | 0 | 0 | 0 |
@@ -102,7 +112,6 @@ URL/guest-author answer is correct; this is a rubric-scope issue to review.
 | Section | Case |
 | --- | --- |
 | `highlighting` | `reference-edge-cases-5` |
-| `navigation` | `navigation-2` |
 | `accessibility` | `semantic-html-accessibility` |
 | `formatting` | `format-footnote-task-1` |
 
@@ -133,8 +142,9 @@ Neither establishes section-wide quality under the new settings.
 
 1. SEO: core social-image/local-search errors improved in the first batch;
    remaining caveats and imprecise verification advice need follow-up.
-2. Accessibility and navigation: unsupported semantic claims and confusion
-   between header project links, breadcrumbs and navbar configuration.
+2. Accessibility retains unsupported semantic claims. Header navigation scope
+   is corrected in the new sample; verification and kramdown preservation remain
+   actionable gaps, while fuller sidebar explanation is secondary.
 3. Footnotes and highlighting retain failed answers followed by unavailable
    retries. Feeds/migration improved in the second batch but remain partial.
 4. Search, YAML, starter installation and custom script dependencies: some

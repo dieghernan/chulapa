@@ -211,16 +211,26 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 mathjax: true works in default, minimal and landingpage via the shared head. Only author panels/TOCs are absent from minimal; do not apply that limit to MathJax. Page front matter: show_toc: true adds in-page TOC; show_sidetoc: true adds sidebar. For sidebar h2–h5 set show_sidetoc: true, h_min: 2, h_max: 5 in page front matter, NOT config root. Defaults 2/4. kramdown.toc_levels does not control theme TOCs. Only headings with IDs appear: Markdown generates IDs; HTML needs explicit IDs. default supports panels/TOCs; minimal does not add them.
 v2.2.0: automatic active section for in-page/sidebar/kramdown TOCs with JS, aria-current="location"; only included/rendered headings (skip hidden/closed). No new YAML or focus/Tab changes; anchors work without JS.
 ## More layouts and content navigation
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#landing-page
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#minimal
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#archive
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#index-category
-landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chulapa-text-color under chulapa-skin.vars.
-minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
-archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
-indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
-Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
-Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
+landingpage: default options + chulapa-skin.vars landingpage-chulapa-bg-color/landingpage-chulapa-text-color.
+minimal: navbar/content/footer; header needs show_header: true + header_type base/post/hero/image/splash; header_img image. default/landingpage hide header with header_type: none.
+archive: dated collection docs; include_collection: posts,demo (no underscores/spaces), unset=all; include_missdates: true adds undated. cloudtag/cloudcategory: tagged/categorized collection docs.
+indexcategory cards: index_sort default name descending; index_sort_asc: true ascending; index_items default 10.
+Page: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges. show_bottomnavs: page.previous/page.next, not arbitrary pages.
+Merge in page front matter; keep layout/title/lists:
+```yaml
+show_breadcrumb: true
+breadcrumb_list:
+  - {label: Home, url: /}
+project_links:
+  - {url: "https://github.com/a/b", icon: fab fa-github, label: GitHub}
+```
+project_links: page, not _config.yml root.
+defaults: scope.path: "", scope.type: posts, values.layout: default. Page values win; boolean false, not "false".
 ## Related and random article cards
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On v2.2.0, a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
@@ -407,13 +417,14 @@ locale sets HTML language, not full UI translation. datetranslate accepts Englis
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
 English/French/Spanish/German/Italian; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English.
 ## Additional navigation and community questions
-Published files stay public: robots.txt, robots noindex and sitemap: false are not access control. Privacy needs hosting authentication or not publishing.
-Header types: base, post, hero, image, splash (hero is not splash). project_links entries url/icon/label become header buttons. words_per_minute defaults 200. paginator_maxnum numbered window defaults 3, clamped 2..total; first/last/previous/next are separate.
-include_collection filters collections, not categories. For custom category cards:
+Source: https://dieghernan.github.io/chulapa/docs/02-config
+robots.txt/noindex/sitemap: false are not access control. Privacy needs hosting auth or not publishing.
+_config.yml root: words_per_minute default 200; paginator_maxnum default 3 (numbered window, clamp 2..total; does NOT enable pagination). First/last/previous/next separate. hero is not splash.
+include_collection filters collections, not categories; category cards:
 {% assign music_posts = site.categories.music %}
 {% include_cached components/indexcards.html cacheddocs=music_posts cachedlimit=5 %}
-Not a built-in category front-matter setting. Bootstrap HTML <button class="btn btn-primary">Example</button> works; Markdown button link [Docs](/docs/){: .btn .btn-primary} needs (URL).
-Missing include: bundle install, bundle exec jekyll serve, verify theme/remote_theme/plugins. An error alone is not a diagnosis; request config/versions if unresolved.
+Not a built-in category option. Bootstrap <button class="btn btn-primary">Example</button> works; Markdown button link [Docs](/docs/){: .btn .btn-primary} needs (URL).
+Missing include: bundle install; bundle exec jekyll serve; check theme/remote_theme/plugins; if unresolved ask config/version before diagnosis.
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml
 Give this subscription URL when asked. Feed entries are not in context; assistant does not fetch URLs or know latest feed posts.

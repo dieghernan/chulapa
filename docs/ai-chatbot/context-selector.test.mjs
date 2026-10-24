@@ -5,6 +5,32 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('header navigation selects complete page-level breadcrumbs/buttons without navbar recipes', () => {
+  const selected = selectContext(context, 'How do I add breadcrumb links and a GitHub button in my page header?');
+  assert.match(selected.text, /show_breadcrumb: true\nbreadcrumb_list:/);
+  assert.match(selected.text, /project_links:\n  - \{url: "https:\/\/github.com\/a\/b", icon: fab fa-github, label: GitHub\}/);
+  assert.match(selected.text, /project_links: page, not _config.yml root/);
+  assert.ok(!selected.titles.includes('Navbar and footer'));
+  const reading = selectContext(context, 'How do I configure reading speed and the numbered blog pagination window?');
+  assert.match(reading.text, /words_per_minute default 200/);
+  assert.match(reading.text, /paginator_maxnum default 3/);
+  assert.match(reading.text, /does NOT enable pagination/);
+  assert.ok(!reading.text.includes('https://dieghernan.github.io/chulapa/docs/00-start'));
+});
+
+test('focused TOC recipes preserve article syntax and sidebar keyboard/version rules', () => {
+  const content = selectContext(context, 'How do I insert a TOC inside an existing article, skip one heading, and show only levels 2 to 6? Does that configure the theme TOC?');
+  assert.match(content.text, /\* Placeholder\n\{:toc\}/);
+  assert.match(content.text, /\{:\.no_toc\}/);
+  assert.match(content.text, /kramdown:\n  toc_levels: 2\.\.6/);
+  assert.ok(!content.titles.includes('Basic editing and publishing'));
+  const sidebar = selectContext(context, 'Con el TOC lateral cerrado, ¿sus enlaces siguen entrando en Tab? ¿Escape funciona? ¿Atrapa el foco al abrirse?');
+  assert.ok(sidebar.titles.includes('Accessibility and resource loading in v2.2.0'));
+  assert.match(sidebar.text, /Existing open-panel Tab order preserved/);
+  assert.match(sidebar.text, /closed inert\/aria-hidden/);
+  assert.ok(!sidebar.titles.includes('Markdown formatting'));
+});
+
 test('essential follow-up retains HTML title inspection and build versus link verification', () => {
   const title = selectContext(context, 'Can I set different browser, social and visible titles?');
   assert.match(title.text, /inspect HTML <title>, not a seo_title tag/);

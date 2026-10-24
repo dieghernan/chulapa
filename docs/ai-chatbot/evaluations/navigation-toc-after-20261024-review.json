@@ -1,0 +1,36 @@
+{
+  "run": "navigation-toc-after-20261024",
+  "worker_version": "09e75972-8ede-4630-ba6e-c5a504bc709c",
+  "traffic_percent": 100,
+  "raw": "navigation-toc-after-20261024.jsonl",
+  "totals": {
+    "requests": 4,
+    "pass": 1,
+    "partial": 3,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "rubric_note": "Catalog expectations captured in raw evidence are retained. Partial findings distinguish necessary editing checks from secondary open-panel explanation; no further inference is scheduled solely for optional wording.",
+  "reviews": [
+    {
+      "id": "navigation-2",
+      "result": "partial",
+      "finding": "Correct page-front-matter breadcrumb_list/project_links recipe and full icon class; wrong config-root guidance is fixed. Added verification checks browser title rather than breadcrumb destinations and GitHub button."
+    },
+    {
+      "id": "navigation-3",
+      "result": "pass",
+      "finding": "Correct _config.yml fields with 200/3 values, numbered-window clamp, non-enablement distinction, local restart and accurate configuration source."
+    },
+    {
+      "id": "sidebar-accessibility-focus",
+      "result": "partial",
+      "finding": "Correct closed exclusion, v2.2.0 boundary, Escape/return focus and no modal trap. Captured full rubric still expects explicit open-panel Tab order and Escape from panel, not just trigger; core asked behavior is substantially answered."
+    },
+    {
+      "id": "content-toc-task-1",
+      "result": "partial",
+      "finding": "Now delivers valid two-line TOC marker, exact no_toc exclusion and nested toc_levels YAML, separating theme controls. Omits merging existing kramdown/parser preservation, site-wide scope and heading-link checks; before/after-marker background is not treated as the practical blocker."
+    }
+  ]
+}
