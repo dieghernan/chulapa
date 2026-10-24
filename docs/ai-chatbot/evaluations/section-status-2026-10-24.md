@@ -1,5 +1,10 @@
 # Response status by section — 24 October 2026
 
+This earlier 160-case snapshot is retained for history. Use the
+[reconciled 167-case inventory](section-status-reconciled-20261024.md) for current
+backlog selection; it separates the last assessed answer from later unavailable
+requests and incorporates subsequent reviewed batches.
+
 ## Navigation and TOC update
 
 Four fresh answers on `09e75972-8ede-4630-ba6e-c5a504bc709c`: 1 pass,

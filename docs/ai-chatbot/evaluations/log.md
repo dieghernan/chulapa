@@ -1,5 +1,21 @@
 # Consolidated live evaluation log
 
+## Historical status reconciliation — 24 October 2026
+
+Reconciled all 167 cases with saved Worker responses and their recorded reviews.
+Nine status rows now reflect newer assessments; four additional rows correct
+response/version attribution. Latest attempts and assessed answers are separate,
+including nine unavailable attempts, six with an earlier assessed response.
+Unknown Worker versions are no longer inherited from older results.
+
+Last assessed inventory: 95 pass, 64 partial, 5 fail and 3 without an assessed
+answer. These mixed-version counts are not current-runtime accuracy.
+[Change audit](status-reconciliation-20261024.md),
+[per-case provenance](status-reconciliation-20261024.json) and
+[updated section summary](section-status-reconciled-20261024.md).
+Historical responses/reviews and rubric qualifications remain intact. No new
+queries, context changes or deployment; structural provenance checks only.
+
 ## Mixed-topic ten-question batch: reviewed results — 24 October 2026
 
 Worker `1686b41b-51ff-438f-a2b6-cec0fd60fe8f`: **4 pass, 2 partial, 2 fail,
@@ -629,187 +645,187 @@ are not completed evaluation results.
 
 ## Latest status per tested catalog case
 
-This table lists the latest known outcome for all 167 catalog cases, based on
-the records available on 22 October 2026, with subsequent dated batch reviews
-updating only the cases they actually evaluated. The test date is taken from the latest
-timestamped live response in the JSONL evidence (UTC); blank dates mean no
-timestamped live response is recorded.
-Statuses are tied to the Worker version shown; a result from an older Worker
-does not describe the currently deployed one. Worker values are the first
-eight characters of the version UUID. `pending review` means a raw response
-exists but no case-level review is recorded. `unavailable` means the request
-returned no answer to assess; it is not a pass or fail. Blank result and Worker
-cells mean no live response for that case is present in the evaluation logs.
+Reconciled against all timestamped Worker evidence for 167 catalog cases on
+24 October 2026. AI Search records are excluded. The latest assessed answer
+and latest request are separate: a later 503 does not erase an earlier quality
+finding. Answer dates belong to the assessed response, not to the latest retry.
+Worker versions are only those recorded with the evidence; `not recorded`
+means unknown, never the current production version. Different versions and
+expectations are mixed here for backlog tracking, not an accuracy estimate.
 
-| Case | Latest result | Worker version | Latest test (UTC) |
-| --- | --- | --- | --- |
-| `accessibility-1` | pass | `5266df62…` | 2026-10-22 |
-| `accessibility-task-reference-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `analytics-ga4-setup-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `analytics-goat-setup-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `appearance-auto-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `appearance-font-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `appearance-sass-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `appearance-skin-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `assistant-session-history` | pass | `47cc2e30…` | 2026-10-22 |
-| `beginner-image-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `beginner-post-1` | pass | `738414cb…` | 2026-10-22 |
-| `beginner-publishing-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `bundled-font-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `canonical-article-task-1` | pass | `253c4a59…` | 2026-10-24 |
-| `carousel-accessibility-motion` | partial | `47cc2e30…` | 2026-10-22 |
-| `cloud-demo-fragments` | partial | `5266df62…` | 2026-10-22 |
-| `cloud-task-1` | partial | `5266df62…` | 2026-10-22 |
-| `collection-filename-order` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-cactus-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `comments-cusdis-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-giscus-setup-1` | partial | `1686b41b…` | 2026-10-24 |
-| `comments-welcomments-task-1` | partial | `15036755…` | 2026-10-22 |
-| `community-1` | pass | `5266df62…` | 2026-10-22 |
-| `community-165` | partial | `8b59f0a7…` | 2026-10-22 |
-| `community-2` | pass | `5266df62…` | 2026-10-22 |
-| `community-3` | pass | `5266df62…` | 2026-10-22 |
-| `community-4` | pass | `253c4a59…` | 2026-10-24 |
-| `community-5` | partial | `5266df62…` | 2026-10-22 |
-| `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 |
-| `configuration-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `configuration-2` | pass | `8b59f0a7…` | 2026-10-22 |
-| `configuration-3` | pass | `65bb328b…` | 2026-10-18 |
-| `configuration-4` | pass | `15036755…` | 2026-10-22 |
-| `configuration-5` | pass | `65bb328b…` | 2026-10-18 |
-| `configuration-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `content-image-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `content-page-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `content-post-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `content-toc-task-1` | partial | `09e75972…` | 2026-10-24 |
-| `custom-head-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `custom-search-script-dependencies` | pass | `dfb48928…` | 2026-10-24 |
-| `documentation-appearance-topics` | partial | `47cc2e30…` | 2026-10-22 |
-| `documentation-content-publishing-topics` | partial | `15036755…` | 2026-10-22 |
-| `documentation-identity-topics` | partial | `15036755…` | 2026-10-22 |
-| `documentation-installation-topics` | partial | `15036755…` | 2026-10-22 |
-| `documentation-search-topics` | unavailable | `d0e281c2…` | 2026-10-22 |
-| `faq-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `faq-2` | pass | `8b59f0a7…` | 2026-10-22 |
-| `faq-3` | partial | `47cc2e30…` | 2026-10-22 |
-| `faq-4` | pass | `d0e281c2…` | 2026-10-22 |
-| `faq-5` | pass | `223eaf7d…` | 2026-10-18 |
-| `faq-6` | pass | `cd95fb43…` | 2026-10-18 |
-| `favicon-task-1` | partial | `15036755…` | 2026-10-22 |
-| `feed-coexistence-1` | partial | `253c4a59…` | 2026-10-24 |
-| `feed-collection-output-1` | partial | `253c4a59…` | 2026-10-24 |
-| `feed-selection-1` | partial | `09b4517c…` | 2026-10-24 |
-| `feed-subscribe-link-en-1` | unavailable | `1686b41b…` | 2026-10-24 |
-| `feed-subscribe-link-es-1` | unavailable | `1686b41b…` | 2026-10-24 |
-| `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 |
-| `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `format-caption-task-1` | partial | `15036755…` | 2026-10-22 |
-| `format-footnote-task-1` | fail | `15036755…` | 2026-10-22 |
-| `goatcounter-analytics` | fail | `47cc2e30…` | 2026-10-22 |
-| `icon-task-1` | partial | `15036755…` | 2026-10-22 |
-| `install-gem-task-1` | partial | `15036755…` | 2026-10-22 |
-| `install-remote-task-1` | pass | `15036755…` | 2026-10-22 |
-| `installation-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `installation-2` | pass | `d0e281c2…` | 2026-10-22 |
-| `installation-3` | partial | `8b59f0a7…` | 2026-10-22 |
-| `installation-4` | pass | `65bb328b…` | 2026-10-18 |
-| `installation-5` | pass | `65bb328b…` | 2026-10-18 |
-| `installation-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `javascript-resource-fallbacks` | partial | `47cc2e30…` | 2026-10-22 |
-| `layouts-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `layouts-2` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-3` | pass | `64ee01ab…` | 2026-10-18 |
-| `layouts-4` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-5` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-6` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-7` | pass | `8b59f0a7…` | 2026-10-22 |
-| `layouts-head-formatting-1` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-include-cache-1` | pass | `5266df62…` | 2026-10-22 |
-| `layouts-label-headings-1` | partial | `5266df62…` | 2026-10-22 |
-| `layouts-microformats-1` | partial | `5266df62…` | 2026-10-22 |
-| `layouts-microformats-feed-1` | partial | `5266df62…` | 2026-10-22 |
-| `layouts-microformats-nested-feed-1` | pass | `65bb328b…` | 2026-10-18 |
-| `layouts-random-singleton-1` | pass | `65bb328b…` | 2026-10-18 |
-| `localized-date-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-carousel-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-diagram-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-gallery-task-1` | partial | `15036755…` | 2026-10-22 |
-| `media-photoswipe-task-1` | pass | `15036755…` | 2026-10-22 |
-| `media-video-task-1` | partial | `15036755…` | 2026-10-22 |
-| `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `migration-fields-lookup-1` | partial | `253c4a59…` | 2026-10-24 |
-| `migration-gem-choice-1` | pass | `1686b41b…` | 2026-10-24 |
-| `migration-theme-1` | partial | `09b4517c…` | 2026-10-24 |
-| `mixed-feed-navbar-1` | pass | `1686b41b…` | 2026-10-24 |
-| `mixed-person-ga4-1` | fail | `1686b41b…` | 2026-10-24 |
-| `mixed-toc-comments-1` | pass | `1686b41b…` | 2026-10-24 |
-| `mixed-toc-title-1` | pass | `1686b41b…` | 2026-10-24 |
-| `navigation-1` | pass | `5266df62…` | 2026-10-22 |
-| `navigation-2` | partial | `09e75972…` | 2026-10-24 |
-| `navigation-3` | pass | `09e75972…` | 2026-10-24 |
-| `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `person-publisher-task-1` | partial | `ac010481…` | 2026-10-24 |
-| `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 |
-| `provider-algolia-task-1` | fail | `1686b41b…` | 2026-10-24 |
-| `provider-google-task-1` | fail | `15036755…` | 2026-10-22 |
-| `provider-lunr-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `provider-simplesearch-task-1` | partial | `15036755…` | 2026-10-22 |
-| `pwa-offline-status` | partial | `47cc2e30…` | 2026-10-22 |
-| `reference-edge-cases-1` | pass | `cd95fb43…` | 2026-10-18 |
-| `reference-edge-cases-2` | pass | `cd95fb43…` | 2026-10-18 |
-| `reference-edge-cases-3` | pass | `5266df62…` | 2026-10-22 |
-| `reference-edge-cases-4` | pass | `8b59f0a7…` | 2026-10-22 |
-| `reference-edge-cases-5` | fail | `8b59f0a7…` | 2026-10-22 |
-| `reference-edge-cases-6` | pass | `8b59f0a7…` | 2026-10-22 |
-| `related-card-dates-1` | pass | `15036755…` | 2026-10-22 |
-| `resources-1` | partial | `5266df62…` | 2026-10-22 |
-| `search-comments-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `search-comments-2` | pass | `65bb328b…` | 2026-10-18 |
-| `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 |
-| `search-comments-4` | partial | `1686b41b…` | 2026-10-24 |
-| `search-comments-5` | pass | `65bb328b…` | 2026-10-18 |
-| `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
-| `search-fusejs-setup-1` | pass | `fd7168ad…` | 2026-10-24 |
-| `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 |
-| `search-visibility-task-1` | pass | `09b4517c…` | 2026-10-24 |
-| `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 |
-| `semantic-html-accessibility` | fail | `47cc2e30…` | 2026-10-22 |
-| `seo-1` | pass | `253c4a59…` | 2026-10-24 |
-| `seo-2` | pass | `09b4517c…` | 2026-10-24 |
-| `seo-3` | pass | `ac010481…` | 2026-10-24 |
-| `seo-4` | pass | `5266df62…` | 2026-10-22 |
-| `sharing-task-1` | partial | `98c97e53…` | 2026-10-24 |
-| `sidebar-accessibility-focus` | partial | `09e75972…` | 2026-10-24 |
-| `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
-| `skin-font-failure-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `skin-palette-contrast-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `skins-bootswatch-originals-1` | unavailable | `8b59f0a7…` | 2026-10-22 |
-| `snippet-parameter-reference` | pass | `47cc2e30…` | 2026-10-22 |
-| `snippets-1` | pass | `d0e281c2…` | 2026-10-22 |
-| `snippets-2` | pass | `47cc2e30…` | 2026-10-22 |
-| `snippets-3` | pass | `8b59f0a7…` | 2026-10-22 |
-| `snippets-4` | pass | `d0e281c2…` | 2026-10-22 |
-| `snippets-5` | pass | `65bb328b…` | 2026-10-18 |
-| `snippets-6` | pass | `65bb328b…` | 2026-10-18 |
-| `starter-1` | fail | `5266df62…` | 2026-10-22 |
-| `starter-2` | partial | `5266df62…` | 2026-10-22 |
-| `starter-demo-versus-site` | partial | `15036755…` | 2026-10-22 |
-| `theme-selector-demo-1` | partial | `8b59f0a7…` | 2026-10-22 |
-| `theming-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `theming-2` | partial | `8b59f0a7…` | 2026-10-22 |
-| `theming-3` | pass | `65bb328b…` | 2026-10-18 |
-| `theming-4` | pass | `47cc2e30…` | 2026-10-22 |
-| `theming-5` | pass | `65bb328b…` | 2026-10-18 |
-| `theming-6` | pass | `65bb328b…` | 2026-10-18 |
-| `toc-active-section` | pass | `47cc2e30…` | 2026-10-22 |
-| `troubleshoot-publishing-task-1` | partial | `15036755…` | 2026-10-22 |
-| `troubleshoot-yaml-task-1` | fail | `15036755…` | 2026-10-22 |
-| `variables-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `variables-2` | pass | `8b59f0a7…` | 2026-10-22 |
-| `variables-3` | pass | `8b59f0a7…` | 2026-10-22 |
-| `variables-unsupported` | pass | `5266df62…` | 2026-10-22 |
-| `version-task-1` | partial | `5266df62…` | 2026-10-22 |
+[Full per-case provenance and attempt versions](status-reconciliation-20261024.json)
+and [reconciliation notes](status-reconciliation-20261024.md). Historical raw
+responses, review labels and rubric audits remain unchanged.
+
+| Case | Latest assessed result | Answer Worker | Answer date (UTC) | Latest request | Request date (UTC) |
+| --- | --- | --- | --- | --- | --- |
+| `accessibility-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `accessibility-task-reference-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `analytics-ga4-setup-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `analytics-goat-setup-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-auto-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-font-task-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-sass-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `appearance-skin-task-1` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `assistant-session-history` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `beginner-image-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `beginner-post-1` | pass | `738414cb…` | 2026-10-22 | 200 | 2026-10-22 |
+| `beginner-publishing-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `bundled-font-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `canonical-article-task-1` | pass | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `carousel-accessibility-motion` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `cloud-demo-fragments` | partial | `5266df62…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `cloud-task-1` | partial | `5266df62…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `collection-filename-order` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `comments-cactus-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `comments-cusdis-task-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `comments-giscus-setup-1` | partial | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `comments-welcomments-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `community-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `community-165` | partial | `8b59f0a7…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `community-2` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `community-3` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `community-4` | pass | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `community-5` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `configuration-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `configuration-2` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `configuration-3` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `configuration-4` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `configuration-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `configuration-6` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `content-image-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `content-page-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `content-post-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `content-toc-task-1` | partial | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `custom-head-task-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `custom-search-script-dependencies` | pass | `dfb48928…` | 2026-10-24 | 200 | 2026-10-24 |
+| `documentation-appearance-topics` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-content-publishing-topics` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-identity-topics` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-installation-topics` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `documentation-search-topics` | no assessed answer | — | — | 503 / unavailable | 2026-10-22 |
+| `faq-1` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-2` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-3` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-4` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `faq-5` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `faq-6` | pass | `cd95fb43…` | 2026-10-18 | 200 | 2026-10-18 |
+| `favicon-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `feed-coexistence-1` | partial | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `feed-collection-output-1` | partial | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `feed-selection-1` | partial | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `feed-subscribe-link-en-1` | no assessed answer | — | — | 503 / unavailable | 2026-10-24 |
+| `feed-subscribe-link-es-1` | no assessed answer | — | — | 503 / unavailable | 2026-10-24 |
+| `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `format-caption-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `format-footnote-task-1` | fail | `15036755…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `goatcounter-analytics` | pass | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `icon-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `install-gem-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `install-remote-task-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-1` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-2` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-3` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `installation-4` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `installation-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `installation-6` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `javascript-resource-fallbacks` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-1` | partial | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-2` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-3` | pass | `64ee01ab…` | 2026-10-18 | 503 / unavailable | 2026-10-22 |
+| `layouts-4` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-6` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-7` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-head-formatting-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-include-cache-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-label-headings-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-microformats-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-microformats-feed-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `layouts-microformats-nested-feed-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `layouts-random-singleton-1` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `localized-date-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-carousel-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-diagram-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-gallery-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-photoswipe-task-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `media-video-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `migration-fields-lookup-1` | partial | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `migration-gem-choice-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `migration-theme-1` | partial | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-feed-navbar-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-person-ga4-1` | fail | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-toc-comments-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `mixed-toc-title-1` | pass | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `navigation-1` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `navigation-2` | partial | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `navigation-3` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `person-publisher-task-1` | partial | `ac010481…` | 2026-10-24 | 200 | 2026-10-24 |
+| `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `provider-algolia-task-1` | fail | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `provider-google-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `provider-lunr-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `provider-simplesearch-task-1` | pass | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `pwa-offline-status` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `reference-edge-cases-1` | pass | `cd95fb43…` | 2026-10-18 | 200 | 2026-10-18 |
+| `reference-edge-cases-2` | pass | `cd95fb43…` | 2026-10-18 | 200 | 2026-10-18 |
+| `reference-edge-cases-3` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `reference-edge-cases-4` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `reference-edge-cases-5` | fail | `8b59f0a7…` | 2026-10-22 | 503 / unavailable | 2026-10-22 |
+| `reference-edge-cases-6` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `related-card-dates-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `resources-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-comments-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-comments-2` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-comments-4` | partial | `1686b41b…` | 2026-10-24 | 200 | 2026-10-24 |
+| `search-comments-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 | 200 | 2026-10-18 |
+| `search-fusejs-setup-1` | pass | `fd7168ad…` | 2026-10-24 | 200 | 2026-10-24 |
+| `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `search-visibility-task-1` | pass | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `semantic-html-accessibility` | fail | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `seo-1` | pass | `253c4a59…` | 2026-10-24 | 200 | 2026-10-24 |
+| `seo-2` | pass | `09b4517c…` | 2026-10-24 | 200 | 2026-10-24 |
+| `seo-3` | pass | `ac010481…` | 2026-10-24 | 200 | 2026-10-24 |
+| `seo-4` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `sharing-task-1` | partial | `98c97e53…` | 2026-10-24 | 200 | 2026-10-24 |
+| `sidebar-accessibility-focus` | partial | `09e75972…` | 2026-10-24 | 200 | 2026-10-24 |
+| `site-details-edit-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `skin-font-failure-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `skin-palette-contrast-1` | partial | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `skins-bootswatch-originals-1` | pass | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `snippet-parameter-reference` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-1` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-2` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-3` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-4` | pass | `d0e281c2…` | 2026-10-22 | 200 | 2026-10-22 |
+| `snippets-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `snippets-6` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `starter-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `starter-2` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `starter-demo-versus-site` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `theme-selector-demo-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-2` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-3` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `theming-4` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `theming-5` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `theming-6` | pass | `65bb328b…` | 2026-10-18 | 200 | 2026-10-18 |
+| `toc-active-section` | pass | `47cc2e30…` | 2026-10-22 | 200 | 2026-10-22 |
+| `troubleshoot-publishing-task-1` | partial | `15036755…` | 2026-10-22 | 200 | 2026-10-22 |
+| `troubleshoot-yaml-task-1` | partial | not recorded | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-1` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-2` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-3` | pass | `8b59f0a7…` | 2026-10-22 | 200 | 2026-10-22 |
+| `variables-unsupported` | pass | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
+| `version-task-1` | partial | `5266df62…` | 2026-10-22 | 200 | 2026-10-22 |
 
 ## AI Search comparison — 22 October 2026
 
