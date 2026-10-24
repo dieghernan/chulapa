@@ -86,7 +86,7 @@ export function selectContext(context, question) {
   const seoScope = new Set();
   if (/canonical|republish|republic|can[oó]nic/i.test(question)) seoScope.add('Page metadata and article images');
   if (/publisher|publicador/i.test(question)) seoScope.add('Publisher, analytics and icon configuration');
-  if (/sharing.?image|social.*image|article illustration|imagen.*(?:social|compart)|og_image|schema_image/i.test(question)) seoScope.add('Page metadata and article images');
+  if (/sharing.?image|social.*image|article illustration|imagen.*(?:social|compart)|og_image|schema_image|seo_title|og_title|og_description|og_locale/i.test(question)) seoScope.add('Page metadata and article images');
   if (/noindex|(?:hide|exclud|ocult|exclu).*(?:crawler|sitemap|local search|buscador)|(?:crawler|sitemap).*(?:hide|exclud|ocult|exclu)/i.test(question)) {
     seoScope.add('SEO controls');
     if (/search|busc|algolia/i.test(question)) seoScope.add('Configuring site search');
@@ -109,7 +109,7 @@ export function selectContext(context, question) {
     const feedSelection = /all\s+posts|todos\s+los\s+(?:posts|art[ií]culos)|(?:include|exclude|enable|select|incluir|excluir|activar|seleccionar).*(?:posts?|articles?|documents?|collection|art[ií]culos|documentos|colecci[oó]n)|(?:enable|configure|activar|configurar).*built.?in.*feed|(?:set|configure|configurar).*include_on_feed/i.test(question);
     workflowScope.add(coexistence ? 'Feed coexistence' : 'Subscription feeds');
     if (coexistence && (migration || feedSelection)) workflowScope.add('Subscription feeds');
-    if (/your|this site|chulapa|latest|actual|[uú]ltim/i.test(question)) workflowScope.add('Public RSS feed');
+    if (/your|this site|chulapa|latest|actual|[uú]ltim|subscrib|suscrib|suscrip|vuestro|d[oó]nde|where|(?:feed|rss).*(?:url|link|enlace)|(?:url|link|enlace).*(?:feed|rss)/i.test(question)) workflowScope.add('Public RSS feed');
   }
   const focusedWorkflow = workflowScope.size > 0 && !/analytics|goatcounter|font|skin|mermaid|photoswipe|microformat|h-feed|giscus|disqus|cactus|welcomments|cusdis|browse|documentation|guides|gu[ií]as/i.test(question);
   if (focusedWorkflow) for (const title of workflowScope) seoScope.add(title);
@@ -172,9 +172,13 @@ export function selectContext(context, question) {
       (namedProviders.length > 0 || /comments?|comentarios?|providers?|proveedores?/i.test(question)));
   if (comparesProviders) {
     scores.set('Comments', (scores.get('Comments') || 0) + 30);
+    seoScope.add('Comments');
     for (const provider of providers) {
       const title = sections.find(section => section.title.toLowerCase() === `${provider} comments`)?.title;
-      if (title) scores.set(title, (scores.get(title) || 0) + 30);
+      if (title) {
+        scores.set(title, (scores.get(title) || 0) + 30);
+        seoScope.add(title);
+      }
     }
   }
   if (focusedContext) {

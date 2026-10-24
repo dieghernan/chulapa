@@ -1,5 +1,26 @@
 # Consolidated live evaluation log
 
+## Mixed-topic PR review fixes — 24 October 2026
+
+Addressed [provider inventories](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366373627),
+[RSS subscription URLs](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366343475)
+and [metadata with navigation](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366343476).
+Inventories/comparisons now populate the allowed focused scope as well as scores;
+explicit metadata keys and subscription/link intent retain their source sections.
+English/Spanish regressions and the complete local build/test suite pass:
+117 tests, zero failures. Context facts and byte budgets are unchanged.
+
+No live requests or deployment in this review round; current production remains
+dfb48928. README updated. Public docs, llms.txt and ai-context.md need no changes
+because this fixes retrieval of existing facts. No theme accessibility, SEO
+metadata or PWA behavior changes.
+
+Proposed next ten-question batch (not executed): three previous partials
+(search-comments-4, comments-giscus-setup-1, provider-algolia-task-1), plus TOC with
+comment inventory, TOC with seo_title, Person publisher with GA4, RSS in navbar,
+English subscription link, Spanish subscription link and gem-based migration.
+Record new mixed-case expectations before querying; retain all historical labels.
+
 ## Search dependencies: focused validation and closeout — 24 October 2026
 
 Worker `dfb48928-319f-4cfe-ba33-e2b77822f968`, confirmed 100% traffic.

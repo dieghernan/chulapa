@@ -5,6 +5,47 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('focused TOC questions retain requested provider inventories and comparisons', () => {
+  for (const question of [
+    'How do I enable show_toc, and which comment providers are available?',
+    '¿Cómo activo show_toc y qué proveedores de comentarios hay disponibles?',
+    'How do I enable show_toc and compare Giscus versus Disqus?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Mathematical notation and tables of contents'));
+    assert.ok(selected.titles.includes('Comments'));
+    for (const title of ['Giscus comments', 'Disqus comments', 'Cactus comments', 'Welcomments comments', 'Cusdis comments']) {
+      assert.ok(selected.titles.includes(title), `${question}: ${title}`);
+    }
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+});
+
+test('subscription and link questions retain the documented public feed URL', () => {
+  for (const question of [
+    'Where can I subscribe to the RSS feed?',
+    '¿Cuál es vuestro feed RSS?',
+    '¿Dónde me suscribo al RSS?',
+    'Give me the RSS link'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Public RSS feed'));
+    assert.match(selected.text, /https:\/\/dieghernan\.github\.io\/chulapa\/rss\.xml/);
+  }
+});
+
+test('focused navigation questions retain explicitly requested title metadata', () => {
+  for (const question of [
+    'How do I change seo_title and enable show_toc?',
+    '¿Cómo cambio seo_title y activo show_toc?'
+  ]) {
+    const selected = selectContext(context, question);
+    assert.ok(selected.titles.includes('Page metadata and article images'));
+    assert.ok(selected.titles.includes('Mathematical notation and tables of contents'));
+    assert.match(selected.text, /seo_title replaces complete browser\/structured title/);
+  }
+});
+
 test('custom search dependency failures retrieve the actual adapter and navigation references', () => {
   const selected = selectContext(context, 'I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?');
   assert.ok(selected.titles.includes('Layout structure and include caching'));
