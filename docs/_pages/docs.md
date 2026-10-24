@@ -28,6 +28,8 @@ Follow a guided path to your first result.
 Choose a task for a site you already have. Basic changes come first;
 search and comments are optional.
 
+### Site identity and content
+
 - [Change your site's name and author](./docs/14-site-details).
 - [Create a post](./docs/15-create-post) or [a page](./docs/16-create-page).
 - [Display an article date in another language](./docs/61-localize-date).
@@ -35,30 +37,60 @@ search and comments are optional.
 - Add [an alert box](./docs/49-add-alert), [an image caption](./docs/50-add-caption) or [a footnote](./docs/51-add-footnote).
 - [Add a Font Awesome icon](./docs/54-add-icon).
 - [Add tag and category indexes](./docs/63-tag-category-clouds).
+
+### Images, galleries and media
+
 - [Add an image](./docs/17-add-image) or [a photo gallery](./docs/29-add-gallery).
 - [Add a manual slideshow](./docs/30-add-carousel) or [enable PhotoSwipe](./docs/31-photoswipe).
 - [Embed a video](./docs/32-embed-video) or [add a Mermaid diagram](./docs/33-add-diagram).
+
+### Appearance and branding
+
 - [Choose a skin](./docs/22-choose-skin) or [change one color](./docs/23-change-color).
 - [Add a favicon](./docs/52-add-favicon) or [use the bundled font](./docs/53-chulapa-font).
 - [Change fonts](./docs/24-change-fonts) or [code highlighting](./docs/25-code-highlighting).
 - [Enable Autothemer](./docs/27-autothemer) or [adapt a Sass skin](./docs/28-custom-skin).
+
+### Navigation
+
 - [Add or change a menu link](./docs/10-edit-menu).
 - [Edit footer links](./docs/11-edit-footer).
+
+### Migration and starter examples
+
 - [Migrate from another theme](./docs/07-migration).
 - [Run and publish a starter example](./docs/09-run-starter): for readers who already use Jekyll.
+
+### Search
+
 - Enable local search with [Fuse.js](./docs/12-fusejs-search), [Lunr.js](./docs/34-lunr-search) or [Simple-Jekyll-Search](./docs/35-simplesearch-search).
 - Connect [Google Custom Search](./docs/36-google-search) or [Algolia and its index upload](./docs/37-algolia-search).
+
+### Comments and analytics
+
 - Connect comments: [giscus](./docs/13-giscus-comments), [Disqus](./docs/38-disqus-comments), [Cactus](./docs/39-cactus-comments) or [Welcomments](./docs/40-welcomments-comments).
 - [Reconnect an existing self-hosted Cusdis service](./docs/41-cusdis-comments): archived upstream; not a new hosted setup.
 - [Enable GoatCounter](./docs/18-goatcounter) or [Google Analytics 4](./docs/19-google-analytics).
+
+### SEO and social sharing
+
 - [Set a post's sharing text and images](./docs/64-post-sharing) or [control a page's search visibility](./docs/65-search-visibility).
 - [Point a republished article to its original URL](./docs/62-canonical-article).
 - [Identify a personal site's publisher](./docs/60-person-publisher).
+
+### Maintenance and troubleshooting
+
 - [Check accessibility and performance](./docs/06-accessibility-performance).
 - [Find missing changes](./docs/42-unpublished-changes) or [fix a YAML error](./docs/43-yaml-errors).
+
+### Feeds and advanced settings
+
 - [Publish posts in feeds](./docs/56-publish-feeds) or [keep an existing jekyll-feed address](./docs/57-jekyll-feed).
 - [Check your theme version](./docs/55-check-theme-version).
 - [Add custom HTML to the head](./docs/44-custom-head).
+
+### More help and installation
+
 - [More questions and formatting examples](./docs/05-faq).
 - [Install a remote theme](./docs/20-remote-theme) or [the theme gem](./docs/21-gem-theme) on an existing Jekyll site.
 
