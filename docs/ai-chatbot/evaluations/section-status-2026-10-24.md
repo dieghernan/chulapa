@@ -1,5 +1,24 @@
 # Response status by section — 24 October 2026
 
+## Scoped-rubric follow-up
+
+The [task-scope audit](task-scope-audit-20261024.md) preserves old rubrics and
+historical labels. Six fresh baseline answers under scoped criteria gave two
+passes/four partials; repeating only the four gaps gave two passes/two partials
+on `09b4517c-3705-4009-a1bf-af30be43b5b5`. See [the review](scoped-followup-after-20261024-review.md).
+The SEO row incorporates these version-specific scoped results; it must not be
+compared as an improvement percentage against the earlier broader rubric.
+Saved background-only omissions were not relabeled as fresh passes.
+
+## Feeds and migration update after the second Worker batch
+
+Final six cases on `253c4a59-bd7d-4336-b3f3-c407f11f81e0`: 1 pass, 5 partial,
+0 fail. The feeds/migration rows incorporate these outcomes. See the
+[final review](feeds-migration-final-20261024-review.md) for remaining gaps.
+Two SEO controls on the intermediate Worker remained partial; those results
+are not transferred to the final deployment. Other sections and AI Search
+remain historical. No new AI Search requests were made.
+
 ## SEO update after the first Worker batch
 
 Seven cases were reevaluated on Worker `ac010481-bedc-448a-94be-7512e5825e92`:
@@ -19,7 +38,8 @@ saved answers against current expectations; it is not a new live run.
 
 Pass/partial/fail below describe the latest reviewed answer quality available
 under that method. An unavailable retry does not erase the preceding quality
-finding; its separate column flags the later ten-case 503 batch. Cases with no
+finding; its separate column flags a later ten-case 503 batch unless a newer assessed
+answer supersedes that unavailable attempt. Cases with no
 assessable answer remain unavailable. Different versions are mixed only for
 backlog organization; no overall accuracy or current-runtime claim is made.
 
@@ -45,7 +65,7 @@ URL/guest-author answer is correct; this is a rubric-scope issue to review.
 | `custom-hooks` | 2 | 1 | 1 | 0 | 0 | 0 |
 | `documentation` | 5 | 0 | 4 | 0 | 1 | 1 |
 | `favicons` | 2 | 0 | 2 | 0 | 0 | 0 |
-| `feeds` | 5 | 2 | 2 | 1 | 0 | 1 |
+| `feeds` | 5 | 2 | 3 | 0 | 0 | 0 |
 | `fonts` | 4 | 3 | 1 | 0 | 0 | 0 |
 | `footer` | 2 | 1 | 1 | 0 | 0 | 0 |
 | `formatting` | 7 | 4 | 2 | 1 | 0 | 1 |
@@ -60,7 +80,7 @@ URL/guest-author answer is correct; this is a rubric-scope issue to review.
 | `math` | 1 | 1 | 0 | 0 | 0 | 0 |
 | `mermaid` | 2 | 1 | 1 | 0 | 0 | 0 |
 | `microformats` | 3 | 0 | 3 | 0 | 0 | 0 |
-| `migration` | 3 | 1 | 1 | 1 | 0 | 1 |
+| `migration` | 3 | 1 | 2 | 0 | 0 | 0 |
 | `navbar` | 2 | 2 | 0 | 0 | 0 | 0 |
 | `navigation` | 2 | 0 | 1 | 1 | 0 | 0 |
 | `publishing` | 2 | 0 | 2 | 0 | 0 | 0 |
@@ -68,7 +88,7 @@ URL/guest-author answer is correct; this is a rubric-scope issue to review.
 | `recommendations` | 3 | 2 | 1 | 0 | 0 | 0 |
 | `resources` | 2 | 0 | 2 | 0 | 0 | 0 |
 | `search` | 11 | 3 | 8 | 0 | 0 | 0 |
-| `seo` | 10 | 4 | 6 | 0 | 0 | 0 |
+| `seo` | 10 | 8 | 2 | 0 | 0 | 0 |
 | `skins` | 9 | 4 | 5 | 0 | 0 | 1 |
 | `snippets` | 1 | 1 | 0 | 0 | 0 | 0 |
 | `toc` | 4 | 2 | 2 | 0 | 0 | 1 |
@@ -84,9 +104,7 @@ URL/guest-author answer is correct; this is a rubric-scope issue to review.
 | `highlighting` | `reference-edge-cases-5` |
 | `navigation` | `navigation-2` |
 | `accessibility` | `semantic-html-accessibility` |
-| `migration` | `migration-fields-lookup-1` |
 | `formatting` | `format-footnote-task-1` |
-| `feeds` | `feed-selection-1` |
 
 ## AI Search: explicitly graded paired retest
 
@@ -117,8 +135,8 @@ Neither establishes section-wide quality under the new settings.
    remaining caveats and imprecise verification advice need follow-up.
 2. Accessibility and navigation: unsupported semantic claims and confusion
    between header project links, breadcrumbs and navbar configuration.
-3. Feeds, migration, footnotes and highlighting: unresolved incorrect answers;
-   subsequent 503 retries provide no new quality evidence.
+3. Footnotes and highlighting retain failed answers followed by unavailable
+   retries. Feeds/migration improved in the second batch but remain partial.
 4. Search, YAML, starter installation and custom script dependencies: some
    prior failures became partial, with required setup or diagnostic steps omitted.
 5. Layout-related sections: distinguish current omissions from outdated release

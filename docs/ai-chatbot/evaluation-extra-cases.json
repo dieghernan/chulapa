@@ -4,14 +4,14 @@
     "section": "seo",
     "doc": "04_layouts.md",
     "question": "How do I use a canonical URL for a republished article? Does it redirect visitors or change the sitemap?",
-    "expected": "canonical_url absoluteHTTP(S)/sitepath; no redirect; sitemap false excludesduplicate actualURL."
+    "expected": "Set canonical_url to original HTTP(S) URL or supported site path; no redirect. With jekyll-sitemap, sitemap: false excludes the copy actual URL; canonical alone does not change its sitemap entry. Do not claim anything is automatically included in the original site sitemap. Any example must preserve existing front matter."
   },
   {
     "id": "seo-2",
     "section": "seo",
     "doc": "04_layouts.md",
     "question": "Can I set different browser, social and visible titles, and a separate meta description?",
-    "expected": "seo_title og_title title and description; page description takes precedence."
+    "expected": "Distinguish seo_title (complete browser/structured title), og_title (social), title (visible) and page description precedence. If giving verification advice, inspect the rendered HTML title element and relevant meta tags; seo_title is a YAML key, not an emitted HTML tag."
   },
   {
     "id": "seo-3",
@@ -466,7 +466,7 @@
     "section": "migration",
     "doc": "46_migration-fields.md",
     "question": "Where can I look up old toc/comments/search front matter equivalents without following the whole migration procedure? Does search: false exclude Algolia records?",
-    "expected": "Cite /docs/46-migration-fields, a reference separate from /docs/07-migration task/checklist. Common patterns, not automatic conversions: toc true to show_toc true, page comments true to show_comments true plus configured provider/layout; search false to include_on_search false for local indexes only. Algolia exclusions use files_to_exclude, not this flag; Google indexing independent. Explicit page front matter wins over defaults. No bulk replacement or new options."
+    "expected": "Link /docs/46-migration-fields as a lookup separate from the whole migration procedure. Give toc:true to show_toc:true; comments:true to show_comments:true plus provider/comment-capable layout; search:false to include_on_search:false for local indexes only. Algolia uses files_to_exclude plus reupload; Google indexing independent. Do not imply automatic bulk conversion. Defaults-precedence explanation is optional without a defaults conflict. Use readable prose/code, not unrequested LaTeX."
   },
   {
     "id": "accessibility-task-reference-1",
@@ -529,21 +529,21 @@
     "section": "feeds",
     "doc": "57_jekyll-feed.md",
     "question": "Can I make jekyll-feed overwrite atom.xml, and will include_on_feed control the plugin?",
-    "expected": "No stable collision: keep separate feed.xml and preserve subscribers; include_on_feed controls theme feeds only; head still advertises built-in feeds; no invented disable flag."
+    "expected": "Reject unstable same-path overwrites of atom.xml/rss.xml. Preserve the established jekyll-feed /feed.xml address/dependency/plugin and subscribers. include_on_feed controls theme feeds only, never plugin selection. No invented disable flag or unrequested defaults replacement. Built-in head advertisement is optional unless head discovery links are asked about; never claim installing the plugin automatically replaces them."
   },
   {
     "id": "feed-selection-1",
     "section": "feeds",
     "doc": "56_publish-feeds.md",
     "question": "How do I include all posts in the built-in feed, exclude one, and include a standalone page?",
-    "expected": "Merge defaults posts include_on_feed boolean true; explicit false excludes one; resolved date required, explicitly date collections for Jekyll 3/4 consistency; standalone non-collection page not selected; verify atom.xml/rss.xml under baseurl and reader links. Collection output: true required to publish linked articles; feed inclusion alone does not publish them."
+    "expected": "Merge posts defaults include_on_feed:true without replacing existing defaults; explicit post false overrides it. Built-in feeds require a resolved date and select posts/collection documents, not ordinary standalone pages. If proposing collection inclusion, explain date and output:true publication requirements separately. Rebuild/publish and verify feed entries and article URLs with baseurl; opening a URL verifies publication and does not cause it."
   },
   {
     "id": "feed-collection-output-1",
     "section": "feeds",
     "doc": "56_publish-feeds.md",
     "question": "My collection document appears in atom.xml but its article URL returns 404. It has a date and include_on_feed: true. What is missing?",
-    "expected": "Check collection output: true in existing collections mapping; preserve other settings, rebuild and open article URL. Feed selection does not publish collection documents."
+    "expected": "Set output:true for the named collection within its existing collections mapping, preserving unrelated values. Feed selection alone does not publish articles. Rebuild and open the article URL to verify. Clear directions to merge into an existing mapping count as preservation; an extra stock warning sentence is not mandatory."
   },
   {
     "id": "content-toc-task-1",
@@ -557,7 +557,7 @@
     "section": "seo",
     "doc": "60_person-publisher.md",
     "question": "How do I make my personal blog publisher a Person? Will it replace a guest author, and do I need a logo?",
-    "expected": "Since v2.1.0. Default/fallback is Organization, not Person. Explicitly set type: Person in the existing publisher mapping, preserving fields and avoiding duplicates. Person ignores logo and uses image/site avatar. Publish/check JSON-LD publisher on home/post, URLs with baseurl; guest article authors unchanged. Does not guarantee search appearance."
+    "expected": "Edit only type: Person in the existing publisher mapping, preserving its other values. Guest article authors remain unchanged. Person ignores logo and uses image/site-author avatar; no logo is required. Give a relevant published JSON-LD check and setup source. Default Organization/version/preview background is optional unless asked, but any claims about it must be correct."
   },
   {
     "id": "localized-date-task-1",
@@ -571,7 +571,7 @@
     "section": "seo",
     "doc": "62_canonical-article.md",
     "question": "How do I republish an article while pointing to the original, and exclude the copy from my sitemap? Will visitors be redirected?",
-    "expected": "Merge canonical_url original absolute HTTP(S) URL into existing front matter; preserve copy permalink/content. No redirect; metadata/feed links change. With jekyll-sitemap sitemap: false excludes copy actual URL; canonical alone does not. Check published source canonical/og:url/JSON-LD, feed entry and sitemap; preserve per-page pagination canonicals."
+    "expected": "Merge canonical_url for the original and sitemap: false into the copy existing front matter without changing its address/content. State no redirect and that sitemap exclusion requires jekyll-sitemap; verify published canonical and copy URL absence from the sitemap. Feed and paginated-series checks are optional unless those features are asked about. All added advice must remain correct."
   },
   {
     "id": "cloud-task-1",
@@ -585,14 +585,14 @@
     "section": "seo",
     "doc": "64_post-sharing.md",
     "question": "How do I set a post sharing image and article illustration without changing its visible heading or inserting a photograph into the body?",
-    "expected": "Edit existing description/og_title/og_image/og_image_alt/schema_image; real uploaded image; preserve title. Social and BlogPosting image roles separate; no crops/inspection. Check generated tags/JSON and image URL/baseurl; no guaranteed preview or ranking."
+    "expected": "Use og_image for sharing and schema_image for post BlogPosting metadata, with descriptive og_image_alt and a real image path. Preserve visible title/header/body and existing front matter; no Liquid filters in YAML. Publish the image/post and verify generated metadata plus actual image URLs/baseurl. Separate description/og_title and crop/preview/ranking caveats are optional unless asked; never claim guaranteed previews or automatic crops."
   },
   {
     "id": "search-visibility-task-1",
     "section": "seo",
     "doc": "65_search-visibility.md",
     "question": "Can I hide my auxiliary page from crawlers, sitemap and local search just with noindex? What about Algolia?",
-    "expected": "Independent robots noindex follow, sitemap false with jekyll-sitemap, include_on_search false for Lunr/Fuse/Simple search; Algolia files_to_exclude and reupload. Public page remains accessible, no robots.txt block preventing noindex read; verify published metadata/sitemap/search. No automatic exclusions or instant crawler removal."
+    "expected": "Explain independent robots noindex, sitemap: false with jekyll-sitemap and include_on_search: false for local indexes. Algolia requires files_to_exclude and reupload; local flags do not exclude its records. Preserve existing page settings and check rebuilt metadata/sitemap/local and uploaded results. Never claim privacy, instant removal or that blocking robots.txt allows crawlers to read noindex. Exhaustive crawler caveats are optional unless asked, but the sitemap prerequisite is essential."
   },
   {
     "id": "cloud-demo-fragments",

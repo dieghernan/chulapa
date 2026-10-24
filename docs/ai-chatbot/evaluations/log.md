@@ -1,5 +1,153 @@
 # Consolidated live evaluation log
 
+## Essential follow-up: validation and closeout — 24 October 2026
+
+Four HTTP 200 answers on `09b4517c-3705-4009-a1bf-af30be43b5b5` under
+the audited rubric: **2 pass, 2 partial, 0 fail**. Browser-title verification
+and the sitemap-plugin prerequisite now pass; migration URL preservation is
+explicit, but override/preview instructions remain incomplete. Feed selection
+still omits date/defaults preservation despite correct include/exclude advice.
+[Review](scoped-followup-after-20261024-review.md),
+[raw](scoped-followup-after-20261024.jsonl) and
+[structured review](scoped-followup-after-20261024-review.json).
+
+Only four were repeated; two baseline canonical passes remain tied to the
+prior Worker. Ten Worker requests in this scoped follow-up, no retries or
+AI Search. 106 local tests passed. Historical broad-rubric records remain
+unchanged; no changed-rubric or cross-version aggregate accuracy claim.
+Source context stays within 57,000 bytes; no further inference is scheduled
+for cosmetic or unasked background details. Public docs/llms.txt already
+contain the facts; internal evaluation policy is documented in evaluation.md.
+
+## Essential follow-up: deployment — 24 October 2026
+
+Deployed `09b4517c-3705-4009-a1bf-af30be43b5b5` after 106 tests and a
+Wrangler dry-run passed. Clarified rendered HTML title inspection and that
+opening article URLs only verifies publication; prompt prioritizes migration
+URL/override preservation, merging defaults, dates/link checks and the sitemap
+plugin prerequisite. Consolidated duplicate context wording: 56,955 bytes,
+within the existing 57,000 budget. No selection/output-budget/model changes.
+[Artifact manifest](scoped-followup-deployment-20261024.json).
+Only four still-partial cases are repeated. Existing public guides already
+contain these facts; internal evaluation.md records the rubric policy, with no
+public guide/llms.txt, theme UI/SEO/PWA or AI Search changes.
+
+## Essential follow-up: scoped baseline — 24 October 2026
+
+Six fresh HTTP 200 answers on `253c4a59-bd7d-4336-b3f3-c407f11f81e0`
+under the audited task-scoped rubrics: **2 pass, 4 partial, 0 fail**. Canonical
+cases now complete their actual task; four still miss essential migration URL
+preservation, title verification, defaults preservation/link checks or the
+sitemap prerequisite. Only these four will receive another live request.
+[Review](scoped-followup-before-20261024-review.md),
+[raw](scoped-followup-before-20261024.jsonl) and
+[structured review](scoped-followup-before-20261024-review.json).
+No AI Search queries or retries. Counts are not directly comparable to earlier
+broader rubrics; the audit itself is not evidence of generation improvement.
+
+## Task-scope rubric audit — 24 October 2026
+
+Reviewed 11 partial cases against their actual questions and current guides.
+Six retain essential-error/prerequisite follow-up; four complete the asked task
+but were penalized for optional background, and one has a presentation-only
+LaTeX issue. Updated catalog expectations with explicit task boundaries and
+accuracy guards. Prior expectations, reasons and exact evidence versions/hashes
+are recorded in the [audit](task-scope-audit-20261024.md) and
+[audit JSON](task-scope-audit-20261024.json). Historical raw answers, reviews,
+labels and counts are unchanged; no new live passes are claimed by this audit.
+No inference, deployment, public guide or llms.txt change in this step.
+
+## Feeds and migration: final validation — 24 October 2026
+
+Six HTTP 200 answers on `253c4a59-bd7d-4336-b3f3-c407f11f81e0`:
+**1 pass, 5 partial, 0 fail, 0 unavailable**. Baseline was 1 pass/4 partial/1 fail;
+the intermediate round retained those six-case totals but introduced a different
+layout error. Final answers now correctly use default/header_type: post,
+exclude a single post with false, reject ordinary pages for built-in feeds and
+separate output:true publication from feed selection. Coexistence no longer
+adds an unrequested defaults recipe. Missing head-link/date/preservation details,
+LaTeX arrows and imprecise opening-versus-publishing wording remain partial.
+
+[Review](feeds-migration-final-20261024-review.md),
+[structured review](feeds-migration-final-20261024-review.json),
+[raw answers](feeds-migration-final-20261024.jsonl) and
+[artifact/version manifest](feeds-migration-final-deployment-20261024.json).
+Latest-status rows update six cases to this version and two SEO controls to the
+intermediate version, preserving their earlier evidence. Total: 20 Worker
+queries, zero retries and no AI Search calls. No measured neuron-savings claim.
+105 local tests passed; all four final YAML examples parsed, all six answer
+source-URL checks passed and artifact hashes match the deployment manifest.
+Wrangler reconfirmed the same final version at 100% after review.
+No public guide/llms.txt or theme UI/SEO/PWA change is
+needed. Sections remain partially resolved; no further live queries in this batch.
+
+## Feeds and migration: layout/coexistence deployment — 24 October 2026
+
+Deployed `253c4a59-bd7d-4336-b3f3-c407f11f81e0` after 105 local tests
+and Wrangler dry-run passed. Migration explicitly rejects the old layout: post
+and supplies default/header_type: post YAML. Plugin coexistence now has a
+separate section without a defaults recipe; ordinary feed selection keeps date,
+false override and output rules. Both feed sections remain available for whole
+migration; mapping examples use plain prose instead of arrow notation.
+
+[Artifact/version manifest](feeds-migration-final-deployment-20261024.json).
+Library is 56,996 bytes within the already reviewed 57,000 budget. Per-query
+cap and inference settings are unchanged. README documents the section split.
+No AI Search requests or public theme changes. Six-case live validation follows;
+the two earlier SEO controls remain evidence only for their recorded version.
+
+## Feeds and migration: first validation — 24 October 2026
+
+Eight HTTP 200 responses on `98c97e53-138a-4460-922f-b5487c2a3c82`:
+**1 pass, 6 partial, 1 fail**. The original six yield 1 pass/4 partial/1 fail;
+two SEO controls remain partial without reintroducing invalid image YAML or
+incorrect canonical exclusion. Feed selection now correctly excludes a post
+with false and rejects ordinary pages. Full migration introduces a different
+error: it treats layout: post as a built-in layout adding header_type. The
+coexistence answer still omits subscriber/head-link details and adds a recipe.
+These results do not establish overall quality improvement for the six.
+
+[Review](feeds-migration-after-20261024-review.md),
+[structured review](feeds-migration-after-20261024-review.json) and
+[raw answers](feeds-migration-after-20261024.jsonl).
+No retries or AI Search requests. A second focused correction will address the
+layout claim and isolate plugin coexistence from the posts-default recipe.
+
+## Feeds and migration: context deployment — 24 October 2026
+
+Deployed `98c97e53-138a-4460-922f-b5487c2a3c82` after 104 local tests
+and Wrangler dry-run passed. Added explicit single-post false override,
+standalone-page/date/collection-output constraints, built-in head advertisement
+and a separate migration-field reference with toc/comments/search mappings.
+Feed/mapping queries now select focused sections; mixed canonical/feed,
+Spanish, public RSS and inherited h-feed cases have offline regression coverage.
+
+[Deployed artifact manifest](feeds-migration-deployment-20261024.json).
+Reviewed source-library budget grows by 1,000 bytes to 57,000 (actual 56,987),
+including consolidation of a repeated feed warning. The per-query cap stays
+18,000; six selected contexts are 2,638–6,079 bytes. This does not establish
+measured neuron savings. Model, output budget, bindings, limiter and compatibility
+date are unchanged. README records selection/budget changes. Existing public
+guides already document these facts; no public guide/llms.txt or theme
+accessibility, generated SEO or PWA changes are needed. Live validation follows
+separately, with two SEO controls. No AI Search calls or paid fallback.
+
+## Feeds and migration: baseline — 24 October 2026
+
+Six cases, including collection-output regression control, were sent to Worker
+`ac010481-bedc-448a-94be-7512e5825e92` (100% traffic verified before queries).
+All returned HTTP 200: **1 pass, 4 partial, 1 fail**. Feed selection still
+incorrectly proposes a standalone page and denies the documented per-post
+false flag. Migration field lookup omits toc/comments mappings; coexistence
+and full migration answers omit required constraints. Collection-output advice
+is correct at its core but misses preservation and validation steps.
+
+[Review](feeds-migration-before-20261024-review.md),
+[structured review](feeds-migration-before-20261024-review.json) and
+[raw answers](feeds-migration-before-20261024.jsonl).
+No retries, AI Search queries or deployment in this round. Work continues on
+`fix/chatbot-feeds-migration`, based on the first SEO batch; PR #182 is unchanged.
+
 ## SEO batch 1: final validation — 24 October 2026
 
 Validated `ac010481-bedc-448a-94be-7512e5825e92` (100% traffic): seven
@@ -285,8 +433,8 @@ are not completed evaluation results.
 ## Latest status per tested catalog case
 
 This table lists the latest known outcome for all 160 catalog cases, based on
-the records available on 22 October 2026, with seven SEO rows updated after
-the reviewed 24 October batch above. The test date is taken from the latest
+the records available on 22 October 2026, with subsequent dated batch reviews
+updating only the cases they actually evaluated. The test date is taken from the latest
 timestamped live response in the JSONL evidence (UTC); blank dates mean no
 timestamped live response is recorded.
 Statuses are tied to the Worker version shown; a result from an older Worker
@@ -311,7 +459,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `beginner-post-1` | pass | `738414cb…` | 2026-10-22 |
 | `beginner-publishing-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `bundled-font-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `canonical-article-task-1` | partial | `ac010481…` | 2026-10-24 |
+| `canonical-article-task-1` | pass | `253c4a59…` | 2026-10-24 |
 | `carousel-accessibility-motion` | partial | `47cc2e30…` | 2026-10-22 |
 | `cloud-demo-fragments` | partial | `5266df62…` | 2026-10-22 |
 | `cloud-task-1` | partial | `5266df62…` | 2026-10-22 |
@@ -325,7 +473,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `community-165` | partial | `8b59f0a7…` | 2026-10-22 |
 | `community-2` | pass | `5266df62…` | 2026-10-22 |
 | `community-3` | pass | `5266df62…` | 2026-10-22 |
-| `community-4` | partial | `5266df62…` | 2026-10-22 |
+| `community-4` | pass | `253c4a59…` | 2026-10-24 |
 | `community-5` | partial | `5266df62…` | 2026-10-22 |
 | `config-author-profile-1` | pass | `65bb328b…` | 2026-10-18 |
 | `configuration-1` | pass | `47cc2e30…` | 2026-10-22 |
@@ -352,9 +500,9 @@ cells mean no live response for that case is present in the evaluation logs.
 | `faq-5` | pass | `223eaf7d…` | 2026-10-18 |
 | `faq-6` | pass | `cd95fb43…` | 2026-10-18 |
 | `favicon-task-1` | partial | `15036755…` | 2026-10-22 |
-| `feed-coexistence-1` | partial | `15036755…` | 2026-10-22 |
-| `feed-collection-output-1` | pass | `15036755…` | 2026-10-22 |
-| `feed-selection-1` | fail | `15036755…` | 2026-10-22 |
+| `feed-coexistence-1` | partial | `253c4a59…` | 2026-10-24 |
+| `feed-collection-output-1` | partial | `253c4a59…` | 2026-10-24 |
+| `feed-selection-1` | partial | `09b4517c…` | 2026-10-24 |
 | `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 |
 | `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `format-caption-task-1` | partial | `15036755…` | 2026-10-22 |
@@ -391,8 +539,8 @@ cells mean no live response for that case is present in the evaluation logs.
 | `media-photoswipe-task-1` | pass | `15036755…` | 2026-10-22 |
 | `media-video-task-1` | partial | `15036755…` | 2026-10-22 |
 | `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 |
-| `migration-fields-lookup-1` | fail | `15036755…` | 2026-10-22 |
-| `migration-theme-1` | partial | `47cc2e30…` | 2026-10-22 |
+| `migration-fields-lookup-1` | partial | `253c4a59…` | 2026-10-24 |
+| `migration-theme-1` | partial | `09b4517c…` | 2026-10-24 |
 | `navigation-1` | pass | `5266df62…` | 2026-10-22 |
 | `navigation-2` | fail | `5266df62…` | 2026-10-22 |
 | `navigation-3` | partial | `5266df62…` | 2026-10-22 |
@@ -420,14 +568,14 @@ cells mean no live response for that case is present in the evaluation logs.
 | `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
 | `search-fusejs-setup-1` | partial | `15036755…` | 2026-10-22 |
 | `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 |
-| `search-visibility-task-1` | partial | `ac010481…` | 2026-10-24 |
+| `search-visibility-task-1` | pass | `09b4517c…` | 2026-10-24 |
 | `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 |
 | `semantic-html-accessibility` | fail | `47cc2e30…` | 2026-10-22 |
-| `seo-1` | partial | `ac010481…` | 2026-10-24 |
-| `seo-2` | partial | `ac010481…` | 2026-10-24 |
+| `seo-1` | pass | `253c4a59…` | 2026-10-24 |
+| `seo-2` | pass | `09b4517c…` | 2026-10-24 |
 | `seo-3` | pass | `ac010481…` | 2026-10-24 |
 | `seo-4` | pass | `5266df62…` | 2026-10-22 |
-| `sharing-task-1` | partial | `ac010481…` | 2026-10-24 |
+| `sharing-task-1` | partial | `98c97e53…` | 2026-10-24 |
 | `sidebar-accessibility-focus` | partial | `47cc2e30…` | 2026-10-22 |
 | `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
 | `skin-font-failure-1` | partial | `8b59f0a7…` | 2026-10-22 |

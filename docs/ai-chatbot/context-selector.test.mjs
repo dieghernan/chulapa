@@ -5,6 +5,66 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('essential follow-up retains HTML title inspection and build versus link verification', () => {
+  const title = selectContext(context, 'Can I set different browser, social and visible titles?');
+  assert.match(title.text, /inspect HTML <title>, not a seo_title tag/);
+  const feed = selectContext(context, 'How do I include all posts in the feed and exclude one?');
+  assert.match(feed.text, /Opening the URL only verifies publication/);
+  const migration = selectContext(context, 'How do I migrate my existing site?');
+  assert.match(migration.text, /Preserve url\/baseurl\/permalink\/domain/);
+});
+
+test('feed tasks retain false overrides, date/collection boundaries and coexistence metadata', () => {
+  const selected = selectContext(context, 'How do I include all posts in the built-in feed, exclude one, and include a standalone page?');
+  assert.ok(selected.titles.includes('Subscription feeds'));
+  assert.ok(!selected.titles.includes('Basic editing and publishing'));
+  assert.match(selected.text, /include_on_feed: false in its front matter overrides true defaults/);
+  assert.match(selected.text, /Standalone pages outside collections are NOT selected/);
+  assert.match(selected.text, /explicitly date collections for Jekyll 3\/4 consistency/);
+  assert.match(selected.text, /output: true inside that collection's existing _config.yml collections mapping/);
+  const coexistence = selectContext(context, 'Can I make jekyll-feed overwrite atom.xml, and will include_on_feed control the plugin?');
+  assert.match(coexistence.text, /Standard head still advertises built-in Atom\/RSS/);
+  assert.match(coexistence.text, /include_on_feed controls theme feeds ONLY, never plugin selection/);
+  assert.doesNotMatch(coexistence.text, /```yaml/);
+});
+
+test('migration lookup selects concrete field mappings without an unrelated SEO procedure', () => {
+  const selected = selectContext(context, 'Where can I look up old toc/comments/search front matter equivalents without following the whole migration procedure? Does search: false exclude Algolia records?');
+  assert.ok(selected.titles.includes('Migration field mappings'));
+  assert.ok(!selected.titles.includes('SEO controls'));
+  assert.ok(!selected.titles.includes('Migrating an existing Jekyll site'));
+  assert.match(selected.text, /toc: true uses show_toc: true/);
+  assert.match(selected.text, /comments: true uses show_comments: true/);
+  assert.match(selected.text, /search: false uses include_on_search: false/);
+  assert.match(selected.text, /algolia.files_to_exclude plus reupload/);
+  assert.match(selected.text, /Explicit page front matter wins over defaults/);
+});
+
+test('feed and migration focus preserves Spanish, mixed canonical and microformat questions', () => {
+  const spanish = selectContext(context, 'Mi feed Atom está vacío aunque hay artículos. ¿Qué compruebo?');
+  assert.ok(spanish.titles.includes('Subscription feeds'));
+  const mixed = selectContext(context, 'Does a canonical URL affect my feed links?');
+  assert.ok(mixed.titles.includes('Subscription feeds'));
+  assert.ok(mixed.titles.includes('Page metadata and article images'));
+  const microformats = selectContext(context, 'How does inherited h-feed work?');
+  assert.ok(microformats.titles.includes('Inherited list microformats (v2.2.0)'));
+  const publicFeed = selectContext(context, 'What is your RSS feed URL?');
+  assert.ok(publicFeed.titles.includes('Public RSS feed'));
+});
+
+test('full migration retains replacement layout and both feed selection and coexistence', () => {
+  const selected = selectContext(context, 'I have layout: post and subscribers at /feed.xml. How do I migrate safely?');
+  assert.ok(selected.titles.includes('Migrating an existing Jekyll site'));
+  assert.ok(selected.titles.includes('Subscription feeds'));
+  assert.ok(selected.titles.includes('Feed coexistence'));
+  assert.match(selected.text, /Old layout: post is NOT a built-in layout/);
+  assert.match(selected.text, /```yaml\nlayout: default\nheader_type: post\n```/);
+  const collection = selectContext(context, 'My collection appears in atom.xml but its article returns 404.');
+  assert.ok(collection.titles.includes('Subscription feeds'));
+  assert.ok(!collection.titles.includes('Feed coexistence'));
+  assert.match(collection.text, /Feed opt-in does not publish articles/);
+});
+
 test('SEO editing tasks retain independent controls and plain-path metadata recipes', () => {
   const visibility = selectContext(context, 'Can I hide my auxiliary page from crawlers, sitemap and local search just with noindex? What about Algolia?');
   assert.match(visibility.text, /robots: "noindex, follow"\nsitemap: false\ninclude_on_search: false/);

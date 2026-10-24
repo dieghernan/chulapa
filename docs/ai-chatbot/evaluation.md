@@ -1,5 +1,27 @@
 # Live evaluation
 
+## Worker evaluation and task scope
+
+Current improvement batches use only `evaluate-live.mjs` and the production
+Worker; AI Search experiments below are historical/separate workflows and are
+not required for these batches. Select explicit case IDs by functional section,
+review each answer and update `evaluations/log.md` after each round.
+
+Assess whether an answer completes the actual question with correct facts,
+valid code, necessary prerequisites and preservation of existing settings.
+Any added advice must also be correct. Do not require an unrelated feature
+inventory, release history or every possible caveat merely because it appears
+in the reference. A cosmetic issue can be recorded separately from missing
+facts; do not spend another inference solely to satisfy an unasked detail.
+
+When a rubric is too broad, record its old and revised expectations, the reason
+and exact saved evidence in an audit before another run. Keep historical raw
+answers, reviews and labels unchanged. New evidence snapshots the revised
+expectation; never present changed-rubric counts as proof of generation
+improvement. The [October task-scope audit](evaluations/task-scope-audit-20261024.md)
+records the first application. Record Worker versions and deployment/source
+hashes; do not transfer a pass to a later deployment without a new answer.
+
 ## AI Search comparison
 
 `evaluate-live.mjs` remains the production-chatbot baseline. To evaluate the

@@ -64,6 +64,7 @@ const routes = [
   [/navbar|footer|menu|men[uú]|copyright|email/i, ['Navbar and footer']],
   [/canonical|robots|sitemap|seo|metadata|schema_image|og_|twitter|sharing.?image|article illustration|search.*(?:exclud|exclusion|visibility)|(?:exclud|exclusion).*search|excluding pages from results/i, ['SEO controls', 'Page metadata and article images']],
   [/feed|rss|atom|suscri/i, ['Subscription feeds', 'Public RSS feed']],
+  [/jekyll.feed|feed\.xml|coexist|collis/i, ['Feed coexistence']],
   [/alert|information\s+box|info\s+box|caja\s+(?:de\s+)?informaci[oó]n|recuadro\s+informativo|caption|footnote|pie de foto|nota al pie/i, ['Alerts, captions and footnotes']],
   [/favicon|manifest/i, ['Favicons']],
   [/custom.head|custom.css|custom.scss|hook|before.*css|end.*body|meta.?tag|application.?name/i, ['Custom hooks']],
@@ -91,6 +92,25 @@ export function selectContext(context, question) {
     if (/algolia/i.test(question)) seoScope.add('Algolia search');
   }
   const focusedSeo = seoScope.size > 0 && !/analytics|goatcounter|gtag|fa_kit|font awesome|rss|feeds?|shopping|carrito|browse|guides|documentation|gu[ií]as/i.test(question);
+  const workflowScope = new Set();
+  const migration = /migrat|migrar|migraci[oó]n/i.test(question);
+  const mappingLookup = migration && /lookup|look up|equivalent|equivalen|mappings?|field|campos/i.test(question);
+  const subscription = /\bfeeds?\b|\batom\b|\brss\b|include_on_feed/i.test(question) && !/h-feed|microformat/i.test(question);
+  if (mappingLookup) workflowScope.add('Migration field mappings');
+  else if (migration) {
+    workflowScope.add('Migrating an existing Jekyll site');
+    workflowScope.add('Remote-theme installation');
+    workflowScope.add('Migration field mappings');
+  }
+  if (subscription) {
+    const coexistence = /jekyll.feed|feed\.xml|overwrite|coexist|collis|sobrescrib/i.test(question);
+    workflowScope.add(coexistence ? 'Feed coexistence' : 'Subscription feeds');
+    if (coexistence && migration) workflowScope.add('Subscription feeds');
+    if (/your|this site|chulapa|latest|actual|[uú]ltim/i.test(question)) workflowScope.add('Public RSS feed');
+  }
+  const focusedWorkflow = workflowScope.size > 0 && !/analytics|goatcounter|font|skin|mermaid|photoswipe|microformat|h-feed|giscus|disqus|cactus|welcomments|cusdis|browse|documentation|guides|gu[ií]as/i.test(question);
+  if (focusedWorkflow) for (const title of workflowScope) seoScope.add(title);
+  const focusedContext = focusedSeo || focusedWorkflow;
   seoScope.add('Global settings');
   const sidebarOnly = /sidebar|sidetoc|lateral/i.test(question) && !/markdown|kramdown|gfm|content.?toc/i.test(question);
   const scores = new Map();
@@ -120,7 +140,7 @@ export function selectContext(context, question) {
       if (title) scores.set(title, (scores.get(title) || 0) + 30);
     }
   }
-  if (focusedSeo) {
+  if (focusedContext) {
     for (const title of seoScope) scores.set(title, (scores.get(title) || 0) + 20);
   }
   const routedTitles = new Set(scores.keys());
@@ -128,7 +148,7 @@ export function selectContext(context, question) {
     score: (scores.get(section.title) || 0) + words.reduce((score, word) => score +
       (section.title.toLowerCase().includes(word) ? 3 : 0) +
       (sectionWords[index].has(word) && frequency.get(word) <= Math.max(2, Math.floor(sections.length / 8)) ? 6 : 0), 0)
-  })).filter(section => section.score > 0 && (!focusedSeo || seoScope.has(section.title)) && (!sidebarOnly || section.title !== 'Markdown formatting') && (comparesProviders || !namedProviders.length ||
+  })).filter(section => section.score > 0 && (!focusedContext || seoScope.has(section.title)) && (!sidebarOnly || section.title !== 'Markdown formatting') && (comparesProviders || !namedProviders.length ||
     !providers.some(name => section.title.toLowerCase().startsWith(name)) ||
     namedProviders.some(name => section.title.toLowerCase().startsWith(name))))
     .sort((a, b) => Number(routedTitles.has(b.title)) - Number(routedTitles.has(a.title)) ||

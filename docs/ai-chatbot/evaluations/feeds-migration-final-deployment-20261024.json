@@ -1,0 +1,23 @@
+{
+  "worker_version": "253c4a59-bd7d-4336-b3f3-c407f11f81e0",
+  "traffic_percent": 100,
+  "source_reference": "ceaa258da95a8ab855b2cdbab855cddfc42db9da plus uncommitted feed/migration changes",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "max_completion_tokens": 450,
+  "temperature": 0.2,
+  "local_tests": 105,
+  "context_bytes": 56996,
+  "library_budget": 57000,
+  "max_selected_bytes": 18000,
+  "sha256": {
+    "worker.mjs": "e1daacb902156235ff65b36e0cbe445f4fd08165f55106bad58b646ece132c88",
+    "ai-context.md": "4168f1808e106c7e304f8a331f45524fdd9c094fdc007a325bed71c60a689b94",
+    "context-selector.mjs": "cf941a28d172681f6cb17d4b091c9402affcba6e13b868d5188f98a826f13801",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "8b35e21fa8f6d4eeccbeaaf0c1e67b99d84cfe2d7679ab1306541e033c46e875",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "607e01ea9ede318f1a5569a4a30512d62ab52ce837bf0f18c2d6ef297b5c2cb5",
+    "dashboard-worker.mjs": "13cba35156041613731194e395d007fb04b1123d11dcc3d84d07bf85e53cfee1"
+  },
+  "deployment": "Wrangler 4.150.0 deploy --keep-vars; existing model/bindings/rate limit/date/output budget retained"
+}

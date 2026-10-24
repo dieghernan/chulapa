@@ -11,7 +11,8 @@ const context = read('ai-context.md');
 // Reviewed: optional skin selector configuration, defaults and version limitations.
 // Reviewed: complete SEO exclusion/sharing recipes prevent observed invalid YAML and missing controls.
 // The source-library budget grows by 2 KB; per-request selection stays at 18,000 bytes.
-const maxContextBytes = 56000;
+// Reviewed: feed eligibility/exclusion and migration mappings after live failures; selection cap unchanged.
+const maxContextBytes = 57000;
 const contextBytes = Buffer.byteLength(context, 'utf8');
 if (contextBytes > maxContextBytes) {
   throw new Error(`Reviewed context is ${contextBytes} bytes; limit is ${maxContextBytes}. Consolidate facts or explicitly review the budget.`);

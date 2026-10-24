@@ -32,7 +32,7 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects a source library larger than **56,000 UTF-8 bytes**, before
+The build rejects a source library larger than **57,000 UTF-8 bytes**, before
 generating artifacts. This replaces the former 47,000-byte editorial budget: the
 reviewed increase preserves explicit provider boundaries and complete recipes
 rather than compressing instructions into ambiguous phrases. It is not the
@@ -40,7 +40,10 @@ per-request input budget or a model token limit. The additional 1,000 bytes
 cover the optional skin selector, independent settings and release limitations.
 The October 24 increase from 54,000 to 56,000 bytes adds complete SEO exclusion
 and sharing-image recipes, verification steps and canonical/analytics boundaries
-after live failures. Selected context remains capped at 18,000 bytes per request. Keep
+after live failures. The feed/migration batch adds a further 1,000 bytes for
+explicit per-post exclusion, collection/date eligibility, plugin coexistence and
+legacy-field mappings, consolidating the duplicated feed warning. Selected
+context remains capped at 18,000 bytes per request. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the
 budget requires an explicit review of the reason and coverage. Byte reduction

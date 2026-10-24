@@ -1,0 +1,36 @@
+{
+  "run": "scoped-followup-after-20261024",
+  "worker_version": "09b4517c-3705-4009-a1bf-af30be43b5b5",
+  "traffic_percent": 100,
+  "rubric": "task-scope-audit-20261024.json",
+  "raw": "scoped-followup-after-20261024.jsonl",
+  "totals": {
+    "requests": 4,
+    "pass": 2,
+    "partial": 2,
+    "fail": 0,
+    "unavailable": 0
+  },
+  "reviews": [
+    {
+      "id": "migration-theme-1",
+      "result": "partial",
+      "finding": "Now explicitly preserves url/baseurl/permalink and gives correct plugin/layout/feed migration. Still lacks actionable adaptation of useful overrides and explicit preview/publication steps."
+    },
+    {
+      "id": "seo-2",
+      "result": "pass",
+      "finding": "Correct four title/description roles, precedence, valid YAML and verification of the rendered HTML title element rather than an invented seo_title tag."
+    },
+    {
+      "id": "feed-selection-1",
+      "result": "partial",
+      "finding": "Correct include/exclude/standalone distinction and feed-entry verification; still omits required date and explicit existing-defaults merge. No claim that opening a URL publishes the article."
+    },
+    {
+      "id": "search-visibility-task-1",
+      "result": "pass",
+      "finding": "Correct independent three-field recipe, explicit jekyll-sitemap prerequisite, local-versus-Algolia exclusion/reupload and published results checks."
+    }
+  ]
+}
