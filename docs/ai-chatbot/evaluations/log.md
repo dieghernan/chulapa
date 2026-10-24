@@ -1,5 +1,128 @@
 # Consolidated live evaluation log
 
+## SEO batch 1: final validation — 24 October 2026
+
+Validated `ac010481-bedc-448a-94be-7512e5825e92` (100% traffic): seven
+HTTP 200 answers, **1 pass, 6 partial, 0 fail, 0 unavailable**. The five original
+fail/partial cases are now all partial (previous baseline: 3 fail, 2 partial).
+Two regression cases yielded one pass and one partial. Valid image YAML,
+unchanged visible content, correct copy exclusion and local/Algolia controls
+are observed improvements; the original-target sitemap overclaim, HTML title
+inspection advice and remaining caveats prevent declaring SEO complete.
+
+[Case review](seo-batch1-final-20261024-review.md),
+[structured review](seo-batch1-final-20261024-review.json),
+[raw answers](seo-batch1-final-20261024.jsonl) and
+[deployed artifact hashes](seo-batch1-final-deployment-20261024.json).
+Latest-status rows below are updated only for these seven cases; older evidence
+is retained. Total for this SEO batch: 17 Worker inference requests across three
+rounds, no retries or AI Search calls. Per-answer neuron use is unavailable.
+101 local tests passed. All seven final YAML examples parsed with Ruby/Psych;
+source-URL checks passed for all seven answers and artifact hashes match the
+deployment manifest. Wrangler reconfirmed the same version at 100% after review.
+Public docs/llms.txt already cover the facts; theme
+accessibility, generated SEO and PWA behavior did not change. No further queries
+were made to turn remaining partial answers into unsupported success claims.
+
+## SEO batch 1: focused-context deployment — 24 October 2026
+
+Deployed `ac010481-bedc-448a-94be-7512e5825e92` to 100% traffic after
+101 local tests and Wrangler dry-run passed. Clarified that sitemap exclusion
+targets the copy, supplied a type-only publisher edit and corrected exact social
+metadata names. Focused SEO selection now removes irrelevant tutorials,
+analytics and media sections; combined analytics/feed and documentation-discovery
+questions keep broader selection. English/Spanish and combined-scope regressions
+are covered locally. Five task contexts now contain 3,002–6,203 UTF-8 bytes;
+this does not independently establish neuron savings.
+
+[Artifact/version manifest](seo-batch1-final-deployment-20261024.json).
+Library is 55,983 bytes under the reviewed 56,000 budget; per-query cap stays
+18,000. Model, bindings, rate limit and compatibility date are unchanged.
+README describes selection behavior. Public guides already contain the facts;
+no llms.txt or theme UI/SEO/PWA change is needed. No AI Search requests.
+Live validation follows separately, including two previously passing SEO cases.
+
+## SEO batch 1: first validation — 24 October 2026
+
+Five post-deployment requests on `87bf899e-cfd1-47e7-b20c-523fa693a92b`
+returned HTTP 200: **0 pass, 4 partial, 1 fail**. Social-image YAML and local
+search exclusion improved. Canonical explanation now wrongly calls the original
+URL the sitemap exclusion target; the copy must be excluded. Other answers
+still omit rubric details; metadata guidance invents an `og:image/alt` tag.
+Do not treat these partial responses as completed corrections.
+
+[Review](seo-batch1-after-20261024-review.md),
+[structured review](seo-batch1-after-20261024-review.json) and
+[raw responses](seo-batch1-after-20261024.jsonl).
+No retries or AI Search requests. Next correction stays within this SEO batch.
+
+## SEO batch 1: context deployment — 24 October 2026
+
+Deployed Worker `87bf899e-cfd1-47e7-b20c-523fa693a92b` to 100% traffic
+with Wrangler 4.150.0, retaining existing variables, AI binding, rate limiter,
+model and compatibility date. Added plain-path social-image YAML, independent
+crawler/sitemap/local/Algolia controls, publisher avatar/check guidance and an
+explicit canonical-versus-GoatCounter boundary. Prompt reinforces these rules.
+
+All 100 local tests and Wrangler dry-run passed. Reviewed library budget grows
+from 54,000 to 56,000 UTF-8 bytes (actual 55,992); selected context remains capped
+at 18,000 bytes per request. The [artifact manifest](seo-batch1-deployment-20261024.json)
+records source hashes and deployed version. README documents the budget change.
+The existing public guides already contain these facts, so no public guide or
+llms.txt update is needed. Theme accessibility, rendered SEO and PWA behavior
+are unchanged. Live answer validation is recorded separately; deployment alone
+is not answer-quality evidence. No AI Search calls or configuration changes.
+
+## SEO batch 1: baseline — 24 October 2026
+
+Reevaluated the five SEO cases previously marked fail/partial on Worker
+`810c8961-e548-43e5-adb7-0a7e2501d65e` (100% traffic, verified before
+queries). All five requests returned HTTP 200; manual review found **0 pass,
+2 partial and 3 fail**. Canonical guidance incorrectly borrowed GoatCounter's
+cross-domain rule, social-image YAML was invalid and changed visible content,
+and search visibility omitted the local exclusion flag. Publisher/canonical
+recipes omitted preservation and verification details.
+
+[Review](seo-batch1-before-20261024-review.md),
+[structured review](seo-batch1-before-20261024-review.json) and
+[raw responses](seo-batch1-before-20261024.jsonl).
+No retries, deployment or AI Search requests in this round. These observations
+apply to the recorded version, not all SEO answers.
+
+## Response status by section — 24 October 2026
+
+Added a [section-level evidence summary](section-status-2026-10-24.md) using the
+corrected catalog sections, the per-case historical table and later explicit
+retests/manual reassessments. Unavailable retries are tracked separately from
+answer quality. Worker and AI Search results remain separate. This is a backlog
+inventory across historical revisions, not a current-runtime accuracy measure.
+No live requests, deployment or public documentation/context changes were made.
+
+## Catalog section review — 24 October 2026
+
+Reviewed the functional `section` of all 160 questions in the three evaluation
+catalogs and corrected 109 assignments. Replaced source-based groups (`faq`,
+`community`, `reference-edge-cases`) and mixed groups (`search-comments`) with
+functional topics. Filled missing sections and normalized capitalization.
+Split broad appearance, layout and configuration groups into areas such as
+`seo`, `layouts`, `include-cache`, `microformats`, `toc`, `navbar`, `footer`,
+`skins`, `autothemer`, `fonts`, `analytics`, `search` and `comments`.
+
+Use `section` as the primary subject of the requested task, rather than the
+source page or case-ID prefix. Cross-topic cases keep one primary section:
+search visibility spanning crawlers and indexes belongs to `seo`, snippet
+parameter comparisons to `snippets`, and guide-discovery questions to
+`documentation`. Community provenance remains in the catalog filename and
+source URL. IDs, questions, expected answers and historical evidence are
+unchanged; historical section labels in recorded runs are not rewritten.
+
+All 99 chatbot tests passed. A comparison against HEAD confirmed that only
+section fields changed in the catalogs. This is catalog maintenance, not an
+answer-quality correction or reevaluation. No live inference or deployment
+was performed. Public documentation, llms.txt and ai-context.md need no changes
+because supported behavior and advice are unchanged. Accessibility, SEO output
+and PWA behavior are unaffected.
+
 ## Autothemer review correction — 23 October 2026
 
 Addressed PR review comment
@@ -162,7 +285,8 @@ are not completed evaluation results.
 ## Latest status per tested catalog case
 
 This table lists the latest known outcome for all 160 catalog cases, based on
-the records available on 22 October 2026. The test date is taken from the latest
+the records available on 22 October 2026, with seven SEO rows updated after
+the reviewed 24 October batch above. The test date is taken from the latest
 timestamped live response in the JSONL evidence (UTC); blank dates mean no
 timestamped live response is recorded.
 Statuses are tied to the Worker version shown; a result from an older Worker
@@ -187,7 +311,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `beginner-post-1` | pass | `738414cb…` | 2026-10-22 |
 | `beginner-publishing-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `bundled-font-task-1` | partial | `47cc2e30…` | 2026-10-22 |
-| `canonical-article-task-1` | partial | `47cc2e30…` | 2026-10-22 |
+| `canonical-article-task-1` | partial | `ac010481…` | 2026-10-24 |
 | `carousel-accessibility-motion` | partial | `47cc2e30…` | 2026-10-22 |
 | `cloud-demo-fragments` | partial | `5266df62…` | 2026-10-22 |
 | `cloud-task-1` | partial | `5266df62…` | 2026-10-22 |
@@ -273,7 +397,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `navigation-2` | fail | `5266df62…` | 2026-10-22 |
 | `navigation-3` | partial | `5266df62…` | 2026-10-22 |
 | `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `person-publisher-task-1` | partial | `15036755…` | 2026-10-22 |
+| `person-publisher-task-1` | partial | `ac010481…` | 2026-10-24 |
 | `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 |
 | `provider-algolia-task-1` | partial | `15036755…` | 2026-10-22 |
 | `provider-google-task-1` | fail | `15036755…` | 2026-10-22 |
@@ -296,14 +420,14 @@ cells mean no live response for that case is present in the evaluation logs.
 | `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
 | `search-fusejs-setup-1` | partial | `15036755…` | 2026-10-22 |
 | `search-no-navbar-links-1` | pass | `15036755…` | 2026-10-22 |
-| `search-visibility-task-1` | fail | `15036755…` | 2026-10-22 |
+| `search-visibility-task-1` | partial | `ac010481…` | 2026-10-24 |
 | `second-photo-tutorial-1` | partial | `d0e281c2…` | 2026-10-22 |
 | `semantic-html-accessibility` | fail | `47cc2e30…` | 2026-10-22 |
-| `seo-1` | partial | `5266df62…` | 2026-10-22 |
-| `seo-2` | pass | `5266df62…` | 2026-10-22 |
-| `seo-3` | pass | `5266df62…` | 2026-10-22 |
+| `seo-1` | partial | `ac010481…` | 2026-10-24 |
+| `seo-2` | partial | `ac010481…` | 2026-10-24 |
+| `seo-3` | pass | `ac010481…` | 2026-10-24 |
 | `seo-4` | pass | `5266df62…` | 2026-10-22 |
-| `sharing-task-1` | fail | `15036755…` | 2026-10-22 |
+| `sharing-task-1` | partial | `ac010481…` | 2026-10-24 |
 | `sidebar-accessibility-focus` | partial | `47cc2e30…` | 2026-10-22 |
 | `site-details-edit-1` | partial | `15036755…` | 2026-10-22 |
 | `skin-font-failure-1` | partial | `8b59f0a7…` | 2026-10-22 |

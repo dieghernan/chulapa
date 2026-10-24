@@ -5,6 +5,35 @@ import { MAX_SELECTED_BYTES, selectContext, splitSections, unsupportedCitations 
 
 const context = readFileSync(new URL('./ai-context.md', import.meta.url), 'utf8');
 
+test('SEO editing tasks retain independent controls and plain-path metadata recipes', () => {
+  const visibility = selectContext(context, 'Can I hide my auxiliary page from crawlers, sitemap and local search just with noindex? What about Algolia?');
+  assert.match(visibility.text, /robots: "noindex, follow"\nsitemap: false\ninclude_on_search: false/);
+  assert.match(visibility.text, /reupload the index/);
+  const sharing = selectContext(context, 'How do I set a post sharing image and article illustration without changing its visible heading?');
+  assert.match(sharing.text, /og_image: \/assets\/img\/article.jpg\nog_image_alt: A street in Madrid at night\nschema_image: \/assets\/img\/article.jpg/);
+  assert.match(sharing.text, /do not add header_img for metadata-only tasks/);
+  const canonical = selectContext(context, 'How do I use a canonical URL for a republished article?');
+  assert.match(canonical.text, /external originals supported/);
+  for (const selected of [visibility, sharing, canonical]) {
+    assert.ok(Buffer.byteLength(selected.text, 'utf8') <= MAX_SELECTED_BYTES);
+  }
+});
+
+test('focused SEO selection excludes analytics contamination but preserves explicit combined scopes', () => {
+  const canonical = selectContext(context, 'How do I use a canonical URL for a republished article? Does it change the sitemap?');
+  assert.ok(canonical.titles.includes('Page metadata and article images'));
+  assert.ok(!canonical.titles.includes('GoatCounter analytics (v2.2.0)'));
+  assert.ok(!canonical.titles.includes('First-site tutorial'));
+  const publisher = selectContext(context, 'How do I make my personal blog publisher a Person?');
+  assert.ok(publisher.titles.includes('Publisher, analytics and icon configuration'));
+  assert.ok(!publisher.titles.includes('Image galleries and carousels'));
+  const combined = selectContext(context, 'How do canonical URLs affect GoatCounter analytics?');
+  assert.ok(combined.titles.includes('GoatCounter analytics (v2.2.0)'));
+  assert.ok(combined.titles.includes('Page metadata and article images'));
+  const spanish = selectContext(context, '¿Cómo configuro una imagen para compartir en redes sociales sin cambiar la cabecera?');
+  assert.ok(spanish.titles.includes('Page metadata and article images'));
+});
+
 test('light and dark selector questions receive activation, inheritance and version limits', () => {
   const selected = selectContext(context, 'How do I add the Light, Dark and Auto dropdown to my Chulapa site?');
   assert.ok(selected.titles.includes('Light/dark/auto selector'));

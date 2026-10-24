@@ -32,12 +32,15 @@ bundle check compares the generated Worker bundle's context with `ai-context.md`
 catch stale or incomplete generated content.
 
 Review `ai-context.md` against the public documentation before deployment.
-The build rejects a source library larger than **54,000 UTF-8 bytes**, before
+The build rejects a source library larger than **56,000 UTF-8 bytes**, before
 generating artifacts. This replaces the former 47,000-byte editorial budget: the
 reviewed increase preserves explicit provider boundaries and complete recipes
 rather than compressing instructions into ambiguous phrases. It is not the
 per-request input budget or a model token limit. The additional 1,000 bytes
-cover the optional skin selector, independent settings and release limitations. Keep
+cover the optional skin selector, independent settings and release limitations.
+The October 24 increase from 54,000 to 56,000 bytes adds complete SEO exclusion
+and sharing-image recipes, verification steps and canonical/analytics boundaries
+after live failures. Selected context remains capped at 18,000 bytes per request. Keep
 supported settings, defaults, release caveats, complete small examples and exact
 source URLs; consolidate repeated advice before adding material. Increasing the
 budget requires an explicit review of the reason and coverage. Byte reduction
@@ -63,6 +66,9 @@ aliases, heading/parameter matches and uncommon body terms, including common Spa
 keeps the version/preservation instructions and documentation directory, adds
 relevant task/reference sections and caps the selected source context at 18,000
 UTF-8 bytes. Code fences are not split, including headings inside tutorial code.
+Focused canonical, publisher, social-image and search-exclusion tasks retain only
+relevant SEO/reference sections plus global settings. Explicit analytics/feed
+combinations and guide-discovery questions retain the broader selection.
 No embedding service, extra model call, network retrieval or conversation history
 is used. The full source library remains bundled for other questions.
 

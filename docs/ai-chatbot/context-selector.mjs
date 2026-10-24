@@ -79,6 +79,19 @@ const routes = [
 
 export function selectContext(context, question) {
   const sections = splitSections(context);
+  // Focused SEO tasks should not inherit unrelated analytics/media recipes.
+  // Combine scopes when the visitor asks about more than one SEO operation.
+  const seoScope = new Set();
+  if (/canonical|republish|republic|can[oó]nic/i.test(question)) seoScope.add('Page metadata and article images');
+  if (/publisher|publicador/i.test(question)) seoScope.add('Publisher, analytics and icon configuration');
+  if (/sharing.?image|social.*image|article illustration|imagen.*(?:social|compart)|og_image|schema_image/i.test(question)) seoScope.add('Page metadata and article images');
+  if (/noindex|(?:hide|exclud|ocult|exclu).*(?:crawler|sitemap|local search|buscador)|(?:crawler|sitemap).*(?:hide|exclud|ocult|exclu)/i.test(question)) {
+    seoScope.add('SEO controls');
+    if (/search|busc|algolia/i.test(question)) seoScope.add('Configuring site search');
+    if (/algolia/i.test(question)) seoScope.add('Algolia search');
+  }
+  const focusedSeo = seoScope.size > 0 && !/analytics|goatcounter|gtag|fa_kit|font awesome|rss|feeds?|shopping|carrito|browse|guides|documentation|gu[ií]as/i.test(question);
+  seoScope.add('Global settings');
   const sidebarOnly = /sidebar|sidetoc|lateral/i.test(question) && !/markdown|kramdown|gfm|content.?toc/i.test(question);
   const scores = new Map();
   for (const [pattern, titles] of routes) {
@@ -107,12 +120,15 @@ export function selectContext(context, question) {
       if (title) scores.set(title, (scores.get(title) || 0) + 30);
     }
   }
+  if (focusedSeo) {
+    for (const title of seoScope) scores.set(title, (scores.get(title) || 0) + 20);
+  }
   const routedTitles = new Set(scores.keys());
   const ranked = sections.map((section, index) => ({ ...section, index,
     score: (scores.get(section.title) || 0) + words.reduce((score, word) => score +
       (section.title.toLowerCase().includes(word) ? 3 : 0) +
       (sectionWords[index].has(word) && frequency.get(word) <= Math.max(2, Math.floor(sections.length / 8)) ? 6 : 0), 0)
-  })).filter(section => section.score > 0 && (!sidebarOnly || section.title !== 'Markdown formatting') && (comparesProviders || !namedProviders.length ||
+  })).filter(section => section.score > 0 && (!focusedSeo || seoScope.has(section.title)) && (!sidebarOnly || section.title !== 'Markdown formatting') && (comparesProviders || !namedProviders.length ||
     !providers.some(name => section.title.toLowerCase().startsWith(name)) ||
     namedProviders.some(name => section.title.toLowerCase().startsWith(name))))
     .sort((a, b) => Number(routedTitles.has(b.title)) - Number(routedTitles.has(a.title)) ||

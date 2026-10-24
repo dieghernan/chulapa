@@ -29,7 +29,7 @@
   },
   {
     "id": "navigation-1",
-    "section": "navigation",
+    "section": "recommendations",
     "doc": "04_layouts.md",
     "question": "Why are related and random cards empty, and will random cards change on every reload?",
     "expected": "tagcandidatepool2same3differenttagthreshold; <=3; buildtime notonreload."
@@ -78,14 +78,14 @@
   },
   {
     "id": "variables-unsupported",
-    "section": "variables",
+    "section": "chatbot",
     "doc": "99_variable-dict.md",
     "question": "Which Chulapa variable sets the chatbot model temperature?",
     "expected": "No documented Sass variable for model temperature; acknowledge missing context and do not invent a setting."
   },
   {
     "id": "mermaid-1",
-    "section": "layouts",
+    "section": "mermaid",
     "doc": "04_layouts.md",
     "question": "How do I enable Mermaid diagrams? Does this work with the v2.1.0 gem and what happens if the CDN fails?",
     "expected": "v2.2.0 only; mermaid: true YAML boolean and fenced mermaid block; no extra plugin; CDN loads only enabled diagrams; source remains on failure."
@@ -113,74 +113,84 @@
   },
   {
     "id": "resources-1",
-    "section": "configuration",
+    "section": "resources",
     "doc": "06_accessibility-performance.md",
     "question": "With the development theme, where does the Chulapa font load from and does configuring Cactus load it on every page?",
     "expected": "Font served from installed theme assets with baseurl in preload and CSS; Cactus script and stylesheet only when show_comments is true; Google Fonts and Font Awesome still external. Not in v2.1.0."
   },
   {
     "id": "toc-active-section",
+    "section": "toc",
     "question": "How do I highlight the current section in the sidebar table of contents? Does this change keyboard focus or need another YAML setting?",
     "expected": "v2.2.0: automatic highlighting for show_toc, show_sidetoc and kramdown TOCs with JavaScript and aria-current location. No additional YAML setting; only included, rendered headings (skip closed or hidden containers); sidebar Tab order and keyboard focus unchanged. Anchor links work without JavaScript.",
     "doc": "04_layouts.md"
   },
   {
     "id": "photoswipe-gallery",
+    "section": "galleries",
     "doc": "04_layouts.md",
     "question": "How do I enable a PhotoSwipe lightbox on a masonry gallery? Is there a page YAML option or Jekyll plugin, and does this work in v2.1.0?",
     "expected": "v2.2.0 only. include_cached snippets/masonry.html internal=\"gallery\" photoswipe=true; boolean Liquid include parameter, no page YAML setting or extra plugin. Default disabled, CDN assets load when an image is opened, original image links work without JavaScript. Each gallery isolated; keyboard/Escape/focus restoration and reduced motion. Also works for carousel. Verify opening/closing an image and focus restoration after publishing."
   },
   {
     "id": "goatcounter-analytics",
+    "section": "analytics",
     "doc": "02_config.md",
     "question": "How do I add GoatCounter to Chulapa? Does setting it replace Google Analytics and track localhost development? Does it use canonical URLs, and should I also insert the tracker in a custom hook?",
     "expected": "v2.2.0: goatcounter is the complete public HTTPS /count endpoint, hosted or self-hosted. Create site in GoatCounter separately; no API key/plugin. Official async gc.zgo.at/count.js only in JEKYLL_ENV=production; default disabled, development excluded and upstream ignores localhost. Google unchanged; clear gtag_id and analytics_id to use only GoatCounter. No live counter widget/custom events. Not in v2.1.0. Prefers the path from a same-domain canonical URL (www equivalent); otherwise browser path. Ignores cross-domain canonicals. Chulapa provides canonical links including baseurl; no extra tag or duplicate tracker in custom hooks needed."
   },
   {
     "id": "collection-filename-order",
+    "section": "collections",
     "doc": "04_layouts.md",
     "question": "How do I list a collection as cards in ascending filename order? Is that the default, and do gallery files use the same field?",
     "expected": "Use layout: indexcategory, include_collection with the desired collection, index_sort: name and index_sort_asc: true. Default field name and default descending order; index_items defaults to 10 and limits after sorting. Internal masonry/carousel static files use index_sort=\"basename\" and index_sort_asc=true, not the document name field."
   },
   {
     "id": "javascript-resource-fallbacks",
+    "section": "resources",
     "doc": "04_layouts.md",
     "question": "Does deferred YouTube load the player API before I click? If the jQuery CDN fails, can I still copy code? Does pressing Enter in Lunr search reload the page? Does floating navigation work on the search layout?",
     "expected": "v2.2.0 on main, not v2.1.0: deferred YouTube inserts a youtube-nocookie iframe on activation without loading player API beforehand; requests autoplay subject to browser policy; noscript link available. Native copying and accessible feedback work without jQuery/Bootstrap, graphical tooltips require them. Lunr index reused; input debounced 150ms, Enter immediately searches without reload. Floating navigation works on search pages using a shared navigation script."
   },
   {
     "id": "custom-search-script-dependencies",
+    "section": "search",
     "doc": "04_layouts.md",
     "question": "I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?",
     "expected": "v2.2.0: direct readable/minified Lunr and Fuse adapters require assets/js/chulapa_search.js before initialization, plus their provider library and generated store before the adapter. Standard search layout handles dependencies. Update local overrides together. Custom document shells should include components/scripts.html once for Bootstrap dependencies and chulapa_navigation.js for fab/dual; layouts inheriting minimal/search already handle it. No new YAML options. Link JavaScript assets and local overrides and complete demo sources."
   },
   {
     "id": "assistant-session-history",
+    "section": "chatbot",
     "doc": "2026-10-09-building-a-documentation-chatbot.md",
     "question": "The documentation chat shows my old messages after reloading. Does the AI remember them when I ask a follow-up question?",
     "expected": "Displayed messages/draft can be restored from sessionStorage in the current tab. Each request sends only the current question; displayed history is not model conversation context. Include needed details in each question. Clear chat resets the saved messages/draft. This assistant is a docs-site extension, not bundled in the theme."
   },
   {
     "id": "semantic-html-accessibility",
-    "section": "Accessibility",
+    "section": "accessibility",
     "question": "En la versión de desarrollo, ¿qué mejoras semánticas tiene Chulapa para lectores de pantalla y teclado? ¿Tengo que activar algo en YAML?",
     "expected": "v2.2.0 changes after v2.1.0: logical list/search headings, named thumbnail links, current-page navbar destinations, native dropdown/carousel buttons supporting Enter/Space, search landmarks and polite Lunr/Fuse result-count announcements, labelled Welcomments comment field and no empty author aside when disabled. No new YAML settings and no WCAG certification. Link accessibility/performance guide. Do not claim announcements for Google, Algolia or Simple-Jekyll-Search.",
     "doc": "06_accessibility-performance.md"
   },
   {
     "id": "carousel-accessibility-motion",
+    "section": "galleries",
     "doc": "04_layouts.md",
     "question": "¿El carrusel respeta el movimiento reducido? ¿Cómo lo pauso y uso los indicadores con teclado? ¿Necesito YAML nuevo?",
     "expected": "v2.2.0 after v2.1.0: positive interval and more than one slide show play/pause Font Awesome icon button with Bootstrap, accessible Start/Pause slideshow names and a visible symbol fallback when icons fail; interval=0 disables cycling and hides button. Reduced motion starts paused; keyboard/pointer interaction pauses until explicit start, hover pauses temporarily on hover-capable devices. Preference change to reduce stops rotation and change back does not restart. Indicators are named native buttons with current state and Enter/Space. New local controller loaded by standard layouts. No new YAML. Link carousel and accessibility guide. Carousel include owns its deferred ES module; repeated/cached includes share one fetch/execution, including custom layout-owned carousels. Custom shells still supply Bootstrap via components/scripts.html before closing body."
   },
   {
     "id": "sidebar-accessibility-focus",
+    "section": "toc",
     "doc": "06_accessibility-performance.md",
     "question": "Con el TOC lateral cerrado, ¿sus enlaces siguen entrando en Tab? ¿Escape funciona? ¿Atrapa el foco al abrirse?",
     "expected": "v2.2.0: closed sidebar is inert and aria-hidden, so offscreen controls are outside focus order. Open sidebar keeps existing Tab order through close button and links. Escape from panel/trigger closes and returns focus to trigger; button/overlay close also restores focus. It is not modal and does not trap focus. No new YAML option. Link accessibility guide."
   },
   {
     "id": "pwa-offline-status",
+    "section": "pwa",
     "doc": "06_accessibility-performance.md",
     "question": "¿Chulapa ya es una PWA? ¿Hay una opción YAML para usarla offline, incluido el chatbot?",
     "expected": "Reusable theme has no built-in service worker, offline cache or PWA YAML option. Docs favicon manifest has standalone display and 192/384 icons but no explicit start_url/scope or 512 icon; manifest alone does not establish cross-browser installability or offline support. PWA customization requires site-specific manifest/HTTPS/baseurl/icon and caching/update/fallback review. External dependencies and live AI require connectivity; do not claim offline chatbot. Link PWA/offline section of accessibility guide."
@@ -201,49 +211,49 @@
   },
   {
     "id": "beginner-publishing-1",
-    "section": "faq",
+    "section": "publishing",
     "doc": "05_faq.md",
     "question": "I changed my title in GitHub but my website still shows the old name. What should I check first?",
     "expected": "Save with Commit changes on publishing branch; inspect Actions and wait for success or read error; open address in Settings > Pages and refresh. No need to install Ruby or rewrite theme internals. Restart Jekyll only if previewing locally."
   },
   {
     "id": "snippet-parameter-reference",
-    "section": "layouts",
+    "section": "snippets",
     "doc": "04_layouts.md",
     "question": "Can I put photoswipe in page YAML, use nolazy with snippets/youtube.html, or omit provider when embedding a video?",
     "expected": "PhotoSwipe is an unquoted include boolean photoswipe=true on masonry/carousel, not page YAML. Direct youtube.html is always deferred; nolazy is supported by video.html with provider=\"youtube\". Hosted video.html needs provider and id; fileurl takes precedence for a local file. Link snippet reference and video instructions; no invented settings."
   },
   {
     "id": "navigation-edit-existing-1",
-    "section": "configuration",
+    "section": "navbar",
     "doc": "10_edit-menu.md",
     "question": "My site is https://ana.github.io/my-blog and I want to add an existing /contact/ page to the menu. Do I replace navbar or include /my-blog in the link?",
     "expected": "Edit existing navbar.nav in _config.yml, adding or modifying a title/url entry with url: /contact/, not /my-blog/contact/. Preserve other links and navbar brand/style/expand; do not duplicate navbar. The page must already exist; the link does not create it. Commit to publishing branch, wait for Actions and check the published menu including narrow screens. Cite the menu how-to, with navbar reference for advanced options."
   },
   {
     "id": "footer-edit-existing-1",
-    "section": "configuration",
+    "section": "footer",
     "doc": "11_edit-footer.md",
     "question": "How do I update the footer email and keep my other links and copyright?",
     "expected": "Edit existing footer.links entries in _config.yml with label, icon and a plain email address as url, without mailto:. Preserve other links and copyright; no second footer section. Commit, wait for publication, test the contact link. Reference the footer links how-to and retain the full footer reference for copyright details."
   },
   {
     "id": "search-fusejs-setup-1",
-    "section": "configuration",
+    "section": "search",
     "doc": "12_fusejs-search.md",
     "question": "I want Fuse.js search at /find on my site under /my-blog. Is setting search.provider enough?",
     "expected": "No. Set search.provider: fusejs and search.landing_page: /find, and create or reuse one search page with layout: search and permalink: /find. Do not repeat /my-blog; theme adds baseurl. No account/API key/extra Jekyll plugin needed. Template already has Fuse.js, so avoid duplicate pages. Publish and test a known title; local index rebuilt during site build."
   },
   {
     "id": "comments-giscus-setup-1",
-    "section": "configuration",
+    "section": "comments",
     "doc": "13_giscus-comments.md",
     "question": "I set comments.provider to giscus but see no comments on my post. What else do I need?",
     "expected": "Use giscus.app setup with public repo, Discussions and app installed; generated embed belongs in _includes/custom/giscus.html (starter file is comment-only). Enable show_comments: true in post front matter with a supported layout such as default, keeping other fields. Publish and verify embed/thread, settings and blockers if absent. Existing repo/category/page mapping matters; no automatic migration of threads."
   },
   {
     "id": "search-no-navbar-links-1",
-    "section": "configuration",
+    "section": "search",
     "doc": "12_fusejs-search.md",
     "question": "My Fuse.js page exists, but there is no Search link in my classic navbar and I have no navbar.nav. Is search broken?",
     "expected": "Not necessarily. Classic and desktop dual Search items require navbar.nav. The search page works directly at its permalink matching search.landing_page; include the real baseurl in the browser address, not in these settings. Open that address or configure navbar.nav using the menu guide. A provider does not create the page. No theme bug or need to reinstall the theme."
@@ -292,7 +302,7 @@
   },
   {
     "id": "related-card-dates-1",
-    "section": "navigation",
+    "section": "recommendations",
     "doc": "04_layouts.md",
     "question": "How do I hide build dates on related documentation cards? Do I need a new card setting?",
     "expected": "In v2.2.0 use existing show_date: false on candidate documents or collection defaults. Hides their date footer in related and random cards. Controls candidate display not selection/ranking; no new option, other candidates keep existing display."
@@ -313,63 +323,63 @@
   },
   {
     "id": "appearance-skin-task-1",
-    "section": "theming",
+    "section": "skins",
     "doc": "22_choose-skin.md",
     "question": "How do I change my published site to journal without losing my other design settings?",
     "expected": "Edit existing chulapa-skin.skin journal preserve vars/settings; exact name, no duplicate sections; commit Actions published home/article/mobile, overrides can preserve old colors; preview choice not saved; local Jekyll restart."
   },
   {
     "id": "appearance-font-task-1",
-    "section": "theming",
+    "section": "fonts",
     "doc": "24_change-fonts.md",
     "question": "I loaded Rubik from Google Fonts but my text did not change. What should I edit?",
     "expected": "Loading stylesheet alone insufficient; set font-family-base under existing chulapa-skin.vars, optional headings-font-family, quoted lists/fallbacks, preserve entries; rebuild/publish/local restart, check actual body/headings and external stylesheet availability."
   },
   {
     "id": "appearance-auto-task-1",
-    "section": "theming",
+    "section": "autothemer",
     "doc": "27_autothemer.md",
     "question": "Can Autothemer replace every color of my current skin? What if I set autothemer false while using skin auto?",
     "expected": "No, fills undefined; vars overrides skin and assigned colors persist. none plus autothemer true allows unassigned palette generation; preserving skin preserves explicit assignments. false only disables later generation step, skin auto independently imports generator; no new setting."
   },
   {
     "id": "appearance-sass-task-1",
-    "section": "theming",
+    "section": "skins",
     "doc": "28_custom-skin.md",
     "question": "How do I adapt my Sass palette through Codeply or a local custom skin?",
     "expected": "Preview SCSS assignments above existingimports, preserve Bootstrap/grid no second import; translate to vars dropping $/semicolon quote hex, font URL separate. Or _sass/skins/NAME.scss SCSS with !default, skin NAME in config, never YAML in Sass; Sunset palette not full skin CSS; rebuild/publish/contrast and mobile checks."
   },
   {
     "id": "media-gallery-task-1",
-    "section": "snippets",
+    "section": "galleries",
     "doc": "29_add-gallery.md",
     "question": "I have uploaded 01-coast.jpg and 02-harbour.jpg. How do I display them in filename order as a gallery?",
     "expected": "Link to /docs/29-add-gallery. Append a scoped defaults entry for the actual uploaded folder with image_col: gallery, preserve unrelated defaults, then include_cached snippets/masonry.html internal=\"gallery\" index_sort=\"basename\" index_sort_asc=true in Markdown body. Parameters are not page YAML; unquoted booleans. Commit, wait for build, check published gallery and folder/group if empty. Do not invent per-image alt/caption parameters. Selected index_sort filename ordering needs v2.2.0; explicitly warn that the v2.1.0 release does not correctly apply this sort field."
   },
   {
     "id": "media-carousel-task-1",
-    "section": "snippets",
+    "section": "galleries",
     "doc": "30_add-carousel.md",
     "question": "How can I show my existing gallery as a slideshow that does not advance by itself?",
     "expected": "Link to /docs/30-add-carousel. Reuse image_col group, include_cached snippets/carousel.html internal=\"gallery\" interval=0 controls=true indicators=true, retain desired ordering. Unquoted 0/booleans. Custom layouts need Bootstrap scripts. Publish and verify keyboard controls. No new YAML setting. Filename ordering and native keyboard-operable buttons/indicators require v2.2.0; v2.1.0 indicators are not focusable and previous/next links do not activate with Space."
   },
   {
     "id": "media-photoswipe-task-1",
-    "section": "snippets",
+    "section": "galleries",
     "doc": "31_photoswipe.md",
     "question": "Where do I enable zooming on an existing carousel? I am pinned to v2.1.0.",
     "expected": "Link to /docs/31-photoswipe. Feature absent from v2.1.0, needs v2.2.0 or later. Add photoswipe=true to existing include, not page YAML. jsDelivr assets; check image opening, Escape/focus return. Original image link fallback."
   },
   {
     "id": "media-video-task-1",
-    "section": "snippets",
+    "section": "video",
     "doc": "32_embed-video.md",
     "question": "How do I insert a named YouTube video? Does nolazy mean the browser must load it immediately? My address is a youtu.be Share link or youtube.com/shorts URL. I am pinned to v2.1.0: does name label the player, and is there a link without JavaScript?",
     "expected": "Link to /docs/32-embed-video and /docs/04-layouts#deferred-lazy-loading-of-youtube-videos. Include snippets/video.html provider=\"youtube\" id with video identifier and name with title in content body. Default click activation. nolazy=true removes activation requirement, but iframe loading=\"lazy\" can still defer browser loading. video_res changes preview; thumbnail_url metadata only. Publish and verify. Accessible player/play-button names derived from name and the no-JavaScript YouTube link require v2.2.0; v2.1.0 supports name metadata but lacks those accessible names and fallback link. Extract the final path segment for youtu.be/ID and youtube.com/shorts/ID, or v= value for standard watch URLs; omit query parameters and fragments."
   },
   {
     "id": "media-diagram-task-1",
-    "section": "snippets",
+    "section": "mermaid",
     "doc": "33_add-diagram.md",
     "question": "I want to add a simple accessible Mermaid workflow diagram to my page. Where do I start?",
     "expected": "Link to /docs/33-add-diagram. Require v2.2.0; boolean mermaid: true in existing front matter, fenced mermaid flowchart in body, accTitle/accDescr plus prose for complex charts. Minimal-derived layout, no plugin. Modern modules/ES2024 Safari17.4+, jsDelivr; source fallback. Preserve other fields and publish/check. No claim it works on v2.1.0."
@@ -432,21 +442,21 @@
   },
   {
     "id": "troubleshoot-publishing-task-1",
-    "section": "faq",
+    "section": "publishing",
     "doc": "42_unpublished-changes.md",
     "question": "My GitHub editor shows the new article, but the website still does not. What should I check first?",
     "expected": "Link /docs/42-unpublished-changes. Check saved commit on actual publishing branch, matching Actions publishing/deployment result and error, public Settings Pages address versus preview. Missing post: real nonfuture filename/date and published flag, actual permalink vs source path. Restart local Jekyll for config edits; local success is not publication. Do not require Ruby for browser diagnosis."
   },
   {
     "id": "troubleshoot-yaml-task-1",
-    "section": "faq",
+    "section": "yaml",
     "doc": "43_yaml-errors.md",
     "question": "My YAML checker passes but the theme setting does nothing. Should I replace my whole configuration?",
     "expected": "No. Preserve configuration, inspect exact failed build file/line and nearby edit; check indentation, quotes and duplicate mappings. YAML syntax success does not validate skin/provider identifiers or field placement. Compare reference and rebuild/publish; local config preview needs restart. Link /docs/43-yaml-errors."
   },
   {
     "id": "custom-head-task-1",
-    "section": "faq",
+    "section": "custom-hooks",
     "doc": "44_custom-head.md",
     "question": "How do I add an application-name meta tag to theme pages without copying layouts?",
     "expected": "Link /docs/44-custom-head and /docs/45-custom-hooks. Append HTML meta application-name tag to _includes/custom/custom_head.html preserving snippets, no YAML front matter. After CSS inside head; minimal and search supported, independent overrides need hooks. Publish and inspect head. CSS rules go in assets/css/custom.scss with front matter; no duplicate built-in analytics."
@@ -467,42 +477,42 @@
   },
   {
     "id": "format-alert-task-1",
-    "section": "faq",
+    "section": "formatting",
     "doc": "49_add-alert.md",
     "question": "How do I put a short information box in an existing post without wrapping the previous list?",
     "expected": "Link /docs/49-add-alert. Edit body below front matter; blank line before paragraph, attribute line immediately next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Use warning only for concrete avoid/fix issue. kramdown parser support; commit/publish/check box boundaries. No new YAML setting."
   },
   {
     "id": "format-caption-task-1",
-    "section": "faq",
+    "section": "formatting",
     "doc": "50_add-caption.md",
     "question": "Can I add a visible image caption instead of alternative text?",
     "expected": "Link /docs/50-add-caption. Caption does not replace alt. Image with descriptive alt and relative_url followed by blank line, caption paragraph and immediate {: .caption}. Preserve baseurl handling, publish/check actual image/caption. No invented gallery caption include parameter."
   },
   {
     "id": "format-footnote-task-1",
-    "section": "faq",
+    "section": "formatting",
     "doc": "51_add-footnote.md",
     "question": "How do I add a footnote and check the return link?",
     "expected": "Link /docs/51-add-footnote. Matching reference [^source] and definition [^source]: note text in same article, unique labels per note, compatible kramdown. Publish then follow generated superscript and backlink, keyboard too. No manually hardcoded numbering/URL or extra plugin."
   },
   {
     "id": "favicon-task-1",
-    "section": "faq",
+    "section": "favicons",
     "doc": "52_add-favicon.md",
     "question": "My site is at /my-blog. Is putting favicon.ico in the repository root enough?",
     "expected": "Cite /docs/52-add-favicon. Domain-root autodiscovery differs from project root. Generate/upload icon package under assets/favicon, preserve existing custom_head, add/edit explicit rel icon href using relative_url for actual filename, avoid duplicate/manual baseurl. Verify published icon URL and tab; fuller package URLs/manifest icons must match location. Does not guarantee PWA offline/installability."
   },
   {
     "id": "bundled-font-task-1",
-    "section": "faq",
+    "section": "fonts",
     "doc": "53_chulapa-font.md",
     "question": "Can I use the included Chulapa font with its ligatures without adding Google Fonts?",
     "expected": "Cite /docs/53-chulapa-font. Already supplied. Set existing chulapa-skin.vars.headings-font-family to chulapa, sans-serif for headings, preserve skin/vars; optional ligature CSS in custom.scss with front matter retained. Or existing chulapa class on span/paragraph applies font/ligatures to selected content. Publish/restart local config preview; no new YAML flag. Local font baseurl/preload improvements require v2.2.0, not v2.1.0."
   },
   {
     "id": "icon-task-1",
-    "section": "formatting",
+    "section": "icons",
     "doc": "54_add-icon.md",
     "question": "How do I insert a Font Awesome icon in an article accessibly? Do I need another loader?",
     "expected": "Existing loader; HTML below front matter; free icon matching version; decorative aria-hidden plus meaningful text; check published page and blocked resources; no duplicate loader."
@@ -537,7 +547,7 @@
   },
   {
     "id": "content-toc-task-1",
-    "section": "formatting",
+    "section": "toc",
     "doc": "58_content-toc.md",
     "question": "How do I insert a TOC inside an existing article, skip one heading, and show only levels 2 to 6? Does that configure the theme TOC?",
     "expected": "Two-line * Contents then {:toc}, blank lines outside code/front matter. Marker position does not limit scope: eligible headings before it are included. {:.no_toc} below heading excludes it from both content and theme TOCs. Merge kramdown.toc_levels: 2..6 site-wide preserving parser/options; distinct from show_toc/h_min/h_max. Commit/publish/check links."
@@ -551,7 +561,7 @@
   },
   {
     "id": "localized-date-task-1",
-    "section": "formatting",
+    "section": "localization",
     "doc": "61_localize-date.md",
     "question": "How do I show my article date in Spanish? Does changing a page locale translate every label and reorder dates?",
     "expected": "Use dated article page.date formatted via Liquid then include snippets/datetranslate.html date=formatted lang=\"es-ES\". Without lang uses site.locale then en, not page locale. Supports English/French/Spanish/German/Italian; lowercase names, original format order/punctuation; unsupported language retains English. No whole-interface translation; commit/publish/check actual output."
@@ -565,7 +575,7 @@
   },
   {
     "id": "cloud-task-1",
-    "section": "layouts",
+    "section": "collections",
     "doc": "63_tag-category-clouds.md",
     "question": "How do I connect post tag/category badges to grouped index pages on a project site?",
     "expected": "Matching cloudtag/cloudcategory pages permalinks and posts defaults cloudtag_url/cloudcategory_url; show_tags/show_categories true; preserve defaults, no repository prefix, scope posts not standalone pages; collection output true for linked articles. Verify badge fragments and links; demos use demo/skins scopes. v2.2.0 respects candidate show_date: false in cloudtag/cloudcategory and aliases: no publication date/calendar/separator, reading time remains. v2.1.0 lacks this fix; do not invent a publication date for undated Docs."
@@ -586,7 +596,7 @@
   },
   {
     "id": "cloud-demo-fragments",
-    "section": "layouts",
+    "section": "collections",
     "doc": "63_tag-category-clouds.md",
     "question": "Why does my demo category badge point to #demo but the cloud index has #dmo? What happens to demo topic when upgrading?",
     "expected": "v2.2.0 fixes the asymmetric demo-to-dmo rewrite: badge and cloud group both use #demo; demo topic uses #demo-topic (spaces become hyphens). Upgrade and update manually written old dmo fragments. Link /docs/63-tag-category-clouds. No new YAML option."
@@ -600,14 +610,14 @@
   },
   {
     "id": "documentation-appearance-topics",
-    "section": "navigation",
+    "section": "documentation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse appearance documentation by topic rather than follow a tutorial? Are the related cards the next required steps?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for the partial documentation topic index (appearance, skins, colors, fonts, code-highlighting). Coverage includes appearance, content editing and publishing but remains partial; badge links and up to three related cards help exploration, not a prescribed sequence. For complete documentation link /docs; do not confuse with blog tags or claim exhaustive topic coverage."
   },
   {
     "id": "documentation-content-publishing-topics",
-    "section": "navigation",
+    "section": "documentation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse guides about writing posts, adding photos and fixing changes missing from my website? Are topic tags just for blog posts?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation topic coverage: content/writing, media/images/galleries and publishing/troubleshooting. Separate from blog tags. Related cards suggest up to three matching pages, not required steps. For complete docs use /docs. Coverage is partial: badges on covered guides link to the topic index; tags alone do not enable visible badges. Do not claim all documentation is tagged."
@@ -621,21 +631,21 @@
   },
   {
     "id": "documentation-search-topics",
-    "section": "navigation",
+    "section": "documentation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse the guides for local or hosted site search and excluding pages from results? Are the related provider cards setup steps I must follow in order?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial documentation search topics: search, local-search and hosted-search cover five provider guides and /docs/65-search-visibility. Provider guides are alternatives, not ordered steps; cards are suggestions, not required progression. Badges on covered guides link here; tags alone do not enable badges. Preserve distinctions: robots, sitemap and local indexes are independent; include_on_search false is not an Algolia exclusion or access control. For all docs use /docs; do not claim every guide is tagged or confuse blog tags."
   },
   {
     "id": "documentation-installation-topics",
-    "section": "navigation",
+    "section": "documentation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse installation, migration, starter examples and checking my theme version? Should I follow every installation method in order?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial installation topics, including starter-examples and theme-updates. Methods are alternatives for the existing site, not sequential prerequisites. /docs/01-install remains the method directory; first-time users have /docs/00-start. Related cards are supplementary, not required progression or a compatibility guarantee. /docs/08-starter-examples distinguishes minimal examples without deployment workflows from Chulapa 101; use /docs/09-run-starter for setup and /docs/55-check-theme-version for selected release checks. Complete docs index /docs; do not claim all pages have badges/cards."
   },
   {
     "id": "documentation-identity-topics",
-    "section": "navigation",
+    "section": "documentation",
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse help with menu/footer links, my site identity, favicons, fonts, icons and personal publisher metadata? Does changing publisher also change article authors?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial navigation, site-identity and branding topics; /docs for all documentation. Badges on covered guides link here; cards are suggestions, not required steps. Guides distinguish site title/author from publisher structured data: /docs/60-person-publisher does not rewrite article authors. Favicon /docs/52-add-favicon is separate from an article illustration, bundled Chulapa font /docs/53-chulapa-font is already supplied and icons /docs/54-add-icon use Font Awesome. Do not claim every page has badges/cards or that a favicon manifest establishes PWA support."

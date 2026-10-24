@@ -1,0 +1,40 @@
+{
+  "run": "seo-batch1-after-20261024",
+  "worker_version": "87bf899e-cfd1-47e7-b20c-523fa693a92b",
+  "traffic_percent": 100,
+  "raw": "seo-batch1-after-20261024.jsonl",
+  "totals": {
+    "requests": 5,
+    "pass": 0,
+    "partial": 4,
+    "fail": 1,
+    "unavailable": 0
+  },
+  "reviews": [
+    {
+      "id": "seo-1",
+      "result": "fail",
+      "finding": "Cross-domain error removed, but now incorrectly says sitemap:false excludes the original URL; must exclude the copy actual URL."
+    },
+    {
+      "id": "person-publisher-task-1",
+      "result": "partial",
+      "finding": "Adds avatar fallback and home/post URL checks; still inserts name/URL override examples and omits Organization default/version/search limits."
+    },
+    {
+      "id": "canonical-article-task-1",
+      "result": "partial",
+      "finding": "Valid minimal canonical/sitemap fields and copy-URL check; omits preserved permalink/content, JSON-LD/feed checks and adds unrelated crawler advice."
+    },
+    {
+      "id": "sharing-task-1",
+      "result": "partial",
+      "finding": "Fixes invalid Liquid and visible header changes; includes five metadata fields. Omits upload/image URL check and describes incorrect og:image/alt tag plus bare width/height names."
+    },
+    {
+      "id": "search-visibility-task-1",
+      "result": "partial",
+      "finding": "Now includes all three front-matter controls and separate Algolia reupload/checks; omits jekyll-sitemap dependency, public/noindex access limits and delayed removal."
+    }
+  ]
+}

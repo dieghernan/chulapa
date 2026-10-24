@@ -98,7 +98,11 @@ url is origin (https://username.github.io); baseurl is /repository or "" for roo
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
-Since v2.1.0: publisher.type accepts Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping and preserve other fields. name/url identify it. Organization uses logo; Person uses image and ignores logo. Paths use url/baseurl. Article authors unchanged. Verify published application/ld+json publisher, not header/footer.
+Since v2.1.0: publisher.type accepts Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping; preserve other fields. name/url identify it. Organization uses logo; Person uses image (fallback site author.avatar), ignores logo. Paths use url/baseurl. Article authors unchanged. Change only this field inside existing publisher (keep name/url/image):
+```yaml
+  type: Person
+```
+Restart local Jekyll if used; publish/check JSON-LD publisher on home/post and image/url with baseurl. No search guarantee.
 Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4. fa_kit_code replaces hosted CSS with kit. Legacy fa5_kit_code wins: remove on migration.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
@@ -109,7 +113,7 @@ Source: https://dieghernan.github.io/chulapa/docs/18-goatcounter
 Source: https://dieghernan.github.io/chulapa/docs/02-config#goatcounter-analytics
 Set goatcounter: "https://YOUR-CODE.goatcounter.com/count" to the full public HTTPS counting endpoint, not code/dashboard alone. Self-hosted https://stats.example.org/count also works; do not add site's baseurl. Separate GoatCounter account/site required, no API key/plugin. Async https://gc.zgo.at/count.js loads only for nonempty HTTPS endpoint in JEKYLL_ENV=production; normal local preview does not load it, upstream ignores localhost.
 Use built-in config, not duplicate custom scripts. Clear gtag_id/analytics_id for GoatCounter-only; otherwise both services count. Publish; visit live page and allow dashboard reporting time. For missing visits check environment, endpoint, blockers and CSP allowances for script/counting address. No visible visitor counter/custom events.
-Same-domain canonical path is preferred (www/non-www equivalent); cross-domain canonicals ignored in favor of browser path. Existing canonical includes baseurl; no extra canonical tag needed. Not in v2.1.0.
+GoatCounter tracking only, not canonical metadata: same-domain canonical path is preferred (www/non-www equivalent); cross-domain canonicals ignored for counting in favor of browser path. Existing canonical includes baseurl; no extra canonical tag needed. Not in v2.1.0.
 ## Appearance reference
 Source: https://dieghernan.github.io/chulapa/docs/03-theming
 chulapa-skin.skin: exact case-sensitive filename without .scss; unknown names fail Sass import. Default none; auto selects generated-palette skin. chulapa-skin.highlight defaults to default; Rouge supplies syntax highlighting. vars maps Sass names/expressions without $ or semicolons.
@@ -270,17 +274,38 @@ navbar:
 footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
-Guide discovery: link /docs/65-search-visibility; cards on selected docs pages are optional alternatives, not setup steps. No config recipe is needed for a guide-discovery question. robots: "noindex, follow" controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy. og_image social image; header_img visible header; schema_image post JSON-LD image.
+Guide discovery: /docs/65-search-visibility; cards are optional alternatives, not setup steps. No config recipe for discovery questions. robots controls crawlers, sitemap: false controls sitemap; neither changes local search or provides privacy. og_image: social; header_img: visible header; schema_image: post JSON-LD.
+For search exclusion merge into existing page front matter; preserve layout/title/permalink:
+```yaml
+robots: "noindex, follow"
+sitemap: false
+include_on_search: false
+```
+sitemap: false requires jekyll-sitemap; include_on_search: false excludes Lunr/Fuse/Simple-Jekyll-Search. Algolia: set algolia.files_to_exclude for the source file in existing _config.yml and reupload the index; local flag is not exclusion. Google Custom Search uses external indexing. Page remains public; no automatic exclusions/instant removal. Let crawlers read noindex; do not block in robots.txt. Publish/rebuild; check page loads, HTML robots, sitemap absence and local results; verify Algolia uploaded records.
 ## Page metadata and article images
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images
 Source: https://dieghernan.github.io/chulapa/docs/64-post-sharing
 Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
-canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
-seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
+canonical_url: original HTTP(S) URL or /site-path; external originals supported. No redirect; updates canonical/og:url/JSON-LD/feed, not sitemap. jekyll-sitemap lists COPY URL, not canonical target; sitemap: false excludes COPY, not original. Merge into the copy's existing front matter, preserving layout/permalink/content:
+```yaml
+canonical_url: https://example.com/original-article/
+sitemap: false
+```
+Keep pagination canonicals. Publish; inspect canonical/og:url/JSON-LD/feed and COPY URL absence from sitemap. GoatCounter counting rules do NOT apply to canonical metadata.
+seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt, og_image_width, og_image_height, og_image_type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
 locale sets HTML language; zh-Hant needs separate og_locale: zh_TW. og_locale_alternate lists real translated locales; [] clears inherited alternates; no translations/hreflang generation. og_type: article enables article metadata for another collection. og_article_author/og_article_section override author URL/first category; guest authors without URL do not inherit site's URL.
 schema_image: URL/list for post BlogPosting, fallback page og_image then header_img. Relative images use url/baseurl; no cropping/validation or visible/social image changes.
+Sharing-image task: upload/use real assets/img/article.jpg; merge into existing post front matter (plain paths, no Liquid in YAML):
+```yaml
+description: An evening walk in Madrid.
+og_title: An evening walk
+og_image: /assets/img/article.jpg
+og_image_alt: A street in Madrid at night
+schema_image: /assets/img/article.jpg
+```
+Preserve title/layout/permalink; do not add header_img for metadata-only tasks or insert a body image. Theme resolves paths using url/baseurl. Publish image/post; inspect og:title, description, og:image, og:image:alt and BlogPosting image array; open image URLs with baseurl; check unchanged heading. No crops or guaranteed previews/ranking; sharing previews can be cached.
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption

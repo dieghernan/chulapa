@@ -1,0 +1,27 @@
+{
+  "worker_version": "ac010481-bedc-448a-94be-7512e5825e92",
+  "traffic_percent": 100,
+  "source_reference": "f31f063f434ee9953853fe2b6ac6157b4ebbfbdf plus uncommitted SEO context/prompt/selector changes",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "sha256": {
+    "worker.mjs": "638d23f7f1c421f0bd6a546af9ed9ae2df7d321e32939af62ff022bbfba305d8",
+    "ai-context.md": "b80ab1f127cc67c10444fa1d6483488a3a1fdb08778af864d36619bb81f9640f",
+    "context-selector.mjs": "440820fc59beb06c4490199a0bb2ba552250eb93326dbe1e2ad3e6f0c1f981d5",
+    "answer-validation.mjs": "7b6b39a1dbe462818ec07f2adf38c1343f51a4ac90a3fd535e6beedfa904755c",
+    "build.mjs": "74ebef9eb4b70eacbaa90b4b7d283e5387f36b64fabe5e5016145aff8b265793",
+    "wrangler.jsonc": "507660164ff98058fd0e2776a01b939c71bc26b9f72ae498c7eb446fb5040fa1",
+    "generated-content.mjs": "b34988609f6828bc0ad0a2c6359d2cbdd65878b474c5efbe59da33b34b78b1d4",
+    "dashboard-worker.mjs": "714f93694f10a87143fb527033e471b048ffe688f1f6a1cd098b79f43f07ec57"
+  },
+  "local_tests": 101,
+  "context_bytes": 55983,
+  "max_selected_bytes": 18000,
+  "deployment": "Wrangler 4.150.0 deploy --keep-vars; existing model/bindings/date retained",
+  "selected_bytes": {
+    "seo-1": 4679,
+    "person-publisher-task-1": 3002,
+    "canonical-article-task-1": 5777,
+    "sharing-task-1": 4679,
+    "search-visibility-task-1": 6203
+  }
+}
