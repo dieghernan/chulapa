@@ -1,5 +1,39 @@
 # Consolidated live evaluation log
 
+## Mixed-topic ten-question batch: reviewed results — 24 October 2026
+
+Worker `1686b41b-51ff-438f-a2b6-cec0fd60fe8f`: **4 pass, 2 partial, 2 fail,
+2 unavailable**. Ten requests, eight HTTP 200 and two HTTP 503 unsupported-source
+fallbacks. No retries or AI Search. [Raw answers](mixed-topics-batch10-20261024.jsonl),
+[case-level review](mixed-topics-batch10-review-20261024.md) and
+[manifest](mixed-topics-deployment-20261024.json).
+
+Passes cover TOC/comment inventory, title/TOC, feed/navbar and gem migration.
+Failures are invented google_analytics nesting for gtag_id and Algolia's hardcoded
+docs source folder plus missing private indexing-key prerequisite. Giscus setup
+and maxwords migration remain partial. Both public RSS subscription requests
+were rejected by citation validation despite receiving the correct URL in
+context; no raw answer or rejected URL is available to assess. Do not infer
+quota exhaustion from these 503s.
+
+No further context/prompt edits or live round after this review. Seven new cases
+bring the catalog to 167 unique questions; historical raw answers and labels
+remain intact. Latest-status table updated only for these ten cases. 117 tests
+and dry-run passed before deployment; README now records its deployed status.
+
+## Mixed-topic ten-question batch: deployment — 24 October 2026
+
+Deployed source revision `8c33cf69c` as Worker
+`1686b41b-51ff-438f-a2b6-cec0fd60fe8f`, verified at 100% traffic. All 117
+local tests and Wrangler dry-run passed. Source library 56,998/57,000 bytes;
+selected-context cap 18,000; model/output/bindings unchanged.
+[Artifact manifest](mixed-topics-deployment-20261024.json).
+
+Seven new mixed-topic cases were added with expectations before live queries;
+catalog now has 167 unique IDs. Three previously partial cases are repeated
+without changing their captured expectations. Ten requests authorized, Worker
+only, no AI Search. Results and per-case assessments follow in the next entry.
+
 ## Mixed-topic PR review fixes — 24 October 2026
 
 Addressed [provider inventories](https://github.com/dieghernan/chulapa/pull/182#discussion_r4366373627),
@@ -595,7 +629,7 @@ are not completed evaluation results.
 
 ## Latest status per tested catalog case
 
-This table lists the latest known outcome for all 160 catalog cases, based on
+This table lists the latest known outcome for all 167 catalog cases, based on
 the records available on 22 October 2026, with subsequent dated batch reviews
 updating only the cases they actually evaluated. The test date is taken from the latest
 timestamped live response in the JSONL evidence (UTC); blank dates mean no
@@ -630,7 +664,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `comments-cactus-task-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `comments-cusdis-task-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `comments-disqus-task-1` | pass | `47cc2e30…` | 2026-10-22 |
-| `comments-giscus-setup-1` | partial | `8b59f0a7…` | 2026-10-22 |
+| `comments-giscus-setup-1` | partial | `1686b41b…` | 2026-10-24 |
 | `comments-welcomments-task-1` | partial | `15036755…` | 2026-10-22 |
 | `community-1` | pass | `5266df62…` | 2026-10-22 |
 | `community-165` | partial | `8b59f0a7…` | 2026-10-22 |
@@ -666,6 +700,8 @@ cells mean no live response for that case is present in the evaluation logs.
 | `feed-coexistence-1` | partial | `253c4a59…` | 2026-10-24 |
 | `feed-collection-output-1` | partial | `253c4a59…` | 2026-10-24 |
 | `feed-selection-1` | partial | `09b4517c…` | 2026-10-24 |
+| `feed-subscribe-link-en-1` | unavailable | `1686b41b…` | 2026-10-24 |
+| `feed-subscribe-link-es-1` | unavailable | `1686b41b…` | 2026-10-24 |
 | `footer-edit-existing-1` | partial | `15036755…` | 2026-10-22 |
 | `format-alert-task-1` | partial | `8b59f0a7…` | 2026-10-22 |
 | `format-caption-task-1` | partial | `15036755…` | 2026-10-22 |
@@ -703,14 +739,19 @@ cells mean no live response for that case is present in the evaluation logs.
 | `media-video-task-1` | partial | `15036755…` | 2026-10-22 |
 | `mermaid-1` | pass | `8b59f0a7…` | 2026-10-22 |
 | `migration-fields-lookup-1` | partial | `253c4a59…` | 2026-10-24 |
+| `migration-gem-choice-1` | pass | `1686b41b…` | 2026-10-24 |
 | `migration-theme-1` | partial | `09b4517c…` | 2026-10-24 |
+| `mixed-feed-navbar-1` | pass | `1686b41b…` | 2026-10-24 |
+| `mixed-person-ga4-1` | fail | `1686b41b…` | 2026-10-24 |
+| `mixed-toc-comments-1` | pass | `1686b41b…` | 2026-10-24 |
+| `mixed-toc-title-1` | pass | `1686b41b…` | 2026-10-24 |
 | `navigation-1` | pass | `5266df62…` | 2026-10-22 |
 | `navigation-2` | partial | `09e75972…` | 2026-10-24 |
 | `navigation-3` | pass | `09e75972…` | 2026-10-24 |
 | `navigation-edit-existing-1` | pass | `47cc2e30…` | 2026-10-22 |
 | `person-publisher-task-1` | partial | `ac010481…` | 2026-10-24 |
 | `photoswipe-gallery` | partial | `d0e281c2…` | 2026-10-22 |
-| `provider-algolia-task-1` | partial | `15036755…` | 2026-10-22 |
+| `provider-algolia-task-1` | fail | `1686b41b…` | 2026-10-24 |
 | `provider-google-task-1` | fail | `15036755…` | 2026-10-22 |
 | `provider-lunr-task-1` | partial | `47cc2e30…` | 2026-10-22 |
 | `provider-simplesearch-task-1` | partial | `15036755…` | 2026-10-22 |
@@ -726,7 +767,7 @@ cells mean no live response for that case is present in the evaluation logs.
 | `search-comments-1` | pass | `8b59f0a7…` | 2026-10-22 |
 | `search-comments-2` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-3` | partial | `47cc2e30…` | 2026-10-22 |
-| `search-comments-4` | partial | `5266df62…` | 2026-10-22 |
+| `search-comments-4` | partial | `1686b41b…` | 2026-10-24 |
 | `search-comments-5` | pass | `65bb328b…` | 2026-10-18 |
 | `search-comments-6` | pass | `223eaf7d…` | 2026-10-18 |
 | `search-fusejs-setup-1` | pass | `fd7168ad…` | 2026-10-24 |

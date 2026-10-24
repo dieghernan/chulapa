@@ -93,10 +93,12 @@ under baseurl /my-blog and identifies the local index's pages/documents scope.
 Fuse paths passed on the preceding fd7168ad deployment; see the evaluation log
 for exact answers and version boundaries.
 
-Additional local review fixes retain comment inventories in focused TOC queries,
+Additional review fixes retain comment inventories in focused TOC queries,
 explicit title metadata alongside navigation and the public RSS URL for
 subscription/link questions in English and Spanish. All 117 tests pass; these
-additional fixes await deployment and live evaluation.
+additional fixes were deployed as Worker 1686b41b on 24 October 2026. The
+ten-question mixed-topic run and artifact manifest are recorded in the evaluation
+log; individual outcomes remain tied to that Worker version.
 
 Single-provider setup questions exclude other providers' specific sections.
 Comparison, alternative-provider and plain inventory questions retain all supported provider

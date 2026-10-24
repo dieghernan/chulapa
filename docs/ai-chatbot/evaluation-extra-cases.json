@@ -1,5 +1,54 @@
 [
   {
+    "id": "mixed-toc-comments-1",
+    "section": "comments",
+    "doc": "02_config.md",
+    "question": "How do I enable show_toc, and which comment providers are available?",
+    "expected": "Set boolean show_toc: true in existing supported page front matter, preserving other fields. List giscus, disqus, cactus, welcomments and cusdis; Cusdis is deprecated/archived; its original hosted service is unavailable, and only an existing self-hosted deployment can be connected. Distinguish provider selection from per-page show_comments. Do not require full provider setup recipes. Link TOC/layout and comments references."
+  },
+  {
+    "id": "mixed-toc-title-1",
+    "section": "navigation",
+    "doc": "02_config.md",
+    "question": "How do I change seo_title and enable show_toc?",
+    "expected": "Merge seo_title and boolean show_toc: true into existing page front matter, preserving title/layout and other fields. seo_title replaces the complete browser/structured title; does not replace visible heading or social title. Use supported TOC layout and verify rendered HTML title plus actual TOC links. Cite metadata and TOC/layout sources."
+  },
+  {
+    "id": "mixed-person-ga4-1",
+    "section": "seo",
+    "doc": "60_person-publisher.md",
+    "question": "How do I configure my publisher as a Person and enable GA4?",
+    "expected": "Edit publisher.type: Person inside existing publisher mapping without replacing name/url/image; separately set top-level gtag_id to real G- measurement ID. No invented analytics_id prerequisite/conflict. Preserve existing settings, rebuild/publish, inspect Person structured data and GA4 loading. Cite publisher and GA4/config references."
+  },
+  {
+    "id": "mixed-feed-navbar-1",
+    "section": "navigation",
+    "doc": "10_edit-menu.md",
+    "question": "How do I add my RSS feed to the navbar?",
+    "expected": "Add a title/url item to existing navbar.nav, preserving other entries. Built-in RSS path is /rss.xml; theme applies baseurl to internal navigation URLs. Publish/check actual feed destination. Do not replace the navbar or confuse another site's public feed with visitor's own feed. No need to configure feed selection unless asked."
+  },
+  {
+    "id": "feed-subscribe-link-en-1",
+    "section": "feeds",
+    "doc": "56_publish-feeds.md",
+    "question": "Where can I subscribe to the RSS feed?",
+    "expected": "Provide the documented public feed https://dieghernan.github.io/chulapa/rss.xml for a reader to add to an RSS reader. No site-configuration recipe or automatic-fetch claim."
+  },
+  {
+    "id": "feed-subscribe-link-es-1",
+    "section": "feeds",
+    "doc": "56_publish-feeds.md",
+    "question": "¿Cuál es vuestro feed RSS?",
+    "expected": "Answer in Spanish with https://dieghernan.github.io/chulapa/rss.xml. Do not substitute theme configuration instructions or claim automatic feed retrieval."
+  },
+  {
+    "id": "migration-gem-choice-1",
+    "section": "migration",
+    "doc": "21_gem-theme.md",
+    "question": "How do I migrate my existing site using the theme gem instead of a remote theme?",
+    "expected": "Use chulapa-jekyll gem and theme: chulapa-jekyll, remove remote_theme and unnecessary jekyll-remote-theme configuration/dependency. Preserve url/baseurl/permalink/content/custom overrides and useful plugins; install dependencies, adapt old layout values and inspect version/overrides. Do not recommend remote-theme setup as the chosen method or imply gem-only installation is available on standard GitHub Pages without a custom build. Cite gem and migration docs."
+  },
+  {
     "id": "seo-1",
     "section": "seo",
     "doc": "04_layouts.md",
