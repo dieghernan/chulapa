@@ -84,6 +84,9 @@ function fontCSS({family, weights}) {
 }
 function prepareCSS(skin) {
   let css = sass.compileString(`@import "skins/${skin}";@import "bootstrap/bootstrap";@import "chulapa-master";`, {loadPaths:[root+'/_sass'],logger:{warn(){}}}).css;
+  return inlineFonts(css);
+}
+function inlineFonts(css) {
   const families = new Map();
   for (const match of css.matchAll(/https:\/\/fonts\.googleapis\.com\/[^\s"')]+/g)) {
     const url = new URL(match[0]);
@@ -98,7 +101,8 @@ function prepareCSS(skin) {
   const brand = fs.readFileSync(root+'/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf');
   return css+`@font-face{font-family:chulapa;src:url(data:font/otf;base64,${brand.toString('base64')})}`;
 }
-(async()=>{
+module.exports = {inlineFonts, prepareCSS};
+if (require.main === module) (async()=>{
  const browser = await chromium.launch({executablePath:process.env.CHULAPA_CHROMIUM,args:['--no-sandbox']});
  let temporary;
  try {
