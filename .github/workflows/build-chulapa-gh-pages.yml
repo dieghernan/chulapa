@@ -87,7 +87,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Download the built site
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: github-pages
           path: pages-artifact
