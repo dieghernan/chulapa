@@ -18,10 +18,10 @@ jobs:
     - uses: actions/checkout@v7
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.1
+        ruby-version: '3.4'
         bundler-cache: true
         working-directory: 'docs'
-       
+
     - name: Run jekyll-profile
       run: |
         # Run Jekyll Profile
