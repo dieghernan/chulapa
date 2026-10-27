@@ -1,3 +1,9 @@
+## v2.2.1 (development)
+
+### Fixed
+
+-   Add missing footer credits for Cerulean, Litera and Pulse, and correct Solar's displayed skin name.
+
 ## v2.2.0 (2026-10-21)
 
 ### Added
