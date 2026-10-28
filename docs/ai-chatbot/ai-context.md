@@ -270,8 +270,9 @@ navbar:
 footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", not "envelope"), url (plain email without mailto: allowed). footer.copyright: custom HTML/text. Merge existing lists, retain other links/brand/style/expand/copyright. Menu entry does not create page; use paths without baseurl, publish and follow destinations.
 ## SEO controls
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
-Guide discovery: link /docs/65-search-visibility; cards on selected docs pages are optional alternatives, not setup steps. No config recipe is needed for a guide-discovery question. robots: "noindex, follow" controls crawlers; sitemap: false controls sitemap; neither changes local search or provides privacy. og_image social image; header_img visible header; schema_image post JSON-LD image.
+Guide: /docs/65-search-visibility; cards are optional. robots noindex, sitemap: false and local-search exclusions are independent, never privacy. og_image social; header_img visible; schema_image article JSON-LD.
 ## Page metadata and article images
+Dev v2.2.1 /sitemap.txt: output collections + HTML canonical URLs; sitemap: false excludes, noindex does not. No dedup/assets/plugin needed. XML uses actual URLs. Verify/submit public URL.
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images

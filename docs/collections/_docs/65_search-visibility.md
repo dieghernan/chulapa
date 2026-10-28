@@ -31,7 +31,7 @@ it to read the instruction; do not block it in `robots.txt` and assume they can
 still read `noindex`. Removal from existing search results is not immediate.
 
 `sitemap: false` excludes it from `jekyll-sitemap` if that plugin generates your
-sitemap. It does not itself prevent external indexing. `include_on_search: false`
+XML sitemap, and from the theme's text sitemap described below. It does not itself prevent external indexing. `include_on_search: false`
 excludes it from the built-in Lunr, Fuse.js and Simple-Jekyll-Search indexes.
 
 For Algolia, configure its [files_to_exclude](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md#files_to_exclude)
@@ -59,3 +59,30 @@ configuration defaults, the actual search provider and the latest publishing
 run. Use the [field constraints](./04-layouts#search-crawler-directives) and
 [publishing checks](./42-unpublished-changes). Do not assume tags, archives,
 error pages or pagination are automatically excluded by their layout or path.
+
+## Text sitemap (development)
+
+The development version of <span class="chulapa">Chulapa</span> v2.2.1 adds
+`/sitemap.txt`, a plain-text list with one absolute URL per line. This feature
+is not included in v2.2.0. The theme supplies `assets/sitemap.txt`; its permalink
+publishes it at the site root, including your configured `baseurl`.
+No extra plugin or configuration flag is needed for this text file.
+
+After publishing a version containing this feature, open `/sitemap.txt` under
+your site's address. For this documentation site, the address is
+[sitemap.txt]({{ '/sitemap.txt' | relative_url }}). Check that URLs use your
+configured `url` and `baseurl`, and that pages marked `sitemap: false` are absent.
+You can submit the file's full public URL to a search engine that accepts
+[text sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#text).
+
+The file lists documents from collections whose `output` is not `false`, then
+HTML pages. Both groups respect `sitemap: false`. URLs use the theme's canonical
+URL rules, including a document's `canonical_url` override; `jekyll-sitemap`
+instead lists the page's actual URL. For a republished copy that should be absent
+from both files, keep `sitemap: false` on the copy.
+
+The text sitemap is an alternative to `sitemap.xml`; it does not replace or
+configure `jekyll-sitemap`. It does not automatically exclude `noindex` pages,
+deduplicate canonical URLs, or list images and other static assets. Keep sitemap
+entries limited to URLs you want indexed. Neither sitemap submission nor removal
+from a sitemap guarantees a search engine's indexing decision.

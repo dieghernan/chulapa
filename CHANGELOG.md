@@ -2,9 +2,11 @@
 
 ### Added
 
--   Generate alternative sitemap.txt, see <https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?#text> (TODO: documentation pending).
+-   Generate an alternative `/sitemap.txt` with absolute canonical URLs for output collections and HTML pages, respecting `sitemap: false`. Document publishing checks and differences from `jekyll-sitemap` in the [search visibility guide](https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development).
 
 ### Fixed
+
+-   Update the documentation homepage's social preview to 1200 × 630 pixels, provide image dimensions and alternative text, complete Twitter Card metadata, and add an SVG favicon with dark-mode support.
 
 -   Add missing footer credits for Cerulean, Litera and Pulse, and correct Solar's displayed skin name.
 

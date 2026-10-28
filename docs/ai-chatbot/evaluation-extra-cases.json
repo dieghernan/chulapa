@@ -639,5 +639,12 @@
     "doc": "../_pages/docs_tags.md",
     "question": "Where can I browse help with menu/footer links, my site identity, favicons, fonts, icons and personal publisher metadata? Does changing publisher also change article authors?",
     "expected": "Link https://dieghernan.github.io/chulapa/docs/tags for partial navigation, site-identity and branding topics; /docs for all documentation. Badges on covered guides link here; cards are suggestions, not required steps. Guides distinguish site title/author from publisher structured data: /docs/60-person-publisher does not rewrite article authors. Favicon /docs/52-add-favicon is separate from an article illustration, bundled Chulapa font /docs/53-chulapa-font is already supplied and icons /docs/54-add-icon use Font Awesome. Do not claim every page has badges/cards or that a favicon manifest establishes PWA support."
+  },
+  {
+    "id": "seo-text-sitemap-development-1",
+    "section": "config",
+    "doc": "65_search-visibility.md",
+    "question": "Does Chulapa generate sitemap.txt? Which URLs does it contain, and does noindex remove a page?",
+    "expected": "Development v2.2.1 only, not v2.2.0: assets/sitemap.txt publishes /sitemap.txt under baseurl without an extra plugin or flag. Absolute canonical URLs, output collections then HTML pages; sitemap false excludes either. canonical_url overrides apply unlike jekyll-sitemap XML actual URLs. No automatic noindex filtering, deduplication or image/static asset listing. Verify published URLs and submit full text sitemap URL if supported; no guaranteed indexing."
   }
 ]
