@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   indexnow:
-    name: Submit URLs to IndexNow
+    name: Submit changed URLs to IndexNow
     if: >
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
@@ -23,12 +23,35 @@ jobs:
     env:
       INDEXNOW_SITE: 'https://dieghernan.github.io/chulapa'
       INDEXNOW_KEY: '482ca4f8918044ceaf2760339d398cb5'
-      INDEXNOW_SINCE_HOURS: '24'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Find changed pages
+        shell: bash
+        run: |
+          git fetch origin gh-pages
+
+          git diff \
+            --name-only \
+            --diff-filter=AMD \
+            origin/gh-pages^ \
+            origin/gh-pages \
+            -- '*.html' \
+            > changed-pages.txt
+
+          echo "Changed HTML pages:"
+          cat changed-pages.txt
 
       - name: Submit URLs to IndexNow
-        run: node scripts/indexnow.mjs
- 
+        shell: bash
+        run: |
+          if [ -s changed-pages.txt ]; then
+            mapfile -t pages < changed-pages.txt
+            node scripts/indexnow.mjs "${pages[@]}"
+          else
+            echo "IndexNow: no changed HTML pages to submit."
+          fi
