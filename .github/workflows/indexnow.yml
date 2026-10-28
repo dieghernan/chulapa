@@ -2,56 +2,79 @@ name: IndexNow
 
 on:
   workflow_run:
-    workflows:
-      - "Deploy Chulapa Jekyll site to Pages"
-    types:
-      - completed
-
+    workflows: ["Deploy Chulapa Jekyll site to Pages"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Preview URLs without notifying IndexNow or advancing state
+        type: boolean
+        default: true
 
 permissions:
-  contents: read
+  actions: read
+  contents: write # Advance only the indexnow-state checkpoint branch.
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
 
 jobs:
   indexnow:
     name: Submit changed URLs to IndexNow
-    if: >
+    if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-
     env:
-      INDEXNOW_SITE: 'https://dieghernan.github.io/chulapa'
-      INDEXNOW_KEY: '482ca4f8918044ceaf2760339d398cb5'
-
+      INDEXNOW_SITE: https://dieghernan.github.io/chulapa
+      INDEXNOW_KEY: 482ca4f8918044ceaf2760339d398cb5
+      INDEXNOW_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Checkout
+      - name: Checkout trusted workflow scripts
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
-
-      - name: Find changed pages
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Test IndexNow without network requests
+        run: node --test scripts/indexnow.test.mjs
+      - name: Identify deployed source and load checkpoint
+        env:
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
         shell: bash
         run: |
-          git fetch origin gh-pages
-
-          git diff \
-            --name-only \
-            --diff-filter=AMD \
-            origin/gh-pages^ \
-            origin/gh-pages \
-            -- '*.html' \
-            > changed-pages.txt
-
-          echo "Changed HTML pages:"
-          cat changed-pages.txt
-
-      - name: Submit URLs to IndexNow
-        shell: bash
-        run: |
-          if [ -s changed-pages.txt ]; then
-            mapfile -t pages < changed-pages.txt
-            node scripts/indexnow.mjs "${pages[@]}"
-          else
-            echo "IndexNow: no changed HTML pages to submit."
+          if [ -z "$SOURCE_SHA" ]; then
+            SOURCE_SHA=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/build-chulapa-gh-pages.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].head_sha // empty')
           fi
+          test -n "$SOURCE_SHA"
+          echo "INDEXNOW_SOURCE_SHA=$SOURCE_SHA" >> "$GITHUB_ENV"
+          git fetch --no-tags origin refs/heads/gh-pages:refs/remotes/origin/gh-pages
+          state=$(git ls-remote --heads origin refs/heads/indexnow-state)
+          if [ -n "$state" ]; then
+            git fetch --no-tags origin refs/heads/indexnow-state:refs/remotes/origin/indexnow-state
+          fi
+      - name: Compare published HTML, ignoring build dates
+        id: changes
+        run: node scripts/indexnow-changes.mjs
+      - name: Notify IndexNow
+        if: steps.changes.outputs.skip != 'true'
+        run: node scripts/indexnow.mjs --plan indexnow-plan.json
+      - name: Save successful checkpoint
+        if: steps.changes.outputs.skip != 'true' && env.INDEXNOW_DRY_RUN != 'true'
+        env:
+          TARGET_SHA: ${{ steps.changes.outputs.target }}
+        # Normal fast-forward push; failed submissions never advance state.
+        run: git push origin "$TARGET_SHA:refs/heads/indexnow-state"
+      - name: Preserve comparison report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-plan-${{ github.run_id }}-${{ github.run_attempt }}
+          path: indexnow-plan.json
+          if-no-files-found: ignore
+          retention-days: 14

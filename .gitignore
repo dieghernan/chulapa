@@ -16,6 +16,7 @@ Gemfile.lock
 **/vendor/bundle
 # Node.js and NPM
 node_modules
+indexnow-plan.json
 npm-debug.log*
 codekit-config.json
 # macOS

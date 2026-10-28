@@ -2,7 +2,7 @@
   "name": "chulapa-ai-search",
   "private": true,
   "scripts": {
-    "test": "node --test scripts/sync-ai-search.test.mjs"
+    "test": "node --test scripts/sync-ai-search.test.mjs scripts/indexnow.test.mjs"
   },
   "dependencies": {
     "sanitize-html": "^2.18.1"
