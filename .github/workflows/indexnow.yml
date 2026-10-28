@@ -1,11 +1,24 @@
 name: IndexNow
 
 on:
+  workflow_run:
+    workflows:
+      - "Deploy Chulapa Jekyll site to Pages"
+    types:
+      - completed
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+# This workflow does not require access to the repository
+permissions: {}
 
 jobs:
   indexnow:
     name: Submit URLs to IndexNow
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
@@ -14,8 +27,8 @@ jobs:
         with:
           sitemap-location: 'https://dieghernan.github.io/chulapa/sitemap.xml'
           key: '9679ace7976c49139311656d3c628c4e'
+          key-location: 'https://dieghernan.github.io/chulapa/9679ace7976c49139311656d3c628c4e.txt'
           endpoint: api.indexnow.org
           since: 1
           since-unit: day
           failure-strategy: error
- 
