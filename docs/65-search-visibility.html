@@ -18,8 +18,8 @@
         "description": "Configure external indexing, sitemap entries and local search separately - Use this guide for a published auxiliary page, such as a search-results page, that should remain directly accessible without appearing in indexes. These settings are independent; choose the ones that match your publishing setup.",
         "headline": "Keep an auxiliary page out of search results",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-28T02:51:13+01:00",
-        "dateModified": "2026-10-28T02:51:13+01:00",
+        "datePublished": "2026-10-28T08:18:28+01:00",
+        "dateModified": "2026-10-28T08:18:28+01:00",
         "author": {
           "@type": "Person",
           "name": "dieghernan",
@@ -144,6 +144,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="/chulapa/assets/favicons/favicon.svg">
     <link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
     <link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
     <link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
@@ -257,7 +258,7 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Keep an auxiliary page out of search results</a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#edit-the-existing-page" class="nav-link">Edit the existing page</a></li><li class="nav-item nav d-block"><a href="#publish-and-verify" class="nav-link">Publish and verify</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#edit-the-existing-page" class="nav-link">Edit the existing page</a></li><li class="nav-item nav d-block"><a href="#publish-and-verify" class="nav-link">Publish and verify</a></li><li class="nav-item nav d-block"><a href="#text-sitemap-development" class="nav-link">Text sitemap (development)</a></li></ul>
 		</nav>   
 	</div>
 			<div class="e-content"><p>Use this guide for a published auxiliary page, such as a search-results page,
@@ -276,7 +277,7 @@ its title, layout and permalink:</p>
 it to read the instruction; do not block it in <code class="language-plaintext highlighter-rouge">robots.txt</code> and assume they can
 still read <code class="language-plaintext highlighter-rouge">noindex</code>. Removal from existing search results is not immediate.</p>
 <p><code class="language-plaintext highlighter-rouge">sitemap: false</code> excludes it from <code class="language-plaintext highlighter-rouge">jekyll-sitemap</code> if that plugin generates your
-sitemap. It does not itself prevent external indexing. <code class="language-plaintext highlighter-rouge">include_on_search: false</code>
+XML sitemap, and from the theme’s text sitemap described below. It does not itself prevent external indexing. <code class="language-plaintext highlighter-rouge">include_on_search: false</code>
 excludes it from the built-in Lunr, Fuse.js and Simple-Jekyll-Search indexes.</p>
 <p>For Algolia, configure its <a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md#files_to_exclude">files_to_exclude</a>
 for the source file and upload the updated index using the
@@ -299,6 +300,28 @@ configuration defaults, the actual search provider and the latest publishing
 run. Use the <a href="./04-layouts#search-crawler-directives">field constraints</a> and
 <a href="./42-unpublished-changes">publishing checks</a>. Do not assume tags, archives,
 error pages or pagination are automatically excluded by their layout or path.</p>
+<h2 id="text-sitemap-development">Text sitemap (development)</h2>
+<p>The development version of <span class="chulapa">Chulapa</span> v2.2.1 adds
+<code class="language-plaintext highlighter-rouge">/sitemap.txt</code>, a plain-text list with one absolute URL per line. This feature
+is not included in v2.2.0. The theme supplies <code class="language-plaintext highlighter-rouge">assets/sitemap.txt</code>; its permalink
+publishes it at the site root, including your configured <code class="language-plaintext highlighter-rouge">baseurl</code>.
+No extra plugin or configuration flag is needed for this text file.</p>
+<p>After publishing a version containing this feature, open <code class="language-plaintext highlighter-rouge">/sitemap.txt</code> under
+your site’s address. For this documentation site, the address is
+<a href="/chulapa/sitemap.txt">sitemap.txt</a>. Check that URLs use your
+configured <code class="language-plaintext highlighter-rouge">url</code> and <code class="language-plaintext highlighter-rouge">baseurl</code>, and that pages marked <code class="language-plaintext highlighter-rouge">sitemap: false</code> are absent.
+You can submit the file’s full public URL to a search engine that accepts
+<a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#text">text sitemaps</a>.</p>
+<p>The file lists documents from collections whose <code class="language-plaintext highlighter-rouge">output</code> is not <code class="language-plaintext highlighter-rouge">false</code>, then
+HTML pages. Both groups respect <code class="language-plaintext highlighter-rouge">sitemap: false</code>. URLs use the theme’s canonical
+URL rules, including a document’s <code class="language-plaintext highlighter-rouge">canonical_url</code> override; <code class="language-plaintext highlighter-rouge">jekyll-sitemap</code>
+instead lists the page’s actual URL. For a republished copy that should be absent
+from both files, keep <code class="language-plaintext highlighter-rouge">sitemap: false</code> on the copy.</p>
+<p>The text sitemap is an alternative to <code class="language-plaintext highlighter-rouge">sitemap.xml</code>; it does not replace or
+configure <code class="language-plaintext highlighter-rouge">jekyll-sitemap</code>. It does not automatically exclude <code class="language-plaintext highlighter-rouge">noindex</code> pages,
+deduplicate canonical URLs, or list images and other static assets. Keep sitemap
+entries limited to URLs you want indexed. Neither sitemap submission nor removal
+from a sitemap guarantees a search engine’s indexing decision.</p>
 </div>
 			</article>
 		</div>

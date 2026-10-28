@@ -148,4 +148,4 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 
 - [Tag/category indexes](https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds): Create grouped post lists and connect article badges; live demos retain their actual collection choices.
 - [Post sharing metadata](https://dieghernan.github.io/chulapa/docs/64-post-sharing): Set description/social image/article illustration values and inspect published tags; reference retains fallback rules.
-- [Search visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility): Apply independent crawler, sitemap and local-search exclusions; Algolia needs separate indexing configuration.
+- [Search visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility): Apply independent crawler, sitemap and local-search exclusions; explains the development v2.2.1 text sitemap and its canonical URLs. Algolia needs separate indexing configuration.
