@@ -1,5 +1,9 @@
 ## v2.2.1 (development)
 
+### Added
+
+-   Generate alternative sitemap.txt, see <https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?#text> (TODO: documentation pending).
+
 ### Fixed
 
 -   Add missing footer credits for Cerulean, Litera and Pulse, and correct Solar's displayed skin name.

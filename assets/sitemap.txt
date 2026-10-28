@@ -1,0 +1,8 @@
+---
+layout: null
+permalink: /sitemap.txt
+sitemap: false
+---
+{% assign collections = site.collections | where_exp: "collection", "collection.output != false" %}{% for collection in collections %}{% assign docs = collection.docs | where_exp: "doc", "doc.sitemap != false" %}{% for document in docs %}{% include snippets/canonical-url.html url=document.url canonical=document.canonical_url %}{{ canonical_url }}
+{% endfor %}{% endfor %}{% assign pages = site.html_pages | where_exp: "page", "page.sitemap != false" %}{% for document in pages %}{% include snippets/canonical-url.html url=document.url canonical=document.canonical_url %}{{ canonical_url }}
+{% endfor %}
