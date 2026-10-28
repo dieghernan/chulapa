@@ -7,11 +7,10 @@ on:
     types:
       - completed
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# This workflow does not require access to the repository
-permissions: {}
+permissions:
+  contents: read
 
 jobs:
   indexnow:
@@ -21,14 +20,15 @@ jobs:
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
+    env:
+      INDEXNOW_SITE: 'https://dieghernan.github.io/chulapa'
+      INDEXNOW_KEY: '482ca4f8918044ceaf2760339d398cb5'
+      INDEXNOW_SINCE_HOURS: '24'
+
     steps:
-      - name: Submit URLs
-        uses: bojieyang/indexnow-action@v3
-        with:
-          sitemap-location: 'https://dieghernan.github.io/chulapa/sitemap.xml'
-          key: '482ca4f8918044ceaf2760339d398cb5'
-          key-location: 'https://dieghernan.github.io/chulapa/482ca4f8918044ceaf2760339d398cb5.txt'
-          endpoint: api.indexnow.org
-          since: 1
-          since-unit: day
-          failure-strategy: error
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Submit URLs to IndexNow
+        run: node scripts/indexnow.mjs
+ 
