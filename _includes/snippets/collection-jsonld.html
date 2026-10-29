@@ -1,0 +1,23 @@
+{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": {% assign jsonld_value = canonical_url | append: '#itemlist' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+    "itemListElement": [
+    {%- for document in include.documents limit: include.limit -%}
+      {%- unless forloop.first -%},{%- endunless -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "name": {% assign jsonld_value = document.title | default: '---' | markdownify | strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
+        "item": {% assign jsonld_value = document.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+      }
+    {%- endfor -%}
+    ]
+  }
+}
+</script>

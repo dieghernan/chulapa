@@ -5,6 +5,7 @@
 {%- endif -%}
 
 
+{% include snippets/collection-jsonld.html documents=alldocs %}
 {%- assign postsInYear = alldocs | group_by_exp: 'post', 'post.date | date: "%Y"' -%}
 <div class="row row-cols-1 row-cols-sm-2 pt-5 mx-n1" id="years">
 {%- for year in postsInYear -%}

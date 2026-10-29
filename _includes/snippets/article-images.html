@@ -1,3 +1,4 @@
+{%- assign primary_article_image = nil -%}
 {%- assign article_images = page.schema_image | default: page.og_image | default: page.header_img -%}
 {%- assign article_images_json = article_images | jsonify | slice: 0, 1 -%}
 {%- capture article_image_values -%}
@@ -8,6 +9,7 @@
       {%- if article_image != empty -%}
         {{- image_separator -}}
         {%- assign article_image = article_image | absolute_url -%}
+        {%- unless primary_article_image -%}{%- assign primary_article_image = article_image -%}{%- endunless -%}
         {%- include snippets/jsonld-string.html value=article_image decode_html=false -%}
         {%- assign image_separator = ',' -%}
       {%- endif -%}
@@ -16,6 +18,7 @@
     {%- assign article_image = article_images | strip -%}
     {%- if article_image != empty -%}
       {%- assign article_image = article_image | absolute_url -%}
+      {%- assign primary_article_image = article_image -%}
       {%- include snippets/jsonld-string.html value=article_image decode_html=false -%}
     {%- endif -%}
   {%- endif -%}

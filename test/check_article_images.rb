@@ -22,6 +22,7 @@ fixtures = {
   "whitespace" => { "schema_image" => "  " },
   "blank-list" => { "schema_image" => ["", "  "] },
   "absent" => {},
+  "leading-blanks" => { "schema_image" => ["", "  ", "/first.jpg", "/second.jpg"], "og_image" => "/other.jpg", "canonical_url" => "/canonical-article/" },
   "default-image" => {}
 }
 Dir.mktmpdir("chulapa-article-images-") do |source|
@@ -49,6 +50,7 @@ Dir.mktmpdir("chulapa-article-images-") do |source|
       "whitespace" => nil,
       "blank-list" => nil,
       "absent" => nil,
+      "leading-blanks" => [home + "/first.jpg", home + "/second.jpg"],
       "default-image" => [home + "/default.jpg"]
     }
     expected.each do |name, images|
@@ -57,14 +59,25 @@ Dir.mktmpdir("chulapa-article-images-") do |source|
       article = blocks.find { |block| block["@type"] == "BlogPosting" }
       check(article["image"] == images, "Article images incorrect: #{name}, #{baseurl}")
       check(article.key?("image") == !images.nil?, "Empty image property emitted: #{name}")
+      webpage = blocks.find { |block| block["@type"] == "WebPage" }
+      canonical = name == "leading-blanks" ? home + "/canonical-article/" : home + "/#{name}.html"
+      check(webpage["@id"] == canonical, "Page canonical incorrect: #{name}")
+      check(webpage.dig("mainEntity", "@id") == article["@id"], "Page does not identify its article: #{name}")
+      check(article.dig("mainEntityOfPage", "@id") == webpage["@id"], "Article/page relation not reciprocal: #{name}")
+      if images
+        check(webpage["primaryImageOfPage"] == { "@type" => "ImageObject", "@id" => canonical + "#primaryimage", "url" => images.first }, "Primary image differs from first valid article image: #{name}")
+      else
+        check(!webpage.key?("primaryImageOfPage"), "Invented primary image: #{name}")
+      end
       document = Nokogiri::HTML(html)
-      social = %w[single page-social empty].include?(name) ? home + "/social.jpg" : (%w[header empty-list].include?(name) ? home + "/header.jpg" : home + "/banner.jpg")
+      social = name == "leading-blanks" ? home + "/other.jpg" : %w[single page-social empty].include?(name) ? home + "/social.jpg" : (%w[header empty-list].include?(name) ? home + "/header.jpg" : home + "/banner.jpg")
       check(document.at_css('meta[property="og:image"]')["content"] == social, "OpenGraph changed: #{name}")
       check(document.at_css('meta[name="twitter:card"]')["content"] == "summary_large_image", "Twitter card changed: #{name}")
       check(article.dig("publisher", "logo", "url") == home + "/banner.jpg", "Publisher logo changed: #{name}")
     end
     page_html = File.read(File.join(config["destination"], "page.html"))
     page = JSON.parse(page_html[/<script type="application\/ld\+json">(.*?)<\/script>/m, 1])
+    check(!page.key?("mainEntity") && !page.key?("primaryImageOfPage"), "Ordinary page gained article relations")
     check(page["image"] == home + "/banner.jpg", "Ordinary page image changed")
   end
 end

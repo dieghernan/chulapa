@@ -9,3 +9,5 @@
   {% assign end = page.index_items | default: 10   %}
 
 {% include_cached components/indexcards.html cacheddocs=alldocs cachedlimit=end %}
+
+{% include snippets/collection-jsonld.html documents=alldocs limit=end %}

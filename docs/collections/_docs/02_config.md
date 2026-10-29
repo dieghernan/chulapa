@@ -186,6 +186,22 @@ canonical URLs and JSON-LD for the home page (`WebSite`), posts (`BlogPosting`)
 and other pages (`WebPage`). Breadcrumb structured data is generated even when
 visible breadcrumbs are disabled.
 
+In v2.2.1 (development), structured data connects pages, the website, authors,
+the publisher and breadcrumbs using identifiers (`@id`). Posts also include
+`inLanguage` from the page language, `keywords` from nonblank tags and
+`articleSection` from nonblank categories. Each post's page identifies the article
+with `mainEntity` and its first valid article image with `primaryImageOfPage`;
+see [Article images](./04-layouts#article-images). No additional configuration is needed.
+
+The built-in `archive`, `indexcategory`, `cloudtag` and `cloudcategory` layouts
+(including the legacy cloud aliases) describe their pages as `CollectionPage`
+and supply an `ItemList` of linked documents. The list follows the layout's
+collection selection, sorting and limits. Tag and category clouds include each
+document once even when it appears in several groups. An empty selection
+produces an empty list. Custom lists and pagination templates do not automatically
+receive an `ItemList`; any custom markup must describe only the entries displayed
+on that page. These additions do not guarantee enriched search results.
+
 - `og_image`: The default image to be displayed when a page of your site is
   shared on any of the major social networks (Facebook, Twitter/X, etc.). The
   fallback order is page `og_image`, page `header_img`, site `og_image`, site

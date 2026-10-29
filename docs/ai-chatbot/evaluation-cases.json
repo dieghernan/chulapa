@@ -1,5 +1,19 @@
 [
   {
+    "id": "layouts-jsonld-primary-image-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How does JSON-LD connect a post page to its article and primary image? Does the site banner become the primary image if schema_image contains only blanks?",
+    "expected": "In v2.2.1 development WebPage.mainEntity references BlogPosting, whose mainEntityOfPage references the page. primaryImageOfPage is ImageObject for the first nonblank URL in the existing article image selection: schema_image, page og_image, page header_img. Blank entries are skipped after selection; nonempty blank-only schema_image omits both article image and primaryImageOfPage, without falling back to the site banner/avatar. Existing article image array and social previews remain unchanged. No new YAML or Ruby plugin. Link /docs/04-layouts#article-images."
+  },
+  {
+    "id": "layouts-jsonld-collections-1",
+    "section": "layouts",
+    "doc": "02_config.md",
+    "question": "Do archive and category layouts generate JSON-LD lists? Do I need new YAML options, and will my custom pagination template get one too?",
+    "expected": "In v2.2.1 development, native archive/indexcategory/cloudtag/cloudcategory layouts and legacy cloud aliases emit CollectionPage with ItemList matching selection, ordering and limits. Clouds list each document once; empty selections have empty lists. No new YAML option. Custom pagination templates do not automatically get ItemList; custom markup must match only visible entries on that page. Posts add inLanguage, keywords from tags and articleSection from categories. No guaranteed rich results. Link /docs/02-config#seo."
+  },
+  {
     "id": "layouts-random-singleton-1",
     "section": "layouts",
     "doc": "04_layouts.md",

@@ -196,7 +196,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(!webpage.first.key?("mainEntityOfPage"), "WebPage refers to itself in #{path}")
       if blocks.first["@type"] == "WebPage"
         check(%w[headline image author publisher].all? { |key| webpage.first.key?(key) }, "Consolidated WebPage lost properties in #{path}")
-        check(blocks.none? { |block| %w[BlogPosting WebSite].include?(block["@type"]) }, "Ordinary page reclassified in #{path}")
+        check(blocks.none? { |block| block["@type"] == "BlogPosting" }, "Ordinary page reclassified in #{path}")
       elsif blocks.first["@type"] == "BlogPosting"
         check(blocks.first["@id"] == canonical + "#article", "Article identifier incorrect")
         check(blocks.first.dig("mainEntityOfPage", "@id") == webpage.first["@id"], "Article not linked to its WebPage")
@@ -265,7 +265,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
     expected_name = 'Guest "R & GIS" \\ map </script>'
     check(special.first["author"]["name"] == expected_name, "Author string serialization incorrect")
     check(special.first["author"]["sameAs"] == ["https://example.com/?a=1&amp;b=2"], "Raw URL entity altered")
-    check(special.last["name"] == expected_name && special.last["homeLocation"]["name"] == 'Madrid "Spain"', "Person serialization incorrect")
+    check(special.find { |block| block["@type"] == "Person" && block["name"] == expected_name }&.dig("homeLocation", "name") == 'Madrid "Spain"', "Person serialization incorrect")
     check(metadata(File.read(File.join(destination, "special-author.html")), "author") == expected_name, "HTML author attribute broken")
 
     home = blocks_by_page.fetch("index.html")
@@ -347,7 +347,7 @@ Dir.mktmpdir("chulapa-publisher-") do |source|
     %w[index.html guest.html].each do |file|
       html = File.read(File.join(config["destination"], file))
       blocks = html.scan(/<script type="application\/ld\+json">(.*?)<\/script>/m).map { |block| JSON.parse(block.first) }
-      check(blocks.first["publisher"] == expected, "Publisher incorrect: #{label}, #{file}")
+      check(blocks.first["publisher"] == expected.merge("@id" => "https://example.com/subdir/#publisher"), "Publisher incorrect: #{label}, #{file}")
       profile = blocks.find { |block| block["@type"] == "Person" }
       configured = publisher && publisher.values.any? { |value| value && value != "" }
       check(profile["description"] == (configured ? "Site author" : "Publisher"), "Site author role incorrect: #{label}")

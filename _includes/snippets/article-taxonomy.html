@@ -1,0 +1,21 @@
+{%- for taxonomy in (1..2) -%}
+  {%- if taxonomy == 1 -%}
+    {%- assign taxonomy_values = page.tags -%}
+    {%- assign taxonomy_property = 'keywords' -%}
+  {%- else -%}
+    {%- assign taxonomy_values = page.categories -%}
+    {%- assign taxonomy_property = 'articleSection' -%}
+  {%- endif -%}
+  {%- assign taxonomy_json = '' -%}
+  {%- for term in taxonomy_values -%}
+    {%- assign clean_term = term | strip_html | strip -%}
+    {%- if clean_term != empty -%}
+      {%- capture encoded_term -%}{% include snippets/jsonld-string.html value=clean_term %}{%- endcapture -%}
+      {%- if taxonomy_json != empty -%}{%- assign taxonomy_json = taxonomy_json | append: ',' -%}{%- endif -%}
+      {%- assign taxonomy_json = taxonomy_json | append: encoded_term -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if taxonomy_json != empty -%}
+    "{{ taxonomy_property }}": [{{ taxonomy_json }}],
+  {%- endif -%}
+{%- endfor -%}

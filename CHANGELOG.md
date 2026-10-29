@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Connect JSON-LD website, page, author, publisher and breadcrumb entities, enrich posts with language, tags and categories, link article pages to their main article and first valid article image, and describe built-in collection indexes with lists matching their displayed documents.
+
 -   Generate an alternative `/sitemap.txt` with absolute canonical URLs for output collections and HTML pages, respecting `sitemap: false`. Document publishing checks and differences from `jekyll-sitemap` in the [search visibility guide](https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development).
 
 ### Fixed
