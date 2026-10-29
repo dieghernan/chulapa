@@ -12,7 +12,25 @@ showcase.
 
 Explore these live websites built with <span class="chulapa">Chulapa</span>:
 
-<!-- Sites checked on 2026-10-08 against the published HTML, not just repository dependencies. -->
+<!-- Sites checked on 2026-10-29 against the published HTML, not just repository dependencies. -->
+
+- **[Códigos postales de España](https://dieghernan.github.io/codigospostales/)**:
+  An interactive map of estimated Spanish postal areas, with GeoPackage
+  downloads by [@dieghernan](https://github.com/dieghernan) (Spanish).
+
+- **[Warwick Maths Society](https://warwickmathssociety.com/)**: A university
+  society website with events, academic resources and weekly updates.
+
+- **[GROUND 2025](https://ground-hri.github.io/workshop/)**: A workshop website
+  about group dynamics and human–robot interaction, held at IAS 2025 in Genoa.
+
+- **[Thinking Spatially Toolkit](https://davidrumseymapcenter.github.io/thinking-spatially-toolkit/)**:
+  A Stanford Libraries guide to maps, geospatial data and GIS tools, currently
+  under development.
+
+- **[Microbiome Helper](https://microbiomehelper.ca/)**: A Langille Lab website
+  for microbiome analysis resources and tutorials, currently under development
+  and linking to existing analysis workflows.
 
 - **[Stefano Travasci](https://stefanotravasci.it/)**: A personal website with a
   portfolio, curriculum vitae, writings and publications.
@@ -39,17 +57,17 @@ Explore these live websites built with <span class="chulapa">Chulapa</span>:
 - **[One World](https://dieghernan.github.io/)**: Diego Hernangómez's personal
   website covering R packages, maps and open-source projects.
 
-- **[COVID19 en España](https://dieghernan.github.io/COVID19/)**: A data
-  visualization project with maps of COVID-19 in Spain by
-  [@dieghernan](https://github.com/dieghernan) (Spanish).
+- **[COVID19 en España](https://dieghernan.github.io/COVID19/)**: An archive of
+  historical maps and charts of COVID-19 in Spain by
+  [@dieghernan](https://github.com/dieghernan) (Spanish), no longer updated.
 
 - **[leaflet-providersESP](https://dieghernan.github.io/leaflet-providersESP/)**:
   A Leaflet plugin with configurations for Spanish WMS/WMTS tile providers by
   [@dieghernan](https://github.com/dieghernan) (Spanish).
 
-- **[spain-munic-bot](https://dieghernan.github.io/spain-munic-bot/)**: A project
-  documenting a Twitter bot that maps random Spanish municipalities by
-  [@dieghernan](https://github.com/dieghernan).
+- **[spain-munic-bot](https://dieghernan.github.io/spain-munic-bot/)**: An archive
+  of R-generated maps of Spanish municipalities by
+  [@dieghernan](https://github.com/dieghernan). Automated posting is disabled.
 
 - **[Corona Atlas](https://dieghernan.github.io/corona-atlas.de/)**: An archived
   multilingual project mapping COVID-19 risk areas designated by the German
@@ -58,5 +76,5 @@ Explore these live websites built with <span class="chulapa">Chulapa</span>:
   the project is discontinued and its data is no longer updated.
 
 - **[Celestial Data](https://dieghernan.github.io/celestial_data/)**: A
-  collection of celestial object data in GeoJSON format by
+  collection of celestial object data in GeoJSON and GeoPackage formats by
   [@dieghernan](https://github.com/dieghernan).
