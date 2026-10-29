@@ -60,8 +60,14 @@ if (img1 === undefined){
   }
 }
 
+function resultUrl(path) {
+  if (/^(?:https?:)?\/\//i.test(path)) return path;
+  const base = "https://dieghernan.github.io/chulapa/";
+  return base.replace(/\/+$/, '') + '/' + path.replace(/^\/+/, '');
+}
+
 const hitTemplate = function(hit) {
-  const url = hit.url;
+  const url = resultUrl(hit.url);
   const title = parsetitle(hit);
   const content = parsecontent(hit);
   const img = parseimg(hit.og_image, hit.header_img);
@@ -71,7 +77,7 @@ const hitTemplate = function(hit) {
           <article class="my-2 text-left">
           <div class="row">
           <div class="col">
-          <h5 class="chulapa-links-hover-only"><a href="https://dieghernan.github.io/chulapa${url}">${title}</a></h5>
+          <h5 class="chulapa-links-hover-only"><a href="${url}">${title}</a></h5>
           </div>
           </div>
           <div class="row mt-2">
@@ -87,10 +93,10 @@ const hitTemplate = function(hit) {
     <article class="my-2 text-left">
       <div class="row">
         <div class="col">
-          <h5 class="chulapa-links-hover-only"><a href="https://dieghernan.github.io/chulapa${url}">${title}</a></h5>
+          <h5 class="chulapa-links-hover-only"><a href="${url}">${title}</a></h5>
         </div>
       <div class="col-4 col-md-3">
-      <a href="https://dieghernan.github.io/chulapa${url}">
+      <a href="${url}">
         <div class="rounded-lg chulapa-overlay-img chulapa-gradient chulapa-min-h-10" style="background-image: url('${imglink}')" ></div>
         </a>
         </div>
