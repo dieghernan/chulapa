@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en-US">
-<head>
+	<head>
     <meta charset="utf-8">
     <!-- Chulapa Jekyll Theme - v2.2.1 (development) -->
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-10-29 -->
+    <!-- Page build 2026-10-30 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -14,14 +14,18 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "@id": "https://dieghernan.github.io/chulapa/docs/02-config",
+        "isPartOf": {"@id": "https://dieghernan.github.io/chulapa/#website"},
+        "breadcrumb": {"@id": "https://dieghernan.github.io/chulapa/docs/02-config#breadcrumb"},
         "name": "Global settings",
         "description": "Site-wide options, defaults and integration settings - Reference for site identity, navigation, integrations and Jekyll settings.",
+        "inLanguage": "en-US",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-29T19:32:40+01:00",
-        "dateModified": "2026-10-29T19:32:40+01:00",
+        "datePublished": "2026-10-30T00:28:57+01:00",
+        "dateModified": "2026-10-30T00:28:57+01:00",
         "author": {
           "@type": "Person",
+          "@id": "https://dieghernan.github.io/chulapa/#author",
           "name": "dieghernan",
           "url": "https://github.com/dieghernan/",
           "sameAs": [
@@ -31,6 +35,7 @@
         },
         "publisher": {
           "@type": "Person",
+          "@id": "https://dieghernan.github.io/chulapa/#publisher",
           "name": "dieghernan",
           "url": "https://dieghernan.github.io/chulapa/",
           "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png"
@@ -71,6 +76,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://dieghernan.github.io/chulapa/#author",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
         "homeLocation": {
           "@type": "Place",
@@ -84,6 +90,16 @@
           "https://dieghernan.github.io/",
           "https://stackoverflow.com/users/7877917/dieghernan"
         ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://dieghernan.github.io/chulapa/#website",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "name": "Chulapa",
+        "publisher": {"@id": "https://dieghernan.github.io/chulapa/#publisher"}
       }
     </script>
     <title>Global settings | Chulapa</title>
@@ -474,6 +490,20 @@ The sections below list optional integration settings and their constraints.</p>
 canonical URLs and JSON-LD for the home page (<code class="language-plaintext highlighter-rouge">WebSite</code>), posts (<code class="language-plaintext highlighter-rouge">BlogPosting</code>)
 and other pages (<code class="language-plaintext highlighter-rouge">WebPage</code>). Breadcrumb structured data is generated even when
 visible breadcrumbs are disabled.</p>
+<p>In v2.2.1 (development), structured data connects pages, the website, authors,
+the publisher and breadcrumbs using identifiers (<code class="language-plaintext highlighter-rouge">@id</code>). Posts also include
+<code class="language-plaintext highlighter-rouge">inLanguage</code> from the page language, <code class="language-plaintext highlighter-rouge">keywords</code> from nonblank tags and
+<code class="language-plaintext highlighter-rouge">articleSection</code> from nonblank categories. Each post’s page identifies the article
+with <code class="language-plaintext highlighter-rouge">mainEntity</code> and its first valid article image with <code class="language-plaintext highlighter-rouge">primaryImageOfPage</code>;
+see <a href="./04-layouts#article-images">Article images</a>. No additional configuration is needed.</p>
+<p>The built-in <code class="language-plaintext highlighter-rouge">archive</code>, <code class="language-plaintext highlighter-rouge">indexcategory</code>, <code class="language-plaintext highlighter-rouge">cloudtag</code> and <code class="language-plaintext highlighter-rouge">cloudcategory</code> layouts
+(including the legacy cloud aliases) describe their pages as <code class="language-plaintext highlighter-rouge">CollectionPage</code>
+and supply an <code class="language-plaintext highlighter-rouge">ItemList</code> of linked documents. The list follows the layout’s
+collection selection, sorting and limits. Tag and category clouds include each
+document once even when it appears in several groups. An empty selection
+produces an empty list. Custom lists and pagination templates do not automatically
+receive an <code class="language-plaintext highlighter-rouge">ItemList</code>; any custom markup must describe only the entries displayed
+on that page. These additions do not guarantee enriched search results.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">og_image</code>: The default image to be displayed when a page of your site is
 shared on any of the major social networks (Facebook, Twitter/X, etc.). The
