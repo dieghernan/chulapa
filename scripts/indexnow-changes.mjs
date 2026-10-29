@@ -27,7 +27,7 @@ function maskDates(json) {
 export function normalizeHtml(html) {
   return html
     .replace(/(<!-- Page build )\d{4}-\d{2}-\d{2}( -->)/g, '$1[ignored-date]$2')
-    .replace(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi, (script, attributes, body) => {
+    .replace(/<script\b([^>]*)>([\s\S]*?)<\/script(?=[\t\n\f\r />])[^>]*>/gi, (script, attributes, body) => {
       if (!/(?:^|\s)type\s*=\s*(?:"application\/ld\+json"|'application\/ld\+json'|application\/ld\+json(?=\s|$))/i.test(attributes)) return script;
       return script.replace(body, () => maskDates(body));
     });

@@ -65,6 +65,19 @@ test('prose, ordinary scripts, invalid JSON and escaped date names are preserved
   assert.match(normalizeHtml(nested), /"name":"Visible"/);
 });
 
+for (const closingTag of ['</script>', '</SCRIPT >', '</script\t\n bar>', '</script/>']) {
+  test(`JSON-LD dates are ignored with closing tag ${JSON.stringify(closingTag)}`, () => {
+    const html = `<script type="application/ld+json">{"dateModified":"today"}${closingTag}<p>Visible</p>`;
+    const expected = `<script type="application/ld+json">{"dateModified":"[ignored-date]"}${closingTag}<p>Visible</p>`;
+    assert.equal(normalizeHtml(html), expected);
+  });
+}
+
+test('similarly named closing tags do not terminate JSON-LD scripts', () => {
+  const html = '<script type="application/ld+json">{"dateModified":"today"}</script-extra></script>';
+  assert.equal(normalizeHtml(html), html);
+});
+
 test('comparison includes additions, deletions and both sides of renames, but ignores assets and timestamps', t => {
   const f = fixture(t);
   const before = f.commit(source1, { 'index.html': page('2026-10-27'), 'old/index.html': 'Old', 'gone.html': 'Gone', 'stable.html': 'Same', 'image.png': 'old' });
