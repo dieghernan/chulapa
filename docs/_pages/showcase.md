@@ -14,6 +14,9 @@ Explore these live websites built with <span class="chulapa">Chulapa</span>:
 
 <!-- Sites checked on 2026-10-29 against the published HTML, not just repository dependencies. -->
 
+- **[One World](https://dieghernan.github.io/)**: My personal
+  website covering R packages, maps and open-source projects.
+
 - **[Códigos postales de España](https://dieghernan.github.io/codigospostales/)**:
   An interactive map of estimated Spanish postal areas, with GeoPackage
   downloads by [@dieghernan](https://github.com/dieghernan) (Spanish).
@@ -53,9 +56,6 @@ Explore these live websites built with <span class="chulapa">Chulapa</span>:
 
 - **[Thibault Joubert](https://www.thijoubert.com/)**: A blog about Microsoft
   365 security, compliance and identity.
-
-- **[One World](https://dieghernan.github.io/)**: Diego Hernangómez's personal
-  website covering R packages, maps and open-source projects.
 
 - **[COVID19 en España](https://dieghernan.github.io/COVID19/)**: An archive of
   historical maps and charts of COVID-19 in Spain by
