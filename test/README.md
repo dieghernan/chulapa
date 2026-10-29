@@ -236,6 +236,9 @@ bundle exec ruby check_head_metadata.rb
 bundle exec ruby check_social_metadata.rb
 bundle exec ruby check_article_metadata.rb
 bundle exec ruby check_article_images.rb
+bundle exec ruby check_jsonld_entities.rb
+bundle exec ruby check_liquid_indexes.rb
+bundle exec ruby check_head_formatting.rb
 bundle exec ruby check_microdata.rb
 bundle exec ruby check_video_examples.rb
 bundle exec ruby check_minimal_header.rb
@@ -244,7 +247,9 @@ Remove-Item Env:BUNDLE_GEMFILE
 ```
 
 Run from `test`: Jekyll 3 checks the current directory for layouts before the
-fixture source. Running from the repository root can select the wrong layouts.
+fixture source. Running from the repository root can select the wrong layouts
+and produce empty HTML files. This also affects the isolated JSON-LD checks; run them from `test`
+with both Jekyll versions.
 The compatibility bundle deliberately excludes the local theme dependency so
 the installation check can select the temporary installed gem.
 

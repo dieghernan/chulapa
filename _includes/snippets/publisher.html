@@ -12,6 +12,7 @@
 {%- endif -%}
 {
           "@type": "{{ publisher_type }}",
+          "@id": {% include snippets/jsonld-string.html value=publisher_id decode_html=false %},
           "name": {% include snippets/jsonld-string.html value=publisher_name %},
           "url": {% include snippets/jsonld-string.html value=publisher_url decode_html=false %}{% if publisher_type != 'Person' %},
           "logo": {

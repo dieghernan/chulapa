@@ -64,3 +64,12 @@
   </div>
 </section>
 {% endfor %}
+
+{%- assign indexed_documents = '' | split: ',' -%}
+{%- for document in alldocs -%}
+  {%- if document[include.field] and document[include.field] != empty -%}
+    {%- assign indexed_documents = indexed_documents | push: document -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign indexed_documents = indexed_documents | uniq -%}
+{% include snippets/collection-jsonld.html documents=indexed_documents %}

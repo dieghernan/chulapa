@@ -5,6 +5,7 @@ require "nokogiri"
 require "tmpdir"
 require "fileutils"
 require "yaml"
+require "json"
 
 # Record real sampling calls without fixing the random draw itself.
 module TrackGallerySampling
@@ -104,6 +105,22 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
       raise "#{name} (#{baseurl}): wrong cards #{actual}" unless actual == urls.call(sorted.first(limit))
     end
     raise "Missing collection produces cards" unless output.call("empty").css(".card-title").empty?
+    # Compare machine-readable lists with the actual rendered entries.
+    Dir.glob(File.join(config["destination"], "*.html")).each do |path|
+      doc = Nokogiri::HTML(File.read(path))
+      blocks = doc.css('script[type="application/ld+json"]').map { |node| JSON.parse(node.text) }
+      collection = blocks.find { |block| block["@type"] == "CollectionPage" }
+      next unless collection
+      list = collection.fetch("mainEntity").fetch("itemListElement")
+      visible = doc.css('.h-entry a.u-url').map { |link| link["href"] }
+      if File.basename(path).start_with?("cloud")
+        raise "Cloud list contains missing or duplicate documents" unless list.map { |item| item["item"] }.sort == visible.uniq.sort
+      else
+        raise "Collection list order/limit mismatch: #{path}" unless list.map { |item| item["item"] } == visible
+      end
+      raise "List positions incorrect" unless list.map { |item| item["position"] } == (1..list.size).to_a
+      raise "Collection URL ignores baseurl" unless collection["@id"] == "https://example.com#{baseurl}/#{File.basename(path)}"
+    end
     mixed = (site.collections["entries"].docs + site.collections["other"].docs).sort_by { |document| document.data["rank"] }
     raise "Collection selection or cross-collection sorting failed" unless output.call("mixed").css(".card-body a.u-url").map { |link| link["href"] } == urls.call(mixed)
     %w[cloudtag cloudcategory].each do |layout|

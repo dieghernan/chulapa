@@ -1036,6 +1036,13 @@ schema_image:
   - /assets/img/article-1x1.jpg
 ```
 
+In v2.2.1 (development), the post's `WebPage` identifies its `BlogPosting` through
+`mainEntity`, and the article links back through `mainEntityOfPage`. The page's
+`primaryImageOfPage` describes the first nonblank URL from the article's image
+selection as an `ImageObject`. If no article image is available, that property
+is omitted. These relationships need no additional configuration and do not
+change the visible image or social preview.
+
 The theme emits the URLs as a JSON-LD `image` array. It does not create crops, check image dimensions or verify that the files exist. Google recommends relevant, crawlable images and multiple high-resolution aspect ratios when available; see the [article structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/article).
 
 The fallback order is `schema_image`, page `og_image`, then page `header_img`.
@@ -1149,6 +1156,8 @@ these helpers to article content. This inventory is for custom-layout authors:
 | `snippets/page-language.html` | No include parameters; page/site `locale` | Prepares the page language. |
 | `snippets/og-locale.html` | `locale` | Prepares a valid social-sharing locale. |
 | `snippets/publisher.html` | No include parameters; site `publisher` and author settings | Supplies publisher metadata. |
+| `snippets/article-taxonomy.html` | No include parameters; page tags and categories | Supplies nonblank post keywords and sections (v2.2.1 development). |
+| `snippets/collection-jsonld.html` | `documents`, optional `limit` | Describes a displayed document list; custom pagination must pass only the current page's entries (v2.2.1 development). |
 | `snippets/article-images.html` | No include parameters; page `schema_image`, `og_image`, `header_img` | Supplies article image metadata. |
 | `snippets/breadcrumb-names.html` | No include parameters; site/page titles and navbar brand | Prepares breadcrumb labels. |
 | `snippets/microformats-url.html` | No include parameters; page `url`, `canonical_url` | Supplies the article's canonical link for machine-readable lists. |

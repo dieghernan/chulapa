@@ -57,7 +57,6 @@
 {%- endif -%}
 {%- endif -%}
 {%- assign ogdesc = ogdesc | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip | escape_once -%}
-{%- assign links = page.author.links | default: site.author.links -%}
 {%- assign creator_links = site.author.links -%}
 {%- if page.author -%}
   {%- assign creator_links = page.author.links -%}
@@ -101,14 +100,24 @@
     {%- endif -%}
   {%- endif -%}
 {%- endfor %}
-{%- assign authorlink = links | where_exp: "item", "item.url contains 'http'" %}
+{%- assign authorlink = creator_links | where_exp: "item", "item.url contains 'http'" %}
 {%- if page.collection == "posts" -%}
   {%- assign schema_type = "BlogPosting" -%}
 {%- elsif strippedurl == "/" -%}
   {%- assign schema_type = "WebSite" -%}
+{%- elsif layout.chulapa_microformats_feed == true -%}
+  {%- assign schema_type = "CollectionPage" -%}
 {%- else -%}
   {%- assign schema_type = "WebPage" -%}
 {%- endif %}
+{%- assign site_author_id = home_url | append: '#author' -%}
+{%- assign page_author_id = site_author_id -%}
+{%- if page.author -%}
+  {%- assign page_author_url = authorlink.first.url | default: canonical_url | split: '#' | first -%}
+  {%- assign page_author_id = page_author_url | append: '#author' -%}
+{%- endif -%}
+{%- assign publisher_id = home_url | append: '#publisher' -%}
+{%- include snippets/page-language.html -%}
 <head>
     <meta charset="utf-8">
     <!-- Chulapa Jekyll Theme - v2.2.1 (development) -->
@@ -122,8 +131,10 @@
       {
         "@context": "https://schema.org",
         "@type": {{ schema_type | jsonify }},
-      {% if schema_type == 'WebPage' %}
+      {% if schema_type == 'WebPage' or schema_type == 'CollectionPage' %}
         "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
         "name": {% include snippets/jsonld-string.html value=metatitle1 %},
         "description": {% include snippets/jsonld-string.html value=ogdesc %},
       {% elsif schema_type == 'WebSite' %}
@@ -137,6 +148,11 @@
           "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}
         },
       {% endif %}
+        "inLanguage": {% include snippets/jsonld-string.html value=page_language %},
+      {% if schema_type == 'BlogPosting' %}
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% include snippets/article-taxonomy.html %}
+      {% endif %}
         "headline": {% assign jsonld_value = metatitle1 |  strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
       {% if schema_type == 'BlogPosting' %}
         {% include snippets/article-images.html %}
@@ -149,6 +165,7 @@
       {% endif %}
         "author": {
           "@type": "Person",
+          "@id": {% include snippets/jsonld-string.html value=page_author_id decode_html=false %},
           "name": {% assign jsonld_value = page.author.name | default: site.author.name | default: site.github.owner_name %}{% include snippets/jsonld-string.html value=jsonld_value %}{% if authorlink.size > 0 %},
           "url": {% include snippets/jsonld-string.html value=authorlink.first.url decode_html=false %}{% if authorlink.size > 1 %},
           "sameAs": [
@@ -212,13 +229,26 @@
       }
     </script>
     {% endif  %}
-{% if schema_type != 'WebPage' %}
+{% if schema_type != 'WebPage' and schema_type != 'CollectionPage' %}
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
         "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% if strippedurl != "/" or page.breadcrumb_list.size > 0 %}
+        "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% endif %}
+        {% if schema_type == 'BlogPosting' %}
+        "mainEntity": {"@id": {% assign jsonld_value = canonical_url | append: '#article' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% if primary_article_image %}
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "@id": {% assign jsonld_value = canonical_url | append: '#primaryimage' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+          "url": {% include snippets/jsonld-string.html value=primary_article_image decode_html=false %}
+        },
+        {% endif %}
+        {% endif %}
         "name": {% assign jsonld_value = metatitle1 | strip_html %}{% include snippets/jsonld-string.html value=jsonld_value %},
         "description": {% include snippets/jsonld-string.html value=ogdesc %}
       }
@@ -231,6 +261,7 @@ where_exp: "item", "item.url contains 'http'"
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": {% include snippets/jsonld-string.html value=site_author_id decode_html=false %},
   {% if site.author.avatar %}
         "image": {% assign jsonld_value = site.author.avatar | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
   {% endif %}
@@ -260,6 +291,7 @@ where_exp: "item", "item.url contains 'http'"
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": {% include snippets/jsonld-string.html value=page_author_id decode_html=false %},
   {% if page.author.avatar %}
         "image": {% assign jsonld_value = page.author.avatar | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
   {% endif %}
@@ -277,6 +309,18 @@ where_exp: "item", "item.url contains 'http'"
           {% include snippets/jsonld-string.html value=item.url decode_html=false %}{% unless forloop.last %},{% endunless %}
         {% endfor %}
         ]{% endif %}{% endif %}
+      }
+    </script>
+{% endif %}
+{% if schema_type != 'WebSite' %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_site_name %},
+        "publisher": {"@id": {% include snippets/jsonld-string.html value=publisher_id decode_html=false %}}
       }
     </script>
 {% endif %}
