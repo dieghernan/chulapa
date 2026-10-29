@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chulapa social banner</title>
+  <style>
+    @font-face { font-family: Chulapa; src: url('../../assets/fonts/Chulapa/Chulapa-Bold_vmod.otf'); }
+    @font-face { font-family: Inter; src: url('./assets/fonts/Inter.ttf'); font-weight: 100 900; }
+    @font-face { font-family: 'Inter Tight'; src: url('./assets/fonts/InterTight.ttf'); font-weight: 100 900; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    body { background: #22272e; color: #fff; font-family: Inter, sans-serif; }
+    .photo { position: absolute; inset: 0 0 0 34%; overflow: hidden; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 76% 45%; }
+    .shade { position: absolute; inset: 0; background: linear-gradient(90deg, #22272e 0%, #22272e 30%, #22272ee6 42%, #22272e00 72%); }
+    main { position: absolute; inset: 10.3% 5%; }
+    .copy { width: 44%; }
+    .tag { color: #79b8ff; font-size: 1.5625vw; font-weight: 600; }
+    h1 { font: 400 7.8vw/1.1 Chulapa, sans-serif; margin: 5.1vw 0 3.3vw; }
+    .chulapa { font-feature-settings: "liga", "dlig"; text-rendering: optimizeLegibility; }
+    h2 { font: 800 2.9vw/1.2 'Inter Tight', sans-serif; margin: 0 0 1.3vw; }
+    p { font-size: 2.15vw; line-height: 1.45; margin: 0; }
+    footer { position: absolute; bottom: 0; left: 0; font-size: 1.5625vw; }
+    .credit { position: absolute; bottom: 3%; right: 2%; padding: .6em .9em; background: #22272ef2; color: #fff; font-size: 1.015625vw; }
+  </style>
+</head>
+<body>
+  <div class="photo"><img src="./assets/metro-madrid-original.jpg" alt="Plaza de España Metro entrance in Madrid at sunset"></div>
+  <div class="shade"></div>
+  <main>
+    <div class="copy">
+      <div class="tag">JEKYLL · GITHUB PAGES</div>
+      <h1 class="chulapa">Chulapa</h1>
+      <h2>Your site, your style.</h2>
+      <p>Blogs, portfolios<br>and personal sites.</p>
+    </div>
+    <footer>40+ skins. Make it yours.</footer>
+  </main>
+  <div class="credit">Plaza de España · Madrid</div>
+</body>
+</html>

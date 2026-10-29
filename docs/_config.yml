@@ -19,6 +19,10 @@ timezone: "Europe/Madrid"
 # A.1. SEO
 # Optional social locales: docs/04-layouts#social-locales-and-articles.
 og_image: "./assets/img/site/banner.png"
+og_image_alt: 'Chulapa. Your site, your style. Blogs, portfolios and personal sites, with the Plaza de España Metro sign in Madrid.'
+og_image_width: 1200
+og_image_height: 630
+og_image_type: image/png
 twitter_site: dhernangomez
 # Site author
 author:
