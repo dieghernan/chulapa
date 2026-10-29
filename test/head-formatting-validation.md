@@ -1,5 +1,25 @@
 # Head formatting validation
 
+## Development follow-up on 2026-10-30
+
+Removed the tab before the head include in the minimal layout and aligned the
+default custom head comments with the other head children. Custom overrides
+retain their own whitespace; their contents are not rewritten. All eleven
+formatting fixtures pass, including new assertions for unindented head opening
+and closing tags and four-space comment indentation. Compression and head
+metadata checks also pass. No rendered controls, metadata values or PWA assets
+change, so viewport and interaction checks are not needed for this formatting
+correction.
+
+Algolia result links now join the site root and indexed path with one slash.
+The generated JavaScript passes offline checks for root and repository sites,
+trailing baseurl slashes, title/image links, query strings, fragments and
+external URLs. No hosted Algolia request or live browser check was performed.
+Search remains network-dependent; no manifest, service worker, caching or
+offline behavior changes. No new configuration or usage instructions are
+needed, so the guides, llms.txt and chatbot context remain unchanged. Both
+corrections are recorded in the development changelog.
+
 Validated on 2026-10-09 for the development version.
 
 - Head formatting fixtures passed for a home page, a page with explicit breadcrumbs and MathJax, a guest author with escaped text and a post with multiple images.

@@ -425,7 +425,7 @@ where_exp: "item", "item.url contains 'http'"
     <meta name="twitter:creator" content="@{{- twitterauthor  -}}" >
     {% endif %}
 
-    {% include custom/custom_head_before_css.html %}
+{% include custom/custom_head_before_css.html %}
 
     <!-- CSS -->
   {% if site.comments.provider == 'cactus' and page.show_comments %}
@@ -503,7 +503,7 @@ where_exp: "item", "item.url contains 'http'"
 {% if jekyll.environment == 'production' and goatcounter_scheme == 'https://' and goatcounter_host != '' %}
     <script data-goatcounter="{{ goatcounter_endpoint | escape }}" async src="https://gc.zgo.at/count.js"></script>
 {% endif %}
-    {% include custom/custom_head.html %}
+{% include custom/custom_head.html %}
 {% if site.navbar.style == 'fab' or site.navbar.style == 'dual' %}
     <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
 {% endif %}

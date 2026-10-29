@@ -8,6 +8,8 @@
 
 ### Fixed
 
+-   Avoid doubled slashes in Algolia result links on sites without a repository path, and align the generated head opening and default custom head comments.
+
 -   Prevent theme image rounding from creating artifacts in Leaflet map tiles and markers.
 
 -   Update the documentation homepage's social preview to 1200 × 630 pixels, provide image dimensions and alternative text, complete Twitter Card metadata, and add an SVG favicon with dark-mode support.

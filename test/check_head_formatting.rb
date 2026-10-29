@@ -23,7 +23,12 @@ Dir.mktmpdir("chulapa-head-formatting-") do |source|
   Dir.glob(File.join(config["destination"], "**/*.html")).each do |path|
     html = File.read(path)
     raise "Joined document opening: #{File.basename(path)}: #{html[0, 100].inspect}" unless html.match?(/<!doctype html>\n<html lang="en-US">\n\s*<head>/)
+    raise "Indented head opening: #{path}" unless html.lines.include?("<head>\n")
+    raise "Indented head closing: #{path}" unless html.lines.include?("</head>\n")
     head = html.split("<head>", 2).last.split("</head>", 2).first
+    head.lines.grep(/<!--/).each do |line|
+      raise "Lost comment indentation: #{path}: #{line.inspect}" unless line.start_with?("    ")
+    end
     raise "Joined head tags" if head.match?(/>(?:<meta|<link|<script|<title)/)
     raise "Lost head indentation: #{head.lines.grep(/<meta|<link|<title/).reject { |line| line.start_with?("    ") }.inspect}" unless head.lines.grep(/<meta|<link|<title/).all? { |line| line.start_with?("    ") }
     document = Nokogiri::HTML(html)
