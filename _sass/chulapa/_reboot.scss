@@ -41,6 +41,11 @@ img {
     margin-right: auto;
 }
 
+// Keep Leaflet images square, including Sketchy's !important paragraph images.
+.leaflet-container img {
+    border-radius: 0 !important;
+}
+
 table {
     @extend .table;
     @extend .table-sm;

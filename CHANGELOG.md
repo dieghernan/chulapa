@@ -6,6 +6,8 @@
 
 ### Fixed
 
+-   Prevent theme image rounding from creating artifacts in Leaflet map tiles and markers.
+
 -   Update the documentation homepage's social preview to 1200 × 630 pixels, provide image dimensions and alternative text, complete Twitter Card metadata, and add an SVG favicon with dark-mode support.
 
 -   Add missing footer credits for Cerulean, Litera and Pulse, and correct Solar's displayed skin name.
