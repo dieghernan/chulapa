@@ -21,8 +21,8 @@
         "inLanguage": "en-US",
         "headline": "Embed a video",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-30T00:45:50+01:00",
-        "dateModified": "2026-10-30T00:45:50+01:00",
+        "datePublished": "2026-10-30T07:32:52+01:00",
+        "dateModified": "2026-10-30T07:32:52+01:00",
         "author": {
           "@type": "Person",
           "@id": "https://dieghernan.github.io/chulapa/#author",
@@ -332,6 +332,11 @@ and browser or network restrictions.</p>
 metadata, use <a href="./04-layouts#video-support">the video reference</a> and
 <a href="./04-layouts#optional-video-metadata">metadata fields</a>. <code class="language-plaintext highlighter-rouge">thumbnail_url</code> describes
 the video to search engines; it does not replace the visible preview.</p>
+<p>In v2.2.1 (development), these includes also generate JSON-LD for the video,
+using the same metadata and identity as the existing microdata. To check it,
+view the published page’s source and find <code class="language-plaintext highlighter-rouge">"@type": "VideoObject"</code> inside an
+<code class="language-plaintext highlighter-rouge">application/ld+json</code> script. This does not guarantee video indexing or change
+when the player loads; see <a href="./04-layouts#video-structured-data-limitations">video structured data limitations</a>.</p>
 </div>
 			</article>
 		</div>
