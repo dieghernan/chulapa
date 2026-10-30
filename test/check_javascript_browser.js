@@ -132,6 +132,10 @@ const server = http.createServer((request, response) => {
     });
     await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', {value: {writeText: async text => {window.copied = text;}}}));
     await page.goto('http://127.0.0.1:8770/video.html');
+    const videoMetadata = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.map(node => JSON.parse(node.textContent)).filter(item => item['@type'] === 'VideoObject'));
+    assert.equal(videoMetadata.length, 2);
+    assert.deepEqual(videoMetadata.map(item => item.name), ['First video', 'Second video']);
+
     await page.click('.btn-chulapa-copy-code');
     assert.equal(await page.evaluate(() => window.copied.trim()), "puts 'hello'");
     assert.equal(await page.locator('.btn-chulapa-copy-code').getAttribute('aria-label'), 'Copied!');
@@ -152,6 +156,9 @@ const server = http.createServer((request, response) => {
     await page.keyboard.press('Enter');
     assert.equal(await page.locator('.ch_ytdefer').nth(1).locator('iframe').getAttribute('title'), 'YouTube video');
     assert.equal(await page.locator('iframe').count(), 2);
+    const afterPlayback = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.map(node => JSON.parse(node.textContent)).filter(item => item['@type'] === 'VideoObject'));
+    assert.deepEqual(afterPlayback, videoMetadata, 'Playback must preserve video structured data');
+
     assert.deepEqual(errors, []);
     // The legacy clipboard entry point must reuse existing buttons and handle code outside main.
     await page.evaluate(() => { const pre = document.createElement('pre'); pre.innerHTML = '<code>outside main</code>'; document.body.append(pre); });

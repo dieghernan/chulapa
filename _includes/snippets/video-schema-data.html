@@ -1,0 +1,34 @@
+{%- assign video_schema_url = nil -%}
+{%- assign video_schema_id = nil -%}
+{%- assign video_schema_property = 'embedUrl' -%}
+{%- assign video_schema_file = include.fileurl | strip -%}
+{%- assign video_schema_key = include.id | strip -%}
+{%- if include.fileurl -%}
+  {%- if video_schema_file != empty -%}
+    {%- assign video_schema_url = video_schema_file | absolute_url -%}
+    {%- assign video_schema_property = 'contentUrl' -%}
+  {%- endif -%}
+{%- elsif video_schema_key != empty -%}
+  {%- case include.provider -%}
+    {%- when 'youtube' -%}
+      {%- assign video_schema_url = 'https://www.youtube-nocookie.com/embed/' | append: video_schema_key -%}
+    {%- when 'vimeo' -%}
+      {%- assign video_schema_url = 'https://player.vimeo.com/video/' | append: video_schema_key | append: '?dnt=true' -%}
+    {%- when 'google-drive' -%}
+      {%- assign video_schema_url = 'https://drive.google.com/file/d/' | append: video_schema_key | append: '/preview' -%}
+    {%- when 'bilibili' -%}
+      {%- assign video_schema_url = 'https://player.bilibili.com/player.html?bvid=' | append: video_schema_key | append: '&page=1&as_wide=1&high_quality=1&danmaku=0' -%}
+    {%- when 'dailymotion' -%}
+      {%- assign video_schema_url = 'https://www.dailymotion.com/embed/video/' | append: video_schema_key -%}
+  {%- endcase -%}
+{%- endif -%}
+{%- if video_schema_url -%}
+  {%- assign video_schema_id = video_schema_url | split: '#' | first | append: '#video' -%}
+{%- endif -%}
+{%- assign video_schema_thumbnail = include.thumbnail_url | strip -%}
+{%- if video_schema_thumbnail != empty -%}
+  {%- assign video_schema_thumbnail = video_schema_thumbnail | absolute_url -%}
+{%- elsif include.provider == 'youtube' and include.deferred and video_schema_key != empty -%}
+  {%- assign video_schema_resolution = include.video_res | default: 'maxresdefault' -%}
+  {%- assign video_schema_thumbnail = 'https://img.youtube.com/vi/' | append: video_schema_key | append: '/' | append: video_schema_resolution | append: '.jpg' -%}
+{%- endif -%}

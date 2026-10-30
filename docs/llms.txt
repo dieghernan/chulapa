@@ -74,7 +74,7 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 - [Add a photo gallery](https://dieghernan.github.io/chulapa/docs/29-add-gallery): Group uploaded images and display them in filename order; the selected sort field requires v2.2.0 or later.
 - [Add a manual slideshow](https://dieghernan.github.io/chulapa/docs/30-add-carousel): Reuse an image group with keyboard-operable carousel controls; filename ordering and native keyboard-operable buttons/indicators require v2.2.0 or later.
 - [Enable PhotoSwipe](https://dieghernan.github.io/chulapa/docs/31-photoswipe): Enable a viewer on an existing gallery; requires v2.2.0.
-- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Embed YouTube and verify playback; accessible names and the no-JavaScript link require v2.2.0.
+- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Embed YouTube and verify playback; automatic video JSON-LD uses existing metadata in development v2.2.1; accessible names and the no-JavaScript link require v2.2.0.
 - [Add a Mermaid diagram](https://dieghernan.github.io/chulapa/docs/33-add-diagram): Enable page rendering and add an accessible flowchart; requires v2.2.0.
 
 ## Other search providers

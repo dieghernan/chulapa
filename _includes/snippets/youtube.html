@@ -1,9 +1,11 @@
+{%- include snippets/video-schema-data.html provider="youtube" id=include.id thumbnail_url=include.thumbnail_url video_res=include.video_res deferred=true -%}
 {% assign video_id = include.id %}
 {% assign video_res = include.video_res | default: "maxresdefault" %}
 <!-- Thanks to alfurka,groupboard -->
 <!-- Based on https://github.com/alfurka/jekyll-embed-youtube-lazy-load -->
-<div itemscope itemtype="https://schema.org/VideoObject">
+<div itemscope itemtype="https://schema.org/VideoObject"{% if video_schema_id %} itemid="{{ video_schema_id | escape }}"{% endif %}>
 {% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
+{% include snippets/video-jsonld.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
 {%- assign custom_thumbnail = include.thumbnail_url | strip -%}
 {%- if custom_thumbnail == empty -%}
 <link itemprop="thumbnailUrl" href="https://img.youtube.com/vi/{{ video_id | escape }}/{{ video_res | escape }}.jpg">

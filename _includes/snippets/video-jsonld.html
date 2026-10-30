@@ -1,0 +1,22 @@
+{%- if video_schema_id -%}
+{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": {% include snippets/jsonld-string.html value=video_schema_id decode_html=false %},
+  "isPartOf": {"@type": "WebPage", "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}},
+  {% assign video_jsonld_keys = 'name,description,duration,upload_date' | split: ',' %}
+  {% for video_jsonld_key in video_jsonld_keys %}
+    {% assign video_jsonld_value = include[video_jsonld_key] | strip %}
+    {% if video_jsonld_value != empty %}
+  "{{ video_jsonld_key | replace: 'upload_date', 'uploadDate' }}": {% include snippets/jsonld-string.html value=video_jsonld_value decode_html=false %},
+    {% endif %}
+  {% endfor %}
+  {% if video_schema_thumbnail != empty %}
+  "thumbnailUrl": {% include snippets/jsonld-string.html value=video_schema_thumbnail decode_html=false %},
+  {% endif %}
+  "{{ video_schema_property }}": {% include snippets/jsonld-string.html value=video_schema_url decode_html=false %}
+}
+</script>
+{%- endif -%}

@@ -684,7 +684,7 @@ This changes the displayed preview, unlike `thumbnail_url` (metadata only).
 #### Optional video metadata
 
 Both `snippets/video.html` and `snippets/youtube.html` accept these optional
-inputs for the embedded video's microdata:
+inputs for the embedded video's microdata and, in v2.2.1 (development), JSON-LD:
 
 | Input | What to supply |
 | --- | --- |
@@ -720,6 +720,20 @@ The same inputs work with the other supported providers and with deferred
 YouTube embeds. Metadata stays outside the deferred player, so it is available
 before a click and remains after playback starts. `thumbnail_url` supplies
 structured data only; it does not change the player, its preview or its poster.
+
+In v2.2.1 (development), supported video includes also generate a JSON-LD
+`VideoObject` linked to the containing page's canonical URL through `isPartOf`.
+The JSON-LD `@id` matches the microdata `itemid`, so repeated embeds of the same
+file or player identify the same video. Keep metadata consistent for repeated
+embeds. No new options or plugins are needed.
+
+Local and external files use `contentUrl`; supported providers use `embedUrl`.
+Optional fields match the microdata and are omitted when blank. Deferred YouTube
+embeds retain their automatic preview URL when `thumbnail_url` is absent;
+YouTube with `nolazy=true` and the other providers require an explicit thumbnail
+for that field. JSON-LD stays outside the deferred player before and after a
+click. It does not change playback, captions, the visible preview or loading.
+Missing IDs and unsupported providers do not generate a JSON-LD video.
 
 #### Video structured data limitations
 
@@ -1162,6 +1176,8 @@ these helpers to article content. This inventory is for custom-layout authors:
 | `snippets/breadcrumb-names.html` | No include parameters; site/page titles and navbar brand | Prepares breadcrumb labels. |
 | `snippets/microformats-url.html` | No include parameters; page `url`, `canonical_url` | Supplies the article's canonical link for machine-readable lists. |
 | `snippets/jsonld-string.html` | `value`; `decode_html` defaults to `true` | Safely outputs a metadata string; pass `false` to preserve literal HTML entities. |
+| `snippets/video-schema-data.html` | Internal to the video snippets | Selects video identity, source URL and metadata thumbnail (v2.2.1 development). |
+| `snippets/video-jsonld.html` | Internal to the video snippets | Emits JSON-LD from the selected video and optional metadata (v2.2.1 development). |
 | `snippets/video-metadata.html` | `name`, `thumbnail_url`, `upload_date`, `description`, `duration` | Supplies the optional video metadata described above. |
 
 Helpers that prepare values for their caller need ordinary `include`, not

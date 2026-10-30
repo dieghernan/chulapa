@@ -241,6 +241,7 @@ bundle exec ruby check_liquid_indexes.rb
 bundle exec ruby check_head_formatting.rb
 bundle exec ruby check_microdata.rb
 bundle exec ruby check_video_examples.rb
+bundle exec ruby check_video_jsonld.rb
 bundle exec ruby check_minimal_header.rb
 bundle exec ruby check_theme_installation.rb
 Remove-Item Env:BUNDLE_GEMFILE

@@ -1,5 +1,12 @@
 [
   {
+    "id": "layouts-video-jsonld-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How do I enable VideoObject JSON-LD? Does it need a plugin or new YAML, and will it fetch missing publication dates or make YouTube load immediately?",
+    "expected": "In v2.2.1 development supported video/youtube includes automatically emit VideoObject JSON-LD with existing metadata inputs, same identity as microdata and isPartOf referencing canonical page. Files contentUrl; providers embedUrl. Blank optional values omitted, no inferred/fetched dates or durations. Only deferred YouTube has automatic thumbnail fallback; eager YouTube and other providers require explicit thumbnail_url for that field. Metadata survives click; playback/loading unchanged, no new YAML/plugin, no guaranteed indexing. Missing IDs/unknown providers have no JSON-LD. Link /docs/04-layouts#optional-video-metadata."
+  },
+  {
     "id": "layouts-jsonld-primary-image-1",
     "section": "layouts",
     "doc": "04_layouts.md",

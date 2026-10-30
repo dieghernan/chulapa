@@ -61,3 +61,9 @@ For other supported providers, a hosted MP4, immediate iframe loading or video
 metadata, use [the video reference](./04-layouts#video-support) and
 [metadata fields](./04-layouts#optional-video-metadata). `thumbnail_url` describes
 the video to search engines; it does not replace the visible preview.
+
+In v2.2.1 (development), these includes also generate JSON-LD for the video,
+using the same metadata and identity as the existing microdata. To check it,
+view the published page's source and find `"@type": "VideoObject"` inside an
+`application/ld+json` script. This does not guarantee video indexing or change
+when the player loads; see [video structured data limitations](./04-layouts#video-structured-data-limitations).

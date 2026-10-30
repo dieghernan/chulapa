@@ -1,8 +1,10 @@
+{%- include snippets/video-schema-data.html fileurl=include.fileurl provider=include.provider id=include.id thumbnail_url=include.thumbnail_url -%}
 {%- if include.fileurl -%}
-<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+<div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject"{% if video_schema_id %} itemid="{{ video_schema_id | escape }}"{% endif %}>
 {% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
+{% include snippets/video-jsonld.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
 <link itemprop="contentUrl" href="{{ include.fileurl | absolute_url | escape }}">
-<video src="{{ include.fileurl | absolute_url }}#t=0.1" class="embed-responsive-item u-video" aria-label="{{ include.name | default: '' | strip | default: 'Video' | escape }}" controls >
+<video src="{{ include.fileurl | absolute_url | escape }}#t=0.1" class="embed-responsive-item u-video" aria-label="{{ include.name | default: '' | strip | default: 'Video' | escape }}" controls >
   Your browser does not support the video tag.
 </video>
 </div>
@@ -10,9 +12,10 @@
   {%- if include.nolazy -%}
   <!-- Thanks to Minimal Mistakes -->
   <!-- https://embedresponsively.com/ -->
-  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject"{% if video_schema_id %} itemid="{{ video_schema_id | escape }}"{% endif %}>
 {% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
-      <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: 'Video from YouTube' | escape }}" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" allowfullscreen itemprop="embedUrl"></iframe>
+{% include snippets/video-jsonld.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
+      <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: 'Video from YouTube' | escape }}" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ include.id | escape }}" allowfullscreen itemprop="embedUrl"></iframe>
     
   </div>
   {%- else -%}
@@ -24,16 +27,17 @@
 {% assign video_provider = include.provider %}
 <!-- Thanks to Minimal Mistakes -->
 <!-- https://embedresponsively.com/ -->
-  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject">
+  <div class="embed-responsive embed-responsive-16by9 my-2 chulapa-rounded-lg" itemscope itemtype="https://schema.org/VideoObject"{% if video_schema_id %} itemid="{{ video_schema_id | escape }}"{% endif %}>
 {% include snippets/video-metadata.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
+{% include snippets/video-jsonld.html name=include.name thumbnail_url=include.thumbnail_url upload_date=include.upload_date description=include.description duration=include.duration %}
   {%- if video_provider == "vimeo" -%}
-    <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
+    <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_id | escape }}?dnt=true"  webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
   {%- elsif video_provider == "google-drive" -%}
-    <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id }}/preview"  allowfullscreen itemprop="embedUrl"></iframe>
+    <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://drive.google.com/file/d/{{ video_id | escape }}/preview"  allowfullscreen itemprop="embedUrl"></iframe>
   {%- elsif video_provider == "bilibili" -%}
-    <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id }}&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true" itemprop="embedUrl"></iframe>
+    <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://player.bilibili.com/player.html?bvid={{ video_id | escape }}&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0" scrolling="no" border="0"  framespacing="0" allowfullscreen="true" itemprop="embedUrl"></iframe>
   {%- elsif video_provider == "dailymotion" -%}
-  <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
+  <iframe loading="lazy" title="{{ include.name | default: '' | strip | default: video_provider | prepend: 'Video: ' | escape }}" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_id | escape }}" webkitAllowFullScreen mozallowfullscreen allowFullScreen itemprop="embedUrl"></iframe>
   {% endif %}
   </div>
 {% endif %}
