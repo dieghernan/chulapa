@@ -51,6 +51,8 @@ $min-contrast-ratio: 2 !default;
 // Lines for dark themes
 
 @import "skins/dark-bg";
+// Keep interaction links readable against the dark page.
+$link-hover-color: lighten($link-color, 10%);
 
 // Special rules
 
@@ -98,3 +100,6 @@ $skin-button-palette: (
   primary: #373e47,
 ) !default;
 $skin-button-body-bg: #24292f !default;
+
+$chulapa-authored-skin: "gitdev-dark";
+@import "chulapa/skins/authored-contrast";

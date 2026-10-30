@@ -1,0 +1,263 @@
+// Loaded only by the 16 original dieghernan skins. No third-party imports.
+// Literal palettes distinguish stock colors from predeclared and YAML overrides.
+$chulapa-authored-palettes: (
+  "academia": (
+    primary: #1565c0,
+    secondary: #2962ff,
+    success: #28a745,
+    info: #20a6bb,
+    warning: #ffc107,
+    danger: #dc3545,
+    light: #f8f9fa,
+    dark: #343a40,
+  ),
+  "butterfly": (
+    primary: #1083f3,
+    secondary: #8d8e96,
+    success: #008900,
+    info: #54c7ec,
+    warning: #ffba00,
+    danger: #fa4c51,
+    light: #f8f9fa,
+    dark: #0b0f14,
+  ),
+  "butterfly-dark": (
+    primary: #1083fe,
+    secondary: #c5cfd9,
+    success: #008900,
+    info: #54c7ec,
+    warning: #ffba00,
+    danger: #fa4c51,
+    light: #f8f9fa,
+    dark: #0b0f14,
+  ),
+  "butterfly-dim": (
+    primary: #208bfe,
+    secondary: #c9d2db,
+    success: #00a400,
+    info: #54c7ec,
+    warning: #ffba00,
+    danger: #fa4c51,
+    light: #f8f9fa,
+    dark: #0b0f14,
+  ),
+  "chulapa": (
+    primary: #edc7b7,
+    secondary: #687864,
+    success: #88bdbc,
+    info: #31708e,
+    warning: #fffe7a,
+    danger: #dc371d,
+    light: rgb(250.5, 241, 237),
+    dark: rgb(79.8909090909, 92.1818181818, 76.8181818182),
+  ),
+  "focal": (
+    primary: #ff9285,
+    secondary: #6e6e6e,
+    success: #26a65b,
+    info: #00acc1,
+    warning: #f9690e,
+    danger: #ed0000,
+    light: #f2f1f1,
+    dark: #262626,
+  ),
+  "gitdev": (
+    primary: #22272e,
+    secondary: #6c757d,
+    success: #277f46,
+    info: #8250df,
+    warning: #b45306,
+    danger: #cf222e,
+    light: #f8f9fa,
+    dark: #343a40,
+  ),
+  "gitdev-dark": (
+    primary: #373e47,
+    secondary: #a8b3c1,
+    success: #6fdd8c,
+    info: #b8a7e6,
+    warning: #e3ba52,
+    danger: #ee8f95,
+    light: #f8f9fa,
+    dark: #343a40,
+  ),
+  "listen": (
+    primary: #1ed760,
+    secondary: #757575,
+    success: #1ed760,
+    info: #4cb3ff,
+    warning: #ffa42b,
+    danger: #e12a3c,
+    light: #c1c2c2,
+    dark: #15181c,
+  ),
+  "media": (
+    primary: #242424,
+    secondary: #555555,
+    success: #1a8917,
+    info: rgba(0, 0, 0, 0.54),
+    warning: #FFC017,
+    danger: #c35050,
+    light: #f8f9fa,
+    dark: #343a40,
+  ),
+  "navi": (
+    primary: #457AFF,
+    secondary: #000033,
+    success: #00a648,
+    info: #6d3fa1,
+    warning: #f7df1e,
+    danger: #b52e31,
+    light: #d6d6e7,
+    dark: #23263b,
+  ),
+  "pear": (
+    primary: #1abc9c,
+    secondary: #656e75,
+    success: #28a745,
+    info: #20a6bb,
+    warning: #ffc107,
+    danger: #dc3545,
+    light: rgb(220.65, 244.95, 240.15),
+    dark: #343a40,
+  ),
+  "towards": (
+    primary: #355876,
+    secondary: #757575,
+    success: #00d084,
+    info: #8ed1fc,
+    warning: #fcb900,
+    danger: #cf2e2e,
+    light: #f8f9fa,
+    dark: #343a40,
+  ),
+  "twitter": (
+    primary: #1d9bf0,
+    secondary: #697883,
+    success: #00ba7c,
+    info: #7856ff,
+    warning: #ff7a00,
+    danger: #e21674,
+    light: #f5f8fa,
+    dark: #343a40,
+  ),
+  "twitter-dim": (
+    primary: #1d9bf0,
+    secondary: #788995,
+    success: #00ba7c,
+    info: #7856ff,
+    warning: #ff7a00,
+    danger: #e21674,
+    light: #f8f9fa,
+    dark: #192734,
+  ),
+  "twitter-lights-out": (
+    primary: #1d9bf0,
+    secondary: #697883,
+    success: #00ba7c,
+    info: #7856ff,
+    warning: #ff7a00,
+    danger: #e21674,
+    light: #c1c2c2,
+    dark: #15181c,
+  ),
+);
+
+@function chulapa-stock-color($actual, $stock) {
+  @return abs(red($actual) - red($stock)) < .01 and abs(green($actual) - green($stock)) < .01 and abs(blue($actual) - blue($stock)) < .01 and abs(opacity($actual) - opacity($stock)) < .001;
+}
+
+@function chulapa-readable-color($foreground, $background) {
+  @if contrast-ratio($background, $foreground) >= 4.6 {
+    @return $foreground;
+  }
+  $target: if(contrast-ratio($background, #000) > contrast-ratio($background, #fff), #000, #fff);
+  @for $step from 1 through 100 {
+    $candidate: mix($target, $foreground, $step * 1%);
+    @if contrast-ratio($background, $candidate) >= 4.6 {
+      @return $candidate;
+    }
+  }
+  @return $target;
+}
+
+@mixin chulapa-skin-defaults {
+  $navbar-chulapa-bg-color: $primary !default !global;
+  $contrast: color-contrast($navbar-chulapa-bg-color, #000, #fff, 4.5);
+  $default: mix($contrast, $navbar-chulapa-bg-color, 50%);
+  $navbar-chulapa-text-color: chulapa-readable-color($default, $navbar-chulapa-bg-color) !default !global;
+  $navbar-chulapa-hover-bg-color: mix($contrast, $navbar-chulapa-bg-color, 10%) !default !global;
+  $navbar-hover: mix($contrast, $navbar-chulapa-bg-color, 75%);
+  $navbar-chulapa-hover-color: chulapa-readable-color($navbar-hover, $navbar-chulapa-hover-bg-color) !default !global;
+  $navbar-chulapa-active-color: $contrast !default !global;
+  $navbar-chulapa-brand-color: $contrast !default !global;
+  $footer-chulapa-bg-color: $navbar-chulapa-bg-color !default !global;
+  $footer-contrast: color-contrast($footer-chulapa-bg-color, #000, #fff, 4.5);
+  $footer-chulapa-link-color: mix($footer-contrast, $footer-chulapa-bg-color, 90%) !default !global;
+  $footer-hover: mix($footer-chulapa-link-color, $footer-chulapa-bg-color, 80%);
+  $footer-chulapa-hover-color: chulapa-readable-color($footer-hover, $footer-chulapa-bg-color) !default !global;
+}
+
+@mixin chulapa-skin-contrast {
+  $palette: map-get($chulapa-authored-palettes, $chulapa-authored-skin);
+  @each $variant, $stock in $palette {
+    @if chulapa-stock-color(map-get($skin-button-effective-palette, $variant), $stock) and chulapa-stock-color(theme-color($variant), $stock) {
+      $background: $stock;
+      @if map-has-key($skin-button-backgrounds, $variant) {
+        $background: map-get($skin-button-backgrounds, $variant);
+      }
+      $label: color-contrast($background, #212529, #fff, 4.5);
+      $hover: darken($background, 10%);
+      .badge.badge-#{$variant},
+      .badge.chulapa-pill-bg-#{$variant} {
+        color: $label;
+        background-color: $background;
+      }
+      a.badge.badge-#{$variant},
+      a.badge.chulapa-pill-bg-#{$variant} {
+        &:hover,
+        &:focus {
+          color: color-contrast($hover, #212529, #fff, 4.5);
+          background-color: $hover;
+        }
+      }
+      $card-background: opaque($body-bg, $stock);
+      $card-label: chulapa-readable-color($body-color, $card-background);
+      @if map-has-key($skin-button-labels, $variant) {
+        $button-label: map-get($skin-button-labels, $variant);
+        @if contrast-ratio($card-background, $button-label) >= 4.5 {
+          $card-label: $button-label;
+        }
+      }
+      .card.bg-#{$variant} {
+        color: $card-label;
+        a:not(.btn):not(.badge):not(.nav-link) {
+          color: $card-label;
+          text-decoration: underline;
+          &:hover,
+          &:focus { color: $card-label; }
+        }
+      }
+      .btn-outline-#{$variant} {
+        &:not(:hover):not(:active):not(.active):not(.disabled):not(:disabled) {
+          $outline: chulapa-readable-color($stock, $body-bg);
+          @if map-has-key($skin-button-outlines, $variant) and $skin-button-body-bg == $body-bg {
+            $outline: map-get($skin-button-outlines, $variant);
+          }
+          color: $outline;
+          border-color: $outline;
+          .show > &.dropdown-toggle {
+            color: color-contrast($stock, #212529, #fff, 4.5);
+            border-color: $stock;
+          }
+        }
+        &:hover,
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active,
+        .show > &.dropdown-toggle {
+          color: color-contrast($stock, #212529, #fff, 4.5);
+        }
+      }
+    }
+  }
+}

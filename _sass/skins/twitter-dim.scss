@@ -85,3 +85,6 @@ $skin-button-palette: (
   warning: #ff7a00,
 ) !default;
 $skin-button-body-bg: #15202b !default;
+
+$chulapa-authored-skin: "twitter-dim";
+@import "chulapa/skins/authored-contrast";

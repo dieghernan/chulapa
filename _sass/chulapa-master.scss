@@ -14,8 +14,17 @@
 
 @import "chulapa/_bootstrapv5";
 @import "chulapa/_mixins";
+// Resolve skin defaults after site vars and before navigation rules.
+@if mixin-exists(chulapa-skin-defaults) {
+  @include chulapa-skin-defaults;
+}
 @import "chulapa/_variables";
 @import "chulapa/_reboot";
 @import "chulapa/_classes";
 
 @import "chulapa/_buttons";
+
+// Skin-owned corrections need the final palette, component mixins and rules.
+@if mixin-exists(chulapa-skin-contrast) {
+  @include chulapa-skin-contrast;
+}

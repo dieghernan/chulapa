@@ -11,6 +11,7 @@ $font-family-base: 'Inter', 'Roboto' !default;
 }
 
 $primary: #1083f3 !default;
+$link-color: #0e6fcf !default;
 $yiq-contrasted-threshold: 117 !default;
 $secondary: #8d8e96 !default;
 $success: #008900 !default;
@@ -63,3 +64,6 @@ $skin-button-palette: (
   warning: #ffba00,
 ) !default;
 $skin-button-body-bg: #ffffff !default;
+
+$chulapa-authored-skin: "butterfly";
+@import "chulapa/skins/authored-contrast";

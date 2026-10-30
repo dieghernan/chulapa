@@ -11,6 +11,7 @@ $headings-font-family: "Playfair Display", serif;
 }
 
 $primary: #ff9285;
+$link-color: #a65f56 !default;
 $yiq-contrasted-threshold: 119 !default;
 $secondary: #6e6e6e;
 $success: #26a65b;
@@ -87,3 +88,6 @@ $skin-button-palette: (
   warning: #f9690e,
 ) !default;
 $skin-button-body-bg: #fff !default;
+
+$chulapa-authored-skin: "focal";
+@import "chulapa/skins/authored-contrast";

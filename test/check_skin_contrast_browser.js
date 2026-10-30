@@ -91,7 +91,7 @@ const root = require("path").resolve(__dirname, ".."),
         // Preserve readable link accents against the dim page background,
         // including the hover and keyboard-focus states from the PR review.
         if (
-          ["twitter-dim", "butterfly-dim", "cyborg", "wandoo"].includes(skin)
+          ["twitter-dim", "butterfly", "butterfly-dim", "cyborg", "wandoo"].includes(skin)
         ) {
           await page.setContent(`<style>${css}</style>
             <main><a id="body-link" href="#target">Article link</a>
@@ -113,11 +113,15 @@ const root = require("path").resolve(__dirname, ".."),
             const link = page.locator(`#${id}`);
             for (const state of id === "success-text"
               ? ["normal"]
-              : ["normal", "hover", "focus"]) {
+              : ["normal", "hover", "focus", "active"]) {
               await page.mouse.move(0, 0);
               await page.evaluate(() => document.activeElement?.blur());
               if (state === "hover") await link.hover();
               if (state === "focus") await link.focus();
+              if (state === "active") {
+                await link.hover();
+                await page.mouse.down();
+              }
               const contrast = await link.evaluate((el) => {
                 const channels = (value) => value.match(/[\d.]+/g).map(Number);
                 const luminance = (value) =>
@@ -145,6 +149,7 @@ const root = require("path").resolve(__dirname, ".."),
                 );
                 return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
               });
+              if (state === "active") await page.mouse.up();
               assert.ok(
                 contrast >= 4.5,
                 `${skin}/${width}/${id}/${state}: ${contrast}`,

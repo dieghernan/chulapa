@@ -45,6 +45,8 @@ $pagination-chulapa-bg-hover-color: $primary !default;
 $min-contrast-ratio: 2 !default;
 
 @import "skins/dark-bg";
+// Keep interaction links readable against the dark page.
+$link-hover-color: lighten($link-color, 10%);
 
 .card.bg-primary {
   color: $white;
@@ -71,3 +73,6 @@ $skin-button-palette: (
   primary: #1083fe,
 ) !default;
 $skin-button-body-bg: #000000 !default;
+
+$chulapa-authored-skin: "butterfly-dark";
+@import "chulapa/skins/authored-contrast";

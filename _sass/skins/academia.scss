@@ -67,3 +67,6 @@ $skin-button-palette: (
   warning: #ffc107,
 ) !default;
 $skin-button-body-bg: #ffffff !default;
+
+$chulapa-authored-skin: "academia";
+@import "chulapa/skins/authored-contrast";

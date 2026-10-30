@@ -1,5 +1,26 @@
 [
   {
+    "id": "authored-custom-navbar-background",
+    "section": "accessibility",
+    "doc": "48_accessibility-reference.md",
+    "question": "I use Butterfly with only navbar-chulapa-bg-color set to #222222. Will the new contrast fix force gray navigation text?",
+    "expected": "v2.2.1 development derives default navigation text from the final configured background, not a fixed light-skin gray. Keep existing config and explicit navbar-chulapa-text-color if provided; explicit text remains authoritative. Not in v2.2.0; test actual colors. No new option. Cite /docs/48-accessibility-reference."
+  },
+  {
+    "id": "listen-primary-card-contrast",
+    "section": "accessibility",
+    "doc": "48_accessibility-reference.md",
+    "question": "Does the Listen primary card contrast fix change its green background? What about links inside the card?",
+    "expected": "v2.2.1 development improves contextual card text and ordinary links in the 16 dieghernan skins, including Listen Primary with the same dark text as its button. Main semantic palette stays unchanged, custom semantic colors remain authoritative. Not a new YAML option, not released v2.2.0 and not a whole-site WCAG guarantee. Cite /docs/48-accessibility-reference."
+  },
+  {
+    "id": "butterfly-contrast-development",
+    "section": "accessibility",
+    "doc": "48_accessibility-reference.md",
+    "question": "Are Butterfly and Butterfly Dim starter badges and light-mode links contrast-corrected in v2.2.0?",
+    "expected": "v2.2.1 development only: 16 dieghernan skins improve navigation, link states, badges, outline buttons and card text/links including Listen Primary. Some badges reuse readable solid-button fills. Main palettes preserved; custom semantic colors and explicit nav text respected; nav defaults adapt to configured bg; third-party skins unchanged. Not v2.2.0, no new YAML setting or WCAG guarantee. Cite /docs/48-accessibility-reference."
+  },
+  {
     "id": "selector-focus-development",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",

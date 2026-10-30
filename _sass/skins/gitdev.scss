@@ -27,7 +27,7 @@ $text-muted: #6A788A !default;
 $navbar-chulapa-bg-color: $primary !default;
 $navbar-chulapa-toggler-border-color: $primary !default;
 $navbar-chulapa-text-color: $body-bg !default;
-$navbar-chulapa-hover-color: $text-muted !default;
+$navbar-chulapa-hover-color: #8b949e !default;
 $navbar-chulapa-brand-color: $navbar-chulapa-text-color !default;
 
 $footer-chulapa-bg-color: $black !default;
@@ -87,3 +87,6 @@ nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
 .card.bg-secondary {
   color: $white;
 }
+
+$chulapa-authored-skin: "gitdev";
+@import "chulapa/skins/authored-contrast";
