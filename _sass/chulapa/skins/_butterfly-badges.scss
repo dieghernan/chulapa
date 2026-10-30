@@ -1,0 +1,13 @@
+// Only Butterfly skins import this correction; evaluate after site overrides.
+@mixin chulapa-skin-contrast {
+  @each $variant in (primary, secondary) {
+    $background: map-get($skin-button-backgrounds, $variant);
+    $stock: map-get($skin-button-palette, $variant);
+    $effective: if($variant == primary, $primary, $secondary);
+    @if $background != null and $stock == $effective and $stock == theme-color($variant) {
+      .badge.chulapa-pill-bg-#{$variant} {
+        @include badge-variant($background);
+      }
+    }
+  }
+}

@@ -10,6 +10,8 @@
 
 ### Fixed
 
+-   Improve Butterfly's text-link and navigation contrast and the default tag/category badges in Butterfly and Butterfly Dim, preserving their main palettes and custom semantic colors.
+
 -   Restore visible keyboard focus on the light/dark/auto selector across classic, floating and dual navigation, using a two-color indicator.
 
 -   Avoid doubled slashes in Algolia result links on sites without a repository path, and align the generated head opening and default custom head comments.

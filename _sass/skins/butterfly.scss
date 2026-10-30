@@ -11,6 +11,7 @@ $font-family-base: 'Inter', 'Roboto' !default;
 }
 
 $primary: #1083f3 !default;
+$link-color: #0e6fcf !default;
 $yiq-contrasted-threshold: 117 !default;
 $secondary: #8d8e96 !default;
 $success: #008900 !default;
@@ -23,6 +24,7 @@ $white: #ffffff !default;
 $body-color: $dark !default;
 
 $navbar-chulapa-bg-color: $white !default;
+$navbar-chulapa-text-color: #717278 !default;
 $thead-chulapa-bg-color: $white !default;
 
 .card.bg-primary {
@@ -63,3 +65,5 @@ $skin-button-palette: (
   warning: #ffba00,
 ) !default;
 $skin-button-body-bg: #ffffff !default;
+
+@import "chulapa/skins/butterfly-badges";

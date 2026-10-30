@@ -1,5 +1,12 @@
 [
   {
+    "id": "butterfly-contrast-development",
+    "section": "accessibility",
+    "doc": "48_accessibility-reference.md",
+    "question": "Are Butterfly and Butterfly Dim starter badges and light-mode links contrast-corrected in v2.2.0?",
+    "expected": "v2.2.1 development only: Butterfly darker text links/navigation; default primary/secondary tag/category badges in Butterfly and primary badges in Butterfly Dim use readable solid-button fills. Main palettes preserved; custom semantic colors respected; other skins unchanged. Not released v2.2.0, no new YAML setting or whole-site WCAG guarantee. Cite /docs/48-accessibility-reference."
+  },
+  {
     "id": "selector-focus-development",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",

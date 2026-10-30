@@ -1,5 +1,12 @@
 # Instructions for AI and coding agents
 
+## Preserve third-party skins
+
+Only modify skins authored by `dieghernan`, as identified by `skin_author` in
+`docs/collections/_skins/`. Preserve other authors' original skins and document
+any issues without changing their appearance. Shared style changes must not
+alter third-party skins indirectly; validate their compiled output when relevant.
+
 ## Avoid unnecessary YAML options
 
 As a general rule, theme changes must not introduce new YAML options in

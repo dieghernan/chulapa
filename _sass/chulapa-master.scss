@@ -19,3 +19,8 @@
 @import "chulapa/_classes";
 
 @import "chulapa/_buttons";
+
+// Skin-owned corrections need the final palette, component mixins and rules.
+@if mixin-exists(chulapa-skin-contrast) {
+  @include chulapa-skin-contrast;
+}

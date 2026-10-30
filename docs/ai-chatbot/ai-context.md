@@ -2,15 +2,15 @@
 
 Release v2.2.0 (21 Oct 2026, GitHub/RubyGems); pin @v2.2.0; verify installed version.
 
-llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
+llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. No fetching.
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
-Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other hosts. Search, SEO, multi-author, code, MathJax, galleries, comments.
+Jekyll theme; GitHub Pages/other hosts.
 ## First-site tutorial
 Source: https://dieghernan.github.io/chulapa/docs/00-start
 Methods: https://dieghernan.github.io/chulapa/docs/01-install
-Use public https://github.com/dieghernan/chulapa-101/generate; demo https://dieghernan.github.io/chulapa-101/. Settings > Pages > GitHub Actions; no token/local install; workflow sets baseurl. Edit existing _config.yml title/description/author/repository/url, index.html title only, existing _posts sample title/body (keep filename/front matter). Commit main/master; verify home/article at Pages URL after successful deployment.
-No run: enable workflows if prompted; Actions > Deploy Chulapa Jekyll site to Pages > Run workflow, choose edited default branch, confirm Run workflow. Before sharing replace sample posts, _pages/about.md biography/contact details and _config.yml author.
+Use public https://github.com/dieghernan/chulapa-101/generate; demo https://dieghernan.github.io/chulapa-101/. Settings > Pages > GitHub Actions; no token/local install; workflow sets baseurl. Edit _config.yml title/description/author/repository/url, index.html title, _posts sample title/body; keep filename/front matter. Commit main/master; verify home/article at Pages URL after deployment.
+No run: enable workflows if prompted; Actions > Deploy Chulapa Jekyll site to Pages > Run workflow; select edited default branch and confirm. Before sharing replace sample posts, _pages/about.md biography/contacts and _config.yml author.
 Starter follows main (remote_theme: dieghernan/chulapa, unpinned). Butterfly/Butterfly Dim; three posts, About, archives, Fuse.js, RSS. Keep index.html for pagination (5/page). Fuse indexes posts/About only; navbar/footer in _config.yml. Custom head/bottomscripts/giscus includes are comment-only; assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
@@ -154,7 +154,7 @@ chulapa-skin:
 Never nest autothemer inside vars. Preserve current skin unless asked. none has no palette. Omit/false disables later step; skin: auto independently imports the generator.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
-v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. v2.2.1 development restores two-color keyboard focus in all three nav styles; absent v2.2.0. /docs/48-accessibility-reference.
+Selector: v2.2.0 hides focus; local CSS or disable if needed. v2.2.1 development restores two-color keyboard focus in all navs. v2.2.1 development also darkens Butterfly text links/navigation; Butterfly/Dim stock tag/category badges use readable button fills. Palettes/custom semantic colors preserved; other skins unchanged. Not in v2.2.0. /docs/48-accessibility-reference.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins

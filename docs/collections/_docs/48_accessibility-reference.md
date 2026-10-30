@@ -52,6 +52,11 @@ Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.
 
+**Development (v2.2.1):** Butterfly uses darker text links and navigation labels.
+Default tag/category badges in Butterfly and Butterfly Dim use the corresponding
+readable solid-button fills. The main palettes and custom semantic colors are
+preserved. These changes are not included in v2.2.0 and do not change other skins.
+
 The carousel motion/control improvements in this paragraph require v2.2.0, not the v2.1.0 gem or pin. Automatically cycling multi-image
 carousels have a play/pause control with an
 action-specific accessible name and a plain-symbol fallback when icon assets

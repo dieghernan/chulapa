@@ -38,7 +38,7 @@ async function audit(sassRoot, page, session) {
         (k) =>
           `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><button disabled class="btn btn-${k}" data-pair="disabled-${k}">${k}</button><button class="btn btn-${k} focus" data-pair="class-focus-${k}">${k}</button><button class="btn btn-${k} active" data-pair="class-active-${k}">${k}</button><div class="show"><button class="btn btn-${k} dropdown-toggle" data-pair="dropdown-${k}">${k}</button></div><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a>`,
       )
-      .join("");
+      .join("") + '<a href="#target" class="badge chulapa-pill-bg-primary" data-pair="pill-primary">journal</a><a href="#target" class="badge chulapa-pill-bg-secondary" data-pair="pill-secondary">Journal</a>';
     await page.setContent(
       `<style>${css} * {transition:none!important}</style><main>${html}</main>`,
     );
@@ -112,6 +112,15 @@ async function audit(sassRoot, page, session) {
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       const after = await audit(root + "/_sass", page, session);
+      for (const skin of ["butterfly", "butterfly-dim"]) {
+        for (const variant of ["primary", "secondary"]) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            const reading = after[skin][`pill-${variant}/${state}`];
+            assert.ok(reading.ratio >= 4.5,
+              `${skin}/${width}/${variant}/${state}: starter tag/category contrast ${reading.ratio}`);
+          }
+        }
+      }
       for (const [skin, variants] of Object.entries(identity.buttonBackgrounds)) {
         for (const [variant, color] of Object.entries(variants))
           assert.equal(hex(after[skin][`btn-${variant}/normal`].bg), color.background,

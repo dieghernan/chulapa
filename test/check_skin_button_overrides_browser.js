@@ -13,6 +13,14 @@ const source = (skin, vars, fill, disabled=false) => `@import "skins/${skin}"; $
 (async()=>{
  let compiledChecks=0;
  const skins = fs.readdirSync(sassRoot+'/skins').filter(f=>f.endsWith('.scss')&&f!=='dark-bg.scss').map(f=>f.slice(0,-5));
+ // Skin-owned corrections must leave every other skin's rendered CSS intact.
+ for(const skin of skins.filter(name=>!['butterfly','butterfly-dim'].includes(name))){
+  const prefix=`@import "skins/${skin}";`;
+  const end='@import "bootstrap/bootstrap"; @import "chulapa-master";';
+  assert.equal(compile(prefix+end),compile(prefix+'@mixin chulapa-skin-contrast {}'+end),
+   `${skin}: Butterfly corrections must not change this skin`);
+  compiledChecks++;
+ }
  // Every semantic color is overridden together to ensure no stock exception is
  // appropriate. Compare complete CSS, including hover/focus/active selectors.
  for(const skin of skins)for(const value of ['#fefdfc','#010203']){
@@ -25,7 +33,7 @@ const source = (skin, vars, fill, disabled=false) => `@import "skins/${skin}"; $
   assert.ok(compile(source(skin,vars,true))===compile(source(skin,vars,true,true)),`${skin}/autothemer: honor configured colors`);
   compiledChecks++;
  }
- for(const skin of ['navi','chulapa','lux','pear']){
+ for(const skin of ['navi','chulapa','lux','pear','butterfly','butterfly-dim']){
   const a=compile(source(skin,'$body-bg: #101010;',false));
   const b=compile(source(skin,'$body-bg: #101010; $skin-button-outlines: ();',false));
   assert.ok(a===b,`${skin}: skip stock outline contrast corrections on a different page background`);
