@@ -21,8 +21,8 @@
         "inLanguage": "en-US",
         "headline": "Publish your first site with Chulapa",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-10-30T07:32:52+01:00",
-        "dateModified": "2026-10-30T07:32:52+01:00",
+        "datePublished": "2026-10-30T10:45:17+01:00",
+        "dateModified": "2026-10-30T10:45:17+01:00",
         "author": {
           "@type": "Person",
           "@id": "https://dieghernan.github.io/chulapa/#author",
@@ -307,10 +307,13 @@ For a GitHub account called <code class="language-plaintext highlighter-rouge">a
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">blog"</span>
 <span class="na">repository</span><span class="pi">:</span> <span class="s">ana/my-blog</span>
 <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://ana.github.io"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Stories</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">my</span><span class="nv"> </span><span class="s">everyday</span><span class="nv"> </span><span class="s">life"</span>
 </code></pre></div></div>
 <p>Use your own account and repository names. Replace the existing entries; do not
 paste another copy or replace the whole file. Keep the other settings and spaces,
 including <code class="language-plaintext highlighter-rouge">baseurl</code>: the template sets the site’s path for you.</p>
+<p>In the existing <code class="language-plaintext highlighter-rouge">author:</code> section, replace <code class="language-plaintext highlighter-rouge">name: Your name</code> with your name.
+Keep <code class="language-plaintext highlighter-rouge">name</code> indented under <code class="language-plaintext highlighter-rouge">author:</code> and preserve the other author settings.</p>
 <p>Click <strong>Commit changes</strong>. This saves a version of the file. Save to your
 repository’s default branch (<code class="language-plaintext highlighter-rouge">main</code> or <code class="language-plaintext highlighter-rouge">master</code> in the template); publishing
 starts automatically. You can edit the article while it runs.</p>
@@ -335,6 +338,10 @@ Keep its filename and the settings between the two <code class="language-plainte
 <h3 id="5-open-your-published-website">5. Open your published website</h3>
 <p>Open <strong>Actions</strong> and find the publishing run for your latest saved change. Wait
 for it to finish successfully. Publishing may take a few minutes.</p>
+<p>If no publishing run appears, select <strong>Deploy Chulapa Jekyll site to Pages</strong>
+in the Actions sidebar, click <strong>Run workflow</strong>, choose the default branch you
+edited and click the green <strong>Run workflow</strong> button. If GitHub first asks you
+to enable workflows, enable them, then run this workflow.</p>
 <p>Open the website address shown in <strong>Settings &gt; Pages</strong>. Check the site title,
 then open your edited article. If you are viewing files on <code class="language-plaintext highlighter-rouge">github.com</code>, return
 to Pages and open the website address instead.</p>
@@ -344,8 +351,9 @@ shows “Hello, this is my website” with your sentence below it.</p>
 <a href="./42-unpublished-changes">the publishing checks</a>, then return here
 to check the result.</p>
 <h2 id="what-to-do-next">What to do next</h2>
-<p>Before sharing the site, replace the remaining sample articles and contact details
-in <code class="language-plaintext highlighter-rouge">_pages/about.md</code>. Keep the home page filename <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+<p>Before sharing the site, replace the remaining sample articles and the example
+biography and contact details in <code class="language-plaintext highlighter-rouge">_pages/about.md</code>. Review the <code class="language-plaintext highlighter-rouge">author:</code> settings
+in <code class="language-plaintext highlighter-rouge">_config.yml</code> too. Keep the home page filename <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
 <p>For another guided exercise, follow <a href="./59-photo-page-tutorial">Publish an illustrated page</a>
 using the starter photograph and a fixed menu entry.</p>
 <p>Choose a next task when you need it:</p>
