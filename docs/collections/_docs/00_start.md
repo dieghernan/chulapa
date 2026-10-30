@@ -49,11 +49,15 @@ For a GitHub account called `ana` and a repository called `my-blog`:
 title: "My first blog"
 repository: ana/my-blog
 url: "https://ana.github.io"
+description: "Stories from my everyday life"
 ```
 
 Use your own account and repository names. Replace the existing entries; do not
 paste another copy or replace the whole file. Keep the other settings and spaces,
 including `baseurl`: the template sets the site's path for you.
+
+In the existing `author:` section, replace `name: Your name` with your name.
+Keep `name` indented under `author:` and preserve the other author settings.
 
 Click **Commit changes**. This saves a version of the file. Save to your
 repository's default branch (`main` or `master` in the template); publishing
@@ -96,6 +100,11 @@ Click **Commit changes** and save to the same default branch.
 Open **Actions** and find the publishing run for your latest saved change. Wait
 for it to finish successfully. Publishing may take a few minutes.
 
+If no publishing run appears, select **Deploy Chulapa Jekyll site to Pages**
+in the Actions sidebar, click **Run workflow**, choose the default branch you
+edited and click the green **Run workflow** button. If GitHub first asks you
+to enable workflows, enable them, then run this workflow.
+
 Open the website address shown in **Settings > Pages**. Check the site title,
 then open your edited article. If you are viewing files on `github.com`, return
 to Pages and open the website address instead.
@@ -109,8 +118,9 @@ to check the result.
 
 ## What to do next
 
-Before sharing the site, replace the remaining sample articles and contact details
-in `_pages/about.md`. Keep the home page filename `index.html`.
+Before sharing the site, replace the remaining sample articles and the example
+biography and contact details in `_pages/about.md`. Review the `author:` settings
+in `_config.yml` too. Keep the home page filename `index.html`.
 
 For another guided exercise, follow [Publish an illustrated page](./59-photo-page-tutorial)
 using the starter photograph and a fixed menu entry.

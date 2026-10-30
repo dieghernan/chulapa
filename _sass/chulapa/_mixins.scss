@@ -102,12 +102,11 @@
     color: $navbar-chulapa-text-color !important;
   }
 
-  // Remove focus outline
-  .chulapa-theme-toggle:focus,
+  // Keep keyboard focus visible on light and dark navigation backgrounds.
   .chulapa-theme-toggle:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
-    color: $navbar-chulapa-text-color !important;
+    outline: 2px solid #fff !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #000 !important;
   }
 
   // Active color when dropdown is open

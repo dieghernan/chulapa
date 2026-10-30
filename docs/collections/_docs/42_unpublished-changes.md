@@ -28,6 +28,11 @@ Open **Actions** and find the publishing run for that commit and branch. Wait
 for it to finish. If it fails, open the failed step and read the first relevant
 error; do not change unrelated settings to try to fix it.
 
+If the starter has no publishing run, check **Settings > Pages > Build and
+deployment** uses **GitHub Actions**. In **Actions**, select **Deploy Chulapa
+Jekyll site to Pages**, click **Run workflow**, choose your publishing branch
+and confirm with **Run workflow**. Enable workflows first if GitHub asks you to.
+
 For a `_config.yml` syntax error, follow [Fix a YAML configuration error](./43-yaml-errors).
 For missing plugins or theme dependencies, use your
 [installation method](./01-install) or the [migration checks](./07-migration#common-migration-problems).

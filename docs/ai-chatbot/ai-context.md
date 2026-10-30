@@ -1,17 +1,17 @@
 # Chulapa documentation context
 
-v2.2.0 published on GitHub/RubyGems 21 Oct 2026; use @v2.2.0 for remote_theme.
-Current release: v2.2.0; new features absent from v2.1.0. Verify the installed tag/gem version.
+Release v2.2.0 (21 Oct 2026, GitHub/RubyGems); pin @v2.2.0; verify installed version.
 
-22 Oct 2026. llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
+llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. Copy URLs; no fetching.
 ## Overview
 Source: https://dieghernan.github.io/chulapa/docs
-Responsive Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other Jekyll hosts. Search, SEO, multi-author, code highlighting, MathJax, galleries, comments.
+Bootstrap Jekyll theme: blogs/portfolios/docs/projects; GitHub Pages/other hosts. Search, SEO, multi-author, code, MathJax, galleries, comments.
 ## First-site tutorial
 Source: https://dieghernan.github.io/chulapa/docs/00-start
 Methods: https://dieghernan.github.io/chulapa/docs/01-install
-Use the public https://github.com/dieghernan/chulapa-101/generate template; demo: https://dieghernan.github.io/chulapa-101/. Enable Settings > Pages > GitHub Actions; no token/local install, workflow sets baseurl. Edit _config.yml title/description/author/repository/url, change only index.html's title, and edit an existing _posts sample's title/body while keeping filename/front matter. Commit main/master; wait for Actions and verify home/article via Settings > Pages. Replace sample content before sharing.
-Chulapa 101 follows main (remote_theme: dieghernan/chulapa, no pin), with Butterfly/Butterfly Dim, three posts, About, archives, Fuse.js and RSS; keep index.html for pagination (5/page). Fuse indexes posts/About only; navbar/footer use _config.yml. Starter has commented/empty sample fields and blog defaults. _includes/custom/custom_head_before_css.html, custom_head.html, custom_bottomscripts.html and giscus.html are comment-only; assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
+Use public https://github.com/dieghernan/chulapa-101/generate; demo https://dieghernan.github.io/chulapa-101/. Settings > Pages > GitHub Actions; no token/local install; workflow sets baseurl. Edit existing _config.yml title/description/author/repository/url, index.html title only, existing _posts sample title/body (keep filename/front matter). Commit main/master; verify home/article at Pages URL after successful deployment.
+No run: enable workflows if prompted; Actions > Deploy Chulapa Jekyll site to Pages > Run workflow, choose edited default branch, confirm Run workflow. Before sharing replace sample posts, _pages/about.md biography/contact details and _config.yml author.
+Starter follows main (remote_theme: dieghernan/chulapa, unpinned). Butterfly/Butterfly Dim; three posts, About, archives, Fuse.js, RSS. Keep index.html for pagination (5/page). Fuse indexes posts/About only; navbar/footer in _config.yml. Custom head/bottomscripts/giscus includes are comment-only; assets/css/custom.scss has front matter. Giscus needs provider/show_comments.
 ## Browse documentation topics
 Source: https://dieghernan.github.io/chulapa/docs/tags
 Docs topics: appearance, content, publishing, search, installation, navigation, identity/branding, comments/analytics, hooks/feeds, accessibility. References/FAQ/tutorials retain direct routes. Providers are alternatives; analytics/distinct feed URLs can coexist. Badges link here; up to three optional cards. Blog tags separate.
@@ -154,7 +154,7 @@ chulapa-skin:
 Never nest autothemer inside vars. Preserve current skin unless asked. none has no palette. Omit/false disables later step; skin: auto independently imports the generator.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
-v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. /docs/48-accessibility-reference.
+v2.2.0 selector toggle hides focus outline/shadow; use local CSS or disable selector if visible focus required. v2.2.1 development restores two-color keyboard focus in all three nav styles; absent v2.2.0. /docs/48-accessibility-reference.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins

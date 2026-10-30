@@ -40,6 +40,10 @@ visible focus indicator for this control need a local CSS override, or can
 leave the optional selector disabled. Other navigation focus checks do not
 establish visible focus for this toggle.
 
+**Development (v2.2.1):** the selector restores a visible keyboard focus indicator
+with a white outline and black outer ring on classic, floating and dual
+navigation. This fix is not included in v2.2.0.
+
 ## Colors, content and motion
 
 The link/focus improvements here require v2.2.0, not
