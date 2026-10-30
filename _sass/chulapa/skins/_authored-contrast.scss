@@ -246,6 +246,10 @@ $chulapa-authored-palettes: (
           }
           color: $outline;
           border-color: $outline;
+          .show > &.dropdown-toggle {
+            color: color-contrast($stock, #212529, #fff, 4.5);
+            border-color: $stock;
+          }
         }
         &:hover,
         &:not(:disabled):not(.disabled):active,

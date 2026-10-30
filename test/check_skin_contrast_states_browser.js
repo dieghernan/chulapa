@@ -37,7 +37,7 @@ async function audit(sassRoot, page, session) {
     const html = colors
       .map(
         (k) =>
-          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><button disabled class="btn btn-${k}" data-pair="disabled-${k}">${k}</button><button class="btn btn-${k} focus" data-pair="class-focus-${k}">${k}</button><button class="btn btn-${k} active" data-pair="class-active-${k}">${k}</button><div class="show"><button class="btn btn-${k} dropdown-toggle" data-pair="dropdown-${k}">${k}</button></div><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a><a href="#target" class="badge chulapa-pill-bg-${k}" data-pair="pill-${k}">${k}</a><div class="card bg-${k}" data-pair="card-${k}">${k}<p><a href="#target" data-pair="card-link-${k}">Card link</a></p></div>`,
+          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><button disabled class="btn btn-${k}" data-pair="disabled-${k}">${k}</button><button class="btn btn-${k} focus" data-pair="class-focus-${k}">${k}</button><button class="btn btn-${k} active" data-pair="class-active-${k}">${k}</button><div class="show"><button class="btn btn-${k} dropdown-toggle" data-pair="dropdown-${k}">${k}</button><button class="btn btn-outline-${k} dropdown-toggle" aria-expanded="true" data-pair="outline-dropdown-${k}">${k}</button></div><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a><a href="#target" class="badge chulapa-pill-bg-${k}" data-pair="pill-${k}">${k}</a><div class="card bg-${k}" data-pair="card-${k}">${k}<p><a href="#target" data-pair="card-link-${k}">Card link</a></p></div>`,
       )
       .join("");
     await page.setContent(
@@ -54,6 +54,7 @@ async function audit(sassRoot, page, session) {
       fs.mkdirSync(process.env.CHULAPA_CONTRAST_SCREENSHOTS, {recursive:true});
       await page.locator('[data-pair="card-primary"]').screenshot({path:require('path').join(process.env.CHULAPA_CONTRAST_SCREENSHOTS, `${skin}-${page.viewportSize().width}-card.png`)});
       await page.locator('nav').screenshot({path:require('path').join(process.env.CHULAPA_CONTRAST_SCREENSHOTS, `${skin}-${page.viewportSize().width}-nav.png`)});
+      await page.locator('[data-pair="outline-dropdown-success"]').screenshot({path:require('path').join(process.env.CHULAPA_CONTRAST_SCREENSHOTS, `${skin}-${page.viewportSize().width}-open-outline.png`)});
     }
     output[skin] = {};
     for (const state of ["normal", "hover", "focus", "active"]) {
@@ -133,7 +134,7 @@ async function audit(sassRoot, page, session) {
       for (const skin of identity.authoredButtonSkins.filter(skin => after[skin])) {
         for (const variant of colors) {
           for (const state of ["normal", "hover", "focus", "active"]) {
-            for (const component of ["pill", "linked-badge", "card", "card-link", "outline"]) {
+            for (const component of ["pill", "linked-badge", "card", "card-link", "outline", "outline-dropdown"]) {
               const reading = after[skin][`${component}-${variant}/${state}`];
               assert.ok(reading.ratio >= 4.5, `${skin}/${width}/${component}/${variant}/${state}: contrast ${reading.ratio}`);
             }
