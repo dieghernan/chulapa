@@ -12,7 +12,7 @@ $warning: #ffc107 !default;
 $danger: #dc3545 !default;
 $light: mix(white, $primary, 85%) !default;
 $dark: #343a40 !default;
-$link-color: #1abc9c !default;
+$link-color: #117a65 !default;
 $body-color: #444 !default;
 $body-bg: mix(white, $primary, 95%) !default;
 $font-size-base: 1.125rem !default;
@@ -62,3 +62,6 @@ $skin-button-palette: (
   warning: #ffc107,
 ) !default;
 $skin-button-body-bg: rgb(243.55, 251.65, 250.05) !default;
+
+$chulapa-authored-skin: "pear";
+@import "chulapa/skins/authored-contrast";

@@ -52,3 +52,6 @@ $skin-button-palette: (
   warning: #f7df1e,
 ) !default;
 $skin-button-body-bg: #ffffff !default;
+
+$chulapa-authored-skin: "navi";
+@import "chulapa/skins/authored-contrast";

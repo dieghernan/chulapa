@@ -25,7 +25,8 @@ async function audit(sassRoot, page, session) {
   const output = {};
   for (const f of fs
     .readdirSync(sassRoot + "/skins")
-    .filter((f) => f.endsWith(".scss") && f !== "dark-bg.scss")) {
+    .filter((f) => f.endsWith(".scss") && f !== "dark-bg.scss")
+    .filter(f => !process.env.CHULAPA_TEST_SKINS || process.env.CHULAPA_TEST_SKINS.split(",").includes(f.slice(0, -5)))) {
     const skin = f.slice(0, -5);
     const css = sass
       .compileString(
@@ -36,11 +37,11 @@ async function audit(sassRoot, page, session) {
     const html = colors
       .map(
         (k) =>
-          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><button disabled class="btn btn-${k}" data-pair="disabled-${k}">${k}</button><button class="btn btn-${k} focus" data-pair="class-focus-${k}">${k}</button><button class="btn btn-${k} active" data-pair="class-active-${k}">${k}</button><div class="show"><button class="btn btn-${k} dropdown-toggle" data-pair="dropdown-${k}">${k}</button></div><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a>`,
+          `<p class="text-${k}" data-pair="text-${k}">${k}</p><button class="btn btn-${k}" data-pair="btn-${k}">${k}</button><button class="btn btn-outline-${k}" data-pair="outline-${k}">${k}</button><button disabled class="btn btn-${k}" data-pair="disabled-${k}">${k}</button><button class="btn btn-${k} focus" data-pair="class-focus-${k}">${k}</button><button class="btn btn-${k} active" data-pair="class-active-${k}">${k}</button><div class="show"><button class="btn btn-${k} dropdown-toggle" data-pair="dropdown-${k}">${k}</button></div><a href="#target" class="badge badge-${k}" data-pair="linked-badge-${k}">${k}</a><a href="#target" class="badge chulapa-pill-bg-${k}" data-pair="pill-${k}">${k}</a><div class="card bg-${k}" data-pair="card-${k}">${k}<p><a href="#target" data-pair="card-link-${k}">Card link</a></p></div>`,
       )
-      .join("") + '<a href="#target" class="badge chulapa-pill-bg-primary" data-pair="pill-primary">journal</a><a href="#target" class="badge chulapa-pill-bg-secondary" data-pair="pill-secondary">Journal</a>';
+      .join("");
     await page.setContent(
-      `<style>${css} * {transition:none!important}</style><main>${html}</main>`,
+      `<style>${css} * {transition:none!important}</style><main class="e-content"><p><a href="#target" data-pair="body-link">Article link</a></p>${html}</main><nav class="navbar navbar-chulapa"><div class="navbar-nav"><a href="#target" class="nav-link" data-pair="nav-link">Navigation</a><a href="#target" class="nav-link active" data-pair="nav-active">Active</a></div></nav><footer class="footer-chulapa"><a href="#target" data-pair="footer-link">Footer</a></footer>`,
     );
     const {
       root: { nodeId },
@@ -49,6 +50,11 @@ async function audit(sassRoot, page, session) {
       nodeId,
       selector: "button,a",
     });
+    if (process.env.CHULAPA_CONTRAST_SCREENSHOTS && authoredCatalog.includes(skin)) {
+      fs.mkdirSync(process.env.CHULAPA_CONTRAST_SCREENSHOTS, {recursive:true});
+      await page.locator('[data-pair="card-primary"]').screenshot({path:require('path').join(process.env.CHULAPA_CONTRAST_SCREENSHOTS, `${skin}-${page.viewportSize().width}-card.png`)});
+      await page.locator('nav').screenshot({path:require('path').join(process.env.CHULAPA_CONTRAST_SCREENSHOTS, `${skin}-${page.viewportSize().width}-nav.png`)});
+    }
     output[skin] = {};
     for (const state of ["normal", "hover", "focus", "active"]) {
       for (const id of nodeIds)
@@ -77,7 +83,9 @@ async function audit(sassRoot, page, session) {
             bg = bg.parentElement;
           const fg = rgb(getComputedStyle(el).color),
             back = rgb(getComputedStyle(bg).backgroundColor);
-          const a = lum(fg),
+          const alpha = fg[3] ?? 1;
+          const effective = fg.slice(0,3).map((v,i) => v * alpha + back[i] * (1-alpha));
+          const a = lum(effective),
             b = lum(back);
           return {
             key: el.dataset.pair,
@@ -93,6 +101,7 @@ async function audit(sassRoot, page, session) {
           output[skin][r.key + "/" + state] = r;
     }
   }
+  if (process.env.CHULAPA_CONTRAST_REPORT) fs.writeFileSync(process.env.CHULAPA_CONTRAST_REPORT, JSON.stringify(output, null, 2));
   return output;
 }
 (async () => {
@@ -112,16 +121,34 @@ async function audit(sassRoot, page, session) {
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       const after = await audit(root + "/_sass", page, session);
-      for (const skin of ["butterfly", "butterfly-dim"]) {
-        for (const variant of ["primary", "secondary"]) {
-          for (const state of ["normal", "hover", "focus", "active"]) {
-            const reading = after[skin][`pill-${variant}/${state}`];
-            assert.ok(reading.ratio >= 4.5,
-              `${skin}/${width}/${variant}/${state}: starter tag/category contrast ${reading.ratio}`);
+      if (after.listen) {
+        for (const state of ["normal", "hover", "focus", "active"]) {
+          for (const component of ["card", "card-link"]) {
+            assert.deepEqual(after.listen[`${component}-primary/${state}`].fg,
+              after.listen[`btn-primary/${state}`].fg,
+              `Listen/${component}/${state}: use the Primary button's dark text`);
           }
         }
       }
-      for (const [skin, variants] of Object.entries(identity.buttonBackgrounds)) {
+      for (const skin of identity.authoredButtonSkins.filter(skin => after[skin])) {
+        for (const variant of colors) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            for (const component of ["pill", "linked-badge", "card", "card-link", "outline"]) {
+              const reading = after[skin][`${component}-${variant}/${state}`];
+              assert.ok(reading.ratio >= 4.5, `${skin}/${width}/${component}/${variant}/${state}: contrast ${reading.ratio}`);
+            }
+          }
+        }
+      }
+      for (const skin of identity.authoredButtonSkins.filter(skin => after[skin])) {
+        for (const key of ["body-link", "nav-link", "nav-active", "footer-link"]) {
+          for (const state of ["normal", "hover", "focus", "active"]) {
+            const r = after[skin][`${key}/${state}`];
+            assert.ok(r.ratio >= 4.5, `${skin}/${width}/${key}/${state}: ${r.ratio}`);
+          }
+        }
+      }
+      for (const [skin, variants] of Object.entries(identity.buttonBackgrounds).filter(([skin]) => after[skin])) {
         for (const [variant, color] of Object.entries(variants))
           assert.equal(hex(after[skin][`btn-${variant}/normal`].bg), color.background,
             `${skin}/${variant}: keep the reviewed filled button background`);
@@ -131,7 +158,7 @@ async function audit(sassRoot, page, session) {
       }
       // Cover every solid variant/state in original dieghernan skins, not only
       // combinations that happened to pass in the historical baseline.
-      for (const skin of identity.authoredButtonSkins) {
+      for (const skin of identity.authoredButtonSkins.filter(skin => after[skin])) {
         for (const variant of colors) {
           for (const state of ["normal", "hover", "focus", "active"]) {
             const r = after[skin][`btn-${variant}/${state}`];
@@ -139,7 +166,7 @@ async function audit(sassRoot, page, session) {
           }
         }
       }
-      for (const [skin, variants] of Object.entries(identity.consistentButtonLabels)) {
+      for (const [skin, variants] of Object.entries(identity.consistentButtonLabels).filter(([skin]) => after[skin])) {
         for (const [variant, expected] of Object.entries(variants)) {
           for (const state of ["normal", "hover", "focus", "active"]) {
             const r = after[skin][`btn-${variant}/${state}`];
@@ -151,7 +178,7 @@ async function audit(sassRoot, page, session) {
               `${skin}/${type}/${variant}: consistent label`);
         }
       }
-      for (const [skin, variants] of Object.entries(identity.aaButtonBackgrounds)) {
+      for (const [skin, variants] of Object.entries(identity.aaButtonBackgrounds).filter(([skin]) => after[skin])) {
         for (const variant of Object.keys(variants)) {
           for (const state of ["normal", "hover", "focus", "active"]) {
             const r = after[skin][`btn-${variant}/${state}`];
@@ -160,7 +187,7 @@ async function audit(sassRoot, page, session) {
           }
         }
       }
-      for (const [skin, variants] of Object.entries(identity.lightButtonLabels)) {
+      for (const [skin, variants] of Object.entries(identity.lightButtonLabels).filter(([skin]) => after[skin])) {
         for (const [variant, expected] of Object.entries(variants)) {
           for (const state of ["normal", "hover", "focus", "active"]) {
             const r = after[skin][`btn-${variant}/${state}`];
@@ -175,7 +202,7 @@ async function audit(sassRoot, page, session) {
           }
         }
       }
-      for (const [skin, variants] of Object.entries(identity.buttonOutlines)) {
+      for (const [skin, variants] of Object.entries(identity.buttonOutlines).filter(([skin]) => after[skin])) {
         for (const [variant, expected] of Object.entries(variants)) {
           for (const state of ["normal", "focus"]) {
             const r = after[skin][`outline-${variant}/${state}`];
@@ -186,7 +213,7 @@ async function audit(sassRoot, page, session) {
           }
         }
       }
-      for (const [skin, variants] of Object.entries(baseline.passingPairs)) {
+      for (const [skin, variants] of Object.entries(baseline.passingPairs).filter(([skin]) => after[skin])) {
         assert.ok(after[skin], `Missing skin ${skin}`);
         for (const [variant, states] of Object.entries(variants))
           for (const state of states) {

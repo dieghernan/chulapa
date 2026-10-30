@@ -154,7 +154,7 @@ chulapa-skin:
 Never nest autothemer inside vars. Preserve current skin unless asked. none has no palette. Omit/false disables later step; skin: auto independently imports the generator.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
-Selector: v2.2.0 hides focus; local CSS or disable if needed. v2.2.1 development restores two-color keyboard focus in all navs. v2.2.1 development also darkens Butterfly text links/navigation; Butterfly/Dim stock tag/category badges use readable button fills. Palettes/custom semantic colors preserved; other skins unchanged. Not in v2.2.0. /docs/48-accessibility-reference.
+v2.2.0 selector hides focus; local CSS or disable if needed. v2.2.1 development: focus, nav, link states, badges, outlines and card text/links in 16 dieghernan skins (Listen Primary matches button text). Nav defaults adapt to configured bg; explicit text/custom semantic colors win; third-party unchanged. Not v2.2.0; no WCAG guarantee. /docs/48-accessibility-reference.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins

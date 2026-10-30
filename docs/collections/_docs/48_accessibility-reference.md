@@ -52,10 +52,18 @@ Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.
 
-**Development (v2.2.1):** Butterfly uses darker text links and navigation labels.
-Default tag/category badges in Butterfly and Butterfly Dim use the corresponding
-readable solid-button fills. The main palettes and custom semantic colors are
-preserved. These changes are not included in v2.2.0 and do not change other skins.
+**Development (v2.2.1):** contrast corrections cover the 16 skins authored by
+`dieghernan`. They improve default navigation, selected text links and their
+interaction states, badges, tag/category labels, outline buttons and text/links
+inside contextual cards. Listen's Primary card uses the same dark text as its
+Primary button, keeping its green background. Main semantic palettes
+are preserved; some badges reuse the readable solid-button fills.
+
+Navigation text defaults adapt to the final configured navigation background.
+Explicit navigation text colors remain authoritative. Component corrections skip
+custom semantic colors; custom colors and content still need checking. Third-party
+skins are unchanged. These changes are not included in v2.2.0 and do not establish
+whole-site WCAG conformance.
 
 The carousel motion/control improvements in this paragraph require v2.2.0, not the v2.1.0 gem or pin. Automatically cycling multi-image
 carousels have a play/pause control with an

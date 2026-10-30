@@ -14,6 +14,10 @@
 
 @import "chulapa/_bootstrapv5";
 @import "chulapa/_mixins";
+// Resolve skin defaults after site vars and before navigation rules.
+@if mixin-exists(chulapa-skin-defaults) {
+  @include chulapa-skin-defaults;
+}
 @import "chulapa/_variables";
 @import "chulapa/_reboot";
 @import "chulapa/_classes";

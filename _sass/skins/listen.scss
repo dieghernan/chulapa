@@ -49,6 +49,8 @@ $yiq-contrasted-threshold: 130 !default;
 
 // Lines for dark themes
 @import "skins/dark-bg";
+// Keep interaction links readable against the dark page.
+$link-hover-color: lighten($link-color, 10%);
 
 // Retain dark labels on the skin's bright linked-badge hover backgrounds.
 a.badge.badge-primary,
@@ -81,3 +83,6 @@ $skin-button-palette: (
   success: #1ed760,
 ) !default;
 $skin-button-body-bg: #121212 !default;
+
+$chulapa-authored-skin: "listen";
+@import "chulapa/skins/authored-contrast";

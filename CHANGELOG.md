@@ -10,7 +10,7 @@
 
 ### Fixed
 
--   Improve Butterfly's text-link and navigation contrast and the default tag/category badges in Butterfly and Butterfly Dim, preserving their main palettes and custom semantic colors.
+-   Improve navigation, text-link interaction states, badges, outline buttons and contextual card text/links across the 16 dieghernan skins, including Listen's Primary card. Keep navigation defaults adaptive to configured backgrounds, preserve explicit text colors and custom semantic palettes, and leave third-party skins unchanged.
 
 -   Restore visible keyboard focus on the light/dark/auto selector across classic, floating and dual navigation, using a two-color indicator.
 

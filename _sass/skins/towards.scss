@@ -58,3 +58,6 @@ $skin-button-palette: (
   warning: #fcb900,
 ) !default;
 $skin-button-body-bg: #fff !default;
+
+$chulapa-authored-skin: "towards";
+@import "chulapa/skins/authored-contrast";

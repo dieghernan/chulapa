@@ -24,7 +24,6 @@ $white: #ffffff !default;
 $body-color: $dark !default;
 
 $navbar-chulapa-bg-color: $white !default;
-$navbar-chulapa-text-color: #717278 !default;
 $thead-chulapa-bg-color: $white !default;
 
 .card.bg-primary {
@@ -66,4 +65,5 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #ffffff !default;
 
-@import "chulapa/skins/butterfly-badges";
+$chulapa-authored-skin: "butterfly";
+@import "chulapa/skins/authored-contrast";

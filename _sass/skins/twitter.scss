@@ -7,6 +7,7 @@ $headings-font-weight: 800 !default;
 
 // Some bootstrap variables
 $primary: #1d9bf0 !default;
+$link-color: #177bbe !default;
 $yiq-contrasted-threshold: 123 !default;
 $secondary: #697883 !default;
 $success: #00ba7c !default;
@@ -23,12 +24,13 @@ $blockquote-chulapa-text-color: mix(black, $primary, 80%) !default;
 $navbar-chulapa-bg-color: $body-bg !default;
 $navbar-chulapa-text-color: $body-color !default;
 $navbar-chulapa-brand-color: $body-color !default;
-$navbar-chulapa-hover-color: $primary !default;
-$navbar-chulapa-active-color: $primary !default;
+$navbar-chulapa-hover-color: $link-color !default;
+$navbar-chulapa-active-color: $link-color !default;
 $dropdown-link-active-bg: lighten($primary, 30%) !default;
 $hero-chulapa-bg-color: $primary !default;
 $footer-chulapa-text-color: $body-color !default;
-$footer-chulapa-link-color: $primary !default;
+$footer-chulapa-link-color: $link-color !default;
+$footer-chulapa-hover-color: darken($link-color, 10%) !default;
 $navbar-chulapa-hover-bg-color: darken($navbar-chulapa-bg-color, 5%);
 
 $pagination-chulapa-bg-hover-color: $primary !default;
@@ -69,3 +71,6 @@ $skin-button-palette: (
   warning: #ff7a00,
 ) !default;
 $skin-button-body-bg: #fff !default;
+
+$chulapa-authored-skin: "twitter";
+@import "chulapa/skins/authored-contrast";

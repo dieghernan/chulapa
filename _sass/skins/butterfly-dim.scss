@@ -80,4 +80,5 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #161e27 !default;
 
-@import "chulapa/skins/butterfly-badges";
+$chulapa-authored-skin: "butterfly-dim";
+@import "chulapa/skins/authored-contrast";

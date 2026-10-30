@@ -13,12 +13,12 @@ const source = (skin, vars, fill, disabled=false) => `@import "skins/${skin}"; $
 (async()=>{
  let compiledChecks=0;
  const skins = fs.readdirSync(sassRoot+'/skins').filter(f=>f.endsWith('.scss')&&f!=='dark-bg.scss').map(f=>f.slice(0,-5));
- // Skin-owned corrections must leave every other skin's rendered CSS intact.
- for(const skin of skins.filter(name=>!['butterfly','butterfly-dim'].includes(name))){
+ // Authored corrections must leave third-party skins' rendered CSS intact.
+ for(const skin of skins.filter(name=>!require('./skin-contrast-identity.json').authoredButtonSkins.includes(name))){
   const prefix=`@import "skins/${skin}";`;
   const end='@import "bootstrap/bootstrap"; @import "chulapa-master";';
-  assert.equal(compile(prefix+end),compile(prefix+'@mixin chulapa-skin-contrast {}'+end),
-   `${skin}: Butterfly corrections must not change this skin`);
+  assert.equal(compile(prefix+end),compile(prefix+'@mixin chulapa-skin-contrast {} @mixin chulapa-skin-defaults {}'+end),
+   `${skin}: Authored corrections must not change this skin`);
   compiledChecks++;
  }
  // Every semantic color is overridden together to ensure no stock exception is
@@ -40,7 +40,7 @@ const source = (skin, vars, fill, disabled=false) => `@import "skins/${skin}"; $
   compiledChecks++;
  }
  // Site-defined skins can also declare colors before importing a stock skin.
- for(const skin of ['navi','pear','butterfly-dark']){
+ for(const skin of ['navi','pear','butterfly-dark','butterfly','butterfly-dim']){
   const prefix=`$primary:#fefdfc; @import "skins/${skin}";`;
   const end='@import "bootstrap/bootstrap"; @import "chulapa-master";';
   const reference='$skin-button-palette: map-remove($skin-button-palette, primary);';
@@ -62,6 +62,23 @@ const source = (skin, vars, fill, disabled=false) => `@import "skins/${skin}"; $
  await session.send('DOM.enable'); await session.send('CSS.enable');
  let renderedChecks=0;
  try {
+  // Regression from PR #190: changing only the navbar background must keep
+  // adaptive text. Explicit text colors remain authoritative.
+  for(const background of ['#ffffff','#222222','#777777','#edc7b7']){
+   const css=compile(source('butterfly',`$navbar-chulapa-bg-color:${background};`,false));
+   await page.setContent(`<style>${css} *{transition:none!important}</style><nav class="navbar navbar-chulapa"><div class="navbar-nav"><a class="nav-link" href="#target">Menu</a></div></nav>`);
+   const ratio=await page.locator('a').evaluate(el=>{
+    const rgb=s=>s.match(/[\d.]+/g).slice(0,3).map(Number);
+    const lum=c=>c.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((s,v,i)=>s+v*[.2126,.7152,.0722][i],0);
+    const a=lum(rgb(getComputedStyle(el).color)),b=lum(rgb(getComputedStyle(el.closest('nav')).backgroundColor));
+    return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+   });
+   assert.ok(ratio>=4.5,`Butterfly/${background}: adaptive navbar text ${ratio}`);
+   renderedChecks++;
+  }
+  await page.setContent(`<style>${compile(source('butterfly','$navbar-chulapa-bg-color:#222222; $navbar-chulapa-text-color:#ffd700;',false))}</style><nav class="navbar navbar-chulapa"><div class="navbar-nav"><a class="nav-link" href="#target">Menu</a></div></nav>`);
+  assert.equal(await page.locator('a').evaluate(el=>getComputedStyle(el).color),'rgb(255, 215, 0)','Keep explicit navbar text color');
+  renderedChecks++;
   for(const width of [390,1280]){
    await page.setViewportSize({width,height:700});
    await page.setContent(`<style>${navi} *{transition:none!important}</style><button id="primary" class="btn btn-primary">Primary</button><button id="success" class="btn btn-success">Success</button><button id="outline" class="btn btn-outline-primary">Primary</button>`);

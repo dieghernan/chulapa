@@ -44,6 +44,8 @@ $breadcrumb-divider: quote(">") !default;
 // Lines for dark themes
 
 @import "skins/dark-bg";
+// Keep interaction links readable against the dark page.
+$link-hover-color: lighten($link-color, 10%);
 
 .card.bg-primary,
 .card.bg-secondary {
@@ -70,3 +72,6 @@ $skin-button-palette: (
   warning: #ff7a00,
 ) !default;
 $skin-button-body-bg: #000 !default;
+
+$chulapa-authored-skin: "twitter-lights-out";
+@import "chulapa/skins/authored-contrast";
