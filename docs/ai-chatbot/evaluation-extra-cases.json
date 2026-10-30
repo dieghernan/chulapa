@@ -1,5 +1,19 @@
 [
   {
+    "id": "selector-focus-development",
+    "section": "accessibility",
+    "doc": "48_accessibility-reference.md",
+    "question": "Does the color theme selector have visible keyboard focus in v2.2.0 or only in development?",
+    "expected": "v2.2.0 suppresses selector focus outline/shadow; local CSS override or disable selector if required. v2.2.1 development restores white outline and black ring for classic/floating/dual navigation. Do not claim released v2.2.0 includes fix or WCAG certification. Cite /docs/48-accessibility-reference."
+  },
+  {
+    "id": "starter-no-publishing-run",
+    "section": "installation",
+    "doc": "00_start.md",
+    "question": "I copied chulapa-101 and saved my edits, but there is no publishing run. What do I click?",
+    "expected": "Check Settings > Pages source GitHub Actions and edits saved to main/master. Enable workflows if prompted. Actions > Deploy Chulapa Jekyll site to Pages > Run workflow, select edited default branch, confirm Run workflow. Wait successful deployment then open Settings > Pages website, not GitHub source. No token or new workflow needed. Link /docs/00-start or /docs/42-unpublished-changes."
+  },
+  {
     "id": "seo-1",
     "section": "seo",
     "doc": "04_layouts.md",

@@ -96,16 +96,42 @@ async function main() {
         }
         assert.equal(await themeColor(), theme === 'dark' ? '#abcdef' : '#123456');
       };
+      const checkKeyboardFocus = async mode => {
+        await openNavigation();
+        const toggle = page.locator('.chulapa-theme-toggle:visible');
+        await toggle.focus();
+        await page.keyboard.press('Shift+Tab');
+        await page.keyboard.press('Tab');
+        const focus = await toggle.evaluate(node => {
+          const style = getComputedStyle(node);
+          return {active: node === document.activeElement, visible: node.matches(':focus-visible'),
+            outline: style.outlineStyle, width: style.outlineWidth, color: style.outlineColor,
+            shadow: style.boxShadow};
+        });
+        assert.equal(focus.active, true, `${name}/${mode}: Tab did not return to selector`);
+        assert.equal(focus.visible, true);
+        assert.equal(focus.outline, 'solid');
+        assert.equal(focus.width, '2px');
+        assert.equal(focus.color, 'rgb(255, 255, 255)');
+        assert.ok(focus.shadow.includes('rgb(0, 0, 0)'), `${name}/${mode}: missing dark focus ring`);
+        if (process.env.CHULAPA_FOCUS_SCREENSHOTS && ['classic-links', 'fab-links', 'dual-links'].includes(name)) {
+          fs.mkdirSync(process.env.CHULAPA_FOCUS_SCREENSHOTS, {recursive: true});
+          await page.screenshot({path: path.join(process.env.CHULAPA_FOCUS_SCREENSHOTS,
+            `${name}-${page.viewportSize().width}-${mode}.png`)});
+        }
+      };
       for (const width of [1280, 375]) {
         await page.setViewportSize({width, height: 900});
         await choose('dark');
         await waitTheme('dark');
+        await checkKeyboardFocus('dark');
         assert.notEqual(await bodyColor(), light, `${name}: dark CSS did not apply`);
         assert.equal(await page.locator('body').evaluate(node => getComputedStyle(node).borderTopColor), 'rgb(255, 0, 0)', 'Custom CSS lost precedence');
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${name}/${width}: overflow`);
         assert.equal(await page.locator('.chulapa-theme-toggle:visible').getAttribute('aria-label'), 'Color theme: Dark');
         await choose('light');
         await waitTheme('light');
+        await checkKeyboardFocus('light');
         assert.equal(await bodyColor(), light);
       }
       await page.setViewportSize({width: 1280, height: 900});

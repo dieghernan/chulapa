@@ -10,6 +10,8 @@
 
 ### Fixed
 
+-   Restore visible keyboard focus on the light/dark/auto selector across classic, floating and dual navigation, using a two-color indicator.
+
 -   Avoid doubled slashes in Algolia result links on sites without a repository path, and align the generated head opening and default custom head comments.
 
 -   Prevent theme image rounding from creating artifacts in Leaflet map tiles and markers.
