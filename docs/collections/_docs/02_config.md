@@ -193,6 +193,22 @@ the publisher and breadcrumbs using identifiers (`@id`). Posts also include
 with `mainEntity` and its first valid article image with `primaryImageOfPage`;
 see [Article images](./04-layouts#article-images). No additional configuration is needed.
 
+In v2.2.1 (development), JSON-LD uses `author.url` for the author's profile.
+The site author defaults to the home page. A guest without `author.url` uses
+the alphabetically first HTTP(S) profile in their own `author.links`; supply
+an explicit profile URL for a stable identity when adding or removing social
+profiles. Reordering links does not change the guest's identifier. A guest
+without a profile URL or social profiles has an identifier local to the page
+and does not inherit the site author's profile, avatar or location. All HTTP(S)
+social profiles are included in `sameAs`. Author references share a single
+profile definition per page; the publisher remains independent, even when
+both are people.
+
+Page and article descriptions use the same text as the HTML metadata. Page
+language is also included in the accompanying `WebPage` entity. Missing images,
+publisher logos and profile details are omitted rather than replaced with
+empty values or generic role descriptions.
+
 The built-in `archive`, `indexcategory`, `cloudtag` and `cloudcategory` layouts
 (including the legacy cloud aliases) describe their pages as `CollectionPage`
 and supply an `ItemList` of linked documents. The list follows the layout's

@@ -1,0 +1,154 @@
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": {{ schema_type | jsonify }},
+      {% if schema_type == 'WebPage' or schema_type == 'CollectionPage' %}
+        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        "name": {% include snippets/jsonld-string.html value=metatitle1 %},
+        {% if page_image_source != empty %}
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "@id": {% assign jsonld_value = canonical_url | append: '#primaryimage' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+          "url": {% assign jsonld_value = page_image_source | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+        },
+        {% endif %}
+      {% elsif schema_type == 'WebSite' %}
+        "@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_site_name %},
+        "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
+      {% else %}
+        "@id": {% assign jsonld_value = canonical_url | append: '#article' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %}
+        },
+      {% endif %}
+      {% if ogdesc != empty %}
+        "description": {% include snippets/jsonld-string.html value=ogdesc %},
+      {% endif %}
+        "inLanguage": {% include snippets/jsonld-string.html value=page_language %},
+      {% if schema_type == 'BlogPosting' %}
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% include snippets/article-taxonomy.html %}
+      {% endif %}
+        "headline": {% assign jsonld_value = metatitle1 | strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
+      {% if schema_type == 'BlogPosting' %}
+        {% include snippets/article-images.html %}
+      {% elsif ogimage %}
+        "image": {% include snippets/jsonld-string.html value=ogimage decode_html=false %},
+      {% endif %}
+      {% if page.date %}
+        "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+        "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+      {% endif %}
+        "author": {"@id": {% include snippets/jsonld-string.html value=page_author_id decode_html=false %}},
+        "publisher": {% include snippets/publisher.html %}
+      }
+    </script>
+    {% if page.breadcrumb_list.size > 0 %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "itemListElement": [
+    {% for item in page.breadcrumb_list %}
+          {
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: forloop.index %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": {{ forloop.index }},
+            "name": {% assign jsonld_value = item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name %}{% include snippets/jsonld-string.html value=jsonld_value %},
+            "item": {% assign jsonld_value = item.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+          },
+        {% if forloop.last %}
+          {% assign loopplus1 = forloop.index | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+          {
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: loopplus1 %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": {{ loopplus1 }},
+            "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+            "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
+          }
+        ]
+      }
+    </script>
+    {% elsif strippedurl != "/" %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "itemListElement": [{
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-1' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": 1,
+            "name": {% include snippets/jsonld-string.html value=breadcrumb_home_name %},
+            "item": {% assign jsonld_value = "/" | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+          },{
+            "@type": "ListItem",
+            "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-2' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+            "position": 2,
+            "item": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+            "name": {% include snippets/jsonld-string.html value=breadcrumb_page_name %}
+          }
+        ]
+      }
+    </script>
+    {% endif  %}
+{% if schema_type != 'WebPage' and schema_type != 'CollectionPage' %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% if strippedurl != "/" or page.breadcrumb_list.size > 0 %}
+        "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% endif %}
+        {% if schema_type == 'BlogPosting' %}
+        "mainEntity": {"@id": {% assign jsonld_value = canonical_url | append: '#article' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% if primary_article_image %}
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "@id": {% assign jsonld_value = canonical_url | append: '#primaryimage' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+          "url": {% include snippets/jsonld-string.html value=primary_article_image decode_html=false %}
+        },
+        {% endif %}
+        {% elsif page_image_source != empty %}
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "@id": {% assign jsonld_value = canonical_url | append: '#primaryimage' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+          "url": {% assign jsonld_value = page_image_source | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+        },
+        {% endif %}
+        "inLanguage": {% include snippets/jsonld-string.html value=page_language %},
+        "name": {% assign jsonld_value = metatitle1 | strip_html %}{% include snippets/jsonld-string.html value=jsonld_value %}{% if ogdesc != empty %},
+        "description": {% include snippets/jsonld-string.html value=ogdesc %}{% endif %}
+      }
+    </script>
+{% endif %}
+    <script type="application/ld+json">
+      {% include snippets/person-jsonld.html author=site.author id=site_author_id site_author=true %}
+    </script>
+{% if page.author %}
+    <script type="application/ld+json">
+      {% include snippets/person-jsonld.html author=page.author id=page_author_id %}
+    </script>
+{% endif %}
+{% if schema_type != 'WebSite' %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+        "url": {% include snippets/jsonld-string.html value=home_url decode_html=false %},
+        "name": {% include snippets/jsonld-string.html value=breadcrumb_site_name %},
+        "publisher": {"@id": {% include snippets/jsonld-string.html value=publisher_id decode_html=false %}}
+      }
+    </script>
+{% endif %}

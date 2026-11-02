@@ -137,7 +137,11 @@ Dir.mktmpdir("chulapa-seo-") do |source|
       check(doc.at_css('meta[property="og:description"]')["content"] == expected, "Open Graph description differs: #{name}")
       check(doc.at_css('meta[name="twitter:description"]')["content"] == expected, "Twitter description differs: #{name}")
       webpage = doc.css('script[type="application/ld+json"]').map { |node| JSON.parse(node.text) }.find { |item| item["@type"] == "WebPage" }
-      check(webpage["description"] == expected, "JSON-LD description differs: #{name}")
+      if expected.empty?
+        check(!webpage.key?("description"), "Empty JSON-LD description emitted: #{name}")
+      else
+        check(webpage["description"] == expected, "JSON-LD description differs: #{name}")
+      end
     end
   end
 end

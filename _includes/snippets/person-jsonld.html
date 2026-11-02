@@ -1,0 +1,18 @@
+{%- include snippets/person-data.html author=include.author site_author=include.site_author -%}
+{
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": {% include snippets/jsonld-string.html value=include.id decode_html=false %}{% if person_name != empty %},
+        "name": {% include snippets/jsonld-string.html value=person_name %}{% endif %}{% if person_url != empty %},
+        "url": {% assign person_url = person_url | absolute_url %}{% include snippets/jsonld-string.html value=person_url decode_html=false %}{% endif %}{% if person_image != empty %},
+        "image": {% assign person_image = person_image | absolute_url %}{% include snippets/jsonld-string.html value=person_image decode_html=false %}{% endif %}{% if person_location != empty %},
+        "homeLocation": {
+          "@type": "Place",
+          "name": {% include snippets/jsonld-string.html value=person_location %}
+        }{% endif %}{% if person_links.size > 0 %},
+        "sameAs": [
+        {% for item in person_links %}
+          {% include snippets/jsonld-string.html value=item.url decode_html=false %}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        ]{% endif %}
+      }

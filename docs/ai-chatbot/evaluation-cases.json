@@ -1,5 +1,12 @@
 [
   {
+    "id": "layouts-jsonld-author-profile-1",
+    "section": "layouts",
+    "doc": "02_config.md",
+    "question": "In v2.2.1 development, how do I keep a guest author's JSON-LD profile stable? Will publisher.type: Person replace them, and do they inherit my avatar?",
+    "expected": "Use existing page author.url, absolute or site-relative resolved with url/baseurl. Guest Person identity uses this URL; otherwise alphabetically first HTTP(S) guest author.links profile, so reordering links does not change identity but adding/removing profiles may. Without either, identity is page-local. Guest does not inherit site URL/avatar/location. All HTTP(S) social links appear in sameAs and author uses a reference to one profile definition. Publisher remains independent even if both are Person; default publisher type is still Organization. No new YAML options or Ruby plugin. Link /docs/02-config#seo."
+  },
+  {
     "id": "layouts-video-jsonld-1",
     "section": "layouts",
     "doc": "04_layouts.md",

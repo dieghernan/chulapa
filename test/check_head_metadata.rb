@@ -244,12 +244,12 @@ Dir.mktmpdir("chulapa-head-") do |source|
       check(metadata(html, "twitter:site") == "@site_account", "Twitter site attribution changed")
       if creator_cases.key?(creator_case)
         urls = creator_cases.fetch(creator_case).first
-        expected_urls = (urls || []).select { |url| url.include?("http") }
-        author = blocks.first.fetch("author")
+        expected_urls = (urls || []).select { |url| url.match?(%r{\Ahttps?://}i) }
+        author = blocks.find { |block| block["@id"] == blocks.first.dig("author", "@id") }
         check(author["name"] == "Guest", "Guest author changed")
         if expected_urls.any?
-          check(author["url"] == expected_urls.first, "Author social URL changed")
-          check((author["sameAs"] || []) == expected_urls.drop(1), "Author social links changed")
+          check(author["url"] == expected_urls.sort.first, "Author profile fallback incorrect")
+          check((author["sameAs"] || []) == expected_urls, "Author social links changed")
         end
       end
       check(metadata(html, "og:type") == (path.end_with?("example.html", "robots-post.html") ? "article" : "website"), "Incorrect OG type")
@@ -263,8 +263,8 @@ Dir.mktmpdir("chulapa-head-") do |source|
     check(metadata(File.read(File.join(destination, "entities.html")), "description") == expected_description, "HTML description changed")
     special = blocks_by_page.fetch("special-author.html")
     expected_name = 'Guest "R & GIS" \\ map </script>'
-    check(special.first["author"]["name"] == expected_name, "Author string serialization incorrect")
-    check(special.first["author"]["sameAs"] == ["https://example.com/?a=1&amp;b=2"], "Raw URL entity altered")
+    check(special.find { |block| block["@id"] == special.first.dig("author", "@id") }["name"] == expected_name, "Author string serialization incorrect")
+    check(special.find { |block| block["@id"] == special.first.dig("author", "@id") }["sameAs"] == ["https://twitter.com/guest", "https://example.com/?a=1&amp;b=2"], "Raw URL entity altered")
     check(special.find { |block| block["@type"] == "Person" && block["name"] == expected_name }&.dig("homeLocation", "name") == 'Madrid "Spain"', "Person serialization incorrect")
     check(metadata(File.read(File.join(destination, "special-author.html")), "author") == expected_name, "HTML author attribute broken")
 
@@ -284,7 +284,7 @@ Dir.mktmpdir("chulapa-head-") do |source|
     check(custom["@id"] == expected_home + "custom-location.html", "Custom permalink identifier incorrect")
     check(custom["datePublished"].start_with?("2024-02-03") && custom["dateModified"].start_with?("2024-03-04"), "Page date metadata lost")
     check(custom["image"] == expected_home + "images/cover.jpg", "Page image baseurl incorrect")
-    check(custom["publisher"]["name"] == "Author" && custom["author"]["name"] == "Author", "Page author or publisher changed")
+    check(custom["publisher"]["name"] == "Author" && blocks_by_page.fetch("custom-location.html").find { |block| block["@id"] == custom.dig("author", "@id") }["name"] == "Author", "Page author or publisher changed")
     note = blocks_by_page.fetch("dated-note.html").first
     check(note["@type"] == "WebPage" && note["datePublished"].start_with?("2024-04-05"), "Collection reclassified or date lost")
     post = blocks_by_page.fetch("example.html").first
@@ -349,9 +349,8 @@ Dir.mktmpdir("chulapa-publisher-") do |source|
       blocks = html.scan(/<script type="application\/ld\+json">(.*?)<\/script>/m).map { |block| JSON.parse(block.first) }
       check(blocks.first["publisher"] == expected.merge("@id" => "https://example.com/subdir/#publisher"), "Publisher incorrect: #{label}, #{file}")
       profile = blocks.find { |block| block["@type"] == "Person" }
-      configured = publisher && publisher.values.any? { |value| value && value != "" }
-      check(profile["description"] == (configured ? "Site author" : "Publisher"), "Site author role incorrect: #{label}")
-      check(blocks.first.dig("author", "name") == "Guest writer", "Publisher overwrote guest author: #{label}") if file == "guest.html"
+      check(!profile.key?("description"), "Invented author description: #{label}")
+      check(blocks.find { |block| block["@id"] == blocks.first.dig("author", "@id") }["name"] == "Guest writer", "Publisher overwrote guest author: #{label}") if file == "guest.html"
       check(metadata(html, "og:image") == "https://example.com/subdir/banner.jpg", "Publisher changed social image") unless overrides.key?("og_image")
     end
   end

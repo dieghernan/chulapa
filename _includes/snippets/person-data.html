@@ -1,0 +1,21 @@
+{%- assign person_empty_links = '' | split: ',' -%}
+{%- assign person_name = include.author.name | strip -%}
+{%- assign person_url = include.author.url | strip -%}
+{%- assign person_image = include.author.avatar | strip -%}
+{%- assign person_location = include.author.location | strip -%}
+{%- assign person_links = person_empty_links -%}
+{%- for person_link in include.author.links -%}
+  {%- assign person_link_http = person_link.url | slice: 0, 7 | downcase -%}
+  {%- assign person_link_https = person_link.url | slice: 0, 8 | downcase -%}
+  {%- if person_link_http == 'http://' or person_link_https == 'https://' -%}
+    {%- assign person_link_entry = include.author.links | slice: forloop.index0, 1 -%}
+    {%- assign person_links = person_links | concat: person_link_entry -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if include.site_author -%}
+  {%- assign person_name = person_name | default: site.github.owner_name | strip -%}
+  {%- assign person_url = person_url | default: home_url -%}
+{%- elsif person_url == empty -%}
+  {%- assign person_identity_links = person_links | default: person_empty_links | sort: 'url' -%}
+  {%- assign person_url = person_identity_links.first.url | strip -%}
+{%- endif -%}

@@ -1068,6 +1068,11 @@ whitespace-only value or a nonempty list containing only blanks therefore omits
 author avatar are not used as article illustrations. Open Graph and Twitter
 cards retain their existing site-level image fallbacks.
 
+In v2.2.1 (development), other pages also identify a `primaryImageOfPage` when
+they supply `og_image` or `header_img`. Site-level banners and avatars do not
+become a page's primary image. This does not change visible images or social
+preview fallbacks.
+
 This option applies to posts rendered as `BlogPosting`, including values supplied through front matter defaults. Other pages keep their existing image metadata. The [Welcome post]({{ '/blog/20200515_welcome' | absolute_url }}) demonstrates an explicit `schema_image` using its existing header photograph.
 
 ## Search crawler directives
