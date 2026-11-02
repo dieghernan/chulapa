@@ -193,8 +193,10 @@ the publisher and breadcrumbs using identifiers (`@id`). Posts also include
 with `mainEntity` and its first valid article image with `primaryImageOfPage`;
 see [Article images](./04-layouts#article-images). No additional configuration is needed.
 
-In v2.2.1 (development), JSON-LD uses `author.url` for the author's profile.
-The site author defaults to the home page. A guest without `author.url` uses
+In v2.2.1 (development), the site author's JSON-LD profile always uses the
+home page, resolved with `url` and `baseurl`. No About page or extra setting is
+required. This leaves visible author cards and Open Graph author URLs unchanged.
+Guest profiles use their own `author.url`. A guest without `author.url` uses
 the alphabetically first HTTP(S) profile in their own `author.links`; supply
 an explicit profile URL for a stable identity when adding or removing social
 profiles. Reordering links does not change the guest's identifier. A guest

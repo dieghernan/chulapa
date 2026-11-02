@@ -97,7 +97,7 @@ Edit existing _config.yml fields, preserving unrelated config; restart local Jek
 url: origin; baseurl: /repository or ""; repository: username/repository. Set for custom/local URLs; locale: HTML language, page override. author: name/url/avatar/location/links. author.url: absolute or /about/ via url/baseurl; cards use selected author, guests inherit no site URL. Socials: author.links.
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
-Dev v2.2.1 JSON-LD: author.url first, site fallback home. Guest: sorted HTTP(S) links, else page-local ID; set author.url for stable IDs. sameAs: all profiles; guests inherit no avatar/location. Publisher separate.
+Dev v2.2.1 JSON-LD: site author URL=home via url/baseurl, no About. Guest: author.url, sorted HTTP(S) links, else page-local ID. sameAs: profiles; no inherited guest avatar/location. Publisher separate.
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
 Since v2.1.0 publisher.type: Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping; preserve fields. name/url identify editor; Person uses image/site avatar, ignores logo; Organization uses logo. Paths: url/baseurl. Guests independent; check public JSON-LD. No rich guarantees.
 Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4. fa_kit_code replaces hosted CSS with kit. Legacy fa5_kit_code wins: remove on migration.

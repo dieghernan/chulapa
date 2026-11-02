@@ -14,7 +14,7 @@
 {%- endfor -%}
 {%- if include.site_author -%}
   {%- assign person_name = person_name | default: site.github.owner_name | strip -%}
-  {%- assign person_url = person_url | default: home_url -%}
+  {%- assign person_url = home_url -%}
 {%- elsif person_url == empty -%}
   {%- assign person_identity_links = person_links | default: person_empty_links | sort: 'url' -%}
   {%- assign person_url = person_identity_links.first.url | strip -%}

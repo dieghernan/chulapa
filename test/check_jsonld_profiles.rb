@@ -29,7 +29,7 @@ Dir.mktmpdir("chulapa-jsonld-profiles-") do |source|
   ["", "/preview"].each do |baseurl|
     %w[Person Organization].each do |publisher_type|
       home = "https://example.com#{baseurl}/"
-      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "quiet" => true, "title" => "Site", "og_image" => "/banner.jpg", "author" => { "name" => "Site author", "url" => "/about/", "avatar" => "/author.jpg", "location" => "Madrid", "links" => links }, "publisher" => { "type" => publisher_type, "name" => "Independent editor", "url" => "/editor/", "image" => "/editor.jpg" }, "defaults" => [{ "scope" => { "path" => "" }, "values" => { "layout" => "default" } }])
+      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "quiet" => true, "title" => "Site", "og_image" => "/banner.jpg", "author" => { "name" => "Site author", "url" => "https://github.com/site-author", "avatar" => "/author.jpg", "location" => "Madrid", "links" => links + [{ "url" => "https://github.com/site-author" }] }, "publisher" => { "type" => publisher_type, "name" => "Independent editor", "url" => "/editor/", "image" => "/editor.jpg" }, "defaults" => [{ "scope" => { "path" => "" }, "values" => { "layout" => "default" } }])
       Jekyll::Site.new(config).process
       guest_ids = {}
       Dir.glob(File.join(config["destination"], "**/*.html")).each do |path|
@@ -37,6 +37,9 @@ Dir.mktmpdir("chulapa-jsonld-profiles-") do |source|
         blocks = doc.css('script[type="application/ld+json"]').map { |node| JSON.parse(node.text) }
         primary = blocks.first
         author = blocks.find { |block| block["@id"] == primary.dig("author", "@id") }
+        site_author = blocks.find { |block| block["@id"] == home + "#author" }
+        raise "Site author URL differs across pages" unless site_author && site_author["url"] == home
+        raise "GitHub profile lost from sameAs" unless site_author.fetch("sameAs").include?("https://github.com/site-author")
         raise "Unresolved author" unless author
         raise "Embedded author differs from profile" unless primary["author"] == { "@id" => author["@id"] }
         raise "Duplicate author definition" unless blocks.count { |block| block["@id"] == author["@id"] } == 1
@@ -64,7 +67,7 @@ Dir.mktmpdir("chulapa-jsonld-profiles-") do |source|
           raise "Demo guest lost" unless author["name"] == "Octocat"
           raise "Avatar-free demo inherited an avatar" if name.start_with?("07_") && author.key?("image")
         else
-          raise "Site author URL ignored" unless author["url"] == home + "about/"
+          raise "Site author must use home in JSON-LD" unless author["url"] == home
         end
       end
       raise "Explicit guest URL unstable" unless guest_ids.values_at("one.html", "two.html") == [home + "guest/#author"] * 2
