@@ -1,3 +1,5 @@
+import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.mjs';
+
 // Based on https://gist.github.com/evenfrost/1ba123656ded32fb7a0cd4651efd4db0
 // Sort regions to avoid breaking layout
 // Avoid highlighting single characters

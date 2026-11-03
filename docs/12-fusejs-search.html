@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Enable Fuse.js search",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-03T17:28:40+01:00",
-        "dateModified": "2026-11-03T17:28:40+01:00",
+        "datePublished": "2026-11-03T17:36:02+01:00",
+        "dateModified": "2026-11-03T17:36:02+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -325,6 +325,16 @@ changes enter the search index during the next site build; republish after edits
 <a href="./36-google-search">Google Custom Search</a> or <a href="./37-algolia-search">Algolia</a>.
 For exact field defaults, use the <a href="./02-config#search-engines">search reference</a>.
 For a working interface, see the <a href="../demo/search_fusejs">Fuse.js demo</a>.</p>
+<p>In <strong>2.2.1 (development)</strong>, Fuse.js is updated to 7.5.0. Its corrected relevance
+scores can change result ordering and the number of results shown. The standard
+search layout handles the update automatically. If you copied a Fuse.js search
+page or adapter into your site, update it from the current
+<a href="https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html">demo source</a>
+and <a href="https://github.com/dieghernan/chulapa/blob/main/assets/js/fusejs/fusejs-search.js">adapter</a>:
+the adapter must load with <code class="language-plaintext highlighter-rouge">type="module"</code> and imports Fuse.js itself. Remove
+the old separate <code class="language-plaintext highlighter-rouge">fuse.min.js</code> script tag. Serve the page through Jekyll or your
+published site; opening the HTML directly with <code class="language-plaintext highlighter-rouge">file://</code> does not support this
+module loading.</p>
 </div>
 			</article>
 		</div>
