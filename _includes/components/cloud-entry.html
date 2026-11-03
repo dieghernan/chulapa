@@ -6,6 +6,7 @@
   <article class="chulapa-links-hover-only my-1 mb-4 row g-0 h-entry">
     <div class="col">
       <h3 class="h6"><a href="{{ include.document.url | absolute_url }}" class="p-name u-url">{{ include.document.title | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip }}</a></h3>
+      {% include snippets/author-microformats.html author=include.document.author %}
       {%- if include.document.subtitle -%}<p class="p-summary">{{- include.document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p> {%- endif -%}
       <div class="small">
         {% if include.document.date and include.document.show_date != false %}

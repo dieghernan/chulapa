@@ -144,6 +144,14 @@ project_links:
   For a guest author, set their own profile URL; it does not inherit the site
   author's URL.
 
+  In v2.2.1 development, `show_author: false` hides the visible card while
+  retaining invisible Microformats2 author data in `default`, derived layouts
+  and `landingpage`. Archive, category, tag and card listings identify each
+  entry's own author, including guests. These data do not add visible content
+  or keyboard stops. Author profile URLs use `author.url`, then the first
+  HTTP(S) link belonging to that author; without either, only available author
+  details are included.
+
 ```yaml
 ---
 title: "Plain post 2"

@@ -37,9 +37,18 @@ jobs:
         with:
           ruby-version: '3.4'
           bundler-cache: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install Microformats2 validation parser
+        run: python -m pip install mf2py==2.0.2
       - name: Check theme behavior on Jekyll 3 and 4
         working-directory: test
+        env:
+          AUTHORSHIP_OUTPUT: ${{ runner.temp }}/chulapa-authorship
         run: bundle exec ruby run_regressions.rb
+      - name: Verify extracted authors with Microformats2 parser
+        run: python test/check_authorship.py "${{ runner.temp }}/chulapa-authorship"
 
   javascript:
     runs-on: ubuntu-latest
@@ -120,6 +129,7 @@ jobs:
       - name: Build actual theme fixtures
         working-directory: test
         run: |
+          AUTHORSHIP_OUTPUT="$RUNNER_TEMP/chulapa-authorship" bundle exec ruby check_authorship.rb
           DEFAULT_CONTENT_OUTPUT="$RUNNER_TEMP/chulapa-default-content" bundle exec ruby check_default_content.rb
           bundle exec ruby build_accessibility_fixtures.rb "$RUNNER_TEMP/chulapa-navigation"
           bundle exec ruby check_photoswipe.rb "$RUNNER_TEMP/chulapa-photoswipe"
@@ -128,6 +138,7 @@ jobs:
           bundle exec ruby build_theme_font_fixtures.rb "$RUNNER_TEMP/chulapa-theme-fonts"
       - name: Check keyboard navigation and responsive state in Chromium
         run: |
+          node test/check_authorship_browser.js "$RUNNER_TEMP/chulapa-authorship"
           node test/check_default_content_browser.js "$RUNNER_TEMP/chulapa-default-content"
           node test/check_navigation_browser.js "$RUNNER_TEMP/chulapa-navigation"
           node test/check_photoswipe_browser.js "$RUNNER_TEMP/chulapa-photoswipe"

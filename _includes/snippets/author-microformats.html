@@ -1,0 +1,4 @@
+{%- include snippets/author-identity.html author=include.author -%}
+{%- if identity_name != empty -%}
+<span class="p-author h-card d-none" hidden><span class="p-name">{{ identity_name | escape }}</span>{% if identity_url != empty %}<a class="u-url" href="{{ identity_url | absolute_url | escape }}">{{ identity_name | escape }}</a>{% endif %}{% if identity_author.avatar %}<img class="u-photo" src="{{ identity_author.avatar | absolute_url | escape }}" alt="">{% endif %}</span>
+{%- endif -%}

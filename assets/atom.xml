@@ -14,14 +14,12 @@ permalink: ./atom.xml
 	{% if site.subtitle -%}
 	<subtitle>{{- site.subtitle | strip_html -}}</subtitle>
 	{%- endif %}
+	{% include snippets/author-identity.html %}
 	<author>
-		<name>{{ site.author.name | default: site.github.owner_name }}</name>
-		{% assign authorlink = site.author.links | where_exp: "item", "item.url contains 'http'" -%}
-		{% for link in authorlink limit: 1 -%}
-		<uri>{{ link.url | absolute_url }}</uri>
-		{%- endfor %}			
+		<name>{{ identity_name | xml_escape }}</name>
+		{% if identity_url != empty %}<uri>{{ identity_url | absolute_url | xml_escape }}</uri>{% endif %}
 	</author>
-	<rights>(c) {{ site.time | date: '%Y' }}, {{  site.author.name | default: site.github.owner_name }}</rights>
+	<rights>(c) {{ site.time | date: '%Y' }}, {{  site.author.name | default: site.github.owner_name | xml_escape }}</rights>
 	{% if site.navbar.brand.img -%}
 	<icon>{{- site.navbar.brand.img | absolute_url -}}</icon>
 	{%- endif %}
@@ -58,12 +56,10 @@ permalink: ./atom.xml
 	         append: " min.</p>" | escape }}
 			{{ document.content | markdownify | escape }}
 		</content>
-		{% assign entryauthor = document.author | default: site.author %}
+		{% include snippets/author-identity.html author=document.author %}
 		<author>
-			<name>{{ entryauthor.name | default: site.github.owner_name }}</name>
-			{%- for link in entryauthor.links limit: 1 -%}
-			<uri>{{ link.url | absolute_url }}</uri>
-			{%- endfor -%}		
+			<name>{{ identity_name | xml_escape }}</name>
+			{% if identity_url != empty %}<uri>{{ identity_url | absolute_url | xml_escape }}</uri>{% endif %}
 		</author>
 		<summary type="html">{{ document.excerpt | escape }}</summary>
 		<category term="{{ document.collection }}"/>

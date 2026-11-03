@@ -89,12 +89,12 @@ Insert only this item after Categories in existing _config.yml navbar.nav, not a
   - title: Photo walk
     url: /photo-walk/
 ```
-Match indentation, retain all entries/settings; no second navbar or repository prefix. Commit both edits on the original publishing branch; wait for Actions. From Settings > Pages follow Photo walk and verify title, heading, image and text; return Home and follow it again.
+Retain indentation/entries; no duplicate navbar or repository prefix. Commit both edits to publishing branch; wait for Actions. Open Settings > Pages; follow Photo walk, verify title/heading/image/text, then repeat from Home.
 ## Global settings
 Sources: https://dieghernan.github.io/chulapa/docs/02-config
 https://dieghernan.github.io/chulapa/docs/14-site-details
-Edit existing _config.yml fields, preserving unrelated config; restart local Jekyll after changes. Rename via title/description/author.name without changing url/baseurl/repository/permalinks. Chulapa 101's visible home heading separately uses index.html title; do not rename that file. Check browser title and heading. Page authors and custom footer.copyright are not rewritten; description metadata is not page prose.
-url: origin; baseurl: /repository or ""; repository: username/repository. Set for custom/local URLs; locale: HTML language, page override. author: name/url/avatar/location/links. author.url: absolute or /about/ via url/baseurl; cards use selected author, guests inherit no site URL. Socials: author.links.
+Edit existing _config.yml; preserve unrelated fields and restart local Jekyll. Rename with title/description/author.name; keep url/baseurl/repository/permalinks. Chulapa 101 home heading uses index.html title; keep filename. Check browser title/heading. Page authors/footer.copyright stay separate; description is metadata.
+url: origin; baseurl: /repository or ""; repository: owner/repo; locale: HTML language. author: name/url/avatar/location/links; url absolute or /about/ via url/baseurl. Cards select author; guests inherit no URL; socials: author.links.
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
 Dev v2.2.1 JSON-LD: site author URL=home via url/baseurl, no About. Guest: author.url, sorted HTTP(S) links, else page-local ID. sameAs: profiles; no inherited guest avatar/location. Publisher separate.
@@ -211,8 +211,9 @@ landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chula
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
 archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
-Page switches: show_author (page author wins), show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
-Defaults list: scope.path: "", scope.type: posts, values.layout: default. Explicit front matter wins; YAML false, not "false".
+Dev v2.2.1: show_author:false retains invisible h-card p-author in default/derived/landingpage and per-entry listing authors. Atom: selected author.url, first own HTTP(S) link, else no URI; guests inherit no site identity. RSS: known names as dc:creator, no invented emails. /docs/56-publish-feeds.
+Page switches: show_author, show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
+Defaults: scope.path:"", scope.type:posts, values.layout:default. Front matter wins; boolean false, not "false".
 ## Related and random article cards
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 show_related: up to 3 collection documents, >=2 shared tags same collection or >=3 cross-collection; more matches first, then newer dates. show_random: up to 3 sampled from same pool at build time, not on reload. On v2.2.0, a singleton pool renders exactly one card, not three empty cards; candidate show_date: false hides related/random date footer. Empty panels can mean insufficient matching tags. show_random: false disables article panel; gallery include random is unrelated.
@@ -385,7 +386,7 @@ Not a built-in category front-matter setting. Bootstrap HTML <button class="btn 
 Missing include: bundle install, bundle exec jekyll serve, verify theme/remote_theme/plugins. An error alone is not a diagnosis; request config/versions if unresolved.
 ## Public RSS feed
 Source: https://dieghernan.github.io/chulapa/rss.xml
-Give this subscription URL when asked. Feed entries are not in context; assistant does not fetch URLs or know latest feed posts.
+Share this URL; latest entries are unknown and cannot be fetched.
 ## Mermaid and clipboard (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/33-add-diagram
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#mermaid-diagrams

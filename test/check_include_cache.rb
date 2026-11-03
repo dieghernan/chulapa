@@ -73,7 +73,7 @@ Dir.mktmpdir("chulapa-cache-") do |source|
         expected_readtime = baseurl.empty? ? "2’" : "4’"
         raise "Translated date changed" unless cloud.css("time").all? { |time| time.text == expected_date }
         raise "Reading time changed" unless cloud.css(".small").all? { |small| small.text.include?(expected_readtime) }
-        raise "Cloud URL did not refresh" unless cloud.css(".u-url").all? { |link| link["href"] == "https://example.com#{baseurl}/entries/entry.html" }
+        raise "Cloud URL did not refresh" unless cloud.css("h3 .u-url").all? { |link| link["href"] == "https://example.com#{baseurl}/entries/entry.html" }
       end
     end
     # Rebuild the same site after content edits; configuration stays unchanged.
