@@ -30,10 +30,6 @@ jobs:
         echo "::group::Jekyll folder"
         echo "Building Jekyll from: $PWD"
         echo "::endgroup::"
-        # Updating Bundle
-        echo "::group::Bundle Update"
-        bundle update
-        echo "::endgroup::"
         # Jekyll Profile
         echo "::group::Jekyll Profile"
         bundle exec jekyll build --incremental --profile >> $GITHUB_STEP_SUMMARY
