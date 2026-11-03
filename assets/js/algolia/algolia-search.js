@@ -131,11 +131,6 @@ search.addWidgets([
       input: ['form-control', 'rounded'],
     },
   }),
-  {% if site.search.algolia_logo %}
-  instantsearch.widgets.poweredBy({
-    container: '#powered-by',
-  }),
-  {% endif %}
   {% raw %}
   instantsearch.widgets.hits({
     container: '#hits',

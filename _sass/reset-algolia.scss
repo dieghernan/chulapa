@@ -32,3 +32,26 @@
 .ais-Hits-item {
     list-style: none;
 }
+
+.chulapa-algolia-attribution {
+    display: inline-flex;
+    color: $body-color;
+    vertical-align: middle;
+
+    &:hover,
+    &:focus {
+        color: $body-color;
+    }
+
+    &:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 3px;
+    }
+}
+
+.chulapa-algolia-logo {
+    display: block;
+    width: auto;
+    height: 1.2em;
+    fill: currentColor;
+}

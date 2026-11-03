@@ -12,6 +12,8 @@
 
 ### Fixed
 
+-   Keep the Algolia attribution legible when switching skins, using a local SVG that follows the skin's text color and retains visible keyboard focus.
+
 -   Preserve per-entry authorship in collection listings and hidden-author pages, prioritize configured Atom author profile URLs and include known author names in RSS without changing visible cards (#199).
 
 -   Keep the theme selector icon width consistent across Light, Dark and Auto in dieghernan skins, preventing navigation shifts when switching between matching light and dark typography.

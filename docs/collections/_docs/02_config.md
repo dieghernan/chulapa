@@ -363,6 +363,9 @@ Google Custom Search requires a configured search engine.
     sample configurations explicitly set it to `true`. Check
     your Algolia plan's attribution requirements before hiding it.
 
+In **2.2.1 (development)**, the Algolia attribution automatically follows the
+skin's text color, including when visitors switch between light and dark skins.
+
 - `google_cse_id`: Your Google Custom Search id, available on _cse.google.com >
   Your search engine > Settings_.
 

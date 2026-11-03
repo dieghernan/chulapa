@@ -1,3 +1,9 @@
 <div id="searchbox"></div>
-<div id="powered-by" class="text-right mt-2"></div>
+{% if site.search.algolia_logo %}
+<div id="powered-by" class="text-right mt-2">
+  <a class="chulapa-algolia-attribution" href="https://www.algolia.com/?utm_source=instantsearch.js&amp;utm_medium=website&amp;utm_campaign=poweredby" target="_blank" rel="noopener noreferrer" aria-label="Search by Algolia">
+    {% include search/algolia-logo.svg %}
+  </a>
+</div>
+{% endif %}
 <div id="hits" class="mt-3 text-left"></div>
