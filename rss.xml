@@ -6,9 +6,9 @@
 		<link>https://dieghernan.github.io/chulapa</link>
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
-		<copyright>(c) 2026, dieghernan</copyright>	
-		<pubDate>Tue, 03 Nov 2026 13:16:28 +0100</pubDate>
-		<lastBuildDate>Tue, 03 Nov 2026 13:16:28 +0100</lastBuildDate>
+		<copyright>(c) 2026, dieghernan</copyright>
+		<pubDate>Tue, 03 Nov 2026 13:36:18 +0100</pubDate>
+		<lastBuildDate>Tue, 03 Nov 2026 13:36:18 +0100</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,9 @@
 			<url>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</url>
 			<link>https://dieghernan.github.io/chulapa</link>
 			<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
-		</image><item>
+		</image>
+		<item>
+			<dc:creator>dieghernan</dc:creator>
 			<title>Chulapa v2.2.0: more ways to make your site yours</title>
 			<description>
 				<![CDATA[	
@@ -160,7 +162,9 @@ have the complete list of changes.</p>
       <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
       <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</guid>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
-		</item><item>
+		</item>
+		<item>
+			<dc:creator>dieghernan</dc:creator>
 			<title>Chulapa v2.1.0: more control over your site</title>
 			<description>
 				<![CDATA[	
@@ -369,7 +373,9 @@ you build. Share your site or feedback in
       <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
       <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
-		</item><item>
+		</item>
+		<item>
+			<dc:creator>dieghernan</dc:creator>
 			<title>Ask Chulapa</title>
 			<description>
 				<![CDATA[	
@@ -415,7 +421,9 @@ answer testing and the mobile interface, on my blog:
       <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
       <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
-		</item><item>
+		</item>
+		<item>
+			<dc:creator>dieghernan</dc:creator>
 			<title>Welcome</title>
 			<description>
 				<![CDATA[	

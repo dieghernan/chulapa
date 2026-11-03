@@ -3,13 +3,14 @@
 	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-11-03T13:16:28+01:00</updated>
+	<updated>2026-11-03T13:36:18+01:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A flexible, visual Jekyll theme</title>
 	<subtitle>A flexible, visual Jekyll theme</subtitle>
+	
 	<author>
 		<name>dieghernan</name>
-		<uri>https://github.com/dieghernan/</uri>			
+		<uri>https://github.com/dieghernan/</uri>
 	</author>
 	<rights>(c) 2026, dieghernan</rights>
 	<icon>https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png</icon>
@@ -160,7 +161,9 @@ have the complete list of changes.&lt;/p&gt;
 		</content>
 		
 		<author>
-			<name>dieghernan</name><uri>https://github.com/dieghernan/</uri></author>
+			<name>dieghernan</name>
+			<uri>https://github.com/dieghernan/</uri>
+		</author>
 		<summary type="html">&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0 is out, with support for light and dark skins, Mermaid diagrams, PhotoSwipe galleries, new starter examples and several improvements across the theme.</summary>
 		<category term="posts"/>
 		<category term="jekyll"/><category term="news"/><category term="release"/>
@@ -377,7 +380,9 @@ you build. Share your site or feedback in
 		</content>
 		
 		<author>
-			<name>dieghernan</name><uri>https://github.com/dieghernan/</uri></author>
+			<name>dieghernan</name>
+			<uri>https://github.com/dieghernan/</uri>
+		</author>
 		<summary type="html">Explore &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0, from page metadata and new skins to search and layout options, with a small preview of what comes next.</summary>
 		<category term="posts"/>
 		<category term="jekyll"/><category term="news"/><category term="release"/>
@@ -431,7 +436,9 @@ answer testing and the mobile interface, on my blog:
 		</content>
 		
 		<author>
-			<name>dieghernan</name><uri>https://github.com/dieghernan/</uri></author>
+			<name>dieghernan</name>
+			<uri>https://github.com/dieghernan/</uri>
+		</author>
 		<summary type="html">Ask questions about &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; and get practical examples with links to the docs.</summary>
 		<category term="posts"/>
 		<category term="ai"/><category term="news"/>
@@ -487,7 +494,9 @@ look to each of them. No one could notice that the theme is the same!&lt;/p&gt;
 		</content>
 		
 		<author>
-			<name>dieghernan</name><uri>https://github.com/dieghernan/</uri></author>
+			<name>dieghernan</name>
+			<uri>https://github.com/dieghernan/</uri>
+		</author>
 		<summary type="html">&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
 that you can use for creating your site.&lt;/p&gt;
 </summary>
