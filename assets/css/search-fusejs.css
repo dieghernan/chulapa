@@ -6,7 +6,7 @@
 }
 
 .fuse-logo {
-  color: #9b59b6;
+  color: inherit;
   font-weight: bolder;
   --fa-animation-iteration-count: 1;
   --fa-animation-duration: 0.5s;
