@@ -94,6 +94,13 @@
     padding-right: 0.6rem;
   }
 
+  @if variable-exists(chulapa-authored-skin) {
+    .chulapa-theme-toggle > i {
+      width: 1em;
+      text-align: center;
+    }
+  }
+
   // Default color (closed)
   .navbar-chulapa-fab-nav .chulapa-theme-toggle,
   .navbar-chulapa-fab-nav .chulapa-theme-toggle i,

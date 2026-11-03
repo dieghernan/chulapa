@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {chromium} = require('playwright');
 const directory = path.resolve(process.argv[2]);
+const iconPackage = path.dirname(require.resolve('@fortawesome/fontawesome-free/package.json'));
 const dependencies = new Map([
   ['https://code.jquery.com/jquery-3.5.1.slim.min.js', require.resolve('jquery/dist/jquery.slim.min.js')],
   ['https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', require.resolve('popper.js/dist/umd/popper.min.js')],
@@ -32,6 +33,8 @@ async function main() {
       let blockInline = false;
       await context.route('**/*', route => {
         const url = new URL(route.request().url());
+        const iconPrefix = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/';
+        if (url.href.startsWith(iconPrefix)) return route.fulfill({path: path.join(iconPackage, url.href.slice(iconPrefix.length)), headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === 'fonts.googleapis.com') return route.fulfill({body: '', contentType: 'text/css'});
         if (dependencies.has(url.href)) return route.fulfill({path: dependencies.get(url.href), contentType: 'application/javascript', headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === `${name}.localhost`) {
@@ -120,11 +123,22 @@ async function main() {
             `${name}-${page.viewportSize().width}-${mode}.png`)});
         }
       };
+      const checkIconWidth = async mode => {
+        await page.evaluate(() => document.fonts.ready);
+        const icon = await page.locator('.chulapa-theme-toggle:visible > i').evaluate(node => ({
+          width: node.getBoundingClientRect().width,
+          fontSize: parseFloat(getComputedStyle(node).fontSize),
+          fontLoaded: document.fonts.check('900 16px "Font Awesome 6 Free"')
+        }));
+        assert.equal(icon.fontLoaded, true, `${name}/${mode}: icon font did not load`);
+        assert.ok(Math.abs(icon.width - icon.fontSize) < 0.02, `${name}/${mode}: icon must reserve one em`);
+      };
       for (const width of [1280, 375]) {
         await page.setViewportSize({width, height: 900});
         await choose('dark');
         await waitTheme('dark');
         await checkKeyboardFocus('dark');
+        await checkIconWidth('dark');
         assert.notEqual(await bodyColor(), light, `${name}: dark CSS did not apply`);
         assert.equal(await page.locator('body').evaluate(node => getComputedStyle(node).borderTopColor), 'rgb(255, 0, 0)', 'Custom CSS lost precedence');
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${name}/${width}: overflow`);
@@ -132,6 +146,13 @@ async function main() {
         await choose('light');
         await waitTheme('light');
         await checkKeyboardFocus('light');
+        await checkIconWidth('light');
+        const lightBounds = await page.locator('.chulapa-theme-toggle:visible').boundingBox();
+        await choose('auto');
+        await waitTheme('light');
+        await checkIconWidth('auto');
+        assert.deepEqual(await page.locator('.chulapa-theme-toggle:visible').boundingBox(), lightBounds,
+          `${name}/${width}: changing icons with the same skin must not move or resize the selector`);
         assert.equal(await bodyColor(), light);
       }
       await page.setViewportSize({width: 1280, height: 900});
