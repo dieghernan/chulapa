@@ -67,3 +67,14 @@ To switch providers, use [Lunr.js](./34-lunr-search),
 [Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
 For exact field defaults, use the [search reference](./02-config#search-engines).
 For a working interface, see the [Fuse.js demo](../demo/search_fusejs).
+
+In **2.2.1 (development)**, Fuse.js is updated to 7.5.0. Its corrected relevance
+scores can change result ordering and the number of results shown. The standard
+search layout handles the update automatically. If you copied a Fuse.js search
+page or adapter into your site, update it from the current
+[demo source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html)
+and [adapter](https://github.com/dieghernan/chulapa/blob/main/assets/js/fusejs/fusejs-search.js):
+the adapter must load with `type="module"` and imports Fuse.js itself. Remove
+the old separate `fuse.min.js` script tag. Serve the page through Jekyll or your
+published site; opening the HTML directly with `file://` does not support this
+module loading.

@@ -681,5 +681,12 @@
     "doc": "65_search-visibility.md",
     "question": "Does Chulapa generate sitemap.txt? Which URLs does it contain, and does noindex remove a page?",
     "expected": "Development v2.2.1 only, not v2.2.0: assets/sitemap.txt publishes /sitemap.txt under baseurl without an extra plugin or flag. Absolute canonical URLs, output collections then HTML pages; sitemap false excludes either. canonical_url overrides apply unlike jekyll-sitemap XML actual URLs. No automatic noindex filtering, deduplication or image/static asset listing. Verify published URLs and submit full text sitemap URL if supported; no guaranteed indexing."
+  },
+  {
+    "id": "fuse-module-upgrade-development",
+    "section": "search",
+    "doc": "12_fusejs-search.md",
+    "question": "I copied a Fuse.js search page and now want to try Chulapa development 2.2.1. Can I just replace 7.1.0 with 7.5.0 in the fuse.min.js URL?",
+    "expected": "No: development 2.2.1 uses Fuse.js 7.5.0 with module loading, not the old standalone fuse.min.js browser script. Standard search layout updates automatically; copied pages/adapters need current demo and adapter, type=module on the adapter script and removal of the separate Fuse library tag because the adapter imports it. Serve through Jekyll or HTTP(S), not file://. Corrected relevance scores can change order and result count. No new YAML option; do not claim released 2.2.0 has this update. Link the Fuse.js guide and current demo/adapter sources."
   }
 ]

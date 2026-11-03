@@ -12,6 +12,8 @@
 
 ### Fixed
 
+-   Update Fuse.js search to 7.5.0 with module loading, keeping the standard page and demo aligned. Corrected relevance scores can change result ordering and the number of results shown.
+
 -   Keep the Google search attribution legible on dark backgrounds and let the Fuse.js attribution icon follow the skin's text color.
 
 -   Keep the Algolia attribution legible when switching skins, using a local SVG that follows the skin's text color and retains visible keyboard focus.

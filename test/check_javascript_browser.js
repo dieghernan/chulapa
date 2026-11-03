@@ -12,7 +12,7 @@ const scripts = new Map([
   ['https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', require.resolve('bootstrap/dist/js/bootstrap.min.js')],
   ['https://unpkg.com/lunr/lunr.js', require.resolve('lunr/lunr.js')],
   ['https://unpkg.com/lunr/lunr.min.js', require.resolve('lunr/lunr.min.js')],
-  ['https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js', path.join(path.dirname(require.resolve('fuse.js')), 'fuse.min.js')]
+  ['https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.mjs', path.join(path.dirname(require.resolve('fuse.js')), 'fuse.min.mjs')]
 ]);
 let current;
 const server = http.createServer((request, response) => {
@@ -39,7 +39,7 @@ const server = http.createServer((request, response) => {
         if (!scripts.has(url)) return route.abort();
         let body = fs.readFileSync(scripts.get(url), 'utf8');
         if (url.includes('/lunr.min.js')) body += '\nwindow.indexBuilds=0;const originalLunr=lunr;lunr=Object.assign(function(fn){window.indexBuilds++;return originalLunr(fn)},originalLunr);';
-        return route.fulfill({contentType: 'text/javascript', body});
+        return route.fulfill({contentType: 'text/javascript', headers: {'access-control-allow-origin': '*'}, body});
       });
       await page.goto(`http://127.0.0.1:8770${prefix}/search.html`);
       assert.deepEqual(errors, [], `Initialization errors for ${engine}`);
