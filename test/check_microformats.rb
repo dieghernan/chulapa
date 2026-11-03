@@ -111,10 +111,12 @@ Dir.mktmpdir("chulapa-featured-") do |source|
   ["", "/subdir"].each do |baseurl|
     [true, false].each do |site_image|
       config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "title" => "Site", "quiet" => true, "og_image" => site_image ? "/site.jpg" : nil, "og_image_alt" => "Site image", "author" => {"avatar" => "/avatar.jpg"})
+      config["compress_html"] = {"blanklines" => true, "clippings" => "all"}
       Jekyll::Site.new(config).process
       cases.each do |name, (_, image, alt)|
         image = nil if name == "site" && !site_image
-        doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{name}.html")))
+        html = File.read(File.join(config["destination"], "#{name}.html"))
+        doc = Nokogiri::HTML(html)
         photos = doc.css("img.u-featured")
         unless image
           check(photos.empty?, "Unexpected featured image: #{name}")
@@ -124,6 +126,8 @@ Dir.mktmpdir("chulapa-featured-") do |source|
         photo = photos.first
         expected = image.start_with?("https:") ? image : "https://example.com#{baseurl}#{image}"
         check(photo["src"] == expected, "Featured image URL: #{name}")
+        check(html.match?(/^ *<img class="u-photo u-featured d-none"[^\n]+>\r?$/), "Featured image must occupy its own HTML line: #{name}")
+        check(html.match?(/^\s*<main class="d-flex flex-column flex-fill">/), "Main opening must retain its own HTML line: #{name}")
         check(photo["alt"] == alt, "Featured image alt: #{name}: #{photo['alt'].inspect}")
         check(photo["class"].split.include?("u-photo") && photo["class"].split.include?("d-none"), "Featured image classes: #{name}")
         check(photo.parent["class"].split.include?("h-entry"), "Featured image outside entry: #{name}")
