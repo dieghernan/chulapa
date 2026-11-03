@@ -296,6 +296,18 @@ with `p-name`, `u-url` and `e-content` properties, without including the navbar
 or footer in the entry. This behavior is available in v2.2.0.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
+In development for v2.2.1, `default` and layouts derived from it expose a hidden
+representative image as `u-photo u-featured` inside the page's `h-entry`.
+The image uses page `og_image`, page `header_img`, then site `og_image`;
+it is omitted when none is available. Avatars are not used as a fallback.
+Set `og_image_alt` in the page's front matter to describe its image. Site
+`og_image_alt` is inherited only for the site image when neither page image
+is set; otherwise the page title is the fallback text. The image does not
+change the visible layout and is excluded from the outer `h-feed` of list
+layouts. `landingpage` and `minimal` do not add this image automatically.
+Consumers such as Bridgy Fed can use this metadata, but their
+publication behavior depends on the service and discovery method.
+
 ```yaml
 ---
 layout: minimal

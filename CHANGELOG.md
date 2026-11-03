@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Expose the representative image of page-level Microformats2 entries as hidden `u-photo u-featured` metadata, using page Open Graph and header images before the site image and keeping image descriptions tied to the selected source (#193).
+
 -   Generate JSON-LD for supported video embeds using existing metadata inputs, shared microdata identities and canonical page links, without changing deferred playback or adding configuration.
 
 -   Connect JSON-LD website, page, author, publisher and breadcrumb entities, enrich posts with language, tags and categories, link article pages to their main article and first valid article image, and describe built-in collection indexes with lists matching their displayed documents. Resolve author profiles consistently using existing profile URLs, keep publishers independent, omit missing optional metadata and identify page-specific primary images.
