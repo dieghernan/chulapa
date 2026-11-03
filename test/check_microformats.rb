@@ -71,7 +71,7 @@ Dir.mktmpdir("chulapa-microformats-") do |source|
       end
       card = doc.at_css(".h-card.p-author")
       if values["show_author"] == false
-        check(card.nil?, "Hidden author: #{name}")
+        check(card && card.key?("hidden") && card.at_css(".p-name").text == "Alice", "Hidden semantic author: #{name}")
         next
       end
       expected_name = values.dig("author", "name") || "Alice"

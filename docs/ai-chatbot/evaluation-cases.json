@@ -1,5 +1,12 @@
 [
   {
+    "id": "layouts-hidden-authorship-199",
+    "section": "layouts",
+    "doc": "56_publish-feeds.md",
+    "question": "In v2.2.1 development, does show_author: false remove authors from my articles and feeds? What happens to a guest without author.url when a social link is first?",
+    "expected": "default/derived and landingpage hide the visible card but retain invisible h-card p-author, without keyboard stops. Listings retain per-entry authors including guests. Atom uses selected author.url, otherwise first HTTP(S) link from that same author, omitting URI when neither exists. Guest never inherits site name or URL. RSS uses known names in dc:creator without inventing emails. Root/subdirectory URLs supported. Development change, not released v2.2.0. Link /docs/56-publish-feeds and /docs/04-layouts."
+  },
+  {
     "id": "layouts-microformats-featured-image-1",
     "section": "layouts",
     "doc": "04_layouts.md",

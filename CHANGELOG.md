@@ -12,6 +12,8 @@
 
 ### Fixed
 
+-   Preserve per-entry authorship in collection listings and hidden-author pages, prioritize configured Atom author profile URLs and include known author names in RSS without changing visible cards (#199).
+
 -   Keep the theme selector icon width consistent across Light, Dark and Auto in dieghernan skins, preventing navigation shifts when switching between matching light and dark typography.
 
 -   Improve navigation, text-link interaction states, badges, outline buttons and contextual card text/links across the 16 dieghernan skins, including Listen's Primary card. Keep navigation defaults adaptive to configured backgrounds, preserve explicit text colors and custom semantic palettes, and leave third-party skins unchanged.

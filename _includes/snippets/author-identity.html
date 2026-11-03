@@ -1,0 +1,17 @@
+{%- assign identity_author = include.author -%}
+{%- assign identity_name = identity_author.name | strip -%}
+{%- unless identity_author -%}
+  {%- assign identity_author = site.author -%}
+  {%- assign identity_name = site.author.name | default: site.github.owner_name | strip -%}
+{%- endunless -%}
+{%- assign identity_url = identity_author.url | strip -%}
+{%- if identity_url == empty -%}
+  {%- for identity_link in identity_author.links -%}
+    {%- assign identity_http = identity_link.url | slice: 0, 7 | downcase -%}
+    {%- assign identity_https = identity_link.url | slice: 0, 8 | downcase -%}
+    {%- if identity_http == 'http://' or identity_https == 'https://' -%}
+      {%- assign identity_url = identity_link.url | strip -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

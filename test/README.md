@@ -529,3 +529,14 @@ Cerulean, Litera and Pulse keep their existing original integrations. Sketchy
 stays on 4.5.0; the others retain 4.6.2. The new regression verifies legacy visual
 states, complete deduplicated CSS, source hashes and palette overrides. No public
 configuration, metadata or routing changes are introduced.
+
+## Authorship discovery
+
+`check_authorship.rb` builds hidden default/landing pages, populated archive,
+category and tag lists and repeated cached cards for site and guest authors.
+It parses Atom/RSS strictly, covers missing URLs and HTTP(S) fallbacks and
+runs at root and subdirectory paths. The browser check verifies that hidden
+metadata occupies no space and its links cannot receive focus at mobile and
+desktop widths. Set `AUTHORSHIP_OUTPUT` to retain fixtures.
+CI runs `check_authorship.py` with `mf2py==2.0.2` on both Jekyll versions to
+verify extracted nested author names and URLs independently of CSS selectors.

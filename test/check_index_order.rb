@@ -61,7 +61,7 @@ html = Liquid::Template.parse(source).render!(
   {"site" => docs_site.site_payload["site"], "page" => demo.to_liquid},
   filters: [Jekyll::Filters], registers: {site: site}
 )
-links = Nokogiri::HTML(html).css(".card-body a.u-url").map { |link| link["href"] }
+links = Nokogiri::HTML(html).css(".card-body > a.u-url").map { |link| link["href"] }
 expected = docs_site.collections["demo"].docs.sort_by(&:relative_path).map(&:url)
 raise "Demo index hides or misorders documents: #{links.inspect}; expected #{expected.inspect}" unless links == expected
 puts "Demo index displays all #{links.size} demos in ascending filename order."

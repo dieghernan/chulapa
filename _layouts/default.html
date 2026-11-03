@@ -29,6 +29,8 @@ header_in_content: true
 			<{% if page.show_author %}aside{% else %}div{% endif %} class="col-lg-2 mt-lg-3 small">
 			  {%- if page.show_author -%}
 			  {% include components/author.html %}
+			  {%- else -%}
+			  {% include snippets/author-microformats.html author=page.author %}
 			  {%- endif -%}
 			</{% if page.show_author %}aside{% else %}div{% endif %}>
 			<{% if is_feed %}div{% else %}article{% endif %} id="maincontent" class="col-lg-8 mt-3">

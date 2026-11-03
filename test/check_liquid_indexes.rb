@@ -101,7 +101,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
     cases.each do |name, _, field, ascending, limit|
       sorted = site.collections["entries"].docs.sort_by { |document| field == "path" ? document.path : document.data.fetch(field) }
       sorted.reverse! unless ascending
-      actual = output.call(name).css(".card-body a.u-url").map { |link| link["href"] }
+      actual = output.call(name).css(".card-body > a.u-url").map { |link| link["href"] }
       raise "#{name} (#{baseurl}): wrong cards #{actual}" unless actual == urls.call(sorted.first(limit))
     end
     raise "Missing collection produces cards" unless output.call("empty").css(".card-title").empty?
@@ -112,7 +112,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
       collection = blocks.find { |block| block["@type"] == "CollectionPage" }
       next unless collection
       list = collection.fetch("mainEntity").fetch("itemListElement")
-      visible = doc.css('.h-entry a.u-url').map { |link| link["href"] }
+      visible = doc.css('.h-entry a.u-url').reject { |link| link.ancestors('.h-card').any? }.map { |link| link["href"] }
       if File.basename(path).start_with?("cloud")
         raise "Cloud list contains missing or duplicate documents" unless list.map { |item| item["item"] }.sort == visible.uniq.sort
       else
@@ -122,7 +122,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
       raise "Collection URL ignores baseurl" unless collection["@id"] == "https://example.com#{baseurl}/#{File.basename(path)}"
     end
     mixed = (site.collections["entries"].docs + site.collections["other"].docs).sort_by { |document| document.data["rank"] }
-    raise "Collection selection or cross-collection sorting failed" unless output.call("mixed").css(".card-body a.u-url").map { |link| link["href"] } == urls.call(mixed)
+    raise "Collection selection or cross-collection sorting failed" unless output.call("mixed").css(".card-body > a.u-url").map { |link| link["href"] } == urls.call(mixed)
     %w[cloudtag cloudcategory].each do |layout|
       cloud = output.call("#{layout}-0")
       raise "Sidebar trigger missing" unless cloud.at_css('button#chulapa-sidetoc-toggle[aria-controls="sideBar"]')
@@ -141,7 +141,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
     end
     by_date = site.collections["entries"].docs.sort_by(&:date).reverse
     [1, 2].each_with_index do |copies, index|
-      archive = output.call("archive-#{index}").css(".h-entry .u-url").map { |link| link["href"] }
+      archive = output.call("archive-#{index}").css(".h-entry .u-url").reject { |link| link.ancestors(".h-card").any? }.map { |link| link["href"] }
       expected_archive = urls.call(by_date.flat_map { |document| [document] * copies })
       raise "Archive date order or duplicates changed" unless archive == expected_archive
       %w[cloudtag cloudcategory].each do |layout|
@@ -153,7 +153,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
         sections.each do |section|
           group = section.at_css("h2").text.strip
           expected_documents = by_date.select { |document| document.data.fetch(field).include?(group) }.flat_map { |document| [document] * copies }
-          actual = section.css(".h-entry .u-url").map { |link| link["href"] }
+          actual = section.css(".h-entry .u-url").reject { |link| link.ancestors(".h-card").any? }.map { |link| link["href"] }
           raise "Cloud article order changed: #{layout}/#{group}" unless actual == urls.call(expected_documents)
           raise "Cloud counts changed: #{layout}/#{group}" unless section.at_css(".d-flex .badge").text.strip == expected_documents.size.to_s
         end

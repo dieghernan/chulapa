@@ -9,6 +9,7 @@
 		<div class="col-sm">
 			<article class="card-body chulapa-links-hover-only">
 				<a class="u-url" href="{{- post.url | absolute_url -}}"><h2 class="h5 card-title p-name">{{- post.title  | default: "---" | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</h2></a>
+				{% include snippets/author-microformats.html author=post.author %}
 				{% if post.subtitle -%}<p class="h6 card-subtitle mb-2 chulapa-text-body-color">{{- post.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p>{%- endif %}
 				
 {%- assign card_excerpt = post.excerpt -%}

@@ -41,6 +41,19 @@ do not rely on that behavior across Jekyll versions. An ordinary
 standalone page outside a collection is not selected just by adding these
 settings. See the [field reference](./04-layouts#advanced-page-settings).
 
+## Preserve author names and profiles
+
+In v2.2.1 development, each feed entry uses its document's `author` mapping
+when present, otherwise the site's `author` settings in `_config.yml`.
+RSS preserves known names as `dc:creator`; it does not invent email addresses.
+Atom uses the selected author's `url` before the first HTTP(S) URL in that
+author's `links`. If neither exists, Atom omits the profile URI. A guest never
+inherits the site author's name, URL or links. The Atom feed's own author uses
+the site settings with the same URL fallback. Set a guest's `author.name` and
+`author.url` in the article's existing front matter to identify them explicitly.
+Site-relative profile URLs such as `/about/` use the site's `url` and `baseurl`.
+Hiding the author card with `show_author: false` does not remove feed authors.
+
 ## Publish and share the address
 
 Commit to the publishing branch, wait for **Actions** to succeed and open
