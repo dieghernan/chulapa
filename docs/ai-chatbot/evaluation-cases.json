@@ -1,5 +1,12 @@
 [
   {
+    "id": "layouts-microformats-featured-image-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "In v2.2.1 development, which image does default expose to Microformats consumers? Will a page photo inherit my site image description, and do landingpage and archive add it too?",
+    "expected": "Default and derived layouts add hidden u-photo u-featured inside h-entry outside e-content. Image selection: page og_image, page header_img, site og_image, otherwise omitted; no avatar fallback. Alt uses page og_image_alt; site og_image_alt only when site image selected with neither page image set; otherwise page title. Page photo never inherits site image description. Outer h-feed of archive/list layouts excluded; landingpage and minimal do not add image automatically. No new YAML, visible layout change or automatic federation guarantee; consumer/discovery behavior varies. Development v2.2.1, not released v2.2.0. Link /docs/04-layouts#minimal."
+  },
+  {
     "id": "layouts-jsonld-author-profile-1",
     "section": "layouts",
     "doc": "02_config.md",

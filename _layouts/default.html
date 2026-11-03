@@ -11,7 +11,12 @@ header_in_content: true
     {%- unless is_feed -%}
       {%- assign featured_image = page.og_image | default: page.header_img | default: site.og_image | strip -%}
       {%- if featured_image != empty -%}
-      <img class="u-photo u-featured d-none" src="{{ featured_image | absolute_url }}" alt="{{ page.og_image_alt | default: site.og_image_alt | default: page.title | escape }}">
+        {%- assign featured_image_alt = page.og_image_alt | strip -%}
+        {%- assign page_featured_image = page.og_image | default: page.header_img | strip -%}
+        {%- if featured_image_alt == empty and page_featured_image == empty and featured_image == site.og_image -%}
+          {%- assign featured_image_alt = site.og_image_alt | strip -%}
+        {%- endif -%}
+      <img class="u-photo u-featured d-none" src="{{ featured_image | absolute_url | escape_once }}" alt="{{ featured_image_alt | default: page.title | escape }}">
       {%- endif -%}
     {%- endunless -%}
 	<main class="d-flex flex-column flex-fill">

@@ -411,12 +411,12 @@ Long headings wrap; regressions cover 320px reflow/200% text, not all sites or s
 PWA: no built-in service worker, offline cache or YAML enable switch. Docs favicon manifest display standalone, 192px/384px icons; no explicit start_url/scope/512 icon. Manifest alone guarantees neither installability nor offline. Site-specific setup must review HTTPS/baseurl, manifest identity/start URL/scope/icons and service-worker update/cache/fallback if added. External libraries/comments/video/chatbot require network; no offline AI.
 Local Chulapa font assets use baseurl in CSS/preload; Google Fonts/Font Awesome external. Cactus JS/CSS only show_comments: true pages. Tests cover representative six skins/layouts, not WCAG certification, guaranteed PageSpeed/Core Web Vitals or all customizations.
 ## Inherited list microformats (v2.2.0)
-Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-and-components
-v2.2.0 (not v2.1.0): archive/indexcategory/cloudtag/cloudcategory and deprecated cloudtag2/cloudcategory2 wrap h-entry items in h-feed. Inherited lists retain it. Keep the existing custom layout chain; no page setting. indexcards/simplelist mark entries only; custom pages need an h-feed wrapper. docs/blog/index.html wraps each paginated page; clouds may repeat documents.
-Article: minimal has no automatic h-entry; custom content may use h-entry with p-name/u-url/e-content. default/landingpage retain h-entry. Updated articles with show_date retain dt-published/dt-updated.
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts
+v2.2.0: archive/indexcategory/cloudtag/cloudcategory (+legacy *2 clouds) inherit h-feed around h-entry; keep layout chain, no page setting. indexcards/simplelist need custom h-feed. docs/blog/index.html wraps paginated pages; clouds may repeat entries. minimal needs custom h-entry/p-name/u-url/e-content; default/landingpage have h-entry. show_date preserves dt-published/dt-updated.
+Dev v2.2.1: default/derived h-entry: hidden u-photo u-featured outside e-content; not landingpage/minimal/h-feed. Image: page og_image > header_img > site og_image; omit absent, no avatars. Alt: page og_image_alt; site alt only without page images, else page title. No UI change/federation guarantee. /docs/04-layouts#minimal.
 ## Generated HTML formatting (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
-In v2.2.0: separate document/head lines and consistent HTML/JSON-LD indentation. Existing compress_html.blanklines: true removes blank lines, preserves head/theme-footer indentation, clips other body whitespace; fixed footer nesting two spaces. Other compression modes follow config. Custom head/comment formatting retained; avoid Liquid -%} trimming HTML boundaries.
+In v2.2.0: HTML/JSON-LD indentation. compress_html.blanklines: true removes blank lines, preserves head/footer indentation, clips body whitespace; footer nesting two spaces. Other modes follow config. Custom head/comments retained; avoid Liquid -%} trimming HTML boundaries.
 ## JavaScript maintenance (v2.2.0)
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/04-layouts#deferred-lazy-loading-of-youtube-videos

@@ -18,7 +18,7 @@ const releaseRoutes = [
   ['How do I enable PhotoSwipe?', 'PhotoSwipe galleries (v2.2.0)', /photoswipe=true/],
   ['How do I enable GoatCounter?', 'GoatCounter analytics (v2.2.0)', /JEKYLL_ENV=production/],
   ['¿Cómo uso el teclado?', 'Accessibility and resource loading in v2.2.0', /Escape closes/],
-  ['How does inherited h-feed work?', 'Inherited list microformats (v2.2.0)', /Keep the existing custom layout chain/],
+  ['How does inherited h-feed work?', 'Inherited list microformats (v2.2.0)', /keep layout chain, no page setting/],
   ['How do I configure compress_html?', 'Generated HTML formatting (v2.2.0)', /compress_html.blanklines: true/]
 ];
 
@@ -126,8 +126,9 @@ test('citation checking rejects invented paths/fragments but leaves code example
 test('layout regressions retain their own release constraints and caller inputs', () => {
   const inherited = selectContext(context, 'My custom2 inherits custom1 which inherits archive. Will it still be h-feed?');
   assert.ok(inherited.titles.includes('Inherited list microformats (v2.2.0)'));
-  assert.match(inherited.text, /Keep the existing custom layout chain/);
-  assert.match(inherited.text, /and deprecated cloudtag2\/cloudcategory2 wrap h-entry items/);
+  assert.match(inherited.text, /keep layout chain, no page setting/);
+  assert.match(inherited.text, /archive\/indexcategory\/cloudtag\/cloudcategory \(\+legacy \*2 clouds\) inherit h-feed around h-entry/);
+  assert.match(inherited.text, /Dev v2.2.1: default\/derived h-entry: hidden u-photo u-featured/);
   const formatting = selectContext(context, 'Can I keep head and footer readable with indentation?');
   assert.ok(formatting.titles.includes('Generated HTML formatting (v2.2.0)'));
   const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (v2.2.0)');

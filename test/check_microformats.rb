@@ -92,4 +92,44 @@ Dir.mktmpdir("chulapa-microformats-") do |source|
     end
   end
 end
-puts "Microformats checks passed (13 fixtures, root and subdirectory URLs)."
+Dir.mktmpdir("chulapa-featured-") do |source|
+  %w[_layouts _includes].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
+  cases = {
+    "social" => [{"og_image" => "/social.jpg", "header_img" => "/header.jpg", "og_image_alt" => 'Street & "lights"'}, "/social.jpg", 'Street & "lights"'],
+    "header" => [{"header_img" => "/header.jpg"}, "/header.jpg", "Real title"],
+    "page-no-alt" => [{"og_image" => "/page.jpg"}, "/page.jpg", "Real title"],
+    "blank-alt" => [{"og_image" => "/page.jpg", "og_image_alt" => "  "}, "/page.jpg", "Real title"],
+    "site" => [{}, "/site.jpg", "Site image"],
+    "external" => [{"og_image" => 'https://images.example/photo.jpg?a=1&b=2'}, 'https://images.example/photo.jpg?a=1&b=2', "Real title"],
+    "landing" => [{"layout" => "landingpage", "header_img" => "/header.jpg"}, nil, nil],
+    "feed" => [{"layout" => "archive", "header_img" => "/header.jpg"}, nil, nil],
+    "minimal" => [{"layout" => "minimal", "header_img" => "/header.jpg"}, nil, nil]
+  }
+  cases.each do |name, (values, _, _)|
+    File.write(File.join(source, "#{name}.html"), {"layout" => "default", "title" => "Real title"}.merge(values).to_yaml + "---\nContent")
+  end
+  ["", "/subdir"].each do |baseurl|
+    [true, false].each do |site_image|
+      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "title" => "Site", "quiet" => true, "og_image" => site_image ? "/site.jpg" : nil, "og_image_alt" => "Site image", "author" => {"avatar" => "/avatar.jpg"})
+      Jekyll::Site.new(config).process
+      cases.each do |name, (_, image, alt)|
+        image = nil if name == "site" && !site_image
+        doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{name}.html")))
+        photos = doc.css("img.u-featured")
+        unless image
+          check(photos.empty?, "Unexpected featured image: #{name}")
+          next
+        end
+        check(photos.size == 1, "Featured image count: #{name}")
+        photo = photos.first
+        expected = image.start_with?("https:") ? image : "https://example.com#{baseurl}#{image}"
+        check(photo["src"] == expected, "Featured image URL: #{name}")
+        check(photo["alt"] == alt, "Featured image alt: #{name}: #{photo['alt'].inspect}")
+        check(photo["class"].split.include?("u-photo") && photo["class"].split.include?("d-none"), "Featured image classes: #{name}")
+        check(photo.parent["class"].split.include?("h-entry"), "Featured image outside entry: #{name}")
+        check(doc.css(".e-content .u-featured, .h-card .u-featured").empty?, "Featured image contaminates content or author: #{name}")
+      end
+    end
+  end
+end
+puts "Microformats checks passed (entry and featured-image fixtures, root and subdirectory URLs)."
