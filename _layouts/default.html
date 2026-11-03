@@ -9,8 +9,9 @@ header_in_content: true
 <div class="{% if is_feed %}h-feed{% else %}h-entry{% endif %} d-flex flex-column flex-fill">
     {% include snippets/microformats-url.html %}
     {%- unless is_feed -%}
-      {%- if page.header_img -%}
-      <img class="u-featured d-none" src="{{ page.header_img | absolute_url }}" alt="{{ page.og_image_alt | default: page.title | escape }}">
+      {%- assign featured_image = page.og_image | default: page.header_img | default: site.og_image | strip -%}
+      {%- if featured_image != empty -%}
+      <img class="u-featured d-none" src="{{ featured_image | absolute_url }}" alt="{{ page.og_image_alt | default: site.og_image_alt | default: page.title | escape }}">
       {%- endif -%}
     {%- endunless -%}
 	<main class="d-flex flex-column flex-fill">
