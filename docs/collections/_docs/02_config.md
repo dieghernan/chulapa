@@ -365,6 +365,8 @@ Google Custom Search requires a configured search engine.
 
 In **2.2.1 (development)**, the Algolia attribution automatically follows the
 skin's text color, including when visitors switch between light and dark skins.
+The Fuse.js attribution icon also follows the text color, and Google's
+attribution retains a white background for legibility in either mode.
 
 - `google_cse_id`: Your Google Custom Search id, available on _cse.google.com >
   Your search engine > Settings_.

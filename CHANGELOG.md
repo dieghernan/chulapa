@@ -12,6 +12,8 @@
 
 ### Fixed
 
+-   Keep the Google search attribution legible on dark backgrounds and let the Fuse.js attribution icon follow the skin's text color.
+
 -   Keep the Algolia attribution legible when switching skins, using a local SVG that follows the skin's text color and retains visible keyboard focus.
 
 -   Preserve per-entry authorship in collection listings and hidden-author pages, prioritize configured Atom author profile URLs and include known author names in RSS without changing visible cards (#199).
