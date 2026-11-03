@@ -11,7 +11,7 @@ header_in_content: true
     {%- unless is_feed -%}
       {%- assign featured_image = page.og_image | default: page.header_img | default: site.og_image | strip -%}
       {%- if featured_image != empty -%}
-      <img class="u-featured d-none" src="{{ featured_image | absolute_url }}" alt="{{ page.og_image_alt | default: site.og_image_alt | default: page.title | escape }}">
+      <img class="u-photo u-featured d-none" src="{{ featured_image | absolute_url }}" alt="{{ page.og_image_alt | default: site.og_image_alt | default: page.title | escape }}">
       {%- endif -%}
     {%- endunless -%}
 	<main class="d-flex flex-column flex-fill">
