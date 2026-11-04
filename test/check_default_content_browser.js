@@ -25,6 +25,29 @@ const dependencies = new Map([
       const node = document.querySelector(selector) || (selector === 'main h1' && document.querySelector('h1'));
       const box = node.getBoundingClientRect(); return {x: box.x, y: box.y, width: box.width};
     }));
+    for (const width of [375, 575, 576, 1280]) {
+      await page.setViewportSize({width, height: 900});
+      await page.goto('http://after.localhost/project/indexcategory.html');
+      for (const [day, image] of [['01', 'header.png'], ['02', 'og.png'], ['03', 'og.png'], ['04', null], ['05', null]]) {
+        const card = page.locator('.chulapa-border-card-index').filter({has: page.getByRole('heading', {name: `Entry ${day}`, exact: true})});
+        const thumbnail = card.locator('.chulapa-card-img');
+        const row = await card.locator('.row').boundingBox();
+        const body = await card.locator('.col-sm').boundingBox();
+        if (!image) {
+          assert.equal(await thumbnail.count(), 0);
+          assert.ok(Math.abs(body.width - row.width) <= 1);
+          continue;
+        }
+        const box = await thumbnail.boundingBox();
+        assert.ok(box && box.width > 0 && box.height > 0, `Hidden image for Entry ${day} at ${width}px`);
+        assert.equal(await thumbnail.evaluate(node => getComputedStyle(node).backgroundImage), `url("https://example.com/project/${image}")`);
+        if (width < 576) {
+          assert.ok(Math.abs(box.width - row.width) <= 1 && box.y + box.height <= body.y + 1);
+        } else {
+          assert.ok(Math.abs(box.y - body.y) <= 1 && box.x + box.width <= body.x + 1);
+        }
+      }
+    }
     for (const width of [375, 1280]) {
       await page.setViewportSize({width, height: 900});
       for (const name of ['default', 'plain', 'authored-toc', 'archive', 'indexcategory', 'cloudtag', 'cloudcategory', 'cloudtag2', 'cloudcategory2']) {
@@ -63,7 +86,7 @@ const dependencies = new Map([
           }
         }
       }
-      for (const day of ['01', '02', '03']) {
+      for (const day of ['01', '02', '05']) {
         await page.goto(`http://after.localhost/project/example/2024/01/${day}/entry.html`);
         const focused = [];
         for (let i = 0; i < 12; i++) {
@@ -71,7 +94,7 @@ const dependencies = new Map([
           focused.push(await page.evaluate(() => document.activeElement.closest('nav.chulapa-pagination') ? document.activeElement.textContent.trim() : ''));
         }
         if (day !== '01') assert.ok(focused.includes('Previous'), `${day}: Previous not tabbable`);
-        if (day !== '03') assert.ok(focused.includes('Next'), `${day}: Next not tabbable`);
+        if (day !== '05') assert.ok(focused.includes('Next'), `${day}: Next not tabbable`);
         assert.equal(await page.locator('nav.chulapa-pagination a').count(), day === '02' ? 2 : 1);
       }
     }

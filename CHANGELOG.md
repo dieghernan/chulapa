@@ -12,6 +12,8 @@
 
 ### Fixed
 
+-   Show available card images on small screens and omit the image column when a card has no image.
+
 -   Update Fuse.js search to 7.5.0 with module loading, keeping the standard page and demo aligned. Corrected relevance scores can change result ordering and the number of results shown.
 
 -   Keep the Google search attribution legible on dark backgrounds and let the Fuse.js attribution icon follow the skin's text color.
