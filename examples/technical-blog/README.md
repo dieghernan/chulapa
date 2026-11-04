@@ -1,9 +1,9 @@
 # Engineering notes
 
-A recent-post index and one article with code, Mermaid, MathJax and a table of contents.
+A recent-post index and one article with code, **Mermaid**, **MathJax** and a table of contents.
 
 For preparation, local preview and publishing, follow
 [Run and publish a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter).
-Use this folder's complete `Gemfile` and `_config.yml`; there is no deployment
+Use this folder's complete `Gemfile` and `_config.yml`. There is no deployment
 workflow here. The remote theme follows the development branch unless pinned.
-Mermaid requires v2.2.0; it is absent from v2.1.0.
+**Mermaid** requires v2.2.0.

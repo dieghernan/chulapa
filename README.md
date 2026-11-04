@@ -17,7 +17,7 @@ sharing](https://img.shields.io/badge/social--sharing-ready-succes)
 
 # [<span class="chulapa">Chulapa</span>](https://dieghernan.github.io/chulapa/)
 
-### A flexible, visual Jekyll theme for blogs, portfolios and personal sites
+### A flexible, visual **Jekyll** theme for blogs, portfolios and personal sites
 
 Choose from 40+ skins, customize colors from YAML and publish with GitHub Pages.
 Start with the ready-to-publish blog template, then add the features you need.
@@ -33,7 +33,7 @@ Choose the route that matches your situation:
 | Your goal | Start here |
 | --- | --- |
 | Publish your first website | [Browser-only publishing tutorial](https://dieghernan.github.io/chulapa/docs/00-start), using the chulapa-101 template; no local installation needed. |
-| Move an existing Jekyll site | [Migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration), preserving your content and public URLs. |
+| Move an existing **Jekyll** site | [Migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration), preserving your content and public URLs. |
 | Change something on a published site | [How-to guides](https://dieghernan.github.io/chulapa/docs#how-to-guides) for individual tasks. |
 | Look up a setting or layout | [Reference](https://dieghernan.github.io/chulapa/docs#reference) for options, syntax and constraints. |
 | Understand how publishing works | [Publishing explained](https://dieghernan.github.io/chulapa/docs/47-publishing-explained). |
@@ -55,8 +55,8 @@ For smaller examples of individual site types, explore the folders below:
 Each minimal example includes configuration, dependencies and editable content.
 They are smaller examples, not the ready-to-publish chulapa-101 template.
 [Run and publish a copied example](https://dieghernan.github.io/chulapa/docs/09-run-starter)
-if you already use Jekyll. Examples follow the default branch; Mermaid requires
-v2.2.0.
+if you already use **Jekyll**. The examples follow the default branch.
+**Mermaid** requires v2.2.0.
 
 ## Notable features
 
@@ -64,15 +64,15 @@ v2.2.0.
 - **Icons** for menus, links and content
 - **3 different navbar styles**
 - **Atom and RSS 2.0** feeds
-- **Internal search** by Algolia, Lunr, Fuse.js, Simple-Jekyll-Search or Google
-  Custom Search
-- **Comments** by Disqus, giscus, Cusdis, Cactus and Welcomments
+- **Internal search** by **Algolia**, **Lunr**, **Fuse.js**, **Simple-Jekyll-Search** or
+  **Google Custom Search**
+- **Comments** by **Disqus**, **giscus**, **Cusdis**, **Cactus** and **Welcomments**
 - **Masonry gallery**
 - **Video support** - self-hosted videos or videos from providers such as
   YouTube, Vimeo and Dailymotion
 - **Search and sharing metadata** generated from your content
 - **Styles for code blocks**
-- **Mathematical notation** with MathJax
+- **Mathematical notation** with **MathJax**
 - **[Mermaid diagrams](https://dieghernan.github.io/chulapa/demo/13-mermaid)** - optional per-page rendering (v2.2.0)
 - **[Light/dark/auto selector](https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark)** - optional second skin with remembered preferences (2.2.0)
 - **[PhotoSwipe galleries](https://dieghernan.github.io/chulapa/demo/14-photoswipe)** - opt-in lightboxes for masonry and carousels (v2.2.0)
@@ -93,8 +93,8 @@ more.
 
 ## Installation
 
-This documentation targets **2.2.0**. Mermaid, PhotoSwipe, GoatCounter and the
-light/dark/auto selector require this version; they are absent from v2.1.0.
+This documentation targets **2.2.0**. **Mermaid**, **PhotoSwipe**, **GoatCounter** and the
+light/dark/auto selector require this version.
 
 Choose an installation guide for your situation. For version pins and method
 constraints, use [Installation](https://dieghernan.github.io/chulapa/docs/01-install).
@@ -109,7 +109,8 @@ and guides you through editing and publication in your browser.
 
 For an existing site, use the [migration guide](https://dieghernan.github.io/chulapa/docs/07-migration)
 or go directly to [remote-theme setup](https://dieghernan.github.io/chulapa/docs/20-remote-theme).
-An unpinned remote theme follows development; `@v2.2.0` selects that release.
+An unpinned remote theme follows development. Add `@v2.2.0` to select
+that release.
 
 ### C. Gem-based method 💎
 
@@ -142,7 +143,7 @@ Fernández Palomar and licensed under [Creative Commons CC BY, version
 4.0](https://creativecommons.org/licenses/by/4.0/). This theme incorporates a
 modification of this work to support the English language.
 
-Bootstrap v.4.5 is released under the [MIT
+**Bootstrap** 4.5 is released under the [MIT
 license](https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE) and is copyright
 2020 Twitter.
 
