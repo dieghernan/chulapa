@@ -45,8 +45,9 @@ API key or extra Jekyll plugin is needed for Fuse.js.
    `https://ana.github.io/my-blog`, open `https://ana.github.io/my-blog/search`
    (or your chosen landing path).
 
-Selecting a provider does not create the search page. The classic navbar and
-the desktop form of `dual` show a Search link only when `navbar.nav` is configured.
+Create the search page separately from the provider settings. The classic
+navbar and the desktop form of `dual` show a Search link when the provider is
+configured and the navbar has `navbar.nav` or an enabled theme selector.
 If that link is absent, use the direct address above or [configure your menu](./10-edit-menu).
 The `search` layout supplies its own interface; extra page-body text is not displayed.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}

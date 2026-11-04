@@ -38,7 +38,8 @@ beginning, replacing the example text with the version displayed:
 <!-- Chulapa Jekyll Theme - VERSION NUMBER HERE -->
 ```
 
-An `unreleased` suffix identifies a development build, not a published release.
+Development builds use a marker such as `v2.2.1 (development)`. Older builds
+may use the suffix `unreleased`.
 A locally built gem or version marker alone does not prove that a version has
 been published to RubyGems or tagged on GitHub.
 

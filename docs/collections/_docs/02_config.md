@@ -154,9 +154,9 @@ For an editing procedure, use [Edit footer links](./11-edit-footer).
 ```yaml
 footer:
   links:
-    - label: "RSS"
+    - label: "Atom feed"
       icon: "fa fa-rss"
-      url: "./atom.xml"
+      url: "/atom.xml"
     - label: "Twitter"
       icon: "fab fa-twitter"
       url: https://twitter.com/

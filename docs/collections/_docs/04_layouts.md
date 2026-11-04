@@ -1160,7 +1160,9 @@ Advanced include specimen for up to two post cards inside a custom page:
 ```
 {% endraw %}
 
-See the [card index demo](../demo) for the resulting layout.
+In v2.2.1 development, each card uses the entry's `og_image`, falling back
+to its `header_img`. With neither field set, the text uses the full card
+width. See the [card index demo](../demo) for the resulting layout.
 
 ### JavaScript assets and local overrides
 
