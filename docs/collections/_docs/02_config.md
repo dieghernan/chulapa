@@ -276,13 +276,20 @@ your site; they do not guarantee a special appearance in search results.
 
 ### Font Awesome
 
-Icons are available by default through Font Awesome 6. Use an icon from its
-[catalog](https://fontawesome.com/icons) in your menu or footer settings.
-To use your own Font Awesome kit, set `fa_kit_code` in `_config.yml`.
+Starting in v2.2.1 (in development), the theme loads Font Awesome Free 7
+by default. Earlier v2.2 releases default to version 6. Choose an icon from the
+[catalog](https://fontawesome.com/icons) for your menu or footer settings.
+Version 7 uses fixed-width icons by default. Add `fa-width-auto` to an icon's
+classes to use its natural width.
 
-For older icons, `fa_version: 5` selects version 5 and `fa_v4_support: true`
-enables version 4 compatibility. When updating an old configuration, replace
-`fa5_kit_code` with `fa_kit_code`; the old setting takes precedence if both exist.
+In `_config.yml`, set `fa_version: 6` or `fa_version: 5` to keep an older hosted
+version. With hosted stylesheets, `fa_v4_support: true` adds the matching version's
+compatibility stylesheet for older icon names.
+
+To use your own kit, set `fa_kit_code` in `_config.yml` and choose the version
+and compatibility in your kit settings. In v2.2.1, a kit replaces both hosted
+stylesheets. The legacy `fa5_kit_code` setting takes precedence if both kit
+codes are set.
 
 ### Google Analytics
 

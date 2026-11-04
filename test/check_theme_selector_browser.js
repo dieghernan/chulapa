@@ -33,7 +33,7 @@ async function main() {
       let blockInline = false;
       await context.route('**/*', route => {
         const url = new URL(route.request().url());
-        const iconPrefix = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/';
+        const iconPrefix = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/';
         if (url.href.startsWith(iconPrefix)) return route.fulfill({path: path.join(iconPackage, url.href.slice(iconPrefix.length)), headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === 'fonts.googleapis.com') return route.fulfill({body: '', contentType: 'text/css'});
         if (dependencies.has(url.href)) return route.fulfill({path: dependencies.get(url.href), contentType: 'application/javascript', headers: {'access-control-allow-origin': '*'}});
@@ -128,7 +128,8 @@ async function main() {
         const icon = await page.locator('.chulapa-theme-toggle:visible > i').evaluate(node => ({
           width: node.getBoundingClientRect().width,
           fontSize: parseFloat(getComputedStyle(node).fontSize),
-          fontLoaded: document.fonts.check('900 16px "Font Awesome 6 Free"')
+          fontLoaded: Array.from(document.fonts).some(font =>
+            font.family === 'Font Awesome 7 Free' && font.weight === '900' && font.status === 'loaded')
         }));
         assert.equal(icon.fontLoaded, true, `${name}/${mode}: icon font did not load`);
         assert.ok(Math.abs(icon.width - icon.fontSize) < 0.02, `${name}/${mode}: icon must reserve one em`);

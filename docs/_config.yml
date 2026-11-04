@@ -49,7 +49,7 @@ publisher:
   image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
 
 # A.2. Font Awesome
-# Omitted settings use Font Awesome 6 without a kit or v4 support.
+# Omitted settings use Font Awesome 7 without a kit or v4 support.
 
 # A.3. Analytics
 gtag_id: G-Q654SQGBGS

@@ -184,7 +184,7 @@ async function main() {
   for (const failFont of [false,true]) {
    const icons=await browser.newContext({reducedMotion:'reduce'});
    await icons.route('**/*',r=>{
-    const url=r.request().url();const prefix='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/';
+    const url=r.request().url();const prefix='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/';
     if(url.startsWith(prefix)) {
      if(failFont && url.includes('/webfonts/')) return r.abort();
      return r.fulfill({path:path.join(iconPackage,url.slice(prefix.length)),headers:{'access-control-allow-origin':'*'}});

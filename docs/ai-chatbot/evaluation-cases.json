@@ -172,7 +172,7 @@
     "section": "configuration",
     "doc": "02_config.md",
     "question": "How do I use a Font Awesome kit? What if fa5_kit_code is already set?",
-    "expected": "fa_kit_code; legacy takes precedence; remove legacy; default FA6."
+    "expected": "Set fa_kit_code and remove fa5_kit_code to migrate because legacy takes precedence. In v2.2.1 development the kit replaces both hosted stylesheets, and the hosted default is FA7. Earlier v2.2 releases default to FA6."
   },
   {
     "id": "configuration-6",
