@@ -57,7 +57,7 @@ publisher:
   image: # Person defaults to author.avatar or GitHub avatar; optional for Organization
 
 # A.2. Font Awesome
-fa_version: #default ["6"] Use 6 or 5
+fa_version: # Defaults to 7. Set to 6 or 5 to use an older version.
 fa_kit_code: # Your FontAwesome kit code. If not provided a free hosted version (slower) will be loaded:  https://fontawesome.com/
 fa_v4_support: #Bool Add FontAwesome 4 support
 # A.3. Analytics
