@@ -146,7 +146,7 @@ Bootstrap v.4.5 is released under the [MIT
 license](https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE) and is copyright
 2020 Twitter.
 
-Font Awesome 6.x is free, open source and GPL-friendly. See its
+Font Awesome Free is free, open source and GPL-friendly. See its
 [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL
 OFL 1.1, Code: MIT License).
 

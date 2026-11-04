@@ -10,6 +10,10 @@
 
 -   Generate an alternative `/sitemap.txt` with absolute canonical URLs for output collections and HTML pages, respecting `sitemap: false`. Document publishing checks and differences from `jekyll-sitemap` in the [search visibility guide](https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development).
 
+### Changed
+
+-   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
+
 ### Fixed
 
 -   Show available card images on small screens and omit the image column when a card has no image.

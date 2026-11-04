@@ -100,7 +100,7 @@ Source: https://dieghernan.github.io/chulapa/docs/02-config
 Dev v2.2.1 JSON-LD: site author URL=home via url/baseurl, no About. Guest: author.url, sorted HTTP(S) links, else page-local ID. sameAs: profiles; no inherited guest avatar/location. Publisher separate.
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
 Since v2.1.0 publisher.type: Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping; preserve fields. name/url identify editor; Person uses image/site avatar, ignores logo; Organization uses logo. Paths: url/baseurl. Guests independent; check public JSON-LD. No rich guarantees.
-Font Awesome default=6; fa_version: 5 selects 5; fa_v4_support: true enables v4. fa_kit_code replaces hosted CSS with kit. Legacy fa5_kit_code wins: remove on migration.
+Font Awesome default: 7 in v2.2.1 development, 6 in v2.2.0. fa_version: 6 or 5 keeps older hosted CSS. fa_v4_support: true adds hosted v4 shims. fa_kit_code uses kit version and compatibility in v2.2.1. Legacy fa5_kit_code wins.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
 Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
