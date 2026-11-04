@@ -7,8 +7,8 @@
 		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
 		<language>en-US</language>
 		<copyright>(c) 2026, dieghernan</copyright>
-		<pubDate>Wed, 04 Nov 2026 07:01:35 +0100</pubDate>
-		<lastBuildDate>Wed, 04 Nov 2026 07:01:35 +0100</lastBuildDate>
+		<pubDate>Wed, 04 Nov 2026 13:54:07 +0100</pubDate>
+		<lastBuildDate>Wed, 04 Nov 2026 13:54:07 +0100</lastBuildDate>
 		<category>blog</category>
 		<ttl>60</ttl>
 		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -464,7 +464,7 @@ look to each of them. No one could notice that the theme is the same!</p>
 
 <p>When this post was written in May 2020, <span class="chulapa">Chulapa</span> was still in development. Stable releases are now available; see the <a href="/chulapa/docs/01-install">installation guide</a> for setup instructions.</p>
 
-<p>The theme currently uses Bootstrap 4 and Font Awesome 6, with support for Font Awesome 5 and optional v4 shims. See the <a href="https://github.com/dieghernan/chulapa/blob/main/CHANGELOG.md">changelog</a> for subsequent changes.</p>
+<p>The theme uses Bootstrap 4. See the <a href="/chulapa/docs/02-config#font-awesome">Font Awesome reference</a> for icon versions and compatibility settings.</p>
 </div>
 				]]>
 			</description>

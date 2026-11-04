@@ -3,7 +3,7 @@
 	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-11-04T07:01:35+01:00</updated>
+	<updated>2026-11-04T13:54:07+01:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A flexible, visual Jekyll theme</title>
 	<subtitle>A flexible, visual Jekyll theme</subtitle>
@@ -489,7 +489,7 @@ look to each of them. No one could notice that the theme is the same!&lt;/p&gt;
 
 &lt;p&gt;When this post was written in May 2020, &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; was still in development. Stable releases are now available; see the &lt;a href=&quot;/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; for setup instructions.&lt;/p&gt;
 
-&lt;p&gt;The theme currently uses Bootstrap 4 and Font Awesome 6, with support for Font Awesome 5 and optional v4 shims. See the &lt;a href=&quot;https://github.com/dieghernan/chulapa/blob/main/CHANGELOG.md&quot;&gt;changelog&lt;/a&gt; for subsequent changes.&lt;/p&gt;
+&lt;p&gt;The theme uses Bootstrap 4. See the &lt;a href=&quot;/chulapa/docs/02-config#font-awesome&quot;&gt;Font Awesome reference&lt;/a&gt; for icon versions and compatibility settings.&lt;/p&gt;
 
 		</content>
 		

@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-04T07:01:35+01:00",
-        "dateModified": "2026-11-04T07:01:35+01:00",
+        "datePublished": "2026-11-04T13:54:07+01:00",
+        "dateModified": "2026-11-04T13:54:07+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -129,9 +129,8 @@
     <!-- Preconnect with Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fontawesome-->
-    <!-- v6 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/css/all.min.css">
     <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
     <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
     <!-- Theme css (Bootstrap included) -->
@@ -584,12 +583,18 @@ editing procedure, use <a href="./60-person-publisher">Identify a personal site�
 URL for an external one. No extra plugin is needed. These settings help describe
 your site; they do not guarantee a special appearance in search results.</p>
 <h3 id="font-awesome">Font Awesome</h3>
-<p>Icons are available by default through Font Awesome 6. Use an icon from its
-<a href="https://fontawesome.com/icons">catalog</a> in your menu or footer settings.
-To use your own Font Awesome kit, set <code class="language-plaintext highlighter-rouge">fa_kit_code</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
-<p>For older icons, <code class="language-plaintext highlighter-rouge">fa_version: 5</code> selects version 5 and <code class="language-plaintext highlighter-rouge">fa_v4_support: true</code>
-enables version 4 compatibility. When updating an old configuration, replace
-<code class="language-plaintext highlighter-rouge">fa5_kit_code</code> with <code class="language-plaintext highlighter-rouge">fa_kit_code</code>; the old setting takes precedence if both exist.</p>
+<p>Starting in v2.2.1 (in development), the theme loads Font Awesome Free 7
+by default. Earlier v2.2 releases default to version 6. Choose an icon from the
+<a href="https://fontawesome.com/icons">catalog</a> for your menu or footer settings.
+Version 7 uses fixed-width icons by default. Add <code class="language-plaintext highlighter-rouge">fa-width-auto</code> to an icon’s
+classes to use its natural width.</p>
+<p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>, set <code class="language-plaintext highlighter-rouge">fa_version: 6</code> or <code class="language-plaintext highlighter-rouge">fa_version: 5</code> to keep an older hosted
+version. With hosted stylesheets, <code class="language-plaintext highlighter-rouge">fa_v4_support: true</code> adds the matching version’s
+compatibility stylesheet for older icon names.</p>
+<p>To use your own kit, set <code class="language-plaintext highlighter-rouge">fa_kit_code</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code> and choose the version
+and compatibility in your kit settings. In v2.2.1, a kit replaces both hosted
+stylesheets. The legacy <code class="language-plaintext highlighter-rouge">fa5_kit_code</code> setting takes precedence if both kit
+codes are set.</p>
 <h3 id="google-analytics">Google Analytics</h3>
 <p>Setup: <a href="./19-google-analytics">Enable Google Analytics 4</a>.</p>
 <table>
