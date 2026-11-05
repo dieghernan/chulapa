@@ -41,8 +41,7 @@ import launcher from './launcher.svg';
     form{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem}input{min-width:0;flex:1;padding:.7rem .8rem;border:1px solid #aab2b9;border-radius:.65rem;background:var(--surface);color:inherit}input::placeholder{color:var(--muted)}
     #send{width:2.75rem;height:2.75rem;flex-shrink:0;border-radius:.65rem;font-size:1.3rem}#status{padding:0 1rem;color:var(--muted);font-size:.8rem}#status:not(:empty){padding-bottom:.65rem}button:disabled{opacity:.6;cursor:wait}
     @media(max-width:991.98px){#launch{left:auto;right:var(--chat-right,1rem);bottom:var(--chat-stacked-bottom,1rem);transform:none}}
-    .mobile-notice{display:none}
-    @media(max-width:991.98px){section{top:var(--chat-visible-top,0px);bottom:auto;left:0;right:0;width:100%;height:var(--chat-visible-height,100dvh);max-height:none;border:0;border-radius:0;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}input,.message{font-size:16px}.desktop-notice{display:none}.mobile-notice{display:inline}}
+    @media(max-width:991.98px){section{top:var(--chat-visible-top,0px);bottom:auto;left:0;right:0;width:100%;height:var(--chat-visible-height,100dvh);max-height:none;border:0;border-radius:0;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}input,.message{font-size:16px}}
     @media(max-width:575px){header{padding:.65rem 1rem}.subtitle{display:none}}
     @media(max-height:500px){header{padding:.4rem 1rem}header>div{display:flex;align-items:center;gap:.75rem}h2{margin:0}.subtitle{display:none}#clear{margin:0}#hint{padding:.25rem 1rem}form{padding:.4rem 1rem}}
     :host([data-compact]) section{top:calc(var(--chat-visible-top,0px) + 8px);bottom:auto;height:auto;max-height:calc(var(--chat-visible-height,100dvh) - 16px)}
@@ -61,7 +60,7 @@ import launcher from './launcher.svg';
     <footer>
       <p id="hint">Each question is independent. Include all the details.</p>
       <form><label class="sr-only" for="question">Your question</label><input id="question" aria-describedby="hint" placeholder="Ask a complete question..." maxlength="1000" required autocomplete="off"><button id="send" aria-label="Send question"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button></form>
-      <small><span class="desktop-notice">Cloudflare AI. Answers may be wrong. Recent history stays in this tab for this session. </span><span class="mobile-notice">Cloudflare AI · May be wrong · </span><a id="search" aria-label="Search the docs"><span class="desktop-notice">Search the docs</span><span class="mobile-notice">Docs</span></a></small>
+      <small>Cloudflare AI. Answers may be wrong. Recent history stays in this tab for this session. <a id="search" aria-label="Search the docs">Search the docs</a></small>
     </footer>
   </section>`;
   document.body.append(host);

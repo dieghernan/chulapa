@@ -294,6 +294,8 @@ access to the page. Opening focuses the close button to avoid raising the keyboa
 On desktop, the panel is 30rem wide (480 px at a 16 px root font size) and 80dvh
 high, capped at 45rem (720 px), with at least 1rem of vertical clearance.
 Message history scrolls independently between the header and question form.
+The footer shows the full AI accuracy and session-history notice and the
+Search the docs link at every screen size.
 Widget updates are published through the automatic deployment workflow described above.
 
 AI and coding agents must follow [the docs maintenance instructions](../AGENTS.md)
