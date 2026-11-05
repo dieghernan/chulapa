@@ -12,6 +12,8 @@
 
 ### Changed
 
+-   Expand the documentation chatbot to the visible mobile viewport and enlarge its desktop panel for easier reading.
+
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
 ### Fixed

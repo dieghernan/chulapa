@@ -280,3 +280,23 @@ Two targeted live requests returned HTTP 200. Full responses are saved in
 
 These checks validate the principal answers in the two targeted cases; they do
 not establish that every evaluation criterion or the full question corpus passes.
+
+## Responsive panel sizing, November 5, 2026 (not deployed)
+
+The desktop panel now uses 30rem width and 80dvh height capped at 45rem.
+Below 992 px it fills the visible viewport, with safe-area padding and keyboard
+viewport tracking. The previous 40% message-log height cap is removed.
+Mobile opening isolates the background, locks body scrolling and keeps Tab
+within the dialog; closing restores the page. The existing emergency compact
+mode remains for visible viewports below 260 px.
+
+Automated widget checks cover modal semantics, focus wrapping, background
+restoration, restored sessions and navigation dismissal. JSDOM has no layout
+engine: these checks do not verify rendered dimensions or keyboard geometry.
+Browser validation remains pending because local browser access is disabled in
+this session. Check 390/575/991/992 px widths, desktop 1366×768 and 1920×1080,
+long code answers, zoom, rotation, safe areas and a physical mobile keyboard.
+No live inference was run. The answer context, evaluation question catalogs and
+llms.txt do not need changes because supported theme advice and public pages
+are unchanged. SEO metadata and the manifest are unchanged; the chatbot still
+requires network access and gains no offline support.

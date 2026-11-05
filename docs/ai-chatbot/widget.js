@@ -22,7 +22,7 @@ import launcher from './launcher.svg';
     .sparkles{display:inline-block;width:1em;height:1em;vertical-align:-.1em}#launch .sparkles{width:1.65rem;height:1.65rem}
     :host([data-position="left"]) #launch{left:1rem;right:auto}
     :host([data-position="center"]) #launch{left:50%;right:auto;transform:translateX(-50%)}
-    section{position:fixed;bottom:1rem;right:var(--chat-right,1rem);z-index:21000;width:min(25rem,calc(100vw - 2 * var(--chat-right,1rem)));height:30rem;max-height:calc(100dvh - 2rem);background:var(--surface);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px #0003;display:flex;flex-direction:column;overflow:hidden}
+    section{position:fixed;bottom:1rem;right:var(--chat-right,1rem);z-index:21000;width:min(30rem,calc(100vw - 2 * var(--chat-right,1rem)));height:min(80dvh,45rem);max-height:calc(100dvh - 2rem);background:var(--surface);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px #0003;display:flex;flex-direction:column;overflow:hidden}
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line);flex-shrink:0}
     h2{font-size:1rem;margin:0 0 .25rem;font-weight:650}.subtitle{margin:0;color:var(--muted);font-size:.8rem}
     .chulapa{font-family:chulapa,sans-serif;font-weight:400;font-feature-settings:"liga","dlig";text-rendering:optimizeLegibility}
@@ -42,8 +42,8 @@ import launcher from './launcher.svg';
     #send{width:2.75rem;height:2.75rem;flex-shrink:0;border-radius:.65rem;font-size:1.3rem}#status{padding:0 1rem;color:var(--muted);font-size:.8rem}#status:not(:empty){padding-bottom:.65rem}button:disabled{opacity:.6;cursor:wait}
     @media(max-width:991.98px){#launch{left:auto;right:var(--chat-right,1rem);bottom:var(--chat-stacked-bottom,1rem);transform:none}}
     .mobile-notice{display:none}
-    @media(max-width:991.98px){section{bottom:calc(1rem + var(--chat-keyboard-inset,0px));max-height:calc(var(--chat-visible-height,100dvh) - 2rem)}input,.message{font-size:16px}.desktop-notice{display:none}.mobile-notice{display:inline}}
-    @media(max-width:575px){section{height:auto}#log{flex-basis:auto;max-height:calc(var(--chat-visible-height,100dvh) * .4)}header{padding:.65rem 1rem}.subtitle{display:none}}
+    @media(max-width:991.98px){section{top:var(--chat-visible-top,0px);bottom:auto;left:0;right:0;width:100%;height:var(--chat-visible-height,100dvh);max-height:none;border:0;border-radius:0;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}input,.message{font-size:16px}.desktop-notice{display:none}.mobile-notice{display:inline}}
+    @media(max-width:575px){header{padding:.65rem 1rem}.subtitle{display:none}}
     @media(max-height:500px){header{padding:.4rem 1rem}header>div{display:flex;align-items:center;gap:.75rem}h2{margin:0}.subtitle{display:none}#clear{margin:0}#hint{padding:.25rem 1rem}form{padding:.4rem 1rem}}
     :host([data-compact]) section{top:calc(var(--chat-visible-top,0px) + 8px);bottom:auto;height:auto;max-height:calc(var(--chat-visible-height,100dvh) - 16px)}
     :host([data-compact]) header,:host([data-compact]) footer{display:contents}
@@ -104,7 +104,6 @@ import launcher from './launcher.svg';
       // Account for the keyboard, while allowing visitors to zoom normally.
       if (Math.abs(visibleViewport.scale - 1) > .01) {
         host.style.removeProperty('--chat-visible-height');
-        host.style.removeProperty('--chat-keyboard-inset');
         host.style.removeProperty('--chat-visible-top');
         host.removeAttribute('data-compact');
         return;
@@ -112,8 +111,6 @@ import launcher from './launcher.svg';
       host.style.setProperty('--chat-visible-height', `${visibleViewport.height}px`);
       host.style.setProperty('--chat-visible-top', `${visibleViewport.offsetTop}px`);
       host.toggleAttribute('data-compact', visibleViewport.height < 260);
-      const inset = Math.max(0, window.innerHeight - visibleViewport.height - visibleViewport.offsetTop);
-      host.style.setProperty('--chat-keyboard-inset', `${inset}px`);
     };
     visibleViewport.addEventListener('resize', fitViewport);
     visibleViewport.addEventListener('scroll', fitViewport);
@@ -122,14 +119,44 @@ import launcher from './launcher.svg';
   }
   get('search').href = search;
   get('error-search').href = search;
+  const backgroundState = new Map();
+  let previousOverflow;
+  const syncPresentation = () => {
+    const modal = !get('chat').hidden && !host.hidden
+      && window.matchMedia('(max-width:991.98px)').matches;
+    get('chat').setAttribute('role', modal ? 'dialog' : 'region');
+    if (modal) {
+      get('chat').setAttribute('aria-modal', 'true');
+      if (!get('chat').contains(root.activeElement)) get('close').focus({ preventScroll: true });
+      if (previousOverflow === undefined) {
+        previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        for (const element of document.body.children) {
+          if (element === host || element.tagName === 'SCRIPT') continue;
+          backgroundState.set(element, element.inert);
+          element.inert = true;
+        }
+      }
+    } else {
+      get('chat').removeAttribute('aria-modal');
+      if (previousOverflow !== undefined) {
+        document.body.style.overflow = previousOverflow;
+        previousOverflow = undefined;
+        for (const [element, inert] of backgroundState) element.inert = inert;
+        backgroundState.clear();
+      }
+    }
+  };
+  window.addEventListener('resize', syncPresentation);
   const close = () => {
     get('chat').hidden = true; get('launch').hidden = false;
-    get('launch').setAttribute('aria-expanded', 'false'); get('launch').focus();
+    get('launch').setAttribute('aria-expanded', 'false'); syncPresentation(); get('launch').focus();
     save();
   };
   get('launch').onclick = () => {
     get('chat').hidden = false; get('launch').hidden = true;
     get('launch').setAttribute('aria-expanded', 'true');
+    syncPresentation();
     if (window.matchMedia('(max-width:991.98px)').matches) get('close').focus({ preventScroll: true });
     else get('question').focus({ preventScroll: true });
     save();
@@ -165,6 +192,7 @@ import launcher from './launcher.svg';
         get('chat').hidden = true; get('launch').hidden = false;
         get('launch').setAttribute('aria-expanded', 'false');
       }
+      syncPresentation();
     };
     menu?.addEventListener('change', syncMenu);
     if (menu) new MutationObserver(syncMenu).observe(menu, {
@@ -175,7 +203,25 @@ import launcher from './launcher.svg';
     });
     syncMenu();
   }
-  root.addEventListener('keydown' , e => { if (e.key === 'Escape') close(); });
+  root.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
+    if (e.key !== 'Tab' || !get('chat').hasAttribute('aria-modal')) return;
+    const controls = [...get('chat').querySelectorAll('button,input,a[href]')]
+      .filter(element => {
+        if (element.disabled || element.closest('[hidden]')) return false;
+        for (let ancestor = element; ancestor && ancestor !== get('chat'); ancestor = ancestor.parentElement) {
+          if (getComputedStyle(ancestor).display === 'none') return false;
+        }
+        return true;
+      });
+    const first = controls[0];
+    const last = controls.at(-1);
+    if (e.shiftKey && root.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && root.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
   get('clear').onclick = () => {
     if (busy) return;
     history = []; failedQuestion = '';
@@ -236,6 +282,7 @@ import launcher from './launcher.svg';
     get('launch').setAttribute('aria-expanded', 'true');
     requestAnimationFrame(() => { get('log').scrollTop = restoredScroll; });
   }
+  syncPresentation();
   if (failedQuestion) {
     get('recovery').hidden = false;
     get('status').textContent = 'Your last question has no completed answer. You can retry it.';

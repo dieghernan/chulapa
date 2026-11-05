@@ -287,6 +287,14 @@ and identifiers such as `chulapa-skin` retain their original formatting.
 Below the 992 px breakpoint, the chatbot launcher sits above the navbar FAB
 with a 1rem gap. Its size and right margin follow the FAB's computed styles.
 Opening either navigation panel still hides the chatbot controls.
+Below 992 px, the open panel fills the visible viewport, follows the on-screen
+keyboard and respects device safe areas. The background is inert and cannot
+scroll while the panel is open; Tab stays within the dialog and closing restores
+access to the page. Opening focuses the close button to avoid raising the keyboard.
+On desktop, the panel is 30rem wide (480 px at a 16 px root font size) and 80dvh
+high, capped at 45rem (720 px), with at least 1rem of vertical clearance.
+Message history scrolls independently between the header and question form.
+Widget updates are published through the automatic deployment workflow described above.
 
 AI and coding agents must follow [the docs maintenance instructions](../AGENTS.md)
 when documentation changes affect the chatbot's reviewed context.

@@ -321,3 +321,53 @@ test('widget search links collapse the chat even when session storage is blocked
     } finally { ui.dom.window.close(); }
   }
 });
+
+test('mobile dialog isolates the background, traps Tab and restores the page on close', () => {
+  const ui = widget({ fab: '<button id="menu" aria-expanded="false">Menu</button>' });
+  try {
+    const menu = ui.window.document.getElementById('menu');
+    ui.window.document.body.style.overflow = 'auto';
+    ui.get('launch').click();
+    assert.equal(ui.get('chat').getAttribute('role'), 'dialog');
+    assert.equal(ui.get('chat').getAttribute('aria-modal'), 'true');
+    assert.equal(menu.inert, true);
+    assert.equal(ui.window.document.body.style.overflow, 'hidden');
+    ui.get('search').focus();
+    const forward = new ui.window.KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true });
+    ui.get('search').dispatchEvent(forward);
+    assert.equal(forward.defaultPrevented, true);
+    assert.equal(ui.root.activeElement.id, 'clear');
+    ui.get('clear').dispatchEvent(new ui.window.KeyboardEvent('keydown', {
+      key: 'Tab', shiftKey: true, bubbles: true, cancelable: true
+    }));
+    assert.equal(ui.root.activeElement.id, 'search');
+    ui.get('close').click();
+    assert.equal(ui.get('chat').hasAttribute('aria-modal'), false);
+    assert.equal(Boolean(menu.inert), false);
+    assert.equal(ui.window.document.body.style.overflow, 'auto');
+    assert.equal(ui.root.activeElement.id, 'launch');
+  } finally { ui.dom.window.close(); }
+});
+
+test('restored mobile dialog releases the background when navigation opens', async () => {
+  const ui = widget({ saved: { open: true }, fab: '<button id="menu" aria-expanded="false">Menu</button>' });
+  try {
+    const menu = ui.window.document.getElementById('menu');
+    assert.equal(menu.inert, true);
+    menu.setAttribute('aria-expanded', 'true');
+    await tick();
+    assert.equal(ui.get('chat').hidden, true);
+    assert.equal(Boolean(menu.inert), false);
+    assert.equal(ui.window.document.body.style.overflow, '');
+  } finally { ui.dom.window.close(); }
+});
+
+test('desktop panel leaves the background available', () => {
+  const ui = widget({ mobile: false });
+  try {
+    ui.get('launch').click();
+    assert.equal(ui.get('chat').getAttribute('role'), 'region');
+    assert.equal(ui.get('chat').hasAttribute('aria-modal'), false);
+    assert.equal(ui.window.document.body.style.overflow, '');
+  } finally { ui.dom.window.close(); }
+});
