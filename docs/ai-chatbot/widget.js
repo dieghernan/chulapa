@@ -23,6 +23,9 @@ import launcher from './launcher.svg';
     :host([data-position="left"]) #launch{left:1rem;right:auto}
     :host([data-position="center"]) #launch{left:50%;right:auto;transform:translateX(-50%)}
     section{position:fixed;bottom:1rem;right:var(--chat-right,1rem);z-index:21000;width:min(30rem,calc(100vw - 2 * var(--chat-right,1rem)));height:min(80dvh,45rem);max-height:calc(100dvh - 2rem);background:var(--surface);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px #0003;display:flex;flex-direction:column;overflow:hidden}
+    @media(min-width:992px){section{width:min(33rem,calc(100vw - 2 * var(--chat-right,1rem)))}}
+    @media(max-width:991.98px){#close,#clear{min-width:44px;min-height:44px}}
+    #examples{display:grid;gap:.25rem}#examples button{background:transparent;color:inherit;text-align:left;text-decoration:underline;min-height:44px}#log:has(.message ~ .message) #examples{display:none}
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line);flex-shrink:0}
     h2{font-size:1rem;margin:0 0 .25rem;font-weight:650}.subtitle{margin:0;color:var(--muted);font-size:.8rem}
     .chulapa{font-family:chulapa,sans-serif;font-weight:400;font-feature-settings:"liga","dlig";text-rendering:optimizeLegibility}
@@ -54,7 +57,7 @@ import launcher from './launcher.svg';
   <button id="launch" aria-label="Ask AI" title="Ask Chulapa AI" aria-expanded="false" aria-controls="chat">${launcher}</button>
   <section id="chat" hidden role="region" aria-labelledby="title">
     <header><div><h2 id="title">Ask <span class="chulapa">Chulapa</span> ${sparkles}</h2><p class="subtitle">Help with your site, straight from the docs.</p><button id="clear" type="button">Clear chat</button></div><button id="close" aria-label="Close chat">&#215;</button></header>
-    <div id="log" role="log" aria-live="polite" aria-relevant="additions"><p class="message assistant">Hi! Ask me about <span class="chulapa">Chulapa</span>'s setup, layouts or features.</p></div>
+    <div id="log" role="log" aria-live="polite" aria-relevant="additions"><p class="message assistant">Hi! Ask me about <span class="chulapa">Chulapa</span>'s setup, layouts or features.</p><div id="examples"><button type="button">How do I change the layout?</button><button type="button">How do I add a custom color?</button><button type="button">What is a splash page?</button></div></div>
     <div id="status" role="status"></div>
     <div id="recovery" hidden><button id="retry" type="button">Retry question</button><a id="error-search">Search the docs</a></div>
     <footer>
@@ -91,6 +94,13 @@ import launcher from './launcher.svg';
     } catch { /* Continue without persistence if storage is blocked or full. */ }
   };
   get('question').addEventListener('input', save);
+  get('log').addEventListener('click', event => {
+    const example = event.target.closest('#examples button');
+    if (!example) return;
+    get('question').value = example.textContent;
+    get('question').focus();
+    save();
+  });
   let scrollSave;
   get('log').addEventListener('scroll', () => {
     clearTimeout(scrollSave);
