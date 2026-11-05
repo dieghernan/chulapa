@@ -1,19 +1,19 @@
 [![Chulapa live
 preview](https://dieghernan.github.io/chulapa/assets/img/site/banner.png "live preview")](https://dieghernan.github.io/chulapa/)
 
-![GitHub release (latest by
-date)](https://img.shields.io/github/v/release/dieghernan/chulapa)
+![GitHub release latest](https://img.shields.io/github/v/release/dieghernan/chulapa)
 [![Gem Version](https://badge.fury.io/rb/chulapa-jekyll.svg)](https://badge.fury.io/rb/chulapa-jekyll)
 ![Gem Total Downloads](https://img.shields.io/gem/dt/chulapa-jekyll)
+[![Boostrap](https://img.shields.io/badge/boostrap-4.5-blue?logo=bootstrap&logoColor=white)](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+[![ko-fi](https://img.shields.io/badge/ko--fi-donate-yellow?logo=kofi&logoColor=white)](https://ko-fi.com/dieghernan)
 ![License](https://img.shields.io/github/license/dieghernan/chulapa)
-![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.7%20%3C5.0-blue)
-![GitHub Pages](https://img.shields.io/badge/gh--pages-ready-succes)
-![Google Analytics](https://img.shields.io/badge/google--analytics-ready-succes)
-![Disqus](https://img.shields.io/badge/disqus-ready-succes) ![Social
-sharing](https://img.shields.io/badge/social--sharing-ready-succes)
+![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.7%20%3C5.0-blue?logo=jekyll)
+![GitHub Pages](https://img.shields.io/badge/gh--pages-ready-succes?logo=github)
+![Google Analytics](https://img.shields.io/badge/google--analytics-ready-succes?logo=google&logoColor=white)
+![Disqus](https://img.shields.io/badge/disqus-ready-succes?logo=disqus&logoColor=white)
+![Social sharing](https://img.shields.io/badge/social--sharing-ready-succes?logo=x&logoColor=white)
 ![SEO](https://img.shields.io/badge/seo-ready-succes)
-![Video support](https://img.shields.io/badge/video--support-ok-succes)
-[![ko-fi](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://ko-fi.com/dieghernan)
+![Video support](https://img.shields.io/badge/video--support-ok-succes?logo=youtube)
 
 # [<span class="chulapa">Chulapa</span>](https://dieghernan.github.io/chulapa/)
 
@@ -30,13 +30,13 @@ Start with the ready-to-publish blog template, then add the features you need.
 
 Choose the route that matches your situation:
 
-| Your goal | Start here |
-| --- | --- |
-| Publish your first website | [Browser-only publishing tutorial](https://dieghernan.github.io/chulapa/docs/00-start), using the chulapa-101 template; no local installation needed. |
-| Move an existing **Jekyll** site | [Migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration), preserving your content and public URLs. |
-| Change something on a published site | [How-to guides](https://dieghernan.github.io/chulapa/docs#how-to-guides) for individual tasks. |
-| Look up a setting or layout | [Reference](https://dieghernan.github.io/chulapa/docs#reference) for options, syntax and constraints. |
-| Understand how publishing works | [Publishing explained](https://dieghernan.github.io/chulapa/docs/47-publishing-explained). |
+| Your goal                            | Start here                                                                                                                                            |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Publish your first website           | [Browser-only publishing tutorial](https://dieghernan.github.io/chulapa/docs/00-start), using the chulapa-101 template; no local installation needed. |
+| Move an existing **Jekyll** site     | [Migration guide and checklist](https://dieghernan.github.io/chulapa/docs/07-migration), preserving your content and public URLs.                     |
+| Change something on a published site | [How-to guides](https://dieghernan.github.io/chulapa/docs#how-to-guides) for individual tasks.                                                        |
+| Look up a setting or layout          | [Reference](https://dieghernan.github.io/chulapa/docs#reference) for options, syntax and constraints.                                                 |
+| Understand how publishing works      | [Publishing explained](https://dieghernan.github.io/chulapa/docs/47-publishing-explained).                                                            |
 
 The [chulapa-101 starter](https://github.com/dieghernan/chulapa-101) is a
 ready-to-publish personal blog. [Explore its live site](https://dieghernan.github.io/chulapa-101/)
@@ -45,12 +45,12 @@ or look up its included files and defaults in the
 
 For smaller examples of individual site types, explore the folders below:
 
-| Site | Complete example | Preview |
-| --- | --- | --- |
-| Personal blog | [A journal and recent-post index](examples/personal-blog) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-personal-blog) |
-| Technical blog | [Code, diagrams and equations](examples/technical-blog) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-technical-blog) |
-| Portfolio | [A projects collection and card index](examples/portfolio) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-portfolio) |
-| Project | [A landing page with source and setup links](examples/project) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-project) |
+| Site           | Complete example                                               | Preview                                                                  |
+| -------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Personal blog  | [A journal and recent-post index](examples/personal-blog)      | [Demo](https://dieghernan.github.io/chulapa/demo/starter-personal-blog)  |
+| Technical blog | [Code, diagrams and equations](examples/technical-blog)        | [Demo](https://dieghernan.github.io/chulapa/demo/starter-technical-blog) |
+| Portfolio      | [A projects collection and card index](examples/portfolio)     | [Demo](https://dieghernan.github.io/chulapa/demo/starter-portfolio)      |
+| Project        | [A landing page with source and setup links](examples/project) | [Demo](https://dieghernan.github.io/chulapa/demo/starter-project)        |
 
 Each minimal example includes configuration, dependencies and editable content.
 They are smaller examples, not the ready-to-publish chulapa-101 template.
