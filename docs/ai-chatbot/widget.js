@@ -25,7 +25,7 @@ import launcher from './launcher.svg';
     section{position:fixed;bottom:1rem;right:var(--chat-right,1rem);z-index:21000;width:min(30rem,calc(100vw - 2 * var(--chat-right,1rem)));height:min(80dvh,45rem);max-height:calc(100dvh - 2rem);background:var(--surface);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px #0003;display:flex;flex-direction:column;overflow:hidden}
     @media(min-width:992px){section{width:min(33rem,calc(100vw - 2 * var(--chat-right,1rem)))}}
     @media(max-width:991.98px){#close,#clear{min-width:44px;min-height:44px}}
-    #examples{display:grid;gap:.25rem}#examples button{background:transparent;color:inherit;text-align:left;text-decoration:underline;min-height:44px}#log:has(.message ~ .message) #examples{display:none}
+    #examples{display:grid;gap:.25rem}#examples button{background:transparent;color:inherit;text-align:left;border:1px solid var(--muted);border-radius:.65rem;padding:.5rem .75rem;min-height:44px}#examples button:hover{background:var(--bubble)}#log:has(.message ~ .message) #examples{display:none}
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line);flex-shrink:0}
     h2{font-size:1rem;margin:0 0 .25rem;font-weight:650}.subtitle{margin:0;color:var(--muted);font-size:.8rem}
     .chulapa{font-family:chulapa,sans-serif;font-weight:400;font-feature-settings:"liga","dlig";text-rendering:optimizeLegibility}
@@ -96,10 +96,10 @@ import launcher from './launcher.svg';
   get('question').addEventListener('input', save);
   get('log').addEventListener('click', event => {
     const example = event.target.closest('#examples button');
-    if (!example) return;
+    if (!example || busy) return;
     get('question').value = example.textContent;
-    get('question').focus();
-    save();
+    root.querySelector('form').requestSubmit();
+    get('question').focus({ preventScroll: true });
   });
   let scrollSave;
   get('log').addEventListener('scroll', () => {

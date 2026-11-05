@@ -371,3 +371,27 @@ test('desktop panel leaves the background available', () => {
     assert.equal(ui.window.document.body.style.overflow, '');
   } finally { ui.dom.window.close(); }
 });
+
+test('example buttons submit their question through the form and work again after clearing', async () => {
+  const requests = [];
+  const ui = widget({ fetch: async (_, options) => {
+    requests.push(JSON.parse(options.body));
+    return { ok: true, json: async () => ({ answer: 'A documented answer.' }) };
+  } });
+  try {
+    ui.get('launch').click();
+    const examples = [...ui.get('examples').querySelectorAll('button')];
+    assert.equal(examples.length, 3);
+    for (let index = 0; index < examples.length; index++) {
+      const button = ui.get('examples').querySelectorAll('button')[index];
+      assert.equal(button.type, 'button');
+      const question = button.textContent;
+      button.click();
+      await tick();
+      assert.deepEqual(requests[index], { message: question });
+      assert.equal(ui.root.querySelectorAll('.message.user').length, 1);
+      assert.equal(ui.get('question').value, '');
+      ui.get('clear').click();
+    }
+  } finally { ui.dom.window.close(); }
+});
