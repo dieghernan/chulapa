@@ -38,11 +38,13 @@ window.ChulapaSearch = (function () {
       const article = document.createElement("article");
       article.className = "my-2 text-left";
       article.innerHTML = `<div class="row"><div class="col"><h2 class="h5 chulapa-links-hover-only" itemprop="headline"><a rel="permalink"></a></h2></div></div>
-        <div class="row mt-2"><div class="col"><p></p></div></div><hr>`;
+        <div class="row mt-2"><div class="col">
+          <div class="small text-muted border-left pl-3"></div>
+        </div></div><hr>`;
       const title = article.querySelector("h2 a");
       title.href = item.url;
       title.innerHTML = item.title;
-      article.querySelector("p").innerHTML = item.excerpt.trim();
+      article.querySelector(".border-left").innerHTML = item.excerpt.trim();
       if (item.img) {
         const column = document.createElement("div");
         column.className = "col-4 col-md-3";
