@@ -259,7 +259,7 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
 https://dieghernan.github.io/chulapa/docs/10-edit-menu
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#footer
 https://dieghernan.github.io/chulapa/docs/11-edit-footer
-navbar.nav: title/url or title/child list of title/url; one submenu level, child not child_list. Omitted navbar.style=classic; fab=floating; dual=floating/classic breakpoint. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. brand: title,img,url.
+navbar.nav title/url or title/child title/url; one level. style omitted=classic, fab=floating, dual=floating/classic. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. Classic Search label shows collapsed, hides at expand (always hidden; never visible). brand:title,img,url.
 
 ```yaml
 navbar:

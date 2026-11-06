@@ -18,6 +18,10 @@
 
 ### Fixed
 
+-   Place the search icon before its label in the classic navbar and full-page search headings.
+
+-   Show the classic navbar's Search label while collapsed and hide it at the configured expansion breakpoint.
+
 -   Show available card images on small screens and omit the image column when a card has no image.
 
 -   Update Fuse.js search to 7.5.0 with module loading, keeping the standard page and demo aligned. Corrected relevance scores can change result ordering and the number of results shown.

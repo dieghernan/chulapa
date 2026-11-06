@@ -111,7 +111,8 @@ Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the class
     `dual` navbar from a floating button to a classic navbar. Use `sm`, `md`,
     `lg` or `xl`. For the classic navbar, `always` keeps links expanded and
     `never` keeps them collapsed. With `dual`, `always` switches at `sm` and
-    `never` switches at `xl`. **md**.
+    `never` switches at `xl`. In the classic navbar, the visible Search label
+    follows the same breakpoint as the links. **md**.
   - `brand`:
     - `title` : Text to be displayed as the title of your navbar.
     - `img`: An icon (ideally 30 × 30 px) displayed together with the

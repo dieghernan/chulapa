@@ -417,6 +417,13 @@
     "expected": "search.provider: lunr, preserve existing search options, reuse/create layout: search page with matching permalink and landing_page, no account/key/extra plugin, no duplicate output or repeated baseurl. Publish and verify a title/result; include_on_search false affects local index. Link /docs/34-lunr-search."
   },
   {
+    "id": "classic-navbar-search-label-breakpoint",
+    "section": "search",
+    "doc": "02_config.md",
+    "question": "My classic navbar expands at lg, but the Search text disappears while the menu is still collapsed. How should the Search label behave?",
+    "expected": "In the classic navbar, Search text remains visible while links are collapsed and hides at navbar.expand (lg in this case); md is the default. always keeps links expanded and hides the text; never keeps links collapsed and the text visible. No separate setting. Link /docs/02-config#navbar."
+  },
+  {
     "id": "provider-simplesearch-task-1",
     "section": "search",
     "doc": "35_simplesearch-search.md",

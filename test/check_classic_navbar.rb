@@ -34,7 +34,19 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         raise 'Dropdown is not a native button' unless nav.at_css('button.dropdown-toggle[type=button]')
         current = nav.at_css('a[aria-current=page]')
         raise 'Current link incorrect' unless current && current['href'] == "https://example.com#{baseurl}/demo/classic-navbar"
-        raise 'Search destination incorrect' unless nav.css('a').any? { |a| a['href'] == "https://example.com#{baseurl}/find" }
+        search_link = nav.at_css("a[href='https://example.com#{baseurl}/find']")
+        raise 'Search destination incorrect' unless search_link
+        search_icon = search_link.at_css('i.fa-search')
+        search_label = search_link.at_css('span:not(.sr-only)')
+        raise 'Search icon must precede its label' unless search_icon && search_label &&
+          search_link.element_children.index(search_icon) < search_link.element_children.index(search_label)
+        expected_label_class = case expand
+        when 'always' then 'd-none'
+        when 'never' then nil
+        else "d-#{expand || 'md'}-none"
+        end
+        actual_label_classes = search_label['class'].to_s.split
+        raise "Wrong Search label breakpoint: #{expand}" unless actual_label_classes == [expected_label_class].compact
         %w[jquery popper bootstrap].each do |library|
           raise "Duplicate/missing #{library}" unless demo.css('script[src]').count { |s| s['src'].include?(library) } == 1
         end
