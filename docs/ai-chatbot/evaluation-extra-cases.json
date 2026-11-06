@@ -445,6 +445,13 @@
     "expected": "Browser configuration does not upload index or create search page. Need application_id/index_name/public search_only_api_key plus matching layout search page. jekyll-algolia indexing plugin deprecated/unmaintained; dependency in plugin Gemfile group, bundle install. Use bundle exec jekyll algolia in the actual site folder or adapt the repository's .github/workflows/algolia-search.yml example (jekyll_src: docs); do not run both upload methods. Theme installation does not copy or enable the workflow. Separate ALGOLIA_API_KEY environment/Actions secret, never public config. Use algolia.files_to_exclude, not include_on_search false which sample uses for ranking. Check uploaded records and browser/index settings match. Link /docs/37-algolia-search."
   },
   {
+    "id": "algolia-minimum-query-1",
+    "section": "search",
+    "doc": "37_algolia-search.md",
+    "question": "Can I make Algolia wait until I type at least two letters before searching?",
+    "expected": "Yes. Chulapa's Algolia search sends requests only when at least two characters remain after trimming leading/trailing whitespace; shorter queries show no no-results message and do not send a search request. This is built-in, not a YAML option. Link /docs/37-algolia-search."
+  },
+  {
     "id": "comments-disqus-task-1",
     "section": "comments",
     "doc": "38_disqus-comments.md",

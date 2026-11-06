@@ -31,6 +31,47 @@ Dir.mktmpdir("chulapa-algolia-urls-") do |source|
     functions = script[script.index("function imgurl")...script.index("search.addWidgets")]
     output, status = Open3.capture2e("node", stdin_data: functions + assertions)
     raise "Algolia URL checks failed for #{baseurl.inspect}: #{output}" unless status.success?
+
+    client_checks = <<~JS
+      const assert = require('node:assert/strict');
+      let apiCalls = 0;
+      const widgetConfigs = [];
+      globalThis.algoliasearch = () => ({
+        search() {
+          apiCalls += 1;
+          return Promise.resolve({results: []});
+        },
+      });
+      globalThis.instantsearch = () => ({
+        addWidgets(widgets) {
+          widgetConfigs.push(...widgets);
+        },
+        start() {},
+      });
+      globalThis.instantsearch.widgets = {
+        searchBox: (options) => options,
+        hits: (options) => options,
+      };
+    JS
+    client_assertions = <<~JS
+      (async () => {
+        for (const query of ['', 'a', ' ', 'a ']) {
+          const response = await searchClient.search([{params: {query}}]);
+          assert.equal(response.results[0].query, query);
+          assert.equal(apiCalls, 0);
+        }
+        assert.equal(widgetConfigs[1].templates.empty({query: 'a'}), '');
+        assert.equal(widgetConfigs[1].templates.empty({query: 'a '}), '');
+        assert.match(widgetConfigs[1].templates.empty({query: 'ab'}), /No results found/);
+        await searchClient.search([{params: {query: 'ab'}}]);
+        assert.equal(apiCalls, 1);
+      })().catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+      });
+    JS
+    output, status = Open3.capture2e("node", stdin_data: client_checks + script + client_assertions)
+    raise "Algolia minimum-query checks failed for #{baseurl.inspect}: #{output}" unless status.success?
   end
 end
-puts "Algolia URL checks passed (root, repository path, trailing slash and external URLs)."
+puts "Algolia URL and minimum-query checks passed (root, repository path, trailing slash, external URLs, and two-character threshold)."

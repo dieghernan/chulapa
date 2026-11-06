@@ -32,6 +32,10 @@ algolia:
   search_only_api_key: "YOUR_PUBLIC_SEARCH_ONLY_KEY"
 ```
 
+The search box sends requests after at least two characters remain when
+leading and trailing whitespace is trimmed. Before that, the results area
+stays empty and no search request is sent to Algolia.
+
 Preserve other settings, particularly existing Algolia exclusions and ranking.
 Keep your current search address if different. Reuse the page at that address;
 if absent, create `search.md` next to `_config.yml`:

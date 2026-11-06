@@ -475,5 +475,6 @@ algolia:
   search_only_api_key: YOUR_PUBLIC_SEARCH_ONLY_KEY
 ```
 ALGOLIA_API_KEY: environment/Actions secret only. Adapt .github/workflows/algolia-search.yml (jekyll_src: docs) OR bundle exec jekyll algolia, not both. Theme installation does not enable uploads. Exclude with algolia.files_to_exclude; include_on_search only ranks via customRanking. jekyll-algolia deprecated/unmaintained; Gemfile group :jekyll_plugins. Verify index/live search.
+Theme Algolia search sends requests only when at least two characters remain after trimming leading/trailing whitespace; shorter queries show no no-results message and are suppressed client-side. This is built-in behavior, not a YAML option.
 
 2.2.0: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.
