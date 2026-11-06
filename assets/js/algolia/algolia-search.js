@@ -46,7 +46,7 @@ function parsecontent(hit) {
   if (hit.html === undefined){
     return " "
   } else {
-    return hit._highlightResult.html.value
+    return hit._highlightResult?.html?.value ?? hit.html ?? '';
   }
 }
 function parsetitle(hit) {
@@ -87,7 +87,7 @@ const hitTemplate = function(hit) {
           </div>
           <div class="row mt-2">
           <div class="col">
-          <p>${content}</p>
+          <div class="small text-muted border-left pl-3">${content}</div>
           </div>
           </div>
           <hr>
@@ -108,7 +108,7 @@ const hitTemplate = function(hit) {
     </div>
     <div class="row mt-2">
     <div class="col">
-    <p>${content}</p>
+    <div class="small text-muted border-left pl-3">${content}</div>
     </div>
     </div>
     <hr>
