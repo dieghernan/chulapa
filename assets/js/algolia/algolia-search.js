@@ -5,12 +5,13 @@ const algoliaClient = algoliasearch(
 
 const searchClient = {
   search(requests) {
-    if (requests.every(({ params }) => !params.query)) {
+    if (requests.every(({ params }) => (params.query || '').trim().length < 2)) {
       return Promise.resolve({
-        results: requests.map(() => ({
+        results: requests.map(({ params }) => ({
           hits: [],
           nbHits: 0,
           nbPages: 0,
+          query: params.query || '',
         })),
       });
     }
@@ -132,11 +133,10 @@ search.addWidgets([
     container: '#hits',
     escapeHTML: false,
     templates: {
-      empty: `
-        {{#query}}
-          <h6 class="text-center">No results found</h6>
-        {{/query}}
-      `,
+      empty(results) {
+        if ((results.query || '').trim().length < 2) return '';
+        return '<h6 class="text-center">No results found</h6>';
+      },
       item: hitTemplate
     },
   }),

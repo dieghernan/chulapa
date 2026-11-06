@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Connect Algolia search and upload its index",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-06T12:03:48+01:00",
-        "dateModified": "2026-11-06T12:03:48+01:00",
+        "datePublished": "2026-11-06T13:00:16+01:00",
+        "dateModified": "2026-11-06T13:00:16+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -290,6 +290,9 @@ Replace the three example values with your account’s values:</p>
   <span class="na">index_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">YOUR_INDEX_NAME"</span>
   <span class="na">search_only_api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">YOUR_PUBLIC_SEARCH_ONLY_KEY"</span>
 </code></pre></div></div>
+<p>The search box sends requests after at least two characters remain when
+leading and trailing whitespace is trimmed. Before that, the results area
+stays empty and no search request is sent to Algolia.</p>
 <p>Preserve other settings, particularly existing Algolia exclusions and ranking.
 Keep your current search address if different. Reuse the page at that address;
 if absent, create <code class="language-plaintext highlighter-rouge">search.md</code> next to <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
