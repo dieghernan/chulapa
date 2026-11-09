@@ -39,7 +39,7 @@ window.ChulapaSearch = (function () {
       article.className = "my-2 text-left";
       article.innerHTML = `<div class="row"><div class="col"><h2 class="h5 chulapa-links-hover-only" itemprop="headline"><a rel="permalink"></a></h2></div></div>
         <div class="row mt-2"><div class="col">
-          <div class="small text-muted border-left pl-3"></div>
+          <div class="small border-left pl-3"></div>
         </div></div><hr>`;
       const title = article.querySelector("h2 a");
       title.href = item.url;
