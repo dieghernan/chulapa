@@ -37,7 +37,7 @@ jobs:
         with:
           ruby-version: '3.4'
           bundler-cache: true
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install Microformats2 validation parser
