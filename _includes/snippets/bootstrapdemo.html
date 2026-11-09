@@ -68,7 +68,7 @@
                 </li> {%- endif -%} {%- endfor -%} {%- if site.search.provider -%} {%- assign urlsearch = site.search.landing_page | default: '/search' -%} <li class="nav-item">
                   <a class="nav-link {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
                     <i class="fa fa-search mr-1" aria-hidden="true"></i>
-                    <span class="d-lg-none">{{- site.search.label | default: 'Search' -}}</span>
+                    <span class="d-lg-none" aria-hidden="true">{{- site.search.label | default: 'Search' -}}</span>
                     <span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
                   </a>
                 </li> {%- endif -%} 

@@ -52,7 +52,7 @@
 				{%- assign urlsearch = site.search.landing_page | default: '/search' -%}
 					<li class="nav-item">
 						<a class="nav-link {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}"{% if urlsearch == thispageurl or urlsearch == include.pageurl %} aria-current="page"{% endif %}>
-							<i class="fa fa-search mr-1" aria-hidden="true"></i><span class="{{ search_label_class }}">{{- site.search.label | default: 'Search' -}}</span><span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
+							<i class="fa fa-search mr-1" aria-hidden="true"></i><span class="{{ search_label_class }}" aria-hidden="true">{{- site.search.label | default: 'Search' -}}</span><span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
 						</a>
 					</li>
 			{%- endif -%}

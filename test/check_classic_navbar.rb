@@ -45,6 +45,9 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         when 'never' then nil
         else "d-#{expand || 'md'}-none"
         end
+        accessible_label = search_link.at_css('span.sr-only')
+        raise 'Search link must expose one label' unless search_label['aria-hidden'] == 'true' &&
+          accessible_label && accessible_label.text == search_label.text && !accessible_label['aria-hidden']
         actual_label_classes = search_label['class'].to_s.split
         raise "Wrong Search label breakpoint: #{expand}" unless actual_label_classes == [expected_label_class].compact
         %w[jquery popper bootstrap].each do |library|

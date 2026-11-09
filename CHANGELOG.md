@@ -14,7 +14,7 @@
 
 -   Expand the documentation chatbot to the visible mobile viewport and enlarge its desktop panel for easier reading.
 
--   Style excerpts in Algolia, Lunr/Fuse and Simple-Jekyll-Search results as muted, bordered blocks; preserve Algolia excerpts when highlight data is unavailable.
+-   Style excerpts in Algolia, Lunr/Fuse and Simple-Jekyll-Search results as bordered blocks; preserve Algolia excerpts when highlight data is unavailable.
 
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
@@ -22,7 +22,7 @@
 
 -   Place the search icon before its label in the classic navbar and full-page search headings.
 
--   Show the classic navbar's Search label while collapsed and hide it at the configured expansion breakpoint.
+-   Show the classic navbar's Search label while collapsed and hide it at the configured expansion breakpoint, with one accessible name at every size.
 
 -   Show available card images on small screens and omit the image column when a card has no image.
 

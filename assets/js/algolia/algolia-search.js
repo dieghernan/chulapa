@@ -87,7 +87,7 @@ const hitTemplate = function(hit) {
           </div>
           <div class="row mt-2">
           <div class="col">
-          <div class="small text-muted border-left pl-3">${content}</div>
+          <div class="small border-left pl-3">${content}</div>
           </div>
           </div>
           <hr>
@@ -108,7 +108,7 @@ const hitTemplate = function(hit) {
     </div>
     <div class="row mt-2">
     <div class="col">
-    <div class="small text-muted border-left pl-3">${content}</div>
+    <div class="small border-left pl-3">${content}</div>
     </div>
     </div>
     <hr>
