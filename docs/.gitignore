@@ -32,6 +32,3 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
-
-# Track dependency locks used by CI
-!/Gemfile.lock

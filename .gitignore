@@ -31,10 +31,3 @@ docs/.jekyll-metadata
 .env.*
 !.env.example
 !.env.*.example
-
-# Track dependency locks for development, documentation and tests
-!/Gemfile.lock
-!/docs/Gemfile.lock
-!/test/Gemfile.lock
-!/test/installation/Gemfile.lock
-!/test/jekyll3/Gemfile.lock
