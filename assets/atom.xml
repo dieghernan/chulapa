@@ -51,7 +51,7 @@ permalink: ./atom.xml
   {%- assign entry_base = canonical_path | absolute_url | uri_escape -%}
   {%- capture item_html -%}
     {%- if document.subtitle -%}
-      <h3>{{ document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip | strip_newlines }}</h3>
+      {{ document.subtitle | markdownify | strip }}
     {%- endif -%}
     {%- if entry_image -%}
       <img src="{{ entry_image | absolute_url | escape }}" alt="">

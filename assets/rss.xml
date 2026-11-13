@@ -49,7 +49,7 @@ permalink: ./rss.xml
     {%- assign entry_excerpt = document.excerpt | strip -%}
     {%- capture item_html -%}
       {%- if document.subtitle -%}
-        <h3>{{ document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip | strip_newlines }}</h3>
+        {{ document.subtitle | markdownify | strip }}
       {%- endif -%}
       <p>{{ feed_reading_minutes }} min.</p>
       <div>{{ document.content | markdownify }}</div>

@@ -15,7 +15,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   {
     "_posts/2024-01-01-default.md" => "title: Default post\nexcerpt: '   '\nauthor: {}",
     "_posts/2024-01-03-disabled.md" => "title: Disabled post\ninclude_on_feed: false",
-    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
+    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\nsubtitle: 'An *editorial* subtitle'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
   }.each do |path, data|
     content = path == "_entries/enabled.md" ? "Feed content. " * 40 : "Feed content."
@@ -51,6 +51,10 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
           raise "Atom: incorrect embedded image URL" unless Nokogiri::HTML.fragment(content.text).at_css("img")["src"] == image_url
         end
         xml.remove_namespaces!
+        body = xml.at_css(feed == "atom" ? "entry > content" : "item > encoded")
+        subtitle = Nokogiri::HTML.fragment(body.text).element_children.first
+        raise "#{feed}: subtitle must be a paragraph" unless subtitle.name == "p"
+        raise "#{feed}: subtitle lost its emphasis" unless subtitle.at_css("em")&.text == "editorial"
         items = xml.css(feed == "atom" ? "entry" : "item")
         actual = items.map do |item|
           title = item.at_css("title")
