@@ -1410,10 +1410,87 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
   overflow-wrap: anywhere;
 }
 
-.chulapa-series-index > summary {
-  cursor: pointer;
+.chulapa-series + .chulapa-series {
+  margin-top: .75rem;
 }
 
-.chulapa-series-index:not([open]) > summary:not(:focus-visible) .chulapa-series-position {
-  opacity: 0.8;
+.chulapa-series-index > summary {
+  cursor: pointer;
+  min-height: 24px;
+  width: fit-content;
+
+  &:focus-visible {
+    outline: 2px solid $body-color;
+    outline-offset: 2px;
+  }
+}
+
+.chulapa-series-position {
+  font-weight: $font-weight-normal;
+}
+
+.chulapa-series-item {
+  display: block;
+  min-height: 24px;
+  padding: .125rem 0;
+}
+
+.chulapa-series-current {
+  display: inline-block;
+  margin-left: .25em;
+  padding: 0 .4em;
+  border-radius: .25rem;
+  background-color: mix($body-color, $body-bg, 8%);
+  font-weight: $font-weight-normal;
+}
+
+.chulapa-series-controls {
+  width: max-content;
+  max-width: 100%;
+}
+
+.chulapa-series-progress {
+  display: block;
+  appearance: none;
+  width: 0;
+  min-width: 100%;
+  height: 9px;
+  margin: .375rem 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: $progress-border-radius;
+  background-color: $progress-bg;
+  color: $progress-bar-bg;
+
+  &::-webkit-progress-bar { background-color: $progress-bg; }
+  &::-webkit-progress-value { background-color: $progress-bar-bg; }
+  &::-moz-progress-bar { background-color: $progress-bar-bg; }
+
+  @media (forced-colors: active) {
+    appearance: auto;
+  }
+}
+
+.chulapa-series-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6em;
+  padding: .125rem .25rem;
+  font-size: inherit;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: $body-color;
+  border-color: currentColor;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
+    color: $body-bg;
+    background-color: $body-color;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $body-color;
+    outline-offset: 2px;
+  }
 }

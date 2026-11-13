@@ -652,8 +652,12 @@ Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
 ### Series navigation
 
 Available in development v2.2.1. A series gives readers an ordered list of
-related pages or posts. Each list starts collapsed and identifies the current
-part when opened. See the [first-site guide](./00-start) for an example.
+related pages or posts. Each series shows its current part, progress bar
+and Previous and Next controls. Open **Series index** below the controls
+to see the full list with the current page marked “You are here”.
+Previous is disabled on the first part, and Next is disabled on the last.
+See the [site details guide](./14-site-details)
+for an example with two series.
 
 Jekyll's collection order applies within one collection. Tags and categories
 can group a page in several ways, but they do not store a different position
