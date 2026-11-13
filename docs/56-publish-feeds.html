@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Publish posts in the built-in feeds",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-13T13:46:47+01:00",
-        "dateModified": "2026-11-13T13:46:47+01:00",
+        "datePublished": "2026-11-13T13:55:08+01:00",
+        "dateModified": "2026-11-13T13:55:08+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -270,7 +270,7 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Publish posts in the built-in feeds</a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#include-your-posts" class="nav-link">Include your posts</a></li><li class="nav-item nav d-block"><a href="#preserve-author-names-and-profiles" class="nav-link">Preserve author names and profiles</a></li><li class="nav-item nav d-block"><a href="#publish-and-share-the-address" class="nav-link">Publish and share the address</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#include-your-posts" class="nav-link">Include your posts</a></li><li class="nav-item nav d-block"><a href="#preserve-author-names-and-profiles" class="nav-link">Preserve author names and profiles</a></li><li class="nav-item nav d-block"><a href="#read-excerpts-and-full-articles-in-rss" class="nav-link">Read excerpts and full articles in RSS</a></li><li class="nav-item nav d-block"><a href="#publish-and-share-the-address" class="nav-link">Publish and share the address</a></li></ul>
 		</nav>   
 	</div>
 			<div class="e-content"><p>Use this guide on an existing site to let readers subscribe in a feed reader.
@@ -313,10 +313,17 @@ RSS preserves known names as <code class="language-plaintext highlighter-rouge">
 Atom uses the selected author’s <code class="language-plaintext highlighter-rouge">url</code> before the first HTTP(S) URL in that
 author’s <code class="language-plaintext highlighter-rouge">links</code>. If neither exists, Atom omits the profile URI. A guest never
 inherits the site author’s name, URL or links. The Atom feed’s own author uses
-the site settings with the same URL fallback. Set a guest’s <code class="language-plaintext highlighter-rouge">author.name</code> and
-<code class="language-plaintext highlighter-rouge">author.url</code> in the article’s existing front matter to identify them explicitly.
+the site settings with the same URL fallback. Set <code class="language-plaintext highlighter-rouge">author.name</code> in a guest
+article’s front matter and add <code class="language-plaintext highlighter-rouge">author.url</code> if the guest has a profile.
+Atom displays <code class="language-plaintext highlighter-rouge">Guest author</code> when the guest has no name and includes their
+profile URL when available. For other entries, Atom displays <code class="language-plaintext highlighter-rouge">Unknown author</code>
+if the site has no author name.
 Site-relative profile URLs such as <code class="language-plaintext highlighter-rouge">/about/</code> use the site’s <code class="language-plaintext highlighter-rouge">url</code> and <code class="language-plaintext highlighter-rouge">baseurl</code>.
 Hiding the author card with <code class="language-plaintext highlighter-rouge">show_author: false</code> does not remove feed authors.</p>
+<h2 id="read-excerpts-and-full-articles-in-rss">Read excerpts and full articles in RSS</h2>
+<p>In v2.2.1 development, RSS includes the excerpt and full article when an
+excerpt is available. If the excerpt is empty, RSS includes the full article
+once.</p>
 <h2 id="publish-and-share-the-address">Publish and share the address</h2>
 <p>Commit to the publishing branch, wait for <strong>Actions</strong> to succeed and open
 <code class="language-plaintext highlighter-rouge">/atom.xml</code> on your published site, including its repository path if it has one:
