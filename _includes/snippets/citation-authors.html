@@ -1,5 +1,6 @@
 {%- assign citation_apa_names = '' | split: ',' -%}
 {%- assign citation_bib_names = citation_apa_names -%}
+{%- assign citation_full_names = citation_apa_names -%}
 {%- assign citation_author_sources = citation_apa_names | push: page.citation.author | push: page.author | push: site.author -%}
 {%- for citation_author_source in citation_author_sources -%}
   {%- assign citation_authors = citation_author_source -%}
@@ -53,6 +54,11 @@
       {%- assign citation_bib_name = citation_apa_name -%}
     {%- endif -%}
     {%- if citation_apa_name != empty -%}
+      {%- assign citation_full_name = citation_bib_name -%}
+      {%- if citation_family != empty and citation_given != empty and citation_literal == empty -%}
+        {%- assign citation_full_name = citation_bib_tail | append: ' ' | append: citation_family -%}
+      {%- endif -%}
+      {%- assign citation_full_names = citation_full_names | push: citation_full_name -%}
       {%- assign citation_apa_names = citation_apa_names | push: citation_apa_name -%}
       {%- capture citation_bib_name_html -%}
         {%- if citation_corporate -%}&#123;{%- endif -%}

@@ -1,57 +1,7 @@
 {%- assign citation_json_type = page.citation | jsonify | slice: 0 -%}
 {%- if page.citation == true or citation_json_type == '{' -%}
   {%- include snippets/citation-authors.html -%}
-  {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
-  {%- capture citation_title -%}{%- include snippets/citation-title.html value=page.citation.title -%}{%- endcapture -%}
-  {%- if citation_title == empty -%}
-    {%- capture citation_title -%}{%- include snippets/citation-title.html value=page.title -%}{%- endcapture -%}
-  {%- endif -%}
-  {%- assign citation_container_name = page.citation['container-title'] -%}
-  {%- capture citation_container -%}{%- include snippets/citation-title.html value=citation_container_name -%}{%- endcapture -%}
-  {%- assign citation_type = 'misc' -%}
-  {%- if page.citation.type == 'article-journal' -%}
-    {%- assign citation_type = 'article' -%}
-  {%- elsif citation_container == empty -%}
-    {%- capture citation_container -%}{%- include snippets/citation-title.html value=site.title -%}{%- endcapture -%}
-  {%- endif -%}
-  {%- assign citation_volume = page.citation.volume | normalize_whitespace -%}
-  {%- assign citation_issue = page.citation.issue | normalize_whitespace -%}
-  {%- assign citation_pages = page.citation.page | normalize_whitespace -%}
-  {%- assign citation_bib_pages = citation_pages | replace: '–', '--' | replace: '—', '--' -%}
-  {%- assign citation_url = page.citation.url | strip -%}
-  {%- assign citation_http = citation_url | slice: 0, 7 | downcase -%}
-  {%- assign citation_https = citation_url | slice: 0, 8 | downcase -%}
-  {%- unless citation_http == 'http://' or citation_https == 'https://' -%}
-    {%- assign citation_url = canonical_url -%}
-  {%- endunless -%}
-  {%- assign citation_doi = page.citation.doi | strip -%}
-  {%- assign citation_doi_prefix = citation_doi | slice: 0, 16 | downcase -%}
-  {%- if citation_doi_prefix == 'https://doi.org/' -%}
-    {%- assign citation_doi = citation_doi | slice: 16, citation_doi.size | strip -%}
-  {%- endif -%}
-  {%- assign citation_link = citation_url -%}
-  {%- if citation_doi != empty -%}
-    {%- assign citation_link = citation_doi | prepend: 'https://doi.org/' -%}
-  {%- endif -%}
-  {%- assign citation_date = page.citation.issued | strip -%}
-  {%- if citation_date == empty -%}
-    {%- assign citation_date = page.date | date: '%Y-%m-%d' -%}
-  {%- else -%}
-    {%- assign citation_date = citation_date | replace: '/', '-' -%}
-  {%- endif -%}
-  {%- assign citation_date_parts = citation_date | split: '-' -%}
-  {%- assign citation_year = citation_date_parts[0] | default: '' -%}
-  {%- assign citation_year_number = citation_year | plus: 0 -%}
-  {%- assign citation_year_digits = citation_year_number | append: '' -%}
-  {%- if citation_year.size != 4 or citation_year != citation_year_digits -%}
-    {%- assign citation_year = '' -%}
-  {%- endif -%}
-  {%- assign citation_month_index = citation_date_parts[1] | plus: 0 | minus: 1 -%}
-  {%- assign citation_month = '' -%}
-  {%- if citation_year != empty and citation_month_index >= 0 and citation_month_index < 12 -%}
-    {%- assign citation_months = 'January February March April May June July August September October November December' | split: ' ' -%}
-    {%- assign citation_month = citation_months[citation_month_index] -%}
-  {%- endif -%}
+  {%- include snippets/citation-fields.html -%}
   {%- assign citation_key = page.citation.id | strip -%}
   {%- assign citation_key_slug = citation_key | slugify: 'ascii' -%}
   {%- if citation_key_slug == empty -%}

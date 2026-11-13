@@ -1,0 +1,32 @@
+{%- assign citation_json_type = page.citation | jsonify | slice: 0 -%}
+{%- if page.citation == true or citation_json_type == '{' -%}
+  {%- include snippets/citation-fields.html -%}
+  {%- include snippets/citation-authors.html -%}
+  {% if citation_title != empty %}<meta name="citation_title" content="{{ citation_title | escape }}">{% endif %}
+  {% for citation_full_name in citation_full_names %}<meta name="citation_author" content="{{ citation_full_name | escape }}">{% endfor %}
+  {% if citation_year != empty %}
+    {%- assign citation_scholar_date = citation_year -%}
+    {%- if citation_month != empty -%}
+      {%- assign citation_scholar_month = citation_month_index | plus: 1 | prepend: '0' | slice: -2, 2 -%}
+      {%- assign citation_scholar_date = citation_scholar_date | append: '-' | append: citation_scholar_month -%}
+      {%- assign citation_scholar_day = citation_date_parts[2] | plus: 0 -%}
+      {%- if citation_scholar_day > 0 and citation_scholar_day <= 31 -%}
+        {%- assign citation_scholar_day = citation_scholar_day | prepend: '0' | slice: -2, 2 -%}
+        {%- assign citation_scholar_date = citation_scholar_date | append: '-' | append: citation_scholar_day -%}
+      {%- endif -%}
+    {%- endif %}
+    <meta name="citation_publication_date" content="{{ citation_scholar_date }}">
+  {% endif %}
+  {% if citation_url != empty %}<meta name="citation_fulltext_html_url" content="{{ citation_url | escape }}">{% endif %}
+  {% if citation_type == 'article' %}
+    {% if citation_container != empty %}<meta name="citation_journal_title" content="{{ citation_container | escape }}">{% endif %}
+    {% if citation_volume != empty %}<meta name="citation_volume" content="{{ citation_volume | escape }}">{% endif %}
+    {% if citation_issue != empty %}<meta name="citation_issue" content="{{ citation_issue | escape }}">{% endif %}
+    {% if citation_doi != empty %}<meta name="citation_doi" content="{{ citation_doi | escape }}">{% endif %}
+    {%- assign citation_page_range = citation_bib_pages | replace: '--', '-' | split: ',' | first | split: '-' -%}
+    {%- assign citation_first_page = citation_page_range[0] | strip -%}
+    {%- assign citation_last_page = citation_page_range[1] | strip -%}
+    {% if citation_first_page != empty %}<meta name="citation_firstpage" content="{{ citation_first_page | escape }}">{% endif %}
+    {% if citation_last_page != empty %}<meta name="citation_lastpage" content="{{ citation_last_page | escape }}">{% endif %}
+  {% endif %}
+{%- endif -%}

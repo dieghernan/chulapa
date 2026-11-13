@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Add optional Google Scholar metadata for citable posts using `google-scholar: true`.
+
 -   Add an opt-in citation block with simplified APA and expandable BibTeX for web posts and journal articles using Quarto-style front matter (#208).
 
 -   Publish JSON Feed 1.1 at `/feed.json` and a browser subscription page at `/subscribe/` with links to all three formats.
