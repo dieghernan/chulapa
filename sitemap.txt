@@ -89,6 +89,7 @@ https://dieghernan.github.io/chulapa/blog/20200515_welcome
 https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot
 https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0
 https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0
+https://dieghernan.github.io/chulapa/demo/15-kitchen-sink
 https://dieghernan.github.io/chulapa/skins/current
 https://dieghernan.github.io/chulapa/skins/deeply
 https://dieghernan.github.io/chulapa/skins/hootstrap
@@ -155,3 +156,4 @@ https://dieghernan.github.io/chulapa/license
 https://dieghernan.github.io/chulapa/showcase
 https://dieghernan.github.io/chulapa/skins
 https://dieghernan.github.io/chulapa/tags
+https://dieghernan.github.io/chulapa/blog/page2/
