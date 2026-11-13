@@ -1,0 +1,8 @@
+{%- comment -%}Decode common entities after stripping markup so BibTeX can escape plain text.{%- endcomment -%}
+{{- include.value | markdownify | strip_html | normalize_whitespace
+  | replace: '&quot;', '"' | replace: '&#34;', '"'
+  | replace: '&apos;', "'" | replace: '&#39;', "'"
+  | replace: '&lt;', '<' | replace: '&gt;', '>'
+  | replace: '&nbsp;', ' ' | replace: '&#160;', ' '
+  | replace: '&amp;', '&' | replace: '&#38;', '&'
+  | normalize_whitespace -}}

@@ -1,0 +1,20 @@
+{%- assign citation_bib_container_field = 'howpublished' -%}
+{%- if citation_type == 'article' -%}
+  {%- assign citation_bib_container_field = 'journal' -%}
+{%- endif -%}
+<div class="language-bibtex highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight" tabindex="0" aria-label="BibTeX code"><code><span class="nc">@{{ citation_type }}</span>{<span class="nl">{{ citation_key | escape }}</span>,
+{% if citation_bib_names != empty %}  <span class="na">author</span> = <span class="s">{ {{- citation_bib_names | join: ' and ' -}} }</span>,
+{% endif %}{% if citation_title != empty %}  <span class="na">title</span> = <span class="s">{ {%- include snippets/citation-bibtex-value.html value=citation_title -%} }</span>,
+{% endif %}{% if citation_year != empty %}  <span class="na">year</span> = <span class="s">{ {{- citation_year | escape -}} }</span>,
+{% endif %}{% if citation_month != empty %}  <span class="na">month</span> = <span class="s">{{ citation_month | slice: 0, 3 | downcase }}</span>,
+{% endif %}{% if citation_container != empty %}  <span class="na">{{ citation_bib_container_field }}</span> = <span class="s">{ {%- include snippets/citation-bibtex-value.html value=citation_container -%} }</span>,
+{% endif %}{% if citation_type == 'article' %}{% if citation_volume != empty %}  <span class="na">volume</span> = <span class="s">{ {%- include snippets/citation-bibtex-value.html value=citation_volume -%} }</span>,
+{% endif %}{% if citation_issue != empty %}  <span class="na">number</span> = <span class="s">{ {%- include snippets/citation-bibtex-value.html value=citation_issue -%} }</span>,
+{% endif %}{% if citation_bib_pages != empty %}  <span class="na">pages</span> = <span class="s">{ {%- include snippets/citation-bibtex-value.html value=citation_bib_pages -%} }</span>,
+{% endif %}{% endif %}{% if citation_doi != empty %}  <span class="na">doi</span> = <span class="s">{ {%- include snippets/citation-bibtex-value.html value=citation_doi -%} }</span>,
+{% endif %}{% if citation_url != empty %}  <span class="na">url</span> = <span class="s">{ {{- citation_url | uri_escape | escape -}} }</span>,
+{% endif %}}</code></pre>
+  </div>
+</div>

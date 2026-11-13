@@ -1,0 +1,1 @@
+{%- assign citation_bib_value = include.value | normalize_whitespace | replace: '\', '\textbackslash ' | replace: '{', '\{' | replace: '}', '\}' | replace: '&', '\\&' | replace: '%', '\%' | replace: '$', '\$' | replace: '#', '\#' | replace: '_', '\_' | replace: '~', '\textasciitilde{}' | replace: '^', '\textasciicircum{}' -%}{{- citation_bib_value | escape -}}

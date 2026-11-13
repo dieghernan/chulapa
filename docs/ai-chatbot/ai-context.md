@@ -165,6 +165,9 @@ cerulean/litera/pulse: 2.2.0 only; retain original Bootswatch 4.6.2 palettes/typ
 ## Layouts
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 default is for posts/pages/collection documents, via front matter or Jekyll defaults. Markdown content uses YAML front matter. Optional components use front matter/defaults; demos show output.
+## Post citations (v2.2.1 development)
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#make-a-post-citable
+Default layout: add citation: true to post front matter for English simplified APA and expandable BibTeX. citation: false disables. A citation map can override author, title, issued (quoted YYYY, YYYY-MM, YYYY-MM-DD), url, container-title and id. Author fallback: post, then site; structured citation.author entries use name.given and name.family for APA initials and full BibTeX names; name.literal preserves group authors. Citation overrides leave the post byline and page metadata intact. For journals use type: article-journal plus optional volume, issue, page and doi; DOI is preferred for the visible link. No Google Scholar tags. Requires v2.2.1 development.
 ## Adding videos
 Source: https://dieghernan.github.io/chulapa/docs/32-embed-video
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#video-support

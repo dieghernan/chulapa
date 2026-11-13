@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Add an opt-in citation block with simplified APA and expandable BibTeX for web posts and journal articles using Quarto-style front matter (#208).
+
 -   Publish JSON Feed 1.1 at `/feed.json` and a browser subscription page at `/subscribe/` with links to all three formats.
 
 -   Expose the representative image of page-level Microformats2 entries as hidden `u-photo u-featured` metadata, using page Open Graph and header images before the site image and keeping image descriptions tied to the selected source (#193).

@@ -56,6 +56,7 @@ const routes = [
   [/math|equation|formula|toc|table of contents|sidebar|[ií]ndice.*contenido/i, ['Mathematical notation and tables of contents']],
   [/(?:markdown|article|content|art[ií]culo).*(?:toc|table of contents)|(?:toc|table of contents).*(?:markdown|article|content|art[ií]culo)|kramdown|gfm/i, ['Markdown formatting']],
   [/related|random|eligible|singleton/i, ['Related and random article cards']],
+  [/citation|citable|bibtex|\bapa\b/i, ['Post citations (v2.2.1 development)']],
   [/layout|minimal|archive|cloudtag|categor|related|random|indexcards|indexcategory|h.feed|microformat/i, ['More layouts and content navigation', 'Layout structure and include caching']],
   [/layout|minimal|archive|cloudtag|related|random|indexcards|indexcategory|rounded|enable.rounded|skin|font|feed|mathjax|label/i, ['Correct file and option scopes']],
   [/include.cached|include cache|inherit|herencia/i, ['Layout structure and include caching']],

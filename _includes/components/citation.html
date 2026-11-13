@@ -1,0 +1,115 @@
+{%- assign citation_json_type = page.citation | jsonify | slice: 0 -%}
+{%- if page.citation == true or citation_json_type == '{' -%}
+  {%- include snippets/citation-authors.html -%}
+  {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
+  {%- capture citation_title -%}{%- include snippets/citation-title.html value=page.citation.title -%}{%- endcapture -%}
+  {%- if citation_title == empty -%}
+    {%- capture citation_title -%}{%- include snippets/citation-title.html value=page.title -%}{%- endcapture -%}
+  {%- endif -%}
+  {%- assign citation_container_name = page.citation['container-title'] -%}
+  {%- capture citation_container -%}{%- include snippets/citation-title.html value=citation_container_name -%}{%- endcapture -%}
+  {%- assign citation_type = 'misc' -%}
+  {%- if page.citation.type == 'article-journal' -%}
+    {%- assign citation_type = 'article' -%}
+  {%- elsif citation_container == empty -%}
+    {%- capture citation_container -%}{%- include snippets/citation-title.html value=site.title -%}{%- endcapture -%}
+  {%- endif -%}
+  {%- assign citation_volume = page.citation.volume | normalize_whitespace -%}
+  {%- assign citation_issue = page.citation.issue | normalize_whitespace -%}
+  {%- assign citation_pages = page.citation.page | normalize_whitespace -%}
+  {%- assign citation_bib_pages = citation_pages | replace: '–', '--' | replace: '—', '--' -%}
+  {%- assign citation_url = page.citation.url | strip -%}
+  {%- assign citation_http = citation_url | slice: 0, 7 | downcase -%}
+  {%- assign citation_https = citation_url | slice: 0, 8 | downcase -%}
+  {%- unless citation_http == 'http://' or citation_https == 'https://' -%}
+    {%- assign citation_url = canonical_url -%}
+  {%- endunless -%}
+  {%- assign citation_doi = page.citation.doi | strip -%}
+  {%- assign citation_doi_prefix = citation_doi | slice: 0, 16 | downcase -%}
+  {%- if citation_doi_prefix == 'https://doi.org/' -%}
+    {%- assign citation_doi = citation_doi | slice: 16, citation_doi.size | strip -%}
+  {%- endif -%}
+  {%- assign citation_link = citation_url -%}
+  {%- if citation_doi != empty -%}
+    {%- assign citation_link = citation_doi | prepend: 'https://doi.org/' -%}
+  {%- endif -%}
+  {%- assign citation_date = page.citation.issued | strip -%}
+  {%- if citation_date == empty -%}
+    {%- assign citation_date = page.date | date: '%Y-%m-%d' -%}
+  {%- else -%}
+    {%- assign citation_date = citation_date | replace: '/', '-' -%}
+  {%- endif -%}
+  {%- assign citation_date_parts = citation_date | split: '-' -%}
+  {%- assign citation_year = citation_date_parts[0] | default: '' -%}
+  {%- assign citation_year_number = citation_year | plus: 0 -%}
+  {%- assign citation_year_digits = citation_year_number | append: '' -%}
+  {%- if citation_year.size != 4 or citation_year != citation_year_digits -%}
+    {%- assign citation_year = '' -%}
+  {%- endif -%}
+  {%- assign citation_month_index = citation_date_parts[1] | plus: 0 | minus: 1 -%}
+  {%- assign citation_month = '' -%}
+  {%- if citation_year != empty and citation_month_index >= 0 and citation_month_index < 12 -%}
+    {%- assign citation_months = 'January February March April May June July August September October November December' | split: ' ' -%}
+    {%- assign citation_month = citation_months[citation_month_index] -%}
+  {%- endif -%}
+  {%- assign citation_key = page.citation.id | strip -%}
+  {%- assign citation_key_slug = citation_key | slugify: 'ascii' -%}
+  {%- if citation_key_slug == empty -%}
+    {%- assign citation_slug = page.slug | default: page.name | default: citation_title | slugify: 'ascii' | default: 'entry' -%}
+    {%- assign citation_post_date = page.date | date: '%Y%m%d' -%}
+    {%- assign citation_key = citation_post_date | prepend: 'post' | append: '-' | append: citation_slug -%}
+  {%- else -%}
+    {%- assign citation_key_plain = citation_key | remove: ':' | remove: '-' | remove: '_' | remove: '.' | downcase -%}
+    {%- assign citation_key_ascii = citation_key_plain | slugify: 'ascii' -%}
+    {%- if citation_key_ascii != citation_key_plain -%}
+      {%- assign citation_key = citation_key_slug -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- capture citation_apa_authors -%}
+    {%- for citation_apa_name in citation_apa_names -%}
+      {%- unless forloop.first -%}
+        {%- if forloop.last -%}
+          {%- if forloop.length > 2 -%},{%- endif -%}
+          {{- ' &amp; ' -}}
+        {%- else -%}
+          {{- ', ' -}}
+        {%- endif -%}
+      {%- endunless -%}
+      {{- citation_apa_name | escape -}}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- capture citation_apa_title -%}
+    {%- if citation_title != empty -%}
+      {%- if citation_type == 'article' -%}
+        {{- citation_title | escape -}}
+      {%- else -%}
+        <cite>{{ citation_title | escape }}</cite>
+      {%- endif -%}
+      {%- assign citation_title_end = citation_title | slice: -1 -%}
+      {%- unless citation_title_end == '.' or citation_title_end == '?' or citation_title_end == '!' -%}.{%- endunless -%}
+    {%- endif -%}
+  {%- endcapture -%}
+  <section class="post-citation mt-5 border-left border-secondary pl-3 small" lang="en" aria-labelledby="chulapa-citation-label">
+    <p id="chulapa-citation-label" class="font-weight-bold mb-2">How to cite this post</p>
+    <p class="text-muted mb-2">For attribution, please cite this work as:</p>
+    <p class="citation-text pl-3 mb-0">
+      {% if citation_apa_authors != empty %}
+        {{ citation_apa_authors }}{%- assign citation_last_char = citation_apa_authors | slice: -1 -%}{% unless citation_last_char == '.' %}.{% endunless %}
+      {% else %}
+        {{ citation_apa_title }}
+      {% endif %}
+      ({{ citation_year | default: 'n.d.' | escape }}{% if citation_type != 'article' and citation_month != empty %}, {{ citation_month }}{% if citation_date_parts[2] %} {{ citation_date_parts[2] | plus: 0 }}{% endif %}{% endif %}).
+      {% if citation_apa_authors != empty %}{{ citation_apa_title }}{% endif %}
+      {% if citation_type == 'article' %}
+        {% if citation_container != empty %}<cite>{{ citation_container | escape }}</cite>{% endif %}{% if citation_volume != empty %}{% if citation_container != empty %}, {% endif %}<em>{{ citation_volume | escape }}</em>{% endif %}{% if citation_issue != empty %}({{ citation_issue | escape }}){% endif %}{% if citation_pages != empty %}{% if citation_container != empty or citation_volume != empty or citation_issue != empty %}, {% endif %}{{ citation_pages | escape }}{% endif %}{% if citation_container != empty or citation_volume != empty or citation_issue != empty or citation_pages != empty %}.{% endif %}
+      {% elsif citation_container != empty %}
+        <em>{{ citation_container | escape }}</em>.
+      {% endif %}
+      {% if citation_link != empty %}<a class="text-break" href="{{ citation_link | escape }}">{{ citation_link | escape }}</a>{% endif %}
+    </p>
+    <details class="mt-3">
+      <summary>BibTeX</summary>
+      {% include snippets/citation-bibtex.html %}
+    </details>
+  </section>
+{%- endif -%}
