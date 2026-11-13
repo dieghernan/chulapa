@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
-	<channel>
-		<title>Chulapa | A flexible, visual Jekyll theme</title>
-		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
-		<link>https://dieghernan.github.io/chulapa</link>
-		<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
-		<language>en-US</language>
-		<copyright>(c) 2026, dieghernan</copyright>
-		<pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
-		<lastBuildDate>Fri, 13 Nov 2026 12:57:30 +0100</lastBuildDate>
-		<category>blog</category>
-		<ttl>60</ttl>
-		<atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
-		
-		<image>
-			<title>Chulapa | A flexible, visual Jekyll theme</title>
-			<url>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</url>
-			<link>https://dieghernan.github.io/chulapa</link>
-			<description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
-		</image>
-		
-		<item>
-			<dc:creator>dieghernan</dc:creator>
-			<title>Chulapa v2.2.0: more ways to make your site yours</title>
-			
-			<description>&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0 is out, with support for light and dark skins, Mermaid diagrams, PhotoSwipe galleries, new starter examples and several improvements across the theme.</description>
-			<content:encoded>
- 				&lt;h3&gt;Dark mode, diagrams, galleries and new starter examples&lt;/h3&gt;
-				&lt;p&gt;2 min.&lt;/p&gt;
-				&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.2.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0&lt;/a&gt;
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Chulapa | A flexible, visual Jekyll theme</title>
+    <generator>(c) Chulapa Jekyll Theme RSS generator</generator>
+    <link>https://dieghernan.github.io/chulapa</link>
+    <description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
+    <language>en-US</language>
+    <copyright>(c) 2026, dieghernan</copyright>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2026 13:46:47 +0100</lastBuildDate>
+    <category>blog</category>
+    <ttl>60</ttl>
+    <atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Chulapa | A flexible, visual Jekyll theme</title>
+      <url>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</url>
+      <link>https://dieghernan.github.io/chulapa</link>
+      <description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
+    </image>
+    
+    <item>
+      <dc:creator>dieghernan</dc:creator>
+      <title>Chulapa v2.2.0: more ways to make your site yours</title>
+      <description>&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0 is out, with support for light and dark skins, Mermaid diagrams, PhotoSwipe galleries, new starter examples and several improvements across the theme.</description>
+      <content:encoded>&lt;h3&gt;Dark mode, diagrams, galleries and new starter examples&lt;/h3&gt;&lt;p&gt;3 min.&lt;/p&gt;
+      &lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.2.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0&lt;/a&gt;
 is out.&lt;/p&gt;
 
 &lt;p&gt;This release adds a few features that I have wanted to bring to the theme for
@@ -156,25 +157,24 @@ have the complete list of changes.&lt;/p&gt;
 &lt;p&gt;As always, issues, suggestions and examples of sites built with
 &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; are welcome in
 &lt;a href=&quot;https://github.com/dieghernan/chulapa/discussions&quot;&gt;GitHub Discussions&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-				</content:encoded>
-			<link>https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</link>
-			<category>posts</category>
-		    <category>jekyll</category><category>news</category><category>release</category><media:title type="plain">Chulapa v2.2.0: more ways to make your site yours</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</guid>
+&lt;/div&gt;</content:encoded>
+      <link>https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</link>
+      <category>posts</category>
+      <category>jekyll</category>
+      <category>news</category>
+      <category>release</category>
+      <media:title type="plain">Chulapa v2.2.0: more ways to make your site yours</media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</guid>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
-      
-		</item>
-		<item>
-			<dc:creator>dieghernan</dc:creator>
-			<title>Chulapa v2.1.0: more control over your site</title>
-			
-			<description>Explore &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0, from page metadata and new skins to search and layout options, with a small preview of what comes next.</description>
-			<content:encoded>
- 				&lt;h3&gt;New looks, more search options and better metadata&lt;/h3&gt;
-				&lt;p&gt;5 min.&lt;/p&gt;
-				&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.1.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0&lt;/a&gt;
+      </item>
+    <item>
+      <dc:creator>dieghernan</dc:creator>
+      <title>Chulapa v2.1.0: more control over your site</title>
+      <description>Explore &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0, from page metadata and new skins to search and layout options, with a small preview of what comes next.</description>
+      <content:encoded>&lt;h3&gt;New looks, more search options and better metadata&lt;/h3&gt;&lt;p&gt;6 min.&lt;/p&gt;
+      &lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.1.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0&lt;/a&gt;
 is here. This release gives you more control over how your site looks, how
 readers find its content and how pages appear when shared.&lt;/p&gt;
 
@@ -368,25 +368,24 @@ its version caveats in mind; the pinned release above gives you v2.1.0.&lt;/p&gt
 &lt;p&gt;If you give &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; a go, I would love to see what
 you build. Share your site or feedback in
 &lt;a href=&quot;https://github.com/dieghernan/chulapa/discussions&quot;&gt;GitHub Discussions&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-				</content:encoded>
-			<link>https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</link>
-			<category>posts</category>
-		    <category>jekyll</category><category>news</category><category>release</category><media:title type="plain">Chulapa v2.1.0: more control over your site</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
+&lt;/div&gt;</content:encoded>
+      <link>https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</link>
+      <category>posts</category>
+      <category>jekyll</category>
+      <category>news</category>
+      <category>release</category>
+      <media:title type="plain">Chulapa v2.1.0: more control over your site</media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
-      
-		</item>
-		<item>
-			<dc:creator>dieghernan</dc:creator>
-			<title>Ask Chulapa</title>
-			
-			<description>Ask questions about &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; and get practical examples with links to the docs.</description>
-			<content:encoded>
- 				&lt;h3&gt;A new way to explore the documentation&lt;/h3&gt;
-				&lt;p&gt;1 min.&lt;/p&gt;
-				&lt;div&gt;&lt;p&gt;The &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; documentation now has an AI assistant &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot; width=&quot;1em&quot; height=&quot;1em&quot; style=&quot;vertical-align:-.1em&quot;&gt;&lt;path d=&quot;M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;.
+      </item>
+    <item>
+      <dc:creator>dieghernan</dc:creator>
+      <title>Ask Chulapa</title>
+      <description>Ask questions about &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; and get practical examples with links to the docs.</description>
+      <content:encoded>&lt;h3&gt;A new way to explore the documentation&lt;/h3&gt;&lt;p&gt;2 min.&lt;/p&gt;
+      &lt;div&gt;&lt;p&gt;The &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; documentation now has an AI assistant &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot; width=&quot;1em&quot; height=&quot;1em&quot; style=&quot;vertical-align:-.1em&quot;&gt;&lt;path d=&quot;M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;.
 You can open it from the AI button on the homepage or documentation pages
 and ask about installation, skins, configuration, layouts and other documented
 features.&lt;/p&gt;
@@ -417,27 +416,25 @@ reusable theme and does not require an AI account to use
 &lt;p&gt;I wrote a more personal account of the development, including context selection,
 answer testing and the mobile interface, on my blog:
 &lt;a href=&quot;https://dieghernan.github.io/202610_building-a-documentation-chatbot/&quot;&gt;Building a documentation chatbot for &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-				</content:encoded>
-			<link>https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</link>
-			<category>posts</category>
-		    <category>ai</category><category>news</category><media:title type="plain">Ask Chulapa</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
+&lt;/div&gt;</content:encoded>
+      <link>https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</link>
+      <category>posts</category>
+      <category>ai</category>
+      <category>news</category>
+      <media:title type="plain">Ask Chulapa</media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
-      
-		</item>
-		<item>
-			<dc:creator>dieghernan</dc:creator>
-			<title>Welcome</title>
-			
-			<description>&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
+      </item>
+    <item>
+      <dc:creator>dieghernan</dc:creator>
+      <title>Welcome</title>
+      <description>&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
 that you can use for creating your site.&lt;/p&gt;
 </description>
-			<content:encoded>
- 				
-				&lt;p&gt;1 min.&lt;/p&gt;
-				&lt;div&gt;&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
+      <content:encoded>&lt;p&gt;2 min.&lt;/p&gt;
+      &lt;div&gt;&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
 that you can use for creating your site.&lt;/p&gt;
 
 &lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
@@ -473,14 +470,17 @@ look to each of them. No one could notice that the theme is the same!&lt;/p&gt;
 &lt;p&gt;When this post was written in May 2020, &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; was still in development. Stable releases are now available; see the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; for setup instructions.&lt;/p&gt;
 
 &lt;p&gt;The theme uses Bootstrap 4. See the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/02-config#font-awesome&quot;&gt;Font Awesome reference&lt;/a&gt; for icon versions and compatibility settings.&lt;/p&gt;
-&lt;/div&gt;
-				</content:encoded>
-			<link>https://dieghernan.github.io/chulapa/blog/20200515_welcome</link>
-			<category>posts</category>
-		    <category>bootstrap</category><category>jekyll</category><category>news</category><media:title type="plain">Welcome</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image"/>
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" /><guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20200515_welcome</guid>
+&lt;/div&gt;</content:encoded>
+      <link>https://dieghernan.github.io/chulapa/blog/20200515_welcome</link>
+      <category>posts</category>
+      <category>bootstrap</category>
+      <category>jekyll</category>
+      <category>news</category>
+      <media:title type="plain">Welcome</media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20200515_welcome</guid>
       <pubDate>Fri, 15 May 2020 00:00:00 +0200</pubDate>
-      
-		</item></channel>
+      </item>
+  </channel>
 </rss>
