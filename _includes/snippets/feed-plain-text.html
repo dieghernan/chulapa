@@ -1,0 +1,6 @@
+{%- assign feed_plain_text = include.html | strip_html | normalize_whitespace | strip
+  | replace: '&lt;', '<' | replace: '&gt;', '>'
+  | replace: '&quot;', '"' | replace: '&#34;', '"'
+  | replace: '&apos;', "'" | replace: '&#39;', "'" | replace: '&#x27;', "'"
+  | replace: '&nbsp;', ' ' | replace: '&#160;', ' '
+  | replace: '&#38;', '&' | replace: '&amp;', '&' -%}

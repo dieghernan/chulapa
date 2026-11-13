@@ -15,7 +15,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   {
     "_posts/2024-01-01-default.md" => "title: Default post\nauthor: {}",
     "_posts/2024-01-03-disabled.md" => "title: Disabled post\ninclude_on_feed: false",
-    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
+    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
   }.each { |path, data| File.write(File.join(source, path), "---\n#{data}\n---\nFeed content.") }
   ["", "/preview"].each do |baseurl|
@@ -29,6 +29,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
       raise "JSON Feed: incorrect feed URL" unless json["feed_url"] == "https://example.com#{baseurl}/feed.json"
       raise "JSON Feed: entry selection or title changed" unless json["items"].map { |item| item.fetch("title") } == expected
       raise "JSON Feed: missing HTML content" unless json["items"].all? { |item| item.fetch("content_html").include?("Feed content.") }
+      raise "JSON Feed: summary leaked HTML entities" unless json["items"].first.fetch("summary") == 'Use <main> with "quotes".'
       raise "JSON Feed: tags changed" unless json["items"].first.fetch("tags") == ["R & maps", "data, maps"]
       raise "JSON Feed: URL-only guest lost its identity" unless json["items"].first.fetch("authors") == [{"url" => "https://guest.example/"}]
       if enabled

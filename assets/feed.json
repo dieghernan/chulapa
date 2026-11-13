@@ -23,15 +23,20 @@ permalink: /feed.json
     {%- include snippets/canonical-url.html url=document.url canonical=document.canonical_url -%}
     {%- include snippets/author-identity.html author=document.author -%}
     {%- assign entry_image = document.og_image | default: document.header_img -%}
+    {%- assign title_html = document.title | markdownify -%}
+    {%- include snippets/feed-plain-text.html html=title_html -%}
+    {%- assign entry_title = feed_plain_text -%}
+    {%- assign summary_html = document.excerpt | markdownify -%}
+    {%- include snippets/feed-plain-text.html html=summary_html -%}
     {
       "id": {{ canonical_url | jsonify }},
       "url": {{ canonical_url | jsonify }},
-      "title": {{ document.title | markdownify | strip_html | normalize_whitespace | strip | replace: '&amp;', '&' | jsonify }},
+      "title": {{ entry_title | jsonify }},
       "content_html": {{ document.content | markdownify | jsonify }},
       "date_published": {{ document.date | date_to_xmlschema | jsonify }}{% if document.last_modified_at %},
       "date_modified": {{ document.last_modified_at | date_to_xmlschema | jsonify }}{% endif %}{% if entry_image %},
       "image": {{ entry_image | absolute_url | jsonify }}{% endif %}{% if document.excerpt %},
-      "summary": {{ document.excerpt | markdownify | strip_html | normalize_whitespace | strip | replace: '&amp;', '&' | jsonify }}{% endif %}{% if document.tags.size > 0 %},
+      "summary": {{ feed_plain_text | jsonify }}{% endif %}{% if document.tags.size > 0 %},
       "tags": {{ document.tags | jsonify }}{% endif %}{% if document.locale %},
       "language": {{ document.locale | replace: '_', '-' | jsonify }}{% endif %}{% if document.author or identity_name != empty or identity_url != empty %},
       "authors": [{% if identity_name != empty or identity_url != empty %}{
