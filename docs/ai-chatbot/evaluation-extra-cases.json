@@ -1,5 +1,12 @@
 [
   {
+    "id": "post-citation-author",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Can my article's suggested citation use an author other than the person who signed the post, with initials in APA and a full name in BibTeX?",
+    "expected": "v2.2.1 development default layout. Use a citation.author list with a name object containing given and family; one source gives initials in simplified APA and the full given name in BibTeX. The post byline uses the top-level author. Cite /docs/04-layouts#make-a-post-citable."
+  },
+  {
     "id": "authored-custom-navbar-background",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",

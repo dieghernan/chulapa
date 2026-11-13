@@ -1,0 +1,66 @@
+{%- assign citation_apa_names = '' | split: ',' -%}
+{%- assign citation_bib_names = citation_apa_names -%}
+{%- assign citation_author_sources = citation_apa_names | push: page.citation.author | push: page.author | push: site.author -%}
+{%- for citation_author_source in citation_author_sources -%}
+  {%- assign citation_authors = citation_author_source -%}
+  {%- assign citation_author_source_type = citation_author_source | jsonify | slice: 0 -%}
+  {%- unless citation_author_source_type == '[' -%}
+    {%- assign citation_authors = '' | split: ',' | push: citation_author_source -%}
+  {%- endunless -%}
+  {%- for citation_author in citation_authors -%}
+    {%- assign citation_name = citation_author.name | default: citation_author -%}
+    {%- assign citation_given = citation_name.given | normalize_whitespace -%}
+    {%- assign citation_family = citation_name.family | normalize_whitespace -%}
+    {%- assign citation_literal = citation_name.literal | normalize_whitespace -%}
+    {%- assign citation_corporate = false -%}
+    {%- if citation_literal != empty -%}
+      {%- assign citation_apa_name = citation_literal -%}
+      {%- assign citation_bib_name = citation_literal -%}
+      {%- assign citation_corporate = true -%}
+    {%- elsif citation_family != empty or citation_given != empty -%}
+      {%- assign citation_particle = citation_name['non-dropping-particle'] | normalize_whitespace -%}
+      {%- assign citation_dropping = citation_name['dropping-particle'] | normalize_whitespace -%}
+      {%- assign citation_family = citation_particle | append: ' ' | append: citation_family | strip -%}
+      {%- assign citation_apa_name = citation_family | default: citation_given -%}
+      {%- assign citation_bib_name = citation_apa_name -%}
+      {%- if citation_family != empty and citation_given != empty -%}
+        {%- assign citation_initials = '' -%}
+        {%- assign citation_given_words = citation_given | split: ' ' -%}
+        {%- for citation_word in citation_given_words -%}
+          {%- unless forloop.first -%}
+            {%- assign citation_initials = citation_initials | append: ' ' -%}
+          {%- endunless -%}
+          {%- assign citation_name_parts = citation_word | split: '-' -%}
+          {%- for citation_name_part in citation_name_parts -%}
+            {%- unless forloop.first -%}
+              {%- assign citation_initials = citation_initials | append: '-' -%}
+            {%- endunless -%}
+            {%- assign citation_initial = citation_name_part | slice: 0 | upcase -%}
+            {%- assign citation_initials = citation_initials | append: citation_initial | append: '.' -%}
+          {%- endfor -%}
+        {%- endfor -%}
+        {%- assign citation_apa_tail = citation_initials | append: ' ' | append: citation_dropping | strip -%}
+        {%- assign citation_bib_tail = citation_given | append: ' ' | append: citation_dropping | strip -%}
+        {%- assign citation_apa_name = citation_family | append: ', ' | append: citation_apa_tail -%}
+        {%- assign citation_bib_name = citation_family | append: ', ' | append: citation_bib_tail -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- assign citation_name_json = citation_name | jsonify | slice: 0 -%}
+      {%- assign citation_apa_name = '' -%}
+      {%- if citation_name_json == '"' -%}
+        {%- assign citation_apa_name = citation_name | normalize_whitespace -%}
+      {%- endif -%}
+      {%- assign citation_bib_name = citation_apa_name -%}
+    {%- endif -%}
+    {%- if citation_apa_name != empty -%}
+      {%- assign citation_apa_names = citation_apa_names | push: citation_apa_name -%}
+      {%- capture citation_bib_name_html -%}
+        {%- if citation_corporate -%}&#123;{%- endif -%}
+        {%- include snippets/citation-bibtex-value.html value=citation_bib_name -%}
+        {%- if citation_corporate -%}&#125;{%- endif -%}
+      {%- endcapture -%}
+      {%- assign citation_bib_names = citation_bib_names | push: citation_bib_name_html -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if citation_apa_names != empty -%}{%- break -%}{%- endif -%}
+{%- endfor -%}

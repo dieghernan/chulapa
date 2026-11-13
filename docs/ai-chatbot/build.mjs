@@ -11,7 +11,8 @@ const context = read('ai-context.md');
 // Reviewed: optional skin selector configuration, defaults and version limitations.
 // Reviewed: automatic theme JSON-LD entities and collection lists (v2.2.1 development).
 // Reviewed: built-in Algolia query minimum and short-query behavior.
-const maxContextBytes = 55000;
+// Reviewed: post citation setup and version caveat.
+const maxContextBytes = 55800;
 const contextBytes = Buffer.byteLength(context, 'utf8');
 if (contextBytes > maxContextBytes) {
   throw new Error(`Reviewed context is ${contextBytes} bytes; limit is ${maxContextBytes}. Consolidate facts or explicitly review the budget.`);

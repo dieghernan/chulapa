@@ -272,6 +272,61 @@ See an example [here](https://dieghernan.github.io/chulapa/demo/archive).
 Even if you don't want to show the breadcrumb, you can still specify the paths. The theme generates breadcrumb JSON-LD independently of `show_breadcrumb`. Without a list, non-home pages use a home/current-page breadcrumb. Structured data does not guarantee rich results. More information [here](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) and test tool [here](https://search.google.com/test/rich-results).
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
+#### Make a post citable
+
+Available in v2.2.1 development. Add `citation: true` to the front matter of
+a post using the default layout. At the end of the article, look for
+**How to cite this post**. It shows a simplified APA reference in English
+and a **BibTeX** disclosure you can open and copy. Set `citation: false` to
+disable the block, including when it was enabled through front matter defaults.
+
+To give the citation its own metadata, replace `citation: true` with a map.
+For example, add this to the front matter of a post about a journal article:
+
+```yaml
+title: Better hillshading with R
+author:
+  name: Diego Hernangómez
+citation:
+  type: article-journal
+  id: hillshade-2022
+  author:
+    - name:
+        given: Ana María
+        family: García López
+    - name:
+        literal: Terrain Research Group
+  issued: "2022-03"
+  container-title: Terrain Studies
+  volume: 4
+  issue: 2
+  page: "15–21"
+  doi: "10.1234/hills"
+  url: https://example.org/articles/hills/
+```
+
+The citation shows `García López, A. M.`, and BibTeX exports
+`García López, Ana María`. Both include the group author. The post's byline
+continues to use the top-level `author`. A plain name string or a list of
+strings also works. Plain names appear as entered.
+
+| Field under `citation` | Behavior and default |
+| --- | --- |
+| `type` | `post-weblog` is the default. `webpage`, `post-weblog` and unrecognized types use `@misc`. `article-journal` uses `@article`. |
+| `author` | Falls back to the post author and then the site author. With no author, the visible reference starts with the title and BibTeX omits `author`. |
+| `title` | Falls back to the post title. |
+| `issued` | Falls back to the post date. Use a quoted year, year and month, or full date, such as `"2022-03"`. The visible reference uses `n.d.` if the date is unavailable. BibTeX exports the year and month when available. |
+| `id` | BibTeX key. Omit it to use the post date and slug, for example `post20261111-hillshading`. Without a date, the key starts with `post-`. Use an explicit key if two entries would otherwise share a key. |
+| `url` | Absolute HTTP(S) URL of the cited work. Falls back to the page's canonical URL. |
+| `doi` | DOI of the cited work, for example `10.1234/hills`. The visible reference prefers the DOI link. BibTeX can carry both the DOI and the URL. |
+| `container-title` | Site or publication name. For a web entry it falls back to the site title. For a journal article it is omitted when missing. |
+| `volume`, `issue`, `page` | Optional journal details. BibTeX exports the issue as `number` and the page range as `pages`. |
+
+The front matter follows the supported subset of
+[Quarto citation metadata](https://quarto.org/docs/reference/metadata/citation.html).
+The visible reference uses the theme's simplified APA formatting. Both
+formats are shown together, and the feature needs no additional plugins.
+
 ### Landing page
 
 This is a version of the `default` layout that uses a dedicated background and

@@ -49,6 +49,11 @@ header_in_content: true
 			{% unless is_feed %}<div class="e-content">{% endunless %}
 			{{- content -}}
 			{% unless is_feed %}</div>{% endunless %}
+			{%- unless is_feed -%}
+			  {%- if page.citation and page.citation != empty -%}
+			    {%- include components/citation.html -%}
+			  {%- endif -%}
+			{%- endunless -%}
 			</{% if is_feed %}div{% else %}article{% endif %}>
 		</div>
 	</div>
