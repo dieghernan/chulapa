@@ -91,7 +91,7 @@ permalink: ./rss.xml
       <pubDate>{{ document.date | date_to_rfc822 }}</pubDate>
       {% if document.last_modified_at -%}
       <dcterms:modified>{{ document.last_modified_at | date_to_xmlschema }}</dcterms:modified>
-      {% endif -%}
+      {%- endif %}
     </item>
     {%- endfor %}
   </channel>

@@ -28,7 +28,7 @@ permalink: ./atom.xml
     <name>{{ identity_name | xml_escape }}</name>
     {% if identity_url != empty -%}
     <uri>{{ identity_url | absolute_url | xml_escape }}</uri>
-    {% endif -%}
+    {%- endif %}
   </author>
   {% endif -%}
   <rights>(c) {{ site.time | date: '%Y' }}, {{ site.author.name | default: site.github.owner_name | xml_escape }}</rights>
@@ -76,7 +76,7 @@ permalink: ./atom.xml
       <name>{{ entry_author_name | xml_escape }}</name>
       {% if identity_url != empty -%}
       <uri>{{ identity_url | absolute_url | xml_escape }}</uri>
-      {% endif -%}
+      {%- endif %}
     </author>
     <summary type="html">{{ document.excerpt | xml_escape }}</summary>
     <category term="{{ document.collection | xml_escape }}" />
