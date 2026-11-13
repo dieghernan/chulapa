@@ -1,6 +1,7 @@
 ---
 title: 'Ask <span class="chulapa">Chulapa</span>'
 subtitle: "A new way to explore the documentation"
+citation: true
 excerpt: 'Ask questions about <span class="chulapa">Chulapa</span> and get practical examples with links to the docs.'
 tags:
   - news

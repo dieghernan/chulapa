@@ -280,6 +280,10 @@ a post using the default layout. At the end of the article, look for
 and a **BibTeX** disclosure you can open and copy. Set `citation: false` to
 disable the block, including when it was enabled through front matter defaults.
 
+See the citation at the end of the
+[Ask <span class="chulapa">Chulapa</span> post]({{ '/blog/20261009_building-a-documentation-chatbot' | relative_url }}#chulapa-citation-label).
+Open **BibTeX** to view and copy the entry.
+
 To give the citation its own metadata, replace `citation: true` with a map.
 For example, add this to the front matter of a post about a journal article:
 
