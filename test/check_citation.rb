@@ -103,6 +103,11 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(citation["lang"] == "en" && citation.at_css("details > summary").text == "BibTeX", "Citation semantics")
   check(!journal.at_css(".e-content .post-citation, .post-citation .p-author, .post-citation .u-url, .post-citation .dt-published"), "Citation changed entry microformats")
   check(journal.at_css('meta[name="author"]')["content"] == "Post Author", "Citation changed the HTML author")
+  journal_html = File.read(File.join(destination, "journal.html"), encoding: "UTF-8")
+  citation_lines = journal_html.lines.grep(/<meta name="citation_/)
+  check(citation_lines.size == journal.css('head meta[name^="citation_"]').size &&
+    citation_lines.all? { |line| line.match?(/\A {4}<meta name="citation_\w+" content="[^"]*">\n\z/) },
+    "Expected each citation meta tag on its own line, indented by four spaces")
   check(scholar.call(journal) == {
     "citation_title" => ["Hillshade & {R}"], "citation_author" => ["Ana María García López", "Maps & More"],
     "citation_publication_date" => ["2022"],
