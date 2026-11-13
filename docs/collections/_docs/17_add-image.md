@@ -6,6 +6,9 @@ tags: [docs, content, media, images]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: media
+    order: 1
 ---
 
 Use this guide when you already have a post or page to edit in a published site.

@@ -5,6 +5,9 @@ tags: [docs, custom-hooks]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 5
 ---
 
 Use this guide for an existing site using the theme's layouts. Have the HTML

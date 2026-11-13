@@ -110,8 +110,7 @@ cannot accidentally substitute for the other.
 `check_include_cache.rb` verifies that cloud entries reuse Markdown and reading
 time work across labels and fields, while retaining collection badge variants.
 It also checks that fixed footer content renders once per build, comments stay
-specific to each page and a subsequent site build refreshes URLs, skin credits
-and copyright.
+specific to each page and a subsequent site build refreshes URLs and copyright.
 The cache checks also rebuild the same site after document edits and cover
 locale and reading-speed changes. `check_footer_comments.rb` exercises real
 Disqus, Cusdis, Cactus and Welcomments templates with distinct page inputs and

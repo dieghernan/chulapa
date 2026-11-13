@@ -5,6 +5,9 @@ tags: [docs, feeds]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: publishing
+    order: 3
 ---
 
 Use this guide when your existing site uses `jekyll-feed`, especially if readers

@@ -5,6 +5,9 @@ tags: [docs, content, media]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: media
+    order: 5
 ---
 
 Use this guide for an existing Markdown post or page that uses a theme layout.

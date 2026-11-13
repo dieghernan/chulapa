@@ -5,6 +5,9 @@ tags: [docs, installation, theme-updates]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: maintenance
+    order: 4
 ---
 
 Use this guide for an existing site when an option does not match its

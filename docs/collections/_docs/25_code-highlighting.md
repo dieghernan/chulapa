@@ -5,6 +5,9 @@ tags: [docs, appearance, code-highlighting]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: appearance
+    order: 6
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,

@@ -5,6 +5,9 @@ tags: [docs, publishing, troubleshooting]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: maintenance
+    order: 3
 ---
 
 Use this guide when your publishing run or local preview reports a YAML error,

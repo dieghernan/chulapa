@@ -5,6 +5,9 @@ tags: [docs, feeds]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: publishing
+    order: 2
 ---
 
 Use this guide on an existing site to let readers subscribe in a feed reader.

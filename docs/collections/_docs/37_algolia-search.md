@@ -5,6 +5,9 @@ tags: [docs, search, hosted-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: search
+    order: 5
 ---
 
 Use this guide if you already have an Algolia application/index and maintain

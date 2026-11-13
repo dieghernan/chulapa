@@ -5,6 +5,9 @@ tags: [docs, appearance, skins, fonts, code-highlighting]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: appearance
+    order: 8
 ---
 
 Use this guide when you already work with Sass/SCSS and have an existing Jekyll

@@ -8,6 +8,9 @@ tags: [docs, accessibility]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: maintenance
+    order: 1
 ---
 
 Use this guide to check a published site after changing content, a skin or an

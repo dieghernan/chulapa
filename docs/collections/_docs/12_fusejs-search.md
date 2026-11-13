@@ -7,6 +7,9 @@ tags: [docs, search, local-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: search
+    order: 1
 ---
 
 Use this guide for an existing site where you want Fuse.js search. The

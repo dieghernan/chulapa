@@ -5,6 +5,9 @@ tags: [docs, appearance, fonts, branding]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: appearance
+    order: 4
 ---
 
 Use this guide on an existing site using the theme's stylesheets. The

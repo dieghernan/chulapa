@@ -5,6 +5,9 @@ tags: [docs, publishing]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: sharing
+    order: 1
 ---
 
 Use this guide for an existing post when you want a specific description and

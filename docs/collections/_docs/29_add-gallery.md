@@ -5,6 +5,9 @@ tags: [docs, content, media, images, galleries]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: media
+    order: 2
 ---
 
 Use this guide for an existing post or page that uses a theme layout and can

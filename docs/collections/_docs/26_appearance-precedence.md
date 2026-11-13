@@ -5,6 +5,9 @@ tags: [docs, appearance, skins, colors]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 7
 ---
 
 A skin provides a coordinated starting design. Individual variables customize

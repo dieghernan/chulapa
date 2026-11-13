@@ -6,6 +6,9 @@ show_toc: false
 tags: [docs, installation]
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: installation
+    order: 1
 ---
 
 This documentation targets **2.2.0**. Features labelled **v2.2.0** are not

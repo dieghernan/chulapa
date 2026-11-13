@@ -5,6 +5,9 @@ tags: [docs, accessibility]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 3
 ---
 
 Lookup for the theme's behavior and limits. Practical verification steps are in

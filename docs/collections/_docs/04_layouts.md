@@ -9,6 +9,9 @@ h_max: 4
 tags: [docs, content]
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 2
 ---
 
 Use this page to look up a layout, snippet or page setting. For everyday editing,
@@ -645,6 +648,51 @@ Parameters belong in the include call, not in page YAML:
 Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
 `photoswipe=true`. These are include parameters, not new configuration options.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
+### Series navigation
+
+Available in development v2.2.1. A series gives readers an ordered list of
+related pages or posts. Each list starts collapsed and identifies the current
+part when opened. See the [first-site guide](./00-start) for an example.
+
+Jekyll's collection order applies within one collection. Tags and categories
+can group a page in several ways, but they do not store a different position
+for each group. The series map defines each label once, and the page's
+membership list assigns a position in each series across pages, posts and
+collections.
+
+Add a top-level map to `_config.yml` and give each series a visible label:
+
+```yaml
+series:
+  first-site:
+    label: First-site guide
+  publishing:
+    label: Publishing guides
+```
+
+In each member's front matter, list the series IDs and assign a unique integer
+order within each series. The displayed part number follows the sorted position,
+so you can leave gaps when assigning orders.
+
+```yaml
+series:
+  - id: first-site
+    order: 20
+  - id: publishing
+    order: 10
+```
+
+Add this include where you want the index to appear, either in the page body or
+in a shared layout:
+
+```liquid
+{% raw %}{% include snippets/series-chapters.html %}{% endraw %}
+```
+
+The index appears when a configured series has at least two published members.
+Duplicate orders are sorted by URL and reported in a comment in the generated
+HTML. The index works without JavaScript or additional Jekyll plugins.
 
 ### Masonry gallery
 

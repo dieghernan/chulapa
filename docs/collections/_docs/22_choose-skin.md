@@ -5,6 +5,9 @@ tags: [docs, appearance, skins]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: appearance
+    order: 1
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,
@@ -70,7 +73,8 @@ If you set `vars.primary` in either skin, its value also supplies the browser's
 address-bar color when that appearance is active, on browsers that support it.
 A skin without an explicit `vars.primary` leaves that color to the browser.
 The selector preserves custom `theme-color` tags added through the head hook.
-The footer credits both configured built-in skins, once each.
+Starting in v2.2.1 (development), skin credits are listed in the
+[skin gallery](../skins) instead of the site footer.
 
 Light is the initial default. Auto follows the device's color preference and
 updates when it changes. The browser remembers the visitor's choice across

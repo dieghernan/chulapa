@@ -7,6 +7,11 @@ tags: [docs, navigation, site-identity]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: first-site
+    order: 2
+  - id: site-content
+    order: 1
 ---
 
 Use this guide when your site is already published and you want to replace its
@@ -69,3 +74,5 @@ pages. A page's own description or excerpt can take precedence; see the
 
 If the old values remain, follow [the publishing checks](./42-unpublished-changes).
 For local preview, restart Jekyll after editing `_config.yml`.
+
+Continue with [publishing a new post](./15-create-post).

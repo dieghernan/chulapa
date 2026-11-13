@@ -5,6 +5,9 @@ tags: [docs, branding]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: site-content
+    order: 9
 ---
 
 Use this guide on an existing site using the theme's stylesheets. Font Awesome

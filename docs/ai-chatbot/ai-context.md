@@ -160,11 +160,12 @@ v2.2.0 selector hides focus; local CSS or disable if needed. v2.2.1 development:
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
 Named skins: academia,cerulean,litera,pulse,butterfly,butterfly-dark,butterfly-dim,chulapa,cyborg,dark-bg,darkly,deeply,electro,flatly,focal,gitdev,gitdev-dark,graymor,hootstrap,journal,listen,lux,lymcha,materia,media,mickie,minco,minty,monotone,navi,pear,preptor,skeeblu,sketchy,slate,solar,sunset,towards,twitter,twitter-dim,twitter-lights-out,united,universal,wandoo,yeti.
-Examples+catalog; full list on request. auto/none special; current not a skin.
+auto/none special; current not a skin.
 cerulean/litera/pulse: 2.2.0 only; retain original Bootswatch 4.6.2 palettes/typography/components and contrast limits. Not included in AA adjustments; vars still override. /docs/23-change-color#original-bootswatch-skins.
 ## Layouts
+Series (v2.2.1 dev): site map ID to label, page list of {id, order}, include snippets/series-chapters.html. /docs/04-layouts#series-navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
-default is for posts/pages/collection documents, via front matter or Jekyll defaults. Markdown content uses YAML front matter. Optional components use front matter/defaults; demos show output.
+Default layout: posts, pages and collections. Set options in front matter or defaults.
 ## Post citations (v2.2.1 development)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#make-a-post-citable
 Default layout: add citation: true to post front matter for English simplified APA and expandable BibTeX. citation: false disables. A citation map can override author, title, issued (quoted YYYY, YYYY-MM, YYYY-MM-DD), url, container-title and id. Author fallback: post, then site; structured citation.author entries use name.given and name.family for APA initials and full BibTeX names; name.literal preserves group authors. Byline unchanged. Journals: type: article-journal, optional volume, issue, page and doi. DOI wins for the visible link. Default layout with citation enabled: google-scholar: true adds head tags. See the guide for Quarto field mappings and Scholar date formats.

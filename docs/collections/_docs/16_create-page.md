@@ -6,6 +6,9 @@ tags: [docs, content, writing, publishing]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: site-content
+    order: 3
 ---
 
 Use this guide when your site is already published and you want a page such as

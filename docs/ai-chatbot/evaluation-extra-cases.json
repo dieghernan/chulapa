@@ -1,5 +1,12 @@
 [
   {
+    "id": "series-navigation-multiple-memberships",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "How can a post be part 2 of a tutorial series and part 1 of a publishing series?",
+    "expected": "Development v2.2.1. Define both IDs with labels in the site series map. Set a front matter list with the two id and order pairs. Add the series-chapters include to the body or layout. Part numbers follow sorted order among published members. Cite /docs/04-layouts#series-navigation."
+  },
+  {
     "id": "post-citation-author",
     "section": "layouts",
     "doc": "04_layouts.md",

@@ -6,6 +6,11 @@ tags: [docs, content, writing, publishing]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: first-site
+    order: 3
+  - id: site-content
+    order: 2
 ---
 
 Use this guide when your site is already published. For a first website, follow

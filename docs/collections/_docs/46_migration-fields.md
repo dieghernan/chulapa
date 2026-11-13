@@ -5,6 +5,9 @@ tags: [docs, installation, theme-updates]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: installation
+    order: 5
 ---
 
 Lookup for an existing Jekyll site's migration. The entries below are common

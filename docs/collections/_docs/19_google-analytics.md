@@ -6,6 +6,9 @@ tags: [docs, analytics]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: comments
+    order: 7
 ---
 
 Use this guide when your site is published and you have a Google Analytics 4

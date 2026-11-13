@@ -5,6 +5,9 @@ tags: [docs, content, writing]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: site-content
+    order: 8
 ---
 
 Use this guide for an existing Markdown post or page using kramdown, as in the

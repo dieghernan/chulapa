@@ -14,7 +14,8 @@ browser. You do not need to install anything on your computer.
 Moving an existing site? Follow the [migration guide and checklist](./docs/07-migration).
 
 Browse [documentation topics](./docs/tags) for tagged guides and references.
-Topic coverage is partial; the sections below list all documentation.
+The sections below list all documentation. Open the series index on any guide
+or reference page to find related pages in the same group.
 
 ## Tutorials
 
@@ -52,6 +53,8 @@ search and comments are optional.
 - [Enable Autothemer](./docs/27-autothemer) or [adapt a Sass skin](./docs/28-custom-skin).
 
 ### Navigation
+
+- [Group pages into a series](./docs/04-layouts#series-navigation).
 
 - [Add or change a menu link](./docs/10-edit-menu).
 - [Edit footer links](./docs/11-edit-footer).

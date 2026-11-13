@@ -221,6 +221,35 @@ collections:
     output: true
     permalink: /blog/:year:month:day_:title
 collections_dir: collections
+
+# Use the series ID in each chapter's front matter with a unique integer order.
+# Duplicate orders are sorted by URL and reported in the generated HTML source.
+series:
+  first-site:
+    label: First-site guide
+  site-content:
+    label: Site identity and content
+  media:
+    label: Images, galleries and media
+  appearance:
+    label: Appearance and branding
+  navigation:
+    label: Site navigation
+  installation:
+    label: Installation and migration
+  search:
+    label: Site search
+  comments:
+    label: Comments and analytics
+  sharing:
+    label: SEO and social sharing
+  maintenance:
+    label: Maintenance and troubleshooting
+  publishing:
+    label: Feeds and publishing
+  reference:
+    label: Theme reference
+
 permalink: /:year:month:day_:title
 # D.3. Front matter defaults
 # Theme page options: docs/04-layouts.
@@ -241,6 +270,7 @@ defaults:
     path: ""
     type: "docs"
   values:
+    layout: docs-guide
     header_type: "hero"
     show_sidetoc: true
     show_date: false

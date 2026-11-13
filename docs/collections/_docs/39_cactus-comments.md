@@ -5,6 +5,9 @@ tags: [docs, comments]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: comments
+    order: 3
 ---
 
 Use this guide after registering your site with [Cactus](https://cactus.chat/).

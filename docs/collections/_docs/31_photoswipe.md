@@ -5,6 +5,9 @@ tags: [docs, content, media, images, galleries]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: media
+    order: 4
 ---
 
 Use this guide for an existing [gallery](./29-add-gallery) or

@@ -6,6 +6,9 @@ tags: [docs, publishing]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: sharing
+    order: 3
 ---
 
 Use this guide when you publish a copy of an article and want its metadata to

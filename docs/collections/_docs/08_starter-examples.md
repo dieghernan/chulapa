@@ -7,6 +7,9 @@ tags: [docs, installation, starter-examples]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: installation
+    order: 6
 ---
 
 These examples are for people who already use Jekyll. Each folder contains a

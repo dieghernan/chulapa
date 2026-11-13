@@ -5,6 +5,9 @@ tags: [docs, publishing, troubleshooting]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: publishing
+    order: 1
 ---
 
 A saved file and a published web page are different things. The repository holds
