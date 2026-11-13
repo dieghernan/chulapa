@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" >
-	<generator uri="https://dieghernan.github.io/chulapa" version="1.0.0">Chulapa</generator>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+	<generator uri="https://dieghernan.github.io/chulapa">Chulapa</generator>
 	<link href="https://dieghernan.github.io/chulapa/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://dieghernan.github.io/chulapa" rel="alternate" type="text/html" />
-	<updated>2026-11-11T15:58:08+01:00</updated>
+	<updated>2026-10-22T00:00:00+02:00</updated>
 	<id>https://dieghernan.github.io/chulapa/atom.xml</id>
 	<title>Chulapa | A flexible, visual Jekyll theme</title>
 	<subtitle>A flexible, visual Jekyll theme</subtitle>
@@ -25,10 +25,10 @@
 		
 		&lt;h3&gt;Dark mode, diagrams, galleries and new starter examples&lt;/h3&gt;
 		
-  		
-			&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; &gt;
+  		&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; alt=&#39;&#39;&gt;
 			
-	&lt;p&gt;2 min.&lt;/p&gt;
+
+			&lt;p&gt;2 min.&lt;/p&gt;
 			&lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.2.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0&lt;/a&gt;
 is out.&lt;/p&gt;
 
@@ -52,7 +52,7 @@ page is displayed.&lt;/p&gt;
 &lt;p&gt;This is completely opt-in. If you do not configure a dark skin, your site works
 as before and no additional styles or scripts for the selector are loaded.&lt;/p&gt;
 
-&lt;p&gt;See &lt;a href=&quot;/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark&quot;&gt;how to configure light and dark skins&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/22-choose-skin#let-visitors-switch-between-light-and-dark&quot;&gt;how to configure light and dark skins&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;mermaid-diagrams&quot;&gt;Mermaid diagrams&lt;/h2&gt;
 
@@ -66,7 +66,7 @@ directly in your Markdown content.&lt;/p&gt;
 &lt;p&gt;There is also a fallback: if Mermaid cannot render a diagram, the original
 source remains available.&lt;/p&gt;
 
-&lt;p&gt;The &lt;a href=&quot;/chulapa/docs/33-add-diagram&quot;&gt;Mermaid guide&lt;/a&gt; has all the
+&lt;p&gt;The &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/33-add-diagram&quot;&gt;Mermaid guide&lt;/a&gt; has all the
 details.&lt;/p&gt;
 
 &lt;h2 id=&quot;photoswipe-galleries&quot;&gt;PhotoSwipe galleries&lt;/h2&gt;
@@ -78,8 +78,8 @@ image viewer.&lt;/p&gt;
 preferences and the original image link as a fallback.&lt;/p&gt;
 
 &lt;p&gt;You can see how to
-&lt;a href=&quot;/chulapa/docs/31-photoswipe&quot;&gt;enable PhotoSwipe&lt;/a&gt; or check the
-&lt;a href=&quot;/chulapa/demo/14-photoswipe&quot;&gt;live demo&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/31-photoswipe&quot;&gt;enable PhotoSwipe&lt;/a&gt; or check the
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/demo/14-photoswipe&quot;&gt;live demo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;goatcounter-analytics&quot;&gt;GoatCounter analytics&lt;/h2&gt;
 
@@ -89,7 +89,7 @@ preferences and the original image link as a fallback.&lt;/p&gt;
 &lt;p&gt;It is disabled by default and, when configured, the script is loaded
 asynchronously only in production builds.&lt;/p&gt;
 
-&lt;p&gt;See the &lt;a href=&quot;/chulapa/docs/18-goatcounter&quot;&gt;GoatCounter setup guide&lt;/a&gt;
+&lt;p&gt;See the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/18-goatcounter&quot;&gt;GoatCounter setup guide&lt;/a&gt;
 for the configuration details.&lt;/p&gt;
 
 &lt;h2 id=&quot;navigation-and-new-skins&quot;&gt;Navigation and new skins&lt;/h2&gt;
@@ -106,7 +106,7 @@ benchmark, so it is worth checking the result if you use one of these skins or
 custom colors.&lt;/p&gt;
 
 &lt;p&gt;You can compare all of them in the
-&lt;a href=&quot;/chulapa/skins&quot;&gt;skin previews&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/skins&quot;&gt;skin previews&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;starter-examples&quot;&gt;Starter examples&lt;/h2&gt;
 
@@ -125,8 +125,8 @@ complete &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; site fits to
 &lt;p&gt;Each example includes the configuration and content files needed to reproduce
 the site, together with a working demo.&lt;/p&gt;
 
-&lt;p&gt;See the &lt;a href=&quot;/chulapa/docs/08-starter-examples&quot;&gt;starter examples&lt;/a&gt; or
-browse the &lt;a href=&quot;/chulapa/demo&quot;&gt;demos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/08-starter-examples&quot;&gt;starter examples&lt;/a&gt; or
+browse the &lt;a href=&quot;https://dieghernan.github.io/chulapa/demo&quot;&gt;demos&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;updating-to-v220&quot;&gt;Updating to v2.2.0&lt;/h2&gt;
 
@@ -145,7 +145,7 @@ browse the &lt;a href=&quot;/chulapa/demo&quot;&gt;demos&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle update chulapa-jekyll
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The &lt;a href=&quot;/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; covers both
+&lt;p&gt;The &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; covers both
 methods.&lt;/p&gt;
 
 &lt;p&gt;If you are upgrading an existing site, especially one with local overrides of
@@ -178,10 +178,10 @@ have the complete list of changes.&lt;/p&gt;
 		
 		&lt;h3&gt;New looks, more search options and better metadata&lt;/h3&gt;
 		
-  		
-			&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; &gt;
+  		&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; alt=&#39;&#39;&gt;
 			
-	&lt;p&gt;5 min.&lt;/p&gt;
+
+			&lt;p&gt;5 min.&lt;/p&gt;
 			&lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.1.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0&lt;/a&gt;
 is here. This release gives you more control over how your site looks, how
 readers find its content and how pages appear when shared.&lt;/p&gt;
@@ -232,8 +232,8 @@ representative article images for structured data.&lt;/p&gt;
 
 &lt;p&gt;These settings help describe your content accurately. They do not guarantee
 a particular search result or social preview, so check a few real pages after
-updating. The &lt;a href=&quot;/chulapa/docs/04-layouts#seo-metadata&quot;&gt;metadata reference&lt;/a&gt;
-and &lt;a href=&quot;/chulapa/docs/02-config&quot;&gt;global settings&lt;/a&gt; explain the options
+updating. The &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata&quot;&gt;metadata reference&lt;/a&gt;
+and &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/02-config&quot;&gt;global settings&lt;/a&gt; explain the options
 and their defaults.&lt;/p&gt;
 
 &lt;h2 id=&quot;one-theme-more-looks&quot;&gt;One theme, more looks&lt;/h2&gt;
@@ -251,8 +251,8 @@ Nord code highlighting:&lt;/p&gt;
   &lt;span class=&quot;na&quot;&gt;highlight&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nord&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Browse the &lt;a href=&quot;/chulapa/skins&quot;&gt;skin previews&lt;/a&gt; and
-&lt;a href=&quot;/chulapa/docs/syntax-highlighting&quot;&gt;syntax highlighting examples&lt;/a&gt;
+&lt;p&gt;Browse the &lt;a href=&quot;https://dieghernan.github.io/chulapa/skins&quot;&gt;skin previews&lt;/a&gt; and
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/syntax-highlighting&quot;&gt;syntax highlighting examples&lt;/a&gt;
 to compare them with your own content. Skin names are case-sensitive: use the
 filename without its &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.scss&lt;/code&gt; extension.&lt;/p&gt;
 
@@ -288,7 +288,7 @@ a page appeared. When updating an older Lunr configuration, replace
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search.lunr_maxwords&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search.maxwords&lt;/code&gt;. The old option still works and
 takes precedence if both are present, so remove it when migrating.&lt;/p&gt;
 
-&lt;p&gt;See the &lt;a href=&quot;/chulapa/docs/02-config#search-engines&quot;&gt;search configuration&lt;/a&gt;
+&lt;p&gt;See the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/02-config#search-engines&quot;&gt;search configuration&lt;/a&gt;
 for provider-specific settings and setup.&lt;/p&gt;
 
 &lt;h2 id=&quot;make-room-for-different-kinds-of-pages&quot;&gt;Make room for different kinds of pages&lt;/h2&gt;
@@ -306,7 +306,7 @@ and structure. In v2.1.0, it can also reuse a theme header:&lt;/p&gt;
 
 &lt;p&gt;The header is optional, and the layout stays headerless by default. Enabling
 it does not add a content container: your markup still controls the page’s
-width and spacing. Try the &lt;a href=&quot;/chulapa/demo/minimal-header&quot;&gt;minimal header demo&lt;/a&gt;
+width and spacing. Try the &lt;a href=&quot;https://dieghernan.github.io/chulapa/demo/minimal-header&quot;&gt;minimal header demo&lt;/a&gt;
 for an example.&lt;/p&gt;
 
 &lt;p&gt;At the end of an article, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;show_random&lt;/code&gt; adds another way to discover content,
@@ -314,7 +314,7 @@ and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;related_l
 those cards. Random selection happens at build time, using the same tag-based
 candidate pool as related content; it does not select a new set on each visit.&lt;/p&gt;
 
-&lt;p&gt;The &lt;a href=&quot;/chulapa/docs/04-layouts&quot;&gt;layouts reference&lt;/a&gt; covers those
+&lt;p&gt;The &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/04-layouts&quot;&gt;layouts reference&lt;/a&gt; covers those
 options and the other components you can enable on a page.&lt;/p&gt;
 
 &lt;h2 id=&quot;a-few-important-fixes-behind-the-scenes&quot;&gt;A few important fixes behind the scenes&lt;/h2&gt;
@@ -351,7 +351,7 @@ in the &lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.1.
 
 &lt;p&gt;Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update chulapa-jekyll&lt;/code&gt; and rebuild your site. Version 2.1.0
 is &lt;a href=&quot;https://rubygems.org/gems/chulapa-jekyll/versions/2.1.0&quot;&gt;available on RubyGems&lt;/a&gt;.
-The &lt;a href=&quot;/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; covers the
+The &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; covers the
 required plugins and deployment steps for each method.&lt;/p&gt;
 
 &lt;p&gt;Preview a post, a standalone page and your search results before deploying.
@@ -397,10 +397,10 @@ you build. Share your site or feedback in
 		
 		&lt;h3&gt;A new way to explore the documentation&lt;/h3&gt;
 		
-  		
-			&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; &gt;
+  		&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; alt=&#39;&#39;&gt;
 			
-	&lt;p&gt;1 min.&lt;/p&gt;
+
+			&lt;p&gt;1 min.&lt;/p&gt;
 			&lt;p&gt;The &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; documentation now has an AI assistant &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot; width=&quot;1em&quot; height=&quot;1em&quot; style=&quot;vertical-align:-.1em&quot;&gt;&lt;path d=&quot;M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;.
 You can open it from the AI button on the homepage or documentation pages
 and ask about installation, skins, configuration, layouts and other documented
@@ -450,10 +450,10 @@ answer testing and the mobile interface, on my blog:
 		<id>https://dieghernan.github.io/chulapa/blog/20200515_welcome</id>
 		<content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20200515_welcome">
 		
-  		
-			&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; &gt;
+  		&lt;img src=&#39;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&#39; alt=&#39;&#39;&gt;
 			
-	&lt;p&gt;1 min.&lt;/p&gt;
+
+			&lt;p&gt;1 min.&lt;/p&gt;
 			&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
 that you can use for creating your site.&lt;/p&gt;
 
@@ -487,9 +487,9 @@ look to each of them. No one could notice that the theme is the same!&lt;/p&gt;
 
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
 
-&lt;p&gt;When this post was written in May 2020, &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; was still in development. Stable releases are now available; see the &lt;a href=&quot;/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; for setup instructions.&lt;/p&gt;
+&lt;p&gt;When this post was written in May 2020, &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; was still in development. Stable releases are now available; see the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/01-install&quot;&gt;installation guide&lt;/a&gt; for setup instructions.&lt;/p&gt;
 
-&lt;p&gt;The theme uses Bootstrap 4. See the &lt;a href=&quot;/chulapa/docs/02-config#font-awesome&quot;&gt;Font Awesome reference&lt;/a&gt; for icon versions and compatibility settings.&lt;/p&gt;
+&lt;p&gt;The theme uses Bootstrap 4. See the &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/02-config#font-awesome&quot;&gt;Font Awesome reference&lt;/a&gt; for icon versions and compatibility settings.&lt;/p&gt;
 
 		</content>
 		

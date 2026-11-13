@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-11-11 -->
+    <!-- Page build 2026-11-13 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -22,12 +22,12 @@
           "@id": "https://dieghernan.github.io/chulapa/docs/56-publish-feeds#primaryimage",
           "url": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
         },
-        "description": "Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses.",
+        "description": "Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses. In v2.2.1 development, it also supplies JSON Feed 1.1 at /feed.json. Share /subscribe/ to give readers a browser preview with recent entries and links to all three feeds.",
         "inLanguage": "en-US",
         "headline": "Publish posts in the built-in feeds",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-11T15:58:08+01:00",
-        "dateModified": "2026-11-11T15:58:08+01:00",
+        "datePublished": "2026-11-13T01:47:23+01:00",
+        "dateModified": "2026-11-13T01:47:23+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -103,11 +103,12 @@
     <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
     <!-- RSS 2.0 feed -->
     <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" >
+    <link href="https://dieghernan.github.io/chulapa/feed.json" type="application/feed+json" rel="alternate" title="JSON Feed Chulapa">
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses.">
+    <meta name="description" content="Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses. In v2.2.1 development, it also supplies JSON Feed 1.1 at /feed.json. Share /subscribe/ to give readers a browser preview with recent entries and links to all three feeds.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -115,12 +116,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/56-publish-feeds" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses." >
+    <meta property="og:description" content="Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses. In v2.2.1 development, it also supplies JSON Feed 1.1 at /feed.json. Share /subscribe/ to give readers a browser preview with recent entries and links to all three feeds." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses.">
+    <meta name="twitter:description" content="Include articles and share a subscription address - Use this guide on an existing site to let readers subscribe in a feed reader. The theme supplies Atom at /atom.xml and RSS 2.0 at /rss.xml; you do not need to install jekyll-feed for these addresses. In v2.2.1 development, it also supplies JSON Feed 1.1 at /feed.json. Share /subscribe/ to give readers a browser preview with recent entries and links to all three feeds.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
     <!-- this script is inserted before the css stylesheet -->
@@ -274,7 +275,13 @@
 	</div>
 			<div class="e-content"><p>Use this guide on an existing site to let readers subscribe in a feed reader.
 The theme supplies Atom at <code class="language-plaintext highlighter-rouge">/atom.xml</code> and RSS 2.0 at <code class="language-plaintext highlighter-rouge">/rss.xml</code>; you do not need
-to install <code class="language-plaintext highlighter-rouge">jekyll-feed</code> for these addresses.</p>
+to install <code class="language-plaintext highlighter-rouge">jekyll-feed</code> for these addresses. In v2.2.1 development, it also
+supplies JSON Feed 1.1 at <code class="language-plaintext highlighter-rouge">/feed.json</code>. Share <code class="language-plaintext highlighter-rouge">/subscribe/</code> to give readers a
+browser preview with recent entries and links to all three feeds.</p>
+<p>All three formats use the same entries. Atom and RSS include reading times.
+RSS provides a short description and the full article through
+<code class="language-plaintext highlighter-rouge">content:encoded</code>. JSON Feed includes the full article as HTML and uses
+plain text for titles and summaries.</p>
 <h2 id="include-your-posts">Include your posts</h2>
 <p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>, find the existing <code class="language-plaintext highlighter-rouge">defaults</code> list. For an existing scope with
 <code class="language-plaintext highlighter-rouge">path: ""</code> and <code class="language-plaintext highlighter-rouge">type: posts</code>, add <code class="language-plaintext highlighter-rouge">include_on_feed: true</code> under its <code class="language-plaintext highlighter-rouge">values</code>,
