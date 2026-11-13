@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Publish JSON Feed 1.1 at `/feed.json` and a browser subscription page at `/subscribe/` with links to all three formats.
+
 -   Expose the representative image of page-level Microformats2 entries as hidden `u-photo u-featured` metadata, using page Open Graph and header images before the site image and keeping image descriptions tied to the selected source (#193).
 
 -   Generate JSON-LD for supported video embeds using existing metadata inputs, shared microdata identities and canonical page links, without changing deferred playback or adding configuration.
@@ -12,6 +14,8 @@
 
 ### Changed
 
+-   Include excerpts and full articles in separate RSS fields, record available modification dates and derive the Atom feed update time from its entries.
+
 -   Expand the documentation chatbot to the visible mobile viewport and enlarge its desktop panel for easier reading.
 
 -   Style excerpts in Algolia, Lunr/Fuse and Simple-Jekyll-Search results as bordered blocks; preserve Algolia excerpts when highlight data is unavailable.
@@ -19,6 +23,8 @@
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
 ### Fixed
+
+-   Correct ampersand escaping in RSS titles and Atom link titles, preserve complete category names and use absolute links in syndicated documentation posts (#209).
 
 -   Place the search icon before its label in the classic navbar and full-page search headings.
 

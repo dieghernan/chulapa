@@ -13,9 +13,9 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   FileUtils.mkdir_p(File.join(source, "_posts"))
   FileUtils.mkdir_p(File.join(source, "_entries"))
   {
-    "_posts/2024-01-01-default.md" => "title: Default post",
+    "_posts/2024-01-01-default.md" => "title: Default post\nauthor: {}",
     "_posts/2024-01-03-disabled.md" => "title: Disabled post\ninclude_on_feed: false",
-    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\ntags: ['R & maps', 'data, maps']",
+    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
   }.each { |path, data| File.write(File.join(source, path), "---\n#{data}\n---\nFeed content.") }
   ["", "/preview"].each do |baseurl|
@@ -30,6 +30,10 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
       raise "JSON Feed: entry selection or title changed" unless json["items"].map { |item| item.fetch("title") } == expected
       raise "JSON Feed: missing HTML content" unless json["items"].all? { |item| item.fetch("content_html").include?("Feed content.") }
       raise "JSON Feed: tags changed" unless json["items"].first.fetch("tags") == ["R & maps", "data, maps"]
+      raise "JSON Feed: URL-only guest lost its identity" unless json["items"].first.fetch("authors") == [{"url" => "https://guest.example/"}]
+      if enabled
+        raise "JSON Feed: empty guest inherited feed author" unless json["items"].last.fetch("authors") == []
+      end
       raise "JSON Feed: duplicate IDs" unless json["items"].map { |item| item.fetch("id") }.uniq.size == expected.size
       %w[atom rss].each do |feed|
         xml = Nokogiri::XML(File.read(File.join(config["destination"], "#{feed}.xml"))) { |options| options.strict }

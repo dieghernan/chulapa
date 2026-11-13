@@ -33,11 +33,11 @@ permalink: /feed.json
       "image": {{ entry_image | absolute_url | jsonify }}{% endif %}{% if document.excerpt %},
       "summary": {{ document.excerpt | markdownify | strip_html | normalize_whitespace | strip | replace: '&amp;', '&' | jsonify }}{% endif %}{% if document.tags.size > 0 %},
       "tags": {{ document.tags | jsonify }}{% endif %}{% if document.locale %},
-      "language": {{ document.locale | replace: '_', '-' | jsonify }}{% endif %}{% if identity_name != empty %},
-      "authors": [{
-        "name": {{ identity_name | jsonify }}{% if identity_url != empty %},
+      "language": {{ document.locale | replace: '_', '-' | jsonify }}{% endif %}{% if document.author or identity_name != empty or identity_url != empty %},
+      "authors": [{% if identity_name != empty or identity_url != empty %}{
+        {% if identity_name != empty %}"name": {{ identity_name | jsonify }}{% endif %}{% if identity_url != empty %}{% if identity_name != empty %},{% endif %}
         "url": {{ identity_url | absolute_url | jsonify }}{% endif %}
-      }]{% endif %}
+      }{% endif %}]{% endif %}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]
