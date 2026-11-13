@@ -5,9 +5,11 @@ permalink: /feed.json
 {%- include snippets/feed-entries.html -%}
 {%- include snippets/author-identity.html -%}
 {%- assign feed_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
+{%- assign feed_title_html = site.title | default: site.github.repository_name | default: "Recent entries" | markdownify -%}
+{%- include snippets/feed-plain-text.html html=feed_title_html -%}
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": {{ site.title | default: site.github.repository_name | default: "Recent entries" | strip_html | jsonify }},
+  "title": {{ feed_plain_text | jsonify }},
   "home_page_url": {{ "/" | absolute_url | jsonify }},
   "feed_url": {{ page.url | absolute_url | jsonify }},
   "language": {{ feed_language | jsonify }},

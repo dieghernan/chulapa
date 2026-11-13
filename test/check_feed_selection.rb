@@ -15,7 +15,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   {
     "_posts/2024-01-01-default.md" => "title: Default post\nexcerpt: '   '\nauthor: {}",
     "_posts/2024-01-03-disabled.md" => "title: Disabled post\ninclude_on_feed: false",
-    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\nsubtitle: 'An *editorial* subtitle'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
+    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\nsubtitle: 'An *editorial* <span>subtitle</span>'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
   }.each do |path, data|
     content = path == "_entries/enabled.md" ? "Feed content. " * 40 : "Feed content."
@@ -23,11 +23,12 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   end
   ["", "/preview"].each do |baseurl|
     [false, true].each do |enabled|
-      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & site", "subtitle" => (enabled ? "Updates & notes" : " "), "og_image" => "/logo.png", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
+      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & <span>site</span>", "subtitle" => (enabled ? "<em>Updates</em> & notes" : " "), "og_image" => "/logo.png", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
       site = Jekyll::Site.new(config)
       site.process
       expected = enabled ? ['Enabled & formatted entry <main> "quoted"', "Default post"] : ['Enabled & formatted entry <main> "quoted"']
       json = JSON.parse(File.read(File.join(config["destination"], "feed.json")))
+      raise "JSON Feed: channel title must be plain text" unless json["title"] == "Feed & site"
       raise "JSON Feed: incorrect version" unless json["version"] == "https://jsonfeed.org/version/1.1"
       raise "JSON Feed: incorrect feed URL" unless json["feed_url"] == "https://example.com#{baseurl}/feed.json"
       raise "JSON Feed: entry selection or title changed" unless json["items"].map { |item| item.fetch("title") } == expected
@@ -54,7 +55,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         body = xml.at_css(feed == "atom" ? "entry > content" : "item > encoded")
         subtitle = Nokogiri::HTML.fragment(body.text).element_children.first
         raise "#{feed}: subtitle must be a paragraph" unless subtitle.name == "p"
-        raise "#{feed}: subtitle lost its emphasis" unless subtitle.at_css("em")&.text == "editorial"
+        raise "#{feed}: subtitle lost its inline markup" unless subtitle.text == "An editorial subtitle" && subtitle.at_css("em")&.text == "editorial" && subtitle.at_css("span")&.text == "subtitle"
         items = xml.css(feed == "atom" ? "entry" : "item")
         actual = items.map do |item|
           title = item.at_css("title")
@@ -62,7 +63,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         end
         if feed == "atom"
           first = items.first
-          raise "Atom: formatted title lost its markup" unless Nokogiri::HTML.fragment(first.at_css("title").text).at_css("strong")&.text == "formatted"
+          raise "Atom: entry title must be plain text" unless first.at_css("title")["type"].nil?
           raise "Atom: alternate link title must be plain text" unless first.at_css("link")["title"] == expected.first
         end
         raise "#{feed}: opt-in, date requirement or date order changed: #{actual.inspect}" unless actual == expected

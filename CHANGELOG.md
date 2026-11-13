@@ -26,7 +26,7 @@
 
 ### Fixed
 
--   Render article subtitles as paragraphs in RSS and Atom so they do not appear in the article heading hierarchy.
+-   Render feed metadata titles and subtitles as plain text, preserving inline formatting in article subtitles.
 
 -   Show the RSS channel title without a trailing separator when there is no subtitle, and include the full article only once when there is no excerpt.
 

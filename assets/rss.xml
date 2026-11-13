@@ -4,8 +4,12 @@ permalink: ./rss.xml
 ---
 {%- assign og_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
 {%- include snippets/feed-entries.html -%}
-{%- assign feed_title = site.title | default: site.github.repository_name | default: "Recent entries" -%}
-{%- assign feed_subtitle = site.subtitle | strip -%}
+{%- assign feed_title_html = site.title | default: site.github.repository_name | default: "Recent entries" | markdownify -%}
+{%- include snippets/feed-plain-text.html html=feed_title_html -%}
+{%- assign feed_title = feed_plain_text -%}
+{%- assign feed_subtitle_html = site.subtitle | markdownify -%}
+{%- include snippets/feed-plain-text.html html=feed_subtitle_html -%}
+{%- assign feed_subtitle = feed_plain_text -%}
 {%- if feed_subtitle != empty -%}
   {%- assign feed_title = feed_title | append: " | " | append: feed_subtitle -%}
 {%- endif -%}
