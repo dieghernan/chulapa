@@ -55,7 +55,15 @@ Dir.mktmpdir("chulapa-citation-") do |source|
     "compress_html" => { "clippings" => "all", "blanklines" => true },
     "chulapa-skin" => { "skin" => "gitdev", "highlight" => "github" }
   )
+  empty_slug_warning = false
+  Jekyll.logger.singleton_class.prepend(Module.new do
+    define_method(:warn) do |topic, message = nil, &block|
+      empty_slug_warning ||= message.to_s.include?("Empty `slug` generated for ''.")
+      super(topic, message, &block)
+    end
+  end)
   Dir.chdir(source) { Jekyll::Site.new(config.merge("author" => { "name" => "Site Author" })).process }
+  check(!empty_slug_warning, "Missing citation ID emitted an empty-slug warning")
   read = ->(name) { Nokogiri::HTML5(File.read(File.join(destination, "#{name}.html"), encoding: "UTF-8")) }
   bib = ->(doc) { doc.at_css(".post-citation details pre code").text }
   scholar = ->(doc) { doc.css('head meta[name^="citation_"]').group_by { |tag| tag["name"] }.transform_values { |tags| tags.map { |tag| tag["content"] } } }

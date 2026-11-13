@@ -28,6 +28,8 @@
 
 ### Fixed
 
+-   Avoid empty slug warnings when a citable post uses its generated BibTeX key (#213).
+
 -   Render feed metadata titles and subtitles and RSS channel and image descriptions as plain text, preserving inline formatting in article subtitles.
 
 -   Show the RSS channel title without a trailing separator when there is no subtitle, and include the full article only once when there is no excerpt.

@@ -353,6 +353,12 @@ month as separate BibTeX fields when available.
 Add `google-scholar: true` at the top level of the front matter of a citable
 post using `layout: default`. Keep `citation: true` or your existing citation map.
 
+Use the separate switch when you want to describe the cited work to scholarly
+indexers. A post can offer readers a copyable reference to a work published
+elsewhere. Enabling scholarly metadata for every visible citation would also
+describe those posts as records of the cited work, even when the post only
+discusses it. The `google-scholar` spelling follows Quarto.
+
 ```yaml
 layout: default
 citation: true

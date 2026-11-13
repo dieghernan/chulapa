@@ -3,17 +3,21 @@
   {%- include snippets/citation-authors.html -%}
   {%- include snippets/citation-fields.html -%}
   {%- assign citation_key = page.citation.id | strip -%}
-  {%- assign citation_key_slug = citation_key | slugify: 'ascii' -%}
-  {%- if citation_key_slug == empty -%}
-    {%- assign citation_slug = page.slug | default: page.name | default: citation_title | slugify: 'ascii' | default: 'entry' -%}
+  {%- if citation_key != empty -%}
+    {%- assign citation_key_plain = citation_key | remove: ':' | remove: '-' | remove: '_' | remove: '.' | downcase -%}
+    {%- if citation_key_plain == empty -%}
+      {%- assign citation_key = '' -%}
+    {%- else -%}
+      {%- assign citation_key_ascii = citation_key_plain | slugify: 'ascii' -%}
+      {%- if citation_key_ascii != citation_key_plain -%}
+        {%- assign citation_key = citation_key | slugify: 'ascii' -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if citation_key == empty -%}
+    {%- assign citation_slug = page.slug | default: page.name | default: citation_title | default: 'entry' | slugify: 'ascii' | default: 'entry' -%}
     {%- assign citation_post_date = page.date | date: '%Y%m%d' -%}
     {%- assign citation_key = citation_post_date | prepend: 'post' | append: '-' | append: citation_slug -%}
-  {%- else -%}
-    {%- assign citation_key_plain = citation_key | remove: ':' | remove: '-' | remove: '_' | remove: '.' | downcase -%}
-    {%- assign citation_key_ascii = citation_key_plain | slugify: 'ascii' -%}
-    {%- if citation_key_ascii != citation_key_plain -%}
-      {%- assign citation_key = citation_key_slug -%}
-    {%- endif -%}
   {%- endif -%}
   {%- capture citation_apa_authors -%}
     {%- for citation_apa_name in citation_apa_names -%}
