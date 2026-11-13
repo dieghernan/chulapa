@@ -203,6 +203,12 @@ collections:
 collections_dir     : docs/collections
 permalink           : /:year:month:day_:title/
 
+# Optional series map used by the series navigation snippet.
+# Set each series label here and use its ID with a unique integer order in each page's front matter.
+# series:
+#   first-site:
+#     label: First-site guide
+
 # D.3. Front matter defaults
 # https://jekyllrb.com/docs/configuration/front-matter-defaults/
 # Theme page options: docs/04-layouts.

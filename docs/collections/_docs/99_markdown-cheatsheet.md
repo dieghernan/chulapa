@@ -9,6 +9,9 @@ tags: [docs, content, writing]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 9
 ---
 
 Lookup for formatting syntax and its rendered result. For a complete article

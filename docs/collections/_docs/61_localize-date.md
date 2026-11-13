@@ -6,6 +6,9 @@ tags: [docs, content, writing]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: site-content
+    order: 4
 ---
 
 Use this guide when you want to display a date inside an existing article or

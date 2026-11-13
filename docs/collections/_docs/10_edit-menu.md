@@ -7,6 +7,9 @@ tags: [docs, navigation]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: navigation
+    order: 1
 ---
 
 Use this guide when your site is already published and you have a page to link to.

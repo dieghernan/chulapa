@@ -58,8 +58,7 @@ Dir.mktmpdir("chulapa-cache-") do |source|
       raise "Cached comments belong to another page" if name != "hidden" && comments&.text != "#{name}:/#{name}.html"
       actual_url = footer.at_css(".chulapa-footer-sociallink")["href"]
       raise "Footer URL did not refresh between builds: #{actual_url} (#{baseurl})" unless actual_url == "https://example.com#{baseurl}/footer-marker"
-      skin = baseurl.empty? ? "Preptor" : "Navi"
-      raise "Skin attribution did not refresh" unless footer.at_css(".chulapa-footer-brand b").text == skin
+      raise "Unexpected footer branding" unless footer.at_css(".chulapa-footer-brand").text.gsub(/\s+/, " ").strip == "Powered by Chulapa Jekyll Theme"
       copyright = baseurl.empty? ? "Author" : "Custom copyright"
       raise "Copyright did not refresh" unless footer.at_css(".mt-2.mb-3").text.include?(copyright)
     end

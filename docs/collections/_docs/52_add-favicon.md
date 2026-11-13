@@ -5,6 +5,9 @@ tags: [docs, site-identity, branding]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: appearance
+    order: 3
 ---
 
 Use this guide for an existing site. The browser-tab icon is a favicon; it is

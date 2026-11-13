@@ -5,6 +5,11 @@ tags: [docs, navigation]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: site-content
+    order: 10
+  - id: navigation
+    order: 3
 ---
 
 Use this guide on an existing blog with tagged or categorized posts. The result

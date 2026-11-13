@@ -1406,3 +1406,14 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 .bs-component {
   @include chulapa-theme-selector-styles;
 }
+.chulapa-series-indices {
+  overflow-wrap: anywhere;
+}
+
+.chulapa-series-index > summary {
+  cursor: pointer;
+}
+
+.chulapa-series-index:not([open]) > summary:not(:focus-visible) .chulapa-series-position {
+  opacity: 0.8;
+}

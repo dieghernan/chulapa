@@ -8,6 +8,9 @@ h_max: 5
 tags: [docs, analytics, navigation]
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 1
 ---
 
 For editing procedures, use [Change your site's name and author](./14-site-details),
@@ -475,6 +478,10 @@ ones supplied by <span class="chulapa">Chulapa</span>. The
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 ## D. Jekyll defaults and collections
+
+Use the optional [series map](./04-layouts#series-navigation) to group published
+pages and posts into ordered reading lists. It is available in development
+v2.2.1.
 
 **Advanced configuration.** A collection groups content such as portfolio
 projects; defaults apply shared page settings without repeating them in each

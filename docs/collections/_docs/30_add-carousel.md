@@ -5,6 +5,9 @@ tags: [docs, content, media, images, galleries]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: media
+    order: 3
 ---
 
 Use this guide for an existing post or page. First upload and group photographs

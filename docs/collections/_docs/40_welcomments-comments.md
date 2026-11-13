@@ -5,6 +5,9 @@ tags: [docs, comments]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: comments
+    order: 4
 ---
 
 Use this guide if you already have a website configured with

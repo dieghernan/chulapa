@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Add an optional collapsible series index for pages and posts, with independent ordering when a page belongs to multiple series.
+
 -   Add optional Google Scholar metadata for citable posts using `google-scholar: true`, with Quarto-style fields for PDF links, publication dates and bibliographic identifiers.
 
 -   Add an opt-in citation block with simplified APA and expandable BibTeX for web posts and journal articles using Quarto-style front matter (#208).
@@ -17,6 +19,8 @@
 -   Generate an alternative `/sitemap.txt` with absolute canonical URLs for output collections and HTML pages, respecting `sitemap: false`. Document publishing checks and differences from `jekyll-sitemap` in the [search visibility guide](https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development).
 
 ### Changed
+
+-   Remove individual skin credits from the site footer. Skin authors remain credited in the skin gallery.
 
 -   Include excerpts and full articles in separate RSS fields, record available modification dates and derive the Atom feed update time from its entries.
 

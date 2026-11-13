@@ -5,6 +5,9 @@ tags: [docs, appearance, colors]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: appearance
+    order: 2
 ---
 
 Use this guide for an already published site. In your repository's **Code** tab,

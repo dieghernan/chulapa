@@ -9,6 +9,9 @@ tags: [docs, appearance, code-highlighting]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 10
 ---
 
 Lookup for highlighting style identifiers and code specimens. The selector

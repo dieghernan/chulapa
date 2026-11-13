@@ -7,6 +7,9 @@ tags: [docs, navigation]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: navigation
+    order: 2
 ---
 
 Use this guide for an existing site with a contact address, social profile or feed

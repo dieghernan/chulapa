@@ -6,6 +6,9 @@ tags: [docs, site-identity]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: sharing
+    order: 4
 ---
 
 Use this guide for a personal blog that you publish yourself. It changes the

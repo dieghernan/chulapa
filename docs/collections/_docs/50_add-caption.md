@@ -5,6 +5,9 @@ tags: [docs, content, media, images]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: site-content
+    order: 7
 ---
 
 Use this guide for an existing Markdown post or page with an uploaded image.

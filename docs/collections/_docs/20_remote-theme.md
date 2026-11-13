@@ -6,6 +6,9 @@ tags: [docs, installation, theme-updates]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: installation
+    order: 2
 ---
 
 Use this guide when you already have a working Jekyll site, a `Gemfile` and

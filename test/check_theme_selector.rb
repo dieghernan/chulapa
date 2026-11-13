@@ -53,14 +53,8 @@ fixtures.each do |name, style, links, enabled|
     Jekyll::Site.new(Jekyll.configuration(config)).process
     html = File.read(File.join(config['destination'], 'article.html'))
     doc = Nokogiri::HTML(html)
-    credit = doc.at_css('.chulapa-footer-brand').text
-    raise 'Light skin credit missing' unless credit.include?('GitDev skin by dieghernan')
-    expected_dark = name == 'dark-color-only' ? 'Darkly skin by Bootswatch' : 'GitDev Dark skin by dieghernan'
-    if enabled && name != 'light-color-only'
-      raise "Dark skin credit missing: #{name}" unless credit.include?(expected_dark)
-    else
-      raise 'Duplicated or disabled skin credit' unless credit.scan('skin by').size == 1
-    end
+    branding = doc.at_css('.chulapa-footer-brand').text.gsub(/\s+/, ' ').strip
+    raise "Unexpected footer branding: #{name}" unless branding == 'Powered by Chulapa Jekyll Theme'
     selectors = doc.css('.chulapa-theme-selector')
     raise "Selector count: #{name}" unless selectors.size == (enabled ? (style == 'dual' ? 2 : 1) : 0)
     ids = doc.css('[id]').map { |node| node['id'] }

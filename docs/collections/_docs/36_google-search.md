@@ -5,6 +5,9 @@ tags: [docs, search, hosted-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: search
+    order: 4
 ---
 
 Use this guide if you already have a Google Custom Search engine configured for

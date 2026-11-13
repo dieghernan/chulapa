@@ -5,6 +5,9 @@ tags: [docs, comments]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: comments
+    order: 5
 ---
 
 Use this guide only if you already operate a working self-hosted Cusdis service

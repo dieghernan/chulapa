@@ -1,0 +1,63 @@
+{%- if page.series and site.series -%}
+  {%- assign series_documents = site.pages -%}
+  {%- assign published_collections = site.collections | where: "output", true -%}
+  {%- for collection in published_collections -%}
+    {%- assign series_documents = series_documents | concat: collection.docs -%}
+  {%- endfor -%}
+  {%- assign series_documents = series_documents | where_exp: "document", "document.series and document.published != false" -%}
+  {%- assign build_time = site.time | date: "%s" | plus: 0 -%}
+  {%- capture series_indices -%}
+    {%- for membership in page.series -%}
+      {%- assign series = site.series[membership.id] -%}
+      {%- unless series.label -%}{%- continue -%}{%- endunless -%}
+      {%- assign chapters = "" | split: "," -%}
+      {%- for document in series_documents -%}
+        {%- if document.collection and document.date and site.future != true -%}
+          {%- assign document_time = document.date | date: "%s" | plus: 0 -%}
+          {%- if document_time > build_time -%}{%- continue -%}{%- endif -%}
+        {%- endif -%}
+        {%- assign chapter = document.series | where: "id", membership.id | first -%}
+        {%- if chapter.order -%}
+          {%- assign chapters = chapters | push: document -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if chapters.size < 2 -%}{%- continue -%}{%- endif -%}
+      {%- assign ordered_chapters = chapters | group_by_exp: "document", "document.series | where: 'id', membership.id | map: 'order' | first" | sort: "name" -%}
+      {%- assign part_number = 0 -%}
+      {%- capture chapter_items -%}
+        {%- assign position = 0 -%}
+        {%- for chapter_group in ordered_chapters -%}
+          {%- if chapter_group.size > 1 -%}
+            {%- assign conflicting_paths = chapter_group.items | map: "path" | join: ", " -%}
+            <!-- Series "{{ membership.id | escape | replace: '--', '&#45;&#45;' }}" has duplicate order {{ chapter_group.name | escape | replace: '--', '&#45;&#45;' }} in {{ conflicting_paths | escape | replace: '--', '&#45;&#45;' }}. -->
+          {%- endif -%}
+          {%- assign ordered_group = chapter_group.items | sort: "url" -%}
+          {%- for document in ordered_group -%}
+            {%- assign position = position | plus: 1 -%}
+            {%- assign chapter_title = document.title | markdownify | strip_html | strip | escape_once -%}
+            {%- if document.url == page.url -%}
+              {%- assign part_number = position -%}
+              <li><span aria-current="page" class="font-weight-bold d-block py-1">{{ chapter_title }}</span></li>
+            {%- else -%}
+              <li><a class="d-block py-1" href="{{ document.url | relative_url | escape }}">{{ chapter_title }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {%- if part_number > 0 -%}
+<details class="chulapa-series-index">
+  <summary class="py-1"><span class="font-weight-bold">{{ series.label | escape }}</span> <span class="chulapa-series-position text-nowrap">· Part {{ part_number }} of {{ chapters.size }}</span></summary>
+  <nav aria-label="{{ series.label | escape }}" class="mt-1">
+    <ol class="mb-2 pl-4">{{ chapter_items }}</ol>
+  </nav>
+</details>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign series_indices = series_indices | strip -%}
+  {%- unless series_indices == empty -%}
+<div class="chulapa-series-indices small mb-3">
+{{ series_indices }}
+</div>
+  {%- endunless -%}
+{%- endif -%}

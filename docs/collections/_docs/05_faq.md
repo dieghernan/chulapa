@@ -6,6 +6,9 @@ show_toc: true
 h_max: 3
 redirect_from:
   - /docs/05-tips-n-tricks
+series:
+  - id: maintenance
+    order: 5
 ---
 
 Choose a question below for the relevant task or lookup page. For a first site,

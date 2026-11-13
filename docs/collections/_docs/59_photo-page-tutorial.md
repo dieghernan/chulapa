@@ -3,6 +3,9 @@ title: Publish an illustrated page and add it to the menu
 subtitle: A second browser-only tutorial for your published blog
 excerpt: Create a photo page with the starter's image, add its menu link and check the published result.
 show_toc: false
+series:
+  - id: first-site
+    order: 4
 ---
 
 In this tutorial, you will publish a page called **My photo walk**, with a

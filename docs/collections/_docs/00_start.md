@@ -3,6 +3,9 @@ title: Publish your first site with <span class="chulapa">Chulapa</span>
 subtitle: See your own blog online using only your browser
 excerpt: Create a blog from the template, change its title and edit a sample article, then open your published website.
 show_toc: false
+series:
+  - id: first-site
+    order: 1
 ---
 
 By the end of this tutorial, you will open a public blog with your own site title
@@ -121,6 +124,8 @@ to check the result.
 Before sharing the site, replace the remaining sample articles and the example
 biography and contact details in `_pages/about.md`. Review the `author:` settings
 in `_config.yml` too. Keep the home page filename `index.html`.
+
+Continue with [personalizing your site's name and author](./14-site-details).
 
 For another guided exercise, follow [Publish an illustrated page](./59-photo-page-tutorial)
 using the starter photograph and a fixed menu entry.

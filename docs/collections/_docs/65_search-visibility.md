@@ -5,6 +5,9 @@ tags: [docs, search, local-search, hosted-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: sharing
+    order: 2
 ---
 
 Use this guide for a published auxiliary page, such as a search-results page,

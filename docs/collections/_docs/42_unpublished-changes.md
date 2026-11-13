@@ -5,6 +5,9 @@ tags: [docs, publishing, troubleshooting]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
+series:
+  - id: maintenance
+    order: 2
 ---
 
 Use this guide when you have edited your site's files but the public website

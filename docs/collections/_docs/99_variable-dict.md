@@ -9,6 +9,9 @@ tags: [docs, appearance, colors, fonts]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
+series:
+  - id: reference
+    order: 8
 ---
 
 Lookup for selected variables accepted by `chulapa-skin.vars` in `_config.yml`,
