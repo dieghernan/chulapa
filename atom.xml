@@ -22,7 +22,7 @@
     <published>2026-10-22T00:00:00+02:00</published>
     <updated>2026-10-22T00:00:00+02:00</updated>
     <id>https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</id>
-    <content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0">&lt;h3&gt;Dark mode, diagrams, galleries and new starter examples&lt;/h3&gt;&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&quot; alt=&quot;&quot;&gt;&lt;p&gt;3 min.&lt;/p&gt;
+    <content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0">&lt;p&gt;Dark mode, diagrams, galleries and new starter examples&lt;/p&gt;&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&quot; alt=&quot;&quot;&gt;&lt;p&gt;3 min.&lt;/p&gt;
     &lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.2.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0&lt;/a&gt;
 is out.&lt;/p&gt;
 
@@ -168,7 +168,7 @@ have the complete list of changes.&lt;/p&gt;
     <published>2026-10-09T00:00:00+02:00</published>
     <updated>2026-10-09T00:00:00+02:00</updated>
     <id>https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</id>
-    <content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0">&lt;h3&gt;New looks, more search options and better metadata&lt;/h3&gt;&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&quot; alt=&quot;&quot;&gt;&lt;p&gt;6 min.&lt;/p&gt;
+    <content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0">&lt;p&gt;New looks, more search options and better metadata&lt;/p&gt;&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&quot; alt=&quot;&quot;&gt;&lt;p&gt;6 min.&lt;/p&gt;
     &lt;p&gt;&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.1.0&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0&lt;/a&gt;
 is here. This release gives you more control over how your site looks, how
 readers find its content and how pages appear when shared.&lt;/p&gt;
@@ -380,7 +380,7 @@ you build. Share your site or feedback in
     <published>2026-10-09T00:00:00+02:00</published>
     <updated>2026-10-09T00:00:00+02:00</updated>
     <id>https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</id>
-    <content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot">&lt;h3&gt;A new way to explore the documentation&lt;/h3&gt;&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&quot; alt=&quot;&quot;&gt;&lt;p&gt;2 min.&lt;/p&gt;
+    <content type="html" xml:base="https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot">&lt;p&gt;A new way to explore the documentation&lt;/p&gt;&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp&quot; alt=&quot;&quot;&gt;&lt;p&gt;2 min.&lt;/p&gt;
     &lt;p&gt;The &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; documentation now has an AI assistant &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot; width=&quot;1em&quot; height=&quot;1em&quot; style=&quot;vertical-align:-.1em&quot;&gt;&lt;path d=&quot;M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;.
 You can open it from the AI button on the homepage or documentation pages
 and ask about installation, skins, configuration, layouts and other documented
