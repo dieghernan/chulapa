@@ -1,0 +1,7 @@
+{%- assign feed_wpm = site.words_per_minute | default: 200 | plus: 0 -%}
+{%- if feed_wpm <= 0 -%}
+  {%- assign feed_wpm = 200 -%}
+{%- endif -%}
+{%- assign feed_wpm = feed_wpm | times: 1.0 -%}
+{%- assign feed_reading_minutes = include.html | strip_html | number_of_words
+  | divided_by: feed_wpm | ceil | at_least: 1 -%}

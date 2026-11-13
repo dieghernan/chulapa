@@ -15,15 +15,18 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   {
     "_posts/2024-01-01-default.md" => "title: Default post\nauthor: {}",
     "_posts/2024-01-03-disabled.md" => "title: Disabled post\ninclude_on_feed: false",
-    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
+    "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
-  }.each { |path, data| File.write(File.join(source, path), "---\n#{data}\n---\nFeed content.") }
+  }.each do |path, data|
+    content = path == "_entries/enabled.md" ? "Feed content. " * 40 : "Feed content."
+    File.write(File.join(source, path), "---\n#{data}\n---\n#{content}")
+  end
   ["", "/preview"].each do |baseurl|
     [false, true].each do |enabled|
-      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & site", "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
+      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & site", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
       site = Jekyll::Site.new(config)
       site.process
-      expected = enabled ? ["Enabled & formatted entry", "Default post"] : ["Enabled & formatted entry"]
+      expected = enabled ? ['Enabled & formatted entry <main> "quoted"', "Default post"] : ['Enabled & formatted entry <main> "quoted"']
       json = JSON.parse(File.read(File.join(config["destination"], "feed.json")))
       raise "JSON Feed: incorrect version" unless json["version"] == "https://jsonfeed.org/version/1.1"
       raise "JSON Feed: incorrect feed URL" unless json["feed_url"] == "https://example.com#{baseurl}/feed.json"
@@ -38,6 +41,15 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
       raise "JSON Feed: duplicate IDs" unless json["items"].map { |item| item.fetch("id") }.uniq.size == expected.size
       %w[atom rss].each do |feed|
         xml = Nokogiri::XML(File.read(File.join(config["destination"], "#{feed}.xml"))) { |options| options.strict }
+        image_url = "https://example.com#{baseurl}/image.png?width=800&height=400"
+        if feed == "rss"
+          media = {"media" => "http://search.yahoo.com/mrss/"}
+          raise "RSS: incorrect media title" unless xml.at_xpath("//media:title", media).text == expected.first
+          raise "RSS: incorrect media URL" unless xml.at_xpath("//media:content", media)["url"] == image_url
+        else
+          content = xml.at_xpath("//atom:entry/atom:content", "atom" => "http://www.w3.org/2005/Atom")
+          raise "Atom: incorrect embedded image URL" unless Nokogiri::HTML.fragment(content.text).at_css("img")["src"] == image_url
+        end
         xml.remove_namespaces!
         items = xml.css(feed == "atom" ? "entry" : "item")
         actual = items.map do |item|
@@ -58,6 +70,10 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         if feed == "rss"
           raise "RSS: missing full content extension" unless items.first.at_css("encoded").text.include?("Feed content.")
         end
+        first_link = items.first.at_css("link")
+        first_url = feed == "atom" ? first_link["href"] : first_link.text
+        raise "#{feed}: canonical URL query changed" unless first_url == "https://example.com#{baseurl}/article/?a=1&b=2"
+        raise "#{feed}: configured reading speed or rounding ignored" unless items.first.text.include?("<p>2 min.</p>")
         categories = items.first.css("category").map { |category| feed == "atom" ? category["term"] : category.text }
         raise "#{feed}: tags were split or lost" unless ["R & maps", "data, maps"].all? { |tag| categories.include?(tag) }
         items.each do |item|

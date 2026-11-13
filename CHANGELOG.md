@@ -26,6 +26,8 @@
 
 ### Fixed
 
+-   Honor the configured reading speed in Atom and RSS and round partial minutes up.
+
 -   Correct ampersand escaping in RSS titles and Atom link titles, preserve complete category names and use absolute links in syndicated documentation posts (#209).
 
 -   Place the search icon before its label in the classic navbar and full-page search headings.
