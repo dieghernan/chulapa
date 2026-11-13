@@ -341,12 +341,41 @@ describe the source fields.
 The theme produces a simplified English APA reference and a BibTeX entry
 together. It strips HTML and Markdown formatting from titles and publication
 names before citing them. Quarto can use a CSL style for its reference,
-configure the appendix with `appendix-cite-as` and emit scholarly tags via
-`google-scholar`. These settings have no effect on this block. For a journal
+configure the appendix with `appendix-cite-as`. The theme always shows both
+formats. For a journal
 page range, use `citation.page` (for example, `"15–21"`). Quarto's
 `page-first` and `page-last` fields are outside the supported subset.
 Quarto's export uses BibLaTeX date fields. The theme exports the year and
 month as separate BibTeX fields when available.
+
+##### Add Google Scholar metadata
+
+Add `google-scholar: true` at the top level of the front matter of a citable
+post using `layout: default`. Keep `citation: true` or your existing citation map.
+
+Use the separate switch when you want to describe the cited work to scholarly
+indexers. A post can offer readers a copyable reference to a work published
+elsewhere. Enabling scholarly metadata for every visible citation would also
+describe those posts as records of the cited work, even when the post only
+discusses it. The `google-scholar` spelling follows Quarto.
+
+```yaml
+layout: default
+citation: true
+google-scholar: true
+```
+
+The page head includes the citation title, one `citation_author` per author
+with the full name, the publication date at its available precision and the
+citation URL. For `article-journal`, it also includes the journal name,
+volume, issue, first and last pages and DOI when available. Empty fields are
+omitted. The full-text URL uses `citation.url` or the canonical URL even
+when the visible reference links to the DOI.
+
+The tags describe the cited work. For a research article hosted on your
+site, use the URL of its full-text HTML page. Google Scholar applies its
+own inclusion criteria.
+[Google Scholar inclusion guidelines](https://scholar.google.com/intl/en/scholar/inclusion.html)
 
 ### Landing page
 

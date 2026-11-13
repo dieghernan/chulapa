@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Add optional Google Scholar metadata for citable posts using `google-scholar: true`.
+
 -   Add an opt-in citation block with simplified APA and expandable BibTeX for web posts and journal articles using Quarto-style front matter (#208).
 
 -   Publish JSON Feed 1.1 at `/feed.json` and a browser subscription page at `/subscribe/` with links to all three formats.
@@ -25,6 +27,8 @@
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
 ### Fixed
+
+-   Avoid empty slug warnings when a citable post uses its generated BibTeX key (#213).
 
 -   Render feed metadata titles and subtitles and RSS channel and image descriptions as plain text, preserving inline formatting in article subtitles.
 

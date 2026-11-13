@@ -16,10 +16,11 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   FileUtils.mkdir_p(File.join(source, "_posts"))
   fixtures = {
     "web" => {
-      "citation" => true, "canonical_url" => "/original/",
+      "citation" => true, "google-scholar" => true, "canonical_url" => "/original/",
       "title" => '<span class="chulapa">Terrain</span> &amp; *maps*'
     },
     "journal" => {
+      "google-scholar" => true,
       "citation" => {
         "type" => "article-journal", "id" => "Hill:2022", "title" => "Hillshade & *{R}*",
         "author" => [
@@ -32,11 +33,12 @@ Dir.mktmpdir("chulapa-citation-") do |source|
       }
     },
     "journal-no-container" => { "citation" => { "type" => "article-journal" } },
+    "minimal" => { "layout" => "minimal", "citation" => true, "google-scholar" => true },
     "web-override" => { "citation" => { "type" => "webpage", "author" => "Plain Name", "issued" => "2022" } },
     "unknown" => { "citation" => { "type" => "book", "author" => [" ", ""] }, "author" => {} },
-    "off" => { "citation" => false },
-    "absent" => {},
-    "bad-switch" => { "citation" => "true" }
+    "off" => { "citation" => false, "google-scholar" => true },
+    "absent" => { "google-scholar" => true },
+    "bad-switch" => { "citation" => "true", "google-scholar" => true }
   }
   fixtures.each do |name, values|
     metadata = {
@@ -45,7 +47,7 @@ Dir.mktmpdir("chulapa-citation-") do |source|
     }.merge(values)
     File.write(File.join(source, "_posts/2024-01-02-#{name}.md"), metadata.to_yaml + "---\nAn article.\n")
   end
-  File.write(File.join(source, "undated.md"), "---\nlayout: default\ntitle: Undated\ncitation: true\n---\n")
+  File.write(File.join(source, "undated.md"), "---\nlayout: default\ntitle: Undated\ncitation: true\ngoogle-scholar: true\n---\n")
   destination = output ? File.expand_path(output) : File.join(source, "_site")
   config = Jekyll.configuration(
     "source" => source, "destination" => destination, "url" => "https://example.com",
@@ -53,9 +55,18 @@ Dir.mktmpdir("chulapa-citation-") do |source|
     "compress_html" => { "clippings" => "all", "blanklines" => true },
     "chulapa-skin" => { "skin" => "gitdev", "highlight" => "github" }
   )
+  empty_slug_warning = false
+  Jekyll.logger.singleton_class.prepend(Module.new do
+    define_method(:warn) do |topic, message = nil, &block|
+      empty_slug_warning ||= message.to_s.include?("Empty `slug` generated for ''.")
+      super(topic, message, &block)
+    end
+  end)
   Dir.chdir(source) { Jekyll::Site.new(config.merge("author" => { "name" => "Site Author" })).process }
+  check(!empty_slug_warning, "Missing citation ID emitted an empty-slug warning")
   read = ->(name) { Nokogiri::HTML5(File.read(File.join(destination, "#{name}.html"), encoding: "UTF-8")) }
   bib = ->(doc) { doc.at_css(".post-citation details pre code").text }
+  scholar = ->(doc) { doc.css('head meta[name^="citation_"]').group_by { |tag| tag["name"] }.transform_values { |tags| tags.map { |tag| tag["content"] } } }
 
   web = read.call("web")
   check(web.at_css(".post-citation .citation-text").text.include?("Post Author."), "Page author fallback")
@@ -66,6 +77,11 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(web.at_css(".citation-text em").text == "Terrain & Maps", "Plain APA site name")
   check(bib.call(web).include?('title = {Terrain \& maps},'), "Plain BibTeX title")
   check(bib.call(web).include?('howpublished = {Terrain \& Maps},'), "Plain BibTeX site name")
+  check(scholar.call(web) == {
+    "citation_title" => ["Terrain & maps"], "citation_author" => ["Post Author"],
+    "citation_publication_date" => ["2024-01-02"],
+    "citation_fulltext_html_url" => ["https://example.com/project/original/"]
+  }, "Web scholarly metadata")
 
   journal = read.call("journal")
   check(journal.errors.empty?, "HTML parser repairs: #{journal.errors}")
@@ -73,7 +89,14 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(citation["lang"] == "en" && citation.at_css("details > summary").text == "BibTeX", "Citation semantics")
   check(!journal.at_css(".e-content .post-citation, .post-citation .p-author, .post-citation .u-url, .post-citation .dt-published"), "Citation changed entry microformats")
   check(journal.at_css('meta[name="author"]')["content"] == "Post Author", "Citation changed the HTML author")
-  check(!journal.at_css('meta[name^="citation_"]'), "Unexpected scholarly metadata")
+  check(scholar.call(journal) == {
+    "citation_title" => ["Hillshade & {R}"], "citation_author" => ["Ana María García López", "Maps & More"],
+    "citation_publication_date" => ["2022-03"],
+    "citation_fulltext_html_url" => ["https://journal.example/article?a=1&b=2"],
+    "citation_journal_title" => ["Terrain Studies"], "citation_volume" => ["4"],
+    "citation_issue" => ["2"], "citation_doi" => ["10.1234/hills"],
+    "citation_firstpage" => ["15"], "citation_lastpage" => ["21"]
+  }, "Journal scholarly metadata")
   check(citation.at_css(".citation-text").text.include?("García López, A. M. & Maps & More."), "APA initials")
   check(citation.at_css("a")["href"] == "https://doi.org/10.1234/hills", "DOI preferred in APA")
   exported = bib.call(journal)
@@ -90,9 +113,13 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(bib.call(web_override).start_with?("@misc{") && !bib.call(web_override).include?("month ="), "Web type or year precision")
   check(bib.call(read.call("unknown")).include?("author = {Site Author},"), "Site author fallback")
   %w[off absent bad-switch].each { |name| check(!read.call(name).at_css(".post-citation"), "Unexpected citation for #{name}") }
+  %w[off absent bad-switch unknown web-override minimal].each do |name|
+    check(scholar.call(read.call(name)).empty?, "Unexpected scholarly metadata for #{name}")
+  end
   Dir.chdir(source) { Jekyll::Site.new(config).process }
   undated = read.call("undated")
   check(undated.at_css(".citation-text").text.split.join(" ").start_with?("Undated. (n.d.)."), "Missing author/date format")
   check(!bib.call(undated).match?(/(?:author|year|month) =/), "Invented BibTeX fields")
+  check(scholar.call(undated).keys.sort == %w[citation_fulltext_html_url citation_title], "Invented scholarly fields")
 end
 puts "Citation checks passed on Jekyll #{Jekyll::VERSION}."
