@@ -2,16 +2,17 @@
 {%- if page.citation == true or citation_json_type == '{' -%}
   {%- include snippets/citation-authors.html -%}
   {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
-  {%- assign citation_title = page.citation.title | normalize_whitespace -%}
+  {%- capture citation_title -%}{%- include snippets/citation-title.html value=page.citation.title -%}{%- endcapture -%}
   {%- if citation_title == empty -%}
-    {%- assign citation_title = page.title | normalize_whitespace -%}
+    {%- capture citation_title -%}{%- include snippets/citation-title.html value=page.title -%}{%- endcapture -%}
   {%- endif -%}
-  {%- assign citation_container = page.citation['container-title'] | normalize_whitespace -%}
+  {%- assign citation_container_name = page.citation['container-title'] -%}
+  {%- capture citation_container -%}{%- include snippets/citation-title.html value=citation_container_name -%}{%- endcapture -%}
   {%- assign citation_type = 'misc' -%}
   {%- if page.citation.type == 'article-journal' -%}
     {%- assign citation_type = 'article' -%}
   {%- elsif citation_container == empty -%}
-    {%- assign citation_container = site.title | normalize_whitespace -%}
+    {%- capture citation_container -%}{%- include snippets/citation-title.html value=site.title -%}{%- endcapture -%}
   {%- endif -%}
   {%- assign citation_volume = page.citation.volume | normalize_whitespace -%}
   {%- assign citation_issue = page.citation.issue | normalize_whitespace -%}

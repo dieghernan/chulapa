@@ -15,10 +15,13 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   %w[_sass assets].each { |dir| FileUtils.cp_r(File.join(root, dir), source) } if output
   FileUtils.mkdir_p(File.join(source, "_posts"))
   fixtures = {
-    "web" => { "citation" => true, "canonical_url" => "/original/" },
+    "web" => {
+      "citation" => true, "canonical_url" => "/original/",
+      "title" => '<span class="chulapa">Terrain</span> &amp; *maps*'
+    },
     "journal" => {
       "citation" => {
-        "type" => "article-journal", "id" => "Hill:2022", "title" => "Hillshade & {R}",
+        "type" => "article-journal", "id" => "Hill:2022", "title" => "Hillshade & *{R}*",
         "author" => [
           { "name" => { "given" => "Ana María", "family" => "García López" } },
           { "name" => { "literal" => "Maps & More" } }
@@ -46,7 +49,7 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   destination = output ? File.expand_path(output) : File.join(source, "_site")
   config = Jekyll.configuration(
     "source" => source, "destination" => destination, "url" => "https://example.com",
-    "baseurl" => "/project", "title" => "Terrain Blog", "quiet" => true,
+    "baseurl" => "/project", "title" => "**Terrain** &amp; <i>Maps</i>", "quiet" => true,
     "compress_html" => { "clippings" => "all", "blanklines" => true },
     "chulapa-skin" => { "skin" => "gitdev", "highlight" => "github" }
   )
@@ -59,6 +62,10 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(web.at_css(".post-citation a")["href"] == "https://example.com/project/original/", "Canonical fallback")
   check(bib.call(web).start_with?("@misc{post20240102-web,\n"), "Date and slug key")
   check(bib.call(web).include?("month = jan,"), "Full date exports month")
+  check(web.at_css(".citation-text cite").text == "Terrain & maps", "Plain APA title")
+  check(web.at_css(".citation-text em").text == "Terrain & Maps", "Plain APA site name")
+  check(bib.call(web).include?('title = {Terrain \& maps},'), "Plain BibTeX title")
+  check(bib.call(web).include?('howpublished = {Terrain \& Maps},'), "Plain BibTeX site name")
 
   journal = read.call("journal")
   check(journal.errors.empty?, "HTML parser repairs: #{journal.errors}")

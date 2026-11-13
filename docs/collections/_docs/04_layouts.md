@@ -318,14 +318,31 @@ strings also works. Plain names appear as entered.
 | `issued` | Falls back to the post date. Use a quoted year, year and month, or full date, such as `"2022-03"`. The visible reference uses `n.d.` if the date is unavailable. BibTeX exports the year and month when available. |
 | `id` | BibTeX key. Omit it to use the post date and slug, for example `post20261111-hillshading`. Without a date, the key starts with `post-`. Use an explicit key if two entries would otherwise share a key. |
 | `url` | Absolute HTTP(S) URL of the cited work. Falls back to the page's canonical URL. |
-| `doi` | DOI of the cited work, for example `10.1234/hills`. The visible reference prefers the DOI link. BibTeX can carry both the DOI and the URL. |
+| `doi` | DOI of the cited work, for example `10.1234/hills`. Set it under `citation` when migrating from a Quarto document that sets a top-level `doi`. The visible reference prefers the DOI link. BibTeX can carry both the DOI and the URL. |
 | `container-title` | Site or publication name. For a web entry it falls back to the site title. For a journal article it is omitted when missing. |
 | `volume`, `issue`, `page` | Optional journal details. BibTeX exports the issue as `number` and the page range as `pages`. |
 
-The front matter follows the supported subset of
-[Quarto citation metadata](https://quarto.org/docs/reference/metadata/citation.html).
-The visible reference uses the theme's simplified APA formatting. Both
-formats are shown together, and the feature needs no additional plugins.
+##### Move citation metadata from Quarto
+
+Keep `citation: true` or copy the fields listed above from the citation map.
+If your Quarto document uses a list for the top-level `author`, use the
+layout's `author.name` for the post byline and put the full bibliographic
+list under `citation.author`. When `citation.url` is omitted, the theme uses
+Jekyll's canonical page URL, including any `canonical_url` override.
+Quarto derives its fallback from the website's `site-url` and the document path.
+[Quarto's guide to citable articles](https://quarto.org/docs/authoring/create-citeable-articles.html)
+and its [citation metadata reference](https://quarto.org/docs/reference/metadata/citation.html)
+describe the source fields.
+
+The theme produces a simplified English APA reference and a BibTeX entry
+together. It strips HTML and Markdown formatting from titles and publication
+names before citing them. Quarto can use a CSL style for its reference,
+configure the appendix with `appendix-cite-as` and emit scholarly tags via
+`google-scholar`. These settings have no effect on this block. For a journal
+page range, use `citation.page` (for example, `"15–21"`). Quarto's
+`page-first` and `page-last` fields are outside the supported subset.
+Quarto's export uses BibLaTeX date fields. The theme exports the year and
+month as separate BibTeX fields when available.
 
 ### Landing page
 
