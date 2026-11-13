@@ -29,12 +29,15 @@ Dir.mktmpdir("chulapa-citation-") do |source|
         ],
         "issued" => "2022-03", "container-title" => "Terrain Studies", "volume" => 4,
         "issue" => 2, "page" => "15–21", "doi" => "10.1234/hills",
-        "url" => "https://journal.example/article?a=1&b=2"
+        "url" => "https://journal.example/article?a=1&b=2",
+        "pdf-url" => "https://journal.example/article.pdf?a=1&b=2",
+        "available-date" => "2022/03/15", "issn" => "0123-4567",
+        "language" => "en", "page-first" => "S15", "abstract" => "  "
       }
     },
     "journal-no-container" => { "citation" => { "type" => "article-journal" } },
     "minimal" => { "layout" => "minimal", "citation" => true, "google-scholar" => true },
-    "web-override" => { "citation" => { "type" => "webpage", "author" => "Plain Name", "issued" => "2022" } },
+    "web-override" => { "title" => "What is hillshading?", "citation" => { "type" => "webpage", "author" => "Plain Name", "issued" => "2022" } },
     "unknown" => { "citation" => { "type" => "book", "author" => [" ", ""] }, "author" => {} },
     "off" => { "citation" => false, "google-scholar" => true },
     "absent" => { "google-scholar" => true },
@@ -47,6 +50,14 @@ Dir.mktmpdir("chulapa-citation-") do |source|
     }.merge(values)
     File.write(File.join(source, "_posts/2024-01-02-#{name}.md"), metadata.to_yaml + "---\nAn article.\n")
   end
+  corona = {
+    "layout" => "default", "title" => "Corona timelapse", "permalink" => "/corona.html",
+    "citation" => {
+      "author" => [{ "name" => { "given" => "Rodrigo", "family" => "Hernangómez" } }],
+      "container-title" => "One World", "url" => "https://dieghernan.github.io/202203_Corona-timelapse/"
+    }
+  }
+  File.write(File.join(source, "_posts/2022-03-14-corona.md"), corona.to_yaml + "---\nAn article.\n")
   File.write(File.join(source, "undated.md"), "---\nlayout: default\ntitle: Undated\ncitation: true\ngoogle-scholar: true\n---\n")
   destination = output ? File.expand_path(output) : File.join(source, "_site")
   config = Jekyll.configuration(
@@ -73,13 +84,16 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(web.at_css(".post-citation a")["href"] == "https://example.com/project/original/", "Canonical fallback")
   check(bib.call(web).start_with?("@misc{post20240102-web,\n"), "Date and slug key")
   check(bib.call(web).include?("month = jan,"), "Full date exports month")
-  check(web.at_css(".citation-text cite").text == "Terrain & maps", "Plain APA title")
-  check(web.at_css(".citation-text em").text == "Terrain & Maps", "Plain APA site name")
+  check(web.at_css(".citation-text").text.include?("Terrain & maps."), "Plain APA title")
+  check(web.css(".citation-text cite, .citation-text em").map(&:text) == ["Terrain & Maps"], "Blog title italics")
+  corona_citation = read.call("corona").at_css(".citation-text")
+  check(corona_citation.text.split.join(" ") == "Hernangómez, R. (2022, March 14). Corona timelapse. One World. https://dieghernan.github.io/202203_Corona-timelapse/", "One World APA example")
+  check(corona_citation.css("cite, em").map(&:text) == ["One World"], "One World italics")
   check(bib.call(web).include?('title = {Terrain \& maps},'), "Plain BibTeX title")
   check(bib.call(web).include?('howpublished = {Terrain \& Maps},'), "Plain BibTeX site name")
   check(scholar.call(web) == {
     "citation_title" => ["Terrain & maps"], "citation_author" => ["Post Author"],
-    "citation_publication_date" => ["2024-01-02"],
+    "citation_publication_date" => ["2024/01/02"],
     "citation_fulltext_html_url" => ["https://example.com/project/original/"]
   }, "Web scholarly metadata")
 
@@ -91,13 +105,17 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(journal.at_css('meta[name="author"]')["content"] == "Post Author", "Citation changed the HTML author")
   check(scholar.call(journal) == {
     "citation_title" => ["Hillshade & {R}"], "citation_author" => ["Ana María García López", "Maps & More"],
-    "citation_publication_date" => ["2022-03"],
+    "citation_publication_date" => ["2022"],
     "citation_fulltext_html_url" => ["https://journal.example/article?a=1&b=2"],
     "citation_journal_title" => ["Terrain Studies"], "citation_volume" => ["4"],
     "citation_issue" => ["2"], "citation_doi" => ["10.1234/hills"],
-    "citation_firstpage" => ["15"], "citation_lastpage" => ["21"]
+    "citation_firstpage" => ["S15"], "citation_lastpage" => ["21"],
+    "citation_pdf_url" => ["https://journal.example/article.pdf?a=1&b=2"],
+    "citation_online_date" => ["2022/03/15"], "citation_issn" => ["0123-4567"],
+    "citation_language" => ["en"]
   }, "Journal scholarly metadata")
   check(citation.at_css(".citation-text").text.include?("García López, A. M. & Maps & More."), "APA initials")
+  check(citation.css(".citation-text cite, .citation-text em").map(&:text) == ["Terrain Studies", "4"], "Journal and volume italics")
   check(citation.at_css("a")["href"] == "https://doi.org/10.1234/hills", "DOI preferred in APA")
   exported = bib.call(journal)
   check(exported.start_with?("@article{Hill:2022,\n"), "Explicit key or type lost")
@@ -110,6 +128,8 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   check(!bib.call(read.call("journal-no-container")).include?("journal ="), "Invented journal name")
   web_override = read.call("web-override")
   check(web_override.at_css(".citation-text").text.split.join(" ").start_with?("Plain Name. (2022)."), "Plain author or year-only date")
+  check(web_override.css(".citation-text cite, .citation-text em").map(&:text) == ["What is hillshading?"], "Standalone webpage italics")
+  check(web_override.at_css(".citation-text").text.split.join(" ").include?("What is hillshading? Terrain & Maps."), "Title punctuation or webpage site name")
   check(bib.call(web_override).start_with?("@misc{") && !bib.call(web_override).include?("month ="), "Web type or year precision")
   check(bib.call(read.call("unknown")).include?("author = {Site Author},"), "Site author fallback")
   %w[off absent bad-switch].each { |name| check(!read.call(name).at_css(".post-citation"), "Unexpected citation for #{name}") }
@@ -118,6 +138,7 @@ Dir.mktmpdir("chulapa-citation-") do |source|
   end
   Dir.chdir(source) { Jekyll::Site.new(config).process }
   undated = read.call("undated")
+  check(undated.css(".citation-text cite, .citation-text em").map(&:text) == ["Undated"], "Default standalone webpage italics")
   check(undated.at_css(".citation-text").text.split.join(" ").start_with?("Undated. (n.d.)."), "Missing author/date format")
   check(!bib.call(undated).match?(/(?:author|year|month) =/), "Invented BibTeX fields")
   check(scholar.call(undated).keys.sort == %w[citation_fulltext_html_url citation_title], "Invented scholarly fields")

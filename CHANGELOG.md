@@ -2,7 +2,7 @@
 
 ### Added
 
--   Add optional Google Scholar metadata for citable posts using `google-scholar: true`.
+-   Add optional Google Scholar metadata for citable posts using `google-scholar: true`, with Quarto-style fields for PDF links, publication dates and bibliographic identifiers.
 
 -   Add an opt-in citation block with simplified APA and expandable BibTeX for web posts and journal articles using Quarto-style front matter (#208).
 
@@ -27,6 +27,8 @@
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
 ### Fixed
+
+-   Match APA 7 italics for blog posts and standalone webpages in visible citations.
 
 -   Avoid empty slug warnings when a citable post uses its generated BibTeX key (#213).
 
