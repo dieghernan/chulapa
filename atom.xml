@@ -17,7 +17,7 @@
   <logo>https://dieghernan.github.io/chulapa/assets/img/site/banner.png</logo>
   
   <entry>
-    <title type="html">&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.2.0: more ways to make your site yours</title>
+    <title>Chulapa v2.2.0: more ways to make your site yours</title>
     <link href="https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0" rel="alternate" type="text/html" title="Chulapa v2.2.0: more ways to make your site yours" />
     <published>2026-10-22T00:00:00+02:00</published>
     <updated>2026-10-22T00:00:00+02:00</updated>
@@ -163,7 +163,7 @@ have the complete list of changes.&lt;/p&gt;
     <category term="release" />
     </entry>
   <entry>
-    <title type="html">&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.1.0: more control over your site</title>
+    <title>Chulapa v2.1.0: more control over your site</title>
     <link href="https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0" rel="alternate" type="text/html" title="Chulapa v2.1.0: more control over your site" />
     <published>2026-10-09T00:00:00+02:00</published>
     <updated>2026-10-09T00:00:00+02:00</updated>
@@ -375,7 +375,7 @@ you build. Share your site or feedback in
     <category term="release" />
     </entry>
   <entry>
-    <title type="html">Ask &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;</title>
+    <title>Ask Chulapa</title>
     <link href="https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot" rel="alternate" type="text/html" title="Ask Chulapa" />
     <published>2026-10-09T00:00:00+02:00</published>
     <updated>2026-10-09T00:00:00+02:00</updated>
@@ -423,7 +423,7 @@ answer testing and the mobile interface, on my blog:
     <category term="news" />
     </entry>
   <entry>
-    <title type="html">Welcome</title>
+    <title>Welcome</title>
     <link href="https://dieghernan.github.io/chulapa/blog/20200515_welcome" rel="alternate" type="text/html" title="Welcome" />
     <published>2020-05-15T00:00:00+02:00</published>
     <updated>2020-05-15T00:00:00+02:00</updated>
