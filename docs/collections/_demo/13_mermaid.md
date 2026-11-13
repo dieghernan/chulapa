@@ -13,9 +13,14 @@ show_bottomnavs   : true
 show_author: true
 show_toc: true
 mermaid: true
+series:
+  - id: component-demos
+    order: 2
 redirect_from:
   - /demo/mermaid
 ---
+
+{% include snippets/series-chapters.html %}
 
 Mermaid support is available in v2.2.0 and later.
 Follow [Add a Mermaid diagram](../docs/33-add-diagram) to enable diagrams on your

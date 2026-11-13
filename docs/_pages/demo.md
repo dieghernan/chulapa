@@ -15,6 +15,9 @@ og_image: /assets/img/site/banner-demos.png
 [Choose a starter example](./docs/08-starter-examples) to see a blog, technical blog,
 portfolio or project configuration. Each starter demo shows its YAML header.
 
+Open [Kitchen Sink](./demo/15-kitchen-sink) to try post settings and Bootstrap
+components together.
+
 This is an example of how to create an index for a specific collection, in this
 case `demo`.
 

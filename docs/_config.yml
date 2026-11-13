@@ -154,6 +154,8 @@ navbar:
       url: /demo/13-mermaid
     - title: PhotoSwipe
       url: /demo/14-photoswipe
+    - title: Kitchen Sink
+      url: /demo/15-kitchen-sink
     - title: Minimal with header
       url: /demo/minimal-header
     - title: Classic Navbar
@@ -225,6 +227,8 @@ collections_dir: collections
 # Use the series ID in each chapter's front matter with a unique integer order.
 # Duplicate orders are sorted by URL and reported in the generated HTML source.
 series:
+  component-demos:
+    label: Component demos
   first-site:
     label: First-site guide
   site-content:
