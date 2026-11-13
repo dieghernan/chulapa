@@ -6,6 +6,7 @@
   {%- endfor -%}
   {%- assign series_documents = series_documents | where_exp: "document", "document.series" | where_exp: "document", "document.published != false" -%}
   {%- assign build_time = site.time | date: "%s" | plus: 0 -%}
+  {%- assign visible_series = 0 -%}
   {%- capture series_indices -%}
     {%- for membership in page.series -%}
       {%- assign series = site.series[membership.id] -%}
@@ -53,6 +54,7 @@
         {%- endfor -%}
       {%- endcapture -%}
       {%- if part_number > 0 -%}
+        {%- assign visible_series = visible_series | plus: 1 -%}
         {%- capture series_links -%}
 <nav aria-label="{{ series.label | escape }} previous and next parts" class="d-flex flex-wrap align-items-center">
   {%- if previous_part -%}
@@ -87,7 +89,7 @@
   {%- endcapture -%}
   {%- assign series_indices = series_indices | strip -%}
   {%- unless series_indices == empty -%}
-<div class="chulapa-series-indices small mb-3">
+<div class="chulapa-series-indices chulapa-series-columns-{{ visible_series | at_most: 3 }} small mb-3">
 {{ series_indices }}
 </div>
   {%- endunless -%}

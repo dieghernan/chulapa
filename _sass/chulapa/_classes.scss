@@ -1407,11 +1407,23 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
   @include chulapa-theme-selector-styles;
 }
 .chulapa-series-indices {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .75rem 1rem;
+  padding: .75rem;
+  background-color: mix($secondary, $body-bg, 5%);
+  border-radius: $border-radius;
   overflow-wrap: anywhere;
-}
 
-.chulapa-series + .chulapa-series {
-  margin-top: .75rem;
+  @include media-breakpoint-up(lg) {
+    &.chulapa-series-columns-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &.chulapa-series-columns-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 }
 
 .chulapa-series-index > summary {
