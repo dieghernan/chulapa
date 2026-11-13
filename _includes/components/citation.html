@@ -2,6 +2,10 @@
 {%- if page.citation == true or citation_json_type == '{' -%}
   {%- include snippets/citation-authors.html -%}
   {%- include snippets/citation-fields.html -%}
+  {%- assign citation_apa_type = page.citation.type | strip -%}
+  {%- if citation_apa_type == empty and page.collection == 'posts' -%}
+    {%- assign citation_apa_type = 'post-weblog' -%}
+  {%- endif -%}
   {%- assign citation_key = page.citation.id | strip -%}
   {%- if citation_key != empty -%}
     {%- assign citation_key_plain = citation_key | remove: ':' | remove: '-' | remove: '_' | remove: '.' | downcase -%}
@@ -34,7 +38,7 @@
   {%- endcapture -%}
   {%- capture citation_apa_title -%}
     {%- if citation_title != empty -%}
-      {%- if citation_type == 'article' -%}
+      {%- if citation_type == 'article' or citation_apa_type == 'post-weblog' -%}
         {{- citation_title | escape -}}
       {%- else -%}
         <cite>{{ citation_title | escape }}</cite>
@@ -57,7 +61,7 @@
       {% if citation_type == 'article' %}
         {% if citation_container != empty %}<cite>{{ citation_container | escape }}</cite>{% endif %}{% if citation_volume != empty %}{% if citation_container != empty %}, {% endif %}<em>{{ citation_volume | escape }}</em>{% endif %}{% if citation_issue != empty %}({{ citation_issue | escape }}){% endif %}{% if citation_pages != empty %}{% if citation_container != empty or citation_volume != empty or citation_issue != empty %}, {% endif %}{{ citation_pages | escape }}{% endif %}{% if citation_container != empty or citation_volume != empty or citation_issue != empty or citation_pages != empty %}.{% endif %}
       {% elsif citation_container != empty %}
-        <em>{{ citation_container | escape }}</em>.
+        {% if citation_apa_type == 'post-weblog' %}<cite>{{ citation_container | escape }}</cite>{% else %}{{ citation_container | escape }}{% endif %}.
       {% endif %}
       {% if citation_link != empty %}<a class="text-break" href="{{ citation_link | escape }}">{{ citation_link | escape }}</a>{% endif %}
     </p>

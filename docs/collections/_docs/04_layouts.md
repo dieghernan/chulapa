@@ -316,7 +316,7 @@ strings also works. Plain names appear as entered.
 
 | Field under `citation` | Behavior and default |
 | --- | --- |
-| `type` | `post-weblog` is the default. `webpage`, `post-weblog` and unrecognized types use `@misc`. `article-journal` uses `@article`. |
+| `type` | The visible reference defaults to `post-weblog` for Jekyll posts and `webpage` for other pages. Set `webpage` explicitly to cite a post as a standalone page. Web types and unrecognized types use `@misc` in BibTeX. `article-journal` uses `@article`. |
 | `author` | Falls back to the post author and then the site author. With no author, the visible reference starts with the title and BibTeX omits `author`. |
 | `title` | Falls back to the post title. |
 | `issued` | Falls back to the post date. Use a quoted year, year and month, or full date, such as `"2022-03"`. The visible reference uses `n.d.` if the date is unavailable. BibTeX exports the year and month when available. |
@@ -325,6 +325,26 @@ strings also works. Plain names appear as entered.
 | `doi` | DOI of the cited work, for example `10.1234/hills`. Set it under `citation` when migrating from a Quarto document that sets a top-level `doi`. The visible reference prefers the DOI link. BibTeX can carry both the DOI and the URL. |
 | `container-title` | Site or publication name. For a web entry it falls back to the site title. For a journal article it is omitted when missing. |
 | `volume`, `issue`, `page` | Optional journal details. BibTeX exports the issue as `number` and the page range as `pages`. |
+
+The visible reference italicizes the blog name for `post-weblog`, the page
+title for `webpage`, and the journal name and volume for `article-journal`.
+See the official [APA blog post examples](https://apastyle.apa.org/style-grammar-guidelines/references/examples/blog-post-references)
+and [APA webpage examples](https://apastyle.apa.org/style-grammar-guidelines/references/examples/webpage-website-references).
+[One World's Corona timelapse post](https://dieghernan.github.io/202203_Corona-timelapse/)
+shows the blog format in use.
+
+To enable citations and set the type explicitly for every post, add this
+entry to the existing `defaults` list in `_config.yml`:
+
+```yaml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      citation:
+        type: post-weblog
+```
 
 ##### Move citation metadata from Quarto
 
@@ -365,16 +385,36 @@ citation: true
 google-scholar: true
 ```
 
-The page head includes the citation title, one `citation_author` per author
-with the full name, the publication date at its available precision and the
-citation URL. For `article-journal`, it also includes the journal name,
-volume, issue, first and last pages and DOI when available. Empty fields are
-omitted. The full-text URL uses `citation.url` or the canonical URL even
-when the visible reference links to the DOI.
+Use the following fields from
+[Quarto's citation metadata](https://quarto.org/docs/authoring/create-citeable-articles.html#citation-fields).
+The theme omits empty values.
+
+| Field under `citation` | HTML tag | Value or fallback |
+| --- | --- | --- |
+| `title` | `citation_title` | Title of the work, with the post title as the fallback. |
+| `author` | `citation_author` | One tag per author with their full name. Falls back to the post author and then the site author. |
+| `issued` | `citation_publication_date` | Publication date, with the post date as the fallback. Google Scholar receives `YYYY/MM/DD` for a complete date or `YYYY` otherwise. |
+| `url` | `citation_fulltext_html_url` | Absolute URL of the full-text HTML, with the canonical URL as the fallback. The visible reference may still link to the DOI. |
+| `container-title` | `citation_journal_title` | Journal name for `article-journal`. |
+| `volume`, `issue` | `citation_volume`, `citation_issue` | Volume and issue for `article-journal`. |
+| `page` | `citation_firstpage`, `citation_lastpage` | Page or page range for `article-journal`. For a single page the theme emits only the first-page tag. |
+| `doi` | `citation_doi` | DOI for `article-journal`. |
+| `pdf-url` | `citation_pdf_url` | Absolute URL of the full-text PDF. For Google Scholar, place the PDF in the same subdirectory as the HTML abstract. |
+| `available-date` | `citation_online_date` | Online publication date. Enter a quoted date in the format you want to publish, such as `"2022/03/15"`. The theme passes it through as entered. |
+| `abstract`, `abstract-url` | `citation_abstract`, `citation_abstract_html_url` | Plain-text abstract and its HTML URL. |
+| `keyword`, `language` | `citation_keywords`, `citation_language` | Comma-separated keywords and the language code of the cited work. |
+| `isbn`, `issn`, `eissn`, `pmid` | `citation_isbn`, `citation_issn`, `citation_eissn`, `citation_pmid` | Identifiers. Quote these values to preserve leading zeros. |
+| `container-title-short`, `collection-title` | `citation_journal_abbrev`, `citation_series_title` | Abbreviated journal name and series title. |
+| `page-first`, `page-last` | `citation_firstpage`, `citation_lastpage` | Explicit endpoints for `article-journal`. Each overrides the corresponding endpoint from `page` in the HTML tags. |
+
+The additional fields from `pdf-url` onward use explicit values from the
+citation map. Use `page` to supply pagination for the visible reference and
+BibTeX.
 
 The tags describe the cited work. For a research article hosted on your
-site, use the URL of its full-text HTML page. Google Scholar applies its
-own inclusion criteria.
+site, use the URL of its full-text HTML page. Google Scholar requires a
+title, the full name of at least the first author and a publication year
+to use the tags. It also applies its own inclusion criteria.
 [Google Scholar inclusion guidelines](https://scholar.google.com/intl/en/scholar/inclusion.html)
 
 ### Landing page
