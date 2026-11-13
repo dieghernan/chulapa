@@ -107,9 +107,20 @@ Dir.mktmpdir("chulapa-install-") do |work|
   series_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/14-site-details.html")))
   series = series_page.css(".chulapa-series-index")
   raise "Expected two series on the site details guide" unless series.size == 2
-  raise "First-site series order is incorrect" unless series.first.at_css("summary").text.include?("Part 2 of 4")
+  raise "First-site series order is incorrect" unless series.first.parent.at_css(".chulapa-series-position").text == "Part 2 of 4"
   raise "Series chapter link is missing" unless series.first.css("a").any? { |link| link["href"] == "#{docs_config['baseurl']}/docs/00-start" }
   raise "Current series parts are missing" unless series.all? { |index| index.at_css('span[aria-current="page"]') }
+  progress = series_page.css(".chulapa-series-controls progress")
+  raise "Series progress is incorrect" unless progress.map { |bar| [bar["value"], bar["max"]] } == [%w[2 4], %w[1 10]]
+  series_links = series.first.previous_element.css("a").map { |link| link["href"] }
+  raise "Primary series navigation is incorrect" unless series_links == %w[00-start 15-create-post].map { |slug| "#{docs_config['baseurl']}/docs/#{slug}" }
+  secondary_controls = series.last.previous_element
+  secondary_links = secondary_controls.css("a.chulapa-series-link").map { |link| link["href"] }
+  raise "Secondary series navigation is incorrect" unless secondary_links == ["#{docs_config['baseurl']}/docs/15-create-post"]
+  raise "First part must disable Previous" unless secondary_controls.at_css("button[disabled]")&.text&.strip == "Previous"
+  last_part = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/59-photo-page-tutorial.html")))
+  last_controls = last_part.at_css(".chulapa-series-controls")
+  raise "Last part must disable Next" unless last_controls.at_css("button[disabled]")&.text&.strip == "Next"
   videos = docs_page.css('[itemscope][itemtype="https://schema.org/VideoObject"]')
   raise "Documentation videos missing" unless videos.size == 5
   videos.each do |video|
