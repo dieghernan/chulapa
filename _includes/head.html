@@ -130,9 +130,10 @@
     <title>{{ metatitle | escape_once }}</title>
     <link rel="canonical" href="{{ canonical_url | escape }}">
     <!-- Atom feed -->
-    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title }}" >
+    <link href="{{ './atom.xml' | absolute_url }}" type="application/atom+xml" rel="alternate" title="Atom feed {{ site.title | strip_html | escape }}" >
     <!-- RSS 2.0 feed -->
-    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title }}" >
+    <link href="{{ './rss.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed {{ site.title | strip_html | escape }}" >
+    <link href="{{ '/feed.json' | absolute_url }}" type="application/feed+json" rel="alternate" title="JSON Feed {{ site.title | strip_html | escape }}">
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{ page.author.name | default: site.author.name | default: site.github.owner_name | escape_once }}" >

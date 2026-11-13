@@ -332,6 +332,8 @@ defaults:
     values:
       include_on_feed: true
 ```
+In v2.2.1 development, the same entries are available as JSON Feed 1.1 at `/feed.json`. Share `/subscribe/` for a browser preview with recent entries and links to Atom, RSS and JSON Feed. These addresses are relative to the site base URL.
+
 jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Collections need output: true for linked articles to exist; feed opt-in does not publish them. Set dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
 ## Check theme version
 Source: https://dieghernan.github.io/chulapa/docs/55-check-theme-version
