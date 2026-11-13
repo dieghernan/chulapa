@@ -1,0 +1,15 @@
+{%- assign feed_language = site.locale | default: 'en-US' | replace: '_', '-' -%}
+{%- assign alldocs = site.documents
+  | where_exp: "item", "item.include_on_feed == true"
+  | where_exp: "item", "item.date != nil"
+  | sort: "date" | reverse -%}
+{%- assign feed_updated = alldocs.first.last_modified_at | default: alldocs.first.date | default: site.time -%}
+{%- assign feed_epoch = feed_updated | date: "%s" | plus: 0 -%}
+{%- for entry in alldocs -%}
+  {%- assign entry_updated = entry.last_modified_at | default: entry.date -%}
+  {%- assign entry_epoch = entry_updated | date: "%s" | plus: 0 -%}
+  {%- if entry_epoch > feed_epoch -%}
+    {%- assign feed_updated = entry_updated -%}
+    {%- assign feed_epoch = entry_epoch -%}
+  {%- endif -%}
+{%- endfor -%}

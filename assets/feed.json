@@ -1,0 +1,44 @@
+---
+layout: null
+permalink: /feed.json
+---
+{%- include snippets/feed-entries.html -%}
+{%- include snippets/author-identity.html -%}
+{%- assign feed_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": {{ site.title | default: site.github.repository_name | default: "Recent entries" | strip_html | jsonify }},
+  "home_page_url": {{ "/" | absolute_url | jsonify }},
+  "feed_url": {{ page.url | absolute_url | jsonify }},
+  "language": {{ feed_language | jsonify }},
+  {% if site.description %}"description": {{ site.description | strip_html | jsonify }},{% endif %}
+  {% if feed_image %}"icon": {{ feed_image | absolute_url | jsonify }},{% endif %}
+  {% if site.navbar.brand.img %}"favicon": {{ site.navbar.brand.img | absolute_url | jsonify }},{% endif %}
+  {% if identity_name != empty %}"authors": [{
+    "name": {{ identity_name | jsonify }}{% if identity_url != empty %},
+    "url": {{ identity_url | absolute_url | jsonify }}{% endif %}
+  }],{% endif %}
+  "items": [
+    {% for document in alldocs %}
+    {%- include snippets/canonical-url.html url=document.url canonical=document.canonical_url -%}
+    {%- include snippets/author-identity.html author=document.author -%}
+    {%- assign entry_image = document.og_image | default: document.header_img -%}
+    {
+      "id": {{ canonical_url | jsonify }},
+      "url": {{ canonical_url | jsonify }},
+      "title": {{ document.title | markdownify | strip_html | normalize_whitespace | strip | replace: '&amp;', '&' | jsonify }},
+      "content_html": {{ document.content | markdownify | jsonify }},
+      "date_published": {{ document.date | date_to_xmlschema | jsonify }}{% if document.last_modified_at %},
+      "date_modified": {{ document.last_modified_at | date_to_xmlschema | jsonify }}{% endif %}{% if entry_image %},
+      "image": {{ entry_image | absolute_url | jsonify }}{% endif %}{% if document.excerpt %},
+      "summary": {{ document.excerpt | markdownify | strip_html | normalize_whitespace | strip | replace: '&amp;', '&' | jsonify }}{% endif %}{% if document.tags.size > 0 %},
+      "tags": {{ document.tags | jsonify }}{% endif %}{% if document.locale %},
+      "language": {{ document.locale | replace: '_', '-' | jsonify }}{% endif %}{% if identity_name != empty %},
+      "authors": [{
+        "name": {{ identity_name | jsonify }}{% if identity_url != empty %},
+        "url": {{ identity_url | absolute_url | jsonify }}{% endif %}
+      }]{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

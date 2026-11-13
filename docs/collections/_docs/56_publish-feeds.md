@@ -9,7 +9,14 @@ cloudtag_url: /docs/tags
 
 Use this guide on an existing site to let readers subscribe in a feed reader.
 The theme supplies Atom at `/atom.xml` and RSS 2.0 at `/rss.xml`; you do not need
-to install `jekyll-feed` for these addresses.
+to install `jekyll-feed` for these addresses. In v2.2.1 development, it also
+supplies JSON Feed 1.1 at `/feed.json`. Share `/subscribe/` to give readers a
+browser preview with recent entries and links to all three feeds.
+
+All three formats use the same entries. Atom and RSS include reading times.
+RSS provides a short description and the full article through
+`content:encoded`. JSON Feed includes the full article as HTML and uses
+plain text for titles and summaries.
 
 ## Include your posts
 

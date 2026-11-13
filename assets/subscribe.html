@@ -1,0 +1,34 @@
+---
+layout: minimal
+title: Subscribe
+permalink: /subscribe/
+sitemap: false
+---
+<main class="container py-5">
+  <h1>{{ site.title | strip_html | escape }}</h1>
+  <p>Add a feed URL to your feed reader to follow new posts.</p>
+  <p>
+    <a class="btn btn-primary mr-2 mb-2" href="{{ '/atom.xml' | relative_url }}">Atom feed</a>
+    <a class="btn btn-outline-primary mr-2 mb-2" href="{{ '/rss.xml' | relative_url }}">RSS feed</a>
+    <a class="btn btn-outline-primary mb-2" href="{{ '/feed.json' | relative_url }}">JSON Feed</a>
+  </p>
+
+  <h2>Recent entries</h2>
+  {%- include snippets/feed-entries.html -%}
+  {% if alldocs.size == 0 %}
+    <p>No entries yet.</p>
+  {% else %}
+    <ul class="list-unstyled">
+      {% for entry in alldocs limit: 20 %}
+        {% include snippets/canonical-url.html url=entry.url canonical=entry.canonical_url %}
+        <li class="border-top py-3">
+          <h3 class="h5 mb-1"><a href="{{ canonical_url | escape }}">{{ entry.title | markdownify | remove: '<p>' | remove: '</p>' }}</a></h3>
+          <time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%Y-%m-%d" }}</time>
+          {% if entry.excerpt %}
+            <p class="mb-0">{{ entry.excerpt | markdownify | strip_html | strip | truncatewords: 32 }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</main>
