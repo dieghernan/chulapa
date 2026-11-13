@@ -104,6 +104,12 @@ Dir.mktmpdir("chulapa-install-") do |work|
   raise "Mermaid redirect refresh incorrect" unless redirect.at_css('meta[http-equiv="refresh"]')&.[]("content")&.include?(target)
   raise "Mermaid redirect fallback missing" unless redirect.at_css("a")&.[]("href") == target
   docs_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/04-layouts.html")))
+  series_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/14-site-details.html")))
+  series = series_page.css(".chulapa-series-index")
+  raise "Expected two series on the site details guide" unless series.size == 2
+  raise "First-site series order is incorrect" unless series.first.at_css("summary").text.include?("Part 2 of 4")
+  raise "Series chapter link is missing" unless series.first.css("a").any? { |link| link["href"] == "#{docs_config['baseurl']}/docs/00-start" }
+  raise "Current series parts are missing" unless series.all? { |index| index.at_css('span[aria-current="page"]') }
   videos = docs_page.css('[itemscope][itemtype="https://schema.org/VideoObject"]')
   raise "Documentation videos missing" unless videos.size == 5
   videos.each do |video|

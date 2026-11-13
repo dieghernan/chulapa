@@ -655,6 +655,12 @@ Available in development v2.2.1. A series gives readers an ordered list of
 related pages or posts. Each list starts collapsed and identifies the current
 part when opened. See the [first-site guide](./00-start) for an example.
 
+Jekyll's collection order applies within one collection. Tags and categories
+can group a page in several ways, but they do not store a different position
+for each group. The series map defines each label once, and the page's
+membership list assigns a position in each series across pages, posts and
+collections.
+
 Add a top-level map to `_config.yml` and give each series a visible label:
 
 ```yaml
