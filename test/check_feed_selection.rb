@@ -23,7 +23,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   end
   ["", "/preview"].each do |baseurl|
     [false, true].each do |enabled|
-      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & <span>site</span>", "subtitle" => (enabled ? "<em>Updates</em> & notes" : " "), "og_image" => "/logo.png", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
+      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & <span>site</span>", "subtitle" => (enabled ? "<em>Updates</em> & notes" : " "), "description" => "Notes & <em>updates</em>", "og_image" => "/logo.png", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
       site = Jekyll::Site.new(config)
       site.process
       expected = enabled ? ['Enabled & formatted entry <main> "quoted"', "Default post"] : ['Enabled & formatted entry <main> "quoted"']
@@ -63,13 +63,20 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         end
         if feed == "atom"
           first = items.first
-          raise "Atom: entry title must be plain text" unless first.at_css("title")["type"].nil?
+          raise "Atom: entry title must be plain text" unless first.at_css("title")["type"] == "text"
           raise "Atom: alternate link title must be plain text" unless first.at_css("link")["title"] == expected.first
         end
         raise "#{feed}: opt-in, date requirement or date order changed: #{actual.inspect}" unless actual == expected
         channel = feed == "atom" ? xml.root : xml.at_css("channel")
         raise "#{feed}: feed title lost its ampersand" unless channel.at_css("title").text.include?("Feed & site")
         if feed == "atom"
+          raise "Atom: feed title must declare plain text" unless channel.at_xpath("./title")["type"] == "text"
+          subtitle = channel.at_xpath("./subtitle")
+          if enabled
+            raise "Atom: feed subtitle must declare plain text" unless subtitle["type"] == "text" && subtitle.text == "Updates & notes"
+          else
+            raise "Atom: blank feed subtitle was emitted" if subtitle
+          end
           guest = items.first.at_css("author")
           raise "Atom: unnamed guest must have a distinct label" unless guest.at_css("name").text == "Guest author"
           raise "Atom: unnamed guest lost their profile" unless guest.at_css("uri").text == "https://guest.example/"
@@ -82,6 +89,8 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         if feed == "rss"
           channel_title = enabled ? "Feed & site | Updates & notes" : "Feed & site"
           raise "RSS: incorrect channel title" unless channel.at_xpath("./title").text == channel_title
+          raise "RSS: channel description must be plain text" unless channel.at_xpath("./description").text == "Notes & updates"
+          raise "RSS: image description must be plain text" unless channel.at_xpath("./image/description").text == "Notes & updates"
           raise "RSS: incorrect image title" unless channel.at_xpath("./image/title").text == channel_title
           raise "RSS: unnamed guest inherited the site identity" if items.first.at_css("creator")
           if enabled

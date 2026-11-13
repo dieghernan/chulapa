@@ -18,9 +18,9 @@ permalink: ./atom.xml
   <link href="{{ "" | absolute_url | xml_escape }}" rel="alternate" type="text/html" />
   <updated>{{ feed_updated | date_to_xmlschema }}</updated>
   <id>{{ page.url | absolute_url | xml_escape }}</id>
-  <title>{{ feed_title | xml_escape }}{% if feed_subtitle != empty %}{{ " | " | append: feed_subtitle | xml_escape }}{% endif %}</title>
+  <title type="text">{{ feed_title | xml_escape }}{% if feed_subtitle != empty %}{{ " | " | append: feed_subtitle | xml_escape }}{% endif %}</title>
   {% if feed_subtitle != empty -%}
-  <subtitle>{{ feed_subtitle | xml_escape }}</subtitle>
+  <subtitle type="text">{{ feed_subtitle | xml_escape }}</subtitle>
   {% endif -%}
   {%- include snippets/author-identity.html %}
   {% if identity_name != empty -%}
@@ -66,7 +66,7 @@ permalink: ./atom.xml
     {{ document.content | markdownify }}
   {%- endcapture %}
   <entry>
-    <title>{{ feed_plain_text | xml_escape }}</title>
+    <title type="text">{{ feed_plain_text | xml_escape }}</title>
     <link href="{{ canonical_url | xml_escape }}" rel="alternate" type="text/html" title="{{ feed_plain_text | xml_escape }}" />
     <published>{{ document.date | date_to_xmlschema }}</published>
     <updated>{{ document.last_modified_at | default: document.date | date_to_xmlschema }}</updated>
