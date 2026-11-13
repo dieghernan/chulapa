@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Choose a skin",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-13T20:04:17+01:00",
-        "dateModified": "2026-11-13T20:04:17+01:00",
+        "datePublished": "2026-11-13T22:31:27+01:00",
+        "dateModified": "2026-11-13T22:31:27+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -273,7 +273,15 @@
 			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#set-the-skin-name" class="nav-link">Set the skin name</a></li><li class="nav-item nav d-block"><a href="#publish-and-check" class="nav-link">Publish and check</a></li><li class="nav-item nav d-block"><a href="#let-visitors-switch-between-light-and-dark" class="nav-link">Let visitors switch between light and dark</a></li></ul>
 		</nav>   
 	</div>
-			<div class="e-content"><p>Use this guide for an already published site. In your repository’s <strong>Code</strong> tab,
+			<div class="e-content"><div class="chulapa-series-indices small mb-3">
+<details class="chulapa-series-index">
+  <summary class="py-1"><span class="font-weight-bold">Appearance and branding</span> <span class="chulapa-series-position text-nowrap">· Part 1 of 8</span></summary>
+ <nav aria-label="Appearance and branding" class="mt-1">
+   <ol class="mb-2 pl-4"><li><span aria-current="page" class="font-weight-bold d-block py-1">Choose a skin</span></li><li><a class="d-block py-1" href="/chulapa/docs/23-change-color">Change a color</a></li><li><a class="d-block py-1" href="/chulapa/docs/52-add-favicon">Add a favicon</a></li><li><a class="d-block py-1" href="/chulapa/docs/53-chulapa-font">Use the Chulapa font</a></li><li><a class="d-block py-1" href="/chulapa/docs/24-change-fonts">Change the fonts</a></li><li><a class="d-block py-1" href="/chulapa/docs/25-code-highlighting">Change code highlighting</a></li><li><a class="d-block py-1" href="/chulapa/docs/27-autothemer">Enable Autothemer</a></li><li><a class="d-block py-1" href="/chulapa/docs/28-custom-skin">Adapt a Sass skin</a></li></ol>
+ </nav>
+</details>
+</div>
+<p>Use this guide for an already published site. In your repository’s <strong>Code</strong> tab,
 open <code class="language-plaintext highlighter-rouge">_config.yml</code> and click the pencil. Edit existing entries and preserve
 unrelated settings; do not add a second <code class="language-plaintext highlighter-rouge">chulapa-skin</code> section.</p>
 <h2 id="set-the-skin-name">Set the skin name</h2>
@@ -321,7 +329,8 @@ If you set <code class="language-plaintext highlighter-rouge">vars.primary</code
 address-bar color when that appearance is active, on browsers that support it.
 A skin without an explicit <code class="language-plaintext highlighter-rouge">vars.primary</code> leaves that color to the browser.
 The selector preserves custom <code class="language-plaintext highlighter-rouge">theme-color</code> tags added through the head hook.
-The footer credits both configured built-in skins, once each.</p>
+Starting in v2.2.1 (development), skin credits are listed in the
+<a href="../skins">skin gallery</a> instead of the site footer.</p>
 <p>Light is the initial default. Auto follows the device’s color preference and
 updates when it changes. The browser remembers the visitor’s choice across
 pages and tabs. If browser storage is blocked, switching
@@ -460,7 +469,7 @@ to check both modes. Local previews need a Jekyll restart after config edits.</p
           </nav>
           <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
           <!-- Do not remove this in order to give attributions -->
-          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
           <!-- End attributions -->
         </div>
       </div>

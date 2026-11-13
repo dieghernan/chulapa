@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-13T20:04:17+01:00",
-        "dateModified": "2026-11-13T20:04:17+01:00",
+        "datePublished": "2026-11-13T22:31:27+01:00",
+        "dateModified": "2026-11-13T22:31:27+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -276,7 +276,15 @@
             <nav aria-label="table-of-contents">
 			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#start-with-your-site-details">Start with your site details</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#a-site-settingsseo">A. Site settings/SEO</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#site-author">Site author</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#b-navigation">B. Navigation</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#navbar">Navbar</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#footer">Footer</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#optional-features-and-metadata">Optional features and metadata</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#seo">SEO</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#publisher">Publisher</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#font-awesome">Font Awesome</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#google-analytics">Google Analytics</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#goatcounter-analytics">GoatCounter analytics</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#custom-hosting-and-troubleshooting">Custom hosting and troubleshooting</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#search-engines">Search engines</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#comments">Comments</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#d-jekyll-defaults-and-collections">D. Jekyll defaults and collections</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#xx-other-settings">XX. Other settings</a></li></ul>
 			</nav>
-			<div class="e-content"><p>For editing procedures, use <a href="./14-site-details">Change your site’s name and author</a>,
+			<div class="e-content"><div class="chulapa-series-indices small mb-3">
+<details class="chulapa-series-index">
+  <summary class="py-1"><span class="font-weight-bold">Theme reference</span> <span class="chulapa-series-position text-nowrap">· Part 1 of 10</span></summary>
+ <nav aria-label="Theme reference" class="mt-1">
+   <ol class="mb-2 pl-4"><li><span aria-current="page" class="font-weight-bold d-block py-1">Global settings</span></li><li><a class="d-block py-1" href="/chulapa/docs/04-layouts">Layouts and snippets</a></li><li><a class="d-block py-1" href="/chulapa/docs/48-accessibility-reference">Accessibility and resource-loading reference</a></li><li><a class="d-block py-1" href="/chulapa/docs/45-custom-hooks">Custom hooks reference</a></li><li><a class="d-block py-1" href="/chulapa/docs/44-custom-head">Add custom HTML to the page head</a></li><li><a class="d-block py-1" href="/chulapa/docs/03-theming">Theming Chulapa</a></li><li><a class="d-block py-1" href="/chulapa/docs/26-appearance-precedence">How skins and overrides interact</a></li><li><a class="d-block py-1" href="/chulapa/docs/variable-dictionary">Variables dictionary</a></li><li><a class="d-block py-1" href="/chulapa/docs/markdown-cheatsheet">Markdown cheatsheet</a></li><li><a class="d-block py-1" href="/chulapa/docs/syntax-highlighting">Syntax highlighting reference</a></li></ol>
+ </nav>
+</details>
+</div>
+<p>For editing procedures, use <a href="./14-site-details">Change your site’s name and author</a>,
 <a href="./10-edit-menu">Add or change a menu link</a> or <a href="./11-edit-footer">Edit footer links</a>.
 The sections below describe site-wide options, defaults and integration settings.</p>
 <p>Switching themes? Follow the <a href="./07-migration">migration guide</a>. For a new site,
@@ -784,6 +792,9 @@ the theme templates. Provider-generated templates can replace the customized
 ones supplied by <span class="chulapa">Chulapa</span>. The
 <a href="./40-welcomments-comments">setup guide</a> covers reviewing those integration files.</p>
 <h2 id="d-jekyll-defaults-and-collections">D. Jekyll defaults and collections</h2>
+<p>Use the optional <a href="./04-layouts#series-navigation">series map</a> to group published
+pages and posts into ordered reading lists. It is available in development
+v2.2.1.</p>
 <p><strong>Advanced configuration.</strong> A collection groups content such as portfolio
 projects; defaults apply shared page settings without repeating them in each
 file. The starter already configures these for a blog.</p>
@@ -1038,7 +1049,7 @@ and the <a href="https://jch.penibelst.de/">compression guide</a> for accepted v
           </nav>
           <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
           <!-- Do not remove this in order to give attributions -->
-          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a><br><b>Navi</b> skin by <a href="https://github.com/dieghernan">dieghernan</a></p>
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
           <!-- End attributions -->
         </div>
       </div>

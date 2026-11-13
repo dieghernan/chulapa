@@ -8,6 +8,8 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 
 ## Getting started
 
+- [Series navigation](https://dieghernan.github.io/chulapa/docs/04-layouts#series-navigation): Configure a global series map and order pages in collapsible indexes in development v2.2.1.
+
 - [Documentation overview](https://dieghernan.github.io/chulapa/docs): Task-oriented documentation index with Tutorials, How-To Guides, Reference and separate Explanation pages.
 - [Documentation topics](https://dieghernan.github.io/chulapa/docs/tags): Partial topic index for tagged documentation, covering appearance, content editing, publishing, site search, installation, navigation, site identity, branding, comments, analytics, custom hooks, feeds and accessibility; includes migration mappings, canonical URLs, tag/category indexes and syntax/variable references. The FAQ and tutorials keep their direct routes.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-only tutorial: publish the Chulapa 101 blog with a personal title and edited sample article; existing task/example anchors remain as compatibility links.
