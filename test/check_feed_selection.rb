@@ -13,7 +13,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   FileUtils.mkdir_p(File.join(source, "_posts"))
   FileUtils.mkdir_p(File.join(source, "_entries"))
   {
-    "_posts/2024-01-01-default.md" => "title: Default post\nauthor: {}",
+    "_posts/2024-01-01-default.md" => "title: Default post\nexcerpt: '   '\nauthor: {}",
     "_posts/2024-01-03-disabled.md" => "title: Disabled post\ninclude_on_feed: false",
     "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
@@ -23,7 +23,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
   end
   ["", "/preview"].each do |baseurl|
     [false, true].each do |enabled|
-      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & site", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
+      config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "quiet" => true, "plugins" => [], "theme" => nil, "url" => "https://example.com", "baseurl" => baseurl, "title" => "Feed & site", "subtitle" => (enabled ? "Updates & notes" : " "), "og_image" => "/logo.png", "words_per_minute" => 60, "author" => {"name" => "Author"}, "collections" => {"entries" => {"output" => true}}, "defaults" => [{"scope" => {"path" => "", "type" => "posts"}, "values" => {"include_on_feed" => enabled}}])
       site = Jekyll::Site.new(config)
       site.process
       expected = enabled ? ['Enabled & formatted entry <main> "quoted"', "Default post"] : ['Enabled & formatted entry <main> "quoted"']
@@ -65,9 +65,25 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         channel = feed == "atom" ? xml.root : xml.at_css("channel")
         raise "#{feed}: feed title lost its ampersand" unless channel.at_css("title").text.include?("Feed & site")
         if feed == "atom"
+          guest = items.first.at_css("author")
+          raise "Atom: unnamed guest must have a distinct label" unless guest.at_css("name").text == "Guest author"
+          raise "Atom: unnamed guest lost their profile" unless guest.at_css("uri").text == "https://guest.example/"
+          if enabled
+            guest = items.last.at_css("author")
+            raise "Atom: empty guest inherited the site identity" unless guest.at_css("name").text == "Guest author" && guest.at_css("uri").nil?
+          end
           raise "Atom: feed date must reflect entry edits" unless channel.at_css("updated").text.start_with?("2024-01-05")
         end
         if feed == "rss"
+          channel_title = enabled ? "Feed & site | Updates & notes" : "Feed & site"
+          raise "RSS: incorrect channel title" unless channel.at_xpath("./title").text == channel_title
+          raise "RSS: incorrect image title" unless channel.at_xpath("./image/title").text == channel_title
+          raise "RSS: unnamed guest inherited the site identity" if items.first.at_css("creator")
+          if enabled
+            item = items.last
+            raise "RSS: full article missing without excerpt" unless item.at_css("description").text.include?("Feed content.")
+            raise "RSS: full article duplicated without excerpt" if item.at_css("encoded")
+          end
           raise "RSS: missing full content extension" unless items.first.at_css("encoded").text.include?("Feed content.")
         end
         first_link = items.first.at_css("link")

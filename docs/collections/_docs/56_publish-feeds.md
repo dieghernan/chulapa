@@ -56,10 +56,19 @@ RSS preserves known names as `dc:creator`; it does not invent email addresses.
 Atom uses the selected author's `url` before the first HTTP(S) URL in that
 author's `links`. If neither exists, Atom omits the profile URI. A guest never
 inherits the site author's name, URL or links. The Atom feed's own author uses
-the site settings with the same URL fallback. Set a guest's `author.name` and
-`author.url` in the article's existing front matter to identify them explicitly.
+the site settings with the same URL fallback. Set `author.name` in a guest
+article's front matter and add `author.url` if the guest has a profile.
+Atom displays `Guest author` when the guest has no name and includes their
+profile URL when available. For other entries, Atom displays `Unknown author`
+if the site has no author name.
 Site-relative profile URLs such as `/about/` use the site's `url` and `baseurl`.
 Hiding the author card with `show_author: false` does not remove feed authors.
+
+## Read excerpts and full articles in RSS
+
+In v2.2.1 development, RSS includes the excerpt and full article when an
+excerpt is available. If the excerpt is empty, RSS includes the full article
+once.
 
 ## Publish and share the address
 

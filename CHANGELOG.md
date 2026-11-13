@@ -26,6 +26,10 @@
 
 ### Fixed
 
+-   Show the RSS channel title without a trailing separator when there is no subtitle, and include the full article only once when there is no excerpt.
+
+-   Label unnamed Atom guest authors as Guest author and retain their profile URL when available.
+
 -   Honor the configured reading speed in Atom and RSS and round partial minutes up.
 
 -   Correct ampersand escaping in RSS titles and Atom link titles, preserve complete category names and use absolute links in syndicated documentation posts (#209).

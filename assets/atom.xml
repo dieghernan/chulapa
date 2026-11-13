@@ -17,12 +17,14 @@ permalink: ./atom.xml
   <subtitle>{{ site.subtitle | strip_html | xml_escape }}</subtitle>
   {% endif -%}
   {%- include snippets/author-identity.html %}
+  {% if identity_name != empty -%}
   <author>
     <name>{{ identity_name | xml_escape }}</name>
     {% if identity_url != empty -%}
     <uri>{{ identity_url | absolute_url | xml_escape }}</uri>
     {% endif -%}
   </author>
+  {% endif -%}
   <rights>(c) {{ site.time | date: '%Y' }}, {{ site.author.name | default: site.github.owner_name | xml_escape }}</rights>
   {% if site.navbar.brand.img -%}
   <icon>{{ site.navbar.brand.img | absolute_url | xml_escape }}</icon>
@@ -33,6 +35,14 @@ permalink: ./atom.xml
   {% for document in alldocs %}
   {%- include snippets/canonical-url.html url=document.url canonical=document.canonical_url -%}
   {%- include snippets/author-identity.html author=document.author -%}
+  {%- assign entry_author_name = identity_name -%}
+  {%- if entry_author_name == empty -%}
+    {%- if document.author -%}
+      {%- assign entry_author_name = "Guest author" -%}
+    {%- else -%}
+      {%- assign entry_author_name = "Unknown author" -%}
+    {%- endif -%}
+  {%- endif -%}
   {%- include snippets/feed-reading-time.html html=document.content -%}
   {%- assign title_html = document.title | markdownify -%}
   {%- include snippets/feed-plain-text.html html=title_html -%}
@@ -57,7 +67,7 @@ permalink: ./atom.xml
     <id>{{ canonical_url | xml_escape }}</id>
     <content type="html" xml:base="{{ entry_base | xml_escape }}">{{ item_html | xml_escape }}</content>
     <author>
-      <name>{{ identity_name | xml_escape }}</name>
+      <name>{{ entry_author_name | xml_escape }}</name>
       {% if identity_url != empty -%}
       <uri>{{ identity_url | absolute_url | xml_escape }}</uri>
       {% endif -%}

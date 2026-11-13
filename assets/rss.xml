@@ -4,6 +4,11 @@ permalink: ./rss.xml
 ---
 {%- assign og_image = site.og_image | default: site.author.avatar | default: site.github.owner_gravatar_url -%}
 {%- include snippets/feed-entries.html -%}
+{%- assign feed_title = site.title | default: site.github.repository_name | default: "Recent entries" -%}
+{%- assign feed_subtitle = site.subtitle | strip -%}
+{%- if feed_subtitle != empty -%}
+  {%- assign feed_title = feed_title | append: " | " | append: feed_subtitle -%}
+{%- endif -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -12,7 +17,7 @@ permalink: ./rss.xml
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
+    <title>{{ feed_title | xml_escape }}</title>
     <generator>(c) Chulapa Jekyll Theme RSS generator</generator>
     <link>{{ "" | absolute_url | xml_escape }}</link>
     <description>{{ site.description | default: site.github.project_tagline | default: site.subtitle | default: site.title | default: "Recent entries" | xml_escape }}</description>
@@ -27,7 +32,7 @@ permalink: ./rss.xml
     <atom:link href="{{ page.url | absolute_url | xml_escape }}" rel="self" type="application/rss+xml" />
     {% if og_image -%}
     <image>
-      <title>{{ site.title | append: " | " | append: site.subtitle | xml_escape }}</title>
+      <title>{{ feed_title | xml_escape }}</title>
       <url>{{ og_image | absolute_url | xml_escape }}</url>
       <link>{{ "" | absolute_url | xml_escape }}</link>
       <description>{{ site.description | default: site.github.project_tagline | xml_escape }}</description>
@@ -41,6 +46,7 @@ permalink: ./rss.xml
     {%- include snippets/feed-plain-text.html html=title_html -%}
     {%- assign entry_image = document.og_image | default: document.header_img | default: site.og_image -%}
     {%- assign entry_tags = document.tags | sort -%}
+    {%- assign entry_excerpt = document.excerpt | strip -%}
     {%- capture item_html -%}
       {%- if document.subtitle -%}
         <h3>{{ document.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip | strip_newlines }}</h3>
@@ -53,8 +59,12 @@ permalink: ./rss.xml
       <dc:creator>{{ identity_name | xml_escape }}</dc:creator>
       {% endif -%}
       <title>{{ feed_plain_text | xml_escape }}</title>
-      <description>{{ document.excerpt | default: item_html | xml_escape }}</description>
+      {% if entry_excerpt != empty -%}
+      <description>{{ entry_excerpt | xml_escape }}</description>
       <content:encoded>{{ item_html | xml_escape }}</content:encoded>
+      {% else -%}
+      <description>{{ item_html | xml_escape }}</description>
+      {% endif -%}
       <link>{{ canonical_url | xml_escape }}</link>
       <category>{{ document.collection | xml_escape }}</category>
       {% for tag in entry_tags -%}
