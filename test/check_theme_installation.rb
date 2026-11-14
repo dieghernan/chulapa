@@ -105,19 +105,23 @@ Dir.mktmpdir("chulapa-install-") do |work|
   raise "Mermaid redirect fallback missing" unless redirect.at_css("a")&.[]("href") == target
   docs_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/04-layouts.html")))
   series_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/14-site-details.html")))
-  series = series_page.css(".chulapa-series-index")
-  raise "Expected two series on the site details guide" unless series.size == 2
-  raise "First-site series order is incorrect" unless series.first.parent.at_css(".chulapa-series-position").text == "Part 2 of 4"
-  raise "Series chapter link is missing" unless series.first.css("a").any? { |link| link["href"] == "#{docs_config['baseurl']}/docs/00-start" }
-  raise "Current series parts are missing" unless series.all? { |index| index.at_css('span[aria-current="page"]') }
-  progress = series_page.css(".chulapa-series-controls progress")
-  raise "Series progress is incorrect" unless progress.map { |bar| [bar["value"], bar["max"]] } == [%w[2 4], %w[1 10]]
-  series_links = series.first.previous_element.css("a").map { |link| link["href"] }
-  raise "Primary series navigation is incorrect" unless series_links == %w[00-start 15-create-post].map { |slug| "#{docs_config['baseurl']}/docs/#{slug}" }
-  secondary_controls = series.last.previous_element
-  secondary_links = secondary_controls.css("a.chulapa-series-link").map { |link| link["href"] }
-  raise "Secondary series navigation is incorrect" unless secondary_links == ["#{docs_config['baseurl']}/docs/15-create-post"]
-  raise "First part must disable Previous" unless secondary_controls.at_css("button[disabled]")&.text&.strip == "Previous"
+  index = series_page.css(".chulapa-series-index")
+  raise "Expected the Site identity and content series" unless index.size == 1 && index.first.at_css('nav[aria-label="Site identity and content"]')
+  raise "Current series part is missing" unless index.first.at_css('span[aria-current="page"]')
+  controls = index.first.previous_element
+  progress = controls.at_css("progress")
+  chapter_count = index.first.css("nav li").size
+  unless chapter_count > 1 && progress && [progress["value"], progress["max"]] == ["1", chapter_count.to_s]
+    raise "Expected progress 1/#{chapter_count} for the site details guide: #{progress}"
+  end
+  next_chapter = "#{docs_config['baseurl']}/docs/15-create-post"
+  raise "Series chapter link is missing" unless index.first.css("a").any? { |link| link["href"] == next_chapter }
+  raise "Next must link to Create a post" unless controls.css("a").map { |link| link["href"] } == [next_chapter]
+  raise "First part must disable Previous" unless controls.at_css("button[disabled]")&.text&.strip == "Previous"
+  clouds_page = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/63-tag-category-clouds.html")))
+  series_names = clouds_page.css(".chulapa-series-index nav").map { |nav| nav["aria-label"] }
+  raise "Expected both series on the tag and category guide" unless series_names == ["Site identity and content", "Site navigation"]
+  raise "Both series must mark their current chapter" unless clouds_page.css('.chulapa-series-index [aria-current="page"]').size == 2
   last_part = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/59-photo-page-tutorial.html")))
   last_controls = last_part.at_css(".chulapa-series-controls")
   raise "Last part must disable Next" unless last_controls.at_css("button[disabled]")&.text&.strip == "Next"

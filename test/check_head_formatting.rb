@@ -10,7 +10,7 @@ root = File.expand_path("..", __dir__)
 Dir.mktmpdir("chulapa-head-formatting-") do |source|
   %w[_includes _layouts].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
   standalone = Dir.glob(File.join(root, "docs/_pages/demo_*.html")).select { |path| File.read(path).include?("include head.html") }
-  standalone << File.join(root, "docs/assets/widgets/music-scales.html")
+  raise "Expected standalone demos that use the shared head" if standalone.empty?
   standalone.each { |path| FileUtils.cp(path, File.join(source, File.basename(path))) }
   FileUtils.mkdir_p(File.join(source, "_posts"))
   {"index.html" => {}, "search.html" => {"layout" => "search"}, "page.html" => {"breadcrumb_list" => [{"label" => "Docs", "url" => "/docs/"}], "mathjax" => true}, "guest.html" => {"author" => {"name" => 'Guest "name" </script>', "links" => [{"url" => "https://guest.example/"}, {"url" => "https://guest.example/social"}]}}}.each do |path, values|
@@ -51,4 +51,4 @@ Dir.mktmpdir("chulapa-head-formatting-") do |source|
     FileUtils.cp_r(Dir.glob(File.join(config["destination"], "*")), ENV["HEAD_FORMATTING_OUTPUT"])
   end
 end
-puts "Head formatting checks passed (home, page, guest, post, search and six standalone demos)."
+puts "Head formatting checks passed (home, page, guest, post, search and standalone demos)."

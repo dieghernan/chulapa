@@ -137,8 +137,18 @@ async function main() {
 
         await scrollToHeading("first-section");
         for (const toc of ["toc", "sidetoc", "markdown-toc"]) {
-          const activeStyle = await page.locator(`#${toc} a[aria-current="location"]`).evaluate(link => getComputedStyle(link).textDecorationLine);
-          assert.ok(activeStyle.includes("underline"), `${skin}: active ${toc} styling missing`);
+          const activeLink = page.locator(`#${toc} a[aria-current="location"]`);
+          if (toc === "sidetoc") {
+            const decoration = await activeLink.evaluate(link => getComputedStyle(link).textDecorationLine);
+            assert.ok(decoration.includes("underline"), `${skin}: active sidebar link must be underlined`);
+          } else {
+            const outline = await activeLink.evaluate(link => {
+              const style = getComputedStyle(link);
+              return [style.outlineStyle, parseFloat(style.outlineWidth)];
+            });
+            assert.equal(outline[0], "solid", `${skin}: active ${toc} link must have a solid outline`);
+            assert.ok(outline[1] > 0, `${skin}: active ${toc} outline must be visible`);
+          }
         }
         // Equal-height panels can change visibility without scroll or main resize.
         await page.evaluate(() => { const h = document.getElementById("panel-a-title"); window.scrollTo(0, h.getBoundingClientRect().top + scrollY - 80); });

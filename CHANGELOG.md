@@ -22,6 +22,8 @@
 
 ### Changed
 
+-   On Chulapa-authored skins, show a compact author card on narrow screens and display the location in the desktop sidebar.
+
 -   Remove individual skin credits from the site footer. Skin authors remain credited in the skin gallery.
 
 -   Include excerpts and full articles in separate RSS fields, record available modification dates and derive the Atom feed update time from its entries.
