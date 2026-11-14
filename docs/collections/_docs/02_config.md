@@ -92,17 +92,8 @@ author:
 
 ### Navbar
 
-`navbar` defines the site's menu. Entries in `navbar.nav` use `title` and `url`
-for existing pages; `child` supplies one level of dropdown links. Styles are
-classic (sticky top), `fab` (floating button) and `dual` (floating/classic at a breakpoint).
-
-For an editing procedure, use [Add or change a menu link](./10-edit-menu).
-The options and examples below are the configuration reference.
-
-For keyboard behavior of the floating menu in v2.2.0, see
-[Keyboard navigation](./06-accessibility-performance#keyboard-navigation).
-
-Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
+Follow [Add or change a menu link](./10-edit-menu) for a complete example,
+including dropdowns. Try the [classic navbar demo]({{ "/demo/classic-navbar" | absolute_url }}).
 
 - `navbar`:
   - `style`: Use `fab` for a floating action button or `dual` to switch styles
@@ -118,61 +109,15 @@ Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the class
     - `img`: An icon (ideally 30 × 30 px) displayed together with the
       `title`.
     - `url`: Destination of the brand link. **Site root URL**.
-  - `nav`: Links on your navbar. See the example to learn how to set one-level
-    and two-level links:
-
-```yaml
-navbar:
-  style :  fab
-  brand:
-    title :  Home
-    img: "./assets/img/site/brand-clear.png"
-    url: /someurl
-  nav:
-  - title: One-level link #Label
-    url: /url1/  #url
-  - title: Two-level link #Label
-    child:
-    - title: Second level first item
-      url: /url2-1
-    - title: Second level second item
-      url: /url2-2
-  - title: One-level link #Label
-    url: /url1/  #url
-```
+- `navbar.nav`: Menu entries use `title` and `url`. Use `child` for one level
+  of dropdown links.
 
 ### Footer
 
-`footer.links` defines the contact, social and feed links below the page.
-For an editing procedure, use [Edit footer links](./11-edit-footer).
-
-- `footer`:
-  - `links`:
-    - `label`: Label of your link.
-    - `icon`: Font Awesome icon code.
-    - `url`: Link URL or plain email address.
-
-```yaml
-footer:
-  links:
-    - label: "Atom feed"
-      icon: "fa fa-rss"
-      url: "/atom.xml"
-    - label: "Twitter"
-      icon: "fab fa-twitter"
-      url: https://twitter.com/
-    - label: "Facebook"
-      icon: "fab fa-facebook"
-      url: https://www.facebook.com
-```
-
-`footer.copyright` supplies custom text or HTML. When omitted, the footer
-shows the build year and site author name, falling back to the GitHub owner name:
-
-```yaml
-footer:
-  copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
-```
+Follow [Edit footer links](./11-edit-footer) for a complete example.
+Each `footer.links` entry uses `label`, a Font Awesome `icon` and a `url`
+or plain email address. Set `footer.copyright` to supply text or HTML.
+By default, the footer shows the build year and site author name or GitHub owner.
 
 ## Optional features and metadata
 
@@ -443,66 +388,16 @@ See a sample defaults configuration [here](https://dieghernan.github.io/chulapa/
 
 ## XX. Other settings
 
-The `jekyll-include-cache` plugin is required; removing it breaks includes that
-use `include_cached`.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+Keep the starter settings unless you need to change how Jekyll builds your
+site. The `jekyll-include-cache` plugin is required. The sample's demo
+collections and pagination are specific to this documentation site.
 
-The sample configuration
-includes this repository's demo collections and pagination settings; these are
-examples rather than requirements for every site.
-
-The following settings belong to Jekyll or its plugins. Keep the starter's
-values unless you need to change how files are built or published.
-
-| Setting | Use |
-| --- | --- |
-| `github` | Keep `[metadata]` in the sample setup to supply GitHub repository details. |
-| `theme`, `remote_theme` | Choose the gem or remote installation method; see [Installation](./01-install). |
-| `plugins` | Enabled build plugins, including the required `jekyll-include-cache`. |
-| `include`, `exclude` | Files or folders to explicitly publish or omit; `include: [_pages]` enables the starter's pages folder. |
-| `collections` | Content groups; use `output: true` and a `permalink` pattern to publish their documents. |
-| `collections_dir` | Parent folder for collections; an empty value keeps them at the site root. |
-| `defaults` | Shared settings: `scope.path` and optional `scope.type` select files; `values` supplies their options. |
-| `permalink` | Default address pattern for posts; individual pages can set their own address. |
-| `paginate`, `paginate_path` | Posts per page and address pattern for a paginated blog index. |
-| `markdown`, `highlighter` | Content converters; the sample uses `kramdown` and `rouge`. |
-| `excerpt_separator` | Text marking the end of a post excerpt; the sample uses a blank line (`"\n\n"`). |
-| `lsi` | Jekyll's optional related-post calculation; the sample disables it. It does not configure the theme's tag-based related cards. |
-| `incremental` | Rebuild only changed files during development; the sample disables it. |
-| `kramdown` | Markdown behavior, detailed below. |
-| `sass` | Stylesheet build settings, detailed below. |
-| `compress_html` | Optional HTML compression, detailed below. |
-
-Under `kramdown`, the sample settings are:
-
-| Option | Use |
-| --- | --- |
-| `input` | Markdown dialect (`GFM` in the sample). |
-| `hard_wrap` | Whether ordinary line breaks become visible breaks. |
-| `auto_ids` | Automatically name headings for links and tables of contents. |
-| `footnote_nr`, `footnote_backlink` | First footnote number and the return-link symbol. |
-| `entity_output` | How special characters are written in generated HTML. |
-| `toc_levels` | Heading levels included by kramdown's own table of contents. |
-| `smart_quotes` | Opening and closing quote characters. |
-| `enable_coderay` | Legacy code-highlighter integration; disabled in the sample. |
-
-Under `sass`, `sass_dir` names the source folder, `style` controls CSS output,
-`quiet_deps` suppresses dependency warnings and `silence_deprecations` lists
-warning types to suppress. The last two depend on the installed Sass converter;
-they do not fix deprecated stylesheet code.
-
-Under `compress_html`, the sample uses `clippings: all` and `blanklines: true`.
-Other options are optional; leaving them unset disables the corresponding step:
-
-| Option | Use |
-| --- | --- |
-| `clippings` | Trim spaces around selected HTML elements; use a list or `all`. |
-| `blanklines` | Remove empty lines while retaining line breaks; otherwise whitespace is collapsed. |
-| `comments` | Remove HTML comments (`all`) or comments between a pair of supplied markers. |
-| `endings` | Omit selected optional closing tags; use a list or `all`. |
-| `startings` | Omit selected optional opening tags; supply a list. |
-| `ignore.envs` | Skip compression in listed environments, or use `all` to skip it everywhere. |
-| `profile` | Display compression statistics; leave disabled on a published site. |
-
-See [Jekyll's configuration reference](https://jekyllrb.com/docs/configuration/options/)
-and the [compression guide](https://jch.penibelst.de/) for accepted values.
+- To change which files and addresses Jekyll publishes, see
+  [Jekyll's configuration reference](https://jekyllrb.com/docs/configuration/options/).
+  Keep `include: [_pages]` if you use the starter's pages folder.
+- For Markdown examples and kramdown options used by articles, see
+  [Markdown cheatsheet](./markdown-cheatsheet) and
+  [Add a table of contents inside an article](./58-content-toc).
+- Keep the starter's Sass and HTML output settings unless you need to change
+  the build. See the [compression guide](https://jch.penibelst.de/) for HTML
+  options.

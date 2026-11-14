@@ -411,50 +411,17 @@ layout: archive
 
 #### Cloud tags and categories
 
-There are two layouts you can use to create clouds of tags and categories:
+Use `layout: cloudtag` for tags or `layout: cloudcategory` for categories.
+Both work on Jekyll 3 and 4, including the legacy `cloudtag2` and
+`cloudcategory2` aliases. Use `include_collection` as in [Archive](#archive).
+Since v2.2.0, `show_date: false` hides an entry's date.
 
-```yaml
----
-layout: cloudtag
----
-```
-
-For a category cloud, use:
-
-```yaml
----
-layout: cloudcategory
----
-```
-
-Setup: [Add tag and category indexes](./63-tag-category-clouds). The index
-page selects collections; `cloudtag_url` and `cloudcategory_url` on documents
-or their defaults connect the article badges to that page. `show_tags` and
-`show_categories` control badge display. A matching permalink is required.
-
-Use `cloudtag` and `cloudcategory` with Jekyll 3 or 4. The old `cloudtag2` and
-`cloudcategory2` layouts are compatibility aliases; no `grouptag.rb` plugin is
-required.
-
-`include_collection` is optional; see the [Archive](#archive) layout.
-
-In v2.2.0, cloud entries respect each document's
-`show_date: false`: the publication date, calendar icon and date separator are
-hidden, while reading time remains. This also applies to the compatibility
-aliases and prevents undated guides from displaying Jekyll's fallback build date.
-It does not change which documents appear or their ordering.
-
-See a working example of the cloud tag on a list of collections [here]({{"./demo/tags" | absolute_url }}).
+Follow [Add tag and category indexes](./63-tag-category-clouds) to create an
+index and link article badges to it. See the [tag cloud demo](../demo/tags).
 
 #### Index category
 
-This layout creates an index of pages of a specific collection with a [card layout](https://getbootstrap.com/docs/4.5/components/card/):
-
-```yaml
----
-layout: indexcategory
----
-```
+Use `layout: indexcategory` for a card index of collection documents.
 
 Optional arguments:
 - `include_collection`: see [Archive](#archive) layout.
@@ -476,28 +443,14 @@ index_items: 100
 ---
 ```
 
-Sorting uses the selected field rather than the displayed title; the item limit
-is applied after sorting. Galleries use `basename` for filename order because
-they contain static files rather than collection documents.
-
-The [live card index](../demo) uses `index_sort: path` with ascending order;
-its source/output example demonstrates the resulting numbered demo order.
-
-For a paginated post index, use [`jekyll-paginate`](https://jekyllrb.com/docs/pagination/#enable-pagination). The [chulapa-101 home page](https://dieghernan.github.io/chulapa-101/) uses this plugin; its [index.html](https://github.com/dieghernan/chulapa-101/blob/main/index.html) lists five posts per page with previous and next links. Keep the filename `index.html` and configure `paginate` and `paginate_path` in `_config.yml`. For a separate blog index, use [the documentation site's example](https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+The [demo index](../demo) sorts by `path`. For a paginated blog, see the
+[starter index](https://github.com/dieghernan/chulapa-101/blob/main/index.html).
 
 #### Search layout
 
-Use `layout: search` for a dedicated search page. It selects the search widget
-from `search.provider` and renders its own title, navbar and footer. It does
-not inherit the optional components of `default`.
-
-The page's `permalink` matches `search.landing_page` in `_config.yml`
-(default `/search`). Search menu links use this path; the classic navbar and
-the desktop form of `dual` also require `navbar.nav` to show the link. Configuring
-a provider does not create the page. Setup is covered by the
-[provider guides](./02-config#search-engines).
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Create a page with `layout: search` and a permalink matching
+`search.landing_page` (default `/search`). For a complete file and provider
+setup, see [Search engines](./02-config#search-engines).
 
 ### A note on defaults
 
@@ -834,26 +787,10 @@ metadata or instructions for republished content.
 
 ### SEO metadata
 
-The theme creates sharing and search metadata automatically from each page's
-address. Ordinary pages do not need a custom canonical URL.
-
-`canonical_url` identifies the original version in page metadata. Accepted
-values are absolute HTTP(S) URLs or site-relative paths starting with `/`.
-Procedure: [Point a republished article to its original URL](./62-canonical-article). Site-relative values use `url` and `baseurl`. Blank values, unsupported
-schemes and protocol-relative URLs fall back to the page's own URL. Fragments
-are removed. The page path still controls its home-page classification.
-
-```yaml
-canonical_url: https://example.com/original-article/
-sitemap: false
-```
-
-This identifies the original article to search engines and sharing services.
-It does not redirect visitors or change your page's address.
-`jekyll-sitemap` uses the actual page URL, independently of this override;
-`sitemap: false` excludes the duplicate. The original remains in its own sitemap.
-Paginated pages retain individual canonicals, not a shared page-one URL. See
-[Google's canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
+For republished content, set `canonical_url` to the original address.
+Use an absolute HTTP(S) URL or a site-relative path beginning with `/`.
+To leave the copy out of your sitemap, also set `sitemap: false`.
+Follow [Point a republished article to its original URL](./62-canonical-article).
 
 Use `seo_title` to replace the complete browser and structured-data title without
 changing the visible heading. Use `og_title` to replace the social
@@ -993,31 +930,11 @@ explicit `schema_image`.
 
 ## Search crawler directives
 
-`robots` supplies optional page-specific crawler instructions; ordinary pages
-use `index, follow`. Procedure: [Keep an auxiliary page out of search](./65-search-visibility).
-
-`robots` applies to pages, posts and collection documents.
-The default is `index, follow`; missing or empty values use this default.
-Page front matter specimen:
-
-```yaml
----
-title: My page
-robots: "noindex, follow"
----
-```
-
-`robots` also accepts front matter defaults in `_config.yml`:
-
-```yaml
-defaults:
-  - scope:
-      path: "private-pages"
-    values:
-      robots: "noindex, follow"
-```
-
-An explicit page value overrides these defaults. Crawlers must be able to access the page to read its robots metadata; blocking the page in `robots.txt` prevents them from reading `noindex`. This option controls only the HTML metadata and does not change HTTP status codes, `robots.txt` or sitemap entries. The theme does not automatically apply `noindex` to error pages, search pages, tags, archives or pagination. See [Google's robots metadata documentation](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
+Set `robots: "noindex, follow"` in page front matter or defaults if the page
+should stay out of external search results. By default, pages use
+`index, follow`. Let crawlers reach the page so they can read the directive.
+For sitemap and site search options, see
+[Keep an auxiliary page out of search](./65-search-visibility).
 
 ## Advanced customization reference
 
