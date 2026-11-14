@@ -11,46 +11,29 @@ series:
     order: 5
 ---
 
-Choose a question below for the relevant task or lookup page. For a first site,
-use [the publishing tutorial](./00-start); for advanced integration lookup, use
-[custom hooks](./45-custom-hooks), [version checks](#know-which-version-of-the-theme-i-am-using)
-or [feed compatibility](#use-jekyll-feed-instead-of-chulapas-feeds).
-
-Questions below link to task guides and syntax references.
-This FAQ is not a complete configuration reference.
+For a new site, start with [the publishing tutorial](./00-start).
 
 ## Editing and publishing
 
 ### How do I switch from another Jekyll theme?
 
-Follow the [migration guide and checklist](./07-migration) to adapt your
-configuration, layouts and integrations. If the build or design is unexpected,
-check the [common migration problems](./07-migration#common-migration-problems).
+Use the [migration field mappings and checklist](./07-migration).
 
 ### How do I change my site's name or author?
 
-Follow [Change your site's name and author](./14-site-details) to edit the existing
-settings, match the home-page heading and verify publication. The complete
-[field reference](./02-config#a-site-settingsseo) remains available for option lookup.
+Follow [Change your site's name and author](./14-site-details).
 
 ### How do I add a new article or page?
 
-Use [Create and publish a post](./15-create-post) for a dated article, or
-[Create a page and link it from the menu](./16-create-page) for standalone
-content such as About or Contact. Each guide includes a complete file and
-published-result checks.
+Create a [dated post](./15-create-post) or a [standalone page](./16-create-page).
 
 ### Why can I not see my changes?
 
-Follow [Find changes missing from your website](./42-unpublished-changes) to
-check the saved commit, publishing run, website address and post date. For a
-configuration parse error, use [Fix a YAML configuration error](./43-yaml-errors).
+Check [the publishing run](./42-unpublished-changes) or fix a [YAML error](./43-yaml-errors).
 
 ### Why is my photograph missing?
 
-The [image guide](./17-add-image) covers missing uploads,
-filename capitalization and repository paths. If the whole article is stale,
-use [the publishing checks](./42-unpublished-changes).
+Check uploads, filenames and paths in [Add an image](./17-add-image).
 
 ### How do I change the colors or design?
 
@@ -61,19 +44,9 @@ explained in [How skins and overrides interact](./26-appearance-precedence).
 
 ## How do I...
 
-The answers below cover formatting, optional integrations and advanced
-customization. Skip to the task you need.
-
 ### ...start with Markdown?
 
-The [theme Markdown cheatsheet](./markdown-cheatsheet) shows syntax and output.
-The external [Markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) and
-[kramdown reference](https://kramdown.gettalong.org/quickref.html) cover more syntax. The sample
-configuration uses kramdown with its GFM parser; accepted syntax depends on
-your Markdown configuration.
-
-For a complete file with its settings block and text, see
-[Create a post](./15-create-post).
+Try the [Markdown cheatsheet](./markdown-cheatsheet) or [create a post](./15-create-post).
 
 ### ...add custom HTML, analytics, CSS or JavaScript to every page?
 
@@ -85,23 +58,19 @@ separate setup guides; adding their scripts a second time can duplicate counts.
 
 ### ...add favicons?
 
-Follow [Add a favicon](./52-add-favicon) to upload the package, preserve existing
-head snippets and verify the generated addresses with `baseurl`.
+Follow [Add a favicon](./52-add-favicon).
 
 ### ...add an alert box?
 
-Follow [Add an information or warning box](./49-add-alert) for the attribute
-placement, spacing and published-result checks.
+Follow [Add an information or warning box](./49-add-alert).
 
 ### ...add a caption?
 
-Follow [Add a caption below an image](./50-add-caption). Keep descriptive
-alternative text as well as the visible caption.
+Follow [Add a caption below an image](./50-add-caption).
 
 ### ...add a footnote?
 
-Follow [Add a footnote to an article](./51-add-footnote) for a matching reference
-and definition and a live output example.
+Follow [Add a footnote to an article](./51-add-footnote).
 
 <h3 id="chulapa-font">...use <span class="chulapa">Chulapa</span> font on my theme?</h3>
 
@@ -123,15 +92,11 @@ applying one to your own pages.
 
 ### ...find an error in my `_config.yml` file?
 
-Follow [Fix a YAML configuration error](./43-yaml-errors). It covers locating
-the failing edit, checking indentation/quotes/duplicate sections and rebuilding.
-Valid YAML alone does not establish valid skin names, provider IDs or field locations.
+Follow [Fix a YAML configuration error](./43-yaml-errors).
 
 ### ...know which version of the theme I am using?
 
-Follow [Check which theme version your site uses](./55-check-theme-version)
-to inspect the remote-theme selection, resolved gem and published HTML marker.
-The marker does not identify an exact unpinned commit or local overrides.
+Follow [Check which theme version your site uses](./55-check-theme-version).
 
 ### ...use jekyll-feed instead of <span class="chulapa">Chulapa</span>'s feeds?
 

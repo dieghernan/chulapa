@@ -52,25 +52,15 @@ Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.
 
-**Development (v2.2.1):** contrast corrections cover the 16 skins authored by
-`dieghernan`. They improve default navigation, selected text links and their
-interaction states, badges, tag/category labels, outline buttons and text/links
-inside contextual cards. Listen's Primary card uses the same dark text as its
-Primary button, keeping its green background. Main semantic palettes
-are preserved; some badges reuse the readable solid-button fills.
+**Development (v2.2.1):** the 16 skins authored by `dieghernan` improve contrast
+in menus, links, badges, buttons and cards. After changing colors, check text,
+focus and hover states on the published page. Explicit navigation text and
+custom semantic colors still apply.
 
-Navigation text defaults adapt to the final configured navigation background.
-Explicit navigation text colors remain authoritative. Component corrections skip
-custom semantic colors; custom colors and content still need checking. Third-party
-skins are unchanged. These changes are not included in v2.2.0 and do not establish
-whole-site WCAG conformance.
-
-The carousel motion/control improvements in this paragraph require v2.2.0, not the v2.1.0 gem or pin. Automatically cycling multi-image
-carousels have a play/pause control with an
-action-specific accessible name and a plain-symbol fallback when icon assets
-are unavailable. Reduced motion starts them paused. Slide/navigation interaction
-stops rotation until explicit restart; hovering pauses temporarily. `interval=0`
-disables cycling. [Carousel reference](./04-layouts#bootstrap-carousel).
+Since v2.2.0, cycling carousels have a play/pause button and start paused
+when visitors prefer reduced motion. Hovering pauses temporarily. Using the
+slide controls stops cycling until visitors restart it. Set `interval=0`
+to disable cycling. [Carousel reference](./04-layouts#bootstrap-carousel).
 
 In v2.2.0, video `name` supplies descriptive player and
 play-button names. In v2.1.0, it supplies video metadata but not those accessible
@@ -81,9 +71,6 @@ Mermaid (available in v2.2.0, not in the v2.1.0 gem or pin) uses
 needs a prose equivalent. Gallery snippets use generic image descriptions;
 individual informative photographs need descriptive custom image markup.
 [Media tasks](../docs#how-to-guides) cover adding that content.
-
-Long titles and enlarged text are covered by representative checks, not by a
-promise about every custom layout or widget.
 
 ## Resource loading
 
@@ -111,11 +98,6 @@ A published site must be tested before offline behavior is promised.
 
 ## Review coverage
 
-Automated checks exercise keyboard navigation, narrow screens and reduced motion
-on representative layouts/skins. They do not cover every site's content,
-customizations, browser or assistive technology. Passing them is not a WCAG
-certification or a guarantee of loading-performance metrics.
-
-The [review record](https://github.com/dieghernan/chulapa/blob/main/test/accessibility-review.md)
-contains technical results and remaining checks. That maintainer evidence is
-separate from the [site-checking procedure](./06-accessibility-performance).
+Check your own content, colors and custom widgets using
+[the site checklist](./06-accessibility-performance). For test results by layout
+and browser, see the [maintainer review](https://github.com/dieghernan/chulapa/blob/main/test/accessibility-review.md).

@@ -17,7 +17,7 @@ settings and layouts are not converted automatically; check the preview before p
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 Follow steps 1–5, then use the [migration checklist](#migration-checklist).
-For field-by-field lookup, use the separate [migration mappings](./46-migration-fields).
+For field-by-field lookup, use the [migration mappings](#layouts-and-page-front-matter) below.
 
 ## 1. Prepare your site
 
@@ -76,55 +76,52 @@ Review `_config.yml` defaults as well as the settings between `---` lines in
 posts and pages. Explicit page values override defaults: an old `layout: post`
 will still need changing even if you set a new post default.
 
-Use [the layout and front matter mappings](./46-migration-fields#layouts-and-page-front-matter)
-to identify the fields your old theme used. Check the relevant entries rather
-than renaming every setting indiscriminately; conversions are not automatic.
+### Layouts and page front matter
 
-Keep standard fields such as `title`, `date`, `categories`, `tags` and intended
-`permalink` values. Check old theme-specific includes and CSS classes in the
-content; translate or replace them using the [layout and snippet reference](./04-layouts#a-layouts).
-See [live demos]({{ '/demo' | relative_url }}) to choose a suitable layout.
+| Existing setting or purpose | Field or combination in <span class="chulapa">Chulapa</span> | Constraint or reference |
+| --- | --- | --- |
+| `layout: post` for an article | `layout: default`, `header_type: post` | [Layout reference](./04-layouts#default). |
+| `layout: page` for a regular page | `layout: default`, `header_type: base` | Standalone page addresses still follow their configured permalink. |
+| `image` or `cover` for a header photograph | `header_img` with a suitable `header_type` | The old field is not translated; [header options](./04-layouts#options) specify the supported types. |
+| `toc: true` | `show_toc: true` | [TOC options](./04-layouts#options). |
+| Page `comments: true` | `show_comments: true` | Also needs the site provider and a comment-capable layout. |
+| Page `search: false` | `include_on_search: false` | Local Lunr/Fuse/Simple-Jekyll-Search indexes only; not an Algolia exclusion or Google crawler directive. |
+| Post or collection document in built-in feeds | `include_on_feed: true` | Requires a resolved date; set collection dates explicitly for Jekyll 3/4 consistency and `output: true` to publish linked collection articles. Standalone pages are not selected. [Feed constraints](./56-publish-feeds). |
 
-For example, replace the old layout and header settings in an existing post's
-front matter with these values, preserving its title, date and other content:
-
-```yaml
-layout: default
-header_type: post
-show_date: true
-include_on_feed: true
-```
+Keep `title`, `date`, `categories`, `tags` and existing public permalinks.
+Replace obsolete includes and classes using the
+[layout and snippet reference](./04-layouts#a-layouts) and [demos](../demo).
 
 ## 4. Reconnect navigation and integrations
 
-**Rebuild navbar and footer links manually:** links from your previous theme
-are not imported automatically. Re-enter them in `navbar.nav` and `footer.links`,
-then open every destination in the preview.
+Translate old settings in `_config.yml`, preserving unrelated settings,
+existing addresses and provider identifiers. In the preview, follow the
+edited menu and footer links, test search and open an old comment thread.
 
-Edit existing sections in `_config.yml`; settings from the previous theme are
-not translated automatically. Remove obsolete theme-specific settings once you
-have translated them; keep unrelated Jekyll settings and plugins.
+### Site configuration and integrations
 
-Adapt each existing integration, preserving the addresses and identifiers you
-recorded. Use the relevant task guide; the complete
-[field mappings and constraints](./46-migration-fields#site-configuration-and-integrations)
-remain separate.
+| Purpose | Fields or output | Constraint or reference |
+| --- | --- | --- |
+| Site author stored as a plain string | `author` mapping with `name` | Other profile fields are in [Site author](./02-config#site-author); guest page authors have their own mapping. |
+| Appearance | `chulapa-skin.skin` | Exact supported skin name; fonts/color overrides remain separate. [Theming reference](./03-theming). |
+| Navbar | `navbar.nav` entries: `title`, `url`, optional `child` | One dropdown level; old links are not imported. [Navbar](./02-config#navbar). |
+| Footer | `footer.links` entries: `label`, `icon`, `url`; `footer.copyright` | Old links/copyright are not translated. [Footer](./02-config#footer). |
+| Search | `search.provider`, `search.landing_page`; page `layout: search`, matching `permalink` | Default path `/search`; provider selection creates neither page nor hosted index. [Search reference](./02-config#search-engines). |
+| Comments | `comments.provider`, provider identifiers; page/default `show_comments` | No automatic provider migration; existing discussion IDs and URLs affect matching. Cactus ID migration, corrected Welcomments URLs in v2.2.0 and legacy local corrections are in [Comments](./02-config#comments). |
+| Existing subscriber addresses | `/atom.xml`, `/rss.xml`, optional jekyll-feed `/feed.xml` | Built-in feeds select dated posts/collection documents with `include_on_feed: true`; collection output must publish linked articles. jekyll-feed's default path can coexist; two generators must not write the same path. |
+| Google Analytics 4 | `gtag_id` | Existing measurement ID; duplicate custom tracking scripts can count twice. [GA reference](./02-config#google-analytics). |
+| GoatCounter | `goatcounter` | Requires v2.2.0; [version and production constraints](./02-config#goatcounter-analytics). |
 
-- [Update author details](./14-site-details), then [choose a skin](./22-choose-skin).
-  Replace an old plain-string `author` with a mapping; use an exact skin name.
-- [Rebuild menu links](./10-edit-menu) and [footer links](./11-edit-footer).
-  Open every destination in the preview; old links are not imported.
-- Reuse the existing search URL. For local search, follow [Fuse.js setup](./12-fusejs-search);
-  other [provider guides](./02-config#search-engines) cover the alternatives.
-  Keep the page permalink matched to `search.landing_page`, without repeating `baseurl`.
-- Reconnect the existing [comment provider](./02-config#comments) and enable the
-  intended posts. Verify an old thread and preserve its identifiers; switching
-  providers does not migrate conversations. Apply the documented local
-  corrections if using Cactus or Welcomments on an affected site.
-- Open existing subscriber feed URLs. Keep `jekyll-feed` for an established
-  `/feed.xml` if needed, and avoid duplicate outputs using [the feed guidance](./57-jekyll-feed).
-- Keep the [Google Analytics ID](./19-google-analytics) and remove duplicate custom
-  tracking scripts. [GoatCounter](./18-goatcounter) is available in v2.2.0 and requires a production build.
+For setup steps, see [local search](./12-fusejs-search),
+[comment providers](./02-config#comments) and
+[preserving a feed URL](./57-jekyll-feed).
+
+### Local overrides and release boundary
+
+Local layouts, includes and assets can override either installation method.
+Keep useful overrides and adapt them using [Custom hooks](./45-custom-hooks).
+A version pin limits available features. Mermaid, PhotoSwipe and GoatCounter
+require v2.2.0 or later.
 
 ## 5. Preview, then publish
 

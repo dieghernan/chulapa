@@ -46,10 +46,8 @@ explanation for complex diagrams.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for **Actions** to
-succeed, then open the site from **Settings > Pages**. Check the published page,
-not only GitHub's file preview. For a local preview, restart Jekyll after changing
-`_config.yml`. If the result is missing, use [the publishing checks](./42-unpublished-changes).
+Use [the publishing checklist](./42-unpublished-changes) to open
+the updated site.
 
 Use a modern browser with JavaScript modules and ES2024 support (Safari 17.4 or
 later). Check that the flowchart replaces the code and fits the page; wide

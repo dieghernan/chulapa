@@ -92,17 +92,8 @@ author:
 
 ### Navbar
 
-`navbar` defines the site's menu. Entries in `navbar.nav` use `title` and `url`
-for existing pages; `child` supplies one level of dropdown links. Styles are
-classic (sticky top), `fab` (floating button) and `dual` (floating/classic at a breakpoint).
-
-For an editing procedure, use [Add or change a menu link](./10-edit-menu).
-The options and examples below are the configuration reference.
-
-For keyboard behavior of the floating menu in v2.2.0, see
-[Keyboard navigation](./06-accessibility-performance#keyboard-navigation).
-
-Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the classic navbar style.
+Follow [Add or change a menu link](./10-edit-menu) for a complete example,
+including dropdowns. Try the [classic navbar demo]({{ "/demo/classic-navbar" | absolute_url }}).
 
 - `navbar`:
   - `style`: Use `fab` for a floating action button or `dual` to switch styles
@@ -118,61 +109,15 @@ Check this [live demo]({{ "/demo/classic-navbar" | absolute_url }}) of the class
     - `img`: An icon (ideally 30 × 30 px) displayed together with the
       `title`.
     - `url`: Destination of the brand link. **Site root URL**.
-  - `nav`: Links on your navbar. See the example to learn how to set one-level
-    and two-level links:
-
-```yaml
-navbar:
-  style :  fab
-  brand:
-    title :  Home
-    img: "./assets/img/site/brand-clear.png"
-    url: /someurl
-  nav:
-  - title: One-level link #Label
-    url: /url1/  #url
-  - title: Two-level link #Label
-    child:
-    - title: Second level first item
-      url: /url2-1
-    - title: Second level second item
-      url: /url2-2
-  - title: One-level link #Label
-    url: /url1/  #url
-```
+- `navbar.nav`: Menu entries use `title` and `url`. Use `child` for one level
+  of dropdown links.
 
 ### Footer
 
-`footer.links` defines the contact, social and feed links below the page.
-For an editing procedure, use [Edit footer links](./11-edit-footer).
-
-- `footer`:
-  - `links`:
-    - `label`: Label of your link.
-    - `icon`: Font Awesome icon code.
-    - `url`: Link URL or plain email address.
-
-```yaml
-footer:
-  links:
-    - label: "Atom feed"
-      icon: "fa fa-rss"
-      url: "/atom.xml"
-    - label: "Twitter"
-      icon: "fab fa-twitter"
-      url: https://twitter.com/
-    - label: "Facebook"
-      icon: "fab fa-facebook"
-      url: https://www.facebook.com
-```
-
-`footer.copyright` supplies custom text or HTML. When omitted, the footer
-shows the build year and site author name, falling back to the GitHub owner name:
-
-```yaml
-footer:
-  copyright: "&copy; 2021 <span class='chulapa'>Chulapa</span> developers"
-```
+Follow [Edit footer links](./11-edit-footer) for a complete example.
+Each `footer.links` entry uses `label`, a Font Awesome `icon` and a `url`
+or plain email address. Set `footer.copyright` to supply text or HTML.
+By default, the footer shows the build year and site author name or GitHub owner.
 
 ## Optional features and metadata
 
@@ -182,44 +127,11 @@ The sections below list optional integration settings and their constraints.
 
 ### SEO
 
-These settings control social metadata and structured data. <span class="chulapa">Chulapa</span> generates
-canonical URLs and JSON-LD for the home page (`WebSite`), posts (`BlogPosting`)
-and other pages (`WebPage`). Breadcrumb structured data is generated even when
-visible breadcrumbs are disabled.
-
-In v2.2.1 (development), structured data connects pages, the website, authors,
-the publisher and breadcrumbs using identifiers (`@id`). Posts also include
-`inLanguage` from the page language, `keywords` from nonblank tags and
-`articleSection` from nonblank categories. Each post's page identifies the article
-with `mainEntity` and its first valid article image with `primaryImageOfPage`;
-see [Article images](./04-layouts#article-images). No additional configuration is needed.
-
-In v2.2.1 (development), the site author's JSON-LD profile always uses the
-home page, resolved with `url` and `baseurl`. No About page or extra setting is
-required. This leaves visible author cards and Open Graph author URLs unchanged.
-Guest profiles use their own `author.url`. A guest without `author.url` uses
-the alphabetically first HTTP(S) profile in their own `author.links`; supply
-an explicit profile URL for a stable identity when adding or removing social
-profiles. Reordering links does not change the guest's identifier. A guest
-without a profile URL or social profiles has an identifier local to the page
-and does not inherit the site author's profile, avatar or location. All HTTP(S)
-social profiles are included in `sameAs`. Author references share a single
-profile definition per page; the publisher remains independent, even when
-both are people.
-
-Page and article descriptions use the same text as the HTML metadata. Page
-language is also included in the accompanying `WebPage` entity. Missing images,
-publisher logos and profile details are omitted rather than replaced with
-empty values or generic role descriptions.
-
-The built-in `archive`, `indexcategory`, `cloudtag` and `cloudcategory` layouts
-(including the legacy cloud aliases) describe their pages as `CollectionPage`
-and supply an `ItemList` of linked documents. The list follows the layout's
-collection selection, sorting and limits. Tag and category clouds include each
-document once even when it appears in several groups. An empty selection
-produces an empty list. Custom lists and pagination templates do not automatically
-receive an `ItemList`; any custom markup must describe only the entries displayed
-on that page. These additions do not guarantee enriched search results.
+The theme generates canonical URLs and structured data automatically.
+In v2.2.1 development, built-in article indexes also describe their lists
+for search engines. Custom lists need their own markup.
+For a guest article, set the guest's `author.url` to their profile.
+Use an explicit URL to keep the identity stable if you change their social links.
 
 - `og_image`: The default image to be displayed when a page of your site is
   shared on any of the major social networks (Facebook, Twitter/X, etc.). The
@@ -330,31 +242,15 @@ service's own behavior.
 
 ### Search engines
 
-`search` configures search within the site, independently of external search-engine
-indexing. For crawler/sitemap/local-index exclusions, use
+Create a page with `layout: search` and a `permalink` matching
+`search.landing_page` (default `/search`). The classic navbar and desktop
+`dual` navbar also need `navbar.nav` to display the Search link.
+
+The personal-blog template includes [Fuse.js](./12-fusejs-search).
+The three [local providers](./12-fusejs-search) build their index with the site and honor `include_on_search: false`. [Google Custom Search](./36-google-search)
+requires a configured search engine and [Algolia](./37-algolia-search) requires
+an uploaded index. For crawler and sitemap settings, see
 [Keep an auxiliary page out of search](./65-search-visibility).
-The personal-blog template includes Fuse.js search. Setup instructions:
-[Enable Fuse.js](./12-fusejs-search), [Lunr.js](./34-lunr-search),
-[Simple-Jekyll-Search](./35-simplesearch-search),
-[Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
-
-A search page uses `layout: search`; its `permalink` matches `search.landing_page`
-(default `/search`). A provider does not create the page. In the classic navbar
-and the desktop form of `dual`, the Search link also requires `navbar.nav`.
-The search page remains reachable directly without that menu link.
-
-The following engines are available:
-
-- [Lunr.js](https://lunrjs.com/)
-- [Fuse.js](https://www.fusejs.io/)
-- [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)
-- [Algolia](https://www.algolia.com/)
-- [Google Custom Search](https://developers.google.com/custom-search)
-
-Lunr, Fuse.js and Simple-Jekyll-Search use an index generated during the site
-build. Set `include_on_search: false` on pages or in front matter defaults to
-exclude them from these indexes. Algolia requires a separately uploaded index;
-Google Custom Search requires a configured search engine.
 
 - `search`:
   - `provider`: Select a search provider: `lunr`, `algolia`, `google`,
@@ -419,22 +315,13 @@ Enter. Clearing the field clears the results.
 
 ### Comments
 
-Comments require a supported provider's setup and `show_comments: true` on the
-page or in front matter defaults for a layout that displays comments. Setup guides for one post:
-[giscus](./13-giscus-comments), [Disqus](./38-disqus-comments),
-[Cactus](./39-cactus-comments), [Welcomments](./40-welcomments-comments) or
-[an existing self-hosted Cusdis service](./41-cusdis-comments).
-Provider identifiers and compatibility constraints are listed below.
-
-- [Disqus](https://disqus.com/), a hosted comment system.
-- [Cusdis](https://github.com/djyde/cusdis), a lightweight comment system whose
-  upstream project is deprecated and archived. The original hosted service is
-  unavailable; check your own deployment before selecting this provider.
-- [giscus](https://giscus.app/), powered by
-  [GitHub Discussions](https://docs.github.com/en/discussions).
-- [Cactus](https://cactus.chat/), a federated comment system based on Matrix.
-- [Welcomments](https://welcomments.io/), a comment integration using generated
-  comment files.
+Set `show_comments: true` on a page or in front matter defaults for a layout
+that displays comments. Follow the guide for your provider:
+[giscus](./13-giscus-comments) uses GitHub Discussions, [Disqus](./38-disqus-comments)
+is hosted, [Cactus](./39-cactus-comments) uses Matrix and
+[Welcomments](./40-welcomments-comments) uses generated comment files.
+[Cusdis](./41-cusdis-comments) requires an existing self-hosted deployment
+because the original hosted service is unavailable and upstream is archived.
 
 - `comments`:
   - `provider`: Use `disqus`, `cusdis`, `giscus`, `cactus` or `welcomments` to
@@ -501,66 +388,16 @@ See a sample defaults configuration [here](https://dieghernan.github.io/chulapa/
 
 ## XX. Other settings
 
-The `jekyll-include-cache` plugin is required; removing it breaks includes that
-use `include_cached`.
-{: .alert .alert-warning .p-3 .mx-2 .mb-3}
+Keep the starter settings unless you need to change how Jekyll builds your
+site. The `jekyll-include-cache` plugin is required. The sample's demo
+collections and pagination are specific to this documentation site.
 
-The sample configuration
-includes this repository's demo collections and pagination settings; these are
-examples rather than requirements for every site.
-
-The following settings belong to Jekyll or its plugins. Keep the starter's
-values unless you need to change how files are built or published.
-
-| Setting | Use |
-| --- | --- |
-| `github` | Keep `[metadata]` in the sample setup to supply GitHub repository details. |
-| `theme`, `remote_theme` | Choose the gem or remote installation method; see [Installation](./01-install). |
-| `plugins` | Enabled build plugins, including the required `jekyll-include-cache`. |
-| `include`, `exclude` | Files or folders to explicitly publish or omit; `include: [_pages]` enables the starter's pages folder. |
-| `collections` | Content groups; use `output: true` and a `permalink` pattern to publish their documents. |
-| `collections_dir` | Parent folder for collections; an empty value keeps them at the site root. |
-| `defaults` | Shared settings: `scope.path` and optional `scope.type` select files; `values` supplies their options. |
-| `permalink` | Default address pattern for posts; individual pages can set their own address. |
-| `paginate`, `paginate_path` | Posts per page and address pattern for a paginated blog index. |
-| `markdown`, `highlighter` | Content converters; the sample uses `kramdown` and `rouge`. |
-| `excerpt_separator` | Text marking the end of a post excerpt; the sample uses a blank line (`"\n\n"`). |
-| `lsi` | Jekyll's optional related-post calculation; the sample disables it. It does not configure the theme's tag-based related cards. |
-| `incremental` | Rebuild only changed files during development; the sample disables it. |
-| `kramdown` | Markdown behavior, detailed below. |
-| `sass` | Stylesheet build settings, detailed below. |
-| `compress_html` | Optional HTML compression, detailed below. |
-
-Under `kramdown`, the sample settings are:
-
-| Option | Use |
-| --- | --- |
-| `input` | Markdown dialect (`GFM` in the sample). |
-| `hard_wrap` | Whether ordinary line breaks become visible breaks. |
-| `auto_ids` | Automatically name headings for links and tables of contents. |
-| `footnote_nr`, `footnote_backlink` | First footnote number and the return-link symbol. |
-| `entity_output` | How special characters are written in generated HTML. |
-| `toc_levels` | Heading levels included by kramdown's own table of contents. |
-| `smart_quotes` | Opening and closing quote characters. |
-| `enable_coderay` | Legacy code-highlighter integration; disabled in the sample. |
-
-Under `sass`, `sass_dir` names the source folder, `style` controls CSS output,
-`quiet_deps` suppresses dependency warnings and `silence_deprecations` lists
-warning types to suppress. The last two depend on the installed Sass converter;
-they do not fix deprecated stylesheet code.
-
-Under `compress_html`, the sample uses `clippings: all` and `blanklines: true`.
-Other options are optional; leaving them unset disables the corresponding step:
-
-| Option | Use |
-| --- | --- |
-| `clippings` | Trim spaces around selected HTML elements; use a list or `all`. |
-| `blanklines` | Remove empty lines while retaining line breaks; otherwise whitespace is collapsed. |
-| `comments` | Remove HTML comments (`all`) or comments between a pair of supplied markers. |
-| `endings` | Omit selected optional closing tags; use a list or `all`. |
-| `startings` | Omit selected optional opening tags; supply a list. |
-| `ignore.envs` | Skip compression in listed environments, or use `all` to skip it everywhere. |
-| `profile` | Display compression statistics; leave disabled on a published site. |
-
-See [Jekyll's configuration reference](https://jekyllrb.com/docs/configuration/options/)
-and the [compression guide](https://jch.penibelst.de/) for accepted values.
+- To change which files and addresses Jekyll publishes, see
+  [Jekyll's configuration reference](https://jekyllrb.com/docs/configuration/options/).
+  Keep `include: [_pages]` if you use the starter's pages folder.
+- For Markdown examples and kramdown options used by articles, see
+  [Markdown cheatsheet](./markdown-cheatsheet) and
+  [Add a table of contents inside an article](./58-content-toc).
+- Keep the starter's Sass and HTML output settings unless you need to change
+  the build. See the [compression guide](https://jch.penibelst.de/) for HTML
+  options.

@@ -50,8 +50,7 @@ set the family variables as above. See [custom head instructions](./44-custom-he
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Check body text and headings on your home page and an article. Confirm that
 text remains readable on a narrow screen. If a font is missing, check the family
 spelling and stylesheet URL; a blocker or network failure can prevent an external

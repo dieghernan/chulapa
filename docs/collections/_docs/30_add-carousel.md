@@ -38,10 +38,8 @@ cycling; pass `true` without quotes for the controls and slide indicators.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for **Actions** to
-succeed, then open the site from **Settings > Pages**. Check the published page,
-not only GitHub's file preview. For a local preview, restart Jekyll after changing
-`_config.yml`. If the result is missing, use [the publishing checks](./42-unpublished-changes).
+Use [the publishing checklist](./42-unpublished-changes) to open
+the updated site.
 
 Check the previous/next buttons and indicators on a narrow screen. Use Tab to
 reach each control and Enter or Space to activate it. An empty slideshow usually

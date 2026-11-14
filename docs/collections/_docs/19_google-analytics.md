@@ -32,8 +32,7 @@ are independent; configuring both loads both services.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Visit a page and check the **Realtime** report in the matching Analytics property.
 Allow time for reporting and check that you copied the ID from the intended stream.
 

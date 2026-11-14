@@ -1,7 +1,7 @@
 ---
-title: Enable Fuse.js search
+title: Enable local search
 subtitle: Add a search page to an existing site
-excerpt: Configure Fuse.js, publish a matching search page and check that visitors can find your content.
+excerpt: Configure Fuse.js, Lunr.js or Simple-Jekyll-Search and verify the published index.
 show_toc: false
 tags: [docs, search, local-search]
 show_tags: true
@@ -9,12 +9,9 @@ show_related: true
 cloudtag_url: /docs/tags
 ---
 
-Use this guide for an existing site where you want Fuse.js search. The
-<span class="chulapa">Chulapa</span> 101 template already has it configured;
-check its existing search page before adding another. No provider account,
-API key or extra Jekyll plugin is needed for Fuse.js.
-
-To choose a different provider, see [search options in the documentation index](../docs#search).
+Choose Fuse.js, Lunr.js or Simple-Jekyll-Search to search your site without
+an account, API key or extra Jekyll plugin. The personal-blog template
+already uses Fuse.js. Reuse its search page if you switch providers.
 
 ## Configure the search page
 
@@ -26,6 +23,7 @@ To choose a different provider, see [search options in the documentation index](
      landing_page: /search
    ```
 
+   Use `lunr` for Lunr.js or `simplesearch` for Simple-Jekyll-Search.
    Keep any other search settings. If your current search has an established
    address, use that path for `landing_page` and for the page below.
 2. Find your existing search page and edit it. If there is none, create `search.md`
@@ -65,11 +63,10 @@ settings above. If a document is absent from results, check its date, publishing
 status and any `include_on_search: false` in its front matter or defaults. Content
 changes enter the search index during the next site build; republish after edits.
 
-To switch providers, use [Lunr.js](./34-lunr-search),
-[Simple-Jekyll-Search](./35-simplesearch-search),
+For word limits and attribution, see the [search reference](./02-config#search-engines).
+Try the demos for [Fuse.js](../demo/search_fusejs), [Lunr.js](../demo/search_lunr)
+or [Simple-Jekyll-Search](../demo/search_simple). For hosted providers, see
 [Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
-For exact field defaults, use the [search reference](./02-config#search-engines).
-For a working interface, see the [Fuse.js demo](../demo/search_fusejs).
 
 In **2.2.1 (development)**, Fuse.js is updated to 7.5.0. Its corrected relevance
 scores can change result ordering and the number of results shown. The standard

@@ -29,8 +29,7 @@ The preview selector changes only the demo, not your site's configuration.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Open a page containing a fenced code block with a language name, such as
 `ruby`. Check the code text, background and contrast, including on a narrow
 screen. A highlighting style controls code appearance; it does not change the

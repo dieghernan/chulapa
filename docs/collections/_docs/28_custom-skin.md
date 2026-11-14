@@ -100,8 +100,7 @@ removes grid classes used by the theme and breaks its layouts.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Check the translated colors and heading font on your home page and an article,
 including menu controls, grids and text contrast on a narrow screen. If you
 created a local skin, ensure its filename matches `chulapa-skin.skin` exactly.
