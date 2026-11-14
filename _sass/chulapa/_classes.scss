@@ -170,10 +170,6 @@ $author-compact-breakpoint: lg;
     .chulapa-post-author.p-author > .row > .u-photo + .p-name {
       max-width: calc(100% - 2rem);
     }
-
-    .chulapa-post-author .chulapa-author-location {
-      display: none !important;
-    }
   }
 }
 

@@ -22,7 +22,7 @@
 
 ### Changed
 
--   On Chulapa-authored skins, show a compact author card on narrow screens and display the location in the desktop sidebar.
+-   On Chulapa-authored skins, place the author's location and links below the name on narrow screens.
 
 -   Remove individual skin credits from the site footer. Skin authors remain credited in the skin gallery.
 

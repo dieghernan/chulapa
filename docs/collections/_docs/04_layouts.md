@@ -147,8 +147,8 @@ project_links:
   For a guest author, set their own profile URL; it does not inherit the site
   author's URL.
 
-  In v2.2.1 development, Chulapa-authored skins show the author's location
-  when the author card is in the sidebar (992 px and wider by default).
+  In v2.2.1 development, Chulapa-authored skins place the author's location
+  and links below the name on narrow screens.
 
   In v2.2.1 development, `show_author: false` hides the visible card while
   retaining invisible Microformats2 author data in `default`, derived layouts
