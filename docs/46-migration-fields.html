@@ -22,12 +22,12 @@
           "@id": "https://dieghernan.github.io/chulapa/docs/46-migration-fields#primaryimage",
           "url": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
         },
-        "description": "Legacy patterns, supported fields and integration constraints - Lookup for an existing Jekyll site’s migration. The entries below are common patterns to review, not automatic conversions or guarantees about another theme’s behavior. The procedure and publication checklist are in Migrating from another Jekyll theme.",
+        "description": "Legacy patterns, supported fields and integration constraints - Use these links to find the field mappings in the migration guide.",
         "inLanguage": "en-US",
         "headline": "Migration field mappings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -108,7 +108,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Legacy patterns, supported fields and integration constraints - Lookup for an existing Jekyll site’s migration. The entries below are common patterns to review, not automatic conversions or guarantees about another theme’s behavior. The procedure and publication checklist are in Migrating from another Jekyll theme.">
+    <meta name="description" content="Legacy patterns, supported fields and integration constraints - Use these links to find the field mappings in the migration guide.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
@@ -116,12 +116,12 @@
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/46-migration-fields" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Legacy patterns, supported fields and integration constraints - Lookup for an existing Jekyll site’s migration. The entries below are common patterns to review, not automatic conversions or guarantees about another theme’s behavior. The procedure and publication checklist are in Migrating from another Jekyll theme." >
+    <meta property="og:description" content="Legacy patterns, supported fields and integration constraints - Use these links to find the field mappings in the migration guide." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Legacy patterns, supported fields and integration constraints - Lookup for an existing Jekyll site’s migration. The entries below are common patterns to review, not automatic conversions or guarantees about another theme’s behavior. The procedure and publication checklist are in Migrating from another Jekyll theme.">
+    <meta name="twitter:description" content="Legacy patterns, supported fields and integration constraints - Use these links to find the field mappings in the migration guide.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
     <!-- this script is inserted before the css stylesheet -->
@@ -275,145 +275,17 @@
 		</nav>   
 	</div>
 			<div class="e-content">
-<p>Lookup for an existing Jekyll site’s migration. The entries below are common
-patterns to review, not automatic conversions or guarantees about another
-theme’s behavior. The procedure and publication checklist are in
-<a href="./07-migration">Migrating from another Jekyll theme</a>.</p>
+<p>Use these links to find the field mappings in the
+<a href="./07-migration">migration guide</a>.</p>
 <h2 id="layouts-and-page-front-matter">Layouts and page front matter</h2>
-<p>Explicit page values take precedence over configuration defaults. The mappings
-for ordinary posts and pages use the built-in <code class="language-plaintext highlighter-rouge">default</code> layout.</p>
-<table>
-<thead>
-   <tr>
-     <th>Existing setting or purpose</th>
-     <th>Field or combination in <span class="chulapa">Chulapa</span></th>
-     <th>Constraint or reference</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">layout: post</code> for an article</td>
-     <td><code class="language-plaintext highlighter-rouge">layout: default</code>, <code class="language-plaintext highlighter-rouge">header_type: post</code></td>
-     <td><a href="./04-layouts#default">Layout reference</a>.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">layout: page</code> for a regular page</td>
-     <td><code class="language-plaintext highlighter-rouge">layout: default</code>, <code class="language-plaintext highlighter-rouge">header_type: base</code></td>
-     <td>Standalone page addresses still follow their configured permalink.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">image</code> or <code class="language-plaintext highlighter-rouge">cover</code> for a header photograph</td>
-     <td><code class="language-plaintext highlighter-rouge">header_img</code> with a suitable <code class="language-plaintext highlighter-rouge">header_type</code></td>
-     <td>The old field is not translated; <a href="./04-layouts#options">header options</a> specify the supported types.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">toc: true</code></td>
-     <td><code class="language-plaintext highlighter-rouge">show_toc: true</code></td>
-     <td><a href="./04-layouts#options">TOC options</a>.</td>
-   </tr>
-   <tr>
-     <td>Page <code class="language-plaintext highlighter-rouge">comments: true</code></td>
-     <td><code class="language-plaintext highlighter-rouge">show_comments: true</code></td>
-     <td>Also needs the site provider and a comment-capable layout.</td>
-   </tr>
-   <tr>
-     <td>Page <code class="language-plaintext highlighter-rouge">search: false</code></td>
-     <td><code class="language-plaintext highlighter-rouge">include_on_search: false</code></td>
-     <td>Local Lunr/Fuse/Simple-Jekyll-Search indexes only; not an Algolia exclusion or Google crawler directive.</td>
-   </tr>
-   <tr>
-     <td>Post or collection document in built-in feeds</td>
-     <td><code class="language-plaintext highlighter-rouge">include_on_feed: true</code></td>
-     <td>Requires a resolved date; set collection dates explicitly for Jekyll 3/4 consistency and <code class="language-plaintext highlighter-rouge">output: true</code> to publish linked collection articles. Standalone pages are not selected. <a href="./56-publish-feeds">Feed constraints</a>.</td>
-   </tr>
- </tbody>
-</table>
-<p>Standard fields such as <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">categories</code>, <code class="language-plaintext highlighter-rouge">tags</code> and intended
-<code class="language-plaintext highlighter-rouge">permalink</code> values remain relevant. Old theme-specific include names and CSS
-classes have no automatic mapping; supported alternatives are in the
-<a href="./04-layouts">layout and snippet reference</a>.</p>
-<p>Front matter specimen for an ordinary dated article:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
-<span class="na">header_type</span><span class="pi">:</span> <span class="s">post</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">A migrated article</span>
-<span class="na">date</span><span class="pi">:</span> <span class="s">2024-01-02</span>
-<span class="na">show_date</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">include_on_feed</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="nn">---</span>
-</code></pre></div></div>
+<p>Find replacements for old layout names, header images and page switches
+in <a href="./07-migration#layouts-and-page-front-matter">Layouts and page front matter</a>.</p>
 <h2 id="site-configuration-and-integrations">Site configuration and integrations</h2>
-<table>
-<thead>
-   <tr>
-     <th>Purpose</th>
-     <th>Fields or output</th>
-     <th>Constraint or reference</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td>Site author stored as a plain string</td>
-     <td><code class="language-plaintext highlighter-rouge">author</code> mapping with <code class="language-plaintext highlighter-rouge">name</code></td>
-     <td>Other profile fields are in <a href="./02-config#site-author">Site author</a>; guest page authors have their own mapping.</td>
-   </tr>
-   <tr>
-     <td>Appearance</td>
-     <td><code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code></td>
-     <td>Exact supported skin name; fonts/color overrides remain separate. <a href="./03-theming">Theming reference</a>.</td>
-   </tr>
-   <tr>
-     <td>Navbar</td>
-     <td><code class="language-plaintext highlighter-rouge">navbar.nav</code> entries: <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">url</code>, optional <code class="language-plaintext highlighter-rouge">child</code></td>
-     <td>One dropdown level; old links are not imported. <a href="./02-config#navbar">Navbar</a>.</td>
-   </tr>
-   <tr>
-     <td>Footer</td>
-     <td><code class="language-plaintext highlighter-rouge">footer.links</code> entries: <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">icon</code>, <code class="language-plaintext highlighter-rouge">url</code>; <code class="language-plaintext highlighter-rouge">footer.copyright</code></td>
-     <td>Old links/copyright are not translated. <a href="./02-config#footer">Footer</a>.</td>
-   </tr>
-   <tr>
-     <td>Search</td>
-     <td><code class="language-plaintext highlighter-rouge">search.provider</code>, <code class="language-plaintext highlighter-rouge">search.landing_page</code>; page <code class="language-plaintext highlighter-rouge">layout: search</code>, matching <code class="language-plaintext highlighter-rouge">permalink</code></td>
-     <td>Default path <code class="language-plaintext highlighter-rouge">/search</code>; provider selection creates neither page nor hosted index. <a href="./02-config#search-engines">Search reference</a>.</td>
-   </tr>
-   <tr>
-     <td>Comments</td>
-     <td><code class="language-plaintext highlighter-rouge">comments.provider</code>, provider identifiers; page/default <code class="language-plaintext highlighter-rouge">show_comments</code></td>
-     <td>No automatic provider migration; existing discussion IDs and URLs affect matching. Cactus ID migration, corrected Welcomments URLs in v2.2.0 and legacy local corrections are in <a href="./02-config#comments">Comments</a>.</td>
-   </tr>
-   <tr>
-     <td>Existing subscriber addresses</td>
-     <td><code class="language-plaintext highlighter-rouge">/atom.xml</code>, <code class="language-plaintext highlighter-rouge">/rss.xml</code>, optional jekyll-feed <code class="language-plaintext highlighter-rouge">/feed.xml</code></td>
-     <td>Built-in feeds select dated posts/collection documents with <code class="language-plaintext highlighter-rouge">include_on_feed: true</code>; collection output must publish linked articles. jekyll-feed’s default path can coexist; two generators must not write the same path.</td>
-   </tr>
-   <tr>
-     <td>Google Analytics 4</td>
-     <td><code class="language-plaintext highlighter-rouge">gtag_id</code></td>
-     <td>Existing measurement ID; duplicate custom tracking scripts can count twice. <a href="./02-config#google-analytics">GA reference</a>.</td>
-   </tr>
-   <tr>
-     <td>GoatCounter</td>
-     <td><code class="language-plaintext highlighter-rouge">goatcounter</code></td>
-     <td>Requires v2.2.0; <a href="./02-config#goatcounter-analytics">version and production constraints</a>.</td>
-   </tr>
- </tbody>
-</table>
-<p>Site-author and skin specimen (independent of page front matter):</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">author</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ana"</span>
-<span class="na">chulapa-skin</span><span class="pi">:</span>
-  <span class="na">skin</span><span class="pi">:</span> <span class="s">journal</span>
-</code></pre></div></div>
+<p>Find the fields for navigation, search, comments, feeds and analytics in
+<a href="./07-migration#site-configuration-and-integrations">Site configuration and integrations</a>.</p>
 <h2 id="local-overrides-and-release-boundary">Local overrides and release boundary</h2>
-<p>Local files matching theme paths in <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code> or assets override
-theme files, for both remote and gem themes. Supported insertion points and
-custom CSS are cataloged in <a href="./45-custom-hooks">Custom hooks</a>. Changing a parent
-layout does not translate obsolete include names or CSS classes in content.</p>
-<p>A remote theme pinned to <code class="language-plaintext highlighter-rouge">@v2.1.0</code> does not include Mermaid, PhotoSwipe or
-GoatCounter, or later accessibility/resource-loading fixes. Each feature’s
-reference states its availability. The migration procedure’s pin and the
-actual installed version determine which documented features are available.</p>
+<p>Check <a href="./07-migration#local-overrides-and-release-boundary">Local overrides and release boundary</a>
+before reusing custom layouts or choosing a theme version.</p>
 </div></article>
 		</div>
 	</div>

@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Markdown cheatsheet",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -271,583 +271,53 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Markdown cheatsheet</a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#markdown-notation" class="nav-link">Markdown notation</a></li><li class="nav-item nav d-block"><a href="#markdown-cheatsheet" class="nav-link">Markdown cheatsheet</a></li><li class="nav-item nav d-block"><a href="#header-2" class="nav-link">Header 2</a><ul><li class="nav-item nav d-block"><a href="#header-3" class="nav-link">Header 3</a></li><li class="nav-item nav d-block"><a href="#definition-lists-can-be-used-with-html-syntax" class="nav-link">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li></ul></li><li class="nav-item nav d-block"><a href="#kramdown-extensions" class="nav-link">kramdown extensions</a></li><li class="nav-item nav d-block"><a href="#second-level-header" class="nav-link">Second level header</a></li><li class="nav-item nav d-block"><a href="#h2-header" class="nav-link">H2 header</a><ul><li class="nav-item nav d-block"><a href="#h3-header" class="nav-link">H3 header</a></li></ul></li><li class="nav-item nav d-block"><a href="#table-of-contents-syntax" class="nav-link">Table of contents syntax</a></li><li class="nav-item nav d-block"><a href="#headers-work-too" class="nav-link">Headers work too</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#markdown-notation" class="nav-link">Markdown notation</a></li><li class="nav-item nav d-block"><a href="#markdown-cheatsheet" class="nav-link">Markdown cheatsheet</a></li><li class="nav-item nav d-block"><a href="#kramdown-extensions" class="nav-link">kramdown extensions</a></li><li class="nav-item nav d-block"><a href="#table-of-contents-syntax" class="nav-link">Table of contents syntax</a></li></ul>
 		</nav>   
 	</div>
             <nav aria-label="table-of-contents">
-			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#markdown-notation">Markdown notation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#markdown-cheatsheet">Markdown cheatsheet</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#header-2">Header 2</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#header-3">Header 3</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#definition-lists-can-be-used-with-html-syntax">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#kramdown-extensions">kramdown extensions</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#second-level-header">Second level header</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#h2-header">H2 header</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#h3-header">H3 header</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#table-of-contents-syntax">Table of contents syntax</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#headers-work-too">Headers work too</a></li></ul>
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#markdown-notation">Markdown notation</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#markdown-cheatsheet">Markdown cheatsheet</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#kramdown-extensions">kramdown extensions</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#table-of-contents-syntax">Table of contents syntax</a></li></ul>
 			</nav>
 			<div class="e-content">
-<p>Lookup for formatting syntax and its rendered result. For a complete article
-file and publishing steps, use <a href="./15-create-post">Create a post</a>. To insert a
-content index, use <a href="./58-content-toc">Add a table of contents inside an article</a>.</p>
+<p>Use these examples in a Markdown post or page. <a href="./15-create-post">Create a post</a>
+shows a complete file with its front matter.</p>
 <h2 id="markdown-notation">Markdown notation</h2>
-<p>Markdown represents headings, links, lists and other formatting in plain text.
-The specimens below pair source notation with rendered output. External syntax
-reference: <a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a>.</p>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>Examples use the sample configuration’s GFM parser.</strong> Some extensions in the
-kramdown reference require <code class="language-plaintext highlighter-rouge">kramdown.input: Kramdown</code> rather than <code class="language-plaintext highlighter-rouge">GFM</code>. Check
-the generated page when changing parsers.</p>
+<p>The sample site uses kramdown with the GFM parser. See the
+<a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a> for a fuller
+syntax reference.</p>
 <h2 id="markdown-cheatsheet">Markdown cheatsheet</h2>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text can be <span class="gs">**bold**</span>, _italic_ or ~~strikethrough~~.
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## A section</span>
+
+Use <span class="gs">**bold**</span>, _italic_, ~~strikethrough~~ and <span class="sb">`inline code`</span>.
+<span class="p">
+-</span> <span class="p">[</span><span class="nv">Link to another page</span><span class="p">](</span><span class="sx">./01-install</span><span class="p">)</span>
+<span class="p">-</span> A second list item
+<span class="gt">
+&gt; A short quotation.</span>
 </code></pre></div></div>
-<p>Text can be <strong>bold</strong>, <em>italic</em> or <del>strikethrough</del>.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Link to another page</span><span class="p">](</span><span class="sx">./01-install</span><span class="p">)</span>.
-</code></pre></div></div>
-<p><a href="./01-install">Link to another page</a>.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>There should be whitespace between this paragraph
-
-and this paragraph.
-</code></pre></div></div>
-<p>There should be whitespace between this paragraph</p>
-<p>and this paragraph.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Header 1</span>
-
-<span class="gu">## Header 2</span>
-
-<span class="gu">### Header 3</span>
-
-<span class="gu">#### Header 4</span>
-
-<span class="gu">##### Header 5</span>
-
-<span class="gu">###### Header 6</span>
-</code></pre></div></div>
-<h1 id="header-1">Header 1</h1>
-<h2 id="header-2">Header 2</h2>
-<h3 id="header-3">Header 3</h3>
-<h4 id="header-4">Header 4</h4>
-<h5 id="header-5">Header 5</h5>
-<h6 id="header-6">Header 6</h6>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; This is a blockquote following a header.</span>
-<span class="gt">&gt;</span>
-<span class="gt">&gt; When something is important enough, you do it even if the odds are not in your favor.</span>
-</code></pre></div></div>
+<p>Use <strong>bold</strong>, <em>italic</em>, <del>strikethrough</del> and <code class="language-plaintext highlighter-rouge">inline code</code>.</p>
+<ul>
+ <li><a href="./01-install">Link to another page</a></li>
+ <li>A second list item</li>
+</ul>
 <blockquote>
- <p>This is a blockquote.</p>
- <p>When something is important enough, you do it even if the odds are not in your
-favor.</p>
+ <p>A short quotation.</p>
 </blockquote>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">js
-</span><span class="c1">// JavaScript code with syntax highlighting.</span>
-<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lang/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">```</span>
-
-<span class="p">```</span><span class="nl">ruby
-</span><span class="c1"># Ruby code with syntax highlighting</span>
-<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
-  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="p">```</span>
-
-<span class="p">```</span><span class="nl">html
-</span><span class="c">&lt;!--HTML code syntax highlighter--&gt;</span>
-<span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-
-<span class="nt">&lt;p&gt;</span>This is a paragraph.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>This is another paragraph.<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-<span class="p">```</span>
-</code></pre></div></div>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JavaScript code with syntax highlighting.</span>
-<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lang/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Ruby code with syntax highlighting</span>
-<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
-  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div></div>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--HTML code syntax highlighter--&gt;</span>
-<span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-
-<span class="nt">&lt;p&gt;</span>This is a paragraph.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>This is another paragraph.<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div></div>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> First unordered item.
-<span class="p">*</span> Second unordered item.
-<span class="p">*</span> Third unordered item.
-
-A two-level ordered list:
-<span class="p">
-1.</span> First ordered item.
-<span class="p">2.</span> Second ordered item.
-<span class="p">    *</span> First unordered sub-item.
-<span class="p">    *</span> Second unordered sub-item.
-<span class="p">12.</span> Subsequent items are numbered automatically, regardless of their source number.
-<span class="p">4.</span> Another ordered item.<span class="sb">
-
-    You can indent a paragraph to keep it inside a list item. Keep the blank
-    line above and the indentation on every line.
-
-</span>Unordered lists can use different markers:
-<span class="p">
-*</span> Asterisks
-<span class="p">-</span> Minuses
-<span class="p">   -</span> A nested item
-<span class="p">      1.</span> First ordered sub-item
-<span class="p">      2.</span> Second ordered sub-item
-<span class="p">         +</span> Pluses
-
-And a task list:
-<span class="p">
--</span> [x] This is a complete item
-<span class="p">-</span> [ ] This is an incomplete item
-
-</code></pre></div></div>
-<ul>
- <li>First unordered item.</li>
- <li>Second unordered item.</li>
- <li>Third unordered item.</li>
-</ul>
-<p>A two-level ordered list:</p>
-<ol>
- <li>First ordered item.</li>
- <li>Second ordered item.
-   <ul>
-     <li>First unordered sub-item.</li>
-     <li>Second unordered sub-item.</li>
-   </ul>
- </li>
- <li>Subsequent items are numbered automatically, regardless of their source number.</li>
- <li>
-   <p>Another ordered item.</p>
-   <p>You can indent a paragraph to keep it inside a list item. Keep the blank
- line above and the indentation on every line.</p>
- </li>
-</ol>
-<p>Unordered lists can use different markers:</p>
-<ul>
- <li>Asterisks</li>
- <li>Minuses
-   <ul>
-     <li>A nested item
-       <ol>
-         <li>First ordered sub-item</li>
-         <li>Second ordered sub-item
-           <ul>
-             <li>Pluses</li>
-           </ul>
-         </li>
-       </ol>
-     </li>
-   </ul>
- </li>
-</ul>
-<p>And a task list:</p>
-<ul class="task-list">
- <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />This is a complete item</li>
- <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />This is an incomplete item</li>
-</ul>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Use an emoji here: 👍🏻⭐️🏆
-
-</code></pre></div></div>
-<p>Use an emoji here: 👍🏻⭐️🏆</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To quickly turn a URL or email address into a link, enclose it in angle brackets.
-
-<span class="nv">&lt;https://www.markdownguide.org&gt;</span>
-<span class="nv">&lt;fake@example.com&gt;</span>
-
-</code></pre></div></div>
-<p>To quickly turn a URL or email address into a link, enclose it in angle
-brackets.</p>
-<p><a href="https://www.markdownguide.org">https://www.markdownguide.org</a>
-<a href="mailto:fake@example.com">fake@example.com</a></p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's a simple footnote,[^1] and here's a longer one.[^bignote]
-
-<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">This</span> is the first footnote.
-
-<span class="p">[</span><span class="ss">^bignote</span><span class="p">]:</span> <span class="sx">Here's</span> one with multiple paragraphs and code.<span class="sb">
-
-    Indent paragraphs to include them in the footnote.
-
-    `{ my code }`
-
-    Add as many paragraphs as you like.
-</span></code></pre></div></div>
-<p>Here’s a simple footnote,<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> and here’s a longer one.<sup id="fnref:bignote"><a href="#fn:bignote" class="footnote" rel="footnote" role="doc-noteref">2</a></sup></p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-A table
-
-| <span class="gs">**id**</span> | <span class="gs">**name**</span> | <span class="gs">**age**</span> | <span class="gs">**gender**</span> |
-|:-------|:--------:|--------:|:----------:|
-| Left   | Center   | Right   | M          |
-| 2      | Oliver   | 25      | M          |
-| 3      | Shayna   | 18      | F          |
-| 4      | Fechin   | 18      | M          |
-
-</code></pre></div></div>
-<p>A table</p>
-<table>
-<thead>
-   <tr>
-     <th style="text-align: left"><strong>id</strong></th>
-     <th style="text-align: center"><strong>name</strong></th>
-     <th style="text-align: right"><strong>age</strong></th>
-     <th style="text-align: center"><strong>gender</strong></th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td style="text-align: left">Left</td>
-     <td style="text-align: center">Center</td>
-     <td style="text-align: right">Right</td>
-     <td style="text-align: center">M</td>
-   </tr>
-   <tr>
-     <td style="text-align: left">2</td>
-     <td style="text-align: center">Oliver</td>
-     <td style="text-align: right">25</td>
-     <td style="text-align: center">M</td>
-   </tr>
-   <tr>
-     <td style="text-align: left">3</td>
-     <td style="text-align: center">Shayna</td>
-     <td style="text-align: right">18</td>
-     <td style="text-align: center">F</td>
-   </tr>
-   <tr>
-     <td style="text-align: left">4</td>
-     <td style="text-align: center">Fechin</td>
-     <td style="text-align: right">18</td>
-     <td style="text-align: center">M</td>
-   </tr>
- </tbody>
-</table>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>There's a horizontal rule below this.
-<span class="p">
-* * *
-</span>
-Another
-<span class="p">
----
-</span></code></pre></div></div>
-<p>There’s a horizontal rule below this.</p>
-<hr />
-<p>Another</p>
-<hr />
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Small image**</span>
-
-<span class="p">![</span><span class="nv">Octocat</span><span class="p">](</span><span class="sx">https://github.githubassets.com/images/icons/emoji/octocat.png</span><span class="p">)</span>
-
-<span class="gs">**Large image**</span>
-
-<span class="p">![</span><span class="nv">Large sample photograph</span><span class="p">](</span><span class="sx">https://picsum.photos/id/36/1200/600.jpg</span><span class="p">)</span>
-</code></pre></div></div>
-<p><strong>Small image</strong></p>
-<p><img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="Octocat" /></p>
-<p><strong>Large image</strong></p>
-<p><img src="https://picsum.photos/id/36/1200/600.jpg" alt="Large sample photograph" /></p>
-<h3 id="definition-lists-can-be-used-with-html-syntax">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</h3>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dl&gt;</span>
-<span class="nt">&lt;dt&gt;</span>Name<span class="nt">&lt;/dt&gt;</span>
-<span class="nt">&lt;dd&gt;</span>Godzilla<span class="nt">&lt;/dd&gt;</span>
-<span class="nt">&lt;dt&gt;</span>Born<span class="nt">&lt;/dt&gt;</span>
-<span class="nt">&lt;dd&gt;</span>1952<span class="nt">&lt;/dd&gt;</span>
-<span class="nt">&lt;dt&gt;</span>Birthplace<span class="nt">&lt;/dt&gt;</span>
-<span class="nt">&lt;dd&gt;</span>Japan<span class="nt">&lt;/dd&gt;</span>
-<span class="nt">&lt;dt&gt;</span>Color<span class="nt">&lt;/dt&gt;</span>
-<span class="nt">&lt;dd&gt;</span>Green<span class="nt">&lt;/dd&gt;</span>
-<span class="nt">&lt;/dl&gt;</span>
-</code></pre></div></div>
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-</code></pre></div></div>
-<hr />
+<p>For images, see <a href="./17-add-image">Add an image</a>. For fenced code, see
+<a href="./syntax-highlighting">Syntax highlighting</a>.</p>
 <h2 id="kramdown-extensions">kramdown extensions</h2>
-<p>kramdown is Jekyll’s default Markdown processor. Extension support depends on
-the configured input parser; the examples include attributes, footnotes and
-content indexes. Full syntax: <a href="https://kramdown.gettalong.org/quickref.html">kramdown reference</a>.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The first paragraph.
-
-Another paragraph
-
-This is a paragraph  
-which contains a hard line break.
-
-<span class="gu">First level header
-==================
-</span>
-<span class="gh">Second level header
--------------------
-</span>
-<span class="gh"># H1 header</span>
-
-<span class="gu">## H2 header</span>
-
-<span class="gu">### H3 header</span>
-
-<span class="gu">#### H4 header</span>
-
-<span class="gu">##### H5 header</span>
-
-<span class="gu">###### H6 header</span>
-
-</code></pre></div></div>
-<p>The first paragraph.</p>
-<p>Another paragraph</p>
-<p>This is a paragraph<br />
-which contains a hard line break.</p>
-<h1 id="first-level-header">First level header</h1>
-<h2 id="second-level-header">Second level header</h2>
-<h1 id="h1-header">H1 header</h1>
-<h2 id="h2-header">H2 header</h2>
-<h3 id="h3-header">H3 header</h3>
-<h4 id="h4-header">H4 header</h4>
-<h5 id="h5-header">H5 header</h5>
-<h6 id="h6-header">H6 header</h6>
+<p>Follow the guides for <a href="./51-add-footnote">footnotes</a>, <a href="./49-add-alert">alert boxes</a>
+and <a href="./50-add-caption">image captions</a>. The
+<a href="https://kramdown.gettalong.org/quickref.html">kramdown reference</a> covers more
+extensions. Some require the Kramdown input parser.</p>
 <h2 id="table-of-contents-syntax">Table of contents syntax</h2>
-<p class="alert alert-info p-3 mx-2 mb-3"><strong>The theme TOC is configured separately.</strong> <code class="language-plaintext highlighter-rouge">show_toc</code>, <code class="language-plaintext highlighter-rouge">h_min</code> and <code class="language-plaintext highlighter-rouge">h_max</code>
-control the layout’s automatic TOC. The specimens below use kramdown’s <code class="language-plaintext highlighter-rouge">{:toc}</code>
-for a content index. Procedure: <a href="./58-content-toc">Add a table of contents inside an article</a>.</p>
-<p>Configuration mapping specimen: <code class="language-plaintext highlighter-rouge">kramdown.toc_levels</code> selects heading levels
-for content indexes site-wide.</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">kramdown</span><span class="pi">:</span>
-  <span class="na">toc_levels</span><span class="pi">:</span> <span class="s">2..6</span>
-
+<p>Insert these two lines in the Markdown body where the list should appear:</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> Contents
+{:toc}
 </code></pre></div></div>
-<p>Heading exclusion specimen: <code class="language-plaintext highlighter-rouge">.no_toc</code> excludes a heading from both the content
-index and the theme’s automatic TOC.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="gu">## This header would be ignored on the toc.</span>
-{:.no_toc}
-
-</code></pre></div></div>
-<h3 class="no_toc" id="this-header-would-be-ignored-on-the-toc">This header would be ignored on the toc.</h3>
-<p>Content-index marker specimen: the list item and attribute occupy separate
-lines. The placeholder is replaced by heading links; <code class="language-plaintext highlighter-rouge">1.</code> selects a numbered
-list instead of bullets. The marker sets the index position; eligible headings
-before the marker are included too.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">
-*</span> This line is needed, but won't appear. Replace '<span class="err">*</span>' with '1' to create a numbered list.
-{:toc}<span class="sb">
-
-
-</span></code></pre></div></div>
-<ul id="markdown-toc">
- <li><a href="#markdown-notation" id="markdown-toc-markdown-notation">Markdown notation</a></li>
- <li><a href="#markdown-cheatsheet" id="markdown-toc-markdown-cheatsheet">Markdown cheatsheet</a></li>
- <li><a href="#header-2" id="markdown-toc-header-2">Header 2</a>   <ul>
-     <li><a href="#header-3" id="markdown-toc-header-3">Header 3</a>       <ul>
-         <li><a href="#header-4" id="markdown-toc-header-4">Header 4</a>           <ul>
-             <li><a href="#header-5" id="markdown-toc-header-5">Header 5</a>               <ul>
-                 <li><a href="#header-6" id="markdown-toc-header-6">Header 6</a></li>
-               </ul>
-             </li>
-           </ul>
-         </li>
-       </ul>
-     </li>
-     <li><a href="#definition-lists-can-be-used-with-html-syntax" id="markdown-toc-definition-lists-can-be-used-with-html-syntax">Definition lists can be used with <abbr title="Hyper Text Markup Language">HTML</abbr> syntax.</a></li>
-   </ul>
- </li>
- <li><a href="#kramdown-extensions" id="markdown-toc-kramdown-extensions">kramdown extensions</a></li>
- <li><a href="#second-level-header" id="markdown-toc-second-level-header">Second level header</a></li>
- <li><a href="#h2-header" id="markdown-toc-h2-header">H2 header</a>   <ul>
-     <li><a href="#h3-header" id="markdown-toc-h3-header">H3 header</a>       <ul>
-         <li><a href="#h4-header" id="markdown-toc-h4-header">H4 header</a>           <ul>
-             <li><a href="#h5-header" id="markdown-toc-h5-header">H5 header</a>               <ul>
-                 <li><a href="#h6-header" id="markdown-toc-h6-header">H6 header</a></li>
-               </ul>
-             </li>
-           </ul>
-         </li>
-       </ul>
-     </li>
-   </ul>
- </li>
- <li><a href="#table-of-contents-syntax" id="markdown-toc-table-of-contents-syntax">Table of contents syntax</a></li>
- <li><a href="#headers-work-too" id="markdown-toc-headers-work-too">Headers work too</a></li>
-</ul>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; A sample blockquote.</span>
-<span class="gt">&gt;</span>
-<span class="gt">&gt; &gt;Nested blockquotes are</span>
-<span class="gt">&gt; &gt;also possible.</span>
-<span class="gt">&gt;</span>
-<span class="gt">&gt; ## Headers work too</span>
-<span class="gt">&gt; This is the outer quote again.</span><span class="sb">
-
-
-</span>term
-: definition
-: another definition
-
-another term
-and another term
-: and a definition for the term
-</code></pre></div></div>
-<blockquote>
- <p>A sample blockquote.</p>
- <blockquote>
-   <p>Nested blockquotes are
-also possible.</p>
- </blockquote>
- <h2 id="headers-work-too">Headers work too</h2>
- <p>This is the outer quote again.</p>
-</blockquote>
-<dl>
- <dt>term</dt>
- <dd>definition</dd>
- <dd>another definition</dd>
- <dt>another term</dt>
- <dt>and another term</dt>
- <dd>and a definition for the term</dd>
-</dl>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|----
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|=====
-| Foot1   | Foot2   | Foot3
-{: rules="groups"}
-
-</code></pre></div></div>
-<table rules="groups">
-<thead>
-   <tr>
-     <th style="text-align: left">Header1</th>
-     <th style="text-align: center">Header2</th>
-     <th style="text-align: right">Header3</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td style="text-align: left">cell1</td>
-     <td style="text-align: center">cell2</td>
-     <td style="text-align: right">cell3</td>
-   </tr>
-   <tr>
-     <td style="text-align: left">cell4</td>
-     <td style="text-align: center">cell5</td>
-     <td style="text-align: right">cell6</td>
-   </tr>
- </tbody>
- <tbody>
-   <tr>
-     <td style="text-align: left">cell1</td>
-     <td style="text-align: center">cell2</td>
-     <td style="text-align: right">cell3</td>
-   </tr>
-   <tr>
-     <td style="text-align: left">cell4</td>
-     <td style="text-align: center">cell5</td>
-     <td style="text-align: right">cell6</td>
-   </tr>
- </tbody>
- <tfoot>
-   <tr>
-     <td style="text-align: left">Foot1</td>
-     <td style="text-align: center">Foot2</td>
-     <td style="text-align: right">Foot3</td>
-   </tr>
- </tfoot>
-</table>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is a paragraph
-{::comment}
-This is a comment which is
-completely ignored.
-{:/comment}
-... paragraph continues here.
-
-Extensions can also be used
-inline {::nomarkdown}<span class="gs">**see**</span>{:/}!
-This is a paragraph … paragraph continues here.
-
-Extensions can also be used inline <span class="gs">**see**</span>!
-</code></pre></div></div>
-<p>This is a paragraph
-<!-- 
-This is a comment which is
-completely ignored.
- -->
-… paragraph continues here.</p>
-<p>Extensions can also be used
-inline **see**!
-This is a paragraph … paragraph continues here.</p>
-<p>Extensions can also be used inline <strong>see</strong>!</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A <span class="p">[</span><span class="nv">link</span><span class="p">](</span><span class="sx">https://kramdown.gettalong.org</span> <span class="nn">"hp"</span><span class="p">)</span>
-to the homepage.
-
-A simple info alert <span class="gs">**check it out!**</span>
-{: #myid .alert .alert-info .p-3 .mx-2 .mb-3}
-
-This is a text with a
-footnote[^1].
-
-<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">And</span> here is the definition.<span class="sb">
-
-
-</span>This is an HTML
-example.
-
-<span class="err">*</span>[HTML]: Hyper Text Markup Language<span class="sb">
-
-
-</span>This is <span class="gs">**Chulapa**</span>{:.chulapa} <span class="ge">*red*</span>{: style="color: red"}.
-</code></pre></div></div>
-<p>A <a href="https://kramdown.gettalong.org" title="hp">link</a>
-to the homepage.</p>
-<p id="myid" class="alert alert-info p-3 mx-2 mb-3">A simple info alert <strong>check it out!</strong></p>
-<p>This is a text with a
-footnote<sup id="fnref:1:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
-<p>This is an <abbr title="Hyper Text Markup Language">HTML</abbr>
-example.</p>
-<p>This is <span class="chulapa">Chulapa</span> <em style="color: red">red</em>.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>This is the first part of a para,
-which is continued here.
-<span class="p">-</span>  List
-<span class="p">-</span>  List <span class="gs">**bold**</span>
-<span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div></div>
-<div>
- <p>This is the first part of a para,
-which is continued here.</p>
- <ul>
-   <li>List</li>
-   <li>List <strong>bold</strong></li>
- </ul>
-</div>
-<div class="footnotes" role="doc-endnotes">
- <ol>
-   <li id="fn:1">
-     <p>And here is the definition. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&uarr;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&uarr;<sup>2</sup></a></p>
-   </li>
-   <li id="fn:bignote">
-     <p>Here’s one with multiple paragraphs and code.</p>
-     <p>Indent paragraphs to include them in the footnote.</p>
-     <p><code class="language-plaintext highlighter-rouge">{ my code }</code></p>
-     <p>Add as many paragraphs as you like. <a href="#fnref:bignote" class="reversefootnote" role="doc-backlink">&uarr;</a></p>
-   </li>
- </ol>
-</div>
+<p>Use <code class="language-plaintext highlighter-rouge">1.</code> instead of <code class="language-plaintext highlighter-rouge">*</code> for a numbered list. Add <code class="language-plaintext highlighter-rouge">{:.no_toc}</code> on the line
+after a heading to omit it from both the content index and the theme’s TOC.
+For heading levels and troubleshooting, see
+<a href="./58-content-toc">Add a table of contents inside an article</a>.</p>
 </div></article>
 		</div>
 	</div>

@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -397,14 +397,8 @@ descriptive label. For email links, supply the plain email address.</li>
 </code></pre></div></div>
 <h2 id="b-navigation">B. Navigation</h2>
 <h3 id="navbar">Navbar</h3>
-<p><code class="language-plaintext highlighter-rouge">navbar</code> defines the site’s menu. Entries in <code class="language-plaintext highlighter-rouge">navbar.nav</code> use <code class="language-plaintext highlighter-rouge">title</code> and <code class="language-plaintext highlighter-rouge">url</code>
-for existing pages; <code class="language-plaintext highlighter-rouge">child</code> supplies one level of dropdown links. Styles are
-classic (sticky top), <code class="language-plaintext highlighter-rouge">fab</code> (floating button) and <code class="language-plaintext highlighter-rouge">dual</code> (floating/classic at a breakpoint).</p>
-<p>For an editing procedure, use <a href="./10-edit-menu">Add or change a menu link</a>.
-The options and examples below are the configuration reference.</p>
-<p>For keyboard behavior of the floating menu in v2.2.0, see
-<a href="./06-accessibility-performance#keyboard-navigation">Keyboard navigation</a>.</p>
-<p>Check this <a href="https://dieghernan.github.io/chulapa/demo/classic-navbar">live demo</a> of the classic navbar style.</p>
+<p>Follow <a href="./10-edit-menu">Add or change a menu link</a> for a complete example,
+including dropdowns. Try the <a href="https://dieghernan.github.io/chulapa/demo/classic-navbar">classic navbar demo</a>.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">navbar</code>:
    <ul>
@@ -424,101 +418,26 @@ follows the same breakpoint as the links. <strong>md</strong>.</li>
          <li><code class="language-plaintext highlighter-rouge">url</code>: Destination of the brand link. <strong>Site root URL</strong>.</li>
        </ul>
      </li>
-     <li><code class="language-plaintext highlighter-rouge">nav</code>: Links on your navbar. See the example to learn how to set one-level
-and two-level links:</li>
    </ul>
  </li>
+ <li><code class="language-plaintext highlighter-rouge">navbar.nav</code>: Menu entries use <code class="language-plaintext highlighter-rouge">title</code> and <code class="language-plaintext highlighter-rouge">url</code>. Use <code class="language-plaintext highlighter-rouge">child</code> for one level
+of dropdown links.</li>
 </ul>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">navbar</span><span class="pi">:</span>
-  <span class="na">style </span><span class="pi">:</span>  <span class="s">fab</span>
-  <span class="na">brand</span><span class="pi">:</span>
-    <span class="na">title </span><span class="pi">:</span>  <span class="s">Home</span>
-    <span class="na">img</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./assets/img/site/brand-clear.png"</span>
-    <span class="na">url</span><span class="pi">:</span> <span class="s">/someurl</span>
-  <span class="na">nav</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">One-level link</span> <span class="c1">#Label</span>
-    <span class="na">url</span><span class="pi">:</span> <span class="s">/url1/</span>  <span class="c1">#url</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Two-level link</span> <span class="c1">#Label</span>
-    <span class="na">child</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Second level first item</span>
-      <span class="na">url</span><span class="pi">:</span> <span class="s">/url2-1</span>
-    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Second level second item</span>
-      <span class="na">url</span><span class="pi">:</span> <span class="s">/url2-2</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">One-level link</span> <span class="c1">#Label</span>
-    <span class="na">url</span><span class="pi">:</span> <span class="s">/url1/</span>  <span class="c1">#url</span>
-</code></pre></div></div>
 <h3 id="footer">Footer</h3>
-<p><code class="language-plaintext highlighter-rouge">footer.links</code> defines the contact, social and feed links below the page.
-For an editing procedure, use <a href="./11-edit-footer">Edit footer links</a>.</p>
-<ul>
- <li><code class="language-plaintext highlighter-rouge">footer</code>:
-   <ul>
-     <li><code class="language-plaintext highlighter-rouge">links</code>:
-       <ul>
-         <li><code class="language-plaintext highlighter-rouge">label</code>: Label of your link.</li>
-         <li><code class="language-plaintext highlighter-rouge">icon</code>: Font Awesome icon code.</li>
-         <li><code class="language-plaintext highlighter-rouge">url</code>: Link URL or plain email address.</li>
-       </ul>
-     </li>
-   </ul>
- </li>
-</ul>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">footer</span><span class="pi">:</span>
-  <span class="na">links</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Atom</span><span class="nv"> </span><span class="s">feed"</span>
-      <span class="na">icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fa</span><span class="nv"> </span><span class="s">fa-rss"</span>
-      <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/atom.xml"</span>
-    <span class="pi">-</span> <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Twitter"</span>
-      <span class="na">icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fab</span><span class="nv"> </span><span class="s">fa-twitter"</span>
-      <span class="na">url</span><span class="pi">:</span> <span class="s">https://twitter.com/</span>
-    <span class="pi">-</span> <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Facebook"</span>
-      <span class="na">icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fab</span><span class="nv"> </span><span class="s">fa-facebook"</span>
-      <span class="na">url</span><span class="pi">:</span> <span class="s">https://www.facebook.com</span>
-</code></pre></div></div>
-<p><code class="language-plaintext highlighter-rouge">footer.copyright</code> supplies custom text or HTML. When omitted, the footer
-shows the build year and site author name, falling back to the GitHub owner name:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">footer</span><span class="pi">:</span>
-  <span class="na">copyright</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&amp;copy;</span><span class="nv"> </span><span class="s">2021</span><span class="nv"> </span><span class="s">&lt;span</span><span class="nv"> </span><span class="s">class='chulapa'&gt;Chulapa&lt;/span&gt;</span><span class="nv"> </span><span class="s">developers"</span>
-</code></pre></div></div>
+<p>Follow <a href="./11-edit-footer">Edit footer links</a> for a complete example.
+Each <code class="language-plaintext highlighter-rouge">footer.links</code> entry uses <code class="language-plaintext highlighter-rouge">label</code>, a Font Awesome <code class="language-plaintext highlighter-rouge">icon</code> and a <code class="language-plaintext highlighter-rouge">url</code>
+or plain email address. Set <code class="language-plaintext highlighter-rouge">footer.copyright</code> to supply text or HTML.
+By default, the footer shows the build year and site author name or GitHub owner.</p>
 <h2 id="optional-features-and-metadata">Optional features and metadata</h2>
 <p>SEO (search engine optimization) and social metadata describe your pages to
 search engines and sharing services; they do not change your article text.
 The sections below list optional integration settings and their constraints.</p>
 <h3 id="seo">SEO</h3>
-<p>These settings control social metadata and structured data. <span class="chulapa">Chulapa</span> generates
-canonical URLs and JSON-LD for the home page (<code class="language-plaintext highlighter-rouge">WebSite</code>), posts (<code class="language-plaintext highlighter-rouge">BlogPosting</code>)
-and other pages (<code class="language-plaintext highlighter-rouge">WebPage</code>). Breadcrumb structured data is generated even when
-visible breadcrumbs are disabled.</p>
-<p>In v2.2.1 (development), structured data connects pages, the website, authors,
-the publisher and breadcrumbs using identifiers (<code class="language-plaintext highlighter-rouge">@id</code>). Posts also include
-<code class="language-plaintext highlighter-rouge">inLanguage</code> from the page language, <code class="language-plaintext highlighter-rouge">keywords</code> from nonblank tags and
-<code class="language-plaintext highlighter-rouge">articleSection</code> from nonblank categories. Each post’s page identifies the article
-with <code class="language-plaintext highlighter-rouge">mainEntity</code> and its first valid article image with <code class="language-plaintext highlighter-rouge">primaryImageOfPage</code>;
-see <a href="./04-layouts#article-images">Article images</a>. No additional configuration is needed.</p>
-<p>In v2.2.1 (development), the site author’s JSON-LD profile always uses the
-home page, resolved with <code class="language-plaintext highlighter-rouge">url</code> and <code class="language-plaintext highlighter-rouge">baseurl</code>. No About page or extra setting is
-required. This leaves visible author cards and Open Graph author URLs unchanged.
-Guest profiles use their own <code class="language-plaintext highlighter-rouge">author.url</code>. A guest without <code class="language-plaintext highlighter-rouge">author.url</code> uses
-the alphabetically first HTTP(S) profile in their own <code class="language-plaintext highlighter-rouge">author.links</code>; supply
-an explicit profile URL for a stable identity when adding or removing social
-profiles. Reordering links does not change the guest’s identifier. A guest
-without a profile URL or social profiles has an identifier local to the page
-and does not inherit the site author’s profile, avatar or location. All HTTP(S)
-social profiles are included in <code class="language-plaintext highlighter-rouge">sameAs</code>. Author references share a single
-profile definition per page; the publisher remains independent, even when
-both are people.</p>
-<p>Page and article descriptions use the same text as the HTML metadata. Page
-language is also included in the accompanying <code class="language-plaintext highlighter-rouge">WebPage</code> entity. Missing images,
-publisher logos and profile details are omitted rather than replaced with
-empty values or generic role descriptions.</p>
-<p>The built-in <code class="language-plaintext highlighter-rouge">archive</code>, <code class="language-plaintext highlighter-rouge">indexcategory</code>, <code class="language-plaintext highlighter-rouge">cloudtag</code> and <code class="language-plaintext highlighter-rouge">cloudcategory</code> layouts
-(including the legacy cloud aliases) describe their pages as <code class="language-plaintext highlighter-rouge">CollectionPage</code>
-and supply an <code class="language-plaintext highlighter-rouge">ItemList</code> of linked documents. The list follows the layout’s
-collection selection, sorting and limits. Tag and category clouds include each
-document once even when it appears in several groups. An empty selection
-produces an empty list. Custom lists and pagination templates do not automatically
-receive an <code class="language-plaintext highlighter-rouge">ItemList</code>; any custom markup must describe only the entries displayed
-on that page. These additions do not guarantee enriched search results.</p>
+<p>The theme generates canonical URLs and structured data automatically.
+In v2.2.1 development, built-in article indexes also describe their lists
+for search engines. Custom lists need their own markup.
+For a guest article, set the guest’s <code class="language-plaintext highlighter-rouge">author.url</code> to their profile.
+Use an explicit URL to keep the identity stable if you change their social links.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">og_image</code>: The default image to be displayed when a page of your site is
 shared on any of the major social networks (Facebook, Twitter/X, etc.). The
@@ -650,29 +569,14 @@ Content Security Policy and browser-blocker checks. The
 <a href="https://www.goatcounter.com/help/">GoatCounter documentation</a> covers the
 service’s own behavior.</p>
 <h3 id="search-engines">Search engines</h3>
-<p><code class="language-plaintext highlighter-rouge">search</code> configures search within the site, independently of external search-engine
-indexing. For crawler/sitemap/local-index exclusions, use
-<a href="./65-search-visibility">Keep an auxiliary page out of search</a>.
-The personal-blog template includes Fuse.js search. Setup instructions:
-<a href="./12-fusejs-search">Enable Fuse.js</a>, <a href="./34-lunr-search">Lunr.js</a>,
-<a href="./35-simplesearch-search">Simple-Jekyll-Search</a>,
-<a href="./36-google-search">Google Custom Search</a> or <a href="./37-algolia-search">Algolia</a>.</p>
-<p>A search page uses <code class="language-plaintext highlighter-rouge">layout: search</code>; its <code class="language-plaintext highlighter-rouge">permalink</code> matches <code class="language-plaintext highlighter-rouge">search.landing_page</code>
-(default <code class="language-plaintext highlighter-rouge">/search</code>). A provider does not create the page. In the classic navbar
-and the desktop form of <code class="language-plaintext highlighter-rouge">dual</code>, the Search link also requires <code class="language-plaintext highlighter-rouge">navbar.nav</code>.
-The search page remains reachable directly without that menu link.</p>
-<p>The following engines are available:</p>
-<ul>
- <li><a href="https://lunrjs.com/">Lunr.js</a></li>
- <li><a href="https://www.fusejs.io/">Fuse.js</a></li>
- <li><a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></li>
- <li><a href="https://www.algolia.com/">Algolia</a></li>
- <li><a href="https://developers.google.com/custom-search">Google Custom Search</a></li>
-</ul>
-<p>Lunr, Fuse.js and Simple-Jekyll-Search use an index generated during the site
-build. Set <code class="language-plaintext highlighter-rouge">include_on_search: false</code> on pages or in front matter defaults to
-exclude them from these indexes. Algolia requires a separately uploaded index;
-Google Custom Search requires a configured search engine.</p>
+<p>Create a page with <code class="language-plaintext highlighter-rouge">layout: search</code> and a <code class="language-plaintext highlighter-rouge">permalink</code> matching
+<code class="language-plaintext highlighter-rouge">search.landing_page</code> (default <code class="language-plaintext highlighter-rouge">/search</code>). The classic navbar and desktop
+<code class="language-plaintext highlighter-rouge">dual</code> navbar also need <code class="language-plaintext highlighter-rouge">navbar.nav</code> to display the Search link.</p>
+<p>The personal-blog template includes <a href="./12-fusejs-search">Fuse.js</a>.
+The three <a href="./12-fusejs-search">local providers</a> build their index with the site and honor <code class="language-plaintext highlighter-rouge">include_on_search: false</code>. <a href="./36-google-search">Google Custom Search</a>
+requires a configured search engine and <a href="./37-algolia-search">Algolia</a> requires
+an uploaded index. For crawler and sitemap settings, see
+<a href="./65-search-visibility">Keep an auxiliary page out of search</a>.</p>
 <ul>
  <li><code class="language-plaintext highlighter-rouge">search</code>:
    <ul>
@@ -733,24 +637,14 @@ provider-specific keys, the shared setting applies.</p>
 <p>With the local search providers, visitors can search while typing or press
 Enter. Clearing the field clears the results.</p>
 <h3 id="comments">Comments</h3>
-<p>Comments require a supported provider’s setup and <code class="language-plaintext highlighter-rouge">show_comments: true</code> on the
-page or in front matter defaults for a layout that displays comments. Setup guides for one post:
-<a href="./13-giscus-comments">giscus</a>, <a href="./38-disqus-comments">Disqus</a>,
-<a href="./39-cactus-comments">Cactus</a>, <a href="./40-welcomments-comments">Welcomments</a> or
-<a href="./41-cusdis-comments">an existing self-hosted Cusdis service</a>.
-Provider identifiers and compatibility constraints are listed below.</p>
+<p>Set <code class="language-plaintext highlighter-rouge">show_comments: true</code> on a page or in front matter defaults for a layout
+that displays comments. Follow the guide for your provider:
+<a href="./13-giscus-comments">giscus</a> uses GitHub Discussions, <a href="./38-disqus-comments">Disqus</a>
+is hosted, <a href="./39-cactus-comments">Cactus</a> uses Matrix and
+<a href="./40-welcomments-comments">Welcomments</a> uses generated comment files.
+<a href="./41-cusdis-comments">Cusdis</a> requires an existing self-hosted deployment
+because the original hosted service is unavailable and upstream is archived.</p>
 <ul>
- <li><a href="https://disqus.com/">Disqus</a>, a hosted comment system.</li>
- <li><a href="https://github.com/djyde/cusdis">Cusdis</a>, a lightweight comment system whose
-upstream project is deprecated and archived. The original hosted service is
-unavailable; check your own deployment before selecting this provider.</li>
- <li><a href="https://giscus.app/">giscus</a>, powered by
-<a href="https://docs.github.com/en/discussions">GitHub Discussions</a>.</li>
- <li><a href="https://cactus.chat/">Cactus</a>, a federated comment system based on Matrix.</li>
- <li>
-   <p><a href="https://welcomments.io/">Welcomments</a>, a comment integration using generated
-comment files.</p>
- </li>
  <li><code class="language-plaintext highlighter-rouge">comments</code>:
    <ul>
      <li><code class="language-plaintext highlighter-rouge">provider</code>: Use <code class="language-plaintext highlighter-rouge">disqus</code>, <code class="language-plaintext highlighter-rouge">cusdis</code>, <code class="language-plaintext highlighter-rouge">giscus</code>, <code class="language-plaintext highlighter-rouge">cactus</code> or <code class="language-plaintext highlighter-rouge">welcomments</code> to
@@ -806,176 +700,20 @@ pages. First/last and previous/next controls are separate. <strong>3</strong>.</
 </ul>
 <p>See a sample defaults configuration <a href="https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults">here</a>.</p>
 <h2 id="xx-other-settings">XX. Other settings</h2>
-<p class="alert alert-warning p-3 mx-2 mb-3">The <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> plugin is required; removing it breaks includes that
-use <code class="language-plaintext highlighter-rouge">include_cached</code>.</p>
-<p>The sample configuration
-includes this repository’s demo collections and pagination settings; these are
-examples rather than requirements for every site.</p>
-<p>The following settings belong to Jekyll or its plugins. Keep the starter’s
-values unless you need to change how files are built or published.</p>
-<table>
-<thead>
-   <tr>
-     <th>Setting</th>
-     <th>Use</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">github</code></td>
-     <td>Keep <code class="language-plaintext highlighter-rouge">[metadata]</code> in the sample setup to supply GitHub repository details.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">theme</code>, <code class="language-plaintext highlighter-rouge">remote_theme</code></td>
-     <td>Choose the gem or remote installation method; see <a href="./01-install">Installation</a>.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">plugins</code></td>
-     <td>Enabled build plugins, including the required <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code>.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">include</code>, <code class="language-plaintext highlighter-rouge">exclude</code></td>
-     <td>Files or folders to explicitly publish or omit; <code class="language-plaintext highlighter-rouge">include: [_pages]</code> enables the starter’s pages folder.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">collections</code></td>
-     <td>Content groups; use <code class="language-plaintext highlighter-rouge">output: true</code> and a <code class="language-plaintext highlighter-rouge">permalink</code> pattern to publish their documents.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">collections_dir</code></td>
-     <td>Parent folder for collections; an empty value keeps them at the site root.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">defaults</code></td>
-     <td>Shared settings: <code class="language-plaintext highlighter-rouge">scope.path</code> and optional <code class="language-plaintext highlighter-rouge">scope.type</code> select files; <code class="language-plaintext highlighter-rouge">values</code> supplies their options.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">permalink</code></td>
-     <td>Default address pattern for posts; individual pages can set their own address.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">paginate</code>, <code class="language-plaintext highlighter-rouge">paginate_path</code></td>
-     <td>Posts per page and address pattern for a paginated blog index.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">markdown</code>, <code class="language-plaintext highlighter-rouge">highlighter</code></td>
-     <td>Content converters; the sample uses <code class="language-plaintext highlighter-rouge">kramdown</code> and <code class="language-plaintext highlighter-rouge">rouge</code>.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">excerpt_separator</code></td>
-     <td>Text marking the end of a post excerpt; the sample uses a blank line (<code class="language-plaintext highlighter-rouge">"\n\n"</code>).</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
-     <td>Jekyll’s optional related-post calculation; the sample disables it. It does not configure the theme’s tag-based related cards.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">incremental</code></td>
-     <td>Rebuild only changed files during development; the sample disables it.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">kramdown</code></td>
-     <td>Markdown behavior, detailed below.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">sass</code></td>
-     <td>Stylesheet build settings, detailed below.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">compress_html</code></td>
-     <td>Optional HTML compression, detailed below.</td>
-   </tr>
- </tbody>
-</table>
-<p>Under <code class="language-plaintext highlighter-rouge">kramdown</code>, the sample settings are:</p>
-<table>
-<thead>
-   <tr>
-     <th>Option</th>
-     <th>Use</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">input</code></td>
-     <td>Markdown dialect (<code class="language-plaintext highlighter-rouge">GFM</code> in the sample).</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">hard_wrap</code></td>
-     <td>Whether ordinary line breaks become visible breaks.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">auto_ids</code></td>
-     <td>Automatically name headings for links and tables of contents.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">footnote_nr</code>, <code class="language-plaintext highlighter-rouge">footnote_backlink</code></td>
-     <td>First footnote number and the return-link symbol.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">entity_output</code></td>
-     <td>How special characters are written in generated HTML.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">toc_levels</code></td>
-     <td>Heading levels included by kramdown’s own table of contents.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">smart_quotes</code></td>
-     <td>Opening and closing quote characters.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">enable_coderay</code></td>
-     <td>Legacy code-highlighter integration; disabled in the sample.</td>
-   </tr>
- </tbody>
-</table>
-<p>Under <code class="language-plaintext highlighter-rouge">sass</code>, <code class="language-plaintext highlighter-rouge">sass_dir</code> names the source folder, <code class="language-plaintext highlighter-rouge">style</code> controls CSS output,
-<code class="language-plaintext highlighter-rouge">quiet_deps</code> suppresses dependency warnings and <code class="language-plaintext highlighter-rouge">silence_deprecations</code> lists
-warning types to suppress. The last two depend on the installed Sass converter;
-they do not fix deprecated stylesheet code.</p>
-<p>Under <code class="language-plaintext highlighter-rouge">compress_html</code>, the sample uses <code class="language-plaintext highlighter-rouge">clippings: all</code> and <code class="language-plaintext highlighter-rouge">blanklines: true</code>.
-Other options are optional; leaving them unset disables the corresponding step:</p>
-<table>
-<thead>
-   <tr>
-     <th>Option</th>
-     <th>Use</th>
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">clippings</code></td>
-     <td>Trim spaces around selected HTML elements; use a list or <code class="language-plaintext highlighter-rouge">all</code>.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">blanklines</code></td>
-     <td>Remove empty lines while retaining line breaks; otherwise whitespace is collapsed.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">comments</code></td>
-     <td>Remove HTML comments (<code class="language-plaintext highlighter-rouge">all</code>) or comments between a pair of supplied markers.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">endings</code></td>
-     <td>Omit selected optional closing tags; use a list or <code class="language-plaintext highlighter-rouge">all</code>.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">startings</code></td>
-     <td>Omit selected optional opening tags; supply a list.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">ignore.envs</code></td>
-     <td>Skip compression in listed environments, or use <code class="language-plaintext highlighter-rouge">all</code> to skip it everywhere.</td>
-   </tr>
-   <tr>
-     <td><code class="language-plaintext highlighter-rouge">profile</code></td>
-     <td>Display compression statistics; leave disabled on a published site.</td>
-   </tr>
- </tbody>
-</table>
-<p>See <a href="https://jekyllrb.com/docs/configuration/options/">Jekyll’s configuration reference</a>
-and the <a href="https://jch.penibelst.de/">compression guide</a> for accepted values.</p>
+<p>Keep the starter settings unless you need to change how Jekyll builds your
+site. The <code class="language-plaintext highlighter-rouge">jekyll-include-cache</code> plugin is required. The sample’s demo
+collections and pagination are specific to this documentation site.</p>
+<ul>
+ <li>To change which files and addresses Jekyll publishes, see
+<a href="https://jekyllrb.com/docs/configuration/options/">Jekyll’s configuration reference</a>.
+Keep <code class="language-plaintext highlighter-rouge">include: [_pages]</code> if you use the starter’s pages folder.</li>
+ <li>For Markdown examples and kramdown options used by articles, see
+<a href="./markdown-cheatsheet">Markdown cheatsheet</a> and
+<a href="./58-content-toc">Add a table of contents inside an article</a>.</li>
+ <li>Keep the starter’s Sass and HTML output settings unless you need to change
+the build. See the <a href="https://jch.penibelst.de/">compression guide</a> for HTML
+options.</li>
+</ul>
 </div></article>
 		</div>
 	</div>

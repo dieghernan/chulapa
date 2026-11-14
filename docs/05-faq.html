@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Frequently asked questions",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -292,50 +292,26 @@
 </details>
 </div>
 </div>
-<p>Choose a question below for the relevant task or lookup page. For a first site,
-use <a href="./00-start">the publishing tutorial</a>; for advanced integration lookup, use
-<a href="./45-custom-hooks">custom hooks</a>, <a href="#know-which-version-of-the-theme-i-am-using">version checks</a>
-or <a href="#use-jekyll-feed-instead-of-chulapas-feeds">feed compatibility</a>.</p>
-<p>Questions below link to task guides and syntax references.
-This FAQ is not a complete configuration reference.</p>
+<p>For a new site, start with <a href="./00-start">the publishing tutorial</a>.</p>
 <h2 id="editing-and-publishing">Editing and publishing</h2>
 <h3 id="how-do-i-switch-from-another-jekyll-theme">How do I switch from another Jekyll theme?</h3>
-<p>Follow the <a href="./07-migration">migration guide and checklist</a> to adapt your
-configuration, layouts and integrations. If the build or design is unexpected,
-check the <a href="./07-migration#common-migration-problems">common migration problems</a>.</p>
+<p>Use the <a href="./07-migration">migration field mappings and checklist</a>.</p>
 <h3 id="how-do-i-change-my-sites-name-or-author">How do I change my site’s name or author?</h3>
-<p>Follow <a href="./14-site-details">Change your site’s name and author</a> to edit the existing
-settings, match the home-page heading and verify publication. The complete
-<a href="./02-config#a-site-settingsseo">field reference</a> remains available for option lookup.</p>
+<p>Follow <a href="./14-site-details">Change your site’s name and author</a>.</p>
 <h3 id="how-do-i-add-a-new-article-or-page">How do I add a new article or page?</h3>
-<p>Use <a href="./15-create-post">Create and publish a post</a> for a dated article, or
-<a href="./16-create-page">Create a page and link it from the menu</a> for standalone
-content such as About or Contact. Each guide includes a complete file and
-published-result checks.</p>
+<p>Create a <a href="./15-create-post">dated post</a> or a <a href="./16-create-page">standalone page</a>.</p>
 <h3 id="why-can-i-not-see-my-changes">Why can I not see my changes?</h3>
-<p>Follow <a href="./42-unpublished-changes">Find changes missing from your website</a> to
-check the saved commit, publishing run, website address and post date. For a
-configuration parse error, use <a href="./43-yaml-errors">Fix a YAML configuration error</a>.</p>
+<p>Check <a href="./42-unpublished-changes">the publishing run</a> or fix a <a href="./43-yaml-errors">YAML error</a>.</p>
 <h3 id="why-is-my-photograph-missing">Why is my photograph missing?</h3>
-<p>The <a href="./17-add-image">image guide</a> covers missing uploads,
-filename capitalization and repository paths. If the whole article is stale,
-use <a href="./42-unpublished-changes">the publishing checks</a>.</p>
+<p>Check uploads, filenames and paths in <a href="./17-add-image">Add an image</a>.</p>
 <h3 id="how-do-i-change-the-colors-or-design">How do I change the colors or design?</h3>
 <p>Use <a href="./22-choose-skin">Choose a skin</a> for a complete design,
 <a href="./23-change-color">Change a color</a> for one adjustment, or
 <a href="./24-change-fonts">Change the fonts</a> for typography. Existing overrides are
 explained in <a href="./26-appearance-precedence">How skins and overrides interact</a>.</p>
 <h2 id="how-do-i">How do I…</h2>
-<p>The answers below cover formatting, optional integrations and advanced
-customization. Skip to the task you need.</p>
 <h3 id="start-with-markdown">…start with Markdown?</h3>
-<p>The <a href="./markdown-cheatsheet">theme Markdown cheatsheet</a> shows syntax and output.
-The external <a href="https://www.markdownguide.org/cheat-sheet/">Markdown cheatsheet</a> and
-<a href="https://kramdown.gettalong.org/quickref.html">kramdown reference</a> cover more syntax. The sample
-configuration uses kramdown with its GFM parser; accepted syntax depends on
-your Markdown configuration.</p>
-<p>For a complete file with its settings block and text, see
-<a href="./15-create-post">Create a post</a>.</p>
+<p>Try the <a href="./markdown-cheatsheet">Markdown cheatsheet</a> or <a href="./15-create-post">create a post</a>.</p>
 <h3 id="add-custom-html-analytics-css-or-javascript-to-every-page">…add custom HTML, analytics, CSS or JavaScript to every page?</h3>
 <p>Follow <a href="./44-custom-head">Add custom HTML to the page head</a> for an editing
 procedure. Look up the three HTML hooks, custom CSS file and insertion order in
@@ -343,17 +319,13 @@ procedure. Look up the three HTML hooks, custom CSS file and insertion order in
 <a href="./18-goatcounter">GoatCounter</a> and <a href="./19-google-analytics">Google Analytics</a> have
 separate setup guides; adding their scripts a second time can duplicate counts.</p>
 <h3 id="add-favicons">…add favicons?</h3>
-<p>Follow <a href="./52-add-favicon">Add a favicon</a> to upload the package, preserve existing
-head snippets and verify the generated addresses with <code class="language-plaintext highlighter-rouge">baseurl</code>.</p>
+<p>Follow <a href="./52-add-favicon">Add a favicon</a>.</p>
 <h3 id="add-an-alert-box">…add an alert box?</h3>
-<p>Follow <a href="./49-add-alert">Add an information or warning box</a> for the attribute
-placement, spacing and published-result checks.</p>
+<p>Follow <a href="./49-add-alert">Add an information or warning box</a>.</p>
 <h3 id="add-a-caption">…add a caption?</h3>
-<p>Follow <a href="./50-add-caption">Add a caption below an image</a>. Keep descriptive
-alternative text as well as the visible caption.</p>
+<p>Follow <a href="./50-add-caption">Add a caption below an image</a>.</p>
 <h3 id="add-a-footnote">…add a footnote?</h3>
-<p>Follow <a href="./51-add-footnote">Add a footnote to an article</a> for a matching reference
-and definition and a live output example.</p>
+<p>Follow <a href="./51-add-footnote">Add a footnote to an article</a>.</p>
 <h3 id="chulapa-font">...use <span class="chulapa">Chulapa</span> font on my theme?</h3>
 <p>Follow <a href="./53-chulapa-font">Use the bundled font</a> for heading configuration,
 ligatures and the <code class="language-plaintext highlighter-rouge">chulapa</code> class on selected text. Other families are covered by
@@ -367,13 +339,9 @@ accessible text and missing-icon checks. Version and kit fields remain in the
 They do not save a design to your site; <a href="./22-choose-skin">Choose a skin</a> covers
 applying one to your own pages.</p>
 <h3 id="find-an-error-in-my-_configyml-file">…find an error in my <code class="language-plaintext highlighter-rouge">_config.yml</code> file?</h3>
-<p>Follow <a href="./43-yaml-errors">Fix a YAML configuration error</a>. It covers locating
-the failing edit, checking indentation/quotes/duplicate sections and rebuilding.
-Valid YAML alone does not establish valid skin names, provider IDs or field locations.</p>
+<p>Follow <a href="./43-yaml-errors">Fix a YAML configuration error</a>.</p>
 <h3 id="know-which-version-of-the-theme-i-am-using">…know which version of the theme I am using?</h3>
-<p>Follow <a href="./55-check-theme-version">Check which theme version your site uses</a>
-to inspect the remote-theme selection, resolved gem and published HTML marker.
-The marker does not identify an exact unpinned commit or local overrides.</p>
+<p>Follow <a href="./55-check-theme-version">Check which theme version your site uses</a>.</p>
 <h3 id="use-jekyll-feed-instead-of-chulapas-feeds">…use jekyll-feed instead of <span class="chulapa">Chulapa</span>’s feeds?</h3>
 <p>Use <a href="./56-publish-feeds">Publish posts in the built-in feeds</a> for article
 selection and subscription links. To preserve an existing plugin feed, follow

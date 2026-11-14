@@ -16,18 +16,18 @@
         "@id": "https://dieghernan.github.io/chulapa/docs/12-fusejs-search",
         "isPartOf": {"@id": "https://dieghernan.github.io/chulapa/#website"},
         "breadcrumb": {"@id": "https://dieghernan.github.io/chulapa/docs/12-fusejs-search#breadcrumb"},
-        "name": "Enable Fuse.js search",
+        "name": "Enable local search",
         "primaryImageOfPage": {
           "@type": "ImageObject",
           "@id": "https://dieghernan.github.io/chulapa/docs/12-fusejs-search#primaryimage",
           "url": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png"
         },
-        "description": "Add a search page to an existing site - Configure Fuse.js, publish a matching search page and check that visitors can find your content.",
+        "description": "Add a search page to an existing site - Configure Fuse.js, Lunr.js or Simple-Jekyll-Search and verify the published index.",
         "inLanguage": "en-US",
-        "headline": "Enable Fuse.js search",
+        "headline": "Enable local search",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -63,7 +63,7 @@
             "@id": "https://dieghernan.github.io/chulapa/docs/12-fusejs-search#breadcrumb-3",
             "position": 3,
             "item": "https://dieghernan.github.io/chulapa/docs/12-fusejs-search",
-            "name": "Enable Fuse.js search"
+            "name": "Enable local search"
           }
         ]
       }
@@ -97,7 +97,7 @@
         "publisher": {"@id": "https://dieghernan.github.io/chulapa/#publisher"}
       }
     </script>
-    <title>Enable Fuse.js search | Chulapa</title>
+    <title>Enable local search | Chulapa</title>
     <link rel="canonical" href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">
     <!-- Atom feed -->
     <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
@@ -108,20 +108,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="dieghernan" >
     <meta name="copyright" content="dieghernan" >
-    <meta name="description" content="Add a search page to an existing site - Configure Fuse.js, publish a matching search page and check that visitors can find your content.">
+    <meta name="description" content="Add a search page to an existing site - Configure Fuse.js, Lunr.js or Simple-Jekyll-Search and verify the published index.">
     <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <meta name="robots" content="index, follow">
     <!-- OpenGraph -->
-    <meta property="og:title" content="Enable Fuse.js search | Chulapa" >
+    <meta property="og:title" content="Enable local search | Chulapa" >
     <meta property="og:site_name" content="Chulapa" >
     <meta property="og:url" content="https://dieghernan.github.io/chulapa/docs/12-fusejs-search" >
     <meta property="og:type" content="website" >
-    <meta property="og:description" content="Add a search page to an existing site - Configure Fuse.js, publish a matching search page and check that visitors can find your content." >
+    <meta property="og:description" content="Add a search page to an existing site - Configure Fuse.js, Lunr.js or Simple-Jekyll-Search and verify the published index." >
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" >
     <!-- Twitter/X Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Add a search page to an existing site - Configure Fuse.js, publish a matching search page and check that visitors can find your content.">
+    <meta name="twitter:description" content="Add a search page to an existing site - Configure Fuse.js, Lunr.js or Simple-Jekyll-Search and verify the published index.">
     <meta name="twitter:site" content="@dhernangomez" >
     <!-- start custom head snippets -->
     <!-- this script is inserted before the css stylesheet -->
@@ -230,10 +230,10 @@
 	</div>
 			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
     <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">Invisible link to canonical for Microformats</a>
-    <img class="u-photo u-featured d-none" src="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" alt="Enable Fuse.js search">
+    <img class="u-photo u-featured d-none" src="https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png" alt="Enable local search">
 	<main class="d-flex flex-column flex-fill">
 	<header class="d-flex align-items-center hero-chulapa"><div class="container-lg py-4">
-   <h1 class="p-name">Enable Fuse.js search</h1><hr class="my-3">
+   <h1 class="p-name">Enable local search</h1><hr class="my-3">
    <p class="chulapa-subtitle p-summary">Add a search page to an existing site</p>
  </div>
 </header>
@@ -251,7 +251,7 @@
       <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
           itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/docs/12-fusejs-search#breadcrumb-3">
       <link itemprop="item" href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">
-        <span itemprop="name">Enable Fuse.js search</span>
+        <span itemprop="name">Enable local search</span>
        <meta itemprop="position" content="3" >
      </li>
  </ol>
@@ -270,16 +270,14 @@
 			</button>
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
-		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Enable Fuse.js search</a></p>
+		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Enable local search</a></p>
 			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#configure-the-search-page" class="nav-link">Configure the search page</a></li><li class="nav-item nav d-block"><a href="#check-a-result" class="nav-link">Check a result</a></li></ul>
 		</nav>   
 	</div>
 			<div class="e-content">
-<p>Use this guide for an existing site where you want Fuse.js search. The
-<span class="chulapa">Chulapa</span> 101 template already has it configured;
-check its existing search page before adding another. No provider account,
-API key or extra Jekyll plugin is needed for Fuse.js.</p>
-<p>To choose a different provider, see <a href="../docs#search">search options in the documentation index</a>.</p>
+<p>Choose Fuse.js, Lunr.js or Simple-Jekyll-Search to search your site without
+an account, API key or extra Jekyll plugin. The personal-blog template
+already uses Fuse.js. Reuse its search page if you switch providers.</p>
 <h2 id="configure-the-search-page">Configure the search page</h2>
 <ol>
  <li>
@@ -288,7 +286,8 @@ API key or extra Jekyll plugin is needed for Fuse.js.</p>
   <span class="na">provider</span><span class="pi">:</span> <span class="s">fusejs</span>
   <span class="na">landing_page</span><span class="pi">:</span> <span class="s">/search</span>
 </code></pre></div>  </div>
-   <p>Keep any other search settings. If your current search has an established
+   <p>Use <code class="language-plaintext highlighter-rouge">lunr</code> for Lunr.js or <code class="language-plaintext highlighter-rouge">simplesearch</code> for Simple-Jekyll-Search.
+Keep any other search settings. If your current search has an established
 address, use that path for <code class="language-plaintext highlighter-rouge">landing_page</code> and for the page below.</p>
  </li>
  <li>
@@ -324,11 +323,10 @@ Clear the search field and check that the results clear.</p>
 settings above. If a document is absent from results, check its date, publishing
 status and any <code class="language-plaintext highlighter-rouge">include_on_search: false</code> in its front matter or defaults. Content
 changes enter the search index during the next site build; republish after edits.</p>
-<p>To switch providers, use <a href="./34-lunr-search">Lunr.js</a>,
-<a href="./35-simplesearch-search">Simple-Jekyll-Search</a>,
-<a href="./36-google-search">Google Custom Search</a> or <a href="./37-algolia-search">Algolia</a>.
-For exact field defaults, use the <a href="./02-config#search-engines">search reference</a>.
-For a working interface, see the <a href="../demo/search_fusejs">Fuse.js demo</a>.</p>
+<p>For word limits and attribution, see the <a href="./02-config#search-engines">search reference</a>.
+Try the demos for <a href="../demo/search_fusejs">Fuse.js</a>, <a href="../demo/search_lunr">Lunr.js</a>
+or <a href="../demo/search_simple">Simple-Jekyll-Search</a>. For hosted providers, see
+<a href="./36-google-search">Google Custom Search</a> or <a href="./37-algolia-search">Algolia</a>.</p>
 <p>In <strong>2.2.1 (development)</strong>, Fuse.js is updated to 7.5.0. Its corrected relevance
 scores can change result ordering and the number of results shown. The standard
 search layout handles the update automatically. If you copied a Fuse.js search

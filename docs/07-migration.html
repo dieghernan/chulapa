@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Migrating from another Jekyll theme",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -271,11 +271,11 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Migrating from another Jekyll theme</a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#1-prepare-your-site" class="nav-link">1. Prepare your site</a></li><li class="nav-item nav d-block"><a href="#2-switch-to-a-pinned-remote-theme" class="nav-link">2. Switch to a pinned remote theme</a></li><li class="nav-item nav d-block"><a href="#3-adapt-layouts-and-front-matter" class="nav-link">3. Adapt layouts and front matter</a></li><li class="nav-item nav d-block"><a href="#4-reconnect-navigation-and-integrations" class="nav-link">4. Reconnect navigation and integrations</a></li><li class="nav-item nav d-block"><a href="#5-preview-then-publish" class="nav-link">5. Preview, then publish</a></li><li class="nav-item nav d-block"><a href="#common-migration-problems" class="nav-link">Common migration problems</a></li><li class="nav-item nav d-block"><a href="#migration-checklist" class="nav-link">Migration checklist</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#1-prepare-your-site" class="nav-link">1. Prepare your site</a></li><li class="nav-item nav d-block"><a href="#2-switch-to-a-pinned-remote-theme" class="nav-link">2. Switch to a pinned remote theme</a></li><li class="nav-item nav d-block"><a href="#3-adapt-layouts-and-front-matter" class="nav-link">3. Adapt layouts and front matter</a><ul><li class="nav-item nav d-block"><a href="#layouts-and-page-front-matter" class="nav-link">Layouts and page front matter</a></li></ul></li><li class="nav-item nav d-block"><a href="#4-reconnect-navigation-and-integrations" class="nav-link">4. Reconnect navigation and integrations</a><ul><li class="nav-item nav d-block"><a href="#site-configuration-and-integrations" class="nav-link">Site configuration and integrations</a></li><li class="nav-item nav d-block"><a href="#local-overrides-and-release-boundary" class="nav-link">Local overrides and release boundary</a></li></ul></li><li class="nav-item nav d-block"><a href="#5-preview-then-publish" class="nav-link">5. Preview, then publish</a></li><li class="nav-item nav d-block"><a href="#common-migration-problems" class="nav-link">Common migration problems</a></li><li class="nav-item nav d-block"><a href="#migration-checklist" class="nav-link">Migration checklist</a></li></ul>
 		</nav>   
 	</div>
             <nav aria-label="table-of-contents">
-			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-prepare-your-site">1. Prepare your site</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-adapt-layouts-and-front-matter">3. Adapt layouts and front matter</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#4-reconnect-navigation-and-integrations">4. Reconnect navigation and integrations</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#5-preview-then-publish">5. Preview, then publish</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#common-migration-problems">Common migration problems</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#migration-checklist">Migration checklist</a></li></ul>
+			<ul class="chulapa-toc-wrapper list-group mb-5 mx-3 mx-lg-5" id="toc"><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#1-prepare-your-site">1. Prepare your site</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#3-adapt-layouts-and-front-matter">3. Adapt layouts and front matter</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#layouts-and-page-front-matter">Layouts and page front matter</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#4-reconnect-navigation-and-integrations">4. Reconnect navigation and integrations</a><ul><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#site-configuration-and-integrations">Site configuration and integrations</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#local-overrides-and-release-boundary">Local overrides and release boundary</a></li></ul></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#5-preview-then-publish">5. Preview, then publish</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#common-migration-problems">Common migration problems</a></li><li class="list-group-item font-weight-bold py-1 pr-0 mr-0 chulapa-toc-reset"><a href="#migration-checklist">Migration checklist</a></li></ul>
 			</nav>
 			<div class="e-content">
 <p>Keep your posts, pages and images. This guide assumes your site already builds
@@ -283,7 +283,7 @@ with Jekyll and has a <code class="language-plaintext highlighter-rouge">_config
 <p class="alert alert-warning p-3 mx-2 mb-3"><strong>Before switching themes:</strong> save a backup or create a migration branch. Theme-specific
 settings and layouts are not converted automatically; check the preview before publishing.</p>
 <p>Follow steps 1–5, then use the <a href="#migration-checklist">migration checklist</a>.
-For field-by-field lookup, use the separate <a href="./46-migration-fields">migration mappings</a>.</p>
+For field-by-field lookup, use the <a href="#layouts-and-page-front-matter">migration mappings</a> below.</p>
 <h2 id="1-prepare-your-site">1. Prepare your site</h2>
 <p>Create a migration branch or backup. Record your home page, a post, a page,
 search and feed URLs so you can check them after switching themes.
@@ -321,48 +321,125 @@ development updates. Mermaid, PhotoSwipe and GoatCounter are absent from v2.1.0.
 <p>Review <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults as well as the settings between <code class="language-plaintext highlighter-rouge">---</code> lines in
 posts and pages. Explicit page values override defaults: an old <code class="language-plaintext highlighter-rouge">layout: post</code>
 will still need changing even if you set a new post default.</p>
-<p>Use <a href="./46-migration-fields#layouts-and-page-front-matter">the layout and front matter mappings</a>
-to identify the fields your old theme used. Check the relevant entries rather
-than renaming every setting indiscriminately; conversions are not automatic.</p>
-<p>Keep standard fields such as <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">categories</code>, <code class="language-plaintext highlighter-rouge">tags</code> and intended
-<code class="language-plaintext highlighter-rouge">permalink</code> values. Check old theme-specific includes and CSS classes in the
-content; translate or replace them using the <a href="./04-layouts#a-layouts">layout and snippet reference</a>.
-See <a href="/chulapa/demo">live demos</a> to choose a suitable layout.</p>
-<p>For example, replace the old layout and header settings in an existing post’s
-front matter with these values, preserving its title, date and other content:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
-<span class="na">header_type</span><span class="pi">:</span> <span class="s">post</span>
-<span class="na">show_date</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">include_on_feed</span><span class="pi">:</span> <span class="kc">true</span>
-</code></pre></div></div>
+<h3 id="layouts-and-page-front-matter">Layouts and page front matter</h3>
+<table>
+<thead>
+   <tr>
+     <th>Existing setting or purpose</th>
+     <th>Field or combination in <span class="chulapa">Chulapa</span></th>
+     <th>Constraint or reference</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">layout: post</code> for an article</td>
+     <td><code class="language-plaintext highlighter-rouge">layout: default</code>, <code class="language-plaintext highlighter-rouge">header_type: post</code></td>
+     <td><a href="./04-layouts#default">Layout reference</a>.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">layout: page</code> for a regular page</td>
+     <td><code class="language-plaintext highlighter-rouge">layout: default</code>, <code class="language-plaintext highlighter-rouge">header_type: base</code></td>
+     <td>Standalone page addresses still follow their configured permalink.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">image</code> or <code class="language-plaintext highlighter-rouge">cover</code> for a header photograph</td>
+     <td><code class="language-plaintext highlighter-rouge">header_img</code> with a suitable <code class="language-plaintext highlighter-rouge">header_type</code></td>
+     <td>The old field is not translated; <a href="./04-layouts#options">header options</a> specify the supported types.</td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">toc: true</code></td>
+     <td><code class="language-plaintext highlighter-rouge">show_toc: true</code></td>
+     <td><a href="./04-layouts#options">TOC options</a>.</td>
+   </tr>
+   <tr>
+     <td>Page <code class="language-plaintext highlighter-rouge">comments: true</code></td>
+     <td><code class="language-plaintext highlighter-rouge">show_comments: true</code></td>
+     <td>Also needs the site provider and a comment-capable layout.</td>
+   </tr>
+   <tr>
+     <td>Page <code class="language-plaintext highlighter-rouge">search: false</code></td>
+     <td><code class="language-plaintext highlighter-rouge">include_on_search: false</code></td>
+     <td>Local Lunr/Fuse/Simple-Jekyll-Search indexes only; not an Algolia exclusion or Google crawler directive.</td>
+   </tr>
+   <tr>
+     <td>Post or collection document in built-in feeds</td>
+     <td><code class="language-plaintext highlighter-rouge">include_on_feed: true</code></td>
+     <td>Requires a resolved date; set collection dates explicitly for Jekyll 3/4 consistency and <code class="language-plaintext highlighter-rouge">output: true</code> to publish linked collection articles. Standalone pages are not selected. <a href="./56-publish-feeds">Feed constraints</a>.</td>
+   </tr>
+ </tbody>
+</table>
+<p>Keep <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">date</code>, <code class="language-plaintext highlighter-rouge">categories</code>, <code class="language-plaintext highlighter-rouge">tags</code> and existing public permalinks.
+Replace obsolete includes and classes using the
+<a href="./04-layouts#a-layouts">layout and snippet reference</a> and <a href="../demo">demos</a>.</p>
 <h2 id="4-reconnect-navigation-and-integrations">4. Reconnect navigation and integrations</h2>
-<p><strong>Rebuild navbar and footer links manually:</strong> links from your previous theme
-are not imported automatically. Re-enter them in <code class="language-plaintext highlighter-rouge">navbar.nav</code> and <code class="language-plaintext highlighter-rouge">footer.links</code>,
-then open every destination in the preview.</p>
-<p>Edit existing sections in <code class="language-plaintext highlighter-rouge">_config.yml</code>; settings from the previous theme are
-not translated automatically. Remove obsolete theme-specific settings once you
-have translated them; keep unrelated Jekyll settings and plugins.</p>
-<p>Adapt each existing integration, preserving the addresses and identifiers you
-recorded. Use the relevant task guide; the complete
-<a href="./46-migration-fields#site-configuration-and-integrations">field mappings and constraints</a>
-remain separate.</p>
-<ul>
- <li><a href="./14-site-details">Update author details</a>, then <a href="./22-choose-skin">choose a skin</a>.
-Replace an old plain-string <code class="language-plaintext highlighter-rouge">author</code> with a mapping; use an exact skin name.</li>
- <li><a href="./10-edit-menu">Rebuild menu links</a> and <a href="./11-edit-footer">footer links</a>.
-Open every destination in the preview; old links are not imported.</li>
- <li>Reuse the existing search URL. For local search, follow <a href="./12-fusejs-search">Fuse.js setup</a>;
-other <a href="./02-config#search-engines">provider guides</a> cover the alternatives.
-Keep the page permalink matched to <code class="language-plaintext highlighter-rouge">search.landing_page</code>, without repeating <code class="language-plaintext highlighter-rouge">baseurl</code>.</li>
- <li>Reconnect the existing <a href="./02-config#comments">comment provider</a> and enable the
-intended posts. Verify an old thread and preserve its identifiers; switching
-providers does not migrate conversations. Apply the documented local
-corrections if using Cactus or Welcomments on an affected site.</li>
- <li>Open existing subscriber feed URLs. Keep <code class="language-plaintext highlighter-rouge">jekyll-feed</code> for an established
-<code class="language-plaintext highlighter-rouge">/feed.xml</code> if needed, and avoid duplicate outputs using <a href="./57-jekyll-feed">the feed guidance</a>.</li>
- <li>Keep the <a href="./19-google-analytics">Google Analytics ID</a> and remove duplicate custom
-tracking scripts. <a href="./18-goatcounter">GoatCounter</a> is available in v2.2.0 and requires a production build.</li>
-</ul>
+<p>Translate old settings in <code class="language-plaintext highlighter-rouge">_config.yml</code>, preserving unrelated settings,
+existing addresses and provider identifiers. In the preview, follow the
+edited menu and footer links, test search and open an old comment thread.</p>
+<h3 id="site-configuration-and-integrations">Site configuration and integrations</h3>
+<table>
+<thead>
+   <tr>
+     <th>Purpose</th>
+     <th>Fields or output</th>
+     <th>Constraint or reference</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>Site author stored as a plain string</td>
+     <td><code class="language-plaintext highlighter-rouge">author</code> mapping with <code class="language-plaintext highlighter-rouge">name</code></td>
+     <td>Other profile fields are in <a href="./02-config#site-author">Site author</a>; guest page authors have their own mapping.</td>
+   </tr>
+   <tr>
+     <td>Appearance</td>
+     <td><code class="language-plaintext highlighter-rouge">chulapa-skin.skin</code></td>
+     <td>Exact supported skin name; fonts/color overrides remain separate. <a href="./03-theming">Theming reference</a>.</td>
+   </tr>
+   <tr>
+     <td>Navbar</td>
+     <td><code class="language-plaintext highlighter-rouge">navbar.nav</code> entries: <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">url</code>, optional <code class="language-plaintext highlighter-rouge">child</code></td>
+     <td>One dropdown level; old links are not imported. <a href="./02-config#navbar">Navbar</a>.</td>
+   </tr>
+   <tr>
+     <td>Footer</td>
+     <td><code class="language-plaintext highlighter-rouge">footer.links</code> entries: <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">icon</code>, <code class="language-plaintext highlighter-rouge">url</code>; <code class="language-plaintext highlighter-rouge">footer.copyright</code></td>
+     <td>Old links/copyright are not translated. <a href="./02-config#footer">Footer</a>.</td>
+   </tr>
+   <tr>
+     <td>Search</td>
+     <td><code class="language-plaintext highlighter-rouge">search.provider</code>, <code class="language-plaintext highlighter-rouge">search.landing_page</code>; page <code class="language-plaintext highlighter-rouge">layout: search</code>, matching <code class="language-plaintext highlighter-rouge">permalink</code></td>
+     <td>Default path <code class="language-plaintext highlighter-rouge">/search</code>; provider selection creates neither page nor hosted index. <a href="./02-config#search-engines">Search reference</a>.</td>
+   </tr>
+   <tr>
+     <td>Comments</td>
+     <td><code class="language-plaintext highlighter-rouge">comments.provider</code>, provider identifiers; page/default <code class="language-plaintext highlighter-rouge">show_comments</code></td>
+     <td>No automatic provider migration; existing discussion IDs and URLs affect matching. Cactus ID migration, corrected Welcomments URLs in v2.2.0 and legacy local corrections are in <a href="./02-config#comments">Comments</a>.</td>
+   </tr>
+   <tr>
+     <td>Existing subscriber addresses</td>
+     <td><code class="language-plaintext highlighter-rouge">/atom.xml</code>, <code class="language-plaintext highlighter-rouge">/rss.xml</code>, optional jekyll-feed <code class="language-plaintext highlighter-rouge">/feed.xml</code></td>
+     <td>Built-in feeds select dated posts/collection documents with <code class="language-plaintext highlighter-rouge">include_on_feed: true</code>; collection output must publish linked articles. jekyll-feed’s default path can coexist; two generators must not write the same path.</td>
+   </tr>
+   <tr>
+     <td>Google Analytics 4</td>
+     <td><code class="language-plaintext highlighter-rouge">gtag_id</code></td>
+     <td>Existing measurement ID; duplicate custom tracking scripts can count twice. <a href="./02-config#google-analytics">GA reference</a>.</td>
+   </tr>
+   <tr>
+     <td>GoatCounter</td>
+     <td><code class="language-plaintext highlighter-rouge">goatcounter</code></td>
+     <td>Requires v2.2.0; <a href="./02-config#goatcounter-analytics">version and production constraints</a>.</td>
+   </tr>
+ </tbody>
+</table>
+<p>For setup steps, see <a href="./12-fusejs-search">local search</a>,
+<a href="./02-config#comments">comment providers</a> and
+<a href="./57-jekyll-feed">preserving a feed URL</a>.</p>
+<h3 id="local-overrides-and-release-boundary">Local overrides and release boundary</h3>
+<p>Local layouts, includes and assets can override either installation method.
+Keep useful overrides and adapt them using <a href="./45-custom-hooks">Custom hooks</a>.
+A version pin limits available features. Mermaid, PhotoSwipe and GoatCounter
+require v2.2.0 or later.</p>
 <h2 id="5-preview-then-publish">5. Preview, then publish</h2>
 <p>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>. Restart it after changing <code class="language-plaintext highlighter-rouge">_config.yml</code>.
 Check representative pages against the URLs you recorded, including images

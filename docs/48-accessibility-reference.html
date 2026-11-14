@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Accessibility and resource-loading reference",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T12:58:17+01:00",
-        "dateModified": "2026-11-14T12:58:17+01:00",
+        "datePublished": "2026-11-14T14:31:10+01:00",
+        "dateModified": "2026-11-14T14:31:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -338,23 +338,14 @@ the v2.1.0 gem or pin. Article links are underlined and keyboard focus is visibl
 Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.</p>
-<p><strong>Development (v2.2.1):</strong> contrast corrections cover the 16 skins authored by
-<code class="language-plaintext highlighter-rouge">dieghernan</code>. They improve default navigation, selected text links and their
-interaction states, badges, tag/category labels, outline buttons and text/links
-inside contextual cards. Listen’s Primary card uses the same dark text as its
-Primary button, keeping its green background. Main semantic palettes
-are preserved; some badges reuse the readable solid-button fills.</p>
-<p>Navigation text defaults adapt to the final configured navigation background.
-Explicit navigation text colors remain authoritative. Component corrections skip
-custom semantic colors; custom colors and content still need checking. Third-party
-skins are unchanged. These changes are not included in v2.2.0 and do not establish
-whole-site WCAG conformance.</p>
-<p>The carousel motion/control improvements in this paragraph require v2.2.0, not the v2.1.0 gem or pin. Automatically cycling multi-image
-carousels have a play/pause control with an
-action-specific accessible name and a plain-symbol fallback when icon assets
-are unavailable. Reduced motion starts them paused. Slide/navigation interaction
-stops rotation until explicit restart; hovering pauses temporarily. <code class="language-plaintext highlighter-rouge">interval=0</code>
-disables cycling. <a href="./04-layouts#bootstrap-carousel">Carousel reference</a>.</p>
+<p><strong>Development (v2.2.1):</strong> the 16 skins authored by <code class="language-plaintext highlighter-rouge">dieghernan</code> improve contrast
+in menus, links, badges, buttons and cards. After changing colors, check text,
+focus and hover states on the published page. Explicit navigation text and
+custom semantic colors still apply.</p>
+<p>Since v2.2.0, cycling carousels have a play/pause button and start paused
+when visitors prefer reduced motion. Hovering pauses temporarily. Using the
+slide controls stops cycling until visitors restart it. Set <code class="language-plaintext highlighter-rouge">interval=0</code>
+to disable cycling. <a href="./04-layouts#bootstrap-carousel">Carousel reference</a>.</p>
 <p>In v2.2.0, video <code class="language-plaintext highlighter-rouge">name</code> supplies descriptive player and
 play-button names. In v2.1.0, it supplies video metadata but not those accessible
 names. Neither version creates captions or transcripts. Version 2.2.0
@@ -364,8 +355,6 @@ Mermaid (available in v2.2.0, not in the v2.1.0 gem or pin) uses
 needs a prose equivalent. Gallery snippets use generic image descriptions;
 individual informative photographs need descriptive custom image markup.
 <a href="../docs#how-to-guides">Media tasks</a> cover adding that content.</p>
-<p>Long titles and enlarged text are covered by representative checks, not by a
-promise about every custom layout or widget.</p>
 <h2 id="resource-loading">Resource loading</h2>
 <table>
 <thead>
@@ -411,13 +400,9 @@ on the site’s hosting and any separate implementation.</p>
 <p>Comments, embedded videos and the documentation chatbot <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align:-.1em"><path d="M14 3c1.2 5.6 2.4 6.8 8 8-5.6 1.2-6.8 2.4-8 8-1.2-5.6-2.4-6.8-8-8 5.6-1.2 6.8-2.4 8-8ZM5 1c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4ZM5 15c.6 2.8 1.2 3.4 4 4-2.8.6-3.4 1.2-4 4-.6-2.8-1.2-3.4-4-4 2.8-.6 3.4-1.2 4-4Z"></path></svg> need network access.
 A published site must be tested before offline behavior is promised.</p>
 <h2 id="review-coverage">Review coverage</h2>
-<p>Automated checks exercise keyboard navigation, narrow screens and reduced motion
-on representative layouts/skins. They do not cover every site’s content,
-customizations, browser or assistive technology. Passing them is not a WCAG
-certification or a guarantee of loading-performance metrics.</p>
-<p>The <a href="https://github.com/dieghernan/chulapa/blob/main/test/accessibility-review.md">review record</a>
-contains technical results and remaining checks. That maintainer evidence is
-separate from the <a href="./06-accessibility-performance">site-checking procedure</a>.</p>
+<p>Check your own content, colors and custom widgets using
+<a href="./06-accessibility-performance">the site checklist</a>. For test results by layout
+and browser, see the <a href="https://github.com/dieghernan/chulapa/blob/main/test/accessibility-review.md">maintainer review</a>.</p>
 </div></article>
 		</div>
 	</div>
