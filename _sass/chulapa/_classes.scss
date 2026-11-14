@@ -621,9 +621,22 @@
   }
 }
 
-#toc a.chulapa-toc-active,
-#sidetoc a.chulapa-toc-active,
-#markdown-toc a.chulapa-toc-active {
+#toc a,
+#markdown-toc a {
+  text-decoration: none;
+
+  &.chulapa-toc-active {
+    outline: 1px solid currentColor;
+    outline-offset: 0.125em;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 0.125em;
+  }
+}
+
+#sidetoc a.chulapa-toc-active {
   text-decoration: underline !important;
   text-decoration-thickness: 0.125em;
   text-underline-offset: 0.2em;
@@ -1396,16 +1409,9 @@ textarea:focus-visible,
 
 // Distinguish prose links without relying on color alone.
 .e-content p a:not(.btn):not(.nav-link):not(.chulapa-header-link),
-.e-content li:not(.list-group-item):not(.nav-item) > a:not(.btn):not(.nav-link) {
+.e-content li:not(.list-group-item):not(.nav-item) > a:not(.btn):not(.nav-link):not(:where(#markdown-toc a)) {
   text-decoration: underline;
   text-underline-offset: 0.15em;
-}
-
-// Match the built-in TOC in the base theme and Chulapa's own skins.
-@if variable-exists(chulapa-authored-skin) or variable-exists(chulapa-base-skin) {
-  #markdown-toc a:not(:hover):not(:focus-visible) {
-    text-decoration: none;
-  }
 }
 
 // Native action buttons retain the appearance of navigation links and controls.

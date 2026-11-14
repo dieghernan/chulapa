@@ -72,9 +72,8 @@ restart Jekyll after changing `_config.yml`.
 Check that the placeholder became links, that selecting a link reaches its
 heading, and that an excluded heading is absent. Check on a narrow screen too.
 
-In v2.2.1 development, the base theme and its own skins match the built-in
-index by reserving the underline for interaction and the current section.
-Third-party skins retain their link styling.
+In v2.2.1 development, both the kramdown and built-in indexes use links without
+underlines and outline the current section as you scroll.
 
 If the marker remains plain text, check the two-line syntax, blank lines and
 whether it was placed inside a code fence. The GitHub file preview does not
