@@ -55,7 +55,10 @@
   margin-bottom: $spacer;
   border-left: .25rem solid;
   color: $body-color;
-  @include border-radius();
+  // Preserve the slash in elliptical radii, such as Bootswatch Sketchy's.
+  @if $enable-rounded {
+    border-radius: $border-radius;
+  }
 
   > :last-child {
     margin-bottom: 0;
@@ -1508,11 +1511,19 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 }
 
 .chulapa-series-current {
+  $panel: mix($secondary, $body-bg, 5%);
+  $accent: $info;
+  @if contrast-ratio($panel, $accent) < 4.5 {
+    $accent: $body-color;
+  }
   display: inline-block;
-  margin-left: .25em;
-  padding: 0 .4em;
-  border-radius: .25rem;
-  background-color: mix($body-color, $body-bg, 8%);
+  margin-inline-start: .4em;
+  padding: .0625em .55em;
+  border: $border-width solid currentColor;
+  @if $enable-rounded {
+    border-radius: $border-radius;
+  }
+  color: $accent;
   font-weight: $font-weight-normal;
 }
 
