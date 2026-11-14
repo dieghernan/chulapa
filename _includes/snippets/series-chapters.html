@@ -57,8 +57,11 @@
       {%- endcapture -%}
       {%- if part_number > 0 -%}
         {%- assign visible_series = visible_series | plus: 1 -%}
+        {%- assign part_label = series.part_label | default: '' | strip | default: 'Part' -%}
+        {%- assign index_label = series.index_label | default: '' | strip | default: 'Series index' -%}
+        {%- capture series_position -%}{{ part_label }} {{ part_number }} of {{ chapters.size }}{%- endcapture -%}
         {%- capture series_links -%}
-<nav aria-label="{{ series.label | escape }} previous and next parts" class="d-flex flex-wrap align-items-center">
+<nav aria-label="{{ series.label | escape }} previous and next" class="d-flex flex-wrap align-items-center">
   {%- if previous_part -%}
   {%- assign previous_title = previous_part.title | markdownify | strip_html | strip | escape_once -%}
   <a class="btn btn-sm chulapa-series-link mr-1" href="{{ previous_part.url | relative_url | escape }}" title="{{ previous_title }}"><i class="fa fa-chevron-left mr-1" aria-hidden="true"></i>Previous<span class="sr-only">: {{ previous_title }}</span></a>
@@ -74,13 +77,13 @@
 </nav>
         {%- endcapture -%}
 <div class="chulapa-series">
-<div class="font-weight-bold">{{ series.label | escape }}<br> <span class="chulapa-series-position text-nowrap">Part {{ part_number }} of {{ chapters.size }}</span></div>
+<div class="font-weight-bold">{{ series.label | escape }}<br> <span class="chulapa-series-position">{{ series_position | escape }}</span></div>
 <div class="chulapa-series-controls">
-  <progress class="chulapa-series-progress" value="{{ part_number }}" max="{{ chapters.size }}" aria-label="{{ series.label | escape }} progress, part {{ part_number }} of {{ chapters.size }}">{{ part_number }} of {{ chapters.size }}</progress>
+  <progress class="chulapa-series-progress" value="{{ part_number }}" max="{{ chapters.size }}" aria-label="{{ series.label | escape }} progress, {{ series_position | escape }}">{{ part_number }} of {{ chapters.size }}</progress>
   {{ series_links }}
 </div>
 <details class="chulapa-series-index mt-1">
-  <summary>Series index<span class="sr-only">: {{ series.label | escape }}</span></summary>
+  <summary>{{ index_label | escape }}<span class="sr-only">: {{ series.label | escape }}</span></summary>
   <nav aria-label="{{ series.label | escape }}">
     <ol class="mb-0 pl-4">{{ chapter_items }}</ol>
   </nav>

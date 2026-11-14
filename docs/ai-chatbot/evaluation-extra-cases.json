@@ -1,5 +1,12 @@
 [
   {
+    "id": "series-newsletter-labels",
+    "section": "content",
+    "doc": "04_layouts.md",
+    "question": "How do I make a newsletter series say Issue 1 of 3 and Issues in the index?",
+    "expected": "Set part_label: Issue and index_label: Issues under that series entry in _config.yml. Keep label and normal per-page series membership. Defaults are Part and Series index. Link /docs/04-layouts#series-navigation."
+  },
+  {
     "id": "series-navigation-multiple-memberships",
     "section": "layouts",
     "doc": "04_layouts.md",

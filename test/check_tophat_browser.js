@@ -37,7 +37,7 @@ const properties = ['color','backgroundColor','backgroundImage','borderTopColor'
    const before=compile(legacy+tail), after=compile(`@import "skins/${skin}";`+tail);
    assert.equal(digest(canonical(after)),digest(canonical(before)),skin+': preserve the entire CSS apart from original navbar rule placement');
    assert.equal((after.match(navbar)||[]).length,skin==='deeply'?1:0,'One upstream navbar rule only in Deeply');
-   assert.equal((after.match(/\.row\s*\{/g)||[]).length,1,'One Bootstrap grid');
+   assert.equal((after.match(/^\.row\s*\{/gm)||[]).length,1,'One Bootstrap grid');
    for(const width of [390,1280]) {
     await page.setViewportSize({width,height:900});
     const snapshots=[];

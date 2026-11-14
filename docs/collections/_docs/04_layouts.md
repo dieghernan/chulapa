@@ -512,7 +512,17 @@ series:
     label: First-site guide
   publishing:
     label: Publishing guides
+  newsletter:
+    label: Monthly newsletter
+    part_label: Issue
+    index_label: Issues
 ```
+
+Set `part_label` and `index_label` on any series to customize its counter
+prefix and collapsed index label. For example, the newsletter displays
+**Issue 1 of 3** and **Issues** when it has three entries. Omitted or blank
+values use **Part** and **Series index**. The progress bar also uses the
+configured counter prefix in its accessible name.
 
 In each member's front matter, list the series IDs and assign a unique integer
 order within each series. The displayed part number follows the sorted position,

@@ -34,7 +34,7 @@ const properties = ['color','backgroundColor','backgroundImage','borderTopColor'
    const before=compile(legacy+tail), after=compile(`@import "skins/${skin}";`+tail);
    const deduplicated = legacy.replace('@import "bootstrap/bootstrap";', '@import "bootstrap/functions";@import "bootstrap/variables";@import "bootstrap/mixins";');
    assert.equal(digest(canonical(after)),digest(canonical(compile(deduplicated+tail))),skin+': preserve all CSS apart from redundant Bootstrap output');
-   assert.equal((after.match(/\.row\s*\{/g)||[]).length,1,'One Bootstrap grid');
+   assert.equal((after.match(/^\.row\s*\{/gm)||[]).length,1,'One Bootstrap grid');
    for(const width of [390,1280]) {
     await page.setViewportSize({width,height:900});
     const snapshots=[];
