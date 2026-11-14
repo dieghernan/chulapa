@@ -127,9 +127,9 @@ navbar:
     - title: Configuration reference
       url: /docs/02-config
     - title: Customize your site
-      url: /docs/03-theming
+      url: /docs#appearance-and-branding
     - title: Troubleshooting
-      url: /docs/05-faq
+      url: /docs#maintenance-and-troubleshooting
   - title: Skins
     url: /skins
   - title: Demos
@@ -239,20 +239,12 @@ series:
     label: Appearance and branding
   navigation:
     label: Site navigation
-  installation:
-    label: Installation and migration
-  search:
-    label: Site search
-  comments:
-    label: Comments and analytics
   sharing:
     label: SEO and social sharing
   maintenance:
     label: Maintenance and troubleshooting
   publishing:
     label: Feeds and publishing
-  reference:
-    label: Theme reference
 
 permalink: /:year:month:day_:title
 # D.3. Front matter defaults

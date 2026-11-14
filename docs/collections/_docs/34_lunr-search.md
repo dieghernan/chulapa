@@ -5,14 +5,13 @@ tags: [docs, search, local-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: search
-    order: 2
 ---
 
 Use this guide for an existing site. No search-service account, API key or
 additional Jekyll plugin is needed. The personal-blog template already uses
 Fuse.js; follow these steps only if you want to replace that provider.
+
+To choose a different provider, see [search options in the documentation index](../docs#search).
 
 ## Configure the provider and page
 

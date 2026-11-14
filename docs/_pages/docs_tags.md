@@ -12,14 +12,7 @@ breadcrumb_list:
     url: /docs
 ---
 
-Browse the tagged guides and references below. Coverage is partial and includes
-appearance, content editing, publishing, site search, installation, navigation,
-site identity, branding, comments, analytics, custom hooks, feeds and accessibility. Installation includes migration,
-starter examples and theme updates; identity and branding include menu/footer
-links, site details, favicons, fonts, icons and publisher metadata. Comment
-providers and installation methods are alternatives, not sequential steps.
-Google Analytics and GoatCounter can run together; the built-in feeds and
-jekyll-feed can coexist at different addresses. Syntax and variable references
-join their corresponding content and appearance topics. The FAQ retains its
-question-based directory; both tutorials retain their step-by-step progression. For all documentation, use the
+Use the tags below to find guides and references on a topic. For a
+guided first exercise, follow [Publish your first site]({{ '/docs/00-start' | relative_url }}).
+For all tutorials, tasks, references and explanations, open the
 [documentation index]({{ '/docs' | relative_url }}).

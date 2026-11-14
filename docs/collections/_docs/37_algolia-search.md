@@ -5,9 +5,6 @@ tags: [docs, search, hosted-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: search
-    order: 5
 ---
 
 Use this guide if you already have an Algolia application/index and maintain
@@ -19,6 +16,8 @@ an account or index-upload workflow, use [Fuse.js](./12-fusejs-search).
 and no longer maintained by Algolia. Check its compatibility with your build
 before adopting it; keep an existing working setup while testing changes.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
+
+To choose a different provider, see [search options in the documentation index](../docs#search).
 
 ## Configure browser search
 

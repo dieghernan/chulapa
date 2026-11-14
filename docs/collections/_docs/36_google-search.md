@@ -5,9 +5,6 @@ tags: [docs, search, hosted-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: search
-    order: 4
 ---
 
 Use this guide if you already have a Google Custom Search engine configured for
@@ -15,6 +12,8 @@ your site's public address. Obtain its engine ID from your
 [search engine settings](https://programmablesearchengine.google.com/).
 For search without a service account or external indexing, use
 [Fuse.js](./12-fusejs-search) instead.
+
+To choose a different provider, see [search options in the documentation index](../docs#search).
 
 ## Connect the engine
 

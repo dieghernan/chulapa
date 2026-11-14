@@ -4,14 +4,11 @@ subtitle: Layout, snippet and page-option reference
 excerpt: Look up layouts, snippets and page settings, with links to content-editing guides.
 mathjax: true
 mermaid: true
-show_toc: true
+show_toc: false
 h_max: 4
 tags: [docs, content]
 show_tags: true
 cloudtag_url: /docs/tags
-series:
-  - id: reference
-    order: 2
 ---
 
 Use this page to look up a layout, snippet or page setting. For everyday editing,
@@ -21,6 +18,9 @@ the settings block between `---` lines at the top of a content file.
 
 Moving existing posts or pages? Use the
 [migration front matter mapping](./46-migration-fields#layouts-and-page-front-matter).
+
+Browse [layouts](#a-layouts), [page options](#options), [snippets](#b-snippets),
+[page SEO](#seo-metadata) or [advanced customization](#advanced-customization-reference).
 
 ## Choose a layout or an optional feature
 

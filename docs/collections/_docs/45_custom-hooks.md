@@ -5,9 +5,6 @@ tags: [docs, custom-hooks]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: reference
-    order: 4
 ---
 
 Lookup for site-wide custom files. For an editing procedure, use

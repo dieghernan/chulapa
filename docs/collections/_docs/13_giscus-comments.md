@@ -7,9 +7,6 @@ tags: [docs, comments]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
-series:
-  - id: comments
-    order: 1
 ---
 
 Use this guide for an existing post using `layout: default` and a GitHub repository

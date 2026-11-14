@@ -7,15 +7,14 @@ tags: [docs, search, local-search]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: search
-    order: 1
 ---
 
 Use this guide for an existing site where you want Fuse.js search. The
 <span class="chulapa">Chulapa</span> 101 template already has it configured;
 check its existing search page before adding another. No provider account,
 API key or extra Jekyll plugin is needed for Fuse.js.
+
+To choose a different provider, see [search options in the documentation index](../docs#search).
 
 ## Configure the search page
 

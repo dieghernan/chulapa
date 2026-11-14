@@ -11,12 +11,14 @@ og_image: /assets/img/site/banner-docs.png
 New to websites? [Publish your first site](./docs/00-start) using GitHub in your
 browser. You do not need to install anything on your computer.
 
+Already using Jekyll? [Choose an installation method](./docs/01-install).
+
 Moving an existing site? Follow the [migration guide and checklist](./docs/07-migration).
 
 Browse [documentation topics](./docs/tags) for tagged guides and references.
 To see what you can insert in a post, browse the [components for Markdown](./docs/components).
-The sections below list all documentation. Open the series index on any guide
-or reference page to find related pages in the same group.
+The sections below list the documentation by purpose and topic. Where a guide
+has a series index, use it to browse the other pages in that group.
 
 ## Tutorials
 
@@ -67,8 +69,10 @@ search and comments are optional.
 
 ### Search
 
-- Enable local search with [Fuse.js](./docs/12-fusejs-search), [Lunr.js](./docs/34-lunr-search) or [Simple-Jekyll-Search](./docs/35-simplesearch-search).
-- Connect [Google Custom Search](./docs/36-google-search) or [Algolia and its index upload](./docs/37-algolia-search).
+Choose one provider for your search page.
+
+- Use [Fuse.js](./docs/12-fusejs-search), [Lunr.js](./docs/34-lunr-search) or [Simple-Jekyll-Search](./docs/35-simplesearch-search) for local search without a provider account. The personal-blog template already uses Fuse.js.
+- Connect an existing [Google Custom Search](./docs/36-google-search) engine, or configure [Algolia](./docs/37-algolia-search) if you want to upload and maintain an external index.
 
 ### Comments and analytics
 
@@ -104,12 +108,14 @@ Look up an option, supported value, default or constraint. The references includ
 configuration examples and links to related task guides.
 
 - [Global settings](./docs/02-config): site identity, navigation, integrations and build settings.
-- [Layouts](./docs/04-layouts#a-layouts), [snippets](./docs/04-layouts#b-snippets) and [advanced page settings](./docs/04-layouts#advanced-page-settings).
+- [Layouts](./docs/04-layouts#a-layouts), [page options](./docs/04-layouts#options) and [snippets](./docs/04-layouts#b-snippets).
+- [Page SEO metadata](./docs/04-layouts#seo-metadata) and [advanced customization](./docs/04-layouts#advanced-customization-reference).
 - [Migration field mappings](./docs/46-migration-fields): legacy patterns, integration fields and release constraints.
 - [Accessibility and resource loading](./docs/48-accessibility-reference): expected behavior, version limits and offline/review scope.
 - [Custom hooks](./docs/45-custom-hooks): supported files, insertion points and override constraints.
-- [Theme variables](./docs/03-theming#variables) and the [variables dictionary](./docs/variable-dictionary).
+- [Appearance settings](./docs/03-theming) and the [variables dictionary](./docs/variable-dictionary).
 - [Starter examples](./docs/08-starter-examples): source files, annotated demos and limitations.
+- [Components for Markdown](./docs/components): rendered examples and links to task guides.
 - [Markdown cheatsheet](./docs/markdown-cheatsheet).
 - [Syntax highlighting examples](./docs/syntax-highlighting).
 

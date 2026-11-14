@@ -8,9 +8,6 @@ h_max: 5
 tags: [docs, analytics, navigation]
 show_tags: true
 cloudtag_url: /docs/tags
-series:
-  - id: reference
-    order: 1
 ---
 
 For editing procedures, use [Change your site's name and author](./14-site-details),

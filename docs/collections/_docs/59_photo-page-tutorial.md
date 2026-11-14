@@ -5,7 +5,7 @@ excerpt: Create a photo page with the starter's image, add its menu link and che
 show_toc: false
 series:
   - id: first-site
-    order: 4
+    order: 2
 ---
 
 In this tutorial, you will publish a page called **My photo walk**, with a

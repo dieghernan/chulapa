@@ -17,10 +17,7 @@ and add photographs after publishing.
 Sign in to a free [GitHub account](https://github.com/signup) and use your browser,
 preferably on a computer. No software installation is needed.
 The [<span class="chulapa">Chulapa</span> 101 example](https://dieghernan.github.io/chulapa-101/)
-shows the blog you will personalize. The template follows the theme's `main`
-branch through `remote_theme: dieghernan/chulapa`, without pinning a release,
-with Butterfly for light mode and Butterfly Dim for dark mode. Visitors can
-choose Light, Dark or Auto from the navigation.
+shows the blog you will personalize.
 
 Your copy will be public. Do not add passwords, private photographs or other
 information you do not want to share.
@@ -125,13 +122,12 @@ Before sharing the site, replace the remaining sample articles and the example
 biography and contact details in `_pages/about.md`. Review the `author:` settings
 in `_config.yml` too. Keep the home page filename `index.html`.
 
-Continue with [personalizing your site's name and author](./14-site-details).
-
-For another guided exercise, follow [Publish an illustrated page](./59-photo-page-tutorial)
-using the starter photograph and a fixed menu entry.
+Continue with [Publish an illustrated page](./59-photo-page-tutorial),
+a guided exercise using the starter photograph and a fixed menu entry.
 
 Choose a next task when you need it:
 
+- [Change your site's name and author](./14-site-details).
 - [Add a photograph](./17-add-image).
 - [Choose a design](./22-choose-skin).
 - [Create a page](./16-create-page).

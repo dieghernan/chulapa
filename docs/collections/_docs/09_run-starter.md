@@ -7,9 +7,6 @@ tags: [docs, installation, starter-examples]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: installation
-    order: 7
 ---
 
 Use this guide when you already work with Jekyll and want to run one of the

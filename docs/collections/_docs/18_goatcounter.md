@@ -6,9 +6,6 @@ tags: [docs, analytics]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
-series:
-  - id: comments
-    order: 6
 ---
 
 Use this guide when your site is already published and you have created a site

@@ -7,9 +7,6 @@ tags: [docs, installation, theme-updates]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: installation
-    order: 4
 ---
 
 Keep your posts, pages and images. This guide assumes your site already builds

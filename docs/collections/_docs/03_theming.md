@@ -8,9 +8,6 @@ tags: [docs, appearance, skins, colors, fonts, code-highlighting]
 show_tags: true
 show_related: true
 cloudtag_url: /docs/tags
-series:
-  - id: reference
-    order: 6
 ---
 
 This page lists appearance settings. For a task, use [Choose a skin](./22-choose-skin),

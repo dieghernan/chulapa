@@ -5,9 +5,6 @@ tags: [docs, comments]
 show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
-series:
-  - id: comments
-    order: 2
 ---
 
 Use this guide if you already have a site registered with [Disqus](https://disqus.com/).

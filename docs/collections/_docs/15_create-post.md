@@ -7,8 +7,6 @@ show_related: true
 show_tags: true
 cloudtag_url: /docs/tags
 series:
-  - id: first-site
-    order: 3
   - id: site-content
     order: 2
 ---
