@@ -58,7 +58,6 @@ search and comments are optional.
 ### Navigation
 
 - [Group pages into a series](./docs/04-layouts#series-navigation).
-
 - [Add or change a menu link](./docs/10-edit-menu).
 - [Edit footer links](./docs/11-edit-footer).
 
