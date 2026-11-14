@@ -1462,6 +1462,12 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 }
 
 .chulapa-series-progress {
+  $fill: $progress-bar-bg;
+  @each $candidate in ($info, $link-color, $body-color) {
+    @if contrast-ratio($progress-bg, $fill) < 3 {
+      $fill: $candidate;
+    }
+  }
   display: block;
   appearance: none;
   width: 0;
@@ -1472,11 +1478,11 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
   border: 0;
   border-radius: $progress-border-radius;
   background-color: $progress-bg;
-  color: $progress-bar-bg;
+  color: $fill;
 
   &::-webkit-progress-bar { background-color: $progress-bg; }
-  &::-webkit-progress-value { background-color: $progress-bar-bg; }
-  &::-moz-progress-bar { background-color: $progress-bar-bg; }
+  &::-webkit-progress-value { background-color: $fill; }
+  &::-moz-progress-bar { background-color: $fill; }
 
   @media (forced-colors: active) {
     appearance: auto;

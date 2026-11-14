@@ -656,6 +656,9 @@ related pages or posts. Each series shows its current part, progress bar
 and Previous and Next controls. Open **Series index** below the controls
 to see the full list with the current page marked “You are here”.
 Series stack on smaller screens and use up to three columns on wider screens.
+The progress fill uses the theme's progress color when it reaches 3:1 against
+the track. If needed, it tries the theme's info and link colors, then uses the
+body text color as a fallback.
 Try the controls in the [Kitchen Sink demo](../demo/15-kitchen-sink).
 Previous is disabled on the first part, and Next is disabled on the last.
 See the [site details guide](./14-site-details)
