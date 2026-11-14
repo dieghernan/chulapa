@@ -2,9 +2,6 @@
 title: Enable local search
 subtitle: Add a search page to an existing site
 excerpt: Configure Fuse.js, Lunr.js or Simple-Jekyll-Search and verify the published index.
-redirect_from:
-  - /docs/34-lunr-search
-  - /docs/35-simplesearch-search
 show_toc: false
 tags: [docs, search, local-search]
 show_tags: true
