@@ -335,9 +335,7 @@ Create a page with `layout: search` and a `permalink` matching
 `dual` navbar also need `navbar.nav` to display the Search link.
 
 The personal-blog template includes [Fuse.js](./12-fusejs-search).
-Fuse.js, [Lunr.js](./34-lunr-search) and
-[Simple-Jekyll-Search](./35-simplesearch-search) build their index with the
-site and honor `include_on_search: false`. [Google Custom Search](./36-google-search)
+The three [local providers](./12-fusejs-search) build their index with the site and honor `include_on_search: false`. [Google Custom Search](./36-google-search)
 requires a configured search engine and [Algolia](./37-algolia-search) requires
 an uploaded index. For crawler and sitemap settings, see
 [Keep an auxiliary page out of search](./65-search-visibility).

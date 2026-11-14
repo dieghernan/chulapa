@@ -42,7 +42,7 @@ Source: https://dieghernan.github.io/chulapa/docs/21-gem-theme
 Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll in _config.yml; remove remote_theme and unused remote-theme plugin/dependency. Enable jekyll-include-cache in plugins. bundle update chulapa-jekyll updates theme/dependencies within existing constraints. Preview with bundle exec jekyll serve. Local matching files override theme files; review/merge them during upgrades. Unknown include_cached: install/enable jekyll-include-cache and restart build.
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
-Source: https://dieghernan.github.io/chulapa/docs/46-migration-fields
+Source: https://dieghernan.github.io/chulapa/docs/07-migration
 Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.2.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
 Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
 Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
@@ -225,8 +225,6 @@ related_label/random_label accept raw HTML rendered unchanged. Choose heading le
 ## Configuring site search
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/12-fusejs-search
-https://dieghernan.github.io/chulapa/docs/34-lunr-search
-https://dieghernan.github.io/chulapa/docs/35-simplesearch-search
 https://dieghernan.github.io/chulapa/docs/36-google-search
 https://dieghernan.github.io/chulapa/docs/37-algolia-search
 search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search needs navbar.nav or the theme selector. Otherwise open the landing URL with baseurl.

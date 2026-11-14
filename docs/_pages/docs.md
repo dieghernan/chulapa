@@ -71,7 +71,7 @@ search and comments are optional.
 
 Choose one provider for your search page.
 
-- Use [Fuse.js](./docs/12-fusejs-search), [Lunr.js](./docs/34-lunr-search) or [Simple-Jekyll-Search](./docs/35-simplesearch-search) for local search without a provider account. The personal-blog template already uses Fuse.js.
+- Set up [local search](./docs/12-fusejs-search) with Fuse.js, Lunr.js or Simple-Jekyll-Search. The personal-blog template already uses Fuse.js.
 - Connect an existing [Google Custom Search](./docs/36-google-search) engine, or configure [Algolia](./docs/37-algolia-search) if you want to upload and maintain an external index.
 
 ### Comments and analytics
@@ -110,7 +110,6 @@ configuration examples and links to related task guides.
 - [Global settings](./docs/02-config): site identity, navigation, integrations and build settings.
 - [Layouts](./docs/04-layouts#a-layouts), [page options](./docs/04-layouts#options) and [snippets](./docs/04-layouts#b-snippets).
 - [Page SEO metadata](./docs/04-layouts#seo-metadata) and [advanced customization](./docs/04-layouts#advanced-customization-reference).
-- [Migration field mappings](./docs/46-migration-fields): legacy patterns, integration fields and release constraints.
 - [Accessibility and resource loading](./docs/48-accessibility-reference): expected behavior, version limits and offline/review scope.
 - [Custom hooks](./docs/45-custom-hooks): supported files, insertion points and override constraints.
 - [Appearance settings](./docs/03-theming) and the [variables dictionary](./docs/variable-dictionary).

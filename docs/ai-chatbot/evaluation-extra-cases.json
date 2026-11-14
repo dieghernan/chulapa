@@ -428,7 +428,7 @@
     "section": "search",
     "doc": "34_lunr-search.md",
     "question": "How do I replace Fuse.js with Lunr search on my existing site?",
-    "expected": "search.provider: lunr, preserve existing search options, reuse/create layout: search page with matching permalink and landing_page, no account/key/extra plugin, no duplicate output or repeated baseurl. Publish and verify a title/result; include_on_search false affects local index. Link /docs/34-lunr-search."
+    "expected": "search.provider: lunr, preserve existing search options, reuse/create layout: search page with matching permalink and landing_page, no account/key/extra plugin, no duplicate output or repeated baseurl. Publish and verify a title/result; include_on_search false affects local index. Link /docs/12-fusejs-search."
   },
   {
     "id": "classic-navbar-search-label-breakpoint",
@@ -442,7 +442,7 @@
     "section": "search",
     "doc": "35_simplesearch-search.md",
     "question": "Can I enable Simple-Jekyll-Search without a hosted account?",
-    "expected": "Yes: provider simplesearch, existing search mapping and matching layout search page. No provider account/API key/extra plugin. Publish builds index; verify result and clearing. Link /docs/35-simplesearch-search. Preserve settings and baseurl-safe paths."
+    "expected": "Yes: provider simplesearch, existing search mapping and matching layout search page. No provider account/API key/extra plugin. Publish builds index; verify result and clearing. Link /docs/12-fusejs-search. Preserve settings and baseurl-safe paths."
   },
   {
     "id": "provider-google-task-1",
@@ -519,7 +519,7 @@
     "section": "migration",
     "doc": "46_migration-fields.md",
     "question": "Where can I look up old toc/comments/search front matter equivalents without following the whole migration procedure? Does search: false exclude Algolia records?",
-    "expected": "Cite /docs/46-migration-fields, a reference separate from /docs/07-migration task/checklist. Common patterns, not automatic conversions: toc true to show_toc true, page comments true to show_comments true plus configured provider/layout; search false to include_on_search false for local indexes only. Algolia exclusions use files_to_exclude, not this flag; Google indexing independent. Explicit page front matter wins over defaults. No bulk replacement or new options."
+    "expected": "Cite /docs/07-migration#layouts-and-page-front-matter, which lists field mappings alongside the migration procedure. Common patterns, not automatic conversions: toc true to show_toc true, page comments true to show_comments true plus configured provider/layout; search false to include_on_search false for local indexes only. Algolia exclusions use files_to_exclude, not this flag; Google indexing independent. Explicit page front matter wins over defaults. No bulk replacement or new options."
   },
   {
     "id": "accessibility-task-reference-1",
