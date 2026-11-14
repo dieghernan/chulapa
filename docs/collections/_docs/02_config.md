@@ -330,31 +330,17 @@ service's own behavior.
 
 ### Search engines
 
-`search` configures search within the site, independently of external search-engine
-indexing. For crawler/sitemap/local-index exclusions, use
+Create a page with `layout: search` and a `permalink` matching
+`search.landing_page` (default `/search`). The classic navbar and desktop
+`dual` navbar also need `navbar.nav` to display the Search link.
+
+The personal-blog template includes [Fuse.js](./12-fusejs-search).
+Fuse.js, [Lunr.js](./34-lunr-search) and
+[Simple-Jekyll-Search](./35-simplesearch-search) build their index with the
+site and honor `include_on_search: false`. [Google Custom Search](./36-google-search)
+requires a configured search engine and [Algolia](./37-algolia-search) requires
+an uploaded index. For crawler and sitemap settings, see
 [Keep an auxiliary page out of search](./65-search-visibility).
-The personal-blog template includes Fuse.js search. Setup instructions:
-[Enable Fuse.js](./12-fusejs-search), [Lunr.js](./34-lunr-search),
-[Simple-Jekyll-Search](./35-simplesearch-search),
-[Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
-
-A search page uses `layout: search`; its `permalink` matches `search.landing_page`
-(default `/search`). A provider does not create the page. In the classic navbar
-and the desktop form of `dual`, the Search link also requires `navbar.nav`.
-The search page remains reachable directly without that menu link.
-
-The following engines are available:
-
-- [Lunr.js](https://lunrjs.com/)
-- [Fuse.js](https://www.fusejs.io/)
-- [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)
-- [Algolia](https://www.algolia.com/)
-- [Google Custom Search](https://developers.google.com/custom-search)
-
-Lunr, Fuse.js and Simple-Jekyll-Search use an index generated during the site
-build. Set `include_on_search: false` on pages or in front matter defaults to
-exclude them from these indexes. Algolia requires a separately uploaded index;
-Google Custom Search requires a configured search engine.
 
 - `search`:
   - `provider`: Select a search provider: `lunr`, `algolia`, `google`,
@@ -419,22 +405,13 @@ Enter. Clearing the field clears the results.
 
 ### Comments
 
-Comments require a supported provider's setup and `show_comments: true` on the
-page or in front matter defaults for a layout that displays comments. Setup guides for one post:
-[giscus](./13-giscus-comments), [Disqus](./38-disqus-comments),
-[Cactus](./39-cactus-comments), [Welcomments](./40-welcomments-comments) or
-[an existing self-hosted Cusdis service](./41-cusdis-comments).
-Provider identifiers and compatibility constraints are listed below.
-
-- [Disqus](https://disqus.com/), a hosted comment system.
-- [Cusdis](https://github.com/djyde/cusdis), a lightweight comment system whose
-  upstream project is deprecated and archived. The original hosted service is
-  unavailable; check your own deployment before selecting this provider.
-- [giscus](https://giscus.app/), powered by
-  [GitHub Discussions](https://docs.github.com/en/discussions).
-- [Cactus](https://cactus.chat/), a federated comment system based on Matrix.
-- [Welcomments](https://welcomments.io/), a comment integration using generated
-  comment files.
+Set `show_comments: true` on a page or in front matter defaults for a layout
+that displays comments. Follow the guide for your provider:
+[giscus](./13-giscus-comments) uses GitHub Discussions, [Disqus](./38-disqus-comments)
+is hosted, [Cactus](./39-cactus-comments) uses Matrix and
+[Welcomments](./40-welcomments-comments) uses generated comment files.
+[Cusdis](./41-cusdis-comments) requires an existing self-hosted deployment
+because the original hosted service is unavailable and upstream is archived.
 
 - `comments`:
   - `provider`: Use `disqus`, `cusdis`, `giscus`, `cactus` or `welcomments` to

@@ -354,36 +354,22 @@ defaults:
 
 ##### Move citation metadata from Quarto
 
-Keep `citation: true` or copy the fields listed above from the citation map.
-If your Quarto document uses a list for the top-level `author`, use the
-layout's `author.name` for the post byline and put the full bibliographic
-list under `citation.author`. When `citation.url` is omitted, the theme uses
-Jekyll's canonical page URL, including any `canonical_url` override.
-Quarto derives its fallback from the website's `site-url` and the document path.
-[Quarto's guide to citable articles](https://quarto.org/docs/authoring/create-citeable-articles.html)
-and its [citation metadata reference](https://quarto.org/docs/reference/metadata/citation.html)
-describe the source fields.
+Copy the supported fields from the [Quarto citation map](https://quarto.org/docs/reference/metadata/citation.html).
+Use `author.name` for the post byline and `citation.author` for the full
+bibliographic author list. Set `citation.page` for the APA and BibTeX page
+range. The Google Scholar fields below also accept explicit page endpoints.
+Without `citation.url`, the theme uses the Jekyll canonical URL.
 
-The theme produces a simplified English APA reference and a BibTeX entry
-together. It strips HTML and Markdown formatting from titles and publication
-names before citing them. Quarto can use a CSL style for its reference,
-configure the appendix with `appendix-cite-as`. The theme always shows both
-formats. For a journal
-page range, use `citation.page` (for example, `"15–21"`). Quarto's
-`page-first` and `page-last` fields are outside the supported subset.
-Quarto's export uses BibLaTeX date fields. The theme exports the year and
-month as separate BibTeX fields when available.
+The reference uses simplified English APA and BibTeX with separate year and
+month fields. The theme strips formatting from titles and publication names.
 
 ##### Add Google Scholar metadata
 
 Add `google-scholar: true` at the top level of the front matter of a citable
 post using `layout: default`. Keep `citation: true` or your existing citation map.
 
-Use the separate switch when you want to describe the cited work to scholarly
-indexers. A post can offer readers a copyable reference to a work published
-elsewhere. Enabling scholarly metadata for every visible citation would also
-describe those posts as records of the cited work, even when the post only
-discusses it. The `google-scholar` spelling follows Quarto.
+Use this switch when the post presents the work itself. For a post discussing a
+work published elsewhere, you can offer a copyable citation on its own.
 
 ```yaml
 layout: default
@@ -413,15 +399,9 @@ The theme omits empty values.
 | `container-title-short`, `collection-title` | `citation_journal_abbrev`, `citation_series_title` | Abbreviated journal name and series title. |
 | `page-first`, `page-last` | `citation_firstpage`, `citation_lastpage` | Explicit endpoints for `article-journal`. Each overrides the corresponding endpoint from `page` in the HTML tags. |
 
-The additional fields from `pdf-url` onward use explicit values from the
-citation map. Use `page` to supply pagination for the visible reference and
-BibTeX.
-
-The tags describe the cited work. For a research article hosted on your
-site, use the URL of its full-text HTML page. Google Scholar requires a
-title, the full name of at least the first author and a publication year
-to use the tags. It also applies its own inclusion criteria.
-[Google Scholar inclusion guidelines](https://scholar.google.com/intl/en/scholar/inclusion.html)
+Google Scholar requires a title, the first author's full name and a publication
+year. For work hosted on your site, use its full-text HTML URL and follow the
+[Google Scholar inclusion guidelines](https://scholar.google.com/intl/en/scholar/inclusion.html).
 
 ### Landing page
 
@@ -920,13 +900,11 @@ inputs for the embedded video's microdata and, in v2.2.1 (development), JSON-LD:
 | `description` | A description of the video. |
 | `duration` | An ISO 8601 duration, such as `PT1M30S` for 90 seconds. |
 
-Pass metadata per include, so several videos on the same page can have different
-values. Missing, empty or whitespace-only inputs are omitted. Dates and durations
-are emitted as supplied; the snippets do not validate or infer them from the
-containing page. Existing calls continue to work.
+Supply values on each include. The snippets omit blank inputs and use dates
+and durations as entered. `thumbnail_url` supplies metadata. For the visible
+YouTube preview, use `video_res`.
 
-These illustrative examples use placeholder metadata. Replace every value with
-accurate information about your video before publishing:
+Replace the sample values with your video's metadata.
 
 {% raw %}
 ```liquid
@@ -934,43 +912,23 @@ accurate information about your video before publishing:
    name="Your video's title" thumbnail_url="/assets/img/your-video.jpg"
    upload_date="2024-01-02T10:00:00+01:00"
    description="What your video shows." duration="PT1M30S" %}
-
-{% include snippets/video.html fileurl="/assets/mp4/your-video.mp4"
-   name="Your video's title" thumbnail_url="/assets/img/your-video.jpg"
-   upload_date="2024-01-02T10:00:00+01:00"
-   description="What your video shows." duration="PT1M30S" %}
 ```
 {% endraw %}
 
-The same inputs work with the other supported providers and with deferred
-YouTube embeds. Metadata stays outside the deferred player, so it is available
-before a click and remains after playback starts. `thumbnail_url` supplies
-structured data only; it does not change the player, its preview or its poster.
-
-In v2.2.1 (development), supported video includes also generate a JSON-LD
-`VideoObject` linked to the containing page's canonical URL through `isPartOf`.
-The JSON-LD `@id` matches the microdata `itemid`, so repeated embeds of the same
-file or player identify the same video. Keep metadata consistent for repeated
-embeds. No new options or plugins are needed.
-
-Local and external files use `contentUrl`; supported providers use `embedUrl`.
-Optional fields match the microdata and are omitted when blank. Deferred YouTube
-embeds retain their automatic preview URL when `thumbnail_url` is absent;
-YouTube with `nolazy=true` and the other providers require an explicit thumbnail
-for that field. JSON-LD stays outside the deferred player before and after a
-click. It does not change playback, captions, the visible preview or loading.
-Missing IDs and unsupported providers do not generate a JSON-LD video.
+In v2.2.1 development, the same fields generate a JSON-LD `VideoObject` linked
+to the page's canonical URL. Local and external files use `contentUrl` and
+supported providers use `embedUrl`. Deferred YouTube embeds can use their
+automatic preview as the thumbnail. For immediate YouTube embeds and other
+providers, supply an explicit thumbnail. Keep metadata consistent if you
+embed the same video more than once.
 
 #### Video structured data limitations
 
-Video descriptions can help search engines understand your content, but do
-not guarantee indexing. Supply an accurate `name`, `thumbnail_url` and
-`upload_date`; the theme does not fetch them from the video provider.
-Check that your thumbnail image exists.
-
-For a page dedicated to watching a video, consider `nolazy=true` so the player
-loads without a click. See [Google's video requirements](https://developers.google.com/search/docs/appearance/structured-data/video)
-for the remaining conditions.
+Supply the actual title, original publication date and a working thumbnail.
+On a page dedicated to watching a video, consider `nolazy=true` for YouTube so
+the player is available without activation. See
+[Google's video requirements](https://developers.google.com/search/docs/appearance/structured-data/video)
+for indexing criteria.
 
 ### Localization of dates
 
@@ -1331,32 +1289,16 @@ An explicit page value overrides these defaults. Crawlers must be able to access
 
 ## Advanced customization reference
 
-These sections are for readers creating their own layouts, embedding search
-or maintaining local overrides. Standard posts and pages already receive the
-theme's scripts and metadata; no changes to these files are needed for the
-examples at the start of this guide.
+Use this reference when creating a custom layout or maintaining local overrides.
 
 ### Layout structure and components
 
-In v2.2.0, `default` places its page heading
-and body in one `main` landmark. Its `e-content` property wraps the editorial
-body, excluding the theme's optional sidebar and integrated TOCs. Lists or a
-Markdown TOC written in the page body remain editorial content. Inherited
-listing layouts retain `h-feed` and their child entries; the feed container does
-not acquire article-content properties. Local layout overrides must be reviewed
-to receive these structural changes.
-
-For small head additions, follow [Add custom HTML to the page head](./44-custom-head).
-The [custom hooks reference](./45-custom-hooks) lists the insertion points and
-stylesheet hook; a complete layout copy is not required.
-
-`minimal` supplies the base structure for a custom page design. `default` and
-`landingpage` add the article components; archive, tag, category and card-index layouts build
-on `default`. The `search` layout is a separate search page. Both keep the
-custom head and bottom-script hooks available. See the
-[layout sources](https://github.com/dieghernan/chulapa/tree/main/_layouts)
-and [component sources](https://github.com/dieghernan/chulapa/tree/main/_includes/components)
-when replacing a specific part.
+Custom layouts can build on `minimal`. The archive, tag, category and card
+index layouts build on `default`. When updating a local copy of `default` to
+v2.2.0, preserve the single `main` landmark and keep theme-generated TOCs and
+the sidebar outside `e-content`. Preserve `h-feed` on article lists.
+See the [layout sources](https://github.com/dieghernan/chulapa/tree/main/_layouts)
+and [component sources](https://github.com/dieghernan/chulapa/tree/main/_includes/components).
 
 Advanced include specimen for up to two post cards inside a custom page:
 
@@ -1389,13 +1331,11 @@ No extra configuration is needed.
 
 ### Generated head and footer formatting
 
-No formatting changes are needed to publish your site. The
-[custom hooks reference](./45-custom-hooks) describes head and bottom-script
-insertion without editing the theme's layouts.
-
-The remaining snippets support the theme's metadata. Standard layouts already
-use them; configure the corresponding page or site options instead of adding
-these helpers to article content. This inventory is for custom-layout authors:
+Use the [custom hooks reference](./45-custom-hooks) to add markup or scripts.
+If you are writing a custom layout, use ordinary `include` for helpers that
+assign variables in the caller. Follow the
+[theme's snippet sources](https://github.com/dieghernan/chulapa/tree/main/_includes/snippets)
+for complete examples.
 
 | Helper | Inputs | Purpose |
 | --- | --- | --- |
@@ -1412,7 +1352,3 @@ these helpers to article content. This inventory is for custom-layout authors:
 | `snippets/video-schema-data.html` | Internal to the video snippets | Selects video identity, source URL and metadata thumbnail (v2.2.1 development). |
 | `snippets/video-jsonld.html` | Internal to the video snippets | Emits JSON-LD from the selected video and optional metadata (v2.2.1 development). |
 | `snippets/video-metadata.html` | `name`, `thumbnail_url`, `upload_date`, `description`, `duration` | Supplies the optional video metadata described above. |
-
-Helpers that prepare values for their caller need ordinary `include`, not
-`include_cached`. For complete working usage, consult the
-[theme's snippet sources](https://github.com/dieghernan/chulapa/tree/main/_includes/snippets).
