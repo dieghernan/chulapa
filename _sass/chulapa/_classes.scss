@@ -1510,23 +1510,6 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
   padding: .125rem 0;
 }
 
-.chulapa-series-current {
-  $panel: mix($secondary, $body-bg, 5%);
-  $accent: $info;
-  @if contrast-ratio($panel, $accent) < 4.5 {
-    $accent: $body-color;
-  }
-  display: inline-block;
-  margin-inline-start: .4em;
-  padding: .0625em .55em;
-  border: $border-width solid currentColor;
-  @if $enable-rounded {
-    border-radius: $border-radius;
-  }
-  color: $accent;
-  font-weight: $font-weight-normal;
-}
-
 .chulapa-series-controls {
   width: max-content;
   max-width: 100%;
