@@ -85,6 +85,7 @@ https://dieghernan.github.io/chulapa/docs/65-search-visibility
 https://dieghernan.github.io/chulapa/docs/syntax-highlighting
 https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
 https://dieghernan.github.io/chulapa/docs/variable-dictionary
+https://dieghernan.github.io/chulapa/docs/components
 https://dieghernan.github.io/chulapa/blog/20200515_welcome
 https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot
 https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0

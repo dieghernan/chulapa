@@ -26,8 +26,8 @@
         "inLanguage": "en-US",
         "headline": "Add an information or warning box",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-14T07:36:36+01:00",
-        "dateModified": "2026-11-14T07:36:36+01:00",
+        "datePublished": "2026-11-14T08:38:15+01:00",
+        "dateModified": "2026-11-14T08:38:15+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -271,7 +271,7 @@
 		</p>
 		<nav class="navbar-nav px-3 my-auto" aria-label="Sidebar table of contents">
 		 <p class="mb-2"><a class="nav-link font-weight-bold lead" href="#">Add an information or warning box</a></p>
-			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#insert-the-message" class="nav-link">Insert the message</a></li><li class="nav-item nav d-block"><a href="#publish-and-verify" class="nav-link">Publish and verify</a></li></ul>
+			<ul class="nav flex-column" id="sidetoc"><li class="nav-item nav d-block"><a href="#insert-the-message" class="nav-link">Insert the message</a></li><li class="nav-item nav d-block"><a href="#add-a-callout-with-several-paragraphs" class="nav-link">Add a callout with several paragraphs</a></li><li class="nav-item nav d-block"><a href="#use-a-callout" class="nav-link">Use a callout</a></li><li class="nav-item nav d-block"><a href="#publish-and-verify" class="nav-link">Publish and verify</a></li></ul>
 		</nav>   
 	</div>
 			<div class="e-content"><div class="chulapa-series-indices chulapa-series-columns-1 small mb-3">
@@ -303,6 +303,78 @@ between them:</p>
 for a concrete mistake readers need to avoid or fix, replace <code class="language-plaintext highlighter-rouge">alert-info</code> with
 <code class="language-plaintext highlighter-rouge">alert-warning</code>. Keep the spacing classes and keep the box short. Additional
 styles are in <a href="https://getbootstrap.com/docs/4.5/components/alerts/">Bootstrap’s alert reference</a>.</p>
+<h2 id="add-a-callout-with-several-paragraphs">Add a callout with several paragraphs</h2>
+<p>Use the same alert classes on a container and add <code class="language-plaintext highlighter-rouge">markdown="1"</code> so kramdown
+formats the text inside it. Keep the opening and closing tags on their own
+lines. Use a visible label such as <strong>Note</strong> or <strong>Warning</strong> so readers can
+identify the callout without relying on color.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"note"</span> <span class="na">class=</span><span class="s">"alert alert-info p-3 mx-2 mb-3"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="gs">**Note:**</span> Keep a copy of your draft before changing its permalink.
+
+You can include a second paragraph or a list.
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<p>See the rendered <a href="./components#alert">callout example</a>. GitHub-style
+<code class="language-plaintext highlighter-rouge">&gt; [!NOTE]</code> syntax renders as a quote in the sample site’s kramdown setup.</p>
+<h2 id="use-a-callout">Use a callout</h2>
+<p>In v2.2.1 development, replace the alert classes with one callout class.
+CSS adds a title and a Font Awesome icon. The background uses the skin color
+at 10% opacity and the body uses the skin’s text color. The solid left border
+uses the matching accent, adjusted for contrast in some skins. Corners follow
+the skin’s border radius and rounded-corner setting.</p>
+<table>
+<thead>
+   <tr>
+     <th>Class</th>
+     <th>English label</th>
+     <th>Spanish label</th>
+     <th>Skin color</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">callout-note</code></td>
+     <td>Note</td>
+     <td>Nota</td>
+     <td><code class="language-plaintext highlighter-rouge">info</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">callout-tip</code></td>
+     <td>Tip</td>
+     <td>Consejo</td>
+     <td><code class="language-plaintext highlighter-rouge">success</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">callout-important</code></td>
+     <td>Important</td>
+     <td>Importante</td>
+     <td><code class="language-plaintext highlighter-rouge">danger</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">callout-warning</code></td>
+     <td>Warning</td>
+     <td>Advertencia</td>
+     <td><code class="language-plaintext highlighter-rouge">warning</code></td>
+   </tr>
+   <tr>
+     <td><code class="language-plaintext highlighter-rouge">callout-caution</code></td>
+     <td>Caution</td>
+     <td>Precaución</td>
+     <td><code class="language-plaintext highlighter-rouge">primary</code></td>
+   </tr>
+ </tbody>
+</table>
+<p>Set <code class="language-plaintext highlighter-rouge">aria-label</code> to the label in your content’s language. The visible CSS title
+follows the HTML language for English and Spanish.</p>
+<p>For a one-paragraph callout, put the attributes on the line immediately after
+the paragraph:</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Keep a copy of your draft before changing its permalink.
+{: .callout-note role="note" aria-label="Note"}
+</code></pre></div></div>
+<p>For several paragraphs or a list, use the container with <code class="language-plaintext highlighter-rouge">markdown="1"</code>.</p>
+<p>See the <a href="./components#callouts">five previews</a> for a copyable example.
+To see callouts in another skin, open its preview from the <a href="../skins">skin gallery</a>
+and scroll to <strong>Callouts</strong> under <strong><span class="chulapa">Chulapa</span> components</strong>.</p>
 <h2 id="publish-and-verify">Publish and verify</h2>
 <p>Commit to the publishing branch and wait for <strong>Actions</strong> to succeed. Open the
 published article and check that the message is a padded box and the following
