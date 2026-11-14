@@ -24,22 +24,22 @@
     "id": "layouts-video-jsonld-1",
     "section": "layouts",
     "doc": "04_layouts.md",
-    "question": "How do I enable VideoObject JSON-LD? Does it need a plugin or new YAML, and will it fetch missing publication dates or make YouTube load immediately?",
-    "expected": "In v2.2.1 development supported video/youtube includes automatically emit VideoObject JSON-LD with existing metadata inputs, same identity as microdata and isPartOf referencing canonical page. Files contentUrl; providers embedUrl. Blank optional values omitted, no inferred/fetched dates or durations. Only deferred YouTube has automatic thumbnail fallback; eager YouTube and other providers require explicit thumbnail_url for that field. Metadata survives click; playback/loading unchanged, no new YAML/plugin, no guaranteed indexing. Missing IDs/unknown providers have no JSON-LD. Link /docs/04-layouts#optional-video-metadata."
+    "question": "How do I add video metadata, and will that make YouTube load immediately?",
+    "expected": "In v2.2.1 development, supported video includes generate structured data automatically. Supply accurate name, thumbnail_url, upload_date, description and duration as available. Only deferred YouTube can use its preview automatically. For immediate YouTube playback use nolazy=true; metadata does not change loading. Link /docs/04-layouts#optional-video-metadata."
   },
   {
     "id": "layouts-jsonld-primary-image-1",
     "section": "layouts",
     "doc": "04_layouts.md",
-    "question": "How does JSON-LD connect a post page to its article and primary image? Does the site banner become the primary image if schema_image contains only blanks?",
-    "expected": "In v2.2.1 development WebPage.mainEntity references BlogPosting, whose mainEntityOfPage references the page. primaryImageOfPage is ImageObject for the first nonblank URL in the existing article image selection: schema_image, page og_image, page header_img. Blank entries are skipped after selection; nonempty blank-only schema_image omits both article image and primaryImageOfPage, without falling back to the site banner/avatar. Existing article image array and social previews remain unchanged. No new YAML or Ruby plugin. Link /docs/04-layouts#article-images."
+    "question": "How can I choose which image search engines see for my post without changing its social preview?",
+    "expected": "Use schema_image with one image URL or a list. The post falls back to its own og_image then header_img. Use og_image separately for the social preview. Link /docs/04-layouts#article-images."
   },
   {
     "id": "layouts-jsonld-collections-1",
     "section": "layouts",
     "doc": "02_config.md",
-    "question": "Do archive and category layouts generate JSON-LD lists? Do I need new YAML options, and will my custom pagination template get one too?",
-    "expected": "In v2.2.1 development, native archive/indexcategory/cloudtag/cloudcategory layouts and legacy cloud aliases emit CollectionPage with ItemList matching selection, ordering and limits. Clouds list each document once; empty selections have empty lists. No new YAML option. Custom pagination templates do not automatically get ItemList; custom markup must match only visible entries on that page. Posts add inLanguage, keywords from tags and articleSection from categories. No guaranteed rich results. Link /docs/02-config#seo."
+    "question": "Do built-in archive and category pages describe their article lists to search engines? What about a custom list?",
+    "expected": "In v2.2.1 development, built-in article indexes describe their lists automatically. Custom lists need their own markup. Structured data cannot guarantee enriched search results. Link /docs/02-config#seo."
   },
   {
     "id": "layouts-random-singleton-1",

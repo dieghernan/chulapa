@@ -115,16 +115,8 @@ project_links:
   For a guest author, set their own profile URL; it does not inherit the site
   author's URL.
 
-  In v2.2.1 development, Chulapa-authored skins place the author's location
-  and links below the name on narrow screens.
-
-  In v2.2.1 development, `show_author: false` hides the visible card while
-  retaining invisible Microformats2 author data in `default`, derived layouts
-  and `landingpage`. Archive, category, tag and card listings identify each
-  entry's own author, including guests. These data do not add visible content
-  or keyboard stops. Author profile URLs use `author.url`, then the first
-  HTTP(S) link belonging to that author; without either, only available author
-  details are included.
+  In v2.2.1 development, `show_author: false` hides the card while keeping
+  author information available to services that read Microformats2.
 
 ```yaml
 ---
@@ -362,23 +354,9 @@ Shared metadata options such as `description`, `seo_title`, `og_title`,
 the navbar and footer; author panels and tables of contents are not
 added automatically.
 
-Unlike `default` and `landingpage`, `minimal` does not automatically declare a
-Microformats2 `h-entry`. Custom content can provide its own `h-entry` wrapper,
-with `p-name`, `u-url` and `e-content` properties, without including the navbar
-or footer in the entry. This behavior is available in v2.2.0.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
-
-In development for v2.2.1, `default` and layouts derived from it expose a hidden
-representative image as `u-photo u-featured` inside the page's `h-entry`.
-The image uses page `og_image`, page `header_img`, then site `og_image`;
-it is omitted when none is available. Avatars are not used as a fallback.
-Set `og_image_alt` in the page's front matter to describe its image. Site
-`og_image_alt` is inherited only for the site image when neither page image
-is set; otherwise the page title is the fallback text. The image does not
-change the visible layout and is excluded from the outer `h-feed` of list
-layouts. `landingpage` and `minimal` do not add this image automatically.
-Consumers such as Bridgy Fed can use this metadata, but their
-publication behavior depends on the service and discovery method.
+Use `default` if you want article metadata for services such as Bridgy Fed.
+In v2.2.1 development, set `og_image` and `og_image_alt` to supply an article
+image and its description. The header or site sharing image can also be used.
 
 ```yaml
 ---
@@ -769,8 +747,9 @@ If the default `maxresdefault` preview is unavailable, set
 
 #### Optional video metadata
 
-Both `snippets/video.html` and `snippets/youtube.html` accept these optional
-inputs for the embedded video's microdata and, in v2.2.1 (development), JSON-LD:
+Set these fields on each `video.html` or `youtube.html` include to describe
+the video to search engines. Structured video data is generated automatically
+in v2.2.1 development.
 
 | Input | What to supply |
 | --- | --- |
@@ -795,12 +774,8 @@ Replace the sample values with your video's metadata.
 ```
 {% endraw %}
 
-In v2.2.1 development, the same fields generate a JSON-LD `VideoObject` linked
-to the page's canonical URL. Local and external files use `contentUrl` and
-supported providers use `embedUrl`. Deferred YouTube embeds can use their
-automatic preview as the thumbnail. For immediate YouTube embeds and other
-providers, supply an explicit thumbnail. Keep metadata consistent if you
-embed the same video more than once.
+Deferred YouTube embeds can use their preview as a thumbnail. For immediate
+YouTube embeds and other providers, supply `thumbnail_url` explicitly.
 
 #### Video structured data limitations
 
@@ -830,90 +805,18 @@ Site `locale` controls language metadata, not complete interface translation.
 Labels such as `search.label`, `related_label` and `random_label` are separately
 configurable; some interface and accessibility labels remain in English.
 
-The source/output specimens below include explicit languages and the site-locale
-fallback. Their fixed date makes the translation differences comparable.
-
-{% raw %}
-```
-{%- assign formatdate = "2020-02-14" | date: "%A %d, %B %Y" %}
-
-- Raw date output is {{ formatdate }}
-
-- Without parameter: {% include snippets/datetranslate.html  date=formatdate  %}
-
-- In Spanish: {% include snippets/datetranslate.html  date=formatdate lang="es-ES" %}
-
-- In German: {% include snippets/datetranslate.html  date=formatdate lang="de" %}
-
-- In French: {% include snippets/datetranslate.html  date=formatdate lang="fr" %}
-
-- In Italian: {% include snippets/datetranslate.html  date=formatdate lang="it" %}
-
-- Any other value in English: {% include snippets/datetranslate.html  date=formatdate lang="zh" %}
-
-```
-{% endraw %}
-
-{%- assign formatdate = "2020-02-14" | date: "%A %d, %B %Y" %}
-
-- Raw date output is {{ formatdate }}
-
-- Without parameter: {% include snippets/datetranslate.html date=formatdate %}
-
-- In Spanish: {% include snippets/datetranslate.html date=formatdate lang="es-ES" %}
-
-- In German: {% include snippets/datetranslate.html date=formatdate lang="de" %}
-
-- In French: {% include snippets/datetranslate.html date=formatdate lang="fr" %}
-
-- In Italian: {% include snippets/datetranslate.html date=formatdate lang="it" %}
-
-- Any other value in English: {% include snippets/datetranslate.html date=formatdate lang="zh" %}
+See the [date guide](./61-localize-date) for a copyable example and expected output.
 
 ### Mermaid diagrams
 
-Setup: [Add a Mermaid diagram](./33-add-diagram).
-Live specimens: [Mermaid demo](../demo/13-mermaid).
+Available in v2.2.0 and later. Set the YAML boolean `mermaid: true` in
+front matter or defaults for pages with fenced `mermaid` blocks. Layouts
+based on `minimal`, including `default` and `landingpage`, support diagrams.
 
-Available in v2.2.0 and later. Use the v2.2.0 gem or remote-theme tag for
-this feature; the v2.1.0 release does not include it.
-
-`mermaid` is a boolean page/front matter default, disabled when unset.
-`true` enables fenced `mermaid` blocks. Complete page specimen:
-
-````markdown
----
-layout: default
-title: A diagram
-mermaid: true
----
-
-```mermaid
-flowchart LR
-  accTitle: Publishing workflow
-  accDescr: Write content, build the site and publish it.
-  A[Write] --> B[Build] --> C[Publish]
-```
-````
-
-```mermaid
-flowchart LR
-  accTitle: Publishing workflow
-  accDescr: Write content, build the site and publish it.
-  A[Write] --> B[Build] --> C[Publish]
-```
-
-The option works with layouts based on `minimal`, including `default` and
-`landingpage`. The `search` layout does not display page content. Mermaid 12.1.0 loads from jsDelivr only on
-enabled pages containing diagrams. It requires a modern browser supporting
-JavaScript modules and ES2024 (Safari 17.4 or later). No additional Jekyll plugin
-is required. Diagrams use Mermaid's strict security mode, which disables
-click actions and encodes HTML labels. Add `accTitle` and `accDescr` to describe
-diagrams for assistive technology, and provide a prose explanation for complex
-content. Wide diagrams can scroll horizontally. If JavaScript, the CDN or a
-diagram fails, its source remains visible. Without `mermaid: true`, fenced
-blocks remain ordinary code. Native `<pre class="mermaid">` blocks are also
-supported. See the [Mermaid documentation](https://mermaid.js.org/config/usage.html).
+Use [Add a Mermaid diagram](./33-add-diagram) for a copyable example with
+`accTitle` and `accDescr`. Explain complex diagrams in prose. If rendering
+fails, visitors can read the diagram's source. Use a modern browser
+(Safari 17.4 or later). See the [live demo](../demo/13-mermaid).
 
 ### Copying code
 
@@ -1082,30 +985,11 @@ schema_image:
   - /assets/img/article-1x1.jpg
 ```
 
-In v2.2.1 (development), the post's `WebPage` identifies its `BlogPosting` through
-`mainEntity`, and the article links back through `mainEntityOfPage`. The page's
-`primaryImageOfPage` describes the first nonblank URL from the article's image
-selection as an `ImageObject`. If no article image is available, that property
-is omitted. These relationships need no additional configuration and do not
-change the visible image or social preview.
-
-The theme emits the URLs as a JSON-LD `image` array. It does not create crops, check image dimensions or verify that the files exist. Google recommends relevant, crawlable images and multiple high-resolution aspect ratios when available; see the [article structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/article).
-
-The fallback order is `schema_image`, page `og_image`, then page `header_img`.
-Missing values, empty strings and empty lists use the next fallback.
-Whitespace-only URLs and blank entries in lists are omitted after selection; a
-whitespace-only value or a nonempty list containing only blanks therefore omits
-`image` rather than trying the next fallback. If no article image is available,
-`image` is omitted from `BlogPosting`; the site banner, publisher logo and
-author avatar are not used as article illustrations. Open Graph and Twitter
-cards retain their existing site-level image fallbacks.
-
-In v2.2.1 (development), other pages also identify a `primaryImageOfPage` when
-they supply `og_image` or `header_img`. Site-level banners and avatars do not
-become a page's primary image. This does not change visible images or social
-preview fallbacks.
-
-This option applies to posts rendered as `BlogPosting`, including values supplied through front matter defaults. Other pages keep their existing image metadata. The [Welcome post]({{ '/blog/20200515_welcome' | absolute_url }}) demonstrates an explicit `schema_image` using its existing header photograph.
+Use working URLs for relevant images. Upload each crop you want to use.
+The theme chooses `schema_image`, then the post's `og_image`, then
+`header_img`. Set `og_image` separately to control the social preview.
+The [Welcome post]({{ '/blog/20200515_welcome' | absolute_url }}) shows an
+explicit `schema_image`.
 
 ## Search crawler directives
 
@@ -1172,31 +1056,8 @@ automatically. For working search-page examples, see
 [Lunr](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html)
 or [Fuse.js](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html).
 
-### Microformats in lists
-
-Article lists automatically include information for other services to read.
-No extra configuration is needed.
-
 ### Generated head and footer formatting
 
 Use the [custom hooks reference](./45-custom-hooks) to add markup or scripts.
-If you are writing a custom layout, use ordinary `include` for helpers that
-assign variables in the caller. Follow the
-[theme's snippet sources](https://github.com/dieghernan/chulapa/tree/main/_includes/snippets)
-for complete examples.
-
-| Helper | Inputs | Purpose |
-| --- | --- | --- |
-| `snippets/canonical-url.html` | `url`, optional `canonical` | Prepares the canonical address; page `canonical_url` supplies the override. |
-| `snippets/page-language.html` | No include parameters; page/site `locale` | Prepares the page language. |
-| `snippets/og-locale.html` | `locale` | Prepares a valid social-sharing locale. |
-| `snippets/publisher.html` | No include parameters; site `publisher` and author settings | Supplies publisher metadata. |
-| `snippets/article-taxonomy.html` | No include parameters; page tags and categories | Supplies nonblank post keywords and sections (v2.2.1 development). |
-| `snippets/collection-jsonld.html` | `documents`, optional `limit` | Describes a displayed document list; custom pagination must pass only the current page's entries (v2.2.1 development). |
-| `snippets/article-images.html` | No include parameters; page `schema_image`, `og_image`, `header_img` | Supplies article image metadata. |
-| `snippets/breadcrumb-names.html` | No include parameters; site/page titles and navbar brand | Prepares breadcrumb labels. |
-| `snippets/microformats-url.html` | No include parameters; page `url`, `canonical_url` | Supplies the article's canonical link for machine-readable lists. |
-| `snippets/jsonld-string.html` | `value`; `decode_html` defaults to `true` | Safely outputs a metadata string; pass `false` to preserve literal HTML entities. |
-| `snippets/video-schema-data.html` | Internal to the video snippets | Selects video identity, source URL and metadata thumbnail (v2.2.1 development). |
-| `snippets/video-jsonld.html` | Internal to the video snippets | Emits JSON-LD from the selected video and optional metadata (v2.2.1 development). |
-| `snippets/video-metadata.html` | `name`, `thumbnail_url`, `upload_date`, `description`, `duration` | Supplies the optional video metadata described above. |
+For custom layouts, consult the
+[theme's snippet sources](https://github.com/dieghernan/chulapa/tree/main/_includes/snippets).

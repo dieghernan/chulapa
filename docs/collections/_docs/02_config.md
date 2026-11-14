@@ -182,44 +182,11 @@ The sections below list optional integration settings and their constraints.
 
 ### SEO
 
-These settings control social metadata and structured data. <span class="chulapa">Chulapa</span> generates
-canonical URLs and JSON-LD for the home page (`WebSite`), posts (`BlogPosting`)
-and other pages (`WebPage`). Breadcrumb structured data is generated even when
-visible breadcrumbs are disabled.
-
-In v2.2.1 (development), structured data connects pages, the website, authors,
-the publisher and breadcrumbs using identifiers (`@id`). Posts also include
-`inLanguage` from the page language, `keywords` from nonblank tags and
-`articleSection` from nonblank categories. Each post's page identifies the article
-with `mainEntity` and its first valid article image with `primaryImageOfPage`;
-see [Article images](./04-layouts#article-images). No additional configuration is needed.
-
-In v2.2.1 (development), the site author's JSON-LD profile always uses the
-home page, resolved with `url` and `baseurl`. No About page or extra setting is
-required. This leaves visible author cards and Open Graph author URLs unchanged.
-Guest profiles use their own `author.url`. A guest without `author.url` uses
-the alphabetically first HTTP(S) profile in their own `author.links`; supply
-an explicit profile URL for a stable identity when adding or removing social
-profiles. Reordering links does not change the guest's identifier. A guest
-without a profile URL or social profiles has an identifier local to the page
-and does not inherit the site author's profile, avatar or location. All HTTP(S)
-social profiles are included in `sameAs`. Author references share a single
-profile definition per page; the publisher remains independent, even when
-both are people.
-
-Page and article descriptions use the same text as the HTML metadata. Page
-language is also included in the accompanying `WebPage` entity. Missing images,
-publisher logos and profile details are omitted rather than replaced with
-empty values or generic role descriptions.
-
-The built-in `archive`, `indexcategory`, `cloudtag` and `cloudcategory` layouts
-(including the legacy cloud aliases) describe their pages as `CollectionPage`
-and supply an `ItemList` of linked documents. The list follows the layout's
-collection selection, sorting and limits. Tag and category clouds include each
-document once even when it appears in several groups. An empty selection
-produces an empty list. Custom lists and pagination templates do not automatically
-receive an `ItemList`; any custom markup must describe only the entries displayed
-on that page. These additions do not guarantee enriched search results.
+The theme generates canonical URLs and structured data automatically.
+In v2.2.1 development, built-in article indexes also describe their lists
+for search engines. Custom lists need their own markup.
+For a guest article, set the guest's `author.url` to their profile.
+Use an explicit URL to keep the identity stable if you change their social links.
 
 - `og_image`: The default image to be displayed when a page of your site is
   shared on any of the major social networks (Facebook, Twitter/X, etc.). The

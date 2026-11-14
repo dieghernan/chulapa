@@ -177,7 +177,7 @@ Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, goog
 fileurl wins: local=root-relative path, no relative_url/baseurl prefix; external=full HTTPS URL. Snippet applies absolute_url:
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
 YouTube click-to-load; nolazy=true skips click, retains browser lazy loading. video_res="hqdefault" for missing previews. thumbnail_url: metadata only, never preview/player/poster. Inputs name/thumbnail_url/upload_date/description/duration: accurate, no inference/validation/fetching/cropping. ISO 8601: PT5M, 2026-10-08T12:00:00Z; not 5:00. Names/noscript link: v2.2.0, not v2.1.0 (name metadata existed). verify playback/baseurl; not chat uploads.
-Dev v2.2.1: VideoObject JSON-LD shares microdata ID, isPartOf→canonical page. Files contentUrl; providers embedUrl. Blank fields omitted; only deferred YouTube auto-fills thumbnail. Repeated IDs need consistent metadata. Survives playback; no loading changes, new options/plugins or guaranteed indexing. No IDs/unknown provider: no JSON-LD.
+Dev v2.2.1: supported video includes add structured data automatically. Supply the actual title, upload date and thumbnail. Only deferred YouTube can use its preview automatically. Blank values are omitted. Playback still follows the include settings.
 ## Image galleries and carousels
 Source: https://dieghernan.github.io/chulapa/docs/30-add-carousel
 Source: https://dieghernan.github.io/chulapa/docs/29-add-gallery
@@ -287,7 +287,7 @@ Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
 canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
 seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
 locale sets HTML language; zh-Hant needs separate og_locale: zh_TW. og_locale_alternate lists real translated locales; [] clears inherited alternates; no translations/hreflang generation. og_type: article enables article metadata for another collection. og_article_author/og_article_section override author URL/first category; guest authors without URL do not inherit site's URL.
-Dev v2.2.1 JSON-LD: connected IDs; page language/shared descriptions; posts tags→keywords, categories→articleSection, WebPage.mainEntity→article. primaryImageOfPage: first article image; other pages: page og_image/header_img, never site image. Omit absent image/logo/profile values. Native archive/indexcategory/cloudtag/cloudcategory (+aliases): CollectionPage/ItemList matches selection/order/limits, deduplicates clouds; empty lists valid. No custom pagination lists/new YAML/rich guarantees. Source: https://dieghernan.github.io/chulapa/docs/02-config#seo.
+Dev v2.2.1: built-in archive, card, tag and category indexes describe their listed articles in structured data. Custom lists need their own metadata. Source: https://dieghernan.github.io/chulapa/docs/02-config#seo.
 schema_image: URL/list for post BlogPosting, fallback page og_image then header_img. Relative images use url/baseurl; no cropping/validation or visible/social image changes.
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
@@ -431,7 +431,7 @@ Documentation-site extension, not packaged theme. sessionStorage keeps recent me
 ## Complete option and snippet reference
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#xx-other-settings
 https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets
-Jekyll/plugin settings (not new theme API): include/exclude, collections_dir, permalink, defaults, pagination, excerpt_separator, kramdown, sass, compress_html. Usually retain starter values. Reference lists content snippets/parameters and separate metadata-helper inventory for custom layouts; ordinary posts need not invoke helpers.
+Jekyll/plugin settings (not new theme API): include/exclude, collections_dir, permalink, defaults, pagination, excerpt_separator, kramdown, sass, compress_html. Usually retain starter values. Layout reference lists content snippet parameters. For custom markup and scripts, use /docs/45-custom-hooks.
 Gallery internal=image_col group, external=comma-separated URLs (internal wins). video fileurl wins; hosted videos need provider/id. Direct youtube.html is always deferred, has no nolazy; for immediate use video.html provider="youtube" nolazy=true. bootstrapdemo.html has no parameters, samples components for skins. Include booleans unquoted (photoswipe=true); quoted "false" can enable features.
 
 ## Tag/category cloud setup
