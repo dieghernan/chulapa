@@ -1,22 +1,32 @@
 ---
 layout: default
 title: Kitchen Sink
-subtitle: Bootstrap and Chulapa components in one demo
+subtitle: 'Post features and media in <span class="chulapa">Chulapa</span>'
 permalink: /demo/15-kitchen-sink
 date: 2026-11-14
-excerpt: Explore post navigation, citations, diagrams and Bootstrap components in a single article.
-description: An interactive demonstration of post settings and Bootstrap components.
+last_modified_at: 2026-11-14
+excerpt: Try three tables of contents, a guest author card, series navigation, citations, diagrams, equations, galleries and video.
+description: A demo of Chulapa post features, including tables of contents, guest authorship, citations, Mermaid, MathJax, PhotoSwipe and video.
 locale: en
 categories: [demo]
-tags: [layout-default, header-post, social-links, tags, categories, mermaid, diagrams, markdown]
+tags: [layout-default, header-post, social-links, tags, categories, mermaid, diagrams, markdown, math, galleries, photoswipe, video]
 header_type: post
 header_img: /assets/img/site/banner-demos.png
 og_image: /assets/img/site/banner-demos.png
 og_image_alt: Chulapa demo banner
+schema_image: /assets/img/site/banner-demos.png
 project_links:
   - url: https://github.com/dieghernan/chulapa
     icon: fab fa-github
     label: View on GitHub
+author:
+  name: Alex Rivera
+  url: /demo/15-kitchen-sink#guest-author
+  location: Madrid, Spain
+  links:
+    - url: "#guest-author"
+      icon: fas fa-user
+      label: About the guest author
 show_date: true
 show_author: true
 show_sociallinks: true
@@ -44,16 +54,69 @@ include_on_search: true
 include_on_feed: false
 mathjax: true
 mermaid: true
-citation: true
+citation:
+  type: article-journal
+  id: rivera-2026-kitchen-sink-demo
+  title: "The Kitchen Sink experiment (fictional example)"
+  author:
+    - name:
+        given: Alex
+        family: Rivera
+    - name:
+        literal: Kitchen Sink Research Group
+  issued: "2026-11-14"
+  container-title: Journal of Imaginary Web Studies
+  container-title-short: J. Imag. Web Stud.
+  collection-title: Demonstration Articles
+  volume: 4
+  issue: 2
+  page: "15–21"
+  page-first: "15"
+  page-last: "21"
+  doi: "10.0000/chulapa.kitchen-sink-demo"
+  url: https://example.invalid/kitchen-sink-demo
+  pdf-url: https://example.invalid/kitchen-sink-demo.pdf
+  available-date: "2026-11-12"
+  abstract: This fictional article illustrates citation metadata for a web publishing demo.
+  abstract-url: https://example.invalid/kitchen-sink-demo#abstract
+  keyword: "web publishing, citations, demonstration"
+  language: en
+  isbn: "0000000000000"
+  issn: "0000-0000"
+  eissn: "0000-0001"
+  pmid: "00000000"
+google-scholar: false
 series:
   - id: component-demos
     order: 1
 ---
 
-This post combines the article header, author card, sharing links and both
-tables of contents. See its
+Jump to an example from the table of contents above or open the sidebar using
+the button on the left edge of the page. At the end of the post, open the
+BibTeX citation, follow a related demo or leave a comment. See the
 [front matter on GitHub](https://github.com/dieghernan/chulapa/blob/main/docs/collections/_posts/2026-11-14-kitchen-sink.md)
 for the settings used here.
+
+## Tables of contents
+
+Choose **Carousel** in the in-page or sidebar index, then scroll to **Video**
+to see the current section update. The expandable index below is generated
+by [kramdown]({{ '/docs/58-content-toc' | relative_url }}) from the same article.
+
+<details markdown="1">
+<summary>Open the kramdown table of contents</summary>
+
+* Contents
+{:toc}
+
+</details>
+
+## Guest author
+
+Alex Rivera is a fictional guest author. Open the profile link in the author
+card to jump back here. The [example citation](#chulapa-citation-label)
+credits Alex and a fictional research group. The journal, identifiers
+and links are sample data.
 
 ## Series navigation
 
@@ -84,16 +147,24 @@ show_toc: true
 mermaid: true
 ```
 
-## Bootstrap components
+## Image galleries
 
-{% include snippets/bootstrapdemo.html %}
+### Masonry gallery
 
-### Content components
+Select an image to open PhotoSwipe. Use the arrow keys to browse and press
+Escape to return to the gallery.
 
-> Use an information alert for a detail that helps readers complete a task.
-{: .alert .alert-info .p-3}
+{% include_cached snippets/masonry.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=3 photoswipe=true %}
 
-<figure>
-  <img class="img-fluid" src="{{ '/assets/img/site/chulapa-madrid.jpg' | relative_url }}" alt="Chulapa lettering in Madrid" loading="lazy">
-  <figcaption>Chulapa lettering in Madrid.</figcaption>
-</figure>
+### Carousel
+
+Use the previous and next controls to change slides, or open a slide to zoom
+in with PhotoSwipe.
+
+{% include_cached snippets/carousel.html internal="gallery" index_sort="basename" index_sort_asc=true index_items=3 interval=0 controls=true indicators=true photoswipe=true %}
+
+## Video
+
+This aerial clip shows a lagoon from above.
+
+{% include snippets/video.html fileurl="/assets/mp4/sample.mp4" name="Aerial lagoon sample" %}
