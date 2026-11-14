@@ -103,7 +103,7 @@ Choose **Carousel** in the in-page or sidebar index, then scroll to **Video**
 to see the current section update. The expandable index below is generated
 by [kramdown]({{ '/docs/58-content-toc' | relative_url }}) from the same article.
 
-<details class="demo-kramdown-toc" markdown="1">
+<details markdown="1">
 <summary>Open the kramdown table of contents</summary>
 
 * Contents

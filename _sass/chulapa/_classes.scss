@@ -1401,6 +1401,13 @@ textarea:focus-visible,
   text-underline-offset: 0.15em;
 }
 
+// Match the built-in TOC in the base theme and Chulapa's own skins.
+@if variable-exists(chulapa-authored-skin) or variable-exists(chulapa-base-skin) {
+  #markdown-toc a:not(:hover):not(:focus-visible) {
+    text-decoration: none;
+  }
+}
+
 // Native action buttons retain the appearance of navigation links and controls.
 // Override the button reset, but remain less specific than even a plain .nav-link.
 :where(.navbar-chulapa, .navbar-chulapa-fab) button:where(.nav-link) {

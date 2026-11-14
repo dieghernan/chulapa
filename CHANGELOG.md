@@ -34,6 +34,8 @@
 
 ### Fixed
 
+-   Match the built-in table of contents link styling in kramdown indexes in the base theme and Chulapa skins.
+
 -   Match APA 7 italics for blog posts and standalone webpages in visible citations.
 
 -   Avoid empty slug warnings when a citable post uses its generated BibTeX key (#213).
