@@ -16,3 +16,7 @@ pre code {
   word-wrap: normal;
   white-space: pre;
 }
+
+.demo-kramdown-toc #markdown-toc a:not(:hover):not(:focus-visible) {
+  text-decoration: none;
+}
