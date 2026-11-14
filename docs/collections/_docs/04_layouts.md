@@ -655,6 +655,13 @@ also depends on the codec and browser; the extension alone is insufficient.
 The [YouTube setup guide](./32-embed-video) has a copyable example and
 explains where to find the video ID.
 
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
+   name="Menorca - Isla Bonita"
+   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
+   upload_date="2019-07-27T12:44:00-07:00"
+   description="Exploring Menorca with a Mavic Pro drone in 2019."
+   duration="PT2M52S" %}
+
 Local-file specimen:
 
 {% raw %}
@@ -671,6 +678,13 @@ Local-file specimen:
    duration="PT48.064S" %}
 
 For a remote video file, pass its absolute URL to `fileurl`.
+
+{% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4"
+   name="Betty Boop and Grampy"
+   thumbnail_url="https://archive.org/services/img/bb_and_grampy"
+   upload_date="2005-03-18T12:20:09Z"
+   description="A 1935 Betty Boop cartoon by Max Fleischer, available in the public domain."
+   duration="PT6M58.59S" %}
 
 #### Deferred (lazy) loading of YouTube videos
 
@@ -697,6 +711,13 @@ Content Security Policy.
 
 If the default `maxresdefault` preview is unavailable, set
 `video_res="hqdefault"` in the include. This controls the visible preview.
+
+{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hqdefault"
+   name="Menorca - Isla Bonita"
+   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
+   upload_date="2019-07-27T12:44:00-07:00"
+   description="Exploring Menorca with a Mavic Pro drone in 2019."
+   duration="PT2M52S" %}
 
 #### Optional video metadata
 
