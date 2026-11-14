@@ -78,3 +78,21 @@ Explore these live websites built with <span class="chulapa">Chulapa</span>:
 - **[Celestial Data](https://dieghernan.github.io/celestial_data/)**: A
   collection of celestial object data in GeoJSON and GeoPackage formats by
   [@dieghernan](https://github.com/dieghernan).
+
+<!-- Additions checked on 2026-11-14 against the published HTML. -->
+
+- **[London Mathematical Biology Conference](https://londonmathbio.github.io/)**:
+  A conference website for the mathematical biology community.
+
+- **[Queer Salsa](https://sandycho.github.io/)**: A community dance website
+  with information about salsa classes and how to sign up.
+
+- **[Moara Exports](https://moaraexports.com.br/)**: A Brazilian export
+  company's website introducing its work and team (Portuguese).
+
+- **[Grandes incendios forestales en España](https://dieghernan.github.io/gifs/)**:
+  A reproducible infographic on large wildfires in Spain, with downloadable
+  data and R code by [@dieghernan](https://github.com/dieghernan) (Spanish).
+
+- **[CraveIt](https://andrevitali.github.io/g8-2024-website/)**: A student
+  project exploring restaurant recommendations by dish.
