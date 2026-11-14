@@ -49,8 +49,7 @@ covers lists, tables and code; [Add an image](./17-add-image) covers photographs
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 In the <span class="chulapa">Chulapa</span> 101 blog or personal-blog starter,
 follow the new article from the home-page post list. Check its title, date,
 sections and links.

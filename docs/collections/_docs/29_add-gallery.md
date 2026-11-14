@@ -55,10 +55,8 @@ and accompanying captions instead.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for **Actions** to
-succeed, then open the site from **Settings > Pages**. Check the published page,
-not only GitHub's file preview. For a local preview, restart Jekyll after changing
-`_config.yml`. If the result is missing, use [the publishing checks](./42-unpublished-changes).
+Use [the publishing checklist](./42-unpublished-changes) to open
+the updated site.
 
 Check that every photograph appears in filename order and that the gallery fits
 a narrow screen. If it is empty, check the uploaded folder, `defaults` path and

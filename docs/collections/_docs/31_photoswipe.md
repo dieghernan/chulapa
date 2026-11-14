@@ -42,10 +42,8 @@ and styles from `https://cdn.jsdelivr.net`.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for **Actions** to
-succeed, then open the site from **Settings > Pages**. Check the published page,
-not only GitHub's file preview. For a local preview, restart Jekyll after changing
-`_config.yml`. If the result is missing, use [the publishing checks](./42-unpublished-changes).
+Use [the publishing checklist](./42-unpublished-changes) to open
+the updated site.
 
 Open an image, try the viewer's controls and press Escape to close it. Check that
 keyboard focus returns to the image. Also try swiping on a touch device when

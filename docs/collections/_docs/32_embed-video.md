@@ -47,10 +47,8 @@ restricts frames, allow `https://www.youtube-nocookie.com`.
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for **Actions** to
-succeed, then open the site from **Settings > Pages**. Check the published page,
-not only GitHub's file preview. For a local preview, restart Jekyll after changing
-`_config.yml`. If the result is missing, use [the publishing checks](./42-unpublished-changes).
+Use [the publishing checklist](./42-unpublished-changes) to open
+the updated site.
 
 Check the preview and activate it to play the video. Reach the preview with Tab
 and activate it with Enter. Supply a nearby text summary or transcript and use

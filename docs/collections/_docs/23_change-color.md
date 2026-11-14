@@ -34,8 +34,7 @@ by the skin; [the precedence explanation](./26-appearance-precedence) describes 
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Check the changed component, text/link contrast and hover/focus states on
 your home page and an article. Check them on a narrow screen too; a color can
 affect more than one component.

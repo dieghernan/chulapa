@@ -24,21 +24,9 @@ Browse [layouts](#a-layouts), [page options](#options), [snippets](#b-snippets),
 
 ## Choose a layout or an optional feature
 
-The `default` layout works for ordinary articles and pages. Use
-[Minimal](#minimal) for a simpler page or [Landing page](#landing-page) for a
-prominent introduction. The reference below covers page options, indexes,
-galleries and custom layouts; you do not need to configure them all.
-
-Features marked **v2.2.0** require that version or later; they are absent from
-v2.1.0. An unpinned remote theme follows `main`; a pinned release or installed
-gem only provides the features included in that version.
-
-| Recent feature | How to enable it | Availability |
-| --- | --- | --- |
-| [Mermaid diagrams](#mermaid-diagrams) | Page front matter: `mermaid: true`, plus Mermaid code blocks | v2.2.0 |
-| [PhotoSwipe galleries](#photoswipe-lightbox) | Liquid include parameter: `photoswipe=true` | v2.2.0 |
-| [Active TOC section](#options) | Automatic with an in-page, sidebar or kramdown TOC and JavaScript | v2.2.0 |
-| [GoatCounter analytics](./02-config#goatcounter-analytics) | Site setting: `goatcounter`, plus a production build | v2.2.0 |
+Use `default` for articles and ordinary pages, [Minimal](#minimal) for
+custom content or [Landing page](#landing-page) for an introduction. Check
+the version beside each feature if you use a pinned release or a gem.
 
 ## A. Layouts
 
@@ -46,27 +34,7 @@ gem only provides the features included in that version.
 
 #### Default
 
-`default` is the article and ordinary-page layout. Front matter specimen:
-
-```yaml
----
-layout: default
----
-```
-
-Site-wide default-layout mapping specimen in `_config.yml` (explicit page values
-take precedence):
-
-```yaml
-
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
-
-```
+Set `layout: default` in page front matter or [site defaults](#a-note-on-defaults).
 
 ##### Options
 
@@ -178,49 +146,25 @@ author:
   Headings with the `no_toc` class are excluded, as they are from kramdown
   content indexes.
 
-- `show_sidetoc`: Alternative implementation of `show_toc` where the table of
-  contents is displayed in a sliding off-canvas sidebar. This adds a
-  button <button class="btn btn-primary btn-sm rounded-right bs-canvas-anim
-  chulapa-btn-nofocus chulapa-fa-static" aria-label="Example button"
-  style="opacity:0.4;border-top-left-radius: 0;
-  border-bottom-left-radius: 0;">
-		<i class="fa-solid fa-plus"></i><span class="sr-only">Example button</span>
-	</button> on the left side of your page, click it to expand the sidebar table of contents. See the implementation on the [Current skin](https://dieghernan.github.io/chulapa/skins/current).
+- `show_sidetoc`: Puts the table of contents in a panel opened by a button
+  on the left. Only headings with IDs appear. Markdown headings get IDs
+  automatically; add an `id` to each HTML heading you want to include.
+  For an index inside the article body, see
+  [Add a table of contents inside an article](./58-content-toc).
 
-In v2.2.0, the in-page TOC, sidebar TOC and
-kramdown's `{:toc}` highlight the current section as you scroll, with
-`aria-current="location"` on its link. Each TOC tracks only its included, rendered headings; headings inside closed or
-hidden containers are skipped until shown.
-The indicator follows the last heading that has passed the reading line near
-the top of the viewport; reaching the bottom selects the last section.
-This requires JavaScript; anchor links still work without it. It does not move
-keyboard focus or change the sidebar's Tab order, and needs no extra YAML setting.
-
-**Table of contents requires heading IDs.** Only headings with an `id` are displayed. If you are
-including headers via markdown (`### Title`) you don't have to worry, as
-**kramdown** generates the IDs. For HTML headings such as
-`<h1 id="aa">My heading</h1>`, supply the `id` yourself.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+Since v2.2.0, the in-page, sidebar and kramdown TOCs highlight the current
+visible section with JavaScript, while preserving the sidebar's Tab order.
+Their links also work without JavaScript.
 
 - `h_min` and `h_max`: Minimum and maximum heading level to be included in the
   table of contents. **min: 2, max: 4**.
 
-- `show_related`: Display up to three related collection documents, excluding
-  the current page. Candidates must share at least two tags if they are in the
-  same collection or at least three tags otherwise. More matches rank first,
-  with newer dates used within each score.
-
-In v2.2.0, a candidate with `show_date: false` has no date footer in
-related or random cards. Other candidates retain the existing date display.
-
-- `show_random`: Display up to three randomly selected documents from the same
-  candidate pool as `show_related`. Selection happens at build time, so the
-  cards do not change on every page load. In v2.2.0, a
-  pool with one eligible document renders that document instead of empty cards.
-
-**Related and random cards require tags.** Both components use collection
-documents and the tag-based candidate pool; they do not select arbitrary pages.
-{: .alert .alert-info .p-3 .mx-2 .mb-3}
+- `show_related`: Shows up to three other collection documents. A candidate
+  needs two shared tags in the same collection or three across collections.
+  More matches rank first, then newer dates.
+- `show_random`: Picks up to three documents from the same pool at build time.
+  In v2.2.0, a single match renders on its own and both components respect
+  each candidate's `show_date: false`.
 
 - `related_label` and `random_label`: Text or HTML displayed before the related
   and random cards, respectively. Custom HTML is rendered as supplied. Use
@@ -236,23 +180,12 @@ documents and the tag-based candidate pool; they do not select arbitrary pages.
   `categories` and `tags` set for the page. These badges could be set as links
   to a cloud index, with the destination URL defined by `cloudtag_url` and
   `cloudcategory_url`. See [Cloud tags](#cloud-tags-and-categories) layouts.
-- `include_on_search`: Set to `false` to exclude a page from the Lunr, Fuse.js and Simple-Jekyll-Search indexes. Pages are included unless this value is explicitly `false`. For Algolia, this setting affects ranking only when configured in `customRanking`; it does not exclude records. Use [Algolia's `files_to_exclude`](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md#files_to_exclude) to exclude files. This option does not control external search crawlers; use `robots` for crawler directives.
-
-- `include_on_feed`: Set the YAML boolean `true` to include a post or collection
-  document in the theme's Atom and RSS feeds, provided it has a resolved date.
-  This field does not include ordinary standalone pages.
-
-Feeds are available at `/atom.xml` (Atom) and `/rss.xml` (RSS 2.0), under the
-site's `baseurl`. Selection is limited to posts and collection documents whose
-`include_on_feed` is boolean `true` and whose resolved `date` is non-null.
-Collection output must be enabled (`output: true`) for linked articles to be
-published; feed inclusion does not enable it. An ordinary standalone page is
-not selected. Jekyll 4 can infer dates for
-collection documents; set dates explicitly for consistent ordering across
-supported Jekyll versions.
-
-For setup, use [Publish posts in the built-in feeds](./56-publish-feeds).
-For an existing plugin address, use [Keep a jekyll-feed subscription address](./57-jekyll-feed).
+- `include_on_search`: Set to `false` to omit a page from the local search
+  indexes. See [Search visibility](./65-search-visibility) for Algolia,
+  external crawlers and sitemaps.
+- `include_on_feed`: Set the YAML boolean `true` on a dated post or collection
+  document to include it in [the built-in feeds](./56-publish-feeds).
+  Use the [jekyll-feed guide](./57-jekyll-feed) to preserve a subscription URL.
 
 - `show_comments`: Display the comment widget when a supported
   `comments.provider` is configured.
@@ -615,16 +548,16 @@ Look up content snippet parameters here. For setup, use the
 [PhotoSwipe](./31-photoswipe), [video](./32-embed-video) or
 [Mermaid](./33-add-diagram) how-to guide.
 
-These are the content snippets and their parameters.
-Parameters belong in the include call, not in page YAML:
+Pass these parameters in Liquid include calls. For defaults and constraints,
+follow the linked reference.
 
-| Snippet | Parameters and defaults |
+| Snippet | Purpose |
 | --- | --- |
-| `snippets/masonry.html` | `internal`: image group named by `image_col`; or `external`: comma-separated image addresses. `index_sort`: `modified_time` for internal images; `index_sort_asc`: `false`; `index_items`: `100`; `random`: `false`; `photoswipe`: `false`. Internal images take precedence if both sources are supplied. |
-| `snippets/carousel.html` | All masonry parameters, plus `interval`: `5000` milliseconds (`0` stops automatic cycling), `controls`: `false`, and `indicators`: `false`. |
-| `snippets/video.html` | Use `fileurl` for a video file, or `provider` and `id` for a supported service. `name` identifies the player. YouTube accepts `nolazy` (off by default) and `video_res` (`maxresdefault`). Optional metadata: `thumbnail_url`, `upload_date`, `description`, `duration`. `fileurl` takes precedence over a provider. |
-| `snippets/youtube.html` | A direct deferred YouTube player: required `id`; optional `name`, `video_res` (`maxresdefault`), `thumbnail_url`, `upload_date`, `description`, `duration`. To disable deferred loading, use `video.html` with `provider="youtube" nolazy=true`. |
-| `snippets/datetranslate.html` | Required `date`: an English formatted date string. Optional `lang`: language code; defaults to site `locale`, then English. Supported translations: Spanish, French, German and Italian; other languages retain English names. |
+| [`snippets/masonry.html`](#masonry-gallery) | Display a masonry gallery. |
+| [`snippets/carousel.html`](#bootstrap-carousel) | Display a slideshow. |
+| [`snippets/video.html`](#video-support) | Embed a video file or hosted player. |
+| [`snippets/youtube.html`](#deferred-lazy-loading-of-youtube-videos) | Embed a deferred YouTube player. Requires `id` and accepts `name`, `video_res` and the optional video metadata. |
+| [`snippets/datetranslate.html`](#localization-of-dates) | Format an English date string in a supported language. |
 | `snippets/bootstrapdemo.html` | Displays the component sampler. The skin previews pass a chapter as `series_example` and its series ID as `series_id` to show working series navigation. |
 
 **Use unquoted booleans in snippets.** Write `controls=true` or `random=false`.
@@ -634,25 +567,11 @@ Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
 
 ### Series navigation
 
-Available in development v2.2.1. A series gives readers an ordered list of
-related pages or posts. Each series shows its current part, progress bar
-and Previous and Next controls. Open **Series index** below the controls
-to see the full list. The current chapter uses muted text for its number,
-bold title and arrow icon. It is also marked for assistive technology.
-Series stack on smaller screens and use up to three columns on wider screens.
-The progress fill uses the theme's progress color when it reaches 3:1 against
-the track. If needed, it tries the theme's info and link colors, then uses the
-body text color as a fallback.
-Try the controls in the [Kitchen Sink demo](../demo/15-kitchen-sink).
-Previous is disabled on the first part, and Next is disabled on the last.
-See the [site details guide](./14-site-details)
-for an example with two series.
-
-Jekyll's collection order applies within one collection. Tags and categories
-can group a page in several ways, but they do not store a different position
-for each group. The series map defines each label once, and the page's
-membership list assigns a position in each series across pages, posts and
-collections.
+Available in v2.2.1 development. A series orders pages, posts and collection
+documents independently of their tags or categories. Readers see the current
+part, progress, Previous and Next links and a collapsible index. Try the
+[Kitchen Sink demo](../demo/15-kitchen-sink) or see the
+[site details guide](./14-site-details) for an example with two series.
 
 Add a top-level map to `_config.yml` and give each series a visible label:
 
@@ -802,20 +721,8 @@ use it for those accessible names.
 For `fileurl`, browser-supported formats include MP4, Ogg and WebM. Playback
 also depends on the codec and browser; the extension alone is insufficient.
 
-YouTube specimen:
-
-{% raw %}
-```liquid
-{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" %}
-```
-{% endraw %}
-
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+The [YouTube setup guide](./32-embed-video) has a copyable example and
+explains where to find the video ID.
 
 Local-file specimen:
 
@@ -832,20 +739,7 @@ Local-file specimen:
    description="Aerial footage of a turquoise lagoon surrounded by limestone cliffs."
    duration="PT48.064S" %}
 
-External-file specimen:
-
-{% raw %}
-```liquid
-{% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4" name="Betty Boop and Grampy" %}
-```
-{% endraw %}
-
-{% include snippets/video.html fileurl="https://archive.org/download/bb_and_grampy/bb_and_grampy_512kb.mp4"
-   name="Betty Boop and Grampy"
-   thumbnail_url="https://archive.org/services/img/bb_and_grampy"
-   upload_date="2005-03-18T12:20:09Z"
-   description="A 1935 Betty Boop cartoon by Max Fleischer, available in the public domain."
-   duration="PT6M58.59S" %}
+For a remote video file, pass its absolute URL to `fileurl`.
 
 #### Deferred (lazy) loading of YouTube videos
 
@@ -870,22 +764,8 @@ Content Security Policy.
    description="Exploring Menorca with a Mavic Pro drone in 2019."
    duration="PT2M52S" %}
 
-`video_res` defaults to `maxresdefault`; some videos lack that preview. A value
-such as `hqdefault` selects a different [YouTube preview variant](https://stackoverflow.com/a/2068371/7877917).
-This changes the displayed preview, unlike `thumbnail_url` (metadata only).
-
-{% raw %}
-```liquid
-{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" video_res="hqdefault" %}
-```
-{% endraw %}
-
-{% include snippets/video.html id="1hXYuWTWVww" provider="youtube" video_res="hqdefault"
-   name="Menorca - Isla Bonita"
-   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
-   upload_date="2019-07-27T12:44:00-07:00"
-   description="Exploring Menorca with a Mavic Pro drone in 2019."
-   duration="PT2M52S" %}
+If the default `maxresdefault` preview is unavailable, set
+`video_res="hqdefault"` in the include. This controls the visible preview.
 
 #### Optional video metadata
 
@@ -1170,47 +1050,15 @@ description: A concise description for search and social previews.
 ---
 ```
 
-Description precedence is:
+The description uses page `description`, then `excerpt`, then site
+`description` on the home page, then the content fallback. An explicit page
+description is used without a subtitle. For the other sources, the subtitle is
+prepended when its text is missing. Blank values are skipped and formatting is
+stripped for metadata. HTML, Open Graph, Twitter/X and JSON-LD share this text.
+Search engines can show a different snippet.
 
-1. A nonempty page `description`, used without a subtitle prefix.
-2. The page `excerpt`.
-3. On the home page only, the site's `description`.
-4. The existing content fallback.
-
-Whitespace-only values are treated as missing. For the excerpt or fallback path,
-the subtitle is prepended only if it is nonempty and its text is not already
-contained in the description, ignoring case. An empty description uses the
-subtitle alone, without an empty separator. Markdown and HTML are reduced to
-text, whitespace is normalized and values are escaped for metadata output.
-Front matter defaults can also supply `description`.
-
-HTML, Open Graph, Twitter/X and JSON-LD share this description. The complete
-generated text is retained, replacing the previous 160-character HTML limit and
-20-word Open Graph limit. Keep descriptions concise and descriptive. Google may
-choose another snippet and truncate it to fit the device; there is no fixed meta
-description length limit. See
-[Google's snippet documentation](https://developers.google.com/search/docs/appearance/snippet).
-
-Search indexing settings are independent:
-
-| Setting | Effect |
-| --- | --- |
-| `robots: "noindex, follow"` | Asks external crawlers not to index the page. It does not remove sitemap entries. |
-| `sitemap: false` | Excludes the page from `jekyll-sitemap`. It does not prevent indexing by itself. |
-| `include_on_search: false` | Excludes the page from the supported internal search indexes. It does not control external indexing; Algolia exclusions are configured separately. |
-
-Combined auxiliary-page mapping specimen (setup and verification are in the
-[search visibility guide](./65-search-visibility)):
-
-```yaml
-robots: "noindex, follow"
-sitemap: false
-include_on_search: false
-```
-
-The documentation's [search page]({{ '/search.html' | relative_url }}) uses these
-settings; its [source](https://github.com/dieghernan/chulapa/blob/main/docs/_pages/search.md)
-is a complete example. There are no automatic exclusions by path or layout.
+Use the [search visibility guide](./65-search-visibility) to exclude a
+published page from crawlers, sitemaps or site search.
 
 ### Article images
 

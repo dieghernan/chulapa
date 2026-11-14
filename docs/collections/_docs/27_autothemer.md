@@ -38,8 +38,7 @@ To stop this extra palette-generation step, omit `autothemer` or set it to
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Check the main color, backgrounds, warnings, errors and text contrast across
 your pages. If a color does not change, check whether your skin or `vars` already
 sets it. Use [the precedence explanation](./26-appearance-precedence) to decide

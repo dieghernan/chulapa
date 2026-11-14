@@ -30,8 +30,7 @@ from building; selecting a preview in your browser does not save it to your site
 
 ## Publish and check
 
-Save with **Commit changes** on your publishing branch. Wait for the latest run
-in **Actions** to succeed, then open your website from **Settings > Pages**.
+Use [the publishing checklist](./42-unpublished-changes) to open the updated site.
 Check your home page and an article, including the menu on a narrow screen.
 Existing color/font overrides can keep parts of the previous appearance; see
 [how skins and overrides interact](./26-appearance-precedence) before removing them.
