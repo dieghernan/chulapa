@@ -11,7 +11,7 @@
   {%- assign links =  site.author.links -%}
   {%- assign profile_url = site.author.url | strip -%}
 {%- endif -%}
-               <div class="h-card p-author">
+               <div class="h-card p-author chulapa-post-author">
 				{%- if profile_url != empty -%}
 				<a class="u-url d-none" href="{{ profile_url | absolute_url | escape }}">{{ name | escape }}</a>
 				{%- endif -%}

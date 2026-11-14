@@ -1,5 +1,5 @@
 {%- assign alldocs = include.cacheddocs -%}
-   {% for post in alldocs limit: include.cachedlimit %} 
+   {% for post in alldocs limit: include.cachedlimit %}
 <div class="col-12 mb-2">
 <div class="card chulapa-border-card-index h-entry">
 	<div class="row g-0">
@@ -14,14 +14,14 @@
 				<a class="u-url" href="{{- post.url | absolute_url -}}"><h2 class="h5 card-title p-name">{{- post.title  | default: "---" | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</h2></a>
 				{% include snippets/author-microformats.html author=post.author %}
 				{% if post.subtitle -%}<p class="h6 card-subtitle mb-2 chulapa-text-body-color">{{- post.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | strip -}}</p>{%- endif %}
-				
+
 {%- assign card_excerpt = post.excerpt -%}
 {%- unless card_excerpt and card_excerpt != empty -%}
 {%- assign card_excerpt = post.content |
-              markdownify |  newline_to_br | 
-              replace:"<br />", ",.," | 
-              replace:"{{", ",.," | 
-              replace:"{%", ",.," | 
+              markdownify |  newline_to_br |
+              replace:"<br />", ",.," |
+              replace:"{{", ",.," |
+              replace:"{%", ",.," |
               split: ",.," | first -%}
 {%- endunless -%}
 				<div class="card-text p-summary">{{- card_excerpt | strip_html |
@@ -29,7 +29,7 @@
 				</div>
 			</article>
 			{% if post.date or post.show_tags or post.show_categories %}
-			<div class="border-top-0 card-footer border-primary chulapa-bg-transparent">
+			<div class="border-top-0 chulapa-card-tags card-footer border-primary chulapa-bg-transparent">
 				{% if post.date -%}<p class="small text-right font-italic mb-1">
 {% if post.last_modified_at %}
 <i class="fa fa-redo fa-xs" aria-hidden="true"></i> {% endif %}

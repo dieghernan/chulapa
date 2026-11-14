@@ -116,6 +116,36 @@
   }
 }
 
+@include media-breakpoint-down(lg) {
+  .chulapa-post-author {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem 1rem;
+  }
+
+  .chulapa-post-author > .row {
+    margin: 0 !important;
+  }
+
+  .chulapa-post-author .u-photo {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0 !important;
+  }
+
+  .chulapa-post-author .p-name {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding: 0 0 0 .5rem;
+  }
+
+  .chulapa-post-author > .row > .col {
+    padding: 0;
+  }
+}
+
 .chulapa-headingfont {
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
@@ -757,7 +787,7 @@
     background-color: $landingpage-card-bg;
 
   }
-  
+
   .close {
     color: $white;
     text-shadow: none;
@@ -774,7 +804,7 @@
     }
   }
 
-  
+
   .card.bg-light {
     color: $landingpage-chulapa-bg-color;
   }
@@ -1578,4 +1608,8 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
     outline: 2px solid $body-color;
     outline-offset: 2px;
   }
+}
+
+.chulapa-card-tags.card-footer :nth-child(n+4 of .chulapa-pill-bg-primary) {
+  display: none;
 }
