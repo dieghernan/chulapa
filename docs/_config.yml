@@ -74,8 +74,13 @@ algolia:
   - _pages/liquid*
   - ai-chatbot/*
   - blog/*.html
-  - assets/widgets/music-scales.html
   - index.html
+  - collections/_skins/*.md
+  - collections/_skins/*.html
+  - _pages/license.md
+  - _pages/license.html
+  - _pages/search.md
+  - _pages/search.html
   extensions_to_index:
   - html
   - md
