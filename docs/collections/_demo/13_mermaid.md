@@ -1,6 +1,7 @@
 ---
 title: Mermaid diagrams
 subtitle: Flowcharts and sequence diagrams from Markdown
+excerpt: See how Mermaid renders flowcharts and sequence diagrams from Markdown.
 categories: [demo]
 header_type: post
 tags: [layout-default, header-post, social-links, tags, categories, bottom-navs, author, date, mermaid, diagrams, markdown]
