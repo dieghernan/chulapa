@@ -45,6 +45,66 @@
   color: $body-color !important;
 }
 
+.callout-note,
+.callout-tip,
+.callout-important,
+.callout-warning,
+.callout-caution {
+  position: relative;
+  padding: $spacer;
+  margin-bottom: $spacer;
+  border-left: .25rem solid;
+  color: $body-color;
+  @include border-radius();
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: var(--chulapa-callout-title);
+    display: block;
+    margin: (-$spacer) (-$spacer) $spacer;
+    padding: ($spacer * .4) $spacer ($spacer * .4) ($spacer * 2.5);
+    background: var(--chulapa-callout-header-bg);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    font-weight: $font-weight-bold;
+    line-height: 1.5;
+  }
+
+  &::after {
+    content: var(--chulapa-callout-icon) / "";
+    position: absolute;
+    top: calc(#{$spacer * .4} + .25em);
+    left: $spacer;
+    font-family: var(--fa-style-family-classic, "Font Awesome 5 Free");
+    font-weight: 900;
+    line-height: 1;
+  }
+}
+
+@each $type, $color, $title, $title-es, $icon in (
+  (note, info, "Note", "Nota", ""),
+  (tip, success, "Tip", "Consejo", ""),
+  (important, danger, "Important", "Importante", ""),
+  (warning, warning, "Warning", "Advertencia", ""),
+  (caution, primary, "Caution", "Precaución", "")
+) {
+  .callout-#{$type} {
+    $accent: map-get($theme-colors, $color);
+    background-color: rgba($accent, .1);
+    border-left-color: $accent;
+    --chulapa-callout-header-bg: #{rgba($accent, .08)};
+    --chulapa-callout-title: #{inspect($title)};
+    --chulapa-callout-icon: #{inspect($icon)};
+
+    &:lang(es) {
+      --chulapa-callout-title: #{inspect($title-es)};
+    }
+  }
+}
+
 .chulapaDateSocial {
   color: $body-color;
 

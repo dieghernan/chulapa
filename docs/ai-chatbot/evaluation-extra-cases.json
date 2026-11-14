@@ -536,6 +536,20 @@
     "expected": "Link /docs/49-add-alert. Edit body below front matter; blank line before paragraph, attribute line immediately next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Use warning only for concrete avoid/fix issue. kramdown parser support; commit/publish/check box boundaries. No new YAML setting."
   },
   {
+    "id": "format-callout-markdown",
+    "section": "faq",
+    "doc": "49_add-alert.md",
+    "question": "Can I use GitHub's > [!NOTE] in a Chulapa post, and how can I make a note with two paragraphs and a list?",
+    "expected": "Default kramdown renders GitHub notation as a quote. Show a div with role=note, Bootstrap alert classes and markdown=1, opening/closing tags on their own lines, visible Note label and Markdown inside. Link /docs/49-add-alert or /docs/components#alert. No plugin or YAML setting."
+  },
+  {
+    "id": "format-callout-css",
+    "section": "faq",
+    "doc": "49_add-alert.md",
+    "question": "How can I make a warning with a tinted background, left border and normal text?",
+    "expected": "Dev v2.2.1. Show div with callout-warning, markdown=1, role=note and aria-label=Warning. CSS supplies visual title and icon. Link alert guide. No plugin or YAML."
+  },
+  {
     "id": "format-caption-task-1",
     "section": "faq",
     "doc": "50_add-caption.md",

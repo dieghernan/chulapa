@@ -1,4 +1,7 @@
 // Loaded only by the 16 original dieghernan skins. No third-party imports.
+$skin-callout-borders: () !default;
+$skin-series-index-contrast: false !default;
+
 // Literal palettes distinguish stock colors from predeclared and YAML overrides.
 $chulapa-authored-palettes: (
   "academia": (
@@ -167,14 +170,14 @@ $chulapa-authored-palettes: (
   @return abs(red($actual) - red($stock)) < .01 and abs(green($actual) - green($stock)) < .01 and abs(blue($actual) - blue($stock)) < .01 and abs(opacity($actual) - opacity($stock)) < .001;
 }
 
-@function chulapa-readable-color($foreground, $background) {
-  @if contrast-ratio($background, $foreground) >= 4.6 {
+@function chulapa-readable-color($foreground, $background, $minimum: 4.6) {
+  @if contrast-ratio($background, $foreground) >= $minimum {
     @return $foreground;
   }
   $target: if(contrast-ratio($background, #000) > contrast-ratio($background, #fff), #000, #fff);
   @for $step from 1 through 100 {
     $candidate: mix($target, $foreground, $step * 1%);
-    @if contrast-ratio($background, $candidate) >= 4.6 {
+    @if contrast-ratio($background, $candidate) >= $minimum {
       @return $candidate;
     }
   }
@@ -199,6 +202,27 @@ $chulapa-authored-palettes: (
 }
 
 @mixin chulapa-skin-contrast {
+  @each $type, $variant in $skin-callout-borders {
+    $accent: theme-color($variant);
+    $fill: opaque($body-bg, rgba($accent, .1));
+    .callout-#{$type} {
+      border-left-color: chulapa-readable-color($accent, $fill, 3.05);
+    }
+  }
+
+  @if $skin-series-index-contrast {
+    $surface: mix($secondary, $body-bg, 5%);
+    .chulapa-series-index a {
+      color: chulapa-readable-color($link-color, $surface);
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: chulapa-readable-color($link-hover-color, $surface);
+      }
+    }
+  }
+
   $palette: map-get($chulapa-authored-palettes, $chulapa-authored-skin);
   @each $variant, $stock in $palette {
     @if chulapa-stock-color(map-get($skin-button-effective-palette, $variant), $stock) and chulapa-stock-color(theme-color($variant), $stock) {

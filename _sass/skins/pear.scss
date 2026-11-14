@@ -63,5 +63,7 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: rgb(243.55, 251.65, 250.05) !default;
 
+$skin-callout-borders: (note: info, tip: success, warning: warning, caution: primary) !default;
+
 $chulapa-authored-skin: "pear";
 @import "chulapa/skins/authored-contrast";

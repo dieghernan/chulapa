@@ -2,6 +2,8 @@
 
 ### Added
 
+-   Add five CSS callouts with automatic titles, Font Awesome icons and skin colors.
+
 -   Add optional series badges, collapsible indexes, progress bars, and Previous and Next controls for pages and posts. Each series can order its pages independently.
 
 -   Add optional Google Scholar metadata for citable posts using `google-scholar: true`, with Quarto-style fields for PDF links, publication dates and bibliographic identifiers.

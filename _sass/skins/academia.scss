@@ -68,5 +68,7 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #ffffff !default;
 
+$skin-callout-borders: (note: info, tip: success, warning: warning) !default;
+
 $chulapa-authored-skin: "academia";
 @import "chulapa/skins/authored-contrast";

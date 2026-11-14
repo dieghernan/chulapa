@@ -65,5 +65,7 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #ffffff !default;
 
+$skin-callout-borders: (note: info, important: danger, warning: warning) !default;
+
 $chulapa-authored-skin: "butterfly";
 @import "chulapa/skins/authored-contrast";

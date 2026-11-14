@@ -1,4 +1,5 @@
-{%- if page.series and site.series -%}
+{%- assign series_page = include.series_page | default: page -%}
+{%- if series_page.series and site.series -%}
   {%- assign series_documents = site.pages -%}
   {%- assign published_collections = site.collections | where: "output", true -%}
   {%- for collection in published_collections -%}
@@ -8,7 +9,8 @@
   {%- assign build_time = site.time | date: "%s" | plus: 0 -%}
   {%- assign visible_series = 0 -%}
   {%- capture series_indices -%}
-    {%- for membership in page.series -%}
+    {%- for membership in series_page.series -%}
+      {%- if include.series_id and membership.id != include.series_id -%}{%- continue -%}{%- endif -%}
       {%- assign series = site.series[membership.id] -%}
       {%- unless series.label -%}{%- continue -%}{%- endunless -%}
       {%- assign chapters = "" | split: "," -%}
@@ -39,7 +41,7 @@
           {%- for document in ordered_group -%}
             {%- assign position = position | plus: 1 -%}
             {%- assign chapter_title = document.title | markdownify | strip_html | strip | escape_once -%}
-            {%- if document.url == page.url -%}
+            {%- if document.url == series_page.url -%}
               {%- assign part_number = position -%}
               {%- assign previous_part = preceding_document -%}
               <li><span aria-current="page" class="chulapa-series-item font-weight-bold">{{ chapter_title }} <span class="chulapa-series-current">You are here</span></span></li>

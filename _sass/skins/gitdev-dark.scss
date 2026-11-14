@@ -101,5 +101,7 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #24292f !default;
 
+$skin-callout-borders: (caution: primary) !default;
+
 $chulapa-authored-skin: "gitdev-dark";
 @import "chulapa/skins/authored-contrast";

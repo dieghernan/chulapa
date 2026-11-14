@@ -80,5 +80,12 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #ffffff !default;
 
+$skin-callout-borders: (tip: success, warning: warning, caution: primary) !default;
+
+.chulapa-series-indices.chulapa-series-indices,
+.chulapa-series-current.chulapa-series-current {
+  border-radius: 0;
+}
+
 $chulapa-authored-skin: "chulapa";
 @import "chulapa/skins/authored-contrast";
