@@ -295,14 +295,8 @@ schema_image: URL/list for post BlogPosting, fallback page og_image then header_
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
 Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
-No snippets/alert.html exists; do NOT include one. Alerts use Markdown attributes in v2.1.0 and main: blank line, paragraph, next line {: .alert .alert-info .p-3 .mx-2 .mb-3}. Caption: image, BLANK LINE, caption paragraph then {: .caption}; keep image/caption separate.
-```liquid
-![River]({{ '/assets/img/river.jpg' | relative_url }})
-
-The river in spring.
-{: .caption}
-```
-Footnotes: [^1] with [^1]: text (kramdown).
+Kramdown: blank line, alert paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3}. Multi-paragraph: div with same classes, role="note", markdown="1", visible label. > [!NOTE] renders as a quote. No snippets/alert.html exists.
+Dev v2.2.1: callout-note/tip/important/warning/caution add CSS titles/icons; set aria-label. Caption: image, blank line, caption + {: .caption}. Footnotes: [^1] + [^1]: text.
 ## Favicons
 Source: https://dieghernan.github.io/chulapa/docs/52-add-favicon
 favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.

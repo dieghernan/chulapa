@@ -59,5 +59,7 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #fff !default;
 
+$skin-callout-borders: (note: info, tip: success, warning: warning) !default;
+
 $chulapa-authored-skin: "towards";
 @import "chulapa/skins/authored-contrast";

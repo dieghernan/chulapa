@@ -14,6 +14,7 @@ browser. You do not need to install anything on your computer.
 Moving an existing site? Follow the [migration guide and checklist](./docs/07-migration).
 
 Browse [documentation topics](./docs/tags) for tagged guides and references.
+To see what you can insert in a post, browse the [components for Markdown](./docs/components).
 The sections below list all documentation. Open the series index on any guide
 or reference page to find related pages in the same group.
 

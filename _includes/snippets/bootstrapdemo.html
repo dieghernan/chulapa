@@ -1559,3 +1559,27 @@
 <h2 id="chulapa-comp">
   <span class="chulapa">Chulapa</span> components
 </h2>
+{% if include.series_example %}
+<h3 id="series-example">Series navigation</h3>
+<div class="bs-component">
+  {% include snippets/series-chapters.html series_page=include.series_example series_id=include.series_id %}
+</div>
+{% endif %}
+<h3 id="callouts">Callouts</h3>
+<div class="bs-component">
+  <div class="callout-note" role="note" aria-label="Note">
+    <p>Keep a copy of your draft before changing its permalink.</p>
+  </div>
+  <div class="callout-tip" role="note" aria-label="Tip">
+    <p>Preview the post locally before publishing.</p>
+  </div>
+  <div class="callout-important" role="note" aria-label="Important">
+    <p>Update internal links when you change a permalink.</p>
+  </div>
+  <div class="callout-warning" role="note" aria-label="Warning">
+    <p>Check that your redirects work before sharing the new URL.</p>
+  </div>
+  <div class="callout-caution" role="note" aria-label="Caution">
+    <p>Removing a redirect can break links to the old URL.</p>
+  </div>
+</div>

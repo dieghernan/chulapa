@@ -89,5 +89,7 @@ $skin-button-palette: (
 ) !default;
 $skin-button-body-bg: #fff !default;
 
+$skin-callout-borders: (note: info, tip: success, warning: warning, caution: primary) !default;
+
 $chulapa-authored-skin: "focal";
 @import "chulapa/skins/authored-contrast";

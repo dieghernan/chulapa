@@ -8,4 +8,5 @@
 {% include components/tags.html -%}
 {% endif -%}
 
-{% include snippets/bootstrapdemo.html %}
+{% assign series_example = site.docs | where: "url", "/docs/14-site-details" | first %}
+{% include snippets/bootstrapdemo.html series_example=series_example series_id="first-site" %}

@@ -43,6 +43,7 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 - [Run a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter): Copy, configure, preview and publish a minimal example for existing Jekyll users.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Selected variable identifiers, mapping syntax, value types and constraints; editing steps are in the color/font guides.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Markdown and kramdown syntax, tables, code and TOCs.
+- [Components for Markdown](https://dieghernan.github.io/chulapa/docs/components): Previews and examples for alerts, CSS callouts (v2.2.1 development), captions, galleries, slideshows, diagrams and video.
 - [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Style identifiers, configuration mapping specimens and interactive code previews; saving steps are in Change code highlighting.
 
 ## Troubleshooting and site checks
