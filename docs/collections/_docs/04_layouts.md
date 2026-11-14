@@ -655,7 +655,7 @@ Available in development v2.2.1. A series gives readers an ordered list of
 related pages or posts. Each series shows its current part, progress bar
 and Previous and Next controls. Open **Series index** below the controls
 to see the full list. The current chapter uses muted text for its number,
-bold title and circle icon. It is also marked for assistive technology.
+bold title and arrow icon. It is also marked for assistive technology.
 Series stack on smaller screens and use up to three columns on wider screens.
 The progress fill uses the theme's progress color when it reaches 3:1 against
 the track. If needed, it tries the theme's info and link colors, then uses the

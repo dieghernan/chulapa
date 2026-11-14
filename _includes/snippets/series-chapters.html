@@ -44,7 +44,7 @@
             {%- if document.url == series_page.url -%}
               {%- assign part_number = position -%}
               {%- assign previous_part = preceding_document -%}
-              <li class="text-muted"><span aria-current="page" class="chulapa-series-item font-weight-bold">{{ chapter_title }} <i class="fas fa-dot-circle" aria-hidden="true"></i></span></li>
+              <li class="text-muted"><span aria-current="page" class="chulapa-series-item font-weight-bold">{{ chapter_title }} <i class="fas fa-arrow-left" aria-hidden="true"></i></span></li>
             {%- else -%}
               {%- if part_number > 0 and next_part == nil -%}
                 {%- assign next_part = document -%}
