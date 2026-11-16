@@ -11,7 +11,7 @@
             "@id": {% assign jsonld_value = home_url | append: 'series/#' | append: membership.id %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false -%}
             {%- if series.label -%}
             ,
-            "name": {% include snippets/jsonld-string.html value=series.label decode_html=false %}
+            "name": {% assign jsonld_value = series.label | default: '---' | markdownify | strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
             {%- endif %}
           }
           {%- endif -%}
