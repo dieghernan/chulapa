@@ -11,12 +11,13 @@
   {%- assign links =  site.author.links -%}
   {%- assign profile_url = site.author.url | strip -%}
 {%- endif -%}
+{%- assign avatar = avatar | strip -%}
                <div class="h-card p-author chulapa-post-author">
 				{%- if profile_url != empty -%}
 				<a class="u-url d-none" href="{{ profile_url | absolute_url | escape }}">{{ name | escape }}</a>
 				{%- endif -%}
 				<div class="row d-flex align-items-center mb-2">
-				  {%- if avatar -%}
+				  {%- if avatar != empty -%}
 				  <img src="{{ avatar | absolute_url  }}" alt="{{ name }}" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size u-photo">
 					{%- endif -%}
 					<div class="col-9 col-lg-12 text-lg-center p-name">

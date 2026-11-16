@@ -146,11 +146,12 @@
     width: auto;
     min-width: 0;
     max-width: 100%;
-    padding: 0 0 0 .5rem;
+    padding: 0;
   }
 
   .chulapa-post-author.p-author > .row > .u-photo + .p-name {
     max-width: calc(100% - 2rem);
+    padding-left: .5rem;
   }
 
   .chulapa-post-author > .row > .col {

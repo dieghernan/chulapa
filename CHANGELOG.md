@@ -36,6 +36,8 @@
 
 ### Fixed
 
+-   Align the post author's name with the location and links on small screens when the author has no avatar.
+
 -   Use the same compact spacing and link styling in the built-in and kramdown tables of contents across all skins.
 
 -   Match APA 7 italics for blog posts and standalone webpages in visible citations.
