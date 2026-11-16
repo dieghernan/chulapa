@@ -18,6 +18,7 @@ series_page: true
 
 <main class="container-lg py-4 py-md-5 flex-fill">
   <h1 class="mb-4">Series</h1>
+  <p>Explore tutorials on <span class="chulapa">Chulapa</span> and Jekyll.</p>
   <div class="row">
     {% for entry in site.series %}
       {% assign series_id = entry[0] %}
@@ -40,28 +41,26 @@ series_page: true
       {% assign last_group = chapter_groups | last %}
       {% assign cover = last_group.items | sort: "url" | last %}
       {% assign cover_image = cover.header_img | default: cover.og_image %}
-      <div class="col-sm-6 col-lg-4 mb-4">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
         <article class="card series-card h-100">
-          {% if cover_image %}
-            <img class="card-img-top series-card-cover" src="{{ cover_image | relative_url | escape }}"
-              alt="{{ cover.og_image_alt | escape }}" decoding="async"{% if forloop.index > 3 %} loading="lazy"{% endif %}>
-          {% endif %}
           <div class="card-body">
-            <h2 class="card-title h4 mb-2" id="{{ series_id }}">{{ series.label | escape }}</h2>
-            <details>
-              <summary>{{ chapters.size }} parts<span class="sr-only"> in {{ series.label | escape }}</span></summary>
-              <ol class="pl-4 mb-0 mt-2">
-                {% for group in chapter_groups %}
-                  {% assign ordered_chapters = group.items | sort: "url" %}
-                  {% for chapter in ordered_chapters %}
-                    <li class="mb-1"><a href="{{ chapter.url | relative_url | escape }}">{{ chapter.title | markdownify | strip_html | strip | escape_once }}</a></li>
+            <h2 class="card-title h6 mb-2" id="{{ series_id }}">{{ series.label | escape }}</h2>
+            <div class="card-text">
+              <details class="small">
+                <summary>{{ chapters.size }} parts<span class="sr-only"> in {{ series.label | escape }}</span></summary>
+                <ol class="pl-4 mb-0 mt-2">
+                  {% for group in chapter_groups %}
+                    {% assign ordered_chapters = group.items | sort: "url" %}
+                    {% for chapter in ordered_chapters %}
+                      <li class="mb-1"><a href="{{ chapter.url | relative_url | escape }}">{{ chapter.title | markdownify | strip_html | strip | escape_once }}</a></li>
+                    {% endfor %}
                   {% endfor %}
-                {% endfor %}
-              </ol>
-            </details>
+                </ol>
+              </details>
+            </div>
           </div>
           <div class="card-footer bg-transparent">
-            <a class="card-link" href="{{ first_chapter.url | relative_url | escape }}">Start reading<span class="sr-only"> {{ series.label | escape }}</span></a>
+            <a class="btn btn-sm btn-outline-primary" href="{{ first_chapter.url | relative_url | escape }}">Start reading<span class="sr-only"> {{ series.label | escape }}</span></a>
           </div>
         </article>
       </div>
