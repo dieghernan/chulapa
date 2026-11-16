@@ -36,7 +36,7 @@
 
 ### Fixed
 
--   Apply the skin's table of contents link styling consistently to built-in and kramdown indexes.
+-   Use the same compact spacing and link styling in the built-in and kramdown tables of contents across all skins.
 
 -   Match APA 7 italics for blog posts and standalone webpages in visible citations.
 

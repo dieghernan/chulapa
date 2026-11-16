@@ -359,6 +359,7 @@ To exclude a heading, copy the colon exactly:
 {:.no_toc}
 ```
 TOC covers eligible headings before/after marker; marker sets position only. {:.no_toc} excludes from both TOCs. kramdown.toc_levels: 2..6 is site-wide, separate from show_toc/h_min/h_max.
+Dev v2.2.1: show_toc and kramdown share compact nested spacing across skins, including numbered indexes. /docs/58-content-toc.
 _config.yml (merge, keep parser/options):
 ```yaml
 kramdown:

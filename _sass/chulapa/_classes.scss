@@ -660,20 +660,41 @@ $author-compact-breakpoint: lg;
     );
   }
 }
+// Both content indexes use this wrapper, including kramdown via @extend.
 .chulapa-toc-wrapper {
+  margin-bottom: map-get($spacers, 3);
+
   .list-group-item {
     background-color: $chulapa-toc-bg;
     a {
       color: color-contrast($chulapa-toc-bg);
     }
+  }
+
+  > .list-group-item {
+    padding-block: map-get($spacers, 1);
+    padding-inline: map-get($spacers, 3) 0;
+
     &:first-child {
       @include border-top-radius($border-radius-lg);
-      padding-top: map-get($spacers, 2) !important;
+      padding-block-start: map-get($spacers, 2);
     }
 
     &:last-child {
       @include border-bottom-radius($border-radius-lg);
-      padding-bottom: map-get($spacers, 2) !important;
+      padding-block-end: map-get($spacers, 2);
+    }
+  }
+
+  li > :is(ol, ul) {
+    margin: 0;
+    padding: 0;
+    padding-inline-start: map-get($spacers, 3);
+
+    > .list-group-item {
+      padding: 0;
+      font-size: 0.9 * $font-size-base;
+      font-weight: $font-weight-normal !important;
     }
   }
 }
@@ -701,37 +722,16 @@ $author-compact-breakpoint: lg;
 
 .chulapa-toc-reset {
   border: 0;
-  ul {
-    padding-left: 0;
-    margin-left: 0;
-    padding-right: 0;
-    margin-right: 0;
-    border: 0;
-
-    li {
-      border-left: 0;
-      border-right: 0;
-      border-bottom: 0;
-      font-size: 0.9 * $font-size-base;
-      font-weight: $font-weight-normal !important;
-      padding-right: 0;
-      margin-right: 0;
-    }
-  }
 }
 
 #markdown-toc {
   @extend .chulapa-toc-wrapper;
   @extend .list-group;
-  @extend .mb-5;
   @extend .mx-3;
   @extend .mx-lg-5;
   li {
     @extend .list-group-item;
     @extend .font-weight-bold;
-    @extend .py-1;
-    @extend .pr-0;
-    @extend .mr-0;
     @extend .chulapa-toc-reset;
   }
 }

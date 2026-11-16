@@ -1,11 +1,21 @@
 # Instructions for AI and coding agents
 
-## Preserve third-party skins
+## Preserve third-party skin styles
 
-Only modify skins authored by `dieghernan`, as identified by `skin_author` in
-`docs/collections/_skins/`. Preserve other authors' original skins and document
-any issues without changing their appearance. Shared style changes must not
-alter third-party skins indirectly; validate their compiled output when relevant.
+Use `skin_author` in `docs/collections/_skins/` to identify skin ownership.
+Only modify skin-specific styles authored by `dieghernan`. Preserve
+third-party skin definitions, including their palettes, typography and rules
+for classes they define or customize. Document issues with those styles.
+
+Maintain Chulapa's shared component styles in the common stylesheet and apply
+them to all skins, regardless of author. For example, the TOC wrapper's spacing
+and indentation belong to Chulapa, so define them in `_sass/chulapa/_classes.scss`
+without a skin-author condition. Keep any explicit skin overrides for that
+component effective.
+
+When a shared change affects third-party skins, inspect representative compiled
+or rendered output. Expect the intended component change and check that the
+skin's own colors, typography and overrides still take effect.
 
 ## Avoid unnecessary YAML options
 

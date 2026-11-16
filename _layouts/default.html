@@ -43,7 +43,7 @@ header_in_content: true
 			               {% assign h_min = page.h_min | default: 2 %}
                            {% assign h_max = page.h_max | default: 4 %}
              <nav aria-label="table-of-contents">
-			 {% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skip_no_ids=true id="toc" class="chulapa-toc-wrapper.list-group.mb-5.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.py-1.pr-0.mr-0.chulapa-toc-reset" %}
+			{% include components/toc.html sanitize=false html=content h_min=h_min h_max=h_max skip_no_ids=true id="toc" class="chulapa-toc-wrapper.list-group.mx-3.mx-lg-5" item_class="list-group-item.font-weight-bold.chulapa-toc-reset" %}
 			 </nav>
 			  {% endif %}
 			{% unless is_feed %}<div class="e-content">{% endunless %}

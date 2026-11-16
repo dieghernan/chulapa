@@ -74,6 +74,8 @@ heading, and that an excluded heading is absent. Check on a narrow screen too.
 
 In v2.2.1 development, both the kramdown and built-in indexes use links without
 underlines and outline the current section as you scroll.
+Both indexes use the same compact spacing for nested entries across skins,
+including in numbered indexes.
 
 If the marker remains plain text, check the two-line syntax, blank lines and
 whether it was placed inside a code fence. The GitHub file preview does not

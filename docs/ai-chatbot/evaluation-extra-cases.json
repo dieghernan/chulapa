@@ -634,6 +634,13 @@
     "expected": "Two-line * Contents then {:toc}, blank lines outside code/front matter. Marker position does not limit scope: eligible headings before it are included. {:.no_toc} below heading excludes it from both content and theme TOCs. Merge kramdown.toc_levels: 2..6 site-wide preserving parser/options; distinct from show_toc/h_min/h_max. Commit/publish/check links."
   },
   {
+    "id": "content-toc-spacing-1",
+    "section": "formatting",
+    "doc": "58_content-toc.md",
+    "question": "Does a numbered kramdown TOC use the same spacing as show_toc, and do I need to change my Markdown?",
+    "expected": "In v2.2.1 development, the built-in and kramdown indexes use the same compact nested spacing across skins, including numbered indexes. Keep the existing marker and settings. Cite /docs/58-content-toc."
+  },
+  {
     "id": "person-publisher-task-1",
     "section": "seo",
     "doc": "60_person-publisher.md",
