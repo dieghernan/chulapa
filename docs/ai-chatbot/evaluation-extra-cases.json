@@ -634,6 +634,20 @@
     "expected": "Two-line * Contents then {:toc}, blank lines outside code/front matter. Marker position does not limit scope: eligible headings before it are included. {:.no_toc} below heading excludes it from both content and theme TOCs. Merge kramdown.toc_levels: 2..6 site-wide preserving parser/options; distinct from show_toc/h_min/h_max. Commit/publish/check links."
   },
   {
+    "id": "author-card-reflow-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Does the visible author card wrap a long name on mobile if I use a third-party skin?",
+    "expected": "In v2.2.1 development, long names wrap in the visible author card across skins. On narrow screens the location and links go below the name. No extra front matter required beyond the existing show_author setting. Cite /docs/04-layouts."
+  },
+  {
+    "id": "theme-selector-icon-width-1",
+    "section": "theming",
+    "doc": "22_choose-skin.md",
+    "question": "Do I need custom CSS to stop the theme selector icon from changing width between Light, Dark and Auto on a Bootswatch skin?",
+    "expected": "In v2.2.1 development, Chulapa reserves the same width for these icons across skins. No custom CSS or extra YAML is required for the icon width. Matching font sizes matter when comparing the entire button across skins. Cite /docs/22-choose-skin."
+  },
+  {
     "id": "content-toc-spacing-1",
     "section": "formatting",
     "doc": "58_content-toc.md",

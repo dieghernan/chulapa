@@ -117,6 +117,8 @@ project_links:
 
   In v2.2.1 development, `show_author: false` hides the card while keeping
   author information available to services that read Microformats2.
+  On narrow screens, the visible card puts the location and links below the
+  name. Long names wrap within the card.
 
 ```yaml
 ---

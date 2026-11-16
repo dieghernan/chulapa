@@ -125,7 +125,7 @@ chulapa-skin-dark:
   skin: gitdev-dark
   highlight: github.dark
 ```
-Mappings are independent; copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Preference persists same-origin; without storage, current page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; preserve custom tags. Both skins credited. Custom CSS overrides both; check widgets/images/diagrams. Incomplete skin/highlighter CSS: Light initially, prior appearance later; mode persists.
+Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Preference persists same-origin; without storage, current page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; preserve custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete skin/highlighter CSS: Light initially, prior appearance later; mode persists. Dev v2.2.1: fixed icon width across modes.
 Font imports remain. Google Fonts failure falls back; switching needs complete skin/highlighter CSS. Other import errors do not recover. Replacement CSS keeps its completion marker. Not v2.1.0. Demo selector is illustrative only.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
@@ -215,7 +215,7 @@ landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chula
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
 archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
-Dev v2.2.1: show_author:false keeps hidden h-card p-author and listing authors. Atom profiles: own author.url or first HTTP(S) link. Guests never inherit site identity. Unnamed guests: Guest author; missing site name: Unknown author. RSS: dc:creator for known names. /docs/56-publish-feeds.
+Dev v2.2.1: show_author:false keeps hidden h-card p-author and listing authors. Visible cards wrap names; details go below on mobile. Atom profiles: own author.url or first HTTP(S) link. Guests never inherit site identity. Unnamed guests: Guest author; missing site name: Unknown author. RSS: dc:creator for known names. /docs/56-publish-feeds.
 Page switches: show_author, show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
 Defaults: scope.path:"", scope.type:posts, values.layout:default. Front matter wins; boolean false, not "false".
 ## Related and random article cards

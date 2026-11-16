@@ -116,12 +116,11 @@
   }
 }
 
-$author-compact-breakpoint: lg;
-@if variable-exists(chulapa-authored-skin) {
-  $author-compact-breakpoint: md;
+.chulapa-post-author .p-name {
+  overflow-wrap: anywhere;
 }
 
-@include media-breakpoint-down($author-compact-breakpoint) {
+@include media-breakpoint-down(md) {
   .chulapa-post-author {
     display: flex;
     flex-wrap: wrap;
@@ -130,46 +129,32 @@ $author-compact-breakpoint: lg;
   }
 
   .chulapa-post-author > .row {
+    flex: 0 0 100%;
+    max-width: 100%;
     margin: 0 !important;
   }
 
   .chulapa-post-author .u-photo {
+    flex: 0 0 2rem;
     width: 2rem;
     height: 2rem;
     margin-left: 0 !important;
   }
 
-  .chulapa-post-author .p-name {
-    flex: 0 0 auto;
+  .chulapa-post-author.p-author > .row > .p-name {
+    flex: 0 1 auto;
     width: auto;
-    max-width: none;
+    min-width: 0;
+    max-width: 100%;
     padding: 0 0 0 .5rem;
+  }
+
+  .chulapa-post-author.p-author > .row > .u-photo + .p-name {
+    max-width: calc(100% - 2rem);
   }
 
   .chulapa-post-author > .row > .col {
     padding: 0;
-  }
-
-  @if variable-exists(chulapa-authored-skin) {
-    .chulapa-post-author > .row {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-
-    .chulapa-post-author .u-photo {
-      flex: 0 0 2rem;
-    }
-
-    .chulapa-post-author.p-author > .row > .p-name {
-      flex: 0 1 auto;
-      min-width: 0;
-      max-width: 100%;
-      overflow-wrap: anywhere;
-    }
-
-    .chulapa-post-author.p-author > .row > .u-photo + .p-name {
-      max-width: calc(100% - 2rem);
-    }
   }
 }
 

@@ -22,7 +22,7 @@
 
 ### Changed
 
--   On Chulapa-authored skins, place the author's location and links below the name on narrow screens.
+-   On narrow screens, place the author's location and links below the name across all skins and wrap long names within the author card.
 
 -   Remove individual skin credits from the site footer. Skin authors remain credited in the skin gallery.
 
@@ -66,7 +66,7 @@
 
 -   Preserve per-entry authorship in collection listings and hidden-author pages, prioritize configured Atom author profile URLs and include known author names in RSS without changing visible cards (#199).
 
--   Keep the theme selector icon width consistent across Light, Dark and Auto in dieghernan skins, preventing navigation shifts when switching between matching light and dark typography.
+-   Keep the theme selector icon width consistent across Light, Dark and Auto in all skins, preventing shifts caused by the different icon widths.
 
 -   Improve navigation, text-link interaction states, badges, outline buttons and contextual card text/links across the 16 dieghernan skins, including Listen's Primary card. Keep navigation defaults adaptive to configured backgrounds, preserve explicit text colors and custom semantic palettes, and leave third-party skins unchanged.
 

@@ -108,6 +108,9 @@ and shadow. If your site requires a visible focus indicator on this control,
 add a local CSS override or leave switching disabled. See the
 [accessibility limits](./48-accessibility-reference#keyboard-navigation).
 
+In v2.2.1 development, the selector reserves the same space for the Light,
+Dark and Auto icons across all skins.
+
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should
 start with the dark appearance. Choose Auto and change your device preference
