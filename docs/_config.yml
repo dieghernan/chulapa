@@ -134,6 +134,8 @@ navbar:
       url: /docs#appearance-and-branding
     - title: Troubleshooting
       url: /docs#maintenance-and-troubleshooting
+    - title: Tutorials
+      url: /tutorials
   - title: Skins
     url: /skins
   - title: Demos

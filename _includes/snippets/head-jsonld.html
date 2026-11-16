@@ -5,7 +5,7 @@
         "@type": {{ schema_type | jsonify }},
       {% if schema_type == 'WebPage' or schema_type == 'CollectionPage' %}
         "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
-        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% include snippets/ispartof-jsonld.html %}
         "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
         "name": {% include snippets/jsonld-string.html value=metatitle1 %},
         {% if page_image_source != empty %}
@@ -31,7 +31,7 @@
       {% endif %}
         "inLanguage": {% include snippets/jsonld-string.html value=page_language %},
       {% if schema_type == 'BlogPosting' %}
-        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {% include snippets/ispartof-jsonld.html %}
         {% include snippets/article-taxonomy.html %}
       {% endif %}
         "headline": {% assign jsonld_value = metatitle1 | strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},

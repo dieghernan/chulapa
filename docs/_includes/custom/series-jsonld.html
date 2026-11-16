@@ -1,0 +1,96 @@
+{%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
+{%- assign build_time = site.time | date: "%s" | plus: 0 -%}
+{%- assign series_documents = site.pages -%}
+{%- assign published_collections = site.collections | where: "output", true -%}
+{%- for collection in published_collections -%}
+  {%- assign series_documents = series_documents | concat: collection.docs -%}
+{%- endfor -%}
+{%- assign series_documents = series_documents | where_exp: "document", "document.series" | where_exp: "document", "document.published != false" %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        "name": "Series",
+        "mainEntity": {
+          "@type": "ItemList",
+          "@id": {% assign jsonld_value = canonical_url | append: '#itemlist' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+          "itemListOrder": "https://schema.org/ItemListUnordered",
+          {%- assign emitted_series = 0 -%}
+          {%- capture series_items -%}
+          {%- for entry in site.series -%}
+            {%- assign series_id = entry[0] -%}
+            {%- assign series = entry[1] -%}
+            {%- assign chapters = "" | split: "," -%}
+            {%- for document in series_documents -%}
+              {%- if document.collection and document.date and site.future != true -%}
+                {%- assign document_time = document.date | date: "%s" | plus: 0 -%}
+                {%- if document_time > build_time -%}{%- continue -%}{%- endif -%}
+              {%- endif -%}
+              {%- assign membership = document.series | where: "id", series_id | first %}
+              {%- if membership.order -%}
+                {%- assign chapters = chapters | push: document -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if chapters.size < 2 -%}{%- continue -%}{%- endif -%}
+            {%- assign emitted_series = emitted_series | plus: 1 -%}
+            {%- assign chapter_groups = chapters | group_by_exp: "document", "document.series | where: 'id', series_id | map: 'order' | first" | sort: "name" -%}
+            {%- unless emitted_series == 1 -%},{%- endunless %}
+            {
+              "@type": "ListItem",
+              "position": {{ emitted_series }},
+              "item": {
+                "@type": "CreativeWorkSeries",
+                "@id": {% assign jsonld_value = canonical_url | append: '#' | append: series_id %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+                "name": {% assign jsonld_value = series.label | default: '---' | markdownify | strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
+                "hasPart": [
+                  {%- assign emitted_chapters = 0 -%}
+                  {%- for group in chapter_groups -%}
+                    {%- assign ordered_chapters = group.items | sort: "url" -%}
+                    {%- for chapter in ordered_chapters -%}
+                      {%- assign emitted_chapters = emitted_chapters | plus: 1 -%}
+                      {%- unless emitted_chapters == 1 -%},{%- endunless %}
+                      {%- assign page_image_source = chapter.og_image | default: chapter.header_img | strip -%}
+                      {%- include snippets/person-data.html author=site.author -%}
+                      {%- assign site_author_id = home_url | append: '#author' -%}
+                      {%- assign page_author_id = site_author_id -%}
+                      {%- if chapter.author -%}
+                        {%- include snippets/person-data.html author=chapter.author -%}
+                        {%- assign page_author_url = person_url | default: canonical_url | absolute_url | split: '#' | first -%}
+                        {%- assign page_author_id = page_author_url | append: '#author' -%}
+                      {%- endif %}
+                  {
+                    "position": {{ emitted_chapters }},
+                    {%- if chapter.collection == "posts" %}
+                    "@type": "BlogPosting",
+                    "@id": {% assign jsonld_value = chapter.url | absolute_url | append: '#article' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+                    "url": {% assign jsonld_value = chapter.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+                    "headline": {% assign jsonld_value = chapter.title |strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
+                    {%- if page_image_source %}
+                    "image": {% assign jsonld_value = page_image_source | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+                    {%- endif %}
+                    {%- else %}
+                    "@type": "WebPage",
+                    "@id": {% assign jsonld_value = chapter.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
+                    "name": {% assign jsonld_value = chapter.title |strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value %},
+                    {%- endif %}
+                    "author": {
+                      "@id": {% include snippets/jsonld-string.html value=page_author_id decode_html=false %},
+                      "name": {% include snippets/jsonld-string.html value=person_name %}{% if person_url != empty %},
+                      "url": {% assign person_url = person_url | absolute_url %}{% include snippets/jsonld-string.html value=person_url decode_html=false %}{% endif %}
+                      }
+                  }
+                     {%- endfor %}
+                  {%- endfor %}
+                ]
+              }
+            }
+          {%- endfor -%}
+          {%- endcapture -%}
+          "numberOfItems": {{ emitted_series }},
+          "itemListElement": [
+{{ series_items }}
+          ]
+        }
+      }
+    </script>

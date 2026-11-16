@@ -1,0 +1,22 @@
+{% if page.series and site.series %}
+        "isPartOf": [
+          {
+            "@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+          }
+          {%- for membership in page.series -%}
+          {%- assign series = site.series[membership.id] -%}
+          {%- if series -%},
+          {
+            "@type": "CreativeWorkSeries",
+            "@id": {% assign jsonld_value = home_url | append: 'series/#' | append: membership.id %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false -%}
+            {%- if series.label -%}
+            ,
+            "name": {% include snippets/jsonld-string.html value=series.label decode_html=false %}
+            {%- endif %}
+          }
+          {%- endif -%}
+          {% endfor %}
+        ],
+{% else %}
+        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+{% endif %}

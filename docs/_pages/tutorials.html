@@ -1,0 +1,70 @@
+---
+layout: minimal
+title: Tutorials
+permalink: /tutorials/
+show_header: false
+excerpt: Explore tutorials on <span class="chulapa">Chulapa</span> and Jekyll.
+description: Step-by-step tutorials on Chulapa, Jekyll, theme customization and web development.
+series_page: true
+---
+
+{%- assign series_documents = site.pages -%}
+{%- assign published_collections = site.collections | where: "output", true -%}
+{%- for collection in published_collections -%}
+  {%- assign series_documents = series_documents | concat: collection.docs -%}
+{%- endfor -%}
+{%- assign series_documents = series_documents | where_exp: "document", "document.series" | where_exp: "document", "document.published != false" -%}
+{%- assign build_time = site.time | date: "%s" | plus: 0 -%}
+
+<main class="container-lg py-4 py-md-5 flex-fill">
+  <h1 class="mb-4">Series</h1>
+  <div class="row">
+    {% for entry in site.series %}
+      {% assign series_id = entry[0] %}
+      {% assign series = entry[1] %}
+      {% assign chapters = "" | split: "," %}
+      {% for document in series_documents %}
+        {% if document.collection and document.date and site.future != true %}
+          {% assign document_time = document.date | date: "%s" | plus: 0 %}
+          {% if document_time > build_time %}{% continue %}{% endif %}
+        {% endif %}
+        {% assign membership = document.series | where: "id", series_id | first %}
+        {% if membership.order %}
+          {% assign chapters = chapters | push: document %}
+        {% endif %}
+      {% endfor %}
+      {% if chapters.size < 2 %}{% continue %}{% endif %}
+      {% assign chapter_groups = chapters | group_by_exp: "document", "document.series | where: 'id', series_id | map: 'order' | first" | sort: "name" %}
+      {% assign first_group = chapter_groups | first %}
+      {% assign first_chapter = first_group.items | sort: "url" | first %}
+      {% assign last_group = chapter_groups | last %}
+      {% assign cover = last_group.items | sort: "url" | last %}
+      {% assign cover_image = cover.header_img | default: cover.og_image %}
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <article class="card series-card h-100">
+          {% if cover_image %}
+            <img class="card-img-top series-card-cover" src="{{ cover_image | relative_url | escape }}"
+              alt="{{ cover.og_image_alt | escape }}" decoding="async"{% if forloop.index > 3 %} loading="lazy"{% endif %}>
+          {% endif %}
+          <div class="card-body">
+            <h2 class="card-title h4 mb-2" id="{{ series_id }}">{{ series.label | escape }}</h2>
+            <details>
+              <summary>{{ chapters.size }} parts<span class="sr-only"> in {{ series.label | escape }}</span></summary>
+              <ol class="pl-4 mb-0 mt-2">
+                {% for group in chapter_groups %}
+                  {% assign ordered_chapters = group.items | sort: "url" %}
+                  {% for chapter in ordered_chapters %}
+                    <li class="mb-1"><a href="{{ chapter.url | relative_url | escape }}">{{ chapter.title | markdownify | strip_html | strip | escape_once }}</a></li>
+                  {% endfor %}
+                {% endfor %}
+              </ol>
+            </details>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a class="card-link" href="{{ first_chapter.url | relative_url | escape }}">Start reading<span class="sr-only"> {{ series.label | escape }}</span></a>
+          </div>
+        </article>
+      </div>
+    {% endfor %}
+  </div>
+</main>

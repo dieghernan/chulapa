@@ -1,3 +1,6 @@
+{% if page.series_page %}
+{% include custom/series-jsonld.html %}
+{% endif %}
 {% if page.collection == "skins" %}
   {% if page.skin %}
   <link rel="stylesheet" href="{{- 'assets/css/skins/' | append: page.skin | append: '.css'  | absolute_url -}}">
