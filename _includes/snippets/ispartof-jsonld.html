@@ -1,7 +1,5 @@
 {%- capture series_jsonld_members -%}
-  {%- for membership in page.series -%}
-    {%- include snippets/series-order.html order=membership.order -%}
-    {%- unless series_order_valid -%}{%- continue -%}{%- endunless -%}
+  {%- for membership in series_memberships -%}
     {%- include snippets/series-data.html id=membership.id -%}
     {%- if series_label_nonblank == empty -%}{%- continue -%}{%- endif -%}
 ,

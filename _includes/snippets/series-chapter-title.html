@@ -1,0 +1,9 @@
+{%- assign series_chapter_title = include.chapter.title | markdownify | strip_html | strip -%}
+{%- if series_chapter_title == empty -%}
+  {%- assign series_chapter_filename = include.chapter.path | split: "/" | last -%}
+  {%- if series_chapter_filename contains "." -%}
+    {%- assign series_chapter_filename = series_chapter_filename | split: "." | pop | join: "." -%}
+  {%- endif -%}
+  {%- assign series_chapter_title = series_chapter_filename | replace: "-", " " | replace: "_", " " | strip | default: include.chapter.url -%}
+{%- endif -%}
+{{- series_chapter_title | escape_once -}}

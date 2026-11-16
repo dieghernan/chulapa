@@ -1,4 +1,4 @@
-    <!-- Google structured data -->
+{% include snippets/series-memberships.html memberships=page.series %}    <!-- Google structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -106,7 +106,11 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "@id": {% include snippets/jsonld-string.html value=canonical_url decode_html=false %},
+        {%- if schema_type == 'WebSite' %}
+        {% include snippets/ispartof-jsonld.html %}
+        {%- else %}
         "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
+        {%- endif %}
         {% if strippedurl != "/" or page.breadcrumb_list.size > 0 %}
         "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
         {% endif %}
@@ -152,3 +156,6 @@
       }
     </script>
 {% endif %}
+{%- for series_duplicate_id in series_duplicate_ids %}
+    <!-- Series "{{ series_duplicate_id | escape | replace: '--', '&#45;&#45;' }}" is listed more than once on this page. The first entry with an integer order is used. -->
+{%- endfor %}

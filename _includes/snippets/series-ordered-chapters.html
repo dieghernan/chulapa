@@ -1,0 +1,26 @@
+{%- assign series_chapter_entries = "" | split: "," -%}
+{%- for series_candidate in published_series_documents -%}
+  {%- assign series_candidate_membership = series_candidate[1] | where: "id", include.id | first -%}
+  {%- unless series_candidate_membership -%}{%- continue -%}{%- endunless -%}
+  {%- assign series_chapter_entry = "" | split: "," | push: series_candidate_membership.order | push: series_candidate[0] -%}
+  {%- assign series_chapter_entries = series_chapter_entries | push: series_chapter_entry -%}
+{%- endfor -%}
+{%- comment -%}Group by integer order, preserving the source URL order within each group.{%- endcomment -%}
+{%- assign series_chapter_groups = series_chapter_entries | group_by_exp: "entry", "entry[0]" | sort: "name" -%}
+{%- assign series_chapters = "" | split: "," -%}
+{%- capture series_order_warnings -%}
+  {%- for series_chapter_group in series_chapter_groups -%}
+    {%- if series_chapter_group.size > 1 -%}
+      {%- capture series_conflicting_paths -%}
+        {%- for series_conflict in series_chapter_group.items -%}
+          {%- unless forloop.first -%}, {% endunless -%}
+          {{- series_conflict[1].path -}}
+        {%- endfor -%}
+      {%- endcapture -%}
+      <!-- Series "{{ include.id | escape | replace: '--', '&#45;&#45;' }}" has duplicate order {{ series_chapter_group.name }} in {{ series_conflicting_paths | escape | replace: '--', '&#45;&#45;' }}. -->
+    {%- endif -%}
+    {%- for series_entry in series_chapter_group.items -%}
+      {%- assign series_chapters = series_chapters | push: series_entry[1] -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}

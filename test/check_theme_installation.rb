@@ -125,6 +125,10 @@ Dir.mktmpdir("chulapa-install-") do |work|
   last_part = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "docs/59-photo-page-tutorial.html")))
   last_controls = last_part.at_css(".chulapa-series-controls")
   raise "Last part must disable Next" unless last_controls.at_css("button[disabled]")&.text&.strip == "Next"
+  skin_preview = Nokogiri::HTML(File.read(File.join(docs_config["destination"], "skins/chulapa.html")))
+  unless skin_preview.at_css('#series-example + div .chulapa-series-index nav[aria-label="Site identity and content"]')
+    raise "Chulapa skin preview is missing the series widget"
+  end
   videos = docs_page.css('[itemscope][itemtype="https://schema.org/VideoObject"]')
   raise "Documentation videos missing" unless videos.size == 5
   videos.each do |video|

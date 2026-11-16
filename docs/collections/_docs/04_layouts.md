@@ -518,11 +518,11 @@ series:
     index_label: Issues
 ```
 
-Use a short `label` with meaningful text. The widget supports inline
-`em`, `strong`, `i`, `b` and `code` without attributes, as in
-`Tutorials for <em>R</em>`. Other markup falls back to text in the widget.
-The widget uses that text for accessible names, and the JSON-LD uses it
-as the name of the series. A label made up only of an image has no text.
+Use a short `label` with meaningful text. The visible name renders Markdown
+and HTML from your site configuration. For example, use
+`label: '<span class="chulapa">Chulapa</span> and Jekyll'` for the theme's
+brand styling. Only include markup you trust. Accessible names and JSON-LD
+use the text of the label. A label made up only of an image has no text.
 
 Set `part_label` and `index_label` on any series to customize its counter
 prefix and collapsed index label. For example, the newsletter displays
@@ -550,13 +550,16 @@ in a shared layout:
 ```
 
 The index appears when a configured series has at least two published members
-with integer orders. Pages and posts declare their configured series in
-JSON-LD when they have an integer order and the series has a text label.
-This also works for a series with one published member or for a post that
-omits the widget.
+with integer orders. A chapter without a title is identified by its filename.
+Pages, including the home page, and posts declare their configured series in
+JSON-LD when they have an integer order and the series has a text label. This
+also works for a series with one published member or for a chapter that omits
+the widget.
 
-Duplicate orders are sorted by URL and reported in a comment in the generated
-HTML. The index works without JavaScript or additional Jekyll plugins.
+List each series ID once per chapter. If an ID appears twice, the first entry
+with an integer order is used. Chapters with the same order are sorted by URL.
+Repeated IDs and orders are reported in comments in the generated HTML. The
+index works without JavaScript or additional Jekyll plugins.
 
 ### Masonry gallery
 

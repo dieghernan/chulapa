@@ -1,0 +1,21 @@
+{%- assign series_memberships = "" | split: "," -%}
+{%- assign series_membership_ids = "" | split: "," -%}
+{%- assign series_seen_ids = "" | split: "," -%}
+{%- assign series_duplicate_ids = "" | split: "," -%}
+{%- for series_membership in include.memberships -%}
+  {%- assign series_membership_id = series_membership.id -%}
+  {%- unless series_membership_id -%}{%- continue -%}{%- endunless -%}
+  {%- if series_seen_ids contains series_membership_id -%}
+    {%- unless series_duplicate_ids contains series_membership_id -%}
+      {%- assign series_duplicate_ids = series_duplicate_ids | push: series_membership_id -%}
+    {%- endunless -%}
+  {%- else -%}
+    {%- assign series_seen_ids = series_seen_ids | push: series_membership_id -%}
+  {%- endif -%}
+  {%- if series_membership_ids contains series_membership_id -%}{%- continue -%}{%- endif -%}
+  {%- include snippets/series-order.html order=series_membership.order -%}
+  {%- if series_order_valid -%}
+    {%- assign series_memberships = series_memberships | push: series_membership -%}
+    {%- assign series_membership_ids = series_membership_ids | push: series_membership_id -%}
+  {%- endif -%}
+{%- endfor -%}

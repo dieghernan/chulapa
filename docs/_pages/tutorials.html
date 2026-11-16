@@ -8,13 +8,7 @@ description: Step-by-step tutorials on Chulapa, Jekyll, theme customization and 
 series_page: true
 ---
 
-{%- assign series_documents = site.pages -%}
-{%- assign published_collections = site.collections | where: "output", true -%}
-{%- for collection in published_collections -%}
-  {%- assign series_documents = series_documents | concat: collection.docs -%}
-{%- endfor -%}
-{%- assign series_documents = series_documents | where_exp: "document", "document.series" | where_exp: "document", "document.published != false" -%}
-{%- assign build_time = site.time | date: "%s" | plus: 0 -%}
+{%- include snippets/series-documents.html -%}
 
 <main class="container-lg py-4 py-md-5 flex-fill">
   <h1 class="mb-4">Series</h1>
@@ -25,35 +19,19 @@ series_page: true
       {% include snippets/series-data.html id=series_id %}
       {% if series_label_nonblank == empty %}{% continue %}{% endif %}
       {% assign series_accessible_name = series_label_text | escape_once %}
-      {% assign chapters = "" | split: "," %}
-      {% for document in series_documents %}
-        {% if document.collection and document.date and site.future != true %}
-          {% assign document_time = document.date | date: "%s" | plus: 0 %}
-          {% if document_time > build_time %}{% continue %}{% endif %}
-        {% endif %}
-        {% assign membership = document.series | where: "id", series_id | first %}
-        {% include snippets/series-order.html order=membership.order %}
-        {% if series_order_valid %}
-          {% assign chapters = chapters | push: document %}
-        {% endif %}
-      {% endfor %}
-      {% if chapters.size < 2 %}{% continue %}{% endif %}
-      {% assign chapter_groups = chapters | group_by_exp: "document", "document.series | where: 'id', series_id | map: 'order' | first" | sort: "name" %}
-      {% assign first_group = chapter_groups | first %}
-      {% assign first_chapter = first_group.items | sort: "url" | first %}
+      {% include snippets/series-ordered-chapters.html id=series_id %}
+      {% if series_chapters.size < 2 %}{% continue %}{% endif %}
+      {% assign first_chapter = series_chapters | first %}
       <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
         <article class="card series-card h-100">
           <div class="card-body">
-            <h2 class="card-title h6 mb-2" id="{{ series_id | escape }}">{{ series_label_html }}</h2>
+            <div class="card-title h6 mb-2" id="{{ series_id | escape }}" role="heading" aria-level="2">{{ series_label_html }}</div>
             <div class="card-text">
               <details class="small">
-                <summary>{{ chapters.size }} parts<span class="sr-only"> in {{ series_accessible_name }}</span></summary>
+                <summary>{{ series_chapters.size }} parts<span class="sr-only"> in {{ series_accessible_name }}</span></summary>
                 <ol class="pl-4 mb-0 mt-2">
-                  {% for group in chapter_groups %}
-                    {% assign ordered_chapters = group.items | sort: "url" %}
-                    {% for chapter in ordered_chapters %}
-                      <li class="mb-1"><a href="{{ chapter.url | relative_url | escape }}">{{ chapter.title | markdownify | strip_html | strip | escape_once }}</a></li>
-                    {% endfor %}
+                  {% for chapter in series_chapters %}
+                    <li class="mb-1"><a href="{{ chapter.url | relative_url | escape }}">{% include snippets/series-chapter-title.html chapter=chapter %}</a></li>
                   {% endfor %}
                 </ol>
               </details>

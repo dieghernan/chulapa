@@ -14,6 +14,13 @@
     "expected": "Development v2.2.1. Define both IDs with text labels in the site series map. Set a front matter list with the two id and integer order pairs. Add the series-chapters include to the body or layout. Part numbers follow sorted order among published members. Cite /docs/04-layouts#series-navigation."
   },
   {
+    "id": "series-label-html",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "Can I put HTML such as a span with a CSS class in the visible name of a series?",
+    "expected": "Development v2.2.1. The series label in _config.yml renders trusted Markdown and HTML, including a span with a class. Include meaningful text. Accessible names and JSON-LD use the label's plain text. Cite /docs/04-layouts#series-navigation."
+  },
+  {
     "id": "post-citation-author",
     "section": "layouts",
     "doc": "04_layouts.md",

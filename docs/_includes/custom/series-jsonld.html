@@ -1,32 +1,14 @@
 {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign series_catalog_url = canonical_url -%}
-{%- assign build_time = site.time | date: "%s" | plus: 0 -%}
-{%- assign series_documents = site.pages -%}
-{%- assign published_collections = site.collections | where: "output", true -%}
-{%- for collection in published_collections -%}
-  {%- assign series_documents = series_documents | concat: collection.docs -%}
-{%- endfor -%}
-{%- assign series_documents = series_documents | where_exp: "document", "document.series" | where_exp: "document", "document.published != false" -%}
+{%- include snippets/series-documents.html -%}
 {%- assign emitted_series = 0 -%}
 {%- capture series_items -%}
   {%- for entry in site.series -%}
     {%- assign series_id = entry[0] -%}
     {%- include snippets/series-data.html id=series_id -%}
     {%- if series_label_nonblank == empty -%}{%- continue -%}{%- endif -%}
-    {%- assign chapters = "" | split: "," -%}
-    {%- for document in series_documents -%}
-      {%- if document.collection and document.date and site.future != true -%}
-        {%- assign document_time = document.date | date: "%s" | plus: 0 -%}
-        {%- if document_time > build_time -%}{%- continue -%}{%- endif -%}
-      {%- endif -%}
-      {%- assign membership = document.series | where: "id", series_id | first -%}
-      {%- include snippets/series-order.html order=membership.order -%}
-      {%- if series_order_valid -%}
-        {%- assign chapters = chapters | push: document -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- if chapters.size < 2 -%}{%- continue -%}{%- endif -%}
-    {%- assign chapter_groups = chapters | group_by_exp: "document", "document.series | where: 'id', series_id | map: 'order' | first" | sort: "name" -%}
+    {%- include snippets/series-ordered-chapters.html id=series_id -%}
+    {%- if series_chapters.size < 2 -%}{%- continue -%}{%- endif -%}
     {%- assign emitted_series = emitted_series | plus: 1 -%}
     {%- unless emitted_series == 1 -%},{%- endunless %}
             {
@@ -37,19 +19,14 @@
                 "@id": {% include snippets/jsonld-string.html value=series_entity_id decode_html=false %},
                 "name": {% include snippets/jsonld-string.html value=series_label_text %},
                 "hasPart": [
-    {%- assign first_chapter = true -%}
-    {%- for group in chapter_groups -%}
-      {%- assign ordered_chapters = group.items | sort: "url" -%}
-      {%- for chapter in ordered_chapters -%}
-        {%- include snippets/canonical-url.html url=chapter.url canonical=chapter.canonical_url -%}
-        {%- assign chapter_id = canonical_url -%}
-        {%- if chapter.collection == 'posts' -%}
-          {%- assign chapter_id = chapter_id | append: '#article' -%}
-        {%- endif -%}
-        {%- unless first_chapter -%},{%- endunless %}
+    {%- for chapter in series_chapters -%}
+      {%- include snippets/canonical-url.html url=chapter.url canonical=chapter.canonical_url -%}
+      {%- assign chapter_id = canonical_url -%}
+      {%- if chapter.collection == 'posts' -%}
+        {%- assign chapter_id = chapter_id | append: '#article' -%}
+      {%- endif -%}
+      {%- unless forloop.first -%},{%- endunless %}
                   {"@id": {% include snippets/jsonld-string.html value=chapter_id decode_html=false %}}
-        {%- assign first_chapter = false -%}
-      {%- endfor -%}
     {%- endfor %}
                 ]
               }

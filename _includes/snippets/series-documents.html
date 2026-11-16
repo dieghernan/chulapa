@@ -1,0 +1,20 @@
+{%- assign series_documents = site.pages -%}
+{%- assign series_collections = site.collections | where: "output", true -%}
+{%- for series_collection in series_collections -%}
+  {%- assign series_documents = series_documents | concat: series_collection.docs -%}
+{%- endfor -%}
+{%- assign series_documents = series_documents | where_exp: "document", "document.series" | where_exp: "document", "document.published != false" -%}
+{%- assign series_documents = series_documents | sort: "url" -%}
+{%- assign series_build_time = site.time | date: "%s" | plus: 0 -%}
+{%- assign published_series_documents = "" | split: "," -%}
+{%- for series_document in series_documents -%}
+  {%- if series_document.collection and series_document.date and site.future != true -%}
+    {%- assign series_document_time = series_document.date | date: "%s" | plus: 0 -%}
+    {%- if series_document_time > series_build_time -%}{%- continue -%}{%- endif -%}
+  {%- endif -%}
+  {%- include snippets/series-memberships.html memberships=series_document.series -%}
+  {%- if series_memberships.size > 0 -%}
+    {%- assign series_document_entry = "" | split: "," | push: series_document | push: series_memberships -%}
+    {%- assign published_series_documents = published_series_documents | push: series_document_entry -%}
+  {%- endif -%}
+{%- endfor -%}
