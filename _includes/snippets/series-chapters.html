@@ -78,7 +78,7 @@
 </nav>
         {%- endcapture -%}
 <div class="chulapa-series">
-<div class="font-weight-bold">{{- series.label | markdownify | strip -}}<br> <span class="chulapa-series-position">{{ series_position | escape }}</span></div>
+<div class="font-weight-bold">{{- series.label | markdownify | remove: '<p>' | remove: '</p>' | strip -}}<br> <span class="chulapa-series-position">{{ series_position | escape }}</span></div>
 <div class="chulapa-series-controls">
   <progress class="chulapa-series-progress" value="{{ part_number }}" max="{{ chapters.size }}" aria-label="{{ series_label_escaped }} progress, {{ series_position | escape }}">{{ part_number }} of {{ chapters.size }}</progress>
   {{ series_links }}
