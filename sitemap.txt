@@ -157,4 +157,5 @@ https://dieghernan.github.io/chulapa/license
 https://dieghernan.github.io/chulapa/showcase
 https://dieghernan.github.io/chulapa/skins
 https://dieghernan.github.io/chulapa/tags
+https://dieghernan.github.io/chulapa/tutorials/
 https://dieghernan.github.io/chulapa/blog/page2/
