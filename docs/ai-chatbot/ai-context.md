@@ -163,7 +163,7 @@ Named skins: academia,cerulean,litera,pulse,butterfly,butterfly-dark,butterfly-d
 auto/none special; current not a skin.
 cerulean/litera/pulse: 2.2.0 only; retain original Bootswatch 4.6.2 palettes/typography/components and contrast limits. Not included in AA adjustments; vars still override. /docs/23-change-color#original-bootswatch-skins.
 ## Layouts
-Series (v2.2.1 dev): site series maps ID to label, optional part_label (Part) and index_label (Series index). Page list of {id, order}; include snippets/series-chapters.html. /docs/04-layouts#series-navigation
+Series (v2.2.1 dev): site series maps IDs to text labels (inline emphasis allowed), optional part_label (Part) and index_label (Series index). Page series list: {id, order} with integer order. Include snippets/series-chapters.html for navigation with 2+ published members. JSON-LD membership is automatic. /docs/04-layouts#series-navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 Default layout: posts, pages and collections. Set options in front matter or defaults.
 ## Post citations (v2.2.1 development)

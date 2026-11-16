@@ -11,8 +11,10 @@
   {%- capture series_indices -%}
     {%- for membership in series_page.series -%}
       {%- if include.series_id and membership.id != include.series_id -%}{%- continue -%}{%- endif -%}
-      {%- assign series = site.series[membership.id] -%}
-      {%- unless series.label -%}{%- continue -%}{%- endunless -%}
+      {%- include snippets/series-order.html order=membership.order -%}
+      {%- unless series_order_valid -%}{%- continue -%}{%- endunless -%}
+      {%- include snippets/series-data.html id=membership.id -%}
+      {%- if series_label_nonblank == empty -%}{%- continue -%}{%- endif -%}
       {%- assign chapters = "" | split: "," -%}
       {%- for document in series_documents -%}
         {%- if document.collection and document.date and site.future != true -%}
@@ -20,7 +22,8 @@
           {%- if document_time > build_time -%}{%- continue -%}{%- endif -%}
         {%- endif -%}
         {%- assign chapter = document.series | where: "id", membership.id | first -%}
-        {%- if chapter.order -%}
+        {%- include snippets/series-order.html order=chapter.order -%}
+        {%- if series_order_valid -%}
           {%- assign chapters = chapters | push: document -%}
         {%- endif -%}
       {%- endfor -%}
@@ -59,7 +62,7 @@
         {%- assign visible_series = visible_series | plus: 1 -%}
         {%- assign part_label = series.part_label | default: '' | strip | default: 'Part' -%}
         {%- assign index_label = series.index_label | default: '' | strip | default: 'Series index' -%}
-        {%- assign series_label_escaped = series.label | markdownify | strip_html | strip | escape_once -%}
+        {%- assign series_label_escaped = series_label_text | escape_once -%}
         {%- capture series_position -%}{{ part_label }} {{ part_number }} of {{ chapters.size }}{%- endcapture -%}
         {%- capture series_links -%}
 <nav aria-label="{{ series_label_escaped }} previous and next" class="d-flex flex-wrap align-items-center">
@@ -78,7 +81,10 @@
 </nav>
         {%- endcapture -%}
 <div class="chulapa-series">
-<div class="font-weight-bold">{{- series.label | markdownify | remove: '<p>' | remove: '</p>' | strip -}}<br> <span class="chulapa-series-position">{{ series_position | escape }}</span></div>
+<div class="font-weight-bold">
+  <div>{{ series_label_html }}</div>
+  <div class="chulapa-series-position">{{ series_position | escape }}</div>
+</div>
 <div class="chulapa-series-controls">
   <progress class="chulapa-series-progress" value="{{ part_number }}" max="{{ chapters.size }}" aria-label="{{ series_label_escaped }} progress, {{ series_position | escape }}">{{ part_number }} of {{ chapters.size }}</progress>
   {{ series_links }}

@@ -22,7 +22,9 @@ series_page: true
   <div class="row">
     {% for entry in site.series %}
       {% assign series_id = entry[0] %}
-      {% assign series = entry[1] %}
+      {% include snippets/series-data.html id=series_id %}
+      {% if series_label_nonblank == empty %}{% continue %}{% endif %}
+      {% assign series_accessible_name = series_label_text | escape_once %}
       {% assign chapters = "" | split: "," %}
       {% for document in series_documents %}
         {% if document.collection and document.date and site.future != true %}
@@ -30,7 +32,8 @@ series_page: true
           {% if document_time > build_time %}{% continue %}{% endif %}
         {% endif %}
         {% assign membership = document.series | where: "id", series_id | first %}
-        {% if membership.order %}
+        {% include snippets/series-order.html order=membership.order %}
+        {% if series_order_valid %}
           {% assign chapters = chapters | push: document %}
         {% endif %}
       {% endfor %}
@@ -38,16 +41,13 @@ series_page: true
       {% assign chapter_groups = chapters | group_by_exp: "document", "document.series | where: 'id', series_id | map: 'order' | first" | sort: "name" %}
       {% assign first_group = chapter_groups | first %}
       {% assign first_chapter = first_group.items | sort: "url" | first %}
-      {% assign last_group = chapter_groups | last %}
-      {% assign cover = last_group.items | sort: "url" | last %}
-      {% assign cover_image = cover.header_img | default: cover.og_image %}
       <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
         <article class="card series-card h-100">
           <div class="card-body">
-            <h2 class="card-title h6 mb-2" id="{{ series_id }}">{{ series.label | escape }}</h2>
+            <h2 class="card-title h6 mb-2" id="{{ series_id | escape }}">{{ series_label_html }}</h2>
             <div class="card-text">
               <details class="small">
-                <summary>{{ chapters.size }} parts<span class="sr-only"> in {{ series.label | escape }}</span></summary>
+                <summary>{{ chapters.size }} parts<span class="sr-only"> in {{ series_accessible_name }}</span></summary>
                 <ol class="pl-4 mb-0 mt-2">
                   {% for group in chapter_groups %}
                     {% assign ordered_chapters = group.items | sort: "url" %}
@@ -60,7 +60,7 @@ series_page: true
             </div>
           </div>
           <div class="card-footer bg-transparent">
-            <a class="btn btn-sm btn-outline-primary" href="{{ first_chapter.url | relative_url | escape }}">Start reading<span class="sr-only"> {{ series.label | escape }}</span></a>
+            <a class="btn btn-sm btn-outline-primary" href="{{ first_chapter.url | relative_url | escape }}">Start reading<span class="sr-only"> {{ series_accessible_name }}</span></a>
           </div>
         </article>
       </div>

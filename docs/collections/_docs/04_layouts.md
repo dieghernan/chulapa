@@ -518,6 +518,12 @@ series:
     index_label: Issues
 ```
 
+Use a short `label` with meaningful text. The widget supports inline
+`em`, `strong`, `i`, `b` and `code` without attributes, as in
+`Tutorials for <em>R</em>`. Other markup falls back to text in the widget.
+The widget uses that text for accessible names, and the JSON-LD uses it
+as the name of the series. A label made up only of an image has no text.
+
 Set `part_label` and `index_label` on any series to customize its counter
 prefix and collapsed index label. For example, the newsletter displays
 **Issue 1 of 3** and **Issues** when it has three entries. Omitted or blank
@@ -543,7 +549,12 @@ in a shared layout:
 {% raw %}{% include snippets/series-chapters.html %}{% endraw %}
 ```
 
-The index appears when a configured series has at least two published members.
+The index appears when a configured series has at least two published members
+with integer orders. Pages and posts declare their configured series in
+JSON-LD when they have an integer order and the series has a text label.
+This also works for a series with one published member or for a post that
+omits the widget.
+
 Duplicate orders are sorted by URL and reported in a comment in the generated
 HTML. The index works without JavaScript or additional Jekyll plugins.
 

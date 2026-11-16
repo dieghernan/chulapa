@@ -1,0 +1,7 @@
+{%- comment -%}Compare JSON forms to distinguish integers from strings and floats.{%- endcomment -%}
+{%- assign series_order_json = include.order | jsonify -%}
+{%- assign series_integer_json = include.order | plus: 0 | floor | jsonify -%}
+{%- assign series_order_valid = false -%}
+{%- if series_order_json == series_integer_json -%}
+  {%- assign series_order_valid = true -%}
+{%- endif -%}

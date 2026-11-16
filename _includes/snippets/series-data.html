@@ -1,0 +1,25 @@
+{%- assign series = site.series[include.id] -%}
+{%- assign series_label_html = series.label | default: '' | markdownify | strip -%}
+{%- assign series_label_text = series_label_html | strip_html | strip -%}
+{%- assign series_label_nonblank = series_label_text | replace: '&nbsp;', ' ' | strip -%}
+{%- assign series_label_start = series_label_html | slice: 0, 3 -%}
+{%- assign series_label_end = series_label_html | slice: -4, 4 -%}
+{%- if series_label_start == '<p>' and series_label_end == '</p>' -%}
+  {%- assign series_label_length = series_label_html.size | minus: 7 -%}
+  {%- assign series_label_inner = series_label_html | slice: 3, series_label_length -%}
+  {%- unless series_label_inner contains '</p>' -%}
+    {%- assign series_label_html = series_label_inner -%}
+  {%- endunless -%}
+{%- endif -%}
+{%- assign series_label_remainder = series_label_html
+  | remove: '<em>' | remove: '</em>'
+  | remove: '<strong>' | remove: '</strong>'
+  | remove: '<i>' | remove: '</i>'
+  | remove: '<b>' | remove: '</b>'
+  | remove: '<code>' | remove: '</code>' -%}
+{%- if series_label_remainder contains '<' -%}
+  {%- assign series_label_html = series_label_text | escape_once -%}
+{%- endif -%}
+{%- assign series_entity_id = '/' | absolute_url | uri_escape | append: '#series-' -%}
+{%- assign series_id_fragment = include.id | url_encode -%}
+{%- assign series_entity_id = series_entity_id | append: series_id_fragment -%}

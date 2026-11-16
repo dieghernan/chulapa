@@ -1,22 +1,24 @@
-{% if page.series and site.series %}
-        "isPartOf": [
-          {
-            "@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
-          }
-          {%- for membership in page.series -%}
-          {%- assign series = site.series[membership.id] -%}
-          {%- if series -%},
+{%- capture series_jsonld_members -%}
+  {%- for membership in page.series -%}
+    {%- include snippets/series-order.html order=membership.order -%}
+    {%- unless series_order_valid -%}{%- continue -%}{%- endunless -%}
+    {%- include snippets/series-data.html id=membership.id -%}
+    {%- if series_label_nonblank == empty -%}{%- continue -%}{%- endif -%}
+,
           {
             "@type": "CreativeWorkSeries",
-            "@id": {% assign jsonld_value = home_url | append: 'series/#' | append: membership.id %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false -%}
-            {%- if series.label -%}
-            ,
-            "name": {% assign jsonld_value = series.label | default: '---' | markdownify | strip_html | strip %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
-            {%- endif %}
+            "@id": {% include snippets/jsonld-string.html value=series_entity_id decode_html=false %},
+            "name": {% include snippets/jsonld-string.html value=series_label_text %}
           }
-          {%- endif -%}
-          {% endfor %}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign website_id = home_url | append: '#website' -%}
+{%- if series_jsonld_members != empty -%}
+"isPartOf": [
+          {
+            "@id": {% include snippets/jsonld-string.html value=website_id decode_html=false %}
+          }{{ series_jsonld_members }}
         ],
-{% else %}
-        "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
-{% endif %}
+{%- else -%}
+"isPartOf": {"@id": {% include snippets/jsonld-string.html value=website_id decode_html=false %}},
+{%- endif -%}
