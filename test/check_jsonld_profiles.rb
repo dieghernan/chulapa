@@ -5,6 +5,7 @@ require "nokogiri"
 require "json"
 require "tmpdir"
 require "fileutils"
+require "uri"
 
 root = File.expand_path("..", __dir__)
 Dir.mktmpdir("chulapa-jsonld-profiles-") do |source|
@@ -39,7 +40,15 @@ Dir.mktmpdir("chulapa-jsonld-profiles-") do |source|
         author = blocks.find { |block| block["@id"] == primary.dig("author", "@id") }
         site_author = blocks.find { |block| block["@id"] == home + "#author" }
         raise "Site author URL differs across pages" unless site_author && site_author["url"] == home
-        raise "GitHub profile lost from sameAs" unless site_author.fetch("sameAs").include?("https://github.com/site-author")
+        github_profile_present = site_author.fetch("sameAs").any? do |same_as_url|
+          begin
+            parsed = URI.parse(same_as_url)
+            parsed.is_a?(URI::HTTPS) && parsed.host == "github.com" && parsed.path == "/site-author"
+          rescue URI::InvalidURIError
+            false
+          end
+        end
+        raise "GitHub profile lost from sameAs" unless github_profile_present
         raise "Unresolved author" unless author
         raise "Embedded author differs from profile" unless primary["author"] == { "@id" => author["@id"] }
         raise "Duplicate author definition" unless blocks.count { |block| block["@id"] == author["@id"] } == 1
