@@ -128,11 +128,17 @@ flowchart LR
 
 ## Video
 
-{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" %}
+{% include snippets/video.html provider="youtube" id="1hXYuWTWVww"
+   name="Menorca - Isla Bonita"
+   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
+   upload_date="2019-07-27T12:44:00-07:00" %}
 
 {% raw %}
 ```liquid
-{% include snippets/video.html provider="youtube" id="1hXYuWTWVww" name="Menorca - Isla Bonita" %}
+{% include snippets/video.html provider="youtube" id="1hXYuWTWVww"
+   name="Menorca - Isla Bonita"
+   thumbnail_url="https://img.youtube.com/vi/1hXYuWTWVww/hqdefault.jpg"
+   upload_date="2019-07-27T12:44:00-07:00" %}
 ```
 {% endraw %}
 
