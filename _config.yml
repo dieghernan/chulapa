@@ -76,7 +76,7 @@ goatcounter             :
 # - lunr https://lunrjs.com/
 # - algolia v4 https://www.algolia.com/ - needs further configuration
 # - google custom search engine https://cse.google.es/
-# - simplesearch: https://github.com/christian-fei/Simple-Jekyll-Search 
+# - simplesearch: https://github.com/christian-fei/Simple-Jekyll-Search
 # - fusejs: https://fusejs.io/
 search:
   provider              : algolia # Enable search: lunr, algolia, google, simplesearch or fusejs.
@@ -133,7 +133,7 @@ comments:
 #   "nav" would be set on the right side. Two-level nav links available
 navbar:
   style     :  #default is the classical top navbar, set "fab" for a floating action button navbar or "dual"
-  expand    :  # At which device size expand the navbar menu. default[md] https://getbootstrap.com/docs/4.5/layout/overview/
+  expand    :  # At which device size expand the navbar menu. default[md] https://getbootstrap.com/docs/4.6/layout/overview/
   brand:
     title   :  # Title in navbar
     url     :  # default["url/baseurl"]

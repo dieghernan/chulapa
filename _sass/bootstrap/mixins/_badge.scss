@@ -4,7 +4,7 @@
 
   @at-root a#{&} {
     @include hover-focus() {
-      color: color-yiq(darken($bg, 10%));
+      color: color-yiq($bg);
       background-color: darken($bg, 10%);
     }
 
