@@ -39,7 +39,14 @@
     "section": "layouts",
     "doc": "02_config.md",
     "question": "Do built-in archive and category pages describe their article lists to search engines? What about a custom list?",
-    "expected": "In v2.2.1 development, built-in article indexes describe their lists automatically. Custom lists need their own markup. Structured data cannot guarantee enriched search results. Link /docs/02-config#seo."
+    "expected": "In v2.2.1 development, built-in article indexes describe their lists automatically and report the exact count of listed items (respecting any displayed limit). Custom lists need their own markup. Structured data cannot guarantee enriched search results. Link /docs/02-config#seo."
+  },
+  {
+    "id": "layouts-jsonld-modification-date-1",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "When does the theme include dateModified in JSON-LD? Does it use the publication date if last_modified_at is absent?",
+    "expected": "JSON-LD includes datePublished from the page date when available, and dateModified only when last_modified_at is set. It does not infer a modification date from publication date. This is separate from Open Graph article:modified_time, which also uses last_modified_at. Link /docs/04-layouts#social-locales-and-articles."
   },
   {
     "id": "layouts-random-singleton-1",

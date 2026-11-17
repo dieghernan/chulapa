@@ -16,10 +16,11 @@ Dir.mktmpdir("chulapa-jsonld-") do |source|
     "cards.html" => { "layout" => "indexcategory", "include_collection" => "posts", "index_items" => 1 },
     "tags.html" => { "layout" => "cloudtag2", "include_collection" => "posts" },
     "categories.html" => { "layout" => "cloudcategory", "include_collection" => "posts" },
-    "_posts/2024-01-01-one.md" => { "layout" => "minimal", "locale" => "es_ES", "tags" => ['R & "data"', "", "  ", '</script>test'], "categories" => ["News", "Maps"] },
+    "_posts/2024-01-01-one.md" => { "layout" => "minimal", "locale" => "es_ES", "last_modified_at" => "", "tags" => ['R & "data"', "", "  ", '</script>test'], "categories" => ["News", "Maps"] },
     "_posts/2024-01-02-two.md" => { "layout" => "minimal", "author" => { "name" => "Guest", "links" => [{ "url" => "https://guest.example/profile" }] } },
     "_posts/2024-01-03-three.md" => { "layout" => "minimal", "author" => { "name" => "Guest", "links" => [{ "url" => "https://guest.example/profile" }] } },
-    "_posts/2024-01-04-four.md" => { "layout" => "minimal", "author" => { "name" => "Local guest" } }
+    "_posts/2024-01-04-four.md" => { "layout" => "minimal", "author" => { "name" => "Local guest" } },
+    "_posts/2024-01-05-five.md" => { "layout" => "minimal", "last_modified_at" => "2024-02-01" }
   }
   fixtures.each do |path, data|
     FileUtils.mkdir_p(File.dirname(File.join(source, path)))
@@ -52,6 +53,12 @@ Dir.mktmpdir("chulapa-jsonld-") do |source|
         raise "Article is not the page's main entity" unless page.dig("mainEntity", "@id") == primary["@id"]
         raise "Image invented for imageless article" if page.key?("primaryImageOfPage")
         raise "Language differs from HTML" unless primary["inLanguage"] == doc.at_css("html")["lang"]
+        raise "Publication date missing" unless primary["datePublished"]&.start_with?("2024-01-")
+        if File.basename(path) == "five.html"
+          raise "Explicit modification date missing" unless primary["dateModified"]&.start_with?("2024-02-01")
+        else
+          raise "Publication date reused as modification date" if primary.key?("dateModified")
+        end
         if File.basename(path) == "one.html"
           raise "Tags not cleaned and escaped" unless primary["keywords"] == ['R & "data"', 'test']
           raise "Categories missing" unless primary["articleSection"] == %w[News Maps]
@@ -67,9 +74,11 @@ Dir.mktmpdir("chulapa-jsonld-") do |source|
       end
       if %w[archive.html cards.html tags.html categories.html].include?(File.basename(path))
         raise "Native collection layout not detected" unless primary["@type"] == "CollectionPage"
-        list = blocks.find { |block| block["mainEntity"] }.fetch("mainEntity").fetch("itemListElement")
-        expected_size = { "archive.html" => 4, "cards.html" => 1, "tags.html" => 1, "categories.html" => 1 }.fetch(File.basename(path))
+        collection = blocks.find { |block| block["mainEntity"] }
+        list = collection.fetch("mainEntity").fetch("itemListElement")
+        expected_size = { "archive.html" => 5, "cards.html" => 1, "tags.html" => 1, "categories.html" => 1 }.fetch(File.basename(path))
         raise "Wrong collection selection" unless list.size == expected_size
+        raise "Collection item count differs from listed documents" unless collection.dig("mainEntity", "numberOfItems") == list.size
       end
     end
     raise "Guest identity not stable across posts" unless guests == ["https://guest.example/profile#author"] * 2

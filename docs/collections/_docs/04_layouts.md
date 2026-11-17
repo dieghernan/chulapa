@@ -912,6 +912,10 @@ Dates use Jekyll's ISO 8601 output. Author URLs may be absolute or site-relative
 relative paths use `url` and `baseurl`. A guest author without a profile URL does
 not inherit the site author's URL. Use a profile page that identifies the author.
 
+JSON-LD uses a page's `date` for `datePublished` and includes `dateModified`
+only when `last_modified_at` is set. It does not treat the publication date as
+a modification date.
+
 ```yaml
 og_type: article
 og_article_author: /about/guest/

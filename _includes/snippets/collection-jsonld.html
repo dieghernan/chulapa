@@ -1,4 +1,5 @@
 {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
+{%- assign collection_item_count = 0 -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -9,6 +10,7 @@
     "@id": {% assign jsonld_value = canonical_url | append: '#itemlist' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
     "itemListElement": [
     {%- for document in include.documents limit: include.limit -%}
+      {%- assign collection_item_count = forloop.length -%}
       {%- unless forloop.first -%},{%- endunless -%}
       {
         "@type": "ListItem",
@@ -17,7 +19,8 @@
         "item": {% assign jsonld_value = document.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
       }
     {%- endfor -%}
-    ]
+    ],
+    "numberOfItems": {{ collection_item_count }}
   }
 }
 </script>

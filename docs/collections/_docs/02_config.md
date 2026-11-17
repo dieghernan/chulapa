@@ -129,7 +129,7 @@ The sections below list optional integration settings and their constraints.
 
 The theme generates canonical URLs and structured data automatically.
 In v2.2.1 development, built-in article indexes also describe their lists
-for search engines. Custom lists need their own markup.
+and report the number of listed items. Custom lists need their own markup.
 For a guest article, set the guest's `author.url` to their profile.
 Use an explicit URL to keep the identity stable if you change their social links.
 

@@ -62,6 +62,8 @@ Dir.mktmpdir("chulapa-article-") do |source|
       check(doc.at_css("link[rel='canonical']")["href"] == meta.call(page, "og:url"), "Canonical mismatch: #{page}")
       doc.css('script[type="application/ld+json"]').each { |node| JSON.parse(node.text) }
     end
+    modified_schema = JSON.parse(docs.fetch("modified-only").at_css('script[type="application/ld+json"]').text)
+    check(!modified_schema.key?("datePublished") && modified_schema["dateModified"].start_with?("2024-03-04"), "JSON-LD modification date should not require a publication date")
   end
   config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => "/subdir", "locale" => "en", "og_locale" => "en-gb", "og_locale_alternate" => ["en_GB", "fr_FR", "fr-fr"], "title" => "Site", "defaults" => [{ "scope" => { "path" => "defaulted.md" }, "values" => { "locale" => "de_DE", "og_type" => "article", "og_locale_alternate" => [] } }], "quiet" => true)
   Jekyll::Site.new(config).process

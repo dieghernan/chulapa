@@ -16,7 +16,7 @@
 
 -   Generate JSON-LD for supported video embeds using existing metadata inputs, shared microdata identities and canonical page links, without changing deferred playback or adding configuration.
 
--   Connect JSON-LD website, page, author, publisher and breadcrumb entities, enrich posts with language, tags and categories, link article pages to their main article and first valid article image, and describe built-in collection indexes with lists matching their displayed documents. Resolve author profiles consistently using existing profile URLs, keep publishers independent, omit missing optional metadata and identify page-specific primary images.
+-   Connect JSON-LD website, page, author, publisher and breadcrumb entities, enrich posts with language, tags and categories, link article pages to their main article and first valid article image, and describe built-in collection indexes with lists matching their displayed documents and their item counts. Resolve author profiles consistently using existing profile URLs, keep publishers independent, omit missing optional metadata and identify page-specific primary images.
 
 -   Generate an alternative `/sitemap.txt` with absolute canonical URLs for output collections and HTML pages, respecting `sitemap: false`. Document publishing checks and differences from `jekyll-sitemap` in the [search visibility guide](https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development).
 
@@ -35,6 +35,8 @@
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
 ### Fixed
+
+-   Emit JSON-LD `dateModified` only when `last_modified_at` is set instead of reusing the publication date.
 
 -   Align the post author's name with the location and links on small screens when the author has no avatar.
 

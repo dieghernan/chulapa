@@ -42,7 +42,9 @@
       {%- endif %}
       {%- if page.date %}
         "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
-        "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+      {%- endif %}
+      {%- if page.last_modified_at and page.last_modified_at != empty %}
+        "dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},
       {%- endif %}
         "author": {"@id": {% include snippets/jsonld-string.html value=page_author_id decode_html=false %}},
         "publisher": {% include snippets/publisher.html %}

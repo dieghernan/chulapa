@@ -287,7 +287,7 @@ Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
 canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
 seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
 locale sets HTML language; zh-Hant needs separate og_locale: zh_TW. og_locale_alternate lists real translated locales; [] clears inherited alternates; no translations/hreflang generation. og_type: article enables article metadata for another collection. og_article_author/og_article_section override author URL/first category; guest authors without URL do not inherit site's URL.
-Dev v2.2.1: built-in archive, card, tag and category indexes describe their listed articles in structured data. Custom lists need their own metadata. Source: https://dieghernan.github.io/chulapa/docs/02-config#seo.
+Dev v2.2.1: archive/card/tag/category JSON-LD lists report count; custom lists need markup. dateModified requires last_modified_at, never date. Source: https://dieghernan.github.io/chulapa/docs/02-config#seo.
 schema_image: URL/list for post BlogPosting, fallback page og_image then header_img. Relative images use url/baseurl; no cropping/validation or visible/social image changes.
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
