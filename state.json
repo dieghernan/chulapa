@@ -35,16 +35,16 @@
       "https://github.com/dieghernan/": "040b4fd89cc891fb1cbfb61844a6976ac4385884d968b4d9e93f0c715f8d7596"
     },
     "https://dieghernan.github.io/chulapa/categories": {
-      "https://github.com/dieghernan/": "4c8b604680813b2a52ae82ca840e7e23149a6e464b31511af3e7e99e1ff9b376",
-      "https://github.com/github/": "4c8b604680813b2a52ae82ca840e7e23149a6e464b31511af3e7e99e1ff9b376"
+      "https://github.com/dieghernan/": "83997dc7c098b96d36364db9acb4c5229bdc3b040d8a0e41130e2572bb1fe4bd",
+      "https://github.com/github/": "83997dc7c098b96d36364db9acb4c5229bdc3b040d8a0e41130e2572bb1fe4bd"
     },
     "https://dieghernan.github.io/chulapa/contribute": {
       "https://github.com/dieghernan/chulapa/blob/main/_includes/snippets/datetranslate.html": "31867a28c5b2b9b3835e65cb2de6425eeda1152365c8ff0e59af12cc868d7ee5",
       "https://github.com/dieghernan/chulapa/issues/new/choose": "31867a28c5b2b9b3835e65cb2de6425eeda1152365c8ff0e59af12cc868d7ee5"
     },
     "https://dieghernan.github.io/chulapa/demo": {
-      "https://github.com/dieghernan/": "3a7caad15894c3455569e70ad10069956f95ff802fde06ed90c229927d8cd06f",
-      "https://github.com/github/": "3a7caad15894c3455569e70ad10069956f95ff802fde06ed90c229927d8cd06f"
+      "https://github.com/dieghernan/": "65a2b97d39b9ff43d56278d2c41042c60a01a2210a1272c5daf633a0decc7dcf",
+      "https://github.com/github/": "65a2b97d39b9ff43d56278d2c41042c60a01a2210a1272c5daf633a0decc7dcf"
     },
     "https://dieghernan.github.io/chulapa/demo/01-plainpage": {},
     "https://dieghernan.github.io/chulapa/demo/02-plainpage-img": {},
@@ -70,13 +70,13 @@
       "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "3db75d87091de6d3c640fdebe82ef671386033a4a5fc1b98e6c53c27d65dccef"
     },
     "https://dieghernan.github.io/chulapa/demo/archive": {
-      "https://github.com/dieghernan/": "50e7b29e217b494be65a88b4883e2da0980479fcd9cd198ef5285a23e0998c51",
-      "https://github.com/github/": "50e7b29e217b494be65a88b4883e2da0980479fcd9cd198ef5285a23e0998c51"
+      "https://github.com/dieghernan/": "f3991ed999f65e4823f0943c791238028ec229ccf5656e5187b96f87a60aaee5",
+      "https://github.com/github/": "f3991ed999f65e4823f0943c791238028ec229ccf5656e5187b96f87a60aaee5"
     },
     "https://dieghernan.github.io/chulapa/demo/category": {
-      "https://github.com/dieghernan/": "d9e85033094a36dd717a8ed1f50f2ff222e5977edf7610f961a7df2f91fce49e",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_category.md": "d9e85033094a36dd717a8ed1f50f2ff222e5977edf7610f961a7df2f91fce49e",
-      "https://github.com/github/": "d9e85033094a36dd717a8ed1f50f2ff222e5977edf7610f961a7df2f91fce49e"
+      "https://github.com/dieghernan/": "f85ac05de109a70014c5369a57e87cf5d4e523f6155cf9111540edfc44c3eec9",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_category.md": "f85ac05de109a70014c5369a57e87cf5d4e523f6155cf9111540edfc44c3eec9",
+      "https://github.com/github/": "f85ac05de109a70014c5369a57e87cf5d4e523f6155cf9111540edfc44c3eec9"
     },
     "https://dieghernan.github.io/chulapa/demo/minimal-header": {},
     "https://dieghernan.github.io/chulapa/demo/starter-personal-blog": {
@@ -96,9 +96,9 @@
       "https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog": "a64d266d240a57a514a942629aed2894d24bc571b42afe9243971001ed84e34d"
     },
     "https://dieghernan.github.io/chulapa/demo/tags": {
-      "https://github.com/dieghernan/": "421b5dc57cd9117475c8ab1673438c2f5a069ec4b2c69791eaf6770805f04afb",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_tags.md": "421b5dc57cd9117475c8ab1673438c2f5a069ec4b2c69791eaf6770805f04afb",
-      "https://github.com/github/": "421b5dc57cd9117475c8ab1673438c2f5a069ec4b2c69791eaf6770805f04afb"
+      "https://github.com/dieghernan/": "8ee5741fc95cd06cf02ca184dec1f47439338d2914e593f8cf22cf723af95e20",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_tags.md": "8ee5741fc95cd06cf02ca184dec1f47439338d2914e593f8cf22cf723af95e20",
+      "https://github.com/github/": "8ee5741fc95cd06cf02ca184dec1f47439338d2914e593f8cf22cf723af95e20"
     },
     "https://dieghernan.github.io/chulapa/docs": {},
     "https://dieghernan.github.io/chulapa/docs/00-start": {
@@ -138,40 +138,40 @@
       "https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss": "c4bdc9b648d763dd5fec3fde3c996a89713f2101eed11d376833c191b09e004c"
     },
     "https://dieghernan.github.io/chulapa/docs/04-layouts": {
-      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/blog-post-references": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/webpage-website-references": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
+      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/blog-post-references": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/webpage-website-references": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
       "https://developers.google.com/search/docs/appearance/snippet": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://developers.google.com/search/docs/appearance/structured-data/article": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://developers.google.com/search/docs/appearance/structured-data/video": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
+      "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://developers.google.com/search/docs/appearance/structured-data/video": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
       "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://dieghernan.github.io/202203_Corona-timelapse/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
+      "https://dieghernan.github.io/202203_Corona-timelapse/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
       "https://dieghernan.github.io/chulapa-101/": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://getbootstrap.com/docs/4.5/components/card/": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://github.com/allejo/jekyll-toc": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://github.com/dieghernan/chulapa-101/blob/main/index.html": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
+      "https://github.com/allejo/jekyll-toc": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://github.com/dieghernan/chulapa-101/blob/main/index.html": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
       "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/search.md": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://github.com/dieghernan/chulapa/tree/main/_includes/components": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://github.com/dieghernan/chulapa/tree/main/_includes/snippets": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://github.com/dieghernan/chulapa/tree/main/_layouts": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://jekyllrb.com/docs/configuration/front-matter-defaults/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
+      "https://github.com/dieghernan/chulapa/tree/main/_includes/components": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://github.com/dieghernan/chulapa/tree/main/_includes/snippets": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://github.com/dieghernan/chulapa/tree/main/_layouts": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://jekyllrb.com/docs/configuration/front-matter-defaults/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
       "https://jekyllrb.com/docs/pagination/": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://jekyllrb.com/docs/posts/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://jekyllrb.com/docs/static-files/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://jekyllrb.com/docs/variables/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
+      "https://jekyllrb.com/docs/posts/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://jekyllrb.com/docs/static-files/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://jekyllrb.com/docs/variables/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
       "https://mermaid.js.org/config/usage.html": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://ogp.me/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://quarto.org/docs/authoring/create-citeable-articles.html": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://quarto.org/docs/reference/metadata/citation.html": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://scholar.google.com/intl/en/scholar/inclusion.html": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://search.google.com/test/rich-results": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://shopify.github.io/liquid/filters/date/": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d",
-      "https://www.youtube.com/watch?v=1hXYuWTWVww": "6fb728747924d7e1f94b3f9c14acf80d13ed82773a2dc1cfd43a57b2c5f0304d"
+      "https://ogp.me/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://quarto.org/docs/authoring/create-citeable-articles.html": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://quarto.org/docs/reference/metadata/citation.html": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://scholar.google.com/intl/en/scholar/inclusion.html": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://search.google.com/test/rich-results": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://shopify.github.io/liquid/filters/date/": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26",
+      "https://www.youtube.com/watch?v=1hXYuWTWVww": "c909b52f1b4a8ff4745a32a74580fcb6cd9dee98b479678d85501a9601c26c26"
     },
     "https://dieghernan.github.io/chulapa/docs/05-faq": {
       "https://kramdown.gettalong.org/quickref.html": "dd6e7988d287e7de554f6917be9f3c90a4135b4f5c73ee00d110d8888b0b2f21",
@@ -321,26 +321,27 @@
       "https://raw.githubusercontent.com/dieghernan/chulapa/main/_sass/bootstrap/_variables.scss": "6b6ae71f69e85bb6b9d7975e0070532a7546e0c0a4da93050227290ae0a3fe71"
     },
     "https://dieghernan.github.io/chulapa/license": {
-      "http://jch.penibelst.de/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://creativecommons.org/licenses/by/4.0/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://ferpal.studio/work/ferpal-sans/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://fontawesome.com/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://fontawesome.com/license/free": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/allejo": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/allejo/jekyll-toc": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/allejo/jekyll-toc/blob/master/LICENSE.MIT.md": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/jwarby/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/jwarby/jekyll-pygments-themes/blob/master/UNLICENSE.txt": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/olivernn/lunr.js/blob/master/LICENSE": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/penibelst": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
+      "http://jch.penibelst.de/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://creativecommons.org/licenses/by/4.0/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://ferpal.studio/work/ferpal-sans/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://fontawesome.com/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://fontawesome.com/license/free": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/allejo": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/allejo/jekyll-toc": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/allejo/jekyll-toc/blob/master/LICENSE.MIT.md": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/jwarby/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/jwarby/jekyll-pygments-themes/blob/master/UNLICENSE.txt": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/olivernn/lunr.js/blob/master/LICENSE": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/penibelst": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
       "https://github.com/twbs/bootstrap/blob/v4.5.0/LICENSE": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://lunrjs.com": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://mademistakes.com/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://mmistakes.github.io/minimal-mistakes/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad",
-      "https://picsum.photos/": "cce4e3cd6386cf67e50547ad0245a8f269cb84e7ac4cddbc51025b158e4668ad"
+      "https://github.com/twbs/bootstrap/blob/v4.6.2/LICENSE": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://lunrjs.com": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://mademistakes.com/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://mmistakes.github.io/minimal-mistakes/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175",
+      "https://picsum.photos/": "eeb5951fd464e6939fdf2fdd78946b89e668761097df0975bca65d9830d69175"
     },
     "https://dieghernan.github.io/chulapa/showcase": {
       "https://andrevitali.github.io/g8-2024-website/": "8acb08f70d2545b87ffc951de609b67907b007dd9afe0a1a8e2a714a3eafed09",
