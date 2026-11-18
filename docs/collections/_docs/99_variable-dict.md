@@ -117,7 +117,7 @@ See the full set of variables [here](https://raw.githubusercontent.com/diegherna
 
 ### Color map
 
-The [Bootstrap color palette](https://getbootstrap.com/docs/4.5/getting-started/theming/#color) can be customized using these Sass variables:
+The [Bootstrap color palette](https://getbootstrap.com/docs/4.6/getting-started/theming/#color) can be customized using these Sass variables:
 
 These are palette values. Use semantic variables such as `primary`, `danger`
 or `body-bg` to assign colors to components. A skin may define semantic

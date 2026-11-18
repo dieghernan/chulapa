@@ -23,3 +23,17 @@ $skin-button-palette: (
   warning: rgb(191.25, 175.5, 69),
 ) !default;
 $skin-button-body-bg: rgb(242.25, 248.4, 255) !default;
+
+@mixin chulapa-skin-contrast {
+  $stock-info: map-get($skin-button-palette, info);
+  @if $stock-info == map-get($skin-button-effective-palette, info) and $stock-info == theme-color(info) {
+    // Keep linked Info badges readable over their darkened hover fill.
+    a.badge.badge-info,
+    a.badge.chulapa-pill-bg-info {
+      &:hover,
+      &:focus {
+        color: color-yiq(darken(theme-color(info), 10%));
+      }
+    }
+  }
+}

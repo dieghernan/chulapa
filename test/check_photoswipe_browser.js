@@ -15,8 +15,8 @@ function contrast(color, background) {
 }
 const dependencies = new Map([
   ['https://code.jquery.com/jquery-3.5.1.slim.min.js',require.resolve('jquery/dist/jquery.slim.min.js')],
-  ['https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',require.resolve('popper.js/dist/umd/popper.min.js')],
-  ['https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js',require.resolve('bootstrap/dist/js/bootstrap.min.js')],
+  ['https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',require.resolve('popper.js/dist/umd/popper.min.js')],
+  ['https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js',require.resolve('bootstrap/dist/js/bootstrap.min.js')],
   [cdn+'photoswipe.esm.min.js',path.join(pswp,'photoswipe.esm.min.js')],
   [cdn+'photoswipe.css',path.join(pswp,'photoswipe.css')]
 ]);

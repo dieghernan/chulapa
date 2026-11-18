@@ -4,7 +4,7 @@ preview](https://dieghernan.github.io/chulapa/assets/img/site/banner.png "live p
 ![GitHub release latest](https://img.shields.io/github/v/release/dieghernan/chulapa)
 [![Gem Version](https://badge.fury.io/rb/chulapa-jekyll.svg)](https://badge.fury.io/rb/chulapa-jekyll)
 ![Gem Total Downloads](https://img.shields.io/gem/dt/chulapa-jekyll)
-[![Boostrap](https://img.shields.io/badge/boostrap-4.6.2-blue?logo=bootstrap&logoColor=white)](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+[![Bootstrap](https://img.shields.io/badge/bootstrap-4.6.2-blue?logo=bootstrap&logoColor=white)](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 [![ko-fi](https://img.shields.io/badge/ko--fi-donate-yellow?logo=kofi&logoColor=white)](https://ko-fi.com/dieghernan)
 ![License](https://img.shields.io/github/license/dieghernan/chulapa)
 ![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D3.7%20%3C5.0-blue?logo=jekyll)

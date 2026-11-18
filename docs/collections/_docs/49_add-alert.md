@@ -28,7 +28,7 @@ Useful information for readers.
 Replace the message with your text. Use ordinary paragraphs for routine prose;
 for a concrete mistake readers need to avoid or fix, replace `alert-info` with
 `alert-warning`. Keep the spacing classes and keep the box short. Additional
-styles are in [Bootstrap's alert reference](https://getbootstrap.com/docs/4.5/components/alerts/).
+styles are in [Bootstrap's alert reference](https://getbootstrap.com/docs/4.6/components/alerts/).
 
 ## Add a callout with several paragraphs
 

@@ -12,7 +12,12 @@ const compile = text=>sass.compileString(text, {loadPaths:[root+'/_sass'],logger
 const navbar = /\.navbar-dark\.bg-primary\s*\{\s*background-color:\s*#111111\s*!important;\s*\}/g;
 // Only the original navbar rule moves to after Bootstrap. Everything else must
 // compile identically, including the retained accessibility corrections.
-const canonical = css=>css.replace(/\/\*[\s\S]*?\*\//g, '').replace(navbar, '').replace(/\s+/g, ' ').trim();
+const canonical = css=>css
+ .replace(/\/\*[\s\S]*?\*\//g, '')
+ .replace(navbar, '')
+ // Liberation Sans is a valid optional system-font fallback in Bootstrap's stack.
+ .replace(/,\s*"Liberation Sans"/g, '')
+ .replace(/\s+/g, ' ').trim();
 const variants = ['primary','secondary','success','info','warning','danger','light','dark'];
 const html = `<nav class="navbar navbar-dark bg-primary"><a class="navbar-brand" href="#">Original navbar</a></nav><nav class="navbar navbar-chulapa"><a class="navbar-brand" href="#">Chulapa navbar</a><a class="nav-link" href="#">Article</a></nav><section class="hero-chulapa"><h1>Deeply</h1><p>A place for your ideas</p></section><p>Body text <a href="#">and a link</a>.</p><blockquote>Quotation</blockquote><pre><code>const deeply = true;</code></pre>${variants.map(v=>`<div class="card bg-${v}"><div class="card-header">Header</div><div class="card-body"><p>Content</p><button class="btn btn-${v}">${v}</button><button class="btn btn-outline-${v}">Outline</button><button disabled class="btn btn-${v}">Disabled</button><span class="badge badge-${v}">Badge</span></div><div class="card-footer">Footer</div></div><div class="alert alert-${v}">Notice <a class="alert-link" href="#">Link</a></div><table class="table table-hover"><tbody><tr class="table-${v}"><td>Table content</td></tr></tbody></table>`).join('')}<input class="form-control" aria-label="Example"><ul class="pagination"><li class="page-item active"><a class="page-link" href="#">1</a></li><li class="page-item disabled"><a class="page-link" href="#">2</a></li></ul>`;
 const properties = ['color','backgroundColor','backgroundImage','borderTopColor','borderTopWidth','borderRadius','fontFamily','fontSize','fontWeight','lineHeight','boxShadow','textDecorationLine'];
@@ -48,7 +53,7 @@ const properties = ['color','backgroundColor','backgroundImage','borderTopColor'
      const states={};
      for(const state of ['normal','hover','focus','active']) {
       for(const id of nodeIds) await session.send('CSS.forcePseudoState',{nodeId:id,forcedPseudoClasses:state==='normal'?[]:state==='active'?['hover','active']:[state]});
-      states[state]=await page.locator('body *').evaluateAll((elements,props)=>elements.map(el=>Object.fromEntries(props.map(p=>[p,getComputedStyle(el)[p]]))),properties);
+      states[state]=await page.locator('body *').evaluateAll((elements,props)=>elements.map(el=>Object.fromEntries(props.map(p=>{const value=getComputedStyle(el)[p];return [p,p==='fontFamily'?value.replace(/,\s*"Liberation Sans"/g,''):value]}))),properties);
      }
      snapshots.push(states);
     }

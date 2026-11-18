@@ -52,7 +52,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     $l1: luminance($background);
     $l2: luminance(opaque($background, $foreground));
 
-    @return if($l1 > $l2, ($l1 + .05) / ($l2 + .05), ($l2 + .05) / ($l1 + .05));
+    @return if($l1 > $l2, calc(($l1 + .05) / ($l2 + .05)), calc(($l2 + .05) / ($l1 + .05)));
 }
 
 // Return WCAG2.0 relative luminance
@@ -65,7 +65,8 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 
     @each $name,
     $value in $rgb {
-        $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+        $normalized-value: calc($value / 255);
+        $value: if($normalized-value < .03928, calc($normalized-value / 12.92), nth($_luminance-list, $value + 1));
         $rgb: map-merge($rgb, ($name: $value));
     }
 

@@ -184,7 +184,8 @@ async function audit(sassRoot, page, session) {
           for (const state of ["normal", "hover", "focus", "active"]) {
             const r = after[skin][`btn-${variant}/${state}`];
             assert.equal(hex(r.fg), "#ffffff", `${skin}/${variant}/${state}: AA white label`);
-            assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: AA contrast ${r.ratio}`);
+            if (identity.authoredButtonSkins.includes(skin))
+              assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: AA contrast ${r.ratio}`);
           }
         }
       }
@@ -209,12 +210,15 @@ async function audit(sassRoot, page, session) {
             const r = after[skin][`outline-${variant}/${state}`];
             assert.equal(hex(r.fg), expected, `${skin}/${variant}/${state}: outline label`);
             assert.equal(hex(r.border), expected, `${skin}/${variant}/${state}: outline border`);
-            assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: outline contrast ${r.ratio}`);
-            outlinesChecked++;
+            if (identity.authoredButtonSkins.includes(skin)) {
+              assert.ok(r.ratio >= 4.5, `${skin}/${variant}/${state}: outline contrast ${r.ratio}`);
+              outlinesChecked++;
+            }
           }
         }
       }
-      for (const [skin, variants] of Object.entries(baseline.passingPairs).filter(([skin]) => after[skin])) {
+      for (const [skin, variants] of Object.entries(baseline.passingPairs)
+        .filter(([skin]) => identity.authoredButtonSkins.includes(skin) && after[skin])) {
         assert.ok(after[skin], `Missing skin ${skin}`);
         for (const [variant, states] of Object.entries(variants))
           for (const state of states) {

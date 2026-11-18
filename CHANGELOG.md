@@ -22,6 +22,8 @@
 
 ### Changed
 
+-   Update Bootstrap to 4.6.2 and Popper.js to 1.16.1 across the theme's bundled assets and CDN loading, align the browser test dependencies and documentation references, and keep the Google search demo on the same versions.
+
 -   On narrow screens, place the author's location and links below the name across all skins and wrap long names within the author card.
 
 -   Remove individual skin credits from the site footer. Skin authors remain credited in the skin gallery.
@@ -35,6 +37,10 @@
 -   Load Font Awesome Free 7 by default. Existing version overrides still work. Hosted v4 compatibility styles now match the selected version. Sites using a kit manage v4 compatibility in the kit settings.
 
 ### Fixed
+
+-   Keep Auto's Info and the fallback skin's Success/Info badge hover labels readable, and align fallback button contrast corrections with Bootstrap 4.6.2.
+
+-   Keep tag and category badges aligned with their icons and wrap long badge groups across lines without displacing the icon or reflowing the badge indentation.
 
 -   Emit JSON-LD `dateModified` only when `last_modified_at` is set instead of reusing the publication date.
 

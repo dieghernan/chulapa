@@ -8,8 +8,8 @@ const fixtureRoot = path.resolve(process.argv[2]);
 const root = path.resolve(__dirname, '..');
 const scripts = new Map([
   ['https://code.jquery.com/jquery-3.5.1.slim.min.js', require.resolve('jquery/dist/jquery.slim.min.js')],
-  ['https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', require.resolve('popper.js/dist/umd/popper.min.js')],
-  ['https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', require.resolve('bootstrap/dist/js/bootstrap.min.js')],
+  ['https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', require.resolve('popper.js/dist/umd/popper.min.js')],
+  ['https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js', require.resolve('bootstrap/dist/js/bootstrap.min.js')],
   ['https://unpkg.com/lunr/lunr.js', require.resolve('lunr/lunr.js')],
   ['https://unpkg.com/lunr/lunr.min.js', require.resolve('lunr/lunr.min.js')],
   ['https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.mjs', path.join(path.dirname(require.resolve('fuse.js')), 'fuse.min.mjs')]

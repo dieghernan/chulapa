@@ -15,6 +15,6 @@ author:
 > From [Wikipedia](https://en.wikipedia.org/wiki/Dean_Village)
 > {: .blockquote-footer }
 
-That was a blockquote with a footer added via kramdown. See [Bootstrap Typography](https://getbootstrap.com/docs/4.5/content/typography/) 
+That was a blockquote with a footer added via kramdown. See [Bootstrap Typography](https://getbootstrap.com/docs/4.6/content/typography/)
 to understand `.blockquote-footer` class.
 ![Dean Village](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Well_Court%2C_Dean_Village%2C_Edinburgh_%2844485996381%29.jpg/800px-Well_Court%2C_Dean_Village%2C_Edinburgh_%2844485996381%29.jpg)

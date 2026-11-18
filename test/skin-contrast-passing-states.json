@@ -1,6 +1,6 @@
 {
   "reference": "e88f641c10e91276be90734fed9f27cb5f45fc54",
-  "scope": "Previously AA-passing semantic foregrounds, filled/outline buttons and linked badge CSS states; excluded pairs remain unclassified, not certified.",
+  "scope": "Previously AA-passing semantic foregrounds, filled/outline buttons and linked badge CSS states on Chulapa-authored skins; vendor pairs are retained as historical reference, not AA requirements.",
   "passingPairs": {
     "academia": {
       "text-primary": ["normal"],

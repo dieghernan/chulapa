@@ -30,7 +30,7 @@ or remove the manual include before enabling the automatic minimal header.
         <div class="p-5">
           <h2 class="display-4 text-center text-lg-left">Use any Bootstrap
 Template!</h2>
-          <p>Some examples on <a href="https://getbootstrap.com/docs/4.5/examples/">Bootstrap Documentation</a>, <a href="https://startbootstrap.com/">StartBootstrap</a> or <a href="https://www.google.com/search?q=%22Bootstrap+Templates%22">just Google it!</a> </p>
+          <p>Some examples on <a href="https://getbootstrap.com/docs/4.6/examples/">Bootstrap Documentation</a>, <a href="https://startbootstrap.com/">StartBootstrap</a> or <a href="https://www.google.com/search?q=%22Bootstrap+Templates%22">just Google it!</a> </p>
         </div>
       </div>
     </div>

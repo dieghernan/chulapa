@@ -387,8 +387,9 @@ node test/check_skin_contrast.js
 
 Compiles every skin and the autothemer defaults, checks automatic text against
 all eight palette backgrounds with an independent WCAG calculation, and checks
-each skin’s unchanged YIQ function output. Run the rendered component check
-with Chromium installed:
+each skin’s unchanged YIQ function output. AA is enforced for Chulapa-authored
+skins; vendor skins retain explicit exception floors but are not required to
+meet AA. Run the rendered component check with Chromium installed:
 
 ```sh
 CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_browser.js
@@ -396,12 +397,13 @@ CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_browser.js
 
 It compiles theme CSS and checks base buttons, badges and skin-defined colored
 cards at 390px and 1280px. It also checks body, navigation and footer links on
-the two dim skins in normal, hover and focus states, plus body links on Cyborg
-and Wandoo. Butterfly Dim also checks `.text-success` against the page background.
+Chulapa-authored dim skins in normal, hover and focus states. Butterfly Dim also
+checks `.text-success` against the page background.
 `skin-contrast-identity.json` records original primary colors and
-known contrast limitations retained for identity. These exceptions are checked
-for degradation, not counted as WCAG passes. The checks do not establish
-whole-page accessibility or cover all component interaction states.
+known contrast limitations retained for identity. Explicit exception floors
+remain checked for degradation, but vendor skins are not held to the AA
+threshold. The checks do not establish whole-page accessibility or cover all
+component interaction states.
 
 For semantic foregrounds, filled/outline buttons and linked badge CSS states
 across every skin:
@@ -410,20 +412,24 @@ across every skin:
 CHULAPA_CHROMIUM=/usr/bin/chromium node test/check_skin_contrast_states_browser.js
 ```
 
-This compares 2,898 formerly AA-passing pairs from the original `e88f641`
-palettes at both viewport sizes. Chromium forces normal, hover, focus and active
-CSS states with transitions disabled for measurement. It also checks original
-light labels on 93 filled-button variants (including disabled, class-based focus,
-active and open-dropdown states), reviewed filled backgrounds, and normal/focus
-contrast plus matching borders on 139 corrected outline variants. `Light` and
-`Dark` outlines are deliberately excluded because they target alternate backgrounds.
+This compares 2,426 formerly AA-passing pairs from the original `e88f641`
+palettes on Chulapa-authored skins at both viewport sizes. Chromium forces
+normal, hover, focus and active CSS states with transitions disabled for
+measurement. It also checks original light labels on 93 filled-button variants
+(including disabled, class-based focus, active and open-dropdown states),
+reviewed filled backgrounds, and expected colors and matching borders for
+corrected outlines. AA contrast for outlines is required only on Chulapa-authored
+skins; `Light` and `Dark` outlines are deliberately excluded because they target
+alternate backgrounds.
 Thirty reviewed AA button fills are checked with white text in normal, hover,
 focus and active states. All eight solid variants of all 16 original dieghernan
 skins are covered in every state (1,024 combinations at two sizes), including
 Listen’s consistent dark labels and Chulapa Success’s lighter interaction fills.
-The recorded baseline
-covers previously passing pairs only; it does not certify excluded pairs,
-full gradients, arbitrary site content or JavaScript interactions.
+The recorded baseline covers previously passing pairs on Chulapa-authored skins
+only; it does not certify vendor skins, full gradients, arbitrary site content or
+JavaScript interactions. Vendor skins are still compiled, and their recorded
+identity checks remain in place, but their upstream colors are not held to the
+AA threshold.
 
 Flatly alerts have a focused check matching the skin guide notice:
 

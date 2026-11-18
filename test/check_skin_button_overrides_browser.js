@@ -6,6 +6,7 @@ const { chromium } = require('./browser/node_modules/playwright');
 const root = path.resolve(__dirname, '..');
 const sassRoot = process.env.CHULAPA_SASS_ROOT || root + '/_sass';
 const colors = ['primary','secondary','success','info','warning','danger','light','dark'];
+const chulapaOwnedSkins = new Set([...require('./skin-contrast-identity.json').authoredButtonSkins, 'auto', 'none']);
 const fillImport = fs.existsSync(sassRoot+'/chulapa/_autothemer.scss') ? 'chulapa/autothemer' : 'skins/auto';
 const compile = s => sass.compileString(s,{loadPaths:[sassRoot],logger:{warn(){}}}).css;
 const disabledCorrections = '$skin-button-palette: (); $skin-button-backgrounds: (); $skin-button-labels: (); $skin-button-outlines: (); $skin-button-lighter-states: ();';
@@ -14,7 +15,7 @@ const source = (skin, vars, fill, disabled=false) => `@import "skins/${skin}"; $
  let compiledChecks=0;
  const skins = fs.readdirSync(sassRoot+'/skins').filter(f=>f.endsWith('.scss')&&f!=='dark-bg.scss').map(f=>f.slice(0,-5));
  // Authored corrections must leave third-party skins' rendered CSS intact.
- for(const skin of skins.filter(name=>!require('./skin-contrast-identity.json').authoredButtonSkins.includes(name))){
+ for(const skin of skins.filter(name=>!chulapaOwnedSkins.has(name))){
   const prefix=`@import "skins/${skin}";`;
   const end='@import "bootstrap/bootstrap"; @import "chulapa-master";';
   assert.equal(compile(prefix+end),compile(prefix+'@mixin chulapa-skin-contrast {} @mixin chulapa-skin-defaults {}'+end),

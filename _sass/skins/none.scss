@@ -16,9 +16,25 @@ $skin-button-outlines: (
 ) !default;
 // Stock palette defaults; keep predeclared custom colors and vars authoritative.
 $skin-button-palette: (
-  info: #20a6bb,
+  info: #17a2b8,
   primary: #007bff,
   success: #28a745,
   warning: #ffc107,
 ) !default;
 $skin-button-body-bg: #fff !default;
+
+@mixin chulapa-skin-contrast {
+  @each $variant in (success, info) {
+    $stock: map-get($skin-button-palette, $variant);
+    @if $stock == map-get($skin-button-effective-palette, $variant) and $stock == theme-color($variant) {
+      // Keep linked badges readable over their darkened hover fill.
+      a.badge.badge-#{$variant},
+      a.badge.chulapa-pill-bg-#{$variant} {
+        &:hover,
+        &:focus {
+          color: color-yiq(darken(theme-color($variant), 10%));
+        }
+      }
+    }
+  }
+}

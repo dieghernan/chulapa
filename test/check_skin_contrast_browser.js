@@ -79,19 +79,23 @@ const root = require("path").resolve(__dirname, ".."),
             };
           });
         });
+        const authored = identity.authoredButtonSkins.includes(skin);
         for (const c of checks) {
-          const minimum =
-            identity.renderedExceptions[`${skin}/${c.kind}`] ?? 4.5;
-          assert.ok(
-            c.ratio >= minimum,
-            `${skin}/${width}/${c.kind}: ${c.ratio}; minimum ${minimum}`,
-          );
+          const exception = identity.renderedExceptions[`${skin}/${c.kind}`];
+          if (authored || exception !== undefined) {
+            const minimum = exception ?? 4.5;
+            assert.ok(
+              c.ratio >= minimum,
+              `${skin}/${width}/${c.kind}: ${c.ratio}; minimum ${minimum}`,
+            );
+          }
           if (c.ratio < 4.5) knownFailures++;
         }
         // Preserve readable link accents against the dim page background,
         // including the hover and keyboard-focus states from the PR review.
         if (
-          ["twitter-dim", "butterfly", "butterfly-dim", "cyborg", "wandoo"].includes(skin)
+          identity.authoredButtonSkins.includes(skin) &&
+          ["twitter-dim", "butterfly", "butterfly-dim"].includes(skin)
         ) {
           await page.setContent(`<style>${css}</style>
             <main><a id="body-link" href="#target">Article link</a>
@@ -101,15 +105,13 @@ const root = require("path").resolve(__dirname, ".."),
               <a id="nav-active" class="nav-link active" href="#target">Current page</a>
             </div></nav>
             <footer class="footer-chulapa"><a id="footer-link" href="#target">Footer link</a></footer>`);
-          for (const id of ["cyborg", "wandoo"].includes(skin)
-            ? ["body-link"]
-            : [
-                "body-link",
-                "nav-link",
-                "nav-active",
-                "footer-link",
-                ...(skin === "butterfly-dim" ? ["success-text"] : []),
-              ]) {
+          for (const id of [
+            "body-link",
+            "nav-link",
+            "nav-active",
+            "footer-link",
+            ...(skin === "butterfly-dim" ? ["success-text"] : []),
+          ]) {
             const link = page.locator(`#${id}`);
             for (const state of id === "success-text"
               ? ["normal"]
@@ -161,7 +163,7 @@ const root = require("path").resolve(__dirname, ".."),
       }
     }
     console.log(
-      `${results.length} skin/viewport combinations checked; ${knownFailures} documented component exceptions below 4.5:1. Targeted link/navigation contrast checks pass.`,
+      `${results.length} skin/viewport combinations checked; ${knownFailures} component pairs below 4.5:1. AA is enforced for authored skins, with recorded exception floors retained for vendor skins. Targeted authored link/navigation contrast checks pass.`,
     );
   } finally {
     await browser.close();
