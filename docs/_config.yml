@@ -253,6 +253,8 @@ series:
     label: Feeds and publishing
   sharing:
     label: SEO and social sharing
+    part_label: "How-to #"
+    index_label: Discover more on SEO and social sharing
   maintenance:
     label: Maintenance and troubleshooting
   component-demos:

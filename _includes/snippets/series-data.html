@@ -16,3 +16,5 @@
 {%- assign series_entity_id = '/' | absolute_url | uri_escape | append: '#series-' -%}
 {%- assign series_id_fragment = include.id | url_encode -%}
 {%- assign series_entity_id = series_entity_id | append: series_id_fragment -%}
+{%- assign series_part_label = series.part_label | default: '' | strip | default: 'Part' -%}
+{%- assign series_index_label = series.index_label | default: '' | strip | default: 'Series index' -%}

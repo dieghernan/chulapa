@@ -32,10 +32,8 @@
       {%- endcapture -%}
       {%- if part_number > 0 -%}
         {%- assign visible_series = visible_series | plus: 1 -%}
-        {%- assign part_label = series.part_label | default: '' | strip | default: 'Part' -%}
-        {%- assign index_label = series.index_label | default: '' | strip | default: 'Series index' -%}
         {%- assign series_label_escaped = series_label_text | escape_once -%}
-        {%- capture series_position -%}{{ part_label }} {{ part_number }} of {{ series_chapters.size }}{%- endcapture -%}
+        {%- capture series_position -%}{{ series_part_label }} {{ part_number }} of {{ series_chapters.size }}{%- endcapture -%}
         {%- capture series_links -%}
 <nav aria-label="{{ series_label_escaped }} previous and next" class="d-flex flex-wrap align-items-center">
   {%- if previous_part -%}
@@ -62,7 +60,7 @@
   {{ series_links }}
 </div>
 <details class="chulapa-series-index mt-1">
-  <summary>{{ index_label | escape }}<span class="sr-only">: {{ series_label_escaped }}</span></summary>
+  <summary>{{ series_index_label | escape }}<span class="sr-only">: {{ series_label_escaped }}</span></summary>
   <nav aria-label="{{ series_label_escaped }}">
     <ol class="mb-0 pl-4">{{ chapter_items }}</ol>
   </nav>
