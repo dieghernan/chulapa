@@ -100,19 +100,20 @@ algolia:
   extensions_to_index:      #Optional
     - html
     - md
-  searchableAttributes:     #Optional
-    - title
-    - headings
-    - unordered(content)
-    - unordered(subtitle)
-    - unordered(categories)
-    - unordered(collection)
-    - unordered(tags)
-  customRanking:            #Optional
-    - desc(include_on_search)
-    - desc(title)
-    - desc(content)
-    - desc(subtitle)
+  settings:                 #Optional
+    searchableAttributes:
+      - title
+      - headings
+      - unordered(content)
+      - unordered(subtitle)
+      - unordered(categories)
+      - unordered(collection)
+      - unordered(tags)
+    customRanking:
+      - desc(include_on_search)
+      - desc(title)
+      - desc(content)
+      - desc(subtitle)
 
 # A.5. Comments
 # Enable show_comments on pages that should display comments.

@@ -77,25 +77,31 @@ algolia:
   - collections/_skins/*.md
   - collections/_skins/*.html
   - _pages/license.md
-  - _pages/license.html
   - _pages/search.md
   - _pages/search.html
+  - _pages/demo_*.md
+  - _pages/demo_*.html
+  - _pages/showcase.md
+  - AGENTS.md
+  - README.md
   extensions_to_index:
   - html
   - md
-  searchableAttributes:
-  - title
-  - headings
-  - unordered(content)
-  - unordered(subtitle)
-  - unordered(categories)
-  - unordered(collection)
-  - unordered(tags)
-  customRanking:
-  - desc(include_on_search)
-  - desc(title)
-  - desc(content)
-  - desc(subtitle)
+  nodes_to_index: 'p,h2,h3,h4'
+  settings:
+    searchableAttributes:
+      - title
+      - headings
+      - unordered(content)
+      - unordered(subtitle)
+      - unordered(categories)
+      - unordered(collection)
+      - unordered(tags)
+    customRanking:
+      - desc(include_on_search)
+      - desc(title)
+      - desc(content)
+      - desc(subtitle)
 
 # Documentation assistant, separate from the theme configuration.
 # No trailing slash on worker_url. Loaded on the homepage, /docs and collection docs.
