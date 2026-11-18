@@ -41,7 +41,7 @@ output = File.expand_path(ARGV.fetch(0))
       ["demo/search_lunr.html", "demo/search_fusejs.html", "404.html"].each do |page|
         document = Nokogiri::HTML(File.read(File.join(output, name, page)))
         sources = document.css('script[src]').map { |node| node["src"] }
-        %w[jquery-3.5.1.slim.min.js bootstrap.min.js chulapa_navigation.js].each do |asset|
+        %w[jquery.slim.min.js bootstrap.min.js chulapa_navigation.js].each do |asset|
           raise "Duplicate/missing #{asset} in #{page}" unless sources.count { |url| url.end_with?(asset) } == 1
         end
         adapter = sources.find { |url| url.match?(%r{/(lunr|fusejs)-search(?:\.min)?\.js$}) }
