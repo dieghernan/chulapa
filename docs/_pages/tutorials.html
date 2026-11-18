@@ -28,7 +28,7 @@ series_page: true
             <div class="card-title h6 mb-2" id="{{ series_id | escape }}" role="heading" aria-level="2">{{ series_label_html }}</div>
             <div class="card-text">
               <details class="small">
-                <summary>{{ series_chapters.size }} {{ series.index_label | downcase | escape_once }}<span class="sr-only"> in {{ series_accessible_name }}</span></summary>
+                <summary>{{ series_chapters.size }} parts<span class="sr-only"> in {{ series_accessible_name }}</span></summary>
                 <ol class="pl-4 mb-0 mt-2">
                   {% for chapter in series_chapters %}
                     <li class="mb-1"><a href="{{ chapter.url | relative_url | escape }}">{% include snippets/series-chapter-title.html chapter=chapter %}</a></li>
