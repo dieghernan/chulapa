@@ -6,7 +6,7 @@ const {chromium} = require('playwright');
 const after = path.resolve(process.argv[2]);
 const before = process.argv[3] && path.resolve(process.argv[3]);
 const dependencies = new Map([
-  ['https://code.jquery.com/jquery-3.5.1.slim.min.js', require.resolve('jquery/dist/jquery.slim.min.js')],
+  ['https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', require.resolve('jquery/dist/jquery.slim.min.js')],
   ['https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', require.resolve('popper.js/dist/umd/popper.min.js')],
   ['https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js', require.resolve('bootstrap/dist/js/bootstrap.min.js')]
 ]);
