@@ -83,7 +83,7 @@ algolia:
   extensions_to_index:
   - html
   - md
-  nodes_to_index: 'p,h2,h3'
+  nodes_to_index: 'p,h2,h3,h4,li'
   settings:
     searchableAttributes:
       - title
