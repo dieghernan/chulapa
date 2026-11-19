@@ -80,6 +80,7 @@ algolia:
   - _pages/search.html
   - AGENTS.md
   - README.md
+  - assets/**
   extensions_to_index:
   - html
   - md
