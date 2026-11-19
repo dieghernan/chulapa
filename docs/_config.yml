@@ -98,6 +98,19 @@ algolia:
       - desc(title)
       - desc(content)
       - desc(subtitle)
+    ignorePlurals:
+    - en
+    removeStopWords:
+    - en
+    unretrievableAttributes:
+    - custom_ranking
+    queryLanguages:
+    - en
+    alternativesAsExact:
+    - ignorePlurals
+    - singleWordSynonym
+    indexLanguages:
+    - en
 
 # Documentation assistant, separate from the theme configuration.
 # No trailing slash on worker_url. Loaded on the homepage, /docs and collection docs.

@@ -100,6 +100,7 @@ algolia:
   extensions_to_index:      #Optional
     - html
     - md
+  # See settings https://www.algolia.com/doc/api-reference/settings-api-parameters
   settings:                 #Optional
     searchableAttributes:
       - title
@@ -114,6 +115,8 @@ algolia:
       - desc(title)
       - desc(content)
       - desc(subtitle)
+    removeStopWords:
+    - en
 
 # A.5. Comments
 # Enable show_comments on pages that should display comments.
