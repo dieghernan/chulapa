@@ -72,16 +72,12 @@ algolia:
   - _includes/*.html
   - _pages/liquid*
   - ai-chatbot/*
-  - blog/*.html
   - index.html
   - collections/_skins/*.md
   - collections/_skins/*.html
   - _pages/license.md
   - _pages/search.md
   - _pages/search.html
-  - _pages/demo_*.md
-  - _pages/demo_*.html
-  - _pages/showcase.md
   - AGENTS.md
   - README.md
   extensions_to_index:
