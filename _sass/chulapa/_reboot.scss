@@ -88,6 +88,10 @@ blockquote {
 
   > ol {
     padding-inline-start: 2em;
+
+    > li:not(:last-child) > p:last-child {
+      margin-bottom: $spacer * .5;
+    }
   }
 }
 
