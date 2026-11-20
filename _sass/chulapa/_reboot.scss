@@ -78,6 +78,7 @@ blockquote {
 }
 
 .footnotes {
+  @extend .px-2;
   font-size: $font-size-sm;
   color: $footnote-chulapa-text-color;
   border-top: $border-width solid $secondary;

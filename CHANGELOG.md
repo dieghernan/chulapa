@@ -6,7 +6,7 @@
 
 ### Fixed
 
--   Align the footnote separator with the article, reduce the list indentation and bring consecutive notes closer together.
+-   Align the footnote separator with the article and give notes the same side padding as blockquotes. Reduce the list indentation and the space between notes.
 
 ## v2.3.0 (2026-11-20)
 
