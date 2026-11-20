@@ -436,7 +436,7 @@ Gallery internal=image_col group, external=comma-separated URLs (internal wins).
 
 ## Spotify embeds
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#spotify-embeds
-Development only. Add snippets/spotify.html via Liquid include with Spotify id, type="album" (default track) and descriptive title. Tracks: 152px; albums: 352px. At v2.3.0 or earlier paste Spotify's iframe.
+Dev only. Include snippets/spotify.html with id, descriptive title and type="album" (default track). Track 152px, album 352px. On v2.3.0 or earlier use Spotify's iframe. Add a direct Spotify link below for feed readers.
 
 ## Tag/category cloud setup
 Source: https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds
