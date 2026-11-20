@@ -38,6 +38,8 @@
 
 ### Fixed
 
+-   Resolve relative links and fragments in Algolia result excerpts against the source article instead of the search page, preserving highlighting and existing absolute links.
+
 -   Keep Auto's Info and the fallback skin's Success/Info badge hover labels readable, and align fallback button contrast corrections with Bootstrap 4.6.2.
 
 -   Keep tag and category badges aligned with their icons and wrap long badge groups across lines without displacing the icon or reflowing the badge indentation.

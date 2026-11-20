@@ -294,9 +294,15 @@ or GitHub Actions secrets; do not put it in the public configuration.
 {: .alert .alert-warning .p-3 .mx-2 .mb-3}
 
 Additional Algolia indexing options in the sample configuration are
-`files_to_exclude` (omit files), `extensions_to_index` (file types),
-`searchableAttributes` (searchable fields) and `customRanking` (ranking rules).
-They belong under `algolia`; they do not affect the local search providers.
+`algolia.files_to_exclude` (omit files) and `algolia.extensions_to_index`
+(file types). `algolia.nodes_to_index` selects the rendered HTML elements to
+extract; the plugin default is `p`, for paragraphs. Each matching element
+creates a separate record.
+
+Index settings such as `searchableAttributes` (searchable fields),
+`customRanking` (ranking rules) and `removeStopWords` belong under
+`algolia.settings`. They do not affect the local search providers. Upload the
+index again after changing indexing options or settings.
 
 `include_on_search` is not an Algolia exclusion: the sample `customRanking`
 uses it for ranking. `algolia.files_to_exclude` controls omissions. These

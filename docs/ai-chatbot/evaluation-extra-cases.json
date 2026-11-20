@@ -1,5 +1,33 @@
 [
   {
+    "id": "algolia-partial-match-fallback",
+    "section": "search",
+    "doc": "37_algolia-search.md",
+    "question": "How can I make Algolia show partial matches instead of no results? Is that a theme default, and does publishing the theme enable it?",
+    "expected": "Optionally set algolia.settings.removeWordsIfNoResults to allOptional. If the full query has no matches, Algolia retries with partial matches, which can be less relevant. Algolia's default is none; this is an index setting used in the documentation site's development configuration, not a theme-wide default. Upload the index configuration to apply; publishing the theme alone is insufficient. The two-character client-side minimum still applies. Link /docs/37-algolia-search."
+  },
+  {
+    "id": "algolia-index-settings-nesting",
+    "section": "search",
+    "doc": "02_config.md",
+    "question": "Do searchableAttributes and customRanking go directly under algolia? What about nodes_to_index, and do changes need an upload?",
+    "expected": "Put searchableAttributes, customRanking and language settings under algolia.settings. files_to_exclude, extensions_to_index and nodes_to_index belong directly under algolia; nodes_to_index defaults to p. Run bundle exec jekyll algolia --dry-run in the indexing environment to preview without changing the remote index, then upload to apply indexing changes. Publishing the theme alone does not update the index. Link /docs/02-config#search-engines and /docs/37-algolia-search."
+  },
+  {
+    "id": "bootstrap-development-script-overrides",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "I copied components/scripts.html into my site. Which Bootstrap dependencies should I check when updating to development v2.2.1?",
+    "expected": "Development v2.2.1 loads jQuery Slim 3.5.1, Popper.js 1.16.1 and Bootstrap 4.6.2 in that order. jQuery's version is unchanged. Local copies override the theme and do not receive updates automatically; update URLs and matching integrity hashes together. Built-in layouts use the shared updated include. Do not describe these dependency updates as released v2.2.0. Link /docs/04-layouts#javascript-assets-and-local-overrides."
+  },
+  {
+    "id": "algolia-excerpt-relative-links",
+    "section": "search",
+    "doc": "37_algolia-search.md",
+    "question": "Algolia excerpt links such as #video and ./another-guide open on my search page. Do I need another plugin or an index upload?",
+    "expected": "Development v2.2.1 resolves relative and fragment links in Algolia result excerpts against the source article while retaining highlighting. Update and publish the theme; no additional plugin, YAML option or index upload is required for this fix. Do not describe it as available in released v2.2.0. Link /docs/37-algolia-search."
+  },
+  {
     "id": "series-newsletter-labels",
     "section": "content",
     "doc": "04_layouts.md",

@@ -126,6 +126,11 @@ dropdown interaction and responsive closure, alongside clipboard, Mermaid and
 highlighting regressions. These state checks do not replace browser layout or
 screen reader audits.
 
+`check_algolia_browser.js` uses the generated JavaScript fixtures to check links
+inside highlighted and fallback Algolia excerpts, including section links,
+relative paths, existing absolute URLs and keyboard activation at root and
+subdirectory URLs. It stubs the hosted search client and makes no Algolia requests.
+
 `check_html_semantics.rb` inspects complete generated documents with an HTML5
 parser rather than relying on an HTML4 parser's repaired tree. It covers seven
 content layouts and search with five providers or no provider, three navbar styles and
@@ -296,7 +301,6 @@ original-image fallback with JavaScript disabled or either CDN asset unavailable
 `check_goatcounter.rb` validates production-only opt-in, disabled defaults, hosted
 and self-hosted endpoint escaping, shared layouts (including search), unchanged
 Google tags and root/subdirectory configurations without sending analytics.
-
 
 ## JavaScript integration regressions
 

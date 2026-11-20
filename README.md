@@ -96,6 +96,10 @@ more.
 This documentation targets **2.2.0**. **Mermaid**, **PhotoSwipe**, **GoatCounter** and the
 light/dark/auto selector require this version.
 
+Development v2.2.1 updates Bootstrap to 4.6.2 and Popper.js to 1.16.1;
+jQuery Slim remains at 3.5.1. Review copied script includes when upgrading:
+local overrides take precedence over the theme.
+
 Choose an installation guide for your situation. For version pins and method
 constraints, use [Installation](https://dieghernan.github.io/chulapa/docs/01-install).
 
@@ -145,7 +149,7 @@ modification of this work to support the English language.
 
 **Bootstrap** 4.6.2 is released under the [MIT
 license](https://github.com/twbs/bootstrap/blob/v4.6.2/LICENSE) and is copyright
-2020 Twitter.
+2011–2022 The Bootstrap Authors and Twitter, Inc.
 
 Font Awesome Free is free, open source and GPL-friendly. See its
 [License](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL

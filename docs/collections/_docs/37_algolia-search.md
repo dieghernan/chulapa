@@ -38,6 +38,10 @@ The search box sends requests after at least two characters remain when
 leading and trailing whitespace is trimmed. Before that, the results area
 stays empty and no search request is sent to Algolia.
 
+In development v2.2.1, relative links and section links inside result excerpts
+open their destination in the source article. This theme fix needs no index
+upload or additional configuration.
+
 Preserve other settings, particularly existing Algolia exclusions and ranking.
 Keep your current search address if different. Reuse the page at that address;
 if absent, create `search.md` next to `_config.yml`:
@@ -95,6 +99,20 @@ Use `algolia.files_to_exclude` for content that must stay out of this index;
 `customRanking` merely uses that field for ranking. See the
 [indexing option reference](./02-config#search-engines) and
 [plugin options](https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md).
+
+Put searchable fields, ranking rules and language settings under
+`algolia.settings`. Keep file exclusions and `nodes_to_index` directly under
+`algolia`. Before uploading, run `bundle exec jekyll algolia --dry-run` in the
+same build environment to preview the update without changing the remote
+index. Changing these indexing options requires another upload; publishing
+the theme alone does not update the index.
+
+The root sample and the documentation site's development configuration set
+`algolia.settings.removeWordsIfNoResults` to `allOptional`. If the full query
+has no matches, Algolia retries using partial matches, which can be less
+relevant. This is optional; Algolia's default is `none`. Upload the index
+configuration to apply the change.
+
 As an alternative, the theme repository provides a working
 [example indexing workflow](https://github.com/dieghernan/chulapa/blob/main/.github/workflows/algolia-search.yml)
 using the [Algolia Jekyll action](https://github.com/marketplace/actions/algolia-jekyll-action).

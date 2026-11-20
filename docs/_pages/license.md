@@ -37,7 +37,8 @@ an earlier design by Silvia Fernández Palomar and licensed under
 This theme incorporates a modification of this work to support the English
 language.
 
-Bootstrap v.4.6.2 is released under the [MIT license](https://github.com/twbs/bootstrap/blob/v4.6.2/LICENSE) and is copyright 2020 Twitter.
+Bootstrap 4.6.2 is released under the [MIT license](https://github.com/twbs/bootstrap/blob/v4.6.2/LICENSE)
+and is copyright 2011–2022 The Bootstrap Authors and Twitter, Inc.
 
 Font Awesome Free is free, open source and GPL-friendly. See its
 [license](https://fontawesome.com/license/free) (Icons: CC BY 4.0, Fonts: SIL

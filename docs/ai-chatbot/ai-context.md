@@ -229,7 +229,7 @@ https://dieghernan.github.io/chulapa/docs/36-google-search
 https://dieghernan.github.io/chulapa/docs/37-algolia-search
 search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search needs navbar.nav or the theme selector. Otherwise open the landing URL with baseurl.
 Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false is DOCUMENT FRONT MATTER (or defaults.values), NEVER nested under search; excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
-Algolia uses uploaded index; include_on_search affects ranking, not exclusion: algolia.files_to_exclude excludes files. Docs site uses Algolia. For Algolia upload steps, see the Algolia search section below. Google needs google_cse_id for an existing configured engine; build/local exclusions do not control Google indexing.
+Algolia uses an uploaded index; include_on_search only ranks; exclude with algolia.files_to_exclude. Docs use Algolia; upload recipe below. Google: google_cse_id for a configured engine; build/local exclusions do not control its crawler.
 2.2.1 dev only: Fuse 7.5 modules; scores/order/count may change. Standard layout updates automatically. Copied pages/adapters: use current demo/adapter, type="module", remove separate fuse.min.js tag. Serve via HTTP(S), not file://. No new YAML.
 ## Comments
 Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
@@ -343,7 +343,7 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-an
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
 jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments retain page-specific inputs in footer.html. Pass every page-dependent input to include_cached; use ordinary include for caller-assigning helpers (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
 Hierarchy: compress -> minimal -> default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring only: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
-Custom shells: components/scripts.html supplies common jQuery/Popper/Bootstrap and fab/dual chulapa_navigation.js once; inherited minimal/search handle this, minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters require assets/js/chulapa_search.js, provider library and generated store before adapter. Review overrides together during upgrades; standard layouts order dependencies.
+Custom shells need components/scripts.html: jQuery Slim 3.5.1/Popper 1.16.1/Bootstrap 4.6.2 (v2.2.1 dev), plus fab/dual chulapa_navigation.js once. Inherited minimal/search load it; minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters need assets/js/chulapa_search.js, library and store before adapter. Review overrides on upgrade.
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
 **bold**, _italic_, ~~strikethrough~~; blank-line paragraphs; #..###### headings; [label](URL), ![alt](URL), > blockquote; - bullets, 1. ordered list; backtick inline code, language-labelled fences (js/ruby/html/yaml). Pipe tables use separator rows; colons align columns. Sample kramdown GFM differs from some extensions requiring kramdown.input: Kramdown; check generated output.
@@ -464,7 +464,7 @@ include_on_feed controls theme feeds only, NOT jekyll-feed. Plugin /feed.xml can
 ## Algolia search
 Source: https://dieghernan.github.io/chulapa/docs/37-algolia-search
 Source: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
-The algolia mapping is TOP LEVEL, a sibling of search, NEVER nested in search:
+algolia: TOP LEVEL sibling of search, NEVER nested inside it:
 ```yaml
 search:
   provider: algolia
@@ -473,7 +473,9 @@ algolia:
   index_name: YOUR_INDEX_NAME
   search_only_api_key: YOUR_PUBLIC_SEARCH_ONLY_KEY
 ```
-ALGOLIA_API_KEY: environment/Actions secret only. Adapt .github/workflows/algolia-search.yml (jekyll_src: docs) OR bundle exec jekyll algolia, not both. Theme installation does not enable uploads. Exclude with algolia.files_to_exclude; include_on_search only ranks via customRanking. jekyll-algolia deprecated/unmaintained; Gemfile group :jekyll_plugins. Verify index/live search.
-Theme Algolia search sends requests only when at least two characters remain after trimming leading/trailing whitespace; shorter queries show no no-results message and are suppressed client-side. This is built-in behavior, not a YAML option.
+ALGOLIA_API_KEY: env/Actions secret only. Upload: .github/workflows/algolia-search.yml (adapt jekyll_src: docs) OR bundle exec jekyll algolia; not automatic. Deprecated/unmaintained jekyll-algolia: Gemfile :jekyll_plugins. algolia.files_to_exclude excludes; include_on_search ranks. Field/rank/language settings: algolia.settings; other options: algolia. Reupload after edits; --dry-run previews.
+algolia.settings.removeWordsIfNoResults: allOptional allows partial/noisy matches after zero hits; default none. Needs upload.
+Algolia requests need 2+ trimmed characters; shorter queries make no request or no-results message. Built-in, no YAML option.
+Dev v2.2.1 fixes relative/fragment excerpt links using the article URL; keeps highlights. Update/publish theme; no reindex/plugin/YAML.
 
 2.2.0: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.

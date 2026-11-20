@@ -101,6 +101,7 @@ algolia:
     - md
   # See settings https://www.algolia.com/doc/api-reference/settings-api-parameters
   settings:                 #Optional
+    removeWordsIfNoResults: allOptional
     searchableAttributes:
       - title
       - headings

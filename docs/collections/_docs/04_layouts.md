@@ -912,9 +912,9 @@ Dates use Jekyll's ISO 8601 output. Author URLs may be absolute or site-relative
 relative paths use `url` and `baseurl`. A guest author without a profile URL does
 not inherit the site author's URL. Use a profile page that identifies the author.
 
-JSON-LD uses a page's `date` for `datePublished` and includes `dateModified`
-only when `last_modified_at` is set. It does not treat the publication date as
-a modification date.
+JSON-LD uses a page's `date` for `datePublished`. In v2.2.1 development,
+`dateModified` is included only when `last_modified_at` is set; the publication
+date is no longer used as a fallback.
 
 ```yaml
 og_type: article
@@ -1017,6 +1017,11 @@ width. See the [card index demo](../demo) for the resulting layout.
 The built-in layouts already load the scripts needed for menus, search and
 content features. Use `_includes/custom/custom_bottomscripts.html` to add your
 own scripts without copying a theme layout.
+
+In development v2.2.1, `_includes/components/scripts.html` loads jQuery Slim
+3.5.1, Popper.js 1.16.1 and Bootstrap 4.6.2 in that order. If your site has a
+local copy of this include or hardcoded script tags, update the URLs and their
+integrity hashes together. The built-in layouts use the updated include.
 
 **If you have copied a layout or search page into your site, review it when
 updating the theme.** Your copy takes precedence and will not receive updates
