@@ -19,6 +19,10 @@ async function checkClipboardTooltips(browser) {
   const bundleURL = 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js';
   const bundle = fs.readFileSync(require.resolve('bootstrap/dist/js/bootstrap.bundle.min.js'));
   const bundleIntegrity = 'sha384-' + require('node:crypto').createHash('sha384').update(bundle).digest('base64');
+  const scriptTags = fs.readFileSync(path.join(root, '_includes/components/scripts.html'), 'utf8').split(/\r?\n/).map(line => line.trim());
+  const popperTag = scriptTags.find(line => line.startsWith('<script src="https://cdn.jsdelivr.net/npm/popper.js@'));
+  const bootstrapTag = scriptTags.find(line => line.startsWith('<script src="https://cdn.jsdelivr.net/npm/bootstrap@'));
+  assert.ok(popperTag && bootstrapTag, 'Separate Popper and Bootstrap script tags must exist');
   for (const prefix of ['', '/project']) for (const width of [390, 1280]) {
     current = path.join(fixtureRoot, `${prefix ? 'subdir' : 'root'}-fusejs`);
     for (const mode of ['separate', 'missing-popper', 'bundle']) {
@@ -29,9 +33,10 @@ async function checkClipboardTooltips(browser) {
         const url = route.request().url();
         if (url.startsWith('http://127.0.0.1:8770')) {
           if (mode !== 'bundle' || !route.request().isNavigationRequest()) return route.continue();
-          const html = fs.readFileSync(path.join(current, 'video.html'), 'utf8')
-            .replace(/<script[^>]+src="https:\/\/cdn\.jsdelivr\.net\/npm\/popper\.js@[^>]+><\/script>/, '')
-            .replace(/<script[^>]+src="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@[^>]+><\/script>/,
+          const source = fs.readFileSync(path.join(current, 'video.html'), 'utf8');
+          assert.ok(source.includes(popperTag) && source.includes(bootstrapTag), 'Fixture must contain the expected script tags');
+          const html = source.replace(popperTag, '')
+            .replace(bootstrapTag,
               `<script src="${bundleURL}" integrity="${bundleIntegrity}" crossorigin="anonymous"></script>`);
           return route.fulfill({contentType: 'text/html', body: html});
         }
