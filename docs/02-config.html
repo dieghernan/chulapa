@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-11-19 -->
+    <!-- Page build 2026-11-20 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -26,7 +26,7 @@
         "inLanguage": "en-US",
         "headline": "Global settings",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-19T16:14:12+01:00",
+        "datePublished": "2026-11-20T06:08:54+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -622,9 +622,14 @@ The browser search requires these settings:</p>
 <code class="language-plaintext highlighter-rouge">ALGOLIA_API_KEY</code> environment variable. Keep that key in your build environment
 or GitHub Actions secrets; do not put it in the public configuration.</p>
 <p>Additional Algolia indexing options in the sample configuration are
-<code class="language-plaintext highlighter-rouge">files_to_exclude</code> (omit files), <code class="language-plaintext highlighter-rouge">extensions_to_index</code> (file types),
-<code class="language-plaintext highlighter-rouge">searchableAttributes</code> (searchable fields) and <code class="language-plaintext highlighter-rouge">customRanking</code> (ranking rules).
-They belong under <code class="language-plaintext highlighter-rouge">algolia</code>; they do not affect the local search providers.</p>
+<code class="language-plaintext highlighter-rouge">algolia.files_to_exclude</code> (omit files) and <code class="language-plaintext highlighter-rouge">algolia.extensions_to_index</code>
+(file types). <code class="language-plaintext highlighter-rouge">algolia.nodes_to_index</code> selects the rendered HTML elements to
+extract; the plugin default is <code class="language-plaintext highlighter-rouge">p</code>, for paragraphs. Each matching element
+creates a separate record.</p>
+<p>Index settings such as <code class="language-plaintext highlighter-rouge">searchableAttributes</code> (searchable fields),
+<code class="language-plaintext highlighter-rouge">customRanking</code> (ranking rules) and <code class="language-plaintext highlighter-rouge">removeStopWords</code> belong under
+<code class="language-plaintext highlighter-rouge">algolia.settings</code>. They do not affect the local search providers. Upload the
+index again after changing indexing options or settings.</p>
 <p><code class="language-plaintext highlighter-rouge">include_on_search</code> is not an Algolia exclusion: the sample <code class="language-plaintext highlighter-rouge">customRanking</code>
 uses it for ranking. <code class="language-plaintext highlighter-rouge">algolia.files_to_exclude</code> controls omissions. These
 settings do not restrict Google’s crawler or make published files private.</p>

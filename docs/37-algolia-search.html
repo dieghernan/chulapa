@@ -6,7 +6,7 @@
     <!-- MIT License -->
     <!-- Docs: https://dieghernan.github.io/chulapa -->
     <!-- Repo: https://github.com/dieghernan/chulapa -->
-    <!-- Page build 2026-11-19 -->
+    <!-- Page build 2026-11-20 -->
     <!-- Jekyll Version 4.4.1 -->
     <!-- Google structured data -->
     <script type="application/ld+json">
@@ -26,7 +26,7 @@
         "inLanguage": "en-US",
         "headline": "Connect Algolia search and upload its index",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-19T16:14:12+01:00",
+        "datePublished": "2026-11-20T06:08:54+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -297,6 +297,9 @@ Replace the three example values with your account’s values:</p>
 <p>The search box sends requests after at least two characters remain when
 leading and trailing whitespace is trimmed. Before that, the results area
 stays empty and no search request is sent to Algolia.</p>
+<p>In development v2.2.1, relative links and section links inside result excerpts
+open their destination in the source article. This theme fix needs no index
+upload or additional configuration.</p>
 <p>Preserve other settings, particularly existing Algolia exclusions and ranking.
 Keep your current search address if different. Reuse the page at that address;
 if absent, create <code class="language-plaintext highlighter-rouge">search.md</code> next to <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
@@ -337,8 +340,19 @@ index-upload step sends site content to Algolia: review exclusions first.</p>
 <code class="language-plaintext highlighter-rouge">include_on_search: false</code> is not an Algolia exclusion. The sample’s
 <code class="language-plaintext highlighter-rouge">customRanking</code> merely uses that field for ranking. See the
 <a href="./02-config#search-engines">indexing option reference</a> and
-<a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">plugin options</a>.
-As an alternative, the theme repository provides a working
+<a href="https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md">plugin options</a>.</p>
+<p>Put searchable fields, ranking rules and language settings under
+<code class="language-plaintext highlighter-rouge">algolia.settings</code>. Keep file exclusions and <code class="language-plaintext highlighter-rouge">nodes_to_index</code> directly under
+<code class="language-plaintext highlighter-rouge">algolia</code>. Before uploading, run <code class="language-plaintext highlighter-rouge">bundle exec jekyll algolia --dry-run</code> in the
+same build environment to preview the update without changing the remote
+index. Changing these indexing options requires another upload; publishing
+the theme alone does not update the index.</p>
+<p>The root sample and the documentation site’s development configuration set
+<code class="language-plaintext highlighter-rouge">algolia.settings.removeWordsIfNoResults</code> to <code class="language-plaintext highlighter-rouge">allOptional</code>. If the full query
+has no matches, Algolia retries using partial matches, which can be less
+relevant. This is optional; Algolia’s default is <code class="language-plaintext highlighter-rouge">none</code>. Upload the index
+configuration to apply the change.</p>
+<p>As an alternative, the theme repository provides a working
 <a href="https://github.com/dieghernan/chulapa/blob/main/.github/workflows/algolia-search.yml">example indexing workflow</a>
 using the <a href="https://github.com/marketplace/actions/algolia-jekyll-action">Algolia Jekyll action</a>.
 Copy it to <code class="language-plaintext highlighter-rouge">.github/workflows/algolia-search.yml</code> in your own repository and
