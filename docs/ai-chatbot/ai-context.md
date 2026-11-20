@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Release v2.2.0 (21 Oct 2026, GitHub/RubyGems); pin @v2.2.0; verify installed version.
+Stable v2.2.0 (GitHub/RubyGems); pin @v2.2.0. v2.3.0 is pending publication.
 
 llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. No fetching.
 ## Overview
@@ -42,10 +42,9 @@ Source: https://dieghernan.github.io/chulapa/docs/21-gem-theme
 Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll in _config.yml; remove remote_theme and unused remote-theme plugin/dependency. Enable jekyll-include-cache in plugins. bundle update chulapa-jekyll updates theme/dependencies within existing constraints. Preview with bundle exec jekyll serve. Local matching files override theme files; review/merge them during upgrades. Unknown include_cached: install/enable jekyll-include-cache and restart build.
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
-Source: https://dieghernan.github.io/chulapa/docs/07-migration
 Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.2.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
 Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
-Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
+Guide: migrations, Actions, troubleshooting and v2.3.0 checks for icons, scripts, Fuse and feeds. Verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter require v2.2.0+.
 ## Basic editing and publishing
 Sources: https://dieghernan.github.io/chulapa/docs/00-start
 https://dieghernan.github.io/chulapa/docs/15-create-post

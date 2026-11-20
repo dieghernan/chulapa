@@ -115,7 +115,7 @@ project_links:
   For a guest author, set their own profile URL; it does not inherit the site
   author's URL.
 
-  In v2.3.0 development, `show_author: false` hides the card while keeping
+  In v2.3.0, `show_author: false` hides the card while keeping
   author information available to services that read Microformats2.
   On narrow screens, the visible card puts the location and links below the
   name. Long names wrap within the card.
@@ -207,7 +207,7 @@ Even if you don't want to show the breadcrumb, you can still specify the paths. 
 
 #### Make a post citable
 
-Available in v2.3.0 development. Add `citation: true` to the front matter of
+Available in v2.3.0. Add `citation: true` to the front matter of
 a post using the default layout. At the end of the article, look for
 **How to cite this post**. It shows a simplified APA reference in English
 and a **BibTeX** disclosure you can open and copy. Set `citation: false` to
@@ -357,7 +357,7 @@ the navbar and footer; author panels and tables of contents are not
 added automatically.
 
 Use `default` if you want article metadata for services such as Bridgy Fed.
-In v2.3.0 development, set `og_image` and `og_image_alt` to supply an article
+In v2.3.0, set `og_image` and `og_image_alt` to supply an article
 image and its description. The header or site sharing image can also be used.
 
 ```yaml
@@ -500,7 +500,7 @@ Quoted `"false"` can enable a feature; PhotoSwipe specifically requires
 
 ### Series navigation
 
-Available in v2.3.0 development. A series orders pages, posts and collection
+Available in v2.3.0. A series orders pages, posts and collection
 documents independently of their tags or categories. Readers see the current
 part, progress, Previous and Next links and a collapsible index. Try the
 [Kitchen Sink demo](../demo/15-kitchen-sink) or see the
@@ -749,7 +749,7 @@ If the default `maxresdefault` preview is unavailable, set
 
 Set these fields on each `video.html` or `youtube.html` include to describe
 the video to search engines. Structured video data is generated automatically
-in v2.3.0 development.
+in v2.3.0.
 
 | Input | What to supply |
 | --- | --- |
@@ -825,7 +825,7 @@ browser can copy text. If copying fails or permission is denied, visitors can
 still select and copy the code themselves. In v2.2.0, the button confirms
 success or reports failure. Rendered Mermaid diagrams have no code copy button.
 
-In v2.3.0 development, if optional tooltips cannot initialize, copying and its
+In v2.3.0, if optional tooltips cannot initialize, copying and its
 accessible success or failure message still work without tooltip errors.
 
 ## Advanced page settings
@@ -915,7 +915,7 @@ Dates use Jekyll's ISO 8601 output. Author URLs may be absolute or site-relative
 relative paths use `url` and `baseurl`. A guest author without a profile URL does
 not inherit the site author's URL. Use a profile page that identifies the author.
 
-JSON-LD uses a page's `date` for `datePublished`. In v2.3.0 development,
+JSON-LD uses a page's `date` for `datePublished`. In v2.3.0,
 `dateModified` is included only when `last_modified_at` is set; the publication
 date is no longer used as a fallback.
 
@@ -1011,7 +1011,7 @@ Advanced include specimen for up to two post cards inside a custom page:
 ```
 {% endraw %}
 
-In v2.3.0 development, each card uses the entry's `og_image`, falling back
+In v2.3.0, each card uses the entry's `og_image`, falling back
 to its `header_img`. With neither field set, the text uses the full card
 width. See the [card index demo](../demo) for the resulting layout.
 
@@ -1021,7 +1021,7 @@ The built-in layouts already load the scripts needed for menus, search and
 content features. Use `_includes/custom/custom_bottomscripts.html` to add your
 own scripts without copying a theme layout.
 
-In development v2.3.0, `_includes/components/scripts.html` loads jQuery Slim
+In v2.3.0, `_includes/components/scripts.html` loads jQuery Slim
 3.5.1, Popper.js 1.16.1 and Bootstrap 4.6.2 in that order. If your site has a
 local copy of this include or hardcoded script tags, update the URLs and their
 integrity hashes together. The built-in layouts use the updated include.

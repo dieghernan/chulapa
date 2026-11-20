@@ -40,7 +40,7 @@ visible focus indicator for this control need a local CSS override, or can
 leave the optional selector disabled. Other navigation focus checks do not
 establish visible focus for this toggle.
 
-**Development (v2.3.0):** the selector restores a visible keyboard focus indicator
+**v2.3.0:** the selector restores a visible keyboard focus indicator
 with a white outline and black outer ring on classic, floating and dual
 navigation. This fix is not included in v2.2.0.
 
@@ -52,7 +52,7 @@ Custom colors can
 weaken those cues or their contrast. Skin selection does not replace a check of
 the actual text, links and backgrounds used by a site.
 
-**Development (v2.3.0):** the 16 skins authored by `dieghernan` improve contrast
+**v2.3.0:** the 16 skins authored by `dieghernan` improve contrast
 in menus, links, badges, buttons and cards. After changing colors, check text,
 focus and hover states on the published page. Explicit navigation text and
 custom semantic colors still apply.

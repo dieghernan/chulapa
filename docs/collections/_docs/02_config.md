@@ -128,7 +128,7 @@ The sections below list optional integration settings and their constraints.
 ### SEO
 
 The theme generates canonical URLs and structured data automatically.
-In v2.3.0 development, built-in article indexes also describe their lists
+In v2.3.0, built-in article indexes also describe their lists
 and report the number of listed items. Custom lists need their own markup.
 For a guest article, set the guest's `author.url` to their profile.
 Use an explicit URL to keep the identity stable if you change their social links.
@@ -189,7 +189,7 @@ your site; they do not guarantee a special appearance in search results.
 
 ### Font Awesome
 
-Starting in v2.3.0 (in development), the theme loads Font Awesome Free 7
+Starting in v2.3.0, the theme loads Font Awesome Free 7
 by default. Earlier v2.2 releases default to version 6. Choose an icon from the
 [catalog](https://fontawesome.com/icons) for your menu or footer settings.
 Version 7 uses fixed-width icons by default. Add `fa-width-auto` to an icon's
@@ -267,7 +267,7 @@ an uploaded index. For crawler and sitemap settings, see
     sample configurations explicitly set it to `true`. Check
     your Algolia plan's attribution requirements before hiding it.
 
-In **2.3.0 (development)**, the Algolia attribution automatically follows the
+In **v2.3.0**, the Algolia attribution automatically follows the
 skin's text color, including when visitors switch between light and dark skins.
 The Fuse.js attribution icon also follows the text color, and Google's
 attribution retains a white background for legibility in either mode.
@@ -370,8 +370,7 @@ ones supplied by <span class="chulapa">Chulapa</span>. The
 ## D. Jekyll defaults and collections
 
 Use the optional [series map](./04-layouts#series-navigation) to group published
-pages and posts into ordered reading lists. It is available in development
-v2.3.0.
+pages and posts into ordered reading lists. It is available from v2.3.0.
 
 **Advanced configuration.** A collection groups content such as portfolio
 projects; defaults apply shared page settings without repeating them in each

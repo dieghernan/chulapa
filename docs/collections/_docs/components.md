@@ -31,7 +31,7 @@ You can include a second paragraph or a list.
 
 ## Callouts
 
-Callouts are available in v2.3.0 development. Use one class to select the
+Callouts are available in v2.3.0. Use one class to select the
 title, Font Awesome icon and skin color.
 
 <div role="note" aria-label="Note" class="callout-note" markdown="1">

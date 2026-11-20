@@ -4,7 +4,7 @@
 
 The documentation is the source of truth for installation, configuration, layouts and supported integrations. Configure the site in `_config.yml` and use page front matter or Jekyll defaults for page options. Extend the theme through existing layouts, includes and assets.
 
-Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This documentation covers that release and labels features in development for v2.3.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter, the light/dark/auto selector and the accessibility and resource-loading improvements require 2.2.0 and are absent from v2.1.0. Check the installed gem or remote-theme tag before applying advice. External services retain their own requirements; accessibility depends on site content, skins and customizations.
+Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. Use it for a stable installation until v2.3.0 is published. Mermaid diagrams, PhotoSwipe galleries, GoatCounter and the light/dark/auto selector require v2.2.0 or later. Check the installed gem or remote-theme tag before applying advice. External services have their own requirements. Accessibility depends on site content, skins and customizations.
 
 ## Getting started
 

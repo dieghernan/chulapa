@@ -72,7 +72,7 @@ If you set `vars.primary` in either skin, its value also supplies the browser's
 address-bar color when that appearance is active, on browsers that support it.
 A skin without an explicit `vars.primary` leaves that color to the browser.
 The selector preserves custom `theme-color` tags added through the head hook.
-Starting in v2.3.0 (development), skin credits are listed in the
+Starting in v2.3.0, skin credits are listed in the
 [skin gallery](../skins) instead of the site footer.
 
 Light is the initial default. Auto follows the device's color preference and
@@ -108,7 +108,7 @@ and shadow. If your site requires a visible focus indicator on this control,
 add a local CSS override or leave switching disabled. See the
 [accessibility limits](./48-accessibility-reference#keyboard-navigation).
 
-In v2.3.0 development, the selector reserves the same space for the Light,
+In v2.3.0, the selector reserves the same space for the Light,
 Dark and Auto icons across all skins.
 
 Check a home page and an article, including code blocks, keyboard navigation

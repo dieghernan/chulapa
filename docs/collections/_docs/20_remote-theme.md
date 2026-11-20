@@ -19,12 +19,17 @@ Work in a branch or save a backup. In `_config.yml`, remove the old `theme` entr
 and replace any existing `remote_theme` entry with:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.2.0
+remote_theme: dieghernan/chulapa@{{ site.data.version.release }}
 ```
 
 This pins the released version. Use `dieghernan/chulapa` without the tag only
 when you want development updates from `main`. Features marked **v2.2.0**
 require that release or later.
+{% if site.data.version.dev != site.data.version.release %}
+To upgrade to **{{ site.data.version.dev }}**, change the tag to
+`@{{ site.data.version.dev }}` once it appears in the
+[GitHub releases](https://github.com/dieghernan/chulapa/releases).
+{% endif %}
 
 In your existing `Gemfile`, add missing dependencies from the following list.
 Edit entries already present instead of declaring the same gem twice. Keep

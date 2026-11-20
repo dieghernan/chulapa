@@ -8,8 +8,12 @@ show_tags: true
 cloudtag_url: /docs/tags
 ---
 
-This documentation targets **2.2.0**. Features labelled **v2.2.0** are not
-included in the v2.1.0 gem or remote-theme tag.
+The latest published version is **{{ site.data.version.release }}**.
+{% if site.data.version.dev != site.data.version.release %}
+Features marked **{{ site.data.version.dev }}** are available in development.
+Use the published version for a stable installation until the new GitHub tag
+or RubyGems package is available.
+{% endif %}
 
 Choose the route that matches your site. These are alternatives, not steps to
 complete in sequence.
@@ -22,5 +26,5 @@ complete in sequence.
 | A site moving from another theme | [Migration guide and checklist](./07-migration) |
 
 [Preview the personal-blog template](https://dieghernan.github.io/chulapa-101/).
-The remote-theme guide pins `@v2.2.0`; an unpinned remote theme follows
-`main`. Features marked **v2.2.0** are not included in the v2.1.0 release.
+The remote-theme guide pins the published version. An unpinned remote theme
+follows `main`. Features marked **v2.2.0** require that version or later.

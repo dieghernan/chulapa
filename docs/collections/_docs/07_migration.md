@@ -42,7 +42,7 @@ over copying a complete theme layout.
 In `_config.yml`, remove the old `theme` and replace any existing `remote_theme`:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.2.0
+remote_theme: dieghernan/chulapa@{{ site.data.version.release }}
 ```
 
 Add these entries to your existing `plugins` list, keeping unrelated plugins:
@@ -66,8 +66,8 @@ needed by your content or publishing workflow. The
 provides a dependency reference; merge it with your file rather than replacing it.
 Run `bundle install`.
 
-Pin `@v2.2.0` for the features described here. Omitting the tag follows
-development updates. Mermaid, PhotoSwipe and GoatCounter are absent from v2.1.0.
+Use the published version above for the features described here. An unpinned
+theme follows `main`. Mermaid, PhotoSwipe and GoatCounter require v2.2.0 or later.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 
 ## 3. Adapt layouts and front matter
@@ -137,15 +137,19 @@ builds your site successfully. If you need GitHub Actions publishing:
 2. Add a workflow under `.github/workflows/`, using the
    [template workflow](https://github.com/dieghernan/chulapa-101/blob/main/.github/workflows/build-chulapa-gh-pages.yml)
    as a starting point. Adapt its branch and build settings to your repository.
-3. Keep the `@v2.2.0` pin in `_config.yml`. Merge the migration when the preview
+3. Keep the published version pin in `_config.yml`. Merge the migration when the preview
    is ready, then check the publishing run in **Actions**.
 4. Open the address in **Settings > Pages** and repeat the checklist's live checks.
    Analytics may load only in production; verify it there.
 
 ## Upgrade to v2.3.0
 
-v2.3.0 is pending publication. Use the v2.2.0 installation instructions above
-until the new tag or gem is available. When testing v2.3.0, check these changes:
+{% if site.data.version.release != 'v2.3.0' and site.data.version.dev == 'v2.3.0' %}
+Use the published version in the installation instructions above until the
+v2.3.0 tag or gem is available.
+{% endif %}
+
+When upgrading from v2.2.0, check these changes in v2.3.0:
 
 - **Icons.** Font Awesome Free 7 is the default. Set `fa_version: 6` in
   `_config.yml` to keep the previous hosted version. If you use a kit with
@@ -177,7 +181,7 @@ until the new tag or gem is available. When testing v2.3.0, check these changes:
 
 - [ ] Save a backup or migration branch and record important URLs.
 - [ ] Review local layouts, includes and assets for old theme overrides.
-- [ ] Set `remote_theme: dieghernan/chulapa@v2.2.0`; remove conflicting theme settings.
+- [ ] Set `remote_theme: dieghernan/chulapa@{{ site.data.version.release }}` and remove conflicting theme settings.
 - [ ] Install and enable both remote-theme and include-cache plugins.
 - [ ] Translate layouts and front matter, including `_config.yml` defaults.
 - [ ] Replace old theme-specific includes and classes used in content.
