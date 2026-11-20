@@ -19,10 +19,10 @@ upgrade the theme.
 For a remote-theme installation, open `_config.yml` and find `remote_theme`:
 
 ```yaml
-remote_theme: dieghernan/chulapa@v2.2.0
+remote_theme: dieghernan/chulapa@{{ site.data.version.release }}
 ```
 
-Here, `@v2.2.0` selects that release. An unpinned value such as
+Here, `@{{ site.data.version.release }}` selects that release. An unpinned value such as
 `dieghernan/chulapa` follows the repository's default branch; it does not select
 a fixed release. An explicit branch can move too. Record the value you actually
 have rather than replacing it with this example.

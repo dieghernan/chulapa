@@ -9,7 +9,7 @@ const context = read('ai-context.md');
 // Reviewed increase preserves complete navbar/gallery recipes and explicit upgrade checks.
 // Per-request selected context remains capped at 18,000 UTF-8 bytes.
 // Reviewed: optional skin selector configuration, defaults and version limitations.
-// Reviewed: automatic theme JSON-LD entities and collection lists (v2.3.0 development).
+// Reviewed: automatic theme JSON-LD entities and collection lists (v2.3.0).
 // Reviewed: built-in Algolia query minimum and short-query behavior.
 // Reviewed: post citation setup and version caveat.
 const maxContextBytes = 55800;

@@ -93,10 +93,10 @@ more.
 
 ## Installation
 
-**v2.2.0** is the current stable release. Mermaid, PhotoSwipe, GoatCounter and
+**v2.3.0** is the current stable release. Mermaid, PhotoSwipe, GoatCounter and
 the light/dark/auto selector require v2.2.0 or later.
 
-The upcoming v2.3.0 adds series navigation, post citations, CSS callouts and
+v2.3.0 adds series navigation, post citations, CSS callouts and
 JSON Feed. It updates Bootstrap to 4.6.2 and Popper.js to 1.16.1 and keeps jQuery
 Slim at 3.5.1. Review copied script includes when upgrading because local
 overrides take precedence over the theme. See the [upgrade checks for v2.3.0](https://dieghernan.github.io/chulapa/docs/07-migration#upgrade-to-v230).
@@ -114,8 +114,8 @@ and guides you through editing and publication in your browser.
 
 For an existing site, use the [migration guide](https://dieghernan.github.io/chulapa/docs/07-migration)
 or go directly to [remote-theme setup](https://dieghernan.github.io/chulapa/docs/20-remote-theme).
-An unpinned remote theme follows development. Use `@v2.2.0` for the current
-stable release and switch to `@v2.3.0` once the new tag is published.
+An unpinned remote theme follows development. Add `@v2.3.0` to select the
+current stable release.
 
 ### C. Gem-based method 💎
 
