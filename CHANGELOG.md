@@ -1,3 +1,9 @@
+## Unreleased
+
+### Added
+
+-   Embed Spotify tracks and albums using the `snippets/spotify.html` include.
+
 ## v2.3.0 (2026-11-20)
 
 ### Added

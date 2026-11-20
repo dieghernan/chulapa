@@ -490,6 +490,7 @@ follow the linked reference.
 | [`snippets/carousel.html`](#bootstrap-carousel) | Display a slideshow. |
 | [`snippets/video.html`](#video-support) | Embed a video file or hosted player. |
 | [`snippets/youtube.html`](#deferred-lazy-loading-of-youtube-videos) | Embed a deferred YouTube player. Requires `id` and accepts `name`, `video_res` and the optional video metadata. |
+| [`snippets/spotify.html`](#spotify-embeds) | Embed a Spotify track or album. |
 | [`snippets/datetranslate.html`](#localization-of-dates) | Format an English date string in a supported language. |
 | `snippets/bootstrapdemo.html` | Displays the component sampler. The skin previews pass a chapter as `series_example` and its series ID as `series_id` to show working series navigation. |
 
@@ -784,6 +785,36 @@ On a page dedicated to watching a video, consider `nolazy=true` for YouTube so
 the player is available without activation. See
 [Google's video requirements](https://developers.google.com/search/docs/appearance/structured-data/video)
 for indexing criteria.
+
+### Spotify embeds
+
+Available in the development version. Sites pinned to v2.3.0 or earlier can
+paste the [iframe provided by Spotify](https://developer.spotify.com/documentation/embeds/tutorials/creating-an-embed).
+
+To embed a track or album, copy its link from Spotify. The ID is the part
+after `/track/` or `/album/` and before any `?`. Add the include on its
+own line in your post or page, with a blank line before and after it. Pass
+the ID as `id` and give the player a descriptive `title` for screen readers.
+Without a title, the player is named “Spotify track” or “Spotify album.”
+
+{% raw %}
+```liquid
+{% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}
+
+{% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" title="Unknown Pleasures by Joy Division on Spotify" %}
+```
+{% endraw %}
+
+The player fills its container and uses browser lazy loading. Tracks use
+`type="track"` by default and are 152 pixels tall. Albums use `type="album"`
+and are 352 pixels tall. Preview your page on a narrow screen to check that
+the player has enough room. Spotify recommends a container at least 280 pixels
+wide for audio embeds. See the track example in the
+[Kitchen Sink demo](../demo/15-kitchen-sink#spotify).
+
+{% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" title="Unknown Pleasures by Joy Division on Spotify" %}
+
+[Listen to Unknown Pleasures on Spotify](https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s).
 
 ### Localization of dates
 

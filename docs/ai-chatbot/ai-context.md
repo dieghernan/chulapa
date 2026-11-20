@@ -431,8 +431,12 @@ Documentation-site extension, not packaged theme. sessionStorage keeps recent me
 ## Complete option and snippet reference
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#xx-other-settings
 https://dieghernan.github.io/chulapa/docs/04-layouts#b-snippets
-Jekyll/plugin settings (not new theme API): include/exclude, collections_dir, permalink, defaults, pagination, excerpt_separator, kramdown, sass, compress_html. Usually retain starter values. Layout reference lists content snippet parameters. For custom markup and scripts, use /docs/45-custom-hooks.
+Keep starter values for Jekyll/plugin settings: include/exclude, collections_dir, permalink, defaults, pagination, excerpt_separator, kramdown, sass, compress_html. For custom markup and scripts, see /docs/45-custom-hooks.
 Gallery internal=image_col group, external=comma-separated URLs (internal wins). video fileurl wins; hosted videos need provider/id. Direct youtube.html is always deferred, has no nolazy; for immediate use video.html provider="youtube" nolazy=true. bootstrapdemo.html has no parameters, samples components for skins. Include booleans unquoted (photoswipe=true); quoted "false" can enable features.
+
+## Spotify embeds
+Source: https://dieghernan.github.io/chulapa/docs/04-layouts#spotify-embeds
+Development only. Add snippets/spotify.html via Liquid include with Spotify id, type="album" (default track) and descriptive title. Tracks: 152px; albums: 352px. At v2.3.0 or earlier paste Spotify's iframe.
 
 ## Tag/category cloud setup
 Source: https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds

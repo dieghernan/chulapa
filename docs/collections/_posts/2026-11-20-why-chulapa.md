@@ -130,9 +130,7 @@ chotis](https://www.esmadrid.com/sites/default/files/esmadrid_magazine_mayo_2024
 · [Gran Vía’s musical
 history](https://www.esmadrid.com/file/189655/download?token=GQKiDHDY)
 
-<iframe class="w-100 border-0" title="Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify" src="https://open.spotify.com/embed/track/5UIiMI6l7cRSXueD3P5LRF" width="660" height="152" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture">
-
-</iframe>
+{% include snippets/spotify.html id="5UIiMI6l7cRSXueD3P5LRF" title="Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify" %}
 
 [Listen to Lola Flores’s recording on
 Spotify](https://open.spotify.com/track/5UIiMI6l7cRSXueD3P5LRF).
