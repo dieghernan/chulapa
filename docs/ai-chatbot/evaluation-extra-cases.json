@@ -17,15 +17,15 @@
     "id": "bootstrap-development-script-overrides",
     "section": "layouts",
     "doc": "04_layouts.md",
-    "question": "I copied components/scripts.html into my site. Which Bootstrap dependencies should I check when updating to development v2.2.1?",
-    "expected": "Development v2.2.1 loads jQuery Slim 3.5.1, Popper.js 1.16.1 and Bootstrap 4.6.2 in that order. jQuery's version is unchanged. Local copies override the theme and do not receive updates automatically; update URLs and matching integrity hashes together. Built-in layouts use the shared updated include. Do not describe these dependency updates as released v2.2.0. Link /docs/04-layouts#javascript-assets-and-local-overrides."
+    "question": "I copied components/scripts.html into my site. Which Bootstrap dependencies should I check when updating to development v2.3.0?",
+    "expected": "Development v2.3.0 loads jQuery Slim 3.5.1, Popper.js 1.16.1 and Bootstrap 4.6.2 in that order. jQuery's version is unchanged. Local copies override the theme and do not receive updates automatically; update URLs and matching integrity hashes together. Built-in layouts use the shared updated include. Do not describe these dependency updates as released v2.2.0. Link /docs/04-layouts#javascript-assets-and-local-overrides."
   },
   {
     "id": "algolia-excerpt-relative-links",
     "section": "search",
     "doc": "37_algolia-search.md",
     "question": "Algolia excerpt links such as #video and ./another-guide open on my search page. Do I need another plugin or an index upload?",
-    "expected": "Development v2.2.1 resolves relative and fragment links in Algolia result excerpts against the source article while retaining highlighting. Update and publish the theme; no additional plugin, YAML option or index upload is required for this fix. Do not describe it as available in released v2.2.0. Link /docs/37-algolia-search."
+    "expected": "Development v2.3.0 resolves relative and fragment links in Algolia result excerpts against the source article while retaining highlighting. Update and publish the theme; no additional plugin, YAML option or index upload is required for this fix. Do not describe it as available in released v2.2.0. Link /docs/37-algolia-search."
   },
   {
     "id": "series-newsletter-labels",
@@ -39,49 +39,49 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "How can a post be part 2 of a tutorial series and part 1 of a publishing series?",
-    "expected": "Development v2.2.1. Define both IDs with text labels in the site series map. Set a front matter list with the two id and integer order pairs. Add the series-chapters include to the body or layout. Part numbers follow sorted order among published members. Cite /docs/04-layouts#series-navigation."
+    "expected": "Development v2.3.0. Define both IDs with text labels in the site series map. Set a front matter list with the two id and integer order pairs. Add the series-chapters include to the body or layout. Part numbers follow sorted order among published members. Cite /docs/04-layouts#series-navigation."
   },
   {
     "id": "series-label-html",
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Can I put HTML such as a span with a CSS class in the visible name of a series?",
-    "expected": "Development v2.2.1. The series label in _config.yml renders trusted Markdown and HTML, including a span with a class. Include meaningful text. Accessible names and JSON-LD use the label's plain text. Cite /docs/04-layouts#series-navigation."
+    "expected": "Development v2.3.0. The series label in _config.yml renders trusted Markdown and HTML, including a span with a class. Include meaningful text. Accessible names and JSON-LD use the label's plain text. Cite /docs/04-layouts#series-navigation."
   },
   {
     "id": "post-citation-author",
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Can my article's suggested citation use an author other than the person who signed the post, with initials in APA and a full name in BibTeX?",
-    "expected": "v2.2.1 development default layout. Use a citation.author list with a name object containing given and family; one source gives initials in simplified APA and the full given name in BibTeX. The post byline uses the top-level author. Cite /docs/04-layouts#make-a-post-citable."
+    "expected": "v2.3.0 development default layout. Use a citation.author list with a name object containing given and family; one source gives initials in simplified APA and the full given name in BibTeX. The post byline uses the top-level author. Cite /docs/04-layouts#make-a-post-citable."
   },
   {
     "id": "authored-custom-navbar-background",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",
     "question": "I use Butterfly with only navbar-chulapa-bg-color set to #222222. Will the new contrast fix force gray navigation text?",
-    "expected": "v2.2.1 development derives default navigation text from the final configured background, not a fixed light-skin gray. Keep existing config and explicit navbar-chulapa-text-color if provided; explicit text remains authoritative. Not in v2.2.0; test actual colors. No new option. Cite /docs/48-accessibility-reference."
+    "expected": "v2.3.0 development derives default navigation text from the final configured background, not a fixed light-skin gray. Keep existing config and explicit navbar-chulapa-text-color if provided; explicit text remains authoritative. Not in v2.2.0; test actual colors. No new option. Cite /docs/48-accessibility-reference."
   },
   {
     "id": "listen-primary-card-contrast",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",
     "question": "Does the Listen primary card contrast fix change its green background? What about links inside the card?",
-    "expected": "v2.2.1 development improves contextual card text and ordinary links in the 16 dieghernan skins, including Listen Primary with the same dark text as its button. Main semantic palette stays unchanged, custom semantic colors remain authoritative. Not a new YAML option, not released v2.2.0 and not a whole-site WCAG guarantee. Cite /docs/48-accessibility-reference."
+    "expected": "v2.3.0 development improves contextual card text and ordinary links in the 16 dieghernan skins, including Listen Primary with the same dark text as its button. Main semantic palette stays unchanged, custom semantic colors remain authoritative. Not a new YAML option, not released v2.2.0 and not a whole-site WCAG guarantee. Cite /docs/48-accessibility-reference."
   },
   {
     "id": "butterfly-contrast-development",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",
     "question": "Are Butterfly and Butterfly Dim starter badges and light-mode links contrast-corrected in v2.2.0?",
-    "expected": "v2.2.1 development only: 16 dieghernan skins improve navigation, link states, badges, outline buttons and card text/links including Listen Primary. Some badges reuse readable solid-button fills. Main palettes preserved; custom semantic colors and explicit nav text respected; nav defaults adapt to configured bg; third-party skins unchanged. Not v2.2.0, no new YAML setting or WCAG guarantee. Cite /docs/48-accessibility-reference."
+    "expected": "v2.3.0 development only: 16 dieghernan skins improve navigation, link states, badges, outline buttons and card text/links including Listen Primary. Some badges reuse readable solid-button fills. Main palettes preserved; custom semantic colors and explicit nav text respected; nav defaults adapt to configured bg; third-party skins unchanged. Not v2.2.0, no new YAML setting or WCAG guarantee. Cite /docs/48-accessibility-reference."
   },
   {
     "id": "selector-focus-development",
     "section": "accessibility",
     "doc": "48_accessibility-reference.md",
     "question": "Does the color theme selector have visible keyboard focus in v2.2.0 or only in development?",
-    "expected": "v2.2.0 suppresses selector focus outline/shadow; local CSS override or disable selector if required. v2.2.1 development restores white outline and black ring for classic/floating/dual navigation. Do not claim released v2.2.0 includes fix or WCAG certification. Cite /docs/48-accessibility-reference."
+    "expected": "v2.2.0 suppresses selector focus outline/shadow; local CSS override or disable selector if required. v2.3.0 development restores white outline and black ring for classic/floating/dual navigation. Do not claim released v2.2.0 includes fix or WCAG certification. Cite /docs/48-accessibility-reference."
   },
   {
     "id": "starter-no-publishing-run",
@@ -589,7 +589,7 @@
     "section": "faq",
     "doc": "49_add-alert.md",
     "question": "How can I make a warning with a tinted background, left border and normal text?",
-    "expected": "Dev v2.2.1. Show div with callout-warning, markdown=1, role=note and aria-label=Warning. CSS supplies visual title and icon. Link alert guide. No plugin or YAML."
+    "expected": "Dev v2.3.0. Show div with callout-warning, markdown=1, role=note and aria-label=Warning. CSS supplies visual title and icon. Link alert guide. No plugin or YAML."
   },
   {
     "id": "format-caption-task-1",
@@ -630,8 +630,8 @@
     "id": "version-task-1",
     "section": "version",
     "doc": "55_check-theme-version.md",
-    "question": "Does the HTML theme version marker identify the exact commit and local overrides of my unpinned remote theme? Does v2.2.0 mean I can already install a published 2.2.0 release?",
-    "expected": "No; inspect remote_theme tag or resolved Gemfile.lock version; marker not exact unpinned commit or local overrides; verify latest publication separately. The (development) marker or older unreleased suffix identifies a development build. A version marker or local gem alone does not prove publication. Version v2.2.0 is published on GitHub and RubyGems; verify the tag or resolved installed gem separately. Cite /docs/55-check-theme-version, not /docs/44-custom-head or a relabelled docs index. Gemfile.lock applies to the gem only; inspect remote_theme; tags select releases, unpinned/branch values can move. No documented exact-remote-commit procedure."
+    "question": "Does the v2.3.0 HTML theme version marker identify the exact commit of my unpinned remote theme? Can I use that tag or install that gem now?",
+    "expected": "A version comment alone cannot establish the exact commit, local overrides or publication. Check remote_theme for a pinned tag or Gemfile.lock for the resolved gem. Unpinned and branch selections can move. v2.3.0 is pending publication and v2.2.0 is the stable release. Verify the GitHub tag or RubyGems publication before installing. Cite /docs/55-check-theme-version."
   },
   {
     "id": "feed-coexistence-1",
@@ -666,21 +666,21 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "Does the visible author card wrap a long name on mobile if I use a third-party skin?",
-    "expected": "In v2.2.1 development, long names wrap in the visible author card across skins. On narrow screens the location and links go below the name. No extra front matter required beyond the existing show_author setting. Cite /docs/04-layouts."
+    "expected": "In v2.3.0 development, long names wrap in the visible author card across skins. On narrow screens the location and links go below the name. No extra front matter required beyond the existing show_author setting. Cite /docs/04-layouts."
   },
   {
     "id": "theme-selector-icon-width-1",
     "section": "theming",
     "doc": "22_choose-skin.md",
     "question": "Do I need custom CSS to stop the theme selector icon from changing width between Light, Dark and Auto on a Bootswatch skin?",
-    "expected": "In v2.2.1 development, Chulapa reserves the same width for these icons across skins. No custom CSS or extra YAML is required for the icon width. Matching font sizes matter when comparing the entire button across skins. Cite /docs/22-choose-skin."
+    "expected": "In v2.3.0 development, Chulapa reserves the same width for these icons across skins. No custom CSS or extra YAML is required for the icon width. Matching font sizes matter when comparing the entire button across skins. Cite /docs/22-choose-skin."
   },
   {
     "id": "content-toc-spacing-1",
     "section": "formatting",
     "doc": "58_content-toc.md",
     "question": "Does a numbered kramdown TOC use the same spacing as show_toc, and do I need to change my Markdown?",
-    "expected": "In v2.2.1 development, the built-in and kramdown indexes use the same compact nested spacing across skins, including numbered indexes. Keep the existing marker and settings. Cite /docs/58-content-toc."
+    "expected": "In v2.3.0 development, the built-in and kramdown indexes use the same compact nested spacing across skins, including numbered indexes. Keep the existing marker and settings. Cite /docs/58-content-toc."
   },
   {
     "id": "person-publisher-task-1",
@@ -785,13 +785,13 @@
     "section": "config",
     "doc": "65_search-visibility.md",
     "question": "Does Chulapa generate sitemap.txt? Which URLs does it contain, and does noindex remove a page?",
-    "expected": "Development v2.2.1 only, not v2.2.0: assets/sitemap.txt publishes /sitemap.txt under baseurl without an extra plugin or flag. Absolute canonical URLs, output collections then HTML pages; sitemap false excludes either. canonical_url overrides apply unlike jekyll-sitemap XML actual URLs. No automatic noindex filtering, deduplication or image/static asset listing. Verify published URLs and submit full text sitemap URL if supported; no guaranteed indexing."
+    "expected": "Development v2.3.0 only, not v2.2.0: assets/sitemap.txt publishes /sitemap.txt under baseurl without an extra plugin or flag. Absolute canonical URLs, output collections then HTML pages; sitemap false excludes either. canonical_url overrides apply unlike jekyll-sitemap XML actual URLs. No automatic noindex filtering, deduplication or image/static asset listing. Verify published URLs and submit full text sitemap URL if supported; no guaranteed indexing."
   },
   {
     "id": "fuse-module-upgrade-development",
     "section": "search",
     "doc": "12_fusejs-search.md",
-    "question": "I copied a Fuse.js search page and now want to try Chulapa development 2.2.1. Can I just replace 7.1.0 with 7.5.0 in the fuse.min.js URL?",
-    "expected": "No: development 2.2.1 uses Fuse.js 7.5.0 with module loading, not the old standalone fuse.min.js browser script. Standard search layout updates automatically; copied pages/adapters need current demo and adapter, type=module on the adapter script and removal of the separate Fuse library tag because the adapter imports it. Serve through Jekyll or HTTP(S), not file://. Corrected relevance scores can change order and result count. No new YAML option; do not claim released 2.2.0 has this update. Link the Fuse.js guide and current demo/adapter sources."
+    "question": "I copied a Fuse.js search page and now want to try Chulapa development 2.3.0. Can I just replace 7.1.0 with 7.5.0 in the fuse.min.js URL?",
+    "expected": "No: development 2.3.0 uses Fuse.js 7.5.0 with module loading, not the old standalone fuse.min.js browser script. Standard search layout updates automatically; copied pages/adapters need current demo and adapter, type=module on the adapter script and removal of the separate Fuse library tag because the adapter imports it. Serve through Jekyll or HTTP(S), not file://. Corrected relevance scores can change order and result count. No new YAML option; do not claim released 2.2.0 has this update. Link the Fuse.js guide and current demo/adapter sources."
   }
 ]

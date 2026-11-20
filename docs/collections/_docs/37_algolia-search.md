@@ -38,7 +38,7 @@ The search box sends requests after at least two characters remain when
 leading and trailing whitespace is trimmed. Before that, the results area
 stays empty and no search request is sent to Algolia.
 
-In development v2.2.1, relative links and section links inside result excerpts
+In v2.3.0, relative links and section links inside result excerpts
 open their destination in the source article. This theme fix needs no index
 upload or additional configuration.
 

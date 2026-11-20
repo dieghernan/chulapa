@@ -68,7 +68,7 @@ Try the demos for [Fuse.js](../demo/search_fusejs), [Lunr.js](../demo/search_lun
 or [Simple-Jekyll-Search](../demo/search_simple). For hosted providers, see
 [Google Custom Search](./36-google-search) or [Algolia](./37-algolia-search).
 
-In **2.2.1 (development)**, Fuse.js is updated to 7.5.0. Its corrected relevance
+In **v2.3.0**, Fuse.js is updated to 7.5.0. Its corrected relevance
 scores can change result ordering and the number of results shown. The standard
 search layout handles the update automatically. If you copied a Fuse.js search
 page or adapter into your site, update it from the current

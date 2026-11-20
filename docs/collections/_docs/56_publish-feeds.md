@@ -12,7 +12,7 @@ series:
 
 Use this guide on an existing site to let readers subscribe in a feed reader.
 The theme supplies Atom at `/atom.xml` and RSS 2.0 at `/rss.xml`; you do not need
-to install `jekyll-feed` for these addresses. In v2.2.1 development, it also
+to install `jekyll-feed` for these addresses. In v2.3.0, it also
 supplies JSON Feed 1.1 at `/feed.json`. Share `/subscribe/` to give readers a
 browser preview with recent entries and links to all three feeds.
 
@@ -53,7 +53,7 @@ settings. See the [field reference](./04-layouts#advanced-page-settings).
 
 ## Preserve author names and profiles
 
-In v2.2.1 development, each feed entry uses its document's `author` mapping
+In v2.3.0, each feed entry uses its document's `author` mapping
 when present, otherwise the site's `author` settings in `_config.yml`.
 RSS preserves known names as `dc:creator`; it does not invent email addresses.
 Atom uses the selected author's `url` before the first HTTP(S) URL in that
@@ -69,7 +69,7 @@ Hiding the author card with `show_author: false` does not remove feed authors.
 
 ## Read excerpts and full articles in RSS
 
-In v2.2.1 development, RSS includes the excerpt and full article when an
+In v2.3.0, RSS includes the excerpt and full article when an
 excerpt is available. If the excerpt is empty, RSS includes the full article
 once.
 

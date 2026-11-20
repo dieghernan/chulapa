@@ -1,6 +1,6 @@
 # Chulapa documentation context
 
-Release v2.2.0 (21 Oct 2026, GitHub/RubyGems); pin @v2.2.0; verify installed version.
+Stable v2.2.0 (GitHub/RubyGems); pin @v2.2.0. v2.3.0 is pending publication.
 
 llms.txt selective; acknowledge gaps. Preserve config; publish via Actions; verify live. Restart on config edits. No fetching.
 ## Overview
@@ -42,10 +42,9 @@ Source: https://dieghernan.github.io/chulapa/docs/21-gem-theme
 Add gem "chulapa-jekyll" to Gemfile; bundle install; set theme: chulapa-jekyll in _config.yml; remove remote_theme and unused remote-theme plugin/dependency. Enable jekyll-include-cache in plugins. bundle update chulapa-jekyll updates theme/dependencies within existing constraints. Preview with bundle exec jekyll serve. Local matching files override theme files; review/merge them during upgrades. Unknown include_cached: install/enable jekyll-include-cache and restart build.
 ## Migrating an existing Jekyll site
 Source: https://dieghernan.github.io/chulapa/docs/07-migration
-Source: https://dieghernan.github.io/chulapa/docs/07-migration
 Branch/backup, record URLs; preserve url/baseurl, permalink and domain. Pin remote_theme: dieghernan/chulapa@v2.2.0, remove old theme conflicts and install/enable remote-theme/include-cache. Review local _layouts/, _includes/ and assets/ overrides; retain useful customizations, prefer hooks over copied layouts.
 Review page front matter and config defaults: explicit page layouts win; ordinary posts/pages use default with header_type post/base. Old theme options are not translated. Use author mapping (author.name), exact skin name; rebuild navbar/footer links. Preserve search page/path with matching search.provider and search.landing_page/permalink; existing comment mappings and analytics must not be duplicated. Preserve existing /feed.xml with jekyll-feed if needed, avoiding built-in /atom.xml and /rss.xml collisions.
-Guide: twelve checks, Actions setup, six troubleshooting answers; mappings in separate reference. Preview/publish; verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter are absent from pinned v2.1.0.
+Guide: migrations, Actions, troubleshooting and v2.3.0 checks for icons, scripts, Fuse and feeds. Verify old URLs, metadata and mobile/keyboard behavior. Mermaid/PhotoSwipe/GoatCounter require v2.2.0+.
 ## Basic editing and publishing
 Sources: https://dieghernan.github.io/chulapa/docs/00-start
 https://dieghernan.github.io/chulapa/docs/15-create-post
@@ -97,10 +96,10 @@ Edit existing _config.yml; preserve unrelated fields and restart local Jekyll. R
 url: origin; baseurl: /repository or ""; repository: owner/repo; locale: HTML language. author: name/url/avatar/location/links; url absolute or /about/ via url/baseurl. Cards select author; guests inherit no URL; socials: author.links.
 ## Publisher, analytics and icon configuration
 Source: https://dieghernan.github.io/chulapa/docs/02-config
-Dev v2.2.1 JSON-LD: site author URL=home via url/baseurl, no About. Guest: author.url, sorted HTTP(S) links, else page-local ID. sameAs: profiles; no inherited guest avatar/location. Publisher separate.
+Dev v2.3.0 JSON-LD: site author URL=home via url/baseurl, no About. Guest: author.url, sorted HTTP(S) links, else page-local ID. sameAs: profiles; no inherited guest avatar/location. Publisher separate.
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
 Since v2.1.0 publisher.type: Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping; preserve fields. name/url identify editor; Person uses image/site avatar, ignores logo; Organization uses logo. Paths: url/baseurl. Guests independent; check public JSON-LD. No rich guarantees.
-Font Awesome default: 7 in v2.2.1 development, 6 in v2.2.0. fa_version: 6 or 5 keeps older hosted CSS. fa_v4_support: true adds hosted v4 shims. fa_kit_code uses kit version and compatibility in v2.2.1. Legacy fa5_kit_code wins.
+Font Awesome default: 7 in v2.3.0 development, 6 in v2.2.0. fa_version: 6 or 5 keeps older hosted CSS. fa_v4_support: true adds hosted v4 shims. fa_kit_code uses kit version and compatibility in v2.3.0. Legacy fa5_kit_code wins.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
 Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
@@ -125,7 +124,7 @@ chulapa-skin-dark:
   skin: gitdev-dark
   highlight: github.dark
 ```
-Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Preference persists same-origin; without storage, current page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; preserve custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete skin/highlighter CSS: Light initially, prior appearance later; mode persists. Dev v2.2.1: fixed icon width across modes.
+Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Preference persists same-origin; without storage, current page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; preserve custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete skin/highlighter CSS: Light initially, prior appearance later; mode persists. Dev v2.3.0: fixed icon width across modes.
 Font imports remain. Google Fonts failure falls back; switching needs complete skin/highlighter CSS. Other import errors do not recover. Replacement CSS keeps its completion marker. Not v2.1.0. Demo selector is illustrative only.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin
@@ -155,7 +154,7 @@ chulapa-skin:
 Never nest autothemer inside vars. Preserve current skin unless asked. none has no palette. Omit/false disables later step; skin: auto independently imports the generator.
 Custom CSS: assets/css/custom.scss needs empty YAML front matter; loads after theme, subject to specificity. Review overrides on upgrade.
 Skin: _sass/skins/NAME.scss contains SCSS ($primary: #285d70 !default;), not YAML. Set skin: NAME in _config.yml. !default permits overrides. Never import Bootstrap/grid in a site skin: the theme does it. Codeply needs its existing imports; put SCSS above them. Translate to vars without $/semicolon; quote hex. Codeply panels: INDEX/CLASSICNAVBARDEMO; Autothemer markers. Sunset palette/font omits CSS.
-v2.2.0 selector hides focus; local CSS or disable if needed. v2.2.1 development: focus, nav, link states, badges, outlines and card text/links in 16 dieghernan skins (Listen Primary matches button text). Nav defaults adapt to configured bg; explicit text/custom semantic colors win; third-party unchanged. Not v2.2.0; no WCAG guarantee. /docs/48-accessibility-reference.
+v2.2.0 selector hides focus; local CSS or disable if needed. v2.3.0 development: focus, nav, link states, badges, outlines and card text/links in 16 dieghernan skins (Listen Primary matches button text). Nav defaults adapt to configured bg; explicit text/custom semantic colors win; third-party unchanged. Not v2.2.0; no WCAG guarantee. /docs/48-accessibility-reference.
 
 ## Available skins
 Source: https://dieghernan.github.io/chulapa/skins
@@ -163,10 +162,10 @@ Named skins: academia,cerulean,litera,pulse,butterfly,butterfly-dark,butterfly-d
 auto/none special; current not a skin.
 cerulean/litera/pulse: 2.2.0 only; retain original Bootswatch 4.6.2 palettes/typography/components and contrast limits. Not included in AA adjustments; vars still override. /docs/23-change-color#original-bootswatch-skins.
 ## Layouts
-Series (v2.2.1 dev): site series maps IDs to labels with meaningful text and optional part_label (Part) and index_label (Series index). Visible labels render Markdown and HTML from trusted site configuration; accessible names and JSON-LD use plain text. Page series list: {id, order} with integer order, one entry per ID. Repeated IDs use the first integer order and ties between chapters sort by URL. Include snippets/series-chapters.html for navigation with 2+ published members. JSON-LD membership is automatic, including on the home page and for single-member series. /docs/04-layouts#series-navigation
+Series (v2.3.0 dev): site series maps IDs to labels with meaningful text and optional part_label (Part) and index_label (Series index). Visible labels render Markdown and HTML from trusted site configuration; accessible names and JSON-LD use plain text. Page series list: {id, order} with integer order, one entry per ID. Repeated IDs use the first integer order and ties between chapters sort by URL. Include snippets/series-chapters.html for navigation with 2+ published members. JSON-LD membership is automatic, including on the home page and for single-member series. /docs/04-layouts#series-navigation
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 Default layout: posts, pages and collections. Set options in front matter or defaults.
-## Post citations (v2.2.1 development)
+## Post citations (v2.3.0 development)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#make-a-post-citable
 Default layout: add citation: true to post front matter for English simplified APA and expandable BibTeX. citation: false disables. A citation map can override author, title, issued (quoted YYYY, YYYY-MM, YYYY-MM-DD), url, container-title and id. Author fallback: post, then site; structured citation.author entries use name.given and name.family for APA initials and full BibTeX names; name.literal preserves group authors. Byline unchanged. Journals: type: article-journal, optional volume, issue, page and doi. DOI wins for the visible link. Default layout with citation enabled: google-scholar: true adds head tags. See the guide for Quarto field mappings and Scholar date formats.
 ## Adding videos
@@ -177,7 +176,7 @@ Include snippets/video.html. Hosted providers: youtube, vimeo, dailymotion, goog
 fileurl wins: local=root-relative path, no relative_url/baseurl prefix; external=full HTTPS URL. Snippet applies absolute_url:
 {% include snippets/video.html fileurl="/assets/mp4/sample.mp4" %}
 YouTube click-to-load; nolazy=true skips click, retains browser lazy loading. video_res="hqdefault" for missing previews. thumbnail_url: metadata only, never preview/player/poster. Inputs name/thumbnail_url/upload_date/description/duration: accurate, no inference/validation/fetching/cropping. ISO 8601: PT5M, 2026-10-08T12:00:00Z; not 5:00. Names/noscript link: v2.2.0, not v2.1.0 (name metadata existed). verify playback/baseurl; not chat uploads.
-Dev v2.2.1: supported video includes add structured data automatically. Supply the actual title, upload date and thumbnail. Only deferred YouTube can use its preview automatically. Blank values are omitted. Playback still follows the include settings.
+Dev v2.3.0: supported video includes add structured data automatically. Supply the actual title, upload date and thumbnail. Only deferred YouTube can use its preview automatically. Blank values are omitted. Playback still follows the include settings.
 ## Image galleries and carousels
 Source: https://dieghernan.github.io/chulapa/docs/30-add-carousel
 Source: https://dieghernan.github.io/chulapa/docs/29-add-gallery
@@ -215,7 +214,7 @@ landingpage: default options plus landingpage-chulapa-bg-color/landingpage-chula
 minimal: content between navbar/footer, headerless unless show_header: true plus header_type base/post/hero/image/splash; header_img image. default/landingpage use header_type: none to hide header.
 archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
-Dev v2.2.1: show_author:false keeps hidden h-card p-author and listing authors. Visible cards wrap names; details go below on mobile. Atom profiles: own author.url or first HTTP(S) link. Guests never inherit site identity. Unnamed guests: Guest author; missing site name: Unknown author. RSS: dc:creator for known names. /docs/56-publish-feeds.
+Dev v2.3.0: show_author:false keeps hidden h-card p-author and listing authors. Visible cards wrap names; details go below on mobile. Atom profiles: own author.url or first HTTP(S) link. Guests never inherit site identity. Unnamed guests: Guest author; missing site name: Unknown author. RSS: dc:creator for known names. /docs/56-publish-feeds.
 Page switches: show_author, show_date (published/modified), show_sociallinks, show_categories/show_tags badges, show_breadcrumb with breadcrumb_list label/url. show_bottomnavs uses page.previous/page.next, not arbitrary standalone pages.
 Defaults: scope.path:"", scope.type:posts, values.layout:default. Front matter wins; boolean false, not "false".
 ## Related and random article cards
@@ -230,7 +229,7 @@ https://dieghernan.github.io/chulapa/docs/37-algolia-search
 search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search needs navbar.nav or the theme selector. Otherwise open the landing URL with baseurl.
 Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false is DOCUMENT FRONT MATTER (or defaults.values), NEVER nested under search; excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
 Algolia uses an uploaded index; include_on_search only ranks; exclude with algolia.files_to_exclude. Docs use Algolia; upload recipe below. Google: google_cse_id for a configured engine; build/local exclusions do not control its crawler.
-2.2.1 dev only: Fuse 7.5 modules; scores/order/count may change. Standard layout updates automatically. Copied pages/adapters: use current demo/adapter, type="module", remove separate fuse.min.js tag. Serve via HTTP(S), not file://. No new YAML.
+2.3.0 dev only: Fuse 7.5 modules; scores/order/count may change. Standard layout updates automatically. Copied pages/adapters: use current demo/adapter, type="module", remove separate fuse.min.js tag. Serve via HTTP(S), not file://. No new YAML.
 ## Comments
 Source: https://dieghernan.github.io/chulapa/docs/02-config#comments
 Select comments.provider in _config.yml. Separately set show_comments: true in the post/page front matter or defaults.values, NEVER inside comments. The page layout must display comments. Providers do not migrate threads automatically.
@@ -278,7 +277,7 @@ footer.links: label, icon (complete Font Awesome class, e.g. "fas fa-envelope", 
 Source: https://dieghernan.github.io/chulapa/docs/65-search-visibility
 Guide: /docs/65-search-visibility; cards are optional. robots noindex, sitemap: false and local-search exclusions are independent, never privacy. og_image social; header_img visible; schema_image article JSON-LD.
 ## Page metadata and article images
-Dev v2.2.1 /sitemap.txt: output collections + HTML canonical URLs; sitemap: false excludes, noindex does not. No dedup/assets/plugin needed. XML uses actual URLs. Verify/submit public URL.
+Dev v2.3.0 /sitemap.txt: output collections + HTML canonical URLs; sitemap: false excludes, noindex does not. No dedup/assets/plugin needed. XML uses actual URLs. Verify/submit public URL.
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#seo-metadata
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#social-locales-and-articles
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#article-images
@@ -287,14 +286,14 @@ Source: https://dieghernan.github.io/chulapa/docs/62-canonical-article
 canonical_url: HTTP(S) or /site-path; metadata/feed links, no redirect. jekyll-sitemap uses actual URL; sitemap: false excludes copy. Keep per-page pagination canonicals.
 seo_title replaces complete browser/structured title; og_title social title; title visible heading. Description fallback: page description, excerpt, home-page site description, content. og_image_alt/width/height/type describe supplied image, not inspected; page-specific images do not inherit site image metadata.
 locale sets HTML language; zh-Hant needs separate og_locale: zh_TW. og_locale_alternate lists real translated locales; [] clears inherited alternates; no translations/hreflang generation. og_type: article enables article metadata for another collection. og_article_author/og_article_section override author URL/first category; guest authors without URL do not inherit site's URL.
-Dev v2.2.1: archive/card/tag/category JSON-LD lists report count; custom lists need markup. dateModified requires last_modified_at, never date. Source: https://dieghernan.github.io/chulapa/docs/02-config#seo.
+Dev v2.3.0: archive/card/tag/category JSON-LD lists report count; custom lists need markup. dateModified requires last_modified_at, never date. Source: https://dieghernan.github.io/chulapa/docs/02-config#seo.
 schema_image: URL/list for post BlogPosting, fallback page og_image then header_img. Relative images use url/baseurl; no cropping/validation or visible/social image changes.
 ## Alerts, captions and footnotes
 Source: https://dieghernan.github.io/chulapa/docs/49-add-alert
 Source: https://dieghernan.github.io/chulapa/docs/50-add-caption
 Source: https://dieghernan.github.io/chulapa/docs/51-add-footnote
 Kramdown: blank line, alert paragraph, then {: .alert .alert-info .p-3 .mx-2 .mb-3}. Multi-paragraph: div with same classes, role="note", markdown="1", visible label. > [!NOTE] renders as a quote. No snippets/alert.html exists.
-Dev v2.2.1: callout-note/tip/important/warning/caution add CSS titles/icons; set aria-label. Caption: image, blank line, caption + {: .caption}. Footnotes: [^1] + [^1]: text.
+Dev v2.3.0: callout-note/tip/important/warning/caution add CSS titles/icons; set aria-label. Caption: image, blank line, caption + {: .caption}. Footnotes: [^1] + [^1]: text.
 ## Favicons
 Source: https://dieghernan.github.io/chulapa/docs/52-add-favicon
 favicon.ico auto-discovered at domain root; project/baseurl sites need explicit links. RealFaviconGenerator: upload assets/favicon/, generated HTML in _includes/custom/custom_head.html, URLs include baseurl; verify.
@@ -328,7 +327,7 @@ defaults:
     values:
       include_on_feed: true
 ```
-In v2.2.1 development, the same entries are available as JSON Feed 1.1 at `/feed.json`. Share `/subscribe/` for a browser preview with recent entries and links to Atom, RSS and JSON Feed. These addresses are relative to the site base URL.
+In v2.3.0 development, the same entries are available as JSON Feed 1.1 at `/feed.json`. Share `/subscribe/` for a browser preview with recent entries and links to Atom, RSS and JSON Feed. These addresses are relative to the site base URL.
 
 jekyll-feed /feed.xml coexists with built-in /atom.xml, /rss.xml; same-path outputs collide. Preserve subscribers; no YAML disable switch. include_on_feed selects posts/collection documents, not ordinary pages or plugin entries. Collections need output: true for linked articles to exist; feed opt-in does not publish them. Set dates explicitly: Jekyll 4 can infer missing dates, unlike 3.
 ## Check theme version
@@ -343,7 +342,7 @@ Source: https://dieghernan.github.io/chulapa/docs/04-layouts#layout-structure-an
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#javascript-assets-and-local-overrides
 jekyll-include-cache required. Dev caches fixed footer/cloud entries; comments retain page-specific inputs in footer.html. Pass every page-dependent input to include_cached; use ordinary include for caller-assigning helpers (canonical URL/language) and hooks reading page context. Never blanket-replace includes.
 Hierarchy: compress -> minimal -> default/landingpage; archive/cloudtag/cloudcategory/indexcategory inherit default; search standalone. Development refactoring only: collection indexes share components/collection-documents; related/random share components/recommendations (internal renderers, not settings).
-Custom shells need components/scripts.html: jQuery Slim 3.5.1/Popper 1.16.1/Bootstrap 4.6.2 (v2.2.1 dev), plus fab/dual chulapa_navigation.js once. Inherited minimal/search load it; minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters need assets/js/chulapa_search.js, library and store before adapter. Review overrides on upgrade.
+Custom shells need components/scripts.html: jQuery Slim 3.5.1/Popper 1.16.1/Bootstrap 4.6.2 (v2.3.0 dev), plus fab/dual chulapa_navigation.js once. Inherited minimal/search load it; minimal adds chulapa_script.js. Custom readable/minified Lunr/Fuse adapters need assets/js/chulapa_search.js, library and store before adapter. Review overrides on upgrade.
 ## Markdown formatting
 Source: https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet
 **bold**, _italic_, ~~strikethrough~~; blank-line paragraphs; #..###### headings; [label](URL), ![alt](URL), > blockquote; - bullets, 1. ordered list; backtick inline code, language-labelled fences (js/ruby/html/yaml). Pipe tables use separator rows; colons align columns. Sample kramdown GFM differs from some extensions requiring kramdown.input: Kramdown; check generated output.
@@ -359,7 +358,7 @@ To exclude a heading, copy the colon exactly:
 {:.no_toc}
 ```
 TOC covers eligible headings before/after marker; marker sets position only. {:.no_toc} excludes from both TOCs. kramdown.toc_levels: 2..6 is site-wide, separate from show_toc/h_min/h_max.
-Dev v2.2.1: show_toc and kramdown share compact nested spacing across skins, including numbered indexes. /docs/58-content-toc.
+Dev v2.3.0: show_toc and kramdown share compact nested spacing across skins, including numbered indexes. /docs/58-content-toc.
 _config.yml (merge, keep parser/options):
 ```yaml
 kramdown:
@@ -414,7 +413,7 @@ Local Chulapa font assets use baseurl in CSS/preload; Google Fonts/Font Awesome 
 ## Inherited list microformats (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts
 v2.2.0: archive/indexcategory/cloudtag/cloudcategory (+legacy *2 clouds) inherit h-feed around h-entry; keep layout chain, no page setting. indexcards/simplelist need custom h-feed. docs/blog/index.html wraps paginated pages; clouds may repeat entries. minimal needs custom h-entry/p-name/u-url/e-content; default/landingpage have h-entry. show_date preserves dt-published/dt-updated.
-Dev v2.2.1: default/derived h-entry: hidden u-photo u-featured outside e-content; not landingpage/minimal/h-feed. Image: page og_image > header_img > site og_image; omit absent, no avatars. Alt: page og_image_alt; site alt only without page images, else page title. No UI change/federation guarantee. /docs/04-layouts#minimal.
+Dev v2.3.0: default/derived h-entry: hidden u-photo u-featured outside e-content; not landingpage/minimal/h-feed. Image: page og_image > header_img > site og_image; omit absent, no avatars. Alt: page og_image_alt; site alt only without page images, else page title. No UI change/federation guarantee. /docs/04-layouts#minimal.
 ## Generated HTML formatting (v2.2.0)
 Source: https://dieghernan.github.io/chulapa/docs/06-accessibility-performance
 In v2.2.0: HTML/JSON-LD indentation. compress_html.blanklines: true removes blank lines, preserves head/footer indentation, clips body whitespace; footer nesting two spaces. Other modes follow config. Custom head/comments retained; avoid Liquid -%} trimming HTML boundaries.
@@ -476,6 +475,6 @@ algolia:
 ALGOLIA_API_KEY: env/Actions secret only. Upload: .github/workflows/algolia-search.yml (adapt jekyll_src: docs) OR bundle exec jekyll algolia; not automatic. Deprecated/unmaintained jekyll-algolia: Gemfile :jekyll_plugins. algolia.files_to_exclude excludes; include_on_search ranks. Field/rank/language settings: algolia.settings; other options: algolia. Reupload after edits; --dry-run previews.
 algolia.settings.removeWordsIfNoResults: allOptional allows partial/noisy matches after zero hits; default none. Needs upload.
 Algolia requests need 2+ trimmed characters; shorter queries make no request or no-results message. Built-in, no YAML option.
-Dev v2.2.1 fixes relative/fragment excerpt links using the article URL; keeps highlights. Update/publish theme; no reindex/plugin/YAML.
+Dev v2.3.0 fixes relative/fragment excerpt links using the article URL; keeps highlights. Update/publish theme; no reindex/plugin/YAML.
 
 2.2.0: small palette/YIQ adjustments preserve original primary colors and identity. Some pairs <4.5:1; no palette/page guarantee. Dim links stay bright. Custom colors/transparency/states need checks. /docs/23-change-color.

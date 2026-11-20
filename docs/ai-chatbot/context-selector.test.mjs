@@ -128,7 +128,7 @@ test('layout regressions retain their own release constraints and caller inputs'
   assert.ok(inherited.titles.includes('Inherited list microformats (v2.2.0)'));
   assert.match(inherited.text, /keep layout chain, no page setting/);
   assert.match(inherited.text, /archive\/indexcategory\/cloudtag\/cloudcategory \(\+legacy \*2 clouds\) inherit h-feed around h-entry/);
-  assert.match(inherited.text, /Dev v2.2.1: default\/derived h-entry: hidden u-photo u-featured/);
+  assert.match(inherited.text, /Dev v2.3.0: default\/derived h-entry: hidden u-photo u-featured/);
   const formatting = selectContext(context, 'Can I keep head and footer readable with indentation?');
   assert.ok(formatting.titles.includes('Generated HTML formatting (v2.2.0)'));
   const section = splitSections(formatting.text).find(s => s.title === 'Generated HTML formatting (v2.2.0)');

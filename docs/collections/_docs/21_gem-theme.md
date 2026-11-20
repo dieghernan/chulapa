@@ -11,6 +11,11 @@ cloudtag_url: /docs/tags
 Use this guide when you already have a Jekyll site and use Bundler to build it.
 For a first website without local installation, follow [the browser tutorial](./00-start).
 Use gem version 2.2.0 or later for the features marked **v2.2.0**.
+{% if site.data.version.dev != site.data.version.release %}
+Upgrade to **{{ site.data.version.dev }}** once it appears on
+[RubyGems](https://rubygems.org/gems/chulapa-jekyll). Before upgrading, review the
+[migration guide](./07-migration#upgrade-to-v230).
+{% endif %}
 
 ## Configure the gem
 
