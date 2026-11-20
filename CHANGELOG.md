@@ -4,6 +4,10 @@
 
 -   Embed Spotify tracks, albums and playlists using the `snippets/spotify.html` include, with a direct link for feed readers.
 
+### Fixed
+
+-   Align the footnote separator with the article, reduce the list indentation and bring consecutive notes closer together.
+
 ## v2.3.0 (2026-11-20)
 
 ### Added
