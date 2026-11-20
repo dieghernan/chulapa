@@ -38,7 +38,7 @@ record](https://www.madrid.es/UnidadWeb/Contenidos/Publicaciones/JuntaDistritos/
 
 The painted letters also caught the eye of designer [Silvia Fernández
 Palomar](https://www.azkunazentroa.eus/es/artistas/silvia-fernandez-palomar/),
-who developed Ferpal Sans. Her lettering appeared alongside [Mercedes
+who developed [Ferpal Sans](https://ferpal.studio/work/ferpal-sans/). Her lettering appeared alongside [Mercedes
 deBellard](https://www.domestika.org/en/mercedes_debellard)’s illustrations in
 the 2018 San Isidro campaign. [Joan Carles
 Casasín](https://tipografies.com/about) and [Pablo
