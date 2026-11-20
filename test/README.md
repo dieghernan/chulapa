@@ -320,6 +320,9 @@ two-character highlights, HTML/entity preservation and floating navigation on se
 native copying without CDN dependencies, the legacy clipboard entry point,
 keyboard YouTube activation without a player API, repeated activation, Cusdis
 message-source/height validation and empty/unavailable sitemap fallbacks.
+Clipboard tooltip checks also cover blocked Popper requests, separate scripts
+and Bootstrap's bundle, including success, denied permissions and keyboard
+activation on mobile and desktop at root and subdirectory URLs.
 The fixture builder also copies the actual documentation's custom Lunr/Fuse
 pages and 404. Checks verify helper-before-adapter ordering, one copy of common
 JavaScript dependencies, functional search regardless of the site's selected
