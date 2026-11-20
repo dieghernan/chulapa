@@ -65,7 +65,7 @@ error pages or pagination are automatically excluded by their layout or path.
 
 ## Text sitemap (development)
 
-The development version of <span class="chulapa">Chulapa</span> v2.2.1 adds
+The development version of <span class="chulapa">Chulapa</span> v2.3.0 adds
 `/sitemap.txt`, a plain-text list with one absolute URL per line. This feature
 is not included in v2.2.0. The theme supplies `assets/sitemap.txt`; its permalink
 publishes it at the site root, including your configured `baseurl`.

@@ -96,9 +96,10 @@ more.
 This documentation targets **2.2.0**. **Mermaid**, **PhotoSwipe**, **GoatCounter** and the
 light/dark/auto selector require this version.
 
-Development v2.2.1 updates Bootstrap to 4.6.2 and Popper.js to 1.16.1;
-jQuery Slim remains at 3.5.1. Review copied script includes when upgrading:
-local overrides take precedence over the theme.
+The upcoming v2.3.0 adds series navigation, post citations, CSS callouts and
+JSON Feed. It updates Bootstrap to 4.6.2 and Popper.js to 1.16.1 and keeps jQuery
+Slim at 3.5.1. Review copied script includes when upgrading because local
+overrides take precedence over the theme. See the [upgrade checks for v2.3.0](https://dieghernan.github.io/chulapa/docs/07-migration#upgrade-to-v230).
 
 Choose an installation guide for your situation. For version pins and method
 constraints, use [Installation](https://dieghernan.github.io/chulapa/docs/01-install).

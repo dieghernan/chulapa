@@ -1,4 +1,4 @@
-## v2.2.1 (development)
+## v2.3.0 (pending publication)
 
 ### Added
 
@@ -92,7 +92,7 @@
 
 -   Update the documentation homepage's social preview to 1200 × 630 pixels, provide image dimensions and alternative text, complete Twitter Card metadata, and add an SVG favicon with dark-mode support.
 
--   Add missing footer credits for Cerulean, Litera and Pulse, and correct Solar's displayed skin name.
+-   Correct Solar's displayed skin name.
 
 ## v2.2.0 (2026-10-21)
 

@@ -50,7 +50,7 @@ See the rendered [callout example](./components#alert). GitHub-style
 
 ## Use a callout
 
-In v2.2.1 development, replace the alert classes with one callout class.
+In v2.3.0 development, replace the alert classes with one callout class.
 CSS adds a title and a Font Awesome icon. The background uses the skin color
 at 10% opacity and the body uses the skin's text color. The solid left border
 uses the matching accent, adjusted for contrast in some skins. Corners follow

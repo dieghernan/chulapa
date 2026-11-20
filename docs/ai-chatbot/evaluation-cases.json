@@ -3,21 +3,21 @@
     "id": "layouts-hidden-authorship-199",
     "section": "layouts",
     "doc": "56_publish-feeds.md",
-    "question": "In v2.2.1 development, does show_author: false remove authors from my articles and feeds? What happens to a guest without author.url when a social link is first?",
+    "question": "In v2.3.0 development, does show_author: false remove authors from my articles and feeds? What happens to a guest without author.url when a social link is first?",
     "expected": "default/derived and landingpage hide the visible card but retain invisible h-card p-author, without keyboard stops. Listings retain per-entry authors including guests. Atom uses selected author.url, otherwise first HTTP(S) link from that same author, omitting URI when neither exists. Guest never inherits site name or URL. RSS uses known names in dc:creator without inventing emails. Root/subdirectory URLs supported. Development change, not released v2.2.0. Link /docs/56-publish-feeds and /docs/04-layouts."
   },
   {
     "id": "layouts-microformats-featured-image-1",
     "section": "layouts",
     "doc": "04_layouts.md",
-    "question": "In v2.2.1 development, which image does default expose to Microformats consumers? Will a page photo inherit my site image description, and do landingpage and archive add it too?",
-    "expected": "Default and derived layouts add hidden u-photo u-featured inside h-entry outside e-content. Image selection: page og_image, page header_img, site og_image, otherwise omitted; no avatar fallback. Alt uses page og_image_alt; site og_image_alt only when site image selected with neither page image set; otherwise page title. Page photo never inherits site image description. Outer h-feed of archive/list layouts excluded; landingpage and minimal do not add image automatically. No new YAML, visible layout change or automatic federation guarantee; consumer/discovery behavior varies. Development v2.2.1, not released v2.2.0. Link /docs/04-layouts#minimal."
+    "question": "In v2.3.0 development, which image does default expose to Microformats consumers? Will a page photo inherit my site image description, and do landingpage and archive add it too?",
+    "expected": "Default and derived layouts add hidden u-photo u-featured inside h-entry outside e-content. Image selection: page og_image, page header_img, site og_image, otherwise omitted; no avatar fallback. Alt uses page og_image_alt; site og_image_alt only when site image selected with neither page image set; otherwise page title. Page photo never inherits site image description. Outer h-feed of archive/list layouts excluded; landingpage and minimal do not add image automatically. No new YAML, visible layout change or automatic federation guarantee; consumer/discovery behavior varies. Development v2.3.0, not released v2.2.0. Link /docs/04-layouts#minimal."
   },
   {
     "id": "layouts-jsonld-author-profile-1",
     "section": "layouts",
     "doc": "02_config.md",
-    "question": "In v2.2.1 development, how do I keep a guest author's JSON-LD profile stable? Will publisher.type: Person replace them, and do they inherit my avatar?",
+    "question": "In v2.3.0 development, how do I keep a guest author's JSON-LD profile stable? Will publisher.type: Person replace them, and do they inherit my avatar?",
     "expected": "Use existing page author.url, absolute or site-relative resolved with url/baseurl. Guest Person identity uses this URL; otherwise alphabetically first HTTP(S) guest author.links profile, so reordering links does not change identity but adding/removing profiles may. Without either, identity is page-local. Guest does not inherit site URL/avatar/location. All HTTP(S) social links appear in sameAs and author uses a reference to one profile definition. Publisher remains independent even if both are Person; default publisher type is still Organization. No new YAML options or Ruby plugin. Link /docs/02-config#seo. Site author JSON-LD URL always uses home with url/baseurl, regardless of site author.url; no About required. Visible cards and Open Graph unchanged."
   },
   {
@@ -25,7 +25,7 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "How do I add video metadata, and will that make YouTube load immediately?",
-    "expected": "In v2.2.1 development, supported video includes generate structured data automatically. Supply accurate name, thumbnail_url, upload_date, description and duration as available. Only deferred YouTube can use its preview automatically. For immediate YouTube playback use nolazy=true; metadata does not change loading. Link /docs/04-layouts#optional-video-metadata."
+    "expected": "In v2.3.0 development, supported video includes generate structured data automatically. Supply accurate name, thumbnail_url, upload_date, description and duration as available. Only deferred YouTube can use its preview automatically. For immediate YouTube playback use nolazy=true; metadata does not change loading. Link /docs/04-layouts#optional-video-metadata."
   },
   {
     "id": "layouts-jsonld-primary-image-1",
@@ -39,7 +39,7 @@
     "section": "layouts",
     "doc": "02_config.md",
     "question": "Do built-in archive and category pages describe their article lists to search engines? What about a custom list?",
-    "expected": "In v2.2.1 development, built-in article indexes describe their lists automatically and report the exact count of listed items (respecting any displayed limit). Custom lists need their own markup. Structured data cannot guarantee enriched search results. Link /docs/02-config#seo."
+    "expected": "In v2.3.0 development, built-in article indexes describe their lists automatically and report the exact count of listed items (respecting any displayed limit). Custom lists need their own markup. Structured data cannot guarantee enriched search results. Link /docs/02-config#seo."
   },
   {
     "id": "layouts-jsonld-modification-date-1",
@@ -179,7 +179,7 @@
     "section": "configuration",
     "doc": "02_config.md",
     "question": "How do I use a Font Awesome kit? What if fa5_kit_code is already set?",
-    "expected": "Set fa_kit_code and remove fa5_kit_code to migrate because legacy takes precedence. In v2.2.1 development the kit replaces both hosted stylesheets, and the hosted default is FA7. Earlier v2.2 releases default to FA6."
+    "expected": "Set fa_kit_code and remove fa5_kit_code to migrate because legacy takes precedence. In v2.3.0 development the kit replaces both hosted stylesheets, and the hosted default is FA7. Earlier v2.2 releases default to FA6."
   },
   {
     "id": "configuration-6",

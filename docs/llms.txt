@@ -4,18 +4,18 @@
 
 The documentation is the source of truth for installation, configuration, layouts and supported integrations. Configure the site in `_config.yml` and use page front matter or Jekyll defaults for page options. Extend the theme through existing layouts, includes and assets.
 
-Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This documentation covers that release and labels features in development for v2.2.1. Mermaid diagrams, PhotoSwipe galleries, GoatCounter, the light/dark/auto selector and the accessibility and resource-loading improvements require 2.2.0 and are absent from v2.1.0. Check the installed gem or remote-theme tag before applying advice. External services retain their own requirements; accessibility depends on site content, skins and customizations.
+Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This documentation covers that release and labels features in development for v2.3.0. Mermaid diagrams, PhotoSwipe galleries, GoatCounter, the light/dark/auto selector and the accessibility and resource-loading improvements require 2.2.0 and are absent from v2.1.0. Check the installed gem or remote-theme tag before applying advice. External services retain their own requirements; accessibility depends on site content, skins and customizations.
 
 ## Getting started
 
-- [Series navigation](https://dieghernan.github.io/chulapa/docs/04-layouts#series-navigation): Configure ordered series with customizable labels, collapsible indexes, progress and Previous and Next links in development v2.2.1.
+- [Series navigation](https://dieghernan.github.io/chulapa/docs/04-layouts#series-navigation): Configure ordered series with customizable labels, collapsible indexes, progress and Previous and Next links in development v2.3.0.
 
 - [Documentation overview](https://dieghernan.github.io/chulapa/docs): Task-oriented documentation index with Tutorials, How-To Guides, Reference and separate Explanation pages.
 - [Documentation topics](https://dieghernan.github.io/chulapa/docs/tags): Partial topic index for tagged documentation, covering appearance, content editing, publishing, site search, installation, navigation, site identity, branding, comments, analytics, custom hooks, feeds and accessibility; includes migration mappings, canonical URLs, tag/category indexes and syntax/variable references. The FAQ and tutorials keep their direct routes.
 - [Start a site](https://dieghernan.github.io/chulapa/docs/00-start): Browser-only tutorial: publish the Chulapa 101 blog with a personal title and edited sample article. Continue with the illustrated-page tutorial linked below.
 - [Installation](https://dieghernan.github.io/chulapa/docs/01-install): Method directory linking the first-site tutorial, remote-theme and gem setup guides, and migration checklist.
-- [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration procedure, task links, preserved URLs and a twelve-point checklist; separate field-mapping reference.
-- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Option reference for site identity, navbar/footer, metadata (including automatic JSON-LD entities and collection lists in development v2.2.1), search, comments, analytics (Google Analytics and GoatCounter (available since v2.2.0)), collections, Jekyll build settings and HTML compression; site identity and menu/footer editing have separate task guides.
+- [Migrating from another theme](https://dieghernan.github.io/chulapa/docs/07-migration): Pinned remote-theme migration procedure, field mappings and checks for preserving public URLs. Includes v2.3.0 upgrade checks for icons, copied scripts, Fuse.js and feeds.
+- [Global settings](https://dieghernan.github.io/chulapa/docs/02-config): Option reference for site identity, navbar/footer, metadata (including automatic JSON-LD entities and collection lists in development v2.3.0), search, comments, analytics (Google Analytics and GoatCounter (available since v2.2.0)), collections, Jekyll build settings and HTML compression; site identity and menu/footer editing have separate task guides.
 
 - [Change site details](https://dieghernan.github.io/chulapa/docs/14-site-details): Update title, description and author, match the existing home-page heading and preserve site addresses.
 - [Add or change a menu link](https://dieghernan.github.io/chulapa/docs/10-edit-menu): Edit an existing site’s navbar links, preserve other navigation settings and verify destinations with baseurl.
@@ -37,12 +37,12 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 ## Theme and content reference
 
 - [Theming](https://dieghernan.github.io/chulapa/docs/03-theming): Appearance fields, defaults, accepted values and constraints, with links to separate tasks and a precedence explanation.
-- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Links to post, page and image task guides; layout and page options, post citations (v2.2.1 development), galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with snippet parameters and practical guidance for local overrides.
+- [Layouts and snippets](https://dieghernan.github.io/chulapa/docs/04-layouts): Links to post, page and image task guides; layout and page options, post citations (v2.3.0 development), galleries, video, TOCs, MathJax, Mermaid and PhotoSwipe, with snippet parameters and practical guidance for local overrides.
 - [Starter examples reference](https://dieghernan.github.io/chulapa/docs/08-starter-examples): Four minimal Jekyll source examples, annotated demos, dependency list, contents and limitations; no deployment workflow.
 - [Run a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter): Copy, configure, preview and publish a minimal example for existing Jekyll users.
 - [Variables dictionary](https://dieghernan.github.io/chulapa/docs/variable-dictionary): Selected variable identifiers, mapping syntax, value types and constraints; editing steps are in the color/font guides.
 - [Markdown cheatsheet](https://dieghernan.github.io/chulapa/docs/markdown-cheatsheet): Basic Markdown examples and links for kramdown, footnotes and content TOCs.
-- [Components for Markdown](https://dieghernan.github.io/chulapa/docs/components): Previews and examples for alerts, CSS callouts (v2.2.1 development), captions, galleries, slideshows, diagrams and video.
+- [Components for Markdown](https://dieghernan.github.io/chulapa/docs/components): Previews and examples for alerts, CSS callouts (v2.3.0 development), captions, galleries, slideshows, diagrams and video.
 - [Syntax highlighting](https://dieghernan.github.io/chulapa/docs/syntax-highlighting): Interactive style selector, a copyable configuration mapping and short previews in 13 languages. See Change code highlighting for saving steps.
 
 ## Troubleshooting and site checks
@@ -76,7 +76,7 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 - [Add a photo gallery](https://dieghernan.github.io/chulapa/docs/29-add-gallery): Group uploaded images and display them in filename order; the selected sort field requires v2.2.0 or later.
 - [Add a manual slideshow](https://dieghernan.github.io/chulapa/docs/30-add-carousel): Reuse an image group with keyboard-operable carousel controls; filename ordering and native keyboard-operable buttons/indicators require v2.2.0 or later.
 - [Enable PhotoSwipe](https://dieghernan.github.io/chulapa/docs/31-photoswipe): Enable a viewer on an existing gallery; requires v2.2.0.
-- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Embed YouTube and verify playback; automatic video JSON-LD uses existing metadata in development v2.2.1; accessible names and the no-JavaScript link require v2.2.0.
+- [Embed a video](https://dieghernan.github.io/chulapa/docs/32-embed-video): Embed YouTube and verify playback; automatic video JSON-LD uses existing metadata in development v2.3.0; accessible names and the no-JavaScript link require v2.2.0.
 - [Add a Mermaid diagram](https://dieghernan.github.io/chulapa/docs/33-add-diagram): Enable page rendering and add an accessible flowchart; requires v2.2.0.
 
 ## Other search providers
@@ -121,7 +121,7 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 
 ## Subscription feeds
 
-- [Publish posts in built-in feeds](https://dieghernan.github.io/chulapa/docs/56-publish-feeds): Merge post defaults, preserve explicit exclusions and verify subscription URLs with baseurl.
+- [Publish posts in built-in feeds](https://dieghernan.github.io/chulapa/docs/56-publish-feeds): Merge post defaults, preserve explicit exclusions and verify subscription URLs with baseurl. Development v2.3.0 adds JSON Feed and a browser subscription page.
 - [Keep a jekyll-feed address](https://dieghernan.github.io/chulapa/docs/57-jekyll-feed): Preserve subscribers, avoid output collisions and distinguish plugin selection from theme feed settings.
 
 ## Content indexes
@@ -148,4 +148,4 @@ Version 2.2.0 was published on GitHub and RubyGems on 21 October 2026. This docu
 
 - [Tag/category indexes](https://dieghernan.github.io/chulapa/docs/63-tag-category-clouds): Create grouped post lists and connect article badges; live demos retain their actual collection choices.
 - [Post sharing metadata](https://dieghernan.github.io/chulapa/docs/64-post-sharing): Set description/social image/article illustration values and inspect published tags; reference retains fallback rules.
-- [Search visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility): Apply independent crawler, sitemap and local-search exclusions; explains the development v2.2.1 text sitemap and its canonical URLs. Algolia needs separate indexing configuration.
+- [Search visibility](https://dieghernan.github.io/chulapa/docs/65-search-visibility): Apply independent crawler, sitemap and local-search exclusions; explains the development v2.3.0 text sitemap and its canonical URLs. Algolia needs separate indexing configuration.

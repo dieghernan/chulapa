@@ -142,6 +142,26 @@ builds your site successfully. If you need GitHub Actions publishing:
 4. Open the address in **Settings > Pages** and repeat the checklist's live checks.
    Analytics may load only in production; verify it there.
 
+## Upgrade to v2.3.0
+
+v2.3.0 is pending publication. Use the v2.2.0 installation instructions above
+until the new tag or gem is available. When testing v2.3.0, check these changes:
+
+- **Icons.** Font Awesome Free 7 is the default. Set `fa_version: 6` in
+  `_config.yml` to keep the previous hosted version. If you use a kit with
+  legacy icon names, enable v4 compatibility in the kit settings. See
+  [Font Awesome settings](./02-config#font-awesome).
+- **Copied script includes.** Update your copy of `_includes/components/scripts.html`
+  to use Bootstrap 4.6.2 and Popper.js 1.16.1. Copy the matching integrity
+  hashes with the script URLs. See [JavaScript assets and local overrides](./04-layouts#javascript-assets-and-local-overrides).
+- **Copied Fuse.js search pages.** Use the updated adapter and load it as a
+  module. Check the order and number of results for your usual queries. See
+  [Fuse.js setup](./12-fusejs-search).
+- **Feeds.** Check existing subscriptions at `/atom.xml` and `/rss.xml`.
+  If your site already serves a custom `/feed.json` or `/subscribe/`, check
+  which content the build publishes at those URLs. See [Publish posts in the
+  built-in feeds](./56-publish-feeds).
+
 ## Common migration problems
 
 | Problem | What to check or change |

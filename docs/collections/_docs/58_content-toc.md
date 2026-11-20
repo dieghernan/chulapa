@@ -72,7 +72,7 @@ restart Jekyll after changing `_config.yml`.
 Check that the placeholder became links, that selecting a link reaches its
 heading, and that an excluded heading is absent. Check on a narrow screen too.
 
-In v2.2.1 development, both the kramdown and built-in indexes use links without
+In v2.3.0 development, both the kramdown and built-in indexes use links without
 underlines and outline the current section as you scroll.
 Both indexes use the same compact spacing for nested entries across skins,
 including in numbered indexes.
