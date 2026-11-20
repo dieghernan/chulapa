@@ -24,6 +24,8 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         {% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}
 
         {% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" %}
+
+        {% include snippets/spotify.html type="playlist" id="5tr0xVMrZnw7PLC9Kpkr3E" %}
       LIQUID
     end
     File.write(File.join(source, path), "---\n#{data}\n---\n#{content}")
@@ -135,11 +137,14 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
       end
       feed_bodies.each do |feed, html|
         fragment = Nokogiri::HTML.fragment(html)
+        playlist = fragment.at_css('iframe[src="https://open.spotify.com/embed/playlist/5tr0xVMrZnw7PLC9Kpkr3E"]')
+        raise "#{feed}: missing Spotify playlist player" unless playlist && playlist["height"] == "352" && playlist["title"] == "Spotify playlist"
         fragment.css("iframe").remove
         links = fragment.css("p.chulapa-spotify-link > a")
         expected_links = [
           ["https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs", "Open Belief by John Mayer on Spotify"],
-          ["https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s", "Open Spotify album"]
+          ["https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s", "Open Spotify album"],
+          ["https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E", "Open Spotify playlist"]
         ]
         raise "#{feed}: missing direct Spotify links" unless links.map { |link| [link["href"], link.text] } == expected_links
         raise "#{feed}: Spotify links must be visible without CSS" if links.any? { |link| link.at_xpath("ancestor-or-self::*[@hidden or @style]") }
