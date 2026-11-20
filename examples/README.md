@@ -9,6 +9,7 @@ Choose a complete small site to copy into your own repository:
 | [Portfolio](portfolio) | A projects collection with two project pages |
 | [Project](project) | A landing page with source and getting-started links |
 
-Each directory has its own Gemfile, configuration and home page. Use [Run and publish a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter)
+Each directory has its own Gemfile, configuration and home page. All four pin
+Chulapa v2.3.0. Use [Run and publish a starter example](https://dieghernan.github.io/chulapa/docs/09-run-starter)
 for preparation, preview and publishing. Each README describes its sample. These are examples built from existing theme options,
 not new layouts. **Mermaid** requires v2.2.0.
