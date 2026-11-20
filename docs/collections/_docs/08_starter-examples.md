@@ -33,7 +33,7 @@ include-cache, GitHub metadata, pagination, sitemap, the GFM Markdown parser,
 WEBrick, Windows timezone data and `ostruct`. The Gemfile installs dependencies;
 the configuration enables the listed plugins. Remote themes do not install gems.
 
-The examples use the development remote theme with explicit dependencies. Mermaid
+The examples pin the v2.3.0 remote theme with explicit dependencies. Mermaid
 requires v2.2.0. A portfolio's cards do not provide
 filtering, and the project example does not supply a documentation sidebar.
 

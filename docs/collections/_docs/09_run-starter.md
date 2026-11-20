@@ -30,7 +30,8 @@ the example's own skin and generates its own article/project links.
 3. Replace sample content and placeholder links. Blog posts go in
    `_posts/YYYY-MM-DD-title.md`; portfolio projects go in `_projects/`.
 4. Keep the supplied design, or follow [Choose a skin](./22-choose-skin).
-   To keep a released version, append a tag such as `@{{ site.data.version.release }}` to `remote_theme`.
+   Keep the supplied `@v2.3.0` pin in `remote_theme` for reproducible builds.
+   Change the tag when you want to upgrade the theme.
    Mermaid is available in v2.2.0 and later; it is absent from v2.1.0.
 
 ## Preview the site

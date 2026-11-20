@@ -32,6 +32,11 @@ timezone                :     # e.g. Europe/Madrid. See https://jekyllrb.com/doc
 og_locale               :     # Optional language_TERRITORY for social metadata
 og_locale_alternate     : []  # Optional list of translated locales, e.g. [es_ES, fr_FR]
 og_image                :     #default[author.avatar (see below)] or [github-avatar]
+# Describe the site image above. These values apply when a page uses that image.
+# og_image_alt: A street in Madrid
+# og_image_width: 1200
+# og_image_height: 630
+# og_image_type: image/jpeg
 twitter_site            :     #Avoid @
 # Site author
 author:
@@ -58,8 +63,9 @@ publisher:
 
 # A.2. Font Awesome
 fa_version: # Defaults to 7. Set to 6 or 5 to use an older version.
-fa_kit_code: # Your FontAwesome kit code. If not provided a free hosted version (slower) will be loaded:  https://fontawesome.com/
-fa_v4_support: #Bool Add FontAwesome 4 support
+fa_kit_code: # Optional Font Awesome kit code. Without a kit, load the free hosted version.
+fa_v4_support: # Set to true for v4 compatibility with hosted stylesheets. With a kit, configure compatibility in the kit settings.
+# fa5_kit_code: your-kit-code # Legacy kit key. Takes precedence over fa_kit_code.
 # A.3. Analytics
 # gtag_id: Google Analytics 4 measurement ID, e.g. G-XXXXXXXXXX.
 # analytics_id: legacy Universal Analytics ID; use gtag_id for new setups.
@@ -85,6 +91,10 @@ search:
   maxwords              :  #default [30] lunr simplesearch, fusejs only - May slow down your site build
   show_attrib           :   #default ["true"] Show attributions/logo on search engine
   algolia_logo          :  true # Check your plan's attribution requirements before hiding the logo.
+  # Legacy provider-specific limits take precedence over maxwords.
+  # lunr_maxwords: 30
+  # simplesearch_maxwords: 30
+  # fusejs_maxwords: 30
 
 google_cse_id: #Your cse id
 # Algolia indexing uses jekyll-algolia. Adapt these indexing options to your site.
@@ -99,6 +109,7 @@ algolia:
   extensions_to_index:      #Optional
     - html
     - md
+  # nodes_to_index: 'p,h2,h3,h4,li' # CSS selector for rendered elements. The plugin defaults to p.
   # See settings https://www.algolia.com/doc/api-reference/settings-api-parameters
   settings:                 #Optional
     removeWordsIfNoResults: allOptional
@@ -166,7 +177,7 @@ footer:
 # C.1. Google Fonts
 # Google Fonts https://fonts.google.com/, add as many as you need
 googlefonts:
- # - url : # 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
+  # - url: 'https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&display=swap'
 
 # C.2. Skin, syntax highlighting and colors
 chulapa-skin:
@@ -175,6 +186,9 @@ chulapa-skin:
   autothemer    :  # Bool: Use autotheming
   vars          :
     primary     :   #default ["#007bff"] - Bootstrap blue
+    # font-family-base: "Rubik, sans-serif"
+    # headings-font-family: "Raleway, sans-serif"
+    # For more Sass variables, see docs/variable-dictionary.
 
 # Optional second skin (2.2.0). Leave blank to disable.
 chulapa-skin-dark:
@@ -212,6 +226,8 @@ permalink           : /:year:month:day_:title/
 # series:
 #   first-site:
 #     label: First-site guide
+#     part_label: Part
+#     index_label: Series index
 
 # D.3. Front matter defaults
 # https://jekyllrb.com/docs/configuration/front-matter-defaults/
@@ -244,6 +260,9 @@ defaults:
       show_categories   : true
       show_author       : true
       show_toc          : false
+      # Enable a citation block on every post (see docs/04-layouts#make-a-post-citable).
+      # citation:
+      #   type: post-weblog
   -
     scope:
       path: ""
@@ -255,6 +274,16 @@ defaults:
       show_sociallinks  : true
       include_on_search : true
       include_on_feed   : true
+  # Assign a group to gallery images (see docs/29-add-gallery).
+  # - scope:
+  #     path: "assets/img/gallery"
+  #   values:
+  #     image_col: gallery
+
+# D.4. Optional jekyll-feed plugin (see docs/57-jekyll-feed).
+# Install and enable jekyll-feed separately. Use a path distinct from the theme's feeds.
+# feed:
+#   path: /feed.xml
 
 # XX. Other settings
 # Adapt Jekyll settings to your site; keep jekyll-include-cache enabled.
@@ -271,6 +300,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-sitemap
   - jekyll-remote-theme
+  # - jekyll-feed # Enable only if you use the separate feed plugin.
 
 # XX.3. Files to exclude or include
 exclude:

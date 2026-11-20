@@ -1,6 +1,6 @@
 # Edit title, description, repository, url and baseurl before publishing.
-remote_theme: dieghernan/chulapa
-# The default branch includes development features. Append @TAG to pin a release.
+remote_theme: dieghernan/chulapa@v2.3.0
+# Keep the release tag for reproducible builds. See the theme's root _config.yml for more options.
 title: My journal
 description: Stories, places and everyday discoveries
 repository: username/site

@@ -57,7 +57,7 @@ Version 2.3.0 is available on GitHub and RubyGems. Mermaid diagrams, PhotoSwipe 
 - [Demos](https://dieghernan.github.io/chulapa/demo): Working examples of layouts and integrations.
 - [Skins](https://dieghernan.github.io/chulapa/skins): Skin previews and available choices.
 - [Chulapa 101](https://github.com/dieghernan/chulapa-101): Editable personal-blog template with GitHub Pages publishing workflows.
-- [Minimal example sources](https://github.com/dieghernan/chulapa/tree/main/examples): Source files for the four starter examples.
+- [Minimal example sources](https://github.com/dieghernan/chulapa/tree/main/examples): Source files for the four starter examples pinned to v2.3.0.
 - [Documentation sources](https://github.com/dieghernan/chulapa/tree/main/docs/collections/_docs): Markdown sources for the documentation pages.
 - [Theme source](https://github.com/dieghernan/chulapa): Theme implementation and development history.
 

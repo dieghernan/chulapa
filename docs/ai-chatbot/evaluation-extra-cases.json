@@ -736,7 +736,7 @@
     "section": "installation",
     "doc": "09_run-starter.md",
     "question": "The project starter demo says to install the project and its design differs from my copied example. Is that how I install Chulapa? Where are the real setup steps?",
-    "expected": "The demo is annotated source/sample content within the docs site, not the standalone home page/skin. Project Getting started is fictional project copy, not Chulapa setup. Link /docs/09-run-starter for copy/config/dependencies/local preview/publication. Jekyll ~>4.4 Gemfile plus matching config, no deployment workflow, unpinned main/development; technical Mermaid absent v2.1.0. Preserve complete samples, do not claim profile selection or automatic publishing."
+    "expected": "The demo is annotated source/sample content within the docs site, not the standalone home page/skin. Project Getting started is fictional project copy, not Chulapa setup. Link /docs/09-run-starter for copy/config/dependencies/local preview/publication. Jekyll ~>4.4 Gemfile plus matching config, no deployment workflow, remote theme pinned to v2.3.0; technical Mermaid absent v2.1.0. Preserve complete samples, do not claim profile selection or automatic publishing."
   },
   {
     "id": "documentation-appearance-topics",
