@@ -26,7 +26,7 @@
         "inLanguage": "en-US",
         "headline": "Install using a remote theme",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-20T11:56:16+01:00",
+        "datePublished": "2026-11-20T12:15:53+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -282,14 +282,11 @@ to review content and old customizations as well.</p>
 <h2 id="update-your-theme-and-dependencies">Update your theme and dependencies</h2>
 <p>Work in a branch or save a backup. In <code class="language-plaintext highlighter-rouge">_config.yml</code>, remove the old <code class="language-plaintext highlighter-rouge">theme</code> entry
 and replace any existing <code class="language-plaintext highlighter-rouge">remote_theme</code> entry with:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.2.0</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.3.0</span>
 </code></pre></div></div>
 <p>This pins the released version. Use <code class="language-plaintext highlighter-rouge">dieghernan/chulapa</code> without the tag only
 when you want development updates from <code class="language-plaintext highlighter-rouge">main</code>. Features marked <strong>v2.2.0</strong>
 require that release or later.</p>
-<p>To upgrade to <strong>v2.3.0</strong>, change the tag to
-<code class="language-plaintext highlighter-rouge">@v2.3.0</code> once it appears in the
-<a href="https://github.com/dieghernan/chulapa/releases">GitHub releases</a>.</p>
 <p>In your existing <code class="language-plaintext highlighter-rouge">Gemfile</code>, add missing dependencies from the following list.
 Edit entries already present instead of declaring the same gem twice. Keep
 your existing Jekyll version, source, groups and other dependencies.</p>

@@ -26,7 +26,7 @@
         "inLanguage": "en-US",
         "headline": "Migrating from another Jekyll theme",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-20T11:56:16+01:00",
+        "datePublished": "2026-11-20T12:15:53+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -299,7 +299,7 @@ paths and CSS to the new theme. For site-wide additions, prefer the supported
 over copying a complete theme layout.</p>
 <h2 id="2-switch-to-a-pinned-remote-theme">2. Switch to a pinned remote theme</h2>
 <p>In <code class="language-plaintext highlighter-rouge">_config.yml</code>, remove the old <code class="language-plaintext highlighter-rouge">theme</code> and replace any existing <code class="language-plaintext highlighter-rouge">remote_theme</code>:</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.2.0</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.3.0</span>
 </code></pre></div></div>
 <p>Add these entries to your existing <code class="language-plaintext highlighter-rouge">plugins</code> list, keeping unrelated plugins:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
@@ -458,8 +458,6 @@ is ready, then check the publishing run in <strong>Actions</strong>.</li>
 Analytics may load only in production; verify it there.</li>
 </ol>
 <h2 id="upgrade-to-v230">Upgrade to v2.3.0</h2>
-<p>Use the published version in the installation instructions above until the
-v2.3.0 tag or gem is available.</p>
 <p>When upgrading from v2.2.0, check these changes in v2.3.0:</p>
 <ul>
  <li><strong>Icons.</strong> Font Awesome Free 7 is the default. Set <code class="language-plaintext highlighter-rouge">fa_version: 6</code> in
@@ -516,7 +514,7 @@ built-in feeds</a>.</li>
 <ul class="task-list">
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Save a backup or migration branch and record important URLs.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Review local layouts, includes and assets for old theme overrides.</li>
- <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.2.0</code> and remove conflicting theme settings.</li>
+ <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set <code class="language-plaintext highlighter-rouge">remote_theme: dieghernan/chulapa@v2.3.0</code> and remove conflicting theme settings.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Install and enable both remote-theme and include-cache plugins.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Translate layouts and front matter, including <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults.</li>
  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Replace old theme-specific includes and classes used in content.</li>
