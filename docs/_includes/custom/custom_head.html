@@ -1,6 +1,15 @@
 {% if page.series_page %}
 {% include custom/series-jsonld.html %}
 {% endif %}
+{% if page.url == '/blog/20261120_why-chulapa' %}
+  <style>
+    @media (min-width: 768px) {
+      .header-chulapa .header-chulapa-img {
+        background-position: center 32%;
+      }
+    }
+  </style>
+{% endif %}
 {% if page.collection == "skins" %}
   {% if page.skin %}
   <link rel="stylesheet" href="{{- 'assets/css/skins/' | append: page.skin | append: '.css'  | absolute_url -}}">

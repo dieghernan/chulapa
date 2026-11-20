@@ -3,6 +3,13 @@ title: 'Ask <span class="chulapa">Chulapa</span>'
 subtitle: "A new way to explore the documentation"
 citation: true
 excerpt: 'Ask questions about <span class="chulapa">Chulapa</span> and get practical examples with links to the docs.'
+header_img: /assets/img/site/ask-chulapa.jpg
+og_image: /assets/img/site/ask-chulapa.jpg
+og_image_alt: A laptop displaying illustrated chat bubbles beside an open guide and tabbed index cards.
+og_image_width: 1200
+og_image_height: 630
+og_image_type: image/jpeg
+schema_image: /assets/img/site/ask-chulapa.jpg
 tags:
   - news
   - ai
