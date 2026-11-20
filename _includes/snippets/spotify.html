@@ -1,0 +1,23 @@
+{%- assign spotify_id = include.id | strip -%}
+{%- assign spotify_type = include.type | default: 'track' -%}
+{%- if spotify_id != empty -%}
+  {%- case spotify_type -%}
+    {%- when 'track' -%}
+      {%- assign spotify_height = 152 -%}
+    {%- when 'album' -%}
+      {%- assign spotify_height = 352 -%}
+    {%- else -%}
+      {%- assign spotify_height = nil -%}
+  {%- endcase -%}
+  {%- if spotify_height -%}
+    {%- assign spotify_default_title = 'Spotify ' | append: spotify_type -%}
+    {%- assign spotify_title = include.title | strip | default: spotify_default_title | escape -%}
+    {%- assign spotify_path = spotify_id | url_encode | prepend: '/' | prepend: spotify_type -%}
+<iframe class="chulapa-spotify d-block w-100 border-0 my-3 chulapa-rounded-lg"
+  title="{{ spotify_title }}"
+  src="https://open.spotify.com/embed/{{ spotify_path }}"
+  height="{{ spotify_height }}" loading="lazy"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<p class="chulapa-spotify-link"><a class="text-reset" href="https://open.spotify.com/{{ spotify_path }}">Open {{ spotify_title }}</a></p>
+  {%- endif -%}
+{%- endif -%}

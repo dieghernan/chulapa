@@ -320,3 +320,7 @@ This aerial clip shows a lagoon from above.
    name="Aerial lagoon sample"
    thumbnail_url="/assets/mp4/sample-thumbnail.jpg"
    upload_date="2021-08-20T15:24:34+02:00" %}
+
+## Spotify
+
+{% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}

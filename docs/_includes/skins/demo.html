@@ -10,3 +10,9 @@
 
 {% assign series_example = site.docs | where: "url", "/docs/14-site-details" | first %}
 {% include snippets/bootstrapdemo.html series_example=series_example series_id="site-content" %}
+
+<h3 id="spotify-embeds">Spotify embeds</h3>
+<div class="bs-component">
+  {% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}
+  {% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" title="Unknown Pleasures by Joy Division on Spotify" %}
+</div>

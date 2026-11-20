@@ -18,7 +18,14 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
     "_entries/enabled.md" => "title: 'Enabled & **formatted** entry &lt;main&gt; &quot;quoted&quot;'\nog_image: '/image.png?width=800&height=400'\nsubtitle: 'An *editorial* <span>subtitle</span>'\ncanonical_url: '/article/?a=1&b=2'\nexcerpt: 'Use &lt;main&gt; with &quot;quotes&quot;.'\ninclude_on_feed: true\ndate: 2024-01-02\nlast_modified_at: 2024-01-05\nauthor: {url: 'https://guest.example/'}\ntags: ['R & maps', 'data, maps']",
     "_entries/disabled.md" => "title: Disabled entry\ndate: 2024-01-04"
   }.each do |path, data|
-    content = path == "_entries/enabled.md" ? "Feed content. " * 40 : "Feed content."
+    content = "Feed content."
+    if path == "_entries/enabled.md"
+      content = ("Feed content. " * 40).rstrip + "\n\n" + <<~LIQUID
+        {% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}
+
+        {% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" %}
+      LIQUID
+    end
     File.write(File.join(source, path), "---\n#{data}\n---\n#{content}")
   end
   ["", "/preview"].each do |baseurl|
@@ -40,6 +47,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         raise "JSON Feed: empty guest inherited feed author" unless json["items"].last.fetch("authors") == []
       end
       raise "JSON Feed: duplicate IDs" unless json["items"].map { |item| item.fetch("id") }.uniq.size == expected.size
+      feed_bodies = { "JSON Feed" => json["items"].first.fetch("content_html") }
       %w[atom rss].each do |feed|
         xml = Nokogiri::XML(File.read(File.join(config["destination"], "#{feed}.xml"))) { |options| options.strict }
         image_url = "https://example.com#{baseurl}/image.png?width=800&height=400"
@@ -53,6 +61,7 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         end
         xml.remove_namespaces!
         body = xml.at_css(feed == "atom" ? "entry > content" : "item > encoded")
+        feed_bodies[feed] = body.text
         subtitle = Nokogiri::HTML.fragment(body.text).element_children.first
         raise "#{feed}: subtitle must be a paragraph" unless subtitle.name == "p"
         raise "#{feed}: subtitle lost its inline markup" unless subtitle.text == "An editorial subtitle" && subtitle.at_css("em")&.text == "editorial" && subtitle.at_css("span")&.text == "subtitle"
@@ -123,6 +132,17 @@ Dir.mktmpdir("chulapa-feed-selection-") do |source|
         empty = Nokogiri::XML(html) { |options| options.strict }.remove_namespaces!
         raise "#{feed}: missing feed root" unless empty.root.name == (feed == "atom" ? "feed" : "rss")
         raise "#{feed}: document without a date entered the feed" unless empty.css(feed == "atom" ? "entry" : "item").empty?
+      end
+      feed_bodies.each do |feed, html|
+        fragment = Nokogiri::HTML.fragment(html)
+        fragment.css("iframe").remove
+        links = fragment.css("p.chulapa-spotify-link > a")
+        expected_links = [
+          ["https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs", "Open Belief by John Mayer on Spotify"],
+          ["https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s", "Open Spotify album"]
+        ]
+        raise "#{feed}: missing direct Spotify links" unless links.map { |link| [link["href"], link.text] } == expected_links
+        raise "#{feed}: Spotify links must be visible without CSS" if links.any? { |link| link.at_xpath("ancestor-or-self::*[@hidden or @style]") }
       end
     end
   end
