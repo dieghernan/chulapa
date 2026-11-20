@@ -1,4 +1,4 @@
-## v2.3.0 (2026-11-20, pending publication)
+## v2.3.0 (2026-11-20)
 
 ### Added
 
