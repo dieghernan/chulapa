@@ -818,7 +818,8 @@ The player fills its container and uses browser lazy loading. Tracks use
 and are 352 pixels tall. Preview your page on a narrow screen to check that
 the player has enough room. Spotify recommends a container at least 280 pixels
 wide for audio embeds. See the track example in the
-[Kitchen Sink demo](../demo/15-kitchen-sink#spotify).
+[Kitchen Sink demo](../demo/15-kitchen-sink#spotify), or see both players
+in the [skin preview](../skins/chulapa#spotify-embeds).
 
 {% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" title="Unknown Pleasures by Joy Division on Spotify" %}
 
