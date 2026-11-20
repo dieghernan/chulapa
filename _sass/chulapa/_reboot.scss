@@ -87,6 +87,14 @@ blockquote {
   ol {
     margin-top: $spacer;
   }
+
+  @include media-breakpoint-down(xs) {
+    margin-inline: 0;
+
+    > ol {
+      padding-inline-start: 2em;
+    }
+  }
 }
 
 a.reversefootnote {
