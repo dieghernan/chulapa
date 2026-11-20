@@ -15,6 +15,70 @@ const scripts = new Map([
   ['https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.mjs', path.join(path.dirname(require.resolve('fuse.js')), 'fuse.min.mjs')]
 ]);
 let current;
+async function checkClipboardTooltips(browser) {
+  const bundleURL = 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js';
+  const bundle = fs.readFileSync(require.resolve('bootstrap/dist/js/bootstrap.bundle.min.js'));
+  const bundleIntegrity = 'sha384-' + require('node:crypto').createHash('sha384').update(bundle).digest('base64');
+  const scriptTags = fs.readFileSync(path.join(root, '_includes/components/scripts.html'), 'utf8').split(/\r?\n/).map(line => line.trim());
+  const popperTag = scriptTags.find(line => line.startsWith('<script src="https://cdn.jsdelivr.net/npm/popper.js@'));
+  const bootstrapTag = scriptTags.find(line => line.startsWith('<script src="https://cdn.jsdelivr.net/npm/bootstrap@'));
+  assert.ok(popperTag && bootstrapTag, 'Separate Popper and Bootstrap script tags must exist');
+  for (const prefix of ['', '/project']) for (const width of [390, 1280]) {
+    current = path.join(fixtureRoot, `${prefix ? 'subdir' : 'root'}-fusejs`);
+    for (const mode of ['separate', 'missing-popper', 'bundle']) {
+      const page = await browser.newPage({viewport: {width, height: 844}});
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      await page.route('**/*', route => {
+        const url = route.request().url();
+        if (url.startsWith('http://127.0.0.1:8770')) {
+          if (mode !== 'bundle' || !route.request().isNavigationRequest()) return route.continue();
+          const source = fs.readFileSync(path.join(current, 'video.html'), 'utf8');
+          assert.ok(source.includes(popperTag) && source.includes(bootstrapTag), 'Fixture must contain the expected script tags');
+          const html = source.replace(popperTag, '')
+            .replace(bootstrapTag,
+              `<script src="${bundleURL}" integrity="${bundleIntegrity}" crossorigin="anonymous"></script>`);
+          return route.fulfill({contentType: 'text/html', body: html});
+        }
+        if (url === bundleURL) return route.fulfill({body: bundle, contentType: 'text/javascript', headers: {'access-control-allow-origin': '*'}});
+        if (mode === 'missing-popper' && url.includes('/popper.js@')) return route.abort();
+        return scripts.has(url)
+          ? route.fulfill({path: scripts.get(url), contentType: 'text/javascript', headers: {'access-control-allow-origin': '*'}})
+          : route.abort();
+      });
+      await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', {value: {
+        writeText: async text => {
+          if (window.rejectCopy) throw new Error('Clipboard permission denied');
+          window.copied = text;
+        }
+      }}));
+      try {
+        await page.goto(`http://127.0.0.1:8770${prefix}/video.html`);
+        assert.equal(await page.evaluate(() => window.jQuery.fn.tooltip.Constructor.VERSION), '4.6.2');
+        if (mode === 'bundle') assert.equal(await page.evaluate(() => typeof window.Popper), 'undefined');
+        const button = page.locator('.btn-chulapa-copy-code');
+        for (const failure of [false, true]) {
+          await page.evaluate(value => { window.rejectCopy = value; }, failure);
+          await button.focus();
+          await page.keyboard.press(failure ? 'Space' : 'Enter');
+          const message = failure ? 'Unable to copy code' : 'Copied!';
+          await page.waitForFunction(expected => document.querySelector('.btn-chulapa-copy-code').getAttribute('aria-label') === expected, message);
+          if (!failure) assert.equal(await page.evaluate(() => window.copied.trim()), "puts 'hello'");
+          if (mode === 'missing-popper') {
+            assert.equal(await page.locator('.tooltip').count(), 0);
+          } else {
+            await page.locator('.tooltip.show').waitFor();
+            assert.equal(await page.locator('.tooltip.show .tooltip-inner').textContent(), message);
+          }
+          await page.waitForFunction(() => document.querySelector('.btn-chulapa-copy-code').getAttribute('aria-label') === 'Copy code to clipboard' && !document.querySelector('.tooltip.show'));
+          assert.equal(await button.isEnabled(), true);
+        }
+        assert.deepEqual(errors, [], `${prefix || '/'}/${width}/${mode}: tooltip errors`);
+      } finally { await page.close(); }
+      console.log(`Clipboard tooltips passed: ${prefix || '/'}, ${width}px, ${mode}`);
+    }
+  }
+}
 const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname).replace(/^\/project(?=\/)/, '');
   const file = path.resolve(current, '.' + pathname);
@@ -221,6 +285,7 @@ const server = http.createServer((request, response) => {
     await missing.waitForSelector('#four-oh-four-suggestion a');
     assert.equal(await missing.locator('#four-oh-four-suggestion a').getAttribute('href'), 'http://127.0.0.1:8770/project/');
     await missing.close();
+    await checkClipboardTooltips(browser);
     console.log('JavaScript browser regressions passed: search engines, clipboard, YouTube, Cusdis and 404 fallbacks.');
   } finally { await browser.close(); server.close(); }
 })().catch(error => {server.close(); console.error(error); process.exitCode = 1;});

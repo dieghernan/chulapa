@@ -38,6 +38,8 @@
 
 ### Fixed
 
+-   Keep clipboard feedback free of tooltip errors when Popper fails to load, while supporting both separate Bootstrap scripts and its bundle (#219).
+
 -   Resolve relative links and fragments in Algolia result excerpts against the source article instead of the search page, preserving highlighting and existing absolute links.
 
 -   Keep Auto's Info and the fallback skin's Success/Info badge hover labels readable, and align fallback button contrast corrections with Bootstrap 4.6.2.

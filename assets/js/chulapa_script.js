@@ -237,11 +237,16 @@ ch_clipboard_setup(main);
 function tooltipTrigger(button) {
   if (typeof $ !== "function") return null;
   var trigger = $(button);
-  return trigger && typeof trigger.tooltip === "function" ? trigger : null;
+  if (!trigger || typeof trigger.tooltip !== "function") return null;
+  try {
+    trigger.tooltip();
+    return trigger;
+  } catch {
+    return null;
+  }
 }
 if (typeof $ === "function") $(function () {
-  var trigger = tooltipTrigger("[data-toggle='tooltip']");
-  if (trigger) trigger.tooltip();
+  tooltipTrigger("[data-toggle='tooltip']");
 });
 
 function showTooltip(thisbtn, message) {

@@ -825,6 +825,9 @@ browser can copy text. If copying fails or permission is denied, visitors can
 still select and copy the code themselves. In v2.2.0, the button confirms
 success or reports failure. Rendered Mermaid diagrams have no code copy button.
 
+In v2.2.1 development, if optional tooltips cannot initialize, copying and its
+accessible success or failure message still work without tooltip errors.
+
 ## Advanced page settings
 
 These settings change how search engines and sharing services describe a page.
