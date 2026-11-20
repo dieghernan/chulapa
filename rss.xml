@@ -12,8 +12,8 @@
     <description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
     <language>en-US</language>
     <copyright>(c) 2026, dieghernan</copyright>
-    <pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
-    <lastBuildDate>Fri, 20 Nov 2026 12:45:47 +0100</lastBuildDate>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
+    <lastBuildDate>Fri, 20 Nov 2026 13:04:17 +0100</lastBuildDate>
     <category>blog</category>
     <ttl>60</ttl>
     <atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -24,6 +24,116 @@
       <description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
     </image>
     
+    <item>
+      <dc:creator>dieghernan</dc:creator>
+      <title>Series, citations and feeds in Chulapa v2.3.0</title>
+      <description>&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.3.0 adds reading series, APA and BibTeX citations, CSS callouts and JSON Feed. It also improves search, keyboard navigation and the starter examples.</description>
+      <content:encoded>&lt;p&gt;Reading series, copyable citations, callouts and more ways to subscribe&lt;/p&gt;&lt;p&gt;3 min.&lt;/p&gt;
+      &lt;div&gt;&lt;p&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; v2.3.0 is out. You can organize a set of
+tutorials into a reading series, give readers a citation they can copy and send
+them to one page to choose a feed. I have also updated the starter sites and
+fixed several details around keyboard navigation, search and code copying.
+&lt;a href=&quot;https://github.com/dieghernan/chulapa/releases/tag/v2.3.0&quot;&gt;GitHub release&lt;/a&gt; ·
+&lt;a href=&quot;https://rubygems.org/gems/chulapa-jekyll/versions/2.3.0&quot;&gt;RubyGems&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;give-readers-a-path-through-a-series&quot;&gt;Give readers a path through a series&lt;/h2&gt;
+
+&lt;p&gt;A tutorial often spans several pages. A series groups those pages in the order
+you choose and gives readers a collapsible index, a progress indicator and
+Previous and Next links. A chapter can belong to more than one series, with
+its own position in each. You can also label the parts to match what you
+publish, such as &lt;strong&gt;Issue&lt;/strong&gt; for a newsletter.
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/04-layouts#series-navigation&quot;&gt;Series navigation guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;make-a-post-easier-to-cite&quot;&gt;Make a post easier to cite&lt;/h2&gt;
+
+&lt;p&gt;Set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;citation: true&lt;/code&gt; in a post’s front matter to show a simplified APA
+reference and an expandable BibTeX entry. You can supply a citation mapping
+with bibliographic details such as a DOI or a journal title. If the post
+presents the work itself, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google-scholar: true&lt;/code&gt; also adds Google Scholar
+metadata. &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/04-layouts#make-a-post-citable&quot;&gt;Citation and Google Scholar setup&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;add-callouts-to-longer-articles&quot;&gt;Add callouts to longer articles&lt;/h2&gt;
+
+&lt;p&gt;Use a callout to set off a note, tip, important detail, warning or caution.
+The callout class supplies the title and icon, and the colors follow the
+selected skin. The Kitchen Sink shows all five styles alongside citations
+and series navigation.
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/49-add-alert#use-a-callout&quot;&gt;Callout guide&lt;/a&gt; ·
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/demo/15-kitchen-sink&quot;&gt;Kitchen Sink demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;subscribe-and-discover-content&quot;&gt;Subscribe and discover content&lt;/h2&gt;
+
+&lt;p&gt;JSON Feed 1.1 is available at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/feed.json&lt;/code&gt;. Share &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/subscribe/&lt;/code&gt; to give
+readers a preview of recent posts and links to Atom, RSS and JSON Feed. RSS
+now carries the excerpt and full article in separate fields when an excerpt
+is available. Atom and RSS also handle author details and reading times
+more consistently. &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/56-publish-feeds&quot;&gt;Feed setup&lt;/a&gt; ·
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/subscribe/&quot;&gt;Subscribe to this blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The theme also supplies &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/sitemap.txt&lt;/code&gt; alongside the XML sitemap. The text
+file lists canonical URLs and respects &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sitemap: false&lt;/code&gt;. Structured data
+better connects articles, authors, videos and series, and built-in collection
+indexes report how many items they display.
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development&quot;&gt;Search visibility guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;fixes-you-can-see-on-an-existing-site&quot;&gt;Fixes you can see on an existing site&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Light, Dark and Auto selector shows a visible focus ring when you reach
+it with the keyboard. Built-in and kramdown tables of contents use the same
+compact spacing, and author cards wrap long names on narrow screens.
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/48-accessibility-reference&quot;&gt;Accessibility reference&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Links in Algolia result excerpts resolve against the original article, and
+excerpts still appear when highlight data is missing. Fuse.js now loads as
+a module, and its updated scoring can change result order and counts.
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/37-algolia-search&quot;&gt;Algolia guide&lt;/a&gt; ·
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/12-fusejs-search&quot;&gt;Fuse.js guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Copy buttons still give feedback when Popper fails to load. The theme now
+uses Bootstrap 4.6.2, Popper.js 1.16.1 and Font Awesome Free 7 by default.
+&lt;a href=&quot;https://github.com/dieghernan/chulapa/blob/v2.3.0/CHANGELOG.md&quot;&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;update-an-existing-site&quot;&gt;Update an existing site&lt;/h2&gt;
+
+&lt;p&gt;If you use the remote theme, set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;remote_theme&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; to:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;remote_theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dieghernan/chulapa@v2.3.0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you use the gem, update its entry in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;chulapa-jekyll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 2.3.0&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update chulapa-jekyll&lt;/code&gt; and preview your site. If you have
+local copies of the script includes or the Fuse.js search page, review them
+before publishing. You can keep the older hosted icons with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fa_version: 6&lt;/code&gt;.
+If you use a Font Awesome kit with older icon names, enable v4 compatibility
+in the kit settings. &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/07-migration#upgrade-to-v230&quot;&gt;Upgrade checks&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re starting a new site, the &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; 101
+template and the four starter examples now pin v2.3.0. The RubyGems and Netlify
+demos have been updated too.
+&lt;a href=&quot;https://github.com/dieghernan/chulapa-101&quot;&gt;&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; 101&lt;/a&gt; ·
+&lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/08-starter-examples&quot;&gt;Starter examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As always, issues, suggestions and examples of sites built with
+&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; are welcome in
+&lt;a href=&quot;https://github.com/dieghernan/chulapa/discussions&quot;&gt;GitHub Discussions&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</content:encoded>
+      <link>https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0</link>
+      <category>posts</category>
+      <category>jekyll</category>
+      <category>news</category>
+      <category>release</category>
+      <media:title type="plain">Series, citations and feeds in Chulapa v2.3.0</media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" />
+      <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
+      
+    </item>
     <item>
       <dc:creator>dieghernan</dc:creator>
       <title>Chulapa v2.2.0: more ways to make your site yours</title>

@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <!-- Chulapa Jekyll Theme - v2.3.0 -->
+    <!-- MIT License -->
+    <!-- Docs: https://dieghernan.github.io/chulapa -->
+    <!-- Repo: https://github.com/dieghernan/chulapa -->
+    <!-- Page build 2026-11-20 -->
+    <!-- Jekyll Version 4.4.1 -->
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0"
+        },
+        "description": "Reading series, copyable citations, callouts and more ways to subscribe - Chulapa v2.3.0 adds reading series, APA and BibTeX citations, CSS callouts and JSON Feed. It also improves search, keyboard navigation and the starter examples.",
+        "inLanguage": "en-US",
+        "isPartOf": {"@id": "https://dieghernan.github.io/chulapa/#website"},
+        "keywords": ["news","release","jekyll"],
+        "headline": "Series, citations and feeds in Chulapa v2.3.0",
+        "image": ["https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg"],
+        "datePublished": "2026-11-20T00:00:00+01:00",
+        "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://dieghernan.github.io/chulapa/#publisher",
+          "name": "dieghernan",
+          "url": "https://dieghernan.github.io/chulapa/",
+          "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb-1",
+            "position": 1,
+            "name": "Blog",
+            "item": "https://dieghernan.github.io/chulapa/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb-2",
+            "position": 2,
+            "item": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0",
+            "name": "Series, citations and feeds in Chulapa v2.3.0"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0",
+        "isPartOf": {"@id": "https://dieghernan.github.io/chulapa/#website"},
+        "breadcrumb": {"@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb"},
+        "mainEntity": {"@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#article"},
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "@id": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#primaryimage",
+          "url": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg"
+        },
+        "inLanguage": "en-US",
+        "name": "Series, citations and feeds in Chulapa v2.3.0",
+        "description": "Reading series, copyable citations, callouts and more ways to subscribe - Chulapa v2.3.0 adds reading series, APA and BibTeX citations, CSS callouts and JSON Feed. It also improves search, keyboard navigation and the starter examples."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://dieghernan.github.io/chulapa/#author",
+        "name": "dieghernan",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "image": "https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Madrid, Spain"
+        },
+        "sameAs": [
+          "https://github.com/dieghernan/",
+          "https://dieghernan.github.io/",
+          "https://stackoverflow.com/users/7877917/dieghernan"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://dieghernan.github.io/chulapa/#website",
+        "url": "https://dieghernan.github.io/chulapa/",
+        "name": "Chulapa",
+        "publisher": {"@id": "https://dieghernan.github.io/chulapa/#publisher"}
+      }
+    </script>
+    <title>Series, citations and feeds in Chulapa v2.3.0 | Chulapa</title>
+    <link rel="canonical" href="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0">
+    <!-- Atom feed -->
+    <link href="https://dieghernan.github.io/chulapa/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed Chulapa" >
+    <!-- RSS 2.0 feed -->
+    <link href="https://dieghernan.github.io/chulapa/rss.xml" type="application/rss+xml" rel="alternate" title="RSS 2.0 feed Chulapa" >
+    <link href="https://dieghernan.github.io/chulapa/feed.json" type="application/feed+json" rel="alternate" title="JSON Feed Chulapa">
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="dieghernan" >
+    <meta name="copyright" content="dieghernan" >
+    <meta name="description" content="Reading series, copyable citations, callouts and more ways to subscribe - Chulapa v2.3.0 adds reading series, APA and BibTeX citations, CSS callouts and JSON Feed. It also improves search, keyboard navigation and the starter examples.">
+    <meta name="thumbnail" content="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" >
+    <meta name="robots" content="index, follow">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Series, citations and feeds in Chulapa v2.3.0 | Chulapa" >
+    <meta property="og:site_name" content="Chulapa" >
+    <meta property="og:url" content="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0" >
+    <meta property="og:type" content="article" >
+    <meta property="article:published_time" content="2026-11-20T00:00:00+01:00">
+    <meta property="article:tag" content="news">
+    <meta property="article:tag" content="release">
+    <meta property="article:tag" content="jekyll">
+    <meta property="og:description" content="Reading series, copyable citations, callouts and more ways to subscribe - Chulapa v2.3.0 adds reading series, APA and BibTeX citations, CSS callouts and JSON Feed. It also improves search, keyboard navigation and the starter examples." >
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" >
+    <meta property="og:image:alt" content="Tabbed notebooks and blank index cards on a wooden desk by a sunlit Madrid window." >
+    <meta property="og:image:width" content="1200" >
+    <meta property="og:image:height" content="630" >
+    <meta property="og:image:type" content="image/jpeg" >
+    <!-- Twitter/X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Reading series, copyable citations, callouts and more ways to subscribe - Chulapa v2.3.0 adds reading series, APA and BibTeX citations, CSS callouts and JSON Feed. It also improves search, keyboard navigation and the starter examples.">
+    <meta name="twitter:site" content="@dhernangomez" >
+    <!-- start custom head snippets -->
+    <!-- this script is inserted before the css stylesheet -->
+    <!-- end custom head snippets -->
+    <!-- CSS -->
+    <!-- Preconnect with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/css/all.min.css">
+    <link rel="preload" href="/chulapa/assets/js/chulapa_script.js" as="script" >
+    <link rel="preload" href="/chulapa/assets/fonts/Chulapa/Chulapa-Bold_vmod.otf" as="font" type="font/otf" crossorigin>
+    <!-- Theme css (Bootstrap included) -->
+    <link rel="stylesheet" id="maincss" href="https://dieghernan.github.io/chulapa/assets/css/main.css" >
+    <!-- Highlighter -->
+    <link id="csshigh" rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/highlighter.css" >
+    <!-- Custom css -->
+    <link rel="stylesheet" href="https://dieghernan.github.io/chulapa/assets/css/custom.css" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q654SQGBGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q654SQGBGS');
+    </script>
+    <script data-goatcounter="https://chulapa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <!-- start custom head snippets -->
+    <link rel="webmention" href="https://webmention.io/dieghernan.github.io/webmention" />
+    <!-- https://realfavicongenerator.net/-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dieghernan.github.io/chulapa/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="/chulapa/assets/favicons/favicon.svg">
+    <link rel="manifest" href="https://dieghernan.github.io/chulapa/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="https://dieghernan.github.io/chulapa/assets/favicons/safari-pinned-tab.svg" color="#c9c7c1">
+    <link rel="shortcut icon" href="https://dieghernan.github.io/chulapa/assets/favicons/favicon.ico">
+    <link rel="describedby" type="text/plain" href="/chulapa/llms.txt">
+    <meta name="apple-mobile-web-app-title" content="Chulapa">
+    <meta name="application-name" content="Chulapa">
+    <meta name="msapplication-TileColor" content="#efebdd">
+    <meta name="msapplication-config" content="https://dieghernan.github.io/chulapa/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#efebdd">
+    <!-- end custom head snippets -->
+    <noscript><style>#navi-toggle { display: none !important; }</style></noscript>
+</head>
+<body class="d-flex flex-column" id="body">
+	<a class="sr-only sr-only-focusable chulapa-skip-link" href="#chulapa-content">Skip to content</a>
+	<noscript>
+ <nav class="navbar-chulapa px-3 py-2" aria-label="primary-navigation">
+    <a class="navbar-brand" href="https://dieghernan.github.io/chulapa/">Home</a>
+   <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/blog/">Blog</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs">Documentation</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/00-start">Start here</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs#appearance-and-branding">Customize your site</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/docs#maintenance-and-troubleshooting">Troubleshooting</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/tutorials">Tutorials</a></li>
+       <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/skins">Skins</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo">Index</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single)</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/15-kitchen-sink">Kitchen Sink</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/license">License</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/showcase">Showcase</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/contribute">Contribute</a></li>
+         <li class="nav-item"><a class="nav-link" href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog</a></li>
+     <li class="nav-item"><a class="nav-link" href="https://dieghernan.github.io/chulapa/search">Search</a></li>
+   </ul>
+ </nav>
+</noscript>
+	<div class="navbar-chulapa-fab">
+		<button type="button" class="navbar-chulapa-fab-button navbar-toggler p-1 m-0 text-center d-flex" id="navi-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navi-menu">
+			<span class="navbar-toggler-icon m-auto" aria-hidden="true">&nbsp;</span>
+		</button>
+		<div class="navbar-chulapa-fab-background" aria-hidden="true">&nbsp;</div>
+		<nav class="navbar-chulapa-fab-nav" id="navi-menu" aria-label="primary-navigation" aria-hidden="true" inert>
+			<ul class="navbar-nav text-center text-uppercase font-weight-light mt-0 mb-1 py-1">
+				<li class="nav-item">
+					<a class="nav-link px-3 navbar-brand mx-1 " href="https://dieghernan.github.io/chulapa"><img src="https://dieghernan.github.io/chulapa/assets/img/site/brand-white.png" width="30" height="30" class="d-inline-block align-top rounded-lg text-center mr-1" alt="NavbarLogo">Home</a>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/blog/">Blog</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Docs" data-toggle="dropdown" aria-expanded="false">Docs</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Docs"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs">Documentation </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/00-start">Start here </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/07-migration">Migrating from another theme </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs/02-config">Configuration reference </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs#appearance-and-branding">Customize your site </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/docs#maintenance-and-troubleshooting">Troubleshooting </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/tutorials">Tutorials </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1" href="https://dieghernan.github.io/chulapa/skins">Skins</a>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="Demos" data-toggle="dropdown" aria-expanded="false">Demos</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="Demos"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo">Index </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/archive">Archive (all) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/tags">Tag Cloud (2 cols) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/category">Category Cloud (single) </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_google">Search Google CSE </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_lunr">Search LUNR </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_fusejs">Search Fuse.js </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/search_simple">Search Simple Jekyll Search </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/13-mermaid">Mermaid diagrams </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/14-photoswipe">PhotoSwipe </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/15-kitchen-sink">Kitchen Sink </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/minimal-header">Minimal with header </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/demo/classic-navbar">Classic Navbar </a></div>
+				</li><li class="nav-item dropdown my-0 py-1"><button type="button" class="nav-link dropdown-toggle px-3 py-1 " id="About" data-toggle="dropdown" aria-expanded="false">About</button>
+					<div class="dropdown-menu dropdown-menu-right text-center rounded-0 pr-4" role="group" aria-labelledby="About"><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/license">License </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/showcase">Showcase </a><a class="dropdown-item nav-link d-block px-3 small " href="https://dieghernan.github.io/chulapa/contribute">Contribute </a><a class="dropdown-item nav-link d-block px-3 small " href="https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md">Changelog </a></div>
+				</li><li class="nav-item my-0 py-1">
+					<a class="nav-link px-3 py-1 " href="https://dieghernan.github.io/chulapa/search">Search</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+			<div id="chulapa-content" tabindex="-1"></div><div class="h-entry d-flex flex-column flex-fill">
+    <a class="u-url d-none" href="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0">Invisible link to canonical for Microformats</a>
+    <img class="u-photo u-featured d-none" src="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" alt="Tabbed notebooks and blank index cards on a wooden desk by a sunlit Madrid window.">
+	<main class="d-flex flex-column flex-fill">
+	<header class="header-chulapa"><div class="container-fluid header-chulapa-img w-100" style="background-image: url('https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg')">
+     </div><div class="container-lg mt-2">
+       <div class="row">
+           <div class="col-lg-8 offset-lg-2">
+           <h1 class="p-name">Series, citations and feeds in <span class="chulapa">Chulapa</span> v2.3.0</h1><p class="lead chulapa-subtitle p-summary">Reading series, copyable citations, callouts and more ways to subscribe</p>
+           <hr class="mb-0">
+			</div>
+		</div>
+	</div>
+</header>
+	<div class="container-lg pb-3 flex-fill">
+<div class="row my-1">
+<div class="col-lg-5 offset-lg-2 col small">
+ <nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb-1"><a href="https://dieghernan.github.io/chulapa/blog/" itemprop="item"><span itemprop="name">Blog</span></a>
+         <meta itemprop="position" content="1" ></li>
+      <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem" itemid="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0#breadcrumb-2">
+      <link itemprop="item" href="https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0">
+        <span itemprop="name">Series, citations and feeds in Chulapa v2.3.0</span>
+       <meta itemprop="position" content="2" >
+     </li>
+ </ol>
+ </nav>
+ <div class="chulapaDateSocial">
+            <time datetime="2026-11-20T00:00:00+01:00" class="dt-published" >20 nov 2026</time>
+        </div></div>
+         <div class="col-lg-3 col-sm-4 col-3 text-right lead chulapaDateSocial">
+            <a  href="https://twitter.com/intent/tweet?url=https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0&text=Series%2C+citations+and+feeds+in+Chulapa+v2.3.0&via=dhernangomez&hashtags=news,release,jekyll" title="Share on X" aria-label="Share on X" ><i class="fab fa-square-x-twitter fa-lg" aria-hidden="true"></i></a>
+            <a href="https://bsky.app/intent/compose?text=Series,%20citations%20and%20feeds%20in%20Chulapa%20v2.3.0%20https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0%20%23news%20%23release%20%23jekyll" title="Share on Bluesky" aria-label="Share on Bluesky"><i class="fa-brands fa-square-bluesky fa-lg" aria-hidden="true"></i></a>
+            <a  class="d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u=https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0" title="Share on Facebook" aria-label="Share on Facebook" ><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+             <a  class="d-none d-sm-inline" href="https://api.whatsapp.com/send?&text=Series%2C+citations+and+feeds+in+Chulapa+v2.3.0%20https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0" title="Share on Whatsapp" aria-label="Share on Whatsapp" ><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
+         <a  class="d-none d-sm-inline" href="https://www.linkedin.com/shareArticle?url=https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0&title=Series%2C+citations+and+feeds+in+Chulapa+v2.3.0" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+         </div></div>
+		<div class="row pt-2">
+			<aside class="col-lg-2 mt-lg-3 small"><div class="h-card p-author chulapa-post-author"><div class="row d-flex align-items-center mb-2"><img src="https://dieghernan.github.io/chulapa/assets/img/site/dieghernan-avatar.png" alt="dieghernan" class="ml-3 mr-0 mx-lg-auto mb-lg-1 chulapa-avatar-size u-photo"><div class="col-9 col-lg-12 text-lg-center p-name">
+						dieghernan
+					</div>
+				</div>
+				<div class="row mb-2 mb-lg-0">
+					<div class="col text-lg-center"><address class="d-inline d-lg-block mr-2 mx-lg-auto mb-lg-2 small chulapa-links-hover-only">
+						  <a class="pr-lg-0 p-region" href="https://www.google.com/maps/search/?api=1&query=Madrid%2C+Spain">
+						    <i class="fas fa-map-marker-alt fa-lg mr-1" aria-hidden="true"></i>Madrid, Spain</a>
+						</address><div class="d-inline my-1 mx-lg-0 chulapa-links-hover-only"><a class="mr-2 mx-lg-1 u-url" rel="me" href="https://github.com/dieghernan/" title="GitHub" aria-label="GitHub" ><i class="fab fa-github fa-lg" aria-hidden="true"></i></a><a class="mr-2 mx-lg-1 u-url" rel="me" href="https://dieghernan.github.io/" title="Blog" aria-label="Blog" ><i class="fas fa-blog fa-lg" aria-hidden="true"></i></a><a class="mr-2 mx-lg-1 u-url" rel="me" href="https://stackoverflow.com/users/7877917/dieghernan" title="StackOverflow" aria-label="StackOverflow" ><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a></div></div>
+				</div>
+				</div>
+</aside>
+			<article id="maincontent" class="col-lg-8 mt-3">
+			<div class="e-content"><p><span class="chulapa">Chulapa</span> v2.3.0 is out. You can organize a set of
+tutorials into a reading series, give readers a citation they can copy and send
+them to one page to choose a feed. I have also updated the starter sites and
+fixed several details around keyboard navigation, search and code copying.
+<a href="https://github.com/dieghernan/chulapa/releases/tag/v2.3.0">GitHub release</a> ·
+<a href="https://rubygems.org/gems/chulapa-jekyll/versions/2.3.0">RubyGems</a></p>
+<h2 id="give-readers-a-path-through-a-series">Give readers a path through a series</h2>
+<p>A tutorial often spans several pages. A series groups those pages in the order
+you choose and gives readers a collapsible index, a progress indicator and
+Previous and Next links. A chapter can belong to more than one series, with
+its own position in each. You can also label the parts to match what you
+publish, such as <strong>Issue</strong> for a newsletter.
+<a href="https://dieghernan.github.io/chulapa/docs/04-layouts#series-navigation">Series navigation guide</a></p>
+<h2 id="make-a-post-easier-to-cite">Make a post easier to cite</h2>
+<p>Set <code class="language-plaintext highlighter-rouge">citation: true</code> in a post’s front matter to show a simplified APA
+reference and an expandable BibTeX entry. You can supply a citation mapping
+with bibliographic details such as a DOI or a journal title. If the post
+presents the work itself, <code class="language-plaintext highlighter-rouge">google-scholar: true</code> also adds Google Scholar
+metadata. <a href="https://dieghernan.github.io/chulapa/docs/04-layouts#make-a-post-citable">Citation and Google Scholar setup</a></p>
+<h2 id="add-callouts-to-longer-articles">Add callouts to longer articles</h2>
+<p>Use a callout to set off a note, tip, important detail, warning or caution.
+The callout class supplies the title and icon, and the colors follow the
+selected skin. The Kitchen Sink shows all five styles alongside citations
+and series navigation.
+<a href="https://dieghernan.github.io/chulapa/docs/49-add-alert#use-a-callout">Callout guide</a> ·
+<a href="https://dieghernan.github.io/chulapa/demo/15-kitchen-sink">Kitchen Sink demo</a></p>
+<h2 id="subscribe-and-discover-content">Subscribe and discover content</h2>
+<p>JSON Feed 1.1 is available at <code class="language-plaintext highlighter-rouge">/feed.json</code>. Share <code class="language-plaintext highlighter-rouge">/subscribe/</code> to give
+readers a preview of recent posts and links to Atom, RSS and JSON Feed. RSS
+now carries the excerpt and full article in separate fields when an excerpt
+is available. Atom and RSS also handle author details and reading times
+more consistently. <a href="https://dieghernan.github.io/chulapa/docs/56-publish-feeds">Feed setup</a> ·
+<a href="https://dieghernan.github.io/chulapa/subscribe/">Subscribe to this blog</a></p>
+<p>The theme also supplies <code class="language-plaintext highlighter-rouge">/sitemap.txt</code> alongside the XML sitemap. The text
+file lists canonical URLs and respects <code class="language-plaintext highlighter-rouge">sitemap: false</code>. Structured data
+better connects articles, authors, videos and series, and built-in collection
+indexes report how many items they display.
+<a href="https://dieghernan.github.io/chulapa/docs/65-search-visibility#text-sitemap-development">Search visibility guide</a></p>
+<h2 id="fixes-you-can-see-on-an-existing-site">Fixes you can see on an existing site</h2>
+<ul>
+ <li>The Light, Dark and Auto selector shows a visible focus ring when you reach
+it with the keyboard. Built-in and kramdown tables of contents use the same
+compact spacing, and author cards wrap long names on narrow screens.
+<a href="https://dieghernan.github.io/chulapa/docs/48-accessibility-reference">Accessibility reference</a></li>
+ <li>Links in Algolia result excerpts resolve against the original article, and
+excerpts still appear when highlight data is missing. Fuse.js now loads as
+a module, and its updated scoring can change result order and counts.
+<a href="https://dieghernan.github.io/chulapa/docs/37-algolia-search">Algolia guide</a> ·
+<a href="https://dieghernan.github.io/chulapa/docs/12-fusejs-search">Fuse.js guide</a></li>
+ <li>Copy buttons still give feedback when Popper fails to load. The theme now
+uses Bootstrap 4.6.2, Popper.js 1.16.1 and Font Awesome Free 7 by default.
+<a href="https://github.com/dieghernan/chulapa/blob/v2.3.0/CHANGELOG.md">Changelog</a></li>
+</ul>
+<h2 id="update-an-existing-site">Update an existing site</h2>
+<p>If you use the remote theme, set <code class="language-plaintext highlighter-rouge">remote_theme</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code> to:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_theme</span><span class="pi">:</span> <span class="s">dieghernan/chulapa@v2.3.0</span>
+</code></pre></div></div>
+<p>If you use the gem, update its entry in <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"chulapa-jekyll"</span><span class="p">,</span> <span class="s2">"~&gt; 2.3.0"</span>
+</code></pre></div></div>
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle update chulapa-jekyll</code> and preview your site. If you have
+local copies of the script includes or the Fuse.js search page, review them
+before publishing. You can keep the older hosted icons with <code class="language-plaintext highlighter-rouge">fa_version: 6</code>.
+If you use a Font Awesome kit with older icon names, enable v4 compatibility
+in the kit settings. <a href="https://dieghernan.github.io/chulapa/docs/07-migration#upgrade-to-v230">Upgrade checks</a></p>
+<p>If you’re starting a new site, the <span class="chulapa">Chulapa</span> 101
+template and the four starter examples now pin v2.3.0. The RubyGems and Netlify
+demos have been updated too.
+<a href="https://github.com/dieghernan/chulapa-101"><span class="chulapa">Chulapa</span> 101</a> ·
+<a href="https://dieghernan.github.io/chulapa/docs/08-starter-examples">Starter examples</a></p>
+<p>As always, issues, suggestions and examples of sites built with
+<span class="chulapa">Chulapa</span> are welcome in
+<a href="https://github.com/dieghernan/chulapa/discussions">GitHub Discussions</a>.</p>
+</div></article>
+		</div>
+	</div>
+	</main><nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
+ <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
+   <li class="page-item text-left mr-0 ">
+      <a class="page-link border-0 px-4" href="https://dieghernan.github.io/chulapa/demo/15-kitchen-sink">
+	  <i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sr-only">Previous</span>
+	  </a>
+   </li>
+   <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-md-inline ">
+     <p class="page-link chulapa-label">Kitchen Sink</p>
+   </li>
+   <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-sm-inline d-md-none ">
+     <p class="page-link chulapa-label">Kitchen Sink</p>
+   </li>
+	 <li class="page-item disabled mx-auto invisible">
+	  <p class="page-link">|</p>
+	 </li>	
+	 <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-sm-inline d-md-none invisible">
+	   <p class="page-link chulapa-label"></p>
+	 </li>
+	 <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-md-inline invisible">
+	   <p class="page-link chulapa-label"></p>
+	 </li>
+   <li class="page-item text-right ml-0 invisible">
+      <span class="page-link border-0 px-4">
+	  <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span></span>
+   </li>
+ </ul>
+</nav>
+<div class="container-lg my-1">
+ <div class="row">
+   <div class="col-lg-8 offset-lg-2 col d-flex align-items-start">
+     <div>
+        <i class="fas fa-tag mt-2 mr-1 fa-xs" aria-hidden="true"></i>
+     </div>
+     <div>
+        <a href="https://dieghernan.github.io/chulapa/tags#news" class="badge chulapa-pill-bg-primary mt-1 p-category" rel="tag" >news</a>
+        <a href="https://dieghernan.github.io/chulapa/tags#release" class="badge chulapa-pill-bg-primary mt-1 p-category" rel="tag" >release</a>
+        <a href="https://dieghernan.github.io/chulapa/tags#jekyll" class="badge chulapa-pill-bg-primary mt-1 p-category" rel="tag" >jekyll</a>
+     </div>
+   </div>
+ </div>
+</div>
+<!-- Compatible with Jekyll v3 and v4, pure Jekyll group by -->
+       <div class="container-lg mt-1 mb-2">
+         <div class="row">
+           <div class="col-lg-8 offset-lg-2">
+             <hr>
+             <nav class="card-group" aria-label="related-articles"><div class="card  border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0" class="chulapa-text-body-color">
+              <span class="chulapa">Chulapa</span> v2.2.0: more ways to make your site yours
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Dark mode, diagrams, galleries and new starter examples</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-10-22T00:00:00+02:00">
+                october 22, 2026
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0" class="chulapa-text-body-color">
+              <span class="chulapa">Chulapa</span> v2.1.0: more control over your site
+            </a>
+         </p>
+           <p class="card-text">
+              <small>New looks, more search options and better metadata</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-10-09T00:00:00+02:00">
+                october 09, 2026
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/blog/20200515_welcome" class="chulapa-text-body-color">
+              Welcome
+            </a>
+         </p>
+         </div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2020-05-15T00:00:00+02:00">
+                may 15, 2020
+              </time>
+            </small>
+       </div>
+     </div></nav>
+           </div>
+         </div>
+       </div></div>
+  <!-- Footer -->
+  <footer class="footer-chulapa text-center mt-0 pt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <!-- Include the script from  https://giscus.app/ -->
+<script src="https://giscus.app/client.js"
+        data-repo="dieghernan/chulapa"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTQ0NjMyOTg="
+        data-category="General"
+        data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyOTI0OTg2"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_high_contrast"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <nav aria-label="Footer links" class="d-flex flex-wrap justify-content-center">
+            <a href="https://dieghernan.github.io/chulapa/atom.xml" title="footerRSS" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+            <a href="https://github.com/dieghernan/" title="footerGitHub" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://dieghernan.github.io/" title="footerMy blog" class="chulapa-footer-sociallink lead">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">My blog</span>
+            </a>
+          </nav>
+          <p class="mt-2 mb-3">&copy; 2021 <span class='chulapa'>Chulapa</span> developers</p>
+          <!-- Do not remove this in order to give attributions -->
+          <p class="chulapa-footer-brand">Powered by <a href="https://dieghernan.github.io/chulapa"> <span class="chulapa">Chulapa</span> Jekyll Theme</a></p>
+          <!-- End attributions -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
+<!-- JS, Popper.js, and jQuery -->
+	  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="/chulapa/assets/js/chulapa_navigation.js"></script>
+	<script src="/chulapa/assets/js/chulapa_script.js"></script>
+	<!-- start custom scripts to be placed at the bottom of the page -->
+<!-- end custom bottom scripts -->
+	</body>
+</html>
