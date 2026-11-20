@@ -6,7 +6,7 @@
 
 ### Fixed
 
--   Align the footnote separator with the article and reduce the footnote list indentation on narrow screens.
+-   Align the footnote separator with the article and reduce the footnote list indentation at all screen widths.
 
 ## v2.3.0 (2026-11-20)
 

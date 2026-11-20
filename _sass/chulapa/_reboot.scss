@@ -78,22 +78,16 @@ blockquote {
 }
 
 .footnotes {
-  font-size:$font-size-sm;
+  font-size: $font-size-sm;
   color: $footnote-chulapa-text-color;
-  margin-left: 1.5*$spacer;
-  margin-right: 1.5*$spacer;
   border-top: $border-width solid $secondary;
-  
+
   ol {
     margin-top: $spacer;
   }
 
-  @include media-breakpoint-down(xs) {
-    margin-inline: 0;
-
-    > ol {
-      padding-inline-start: 2em;
-    }
+  > ol {
+    padding-inline-start: 2em;
   }
 }
 
