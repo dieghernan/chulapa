@@ -22,14 +22,14 @@ var store = [{
       "img": "https://dieghernan.github.io/chulapa/assets/img/site/banner.png"
     },{
     "title": "Welcome",
-    "subtitle": "",
-    "excerpt": "Welcome to Chulapa. This is another Jekyll themethat you can use for creating your site.",
+    "subtitle": "Why I built a Jekyll theme for my GitHub Pages sites",
+    "excerpt": "The first post introduces Chulapa and explains how Bootstrap and a few configuration settings let each site have its own look without writing CSS.",
     "content": "Welcome to Chulapa. This is another Jekyll theme that you can use for creating your site.   Motivation   In the last couple of years I created some tiny websites using GitHub Pages. However, I was not very happy with some of the thousands of Jekyll themes available, since I didn’t find one that met all my requirements:      Easy to use   Awesome looking   Plenty of add-ons   Feed   So, as a way to challenge myself, I decided to build this one from scratch. My main references were Beautiful Jekyll and Minimal Mistakes, that are two pretty good options, much more mature than this one and with hundreds of users. So, why not learn from them? There are pieces and components of these themes on this one.   One theme, a thousand looks   Without prior knowledge of CSS, I taught myself about rules, specificities, flexboxes, etc. through implementing Bootstrap v4 as the CSS base of Chulapa.   This is not the first theme with this implementation, but I found the way to configure it via _config.yml, which allows any user to easily change the look of the site without needing to write CSS or SCSS. On top of that, implementing Bootstrap themes from third parties is fast and reliable.   The huge advantage is that, if you give it a go, you can use Chulapa in any site you want but still define a unique look to each of them. No one could notice that the theme is the same!   Next steps   When this post was written in May 2020, Chulapa was still in development. Stable releases are now available; see the installation guide for setup instructions.   The theme uses Bootstrap 4. See the Font Awesome reference for icon versions and compatibility settings.",
       "categories": [],
       "date": "2020-05-15",
       "tags": ["news","bootstrap","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20200515_welcome",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/welcome-chulapa-og.jpg"
     },{
     "title": "Ask <span class=\"chulapa\">Chulapa</span>",
     "subtitle": "A new way to explore the documentation",
@@ -39,7 +39,7 @@ var store = [{
       "date": "2026-10-09",
       "tags": ["news","ai"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/ask-chulapa.jpg"
     },{
     "title": "<span class=\"chulapa\">Chulapa</span> v2.1.0: more control over your site",
     "subtitle": "New looks, more search options and better metadata",
@@ -49,7 +49,7 @@ var store = [{
       "date": "2026-10-09",
       "tags": ["news","release","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-1-0.jpg"
     },{
     "title": "<span class=\"chulapa\">Chulapa</span> v2.2.0: more ways to make your site yours",
     "subtitle": "Dark mode, diagrams, galleries and new starter examples",
@@ -59,7 +59,7 @@ var store = [{
       "date": "2026-10-22",
       "tags": ["news","release","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-2-0.jpg"
     },{
     "title": "Kitchen Sink",
     "subtitle": "Post features and media in <span class=\"chulapa\">Chulapa</span>",
@@ -79,7 +79,17 @@ var store = [{
       "date": "2026-11-20",
       "tags": ["news","release","jekyll"],
       "url": "https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0",
-      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg"
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0-v2.jpg"
+    },{
+    "title": "Why this blog is called <span class=\"chulapa\">Chulapa</span>",
+    "subtitle": "From Madrid’s ceramic street signs to a typeface, a Jekyll theme and a blog",
+    "excerpt": "Chulapa takes its name from a typeface inspired by Madrid’s ceramic street signs. Here’s how those letters connect the blog to San Isidro, La Paloma and a dance that fits on one tile.",
+    "content": "This blog is called Chulapa because of the letters in its name. When I was building the Jekyll theme, I borrowed the name from a Madrid typeface I wanted to use on the site. The blog took the theme’s name, and the word you see in the headline is still set in that typeface. To see where it came from, look up at a street corner in the old city. From painted tiles to type In La Latina, the Cava Baja street sign gives the name of the street in painted capitals. It belongs to a set of ceramic plaques that Madrid commissioned from Alfredo Ruiz de Luna in 1992. A municipal record puts the project at around 1,500 plaques for some 400 streets. Pedro Reina’s photograph of the Cava Baja sign · Madrid’s municipal record The painted letters also caught the eye of designer Silvia Fernández Palomar, who developed Ferpal Sans. Her lettering appeared alongside Mercedes deBellard’s illustrations in the 2018 San Isidro campaign. Joan Carles Casasín and Pablo Gámez developed Chulapa from that original idea. Madrid made the typeface freely available on May 15, 2019, for San Isidro. Its letters retain some of the irregularity of the painted signs, and alternate forms and ligatures give neighboring letters different ways to sit together. 2018 campaign artwork · Madrid’s typeface specimen and download You can still see it around the city. Madrid’s 2026 identity guide uses an adaptation of Chulapa Bold for the city wordmark. In May that year, the municipal transport company, EMT Madrid, printed the typeface and red carnations on T-shirts and tote bags for San Isidro. Madrid’s typography guide · EMT’s San Isidro collection The chulapa behind the name A chulapa, like her male counterpart the chulapo, is a figure from the popular culture of Madrid’s working-class neighborhoods. The festival dress typically includes a polka-dot dress or skirt, a white headscarf with a carnation and a fringed mantón de Manila, an embroidered shawl. The outfit is still worn at local celebrations. For San Isidro in 2025, the city even made sewing patterns available for people to make their own. Madrid’s folklore guide · The city’s dressmaking project On May 15, Madrid celebrates its patron saint, San Isidro Labrador. At the Pradera de San Isidro, the meadow that still hosts the festivities, people gather for the romería and eat rosquillas, the festival’s ring-shaped pastries. The crowds in Francisco Goñi’s 1907 photograph had another attraction to try that year, a newly installed carousel. Madrid’s San Isidro route The new carousel at the Pradera de San Isidro, photographed by Francisco Goñi for Blanco y Negro, May 18, 1907. Archival photograph, public domain. In August the fiestas move to the streets of La Latina for La Paloma, whose main day is August 15. Alongside the celebrations for the Virgen de la Paloma, there’s a verbena, an open-air neighborhood party with music and dancing. Christian Franzen’s photograph shows how the old chapel looked during the summer of 1895. Madrid’s guide to the...",
+      "categories": [],
+      "date": "2026-11-20",
+      "tags": ["madrid","typography"],
+      "url": "https://dieghernan.github.io/chulapa/blog/20261120_why-chulapa",
+      "img": "https://dieghernan.github.io/chulapa/assets/img/site/why-chulapa.jpg"
     },{
     "title": "Plain page",
     "subtitle": "",

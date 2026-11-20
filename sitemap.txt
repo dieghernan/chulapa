@@ -92,6 +92,7 @@ https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0
 https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0
 https://dieghernan.github.io/chulapa/demo/15-kitchen-sink
 https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0
+https://dieghernan.github.io/chulapa/blog/20261120_why-chulapa
 https://dieghernan.github.io/chulapa/skins/current
 https://dieghernan.github.io/chulapa/skins/deeply
 https://dieghernan.github.io/chulapa/skins/hootstrap

@@ -13,7 +13,7 @@
     <language>en-US</language>
     <copyright>(c) 2026, dieghernan</copyright>
     <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
-    <lastBuildDate>Fri, 20 Nov 2026 16:57:10 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 17:07:52 +0100</lastBuildDate>
     <category>blog</category>
     <ttl>60</ttl>
     <atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -24,6 +24,149 @@
       <description>A flexible, visual Jekyll theme for blogs, portfolios and personal sites.</description>
     </image>
     
+    <item>
+      <dc:creator>dieghernan</dc:creator>
+      <title>Why this blog is called Chulapa</title>
+      <description>&lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; takes its name from a typeface inspired by Madrid’s ceramic street signs. Here’s how those letters connect the blog to San Isidro, La Paloma and a dance that fits on one tile.</description>
+      <content:encoded>&lt;p&gt;From Madrid’s ceramic street signs to a typeface, a Jekyll theme and a blog&lt;/p&gt;&lt;p&gt;4 min.&lt;/p&gt;
+      &lt;div&gt;&lt;p&gt;This blog is called &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; because of the letters
+in its name. When I was building the Jekyll theme, I borrowed the name from a
+Madrid typeface I wanted to use on the site. The blog took the theme’s name, and
+the word you see in the headline is still set in that typeface. To see where it
+came from, look up at a street corner in the old city.&lt;/p&gt;
+
+&lt;h2 id=&quot;from-painted-tiles-to-type&quot;&gt;From painted tiles to type&lt;/h2&gt;
+
+&lt;p&gt;In La Latina, the Cava Baja street sign gives the name of the street in painted
+capitals. It belongs to a set of ceramic plaques that Madrid commissioned from
+&lt;a href=&quot;https://cultura.castillalamancha.es/museos/exposiciones-temporales/alfredo-ruiz-de-luna-un-ceramista-talaverano-en-madrid&quot;&gt;Alfredo Ruiz de
+Luna&lt;/a&gt;
+in 1992. A municipal record puts the project at around 1,500 plaques for some
+400 streets. &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Calle_de_la_Cava_Baja_(Madrid)1.jpg&quot;&gt;Pedro Reina’s photograph of the Cava Baja
+sign&lt;/a&gt;
+· &lt;a href=&quot;https://www.madrid.es/UnidadWeb/Contenidos/Publicaciones/JuntaDistritos/ActasCentro/2015/Acta17diciembre15.pdf&quot;&gt;Madrid’s municipal
+record&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The painted letters also caught the eye of designer &lt;a href=&quot;https://www.azkunazentroa.eus/es/artistas/silvia-fernandez-palomar/&quot;&gt;Silvia Fernández
+Palomar&lt;/a&gt;,
+who developed Ferpal Sans. Her lettering appeared alongside &lt;a href=&quot;https://www.domestika.org/en/mercedes_debellard&quot;&gt;Mercedes
+deBellard&lt;/a&gt;’s illustrations in
+the 2018 San Isidro campaign. &lt;a href=&quot;https://tipografies.com/about&quot;&gt;Joan Carles
+Casasín&lt;/a&gt; and &lt;a href=&quot;https://typemedia2017.com/pablo/&quot;&gt;Pablo
+Gámez&lt;/a&gt; developed Chulapa from that original
+idea. Madrid made the typeface freely available on May 15, 2019, for San Isidro.
+Its letters retain some of the irregularity of the painted signs, and alternate
+forms and ligatures give neighboring letters different ways to sit together.
+&lt;a href=&quot;https://www.behance.net/gallery/71588939/Campana-San-Isidro-2018-Madrid&quot;&gt;2018 campaign
+artwork&lt;/a&gt;
+· &lt;a href=&quot;https://identidad.madrid.es/la-chulapa/&quot;&gt;Madrid’s typeface specimen and
+download&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can still see it around the city. Madrid’s 2026 identity guide uses an
+adaptation of Chulapa Bold for the city wordmark. In May that year, the
+municipal transport company, EMT Madrid, printed the typeface and red carnations
+on T-shirts and tote bags for San Isidro. &lt;a href=&quot;https://identidad.madrid.es/tipografias/&quot;&gt;Madrid’s typography
+guide&lt;/a&gt; · &lt;a href=&quot;https://diario.madrid.es/blog/notas-de-prensa/emt-madrid-lanza-una-edicion-especial-de-camisetas-y-bolsas-de-tela-para-festejar-san-isidro/&quot;&gt;EMT’s San Isidro
+collection&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-chulapa-behind-the-name&quot;&gt;The chulapa behind the name&lt;/h2&gt;
+
+&lt;p&gt;A &lt;em&gt;chulapa&lt;/em&gt;, like her male counterpart the &lt;em&gt;chulapo&lt;/em&gt;, is a figure from the
+popular culture of Madrid’s working-class neighborhoods. The festival dress
+typically includes a polka-dot dress or skirt, a white headscarf with a
+carnation and a fringed &lt;em&gt;mantón de Manila&lt;/em&gt;, an embroidered shawl. The outfit is
+still worn at local celebrations. For San Isidro in 2025, the city even made
+sewing patterns available for people to make their own. &lt;a href=&quot;https://www.esmadrid.com/folclore-madrid&quot;&gt;Madrid’s folklore
+guide&lt;/a&gt; · &lt;a href=&quot;https://diario.madrid.es/blog/notas-de-prensa/el-ayuntamiento-invita-a-disenar-y-confeccionar-trajes-de-chulapo-y-chulapa-para-celebrar-san-isidro-2025/&quot;&gt;The city’s dressmaking
+project&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;On May 15, Madrid celebrates its patron saint, San Isidro Labrador. At the
+Pradera de San Isidro, the meadow that still hosts the festivities, people
+gather for the &lt;em&gt;romería&lt;/em&gt; and eat &lt;em&gt;rosquillas&lt;/em&gt;, the festival’s ring-shaped
+pastries. The crowds in Francisco Goñi’s 1907 photograph had another attraction
+to try that year, a newly installed carousel. &lt;a href=&quot;https://www.esmadrid.com/ruta-san-isidro&quot;&gt;Madrid’s San Isidro
+route&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/san-isidro-1907-goni.jpg&quot; alt=&quot;Fairgoers in hats lean against a wooden rail as passengers ride a carousel under a broad canopy.&quot; class=&quot;w-100&quot; loading=&quot;lazy&quot; /&gt;
+
+&lt;figcaption class=&quot;caption&quot;&gt;
+
+The new carousel at the Pradera de San Isidro, photographed by
+&lt;a href=&quot;https://diccionariobiograficodecastillalamancha.es/biografias/francisco-goni-soler/&quot;&gt;Francisco
+Goñi&lt;/a&gt; for &lt;cite&gt;Blanco y Negro&lt;/cite&gt;, May 18, 1907.
+&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:1907-05-18,_Blanco_y_Negro,_Madrid,_La_romer%C3%ADa_de_San_Isidro,_Go%C3%B1i.jpg&quot;&gt;Archival
+photograph, public domain&lt;/a&gt;.
+
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;In August the fiestas move to the streets of La Latina for &lt;em&gt;La Paloma&lt;/em&gt;, whose
+main day is August 15. Alongside the celebrations for the Virgen de la Paloma,
+there’s a &lt;em&gt;verbena&lt;/em&gt;, an open-air neighborhood party with music and dancing.
+Christian Franzen’s photograph shows how the old chapel looked during the summer
+of 1895. &lt;a href=&quot;https://www.esmadrid.com/en/whats-on/august-fiestas-madrid&quot;&gt;Madrid’s guide to the August
+fiestas&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&quot;https://dieghernan.github.io/chulapa/assets/img/site/la-paloma-1895-franzen.jpg&quot; alt=&quot;People stand by the entrance to the old chapel of the Virgen de la Paloma on a narrow Madrid street.&quot; class=&quot;w-100&quot; loading=&quot;lazy&quot; /&gt;
+
+&lt;figcaption class=&quot;caption&quot;&gt;
+
+The old chapel of the Virgen de la Paloma, photographed by
+&lt;a href=&quot;https://www.rtve.es/noticias/christian-franzen/&quot;&gt;Christian Franzen&lt;/a&gt;
+and published in &lt;cite&gt;Blanco y Negro&lt;/cite&gt;, August 17, 1895.
+&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:1895-08-17,_Blanco_y_Negro,_La_Virgen_de_la_Paloma_(a)_(cropped)_Vista_exterior_de_la_capilla,_Franzen.jpg&quot;&gt;Archival
+photograph, public domain&lt;/a&gt;.
+
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;a-dance-on-one-tile&quot;&gt;A dance on one tile&lt;/h2&gt;
+
+&lt;p&gt;The &lt;em&gt;chotis&lt;/em&gt; is danced in pairs, traditionally to the sound of an &lt;em&gt;organillo&lt;/em&gt;,
+or barrel organ. One dancer turns in place while the other circles them. The old
+test is whether you can do it without stepping off a single floor tile. One of
+the best-known tunes is &lt;em&gt;Madrid&lt;/em&gt;, often called &lt;em&gt;Madrid, Madrid, Madrid&lt;/em&gt;, by the
+Mexican composer &lt;a href=&quot;https://en.wikipedia.org/wiki/Agust%C3%ADn_Lara&quot;&gt;Agustín
+Lara&lt;/a&gt;. The
+recording below is by &lt;a href=&quot;https://en.wikipedia.org/wiki/Lola_Flores&quot;&gt;Lola
+Flores&lt;/a&gt;.
+&lt;a href=&quot;https://www.esmadrid.com/sites/default/files/esmadrid_magazine_mayo_2024.pdf&quot;&gt;Madrid’s guide to the
+chotis&lt;/a&gt;
+· &lt;a href=&quot;https://www.esmadrid.com/file/189655/download?token=GQKiDHDY&quot;&gt;Gran Vía’s musical
+history&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe class=&quot;w-100 border-0&quot; title=&quot;Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify&quot; src=&quot;https://open.spotify.com/embed/track/5UIiMI6l7cRSXueD3P5LRF&quot; width=&quot;660&quot; height=&quot;152&quot; loading=&quot;lazy&quot; allow=&quot;encrypted-media; fullscreen; picture-in-picture&quot;&gt;
+
+&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://open.spotify.com/track/5UIiMI6l7cRSXueD3P5LRF&quot;&gt;Listen to Lola Flores’s recording on
+Spotify&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I started with a typeface for a Jekyll theme. I still like that following its
+name back takes you from the letters on a screen to the lettering over a Madrid
+street and, if you go in May or August, to a place where you might see someone
+dancing on a tile. &lt;a href=&quot;https://dieghernan.github.io/chulapa/docs/53-chulapa-font&quot;&gt;Use the typeface on your site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The cover is an AI-generated illustration of a chulapa in La Latina.&lt;/em&gt;&lt;/p&gt;
+
+&lt;/div&gt;</content:encoded>
+      <link>https://dieghernan.github.io/chulapa/blog/20261120_why-chulapa</link>
+      <category>posts</category>
+      <category>madrid</category>
+      <category>typography</category>
+      <media:title type="plain">Why this blog is called Chulapa</media:title>
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/why-chulapa.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/why-chulapa.jpg" />
+      <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261120_why-chulapa</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
+      
+    </item>
     <item>
       <dc:creator>dieghernan</dc:creator>
       <title>Series, citations and feeds in Chulapa v2.3.0</title>
@@ -128,8 +271,8 @@ demos have been updated too.
       <category>news</category>
       <category>release</category>
       <media:title type="plain">Series, citations and feeds in Chulapa v2.3.0</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" medium="image" />
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0.jpg" />
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0-v2.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-3-0-v2.jpg" />
       <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261120_chulapa-v2-3-0</guid>
       <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
       
@@ -274,8 +417,8 @@ have the complete list of changes.&lt;/p&gt;
       <category>news</category>
       <category>release</category>
       <media:title type="plain">Chulapa v2.2.0: more ways to make your site yours</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-2-0.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-2-0.jpg" />
       <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261022_chulapa-v2-2-0</guid>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0200</pubDate>
       
@@ -486,8 +629,8 @@ you build. Share your site or feedback in
       <category>news</category>
       <category>release</category>
       <media:title type="plain">Chulapa v2.1.0: more control over your site</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-1-0.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-v2-1-0.jpg" />
       <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_chulapa-v2-1-0</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
       
@@ -534,8 +677,8 @@ answer testing and the mobile interface, on my blog:
       <category>ai</category>
       <category>news</category>
       <media:title type="plain">Ask Chulapa</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/ask-chulapa.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/ask-chulapa.jpg" />
       <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20261009_building-a-documentation-chatbot</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
       
@@ -543,9 +686,8 @@ answer testing and the mobile interface, on my blog:
     <item>
       <dc:creator>dieghernan</dc:creator>
       <title>Welcome</title>
-      <description>&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
-that you can use for creating your site.&lt;/p&gt;</description>
-      <content:encoded>&lt;p&gt;2 min.&lt;/p&gt;
+      <description>The first post introduces &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt; and explains how Bootstrap and a few configuration settings let each site have its own look without writing CSS.</description>
+      <content:encoded>&lt;p&gt;Why I built a Jekyll theme for my GitHub Pages sites&lt;/p&gt;&lt;p&gt;2 min.&lt;/p&gt;
       &lt;div&gt;&lt;p&gt;Welcome to &lt;span class=&quot;chulapa&quot;&gt;Chulapa&lt;/span&gt;. This is another Jekyll theme
 that you can use for creating your site.&lt;/p&gt;
 
@@ -589,8 +731,8 @@ look to each of them. No one could notice that the theme is the same!&lt;/p&gt;
       <category>jekyll</category>
       <category>news</category>
       <media:title type="plain">Welcome</media:title>
-      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" medium="image" />
-      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/chulapa-madrid-hd.webp" />
+      <media:content url="https://dieghernan.github.io/chulapa/assets/img/site/welcome-chulapa-og.jpg" medium="image" />
+      <media:thumbnail url="https://dieghernan.github.io/chulapa/assets/img/site/welcome-chulapa-og.jpg" />
       <guid isPermaLink="true">https://dieghernan.github.io/chulapa/blog/20200515_welcome</guid>
       <pubDate>Fri, 15 May 2020 00:00:00 +0200</pubDate>
       
