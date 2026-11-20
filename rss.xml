@@ -13,7 +13,7 @@
     <language>en-US</language>
     <copyright>(c) 2026, dieghernan</copyright>
     <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
-    <lastBuildDate>Fri, 20 Nov 2026 17:14:30 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 21:00:24 +0100</lastBuildDate>
     <category>blog</category>
     <ttl>60</ttl>
     <atom:link href="https://dieghernan.github.io/chulapa/rss.xml" rel="self" type="application/rss+xml" />
@@ -141,12 +141,8 @@ chotis&lt;/a&gt;
 · &lt;a href=&quot;https://www.esmadrid.com/file/189655/download?token=GQKiDHDY&quot;&gt;Gran Vía’s musical
 history&lt;/a&gt;&lt;/p&gt;
 
-&lt;iframe class=&quot;w-100 border-0&quot; title=&quot;Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify&quot; src=&quot;https://open.spotify.com/embed/track/5UIiMI6l7cRSXueD3P5LRF&quot; width=&quot;660&quot; height=&quot;152&quot; loading=&quot;lazy&quot; allow=&quot;encrypted-media; fullscreen; picture-in-picture&quot;&gt;
-
-&lt;/iframe&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://open.spotify.com/track/5UIiMI6l7cRSXueD3P5LRF&quot;&gt;Listen to Lola Flores’s recording on
-Spotify&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe class=&quot;chulapa-spotify d-block w-100 border-0 my-3 chulapa-rounded-lg&quot; title=&quot;Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify&quot; src=&quot;https://open.spotify.com/embed/track/5UIiMI6l7cRSXueD3P5LRF&quot; height=&quot;152&quot; loading=&quot;lazy&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot;&gt;&lt;/iframe&gt;
+&lt;p class=&quot;chulapa-spotify-link&quot;&gt;&lt;a class=&quot;text-reset&quot; href=&quot;https://open.spotify.com/track/5UIiMI6l7cRSXueD3P5LRF&quot;&gt;Open Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I started with a typeface for a Jekyll theme. I still like that following its
 name back takes you from the letters on a screen to the lettering over a Madrid
