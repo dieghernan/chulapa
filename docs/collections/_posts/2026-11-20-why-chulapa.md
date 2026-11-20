@@ -132,9 +132,6 @@ history](https://www.esmadrid.com/file/189655/download?token=GQKiDHDY)
 
 {% include snippets/spotify.html id="5UIiMI6l7cRSXueD3P5LRF" title="Madrid, Madrid, Madrid by Agustín Lara, performed by Lola Flores on Spotify" %}
 
-[Listen to Lola Flores’s recording on
-Spotify](https://open.spotify.com/track/5UIiMI6l7cRSXueD3P5LRF).
-
 I started with a typeface for a Jekyll theme. I still like that following its
 name back takes you from the letters on a screen to the lettering over a Madrid
 street and, if you go in May or August, to a place where you might see someone

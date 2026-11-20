@@ -309,7 +309,7 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "How can I embed a Spotify album in a post, will it show in RSS, and does the snippet work if my site is pinned to v2.3.0?",
-    "expected": "Include snippets/spotify.html with type=\"album\", the Spotify album ID and a descriptive title. Default type is track; album is 352px. The snippet is development only, so paste Spotify's generated iframe on v2.3.0. Readers may remove the iframe, so put a direct Spotify album link below it. Cite /docs/04-layouts#spotify-embeds."
+    "expected": "Include snippets/spotify.html with type=\"album\", the Spotify album ID and a descriptive title. Default type is track; album is 352px. The snippet is development only, so paste Spotify's generated iframe on v2.3.0. Full feed content preserves the automatic direct link. It is available to screen readers and visible on keyboard focus on the site. A feed reader without the theme stylesheet can show it even if it removes the iframe. Cite /docs/04-layouts#spotify-embeds."
   },
   {
     "id": "navigation-edit-existing-1",

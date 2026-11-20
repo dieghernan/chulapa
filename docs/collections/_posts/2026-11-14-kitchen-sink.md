@@ -324,5 +324,3 @@ This aerial clip shows a lagoon from above.
 ## Spotify
 
 {% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}
-
-[Listen to Belief on Spotify](https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs).

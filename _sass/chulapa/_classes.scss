@@ -33,6 +33,11 @@
   color-scheme: light;
 }
 
+.chulapa-spotify-link:not(:focus-within) {
+  // Keep the direct link available to screen readers and in unstyled feeds.
+  @include sr-only();
+}
+
 @each $color, $value in $theme-colors {
   .chulapa-pill-bg-#{$color} {
     @include badge-variant($value);

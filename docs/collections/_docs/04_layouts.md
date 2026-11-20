@@ -797,19 +797,16 @@ own line in your post or page, with a blank line before and after it. Pass
 the ID as `id` and give the player a descriptive `title` for screen readers.
 Without a title, the player is named “Spotify track” or “Spotify album.”
 
-Add a direct Spotify link below the player. Feed readers may remove the
-iframe from the article, and the link gives subscribers a way to open the
-track or album.
+The snippet also adds a direct Spotify link. On your site, screen readers
+can find it and it becomes visible when it receives keyboard focus. Feed
+readers that display the full article without the theme stylesheet show the
+link even if they remove the iframe.
 
 {% raw %}
 ```liquid
 {% include snippets/spotify.html id="51UMKmK4msZFxtUhOu06zs" title="Belief by John Mayer on Spotify" %}
 
-[Listen to Belief on Spotify](https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs).
-
 {% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" title="Unknown Pleasures by Joy Division on Spotify" %}
-
-[Listen to Unknown Pleasures on Spotify](https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s).
 ```
 {% endraw %}
 
@@ -822,8 +819,6 @@ wide for audio embeds. See the track example in the
 in the [skin preview](../skins/chulapa#spotify-embeds).
 
 {% include snippets/spotify.html type="album" id="5Dgqy4bBg09Rdw7CQM545s" title="Unknown Pleasures by Joy Division on Spotify" %}
-
-[Listen to Unknown Pleasures on Spotify](https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s).
 
 ### Localization of dates
 
