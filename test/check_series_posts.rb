@@ -128,8 +128,8 @@ Dir.mktmpdir("chulapa-series-posts-") do |source|
 
   catalog = Nokogiri::HTML5.parse(File.read(File.join(config["destination"], "tutorials/index.html")))
   catalog_nodes = catalog.css('script[type="application/ld+json"]').map { |node| JSON.parse(node.text) }
-  catalog_series = catalog_nodes.find { |node| node["@type"] == "CollectionPage" }.fetch("mainEntity").fetch("itemListElement")
-  raise "Catalog series identities differ from those on the chapters" unless catalog_series.map { |entry| entry.fetch("item").slice("@type", "@id", "name") } == [guides, notes, pages]
+  catalog_series = catalog_nodes.find { |node| node["@type"] == "CollectionPage" }.fetch("mainEntity").fetch("itemListElement").map { |entry| entry.fetch("item") }
+  raise "Catalog series identities differ from those on the chapters" unless catalog_series.map { |item| item.slice("@id", "name") } == [guides, notes, pages].map { |item| item.slice("@id", "name") }
   raise "Catalog lost block HTML in its series name" unless catalog.at_css('#notes [data-editorial="label"] > a')&.text == "Notes"
   raise "Catalog lost series branding" unless catalog.at_css("#guides .chulapa em")&.text == "R"
   expected_paths = [
@@ -138,12 +138,24 @@ Dir.mktmpdir("chulapa-series-posts-") do |source|
     ["/preview/"] + chapter_links.map(&:first)
   ]
   cards = catalog.css(".series-card")
+  catalog_url = catalog.at_css('link[rel="canonical"]')["href"]
+  card_urls = cards.map { |card| "#{catalog_url}##{card.at_css('.card-title')['id']}" }
+  raise "Catalog series URLs do not match the card anchors" unless catalog_series.map { |item| item.fetch("url") } == card_urls
   raise "Catalog navigation differs from widget navigation" unless cards.map { |card| card.css("ol a").map { |a| a["href"] } } == expected_paths
   raise "Start reading points to the wrong chapter" unless cards.map { |card| card.at_css(".card-footer a")["href"] } == expected_paths.map(&:first)
   raise "Catalog lost the fallback title" unless cards.last.css("ol a").map(&:text) == ["Home"] + chapter_links.map(&:last)
-  chapter_ids = catalog_series.map { |entry| entry.fetch("item").fetch("hasPart").map { |part| part.fetch("@id") } }
   expected_ids = expected_paths.take(2).map { |paths| paths.map { |path| "https://example.com#{path}#article" } }
   expected_ids << [home, home + "canonical-entry", home + "feature-notes.html", home + "entries/last.html"]
-  raise "Catalog JSON-LD membership, order or canonical identity is wrong" unless chapter_ids == expected_ids
+  catalog_series.zip(expected_ids).each do |item, ids|
+    raise "Catalog series must also be an ItemList" unless item.fetch("@type") == %w[CreativeWorkSeries ItemList]
+    chapter_refs = ids.map { |id| { "@id" => id } }
+    raise "Catalog JSON-LD chapter membership or canonical identity is wrong" unless item.fetch("hasPart") == chapter_refs
+    raise "Catalog chapter list must have ascending order" unless item.fetch("itemListOrder") == "https://schema.org/ItemListOrderAscending"
+    raise "Catalog chapter count is wrong" unless item.fetch("numberOfItems") == ids.size
+    expected_items = chapter_refs.map.with_index(1) do |reference, position|
+      { "@type" => "ListItem", "position" => position, "item" => reference }
+    end
+    raise "Catalog JSON-LD chapter positions do not match the displayed order" unless item.fetch("itemListElement") == expected_items
+  end
 end
 puts "Series widget, article memberships and catalog identities passed."

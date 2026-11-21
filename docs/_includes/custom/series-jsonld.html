@@ -1,5 +1,6 @@
 {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign series_catalog_url = canonical_url -%}
+{%- assign series_index_url = page.url | absolute_url | uri_escape -%}
 {%- include snippets/series-documents.html -%}
 {%- assign emitted_series = 0 -%}
 {%- capture series_items -%}
@@ -9,24 +10,43 @@
     {%- if series_label_nonblank == empty -%}{%- continue -%}{%- endif -%}
     {%- include snippets/series-ordered-chapters.html id=series_id -%}
     {%- if series_chapters.size < 2 -%}{%- continue -%}{%- endif -%}
-    {%- assign emitted_series = emitted_series | plus: 1 -%}
-    {%- unless emitted_series == 1 -%},{%- endunless %}
-            {
-              "@type": "ListItem",
-              "position": {{ emitted_series }},
-              "item": {
-                "@type": "CreativeWorkSeries",
-                "@id": {% include snippets/jsonld-string.html value=series_entity_id decode_html=false %},
-                "name": {% include snippets/jsonld-string.html value=series_label_text %},
-                "hasPart": [
+    {%- assign series_anchor = series_id | url_encode | replace: '+', '%20' -%}
+    {%- assign series_card_url = series_index_url | append: '#' | append: series_anchor -%}
+    {%- assign chapter_ids = '' | split: ',' -%}
     {%- for chapter in series_chapters -%}
       {%- include snippets/canonical-url.html url=chapter.url canonical=chapter.canonical_url -%}
       {%- assign chapter_id = canonical_url -%}
       {%- if chapter.collection == 'posts' -%}
         {%- assign chapter_id = chapter_id | append: '#article' -%}
       {%- endif -%}
+      {%- assign chapter_ids = chapter_ids | push: chapter_id -%}
+    {%- endfor -%}
+    {%- assign emitted_series = emitted_series | plus: 1 -%}
+    {%- unless emitted_series == 1 -%},{%- endunless %}
+            {
+              "@type": "ListItem",
+              "position": {{ emitted_series }},
+              "item": {
+                "@type": ["CreativeWorkSeries", "ItemList"],
+                "@id": {% include snippets/jsonld-string.html value=series_entity_id decode_html=false %},
+                "name": {% include snippets/jsonld-string.html value=series_label_text %},
+                "url": {% include snippets/jsonld-string.html value=series_card_url decode_html=false %},
+                "hasPart": [
+    {%- for chapter_id in chapter_ids -%}
       {%- unless forloop.first -%},{%- endunless %}
                   {"@id": {% include snippets/jsonld-string.html value=chapter_id decode_html=false %}}
+    {%- endfor %}
+                ],
+                "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                "numberOfItems": {{ chapter_ids.size }},
+                "itemListElement": [
+    {%- for chapter_id in chapter_ids -%}
+      {%- unless forloop.first -%},{%- endunless %}
+                  {
+                    "@type": "ListItem",
+                    "position": {{ forloop.index }},
+                    "item": {"@id": {% include snippets/jsonld-string.html value=chapter_id decode_html=false %}}
+                  }
     {%- endfor %}
                 ]
               }
