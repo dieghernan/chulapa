@@ -117,7 +117,7 @@
 			{%- if site.navbar.brand.img -%}
 				<img src="{{ site.navbar.brand.img | absolute_url }}" width="30" height="30" class="d-inline-block align-top rounded-lg mr-1" alt="NavbarLogo">
 			{%- endif -%}{{- site.navbar.brand.title -}}</a>
-			{%- if site.navbar.nav or dark_skin_enabled -%}
+			{%- if site.navbar.nav or site.search.provider or dark_skin_enabled -%}
 				<ul class="navbar-nav ml-auto">
 				{%- for item in site.navbar.nav -%}
 					{%- if item.child[0] -%}

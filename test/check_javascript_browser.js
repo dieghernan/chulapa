@@ -33,7 +33,8 @@ async function checkClipboardTooltips(browser) {
         const url = route.request().url();
         if (url.startsWith('http://127.0.0.1:8770')) {
           if (mode !== 'bundle' || !route.request().isNavigationRequest()) return route.continue();
-          const source = fs.readFileSync(path.join(current, 'video.html'), 'utf8');
+          const fixture = url.endsWith('/demo/classic-navbar.html') ? 'demo/classic-navbar.html' : 'video.html';
+          const source = fs.readFileSync(path.join(current, fixture), 'utf8');
           assert.ok(source.includes(popperTag) && source.includes(bootstrapTag), 'Fixture must contain the expected script tags');
           const html = source.replace(popperTag, '')
             .replace(bootstrapTag,
@@ -74,6 +75,15 @@ async function checkClipboardTooltips(browser) {
           assert.equal(await button.isEnabled(), true);
         }
         assert.deepEqual(errors, [], `${prefix || '/'}/${width}/${mode}: tooltip errors`);
+        if (!prefix && width === 390 && mode !== 'separate') {
+          await page.goto('http://127.0.0.1:8770/demo/classic-navbar.html');
+          const toggle = page.getByRole('button', {name: 'Toggle navigation', exact: true});
+          await toggle.focus();
+          await page.keyboard.press('Enter');
+          await page.waitForFunction(() => document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'true');
+          assert.equal(await page.getByRole('link', {name: 'Search', exact: true}).isVisible(), true);
+          assert.deepEqual(errors, [], `Classic navbar demo with ${mode}`);
+        }
       } finally { await page.close(); }
       console.log(`Clipboard tooltips passed: ${prefix || '/'}, ${width}px, ${mode}`);
     }
@@ -149,18 +159,33 @@ const server = http.createServer((request, response) => {
       assert.ok(await page.locator('#results span.bg-warning').count());
       // Validate the optional simple-search template using its captured SDK options.
       await page.addInitScript(() => { window.SimpleJekyllSearch = options => { window.simpleSearchOptions = options; }; });
-      await page.goto(`http://127.0.0.1:8770${prefix}/simple-search.html`);
-      await page.evaluate(() => {
-        document.getElementById('results-container').innerHTML = window.simpleSearchOptions.searchResultTemplate
-          .replaceAll('{url}', '/example.html').replaceAll('{title}', 'Example title')
-          .replaceAll('{excerpt}', 'Example excerpt').replaceAll('{img}', ':url(/preview.svg)');
-      });
-      assert.equal(await page.getByRole('search').count(), 1);
-      assert.equal(await page.locator('#results-container article h2.h5').textContent(), 'Example title');
-      const previewLink = page.locator('#results-container .col-4 > a');
-      assert.equal(await previewLink.count(), 1);
-      assert.equal(await previewLink.textContent(), 'Example title');
-      assert.equal(await previewLink.locator('.chulapa-overlay-img').count(), 1);
+      for (const [url, store] of [
+        ['/simple-search.html', '/assets/js/simplesearch/simplesearch-store.json'],
+        ['/demo/search_simple.html', '/assets/demo-simplesearch.json']
+      ]) {
+        const base = `http://127.0.0.1:8770${prefix}`;
+        await page.goto(base + url);
+        const indexURL = await page.evaluate(() => window.simpleSearchOptions.json);
+        assert.equal(indexURL, base + store);
+        await page.evaluate(() => {
+          document.getElementById('results-container').innerHTML = window.simpleSearchOptions.searchResultTemplate
+            .replaceAll('{url}', '/example.html').replaceAll('{title}', 'Example title')
+            .replaceAll('{excerpt}', 'Example excerpt').replaceAll('{img}', ':url(/preview.svg)');
+        });
+        assert.equal(await page.getByRole('search').count(), 1);
+        assert.equal(await page.locator('#results-container article h2.h5').textContent(), 'Example title');
+        const previewLink = page.locator('#results-container .col-4 > a');
+        assert.equal(await previewLink.textContent(), 'Example title');
+        assert.equal(await previewLink.locator('.chulapa-overlay-img').count(), 1);
+        if (url.startsWith('/demo/')) {
+          const response = await page.request.get(indexURL);
+          assert.ok(response.ok() && Array.isArray(await response.json()), `${url}: index unavailable`);
+          await page.click('#navi-toggle');
+          assert.equal(await page.locator('#navi-toggle').getAttribute('aria-expanded'), 'true');
+          await page.keyboard.press('Escape');
+          assert.equal(await page.locator('#navi-toggle').getAttribute('aria-expanded'), 'false');
+        }
+      }
       // Copy the maintained documentation pages, not synthetic substitutes.
       for (const demo of ['lunr', 'fusejs']) {
         await page.goto(`http://127.0.0.1:8770${prefix}/demo/search_${demo}.html`);

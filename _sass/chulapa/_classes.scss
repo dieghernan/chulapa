@@ -258,6 +258,33 @@
     }
   }
 
+  .chulapa-classic-fallback {
+    $fallback-color: color-contrast($navbar-chulapa-bg-color, $navbar-chulapa-text-color, $navbar-chulapa-text-contrast);
+
+    > summary {
+      display: list-item;
+      cursor: pointer;
+      color: $fallback-color;
+    }
+
+    > .navbar-nav {
+      max-height: 50vh;
+      overflow-y: auto;
+    }
+
+    .nav-link {
+      color: $fallback-color;
+
+      @include hover-focus() {
+        color: color-contrast($navbar-chulapa-bg-color, $navbar-chulapa-hover-color, $navbar-chulapa-text-contrast);
+      }
+
+      &:focus-visible {
+        outline-offset: -2px;
+      }
+    }
+  }
+
   .dropdown-menu {
     background-color: $navbar-chulapa-bg-color;
     border-style: none;

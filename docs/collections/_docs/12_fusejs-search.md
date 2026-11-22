@@ -45,10 +45,11 @@ already uses Fuse.js. Reuse its search page if you switch providers.
    `https://ana.github.io/my-blog`, open `https://ana.github.io/my-blog/search`
    (or your chosen landing path).
 
-Create the search page separately from the provider settings. The classic
-navbar and the desktop form of `dual` show a Search link when the provider is
-configured and the navbar has `navbar.nav` or an enabled theme selector.
-If that link is absent, use the direct address above or [configure your menu](./10-edit-menu).
+Create the search page separately from the provider settings. In the
+development version, the classic navbar and desktop `dual` navbar show a
+Search link whenever a provider is configured. In v2.3.0, those navbar modes
+also require `navbar.nav` or an enabled theme selector. Use the search page's
+direct address when the link is absent.
 The `search` layout supplies its own interface; extra page-body text is not displayed.
 {: .alert .alert-info .p-3 .mx-2 .mb-3}
 

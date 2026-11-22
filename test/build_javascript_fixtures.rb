@@ -11,9 +11,13 @@ output = File.expand_path(ARGV.fetch(0))
     name = "#{baseurl.empty? ? 'root' : 'subdir'}-#{provider}"
     Dir.mktmpdir("chulapa-js-") do |source|
       %w[_layouts _includes _sass assets].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
+      FileUtils.cp(File.join(root, "docs/_pages/demo_classicnavbar.html"), source)
       FileUtils.cp(File.join(root, "docs/_pages/demo_searchlunr.html"), source)
       FileUtils.cp(File.join(root, "docs/_pages/demo_searchfusejs.html"), source)
+      FileUtils.cp(File.join(root, "docs/_pages/demo_searchsimple.html"), source)
+      FileUtils.cp(File.join(root, "docs/_pages/demo_searchgoogle.html"), source)
       FileUtils.cp(File.join(root, "docs/assets/demo-lunr-store.js"), File.join(source, "assets"))
+      FileUtils.cp(File.join(root, "docs/assets/demo-simplesearch.json"), File.join(source, "assets"))
       FileUtils.mkdir_p(File.join(source, "_posts"))
       File.write(File.join(source, "preview.svg"), '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="180"><rect width="300" height="180" fill="#285d70"/></svg>')
       12.times do |i|
@@ -38,7 +42,7 @@ output = File.expand_path(ARGV.fetch(0))
       common = "#{baseurl}/assets/js/chulapa_search.js"
       engine = "http://127.0.0.1:8770#{baseurl}/assets/js/#{provider}/#{provider}-search.min.js"
       raise "Shared search helper absent or loaded after engine" unless scripts.count(common) == 1 && scripts.index(common) < scripts.index(engine)
-      ["demo/search_lunr.html", "demo/search_fusejs.html", "404.html"].each do |page|
+      ["demo/classic-navbar.html", "demo/search_lunr.html", "demo/search_fusejs.html", "demo/search_simple.html", "demo/search_google.html", "404.html"].each do |page|
         document = Nokogiri::HTML(File.read(File.join(output, name, page)))
         sources = document.css('script[src]').map { |node| node["src"] }
         %w[jquery.slim.min.js bootstrap.min.js chulapa_navigation.js].each do |asset|

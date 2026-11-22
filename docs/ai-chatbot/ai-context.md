@@ -226,7 +226,7 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#search-engines
 https://dieghernan.github.io/chulapa/docs/12-fusejs-search
 https://dieghernan.github.io/chulapa/docs/36-google-search
 https://dieghernan.github.io/chulapa/docs/37-algolia-search
-search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone does not create it. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Do not duplicate output or repeat baseurl in config paths. Classic/desktop dual Search needs navbar.nav or the theme selector. Otherwise open the landing URL with baseurl.
+search.provider: lunr, fusejs, simplesearch, algolia or google. Create/reuse page with layout: search, title: Search and permalink matching search.landing_page (default /search); provider alone creates no page. Fuse example search: { provider: fusejs, landing_page: /search }, no account/API/plugin; Chulapa 101 already configured. Avoid duplicate output/baseurl prefixes. v2.3.0 classic/desktop dual Search needs navbar.nav or theme selector; dev shows it with the provider alone. Open the landing URL with baseurl.
 Local Lunr/Fuse/Simple-Jekyll-Search indexes build-time; include_on_search: false is DOCUMENT FRONT MATTER (or defaults.values), NEVER nested under search; excludes pages; search.maxwords default 30 content words/document. Legacy lunr_maxwords, simplesearch_maxwords, fusejs_maxwords take precedence over shared maxwords. search.show_attrib: false hides local attribution; search.algolia_logo is separate (check plan requirements).
 Algolia uses an uploaded index; include_on_search only ranks; exclude with algolia.files_to_exclude. Docs use Algolia; upload recipe below. Google: google_cse_id for a configured engine; build/local exclusions do not control its crawler.
 v2.3.0: Fuse 7.5 modules; scores/order/count may change. Standard layout updates automatically. Copied pages/adapters: use current demo/adapter, type="module", remove separate fuse.min.js tag. Serve via HTTP(S), not file://. No new YAML.
@@ -260,7 +260,7 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
 https://dieghernan.github.io/chulapa/docs/10-edit-menu
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#footer
 https://dieghernan.github.io/chulapa/docs/11-edit-footer
-navbar.nav title/url or title/child title/url; one level. style omitted=classic, fab=floating, dual=floating/classic. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. Classic Search label shows collapsed, hides at expand (always hidden; never visible). brand:title,img,url.
+navbar.nav title/url or title/child title/url; one level. style omitted=classic, fab=floating, dual=floating/classic. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. Classic Search label shows collapsed, hides at expand (always hidden; never visible). brand:title,img,url. Dev classic native Menu if Bootstrap or JS is unavailable.
 
 ```yaml
 navbar:

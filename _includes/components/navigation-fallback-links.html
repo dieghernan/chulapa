@@ -1,0 +1,15 @@
+<ul class="navbar-nav{% if include.vertical %} flex-column{% endif %}">
+  {% for item in site.navbar.nav %}
+    {% if item.child[0] %}
+      {% for entry in item.child %}
+      <li class="nav-item"><a class="nav-link" href="{{ entry.url | absolute_url }}"{% if entry.url == thispageurl or entry.url == include.pageurl %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+      {% endfor %}
+    {% else %}
+    <li class="nav-item"><a class="nav-link" href="{{ item.url | absolute_url }}"{% if item.url == thispageurl or item.url == include.pageurl %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+  {% if site.search.provider %}
+  {% assign fallback_search_url = site.search.landing_page | default: '/search' %}
+  <li class="nav-item"><a class="nav-link" href="{{ fallback_search_url | absolute_url }}"{% if fallback_search_url == thispageurl or fallback_search_url == include.pageurl %} aria-current="page"{% endif %}>{{ site.search.label | default: 'Search' }}</a></li>
+  {% endif %}
+</ul>

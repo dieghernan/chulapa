@@ -23,6 +23,15 @@ async function main() {
       });
       await page.addScriptTag({content: script});
       const base = `http://127.0.0.1:8770${prefix}`;
+      const fallbackTitles = await page.evaluate(() => {
+        const hit = {url: '/docs/article', title: 'Maps < and &', html: '<p>Excerpt</p>'};
+        return [hit, {...hit, _highlightResult: {html: {value: hit.html}}}].map(result => {
+          const rendered = document.createElement('template');
+          rendered.innerHTML = hitTemplate(result);
+          return rendered.content.querySelector('h5 a').textContent;
+        });
+      });
+      assert.deepEqual(fallbackTitles, ['Maps < and &', 'Maps < and &']);
       const html = '<p><em>Highlighted</em> <code>code</code> ' +
         '<a href="#video">Video</a> <a href="./sibling?x=1&amp;y=2#part">Sibling</a> ' +
         '<a href="../index">Parent</a> <a href="?view=full#part">Query</a> ' +

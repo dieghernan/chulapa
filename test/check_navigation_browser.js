@@ -50,6 +50,36 @@ async function main() {
     await page.waitForFunction(() => document.getElementById("navi-toggle").getAttribute("aria-expanded") === "false");
     assert.equal(await page.locator("#navi-menu").evaluate(menu => menu.inert && menu.getAttribute("aria-hidden") === "true"), true);
   };
+  const checkClassicFallback = async fallbackPage => {
+    await fallbackPage.goto("http://localhost:8767/navi-classic/article.html");
+    const details = fallbackPage.locator(".chulapa-classic-fallback");
+    const trigger = details.locator("summary");
+    assert.equal(await trigger.isVisible(), true);
+    assert.equal(await fallbackPage.locator(".navbar-toggler").isVisible(), false);
+    await trigger.focus();
+    await fallbackPage.keyboard.press("Enter");
+    const disclosure = await trigger.evaluate(summary => ({
+      display: getComputedStyle(summary).display,
+      focusVisible: summary.matches(":focus-visible") && getComputedStyle(summary).outlineStyle !== "none"
+    }));
+    assert.deepEqual(disclosure, { display: "list-item", focusVisible: true });
+    const links = details.getByRole("link");
+    assert.deepEqual(await links.allTextContents(), ["Home", "Article"]);
+    await fallbackPage.keyboard.press("Tab");
+    assert.equal(await links.first().evaluate(link => link === document.activeElement), true);
+    assert.equal(await fallbackPage.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    await details.locator(".navbar-nav").evaluate(list => {
+      for (let i = 0; i < 28; i++) list.append(list.lastElementChild.cloneNode(true));
+    });
+    const lastLink = links.last();
+    // Tab through the generated menu so the browser brings the focused links into view.
+    for (let i = 1; i < 30; i++) await fallbackPage.keyboard.press("Tab");
+    assert.equal(await lastLink.evaluate(link => {
+      const bounds = link.getBoundingClientRect();
+      const menu = link.closest(".navbar-nav").getBoundingClientRect();
+      return document.activeElement === link && bounds.top >= menu.top && bounds.bottom <= Math.min(menu.bottom, innerHeight);
+    }), true, "The last fallback link must be visible when reached by keyboard");
+  };
   try {
     const iconPackage = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/";
     const iconFiles = path.dirname(require.resolve("@fortawesome/fontawesome-free/package.json"));
@@ -289,10 +319,23 @@ async function main() {
     }
     console.log(`Passed native dropdown typography and borders on all ${navbarSkins.length} skin configurations, all navbar modes and 320/390/1280px`);
     console.log("Passed dual resize and classic navigation with actual Bootstrap/jQuery, without CDN access");
+    const failedBootstrap = await context.newPage();
+    try {
+      await failedBootstrap.setViewportSize({ width: 320, height: 844 });
+      await failedBootstrap.route("**/bootstrap.min.js", route => route.abort());
+      await checkClassicFallback(failedBootstrap);
+    } finally {
+      await failedBootstrap.close();
+    }
     const noScripts = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
     try {
       await noScripts.route("**/*", serveFixture);
       const fallback = await noScripts.newPage();
+      await checkClassicFallback(fallback);
+      const sidebar = fallback.locator("#chulapa-sidetoc-toggle");
+      assert.equal(await sidebar.isVisible(), false);
+      await sidebar.evaluate(button => button.focus());
+      assert.equal(await sidebar.evaluate(button => button === document.activeElement), false);
       for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "sketchy", "navi-dual"]) {
         await fallback.goto(`http://localhost:8767/${skin}/article.html`);
         assert.equal(await fallback.locator("#navi-toggle").isVisible(), false, `${skin}: JavaScript-only control must be hidden`);

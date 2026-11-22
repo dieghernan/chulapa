@@ -243,8 +243,10 @@ service's own behavior.
 ### Search engines
 
 Create a page with `layout: search` and a `permalink` matching
-`search.landing_page` (default `/search`). The classic navbar and desktop
-`dual` navbar also need `navbar.nav` to display the Search link.
+`search.landing_page` (default `/search`). Starting in the development version
+(v2.3.1), the classic and desktop `dual` navbars show the Search link when a
+provider is configured. In v2.3.0, these modes also require `navbar.nav` or an
+enabled theme selector.
 
 The personal-blog template includes [Fuse.js](./12-fusejs-search).
 The three [local providers](./12-fusejs-search) build their index with the site and honor `include_on_search: false`. [Google Custom Search](./36-google-search)

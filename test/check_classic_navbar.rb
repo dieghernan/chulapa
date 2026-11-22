@@ -32,9 +32,10 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         classes = nav['class'].split.grep(/^navbar-expand/)
         raise 'Wrong expansion breakpoint' unless classes == [expected].compact
         raise 'Dropdown is not a native button' unless nav.at_css('button.dropdown-toggle[type=button]')
-        current = nav.at_css('a[aria-current=page]')
+        controls = nav.at_css('#navbarToggler')
+        current = controls.at_css('a[aria-current=page]')
         raise 'Current link incorrect' unless current && current['href'] == "https://example.com#{baseurl}/demo/classic-navbar"
-        search_link = nav.at_css("a[href='https://example.com#{baseurl}/find']")
+        search_link = controls.at_css("a[href='https://example.com#{baseurl}/find']")
         raise 'Search destination incorrect' unless search_link
         search_icon = search_link.at_css('i.fa-search')
         search_label = search_link.at_css('span:not(.sr-only)')
@@ -56,6 +57,18 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         raise 'Custom hook duplicated' unless demo.css('#custom-bottom').size == 1
         raise 'Theme script missing' unless demo.at_css("script[src='#{baseurl}/assets/js/chulapa_script.js']")
       end
+    end
+  end
+  %w[classic dual].each do |style|
+    config = Jekyll.configuration('source' => source, 'destination' => File.join(source, '_site'),
+      'url' => 'https://example.com', 'baseurl' => '/project', 'quiet' => true,
+      'navbar' => {'style' => style, 'brand' => {'title' => 'Home'}},
+      'search' => {'provider' => 'fusejs', 'landing_page' => '/find'})
+    Jekyll::Site.new(config).process
+    html = Nokogiri::HTML(File.read(File.join(config['destination'], 'standard.html')))
+    raise "#{style}: desktop Search disappeared without menu items" unless html.at_css("nav.navbar a[href='https://example.com/project/find']")
+    if style == 'classic'
+      raise 'Classic Search missing from native fallback' unless html.at_css(".chulapa-classic-fallback a[href='https://example.com/project/find']")
     end
   end
 end

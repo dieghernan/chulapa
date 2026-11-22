@@ -6,6 +6,10 @@
 
 ### Fixed
 
+-   Keep the classic menu usable without Bootstrap or JavaScript, show Search without custom menu entries, and keep the sidebar TOC button out of the Tab order until it works.
+
+-   Keep Algolia results visible when the index omits a highlighted title.
+
 -   Use the page language for displayed publication and update dates when a page overrides the site locale.
 
 -   Use the published URL for comments on pages without a Jekyll ID, preserve quoted Cusdis titles and label the Cusdis iframe for screen readers.

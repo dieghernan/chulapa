@@ -1,4 +1,17 @@
 (function () {
+  if (typeof window !== "undefined" && window.jQuery &&
+      window.jQuery.fn && typeof window.jQuery.fn.collapse === "function" &&
+      typeof window.jQuery.fn.dropdown === "function") {
+    const fallback = document.querySelector(".chulapa-classic-fallback");
+    // Keep the native menu if the reader started using it while scripts loaded.
+    if (!fallback || (!fallback.open && !fallback.contains(document.activeElement))) {
+      if (fallback) fallback.hidden = true;
+      document.querySelectorAll("[data-classic-nav-control]").forEach(control => {
+        control.hidden = false;
+      });
+    }
+  }
+
 // Floating navigation uses a keyboard-operable button; the lateral TOC is independent.
 var navigationButton = document.getElementById("navi-toggle");
 var navigationMenu = document.getElementById("navi-menu");
