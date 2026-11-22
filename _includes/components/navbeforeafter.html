@@ -1,44 +1,24 @@
 {%- if page.previous.url or page.next.url -%}
-{%- assign classitemnext = "invisible" -%}
-{%- if page.next.url -%}
- {%- assign classitemnext = "" -%}
-{%- endif -%}
-{%- assign classitemprevious = "invisible" -%}
-{%- if page.previous.url -%}
- {%- assign classitemprevious = "" -%}
-{%- endif -%}
-{%- assign titleitemprevious = page.previous.title | markdownify | strip_html | strip_newlines | strip | truncate: 30  -%}
-{%- assign titleitemnext = page.next.title | markdownify | strip_html | strip_newlines | strip | truncate: 30  -%}
-
-
-
-<nav aria-label="Navigation" class="container-lg chulapa-pagination  ">
-  <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0 ">
-    <li class="page-item text-left mr-0 {{ classitemprevious -}}">
-      {% if page.previous.url %}<a class="page-link border-0 px-4" href="{{ page.previous.url | absolute_url }}">{% else %}<span class="page-link border-0 px-4">{% endif %}
-	  <i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sr-only">Previous</span>
-	  {% if page.previous.url %}</a>{% else %}</span>{% endif %}
-    </li>
-    <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-md-inline {{ classitemprevious -}}">
-      <p class="page-link chulapa-label">{{ titleitemprevious }}</p>
-    </li>
-    <li class="page-item border-0 disabled text-left ml-0 mr-auto d-none d-sm-inline d-md-none {{ classitemprevious -}}">
-      <p class="page-link chulapa-label">{{ titleitemprevious | truncate: 17 }}</p>
-    </li>
-	  <li class="page-item disabled mx-auto invisible">
-	   <p class="page-link">|</p>
-	  </li>	
-	  <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-sm-inline d-md-none {{ classitemnext -}}">
-	    <p class="page-link chulapa-label">{{ titleitemnext | truncate: 17 }}</p>
-	  </li>
-	  <li class="page-item border-0 disabled text-right mr-0 ml-auto d-none d-md-inline {{ classitemnext -}}">
-	    <p class="page-link chulapa-label">{{ titleitemnext }}</p>
-	  </li>
-    <li class="page-item text-right ml-0 {{ classitemnext -}}">
-      {% if page.next.url %}<a class="page-link border-0 px-4" href="{{ page.next.url | absolute_url }}">{% else %}<span class="page-link border-0 px-4">{% endif %}
-	  <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span>{% if page.next.url %}</a>{% else %}</span>{% endif %}
-    </li>
+<nav aria-label="Adjacent pages" class="container-lg chulapa-pagination chulapa-post-nav">
+  <ul class="col-lg-8 offset-lg-2 pagination chulapa-pagination-round px-0">
+    {%- if page.previous.url -%}
+      {%- assign previous_title = page.previous.title | markdownify | strip_html | strip_newlines | strip -%}
+      <li class="page-item text-left">
+        <a class="page-link border-0" href="{{ page.previous.url | absolute_url | escape }}" rel="prev">
+          <span class="chulapa-post-nav-arrow" aria-hidden="true"></span>
+          <span class="chulapa-post-nav-title">{% if previous_title != empty %}<span class="sr-only">Previous: </span>{{ previous_title | escape_once }}{% else %}Previous{% endif %}</span>
+        </a>
+      </li>
+    {%- endif -%}
+    {%- if page.next.url -%}
+      {%- assign next_title = page.next.title | markdownify | strip_html | strip_newlines | strip -%}
+      <li class="page-item chulapa-post-nav-next text-right">
+        <a class="page-link border-0" href="{{ page.next.url | absolute_url | escape }}" rel="next">
+          <span class="chulapa-post-nav-title">{% if next_title != empty %}<span class="sr-only">Next: </span>{{ next_title | escape_once }}{% else %}Next{% endif %}</span>
+          <span class="chulapa-post-nav-arrow" aria-hidden="true"></span>
+        </a>
+      </li>
+    {%- endif -%}
   </ul>
 </nav>
-
 {%- endif -%}

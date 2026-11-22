@@ -170,8 +170,10 @@ Their links also work without JavaScript.
   without skipping heading levels.
 
 - `show_bottomnavs`: Display previous and next navigation at the bottom of the
-  page when Jekyll supplies `page.previous` and `page.next`. This does not
-  create navigation between arbitrary standalone pages.
+  page when Jekyll supplies `page.previous` or `page.next`. This does not
+  create navigation between arbitrary standalone pages. In the development
+  version, each link uses the full destination title. Titles that exceed the
+  available width end with an ellipsis. Only available destinations appear.
 
 - `show_categories` and `show_tags` display badges at the bottom with the
   `categories` and `tags` set for the page. These badges could be set as links

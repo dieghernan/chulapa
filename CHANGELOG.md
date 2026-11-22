@@ -10,6 +10,8 @@
 
 -   Reduce navigation shifts during font loading in GitDev and defer Font Awesome kits while reserving space for navigation icons.
 
+-   Make adjacent-page titles clickable and truncate long titles visually within equal-width previous and next links.
+
 -   Reserve space for the Light/Dark/Auto selector during startup so it does not move the other navigation links.
 
 -   Show Search in the classic and desktop dual navbars without custom menu entries and keep the sidebar TOC button out of the Tab order until it works.

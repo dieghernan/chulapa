@@ -215,7 +215,7 @@ minimal: content between navbar/footer, headerless unless show_header: true plus
 archive: collection docs by date; include_collection: posts,demo (no underscores/spaces), unset all; include_missdates: true adds undated docs. cloudtag/cloudcategory list tagged/categorized collection documents; see the dedicated cloud setup below.
 indexcategory: document cards; index_sort default name, descending; index_sort_asc: true ascending; index_items default 10.
 v2.3.0: show_author:false keeps hidden h-card p-author and listing authors. Visible cards wrap names; details go below on mobile. Atom profiles: own author.url or first HTTP(S) link. Guests never inherit site identity. Unnamed guests: Guest author; missing site name: Unknown author. RSS: dc:creator for known names. /docs/56-publish-feeds.
-Flags: show_author, show_date (published/modified), show_categories/show_tags, show_breadcrumb (skip blank URLs). show_sociallinks: X/Bluesky (FA5 text); Facebook/WhatsApp/LinkedIn from 576px. show_bottomnavs: page.previous/page.next.
+Flags: show_author, show_date (published/modified), show_categories/show_tags, show_breadcrumb (skip blank URLs). show_sociallinks: X/Bluesky (FA5 text); Facebook/WhatsApp/LinkedIn from 576px. show_bottomnavs: page.previous/page.next. Dev links use CSS ellipsis.
 Defaults: scope.path:"", scope.type:posts, values.layout:default. Front matter wins; boolean false, not "false".
 ## Related and random article cards
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options

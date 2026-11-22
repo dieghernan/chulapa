@@ -16,8 +16,12 @@ Dir.mktmpdir('chulapa-default-content-') do |source|
     '04' => {'header_img' => '', 'og_image' => ''},
     '05' => {}
   }
+  titles = card_images.keys.to_h { |day| [day, "Entry #{day}"] }
+  titles['01'] = "Áreas & datos " + ('Boundary' * 12)
+  titles['03'] = "Mapas de la costa con varios nombres de localidades y territorios"
   card_images.each do |day, images|
-    data = {'layout' => 'default', 'title' => "Entry #{day}", 'tags' => ['example'], 'categories' => ['example'], 'show_bottomnavs' => true}.merge(images)
+    data = {'layout' => day == '03' ? 'landingpage' : 'default', 'title' => titles.fetch(day),
+      'tags' => ['example'], 'categories' => ['example'], 'show_bottomnavs' => day != '04'}.merge(images)
     File.write(File.join(source, "_posts/2024-01-#{day}-entry.md"), data.to_yaml + "---\n## Editorial section\n\nPost body #{day}.\n")
   end
   body = "## First section\n\nEditorial paragraph with a [source](https://example.com/source).\n\n1. Author list one\n2. Author list two\n\n## Second section\n\n```text\n  preserved spaces\n```\n\nFinal editorial paragraph.\n"
@@ -30,7 +34,7 @@ Dir.mktmpdir('chulapa-default-content-') do |source|
   File.write(File.join(source, 'authored-toc.md'), {'layout' => 'default', 'title' => 'Author outline', 'header_type' => 'base'}.to_yaml + "---\n* Author outline\n{:toc}\n\n" + body)
   destination = File.expand_path(ENV.fetch('DEFAULT_CONTENT_OUTPUT', File.join(source, '_site')))
   config = Jekyll.configuration('source' => source, 'destination' => destination, 'quiet' => true,
-    'url' => 'https://example.com', 'baseurl' => '/project', 'title' => 'Fixture', 'plugins' => ['jekyll-include-cache'],
+    'url' => 'https://example.com', 'baseurl' => ENV.fetch('DEFAULT_CONTENT_BASEURL', '/project'), 'title' => 'Fixture', 'plugins' => ['jekyll-include-cache'],
     'navbar' => {'style' => 'classic', 'brand' => {'title' => 'Home'}},
     'chulapa-skin' => {'skin' => 'gitdev', 'highlight' => 'github'})
   # Jekyll 3 looks for layouts in the working directory before the source.
@@ -59,21 +63,31 @@ Dir.mktmpdir('chulapa-default-content-') do |source|
     index = Nokogiri::HTML5(File.read(File.join(destination, 'indexcategory.html')))
     cards = index.css('.chulapa-border-card-index').to_h { |card| [card.at_css('h2').text, card] }
     {'01' => 'header.png', '02' => 'og.png', '03' => 'og.png', '04' => nil, '05' => nil}.each do |day, image|
-      title = "Entry #{day}"
+      title = titles.fetch(day)
       card = cards.fetch(title)
       thumbnail = card.at_css('a.chulapa-card-img')
       if image
-        raise "Wrong thumbnail for #{title}" unless thumbnail && thumbnail['style'] == "background-image: url('https://example.com/project/#{image}')"
+        raise "Wrong thumbnail for #{title}" unless thumbnail && thumbnail['style'] == "background-image: url('https://example.com#{config['baseurl']}/#{image}')"
         raise "Invalid thumbnail link for #{title}" unless thumbnail['aria-label'] == title && thumbnail['href'] == card.at_css('a.u-url')['href']
       else
         raise "Unexpected image column for #{title}" if thumbnail
       end
     end
-    card_images.each_key do |day|
-      doc = Nokogiri::HTML5(File.read(File.join(destination, "example/2024/01/#{day}/entry.html")))
-      links = doc.css('nav.chulapa-pagination a')
-      raise "Unavailable/untabbable neighbor: #{day}" if links.any? { |n| n['tabindex'] == '-1' || n['href'].to_s.empty? || n['href'].end_with?('#') }
-      raise "Neighbor count: #{day}" unless links.size == (%w[01 05].include?(day) ? 1 : 2)
+    neighbors = {'01' => {'next' => '02'}, '02' => {'prev' => '01', 'next' => '03'},
+      '03' => {'prev' => '02', 'next' => '04'}, '04' => {}, '05' => {'prev' => '04'}}
+    neighbors.each do |day, expected|
+      doc = Nokogiri::HTML5(File.read(File.join(destination, "example/2024/01/#{day}/entry.html")), max_errors: 20)
+      raise "Parser repairs in post #{day}: #{doc.errors}" unless doc.errors.empty?
+      nav = doc.at_css('nav[aria-label="Adjacent pages"]')
+      links = nav ? nav.css('li > a') : []
+      raise "Neighbor count: #{day}" unless links.size == expected.size && (expected.empty? == nav.nil?)
+      links.zip(expected.to_a).each do |link, (direction, target)|
+        expected_url = "https://example.com#{config['baseurl']}/example/2024/01/#{target}/entry.html"
+        label = direction == 'prev' ? 'Previous' : 'Next'
+        raise "Neighbor destination: #{day}/#{direction}" unless link['rel'] == direction && link['href'] == expected_url
+        raise "Unavailable or incorrectly named neighbor: #{day}/#{direction}" unless
+          !link.key?('tabindex') && link.text.gsub(/\s+/, ' ').strip == "#{label}: #{titles.fetch(target)}"
+      end
     end
   end
   puts "Default content fixtures passed on Jekyll #{Jekyll::VERSION}: #{destination}"

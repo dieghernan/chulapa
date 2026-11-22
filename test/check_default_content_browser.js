@@ -29,7 +29,9 @@ const dependencies = new Map([
       await page.setViewportSize({width, height: 900});
       await page.goto('http://after.localhost/project/indexcategory.html');
       for (const [day, image] of [['01', 'header.png'], ['02', 'og.png'], ['03', 'og.png'], ['04', null], ['05', null]]) {
-        const card = page.locator('.chulapa-border-card-index').filter({has: page.getByRole('heading', {name: `Entry ${day}`, exact: true})});
+        const card = page.locator('.chulapa-border-card-index').filter({
+          has: page.locator(`a.u-url[href$="/01/${day}/entry.html"]`)
+        });
         const thumbnail = card.locator('.chulapa-card-img');
         const row = await card.locator('.row').boundingBox();
         const body = await card.locator('.col-sm').boundingBox();
@@ -86,16 +88,58 @@ const dependencies = new Map([
           }
         }
       }
-      for (const day of ['01', '02', '05']) {
+    }
+    for (const width of [320, 575, 576, 768, 1280]) {
+      await page.setViewportSize({width, height: 900});
+      for (const [day, directions] of [['01', ['next']], ['02', ['prev', 'next']], ['03', ['prev', 'next']], ['05', ['prev']]]) {
         await page.goto(`http://after.localhost/project/example/2024/01/${day}/entry.html`);
+        const navigation = page.getByRole('navigation', {name: 'Adjacent pages'});
+        const links = navigation.getByRole('link');
+        assert.equal(await links.count(), directions.length);
+        assert.ok(await navigation.evaluate(nav => nav.scrollWidth <= nav.clientWidth));
+        const bounds = await navigation.locator('.pagination').boundingBox();
+        const center = bounds.x + bounds.width / 2;
         const focused = [];
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 12 && focused.length < directions.length; i++) {
           await page.keyboard.press('Tab');
-          focused.push(await page.evaluate(() => document.activeElement.closest('nav.chulapa-pagination') ? document.activeElement.textContent.trim() : ''));
+          const link = navigation.locator('a:focus');
+          if (!(await link.count())) continue;
+          const direction = await link.getAttribute('rel');
+          const box = await link.boundingBox();
+          assert.ok(box.width >= 24 && box.height >= 24);
+          assert.ok(direction === 'prev' ? box.x + box.width <= center : box.x >= center);
+          assert.equal(await link.evaluate(anchor => {
+            const style = getComputedStyle(anchor);
+            return anchor.matches(':focus-visible') && style.outlineStyle === 'solid' && parseFloat(style.outlineWidth) >= 2;
+          }), true, `${day}/${width}/${direction}: missing keyboard focus`);
+          assert.ok(await link.evaluate(anchor => anchor.scrollWidth <= anchor.clientWidth));
+          focused.push(direction);
         }
-        if (day !== '01') assert.ok(focused.includes('Previous'), `${day}: Previous not tabbable`);
-        if (day !== '05') assert.ok(focused.includes('Next'), `${day}: Next not tabbable`);
-        assert.equal(await page.locator('nav.chulapa-pagination a').count(), day === '02' ? 2 : 1);
+        assert.deepEqual(focused, directions, `${day}/${width}: keyboard order`);
+        if (day === '02') {
+          const pairs = await links.evaluateAll(anchors => anchors.map(anchor => {
+            const title = anchor.querySelector('.chulapa-post-nav-title');
+            const arrow = anchor.querySelector('.chulapa-post-nav-arrow');
+            const titleStyle = getComputedStyle(title);
+            return {
+              sizes: [anchor.clientWidth, anchor.clientHeight, title.clientWidth, title.clientHeight,
+                arrow.offsetWidth, arrow.offsetHeight],
+              wrap: titleStyle.whiteSpace,
+              ellipsis: titleStyle.textOverflow,
+              clipped: title.scrollWidth > title.clientWidth
+            };
+          }));
+          assert.deepEqual(pairs[0].sizes, pairs[1].sizes, `${width}: link, title and arrow sizes must match`);
+          assert.ok(pairs.every(side => side.wrap === 'nowrap' && side.ellipsis === 'ellipsis'));
+          if (width === 320) assert.ok(pairs.every(side => side.clipped), 'Both long titles should truncate on mobile');
+          const next = links.last();
+          const previousName = 'Previous: Áreas & datos ' + 'Boundary'.repeat(12);
+          const nextName = 'Next: Mapas de la costa con varios nombres de localidades y territorios';
+          assert.equal(await navigation.getByRole('link', {name: previousName, exact: true}).count(), 1);
+          assert.equal(await navigation.getByRole('link', {name: nextName, exact: true}).count(), 1);
+          const target = await next.getAttribute('href');
+          await Promise.all([page.waitForURL(target), page.keyboard.press('Enter')]);
+        }
       }
     }
     console.log('Default layout browser checks passed: keyboard, skip link, sidebar, accessibility roles, geometry and responsive inheritance.');
