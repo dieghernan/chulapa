@@ -52,6 +52,14 @@ fixtures.each do |name, skin, navigation|
       body = '<main id="maincontent"><h1>Minimal content</h1>' + body + "</main>" if page == "minimal"
       File.write(File.join(source, page + ".md"), data.to_yaml + "---\n" + body)
     end
+    if %w[chulapa journal].include?(name)
+      sharing = {
+        "title" => "An article with a deliberately long breadcrumb title " + "unbroken" * 20,
+        "layout" => "default", "header_type" => "post", "show_breadcrumb" => true, "show_sociallinks" => true,
+        "breadcrumb_list" => [{"label" => "UnbrokenParent" * 16, "url" => "/article.html"}]
+      }
+      File.write(File.join(source, "sharing.md"), sharing.to_yaml + "---\n" + content)
+    end
     FileUtils.mkdir_p(File.join(source, "_projects"))
     project = {"title" => "Example project", "subtitle" => "Project subtitle", "layout" => "default", "header_img" => "/project.jpg"}
     File.write(File.join(source, "_projects/example.md"), project.to_yaml + "---\nA short project description.")

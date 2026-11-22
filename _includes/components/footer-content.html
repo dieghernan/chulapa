@@ -8,7 +8,7 @@
             {% if urlslice == "http" %}
             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
             {% elsif social.url contains "@" %}
-            <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | uri_escape }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
+            <a href="mailto:{{- social.url -}}?subject={{ site.title | append: ' web contact' | strip_html | url_encode | replace: '+', '%20' }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
             {% else %}
             <a href="{{ social.url | absolute_url }}" title="footer{{ social.label }}" class="chulapa-footer-sociallink lead">
             {% endif %}

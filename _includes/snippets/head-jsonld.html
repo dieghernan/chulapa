@@ -43,27 +43,27 @@
       {%- if page.date %}
         "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
       {%- endif %}
-      {%- if page.last_modified_at and page.last_modified_at != empty %}
+      {%- unless metadata_modified_date == empty %}
         "dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},
-      {%- endif %}
+      {%- endunless %}
         "author": {"@id": {% include snippets/jsonld-string.html value=page_author_id decode_html=false %}},
         "publisher": {% include snippets/publisher.html %}
       }
     </script>
-    {% if page.breadcrumb_list.size > 0 %}
+    {% if breadcrumb_items.size > 0 %}
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
         "itemListElement": [
-    {% for item in page.breadcrumb_list %}
+    {% for item in breadcrumb_items %}
           {
             "@type": "ListItem",
             "@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb-' | append: forloop.index %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %},
             "position": {{ forloop.index }},
             "name": {% assign jsonld_value = item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name %}{% include snippets/jsonld-string.html value=jsonld_value %},
-            "item": {% assign jsonld_value = item.url | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
+            "item": {% assign jsonld_value = item.url | strip | absolute_url %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}
           },
         {% if forloop.last %}
           {% assign loopplus1 = forloop.index | plus: 1 %}
@@ -113,7 +113,7 @@
         {%- else %}
         "isPartOf": {"@id": {% assign jsonld_value = home_url | append: '#website' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
         {%- endif %}
-        {% if strippedurl != "/" or page.breadcrumb_list.size > 0 %}
+        {% if strippedurl != "/" or breadcrumb_items.size > 0 %}
         "breadcrumb": {"@id": {% assign jsonld_value = canonical_url | append: '#breadcrumb' %}{% include snippets/jsonld-string.html value=jsonld_value decode_html=false %}},
         {% endif %}
         {% if schema_type == 'BlogPosting' %}

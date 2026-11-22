@@ -1,6 +1,7 @@
     {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign home_url = '/' | absolute_url | uri_escape -%}
 {%- include snippets/breadcrumb-names.html -%}
+{%- assign metadata_modified_date = page.last_modified_at | default: '' | strip -%}
 {%- assign metatitle1 = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip  -%}
 {%- assign metatitle2 = site.title | default: site.github.repository_name | markdownify | strip_html | strip -%}
 {%- assign strippedurl = canonical_path -%}
@@ -159,9 +160,9 @@
       {% if page.date %}
     <meta property="article:published_time" content="{{ page.date | date_to_xmlschema | escape }}">
       {% endif %}
-      {% if page.last_modified_at %}
+      {% unless metadata_modified_date == empty %}
     <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema | escape }}">
-      {% endif %}
+      {% endunless %}
       {% assign article_author = page.og_article_author | strip %}
       {% if article_author == empty %}
         {% if page.author %}{% assign article_author = page.author.url | strip %}

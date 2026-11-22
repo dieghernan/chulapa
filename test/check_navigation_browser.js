@@ -51,6 +51,43 @@ async function main() {
     assert.equal(await page.locator("#navi-menu").evaluate(menu => menu.inert && menu.getAttribute("aria-hidden") === "true"), true);
   };
   try {
+    const iconPackage = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/";
+    const iconFiles = path.dirname(require.resolve("@fortawesome/fontawesome-free/package.json"));
+    const iconRoute = `${iconPackage}**`;
+    await page.route(iconRoute, route => {
+      const asset = route.request().url().slice(iconPackage.length);
+      return route.fulfill({ path: path.join(iconFiles, asset), headers: { "access-control-allow-origin": "*" } });
+    });
+    for (const skin of ["chulapa", "journal"]) {
+      for (const width of [320, 390, 575, 576, 767, 768, 991, 992, 1280]) {
+        const label = `${skin}: sharing at ${width}px`;
+        await page.setViewportSize({ width, height: 844 });
+        await page.goto(`http://localhost:8767/${skin}/sharing.html`);
+        await page.evaluate(() => document.fonts.ready);
+        const links = page.getByRole("link", { name: /^Share on / });
+        const names = width < 576 ? ["X", "Bluesky"] : ["X", "Bluesky", "Facebook", "WhatsApp", "LinkedIn"];
+        assert.deepEqual(await links.evaluateAll(nodes => nodes.map(node => node.getAttribute("aria-label"))),
+          names.map(name => `Share on ${name}`), label);
+        const positions = await links.evaluateAll(nodes => nodes.map(node => {
+          const box = node.getBoundingClientRect();
+          return { top: box.top, right: box.right, width: box.width, height: box.height };
+        }));
+        assert.ok(positions.every(box => box.top === positions[0].top && box.width >= 24 && box.height >= 24),
+          `${label}: icons must fit in one row with usable targets`);
+        const separatorRight = await page.locator("header hr").evaluate(separator =>
+          separator.getBoundingClientRect().right);
+        assert.ok(Math.abs(positions.at(-1).right - separatorRight) < 1, `${label}: header separator right edge`);
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true,
+          `${label}: horizontal overflow with a long breadcrumb`);
+        await links.first().focus();
+        for (const link of (await links.all()).slice(1)) {
+          await page.keyboard.press("Tab");
+          assert.ok(await link.evaluate(node => node === document.activeElement && getComputedStyle(node).outlineStyle !== "none"),
+            `${label}: keyboard focus must be visible`);
+        }
+      }
+    }
+    await page.unroute(iconRoute);
     for (const skin of ["chulapa", "navi", "journal", "gitdev", "lux", "flatly", "sketchy"]) {
       for (const width of [320, 390, 1280]) {
         await page.setViewportSize({ width, height: 844 });

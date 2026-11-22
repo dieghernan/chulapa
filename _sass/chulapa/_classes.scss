@@ -118,6 +118,14 @@
   }
 }
 
+.chulapa-breadcrumb .breadcrumb-item {
+  overflow-wrap: anywhere;
+}
+
+.chulapa-share-links a > i {
+  text-align: end;
+}
+
 .chulapaDateSocial {
   color: $body-color;
 

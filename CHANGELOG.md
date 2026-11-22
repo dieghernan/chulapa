@@ -6,6 +6,12 @@
 
 ### Fixed
 
+-   Keep post sharing icons aligned across viewports, show a Bluesky text link with Font Awesome 5 and preserve special characters in share links and footer email subjects.
+
+-   Wrap long breadcrumbs, skip parent entries with blank URLs and keep the publication date visible when the modification date is blank.
+
+-   Preserve percent-encoded values in canonical URLs and the sharing links and metadata that use them.
+
 -   Align the footnote separator with the article and give notes the same side padding as blockquotes. Reduce the list indentation and the space between notes.
 
 ## v2.3.0 (2026-11-20)

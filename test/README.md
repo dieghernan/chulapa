@@ -194,10 +194,12 @@ These checks cover seven skins at 320, 390 and 1280 px, FAB navigation, skip-lin
 focus, Tab, Escape, keyboard dropdown interaction, focus leaving the menu,
 the sidebar's existing Tab behavior, dual-navbar resize
 and classic-navbar keyboard controls. They serve actual generated HTML/CSS/JS
-locally and fulfill the theme's jQuery, Popper and Bootstrap requests from pinned
-npm copies, verifying the template's SRI hashes. Fonts, icons and other external
-services are blocked; no CDN access is needed during the browser run. This is
-separate from the broader axe/visual review below.
+locally and fulfill the theme's jQuery, Popper, Bootstrap and Font Awesome
+requests from pinned npm copies. The tests verify script SRI hashes and block
+other external resources. They check sharing link visibility, alignment with the
+header separator, long breadcrumbs and keyboard focus on Chulapa and Journal
+at 320, 390, 575, 576, 767, 768, 991, 992 and 1280 px. This is separate from
+the broader axe review below.
 The same CI runner also verifies visible fallback links and keyboard navigation
 without JavaScript or CDN access for all seven FAB skins and mobile dual navigation.
 

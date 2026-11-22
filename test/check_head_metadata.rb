@@ -5,6 +5,7 @@ require "json"
 require "tmpdir"
 require "fileutils"
 require "cgi"
+require "uri"
 
 def check(condition, message)
   raise message unless condition
@@ -146,6 +147,19 @@ Dir.mktmpdir("chulapa-head-") do |source|
   end
   fixtures["custom-permalink.md"] = "title: Custom page\npermalink: /custom-location.html\ndate: 2024-02-03\nlast_modified_at: 2024-03-04"
   fixtures["empty-breadcrumbs.md"] = "title: Empty breadcrumbs\nbreadcrumb_list: []"
+  fixtures["blank-breadcrumbs.md"] = <<~YAML
+    title: Blank breadcrumbs
+    breadcrumb_list:
+      - label: No destination
+      - label: Empty destination
+        url: "   "
+      - label: Parent
+        url: " /parent/ "
+  YAML
+  fixtures["fallback-breadcrumbs.md"] = "title: Fallback breadcrumbs\nbreadcrumb_list: [{label: Missing URL}]"
+  fixtures["blank-modified.md"] = "title: Blank modified\nog_type: article\nshow_date: true\ndate: 2024-01-03\nlast_modified_at: '   '"
+  fixtures["empty-modified.md"] = "title: Empty modified\nog_type: article\nshow_date: true\ndate: 2024-01-03\nlast_modified_at: ''"
+  fixtures["canonical-query.md"] = "title: Canonical query\ncanonical_url: 'https://example.net/search/?q=R%2Bstats&filters=a%26b%3Dc'"
   fixtures["untitled.md"] = "excerpt: Untitled page"
   fixtures["_notes/dated-note.md"] = "title: Dated note\ndate: 2024-04-05"
   # The explicit home breadcrumb is exercised in a separate build below.
@@ -189,6 +203,15 @@ Dir.mktmpdir("chulapa-head-") do |source|
       blocks = html.scan(/<script type="application\/ld\+json">(.*?)<\/script>/m).map { |block| JSON.parse(block.first) }
       blocks_by_page[File.basename(path)] = blocks
       canonical = CGI.unescapeHTML(html[/<link rel="canonical" href="([^"]+)"/, 1])
+      if File.basename(path) == "canonical-query.html"
+        expected = "https://example.net/search/?q=R%2Bstats&filters=a%26b%3Dc"
+        check(canonical == expected && metadata(html, "og:url") == expected, "Encoded canonical query changed")
+      end
+      if %w[blank-modified.html empty-modified.html].include?(File.basename(path))
+        check(!html.include?("dt-updated") && !html.include?("chulapa-text-line-through"), "Blank update changed the visible date")
+        check(html.include?("dt-published"), "Blank update removed the publication date")
+        check(metadata(html, "article:modified_time").nil? && blocks.none? { |block| block.key?("dateModified") }, "Blank update leaked into metadata")
+      end
       webpage = blocks.select { |block| block["@type"] == "WebPage" }
       check(webpage.size == 1, "Expected one principal WebPage in #{path}")
       check(webpage.first["@id"] == canonical, "WebPage identifier differs from canonical in #{path}")
@@ -205,7 +228,13 @@ Dir.mktmpdir("chulapa-head-") do |source|
       microdata = html[/<ol[^>]*itemtype="https:\/\/schema.org\/BreadcrumbList"[^>]*>.*?<\/ol>/m]
       if breadcrumb
         items = breadcrumb.fetch("itemListElement")
+        if File.basename(path) == "blank-breadcrumbs.html"
+          check(items.size == 2 && items.first["item"] == "https://example.com#{config.fetch('baseurl')}/parent/", "Invalid custom breadcrumb was retained")
+        elsif File.basename(path) == "fallback-breadcrumbs.html"
+          check(items.size == 2 && items.first["item"] == "https://example.com#{config.fetch('baseurl')}/", "Missing custom breadcrumb fallback")
+        end
         check(items.size >= 2 && items.all? { |item| !item.fetch("name").strip.empty? }, "Breadcrumb has missing names or too few items in #{path}")
+        check(items.all? { |item| item["@type"] == "ListItem" && URI.parse(item.fetch("item")).is_a?(URI::HTTP) }, "Breadcrumb has an invalid item in #{path}")
         check(items.map { |item| item["position"] } == (1..items.size).to_a, "Breadcrumb positions incorrect")
         check(items.map { |item| item["@id"] } == (1..items.size).map { |position| canonical + "#breadcrumb-#{position}" }, "Breadcrumb element identifiers incorrect")
         check(items.last["item"] == canonical, "Current breadcrumb URL missing")
@@ -252,7 +281,8 @@ Dir.mktmpdir("chulapa-head-") do |source|
           check((author["sameAs"] || []) == expected_urls, "Author social links changed")
         end
       end
-      check(metadata(html, "og:type") == (path.end_with?("example.html", "robots-post.html") ? "article" : "website"), "Incorrect OG type")
+      article = path.end_with?("example.html", "robots-post.html", "blank-modified.html", "empty-modified.html")
+      check(metadata(html, "og:type") == (article ? "article" : "website"), "Incorrect OG type in #{path}")
     end
 
     entities = blocks_by_page.fetch("entities.html")

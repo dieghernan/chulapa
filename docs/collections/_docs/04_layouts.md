@@ -105,9 +105,12 @@ project_links:
 ---
 ```
 - `show_date`: Display the publication date and the last modified date,
-  if provided.
-- `show_sociallinks`: Display sharing links for Facebook, Twitter/X, WhatsApp
-  and LinkedIn.
+  if provided. In the development version, a blank `last_modified_at` displays
+  the publication date alone.
+- `show_sociallinks`: Display sharing links for X and Bluesky. Facebook,
+  WhatsApp and LinkedIn also appear at widths of 576 px and above. In the
+  development version, the Bluesky link displays its name as text with Font
+  Awesome 5.
 - `show_author`: Set it to `true` to display the page author. It uses the site
   [author settings](https://dieghernan.github.io/chulapa/docs/02-config) unless
   the page supplies its own author mapping:
@@ -185,8 +188,9 @@ Their links also work without JavaScript.
   `comments.provider` is configured.
 - `show_breadcrumb`: Shows breadcrumb navigation on a page. Use with
   `breadcrumb_list`.
-- `breadcrumb_list`: A list with breadcrumbs. It is a good practice to set this
-  on your defaults.
+- `breadcrumb_list`: A list of parent breadcrumbs. Give each entry a `url`.
+  The development version skips entries with a missing or blank URL. Use
+  defaults for paths shared by several pages.
 
 ```yaml
 ---

@@ -4,14 +4,21 @@
   {%- assign canonical_path_size = canonical_path | size | minus: 10 -%}
   {%- assign canonical_path = canonical_path | slice: 0, canonical_path_size -%}
 {%- endif -%}
-{%- assign canonical_url = canonical_path | absolute_url | uri_escape -%}
+{%- assign canonical_url = canonical_path -%}
 {%- assign canonical_override = include.canonical | strip | split: '#' | first | strip -%}
 {%- assign canonical_scheme = canonical_override | slice: 0, 8 | downcase -%}
 {%- assign canonical_http = canonical_override | slice: 0, 7 | downcase -%}
 {%- assign canonical_prefix = canonical_override | slice: 0, 1 -%}
 {%- assign canonical_double_slash = canonical_override | slice: 0, 2 -%}
 {%- if canonical_scheme == 'https://' or canonical_http == 'http://' -%}
-  {%- assign canonical_url = canonical_override | uri_escape -%}
+  {%- assign canonical_url = canonical_override -%}
 {%- elsif canonical_prefix == '/' and canonical_double_slash != '//' -%}
-  {%- assign canonical_url = canonical_override | absolute_url | uri_escape -%}
+  {%- assign canonical_url = canonical_override -%}
 {%- endif -%}
+{%- comment -%}
+Resolve the path separately. Decoding reserved characters such as %2B or %26
+while resolving or escaping a query can change its parameters.
+{%- endcomment -%}
+{%- assign canonical_address = canonical_url | split: '?' | first -%}
+{%- assign canonical_query = canonical_url | remove_first: canonical_address | replace: '%', '%25' | uri_escape | replace: '%25', '%' -%}
+{%- assign canonical_url = canonical_address | absolute_url | replace: '%', '%25' | uri_escape | replace: '%25', '%' | append: canonical_query -%}
