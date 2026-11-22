@@ -25,50 +25,13 @@ breadcrumb_list:
 <main class="container-lg pt-2 pb-5 flex-fill">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 my-auto text-center">
-          <form class="input-group">
-            <label class="sr-only" for="search-input"> Search </label>
-            <input type="search" id="search-input" class="form-control rounded-right" placeholder="{{ site.search.label | default: "Search" }}...">
-        </form>
-        <p class="text-right small mt-1"> Powered by <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></p>
-        
-        <div id="results-container" class="mt-3 text-left"></div>
-        
-        <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-        
-        <script>
-            SimpleJekyllSearch({
-            searchInput: document.getElementById('search-input'),
-            resultsContainer: document.getElementById('results-container'),
-            searchResultTemplate:   '<article class="my-2 text-left">' 	+
-                            '<div class="row">'	+
-                            '<div class="col">' +
-                            '<h5 class="chulapa-links-hover-only">' +
-                            '<a href="{url}" rel="permalink">{title}</a>' +
-                            '</h5>' +
-                            '</div>'		+
-                  '<div class="col-4 col-md-3">' +
-                  '<a href="{url}" rel="permalink">' +
-                  '<div class="rounded-lg chulapa-overlay-img chulapa-min-h-10"'+
-                  'style="background-image{img}" ></div>' +
-                  '</div></a>' +
-                            '</div>' +		
-                            '<div class="row mt-2">' +
-                            '<div class="col">' +
-                            '<div class="small border-left pl-3">{excerpt}</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<hr>' +
-                  '</article>',
-            fuzzy: false,
-            json: '{{ "/assets/demo-simplesearch.json" | absolute_url }}' 
-            });
-        </script>
+          {%- include search/simplesearch.html store='/assets/demo-simplesearch.json' -%}
         </div>
     </div>
 
 <section class="container-lg py-4 text-left" aria-label="Demo front matter">
   <h2 class="h4">Front matter for this demo</h2>
-  <p>This demo uses custom HTML to select the provider directly. Copying its front matter alone does not configure a search page. For your site, follow the <a href="{{ '/docs/12-fusejs-search' | relative_url }}">local search setup</a>: the standard page uses <code>layout: search</code> and <code>search.provider</code> in <code>_config.yml</code>. The code below shows this demo's own front matter.</p>
+  <p>This demo uses custom HTML to select the provider directly. Copying its front matter alone does not configure a search page. For your site, follow the <a href="{{ '/docs/35-simplesearch-search' | relative_url }}">Simple-Jekyll-Search setup</a>: the standard page uses <code>layout: search</code> and <code>search.provider</code> in <code>_config.yml</code>. The code below shows this demo's own front matter.</p>
 {% highlight yaml %}
 ---
 layout: null
@@ -85,6 +48,7 @@ breadcrumb_list:
 </section>
 </main>
 	{%- include_cached footer.html -%}
+	{% include components/scripts.html %}
 {% include custom/custom_bottomscripts.html %}
 </body>
 </html>

@@ -42,6 +42,9 @@ In v2.3.0, relative links and section links inside result excerpts
 open their destination in the source article. This theme fix needs no index
 upload or additional configuration.
 
+In the development version, results display the indexed title as plain text
+when Algolia does not provide a highlighted title.
+
 Preserve other settings, particularly existing Algolia exclusions and ranking.
 Keep your current search address if different. Reuse the page at that address;
 if absent, create `search.md` next to `_config.yml`:

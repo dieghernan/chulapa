@@ -3,6 +3,7 @@
 {% else %}
 	{% assign show_attrib = true %}
 {% endif %}
+{% assign simplesearch_store = include.store | default: '/assets/js/simplesearch/simplesearch-store.json' %}
 
 <form role="search" class="input-group">
     <label class="sr-only" for="search-input"> Search </label>
@@ -41,6 +42,6 @@
 					'<hr>' +
 					'</article>',
     fuzzy: false,
-    json: '{{ "/assets/js/simplesearch/simplesearch-store.json" | absolute_url }}' 
+    json: {{ simplesearch_store | absolute_url | jsonify }}
     });
 </script>
