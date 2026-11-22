@@ -3,3 +3,10 @@
 {%- assign breadcrumb_site_name = breadcrumb_site_name | default: breadcrumb_repository_name | default: 'Home' -%}
 {%- assign breadcrumb_home_name = site.navbar.brand.title | strip_html | strip | default: breadcrumb_site_name -%}
 {%- assign breadcrumb_page_name = page.title | markdownify | strip_html | strip | default: breadcrumb_site_name -%}
+{%- assign breadcrumb_items = '' | split: ',' -%}
+{%- for item in page.breadcrumb_list -%}
+  {%- assign breadcrumb_item_url = item.url | strip -%}
+  {%- unless breadcrumb_item_url == empty -%}
+    {%- assign breadcrumb_items = breadcrumb_items | push: item -%}
+  {%- endunless -%}
+{%- endfor -%}

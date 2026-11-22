@@ -1,22 +1,20 @@
 {%- include snippets/canonical-url.html url=page.url canonical=page.canonical_url -%}
 {%- assign breadcrumb_page_url = canonical_path -%}
 {%- include snippets/breadcrumb-names.html -%}
-{%- assign sharetitle = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | strip_newlines }}  -%}
 {%- assign classbread = "col-lg-8" -%}
 {%- if page.show_sociallinks -%}
   {%- assign classbread = "col-lg-5" -%}
 {% endif %}
 
-{% assign tagsize = page.tags | size %}
-<div class="row my-1">
+<div class="row my-1{% if page.show_sociallinks %} pr-1 pr-lg-0{% endif %}">
 <div class="{{ classbread }} offset-lg-2 col small">
-  {% if page.show_breadcrumb and breadcrumb_page_url != '/' or page.show_breadcrumb and page.breadcrumb_list.size > 0 %}
-  <nav aria-label="breadcrumb">
+  {% if page.show_breadcrumb and breadcrumb_page_url != '/' or page.show_breadcrumb and breadcrumb_items.size > 0 %}
+  <nav aria-label="breadcrumb" class="chulapa-breadcrumb">
    <ol class="breadcrumb my-0 py-0 chulapa-bg-transparent pl-0" itemscope itemtype="https://schema.org/BreadcrumbList" itemid="{{ canonical_url | append: '#breadcrumb' | escape }}">
-     {% if page.breadcrumb_list.size > 0 %}
-       {% for item in page.breadcrumb_list %}
+     {% if breadcrumb_items.size > 0 %}
+       {% for item in breadcrumb_items %}
              <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem" itemid="{{ canonical_url | append: '#breadcrumb-' | append: forloop.index | escape }}"><a href="{{ item.url | absolute_url | escape }}" itemprop="item"><span itemprop="name">{{ item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name | escape_once }}</span></a>
+          itemtype="https://schema.org/ListItem" itemid="{{ canonical_url | append: '#breadcrumb-' | append: forloop.index | escape }}"><a href="{{ item.url | strip | absolute_url | escape }}" itemprop="item"><span itemprop="name">{{ item.label | strip_html | strip | default: item.url | default: breadcrumb_home_name | escape_once }}</span></a>
           <meta itemprop="position" content="{{ forloop.index }}" ></li>
           {% if forloop.last %}
           {% assign loopplus1 = forloop.index | plus: 1 %}
@@ -44,39 +42,49 @@
   {% endif %}
               {%- if page.date and page.show_date -%}
          <div class="chulapaDateSocial">
-            {% if page.last_modified_at %}
+            {%- assign breadcrumb_modified_date = page.last_modified_at | default: '' | strip -%}
+            {% unless breadcrumb_modified_date == empty %}
             {%- assign dateformat1 = page.last_modified_at | date_to_string -%}
             {%- assign dateformat2 = page.date | date_to_string -%}
-            <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time> 
+            <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time>
             <i class="fa fa-redo fa-xs" aria-hidden="true"></i>
             <br>
             <time class="dt-published font-weight-light chulapa-text-line-through" datetime="{{ page.date | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat2 %}</time>
             {% else %}
             {%- assign dateformat = page.date | date_to_string -%}
             <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published" >{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
-            {% endif %}
+            {% endunless %}
          </div>
       {%- endif -%}
   
 </div>
           {%- if page.show_sociallinks -%}
+            {%- assign share_title = page.title | default: site.title | default: site.github.repository_name | markdownify | strip_html | normalize_whitespace | strip
+              | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&amp;', '&' -%}
+            {%- assign share_url_param = canonical_url | url_encode -%}
+            {%- assign share_title_param = share_title | url_encode -%}
+            {%- assign share_text = share_title | append: ' ' | append: canonical_url -%}
+            {%- assign share_text_param = share_text | url_encode -%}
+            {%- assign share_tags = page.tags | join: ',' | remove: ' ' | remove: '-' -%}
+            {%- capture bluesky_text -%}
+              {{- share_text -}}
+              {%- for tag in page.tags -%}
+                {{- tag | remove: ' ' | remove: '-' | prepend: ' #' -}}
+              {%- endfor -%}
+            {%- endcapture -%}
             {%- assign x_icon = "fa-square-x-twitter" -%}
-
-
-            {% if site.fa_version == 5 -%}
+            {%- assign legacy_share_icons = false -%}
+            {%- if site.fa_version == 5 or site.fa_version == '5' -%}
               {%- assign x_icon = "fa-twitter-square" -%}
+              {%- assign legacy_share_icons = true -%}
             {%- endif %}
 
-          <div class="col-lg-3 col-sm-4 col-3 text-right lead chulapaDateSocial">
-            <a  href="https://twitter.com/intent/tweet?url={{ canonical_url }}&text={{ sharetitle | url_encode }}{%- if site.twitter_site -%}&via={{- site.twitter_site -}}{%- endif -%}{%- if tagsize > 0 -%}&hashtags={{- page.tags | join: "," | replace: " ", "-" | replace: "-", "" -}}{%- endif -%}" title="Share on X" aria-label="Share on X" ><i class="fab {{ x_icon }} fa-lg" aria-hidden="true"></i></a>
-            
-            <a href="https://bsky.app/intent/compose?text={{ sharetitle | uri_escape }}%20{{ canonical_url }}{%- if tagsize > 0 -%}%20%23{{- page.tags | join: '%20%23' | replace: " ", "-" | replace: "-", "" -}}{%- endif -%}" title="Share on Bluesky" aria-label="Share on Bluesky"><i class="fa-brands fa-square-bluesky fa-lg" aria-hidden="true"></i></a>
-            
-            <a  class="d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u={{ canonical_url }}" title="Share on Facebook" aria-label="Share on Facebook" ><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
-
-             <a  class="d-none d-sm-inline" href="https://api.whatsapp.com/send?&text={{ sharetitle | url_encode }}%20{{ canonical_url }}" title="Share on Whatsapp" aria-label="Share on Whatsapp" ><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
-         <a  class="d-none d-sm-inline" href="https://www.linkedin.com/shareArticle?url={{ canonical_url }}&title={{ sharetitle | url_encode }}" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
-
+          <div class="col-auto col-lg-3 lead chulapaDateSocial chulapa-share-links d-flex align-self-start flex-wrap justify-content-end mr-n1">
+            <a href="https://twitter.com/intent/tweet?url={{ share_url_param }}&amp;text={{ share_title_param }}{%- if site.twitter_site -%}&amp;via={{ site.twitter_site | url_encode }}{%- endif -%}{%- unless share_tags == empty -%}&amp;hashtags={{ share_tags | url_encode }}{%- endunless -%}" title="Share on X" aria-label="Share on X"><i class="fab {{ x_icon }} fa-lg" aria-hidden="true"></i></a>
+            <a class="ml-1" href="https://bsky.app/intent/compose?text={{ bluesky_text | url_encode }}" title="Share on Bluesky" aria-label="Share on Bluesky">{% if legacy_share_icons %}<span class="small">Bluesky</span>{% else %}<i class="fa-brands fa-square-bluesky fa-lg" aria-hidden="true"></i>{% endif %}</a>
+            <a class="ml-1 d-none d-sm-inline" href="https://www.facebook.com/sharer.php?u={{ share_url_param }}" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+            <a class="ml-1 d-none d-sm-inline" href="https://api.whatsapp.com/send?text={{ share_text_param }}" title="Share on WhatsApp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp-square fa-lg" aria-hidden="true"></i></a>
+            <a class="ml-1 d-none d-sm-inline" href="https://www.linkedin.com/shareArticle?url={{ share_url_param }}&amp;title={{ share_title_param }}" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
           </div>
           {%- endif -%}
 </div>

@@ -319,6 +319,13 @@
     "expected": "Use snippets/spotify.html with type=\"playlist\", the ID after /playlist/ and before any ? in the share URL, and a descriptive title. The player is 352px tall. The snippet is development only; use Spotify's generated iframe on v2.3.0 or earlier. The direct link is preserved in full feed content. Cite /docs/04-layouts#spotify-embeds."
   },
   {
+    "id": "post-sharing-links-responsive",
+    "section": "layouts",
+    "doc": "04_layouts.md",
+    "question": "I set show_sociallinks: true. Why can I share to Bluesky on my phone but not to WhatsApp or LinkedIn?",
+    "expected": "The page flag enables sharing. X and Bluesky appear at all widths; Facebook, WhatsApp and LinkedIn appear from 576 px. Link the layout option reference at /docs/04-layouts#options."
+  },
+  {
     "id": "navigation-edit-existing-1",
     "section": "configuration",
     "doc": "10_edit-menu.md",
