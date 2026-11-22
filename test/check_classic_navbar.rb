@@ -28,6 +28,8 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         normalize = ->(node) { node.to_html.gsub(/>\s+</, '><').gsub(/\s+/, ' ').strip }
         raise "Demo and real classic navbar differ: #{expand}/#{style}/#{baseurl}\n#{normalize.call(nav)}\n#{normalize.call(standard)}" unless normalize.call(nav) == normalize.call(standard)
         raise 'Floating navbar leaked into demo' unless demo.css('#navi-toggle').empty?
+        raise 'Demo must expose its classic fallback immediately without scripts' unless
+          demo.css('head noscript').any? { |node| node.inner_html.include?('--chulapa-classic-fallback-delay: 0s') }
         expected = expand == 'always' ? 'navbar-expand' : expand == 'never' ? nil : "navbar-expand-#{expand || 'md'}"
         classes = nav['class'].split.grep(/^navbar-expand/)
         raise 'Wrong expansion breakpoint' unless classes == [expected].compact

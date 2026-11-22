@@ -22,15 +22,17 @@
 			{%- endif -%}{{- site.navbar.brand.title -}}</a>
 			{%- if site.navbar.nav or site.search.provider or dark_skin_enabled -%}
 			{%- if site.navbar.nav or site.search.provider -%}
-			<details class="chulapa-classic-fallback w-100">
-				<summary class="navbar-text py-1">Menu</summary>
+			<details class="chulapa-classic-fallback">
+				<summary class="navbar-toggler" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon" aria-hidden="true"></span>
+				</summary>
 				{% include components/navigation-fallback-links.html pageurl=include.pageurl vertical=true %}
 			</details>
 			{%- endif -%}
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation" data-classic-nav-control hidden>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation" data-classic-nav-control aria-hidden="true" inert>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarToggler" data-classic-nav-control hidden>
+			<div class="collapse navbar-collapse" id="navbarToggler" data-classic-nav-control aria-hidden="true" inert>
 				<ul class="navbar-nav ml-auto">
 				{%- for item in site.navbar.nav -%}
 					{%- if item.child[0] -%}

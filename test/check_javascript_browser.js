@@ -80,7 +80,7 @@ async function checkClipboardTooltips(browser) {
           const toggle = page.getByRole('button', {name: 'Toggle navigation', exact: true});
           await toggle.focus();
           await page.keyboard.press('Enter');
-          await page.waitForFunction(() => document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'true');
+          await page.waitForFunction(() => document.querySelector('button.navbar-toggler').getAttribute('aria-expanded') === 'true');
           assert.equal(await page.getByRole('link', {name: 'Search', exact: true}).isVisible(), true);
           assert.deepEqual(errors, [], `Classic navbar demo with ${mode}`);
         }

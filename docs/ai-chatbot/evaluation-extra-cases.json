@@ -361,6 +361,13 @@
     "expected": "In development, a configured provider shows Search in the classic and desktop dual navbars without navbar.nav. In v2.3.0 those modes also need navbar.nav or the theme selector. The provider does not create the search page. Its permalink must match search.landing_page; include baseurl only in the browser address. Link the Fuse.js setup guide."
   },
   {
+    "id": "classic-navbar-loading-fallback",
+    "section": "configuration",
+    "doc": "48_accessibility-reference.md",
+    "question": "What happens if the classic menu takes too long to load or I disable JavaScript?",
+    "expected": "Development v2.3.1 shows the usual navbar first; after three seconds pending, its menu icon opens a native disclosure. Available immediately with JavaScript disabled or a detected Bootstrap failure. Enter or Space opens, Tab reaches links. Link the accessibility reference."
+  },
+  {
     "id": "site-details-edit-1",
     "section": "configuration",
     "doc": "14_site-details.md",

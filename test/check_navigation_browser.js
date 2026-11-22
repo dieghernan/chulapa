@@ -54,15 +54,17 @@ async function main() {
     await fallbackPage.goto("http://localhost:8767/navi-classic/article.html");
     const details = fallbackPage.locator(".chulapa-classic-fallback");
     const trigger = details.locator("summary");
-    assert.equal(await trigger.isVisible(), true);
-    assert.equal(await fallbackPage.locator(".navbar-toggler").isVisible(), false);
+    await trigger.waitFor({ state: "visible" });
+    assert.equal(await trigger.getAttribute("aria-label"), "Toggle navigation");
+    assert.equal(await details.evaluate(node => getComputedStyle(node).animationDelay), "0s");
+    assert.equal(await fallbackPage.locator("button.navbar-toggler").isVisible(), false);
     await trigger.focus();
     await fallbackPage.keyboard.press("Enter");
     const disclosure = await trigger.evaluate(summary => ({
-      display: getComputedStyle(summary).display,
+      open: summary.parentElement.open,
       focusVisible: summary.matches(":focus-visible") && getComputedStyle(summary).outlineStyle !== "none"
     }));
-    assert.deepEqual(disclosure, { display: "list-item", focusVisible: true });
+    assert.deepEqual(disclosure, { open: true, focusVisible: true });
     const links = details.getByRole("link");
     assert.deepEqual(await links.allTextContents(), ["Home", "Article"]);
     await fallbackPage.keyboard.press("Tab");
@@ -81,6 +83,49 @@ async function main() {
     }), true, "The last fallback link must be visible when reached by keyboard");
   };
   try {
+    for (const [skin, width, waitForFallback] of [
+      ["navi", 320, false], ["navi", 1280, false],
+      ["navi", 320, true], ["journal", 320, true], ["journal", 1280, true]
+    ]) {
+      const slow = await context.newPage();
+      let loadNavigation;
+      const delay = new Promise(resolve => { loadNavigation = resolve; });
+      await slow.route("**/chulapa_navigation.js", async route => {
+        await delay;
+        await serveFixture(route);
+      });
+      try {
+        await slow.setViewportSize({ width, height: 844 });
+        await slow.goto(`http://localhost:8767/${skin}-classic/article.html`, { waitUntil: "commit" });
+        await slow.waitForFunction(() => document.querySelector("#maincontent") && getComputedStyle(document.body).display === "flex");
+        const positions = () => slow.evaluate(async () => {
+          await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          const nav = document.querySelector("nav.navbar").getBoundingClientRect();
+          const brand = document.querySelector("nav .navbar-brand").getBoundingClientRect();
+          return [nav.height, brand.x, brand.y, document.querySelector("#maincontent").getBoundingClientRect().top];
+        });
+        const before = await positions();
+        const fallback = slow.locator(".chulapa-classic-fallback");
+        assert.equal(await fallback.isVisible(), false);
+        assert.equal(await fallback.evaluate(node => getComputedStyle(node).animationDelay), "3s");
+        const standardToggle = slow.locator("button.navbar-toggler");
+        if (width === 320) assert.equal(await standardToggle.isVisible(), true);
+        if (waitForFallback) {
+          const beforeToggle = await standardToggle.boundingBox();
+          const fallbackToggle = fallback.locator("summary");
+          await fallbackToggle.waitFor({ state: "visible" });
+          if (beforeToggle) assert.deepEqual(await fallbackToggle.boundingBox(), beforeToggle, `${skin}: the mobile menu icon moved`);
+        }
+        loadNavigation();
+        await slow.waitForLoadState("load");
+        assert.equal(await fallback.isVisible(), waitForFallback);
+        assert.equal(await slow.locator("#navbarToggler").getAttribute("inert") !== null, waitForFallback);
+        assert.deepEqual(await positions(), before, `Classic navbar moved during load at ${width}px`);
+      } finally {
+        loadNavigation();
+        await slow.close();
+      }
+    }
     const iconPackage = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/";
     const iconFiles = path.dirname(require.resolve("@fortawesome/fontawesome-free/package.json"));
     const iconRoute = `${iconPackage}**`;
@@ -265,15 +310,15 @@ async function main() {
     await closed();
     await page.setViewportSize({ width: 390, height: 844 });
     await load("navi-classic");
-    await page.locator(".navbar-toggler").focus();
+    await page.locator("button.navbar-toggler").focus();
     await page.keyboard.press("Space");
-    await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "true");
+    await page.waitForFunction(() => document.querySelector("button.navbar-toggler").getAttribute("aria-expanded") === "true");
     await page.waitForFunction(() => {
-      const menu = document.getElementById(document.querySelector(".navbar-toggler").getAttribute("aria-controls"));
+      const menu = document.getElementById(document.querySelector("button.navbar-toggler").getAttribute("aria-controls"));
       return menu.classList.contains("show") && !menu.classList.contains("collapsing");
     });
     await page.keyboard.press("Space");
-    await page.waitForFunction(() => document.querySelector(".navbar-toggler").getAttribute("aria-expanded") === "false");
+    await page.waitForFunction(() => document.querySelector("button.navbar-toggler").getAttribute("aria-expanded") === "false");
     assert.deepEqual(errors, [], "Unexpected JavaScript errors in generated pages");
     const navbarSkins = JSON.parse(fs.readFileSync(path.join(directory, "navbar-skins.json"), "utf8"));
     assert.ok(navbarSkins.length > 0, "Skin catalog must not be empty");

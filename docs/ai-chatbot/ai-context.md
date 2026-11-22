@@ -260,7 +260,7 @@ Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
 https://dieghernan.github.io/chulapa/docs/10-edit-menu
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#footer
 https://dieghernan.github.io/chulapa/docs/11-edit-footer
-navbar.nav title/url or title/child title/url; one level. style omitted=classic, fab=floating, dual=floating/classic. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. Classic Search label shows collapsed, hides at expand (always hidden; never visible). brand:title,img,url. Dev classic native Menu if Bootstrap or JS is unavailable.
+navbar.nav title/url or title/child title/url; one level. style omitted=classic, fab=floating, dual=floating/classic. expand sm/md/lg/xl (md default); classic always/never=expanded/collapsed, dual always/never=sm/xl. Classic Search label shows collapsed, hides at expand (always hidden; never visible). brand:title,img,url. Dev classic native menu after 3s pending, immediate if JS off or Bootstrap fails.
 
 ```yaml
 navbar:
