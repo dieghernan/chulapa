@@ -26,7 +26,7 @@
         "inLanguage": "en-US",
         "headline": "Connect an existing self-hosted Cusdis service",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-22T16:31:55+01:00",
+        "datePublished": "2026-11-22T17:04:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -306,6 +306,10 @@ appropriate, submit a test comment and verify it in your service. Check existing
 threads too; the theme supplies page identifiers automatically, so a change of
 theme or provider may require service-side thread matching. Comments do not
 migrate automatically between providers.</p>
+<p>In the development version, an ordinary page without a Jekyll page ID uses its
+published URL as the discussion ID. Posts with a Jekyll ID retain it. If two
+older pages shared a blank ID, check those threads in your Cusdis service when
+upgrading.</p>
 <p>If it does not load, verify the host and app ID, <code class="language-plaintext highlighter-rouge">show_comments</code>, layout and site
 build. Check failed requests to your host, HTTPS/mixed-content errors, browser
 blockers and any Content Security Policy. Omitting <code class="language-plaintext highlighter-rouge">cusdis_host</code> uses the old

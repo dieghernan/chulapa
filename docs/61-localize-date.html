@@ -35,7 +35,7 @@
         "inLanguage": "en-US",
         "headline": "Display an article date in another language",
         "image": "https://dieghernan.github.io/chulapa/assets/img/site/banner-docs.png",
-        "datePublished": "2026-11-22T16:31:55+01:00",
+        "datePublished": "2026-11-22T17:04:10+01:00",
         "author": {"@id": "https://dieghernan.github.io/chulapa/#author"},
         "publisher": {
           "@type": "Person",
@@ -307,6 +307,9 @@ explicitly sets <code class="language-plaintext highlighter-rouge">date</code>. 
 weekday names into Spanish, French, German or Italian. English is the fallback.</p>
 <p>This task changes the date text you insert. It does not change the stored date,
 translate the article or replace every date elsewhere on the website.</p>
+<p>In the development version, the dates shown by <code class="language-plaintext highlighter-rouge">show_date</code> follow the page’s
+<code class="language-plaintext highlighter-rouge">locale</code> when set. Otherwise they use the site locale. The manual include below
+uses its own <code class="language-plaintext highlighter-rouge">lang</code> parameter or the site locale.</p>
 <h2 id="insert-the-date">Insert the date</h2>
 <p>Open the article’s <code class="language-plaintext highlighter-rouge">.md</code> file. Below its front matter (the settings between the
 <code class="language-plaintext highlighter-rouge">---</code> lines), insert this complete example, outside any code fence:</p>
