@@ -2,9 +2,14 @@
   "name": "chulapa-ai-search",
   "private": true,
   "scripts": {
-    "test": "node --test scripts/sync-ai-search.test.mjs scripts/indexnow.test.mjs"
+    "test": "node --test scripts/sync-ai-search.test.mjs scripts/indexnow.test.mjs",
+    "build:theme-js": "node scripts/minify-theme-js.mjs",
+    "check:theme-js": "node scripts/minify-theme-js.mjs --check"
   },
   "dependencies": {
     "sanitize-html": "^2.18.1"
+  },
+  "devDependencies": {
+    "terser": "5.51.4"
   }
 }

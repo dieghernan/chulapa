@@ -57,6 +57,11 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
+          cache: npm
+      - name: Check generated theme scripts
+        run: |
+          npm ci
+          npm run check:theme-js
       - name: Check theme JavaScript and highlighting
         run: node --test test/check_chulapa_script.js test/check_mermaid.mjs test/check_photoswipe.mjs test/check_highlighting_security.js
 

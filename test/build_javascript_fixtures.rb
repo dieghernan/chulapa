@@ -35,9 +35,10 @@ output = File.expand_path(ARGV.fetch(0))
       config = Jekyll.configuration("source" => source, "destination" => File.join(output, name), "url" => "http://127.0.0.1:8770", "baseurl" => baseurl, "quiet" => true, "title" => "JavaScript fixture", "plugins" => ["jekyll-include-cache"], "search" => {"provider" => provider}, "navbar" => {"style" => "fab", "brand" => {"title" => "Fixture", "url" => "/video.html"}})
       Dir.chdir(source) { Jekyll::Site.new(config).process }
       search = Nokogiri::HTML(File.read(File.join(output, name, "search.html")))
-      raise "Search preloads unused theme script" if search.at_css('link[rel="preload"][href$="chulapa_script.js"]')
+      content_preload = 'link[rel="preload"][href$="chulapa_script.min.js"], link[rel="preload"][href$="chulapa_script.js"]'
+      raise "Search preloads unused theme script" if search.at_css(content_preload)
       inherited = Nokogiri::HTML(File.read(File.join(output, name, "inherited-search.html")))
-      raise "Inherited search preloads unused theme script" if inherited.at_css('link[rel="preload"][href$="chulapa_script.js"]')
+      raise "Inherited search preloads unused theme script" if inherited.at_css(content_preload)
       scripts = search.css('script[src]').map { |node| node["src"] }
       common = "#{baseurl}/assets/js/chulapa_search.js"
       engine = "http://127.0.0.1:8770#{baseurl}/assets/js/#{provider}/#{provider}-search.min.js"
@@ -45,7 +46,7 @@ output = File.expand_path(ARGV.fetch(0))
       ["demo/classic-navbar.html", "demo/search_lunr.html", "demo/search_fusejs.html", "demo/search_simple.html", "demo/search_google.html", "404.html"].each do |page|
         document = Nokogiri::HTML(File.read(File.join(output, name, page)))
         sources = document.css('script[src]').map { |node| node["src"] }
-        %w[jquery.slim.min.js bootstrap.min.js chulapa_navigation.js].each do |asset|
+        %w[jquery.slim.min.js bootstrap.min.js chulapa_navigation.min.js].each do |asset|
           raise "Duplicate/missing #{asset} in #{page}" unless sources.count { |url| url.end_with?(asset) } == 1
         end
         adapter = sources.find { |url| url.match?(%r{/(lunr|fusejs)-search(?:\.min)?\.js$}) }
@@ -54,8 +55,9 @@ output = File.expand_path(ARGV.fetch(0))
         end
       end
       video = Nokogiri::HTML(File.read(File.join(output, name, "video.html")))
-      raise "Theme script missing" unless video.css('script[src$="chulapa_script.js"]').size == 1
-      raise "Video preload missing" unless video.at_css('link[rel="preload"][href$="chulapa_script.js"]')
+      content_script_url = "#{baseurl}/assets/js/chulapa_script.min.js"
+      raise "Theme script missing" unless video.css("script[src='#{content_script_url}']").size == 1
+      raise "Video preload does not match the script" unless video.at_css("link[rel='preload'][as='script'][href='#{content_script_url}']")
       raise "No-JavaScript video links missing" unless video.css('noscript a[href^="https://www.youtube.com/watch"]').size == 2
     end
   end

@@ -306,6 +306,11 @@ Google tags and root/subdirectory configurations without sending analytics.
 
 ## JavaScript integration regressions
 
+Run `npm ci` and `npm run build:theme-js` from the repository root after
+editing `chulapa_script.js` or `chulapa_navigation.js`. Commit the generated
+`.min.js` files with their sources. `npm run check:theme-js` checks that
+they match. Jekyll serves those files directly in theme builds.
+
 After installing `test/browser` dependencies, build and check the isolated sites:
 
 ```sh

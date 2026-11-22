@@ -6,6 +6,8 @@
 
 ### Fixed
 
+-   Serve minified copies of the shared navigation and content JavaScript.
+
 -   Reserve space for the Light/Dark/Auto selector during startup so it does not move the other navigation links.
 
 -   Show Search in the classic and desktop dual navbars without custom menu entries and keep the sidebar TOC button out of the Tab order until it works.

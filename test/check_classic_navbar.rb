@@ -58,7 +58,7 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
           raise "Duplicate/missing #{library}" unless demo.css('script[src]').count { |s| s['src'].include?(library) } == 1
         end
         raise 'Custom hook duplicated' unless demo.css('#custom-bottom').size == 1
-        raise 'Theme script missing' unless demo.at_css("script[src='#{baseurl}/assets/js/chulapa_script.js']")
+        raise 'Theme script missing' unless demo.at_css("script[src='#{baseurl}/assets/js/chulapa_script.min.js']")
       end
     end
   end

@@ -5,8 +5,8 @@ const path = require("node:path");
 const vm = require("node:vm");
 const test = require("node:test");
 
-const script = fs.readFileSync(path.join(__dirname, "../assets/js/chulapa_navigation.js"), "utf8") + "\n" + fs.readFileSync(
-  path.join(__dirname, "../assets/js/chulapa_script.js"), "utf8"
+const script = fs.readFileSync(path.join(__dirname, "../assets/js/chulapa_navigation.min.js"), "utf8") + "\n" + fs.readFileSync(
+  path.join(__dirname, "../assets/js/chulapa_script.min.js"), "utf8"
 );
 
 function element(tagName) {

@@ -1068,6 +1068,11 @@ In v2.3.0, `_includes/components/scripts.html` loads jQuery Slim
 local copy of this include or hardcoded script tags, update the URLs and their
 integrity hashes together. The built-in layouts use the updated include.
 
+The development version serves `chulapa_navigation.min.js` and
+`chulapa_script.min.js` from `assets/js/`. If you override either shared script,
+match the filename in your layout or script include. The theme ships both
+readable and minified copies.
+
 **If you have copied a layout or search page into your site, review it when
 updating the theme.** Your copy takes precedence and will not receive updates
 automatically. For working search-page examples, see

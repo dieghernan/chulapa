@@ -23,7 +23,23 @@ leaked = package.spec.files.select do |path|
   private_roots.include?(path.split("/").first) || File.basename(path) == "AGENTS.md"
 end
 raise "Non-theme files packaged: #{leaked.join(', ')}" unless leaked.empty?
-%w[_includes/snippets/og-locale.html _includes/snippets/page-language.html _includes/snippets/canonical-url.html _includes/snippets/video-metadata.html assets/js/ch_ytdefer/ch_ytdefer.js assets/atom.xml assets/rss.xml assets/js/chulapa_photoswipe.js assets/js/chulapa_search.js assets/js/chulapa_navigation.js assets/js/chulapa_carousel.js _includes/components/scripts.html].each do |path|
+%w[
+  _includes/snippets/og-locale.html
+  _includes/snippets/page-language.html
+  _includes/snippets/canonical-url.html
+  _includes/snippets/video-metadata.html
+  _includes/components/scripts.html
+  assets/atom.xml
+  assets/rss.xml
+  assets/js/ch_ytdefer/ch_ytdefer.js
+  assets/js/chulapa_carousel.js
+  assets/js/chulapa_navigation.js
+  assets/js/chulapa_navigation.min.js
+  assets/js/chulapa_photoswipe.js
+  assets/js/chulapa_script.js
+  assets/js/chulapa_script.min.js
+  assets/js/chulapa_search.js
+].each do |path|
   raise "Missing packaged file: #{path}" unless package.spec.files.include?(path)
 end
 Dir.mktmpdir("chulapa-install-") do |work|

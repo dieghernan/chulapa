@@ -250,7 +250,7 @@
     "id": "custom-search-script-dependencies",
     "doc": "04_layouts.md",
     "question": "I copied an old custom search page and now Fuse or Lunr says ChulapaSearch is not defined. What should I update? How do I keep FAB navigation working?",
-    "expected": "v2.2.0: direct readable/minified Lunr and Fuse adapters require assets/js/chulapa_search.js before initialization, plus their provider library and generated store before the adapter. Standard search layout handles dependencies. Update local overrides together. Custom document shells should include components/scripts.html once for Bootstrap dependencies and chulapa_navigation.js for fab/dual; layouts inheriting minimal/search already handle it. No new YAML options. Link JavaScript assets and local overrides and complete demo sources."
+    "expected": "v2.2.0: direct readable/minified Lunr and Fuse adapters require assets/js/chulapa_search.js before initialization, plus their provider library and generated store before the adapter. Standard search layout handles dependencies. Update local overrides together. Custom document shells include components/scripts.html once for Bootstrap and fab/dual navigation; development uses chulapa_navigation.min.js. Layouts inheriting minimal/search already handle these scripts. No new YAML options. Link JavaScript assets and local overrides and complete demo sources."
   },
   {
     "id": "assistant-session-history",

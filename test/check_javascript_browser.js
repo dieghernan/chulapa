@@ -263,6 +263,7 @@ const server = http.createServer((request, response) => {
     await standalone.goto('http://127.0.0.1:8770/standalone.html');
     await standalone.addScriptTag({url: 'http://127.0.0.1:8770/assets/js/clipboard/chulapa_clipboard.js'});
     await standalone.waitForSelector('.btn-chulapa-copy-code');
+    assert.equal(await standalone.locator('script[data-clipboard-only][src$="chulapa_script.min.js"]').count(), 1);
     await standalone.locator('.btn-chulapa-copy-code').click();
     assert.equal(await standalone.evaluate(() => window.copied), 'standalone');
     assert.equal(await standalone.locator('.chulapa-header-link').count(), 0, 'Legacy entry point only initializes clipboard behavior');

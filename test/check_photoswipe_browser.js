@@ -132,7 +132,7 @@ async function main() {
    await page.waitForFunction(()=>[...document.querySelectorAll('.carousel')].every(c=>c.dataset.chulapaCarouselReady==='true'));
    assert.equal(requests.length,1,'Repeated ES modules must share one controller fetch');
    assert.equal(await page.locator('.chulapa-carousel-toggle:visible').count(),2);
-   assert.equal(await page.locator('script[src$="chulapa_script.js"]').count(),0,'Custom shell does not load the content script');
+   assert.equal(await page.locator('script[src$="chulapa_script.js"], script[src$="chulapa_script.min.js"]').count(),0,'Custom shell does not load the content script');
    assert.equal(await page.evaluate(()=>[...document.querySelectorAll('.carousel')].every(c=>Boolean(window.jQuery(c).data('bs.carousel')._interval))),true);
    const first=page.locator('.carousel').first();
    const before=await first.locator('.carousel-item.active').getAttribute('aria-label');
