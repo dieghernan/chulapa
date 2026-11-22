@@ -46,6 +46,9 @@ establish visible focus for this toggle.
 with a white outline and black outer ring on classic, floating and dual
 navigation. This fix is not included in v2.2.0.
 
+**Development version:** the selector keeps its space in the navbar while it
+initializes and becomes available to keyboard navigation when ready.
+
 ## Colors, content and motion
 
 The link/focus improvements here require v2.2.0, not

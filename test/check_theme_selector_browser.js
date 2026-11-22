@@ -31,12 +31,18 @@ async function main() {
       const errors = [];
       let failDark = false;
       let blockInline = false;
-      await context.route('**/*', route => {
+      let releaseBootstrap;
+      const checkStartup = name === 'classic-links' || name === 'dual-links';
+      const bootstrapReady = checkStartup ? new Promise(resolve => { releaseBootstrap = resolve; }) : null;
+      await context.route('**/*', async route => {
         const url = new URL(route.request().url());
         const iconPrefix = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/';
         if (url.href.startsWith(iconPrefix)) return route.fulfill({path: path.join(iconPackage, url.href.slice(iconPrefix.length)), headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === 'fonts.googleapis.com') return route.fulfill({body: '', contentType: 'text/css'});
-        if (dependencies.has(url.href)) return route.fulfill({path: dependencies.get(url.href), contentType: 'application/javascript', headers: {'access-control-allow-origin': '*'}});
+        if (dependencies.has(url.href)) {
+          if (bootstrapReady && url.pathname.endsWith('/bootstrap.min.js')) await bootstrapReady;
+          return route.fulfill({path: dependencies.get(url.href), contentType: 'application/javascript', headers: {'access-control-allow-origin': '*'}});
+        }
         if (url.hostname === `${name}.localhost`) {
           requests.push(url.pathname);
           if (failDark && url.pathname.endsWith(failDark === 'highlighter' ? '/dark/highlighter.css' : '/dark/main.css')) return route.fulfill({status: 404, body: 'Missing CSS'});
@@ -49,7 +55,33 @@ async function main() {
       const base = `http://${name}.localhost:8770${name === 'root' ? '' : '/project'}`;
       const page = await context.newPage();
       page.on('pageerror', error => errors.push(error.message));
-      await page.goto(`${base}/article.html`);
+      if (checkStartup) {
+        const selector = page.locator('nav.navbar .chulapa-theme-selector');
+        const toggle = selector.locator('.chulapa-theme-toggle');
+        const menuLink = page.locator('nav.navbar .navbar-nav a.nav-link').first();
+        let before;
+        try {
+          await page.goto(`${base}/article.html`, {waitUntil: 'commit'});
+          await page.waitForFunction(() => document.querySelector('nav.navbar .navbar-nav') &&
+            getComputedStyle(document.querySelector('nav.navbar .navbar-nav')).display === 'flex');
+          assert.equal(await selector.getAttribute('hidden'), '');
+          assert.equal(await toggle.isVisible(), false);
+          assert.equal(await toggle.evaluate(button => {
+            button.focus();
+            return button === document.activeElement;
+          }), false);
+          before = [await selector.boundingBox(), await menuLink.boundingBox()];
+          assert.ok(before[0]?.width > 0 && before[1]?.width > 0);
+        } finally {
+          releaseBootstrap();
+        }
+        await page.waitForLoadState('domcontentloaded');
+        assert.equal(await toggle.isVisible(), true);
+        assert.deepEqual([await selector.boundingBox(), await menuLink.boundingBox()], before,
+          `${name}: showing the selector must not move the navigation`);
+      } else {
+        await page.goto(`${base}/article.html`);
+      }
       const bodyColor = () => page.locator('body').evaluate(node => getComputedStyle(node).backgroundColor);
       const light = await bodyColor();
       const themeColor = () => page.locator('meta[name="theme-color"]').getAttribute('content');
@@ -299,6 +331,8 @@ async function main() {
       await page.reload();
       assert.equal(await bodyColor(), light, 'CSP must retain the ordinary light stylesheet fallback');
       assert.equal(await page.locator('.chulapa-theme-selector:visible').count(), 0);
+      assert.ok((await page.locator('.chulapa-theme-selector').evaluateAll(selectors =>
+        selectors.map(selector => getComputedStyle(selector).display))).every(display => display === 'none'));
       assert.equal(await page.evaluate(() => typeof window.chulapaSetThemeMode), 'undefined');
       assert.equal(await page.locator('#csshigh').getAttribute('href'), `${name === 'root' ? '' : '/project'}/assets/css/highlighter.css`);
       assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), 'dark');
@@ -324,6 +358,8 @@ async function main() {
       await fallback.goto(`${base}/article.html`);
       assert.equal(await fallback.locator('body').evaluate(node => getComputedStyle(node).backgroundColor), light);
       assert.equal(await fallback.locator('.chulapa-theme-selector:visible').count(), 0);
+      assert.ok((await fallback.locator('.chulapa-theme-selector').evaluateAll(selectors =>
+        selectors.map(selector => getComputedStyle(selector).display))).every(display => display === 'none'));
       await nojs.close();
       await context.close();
       console.log(`Theme browser passed: ${name}, desktop/mobile, light/dark/auto, persistence, first paint, tabs, keyboard, failure and no-JS fallback`);

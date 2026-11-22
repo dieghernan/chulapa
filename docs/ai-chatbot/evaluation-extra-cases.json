@@ -84,6 +84,13 @@
     "expected": "v2.2.0 suppresses selector focus outline/shadow; local CSS override or disable selector if required. v2.3.0 restores white outline and black ring for classic/floating/dual navigation. Do not claim released v2.2.0 includes fix or WCAG certification. Cite /docs/48-accessibility-reference."
   },
   {
+    "id": "selector-startup-layout",
+    "section": "accessibility",
+    "doc": "22_choose-skin.md",
+    "question": "Why do my menu links jump when the Light/Dark/Auto selector appears as the page loads?",
+    "expected": "In development the theme reserves the selector's navbar space while it initializes to keep links in place. It remains hidden without JavaScript. v2.3.0 reserves space across icons once shown, not for startup. No new option. Link the skin guide."
+  },
+  {
     "id": "starter-no-publishing-run",
     "section": "installation",
     "doc": "00_start.md",

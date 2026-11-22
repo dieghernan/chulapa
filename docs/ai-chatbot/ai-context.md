@@ -124,7 +124,7 @@ chulapa-skin-dark:
   skin: gitdev-dark
   highlight: github.dark
 ```
-Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Preference persists same-origin; without storage, current page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; preserve custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete skin/highlighter CSS: Light initially, prior appearance later; mode persists. v2.3.0: fixed icon width across modes.
+Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Same-origin persistence; without storage, page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; keep custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete CSS pair: Light initially, prior appearance later; mode persists. v2.3.0 fixes icon widths; dev reserves startup space.
 Font imports remain. Google Fonts failure falls back; switching needs complete skin/highlighter CSS. Other import errors do not recover. Replacement CSS keeps its completion marker. Not v2.1.0. Demo selector is illustrative only.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin

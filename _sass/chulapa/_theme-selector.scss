@@ -1,1 +1,7 @@
 @include chulapa-theme-selector-styles;
+
+// Reserve the selector's space while its controller initializes.
+:root[data-theme-mode] .chulapa-theme-selector[hidden] {
+  display: list-item !important;
+  visibility: hidden;
+}

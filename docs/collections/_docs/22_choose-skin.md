@@ -110,6 +110,8 @@ add a local CSS override or leave switching disabled. See the
 
 In v2.3.0, the selector reserves the same space for the Light,
 Dark and Auto icons across all skins.
+The development version also reserves the selector's space during page load
+so the other navigation links stay in place when it appears.
 
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should
