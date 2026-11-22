@@ -244,7 +244,7 @@ comments:
 Existing post front matter: show_comments: true. Giscus has NO website_id configuration field (that belongs to Welcomments). Publish; check the interface on the article and the selected Discussions repository.
 ## Disqus comments
 Source: https://dieghernan.github.io/chulapa/docs/38-disqus-comments
-comments.provider: disqus; comments.disqus_shortname is the registered Disqus site identifier, not display name. Separately enable show_comments on the post and check the published interface.
+comments.provider: disqus; use registered comments.disqus_shortname and enable show_comments on the post. Dev: pages without a Jekyll ID use their URL.
 ## Cactus comments
 Source: https://dieghernan.github.io/chulapa/docs/39-cactus-comments
 comments.provider: cactus; comments.cactus_shortname is the registered site name. Hosted Matrix only; no homeserver option. Dev fixes IDs: include.pageurl | url_encode | replace: '_', '%5F'. v2.1.0 needs local override. Changes may detach threads: verify/migrate; retain valid local mappings.
@@ -253,7 +253,7 @@ Source: https://dieghernan.github.io/chulapa/docs/40-welcomments-comments
 comments.provider: welcomments; comments.website_id belongs ONLY to this provider. Deliver _data/welcomments/ plus rebuild; keep theme templates. Dev permalink includes baseurl; v2.1.0 needs page.url | absolute_url | escape locally. Review overrides and existing post slug/thread mapping.
 ## Cusdis comments
 Source: https://dieghernan.github.io/chulapa/docs/41-cusdis-comments
-comments.provider: cusdis; comments.cusdis_app_id and HTTPS comments.cusdis_host for an existing deployment. Upstream archived; original hosting unavailable (el hosting original ya no funciona, no solo archivado) (default host cusdis.com). No automatic thread migration.
+comments.provider: cusdis; comments.cusdis_app_id and HTTPS comments.cusdis_host for an existing deployment. Upstream archived; original hosting unavailable (default cusdis.com). Dev: pages without Jekyll IDs use their URLs. Check old threads.
 
 ## Navbar and footer
 Sources: https://dieghernan.github.io/chulapa/docs/02-config#navbar
@@ -371,7 +371,7 @@ Style names include github, github.dark, dracula, monokai, solarized.dark, solar
 ## Localized dates
 Source: https://dieghernan.github.io/chulapa/docs/61-localize-date
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#localization-of-dates
-locale sets HTML language, not full UI translation. datetranslate accepts English-formatted date; lang defaults site.locale, not page locale:
+locale sets HTML language and dev show_date language. Manual datetranslate accepts English-formatted dates; lang defaults to site.locale:
 {% assign formatted = page.date | date: "%A %d, %B %Y" %}
 {% include snippets/datetranslate.html date=formatted lang="es-ES" %}
 English/French/Spanish/German/Italian; others retain lowercase English. Format controls order/punctuation. search.label/related_label/random_label configurable; some UI stays English.

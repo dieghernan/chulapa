@@ -49,6 +49,9 @@ URLs alone do not guarantee identical identifiers across themes. Preserve your
 shortname and established URLs, and check Disqus's migration tools if threads
 are mismatched. Switching providers does not transfer comments.
 
+In the development version, ordinary pages without a Jekyll page ID use their
+published URL to identify the discussion. Posts with a Jekyll ID retain it.
+
 If no interface appears, check the shortname, `show_comments`, layout and
 publishing run. Browser blockers or a Content Security Policy may block the
 external embed; inspect failed requests before changing your policy.

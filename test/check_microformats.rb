@@ -15,6 +15,9 @@ fixtures = {
   "published" => {},
   "updated" => {"last_modified_at" => "2025-01-01"},
   "landing" => {"layout" => "landingpage", "last_modified_at" => "2025-01-01"},
+  "localized" => {"locale" => "es-ES", "last_modified_at" => "2025-01-01"},
+  "localized-landing" => {"layout" => "landingpage", "locale" => "it_IT", "last_modified_at" => "2025-01-01"},
+  "unsupported-locale" => {"locale" => "pt-BR", "last_modified_at" => "2025-01-01"},
   "guest" => {"author" => {"name" => "Guest", "url" => "/guest/"}},
   "guest-no-url" => {"author" => {"name" => "Guest"}},
   "absolute-profile" => {"author" => {"name" => "Guest", "url" => "https://guest.example/about/?a=1&b=2"}},
@@ -26,6 +29,7 @@ fixtures = {
   "derived" => {"layout" => "derived"},
   "own-entry" => {"layout" => "minimal"}
 }
+localized_months = {"localized" => "ene", "localized-landing" => "gen", "unsupported-locale" => "jan"}
 
 Dir.mktmpdir("chulapa-microformats-") do |source|
   %w[_layouts _includes].each { |dir| FileUtils.cp_r(File.join(root, dir), source) }
@@ -40,7 +44,8 @@ Dir.mktmpdir("chulapa-microformats-") do |source|
     File.write(File.join(source, "#{name}.html"), data.to_yaml + "---\n#{content}")
   end
   ["", "/subdir"].each do |baseurl|
-    config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "title" => "Site", "quiet" => true, "author" => {"name" => "Alice", "url" => "/about/"})
+    site_locale = baseurl.empty? ? "en-US" : "es-ES"
+    config = Jekyll.configuration("source" => source, "destination" => File.join(source, "_site"), "url" => "https://example.com", "baseurl" => baseurl, "title" => "Site", "locale" => site_locale, "quiet" => true, "author" => {"name" => "Alice", "url" => "/about/"})
     Jekyll::Site.new(config).process
     fixtures.each do |name, values|
       doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{name}.html")))
@@ -67,6 +72,14 @@ Dir.mktmpdir("chulapa-microformats-") do |source|
         if values["last_modified_at"]
           check(doc.at_css("time.dt-updated")["datetime"].start_with?("2025-01-01T"), "Update date: #{name}")
           check(doc.at_css("time.dt-published")["class"].include?("chulapa-text-line-through"), "Date styling lost: #{name}")
+        end
+        if localized_months.key?(name)
+          month = localized_months.fetch(name)
+          check(doc.at_css("time.dt-published").text == "01 #{month} 2024", "Localized publication date: #{name}")
+          check(doc.at_css("time.dt-updated").text == "01 #{month} 2025", "Localized update date: #{name}")
+        elsif name == "published"
+          month = baseurl.empty? ? "jan" : "ene"
+          check(doc.at_css("time.dt-published").text == "01 #{month} 2024", "Date did not inherit the site locale")
         end
       end
       card = doc.at_css(".h-card.p-author")

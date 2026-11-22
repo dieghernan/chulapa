@@ -254,8 +254,17 @@ const server = http.createServer((request, response) => {
     assert.equal(highlights[3], '&amp;');
     assert.equal(highlights[4], 'Metadata-only match');
     // Cusdis must ignore other senders and invalid resize values.
-    await page.evaluate(() => { const thread = document.createElement('div'); thread.id = 'cusdis_thread'; document.body.append(thread); });
+    const commentPageTitle = 'Title <map> & "quotes"';
+    await page.evaluate(title => {
+      const thread = document.createElement('div');
+      thread.id = 'cusdis_thread';
+      thread.dataset.pageTitle = title;
+      document.body.append(thread);
+    }, commentPageTitle);
     await page.addScriptTag({url: 'http://127.0.0.1:8770/assets/js/cusdis/chulapa_cusdis.js'});
+    assert.equal(await page.locator('#cusdis_thread iframe').getAttribute('title'), 'Comments');
+    const iframeTitle = await page.frameLocator('#cusdis_thread iframe').locator('body').evaluate(body => body.ownerDocument.defaultView.__DATA__.pageTitle);
+    assert.equal(iframeTitle, commentPageTitle);
     const sizes = await page.evaluate(() => {
       const frame = document.querySelector('#cusdis_thread iframe');
       function send(source, data) { window.dispatchEvent(new MessageEvent('message', {source, data: JSON.stringify({from: 'cusdis', event: 'resize', data})})); return frame.style.height; }

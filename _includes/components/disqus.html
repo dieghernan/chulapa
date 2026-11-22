@@ -1,16 +1,22 @@
-{% if site.comments.disqus_shortname %}
+{%- assign disqus_shortname = site.comments.disqus_shortname | default: '' | strip -%}
+{% unless disqus_shortname == empty %}
+{%- assign disqus_page_url = include.pageurl | absolute_url -%}
+{%- assign disqus_page_id = include.pageid | strip -%}
+{%- assign disqus_script_url = disqus_shortname | prepend: 'https://' | append: '.disqus.com/embed.js' -%}
 <div class="container">
   <div class="row">
     <div id="disqus_thread" class="col-lg-8 offset-lg-2"></div>
     <script>
     var disqus_config = function () {
-this.page.url = "{{ include.pageurl | absolute_url }}";  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = "{{ include.pageid }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = {% include snippets/jsonld-string.html value=disqus_page_url decode_html=false %};
+{%- unless disqus_page_id == empty %}
+this.page.identifier = {% include snippets/jsonld-string.html value=include.pageid decode_html=false %};
+{%- endunless %}
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = 'https://{{ site.comments.disqus_shortname }}.disqus.com/embed.js';
+s.src = {% include snippets/jsonld-string.html value=disqus_script_url decode_html=false %};
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
@@ -21,4 +27,4 @@ s.setAttribute('data-timestamp', +new Date());
                 
 
 
-{% endif %}
+{% endunless %}

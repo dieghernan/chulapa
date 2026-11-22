@@ -41,18 +41,19 @@
   </nav>
   {% endif %}
               {%- if page.date and page.show_date -%}
+         {%- include snippets/page-language.html -%}
          <div class="chulapaDateSocial">
             {%- assign breadcrumb_modified_date = page.last_modified_at | default: '' | strip -%}
             {% unless breadcrumb_modified_date == empty %}
             {%- assign dateformat1 = page.last_modified_at | date_to_string -%}
             {%- assign dateformat2 = page.date | date_to_string -%}
-            <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat1 %}</time>
+            <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html date=dateformat1 lang=page_language %}</time>
             <i class="fa fa-redo fa-xs" aria-hidden="true"></i>
             <br>
-            <time class="dt-published font-weight-light chulapa-text-line-through" datetime="{{ page.date | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html  date=dateformat2 %}</time>
+            <time class="dt-published font-weight-light chulapa-text-line-through" datetime="{{ page.date | date_to_xmlschema }}">{% include_cached snippets/datetranslate.html date=dateformat2 lang=page_language %}</time>
             {% else %}
             {%- assign dateformat = page.date | date_to_string -%}
-            <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published" >{% include_cached snippets/datetranslate.html  date=dateformat %}</time>
+            <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published" >{% include_cached snippets/datetranslate.html date=dateformat lang=page_language %}</time>
             {% endunless %}
          </div>
       {%- endif -%}

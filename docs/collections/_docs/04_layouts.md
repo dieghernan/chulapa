@@ -106,7 +106,7 @@ project_links:
 ```
 - `show_date`: Display the publication date and the last modified date,
   if provided. In the development version, a blank `last_modified_at` displays
-  the publication date alone.
+  the publication date alone. The date labels use the page `locale` when set.
 - `show_sociallinks`: Display sharing links for X and Bluesky. Facebook,
   WhatsApp and LinkedIn also appear at widths of 576 px and above. In the
   development version, the Bluesky link displays its name as text with Font
