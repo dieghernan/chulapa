@@ -1,20 +1,4 @@
 (function () {
-  if (typeof window !== "undefined") {
-    const fallback = document.querySelector?.(".chulapa-classic-fallback");
-    const bootstrap = window.jQuery?.fn;
-    const ready = typeof bootstrap?.collapse === "function" && typeof bootstrap.dropdown === "function";
-    // Once the loading deadline reveals the native menu, keep it for this page.
-    if (ready && (!fallback || window.getComputedStyle(fallback).visibility === "hidden")) {
-      if (fallback) fallback.hidden = true;
-      document.querySelectorAll("[data-classic-nav-control]").forEach(control => {
-        control.removeAttribute("aria-hidden");
-        control.removeAttribute("inert");
-      });
-    } else if (!ready && fallback) {
-      fallback.closest(".navbar-chulapa").setAttribute("data-classic-fallback-unavailable", "");
-    }
-  }
-
 // Floating navigation uses a keyboard-operable button; the lateral TOC is independent.
 var navigationButton = document.getElementById("navi-toggle");
 var navigationMenu = document.getElementById("navi-menu");

@@ -6,7 +6,7 @@
 
 ### Fixed
 
--   Keep the classic menu usable without Bootstrap or JavaScript, show Search without custom menu entries, and keep the sidebar TOC button out of the Tab order until it works.
+-   Show Search in the classic and desktop dual navbars without custom menu entries and keep the sidebar TOC button out of the Tab order until it works.
 
 -   Keep Algolia results visible when the index omits a highlighted title.
 

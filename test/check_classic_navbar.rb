@@ -28,13 +28,14 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         normalize = ->(node) { node.to_html.gsub(/>\s+</, '><').gsub(/\s+/, ' ').strip }
         raise "Demo and real classic navbar differ: #{expand}/#{style}/#{baseurl}\n#{normalize.call(nav)}\n#{normalize.call(standard)}" unless normalize.call(nav) == normalize.call(standard)
         raise 'Floating navbar leaked into demo' unless demo.css('#navi-toggle').empty?
-        raise 'Demo must expose its classic fallback immediately without scripts' unless
-          demo.css('head noscript').any? { |node| node.inner_html.include?('--chulapa-classic-fallback-delay: 0s') }
         expected = expand == 'always' ? 'navbar-expand' : expand == 'never' ? nil : "navbar-expand-#{expand || 'md'}"
         classes = nav['class'].split.grep(/^navbar-expand/)
         raise 'Wrong expansion breakpoint' unless classes == [expected].compact
         raise 'Dropdown is not a native button' unless nav.at_css('button.dropdown-toggle[type=button]')
         controls = nav.at_css('#navbarToggler')
+        toggles = nav.css('.navbar-toggler')
+        raise 'Classic navbar must render one enabled Bootstrap toggle' unless
+          toggles.size == 1 && toggles.first.matches?('button[data-toggle=collapse]:not([inert])') && !controls.key?('inert')
         current = controls.at_css('a[aria-current=page]')
         raise 'Current link incorrect' unless current && current['href'] == "https://example.com#{baseurl}/demo/classic-navbar"
         search_link = controls.at_css("a[href='https://example.com#{baseurl}/find']")
@@ -69,9 +70,6 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
     Jekyll::Site.new(config).process
     html = Nokogiri::HTML(File.read(File.join(config['destination'], 'standard.html')))
     raise "#{style}: desktop Search disappeared without menu items" unless html.at_css("nav.navbar a[href='https://example.com/project/find']")
-    if style == 'classic'
-      raise 'Classic Search missing from native fallback' unless html.at_css(".chulapa-classic-fallback a[href='https://example.com/project/find']")
-    end
   end
 end
 puts 'Classic navbar parity passed: theme/demo, root/project, breakpoints, style isolation, active/search links and shared scripts.'

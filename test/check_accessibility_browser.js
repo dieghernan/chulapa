@@ -80,9 +80,9 @@ async function main() {
     assert.equal(await page.locator("#navi-menu").evaluate(el => el.inert), true);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("http://localhost:8767/navi-classic/article.html");
-    await page.locator("button.navbar-toggler").focus();
+    await page.locator(".navbar-toggler").focus();
     await page.keyboard.press("Space");
-    assert.equal(await page.locator("button.navbar-toggler").getAttribute("aria-expanded"), "true");
+    assert.equal(await page.locator(".navbar-toggler").getAttribute("aria-expanded"), "true");
     console.log("Passed dual resize and classic keyboard navigation");
     await page.route("https://code.jquery.com/**", route => route.abort());
     await page.goto("http://localhost:8767/navi/article.html");

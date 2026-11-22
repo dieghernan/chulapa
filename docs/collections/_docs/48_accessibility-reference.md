@@ -30,10 +30,7 @@ score establishes WCAG compliance for a complete site.
 | PhotoSwipe | Arrow-key browsing and Escape closing; focus returns to the image link. Image links remain usable if the viewer cannot load. |
 
 Without JavaScript, the floating menu exposes ordinary navigation links.
-In the development version, the classic navbar shows its usual controls first.
-The menu icon opens a native disclosure if the standard controls take more than
-three seconds to load. The disclosure is available immediately if JavaScript
-is disabled or the theme detects that Bootstrap has failed to load.
+The classic navbar's collapsed menu and dropdowns require Bootstrap JavaScript.
 The sidebar TOC button appears when its script initializes the panel.
 Interactive integrations can still depend on JavaScript and network access.
 Custom layouts/widgets only have the semantics and controls their own markup
