@@ -249,7 +249,7 @@
     <!-- Font Awesome -->
     {% assign fakit = site.fa5_kit_code | default: site.fa_kit_code %}
     {% if fakit %}
-    <script defer src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/{{ fakit }}.js" crossorigin="anonymous"></script>
     {% else %}
     {% assign fa_version = site.fa_version | default: 7 %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ fa_version }}/css/all.min.css">

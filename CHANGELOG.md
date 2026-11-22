@@ -8,7 +8,7 @@
 
 -   Serve minified copies of the shared navigation and content JavaScript.
 
--   Reduce navigation shifts during font loading in GitDev and defer Font Awesome kits while reserving space for navigation icons.
+-   Reduce navigation shifts while fonts load in the authored skins with measured width changes.
 
 -   Reserve space for the Light/Dark/Auto selector during startup so it does not move the other navigation links.
 

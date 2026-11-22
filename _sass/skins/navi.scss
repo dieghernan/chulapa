@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
+$chulapa-navbar-font-fallback: 'Sora' body;
+
 $headings-font-family: 'Sora', 'Roboto' !default;
 $font-family-base: 'Sora', 'Roboto' !default;
 

@@ -1,9 +1,0 @@
-.navbar-chulapa .nav-link:not(.chulapa-theme-toggle),
-.navbar-chulapa-fab-nav .nav-link:not(.chulapa-theme-toggle) {
-  // Reserve the same width before a kit loads its font or replaces the icon with SVG.
-  > :is(i, svg):is(.fa, .fas, .far, .fab, .fal, .fat, .fad, .fa-solid, .fa-regular, .fa-brands, .fa-light, .fa-thin, .fa-duotone, .svg-inline--fa):not(.fa-width-auto) {
-    display: inline-block;
-    width: 1.25em;
-    text-align: center;
-  }
-}

@@ -31,10 +31,6 @@
 @import "bootstrap/bootstrap";
 //B. Chulapa specifics
 @import "chulapa-master";
-{% assign fa_kit = site.fa5_kit_code | default: site.fa_kit_code %}
-{% if fa_kit %}
-@import "chulapa/fontawesome-kit";
-{% endif %}
 {% if site.search.provider == "algolia" %}
 @import "reset-algolia";
 {% endif %}

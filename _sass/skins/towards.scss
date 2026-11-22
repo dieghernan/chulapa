@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+$chulapa-navbar-font-fallback: 'Work Sans' body;
+
 $font-family-base: "Work Sans", sans-serif;
 $headings-font-family: $font-family-base;
 $headings-font-weight: bold;

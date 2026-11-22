@@ -27,7 +27,7 @@ Dir.mktmpdir("chulapa-fontawesome-") do |source|
     raise "Unexpected kit for #{settings}: #{kit}" unless kit == Array(expected_kit)
     if expected_kit
       kit_tag = html[%r{<script\b[^>]*src="https://kit\.fontawesome\.com/#{Regexp.escape(expected_kit)}\.js"[^>]*>}]
-      raise "Kit blocks parsing for #{settings}" unless kit_tag&.match?(/\sdefer(?:\s|>)/)
+      raise "Kit lost its original loading order for #{settings}" unless kit_tag && !kit_tag.match?(/\s(?:async|defer)(?:\s|=|>)/)
     end
     hosted = html.scan(%r{@fortawesome/fontawesome-free@([^"]+)})
     expected_styles = version ? ["#{version}/css/all.min.css"] : []

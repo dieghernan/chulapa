@@ -1,0 +1,49 @@
+$chulapa-navbar-font-fallback: null !default;
+
+// Width corrections measured with representative navbar labels and local Arial.
+$chulapa-navbar-font-metrics: (
+  'Fira Sans': (99.96%, 93.5%),
+  'Inter': (105.09%, 101.38%),
+  'Libre Franklin': (106.42%, 101.81%),
+  'Mona Sans': (105.54%, 102.57%),
+  'Raleway': (104.19%, 99.69%),
+  'Sora': (115.54%, 108.86%),
+  'Work Sans': (107.72%, 101.66%)
+);
+
+@if $chulapa-navbar-font-fallback != null {
+  $family: nth($chulapa-navbar-font-fallback, 1);
+  $stack: if(nth($chulapa-navbar-font-fallback, 2) == headings, $headings-font-family, $font-family-base);
+  @if nth($stack, 1) == $family {
+    $metrics: map-get($chulapa-navbar-font-metrics, $family);
+    $fallback: '#{$family} navigation fallback';
+    $adjusted-stack: join($family, set-nth($stack, 1, $fallback), comma);
+
+    @font-face {
+      font-family: $fallback;
+      src: local('Arial'), local('Liberation Sans');
+      font-weight: 300 500;
+      size-adjust: nth($metrics, 1);
+    }
+
+    @font-face {
+      font-family: $fallback;
+      src: local('Arial Bold'), local('Liberation Sans Bold');
+      font-weight: 600 900;
+      size-adjust: nth($metrics, 2);
+    }
+
+    .navbar-chulapa .nav-link,
+    .navbar-chulapa .navbar-brand,
+    .navbar-chulapa-fab-nav .nav-link {
+      font-family: $adjusted-stack;
+    }
+
+    // Preserve Media's explicit font priority on the navbar brand.
+    @if $family == 'Mona Sans' {
+      .navbar-chulapa .navbar-brand {
+        font-family: $adjusted-stack !important;
+      }
+    }
+  }
+}

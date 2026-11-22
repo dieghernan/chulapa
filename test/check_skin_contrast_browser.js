@@ -41,6 +41,13 @@ const root = require("path").resolve(__dirname, ".."),
           { loadPaths: [root + "/_sass"], logger: { warn() {}, debug() {} } },
         )
         .css.replace(/^@import[^\n]+$/gm, "");
+      const fallback = src.match(/\$chulapa-navbar-font-fallback:\s*'([^']+)'/)?.[1];
+      if (fallback) {
+        assert.ok(identity.authoredButtonSkins.includes(skin), `${skin}: only authored skins opt in`);
+        assert.ok(css.includes(`"${fallback}", "${fallback} navigation fallback"`), `${skin}: missing adjusted navbar font`);
+      } else if (!["gitdev", "gitdev-dark"].includes(skin)) {
+        assert.doesNotMatch(css, / navigation fallback"/, `${skin}: unexpected navbar font fallback`);
+      }
       const cards = [...src.matchAll(/\.card\.bg-([\w-]+)/g)].map((m) => m[1]);
       const content = keys
         .map(

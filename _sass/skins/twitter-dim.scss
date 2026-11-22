@@ -1,6 +1,8 @@
 // Twitter dim
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
+$chulapa-navbar-font-fallback: 'Libre Franklin' body;
+
 $headings-font-family: "Libre Franklin", Roboto, Helvetica, Arial, sans-serif;
 $font-family-base: $headings-font-family;
 

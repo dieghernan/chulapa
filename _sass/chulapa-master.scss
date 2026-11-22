@@ -23,6 +23,7 @@
 @import "chulapa/_classes";
 
 @import "chulapa/_buttons";
+@import "chulapa/skins/navbar-font-fallback";
 
 @if mixin-exists(chulapa-gitdev-navbar-font) {
   @include chulapa-gitdev-navbar-font;

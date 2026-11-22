@@ -99,7 +99,7 @@ Source: https://dieghernan.github.io/chulapa/docs/02-config
 v2.3.0 JSON-LD: site author URL=home via url/baseurl, no About. Guest: author.url, sorted HTTP(S) links, else page-local ID. sameAs: profiles; no inherited guest avatar/location. Publisher separate.
 Publisher setup: https://dieghernan.github.io/chulapa/docs/60-person-publisher
 Since v2.1.0 publisher.type: Person or Organization; default/fallback is Organization. Set type: Person explicitly in the existing mapping; preserve fields. name/url identify editor; Person uses image/site avatar, ignores logo; Organization uses logo. Paths: url/baseurl. Guests independent; check public JSON-LD. No rich guarantees.
-Font Awesome default: 7 in v2.3.0, 6 in v2.2.0. fa_version: 6/5; fa_v4_support adds hosted v4 shims. fa_kit_code uses kit version and compatibility. Legacy fa5_kit_code wins. Dev defers kits.
+Font Awesome default: 7 in v2.3.0, 6 in v2.2.0. fa_version: 6/5; fa_v4_support adds hosted v4 shims. fa_kit_code uses kit version and compatibility. Legacy fa5_kit_code wins.
 ## Google Analytics 4
 Source: https://dieghernan.github.io/chulapa/docs/19-google-analytics
 Source: https://dieghernan.github.io/chulapa/docs/02-config#google-analytics
@@ -124,7 +124,7 @@ chulapa-skin-dark:
   skin: gitdev-dark
   highlight: github.dark
 ```
-Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Same-origin persistence; without storage, page only. No JS/blocked inline: Light, selector hidden. theme-color uses active vars.primary or browser; keep custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete CSS pair: Light initially, prior appearance later; mode persists. v2.3.0 fixes icon widths; dev reserves startup space.
+Copy shared vars. Omitted dark highlight inherits light, then default. classic/fab/dual works without menu links. Blank dark disables; Light defaults, Auto follows system. Same-origin persistence; without storage, page only. No JS/blocked inline: Light, selector hidden. theme-color uses vars.primary or browser; keep custom tags. Custom CSS overrides both; check widgets/images/diagrams. Incomplete CSS pair: Light initially, prior appearance later; mode persists. v2.3.0 fixes icon widths; dev reserves startup space and adjusts some navbar font fallbacks.
 Font imports remain. Google Fonts failure falls back; switching needs complete skin/highlighter CSS. Other import errors do not recover. Replacement CSS keeps its completion marker. Not v2.1.0. Demo selector is illustrative only.
 ## Changing skins and colors
 Source: https://dieghernan.github.io/chulapa/docs/22-choose-skin

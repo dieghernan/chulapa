@@ -25,7 +25,6 @@ FileUtils.mkdir_p(output)
 fixtures = %w[classic fab dual].product([true, false]).map { |style, links| ["#{style}-#{links ? 'links' : 'empty'}", style, links, true] }
 fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false], ['blank', 'classic', true, false], ['dark-color-only', 'classic', true, true], ['light-color-only', 'classic', true, true]]
 fixtures << ['blank-vars', 'classic', false, false]
-fixtures << ['kit-links', 'classic', true, true]
 fixtures = %w[classic fab dual].map { |style| ["null-vars-#{style}", style, false, false] } + fixtures
 fixtures.each do |name, style, links, enabled|
   Dir.mktmpdir('chulapa-theme-source-') do |source|
@@ -41,10 +40,6 @@ fixtures.each do |name, style, links, enabled|
       'navbar' => {'style' => style, 'brand' => {'title' => 'Home'},
         'nav' => links ? [{'title' => 'Article', 'url' => '/article.html'}] : nil}}
     config['chulapa-skin-dark'] = {'skin' => 'gitdev-dark', 'highlight' => 'github.dark', 'vars' => {'primary' => '#abcdef', 'font-size-base' => '1.1rem'}} if enabled
-    if name == 'kit-links'
-      config['fa_kit_code'] = 'fixture-kit'
-      config['navbar']['nav'] << {'title' => '<i class="fas fa-search" aria-hidden="true"></i><span class="sr-only">Search</span>', 'url' => '/search'}
-    end
     config['chulapa-skin']['vars'].delete('primary') if name == 'dark-color-only'
     config['chulapa-skin-dark']['vars'].delete('primary') if name == 'light-color-only'
     config['chulapa-skin-dark'] = {'skin' => nil, 'highlight' => nil, 'autothemer' => nil, 'vars' => nil} if name == 'blank'
