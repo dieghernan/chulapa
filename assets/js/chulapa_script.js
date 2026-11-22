@@ -26,6 +26,7 @@ if (sT) {
   }
   btn.addEventListener("keydown", closeSidebarOnEscape);
   document.getElementById("sideBar").addEventListener("keydown", closeSidebarOnEscape);
+  btn.hidden = false;
 } else if (btn) {
   // ToC was requested but no toc produced
   // Clean up DOM

@@ -52,11 +52,11 @@ function parsecontent(hit) {
   return excerpt.innerHTML;
 }
 function parsetitle(hit) {
-  if (hit.title === undefined){
-    return "---------"
-  } else {
-    return hit._highlightResult.title.value
-  }
+  const highlighted = hit._highlightResult?.title?.value;
+  if (highlighted != null) return highlighted;
+  const title = document.createElement('span');
+  title.textContent = hit.title ?? '---------';
+  return title.innerHTML;
 }
 
 function parseimg(img1, img2){
