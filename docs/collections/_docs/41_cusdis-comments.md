@@ -53,6 +53,11 @@ threads too; the theme supplies page identifiers automatically, so a change of
 theme or provider may require service-side thread matching. Comments do not
 migrate automatically between providers.
 
+In the development version, an ordinary page without a Jekyll page ID uses its
+published URL as the discussion ID. Posts with a Jekyll ID retain it. If two
+older pages shared a blank ID, check those threads in your Cusdis service when
+upgrading.
+
 If it does not load, verify the host and app ID, `show_comments`, layout and site
 build. Check failed requests to your host, HTTPS/mixed-content errors, browser
 blockers and any Content Security Policy. Omitting `cusdis_host` uses the old

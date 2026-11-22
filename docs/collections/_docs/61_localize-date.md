@@ -19,6 +19,10 @@ weekday names into Spanish, French, German or Italian. English is the fallback.
 This task changes the date text you insert. It does not change the stored date,
 translate the article or replace every date elsewhere on the website.
 
+In the development version, the dates shown by `show_date` follow the page's
+`locale` when set. Otherwise they use the site locale. The manual include below
+uses its own `lang` parameter or the site locale.
+
 ## Insert the date
 
 Open the article's `.md` file. Below its front matter (the settings between the

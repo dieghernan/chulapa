@@ -6,6 +6,10 @@
 
 ### Fixed
 
+-   Use the page language for displayed publication and update dates when a page overrides the site locale.
+
+-   Use the published URL for comments on pages without a Jekyll ID, preserve quoted Cusdis titles and label the Cusdis iframe for screen readers.
+
 -   Keep post sharing icons aligned across viewports, show a Bluesky text link with Font Awesome 5 and preserve special characters in share links and footer email subjects.
 
 -   Wrap long breadcrumbs, skip parent entries with blank URLs and keep the publication date visible when the modification date is blank.
