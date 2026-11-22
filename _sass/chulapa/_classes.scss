@@ -651,6 +651,52 @@
   }
 }
 
+.chulapa-post-nav {
+  .pagination {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: map-get($spacers, 2);
+  }
+
+  .page-link {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacers, 2);
+    min-height: 24px;
+    height: 100%;
+    margin: 0;
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: -2px;
+    }
+  }
+
+  .chulapa-post-nav-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chulapa-post-nav-arrow {
+    flex: 0 0 .5em;
+    height: .5em;
+    border: solid currentColor;
+    border-width: 0 0 2px 2px;
+    transform: rotate(45deg);
+  }
+
+  .chulapa-post-nav-next {
+    grid-column: 2;
+
+    .chulapa-post-nav-arrow {
+      transform: rotate(225deg);
+    }
+  }
+}
+
 .chulapa-card-img {
   @include border-radius(
     $card-inner-border-radius $card-inner-border-radius 0 0

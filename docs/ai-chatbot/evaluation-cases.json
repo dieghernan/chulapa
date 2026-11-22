@@ -312,7 +312,7 @@
     "section": "layouts",
     "doc": "04_layouts.md",
     "question": "How do I show five newest posts as cards? Will show_bottomnavs also link arbitrary pages?",
-    "expected": "indexcategory index_sortdate descending index_items5; bottomnavusespreviousnext notarbitrary."
+    "expected": "indexcategory index_sortdate descending index_items5; show_bottomnavs uses page.previous/page.next supplied by Jekyll and does not link arbitrary pages. In development the links use full destination titles with visual ellipsis when needed."
   },
   {
     "id": "snippets-1",
