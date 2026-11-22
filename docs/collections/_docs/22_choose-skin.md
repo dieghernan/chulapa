@@ -112,6 +112,8 @@ In v2.3.0, the selector reserves the same space for the Light,
 Dark and Auto icons across all skins.
 The development version also reserves the selector's space during page load
 so the other navigation links stay in place when it appears.
+The GitDev light and dark skins also use a local fallback with dimensions
+closer to Inter Tight for navigation links while that font loads.
 
 Check a home page and an article, including code blocks, keyboard navigation
 and the mobile menu. Select Dark, open another page and reload: the page should

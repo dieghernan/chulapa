@@ -25,6 +25,7 @@ FileUtils.mkdir_p(output)
 fixtures = %w[classic fab dual].product([true, false]).map { |style, links| ["#{style}-#{links ? 'links' : 'empty'}", style, links, true] }
 fixtures += [['root', 'classic', true, true], ['disabled', 'classic', true, false], ['blank', 'classic', true, false], ['dark-color-only', 'classic', true, true], ['light-color-only', 'classic', true, true]]
 fixtures << ['blank-vars', 'classic', false, false]
+fixtures << ['kit-links', 'classic', true, true]
 fixtures = %w[classic fab dual].map { |style| ["null-vars-#{style}", style, false, false] } + fixtures
 fixtures.each do |name, style, links, enabled|
   Dir.mktmpdir('chulapa-theme-source-') do |source|
@@ -40,6 +41,10 @@ fixtures.each do |name, style, links, enabled|
       'navbar' => {'style' => style, 'brand' => {'title' => 'Home'},
         'nav' => links ? [{'title' => 'Article', 'url' => '/article.html'}] : nil}}
     config['chulapa-skin-dark'] = {'skin' => 'gitdev-dark', 'highlight' => 'github.dark', 'vars' => {'primary' => '#abcdef', 'font-size-base' => '1.1rem'}} if enabled
+    if name == 'kit-links'
+      config['fa_kit_code'] = 'fixture-kit'
+      config['navbar']['nav'] << {'title' => '<i class="fas fa-search" aria-hidden="true"></i><span class="sr-only">Search</span>', 'url' => '/search'}
+    end
     config['chulapa-skin']['vars'].delete('primary') if name == 'dark-color-only'
     config['chulapa-skin-dark']['vars'].delete('primary') if name == 'light-color-only'
     config['chulapa-skin-dark'] = {'skin' => nil, 'highlight' => nil, 'autothemer' => nil, 'vars' => nil} if name == 'blank'
@@ -50,7 +55,7 @@ fixtures.each do |name, style, links, enabled|
       File.write(File.join(source, '_includes/custom/custom_head.html'), '<meta name="theme-color" id="custom-theme-color" media="(prefers-color-scheme: dark)" content="#987654">')
       config['chulapa-skin-dark']['skin'] = name == 'dark-color-only' ? 'darkly' : 'gitdev'
     end
-    Jekyll::Site.new(Jekyll.configuration(config)).process
+    Dir.chdir(source) { Jekyll::Site.new(Jekyll.configuration(config)).process }
     html = File.read(File.join(config['destination'], 'article.html'))
     doc = Nokogiri::HTML(html)
     branding = doc.at_css('.chulapa-footer-brand').text.gsub(/\s+/, ' ').strip
@@ -71,6 +76,10 @@ fixtures.each do |name, style, links, enabled|
     raise 'Missing light completion marker' if enabled && !css.match?(/--chulapa-css-ready:\s*main-light/)
     raise 'Light override missing' unless css.include?('1.05rem')
     dark = File.read(File.join(config['destination'], 'assets/css/dark/main.css'))
+    raise 'GitDev navbar fallback missing' unless css.include?('GitDev navigation fallback') && css.include?('size-adjust')
+    if enabled && name != 'dark-color-only'
+      raise 'GitDev dark navbar fallback missing' unless dark.include?('GitDev navigation fallback') && dark.include?('size-adjust')
+    end
     raise 'Missing dark completion marker' if enabled && !dark.match?(/--chulapa-css-ready:\s*main-dark/)
     raise 'Dark settings ignored' if enabled && (!dark.include?('1.1rem') || dark == css)
     raise 'Disabled dark CSS compiled' if !enabled && dark.include?('font-face')
@@ -87,7 +96,7 @@ fixtures.each do |name, style, links, enabled|
       [[nil, 'github'], [nil, nil], ['github.dark', 'github']].each do |dark_highlight, light_highlight|
         config['chulapa-skin-dark']['highlight'] = dark_highlight
         config['chulapa-skin']['highlight'] = light_highlight
-        Jekyll::Site.new(Jekyll.configuration(config)).process
+        Dir.chdir(source) { Jekyll::Site.new(Jekyll.configuration(config)).process }
         expected = dark_highlight || light_highlight || 'default'
         actual = File.read(File.join(config['destination'], 'assets/css/dark/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')
         baseline = File.read(File.join(config['destination'], 'assets/css/highlighter.css')).gsub(%r{/\*# sourceMappingURL=.*?\*/}, '').gsub(/:root\s*\{\s*--chulapa-css-ready:[^}]+\}/, '')

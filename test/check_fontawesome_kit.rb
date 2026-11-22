@@ -21,10 +21,14 @@ Dir.mktmpdir("chulapa-fontawesome-") do |source|
   ]
   cases.each do |settings, expected_kit, version|
     config = Jekyll.configuration({"source" => source, "destination" => File.join(source, "_site"), "quiet" => true}.merge(settings))
-    Jekyll::Site.new(config).process
+    Dir.chdir(source) { Jekyll::Site.new(config).process }
     html = File.read(File.join(config["destination"], "index.html"))
     kit = html.scan(%r{https://kit\.fontawesome\.com/([^"/]+)\.js}).flatten
     raise "Unexpected kit for #{settings}: #{kit}" unless kit == Array(expected_kit)
+    if expected_kit
+      kit_tag = html[%r{<script\b[^>]*src="https://kit\.fontawesome\.com/#{Regexp.escape(expected_kit)}\.js"[^>]*>}]
+      raise "Kit blocks parsing for #{settings}" unless kit_tag&.match?(/\sdefer(?:\s|>)/)
+    end
     hosted = html.scan(%r{@fortawesome/fontawesome-free@([^"]+)})
     expected_styles = version ? ["#{version}/css/all.min.css"] : []
     expected_styles << "#{version}/css/v4-shims.min.css" if version && settings["fa_v4_support"]

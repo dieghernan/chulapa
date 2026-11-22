@@ -1,0 +1,30 @@
+@mixin chulapa-gitdev-navbar-font {
+  // Match the horizontal metrics of Inter Tight while the webfont loads.
+  @if nth($headings-font-family, 1) == 'Inter Tight' {
+    @font-face {
+      font-family: 'GitDev navigation fallback';
+      src: local('Arial'), local('Liberation Sans');
+      font-weight: 400;
+      size-adjust: 95.65%;
+    }
+
+    @font-face {
+      font-family: 'GitDev navigation fallback';
+      src: local('Arial Bold'), local('Liberation Sans Bold');
+      font-weight: 700;
+      size-adjust: 96.10%;
+    }
+
+    @font-face {
+      font-family: 'GitDev navigation fallback';
+      src: local('Arial Bold'), local('Liberation Sans Bold');
+      font-weight: 800 900;
+      size-adjust: 98.87%;
+    }
+
+    .navbar-chulapa.navbar,
+    .navbar-chulapa-fab .nav-item {
+      font-family: join('Inter Tight', set-nth($headings-font-family, 1, 'GitDev navigation fallback'), comma), sans-serif;
+    }
+  }
+}

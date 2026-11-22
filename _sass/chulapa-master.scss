@@ -24,6 +24,10 @@
 
 @import "chulapa/_buttons";
 
+@if mixin-exists(chulapa-gitdev-navbar-font) {
+  @include chulapa-gitdev-navbar-font;
+}
+
 // Skin-owned corrections need the final palette, component mixins and rules.
 @if mixin-exists(chulapa-skin-contrast) {
   @include chulapa-skin-contrast;

@@ -72,6 +72,8 @@ nav, .navbar, .navbar-chulapa-fab .nav-item, .navbar-chulapa, .footer-chulapa {
   font-weight: $headings-font-weight !important;
 }
 
+@import "../chulapa/skins/gitdev-navbar-font";
+
 .navbar-chulapa .active, .navbar-chulapa-fab .active {
   color: mix($navbar-chulapa-text-color, $navbar-chulapa-bg-color, 80%) !important;
 }

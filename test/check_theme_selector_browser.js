@@ -15,7 +15,7 @@ async function main() {
   const browser = await chromium.launch({headless: true,
     ...(process.env.CHULAPA_BROWSER_EXECUTABLE ? {executablePath: process.env.CHULAPA_BROWSER_EXECUTABLE} : {})});
   try {
-    for (const name of ['classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank', 'dark-color-only', 'light-color-only', 'null-vars-classic', 'null-vars-fab', 'null-vars-dual', 'blank-vars']) {
+    for (const name of ['kit-links', 'classic-links', 'classic-empty', 'fab-links', 'fab-empty', 'dual-links', 'dual-empty', 'root', 'disabled', 'blank', 'dark-color-only', 'light-color-only', 'null-vars-classic', 'null-vars-fab', 'null-vars-dual', 'blank-vars']) {
       const context = await browser.newContext({reducedMotion: 'reduce', colorScheme: 'light'});
       await context.addInitScript(() => {
         window.__themeReads = 0;
@@ -31,12 +31,23 @@ async function main() {
       const errors = [];
       let failDark = false;
       let blockInline = false;
+      let releaseKit;
+      const kitReady = name === 'kit-links' ? new Promise(resolve => { releaseKit = resolve; }) : null;
       let releaseBootstrap;
       const checkStartup = name === 'classic-links' || name === 'dual-links';
       const bootstrapReady = checkStartup ? new Promise(resolve => { releaseBootstrap = resolve; }) : null;
       await context.route('**/*', async route => {
         const url = new URL(route.request().url());
         const iconPrefix = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/';
+        if (kitReady && url.hostname === 'kit.fontawesome.com') {
+          await kitReady;
+          return route.fulfill({contentType: 'application/javascript', body: `
+            const styles = document.createElement('link');
+            styles.rel = 'stylesheet';
+            styles.href = '${iconPrefix}css/all.min.css';
+            document.head.append(styles);
+          `});
+        }
         if (url.href.startsWith(iconPrefix)) return route.fulfill({path: path.join(iconPackage, url.href.slice(iconPrefix.length)), headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === 'fonts.googleapis.com') return route.fulfill({body: '', contentType: 'text/css'});
         if (dependencies.has(url.href)) {
@@ -55,6 +66,43 @@ async function main() {
       const base = `http://${name}.localhost:8770${name === 'root' ? '' : '/project'}`;
       const page = await context.newPage();
       page.on('pageerror', error => errors.push(error.message));
+      if (kitReady) {
+        const nav = page.locator('nav.navbar');
+        const article = nav.getByRole('link', {name: 'Article'});
+        const search = nav.getByRole('link', {name: 'Search'});
+        const geometry = () => Promise.all([nav, article, search].map(node => node.boundingBox()));
+        let before;
+        try {
+          await page.goto(`${base}/article.html`, {waitUntil: 'commit'});
+          await page.waitForFunction(() => {
+            const nav = document.querySelector('nav.navbar');
+            return nav && getComputedStyle(nav).fontFamily.includes('GitDev navigation fallback') &&
+              nav.querySelector('.chulapa-theme-selector').getBoundingClientRect().width > 0;
+          });
+          before = await geometry();
+          assert.ok(before.every(box => box.width > 0));
+        } finally {
+          releaseKit();
+        }
+        await page.waitForLoadState('load');
+        await page.evaluate(() => document.fonts.ready);
+        assert.equal(await search.locator('i').evaluate(icon => getComputedStyle(icon, '::before').content !== 'none'), true);
+        assert.deepEqual(await geometry(), before, 'Webfont kit must keep navbar geometry');
+        await page.addScriptTag({path: path.join(iconPackage, 'js/all.min.js')});
+        await search.locator('svg.svg-inline--fa').waitFor();
+        assert.deepEqual(await geometry(), before, 'SVG kit must keep navbar geometry');
+        const toggle = nav.locator('.chulapa-theme-toggle');
+        await toggle.focus();
+        await page.keyboard.press('Enter');
+        assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
+        await nav.locator('button[data-theme-mode="dark"]').click();
+        await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
+        assert.match(await nav.evaluate(node => getComputedStyle(node).fontFamily), /GitDev navigation fallback/);
+        assert.deepEqual(errors, [], 'Kit must not cause JavaScript errors');
+        await context.close();
+        console.log('Deferred Font Awesome kit passed: webfont, SVG, keyboard and dark mode');
+        continue;
+      }
       if (checkStartup) {
         const selector = page.locator('nav.navbar .chulapa-theme-selector');
         const toggle = selector.locator('.chulapa-theme-toggle');

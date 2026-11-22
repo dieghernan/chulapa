@@ -204,6 +204,10 @@ and compatibility in your kit settings. In v2.3.0, a kit replaces both hosted
 stylesheets. The legacy `fa5_kit_code` setting takes precedence if both kit
 codes are set.
 
+In the development version, kits run after the HTML has been parsed.
+Navigation reserves space for the kit's icons while they load.
+Icons with `fa-width-auto` retain their natural width.
+
 ### Google Analytics
 
 Setup: [Enable Google Analytics 4](./19-google-analytics).
