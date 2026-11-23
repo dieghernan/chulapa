@@ -67,11 +67,11 @@
                   <a class="nav-link {% if item.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- item.url | absolute_url -}}">{{- item.title -}}{%- if item.url == thispageurl -%} <span class="sr-only">(current)</span>{%- endif -%} </a>
                 </li> {%- endif -%} {%- endfor -%} {%- if site.search.provider -%} {%- assign urlsearch = site.search.landing_page | default: '/search' -%} <li class="nav-item">
                   <a class="nav-link {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
-                    <i class="fa fa-search mr-1" aria-hidden="true"></i>
-                    <span class="d-lg-none" aria-hidden="true">{{- site.search.label | default: 'Search' -}}</span>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <span class="d-lg-none ml-1" aria-hidden="true">{{- site.search.label | default: 'Search' -}}</span>
                     <span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
                   </a>
-                </li> {%- endif -%} 
+                </li> {%- endif -%}
 <li class="nav-item dropdown chulapa-theme-selector" >
   <button type="button" class="nav-link dropdown-toggle chulapa-theme-toggle" id="chulapa-theme-demo-dark" data-toggle="dropdown" aria-expanded="false" aria-label="Color theme: Light" title="Color theme: Light">
     <i class="fas fa-sun" aria-hidden="true"></i>
@@ -428,13 +428,13 @@
               <span class="k">if</span> <span class="n">param1</span> <span class="o">&gt;</span> <span class="n">param2</span><span class="p">:</span> <span class="c1"># interesting
           </span>        <span class="k">print</span> <span class="sh">'</span><span class="s">Gre</span><span class="se">\'</span><span class="s">ater</span><span class="sh">'</span>
               <span class="nf">return </span><span class="p">(</span><span class="n">param2</span> <span class="o">-</span> <span class="n">param1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mb">0b10</span><span class="n">l</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">None</span>
-          
+
           <span class="k">class</span> <span class="nc">SomeClass</span><span class="p">:</span>
               <span class="k">pass</span>
-          
+
           <span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="sh">'''</span><span class="s">interpreter
           </span><span class="gp">...</span> <span class="n">prompt</span><span class="sh">'''</span>
-          
+
           </code></pre></div>
       </div>
     </div>
