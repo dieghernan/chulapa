@@ -6,6 +6,10 @@
 
 ### Fixed
 
+-   Use inline SVG icons for search and the color theme selector so their icons and spacing are available before Font Awesome loads.
+
+-   Keep wide Mermaid diagrams readable in a horizontally scrollable area and update diagram colors when the skin changes during rendering.
+
 -   Serve minified copies of the shared navigation and content JavaScript.
 
 -   Reduce navigation shifts while fonts load in the authored skins with measured width changes.

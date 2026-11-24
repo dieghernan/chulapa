@@ -24,10 +24,11 @@ function fixture(sources) {
       return blocks;
     },
     createElement: () => ({
-      style: {},
       dataset: {},
       className: "",
-      innerHTML: ""
+      innerHTML: "",
+      querySelector: () => null,
+      removeAttribute() {}
     })
   };
 }
@@ -86,7 +87,6 @@ test("renders multiple diagrams with distinct IDs and strict mode", async () => 
   assert.equal(new Set(ids).size, 2);
   for (const block of root.blocks) {
     assert.equal(block.replacement.innerHTML, "<svg></svg>");
-    assert.equal(block.replacement.style.overflowX, "auto");
     assert.ok(block.replacement.dataset.mermaidSource);
   }
 });
@@ -157,4 +157,45 @@ test("initialize uses base theme and skin-derived themeVariables", async () => {
   assert.equal(options.themeVariables.primaryColor, "#ffffff");
   assert.equal(options.themeVariables.primaryTextColor, "#212529");
   assert.match(options.themeCSS, /chulapa-mermaid-bg/);
+});
+
+test("keeps the diagram at its viewBox width and makes overflow focusable", async () => {
+  const root = fixture(["sequenceDiagram\nA->>B: Hello"]);
+  const diagram = root.createElement();
+  let width;
+  diagram.querySelector = () => ({
+    viewBox: { baseVal: { width: 720 } },
+    setAttribute(name, value) { if (name === "width") width = value; }
+  });
+  diagram.scrollWidth = 720;
+  diagram.clientWidth = 390;
+  root.createElement = () => diagram;
+
+  await renderDiagrams(root, async () => ({ default: baseMermaid() }));
+
+  assert.equal(width, 720);
+  assert.equal(diagram.tabIndex, 0);
+});
+
+test("reconciles a skin change during initial rendering", async t => {
+  globalThis.MutationObserver = class { observe() {} };
+  t.after(() => { delete globalThis.MutationObserver; });
+  const root = fixture(["flowchart LR\nA-->B", "flowchart LR\nA-->C"]);
+  root.documentElement = { dataset: { theme: "light" } };
+  const rendered = [];
+  let theme;
+
+  await renderDiagrams(root, async () => ({ default: baseMermaid({
+    initialize() { theme = root.documentElement.dataset.theme; },
+    async render(id) {
+      rendered.push(theme);
+      root.documentElement.dataset.theme = "dark";
+      return { svg: `<svg data-skin="${theme}"></svg>` };
+    }
+  }) }));
+
+  assert.deepEqual(rendered, ["light", "light", "dark", "dark"]);
+  for (const block of root.blocks) {
+    assert.equal(block.replacement.innerHTML, '<svg data-skin="dark"></svg>');
+  }
 });

@@ -37,7 +37,7 @@ Dir.mktmpdir("chulapa-mermaid-") do |source|
       "destination" => File.join(source, "_site"), "url" => "http://localhost:8765",
       "baseurl" => baseurl, "quiet" => true, "kramdown" => {"input" => "GFM"}, "sass" => {"quiet_deps" => true,
       "silence_deprecations" => ["import", "global-builtin", "color-functions", "abs-percent", "function-units"]})
-    Jekyll::Site.new(config).process
+    Dir.chdir(source) { Jekyll::Site.new(config).process }
     %w[default minimal landingpage].each do |layout|
       [true, false].each do |enabled|
         doc = Nokogiri::HTML(File.read(File.join(config["destination"], "#{layout}-#{enabled}.html")))

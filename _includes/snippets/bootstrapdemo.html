@@ -67,22 +67,12 @@
                   <a class="nav-link {% if item.url == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- item.url | absolute_url -}}">{{- item.title -}}{%- if item.url == thispageurl -%} <span class="sr-only">(current)</span>{%- endif -%} </a>
                 </li> {%- endif -%} {%- endfor -%} {%- if site.search.provider -%} {%- assign urlsearch = site.search.landing_page | default: '/search' -%} <li class="nav-item">
                   <a class="nav-link {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    {%- include snippets/svg-icons.html icon="search" -%}
                     <span class="d-lg-none ml-1" aria-hidden="true">{{- site.search.label | default: 'Search' -}}</span>
                     <span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
                   </a>
                 </li> {%- endif -%}
-<li class="nav-item dropdown chulapa-theme-selector" >
-  <button type="button" class="nav-link dropdown-toggle chulapa-theme-toggle" id="chulapa-theme-demo-dark" data-toggle="dropdown" aria-expanded="false" aria-label="Color theme: Light" title="Color theme: Light">
-    <i class="fas fa-sun" aria-hidden="true"></i>
-    <span class="chulapa-theme-label">Light</span>
-  </button>
-  <div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="chulapa-theme-demo-dark">
-    <button type="button" class="dropdown-item" data-theme-mode="light" aria-pressed="true"><i class="fas fa-sun mr-2" aria-hidden="true"></i>Light</button>
-    <button type="button" class="dropdown-item" data-theme-mode="dark" aria-pressed="false"><i class="fas fa-moon mr-2" aria-hidden="true"></i>Dark</button>
-    <button type="button" class="dropdown-item" data-theme-mode="auto" aria-pressed="false"><i class="fa fa-adjust mr-2" aria-hidden="true"></i>Auto</button>
-  </div>
-</li>
+{% include components/theme-selector.html selector_id="demo-dark" preview=true %}
 
                 </ul>
             </div>

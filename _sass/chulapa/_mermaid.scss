@@ -10,12 +10,17 @@
   --chulapa-mermaid-line: #{$body-color};
   --chulapa-mermaid-muted-bg: #{mix($body-color, $body-bg, 8%)};
   --chulapa-mermaid-muted-border: #{$border-color};
-  --chulapa-mermaid-font-family: #{$font-family-base};
+  --chulapa-mermaid-font-family: #{inspect($font-family-base)};
 }
 
 .chulapa-mermaid {
   overflow-x: auto;
   color: $body-color;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+  }
 
   > svg {
     display: block;

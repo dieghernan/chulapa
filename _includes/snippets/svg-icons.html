@@ -1,0 +1,23 @@
+{%- capture path -%}
+  {%- case include.icon -%}
+    {%- when 'sun' -%}
+      {%- include snippets/path-sun.html -%}
+    {%- when 'search' -%}
+      {%- include snippets/path-search.html -%}
+    {%- when 'moon' -%}
+      {%- include snippets/path-moon.html -%}
+    {%- when 'adjust' -%}
+      {%- include snippets/path-adjust.html -%}
+  {%- endcase -%}
+{%- endcapture -%}
+
+{%- if path != '' -%}
+<svg class="chulapa-icon{% if include.class %} {{ include.class }}{% endif %}"
+     aria-hidden="true"
+     width="1.25em" height="1.25em" fill="currentColor"
+     {%- if include.mode %} data-icon-mode="{{ include.mode }}"{% endif %}
+     viewBox="0 0 640 640">
+  <!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc. -->
+  <path d="{{ path | strip }}" />
+</svg>
+{%- endif -%}

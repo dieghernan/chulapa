@@ -1690,3 +1690,19 @@ h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
 .chulapa-card-tags.card-footer :nth-child(n+4 of .chulapa-pill-bg-primary) {
   display: none;
 }
+
+.chulapa-icon {
+  display: inline-block;
+  vertical-align: -0.3em;
+}
+
+.chulapa-theme-icon [data-icon-mode] {
+  display: none;
+}
+
+:root:not([data-theme-mode]) .chulapa-theme-icon [data-icon-mode="light"],
+:root[data-theme-mode="light"] .chulapa-theme-icon [data-icon-mode="light"],
+:root[data-theme-mode="dark"] .chulapa-theme-icon [data-icon-mode="dark"],
+:root[data-theme-mode="auto"] .chulapa-theme-icon [data-icon-mode="auto"] {
+  display: inline-block;
+}

@@ -145,7 +145,7 @@
 				{%- assign urlsearch = site.search.landing_page | default: '/search' -%}
 					<li class="nav-item mx-2">
 						<a class="nav-link text-uppercase font-weight-light {% if urlsearch == thispageurl %} active font-weight-bold {%- endif -%}" href="{{- urlsearch | absolute_url -}}"{% if urlsearch == thispageurl or urlsearch == include.pageurl %} aria-current="page"{% endif %}>
-							<i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
+							{%- include snippets/svg-icons.html icon="search" -%}<span class="sr-only">{{- site.search.label | default: 'Search' -}}</span>
 						</a>
 					</li>
 			{%- endif -%}

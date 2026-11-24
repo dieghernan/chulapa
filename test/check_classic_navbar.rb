@@ -40,7 +40,7 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         raise 'Current link incorrect' unless current && current['href'] == "https://example.com#{baseurl}/demo/classic-navbar"
         search_link = controls.at_css("a[href='https://example.com#{baseurl}/find']")
         raise 'Search destination incorrect' unless search_link
-        search_icon = search_link.at_css('i.fa-search')
+        search_icon = search_link.at_css('svg.chulapa-icon[aria-hidden=true][width][height]')
         search_label = search_link.at_css('span:not(.sr-only)')
         raise 'Search icon must precede its label' unless search_icon && search_label &&
           search_link.element_children.index(search_icon) < search_link.element_children.index(search_label)

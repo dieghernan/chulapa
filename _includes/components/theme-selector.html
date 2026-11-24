@@ -1,14 +1,18 @@
 {%- include snippets/dark-skin-enabled.html -%}
-{% if dark_skin_enabled %}
-<li class="nav-item dropdown chulapa-theme-selector" hidden>
+{% if dark_skin_enabled or include.preview %}
+<li class="nav-item dropdown chulapa-theme-selector"{% unless include.preview %} hidden{% endunless %}>
   <button type="button" class="nav-link dropdown-toggle chulapa-theme-toggle" id="chulapa-theme-{{ include.selector_id | default: 'classic' }}" data-toggle="dropdown" aria-expanded="false" aria-label="Color theme: Light" title="Color theme: Light">
-    <i class="fas fa-sun" aria-hidden="true"></i>
+    <span class="chulapa-theme-icon" aria-hidden="true">
+      {%- include snippets/svg-icons.html icon="sun" mode="light" -%}
+      {%- include snippets/svg-icons.html icon="moon" mode="dark" -%}
+      {%- include snippets/svg-icons.html icon="adjust" mode="auto" -%}
+    </span>
     <span class="chulapa-theme-label">Light</span>
   </button>
   <div class="dropdown-menu dropdown-menu-right" role="group" aria-labelledby="chulapa-theme-{{ include.selector_id | default: 'classic' }}">
-    <button type="button" class="dropdown-item" data-theme-mode="light" aria-pressed="true"><i class="fas fa-sun mr-1" aria-hidden="true"></i>Light</button>
-    <button type="button" class="dropdown-item" data-theme-mode="dark" aria-pressed="false"><i class="fas fa-moon mr-1" aria-hidden="true"></i>Dark</button>
-    <button type="button" class="dropdown-item" data-theme-mode="auto" aria-pressed="false"><i class="fa fa-adjust mr-1" aria-hidden="true"></i>Auto</button>
+    <button type="button" class="dropdown-item" data-theme-mode="light" aria-pressed="true">{%- include snippets/svg-icons.html icon="sun" class="mr-1" -%}Light</button>
+    <button type="button" class="dropdown-item" data-theme-mode="dark" aria-pressed="false">{%- include snippets/svg-icons.html icon="moon" class="mr-1" -%}Dark</button>
+    <button type="button" class="dropdown-item" data-theme-mode="auto" aria-pressed="false">{%- include snippets/svg-icons.html icon="adjust" class="mr-1" -%}Auto</button>
   </div>
 </li>
 {% endif %}

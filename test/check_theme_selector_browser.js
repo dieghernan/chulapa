@@ -37,6 +37,7 @@ async function main() {
       await context.route('**/*', async route => {
         const url = new URL(route.request().url());
         const iconPrefix = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7/';
+        if (url.href.startsWith(iconPrefix) && name === 'classic-links') return route.abort();
         if (url.href.startsWith(iconPrefix)) return route.fulfill({path: path.join(iconPackage, url.href.slice(iconPrefix.length)), headers: {'access-control-allow-origin': '*'}});
         if (url.hostname === 'fonts.googleapis.com') return route.fulfill({body: '', contentType: 'text/css'});
         if (dependencies.has(url.href)) {
@@ -117,6 +118,25 @@ async function main() {
         const classic = page.locator('.navbar-toggler:visible:not(#navi-toggle)');
         if (await classic.count() && await classic.getAttribute('aria-expanded') === 'false') await classic.click();
       };
+      if (name === 'classic-links') {
+        for (const width of [767, 768]) {
+          await page.setViewportSize({width, height: 900});
+          await openNavigation();
+          const search = page.getByRole('link', {name: 'Search', exact: true});
+          const icon = await search.evaluate(link => {
+            const svg = link.querySelector('svg');
+            const label = link.querySelector('span:not(.sr-only)');
+            const bounds = svg.getBoundingClientRect();
+            return {width: bounds.width, margin: getComputedStyle(svg).marginRight,
+              hidden: getComputedStyle(label).display === 'none',
+              gap: label.getBoundingClientRect().left - bounds.right};
+          });
+          assert.ok(icon.width > 0, 'Search icon should render without Font Awesome');
+          assert.equal(icon.margin, '0px');
+          assert.equal(icon.hidden, width === 768);
+          if (!icon.hidden) assert.equal(icon.gap, 4);
+        }
+      }
       const choose = async mode => {
         await openNavigation();
         const toggle = page.locator('.chulapa-theme-toggle:visible');
@@ -155,23 +175,25 @@ async function main() {
             `${name}-${page.viewportSize().width}-${mode}.png`)});
         }
       };
-      const checkIconWidth = async mode => {
-        await page.evaluate(() => document.fonts.ready);
-        const icon = await page.locator('.chulapa-theme-toggle:visible > i').evaluate(node => ({
+      const checkIcon = async mode => {
+        const icon = await page.locator('.chulapa-theme-toggle:visible .chulapa-icon:visible').evaluate(node => ({
+          mode: node.dataset.iconMode,
           width: node.getBoundingClientRect().width,
           fontSize: parseFloat(getComputedStyle(node).fontSize),
-          fontLoaded: Array.from(document.fonts).some(font =>
-            font.family === 'Font Awesome 7 Free' && font.weight === '900' && font.status === 'loaded')
+          hasPath: Boolean(node.querySelector('path')?.getAttribute('d')),
+          hidden: node.getAttribute('aria-hidden')
         }));
-        assert.equal(icon.fontLoaded, true, `${name}/${mode}: icon font did not load`);
-        assert.ok(Math.abs(icon.width - icon.fontSize) < 0.02, `${name}/${mode}: icon must reserve one em`);
+        assert.equal(icon.mode, mode, `${name}/${mode}: wrong icon`);
+        assert.equal(icon.hasPath, true, `${name}/${mode}: missing SVG path`);
+        assert.equal(icon.hidden, 'true');
+        assert.ok(Math.abs(icon.width - 1.25 * icon.fontSize) < 0.02, `${name}/${mode}: wrong icon width`);
       };
       for (const width of [1280, 375]) {
         await page.setViewportSize({width, height: 900});
         await choose('dark');
         await waitTheme('dark');
         await checkKeyboardFocus('dark');
-        await checkIconWidth('dark');
+        await checkIcon('dark');
         assert.notEqual(await bodyColor(), light, `${name}: dark CSS did not apply`);
         assert.equal(await page.locator('body').evaluate(node => getComputedStyle(node).borderTopColor), 'rgb(255, 0, 0)', 'Custom CSS lost precedence');
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${name}/${width}: overflow`);
@@ -179,11 +201,11 @@ async function main() {
         await choose('light');
         await waitTheme('light');
         await checkKeyboardFocus('light');
-        await checkIconWidth('light');
+        await checkIcon('light');
         const lightBounds = await page.locator('.chulapa-theme-toggle:visible').boundingBox();
         await choose('auto');
         await waitTheme('light');
-        await checkIconWidth('auto');
+        await checkIcon('auto');
         assert.deepEqual(await page.locator('.chulapa-theme-toggle:visible').boundingBox(), lightBounds,
           `${name}/${width}: changing icons with the same skin must not move or resize the selector`);
         assert.equal(await bodyColor(), light);
@@ -293,7 +315,7 @@ async function main() {
         assert.equal(await page.evaluate(() => localStorage.getItem('chulapa-theme')), 'dark');
         const reads = await page.evaluate(() => window.__themeReads);
         await page.evaluate(() => {
-          document.querySelector('.chulapa-theme-toggle i').remove();
+          document.querySelector('.chulapa-theme-icon').remove();
           document.querySelector('.chulapa-theme-label').remove();
           window.chulapaSetThemeMode('light');
         });
