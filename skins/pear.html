@@ -1981,15 +1981,25 @@ guarantee accessible contrast for every component or your custom colors.</p>
 </div>
 <h3 id="leaflet-map">Leaflet map</h3>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-<div id="skin-leaflet-map" class="my-3" style="height: 22rem" role="region" aria-label="Leaflet map"></div>
+<div id="skin-leaflet-map" class="leaflet-container my-3" style="height: 22rem" role="region" aria-label="Leaflet map" hidden=""></div>
+<p><span id="skin-leaflet-status" role="status"></span><a href="https://www.openstreetmap.org/#map=3/40.4168/-3.7038">Open the map on OpenStreetMap</a></p>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer=""></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    if (!window.L) return;
-    const map = L.map('skin-leaflet-map', { scrollWheelZoom: false }).setView([40.4168, -3.7038], 3);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const container = document.getElementById('skin-leaflet-map');
+    // Leaflet needs its stylesheet to position and clip the map tiles.
+    if (!window.L || getComputedStyle(container).overflowX !== 'hidden') return;
+    container.hidden = false;
+    const map = L.map(container, { scrollWheelZoom: false }).setView([40.4168, -3.7038], 3);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    });
+    let loadedTile = false;
+    tiles.once('tileload', function () { loadedTile = true; });
+    tiles.once('load', function () {
+      if (!loadedTile) document.getElementById('skin-leaflet-status').textContent = 'Map imagery could not be loaded. ';
+    });
+    tiles.addTo(map);
   });
 </script>
 <h3 id="mermaid-examples">Mermaid examples</h3>
@@ -2154,18 +2164,18 @@ guarantee accessible contrast for every component or your custom colors.</p>
              <nav class="card-group" aria-label="random -articles"><div class="card  border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/twitter-dim" class="chulapa-text-body-color">
-              Twitter Dim
+            <a href="https://dieghernan.github.io/chulapa/skins/electro" class="chulapa-text-body-color">
+              Electro
             </a>
          </p>
            <p class="card-text">
-              <small>A skin for night owls</small>
+              <small>The intense, saturated blue theme with rounded buttons</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
               <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2020-03-20T00:00:00+01:00">
-                march 20, 2020
+              <time datetime="2025-02-14T00:00:00+01:00">
+                february 14, 2025
               </time>
             </small>
        </div>
@@ -2173,12 +2183,12 @@ guarantee accessible contrast for every component or your custom colors.</p>
      <div class="card ml-sm-1 border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/wandoo" class="chulapa-text-body-color">
-              Wandoo
+            <a href="https://dieghernan.github.io/chulapa/skins/graymor" class="chulapa-text-body-color">
+              Graymor
             </a>
          </p>
            <p class="card-text">
-              <small>A pleasant theme with red primary color</small>
+              <small>Square corners with shades of gray and sea green</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
@@ -2192,18 +2202,18 @@ guarantee accessible contrast for every component or your custom colors.</p>
      <div class="card ml-sm-1 border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/pulse" class="chulapa-text-body-color">
-              Pulse
+            <a href="https://dieghernan.github.io/chulapa/skins/materia" class="chulapa-text-body-color">
+              Materia
             </a>
          </p>
            <p class="card-text">
-              <small>A trace of purple</small>
+              <small>Flat and modern</small>
            </p></div>
        <div class="card-footer bg-transparent">
             <small>
               <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2026-10-20T00:00:00+02:00">
-                october 20, 2026
+              <time datetime="2025-02-24T00:00:00+01:00">
+                february 24, 2025
               </time>
             </small>
        </div>

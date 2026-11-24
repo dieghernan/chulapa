@@ -1983,15 +1983,25 @@ guarantee accessible contrast for every component or your custom colors.</p>
 </div>
 <h3 id="leaflet-map">Leaflet map</h3>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-<div id="skin-leaflet-map" class="my-3" style="height: 22rem" role="region" aria-label="Leaflet map"></div>
+<div id="skin-leaflet-map" class="leaflet-container my-3" style="height: 22rem" role="region" aria-label="Leaflet map" hidden=""></div>
+<p><span id="skin-leaflet-status" role="status"></span><a href="https://www.openstreetmap.org/#map=3/40.4168/-3.7038">Open the map on OpenStreetMap</a></p>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer=""></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    if (!window.L) return;
-    const map = L.map('skin-leaflet-map', { scrollWheelZoom: false }).setView([40.4168, -3.7038], 3);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const container = document.getElementById('skin-leaflet-map');
+    // Leaflet needs its stylesheet to position and clip the map tiles.
+    if (!window.L || getComputedStyle(container).overflowX !== 'hidden') return;
+    container.hidden = false;
+    const map = L.map(container, { scrollWheelZoom: false }).setView([40.4168, -3.7038], 3);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    });
+    let loadedTile = false;
+    tiles.once('tileload', function () { loadedTile = true; });
+    tiles.once('load', function () {
+      if (!loadedTile) document.getElementById('skin-leaflet-status').textContent = 'Map imagery could not be loaded. ';
+    });
+    tiles.addTo(map);
   });
 </script>
 <h3 id="mermaid-examples">Mermaid examples</h3>
@@ -2158,44 +2168,6 @@ guarantee accessible contrast for every component or your custom colors.</p>
              <nav class="card-group" aria-label="random -articles"><div class="card  border chulapa-related">
        <div class="card-body">
          <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/gitdev" class="chulapa-text-body-color">
-              GitDev
-            </a>
-         </p>
-           <p class="card-text">
-              <small>Happy Coding</small>
-           </p></div>
-       <div class="card-footer bg-transparent">
-            <small>
-              <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2022-03-20T00:00:00+01:00">
-                march 20, 2022
-              </time>
-            </small>
-       </div>
-     </div>
-     <div class="card ml-sm-1 border chulapa-related">
-       <div class="card-body">
-         <p class="card-title chulapa-headingfont">
-            <a href="https://dieghernan.github.io/chulapa/skins/gitdev-dark" class="chulapa-text-body-color">
-              GitDev Dark
-            </a>
-         </p>
-           <p class="card-text">
-              <small>I develop better in the shadows</small>
-           </p></div>
-       <div class="card-footer bg-transparent">
-            <small>
-              <i class="far fa-calendar" aria-hidden="true"></i>
-              <time datetime="2022-03-20T00:00:00+01:00">
-                march 20, 2022
-              </time>
-            </small>
-       </div>
-     </div>
-     <div class="card ml-sm-1 border chulapa-related">
-       <div class="card-body">
-         <p class="card-title chulapa-headingfont">
             <a href="https://dieghernan.github.io/chulapa/skins/skeeblu" class="chulapa-text-body-color">
               Skeeblu
             </a>
@@ -2208,6 +2180,44 @@ guarantee accessible contrast for every component or your custom colors.</p>
               <i class="far fa-calendar" aria-hidden="true"></i>
               <time datetime="2025-02-20T00:00:00+01:00">
                 february 20, 2025
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/skins/chulapa" class="chulapa-text-body-color">
+              <span class="chulapa">Chulapa</span><small style="font-size:50%; color:#687864;"> skin</small>
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Get lost in Madrid</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2019-05-15T00:00:00+02:00">
+                may 15, 2019
+              </time>
+            </small>
+       </div>
+     </div>
+     <div class="card ml-sm-1 border chulapa-related">
+       <div class="card-body">
+         <p class="card-title chulapa-headingfont">
+            <a href="https://dieghernan.github.io/chulapa/skins/towards" class="chulapa-text-body-color">
+              Towards
+            </a>
+         </p>
+           <p class="card-text">
+              <small>Data Science is great</small>
+           </p></div>
+       <div class="card-footer bg-transparent">
+            <small>
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-02-14T00:00:00+01:00">
+                february 14, 2021
               </time>
             </small>
        </div>
