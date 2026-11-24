@@ -24,6 +24,7 @@
 
 @import "chulapa/_buttons";
 @import "chulapa/skins/navbar-font-fallback";
+@import "chulapa/_mermaid";
 
 @if mixin-exists(chulapa-gitdev-navbar-font) {
   @include chulapa-gitdev-navbar-font;

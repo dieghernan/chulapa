@@ -1,0 +1,25 @@
+/*!
+ * Mermaid diagrams
+ */
+
+:root {
+  --chulapa-mermaid-bg: #{$body-bg};
+  --chulapa-mermaid-color: #{$body-color};
+  --chulapa-mermaid-node-bg: #{$card-bg};
+  --chulapa-mermaid-node-border: #{$primary};
+  --chulapa-mermaid-line: #{$body-color};
+  --chulapa-mermaid-muted-bg: #{mix($body-color, $body-bg, 8%)};
+  --chulapa-mermaid-muted-border: #{$border-color};
+  --chulapa-mermaid-font-family: #{$font-family-base};
+}
+
+.chulapa-mermaid {
+  overflow-x: auto;
+  color: $body-color;
+
+  > svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
