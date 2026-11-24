@@ -61,16 +61,16 @@
       "https://github.com/dieghernan/": "e6dfeab189f4b9f82e003a118c6367c21bde98fc0eec241b3b903eb20cc16893"
     },
     "https://dieghernan.github.io/chulapa/categories": {
-      "https://github.com/dieghernan/": "942e8956b2ee6d99cde9a6ecd32fe223d4ec5855394be4dc36ba5fe7910678c1",
-      "https://github.com/github/": "942e8956b2ee6d99cde9a6ecd32fe223d4ec5855394be4dc36ba5fe7910678c1"
+      "https://github.com/dieghernan/": "9ccadeb51807fe540e85d89c777838705088d7094f9c23b504c6e1c3f0fafd51",
+      "https://github.com/github/": "9ccadeb51807fe540e85d89c777838705088d7094f9c23b504c6e1c3f0fafd51"
     },
     "https://dieghernan.github.io/chulapa/contribute": {
       "https://github.com/dieghernan/chulapa/blob/main/_includes/snippets/datetranslate.html": "31867a28c5b2b9b3835e65cb2de6425eeda1152365c8ff0e59af12cc868d7ee5",
       "https://github.com/dieghernan/chulapa/issues/new/choose": "31867a28c5b2b9b3835e65cb2de6425eeda1152365c8ff0e59af12cc868d7ee5"
     },
     "https://dieghernan.github.io/chulapa/demo": {
-      "https://github.com/dieghernan/": "9eeebfb75e0a4940ab0be553b1f304c68aa886b923a38d9e5c39b27adbf189d1",
-      "https://github.com/github/": "9eeebfb75e0a4940ab0be553b1f304c68aa886b923a38d9e5c39b27adbf189d1"
+      "https://github.com/dieghernan/": "6622eac2f35727c3e269456a324dbfe3f070b2fd0693c9034029f6c43947e384",
+      "https://github.com/github/": "6622eac2f35727c3e269456a324dbfe3f070b2fd0693c9034029f6c43947e384"
     },
     "https://dieghernan.github.io/chulapa/demo/01-plainpage": {},
     "https://dieghernan.github.io/chulapa/demo/02-plainpage-img": {},
@@ -98,13 +98,13 @@
       "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5baac8269163a5f1e5c1076d6155b0c8b13cf961f8b30f6d7af3f33c2b3ec7b7"
     },
     "https://dieghernan.github.io/chulapa/demo/archive": {
-      "https://github.com/dieghernan/": "357f9c3e9519195514638b650d6ea0778ef0fbb2d64eceb992cf7c842e8c3da9",
-      "https://github.com/github/": "357f9c3e9519195514638b650d6ea0778ef0fbb2d64eceb992cf7c842e8c3da9"
+      "https://github.com/dieghernan/": "45f5f879cc138a470d0c38407637ab865a7cd4b00002daffcb3853699f21e8e3",
+      "https://github.com/github/": "45f5f879cc138a470d0c38407637ab865a7cd4b00002daffcb3853699f21e8e3"
     },
     "https://dieghernan.github.io/chulapa/demo/category": {
-      "https://github.com/dieghernan/": "26327acce4498f4b3414d8fc8b244656a0e9d7637130d490dcef0a56148fb618",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_category.md": "26327acce4498f4b3414d8fc8b244656a0e9d7637130d490dcef0a56148fb618",
-      "https://github.com/github/": "26327acce4498f4b3414d8fc8b244656a0e9d7637130d490dcef0a56148fb618"
+      "https://github.com/dieghernan/": "aea178f77b8cc426578311cca6976fc429f34071a834a83462dc49563c13777d",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_category.md": "aea178f77b8cc426578311cca6976fc429f34071a834a83462dc49563c13777d",
+      "https://github.com/github/": "aea178f77b8cc426578311cca6976fc429f34071a834a83462dc49563c13777d"
     },
     "https://dieghernan.github.io/chulapa/demo/minimal-header": {},
     "https://dieghernan.github.io/chulapa/demo/starter-personal-blog": {
@@ -124,9 +124,9 @@
       "https://github.com/dieghernan/chulapa/tree/main/examples/technical-blog": "a64d266d240a57a514a942629aed2894d24bc571b42afe9243971001ed84e34d"
     },
     "https://dieghernan.github.io/chulapa/demo/tags": {
-      "https://github.com/dieghernan/": "bdec75c99c8bb93cf42581c163799f1507963c0249fbfbf67b032adf3e044d7a",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_tags.md": "bdec75c99c8bb93cf42581c163799f1507963c0249fbfbf67b032adf3e044d7a",
-      "https://github.com/github/": "bdec75c99c8bb93cf42581c163799f1507963c0249fbfbf67b032adf3e044d7a"
+      "https://github.com/dieghernan/": "94d801d781d8380727dd253a97fc51ebabad0f7241d9198351ceeb85197a93ad",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_tags.md": "94d801d781d8380727dd253a97fc51ebabad0f7241d9198351ceeb85197a93ad",
+      "https://github.com/github/": "94d801d781d8380727dd253a97fc51ebabad0f7241d9198351ceeb85197a93ad"
     },
     "https://dieghernan.github.io/chulapa/docs": {},
     "https://dieghernan.github.io/chulapa/docs/00-start": {
@@ -167,42 +167,42 @@
       "https://github.com/dieghernan/chulapa/blob/main/_sass/bootstrap/_variables.scss": "ec6de314e007a21f60f95672c0483cc0c9857abf9b5688635d92c5abb3d3d730"
     },
     "https://dieghernan.github.io/chulapa/docs/04-layouts": {
-      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/blog-post-references": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/webpage-website-references": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://developer.spotify.com/documentation/embeds/tutorials/creating-an-embed": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
+      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/blog-post-references": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://apastyle.apa.org/style-grammar-guidelines/references/examples/webpage-website-references": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://developer.spotify.com/documentation/embeds/tutorials/creating-an-embed": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
       "https://developers.google.com/search/docs/appearance/snippet": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://developers.google.com/search/docs/appearance/structured-data/article": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://developers.google.com/search/docs/appearance/structured-data/video": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
+      "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://developers.google.com/search/docs/appearance/structured-data/video": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
       "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://dieghernan.github.io/202203_Corona-timelapse/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
+      "https://dieghernan.github.io/202203_Corona-timelapse/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
       "https://dieghernan.github.io/chulapa-101/": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://getbootstrap.com/docs/4.5/components/card/": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://github.com/algolia/jekyll-algolia/blob/main/docs-src/src/options.md": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://github.com/allejo/jekyll-toc": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://github.com/dieghernan/chulapa-101/blob/main/index.html": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
+      "https://github.com/allejo/jekyll-toc": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://github.com/dieghernan/chulapa-101/blob/main/index.html": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchfusejs.html": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/demo_searchlunr.html": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
       "https://github.com/dieghernan/chulapa/blob/main/docs/_pages/search.md": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
       "https://github.com/dieghernan/chulapa/blob/main/docs/blog/index.html": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://github.com/dieghernan/chulapa/tree/main/_includes/components": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://github.com/dieghernan/chulapa/tree/main/_includes/snippets": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://github.com/dieghernan/chulapa/tree/main/_layouts": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://jekyllrb.com/docs/configuration/front-matter-defaults/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
+      "https://github.com/dieghernan/chulapa/tree/main/_includes/components": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://github.com/dieghernan/chulapa/tree/main/_includes/snippets": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://github.com/dieghernan/chulapa/tree/main/_layouts": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://jekyllrb.com/docs/configuration/front-matter-defaults/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
       "https://jekyllrb.com/docs/pagination/": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://jekyllrb.com/docs/posts/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://jekyllrb.com/docs/static-files/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://jekyllrb.com/docs/variables/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
+      "https://jekyllrb.com/docs/posts/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://jekyllrb.com/docs/static-files/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://jekyllrb.com/docs/variables/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
       "https://mermaid.js.org/config/usage.html": "563a9fed83e280f7eb854a08774ec8495827fe9e7c68c217d2ab8862ca695418",
-      "https://ogp.me/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://quarto.org/docs/authoring/create-citeable-articles.html": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://quarto.org/docs/reference/metadata/citation.html": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://scholar.google.com/intl/en/scholar/inclusion.html": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://search.google.com/test/rich-results": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://shopify.github.io/liquid/filters/date/": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6",
-      "https://www.youtube.com/watch?v=1hXYuWTWVww": "e663d3339a3832fa5d25aeacd55513adbc48a02a0e1e661a247089ccb7e6bbe6"
+      "https://ogp.me/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://quarto.org/docs/authoring/create-citeable-articles.html": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://quarto.org/docs/reference/metadata/citation.html": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://scholar.google.com/intl/en/scholar/inclusion.html": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://search.google.com/test/rich-results": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://shopify.github.io/liquid/filters/date/": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8",
+      "https://www.youtube.com/watch?v=1hXYuWTWVww": "e0f2f965c37305a34b1d03565c609f6e9ed06211188d9298c15e2c5e1c058ef8"
     },
     "https://dieghernan.github.io/chulapa/docs/05-faq": {
       "https://kramdown.gettalong.org/quickref.html": "dd6e7988d287e7de554f6917be9f3c90a4135b4f5c73ee00d110d8888b0b2f21",
@@ -411,321 +411,366 @@
       "https://themesguide.github.io/top-hat/dist/": "296314442e065dfcc56bcc4081184fabb5c5f3a1254cb2e61e873bd9896aee1b"
     },
     "https://dieghernan.github.io/chulapa/skins/academia": {
-      "https://github.com/dieghernan/": "5853ca2ce93556ebc54c5c4f427a1eed699f66514e2d65fee50f9d773d208ce8",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5853ca2ce93556ebc54c5c4f427a1eed699f66514e2d65fee50f9d773d208ce8",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5853ca2ce93556ebc54c5c4f427a1eed699f66514e2d65fee50f9d773d208ce8",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5853ca2ce93556ebc54c5c4f427a1eed699f66514e2d65fee50f9d773d208ce8",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5853ca2ce93556ebc54c5c4f427a1eed699f66514e2d65fee50f9d773d208ce8"
+      "https://github.com/dieghernan/": "5736e46169340fed0dea9b1cb029ba8d27702fcd1e0ebb42daf8da279f22001a",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5736e46169340fed0dea9b1cb029ba8d27702fcd1e0ebb42daf8da279f22001a",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5736e46169340fed0dea9b1cb029ba8d27702fcd1e0ebb42daf8da279f22001a",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5736e46169340fed0dea9b1cb029ba8d27702fcd1e0ebb42daf8da279f22001a",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5736e46169340fed0dea9b1cb029ba8d27702fcd1e0ebb42daf8da279f22001a",
+      "https://www.openstreetmap.org/": "5736e46169340fed0dea9b1cb029ba8d27702fcd1e0ebb42daf8da279f22001a"
     },
     "https://dieghernan.github.io/chulapa/skins/butterfly": {
-      "https://github.com/dieghernan/": "a2f704f1fed5559a346a125a995f5a3b5c0563278b89933f3212a4a09c150c3a",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "a2f704f1fed5559a346a125a995f5a3b5c0563278b89933f3212a4a09c150c3a",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "a2f704f1fed5559a346a125a995f5a3b5c0563278b89933f3212a4a09c150c3a",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "a2f704f1fed5559a346a125a995f5a3b5c0563278b89933f3212a4a09c150c3a",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "a2f704f1fed5559a346a125a995f5a3b5c0563278b89933f3212a4a09c150c3a"
+      "https://github.com/dieghernan/": "e0f7b1f4954fd0e62eb8973a42c5dfe725f61b7c1e3da2e27556914e97551096",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "e0f7b1f4954fd0e62eb8973a42c5dfe725f61b7c1e3da2e27556914e97551096",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e0f7b1f4954fd0e62eb8973a42c5dfe725f61b7c1e3da2e27556914e97551096",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "e0f7b1f4954fd0e62eb8973a42c5dfe725f61b7c1e3da2e27556914e97551096",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "e0f7b1f4954fd0e62eb8973a42c5dfe725f61b7c1e3da2e27556914e97551096",
+      "https://www.openstreetmap.org/": "e0f7b1f4954fd0e62eb8973a42c5dfe725f61b7c1e3da2e27556914e97551096"
     },
     "https://dieghernan.github.io/chulapa/skins/butterfly-dark": {
-      "https://github.com/dieghernan/": "a6a697d652998aa4d705697ad7f27ec3b204df43401a93d194d078f8507dd847",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "a6a697d652998aa4d705697ad7f27ec3b204df43401a93d194d078f8507dd847",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "a6a697d652998aa4d705697ad7f27ec3b204df43401a93d194d078f8507dd847",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "a6a697d652998aa4d705697ad7f27ec3b204df43401a93d194d078f8507dd847",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "a6a697d652998aa4d705697ad7f27ec3b204df43401a93d194d078f8507dd847"
+      "https://github.com/dieghernan/": "9d1a6d4e0dd0c948e6274361230ca0000bc30bf29f1e4ea838f26a1dc300d26a",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "9d1a6d4e0dd0c948e6274361230ca0000bc30bf29f1e4ea838f26a1dc300d26a",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "9d1a6d4e0dd0c948e6274361230ca0000bc30bf29f1e4ea838f26a1dc300d26a",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "9d1a6d4e0dd0c948e6274361230ca0000bc30bf29f1e4ea838f26a1dc300d26a",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "9d1a6d4e0dd0c948e6274361230ca0000bc30bf29f1e4ea838f26a1dc300d26a",
+      "https://www.openstreetmap.org/": "9d1a6d4e0dd0c948e6274361230ca0000bc30bf29f1e4ea838f26a1dc300d26a"
     },
     "https://dieghernan.github.io/chulapa/skins/butterfly-dim": {
-      "https://github.com/dieghernan/": "2567be30059c8e24a74ece8e6c80913184e9bc37e002a80e7d5492ef92f16e71",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "2567be30059c8e24a74ece8e6c80913184e9bc37e002a80e7d5492ef92f16e71",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "2567be30059c8e24a74ece8e6c80913184e9bc37e002a80e7d5492ef92f16e71",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "2567be30059c8e24a74ece8e6c80913184e9bc37e002a80e7d5492ef92f16e71",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "2567be30059c8e24a74ece8e6c80913184e9bc37e002a80e7d5492ef92f16e71"
+      "https://github.com/dieghernan/": "1c03ba9c1c907dba9a7fb1d816c1bd6016d1dfc83d3e2129085c8ef8c16830dc",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "1c03ba9c1c907dba9a7fb1d816c1bd6016d1dfc83d3e2129085c8ef8c16830dc",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "1c03ba9c1c907dba9a7fb1d816c1bd6016d1dfc83d3e2129085c8ef8c16830dc",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "1c03ba9c1c907dba9a7fb1d816c1bd6016d1dfc83d3e2129085c8ef8c16830dc",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "1c03ba9c1c907dba9a7fb1d816c1bd6016d1dfc83d3e2129085c8ef8c16830dc",
+      "https://www.openstreetmap.org/": "1c03ba9c1c907dba9a7fb1d816c1bd6016d1dfc83d3e2129085c8ef8c16830dc"
     },
     "https://dieghernan.github.io/chulapa/skins/cerulean": {
-      "https://bootswatch.com/cerulean/": "5e857be296ecb0569fe725c4baa6fa35eb98824fc52eb336b99a6ba33f4a5271",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5e857be296ecb0569fe725c4baa6fa35eb98824fc52eb336b99a6ba33f4a5271",
-      "https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/cerulean": "5e857be296ecb0569fe725c4baa6fa35eb98824fc52eb336b99a6ba33f4a5271",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5e857be296ecb0569fe725c4baa6fa35eb98824fc52eb336b99a6ba33f4a5271",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5e857be296ecb0569fe725c4baa6fa35eb98824fc52eb336b99a6ba33f4a5271",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5e857be296ecb0569fe725c4baa6fa35eb98824fc52eb336b99a6ba33f4a5271"
+      "https://bootswatch.com/cerulean/": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a",
+      "https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/cerulean": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a",
+      "https://www.openstreetmap.org/": "6df0ff8996cbaa6c52c1aa4eade805b6a02aee186eac3a1ee3f763eeebfdcd7a"
     },
     "https://dieghernan.github.io/chulapa/skins/chulapa": {
-      "https://github.com/dieghernan/": "7818bce3fe447f515882b182c5e3cc345b3e6a1510463e282a2a2a7ef498e4d4",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "7818bce3fe447f515882b182c5e3cc345b3e6a1510463e282a2a2a7ef498e4d4",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "7818bce3fe447f515882b182c5e3cc345b3e6a1510463e282a2a2a7ef498e4d4",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "7818bce3fe447f515882b182c5e3cc345b3e6a1510463e282a2a2a7ef498e4d4",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "7818bce3fe447f515882b182c5e3cc345b3e6a1510463e282a2a2a7ef498e4d4"
+      "https://github.com/dieghernan/": "5f5375dc79ea84417d6a367bba04ecdb2308ea4386068629b1a022015a2ad7ed",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5f5375dc79ea84417d6a367bba04ecdb2308ea4386068629b1a022015a2ad7ed",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5f5375dc79ea84417d6a367bba04ecdb2308ea4386068629b1a022015a2ad7ed",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5f5375dc79ea84417d6a367bba04ecdb2308ea4386068629b1a022015a2ad7ed",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5f5375dc79ea84417d6a367bba04ecdb2308ea4386068629b1a022015a2ad7ed",
+      "https://www.openstreetmap.org/": "5f5375dc79ea84417d6a367bba04ecdb2308ea4386068629b1a022015a2ad7ed"
     },
     "https://dieghernan.github.io/chulapa/skins/current": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "17240aa5cd61edcd4e555f6d977cd19a2bc706a4a3e7d22bf5adc24162522044",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "17240aa5cd61edcd4e555f6d977cd19a2bc706a4a3e7d22bf5adc24162522044",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "17240aa5cd61edcd4e555f6d977cd19a2bc706a4a3e7d22bf5adc24162522044",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "17240aa5cd61edcd4e555f6d977cd19a2bc706a4a3e7d22bf5adc24162522044"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "d48ab96a1bd646659d7fc56fad5290cdec7359df962f54b58ab463b2addd1219",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "d48ab96a1bd646659d7fc56fad5290cdec7359df962f54b58ab463b2addd1219",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "d48ab96a1bd646659d7fc56fad5290cdec7359df962f54b58ab463b2addd1219",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "d48ab96a1bd646659d7fc56fad5290cdec7359df962f54b58ab463b2addd1219",
+      "https://www.openstreetmap.org/": "d48ab96a1bd646659d7fc56fad5290cdec7359df962f54b58ab463b2addd1219"
     },
     "https://dieghernan.github.io/chulapa/skins/cyborg": {
-      "https://bootswatch.com/": "0d154fcf3e0ed0b44d357dbd4968ba80b2d7c83c46f63dff0654caa353024536",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "0d154fcf3e0ed0b44d357dbd4968ba80b2d7c83c46f63dff0654caa353024536",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "0d154fcf3e0ed0b44d357dbd4968ba80b2d7c83c46f63dff0654caa353024536",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "0d154fcf3e0ed0b44d357dbd4968ba80b2d7c83c46f63dff0654caa353024536",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "0d154fcf3e0ed0b44d357dbd4968ba80b2d7c83c46f63dff0654caa353024536"
+      "https://bootswatch.com/": "75d573321bd20530fd60190460455c9279977bdac5342ac0d0a72463cdde634f",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "75d573321bd20530fd60190460455c9279977bdac5342ac0d0a72463cdde634f",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "75d573321bd20530fd60190460455c9279977bdac5342ac0d0a72463cdde634f",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "75d573321bd20530fd60190460455c9279977bdac5342ac0d0a72463cdde634f",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "75d573321bd20530fd60190460455c9279977bdac5342ac0d0a72463cdde634f",
+      "https://www.openstreetmap.org/": "75d573321bd20530fd60190460455c9279977bdac5342ac0d0a72463cdde634f"
     },
     "https://dieghernan.github.io/chulapa/skins/darkly": {
-      "https://bootswatch.com/": "8b7a5e9ea1ed4ed63339e7912d8663f20e2cfdfb06547fe8e6db3e8cac85e036",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "8b7a5e9ea1ed4ed63339e7912d8663f20e2cfdfb06547fe8e6db3e8cac85e036",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "8b7a5e9ea1ed4ed63339e7912d8663f20e2cfdfb06547fe8e6db3e8cac85e036",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "8b7a5e9ea1ed4ed63339e7912d8663f20e2cfdfb06547fe8e6db3e8cac85e036",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "8b7a5e9ea1ed4ed63339e7912d8663f20e2cfdfb06547fe8e6db3e8cac85e036"
+      "https://bootswatch.com/": "06fb70c0a4fae63d682ad71cf4536530cac10c6b60fcacce6de2dab5b28acfda",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "06fb70c0a4fae63d682ad71cf4536530cac10c6b60fcacce6de2dab5b28acfda",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "06fb70c0a4fae63d682ad71cf4536530cac10c6b60fcacce6de2dab5b28acfda",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "06fb70c0a4fae63d682ad71cf4536530cac10c6b60fcacce6de2dab5b28acfda",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "06fb70c0a4fae63d682ad71cf4536530cac10c6b60fcacce6de2dab5b28acfda",
+      "https://www.openstreetmap.org/": "06fb70c0a4fae63d682ad71cf4536530cac10c6b60fcacce6de2dab5b28acfda"
     },
     "https://dieghernan.github.io/chulapa/skins/deeply": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "8c64edc103653c8e116706b1ca3ad1e75cb4292f19aca013cb9eff4bde9cf7ae",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "8c64edc103653c8e116706b1ca3ad1e75cb4292f19aca013cb9eff4bde9cf7ae",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "8c64edc103653c8e116706b1ca3ad1e75cb4292f19aca013cb9eff4bde9cf7ae",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "8c64edc103653c8e116706b1ca3ad1e75cb4292f19aca013cb9eff4bde9cf7ae",
-      "https://themesguide.github.io/top-hat/dist/": "8c64edc103653c8e116706b1ca3ad1e75cb4292f19aca013cb9eff4bde9cf7ae"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "597db6700065e2bdac04ee5eb39ea4f2e766ee9d58f0d60643154956b6cd209b",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "597db6700065e2bdac04ee5eb39ea4f2e766ee9d58f0d60643154956b6cd209b",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "597db6700065e2bdac04ee5eb39ea4f2e766ee9d58f0d60643154956b6cd209b",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "597db6700065e2bdac04ee5eb39ea4f2e766ee9d58f0d60643154956b6cd209b",
+      "https://themesguide.github.io/top-hat/dist/": "597db6700065e2bdac04ee5eb39ea4f2e766ee9d58f0d60643154956b6cd209b",
+      "https://www.openstreetmap.org/": "597db6700065e2bdac04ee5eb39ea4f2e766ee9d58f0d60643154956b6cd209b"
     },
     "https://dieghernan.github.io/chulapa/skins/electro": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "92ea3b3b2020159fb3eaa12dcfa00c532c380759baf669722a619f6c0256f03a",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "92ea3b3b2020159fb3eaa12dcfa00c532c380759baf669722a619f6c0256f03a",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "92ea3b3b2020159fb3eaa12dcfa00c532c380759baf669722a619f6c0256f03a",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "92ea3b3b2020159fb3eaa12dcfa00c532c380759baf669722a619f6c0256f03a",
-      "https://themesguide.github.io/top-hat/dist/": "92ea3b3b2020159fb3eaa12dcfa00c532c380759baf669722a619f6c0256f03a"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "c880f6d57acc7be24fa17511682ac12b3b3efe1f1bac53a05eba19b3f0264fa5",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "c880f6d57acc7be24fa17511682ac12b3b3efe1f1bac53a05eba19b3f0264fa5",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "c880f6d57acc7be24fa17511682ac12b3b3efe1f1bac53a05eba19b3f0264fa5",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "c880f6d57acc7be24fa17511682ac12b3b3efe1f1bac53a05eba19b3f0264fa5",
+      "https://themesguide.github.io/top-hat/dist/": "c880f6d57acc7be24fa17511682ac12b3b3efe1f1bac53a05eba19b3f0264fa5",
+      "https://www.openstreetmap.org/": "c880f6d57acc7be24fa17511682ac12b3b3efe1f1bac53a05eba19b3f0264fa5"
     },
     "https://dieghernan.github.io/chulapa/skins/flatly": {
-      "https://bootswatch.com/": "99cddcf33d920e6ddada602b3d3cfe5017cff0362ef4aed4f557ddc9f69ff93b",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "99cddcf33d920e6ddada602b3d3cfe5017cff0362ef4aed4f557ddc9f69ff93b",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "99cddcf33d920e6ddada602b3d3cfe5017cff0362ef4aed4f557ddc9f69ff93b",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "99cddcf33d920e6ddada602b3d3cfe5017cff0362ef4aed4f557ddc9f69ff93b",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "99cddcf33d920e6ddada602b3d3cfe5017cff0362ef4aed4f557ddc9f69ff93b"
+      "https://bootswatch.com/": "66ac6be069a2e409b36ca1a204f9479b7f775d62784acf0434b0732cf3e39e14",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "66ac6be069a2e409b36ca1a204f9479b7f775d62784acf0434b0732cf3e39e14",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "66ac6be069a2e409b36ca1a204f9479b7f775d62784acf0434b0732cf3e39e14",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "66ac6be069a2e409b36ca1a204f9479b7f775d62784acf0434b0732cf3e39e14",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "66ac6be069a2e409b36ca1a204f9479b7f775d62784acf0434b0732cf3e39e14",
+      "https://www.openstreetmap.org/": "66ac6be069a2e409b36ca1a204f9479b7f775d62784acf0434b0732cf3e39e14"
     },
     "https://dieghernan.github.io/chulapa/skins/focal": {
-      "https://github.com/dieghernan/": "bc03841f20b2eaad98d4f3ccf909ab61b9477571e4d9174d3280cc832ff9b1dd",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "bc03841f20b2eaad98d4f3ccf909ab61b9477571e4d9174d3280cc832ff9b1dd",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "bc03841f20b2eaad98d4f3ccf909ab61b9477571e4d9174d3280cc832ff9b1dd",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "bc03841f20b2eaad98d4f3ccf909ab61b9477571e4d9174d3280cc832ff9b1dd",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "bc03841f20b2eaad98d4f3ccf909ab61b9477571e4d9174d3280cc832ff9b1dd"
+      "https://github.com/dieghernan/": "ec84da199c140caa5b72bc6681ccc6e2c0d4b75ea52b44520097c364f56e61ab",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "ec84da199c140caa5b72bc6681ccc6e2c0d4b75ea52b44520097c364f56e61ab",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "ec84da199c140caa5b72bc6681ccc6e2c0d4b75ea52b44520097c364f56e61ab",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "ec84da199c140caa5b72bc6681ccc6e2c0d4b75ea52b44520097c364f56e61ab",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "ec84da199c140caa5b72bc6681ccc6e2c0d4b75ea52b44520097c364f56e61ab",
+      "https://www.openstreetmap.org/": "ec84da199c140caa5b72bc6681ccc6e2c0d4b75ea52b44520097c364f56e61ab"
     },
     "https://dieghernan.github.io/chulapa/skins/gitdev": {
-      "https://github.com/dieghernan/": "094096233f03b687264e526de3d6b31b2860caec33cd50a5926288f35c514408",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "094096233f03b687264e526de3d6b31b2860caec33cd50a5926288f35c514408",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "094096233f03b687264e526de3d6b31b2860caec33cd50a5926288f35c514408",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "094096233f03b687264e526de3d6b31b2860caec33cd50a5926288f35c514408",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "094096233f03b687264e526de3d6b31b2860caec33cd50a5926288f35c514408"
+      "https://github.com/dieghernan/": "f892325e49f16f854b3c9207d2ea72bd46cfebbe5e104e8a9d188d5bc223da9f",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "f892325e49f16f854b3c9207d2ea72bd46cfebbe5e104e8a9d188d5bc223da9f",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "f892325e49f16f854b3c9207d2ea72bd46cfebbe5e104e8a9d188d5bc223da9f",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "f892325e49f16f854b3c9207d2ea72bd46cfebbe5e104e8a9d188d5bc223da9f",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "f892325e49f16f854b3c9207d2ea72bd46cfebbe5e104e8a9d188d5bc223da9f",
+      "https://www.openstreetmap.org/": "f892325e49f16f854b3c9207d2ea72bd46cfebbe5e104e8a9d188d5bc223da9f"
     },
     "https://dieghernan.github.io/chulapa/skins/gitdev-dark": {
-      "https://github.com/dieghernan/": "1f6ea8a698dc9a663f4c443cae58f17e07188de0b0d168bdf0b843627d23068f",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "1f6ea8a698dc9a663f4c443cae58f17e07188de0b0d168bdf0b843627d23068f",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "1f6ea8a698dc9a663f4c443cae58f17e07188de0b0d168bdf0b843627d23068f",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "1f6ea8a698dc9a663f4c443cae58f17e07188de0b0d168bdf0b843627d23068f",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "1f6ea8a698dc9a663f4c443cae58f17e07188de0b0d168bdf0b843627d23068f"
+      "https://github.com/dieghernan/": "a189705bf6d2b11b6dfdc53d93db56ad4e656026827b3e03a9120ed4f28dbb8e",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "a189705bf6d2b11b6dfdc53d93db56ad4e656026827b3e03a9120ed4f28dbb8e",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "a189705bf6d2b11b6dfdc53d93db56ad4e656026827b3e03a9120ed4f28dbb8e",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "a189705bf6d2b11b6dfdc53d93db56ad4e656026827b3e03a9120ed4f28dbb8e",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "a189705bf6d2b11b6dfdc53d93db56ad4e656026827b3e03a9120ed4f28dbb8e",
+      "https://www.openstreetmap.org/": "a189705bf6d2b11b6dfdc53d93db56ad4e656026827b3e03a9120ed4f28dbb8e"
     },
     "https://dieghernan.github.io/chulapa/skins/graymor": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "4fc061978e5aa24d22b58eb490de36c2988985237fcb17b6fd59d87b8a6dd135",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "4fc061978e5aa24d22b58eb490de36c2988985237fcb17b6fd59d87b8a6dd135",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "4fc061978e5aa24d22b58eb490de36c2988985237fcb17b6fd59d87b8a6dd135",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "4fc061978e5aa24d22b58eb490de36c2988985237fcb17b6fd59d87b8a6dd135",
-      "https://themesguide.github.io/top-hat/dist/": "4fc061978e5aa24d22b58eb490de36c2988985237fcb17b6fd59d87b8a6dd135"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "dce5326171920cb93c245cd8766a086dd3de13652b54d8ab1f2481dc552f8cf0",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "dce5326171920cb93c245cd8766a086dd3de13652b54d8ab1f2481dc552f8cf0",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "dce5326171920cb93c245cd8766a086dd3de13652b54d8ab1f2481dc552f8cf0",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "dce5326171920cb93c245cd8766a086dd3de13652b54d8ab1f2481dc552f8cf0",
+      "https://themesguide.github.io/top-hat/dist/": "dce5326171920cb93c245cd8766a086dd3de13652b54d8ab1f2481dc552f8cf0",
+      "https://www.openstreetmap.org/": "dce5326171920cb93c245cd8766a086dd3de13652b54d8ab1f2481dc552f8cf0"
     },
     "https://dieghernan.github.io/chulapa/skins/hootstrap": {
-      "http://themes.guide/": "27fc01cfc652237f710e8a6f2e7931ebd43ab93790394bcc6f949f52b3f26eb8",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "27fc01cfc652237f710e8a6f2e7931ebd43ab93790394bcc6f949f52b3f26eb8",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "27fc01cfc652237f710e8a6f2e7931ebd43ab93790394bcc6f949f52b3f26eb8",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "27fc01cfc652237f710e8a6f2e7931ebd43ab93790394bcc6f949f52b3f26eb8",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "27fc01cfc652237f710e8a6f2e7931ebd43ab93790394bcc6f949f52b3f26eb8"
+      "http://themes.guide/": "1b1b9f07c8a22a736bafe544ca449571cf60157233218f4a1e6d291e716d714e",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "1b1b9f07c8a22a736bafe544ca449571cf60157233218f4a1e6d291e716d714e",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "1b1b9f07c8a22a736bafe544ca449571cf60157233218f4a1e6d291e716d714e",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "1b1b9f07c8a22a736bafe544ca449571cf60157233218f4a1e6d291e716d714e",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "1b1b9f07c8a22a736bafe544ca449571cf60157233218f4a1e6d291e716d714e",
+      "https://www.openstreetmap.org/": "1b1b9f07c8a22a736bafe544ca449571cf60157233218f4a1e6d291e716d714e"
     },
     "https://dieghernan.github.io/chulapa/skins/journal": {
-      "https://bootswatch.com/": "eb8e8513952f4519428f2d166d70340bc0472773eb54119f9c88295d05ca33d1",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "eb8e8513952f4519428f2d166d70340bc0472773eb54119f9c88295d05ca33d1",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "eb8e8513952f4519428f2d166d70340bc0472773eb54119f9c88295d05ca33d1",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "eb8e8513952f4519428f2d166d70340bc0472773eb54119f9c88295d05ca33d1",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "eb8e8513952f4519428f2d166d70340bc0472773eb54119f9c88295d05ca33d1"
+      "https://bootswatch.com/": "4e76923c2b67a5fb9680232be1dd8583576e30677a5f31a3748301b7a85142a1",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "4e76923c2b67a5fb9680232be1dd8583576e30677a5f31a3748301b7a85142a1",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "4e76923c2b67a5fb9680232be1dd8583576e30677a5f31a3748301b7a85142a1",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "4e76923c2b67a5fb9680232be1dd8583576e30677a5f31a3748301b7a85142a1",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "4e76923c2b67a5fb9680232be1dd8583576e30677a5f31a3748301b7a85142a1",
+      "https://www.openstreetmap.org/": "4e76923c2b67a5fb9680232be1dd8583576e30677a5f31a3748301b7a85142a1"
     },
     "https://dieghernan.github.io/chulapa/skins/listen": {
-      "https://github.com/dieghernan/": "6a65b257440c0e55f72871dac9c3637907ac1b3d79449d1eae4b749d7c97868e",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "6a65b257440c0e55f72871dac9c3637907ac1b3d79449d1eae4b749d7c97868e",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "6a65b257440c0e55f72871dac9c3637907ac1b3d79449d1eae4b749d7c97868e",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "6a65b257440c0e55f72871dac9c3637907ac1b3d79449d1eae4b749d7c97868e",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "6a65b257440c0e55f72871dac9c3637907ac1b3d79449d1eae4b749d7c97868e"
+      "https://github.com/dieghernan/": "d7a5dcc232977bc5d121fcdcffc902688df96fd7b1a28477b24bfe53b0a02b4f",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "d7a5dcc232977bc5d121fcdcffc902688df96fd7b1a28477b24bfe53b0a02b4f",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "d7a5dcc232977bc5d121fcdcffc902688df96fd7b1a28477b24bfe53b0a02b4f",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "d7a5dcc232977bc5d121fcdcffc902688df96fd7b1a28477b24bfe53b0a02b4f",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "d7a5dcc232977bc5d121fcdcffc902688df96fd7b1a28477b24bfe53b0a02b4f",
+      "https://www.openstreetmap.org/": "d7a5dcc232977bc5d121fcdcffc902688df96fd7b1a28477b24bfe53b0a02b4f"
     },
     "https://dieghernan.github.io/chulapa/skins/litera": {
-      "https://bootswatch.com/litera/": "699884621f993d80cb8479508e9ff0faba468564abf6290fcc9412453c14412a",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "699884621f993d80cb8479508e9ff0faba468564abf6290fcc9412453c14412a",
-      "https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/litera": "699884621f993d80cb8479508e9ff0faba468564abf6290fcc9412453c14412a",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "699884621f993d80cb8479508e9ff0faba468564abf6290fcc9412453c14412a",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "699884621f993d80cb8479508e9ff0faba468564abf6290fcc9412453c14412a",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "699884621f993d80cb8479508e9ff0faba468564abf6290fcc9412453c14412a"
+      "https://bootswatch.com/litera/": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9",
+      "https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/litera": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9",
+      "https://www.openstreetmap.org/": "5bef99f73545410705d38c9492c61120cc29ada331bb539d35a8c013315b8ce9"
     },
     "https://dieghernan.github.io/chulapa/skins/lux": {
-      "https://bootswatch.com/": "0a816b2952f7c5a655ff5380e615e8b6234143dc14e268972af6ed2d5150f02f",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "0a816b2952f7c5a655ff5380e615e8b6234143dc14e268972af6ed2d5150f02f",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "0a816b2952f7c5a655ff5380e615e8b6234143dc14e268972af6ed2d5150f02f",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "0a816b2952f7c5a655ff5380e615e8b6234143dc14e268972af6ed2d5150f02f",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "0a816b2952f7c5a655ff5380e615e8b6234143dc14e268972af6ed2d5150f02f"
+      "https://bootswatch.com/": "b60ab1981e5d648de843bcef382dd3fcdaf2da374bdf0238b075be7529033285",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "b60ab1981e5d648de843bcef382dd3fcdaf2da374bdf0238b075be7529033285",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "b60ab1981e5d648de843bcef382dd3fcdaf2da374bdf0238b075be7529033285",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "b60ab1981e5d648de843bcef382dd3fcdaf2da374bdf0238b075be7529033285",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "b60ab1981e5d648de843bcef382dd3fcdaf2da374bdf0238b075be7529033285",
+      "https://www.openstreetmap.org/": "b60ab1981e5d648de843bcef382dd3fcdaf2da374bdf0238b075be7529033285"
     },
     "https://dieghernan.github.io/chulapa/skins/lymcha": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "38338f01148fcf46dec54a64763af46ffce1dd2ea93fa0824f51899ae6782bce",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "38338f01148fcf46dec54a64763af46ffce1dd2ea93fa0824f51899ae6782bce",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "38338f01148fcf46dec54a64763af46ffce1dd2ea93fa0824f51899ae6782bce",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "38338f01148fcf46dec54a64763af46ffce1dd2ea93fa0824f51899ae6782bce",
-      "https://themesguide.github.io/top-hat/dist/": "38338f01148fcf46dec54a64763af46ffce1dd2ea93fa0824f51899ae6782bce"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "e0780561c4a24d793655997121a5dc110e9c5f641adca4231c58deb4e6342309",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e0780561c4a24d793655997121a5dc110e9c5f641adca4231c58deb4e6342309",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "e0780561c4a24d793655997121a5dc110e9c5f641adca4231c58deb4e6342309",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "e0780561c4a24d793655997121a5dc110e9c5f641adca4231c58deb4e6342309",
+      "https://themesguide.github.io/top-hat/dist/": "e0780561c4a24d793655997121a5dc110e9c5f641adca4231c58deb4e6342309",
+      "https://www.openstreetmap.org/": "e0780561c4a24d793655997121a5dc110e9c5f641adca4231c58deb4e6342309"
     },
     "https://dieghernan.github.io/chulapa/skins/materia": {
-      "https://bootswatch.com/": "e2eb946ac910eb62e6c985d8def84203e42ed32df3956155d3c6aed1dd9c5e61",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "e2eb946ac910eb62e6c985d8def84203e42ed32df3956155d3c6aed1dd9c5e61",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e2eb946ac910eb62e6c985d8def84203e42ed32df3956155d3c6aed1dd9c5e61",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "e2eb946ac910eb62e6c985d8def84203e42ed32df3956155d3c6aed1dd9c5e61",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "e2eb946ac910eb62e6c985d8def84203e42ed32df3956155d3c6aed1dd9c5e61"
+      "https://bootswatch.com/": "5780a93f29b13392d3cd5e90adc93e573694d4a8d6ef2f8eeeee544be31798a3",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5780a93f29b13392d3cd5e90adc93e573694d4a8d6ef2f8eeeee544be31798a3",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5780a93f29b13392d3cd5e90adc93e573694d4a8d6ef2f8eeeee544be31798a3",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5780a93f29b13392d3cd5e90adc93e573694d4a8d6ef2f8eeeee544be31798a3",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5780a93f29b13392d3cd5e90adc93e573694d4a8d6ef2f8eeeee544be31798a3",
+      "https://www.openstreetmap.org/": "5780a93f29b13392d3cd5e90adc93e573694d4a8d6ef2f8eeeee544be31798a3"
     },
     "https://dieghernan.github.io/chulapa/skins/media": {
-      "https://github.com/dieghernan/": "39edf1239ac1478fc9427d905926e9876dc25ce606899df6e34e03b2b7499920",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "39edf1239ac1478fc9427d905926e9876dc25ce606899df6e34e03b2b7499920",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "39edf1239ac1478fc9427d905926e9876dc25ce606899df6e34e03b2b7499920",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "39edf1239ac1478fc9427d905926e9876dc25ce606899df6e34e03b2b7499920",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "39edf1239ac1478fc9427d905926e9876dc25ce606899df6e34e03b2b7499920"
+      "https://github.com/dieghernan/": "d0ff1dd097fced689edb751af43c7d9ee6611d294bd373d5d9b6272ef6db9f7b",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "d0ff1dd097fced689edb751af43c7d9ee6611d294bd373d5d9b6272ef6db9f7b",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "d0ff1dd097fced689edb751af43c7d9ee6611d294bd373d5d9b6272ef6db9f7b",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "d0ff1dd097fced689edb751af43c7d9ee6611d294bd373d5d9b6272ef6db9f7b",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "d0ff1dd097fced689edb751af43c7d9ee6611d294bd373d5d9b6272ef6db9f7b",
+      "https://www.openstreetmap.org/": "d0ff1dd097fced689edb751af43c7d9ee6611d294bd373d5d9b6272ef6db9f7b"
     },
     "https://dieghernan.github.io/chulapa/skins/mickie": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "45c0fdecb58ba0a30dfe4042b5454c1085c1ebe97095ba37f0708ce7e7ce477a",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "45c0fdecb58ba0a30dfe4042b5454c1085c1ebe97095ba37f0708ce7e7ce477a",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "45c0fdecb58ba0a30dfe4042b5454c1085c1ebe97095ba37f0708ce7e7ce477a",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "45c0fdecb58ba0a30dfe4042b5454c1085c1ebe97095ba37f0708ce7e7ce477a",
-      "https://themesguide.github.io/top-hat/dist/": "45c0fdecb58ba0a30dfe4042b5454c1085c1ebe97095ba37f0708ce7e7ce477a"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "66f721bfce4b1817646664a87558b444c57f425613691610b7ce50323771b3b6",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "66f721bfce4b1817646664a87558b444c57f425613691610b7ce50323771b3b6",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "66f721bfce4b1817646664a87558b444c57f425613691610b7ce50323771b3b6",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "66f721bfce4b1817646664a87558b444c57f425613691610b7ce50323771b3b6",
+      "https://themesguide.github.io/top-hat/dist/": "66f721bfce4b1817646664a87558b444c57f425613691610b7ce50323771b3b6",
+      "https://www.openstreetmap.org/": "66f721bfce4b1817646664a87558b444c57f425613691610b7ce50323771b3b6"
     },
     "https://dieghernan.github.io/chulapa/skins/minco": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "0b48bfdb7e796c401e39bdac7670a45b4129aa6c251888cb35e2ce1fa9fb506d",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "0b48bfdb7e796c401e39bdac7670a45b4129aa6c251888cb35e2ce1fa9fb506d",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "0b48bfdb7e796c401e39bdac7670a45b4129aa6c251888cb35e2ce1fa9fb506d",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "0b48bfdb7e796c401e39bdac7670a45b4129aa6c251888cb35e2ce1fa9fb506d",
-      "https://themesguide.github.io/top-hat/dist/": "0b48bfdb7e796c401e39bdac7670a45b4129aa6c251888cb35e2ce1fa9fb506d"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "d9723f3b6fcf6428d285e980bad1c227a8b3d13f90ecdcf0510f870b201c6b2b",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "d9723f3b6fcf6428d285e980bad1c227a8b3d13f90ecdcf0510f870b201c6b2b",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "d9723f3b6fcf6428d285e980bad1c227a8b3d13f90ecdcf0510f870b201c6b2b",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "d9723f3b6fcf6428d285e980bad1c227a8b3d13f90ecdcf0510f870b201c6b2b",
+      "https://themesguide.github.io/top-hat/dist/": "d9723f3b6fcf6428d285e980bad1c227a8b3d13f90ecdcf0510f870b201c6b2b",
+      "https://www.openstreetmap.org/": "d9723f3b6fcf6428d285e980bad1c227a8b3d13f90ecdcf0510f870b201c6b2b"
     },
     "https://dieghernan.github.io/chulapa/skins/minty": {
-      "https://bootswatch.com/": "8b08a18608be4aa2ec9594dca314d8dc43b2c5f7fca83d1352c8512a6bc28d25",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "8b08a18608be4aa2ec9594dca314d8dc43b2c5f7fca83d1352c8512a6bc28d25",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "8b08a18608be4aa2ec9594dca314d8dc43b2c5f7fca83d1352c8512a6bc28d25",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "8b08a18608be4aa2ec9594dca314d8dc43b2c5f7fca83d1352c8512a6bc28d25",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "8b08a18608be4aa2ec9594dca314d8dc43b2c5f7fca83d1352c8512a6bc28d25"
+      "https://bootswatch.com/": "3e003b1db615466b3a8331130558598552f1880eafa6a10999a9f1cca79ea61c",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "3e003b1db615466b3a8331130558598552f1880eafa6a10999a9f1cca79ea61c",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "3e003b1db615466b3a8331130558598552f1880eafa6a10999a9f1cca79ea61c",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "3e003b1db615466b3a8331130558598552f1880eafa6a10999a9f1cca79ea61c",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "3e003b1db615466b3a8331130558598552f1880eafa6a10999a9f1cca79ea61c",
+      "https://www.openstreetmap.org/": "3e003b1db615466b3a8331130558598552f1880eafa6a10999a9f1cca79ea61c"
     },
     "https://dieghernan.github.io/chulapa/skins/monotone": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "92de72f1220b5fe53f9f1dce95c7f6f9d275013b265ad55ee360896457a4210a",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "92de72f1220b5fe53f9f1dce95c7f6f9d275013b265ad55ee360896457a4210a",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "92de72f1220b5fe53f9f1dce95c7f6f9d275013b265ad55ee360896457a4210a",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "92de72f1220b5fe53f9f1dce95c7f6f9d275013b265ad55ee360896457a4210a",
-      "https://themesguide.github.io/top-hat/dist/": "92de72f1220b5fe53f9f1dce95c7f6f9d275013b265ad55ee360896457a4210a"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "033c68cb290febb7bbbffffa2cef9f0f441ec49b2ba5a49c15366b3232f34bfe",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "033c68cb290febb7bbbffffa2cef9f0f441ec49b2ba5a49c15366b3232f34bfe",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "033c68cb290febb7bbbffffa2cef9f0f441ec49b2ba5a49c15366b3232f34bfe",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "033c68cb290febb7bbbffffa2cef9f0f441ec49b2ba5a49c15366b3232f34bfe",
+      "https://themesguide.github.io/top-hat/dist/": "033c68cb290febb7bbbffffa2cef9f0f441ec49b2ba5a49c15366b3232f34bfe",
+      "https://www.openstreetmap.org/": "033c68cb290febb7bbbffffa2cef9f0f441ec49b2ba5a49c15366b3232f34bfe"
     },
     "https://dieghernan.github.io/chulapa/skins/navi": {
-      "https://github.com/dieghernan/": "0a3aec8179c1ba18b6c1673f2cd470c781c8522eae55a2c73b96344ba88ff248",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "0a3aec8179c1ba18b6c1673f2cd470c781c8522eae55a2c73b96344ba88ff248",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "0a3aec8179c1ba18b6c1673f2cd470c781c8522eae55a2c73b96344ba88ff248",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "0a3aec8179c1ba18b6c1673f2cd470c781c8522eae55a2c73b96344ba88ff248",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "0a3aec8179c1ba18b6c1673f2cd470c781c8522eae55a2c73b96344ba88ff248"
+      "https://github.com/dieghernan/": "2f383123f8309dec67bfdf5cfbc98f36ff93e1c6d35a55847bc0589f1ac8bab7",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "2f383123f8309dec67bfdf5cfbc98f36ff93e1c6d35a55847bc0589f1ac8bab7",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "2f383123f8309dec67bfdf5cfbc98f36ff93e1c6d35a55847bc0589f1ac8bab7",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "2f383123f8309dec67bfdf5cfbc98f36ff93e1c6d35a55847bc0589f1ac8bab7",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "2f383123f8309dec67bfdf5cfbc98f36ff93e1c6d35a55847bc0589f1ac8bab7",
+      "https://www.openstreetmap.org/": "2f383123f8309dec67bfdf5cfbc98f36ff93e1c6d35a55847bc0589f1ac8bab7"
     },
     "https://dieghernan.github.io/chulapa/skins/pear": {
-      "https://github.com/dieghernan/": "611598b447a4ce9ff970f917c31aadefcec4e87daecaea097fc85ce511671634",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "611598b447a4ce9ff970f917c31aadefcec4e87daecaea097fc85ce511671634",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "611598b447a4ce9ff970f917c31aadefcec4e87daecaea097fc85ce511671634",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "611598b447a4ce9ff970f917c31aadefcec4e87daecaea097fc85ce511671634",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "611598b447a4ce9ff970f917c31aadefcec4e87daecaea097fc85ce511671634"
+      "https://github.com/dieghernan/": "828b47c2dede410af7025258ded2d1583b9b81130f0a95d2ac6b65689302206b",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "828b47c2dede410af7025258ded2d1583b9b81130f0a95d2ac6b65689302206b",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "828b47c2dede410af7025258ded2d1583b9b81130f0a95d2ac6b65689302206b",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "828b47c2dede410af7025258ded2d1583b9b81130f0a95d2ac6b65689302206b",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "828b47c2dede410af7025258ded2d1583b9b81130f0a95d2ac6b65689302206b",
+      "https://www.openstreetmap.org/": "828b47c2dede410af7025258ded2d1583b9b81130f0a95d2ac6b65689302206b"
     },
     "https://dieghernan.github.io/chulapa/skins/preptor": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "6d7b52d1fc65c269d61a39d42dbfe148fd32c15d178d1470b315921c2ba4e216",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "6d7b52d1fc65c269d61a39d42dbfe148fd32c15d178d1470b315921c2ba4e216",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "6d7b52d1fc65c269d61a39d42dbfe148fd32c15d178d1470b315921c2ba4e216",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "6d7b52d1fc65c269d61a39d42dbfe148fd32c15d178d1470b315921c2ba4e216",
-      "https://themesguide.github.io/top-hat/dist/": "6d7b52d1fc65c269d61a39d42dbfe148fd32c15d178d1470b315921c2ba4e216"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "9aeb19cc447d85191faa75aa2caec8cc3c78edd14db6a8911b5b69026ea7428a",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "9aeb19cc447d85191faa75aa2caec8cc3c78edd14db6a8911b5b69026ea7428a",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "9aeb19cc447d85191faa75aa2caec8cc3c78edd14db6a8911b5b69026ea7428a",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "9aeb19cc447d85191faa75aa2caec8cc3c78edd14db6a8911b5b69026ea7428a",
+      "https://themesguide.github.io/top-hat/dist/": "9aeb19cc447d85191faa75aa2caec8cc3c78edd14db6a8911b5b69026ea7428a",
+      "https://www.openstreetmap.org/": "9aeb19cc447d85191faa75aa2caec8cc3c78edd14db6a8911b5b69026ea7428a"
     },
     "https://dieghernan.github.io/chulapa/skins/pulse": {
-      "https://bootswatch.com/pulse/": "c69c051b9da43f24aefde8f3ae2990ec67fe0df9149f18c153e5503c72057677",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "c69c051b9da43f24aefde8f3ae2990ec67fe0df9149f18c153e5503c72057677",
-      "https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/pulse": "c69c051b9da43f24aefde8f3ae2990ec67fe0df9149f18c153e5503c72057677",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "c69c051b9da43f24aefde8f3ae2990ec67fe0df9149f18c153e5503c72057677",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "c69c051b9da43f24aefde8f3ae2990ec67fe0df9149f18c153e5503c72057677",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "c69c051b9da43f24aefde8f3ae2990ec67fe0df9149f18c153e5503c72057677"
+      "https://bootswatch.com/pulse/": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173",
+      "https://github.com/thomaspark/bootswatch/tree/v4.6.2/dist/pulse": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173",
+      "https://www.openstreetmap.org/": "96c99deeff2d2ccb3c57a2aac11bb10e5116c613bd356ea0a6e592fecf1f1173"
     },
     "https://dieghernan.github.io/chulapa/skins/skeeblu": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "a0fac32ad38ff407f8dda4b598bff218fb858ae80cd1c00576a46cf7e6e9bdf4",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "a0fac32ad38ff407f8dda4b598bff218fb858ae80cd1c00576a46cf7e6e9bdf4",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "a0fac32ad38ff407f8dda4b598bff218fb858ae80cd1c00576a46cf7e6e9bdf4",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "a0fac32ad38ff407f8dda4b598bff218fb858ae80cd1c00576a46cf7e6e9bdf4",
-      "https://themesguide.github.io/top-hat/dist/": "a0fac32ad38ff407f8dda4b598bff218fb858ae80cd1c00576a46cf7e6e9bdf4"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "b9c38fb893ee21ae11ce1f48792e1dfe090cdcd2ab901a1516f6563ebd6918e3",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "b9c38fb893ee21ae11ce1f48792e1dfe090cdcd2ab901a1516f6563ebd6918e3",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "b9c38fb893ee21ae11ce1f48792e1dfe090cdcd2ab901a1516f6563ebd6918e3",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "b9c38fb893ee21ae11ce1f48792e1dfe090cdcd2ab901a1516f6563ebd6918e3",
+      "https://themesguide.github.io/top-hat/dist/": "b9c38fb893ee21ae11ce1f48792e1dfe090cdcd2ab901a1516f6563ebd6918e3",
+      "https://www.openstreetmap.org/": "b9c38fb893ee21ae11ce1f48792e1dfe090cdcd2ab901a1516f6563ebd6918e3"
     },
     "https://dieghernan.github.io/chulapa/skins/sketchy": {
-      "https://bootswatch.com/": "068e33ed9b32d7ccfe466d929ce944d70fa403c9130f65ea8b265e8ae405f3ff",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "068e33ed9b32d7ccfe466d929ce944d70fa403c9130f65ea8b265e8ae405f3ff",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "068e33ed9b32d7ccfe466d929ce944d70fa403c9130f65ea8b265e8ae405f3ff",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "068e33ed9b32d7ccfe466d929ce944d70fa403c9130f65ea8b265e8ae405f3ff",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "068e33ed9b32d7ccfe466d929ce944d70fa403c9130f65ea8b265e8ae405f3ff"
+      "https://bootswatch.com/": "468816059c01e55d4a4c6fcc6179a469ef793bd302778bae5c1933251b4ea4e4",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "468816059c01e55d4a4c6fcc6179a469ef793bd302778bae5c1933251b4ea4e4",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "468816059c01e55d4a4c6fcc6179a469ef793bd302778bae5c1933251b4ea4e4",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "468816059c01e55d4a4c6fcc6179a469ef793bd302778bae5c1933251b4ea4e4",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "468816059c01e55d4a4c6fcc6179a469ef793bd302778bae5c1933251b4ea4e4",
+      "https://www.openstreetmap.org/": "468816059c01e55d4a4c6fcc6179a469ef793bd302778bae5c1933251b4ea4e4"
     },
     "https://dieghernan.github.io/chulapa/skins/slate": {
-      "https://bootswatch.com/": "df19f57b1dc3080cde69b01befe255bedc4025bf6319fbe9e46fb05b43f6424b",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "df19f57b1dc3080cde69b01befe255bedc4025bf6319fbe9e46fb05b43f6424b",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "df19f57b1dc3080cde69b01befe255bedc4025bf6319fbe9e46fb05b43f6424b",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "df19f57b1dc3080cde69b01befe255bedc4025bf6319fbe9e46fb05b43f6424b",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "df19f57b1dc3080cde69b01befe255bedc4025bf6319fbe9e46fb05b43f6424b"
+      "https://bootswatch.com/": "e59121748bafdec7cafa4dac5aed88f4ab5602ce1ec86f7df58e5bcb2c60e439",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "e59121748bafdec7cafa4dac5aed88f4ab5602ce1ec86f7df58e5bcb2c60e439",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e59121748bafdec7cafa4dac5aed88f4ab5602ce1ec86f7df58e5bcb2c60e439",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "e59121748bafdec7cafa4dac5aed88f4ab5602ce1ec86f7df58e5bcb2c60e439",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "e59121748bafdec7cafa4dac5aed88f4ab5602ce1ec86f7df58e5bcb2c60e439",
+      "https://www.openstreetmap.org/": "e59121748bafdec7cafa4dac5aed88f4ab5602ce1ec86f7df58e5bcb2c60e439"
     },
     "https://dieghernan.github.io/chulapa/skins/solar": {
-      "https://bootswatch.com/": "ce263d908b8f368b471721b19bcf2c82dbdaaa0ead7686e715638b54df320f65",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "ce263d908b8f368b471721b19bcf2c82dbdaaa0ead7686e715638b54df320f65",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "ce263d908b8f368b471721b19bcf2c82dbdaaa0ead7686e715638b54df320f65",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "ce263d908b8f368b471721b19bcf2c82dbdaaa0ead7686e715638b54df320f65",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "ce263d908b8f368b471721b19bcf2c82dbdaaa0ead7686e715638b54df320f65"
+      "https://bootswatch.com/": "89996ee0f5f043d66cbc95d66f814366b7b64281eb6560cf2c84c83d1a42b4bc",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "89996ee0f5f043d66cbc95d66f814366b7b64281eb6560cf2c84c83d1a42b4bc",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "89996ee0f5f043d66cbc95d66f814366b7b64281eb6560cf2c84c83d1a42b4bc",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "89996ee0f5f043d66cbc95d66f814366b7b64281eb6560cf2c84c83d1a42b4bc",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "89996ee0f5f043d66cbc95d66f814366b7b64281eb6560cf2c84c83d1a42b4bc",
+      "https://www.openstreetmap.org/": "89996ee0f5f043d66cbc95d66f814366b7b64281eb6560cf2c84c83d1a42b4bc"
     },
     "https://dieghernan.github.io/chulapa/skins/sunset": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "b16ba70a79f5e479b13e746d050349d7675a4ab49a444dcd2c37f171a7527352",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "b16ba70a79f5e479b13e746d050349d7675a4ab49a444dcd2c37f171a7527352",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "b16ba70a79f5e479b13e746d050349d7675a4ab49a444dcd2c37f171a7527352",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "b16ba70a79f5e479b13e746d050349d7675a4ab49a444dcd2c37f171a7527352",
-      "https://themesguide.github.io/top-hat/dist/": "b16ba70a79f5e479b13e746d050349d7675a4ab49a444dcd2c37f171a7527352"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "3a1aab64a4b17fbf72e9e67ff777c8777f0f5183fdcd18865b6bfb8cdf399739",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "3a1aab64a4b17fbf72e9e67ff777c8777f0f5183fdcd18865b6bfb8cdf399739",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "3a1aab64a4b17fbf72e9e67ff777c8777f0f5183fdcd18865b6bfb8cdf399739",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "3a1aab64a4b17fbf72e9e67ff777c8777f0f5183fdcd18865b6bfb8cdf399739",
+      "https://themesguide.github.io/top-hat/dist/": "3a1aab64a4b17fbf72e9e67ff777c8777f0f5183fdcd18865b6bfb8cdf399739",
+      "https://www.openstreetmap.org/": "3a1aab64a4b17fbf72e9e67ff777c8777f0f5183fdcd18865b6bfb8cdf399739"
     },
     "https://dieghernan.github.io/chulapa/skins/towards": {
-      "https://github.com/dieghernan/": "ac3907e5fad3181574f13b35754a79dc754d4490da6858fe5c6cc69beef29bf7",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "ac3907e5fad3181574f13b35754a79dc754d4490da6858fe5c6cc69beef29bf7",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "ac3907e5fad3181574f13b35754a79dc754d4490da6858fe5c6cc69beef29bf7",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "ac3907e5fad3181574f13b35754a79dc754d4490da6858fe5c6cc69beef29bf7",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "ac3907e5fad3181574f13b35754a79dc754d4490da6858fe5c6cc69beef29bf7"
+      "https://github.com/dieghernan/": "e32fff66eb2f674ed667eb9a305eb31cce63f3ce5dc5120312d139ee0263dd54",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "e32fff66eb2f674ed667eb9a305eb31cce63f3ce5dc5120312d139ee0263dd54",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "e32fff66eb2f674ed667eb9a305eb31cce63f3ce5dc5120312d139ee0263dd54",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "e32fff66eb2f674ed667eb9a305eb31cce63f3ce5dc5120312d139ee0263dd54",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "e32fff66eb2f674ed667eb9a305eb31cce63f3ce5dc5120312d139ee0263dd54",
+      "https://www.openstreetmap.org/": "e32fff66eb2f674ed667eb9a305eb31cce63f3ce5dc5120312d139ee0263dd54"
     },
     "https://dieghernan.github.io/chulapa/skins/twitter": {
-      "https://github.com/dieghernan/": "2162ca9f38400cb2f092f1c9d341b195907dadaf41fd36ed49ea663e5d311770",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "2162ca9f38400cb2f092f1c9d341b195907dadaf41fd36ed49ea663e5d311770",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "2162ca9f38400cb2f092f1c9d341b195907dadaf41fd36ed49ea663e5d311770",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "2162ca9f38400cb2f092f1c9d341b195907dadaf41fd36ed49ea663e5d311770",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "2162ca9f38400cb2f092f1c9d341b195907dadaf41fd36ed49ea663e5d311770"
+      "https://github.com/dieghernan/": "de4860183b1639c669688b548813fe35f5d2fd85c72f49af187655f01056b43b",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "de4860183b1639c669688b548813fe35f5d2fd85c72f49af187655f01056b43b",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "de4860183b1639c669688b548813fe35f5d2fd85c72f49af187655f01056b43b",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "de4860183b1639c669688b548813fe35f5d2fd85c72f49af187655f01056b43b",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "de4860183b1639c669688b548813fe35f5d2fd85c72f49af187655f01056b43b",
+      "https://www.openstreetmap.org/": "de4860183b1639c669688b548813fe35f5d2fd85c72f49af187655f01056b43b"
     },
     "https://dieghernan.github.io/chulapa/skins/twitter-dim": {
-      "https://github.com/dieghernan/": "25a02383d70daca734194cae619fc72366d0180b52e353dca781e8814611541f",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "25a02383d70daca734194cae619fc72366d0180b52e353dca781e8814611541f",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "25a02383d70daca734194cae619fc72366d0180b52e353dca781e8814611541f",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "25a02383d70daca734194cae619fc72366d0180b52e353dca781e8814611541f",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "25a02383d70daca734194cae619fc72366d0180b52e353dca781e8814611541f"
+      "https://github.com/dieghernan/": "3d5fe2721d0a97361110c4b111d657f5bd8fb43e68cab7d79394834796b6d52b",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "3d5fe2721d0a97361110c4b111d657f5bd8fb43e68cab7d79394834796b6d52b",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "3d5fe2721d0a97361110c4b111d657f5bd8fb43e68cab7d79394834796b6d52b",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "3d5fe2721d0a97361110c4b111d657f5bd8fb43e68cab7d79394834796b6d52b",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "3d5fe2721d0a97361110c4b111d657f5bd8fb43e68cab7d79394834796b6d52b",
+      "https://www.openstreetmap.org/": "3d5fe2721d0a97361110c4b111d657f5bd8fb43e68cab7d79394834796b6d52b"
     },
     "https://dieghernan.github.io/chulapa/skins/twitter-lights-out": {
-      "https://github.com/dieghernan/": "abfaed1d2ccb5e7d51da7f7b2e3ba91d99b53081a98a6d4c3e5d44f467613bb7",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "abfaed1d2ccb5e7d51da7f7b2e3ba91d99b53081a98a6d4c3e5d44f467613bb7",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "abfaed1d2ccb5e7d51da7f7b2e3ba91d99b53081a98a6d4c3e5d44f467613bb7",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "abfaed1d2ccb5e7d51da7f7b2e3ba91d99b53081a98a6d4c3e5d44f467613bb7",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "abfaed1d2ccb5e7d51da7f7b2e3ba91d99b53081a98a6d4c3e5d44f467613bb7"
+      "https://github.com/dieghernan/": "894aa53116ed402212a6abf896c6a3afc156449597c84d2c50792e06a0b79181",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "894aa53116ed402212a6abf896c6a3afc156449597c84d2c50792e06a0b79181",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "894aa53116ed402212a6abf896c6a3afc156449597c84d2c50792e06a0b79181",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "894aa53116ed402212a6abf896c6a3afc156449597c84d2c50792e06a0b79181",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "894aa53116ed402212a6abf896c6a3afc156449597c84d2c50792e06a0b79181",
+      "https://www.openstreetmap.org/": "894aa53116ed402212a6abf896c6a3afc156449597c84d2c50792e06a0b79181"
     },
     "https://dieghernan.github.io/chulapa/skins/united": {
-      "https://bootswatch.com/": "b37c702b33f7598b364897302d7a3360431c4fa54a3ae8952b6d2dca59fc81fc",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "b37c702b33f7598b364897302d7a3360431c4fa54a3ae8952b6d2dca59fc81fc",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "b37c702b33f7598b364897302d7a3360431c4fa54a3ae8952b6d2dca59fc81fc",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "b37c702b33f7598b364897302d7a3360431c4fa54a3ae8952b6d2dca59fc81fc",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "b37c702b33f7598b364897302d7a3360431c4fa54a3ae8952b6d2dca59fc81fc"
+      "https://bootswatch.com/": "b86ecbca672175f64e1d055dc9128c399e8277230a9640d1455c00a1bd20cb54",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "b86ecbca672175f64e1d055dc9128c399e8277230a9640d1455c00a1bd20cb54",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "b86ecbca672175f64e1d055dc9128c399e8277230a9640d1455c00a1bd20cb54",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "b86ecbca672175f64e1d055dc9128c399e8277230a9640d1455c00a1bd20cb54",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "b86ecbca672175f64e1d055dc9128c399e8277230a9640d1455c00a1bd20cb54",
+      "https://www.openstreetmap.org/": "b86ecbca672175f64e1d055dc9128c399e8277230a9640d1455c00a1bd20cb54"
     },
     "https://dieghernan.github.io/chulapa/skins/universal": {
-      "https://github.com/dieghernan/": "7fef368c3597953e0de673f8a9a9899c20a657a284c44c1ac6e84d788ef149f2",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "7fef368c3597953e0de673f8a9a9899c20a657a284c44c1ac6e84d788ef149f2",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "7fef368c3597953e0de673f8a9a9899c20a657a284c44c1ac6e84d788ef149f2",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "7fef368c3597953e0de673f8a9a9899c20a657a284c44c1ac6e84d788ef149f2",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "7fef368c3597953e0de673f8a9a9899c20a657a284c44c1ac6e84d788ef149f2"
+      "https://github.com/dieghernan/": "feb32fe4c02d4b9a3cab095a0db57b943a8ec1118619befc8c27ab50606eb362",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "feb32fe4c02d4b9a3cab095a0db57b943a8ec1118619befc8c27ab50606eb362",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "feb32fe4c02d4b9a3cab095a0db57b943a8ec1118619befc8c27ab50606eb362",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "feb32fe4c02d4b9a3cab095a0db57b943a8ec1118619befc8c27ab50606eb362",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "feb32fe4c02d4b9a3cab095a0db57b943a8ec1118619befc8c27ab50606eb362",
+      "https://www.openstreetmap.org/": "feb32fe4c02d4b9a3cab095a0db57b943a8ec1118619befc8c27ab50606eb362"
     },
     "https://dieghernan.github.io/chulapa/skins/wandoo": {
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "4d7fb483759ad0763c03177828245b13bc9ffefe906494c4d3e1c64b8a71e1ae",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "4d7fb483759ad0763c03177828245b13bc9ffefe906494c4d3e1c64b8a71e1ae",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "4d7fb483759ad0763c03177828245b13bc9ffefe906494c4d3e1c64b8a71e1ae",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "4d7fb483759ad0763c03177828245b13bc9ffefe906494c4d3e1c64b8a71e1ae",
-      "https://themesguide.github.io/top-hat/dist/": "4d7fb483759ad0763c03177828245b13bc9ffefe906494c4d3e1c64b8a71e1ae"
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "5b0887f772935354f640a9566e42b860770f046cb782456dc9b850344ecc3c4a",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "5b0887f772935354f640a9566e42b860770f046cb782456dc9b850344ecc3c4a",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "5b0887f772935354f640a9566e42b860770f046cb782456dc9b850344ecc3c4a",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "5b0887f772935354f640a9566e42b860770f046cb782456dc9b850344ecc3c4a",
+      "https://themesguide.github.io/top-hat/dist/": "5b0887f772935354f640a9566e42b860770f046cb782456dc9b850344ecc3c4a",
+      "https://www.openstreetmap.org/": "5b0887f772935354f640a9566e42b860770f046cb782456dc9b850344ecc3c4a"
     },
     "https://dieghernan.github.io/chulapa/skins/yeti": {
-      "https://bootswatch.com/": "cdd0d868362e5d92013f0c2c59e8dc7cafb345d8f9df81f2b70f5f35110634ba",
-      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "cdd0d868362e5d92013f0c2c59e8dc7cafb345d8f9df81f2b70f5f35110634ba",
-      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "cdd0d868362e5d92013f0c2c59e8dc7cafb345d8f9df81f2b70f5f35110634ba",
-      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "cdd0d868362e5d92013f0c2c59e8dc7cafb345d8f9df81f2b70f5f35110634ba",
-      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "cdd0d868362e5d92013f0c2c59e8dc7cafb345d8f9df81f2b70f5f35110634ba"
+      "https://bootswatch.com/": "53f68aeb2aba58e12e5fbf90c17a7e6241cb3db897d82d61ed7b755fd30ba7af",
+      "https://github.com/dieghernan/chulapa/blob/master/CHANGELOG.md": "53f68aeb2aba58e12e5fbf90c17a7e6241cb3db897d82d61ed7b755fd30ba7af",
+      "https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s": "53f68aeb2aba58e12e5fbf90c17a7e6241cb3db897d82d61ed7b755fd30ba7af",
+      "https://open.spotify.com/playlist/5tr0xVMrZnw7PLC9Kpkr3E": "53f68aeb2aba58e12e5fbf90c17a7e6241cb3db897d82d61ed7b755fd30ba7af",
+      "https://open.spotify.com/track/51UMKmK4msZFxtUhOu06zs": "53f68aeb2aba58e12e5fbf90c17a7e6241cb3db897d82d61ed7b755fd30ba7af",
+      "https://www.openstreetmap.org/": "53f68aeb2aba58e12e5fbf90c17a7e6241cb3db897d82d61ed7b755fd30ba7af"
     },
     "https://dieghernan.github.io/chulapa/subscribe/": {},
     "https://dieghernan.github.io/chulapa/tags": {
