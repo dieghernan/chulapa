@@ -142,6 +142,21 @@ function collectBlocks(root) {
   return Array.from(root.querySelectorAll("pre")).filter(isMermaidBlock);
 }
 
+function updateScrollFocus(diagram) {
+  if (diagram.scrollWidth > diagram.clientWidth) {
+    diagram.tabIndex = 0;
+  } else {
+    diagram.removeAttribute("tabindex");
+  }
+}
+
+function setDiagramSvg(diagram, markup) {
+  diagram.innerHTML = markup;
+  const svg = diagram.querySelector("svg");
+  const width = svg?.viewBox.baseVal.width;
+  if (width > 0) svg.setAttribute("width", width);
+}
+
 async function renderOne(mermaid, root, pre, index, renderCounter) {
   const code = pre.querySelector("code");
   const source = (code || pre).textContent;
@@ -151,11 +166,11 @@ async function renderOne(mermaid, root, pre, index, renderCounter) {
     const { svg } = await mermaid.render(id, source);
     const diagram = root.createElement("div");
     diagram.className = "chulapa-mermaid my-3";
-    diagram.style.overflowX = "auto";
-    if (!diagram.dataset) diagram.dataset = {};
     diagram.dataset.mermaidSource = source;
-    diagram.innerHTML = svg;
+    setDiagramSvg(diagram, svg);
     pre.replaceWith(diagram);
+    updateScrollFocus(diagram);
+    return diagram;
   } catch (error) {
     console.warn("Unable to render Mermaid diagram", error);
   }
@@ -167,8 +182,6 @@ async function reRenderExisting(mermaid, root, renderCounter) {
   );
   if (!diagrams.length) return;
 
-  applyMermaidConfig(mermaid);
-
   for (const [index, diagram] of diagrams.entries()) {
     const source = diagram.dataset.mermaidSource;
     if (!source) continue;
@@ -176,7 +189,8 @@ async function reRenderExisting(mermaid, root, renderCounter) {
       await mermaid.parse(source);
       const id = "chulapa-mermaid-r-" + index + "-" + renderCounter;
       const { svg } = await mermaid.render(id, source);
-      diagram.innerHTML = svg;
+      setDiagramSvg(diagram, svg);
+      updateScrollFocus(diagram);
     } catch (error) {
       console.warn("Unable to re-render Mermaid diagram", error);
     }
@@ -203,40 +217,47 @@ export async function renderDiagrams(
     const mermaid = mod.default || mod;
     if (root.fonts) await root.fonts.ready;
 
+    const html = root.documentElement;
+    let renderedTheme = html?.dataset.theme;
     applyMermaidConfig(mermaid);
+
+    const resizeObserver = typeof ResizeObserver === "function" ?
+      new ResizeObserver(entries => {
+        for (const { target } of entries) updateScrollFocus(target);
+      }) : null;
 
     // Local counter so concurrent / sequential test runs get unique IDs
     const renderCounter = Date.now() % 1e9;
 
     for (const [index, pre] of blocks.entries()) {
-      await renderOne(mermaid, root, pre, index, renderCounter);
+      const diagram = await renderOne(mermaid, root, pre, index, renderCounter);
+      if (diagram) resizeObserver?.observe(diagram);
     }
 
-    // Watch for light/dark skin changes (Chulapa theme selector)
-    if (typeof MutationObserver !== "undefined" && root.documentElement) {
-      const html = root.documentElement;
-      let lastTheme = (html.dataset && html.dataset.theme) || "";
-      let timer = null;
+    if (typeof MutationObserver === "function" && html) {
+      let rendering = Promise.resolve();
       let reRenderCount = 0;
-
-      const observer = new MutationObserver(() => {
-        const next = (html.dataset && html.dataset.theme) || "";
-        if (next === lastTheme) return;
-        lastTheme = next;
-        // Wait for the new stylesheet to apply so CSS variables are up to date
-        clearTimeout(timer);
-        timer = setTimeout(() => {
+      // The selector updates data-theme after both stylesheets are active.
+      // Serialize renders because Mermaid shares configuration across diagrams.
+      function refreshTheme() {
+        rendering = rendering.then(async () => {
+          if (html.dataset.theme === renderedTheme) return;
+          if (root.fonts) await root.fonts.ready;
+          if (html.dataset.theme === renderedTheme) return;
+          renderedTheme = html.dataset.theme;
+          applyMermaidConfig(mermaid);
           reRenderCount += 1;
-          reRenderExisting(mermaid, root, renderCounter + reRenderCount).catch(
-            (err) => console.warn("Mermaid theme re-render failed", err)
-          );
-        }, 80);
-      });
-
+          await reRenderExisting(mermaid, root, renderCounter + reRenderCount);
+        }).catch(error => console.warn("Mermaid theme re-render failed", error));
+      }
+      const observer = new MutationObserver(refreshTheme);
       observer.observe(html, {
         attributes: true,
         attributeFilter: ["data-theme"],
       });
+      // Reconcile any change that landed during the initial render.
+      refreshTheme();
+      await rendering;
     }
   } catch (error) {
     console.warn("Unable to load Mermaid; diagram source is preserved", error);
