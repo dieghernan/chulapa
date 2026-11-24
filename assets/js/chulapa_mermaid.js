@@ -7,10 +7,16 @@
  */
 
 function cssVar(name, fallback = "") {
-  const value = getComputedStyle(document.documentElement)
-    .getPropertyValue(name)
-    .trim();
-  return value || fallback;
+  try {
+    if (typeof getComputedStyle !== "function") return fallback;
+    const root =
+      typeof document !== "undefined" ? document.documentElement : null;
+    if (!root) return fallback;
+    const value = getComputedStyle(root).getPropertyValue(name).trim();
+    return value || fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 /** Relative luminance of a CSS color (#rgb, #rrggbb, rgb/rgba). */
@@ -113,16 +119,6 @@ const themeCSS = `
   }
 `;
 
-let mermaidModule = null;
-let renderCounter = 0;
-
-async function loadMermaid(load) {
-  if (mermaidModule) return mermaidModule;
-  const mod = await load();
-  mermaidModule = mod.default || mod;
-  return mermaidModule;
-}
-
 function applyMermaidConfig(mermaid) {
   mermaid.initialize({
     startOnLoad: false,
@@ -134,16 +130,19 @@ function applyMermaidConfig(mermaid) {
   });
 }
 
-function collectBlocks(root) {
-  return Array.from(root.querySelectorAll("pre")).filter(
-    (pre) =>
-      pre.classList.contains("mermaid") ||
-      pre.closest(".language-mermaid") ||
-      pre.querySelector("code.language-mermaid")
+function isMermaidBlock(pre) {
+  return (
+    pre.classList.contains("mermaid") ||
+    !!pre.closest(".language-mermaid") ||
+    !!pre.querySelector("code.language-mermaid")
   );
 }
 
-async function renderOne(mermaid, root, pre, index) {
+function collectBlocks(root) {
+  return Array.from(root.querySelectorAll("pre")).filter(isMermaidBlock);
+}
+
+async function renderOne(mermaid, root, pre, index, renderCounter) {
   const code = pre.querySelector("code");
   const source = (code || pre).textContent;
   try {
@@ -153,6 +152,7 @@ async function renderOne(mermaid, root, pre, index) {
     const diagram = root.createElement("div");
     diagram.className = "chulapa-mermaid my-3";
     diagram.style.overflowX = "auto";
+    if (!diagram.dataset) diagram.dataset = {};
     diagram.dataset.mermaidSource = source;
     diagram.innerHTML = svg;
     pre.replaceWith(diagram);
@@ -161,12 +161,13 @@ async function renderOne(mermaid, root, pre, index) {
   }
 }
 
-async function reRenderExisting(mermaid, root) {
-  const diagrams = Array.from(root.querySelectorAll(".chulapa-mermaid[data-mermaid-source]"));
+async function reRenderExisting(mermaid, root, renderCounter) {
+  const diagrams = Array.from(root.querySelectorAll(".chulapa-mermaid")).filter(
+    (node) => node && node.dataset && node.dataset.mermaidSource
+  );
   if (!diagrams.length) return;
 
   applyMermaidConfig(mermaid);
-  renderCounter += 1;
 
   for (const [index, diagram] of diagrams.entries()) {
     const source = diagram.dataset.mermaidSource;
@@ -195,37 +196,39 @@ export async function renderDiagrams(
     )
 ) {
   const blocks = collectBlocks(root);
-  const existing = root.querySelectorAll
-    ? root.querySelectorAll(".chulapa-mermaid[data-mermaid-source]")
-    : [];
-
-  if (!blocks.length && !existing.length) return;
+  if (!blocks.length) return;
 
   try {
-    const mermaid = await loadMermaid(load);
+    const mod = await load();
+    const mermaid = mod.default || mod;
     if (root.fonts) await root.fonts.ready;
 
     applyMermaidConfig(mermaid);
 
+    // Local counter so concurrent / sequential test runs get unique IDs
+    const renderCounter = Date.now() % 1e9;
+
     for (const [index, pre] of blocks.entries()) {
-      await renderOne(mermaid, root, pre, index);
+      await renderOne(mermaid, root, pre, index, renderCounter);
     }
 
     // Watch for light/dark skin changes (Chulapa theme selector)
     if (typeof MutationObserver !== "undefined" && root.documentElement) {
       const html = root.documentElement;
-      let lastTheme = html.dataset.theme || "";
+      let lastTheme = (html.dataset && html.dataset.theme) || "";
       let timer = null;
+      let reRenderCount = 0;
 
       const observer = new MutationObserver(() => {
-        const next = html.dataset.theme || "";
+        const next = (html.dataset && html.dataset.theme) || "";
         if (next === lastTheme) return;
         lastTheme = next;
         // Wait for the new stylesheet to apply so CSS variables are up to date
         clearTimeout(timer);
         timer = setTimeout(() => {
-          reRenderExisting(mermaid, root).catch((err) =>
-            console.warn("Mermaid theme re-render failed", err)
+          reRenderCount += 1;
+          reRenderExisting(mermaid, root, renderCounter + reRenderCount).catch(
+            (err) => console.warn("Mermaid theme re-render failed", err)
           );
         }, 80);
       });

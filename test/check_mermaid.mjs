@@ -14,8 +14,32 @@ function fixture(sources) {
   }));
   return {
     blocks,
-    querySelectorAll: () => blocks,
-    createElement: () => ({ style: {} })
+    // Only return blocks for "pre" queries; empty for rendered-diagram queries
+    querySelectorAll: (selector) => {
+      if (typeof selector === "string" && selector.includes("chulapa-mermaid")) {
+        return blocks
+          .map(block => block.replacement)
+          .filter(node => node && node.dataset && node.dataset.mermaidSource);
+      }
+      return blocks;
+    },
+    createElement: () => ({
+      style: {},
+      dataset: {},
+      className: "",
+      innerHTML: ""
+    })
+  };
+}
+
+function baseMermaid(overrides = {}) {
+  return {
+    initialize() {},
+    async parse() {},
+    async render(id, text) {
+      return { svg: "<svg></svg>" };
+    },
+    ...overrides
   };
 }
 
@@ -38,11 +62,9 @@ test("recognizes native blocks and Rouge language wrappers", async () => {
   root.blocks[1].querySelector = selector => selector === "code" ?
     { textContent: root.blocks[1].textContent } : null;
   const rendered = [];
-  await renderDiagrams(root, async () => ({ default: {
-    initialize() {},
-    async parse() {},
+  await renderDiagrams(root, async () => ({ default: baseMermaid({
     async render(id, text) { rendered.push(text); return { svg: "<svg></svg>" }; }
-  } }));
+  }) }));
   assert.deepEqual(rendered, ["flowchart LR\nA-->B", "flowchart TD\nC-->D"]);
 });
 
@@ -51,7 +73,12 @@ test("renders multiple diagrams with distinct IDs and strict mode", async () => 
   const ids = [];
   await renderDiagrams(root, async () => ({ default: {
     initialize(options) {
-      assert.deepEqual(options, { startOnLoad: false, securityLevel: "strict" });
+      assert.equal(options.startOnLoad, false);
+      assert.equal(options.securityLevel, "strict");
+      assert.equal(options.theme, "base");
+      assert.equal(options.look, "classic");
+      assert.equal(typeof options.themeVariables, "object");
+      assert.equal(typeof options.themeCSS, "string");
     },
     async parse() {},
     async render(id) { ids.push(id); return { svg: "<svg></svg>" }; }
@@ -60,17 +87,16 @@ test("renders multiple diagrams with distinct IDs and strict mode", async () => 
   for (const block of root.blocks) {
     assert.equal(block.replacement.innerHTML, "<svg></svg>");
     assert.equal(block.replacement.style.overflowX, "auto");
+    assert.ok(block.replacement.dataset.mermaidSource);
   }
 });
 
 test("bad syntax preserves source and does not stop later diagrams", async t => {
   const warnings = t.mock.method(console, "warn", () => {});
   const root = fixture(["invalid", "valid"]);
-  await renderDiagrams(root, async () => ({ default: {
-    initialize() {},
-    async parse(source) { if (source === "invalid") throw new Error("syntax"); },
-    async render() { return { svg: "<svg></svg>" }; }
-  } }));
+  await renderDiagrams(root, async () => ({ default: baseMermaid({
+    async parse(source) { if (source === "invalid") throw new Error("syntax"); }
+  }) }));
   assert.equal(root.blocks[0].replacement, undefined);
   assert.equal(root.blocks[1].replacement.innerHTML, "<svg></svg>");
   assert.equal(warnings.mock.calls.length, 1);
@@ -88,15 +114,13 @@ test("render failure preserves the failed source and still renders the next diag
   t.mock.method(console, "warn", () => {});
   const root = fixture(["first diagram", "second diagram"]);
   const rendered = [];
-  await renderDiagrams(root, async () => ({ default: {
-    initialize() {},
-    async parse() {},
+  await renderDiagrams(root, async () => ({ default: baseMermaid({
     async render(id, text) {
       rendered.push(text);
       if (text === "first diagram") throw new Error("render failed");
       return { svg: "<svg>second diagram</svg>" };
     }
-  } }));
+  }) }));
   assert.deepEqual(rendered, ["first diagram", "second diagram"]);
   assert.equal(root.blocks[0].textContent, "first diagram");
   assert.equal(root.blocks[0].replacement, undefined);
@@ -108,11 +132,11 @@ test("waits for fonts before measuring and rendering diagrams", async () => {
   let ready;
   root.fonts = { ready: new Promise(resolve => { ready = resolve; }) };
   const calls = [];
-  const rendering = renderDiagrams(root, async () => ({ default: {
+  const rendering = renderDiagrams(root, async () => ({ default: baseMermaid({
     initialize() { calls.push("initialize"); },
     async parse() { calls.push("parse"); },
     async render() { calls.push("render"); return { svg: "<svg></svg>" }; }
-  } }));
+  }) }));
   await Promise.resolve();
   assert.deepEqual(calls, []);
   assert.equal(root.blocks[0].replacement, undefined);
@@ -120,4 +144,17 @@ test("waits for fonts before measuring and rendering diagrams", async () => {
   await rendering;
   assert.deepEqual(calls, ["initialize", "parse", "render"]);
   assert.equal(root.blocks[0].replacement.innerHTML, "<svg></svg>");
+});
+
+test("initialize uses base theme and skin-derived themeVariables", async () => {
+  const root = fixture(["flowchart LR\nA-->B"]);
+  let options;
+  await renderDiagrams(root, async () => ({ default: baseMermaid({
+    initialize(opts) { options = opts; }
+  }) }));
+  assert.equal(options.theme, "base");
+  assert.equal(options.look, "classic");
+  assert.equal(options.themeVariables.primaryColor, "#ffffff");
+  assert.equal(options.themeVariables.primaryTextColor, "#212529");
+  assert.match(options.themeCSS, /chulapa-mermaid-bg/);
 });
