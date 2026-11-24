@@ -45,6 +45,11 @@ output = File.expand_path(ARGV.fetch(0))
       raise "Shared search helper absent or loaded after engine" unless scripts.count(common) == 1 && scripts.index(common) < scripts.index(engine)
       ["demo/classic-navbar.html", "demo/search_lunr.html", "demo/search_fusejs.html", "demo/search_simple.html", "demo/search_google.html", "404.html"].each do |page|
         document = Nokogiri::HTML(File.read(File.join(output, name, page)))
+        if page.start_with?("demo/search_") || page == "404.html"
+          icon = page == "404.html" ? "main p.lead > svg" : "header h1 > svg"
+          svg = document.at_css("#{icon}.chulapa-icon[aria-hidden=true][width][height]")
+          raise "Missing decorative search SVG in #{page}" unless svg&.at_css("path[d]")
+        end
         sources = document.css('script[src]').map { |node| node["src"] }
         %w[jquery.slim.min.js bootstrap.min.js chulapa_navigation.min.js].each do |asset|
           raise "Duplicate/missing #{asset} in #{page}" unless sources.count { |url| url.end_with?(asset) } == 1
