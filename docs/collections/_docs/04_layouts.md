@@ -684,6 +684,8 @@ use it for those accessible names.
 
 For `fileurl`, browser-supported formats include MP4, Ogg and WebM. Playback
 also depends on the codec and browser; the extension alone is insufficient.
+The development version skips the player when the file URL is blank, the
+provider is unsupported, or the provider's video ID is missing.
 
 The [YouTube setup guide](./32-embed-video) has a copyable example and
 explains where to find the video ID.
