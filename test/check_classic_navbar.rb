@@ -53,7 +53,14 @@ Dir.mktmpdir('chulapa-classic-navbar-') do |source|
         raise 'Search link must expose one label' unless search_label['aria-hidden'] == 'true' &&
           accessible_label && accessible_label.text == search_label.text && !accessible_label['aria-hidden']
         actual_label_classes = search_label['class'].to_s.split
-        raise "Wrong Search label breakpoint: #{expand}" unless actual_label_classes == [expected_label_class].compact
+        display_classes = actual_label_classes.grep(/\Ad-(sm|md|lg|xl|none)\b/)
+        # Allow spacing utilities (e.g. ml-1) alongside the responsive hide class.
+        if expected_label_class
+          raise "Wrong Search label breakpoint: #{expand}" unless
+            display_classes == [expected_label_class] && actual_label_classes.include?(expected_label_class)
+        else
+          raise "Wrong Search label breakpoint: #{expand}" unless display_classes.empty?
+        end
         %w[jquery popper bootstrap].each do |library|
           raise "Duplicate/missing #{library}" unless demo.css('script[src]').count { |s| s['src'].include?(library) } == 1
         end
