@@ -1,5 +1,7 @@
 /*!
  * Mermaid diagrams
+ * CSS custom properties are read at runtime by chulapa_mermaid.js
+ * so diagrams follow the active skin (including light/dark switch).
  */
 
 :root {
@@ -21,5 +23,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
   }
 }
