@@ -2,20 +2,48 @@
  * Mermaid diagrams
  */
 
+// Keep skin colors that meet contrast and adjust only the diagram palette.
+@function chulapa-mermaid-contrast($preferred, $backgrounds, $minimum) {
+  $best: $preferred;
+  $best-ratio: 0;
+  @each $candidate in $preferred, mix($body-color, $preferred, 25%),
+      mix($body-color, $preferred, 50%), mix($body-color, $preferred, 75%),
+      $body-color, mix($black, $preferred, 25%), mix($white, $preferred, 25%),
+      mix($black, $preferred, 50%), mix($white, $preferred, 50%), $black, $white {
+    $ratio: 21;
+    @each $background in $backgrounds {
+      $ratio: min($ratio, contrast-ratio($background, $candidate));
+    }
+    @if $ratio >= $minimum {
+      @return $candidate;
+    }
+    @if $ratio > $best-ratio {
+      $best: $candidate;
+      $best-ratio: $ratio;
+    }
+  }
+  @return $best;
+}
+
+$chulapa-mermaid-node-bg: opaque($body-bg, $card-bg);
+$chulapa-mermaid-muted-bg: mix($body-color, $body-bg, 8%);
+
 :root {
   --chulapa-mermaid-bg: #{$body-bg};
-  --chulapa-mermaid-color: #{$body-color};
-  --chulapa-mermaid-node-bg: #{$card-bg};
-  --chulapa-mermaid-node-border: #{$primary};
-  --chulapa-mermaid-line: #{$body-color};
-  --chulapa-mermaid-muted-bg: #{mix($body-color, $body-bg, 8%)};
-  --chulapa-mermaid-muted-border: #{$border-color};
+  --chulapa-mermaid-color: #{chulapa-mermaid-contrast($body-color, $body-bg, 4.5)};
+  --chulapa-mermaid-node-bg: #{$chulapa-mermaid-node-bg};
+  --chulapa-mermaid-node-text: #{chulapa-mermaid-contrast($body-color, $chulapa-mermaid-node-bg, 4.5)};
+  --chulapa-mermaid-node-border: #{chulapa-mermaid-contrast($primary, ($body-bg, $chulapa-mermaid-node-bg, $chulapa-mermaid-muted-bg), 3)};
+  --chulapa-mermaid-line: #{chulapa-mermaid-contrast($body-color, ($body-bg, $chulapa-mermaid-muted-bg), 3)};
+  --chulapa-mermaid-muted-bg: #{$chulapa-mermaid-muted-bg};
+  --chulapa-mermaid-muted-text: #{chulapa-mermaid-contrast($body-color, $chulapa-mermaid-muted-bg, 4.5)};
+  --chulapa-mermaid-muted-border: #{chulapa-mermaid-contrast($border-color, ($body-bg, $chulapa-mermaid-muted-bg), 3)};
   --chulapa-mermaid-font-family: #{inspect($font-family-base)};
 }
 
 .chulapa-mermaid {
   overflow-x: auto;
-  color: $body-color;
+  color: var(--chulapa-mermaid-color);
 
   &:focus-visible {
     outline: 2px solid currentColor;

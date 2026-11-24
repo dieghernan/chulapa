@@ -159,6 +159,30 @@ test("initialize uses base theme and skin-derived themeVariables", async () => {
   assert.match(options.themeCSS, /chulapa-mermaid-bg/);
 });
 
+test("uses a distinct text color for each diagram surface", async t => {
+  const values = {
+    "--chulapa-mermaid-color": "#313131",
+    "--chulapa-mermaid-node-text": "#222222",
+    "--chulapa-mermaid-muted-text": "#333333"
+  };
+  globalThis.getComputedStyle = () => ({ getPropertyValue: name => values[name] ?? "" });
+  globalThis.document = { documentElement: {} };
+  t.after(() => {
+    delete globalThis.getComputedStyle;
+    delete globalThis.document;
+  });
+  let options;
+  await renderDiagrams(fixture(["flowchart LR\nA-->B"]), async () => ({
+    default: baseMermaid({ initialize(value) { options = value; } })
+  }));
+  assert.equal(options.themeVariables.signalTextColor, "#313131");
+  assert.equal(options.themeVariables.actorTextColor, "#222222");
+  assert.equal(options.themeVariables.nodeTextColor, "#222222");
+  assert.equal(options.themeVariables.noteTextColor, "#333333");
+  assert.equal(options.themeVariables.labelTextColor, "#333333");
+  assert.match(options.themeCSS, /\.cluster-label p[^{]*\{[^}]*--chulapa-mermaid-muted-text/);
+});
+
 test("keeps the diagram at its viewBox width and makes overflow focusable", async () => {
   const root = fixture(["sequenceDiagram\nA->>B: Hello"]);
   const diagram = root.createElement();
