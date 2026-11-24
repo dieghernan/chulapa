@@ -60,7 +60,7 @@ const root = require("path").resolve(__dirname, ".."),
         await page.setContent(
           `<style>${css}</style><main style="padding:16px">${content}</main>`,
         );
-        const checks = await page.locator("[data-key]").evaluateAll((els) => {
+        const { checks, mermaid } = await page.locator("[data-key]").evaluateAll((els) => {
           const rgb = (s) =>
             s
               .match(/[\d.]+/g)
@@ -73,7 +73,9 @@ const root = require("path").resolve(__dirname, ".."),
                 x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4,
               )
               .reduce((s, x, i) => s + x * [0.2126, 0.7152, 0.0722][i], 0);
-          return els.map((el) => {
+          const contrast = (a, b) =>
+            (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+          const checks = els.map((el) => {
             const s = getComputedStyle(el),
               a = lum(rgb(s.color)),
               b = lum(rgb(s.backgroundColor));
@@ -82,10 +84,41 @@ const root = require("path").resolve(__dirname, ".."),
               kind: el.className,
               bg: rgb(s.backgroundColor),
               fg: rgb(s.color),
-              ratio: (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05),
+              ratio: contrast(a, b),
             };
           });
+          const palette = getComputedStyle(document.documentElement);
+          const sample = document.createElement("span");
+          document.body.append(sample);
+          const mermaidLuminance = (name) => {
+            sample.style.color = "";
+            sample.style.color = palette.getPropertyValue(`--chulapa-mermaid-${name}`).trim();
+            if (!sample.style.color) throw new Error(`Missing Mermaid color: ${name}`);
+            return lum(rgb(getComputedStyle(sample).color));
+          };
+          const pairs = [
+            ["color", "bg", 4.5],
+            ["node-text", "node-bg", 4.5],
+            ["muted-text", "muted-bg", 4.5],
+            ["line", "bg", 3],
+            ["line", "muted-bg", 3],
+            ["node-border", "bg", 3],
+            ["node-border", "node-bg", 3],
+            ["node-border", "muted-bg", 3],
+            ["muted-border", "bg", 3],
+            ["muted-border", "muted-bg", 3],
+          ];
+          const mermaid = pairs.map(([foreground, background, minimum]) => ({
+            foreground, background, minimum,
+            ratio: contrast(mermaidLuminance(foreground), mermaidLuminance(background)),
+          }));
+          sample.remove();
+          return { checks, mermaid };
         });
+        for (const { foreground, background, ratio, minimum } of mermaid) {
+          assert.ok(ratio >= minimum,
+            `${skin}/${width}/Mermaid ${foreground} on ${background}: ${ratio}; minimum ${minimum}`);
+        }
         const authored = identity.authoredButtonSkins.includes(skin);
         for (const c of checks) {
           const exception = identity.renderedExceptions[`${skin}/${c.kind}`];

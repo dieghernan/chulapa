@@ -53,10 +53,12 @@ function buildThemeVariables() {
   const bg = cssVar("--chulapa-mermaid-bg", "#ffffff");
   const color = cssVar("--chulapa-mermaid-color", "#212529");
   const nodeBg = cssVar("--chulapa-mermaid-node-bg", "#ffffff");
+  const nodeText = cssVar("--chulapa-mermaid-node-text", color);
   const nodeBorder = cssVar("--chulapa-mermaid-node-border", "#0d6efd");
   const line = cssVar("--chulapa-mermaid-line", color);
   const mutedBg = cssVar("--chulapa-mermaid-muted-bg", "#f8f9fa");
-  const mutedBorder = cssVar("--chulapa-mermaid-muted-border", "#dee2e6");
+  const mutedText = cssVar("--chulapa-mermaid-muted-text", color);
+  const mutedBorder = cssVar("--chulapa-mermaid-muted-border", "#6c757d");
   const fontFamily = cssVar(
     "--chulapa-mermaid-font-family",
     "system-ui, -apple-system, sans-serif"
@@ -71,7 +73,7 @@ function buildThemeVariables() {
     fontFamily,
 
     primaryColor: nodeBg,
-    primaryTextColor: color,
+    primaryTextColor: nodeText,
     primaryBorderColor: nodeBorder,
     lineColor: line,
     secondaryColor: mutedBg,
@@ -80,7 +82,7 @@ function buildThemeVariables() {
     tertiaryTextColor: color,
 
     noteBkgColor: mutedBg,
-    noteTextColor: color,
+    noteTextColor: mutedText,
     noteBorderColor: mutedBorder,
     edgeLabelBackground: bg,
     textColor: color,
@@ -91,19 +93,19 @@ function buildThemeVariables() {
     clusterBkg: mutedBg,
     clusterBorder: mutedBorder,
     titleColor: color,
-    nodeTextColor: color,
+    nodeTextColor: nodeText,
     defaultLinkColor: line,
 
     // Sequence
     actorBkg: nodeBg,
     actorBorder: nodeBorder,
-    actorTextColor: color,
+    actorTextColor: nodeText,
     actorLineColor: line,
     signalColor: color,
     signalTextColor: color,
     labelBoxBkgColor: mutedBg,
     labelBoxBorderColor: mutedBorder,
-    labelTextColor: color,
+    labelTextColor: mutedText,
     loopTextColor: color,
   };
 }
@@ -114,8 +116,11 @@ const themeCSS = `
   .edgeLabel p {
     background-color: var(--chulapa-mermaid-bg) !important;
   }
-  .cluster-label text {
-    fill: var(--chulapa-mermaid-color);
+  .cluster-label text,
+  .cluster-label span,
+  .cluster-label p {
+    color: var(--chulapa-mermaid-muted-text, var(--chulapa-mermaid-color));
+    fill: var(--chulapa-mermaid-muted-text, var(--chulapa-mermaid-color));
   }
 `;
 

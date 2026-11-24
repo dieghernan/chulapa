@@ -12,6 +12,8 @@
 
 -   Keep wide Mermaid diagrams readable in a horizontally scrollable area and update diagram colors when the skin changes during rendering.
 
+-   Improve the contrast of Mermaid labels, nodes and group outlines across skin palettes.
+
 -   Serve minified copies of the shared navigation and content JavaScript.
 
 -   Reduce navigation shifts while fonts load in the authored skins with measured width changes.
