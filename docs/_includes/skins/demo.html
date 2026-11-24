@@ -34,3 +34,58 @@
     }).addTo(map);
   });
 </script>
+
+
+<h4 id="mermaid-examples">Mermaid examples</h4>
+
+Simple example
+
+```mermaid
+flowchart TD
+  accTitle: Publishing the Chulapa documentation
+  accDescr: A push to main, a scheduled run or a manual trigger starts GitHub Actions. The build job checks out the repository, installs Ruby dependencies, configures Pages, builds the documentation and uploads the site. The deployment job publishes the artifact to GitHub Pages.
+  Push[Push to main] --> Build
+  Schedule[Scheduled run] --> Build
+  Manual[Manual trigger] --> Build
+  subgraph Build[Build job]
+    Checkout[Check out repository] --> Ruby[Set up Ruby and install docs/Gemfile]
+    Ruby --> Pages[Configure GitHub Pages]
+    Pages --> Jekyll[Build docs with Jekyll and the Pages baseurl]
+    Jekyll --> Artifact[Upload docs/_site artifact]
+  end
+  Artifact --> Deploy[Deploy job: publish to GitHub Pages]
+  Deploy --> Site[Chulapa documentation website]
+```
+
+More complex
+
+```mermaid
+sequenceDiagram
+  accTitle: Rendering Mermaid in Chulapa
+  accDescr: The browser loads an enabled page and the Chulapa Mermaid module. When diagram blocks exist, the module imports Mermaid from jsDelivr and renders each block. Successful diagrams replace their source, while failed diagrams keep their source visible.
+  participant Browser
+  participant Pages as GitHub Pages
+  participant Module as Chulapa Mermaid module
+  participant CDN as jsDelivr
+  Browser->>Pages: Request the Mermaid demo
+  Pages-->>Browser: HTML with diagram source and module script
+  Browser->>Pages: Request chulapa_mermaid.js
+  Pages-->>Browser: JavaScript module
+  Browser->>Module: Run module
+  opt Mermaid blocks exist
+    Module->>CDN: Import Mermaid 12.1.0
+    alt Library loads
+      CDN-->>Module: Mermaid library
+      loop Each diagram block
+        Module->>Module: Render SVG
+        alt Diagram renders
+          Module->>Browser: Replace code block with accessible diagram
+        else Invalid diagram
+          Module->>Browser: Keep source code visible
+        end
+      end
+    else Library cannot load
+      Module->>Browser: Keep source code visible
+    end
+  end
+```

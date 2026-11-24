@@ -353,6 +353,7 @@ defaults:
     show_sidetoc: true
     show_breadcrumb: true
     show_seo: false
+    mermaid: true
     breadcrumb_list:
     - label: Skins
       url: /skins
