@@ -447,7 +447,7 @@ defaults:
     values: {cloudtag_url: /tags/, cloudcategory_url: /categories/, show_tags: true, show_categories: true}
 ```
 These defaults affect posts, not cloud pages; omit repo prefix (baseurl is added). Other collections need matching scope/page and output: true; standalone pages are excluded. v2.2.0 cloud entries with show_date: false hide date/calendar/separator but retain reading time; v2.1.0 lacks this fix.
-The old demo bug was asymmetric: badges already linked to #demo while the cloud group was #dmo. v2.2.0 makes both #demo; spaces hyphenate (#demo-topic). Update only manually written old #dmo links; no YAML change fixes fragments.
+In v2.1.0 badges already linked to #demo while the cloud group was #dmo. v2.2.0–v2.3.0 fixed it and used #demo-topic for "demo topic". Development: copy rendered fragments; spaces and hyphens are distinct. Unambiguous old fragments still work.
 ## Correct file and option scopes
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#options
 Source: https://dieghernan.github.io/chulapa/docs/04-layouts#a-note-on-defaults

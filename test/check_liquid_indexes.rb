@@ -6,6 +6,7 @@ require "tmpdir"
 require "fileutils"
 require "yaml"
 require "json"
+require "uri"
 
 # Record real sampling calls without fixing the random draw itself.
 module TrackGallerySampling
@@ -26,10 +27,11 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
   entries = (1..12).map do |i|
     {"title" => "Entry #{format('%02d', 13 - i)}", "date" => "2024-01-#{format('%02d', (i * 5) % 13)}", "rank" => (i * 7) % 13, "tags" => [i.even? ? "even" : "odd"], "categories" => i % 3 == 0 ? %w[guides shared] : %w[news]}
   end
-  # Exercise exact names, embedded "demo", spaces and the former rewrite collision.
-  fragment_names = ["demo", "demonstration", "demo topic", "dmo"]
+  fragment_names = ["demo", "demonstration", "demo topic", "demo-topic", "legacy topic", "dmo",
+    "R, Python", "tags", "categories", "100%", 'A "quote" & B']
   entries.first["tags"] += fragment_names
   entries.first["categories"] += fragment_names
+  entries.first.merge!("cloudtag_url" => "/cloudtag-0.html", "cloudcategory_url" => "/cloudcategory-0.html")
   File.write(File.join(source, "badges.html"), {"layout" => "default", "tags" => fragment_names,
     "categories" => fragment_names, "cloudtag_url" => "/cloudtag-0.html",
     "cloudcategory_url" => "/cloudcategory-0.html"}.to_yaml +
@@ -131,13 +133,23 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
           link.text == name && link["href"].include?("/#{layout}-0.html#")
         end
         raise "Missing #{layout} badge for #{name}" unless badge
-        fragment = badge["href"].split("#").last
+        fragment = URI::DEFAULT_PARSER.unescape(badge["href"].split("#", 2).last)
         groups = cloud.css('section[id]').select { |section| section['id'] == fragment }
         raise "#{layout} badge must reach exactly one group: #{badge['href']}" unless groups.size == 1
         raise "#{layout} duplicate fragment ID" unless cloud.css('[id]').count { |node| node['id'] == fragment } == 1
         raise "#{layout} badge reaches wrong group" unless groups.first.at_css('h2').text.strip == name
-        raise "#{layout} cloud button missing for #{name}" unless cloud.css('a[role="button"]').any? { |a| a['href'] == "##{fragment}" }
+        cloud_link = cloud.css('a.btn[href^="#"]').find do |link|
+          URI::DEFAULT_PARSER.unescape(link['href']) == "##{fragment}"
+        end
+        raise "#{layout} native cloud link missing for #{name}" unless cloud_link && !cloud_link['role']
+        card_badge = output.call("title-true").css('.chulapa-card-tags a').find do |link|
+          link.text.strip == name && link['href'].include?("/#{layout}-0.html#")
+        end
+        raise "#{layout} card badge disagrees for #{name}" unless card_badge && card_badge['href'] == badge['href']
       end
+      raise "#{layout} lost an unambiguous legacy link" unless cloud.at_css('span#legacy-topic')&.ancestors('section')&.first&.at_css('h2')&.text&.strip == 'legacy topic'
+      ids = cloud.css('[id]').map { |node| node['id'] }
+      raise "#{layout} has duplicate IDs" unless ids == ids.uniq
     end
     by_date = site.collections["entries"].docs.sort_by(&:date).reverse
     [1, 2].each_with_index do |copies, index|
@@ -149,7 +161,7 @@ Dir.mktmpdir("chulapa-indexes-") do |source|
         sections = output.call("#{layout}-#{index}").css("section.chulapa-#{layout}")
         expected_groups = by_date.flat_map { |document| document.data.fetch(field) }.uniq
         expected_groups = expected_groups.sort_by { |group| -by_date.count { |document| document.data.fetch(field).include?(group) } }
-        raise "Cloud groups missing or misordered: #{layout}" unless sections.map { |section| section["id"] } == expected_groups.map { |group| group.tr(" ", "-") }
+        raise "Cloud groups missing or misordered: #{layout}" unless sections.map { |section| section.at_css('h2').text.strip } == expected_groups
         sections.each do |section|
           group = section.at_css("h2").text.strip
           expected_documents = by_date.select { |document| document.data.fetch(field).include?(group) }.flat_map { |document| [document] * copies }

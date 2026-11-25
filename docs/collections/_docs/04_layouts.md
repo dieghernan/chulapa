@@ -424,6 +424,11 @@ Both work on Jekyll 3 and 4, including the legacy `cloudtag2` and
 `cloudcategory2` aliases. Use `include_collection` as in [Archive](#archive).
 Since v2.2.0, `show_date: false` hides an entry's date.
 
+In the development version, use the link from the rendered cloud or article
+badge when linking to a label with spaces or punctuation. Labels such as
+`field notes` and `field-notes` have separate destinations. Existing fragments
+from space-to-hyphen conversion still work where they identify one section.
+
 Follow [Add tag and category indexes](./63-tag-category-clouds) to create an
 index and link article badges to it. See the [tag cloud demo](../demo/tags).
 

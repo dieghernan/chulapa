@@ -8,7 +8,7 @@
   {%- assign cloud_kind = 'tag' -%}
 {%- endif -%}
 {% assign alldocs = alldocs | sort: 'date' | reverse %}
-{% assign alltags =  alldocs | map: include.field | join: ','  | split: ','  %}
+{% assign alltags = alldocs | map: include.field | compact | where_exp: 'label', 'label != empty' %}
 
 {%- assign tag_groups = alltags | group_by_exp: 'item', 'item' -%}
 {%- assign single_tags = tag_groups | map: 'name' -%}
@@ -29,11 +29,16 @@
 
 {%- assign sizemax = sorted_count_tags | first -%}
 {% assign mid = sorted_count_tags | last | plus: sizemax | divided_by: 2  %}
+{%- assign cloud_fragment_ids = '' | split: ',' -%}
+{%- for label in sorted_tags -%}
+  {%- include snippets/cloud-fragment.html label=label field=include.field -%}
+  {%- assign cloud_fragment_ids = cloud_fragment_ids | push: cloud_fragment_id -%}
+{%- endfor -%}
 
 <div class="row g-0 pt-5" id="{{ include.field }}">
 <div class="col">
 	{%- for i in (0..n_tags)-%}
-	<a href="#{{- sorted_tags[i] | replace: " ", "-" -}}" class="btn btn-{{ cloud_color }} m-1" role="button" style="font-size: min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="{{ cloud_icon }} mr-2" aria-hidden="true"></i>{{- sorted_tags[i] -}}<span class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{ sorted_count_tags[i]}}</span></a>
+	<a href="#{{- cloud_fragment_ids[i] | url_encode | escape -}}" class="btn btn-{{ cloud_color }} m-1" style="font-size: min(1.2rem , max(0.8rem , calc(1rem + 0.025*({{ sorted_count_tags[i] }}rem - {{ mid }}rem))));"><i class="{{ cloud_icon }} mr-2" aria-hidden="true"></i>{{- sorted_tags[i] | escape -}}<span class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{ sorted_count_tags[i]}}</span></a>
 	{%- endfor -%}
 	</div>
 </div>
@@ -48,10 +53,18 @@
   {%- endcapture -%}
   {%- assign cloud_entries = cloud_entries | push: cloud_entry -%}
 {%- endfor -%}
-{% for  i in (0..n_tags) %}
-<section id="{{- sorted_tags[i] | replace: " ", "-" -}}" class="py-3 chulapa-cloud{{ cloud_kind }}">
+{%- assign cloud_legacy_ids = '' | split: ',' -%}
+{% for i in (0..n_tags) %}
+<section id="{{- cloud_fragment_ids[i] | escape -}}" class="py-3 chulapa-cloud{{ cloud_kind }}">
+{%- assign cloud_legacy_id = sorted_tags[i] | replace: ' ', '-' -%}
+{%- if cloud_legacy_id != include.field -%}
+  {%- unless cloud_fragment_ids contains cloud_legacy_id or cloud_legacy_ids contains cloud_legacy_id -%}
+    <span id="{{ cloud_legacy_id | escape }}" class="d-block" aria-hidden="true"></span>
+    {%- assign cloud_legacy_ids = cloud_legacy_ids | push: cloud_legacy_id -%}
+  {%- endunless -%}
+{%- endif -%}
 <div class="d-flex  align-items-center border-bottom border-chulapa mt-5">
-  <h2 class="h5 my-0"><i class="{{ cloud_icon }} mr-1" aria-hidden="true"></i>{{- sorted_tags[i]-}} </h2>
+  <h2 class="h5 my-0"><i class="{{ cloud_icon }} mr-1" aria-hidden="true"></i>{{- sorted_tags[i] | escape -}} </h2>
   <div class="badge rounded-pill chulapa-pill-bg-{{ cloud_color }} ml-2">{{sorted_count_tags[i]}}</div>
 </div>
   {% for document in alldocs %}

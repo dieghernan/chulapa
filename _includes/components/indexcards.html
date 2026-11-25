@@ -35,15 +35,17 @@
 <i class="fa fa-redo fa-xs" aria-hidden="true"></i> {% endif %}
 <time class="dt-published" datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: "%d/%m/%Y"  -}}</time></p>{%- endif %}
 				{%- for category in post.categories -%}
-				<a href="{{- category | replace: " ", "-" | prepend: "#" |
+				{%- include snippets/cloud-fragment.html label=category field='categories' -%}
+				<a href="{{- cloud_fragment_id | url_encode | prepend: '#' |
 						prepend: post.cloudcategory_url |
-						absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-secondary mx-1 p-category">{{- category -}}
+						absolute_url | uri_escape | escape -}}" class="badge chulapa-pill-bg-secondary mx-1 p-category">{{- category | escape -}}
 				</a>
 				{%- endfor -%}
 				{%- for tag in post.tags -%}
-				<a href="{{- tag | replace: " ", "-" | prepend: "#" |
+				{%- include snippets/cloud-fragment.html label=tag field='tags' -%}
+				<a href="{{- cloud_fragment_id | url_encode | prepend: '#' |
 					   prepend: post.cloudtag_url |
-					   absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-primary mx-1 p-category">{{- tag -}}
+					   absolute_url | uri_escape | escape -}}" class="badge chulapa-pill-bg-primary mx-1 p-category">{{- tag | escape -}}
 				</a>
 				{%- endfor -%}
 				</div>

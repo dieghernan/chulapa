@@ -8,9 +8,10 @@
       </div>
       <div>
       {%- for tag in page.tags %}
-        <a href="{{- tag | replace: " ", "-" | prepend: "#" |
+        {%- include snippets/cloud-fragment.html label=tag field='tags' -%}
+        <a href="{{- cloud_fragment_id | url_encode | prepend: '#' |
         prepend: page.cloudtag_url |
-        absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-primary mt-1 p-category" rel="tag" >{{- tag -}}</a>
+        absolute_url | uri_escape | escape -}}" class="badge chulapa-pill-bg-primary mt-1 p-category" rel="tag" >{{- tag | escape -}}</a>
       {% endfor -%}
       </div>
     </div>

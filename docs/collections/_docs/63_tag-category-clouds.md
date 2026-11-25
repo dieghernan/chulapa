@@ -110,8 +110,9 @@ permalink, badge URL, exact labels and collection scope. Both the page and badge
 settings are needed; a menu link does not create the page. Use
 [publishing checks](./42-unpublished-changes) for old output.
 
-In v2.2.0, group fragments preserve tag/category
-names and replace spaces with hyphens: `demo` links to `#demo`, and `demo topic`
-to `#demo-topic`. This also fixes badge links for names containing `demo`, which
-older versions rewrote only in the cloud index. Update any manually written
-links to those older `dmo` fragments when upgrading.
+Versions v2.2.0 and v2.3.0 replace spaces in group fragments with hyphens.
+Update manually written links from the older `#dmo` fragment to `#demo`.
+On the development version, copy the rendered link or badge for labels with
+spaces or punctuation. For example, `city walks` and `city-walks` have separate
+destinations when both are present. Older hyphenated fragments still work
+where they identify one section.

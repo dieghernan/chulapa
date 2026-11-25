@@ -1,0 +1,4 @@
+{%- assign cloud_fragment_id = include.label | replace: '%', '%25' | replace: ' ', '%20' -%}
+{%- if cloud_fragment_id == include.field -%}
+  {%- assign cloud_fragment_id = cloud_fragment_id | prepend: '%' -%}
+{%- endif -%}
