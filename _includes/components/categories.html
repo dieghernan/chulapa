@@ -8,9 +8,10 @@
       </div>
       <div class="d-flex flex-wrap">
       {%- for category in page.categories %}
-        <a href="{{- category | replace: " ", "-" | prepend: "#" |
+        {%- include snippets/cloud-fragment.html label=category field='categories' -%}
+        <a href="{{- cloud_fragment_id | url_encode | prepend: '#' |
                      prepend: page.cloudcategory_url |
-                     absolute_url | uri_escape -}}" class="badge chulapa-pill-bg-secondary mt-1 p-category" rel="tag">{{- category -}}</a>
+                     absolute_url | uri_escape | escape -}}" class="badge chulapa-pill-bg-secondary mt-1 p-category" rel="tag">{{- category | escape -}}</a>
       {% endfor -%}
       </div>
     </div>

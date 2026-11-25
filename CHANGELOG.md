@@ -6,6 +6,8 @@
 
 ### Fixed
 
+-   Keep commas within tag and category labels and give similar labels distinct, keyboard-operable links from clouds and article badges.
+
 -   Keep callout titles and body text readable against their tinted backgrounds across skin palettes.
 
 -   Omit video players and structured data when the file or provider identifier is missing or the provider is unsupported.
