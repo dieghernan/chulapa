@@ -1,5 +1,6 @@
 {%- include snippets/video-schema-data.html provider="youtube" id=include.id thumbnail_url=include.thumbnail_url video_res=include.video_res deferred=true -%}
-{% assign video_id = include.id %}
+{%- if video_schema_url -%}
+{% assign video_id = video_schema_key %}
 {% assign video_res = include.video_res | default: "maxresdefault" %}
 <!-- Thanks to alfurka,groupboard -->
 <!-- Based on https://github.com/alfurka/jekyll-embed-youtube-lazy-load -->
@@ -26,3 +27,4 @@
   document.body.appendChild(script);
 })();
 </script>
+{%- endif -%}

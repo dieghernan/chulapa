@@ -14,8 +14,8 @@ Dir.mktmpdir("chulapa-video-jsonld-") do |source|
     "external" => ["video", "fileurl='https://cdn.example/movie.mp4?a=1&b=2'", "contentUrl", "https://cdn.example/movie.mp4?a=1&b=2"],
     "eager" => ["video", "provider='youtube' id='clip' nolazy=true", "embedUrl", "https://www.youtube-nocookie.com/embed/clip"],
     "deferred" => ["video", "provider='youtube' id='clip'", "embedUrl", "https://www.youtube-nocookie.com/embed/clip"],
-    "direct" => ["youtube", "id='clip' video_res='hqdefault'", "embedUrl", "https://www.youtube-nocookie.com/embed/clip"],
-    "vimeo" => ["video", "provider='vimeo' id='123'", "embedUrl", "https://player.vimeo.com/video/123?dnt=true"],
+    "direct" => ["youtube", "id=' clip ' video_res='hqdefault'", "embedUrl", "https://www.youtube-nocookie.com/embed/clip"],
+    "vimeo" => ["video", "provider='vimeo' id=' 123 '", "embedUrl", "https://player.vimeo.com/video/123?dnt=true"],
     "drive" => ["video", "provider='google-drive' id='123'", "embedUrl", "https://drive.google.com/file/d/123/preview"],
     "bilibili" => ["video", "provider='bilibili' id='BV123'", "embedUrl", "https://player.bilibili.com/player.html?bvid=BV123&page=1&as_wide=1&high_quality=1&danmaku=0"],
     "dailymotion" => ["video", "provider='dailymotion' id='123'", "embedUrl", "https://www.dailymotion.com/embed/video/123"]
@@ -27,6 +27,7 @@ Dir.mktmpdir("chulapa-video-jsonld-") do |source|
   {"bare" => "provider='vimeo' id='bare'", "spaces" => "provider='youtube' id='spaces' name='  ' description=' ' duration=' ' upload_date=' '", "default-thumb" => "provider='youtube' id='thumb' video_res='hqdefault'", "eager-bare" => "provider='youtube' id='clip' nolazy=true", "unknown" => "provider='unknown' id='abc'", "missing" => "provider='vimeo'", "empty-file" => "fileurl=' ' provider='youtube' id='ignored'"}.each do |key, args|
     body += "<section id='#{key}'>{% include snippets/video.html #{args} %}</section>"
   end
+  body += "<section id='direct-missing'>{% include snippets/youtube.html id=' ' %}</section>"
   body += "<section id='repeat'>{% include snippets/video.html provider='vimeo' id='123' %}</section>"
   values = { "video_name" => "A \"clip\" & </script><script>bad()</script>", "video_description" => "Line one\nLine two &amp; \\ end" }
   %w[first second].each do |page|
@@ -62,7 +63,10 @@ Dir.mktmpdir("chulapa-video-jsonld-") do |source|
       end
       raise "Unexpected eager thumbnail" if read.call("eager-bare").key?("thumbnailUrl")
       raise "Wrong deferred thumbnail" unless read.call("default-thumb")["thumbnailUrl"] == "https://img.youtube.com/vi/thumb/hqdefault.jpg"
-      %w[unknown missing empty-file].each { |key| raise "Invented unsupported video: #{key}" if read.call(key) }
+      %w[unknown missing empty-file direct-missing].each do |key|
+        invalid = doc.at_css("##{key}")
+        raise "Unexpected video markup for #{key}" unless invalid.element_children.empty?
+      end
       raise "Deferred player loaded before click" if doc.at_css("#deferred iframe")
       raise "Deferred metadata inside replaceable player" if doc.at_css("#deferred .ch_ytdefer script[type='application/ld+json']")
     end

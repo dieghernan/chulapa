@@ -97,6 +97,12 @@
   }
 }
 
+@function chulapa-callout-text-color($background) {
+  $fallback: color-contrast($background, $body-color, $body-color, 4.5);
+  $tinted-text: mix($fallback, $body-color, 25%);
+  @return color-contrast($background, $fallback, $tinted-text, 4.5);
+}
+
 @each $type, $color, $title, $title-es, $icon in (
   (note, info, "Note", "Nota", ""),
   (tip, success, "Tip", "Consejo", ""),
@@ -106,11 +112,22 @@
 ) {
   .callout-#{$type} {
     $accent: map-get($theme-colors, $color);
-    background-color: rgba($accent, .1);
+    $panel-tint: rgba($accent, .1);
+    $header-tint: rgba($accent, .08);
+    $panel-bg: opaque($body-bg, $panel-tint);
+    $header-bg: opaque($panel-bg, $header-tint);
+
+    background-color: $panel-tint;
+    color: chulapa-callout-text-color($panel-bg);
     border-left-color: $accent;
-    --chulapa-callout-header-bg: #{rgba($accent, .08)};
+    --chulapa-callout-header-bg: #{$header-tint};
     --chulapa-callout-title: #{inspect($title)};
     --chulapa-callout-icon: #{inspect($icon)};
+
+    &::before,
+    &::after {
+      color: chulapa-callout-text-color($header-bg);
+    }
 
     &:lang(es) {
       --chulapa-callout-title: #{inspect($title-es)};

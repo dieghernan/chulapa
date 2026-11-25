@@ -6,6 +6,10 @@
 
 ### Fixed
 
+-   Keep callout titles and body text readable against their tinted backgrounds across skin palettes.
+
+-   Omit video players and structured data when the file or provider identifier is missing or the provider is unsupported.
+
 -   Keep skin previews usable when Leaflet or its map tiles fail to load and provide a direct OpenStreetMap link.
 
 -   Use inline SVG icons for search, including the documentation demos, and the color theme selector so their icons and spacing are available before Font Awesome loads.

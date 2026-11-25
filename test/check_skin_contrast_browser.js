@@ -55,12 +55,15 @@ const root = require("path").resolve(__dirname, ".."),
             `<button class="btn btn-${k}" data-key="${k}">Button ${k}</button> <span class="badge badge-${k}" data-key="${k}">Badge ${k}</span>${cards.includes(k) ? `<div class="card bg-${k}" data-key="${k}">Card ${k}</div>` : ""}`,
         )
         .join(" ");
+      const calloutMarkup = ["Note", "Tip", "Important", "Warning", "Caution"]
+        .map((name) => `<div class="callout-${name.toLowerCase()}" role="note" aria-label="${name}"><p>Callout text.</p></div>`)
+        .join(" ");
       for (const width of [390, 1280]) {
         await page.setViewportSize({ width, height: 900 });
         await page.setContent(
-          `<style>${css}</style><main style="padding:16px">${content}</main>`,
+          `<style>${css}</style><main style="padding:16px">${content}${calloutMarkup}</main>`,
         );
-        const { checks, mermaid } = await page.locator("[data-key]").evaluateAll((els) => {
+        const { checks, mermaid, callouts } = await page.locator("[data-key]").evaluateAll((els) => {
           const rgb = (s) =>
             s
               .match(/[\d.]+/g)
@@ -113,8 +116,31 @@ const root = require("path").resolve(__dirname, ".."),
             ratio: contrast(mermaidLuminance(foreground), mermaidLuminance(background)),
           }));
           sample.remove();
-          return { checks, mermaid };
+          const composite = (value, background) => {
+            const [r, g, b, alpha = 1] = value.match(/[\d.]+/g).map(Number);
+            return [r, g, b].map((channel, i) => channel * alpha + background[i] * (1 - alpha));
+          };
+          const pageBg = composite(getComputedStyle(document.body).backgroundColor, [255, 255, 255]);
+          const callouts = Array.from(document.querySelectorAll("[role=note]"), (note) => {
+            const panel = getComputedStyle(note);
+            const title = getComputedStyle(note, "::before");
+            const panelBg = composite(panel.backgroundColor, pageBg);
+            const titleBg = composite(title.backgroundColor, panelBg);
+            return {
+              label: note.getAttribute("aria-label"),
+              title: title.content,
+              panelRatio: contrast(lum(rgb(panel.color)), lum(panelBg)),
+              titleRatio: contrast(lum(rgb(title.color)), lum(titleBg)),
+            };
+          });
+          return { checks, mermaid, callouts };
         });
+        assert.equal(callouts.length, 5);
+        for (const { label, title, panelRatio, titleRatio } of callouts) {
+          assert.equal(title, `"${label}"`, `${skin}/${width}: callout label`);
+          assert.ok(panelRatio >= 4.5, `${skin}/${width}/${label}: body contrast ${panelRatio}`);
+          assert.ok(titleRatio >= 4.5, `${skin}/${width}/${label}: title contrast ${titleRatio}`);
+        }
         for (const { foreground, background, ratio, minimum } of mermaid) {
           assert.ok(ratio >= minimum,
             `${skin}/${width}/Mermaid ${foreground} on ${background}: ${ratio}; minimum ${minimum}`);
