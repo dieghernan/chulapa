@@ -160,7 +160,8 @@ test('cloud setup context separates post defaults from index-page collection sco
   assert.match(selected.text, /include_collection: posts/);
   assert.match(selected.text, /#demo-topic/);
   assert.match(selected.text, /badges already linked to #demo while the cloud group was #dmo/);
-  assert.match(selected.text, /no YAML change fixes fragments/);
+  assert.match(selected.text, /Development: copy rendered fragments/);
+  assert.match(selected.text, /Unambiguous old fragments still work/);
   assert.match(selected.text, /v2.1.0 lacks this fix/);
 });
 

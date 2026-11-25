@@ -36,7 +36,8 @@ Dir.mktmpdir("chulapa-cloud-dates-") do |source|
       layouts.each do |layout|
         html = Nokogiri::HTML(File.read(File.join(source, "_site/#{layout}.html")))
         raise "Cloud entries lost: #{layout}" unless html.css(".h-entry").size == 10
-        raise "Group fragment changed" unless html.at_css('section[id="demo-topic"]')
+        group = html.at_css('section[id="demo%20topic"]')
+        raise "Canonical or legacy group fragment missing" unless group&.at_css('[id="demo-topic"]')
         html.css(".h-entry").each do |entry|
           name = entry.at_css(".p-name").text.strip
           visible = %w[visible implicit].include?(name) || (name == "hidden" && reveal)
